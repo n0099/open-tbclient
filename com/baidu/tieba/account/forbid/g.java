@@ -12,7 +12,7 @@ class g {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ g(a aVar) {
+    public /* synthetic */ g(g gVar) {
         this();
     }
 }

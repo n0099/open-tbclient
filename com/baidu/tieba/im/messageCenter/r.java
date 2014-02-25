@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.messageCenter;
 
-import com.baidu.tieba.util.by;
+import com.baidu.tieba.util.cb;
 import java.util.Map;
 import java.util.Random;
 /* loaded from: classes.dex */
@@ -24,8 +24,8 @@ public class r {
             try {
                 this.b = Integer.valueOf(map.get("Seq-Id")).intValue();
             } catch (Exception e) {
-                com.baidu.adp.lib.g.e.a(e.getMessage());
-                by.a(0, 0, "on connected", "SequenceManager: setSequenceId", "Seq-Id = " + map.get("Seq-Id"), 0, null);
+                com.baidu.adp.lib.util.f.b(e.getMessage());
+                cb.a(0, 0, "on connected", "SequenceManager: setSequenceId", "Seq-Id = " + map.get("Seq-Id"), 0, null);
                 if (this.b == 0) {
                     this.b = new Random().nextInt();
                 }

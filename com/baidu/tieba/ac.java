@@ -1,19 +1,16 @@
 package com.baidu.tieba;
-
-import android.os.Handler;
 /* loaded from: classes.dex */
 class ac implements Runnable {
-    final /* synthetic */ GuideActivity a;
+    final /* synthetic */ LogoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(GuideActivity guideActivity) {
-        this.a = guideActivity;
+    public ac(LogoActivity logoActivity) {
+        this.a = logoActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        Handler handler;
-        handler = this.a.m;
-        handler.sendEmptyMessage(3);
+        this.a.releaseResouce();
+        this.a.a(this.a.getBaseContext());
     }
 }

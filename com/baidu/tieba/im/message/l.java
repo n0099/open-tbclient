@@ -1,28 +1,9 @@
 package com.baidu.tieba.im.message;
 
-import com.google.protobuf.MessageLite;
-import protobuf.QueryGroupsByUid.QueryGroupsByUidReq;
+import com.baidu.sapi2.shell.SapiErrorCode;
 /* loaded from: classes.dex */
-public class l extends q implements com.baidu.tieba.im.coder.g {
-    private int a;
-    private int b;
-
-    public l(int i, int i2) {
-        e(103003);
-        this.a = i;
-        this.b = i2;
-    }
-
-    public int b() {
-        return this.a;
-    }
-
-    public int c() {
-        return this.b;
-    }
-
-    @Override // com.baidu.tieba.im.coder.g
-    public MessageLite a() {
-        return QueryGroupsByUidReq.QueryGroupsByUidReqIdl.newBuilder().a(QueryGroupsByUidReq.DataReq.newBuilder().a(b()).b(c()).build()).build();
+public class l extends s {
+    public l() {
+        e(SapiErrorCode.SAVE_CERT_FAIL);
     }
 }

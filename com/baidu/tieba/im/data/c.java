@@ -1,8 +1,8 @@
 package com.baidu.tieba.im.data;
 
-import com.baidu.tieba.im.message.q;
+import com.baidu.tieba.im.message.s;
 /* loaded from: classes.dex */
-public class c extends q {
+public class c extends s {
     private GroupIdTypeData a;
     private f b;
 

@@ -1,71 +1,58 @@
 package com.baidu.tieba.im.net;
 
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.UtilHelper;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.tieba.util.cb;
+import java.util.ArrayList;
+import java.util.List;
+import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public class f {
-    private static f a = null;
-    private UtilHelper.NetworkStateInfo b = null;
-    private Map<UtilHelper.NetworkStateInfo, Integer> c = null;
+    private List<String> a;
+    private boolean b;
 
     public static f a() {
-        if (a == null) {
-            synchronized (f.class) {
-                if (a == null) {
-                    a = new f();
-                }
-            }
-        }
-        return a;
+        f fVar;
+        fVar = g.a;
+        return fVar;
+    }
+
+    private f() {
+        this.a = null;
+        this.b = false;
+        this.a = new ArrayList();
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ f(f fVar) {
+        this();
+    }
+
+    public void a(String str) {
+        cb.b(str, "", "");
+        com.baidu.adp.lib.util.f.e(str);
+        com.baidu.tieba.log.a.b(str);
+        this.a.add(str);
     }
 
     public void b() {
-        this.c = new HashMap();
-        a(TiebaApplication.h().aW());
-        this.b = UtilHelper.NetworkStateInfo.UNAVAIL;
-    }
-
-    public void a(int[] iArr) {
-        int i;
-        int i2;
-        int i3 = 0;
-        if (iArr == null || iArr.length != 3) {
-            i = 0;
-            i2 = 0;
-        } else {
-            i2 = iArr[0];
-            i = iArr[1];
-            i3 = iArr[2];
+        if (!this.b) {
+            d();
+        } else if (this.a != null && this.a.size() >= 1) {
+            StringBuilder sb = new StringBuilder();
+            for (String str : this.a) {
+                sb.append(str);
+                sb.append(IOUtils.LINE_SEPARATOR_UNIX);
+            }
         }
-        if (i2 < 5000) {
-            i2 = 20000;
-        }
-        if (i < 5000) {
-            i = 10000;
-        }
-        int i4 = i3 >= 5000 ? i3 : 5000;
-        this.c.put(UtilHelper.NetworkStateInfo.TwoG, Integer.valueOf(i2));
-        this.c.put(UtilHelper.NetworkStateInfo.ThreeG, Integer.valueOf(i));
-        this.c.put(UtilHelper.NetworkStateInfo.WIFI, Integer.valueOf(i4));
     }
 
     public void c() {
-        this.b = UtilHelper.g(TiebaApplication.h());
+        this.b = true;
     }
 
-    public int d() {
-        int i;
-        Integer num = this.c.get(this.b);
-        if (num == null) {
-            i = 0;
-        } else {
-            i = num.intValue();
+    private void d() {
+        this.b = false;
+        if (this.a != null) {
+            this.a.clear();
         }
-        if (i < 5000) {
-            return 5000;
-        }
-        return i;
     }
 }

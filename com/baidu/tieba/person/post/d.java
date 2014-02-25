@@ -1,6 +1,6 @@
 package com.baidu.tieba.person.post;
 /* loaded from: classes.dex */
-class d implements i {
+class d implements k {
     final /* synthetic */ PersonPostActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,10 +8,10 @@ class d implements i {
         this.a = personPostActivity;
     }
 
-    @Override // com.baidu.tieba.person.post.i
+    @Override // com.baidu.tieba.person.post.k
     public void a(int i) {
-        PersonPostAdapter personPostAdapter;
-        personPostAdapter = this.a.h;
-        personPostAdapter.c(i);
+        e eVar;
+        eVar = this.a.j;
+        eVar.a(i);
     }
 }

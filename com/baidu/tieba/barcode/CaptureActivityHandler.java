@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.Result;
@@ -20,24 +21,34 @@ public final class CaptureActivityHandler extends Handler {
     private final CaptureActivity a;
     private final n b;
     private State c;
-    private final com.baidu.tieba.barcode.a.f d;
+    private final com.baidu.tieba.barcode.a.e d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public enum State {
         PREVIEW,
         SUCCESS,
-        DONE
+        DONE;
+
+        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
+        /* renamed from: values  reason: to resolve conflict with enum method */
+        public static State[] valuesCustom() {
+            State[] valuesCustom = values();
+            int length = valuesCustom.length;
+            State[] stateArr = new State[length];
+            System.arraycopy(valuesCustom, 0, stateArr, 0, length);
+            return stateArr;
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public CaptureActivityHandler(CaptureActivity captureActivity, Collection<BarcodeFormat> collection, Map<DecodeHintType, ?> map, String str, com.baidu.tieba.barcode.a.f fVar) {
+    public CaptureActivityHandler(CaptureActivity captureActivity, Collection<BarcodeFormat> collection, Map<DecodeHintType, ?> map, String str, com.baidu.tieba.barcode.a.e eVar) {
         this.a = captureActivity;
-        this.b = new n(captureActivity, collection, map, str, new s(captureActivity.a()));
+        this.b = new n(captureActivity, collection, map, str, new r(captureActivity.a()));
         this.b.start();
         this.c = State.SUCCESS;
-        this.d = fVar;
-        fVar.c();
+        this.d = eVar;
+        eVar.c();
         b();
     }
 
@@ -46,61 +57,51 @@ public final class CaptureActivityHandler extends Handler {
         Bitmap bitmap;
         float f;
         String str = null;
-        switch (message.what) {
-            case R.id.decode_failed /* 2131099700 */:
-                this.c = State.PREVIEW;
-                this.d.a(this.b.a(), R.id.decode);
-                return;
-            case R.id.decode_succeeded /* 2131099701 */:
-                com.baidu.adp.lib.g.e.e(getClass().getName(), "handleMessage", "Got decode succeeded message");
-                this.c = State.SUCCESS;
-                Bundle data = message.getData();
-                if (data == null) {
-                    bitmap = null;
-                    f = 1.0f;
-                } else {
-                    byte[] byteArray = data.getByteArray("barcode_bitmap");
-                    Bitmap copy = byteArray != null ? BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length, null).copy(Bitmap.Config.ARGB_8888, true) : null;
-                    f = data.getFloat("barcode_scaled_factor");
-                    bitmap = copy;
-                }
-                this.a.a((Result) message.obj, bitmap, f);
-                return;
-            case R.id.launch_product_query /* 2131099702 */:
-                com.baidu.adp.lib.g.e.e(getClass().getName(), "handleMessage", "Got product query message");
-                String str2 = (String) message.obj;
-                Intent intent = new Intent("android.intent.action.VIEW");
-                intent.addFlags(524288);
-                intent.setData(Uri.parse(str2));
-                ResolveInfo resolveActivity = this.a.getPackageManager().resolveActivity(intent, 65536);
-                if (resolveActivity.activityInfo != null) {
-                    str = resolveActivity.activityInfo.packageName;
-                    com.baidu.adp.lib.g.e.e(getClass().getName(), "handleMessage", "Using browser in package " + str);
-                }
-                if ("com.android.browser".equals(str) || "com.android.chrome".equals(str)) {
-                    intent.setPackage(str);
-                    intent.addFlags(268435456);
-                    intent.putExtra("com.android.browser.application_id", str);
-                }
-                try {
-                    this.a.startActivity(intent);
-                    return;
-                } catch (ActivityNotFoundException e) {
-                    com.baidu.adp.lib.g.e.e(getClass().getName(), "handleMessage", "Can't find anything to handle VIEW of URI " + str2);
-                    return;
-                }
-            case R.id.quit /* 2131099703 */:
-            default:
-                return;
-            case R.id.restart_preview /* 2131099704 */:
-                com.baidu.adp.lib.g.e.e(getClass().getName(), "handleMessage", "Got restart preview message");
-                b();
-                return;
-            case R.id.return_scan_result /* 2131099705 */:
-                com.baidu.adp.lib.g.e.e(getClass().getName(), "handleMessage", "Got return scan result message");
-                this.a.setResult(-1, (Intent) message.obj);
-                this.a.finish();
-                return;
+        if (message.what == R.id.restart_preview) {
+            com.baidu.adp.lib.util.f.e(getClass().getName(), "handleMessage", "Got restart preview message");
+            b();
+        } else if (message.what == R.id.decode_succeeded) {
+            com.baidu.adp.lib.util.f.e(getClass().getName(), "handleMessage", "Got decode succeeded message");
+            this.c = State.SUCCESS;
+            Bundle data = message.getData();
+            if (data == null) {
+                bitmap = null;
+                f = 1.0f;
+            } else {
+                byte[] byteArray = data.getByteArray("barcode_bitmap");
+                Bitmap copy = byteArray != null ? BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length, null).copy(Bitmap.Config.ARGB_8888, true) : null;
+                f = data.getFloat("barcode_scaled_factor");
+                bitmap = copy;
+            }
+            this.a.a((Result) message.obj, bitmap, f);
+        } else if (message.what == R.id.decode_failed) {
+            this.c = State.PREVIEW;
+            this.d.a(this.b.a(), R.id.decode);
+        } else if (message.what == R.id.return_scan_result) {
+            com.baidu.adp.lib.util.f.e(getClass().getName(), "handleMessage", "Got return scan result message");
+            this.a.setResult(-1, (Intent) message.obj);
+            this.a.finish();
+        } else if (message.what == R.id.launch_product_query) {
+            com.baidu.adp.lib.util.f.e(getClass().getName(), "handleMessage", "Got product query message");
+            String str2 = (String) message.obj;
+            Intent intent = new Intent("android.intent.action.VIEW");
+            intent.addFlags(AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END);
+            intent.setData(Uri.parse(str2));
+            ResolveInfo resolveActivity = this.a.getPackageManager().resolveActivity(intent, AccessibilityEventCompat.TYPE_VIEW_ACCESSIBILITY_FOCUS_CLEARED);
+            if (resolveActivity.activityInfo != null) {
+                str = resolveActivity.activityInfo.packageName;
+                com.baidu.adp.lib.util.f.e(getClass().getName(), "handleMessage", "Using browser in package " + str);
+            }
+            if ("com.android.browser".equals(str) || "com.android.chrome".equals(str)) {
+                intent.setPackage(str);
+                intent.addFlags(268435456);
+                intent.putExtra("com.android.browser.application_id", str);
+            }
+            try {
+                this.a.startActivity(intent);
+            } catch (ActivityNotFoundException e) {
+                com.baidu.adp.lib.util.f.e(getClass().getName(), "handleMessage", "Can't find anything to handle VIEW of URI " + str2);
+            }
         }
     }
 

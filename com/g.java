@@ -1,37 +1,27 @@
 package com;
 
-import android.graphics.Bitmap;
-import com.baidu.cloudsdk.BaiduException;
-import com.baidu.cloudsdk.IBaiduListener;
-import com.baidu.cloudsdk.common.imgloader.AsyncImageLoader;
-import com.baidu.cloudsdk.social.share.ShareContent;
+import java.security.cert.X509Certificate;
+import javax.net.ssl.X509TrustManager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements AsyncImageLoader.IAsyncImageLoaderListener {
-    final /* synthetic */ ao a;
-    private ShareContent b;
+public class g implements X509TrustManager {
+    final /* synthetic */ f a;
 
-    public g(ao aoVar, ShareContent shareContent) {
-        this.a = aoVar;
-        this.b = shareContent;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public g(f fVar) {
+        this.a = fVar;
     }
 
-    @Override // com.baidu.cloudsdk.common.imgloader.AsyncImageLoader.IAsyncImageLoaderListener
-    public void onComplete(Bitmap bitmap) {
-        String str;
-        String str2;
-        byte[] a;
-        if (bitmap != null && !bitmap.isRecycled()) {
-            a = this.a.a(bitmap);
-            this.a.a(this.b, a);
-            return;
-        }
-        str = this.a.h;
-        IBaiduListener a2 = ao.a(str);
-        str2 = this.a.h;
-        ao.b(str2);
-        if (a2 != null) {
-            a2.onError(new BaiduException("failed to load image uri "));
-        }
+    @Override // javax.net.ssl.X509TrustManager
+    public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) {
+    }
+
+    @Override // javax.net.ssl.X509TrustManager
+    public void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) {
+    }
+
+    @Override // javax.net.ssl.X509TrustManager
+    public X509Certificate[] getAcceptedIssuers() {
+        return null;
     }
 }

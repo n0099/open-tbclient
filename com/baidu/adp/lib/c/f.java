@@ -18,7 +18,7 @@ public class f extends BdAsyncTask<Location, Void, Address> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ f(a aVar, b bVar) {
+    public /* synthetic */ f(a aVar, f fVar) {
         this(aVar);
     }
 
@@ -69,14 +69,15 @@ public class f extends BdAsyncTask<Location, Void, Address> {
         int i;
         super.a((f) address);
         this.a.m = null;
-        if (address != null) {
-            this.a.d();
-            this.a.j = 0;
-            this.a.a = System.currentTimeMillis();
-            a aVar = this.a;
-            i = this.a.j;
-            aVar.a(i, "", address);
-            this.a.l = address;
+        if (address == null) {
+            return;
         }
+        this.a.d();
+        this.a.j = 0;
+        this.a.a = System.currentTimeMillis();
+        a aVar = this.a;
+        i = this.a.j;
+        aVar.a(i, "", address);
+        this.a.l = address;
     }
 }

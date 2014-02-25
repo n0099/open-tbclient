@@ -1,6 +1,9 @@
 package com.baidu.tieba.im.chat.snapGroup;
+
+import android.view.View;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class b implements Runnable {
+class b implements View.OnClickListener {
     final /* synthetic */ SnapGroupChatActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,14 +11,8 @@ class b implements Runnable {
         this.a = snapGroupChatActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        String str;
-        String str2;
-        this.a.s();
-        SnapGroupChatActivity snapGroupChatActivity = this.a;
-        str = this.a.y;
-        str2 = this.a.z;
-        snapGroupChatActivity.a(str, str2);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.showToast(this.a.getString(R.string.snap_group_chat_change_group_limit_tip));
     }
 }

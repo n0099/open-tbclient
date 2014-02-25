@@ -1,17 +1,17 @@
 package com.baidu.tieba.more;
 
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.bs;
-import com.baidu.tieba.util.bu;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.a.e {
-    private com.baidu.tieba.j a;
+    private com.baidu.tieba.f a;
     private NavigationBar c;
     private RelativeLayout d;
     private TextView e;
@@ -22,11 +22,11 @@ public class d extends com.baidu.adp.a.e {
     private SettingTextFunctionIntroView j;
     private ProgressBar k;
 
-    public d(com.baidu.tieba.j jVar, ac acVar) {
-        super(jVar);
-        this.a = jVar;
+    public d(com.baidu.tieba.f fVar, ab abVar) {
+        super(fVar);
+        this.a = fVar;
         g();
-        a(acVar);
+        a(abVar);
     }
 
     public void a() {
@@ -50,21 +50,21 @@ public class d extends com.baidu.adp.a.e {
         this.e = (TextView) this.a.findViewById(R.id.text_versioninfo);
         this.f = (ImageView) this.a.findViewById(R.id.text_description);
         this.h = (SettingTextTestNewView) this.a.findViewById(R.id.about_version_update);
-        this.h.d();
+        this.h.e();
         this.j = (SettingTextFunctionIntroView) this.a.findViewById(R.id.about_function_intro);
         this.i = (SettingTextTipView) this.a.findViewById(R.id.about_guide);
         this.k = (ProgressBar) this.a.findViewById(R.id.about_progress);
-        String j = com.baidu.tieba.data.h.j();
-        if (com.baidu.tieba.data.h.l() == 1 && !bu.c(com.baidu.tieba.data.h.k())) {
-            j = j + "." + com.baidu.tieba.data.h.k();
+        String u = com.baidu.tieba.data.i.u();
+        if (com.baidu.tieba.data.i.w() == 1 && !bs.c(com.baidu.tieba.data.i.v())) {
+            u = String.valueOf(u) + "." + com.baidu.tieba.data.i.v();
         }
-        this.e.setText(this.a.getString(R.string.setting_version_text) + " " + j);
+        this.e.setText(String.valueOf(this.a.getString(R.string.setting_version_text)) + " " + u);
         this.g = (TextView) this.a.findViewById(R.id.text_version_protoco);
-        a(TiebaApplication.h().al());
+        a(TiebaApplication.g().al());
     }
 
-    private void a(ac acVar) {
-        e eVar = new e(this, acVar);
+    private void a(ab abVar) {
+        e eVar = new e(this, abVar);
         this.h.setOnClickListener(eVar);
         this.i.setOnClickListener(eVar);
         this.j.setOnClickListener(eVar);
@@ -86,24 +86,11 @@ public class d extends com.baidu.adp.a.e {
             this.d.setBackgroundColor(this.a.getResources().getColor(R.color.bg_page_setting));
         }
         this.c.c(i);
+        this.a.getLayoutMode().a(i == 1);
+        this.a.getLayoutMode().a((View) this.d);
         this.h.a(i);
         this.j.a(i);
         this.i.a(i);
-        if (i == 1) {
-            bs.e(this.h, (int) R.drawable.more_up_1);
-            bs.e(this.i, (int) R.drawable.more_down_1);
-            bs.e(this.j, (int) R.drawable.more_middle_1);
-            this.g.setTextColor(this.a.getResources().getColor(R.color.skin_1_common_color));
-            this.e.setTextColor(this.a.getResources().getColor(R.color.skin_1_common_color));
-            this.f.setImageDrawable(this.a.getResources().getDrawable(R.drawable.setting_logo_desc_1));
-        } else {
-            bs.e(this.h, (int) R.drawable.more_up);
-            bs.e(this.i, (int) R.drawable.more_down);
-            bs.e(this.j, (int) R.drawable.more_middle);
-            this.g.setTextColor(this.a.getResources().getColor(R.color.c_555d68));
-            this.e.setTextColor(this.a.getResources().getColor(R.color.c_262626));
-            this.f.setImageDrawable(this.a.getResources().getDrawable(R.drawable.setting_logo_desc));
-        }
         f();
     }
 }

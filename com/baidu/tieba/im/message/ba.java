@@ -1,51 +1,34 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tieba.im.messageCenter.IDuplicateProcess;
 import com.google.protobuf.MessageLite;
-import protobuf.Im;
-import protobuf.UpdateGroup.UpdateGroupReq;
+import protobuf.ReportGroup.ReportGroupReq;
 /* loaded from: classes.dex */
-public abstract class ba extends q implements com.baidu.tieba.im.coder.g, IDuplicateProcess {
-    public int a;
+public class ba extends s implements com.baidu.tieba.im.coder.g {
+    private int a;
     private int b;
 
-    protected abstract void a(protobuf.i iVar);
-
     public ba() {
-        e(103102);
+        e(103103);
     }
 
-    public int d() {
-        return this.b;
-    }
-
-    public void a(int i) {
-        this.b = i;
-    }
-
-    public int e() {
+    public int b() {
         return this.a;
     }
 
-    public void b(int i) {
+    public void a(int i) {
         this.a = i;
     }
 
-    @Override // com.baidu.tieba.im.messageCenter.IDuplicateProcess
-    public IDuplicateProcess.RemoveState h() {
-        return IDuplicateProcess.RemoveState.REMOVE_ME;
+    public int c() {
+        return this.b;
     }
 
-    @Override // com.baidu.tieba.im.messageCenter.IDuplicateProcess
-    public boolean a(q qVar) {
-        return true;
+    public void b(int i) {
+        this.b = i;
     }
 
     @Override // com.baidu.tieba.im.coder.g
     public MessageLite a() {
-        protobuf.i newBuilder = Im.GroupInfo.newBuilder();
-        newBuilder.a(d());
-        a(newBuilder);
-        return UpdateGroupReq.UpdateGroupReqIdl.newBuilder().a(newBuilder.build()).build();
+        return ReportGroupReq.ReportGroupReqIdl.newBuilder().a(ReportGroupReq.DataReq.newBuilder().a(b()).b(c()).build()).build();
     }
 }

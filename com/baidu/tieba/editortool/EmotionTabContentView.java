@@ -4,14 +4,11 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Point;
 import android.graphics.Rect;
-import android.os.Build;
+import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.ViewPager;
-import android.support.v4.view.ae;
-import android.support.v4.view.bq;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
-import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.GridView;
@@ -20,11 +17,12 @@ import android.widget.ListAdapter;
 import com.baidu.adp.widget.IndicatorView;
 import com.baidu.location.LocationClientOption;
 import com.baidu.tbadk.gif.GifView;
+import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.emotions.WritableEmotionGroup;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class EmotionTabContentView extends LinearLayout implements bq {
+public class EmotionTabContentView extends LinearLayout implements ViewPager.OnPageChangeListener {
     private ViewPager a;
     private WritableEmotionGroup b;
     private WindowManager c;
@@ -40,10 +38,11 @@ public class EmotionTabContentView extends LinearLayout implements bq {
     private int m;
     private IndicatorView n;
     private Point o;
-    private t p;
+    private z p;
     private int q;
     private com.baidu.tieba.util.i r;
     private LinearLayout.LayoutParams s;
+    private LayoutInflater t;
 
     public EmotionTabContentView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -65,7 +64,8 @@ public class EmotionTabContentView extends LinearLayout implements bq {
 
     private void a(Context context) {
         setOrientation(1);
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.emotion_tab_content, (ViewGroup) this, true);
+        this.t = (LayoutInflater) context.getSystemService("layout_inflater");
+        this.t.inflate(R.layout.emotion_tab_content, (ViewGroup) this, true);
         this.r = new com.baidu.tieba.util.i(context);
         this.a = (ViewPager) findViewById(R.id.face_tab_viewpager);
         this.a.setFadingEdgeLength(0);
@@ -88,7 +88,7 @@ public class EmotionTabContentView extends LinearLayout implements bq {
         this.d.format = -3;
         this.d.type = LocationClientOption.MIN_SCAN_SPAN;
         this.d.flags |= 56;
-        if (b()) {
+        if (TiebaApplication.g().bu()) {
             this.d.type = LocationClientOption.MIN_SCAN_SPAN;
             this.d.flags = 25165832;
         }
@@ -127,31 +127,20 @@ public class EmotionTabContentView extends LinearLayout implements bq {
                     i = d - ((j * k) * (i3 - 1));
                 }
                 int i5 = i4 * j * k;
-                gridView.setOnItemLongClickListener(new g(this));
-                gridView.setOnItemClickListener(new h(this, i5));
-                gridView.setAdapter((ListAdapter) new j(this, getContext(), i, i5));
+                gridView.setOnItemLongClickListener(new l(this));
+                gridView.setOnItemClickListener(new m(this, i5));
+                gridView.setAdapter((ListAdapter) new o(this, getContext(), i, i5));
                 arrayList.add(gridView);
             }
-            this.a.setAdapter(new FaceViewPagerAdapter(arrayList));
-        }
-    }
-
-    private boolean b() {
-        try {
-            return ((Boolean) Class.forName("android.os.Build").getMethod("hasSmartBar", new Class[0]).invoke(null, new Object[0])).booleanValue();
-        } catch (Exception e) {
-            if (Build.DEVICE.equals("mx2")) {
-                return true;
-            }
-            return (Build.DEVICE.equals("mx") || Build.DEVICE.equals("m9")) ? false : false;
+            this.a.setAdapter(new q(this, arrayList));
         }
     }
 
     public void a(int i, GridView gridView) {
         if (this.m != i) {
-            String a = this.b.a(((j) gridView.getAdapter()).a() + i);
+            String a = this.b.a(((o) gridView.getAdapter()).a() + i);
             this.e.setTag(a);
-            com.baidu.adp.widget.ImageView.d a2 = this.r.a(a, com.baidu.tieba.util.i.c(), new i(this));
+            com.baidu.adp.widget.ImageView.b a2 = this.r.a(a, com.baidu.tieba.util.i.c(), new n(this));
             if (a2 != null) {
                 this.e.setGif(a2);
             }
@@ -177,7 +166,7 @@ public class EmotionTabContentView extends LinearLayout implements bq {
         }
     }
 
-    private void c() {
+    private void b() {
         if (this.f && this.e.getVisibility() != 8 && this.l != null) {
             this.l.setSelection(-1);
             this.e.setVisibility(8);
@@ -191,7 +180,7 @@ public class EmotionTabContentView extends LinearLayout implements bq {
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        int action = motionEvent.getAction() & 255;
+        int action = motionEvent.getAction() & MotionEventCompat.ACTION_MASK;
         int x = (int) motionEvent.getX();
         int y = (int) motionEvent.getY();
         switch (action) {
@@ -200,7 +189,7 @@ public class EmotionTabContentView extends LinearLayout implements bq {
                 break;
             case 1:
             case 3:
-                c();
+                b();
                 break;
             case 2:
                 this.o.set(x, y);
@@ -214,7 +203,7 @@ public class EmotionTabContentView extends LinearLayout implements bq {
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        int action = motionEvent.getAction() & 255;
+        int action = motionEvent.getAction() & MotionEventCompat.ACTION_MASK;
         int x = (int) motionEvent.getX();
         int y = (int) motionEvent.getY();
         switch (action) {
@@ -224,12 +213,12 @@ public class EmotionTabContentView extends LinearLayout implements bq {
             case 1:
             case 3:
             case 4:
-                c();
+                b();
                 break;
             case 2:
                 getFocusedRect(this.g);
                 if (!this.g.contains(x, y)) {
-                    c();
+                    b();
                     break;
                 } else {
                     this.g.set(x, y, x + 1, y + 1);
@@ -256,22 +245,22 @@ public class EmotionTabContentView extends LinearLayout implements bq {
         }
     }
 
-    @Override // android.support.v4.view.bq
-    public void a(int i, float f, int i2) {
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrolled(int i, float f, int i2) {
         if (this.n != null) {
             this.n.setPosition(i + f);
         }
     }
 
-    @Override // android.support.v4.view.bq
-    public void a_(int i) {
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageSelected(int i) {
     }
 
-    @Override // android.support.v4.view.bq
-    public void b(int i) {
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrollStateChanged(int i) {
     }
 
-    public void c(int i) {
+    public void a(int i) {
         this.q = i;
         if (i == 1) {
             this.e.setBackgroundResource(R.drawable.bg_expression_bubble_1);
@@ -282,42 +271,10 @@ public class EmotionTabContentView extends LinearLayout implements bq {
     }
 
     public void a() {
-        c();
+        b();
     }
 
-    /* loaded from: classes.dex */
-    public class FaceViewPagerAdapter extends ae {
-        private ArrayList<View> b;
-
-        public FaceViewPagerAdapter(ArrayList<View> arrayList) {
-            this.b = new ArrayList<>();
-            this.b = arrayList;
-        }
-
-        @Override // android.support.v4.view.ae
-        public int getCount() {
-            return this.b.size();
-        }
-
-        @Override // android.support.v4.view.ae
-        public boolean isViewFromObject(View view, Object obj) {
-            return view == obj;
-        }
-
-        @Override // android.support.v4.view.ae
-        public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-            viewGroup.removeView(this.b.get(i));
-        }
-
-        @Override // android.support.v4.view.ae
-        public Object instantiateItem(ViewGroup viewGroup, int i) {
-            View view = this.b.get(i);
-            viewGroup.addView(view);
-            return view;
-        }
-    }
-
-    public void setOnDataSelected(t tVar) {
-        this.p = tVar;
+    public void setOnDataSelected(z zVar) {
+        this.p = zVar;
     }
 }

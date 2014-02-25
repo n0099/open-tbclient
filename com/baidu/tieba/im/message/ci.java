@@ -1,41 +1,27 @@
 package com.baidu.tieba.im.message;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.LinkedList;
+import protobuf.GetPeerInfo.GetPeerInfoRes;
 /* loaded from: classes.dex */
-public class ci extends cr {
-    private String a;
-    private List<String> b;
+public class ci extends da implements com.baidu.tieba.im.coder.f {
+    private int a = 1;
+
+    public boolean a() {
+        return this.a != 0;
+    }
 
     public ci() {
-        this.a = "";
-        this.b = new ArrayList();
+        e(205004);
     }
 
-    public ci(int i) {
-        super(i);
-        this.a = "";
-        this.b = new ArrayList();
-    }
-
-    public void a(String str) {
-        if (str != null) {
-            this.a = str;
+    @Override // com.baidu.tieba.im.coder.f
+    public void a(LinkedList<s> linkedList, byte[] bArr, int i) {
+        GetPeerInfoRes.GetPeerInfoResIdl parseFrom = GetPeerInfoRes.GetPeerInfoResIdl.parseFrom(bArr);
+        g(parseFrom.getError().getErrorno());
+        c(parseFrom.getError().getUsermsg());
+        linkedList.add(this);
+        if (!l()) {
+            this.a = parseFrom.getData().getIsAllowed();
         }
-    }
-
-    public String a() {
-        return this.a;
-    }
-
-    public void b(String str) {
-        if (str != null && !str.equals("") && !this.b.contains(str)) {
-            this.b.add(str);
-        }
-    }
-
-    public Iterator<String> b() {
-        return this.b.iterator();
     }
 }

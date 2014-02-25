@@ -5,11 +5,10 @@ import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.LogoActivity;
-import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.ao;
+import com.baidu.tieba.ai;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.by;
+import com.baidu.tieba.util.cb;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, Integer, String> {
@@ -39,16 +38,16 @@ public class c extends BdAsyncTask<String, Integer, String> {
         String stringExtra = this.b.getStringExtra("link");
         long j = this.b.getExtras().getLong("message_id");
         if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(stringExtra)) {
-            by.a(TiebaApplication.h().getApplicationContext(), "cl_push_noti:" + string, "msgID:" + j);
-            by.a(j, 2, stringExtra, string);
+            cb.a(TiebaApplication.g().b().getApplicationContext(), "cl_push_noti:" + string, "msgID:" + j);
+            cb.a(j, 2, stringExtra, string);
         }
-        for (ActivityManager.RunningTaskInfo runningTaskInfo : ((ActivityManager) TiebaApplication.h().getSystemService("activity")).getRunningTasks(500)) {
+        for (ActivityManager.RunningTaskInfo runningTaskInfo : ((ActivityManager) TiebaApplication.g().b().getSystemService("activity")).getRunningTasks(500)) {
             if (runningTaskInfo.baseActivity.getClassName().startsWith(this.a.getPackageName())) {
-                com.baidu.adp.lib.g.e.d("see noti goto maintab app active");
+                com.baidu.adp.lib.util.f.e("see noti goto maintab app active");
                 if (5 == this.b.getIntExtra("class", -1)) {
-                    com.baidu.adp.lib.g.e.d("see noti goto maintab");
-                    if (!runningTaskInfo.topActivity.getClassName().equalsIgnoreCase(MainTabActivity.class.getName())) {
-                        com.baidu.adp.lib.g.e.d("see noti goto maintab new");
+                    com.baidu.adp.lib.util.f.e("see noti goto maintab");
+                    if (!runningTaskInfo.topActivity.getClassName().equalsIgnoreCase(com.baidu.tieba.mainentrance.f.b())) {
+                        com.baidu.adp.lib.util.f.e("see noti goto maintab new");
                         this.b.putExtra("class", 11);
                     }
                 } else if (10 == this.b.getIntExtra("class", -1)) {
@@ -61,7 +60,7 @@ public class c extends BdAsyncTask<String, Integer, String> {
         if (this.b.getExtras().getBoolean("is_notify", false)) {
             a(i);
         }
-        com.baidu.adp.lib.g.e.d("see noti goto maintab app not active");
+        com.baidu.adp.lib.util.f.e("see noti goto maintab app not active");
         str = DealIntentService.c;
         return str;
     }
@@ -116,13 +115,13 @@ public class c extends BdAsyncTask<String, Integer, String> {
     private void b(int i) {
         switch (i) {
             case 6:
-                by.a(this.a.getBaseContext(), "notify_to_pk_before", "click");
+                cb.a(this.a.getBaseContext(), "notify_to_pk_before", "click");
                 return;
             case 7:
-                by.a(this.a.getBaseContext(), "notify_to_pk_end", "click");
+                cb.a(this.a.getBaseContext(), "notify_to_pk_end", "click");
                 return;
             case 8:
-                by.a(this.a.getBaseContext(), "notify_to_vote_list", "click");
+                cb.a(this.a.getBaseContext(), "notify_to_vote_list", "click");
                 return;
             case 9:
             case 10:
@@ -132,7 +131,7 @@ public class c extends BdAsyncTask<String, Integer, String> {
             default:
                 return;
             case 14:
-                ao.a(this.a.getBaseContext(), "notify_group_event_click");
+                ai.a(this.a.getBaseContext(), "notify_group_event_click");
                 return;
         }
     }

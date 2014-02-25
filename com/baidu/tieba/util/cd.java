@@ -1,22 +1,13 @@
 package com.baidu.tieba.util;
 
-import android.app.Activity;
-import android.content.DialogInterface;
-import com.baidu.tieba.TiebaApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.Date;
 /* loaded from: classes.dex */
-public final class cd implements DialogInterface.OnClickListener {
-    final /* synthetic */ Activity a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public cd(Activity activity) {
-        this.a = activity;
+public class cd {
+    public static Date a() {
+        return new Date(System.currentTimeMillis());
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        TiebaApplication.h().aB();
-        com.baidu.tieba.log.a.b();
-        this.a.finish();
+    public static long a(Date date, Date date2) {
+        return (date.getTime() - date2.getTime()) / 3600000;
     }
 }

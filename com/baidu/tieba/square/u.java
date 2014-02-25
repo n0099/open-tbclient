@@ -4,23 +4,23 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import com.baidu.tieba.square.CarouselRecommendView;
+import com.baidu.tieba.view.bg;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class u extends BaseAdapter implements com.baidu.tieba.view.bb {
+public class u extends BaseAdapter implements bg {
     private Context a;
-    private CarouselRecommendView.CarouselRecommendPagerAdapter b = null;
-    private ArrayList<au> c = new ArrayList<>();
-    private CarouselRecommendView d;
+    private y b = null;
+    private ArrayList<av> c = new ArrayList<>();
+    private v d;
 
     public u(Context context) {
         this.a = null;
         this.d = null;
         this.a = context;
-        this.d = new CarouselRecommendView(context);
+        this.d = new v(context);
     }
 
-    public void a(ArrayList<au> arrayList) {
+    public void a(ArrayList<av> arrayList) {
         this.c = arrayList;
         this.d.a(arrayList);
         this.b = this.d.getPagerAdapter();
@@ -59,14 +59,14 @@ public class u extends BaseAdapter implements com.baidu.tieba.view.bb {
         return this.d;
     }
 
-    @Override // com.baidu.tieba.view.bb
+    @Override // com.baidu.tieba.view.bg
     public void d() {
         if (this.b != null) {
             this.b.d();
         }
     }
 
-    @Override // com.baidu.tieba.view.bb
+    @Override // com.baidu.tieba.view.bg
     public void a(View view, int i, int i2) {
         if (this.b != null) {
             this.b.a(this.d, 0, 0);

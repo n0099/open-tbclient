@@ -1,30 +1,27 @@
 package com.baidu.tieba.view;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.app.Dialog;
+import android.content.Context;
+import android.view.MotionEvent;
+import android.view.View;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class bw extends com.baidu.tieba.util.bv {
-    final /* synthetic */ ProgressCountDownView a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bw(ProgressCountDownView progressCountDownView, long j, long j2) {
-        super(j, j2);
-        this.a = progressCountDownView;
+public class bw extends Dialog {
+    public bw(Context context) {
+        super(context, R.style.common_alert_dialog);
     }
 
-    @Override // com.baidu.tieba.util.bv
-    public void a(long j) {
-        this.a.a(j);
-        this.a.b(j);
+    @Override // android.app.Dialog
+    public void setContentView(View view) {
+        super.setContentView(view);
     }
 
-    @Override // com.baidu.tieba.util.bv
-    public void a() {
-        bx bxVar;
-        bx bxVar2;
-        bxVar = this.a.g;
-        if (bxVar != null) {
-            bxVar2 = this.a.g;
-            bxVar2.a();
+    @Override // android.app.Dialog, android.view.Window.Callback
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
+        if (!dispatchTouchEvent && motionEvent.getAction() == 0) {
+            dismiss();
         }
+        return dispatchTouchEvent;
     }
 }

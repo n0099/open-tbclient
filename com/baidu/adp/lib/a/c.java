@@ -69,22 +69,22 @@ public class c {
     }
 
     private void b(int i) {
-        SharedPreferences.Editor edit = com.baidu.adp.a.b.a().getSharedPreferences("adp_feature_switch", 0).edit();
-        edit.putInt(this.e.a() + b, i);
+        SharedPreferences.Editor edit = com.baidu.adp.a.b.a().b().getSharedPreferences("adp_feature_switch", 0).edit();
+        edit.putInt(String.valueOf(this.e.a()) + b, i);
         edit.commit();
     }
 
     private int d() {
-        return com.baidu.adp.a.b.a().getSharedPreferences("adp_feature_switch", 0).getInt(this.e.a() + b, this.e.e());
+        return com.baidu.adp.a.b.a().b().getSharedPreferences("adp_feature_switch", 0).getInt(String.valueOf(this.e.a()) + b, this.e.e());
     }
 
     private int e() {
-        return com.baidu.adp.a.b.a().getSharedPreferences("adp_feature_switch", 0).getInt(this.e.a() + a, -1);
+        return com.baidu.adp.a.b.a().b().getSharedPreferences("adp_feature_switch", 0).getInt(String.valueOf(this.e.a()) + a, -1);
     }
 
     private void c(int i) {
-        SharedPreferences.Editor edit = com.baidu.adp.a.b.a().getSharedPreferences("adp_feature_switch", 0).edit();
-        edit.putInt(this.e.a() + a, i);
+        SharedPreferences.Editor edit = com.baidu.adp.a.b.a().b().getSharedPreferences("adp_feature_switch", 0).edit();
+        edit.putInt(String.valueOf(this.e.a()) + a, i);
         edit.commit();
     }
 

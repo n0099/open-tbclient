@@ -23,12 +23,12 @@ public class a implements View.OnClickListener {
         InviteMsgData inviteMsgData3;
         button = this.a.d;
         Context context = button.getContext();
-        StringBuilder append = new StringBuilder().append("");
+        StringBuilder sb = new StringBuilder();
         inviteMsgData = this.a.e;
-        String sb = append.append(inviteMsgData.getGroupId()).toString();
+        String sb2 = sb.append(inviteMsgData.getGroupId()).toString();
         inviteMsgData2 = this.a.e;
         long fromUid = inviteMsgData2.getFromUid();
         inviteMsgData3 = this.a.e;
-        ApplyJoinGroupActivity.a(context, sb, fromUid, inviteMsgData3.getText());
+        ApplyJoinGroupActivity.a(context, sb2, fromUid, inviteMsgData3.getText());
     }
 }

@@ -1,30 +1,27 @@
 package com.baidu.tieba.im.widget.invite2GroupView;
 
-import android.widget.Button;
+import android.app.Activity;
+import android.view.View;
+import com.baidu.tieba.f;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ c a;
+public class e implements View.OnClickListener {
+    final /* synthetic */ d a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(c cVar) {
-        this.a = cVar;
+    public e(d dVar) {
+        this.a = dVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Boolean bool) {
-        Button button;
-        Button button2;
-        if (bool == null) {
-            bool = false;
-        }
-        if (!bool.booleanValue()) {
-            button = this.a.a.d;
-            button.setTextColor(this.a.a.getContext().getResources().getColor(R.color.group_info_join_disable_color));
-            button2 = this.a.a.d;
-            button2.setOnClickListener(new f(this));
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Invite2GroupView invite2GroupView;
+        Invite2GroupView invite2GroupView2;
+        invite2GroupView = this.a.a;
+        if (invite2GroupView.getContext() instanceof Activity) {
+            invite2GroupView2 = this.a.a;
+            ((f) invite2GroupView2.getContext()).showToast(R.string.has_recent_join);
         }
     }
 }

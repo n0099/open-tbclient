@@ -1,53 +1,48 @@
 package com.baidu.tieba.util;
 
-import android.location.Address;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.ArrayList;
+import java.util.Hashtable;
 /* loaded from: classes.dex */
-public class ah implements com.baidu.adp.lib.c.d {
-    final /* synthetic */ ag a;
+public class ah extends Thread {
+    private int a;
+    private String b;
+    private Hashtable<String, Integer> c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(ag agVar) {
-        this.a = agVar;
+    public ah(Hashtable<String, Integer> hashtable) {
+        this.a = 3;
+        this.b = null;
+        this.c = null;
+        this.a = 3;
+        this.c = hashtable;
     }
 
-    @Override // com.baidu.adp.lib.c.d
-    public void a(int i, String str, Address address) {
-        aj ajVar;
-        aj ajVar2;
-        com.baidu.tieba.im.model.am amVar;
-        com.baidu.tieba.im.model.am amVar2;
-        com.baidu.tieba.im.model.am amVar3;
-        com.baidu.tieba.im.model.am amVar4;
-        switch (i) {
-            case 0:
-                if (address != null) {
-                    this.a.b = address.getLatitude();
-                    this.a.a = address.getLongitude();
-                    amVar = this.a.c;
-                    amVar.b(String.valueOf(address.getLatitude()));
-                    amVar2 = this.a.c;
-                    amVar2.a(String.valueOf(address.getLongitude()));
-                    amVar3 = this.a.c;
-                    amVar3.a(0);
-                    amVar4 = this.a.c;
-                    amVar4.a();
-                    return;
+    public ah(int i, String str) {
+        this.a = 3;
+        this.b = null;
+        this.c = null;
+        this.a = i;
+        this.b = str;
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        ArrayList<String> v;
+        super.run();
+        try {
+            if (this.a == 3) {
+                if (this.c != null && (v = DatabaseService.v()) != null) {
+                    int size = v.size();
+                    for (int i = 0; i < size; i++) {
+                        this.c.put(v.get(i), 1);
+                    }
                 }
-                return;
-            case 1:
-            case 2:
-            case 3:
-                ajVar2 = this.a.d;
-                ajVar2.b();
-                return;
-            case 4:
-            case 5:
-                ajVar = this.a.d;
-                ajVar.a();
-                return;
-            default:
-                return;
+            } else if (this.a == 2) {
+                DatabaseService.p(this.b);
+            } else if (this.a == 1) {
+                DatabaseService.o(this.b);
+            }
+        } catch (Exception e) {
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "run", e.getMessage());
         }
     }
 }

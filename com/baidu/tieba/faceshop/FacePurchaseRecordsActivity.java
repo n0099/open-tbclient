@@ -6,14 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.view.br;
+import com.baidu.tieba.view.by;
 /* loaded from: classes.dex */
-public class FacePurchaseRecordsActivity extends com.baidu.tieba.j {
-    private aq a;
-    private an b;
+public class FacePurchaseRecordsActivity extends com.baidu.tieba.f {
+    private ao a;
+    private am b;
     private String c;
-    private com.baidu.adp.a.g d = new ai(this);
-    private br e = new aj(this);
+    private com.baidu.adp.a.g d = new ah(this);
+    private by e = new ai(this);
 
     public static void a(Context context, String str) {
         Intent intent = new Intent(context, FacePurchaseRecordsActivity.class);
@@ -22,7 +22,7 @@ public class FacePurchaseRecordsActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         a(bundle);
@@ -31,14 +31,14 @@ public class FacePurchaseRecordsActivity extends com.baidu.tieba.j {
     }
 
     private void a() {
-        this.a = new aq(this);
-        this.a.a(new ah(this));
+        this.a = new ao(this);
+        this.a.a(new aj(this));
         this.a.a(this);
         b();
     }
 
     private void a(Bundle bundle) {
-        this.b = new an();
+        this.b = new am();
         if (bundle != null) {
             this.c = bundle.getString("st_type");
         } else {
@@ -75,13 +75,13 @@ public class FacePurchaseRecordsActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, android.app.Activity
     public void onResume() {
         super.onResume();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j
+    @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         if (this.a != null) {
             this.a.a(i);
@@ -89,7 +89,7 @@ public class FacePurchaseRecordsActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         if (this.b != null) {
             this.b.cancelLoadData();

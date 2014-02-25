@@ -4,7 +4,7 @@ import android.content.Context;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.a.d {
     protected com.baidu.adp.a.g a;
-    private c b;
+    private b b;
     private Context c;
 
     public a(Context context, com.baidu.adp.a.g gVar) {
@@ -29,7 +29,7 @@ public class a extends com.baidu.adp.a.d {
 
     public void a() {
         if (this.b == null) {
-            this.b = new c(this);
+            this.b = new b(this, null);
         }
         this.b.setPriority(3);
         this.b.execute(new String[0]);

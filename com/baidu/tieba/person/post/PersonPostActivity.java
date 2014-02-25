@@ -4,19 +4,18 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.by;
+import com.baidu.tieba.util.cb;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class PersonPostActivity extends BaseFragmentActivity implements View.OnClickListener {
-    private String b;
-    private String c;
+public class PersonPostActivity extends com.baidu.tieba.k implements View.OnClickListener {
     private String d;
-    private int e;
-    private boolean f = false;
-    private PersonPostView g;
-    private PersonPostAdapter h;
+    private String e;
+    private String f;
+    private int g;
+    private boolean h = false;
+    private j i;
+    private e j;
 
     public static void a(Context context, String str, int i, String str2) {
         Intent intent = new Intent(context, PersonPostActivity.class);
@@ -27,101 +26,101 @@ public class PersonPostActivity extends BaseFragmentActivity implements View.OnC
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.BaseFragmentActivity, android.support.v4.app.n, android.app.Activity
+    @Override // com.baidu.tieba.k, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.d = getIntent().getStringExtra("key_portrait_url");
-        this.b = getIntent().getStringExtra("key_uid");
-        this.e = getIntent().getIntExtra("key_sex", 0);
-        this.b = this.b == null ? "" : this.b;
-        if (this.b.equals(TiebaApplication.A())) {
-            this.c = getString(R.string.me);
-            this.f = true;
+        this.f = getIntent().getStringExtra("key_portrait_url");
+        this.d = getIntent().getStringExtra("key_uid");
+        this.g = getIntent().getIntExtra("key_sex", 0);
+        this.d = this.d == null ? "" : this.d;
+        if (this.d.equals(TiebaApplication.A())) {
+            this.e = getString(R.string.me);
+            this.h = true;
         } else {
             switch (getIntent().getIntExtra("key_sex", 0)) {
                 case 1:
-                    this.c = getString(R.string.he);
+                    this.e = getString(R.string.he);
                     break;
                 case 2:
-                    this.c = getString(R.string.she);
+                    this.e = getString(R.string.she);
                     break;
                 default:
-                    this.c = getString(R.string.ta);
+                    this.e = getString(R.string.ta);
                     break;
             }
         }
-        this.g = new PersonPostView(this);
-        if (this.b == null) {
+        this.i = new j(this);
+        if (this.d == null) {
             finish();
             return;
         }
-        this.g.c.setText(String.format(getString(R.string.person_post_thread), this.c));
-        this.g.d.setText(String.format(getString(R.string.person_post_reply), this.c));
+        this.i.c.setText(String.format(getString(R.string.person_post_thread), this.e));
+        this.i.d.setText(String.format(getString(R.string.person_post_reply), this.e));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.BaseFragmentActivity, android.support.v4.app.n, android.app.Activity
+    @Override // com.baidu.tieba.k, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.h == null) {
-            this.h = new PersonPostAdapter(this);
-            this.g.a(new d(this));
-            this.g.b.setAdapter(this.h);
+        if (this.j == null) {
+            this.j = new e(this);
+            this.i.a(new d(this));
+            this.i.b.setAdapter(this.j);
         }
-    }
-
-    public String c() {
-        return this.b;
-    }
-
-    public String d() {
-        return this.c;
     }
 
     public String e() {
         return this.d;
     }
 
+    public String f() {
+        return this.e;
+    }
+
+    public String g() {
+        return this.f;
+    }
+
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.n, android.app.Activity
+    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStart() {
         super.onStart();
     }
 
-    @Override // com.baidu.tieba.BaseFragmentActivity
-    protected void a(int i) {
-        this.g.c(i);
+    @Override // com.baidu.tieba.k
+    protected void b(int i) {
+        this.i.a(i);
     }
 
-    private void c(int i) {
+    private void d(int i) {
         switch (i) {
             case 1:
-                this.g.d(i);
+                this.i.b(i);
                 return;
             case 2:
-                this.g.d(i);
+                this.i.b(i);
                 return;
             default:
                 return;
         }
     }
 
-    public String f() {
-        return this.f ? getString(R.string.person_post_lv_empty_host) : String.format(getString(R.string.person_post_lv_empty_guest), d());
+    public String h() {
+        return this.h ? getString(R.string.person_post_lv_empty_host) : String.format(getString(R.string.person_post_lv_empty_guest), f());
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.reply /* 2131100733 */:
-                by.a(this, this.f ? "pp_my_reply" : "pp_his_reply", "click", 1, new Object[0]);
-                c(2);
-                this.g.b.setCurrentItem(1);
+            case R.id.reply /* 2131100874 */:
+                cb.a(this, this.h ? "pp_my_reply" : "pp_his_reply", "click", 1, new Object[0]);
+                d(2);
+                this.i.b.setCurrentItem(1);
                 return;
-            case R.id.thread /* 2131100943 */:
-                by.a(this, this.f ? "pp_my_thread" : "pp_his_thread", "click", 1, new Object[0]);
-                c(1);
-                this.g.b.setCurrentItem(0);
+            case R.id.thread /* 2131101134 */:
+                cb.a(this, this.h ? "pp_my_thread" : "pp_his_thread", "click", 1, new Object[0]);
+                d(1);
+                this.i.b.setCurrentItem(0);
                 return;
             default:
                 return;

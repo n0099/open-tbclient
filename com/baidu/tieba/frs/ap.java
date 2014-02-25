@@ -1,18 +1,39 @@
 package com.baidu.tieba.frs;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tieba.view.CommonImageLayout;
+import com.baidu.tieba.view.DottedLine;
+import com.baidu.tieba.view.UserIconBox;
+import com.baidu.tieba.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-public class ap implements DialogInterface.OnClickListener {
-    final /* synthetic */ FrsImageActivity a;
+class ap {
+    LinearLayout a;
+    LinearLayout b;
+    RelativeLayout c;
+    TextView d;
+    PlayVoiceBnt e;
+    CommonImageLayout f;
+    TextView g;
+    TextView h;
+    TextView i;
+    TextView j;
+    ImageView k;
+    ViewGroup l;
+    DottedLine m;
+    UserIconBox n;
+    UserIconBox o;
+    final /* synthetic */ ak p;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(FrsImageActivity frsImageActivity) {
-        this.a = frsImageActivity;
+    private ap(ak akVar) {
+        this.p = akVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        dialogInterface.dismiss();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ap(ak akVar, ap apVar) {
+        this(akVar);
     }
 }

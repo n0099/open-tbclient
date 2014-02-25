@@ -4,13 +4,13 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-    final /* synthetic */ ac a;
-    final /* synthetic */ d b;
+    final /* synthetic */ d a;
+    private final /* synthetic */ ab b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(d dVar, ac acVar) {
-        this.b = dVar;
-        this.a = acVar;
+    public e(d dVar, ab abVar) {
+        this.a = dVar;
+        this.b = abVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -18,20 +18,19 @@ public class e implements View.OnClickListener {
         SettingTextTestNewView settingTextTestNewView;
         SettingTextTipView settingTextTipView;
         SettingTextFunctionIntroView settingTextFunctionIntroView;
-        settingTextTestNewView = this.b.h;
-        if (view != settingTextTestNewView) {
-            settingTextTipView = this.b.i;
-            if (view != settingTextTipView) {
-                settingTextFunctionIntroView = this.b.j;
-                if (view == settingTextFunctionIntroView) {
-                    this.a.a(3);
-                    return;
-                }
-                return;
-            }
-            this.a.a(2);
+        settingTextTestNewView = this.a.h;
+        if (view == settingTextTestNewView) {
+            this.b.a(1);
             return;
         }
-        this.a.a(1);
+        settingTextTipView = this.a.i;
+        if (view == settingTextTipView) {
+            this.b.a(2);
+            return;
+        }
+        settingTextFunctionIntroView = this.a.j;
+        if (view == settingTextFunctionIntroView) {
+            this.b.a(3);
+        }
     }
 }

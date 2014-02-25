@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.db.pojo;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.g.e;
+import com.baidu.adp.lib.util.f;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.groupUpdates.UpdatesItemData;
 import com.baidu.tieba.im.groupUpdates.m;
@@ -58,6 +58,8 @@ public class GroupNewsPojo implements Serializable {
                 str2 = "hide_group";
             } else if (str.equals("109")) {
                 str2 = "group_event_info";
+            } else if (str.equals("124")) {
+                str2 = "group_activitys_change";
             }
             setCmd(str2);
             setContent(bVar.k());
@@ -82,7 +84,7 @@ public class GroupNewsPojo implements Serializable {
     }
 
     private void a() {
-        e.d("begin");
+        f.e("begin");
         if (!TextUtils.isEmpty(getCmd())) {
             if (getCmd().equals("group_intro_change") || getCmd().equals("group_name_change") || getCmd().equals("group_notice_change")) {
                 UpdatesItemData a = m.a(this);
@@ -91,7 +93,7 @@ public class GroupNewsPojo implements Serializable {
                     if (!TextUtils.isEmpty(A)) {
                         String authorId = a.getAuthorId();
                         if (!TextUtils.isEmpty(authorId)) {
-                            e.d("curUid:" + A + " uid:" + authorId);
+                            f.e("curUid:" + A + " uid:" + authorId);
                             if (A.equals(authorId)) {
                                 setContent_status(2);
                             } else {
@@ -107,7 +109,7 @@ public class GroupNewsPojo implements Serializable {
                     return;
                 }
             }
-            e.d("end");
+            f.e("end");
         }
     }
 

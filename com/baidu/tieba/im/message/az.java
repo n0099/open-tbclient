@@ -1,18 +1,34 @@
 package com.baidu.tieba.im.message;
+
+import com.google.protobuf.MessageLite;
+import protobuf.DelGroupUsers.DelGroupUsersReq;
 /* loaded from: classes.dex */
-public class az extends ba {
+public class az extends s implements com.baidu.tieba.im.coder.g {
+    private long a;
     private String b;
 
-    public az(String str) {
-        this.b = str;
+    public az() {
+        e(103112);
     }
 
-    public String b() {
+    public long b() {
+        return this.a;
+    }
+
+    public void a(long j) {
+        this.a = j;
+    }
+
+    public String c() {
         return this.b;
     }
 
-    @Override // com.baidu.tieba.im.message.ba
-    protected void a(protobuf.i iVar) {
-        iVar.b(b());
+    public void a(String str) {
+        this.b = str;
+    }
+
+    @Override // com.baidu.tieba.im.coder.g
+    public MessageLite a() {
+        return DelGroupUsersReq.DelGroupUsersReqIdl.newBuilder().a(DelGroupUsersReq.DataReq.newBuilder().a((int) b()).a(c()).build()).build();
     }
 }

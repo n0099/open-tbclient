@@ -1,64 +1,100 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.data.NewErrorData;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.os.Handler;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.slidingmenu.lib.R;
+import java.io.File;
 /* loaded from: classes.dex */
-public class n {
-    protected com.baidu.tieba.util.ax a;
-    protected NewErrorData b = null;
+class n extends BdAsyncTask<String, Integer, Boolean> {
+    final /* synthetic */ FileDownloader a;
+    private com.baidu.tieba.util.ba b = null;
+    private volatile boolean c = false;
+    private String d;
+    private String e;
 
-    public n() {
-        this.a = null;
-        this.a = new com.baidu.tieba.util.ax();
+    public n(FileDownloader fileDownloader, String str, String str2) {
+        this.a = fileDownloader;
+        this.d = str;
+        this.e = str2;
     }
 
-    public void a() {
-        if (this.a != null) {
-            this.a.k();
-        }
-    }
-
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(String str) {
-        this.a.a(str);
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Boolean a(String... strArr) {
+        File e;
+        Handler handler;
+        Boolean bool = false;
+        while (!this.c) {
+            try {
+                this.b = new com.baidu.tieba.util.ba(this.d);
+                handler = this.a.d;
+                bool = Boolean.valueOf(this.b.a(String.valueOf(this.e) + ".tmp", handler, 900002));
+                if (bool.booleanValue() || this.b.f() == -2) {
+                    break;
+                } else if (!this.b.o()) {
+                    try {
+                        Thread.sleep(10000L);
+                    } catch (Exception e2) {
+                    }
+                }
+            } catch (Exception e3) {
+            }
+        }
+        if (bool.booleanValue()) {
+            com.baidu.tieba.util.af.j(this.e);
+            File d = com.baidu.tieba.util.af.d(String.valueOf(this.e) + ".tmp");
+            if (d != null && (e = com.baidu.tieba.util.af.e(this.e)) != null) {
+                d.renameTo(e);
+            }
+        }
+        return bool;
     }
 
-    public void a(String str, String str2) {
-        this.a.a(str, str2);
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel(true);
+        this.a.c = null;
+        this.c = true;
+        if (this.b != null) {
+            this.b.k();
+        }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    public String b() {
-        String m = this.a.m();
-        this.b = new NewErrorData();
-        this.b.parserJson(m);
-        return m;
-    }
-
-    public boolean c() {
-        if (this.a != null) {
-            return this.a.d();
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(Boolean bool) {
+        Notification notification;
+        Notification notification2;
+        Notification notification3;
+        NotificationManager notificationManager;
+        Notification notification4;
+        NotificationManager notificationManager2;
+        Handler handler;
+        Handler handler2;
+        super.a((n) bool);
+        this.a.c = null;
+        if (bool.booleanValue()) {
+            notificationManager2 = this.a.a;
+            notificationManager2.cancel(10);
+            handler = this.a.d;
+            handler2 = this.a.d;
+            handler.sendMessageDelayed(handler2.obtainMessage(1, this.e), 100L);
+            return;
         }
-        return false;
-    }
-
-    public String d() {
-        if (this.a != null) {
-            return this.a.j();
+        notification = this.a.b;
+        if (notification != null) {
+            notification2 = this.a.b;
+            notification2.contentView.setTextViewText(R.id.info, this.a.getString(R.string.error_sd_error));
+            notification3 = this.a.b;
+            notification3.flags = 16;
+            notificationManager = this.a.a;
+            notification4 = this.a.b;
+            notificationManager.notify(10, notification4);
         }
-        return null;
-    }
-
-    public int e() {
-        if (this.b != null) {
-            return this.b.getErrorNumber();
-        }
-        return -1;
-    }
-
-    public String f() {
-        if (this.b != null) {
-            return this.b.getErrorMsg();
-        }
-        return null;
+        this.a.stopSelf();
     }
 }

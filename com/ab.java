@@ -51,20 +51,20 @@ public class ab extends CloudBatchShareHandler {
             }
             this.mShareDialog = new ShareDialog(this.mContext, shareContent, this.a, iBaiduListener);
             this.mShareDialog.show();
-            this.mShareDialog.setOnDismissListener(new b(this));
+            this.mShareDialog.setOnDismissListener(new ac(this));
             return;
         }
         if (session != null) {
             sessionManager.remove(this.a.toString());
         }
-        c cVar = new c(this, iBaiduListener, shareContent, z);
+        ad adVar = new ad(this, iBaiduListener, shareContent, z);
         Bundle bundle = new Bundle();
         bundle.putString(SocialConstants.PARAM_CLIENT_ID, this.mClientId);
         bundle.putString(SocialConstants.PARAM_MEDIA_TYPE, this.a.toString());
         Intent intent = new Intent(this.mContext, SocialOAuthActivity.class);
         intent.addFlags(268435456);
         intent.putExtras(bundle);
-        SocialOAuthActivity.setListener(cVar);
+        SocialOAuthActivity.setListener(adVar);
         this.mContext.getApplicationContext().startActivity(intent);
     }
 }

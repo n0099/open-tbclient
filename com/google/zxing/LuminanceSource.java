@@ -1,4 +1,6 @@
 package com.google.zxing;
+
+import org.apache.commons.io.FilenameUtils;
 /* loaded from: classes.dex */
 public abstract class LuminanceSource {
     private final int height;
@@ -59,7 +61,7 @@ public abstract class LuminanceSource {
                 } else if (i3 < 128) {
                     c = '+';
                 } else if (i3 < 192) {
-                    c = '.';
+                    c = FilenameUtils.EXTENSION_SEPARATOR;
                 } else {
                     c = ' ';
                 }

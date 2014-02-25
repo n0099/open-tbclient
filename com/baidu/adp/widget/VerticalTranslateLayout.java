@@ -3,6 +3,7 @@ package com.baidu.adp.widget;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.support.v4.view.MotionEventCompat;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
@@ -12,9 +13,9 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class VerticalTranslateLayout extends FrameLayout {
     static final /* synthetic */ boolean a;
-    private ag A;
-    private ad B;
-    private ah C;
+    private ad A;
+    private aa B;
+    private ae C;
     private int b;
     private int c;
     private float d;
@@ -34,12 +35,12 @@ public class VerticalTranslateLayout extends FrameLayout {
     private int r;
     private int s;
     private boolean t;
-    private final aa u;
-    private final ab v;
-    private final ai w;
-    private af x;
-    private ac y;
-    private final List<ae> z;
+    private final x u;
+    private final y v;
+    private final af w;
+    private ac x;
+    private z y;
+    private final List<ab> z;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
@@ -47,18 +48,21 @@ public class VerticalTranslateLayout extends FrameLayout {
         top,
         bottom,
         vertical,
-        none
+        none;
+
+        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
+        /* renamed from: values  reason: to resolve conflict with enum method */
+        public static TrackDirection[] valuesCustom() {
+            TrackDirection[] valuesCustom = values();
+            int length = valuesCustom.length;
+            TrackDirection[] trackDirectionArr = new TrackDirection[length];
+            System.arraycopy(valuesCustom, 0, trackDirectionArr, 0, length);
+            return trackDirectionArr;
+        }
     }
 
     static {
         a = !VerticalTranslateLayout.class.desiredAssertionStatus();
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ int a(VerticalTranslateLayout verticalTranslateLayout, int i) {
-        int i2 = verticalTranslateLayout.h - i;
-        verticalTranslateLayout.h = i2;
-        return i2;
     }
 
     @Override // android.view.View
@@ -107,24 +111,24 @@ public class VerticalTranslateLayout extends FrameLayout {
         return this.m;
     }
 
-    public void setTopAnimationListener(af afVar) {
-        this.x = afVar;
+    public void setTopAnimationListener(ac acVar) {
+        this.x = acVar;
     }
 
-    public void setBottomAnimationListener(ac acVar) {
-        this.y = acVar;
+    public void setBottomAnimationListener(z zVar) {
+        this.y = zVar;
     }
 
-    public void setTopTrackListener(ag agVar) {
-        this.A = agVar;
+    public void setTopTrackListener(ad adVar) {
+        this.A = adVar;
     }
 
-    public void setBottomTrackListener(ad adVar) {
-        this.B = adVar;
+    public void setBottomTrackListener(aa aaVar) {
+        this.B = aaVar;
     }
 
-    public void setVerticalTrackListener(ah ahVar) {
-        this.C = ahVar;
+    public void setVerticalTrackListener(ae aeVar) {
+        this.C = aeVar;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -146,7 +150,7 @@ public class VerticalTranslateLayout extends FrameLayout {
         if (this.l == TrackDirection.none) {
             return false;
         }
-        int action = motionEvent.getAction() & 255;
+        int action = motionEvent.getAction() & MotionEventCompat.ACTION_MASK;
         int x = (int) motionEvent.getX();
         int y = (int) motionEvent.getY();
         if (this.m == 10004) {
@@ -181,7 +185,7 @@ public class VerticalTranslateLayout extends FrameLayout {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         int x = (int) motionEvent.getX();
         int y = (int) motionEvent.getY();
-        int action = motionEvent.getAction() & 255;
+        int action = motionEvent.getAction() & MotionEventCompat.ACTION_MASK;
         if (this.m == 10004) {
             switch (action) {
                 case 1:
@@ -191,7 +195,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                     if (this.w.b) {
                         Log.d("VerticalTranslateLayout", "@onTouchEvent tracking");
                         this.w.a();
-                        ai.a(this.w);
+                        af.a(this.w);
                         return true;
                     }
                     return true;
@@ -231,7 +235,7 @@ public class VerticalTranslateLayout extends FrameLayout {
             case 3:
                 if (this.w.b) {
                     this.w.a();
-                    ai.a(this.w);
+                    af.a(this.w);
                     return true;
                 }
                 return true;

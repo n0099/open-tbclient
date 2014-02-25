@@ -1,5 +1,6 @@
 package com.google.zxing.qrcode.decoder;
 
+import android.support.v4.view.MotionEventCompat;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.FormatException;
 import com.google.zxing.common.BitSource;
@@ -10,9 +11,11 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 final class DecodedBitStreamParser {
-    private static final char[] ALPHANUMERIC_CHARS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', ' ', '$', '%', '*', '+', '-', '.', '/', ':'};
+    private static final char[] ALPHANUMERIC_CHARS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', ' ', '$', '%', '*', '+', '-', FilenameUtils.EXTENSION_SEPARATOR, IOUtils.DIR_SEPARATOR_UNIX, ':'};
     private static final int GB2312_SUBSET = 1;
 
     private DecodedBitStreamParser() {
@@ -112,8 +115,8 @@ final class DecodedBitStreamParser {
                 i2 = 42657;
             }
             int i5 = i4 + i2;
-            bArr[i3] = (byte) ((i5 >> 8) & 255);
-            bArr[i3 + 1] = (byte) (i5 & 255);
+            bArr[i3] = (byte) ((i5 >> 8) & MotionEventCompat.ACTION_MASK);
+            bArr[i3 + 1] = (byte) (i5 & MotionEventCompat.ACTION_MASK);
             i--;
             i3 += 2;
         }

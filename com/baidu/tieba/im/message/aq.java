@@ -1,26 +1,44 @@
 package com.baidu.tieba.im.message;
 
 import com.google.protobuf.MessageLite;
-import protobuf.QueryPrize.QueryPrizeReq;
+import protobuf.QueryHotGroups.QueryHotGroupsReq;
 /* loaded from: classes.dex */
-public class aq extends q implements com.baidu.tieba.im.coder.g {
+public class aq extends s implements com.baidu.tieba.im.coder.g {
     private int a;
+    private int b;
+    private int c;
+    private int d;
 
-    public aq() {
-        e(103013);
+    public aq(int i, int i2, int i3, int i4) {
+        super.e(103012);
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
+        this.d = i4;
     }
 
-    public void a(int i) {
-        this.a = i;
+    public int b() {
+        return this.c;
+    }
+
+    public int c() {
+        return this.a;
+    }
+
+    public int d() {
+        return this.b;
+    }
+
+    public int e() {
+        return this.d;
+    }
+
+    public boolean f() {
+        return this.d == 0;
     }
 
     @Override // com.baidu.tieba.im.coder.g
     public MessageLite a() {
-        try {
-            return QueryPrizeReq.QueryPrizeReqIdl.newBuilder().a(QueryPrizeReq.DataReq.newBuilder().a(this.a).build()).build();
-        } catch (Exception e) {
-            com.baidu.adp.lib.g.e.d("data convert error");
-            return null;
-        }
+        return QueryHotGroupsReq.QueryHotGroupsReqIdl.newBuilder().a(QueryHotGroupsReq.DataReq.newBuilder().c(d()).a(e()).b(b()).d(c()).build()).build();
     }
 }

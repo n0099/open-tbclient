@@ -27,7 +27,7 @@ public class a extends RelativeLayout {
     }
 
     private boolean d() {
-        return TiebaApplication.h().al() == 1;
+        return TiebaApplication.g().al() == 1;
     }
 
     public TextView a(EditorToolButton editorToolButton, boolean z) {
@@ -36,9 +36,9 @@ public class a extends RelativeLayout {
         textView.setTextColor(this.a.getResources().getColor(d() ? R.color.top_msg_num_night : R.color.top_msg_num_day));
         textView.setGravity(17);
         if (z) {
-            textView.setBackgroundResource(d() ? R.drawable.icon_news_prompt_1 : R.drawable.icon_news_prompt);
+            textView.setBackgroundResource(d() ? R.drawable.icon_news_head_prompt_one_1 : R.drawable.icon_news_head_prompt_one);
         } else {
-            textView.setBackgroundResource(d() ? R.drawable.icon_news_content_prompt_1 : R.drawable.icon_news_content_prompt);
+            textView.setBackgroundResource(d() ? R.drawable.icon_news_list_prompt_1 : R.drawable.icon_news_list_prompt);
         }
         editorToolButton.a(textView);
         addView(textView);

@@ -17,6 +17,4 @@ public interface c {
     int c();
 
     int d();
-
-    int e();
 }

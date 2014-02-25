@@ -1,47 +1,43 @@
 package com.baidu.tieba.model;
 
-import com.baidu.tieba.data.WriteData;
+import android.text.TextUtils;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
-public class bs extends com.baidu.adp.a.d {
-    private bu a = null;
-    private WriteData b = null;
-    private bt c = null;
-    private boolean d = false;
+public class bs {
+    private static bs a;
+    private com.baidu.adp.lib.d.a<String, String> b;
 
-    public void a(boolean z) {
-        this.d = z;
+    private bs() {
+        this.b = null;
+        this.b = new com.baidu.adp.lib.d.a<>(256);
     }
 
-    public void a(bt btVar) {
-        this.c = btVar;
+    public static synchronized bs a() {
+        bs bsVar;
+        synchronized (bs.class) {
+            if (a == null) {
+                a = new bs();
+            }
+            bsVar = a;
+        }
+        return bsVar;
     }
 
-    public void a(WriteData writeData) {
-        this.b = writeData;
+    public void a(String str, Long l) {
+        if (str != null && str.length() > 0) {
+            this.b.a(String.valueOf(TiebaApplication.A()) + str, String.valueOf(l));
+        }
     }
 
-    public WriteData a() {
-        return this.b;
-    }
-
-    public boolean b() {
-        if (this.b == null) {
+    public boolean a(String str) {
+        if (str == null || str.length() <= 0) {
             return false;
         }
-        if (this.a == null) {
-            this.a = new bu(this);
-            this.a.execute(new Integer[0]);
+        String a2 = this.b.a((com.baidu.adp.lib.d.a<String, String>) (String.valueOf(TiebaApplication.A()) + str));
+        if (TextUtils.isEmpty(a2)) {
+            return false;
         }
-        return true;
-    }
-
-    @Override // com.baidu.adp.a.d
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.a.d
-    public boolean cancelLoadData() {
-        return false;
+        return UtilHelper.a(com.baidu.adp.lib.f.b.a(a2, 0L), System.currentTimeMillis());
     }
 }

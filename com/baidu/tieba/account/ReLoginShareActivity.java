@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.view.MotionEventCompat;
 import android.text.SpannableString;
+import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
 import android.view.View;
@@ -13,7 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.tieba.MainTabActivity;
+import com.baidu.tieba.GuideActivity;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.UpdateDialog;
 import com.baidu.tieba.data.AccountData;
@@ -21,7 +23,8 @@ import com.baidu.tieba.util.DatabaseService;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class ReLoginShareActivity extends com.baidu.tieba.j {
+public class ReLoginShareActivity extends com.baidu.tieba.f {
+    private static Activity l = null;
     private NavigationBar k;
     private Button b = null;
     private Button c = null;
@@ -30,14 +33,15 @@ public class ReLoginShareActivity extends com.baidu.tieba.j {
     private String f = null;
     private String g = null;
     private String h = null;
-    private x i = null;
+    private y i = null;
     LinearLayout a = null;
     private boolean j = false;
-    private View.OnClickListener l = new bj(this);
-    private be m = new bk(this);
+    private View.OnClickListener m = new bc(this);
+    private az n = new bd(this);
 
     public static void a(Activity activity, String str, String str2, String str3, int i) {
         Intent intent = new Intent(activity, ReLoginShareActivity.class);
+        l = activity;
         intent.putExtra("user_name", str);
         intent.putExtra("bduss", str2);
         intent.putExtra(SapiAccountManager.SESSION_PTOKEN, str3);
@@ -46,7 +50,7 @@ public class ReLoginShareActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.relogin_activity);
@@ -82,27 +86,28 @@ public class ReLoginShareActivity extends com.baidu.tieba.j {
         this.k = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.k.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.b = (Button) findViewById(R.id.relogin_retry_button);
-        this.b.setOnClickListener(this.l);
+        this.b.setOnClickListener(this.m);
         this.c = (Button) findViewById(R.id.relogin_cacel_button);
-        this.c.setOnClickListener(this.l);
+        this.c.setOnClickListener(this.m);
         this.e = (ProgressBar) findViewById(R.id.relogin_progressbar);
         this.d = (TextView) findViewById(R.id.relogin_textview);
         this.a = (LinearLayout) findViewById(R.id.container);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j
+    @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         a(0, this.f, null);
         this.k.c(i);
-        com.baidu.tieba.util.bs.a((TextView) this.c, i);
-        com.baidu.tieba.util.bs.a(this.a, i);
-        com.baidu.tieba.util.bs.b(this.d, i);
+        com.baidu.tieba.util.bq.a((TextView) this.c, i);
+        com.baidu.tieba.util.bq.a(this.a, i);
+        com.baidu.tieba.util.bq.b(this.d, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, String str, AccountData accountData) {
+        String str2;
         if (str == null) {
             str = "";
         }
@@ -119,7 +124,7 @@ public class ReLoginShareActivity extends com.baidu.tieba.j {
                     return;
                 }
                 SpannableString spannableString = new SpannableString(replace);
-                spannableString.setSpan(new ForegroundColorSpan(Color.rgb(255, 47, 47)), indexOf, str.length() + indexOf, 33);
+                spannableString.setSpan(new ForegroundColorSpan(Color.rgb((int) MotionEventCompat.ACTION_MASK, 47, 47)), indexOf, str.length() + indexOf, 33);
                 this.d.setText(spannableString);
                 return;
             case 1:
@@ -131,21 +136,20 @@ public class ReLoginShareActivity extends com.baidu.tieba.j {
                     this.d.setText(string2);
                     return;
                 }
-                String str2 = string2 + "\n\n";
-                SpannableString spannableString2 = new SpannableString(str2 + str);
-                int length = str2.length();
+                SpannableString spannableString2 = new SpannableString(String.valueOf(str2) + str);
+                int length = (String.valueOf(string2) + "\n\n").length();
                 if (this.mSkinType == 1) {
                     spannableString2.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.skin_1_common_color)), 0, length, 33);
                 }
-                spannableString2.setSpan(new ForegroundColorSpan(Color.rgb(255, 47, 47)), length, str.length() + length, 33);
+                spannableString2.setSpan(new ForegroundColorSpan(Color.rgb((int) MotionEventCompat.ACTION_MASK, 47, 47)), length, str.length() + length, 33);
                 spannableString2.setSpan(new RelativeSizeSpan(0.9f), length, str.length() + length, 33);
                 this.d.setText(spannableString2);
                 return;
             case 2:
                 if (this.i == null) {
-                    this.i = new x(this);
-                    this.i.a(new bh(this));
-                    this.i.b(new bi(this));
+                    this.i = new y(this);
+                    this.i.a(new be(this));
+                    this.i.b(new bf(this));
                 }
                 this.i.e();
                 this.i.a("");
@@ -160,21 +164,18 @@ public class ReLoginShareActivity extends com.baidu.tieba.j {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        String A = TiebaApplication.A();
-        if (A == null || A.length() <= 0) {
-            MainTabActivity.a(this, 0);
-            return;
+        if (!TextUtils.isEmpty(TiebaApplication.A())) {
+            DatabaseService.i();
+            TiebaApplication.a((AccountData) null, getBaseContext());
         }
-        DatabaseService.k();
-        TiebaApplication.a((AccountData) null, getBaseContext());
-        MainTabActivity.c(this, 0);
+        finish();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
         if (this.g != null && this.h != null) {
             this.j = false;
-            bd.b(this.f, this.g, this.h, this.m, true);
+            ay.b(this.f, this.g, this.h, this.n, true);
         }
     }
 
@@ -184,12 +185,24 @@ public class ReLoginShareActivity extends com.baidu.tieba.j {
             DatabaseService.a(accountData);
             TiebaApplication.a(accountData, getBaseContext());
         }
-        MainTabActivity.c(this, getIntent().getIntExtra("locate_type", -1));
-        if (TiebaApplication.h().aq() && TiebaApplication.h().as() != null) {
-            UpdateDialog.a(TiebaApplication.h(), TiebaApplication.h().as(), TiebaApplication.h().ar());
+        TiebaApplication.g().z();
+        if (l != null) {
+            l.finish();
         }
-        if (TiebaApplication.h().aq() && TiebaApplication.h().as() != null) {
-            UpdateDialog.a(TiebaApplication.h(), TiebaApplication.h().as(), TiebaApplication.h().ar());
+        if (TiebaApplication.g().aE()) {
+            GuideActivity.a(this, "from_logo_page");
+        } else {
+            int intExtra = getIntent().getIntExtra("locate_type", -1);
+            com.baidu.tieba.mention.v.a().l();
+            com.baidu.tieba.mention.v.a().j();
+            if (com.baidu.tieba.mainentrance.f.a() == null) {
+                com.baidu.tieba.mainentrance.f.a(new com.baidu.tieba.mainentrance.g());
+            }
+            com.baidu.tieba.mainentrance.f.a(this, intExtra, false);
         }
+        if (TiebaApplication.g().aq() && TiebaApplication.g().as() != null) {
+            UpdateDialog.a(TiebaApplication.g().b(), TiebaApplication.g().as(), TiebaApplication.g().ar());
+        }
+        finish();
     }
 }

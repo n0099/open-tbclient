@@ -15,20 +15,24 @@ public class b extends Handler {
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         int i;
+        int i2;
         String[] strArr;
         Handler handler;
         Handler handler2;
         Handler handler3;
         c cVar;
         c cVar2;
-        int i2;
+        int i3;
+        int i4;
         Handler handler4;
         Handler handler5;
         switch (message.what) {
             case 0:
-                a.a(this.a);
-                i2 = this.a.s;
-                if (i2 == 3) {
+                a aVar = this.a;
+                i3 = aVar.s;
+                aVar.s = i3 + 1;
+                i4 = this.a.s;
+                if (i4 == 3) {
                     this.a.s = 0;
                 }
                 this.a.invalidate();
@@ -38,10 +42,12 @@ public class b extends Handler {
                 handler5.sendEmptyMessageDelayed(0, 800L);
                 return;
             case 1:
-                a.d(this.a);
-                i = this.a.t;
+                a aVar2 = this.a;
+                i = aVar2.t;
+                aVar2.t = i + 1;
+                i2 = this.a.t;
                 strArr = this.a.o;
-                if (i == strArr.length) {
+                if (i2 == strArr.length) {
                     handler3 = this.a.v;
                     handler3.removeMessages(1);
                     cVar = this.a.u;

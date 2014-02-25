@@ -20,18 +20,19 @@ public class a implements View.OnClickListener {
         FrameLayout frameLayout;
         ImageView imageView;
         relativeLayout = this.a.i;
-        if (view == relativeLayout) {
-            this.a.d();
-            return;
-        }
-        frameLayout = this.a.k;
-        if (view == frameLayout) {
+        if (view != relativeLayout) {
+            frameLayout = this.a.k;
+            if (view != frameLayout) {
+                imageView = this.a.j;
+                if (view == imageView) {
+                    this.a.finish();
+                    return;
+                }
+                return;
+            }
             this.a.c();
             return;
         }
-        imageView = this.a.j;
-        if (view == imageView) {
-            this.a.finish();
-        }
+        this.a.d();
     }
 }

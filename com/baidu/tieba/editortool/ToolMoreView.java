@@ -2,6 +2,7 @@ package com.baidu.tieba.editortool;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,10 +10,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class ToolMoreView extends LinearLayout {
+public class ToolMoreView extends FrameLayout {
     private int a;
     private Context b;
     private Button c;
@@ -27,6 +31,8 @@ public class ToolMoreView extends LinearLayout {
     private boolean l;
     private boolean m;
     private LinearLayout n;
+    private TextView o;
+    private TextView p;
 
     public ToolMoreView(Context context) {
         super(context);
@@ -46,6 +52,69 @@ public class ToolMoreView extends LinearLayout {
         d();
     }
 
+    @Override // android.widget.FrameLayout, android.view.View
+    protected void onMeasure(int i, int i2) {
+        super.onMeasure(i, i2);
+    }
+
+    @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
+    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        super.onLayout(z, i, i2, i3, i4);
+        if (this.o != null) {
+            int right = this.f.getRight() - BdUtilHelper.a(this.b, 14.0f);
+            int top = this.f.getTop() - BdUtilHelper.a(this.b, 2.0f);
+            this.o.layout(right, top, this.o.getMeasuredWidth() + right, this.o.getMeasuredHeight() + top);
+        }
+        if (this.p != null) {
+            int right2 = this.c.getRight() - BdUtilHelper.a(this.b, 14.0f);
+            int top2 = this.c.getTop() - BdUtilHelper.a(this.b, 2.0f);
+            this.p.layout(right2, top2, this.p.getMeasuredWidth() + right2, this.p.getMeasuredHeight() + top2);
+        }
+    }
+
+    public TextView a(boolean z) {
+        TextView textView = new TextView(this.b);
+        textView.setTextSize(1, 10.0f);
+        boolean z2 = TiebaApplication.g().al() == 1;
+        textView.setTextColor(this.b.getResources().getColor(z2 ? R.color.top_msg_num_night : R.color.top_msg_num_day));
+        textView.setGravity(17);
+        if (z) {
+            textView.setBackgroundResource(z2 ? R.drawable.icon_news_head_prompt_one_1 : R.drawable.icon_news_head_prompt_one);
+        } else {
+            textView.setBackgroundResource(z2 ? R.drawable.icon_news_list_prompt_1 : R.drawable.icon_news_list_prompt);
+        }
+        addView(textView, new FrameLayout.LayoutParams(-2, -2));
+        return textView;
+    }
+
+    public void a(String str) {
+        if (this.o == null) {
+            this.o = a(true);
+        }
+        this.o.setVisibility(0);
+        this.o.setText(str);
+    }
+
+    public void a() {
+        if (this.o != null) {
+            this.o.setVisibility(8);
+        }
+    }
+
+    public void b(String str) {
+        if (this.p == null) {
+            this.p = a(true);
+        }
+        this.p.setVisibility(0);
+        this.p.setText(str);
+    }
+
+    public void b() {
+        if (this.p != null) {
+            this.p.setVisibility(8);
+        }
+    }
+
     private void d() {
         LayoutInflater.from(this.b).inflate(R.layout.editor_tool_more, (ViewGroup) this, true);
         this.n = (LinearLayout) findViewById(R.id.lay_editor_more);
@@ -59,6 +128,11 @@ public class ToolMoreView extends LinearLayout {
         this.h.setDrawBorder(false);
         this.i = (FrameLayout) findViewById(R.id.lay_tool_camera);
         this.j = (Button) findViewById(R.id.btn_tool_at);
+        if (TiebaApplication.g().bj()) {
+            b("N");
+        } else {
+            b();
+        }
     }
 
     @Override // android.view.View
@@ -69,10 +143,6 @@ public class ToolMoreView extends LinearLayout {
         this.e.setOnClickListener(onClickListener);
         this.h.setOnClickListener(onClickListener);
         this.j.setOnClickListener(onClickListener);
-    }
-
-    public boolean a() {
-        return c() || b();
     }
 
     public void setImage(Bitmap bitmap) {
@@ -124,14 +194,6 @@ public class ToolMoreView extends LinearLayout {
         this.g.setVisibility(0);
     }
 
-    public boolean b() {
-        return this.k;
-    }
-
-    public boolean c() {
-        return this.l;
-    }
-
     public Button getmFace() {
         return this.c;
     }
@@ -160,7 +222,7 @@ public class ToolMoreView extends LinearLayout {
         this.a = i;
     }
 
-    public void a(boolean z) {
+    public void b(boolean z) {
         if (z) {
             this.f.setVisibility(4);
             this.i.setVisibility(4);
@@ -181,5 +243,60 @@ public class ToolMoreView extends LinearLayout {
         }
         this.f.setVisibility(0);
         this.i.setVisibility(0);
+    }
+
+    public void c() {
+        this.j.setVisibility(4);
+    }
+
+    @Override // android.view.View
+    public void setVisibility(int i) {
+        super.setVisibility(i);
+        if (TiebaApplication.g().bj()) {
+            b("N");
+        } else {
+            b();
+        }
+    }
+
+    public View getFaceButton() {
+        return this.c;
+    }
+
+    public View getImageButton() {
+        return this.d;
+    }
+
+    public View getCameraButton() {
+        return this.g;
+    }
+
+    public void a(int i) {
+        int i2 = i == 1 ? R.drawable.selector_editor_more_btn_1 : R.drawable.selector_editor_more_btn;
+        int color = getResources().getColor(i == 1 ? R.color.editor_more_btn_text_1 : R.color.editor_more_btn_text);
+        int i3 = i == 1 ? R.drawable.btn_pb_add_photo_n_1 : R.drawable.btn_pb_add_photo_n;
+        int i4 = i == 1 ? R.drawable.btn_pb_add_expression_n_1 : R.drawable.btn_pb_add_expression_n;
+        int i5 = i == 1 ? R.drawable.btn_pb_add_camera_n_1 : R.drawable.btn_pb_add_camera_n;
+        int i6 = i == 1 ? R.drawable.btn_pb_add_a_n_1 : R.drawable.btn_pb_add_a_n;
+        a(this.c, i2, i4, color);
+        a(this.d, i2, i3, color);
+        a(this.g, i2, i5, color);
+        a(this.j, i2, i6, color);
+        a(this.p, i);
+        a(this.o, i);
+    }
+
+    private void a(TextView textView, int i) {
+        if (textView != null) {
+            boolean z = i == 1;
+            textView.setTextColor(this.b.getResources().getColor(z ? R.color.top_msg_num_night : R.color.top_msg_num_day));
+            textView.setBackgroundResource(z ? R.drawable.icon_news_head_prompt_one_1 : R.drawable.icon_news_head_prompt_one);
+        }
+    }
+
+    private void a(Button button, int i, int i2, int i3) {
+        button.setBackgroundResource(i);
+        button.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, getResources().getDrawable(i2), (Drawable) null, (Drawable) null);
+        button.setTextColor(i3);
     }
 }

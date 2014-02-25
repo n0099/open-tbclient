@@ -1,8 +1,11 @@
 package com.baidu.tieba.flist;
 
-import android.os.Handler;
+import android.view.View;
+import android.widget.AdapterView;
+import com.baidu.tieba.util.cb;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-class h implements f {
+class h implements AdapterView.OnItemClickListener {
     final /* synthetic */ ForumListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,35 +13,13 @@ class h implements f {
         this.a = forumListActivity;
     }
 
-    @Override // com.baidu.tieba.flist.f
-    public void a(boolean z, int i, com.baidu.tieba.square.z zVar, String str, boolean z2) {
-        Handler handler;
-        Runnable runnable;
-        Handler handler2;
-        Runnable runnable2;
-        com.baidu.adp.lib.g.e.e("ForumListActivity", "callback", "start");
-        if (!z || i != 0) {
-            com.baidu.adp.lib.g.e.e("ForumListActivity", "callback", "dir menu not ok");
-            if (!z2) {
-                this.a.c.d();
-                return;
-            }
-            return;
-        }
-        com.baidu.adp.lib.g.e.e("ForumListActivity", "callback", "dir menu ok");
-        zVar.e.add(0, zVar);
-        if (this.a.c.x != null) {
-            this.a.c.x.a(zVar);
-            this.a.a(String.valueOf(this.a.c.g.getText()));
-            this.a.c.x.notifyDataSetChanged();
-        }
-        handler = this.a.e;
-        runnable = this.a.P;
-        handler.removeCallbacks(runnable);
-        handler2 = this.a.e;
-        runnable2 = this.a.P;
-        handler2.post(runnable2);
-        this.a.c.y.setClickable(true);
-        this.a.c.y.setOnClickListener(this.a);
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        cb.a(this.a, "forumlist_catalog", "catalogclick", 1, new Object[0]);
+        this.a.c.t.dismiss();
+        this.a.t = i;
+        this.a.c.d();
+        ArrayList<com.baidu.tieba.square.ab> arrayList = this.a.c.x.a().e;
+        this.a.a(arrayList.get(i).b, arrayList.get(i).c, arrayList.get(i).a);
     }
 }

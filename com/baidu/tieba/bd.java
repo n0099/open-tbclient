@@ -1,23 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.data.AccountData;
+import android.content.DialogInterface;
+import com.baidu.tieba.data.VersionData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class bd implements com.baidu.tieba.im.a<Integer> {
-    final /* synthetic */ AccountData a;
-    final /* synthetic */ TiebaApplication b;
+public class bd implements DialogInterface.OnDismissListener {
+    final /* synthetic */ UpdateDialog a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bd(AccountData accountData, TiebaApplication tiebaApplication) {
-        this.a = accountData;
-        this.b = tiebaApplication;
+    public bd(UpdateDialog updateDialog) {
+        this.a = updateDialog;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Integer num) {
-        com.baidu.tieba.im.chat.q.a = num.intValue();
-        com.baidu.tieba.im.i.a(this.a, this.b);
-        com.baidu.tieba.im.m.b();
+    @Override // android.content.DialogInterface.OnDismissListener
+    public void onDismiss(DialogInterface dialogInterface) {
+        an anVar;
+        VersionData versionData;
+        anVar = this.a.c;
+        anVar.dismiss();
+        versionData = this.a.a;
+        if (versionData.getForce_update() == 1) {
+            com.baidu.tieba.mainentrance.f.a(this.a, 200);
+        }
     }
 }

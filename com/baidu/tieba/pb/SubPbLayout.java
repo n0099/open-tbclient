@@ -21,10 +21,10 @@ public class SubPbLayout extends ViewGroup {
     private View.OnClickListener a;
     private View.OnLongClickListener b;
     private View.OnTouchListener c;
-    private cc d;
-    private com.baidu.tieba.data.as e;
+    private cf d;
+    private com.baidu.tieba.data.aq e;
     private View f;
-    private Queue<dx> g;
+    private Queue<dz> g;
     private View h;
     private ViewGroup.MarginLayoutParams i;
 
@@ -53,36 +53,37 @@ public class SubPbLayout extends ViewGroup {
         this.c = onTouchListener;
     }
 
-    public void setSubPbAdapter(cc ccVar) {
-        this.d = ccVar;
+    public void setSubPbAdapter(cf cfVar) {
+        this.d = cfVar;
     }
 
-    public void a(com.baidu.tieba.data.as asVar, View view) {
-        this.e = asVar;
+    public void a(com.baidu.tieba.data.aq aqVar, View view) {
+        this.e = aqVar;
         requestLayout();
         this.f = view;
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
+        int i3;
         View view;
         SparseArray sparseArray;
         if (this.e == null || this.e.a().size() == 0) {
             setMeasuredDimension(0, 0);
             return;
         }
-        int i3 = i & 1073741823;
-        ArrayList<com.baidu.tieba.data.as> a = this.e.a();
+        int i4 = i & 1073741823;
+        ArrayList<com.baidu.tieba.data.aq> a = this.e.a();
         int size = a.size();
-        int i4 = 0;
         int i5 = 0;
-        while (i4 < size) {
+        int i6 = 0;
+        while (i5 < size) {
             boolean z = false;
-            View childAt = getChildAt(i4);
+            View childAt = getChildAt(i5);
             if (childAt == null || childAt.equals(this.h)) {
-                com.baidu.adp.lib.g.e.e("SubPbLayout", "onMeasure", "Item View Created for position: " + i4);
+                com.baidu.adp.lib.util.f.e("SubPbLayout", "onMeasure", "Item View Created for position: " + i5);
                 View b = this.d.b();
-                this.g.offer(new dx(i4, b));
+                this.g.offer(new dz(i5, b, null));
                 z = true;
                 view = b;
             } else {
@@ -106,23 +107,29 @@ public class SubPbLayout extends ViewGroup {
             }
             sparseArray.put(R.id.tag_load_sub_view, this.f);
             sparseArray.put(R.id.tag_is_subpb, true);
-            if (a.get(i4) != null && a.get(i4).g() != null) {
-                sparseArray.put(R.id.tag_photo_username, a.get(i4).g().getName());
-                sparseArray.put(R.id.tag_clip_board, a.get(i4));
+            if (a.get(i5) != null && a.get(i5).g() != null) {
+                sparseArray.put(R.id.tag_photo_username, a.get(i5).g().getUserName());
+                sparseArray.put(R.id.tag_clip_board, a.get(i5));
             }
-            cd cdVar = (cd) sparseArray.get(R.id.tag_holder);
+            cg cgVar = (cg) sparseArray.get(R.id.tag_holder);
             if (z) {
-                this.d.a(cdVar, a.get(i4), this.e.j() > a.size() || a.size() - i4 > 1, i4 == 0);
+                this.d.a(cgVar, a.get(i5), this.e.j() > a.size() || a.size() - i5 > 1, i5 == 0);
             }
-            view.measure(((i3 - getPaddingLeft()) - getPaddingRight()) + 1073741824, 0);
-            i4++;
-            i5 += view.getMeasuredHeight();
+            view.measure(((i4 - getPaddingLeft()) - getPaddingRight()) + 1073741824, 0);
+            i5++;
+            i6 += view.getMeasuredHeight();
         }
         if (a != null && this.e.j() > a.size()) {
             a(getContext(), (TextView) this.h.findViewById(R.id.sub_pb_more_text), this.e.j() - a.size());
-            this.h.setBackgroundResource(TiebaApplication.h().al() == 1 ? R.drawable.bg_floor_new_foot_1 : R.drawable.bg_floor_new_foot);
+            View view2 = this.h;
+            if (TiebaApplication.g().al() == 1) {
+                i3 = R.drawable.bg_floor_new_foot_1;
+            } else {
+                i3 = R.drawable.bg_floor_new_foot;
+            }
+            view2.setBackgroundResource(i3);
             ImageView imageView = (ImageView) this.h.findViewById(R.id.image);
-            if (TiebaApplication.h().al() == 1) {
+            if (TiebaApplication.g().al() == 1) {
                 imageView.setBackgroundResource(R.drawable.icon_downward_1);
             } else {
                 imageView.setBackgroundResource(R.drawable.icon_downward);
@@ -136,11 +143,11 @@ public class SubPbLayout extends ViewGroup {
             sparseArray4.put(R.id.tag_load_sub_data, this.e);
             sparseArray4.put(R.id.tag_load_sub_view, this.f);
             this.h.setVisibility(0);
-            this.h.measure(((i3 - getPaddingLeft()) - getPaddingRight()) + 1073741824, 0);
+            this.h.measure(((i4 - getPaddingLeft()) - getPaddingRight()) + 1073741824, 0);
         } else {
             this.h.setVisibility(8);
         }
-        setMeasuredDimension(i3, (this.h.getVisibility() == 0 ? this.h.getMeasuredHeight() : 0) + i5 + getPaddingBottom() + getPaddingTop());
+        setMeasuredDimension(i4, (this.h.getVisibility() == 0 ? this.h.getMeasuredHeight() : 0) + i6 + getPaddingBottom() + getPaddingTop());
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -149,9 +156,9 @@ public class SubPbLayout extends ViewGroup {
         if (this.e != null) {
             int size = this.g.size();
             for (int i6 = 0; i6 < size; i6++) {
-                dx poll = this.g.poll();
+                dz poll = this.g.poll();
                 if (poll.b.getParent() == null) {
-                    com.baidu.adp.lib.g.e.e("SubPbLayout", "onLayout", "add to position: " + poll.a);
+                    com.baidu.adp.lib.util.f.e("SubPbLayout", "onLayout", "add to position: " + poll.a);
                     addViewInLayout(poll.b, poll.a, this.i, true);
                 }
             }
@@ -187,11 +194,11 @@ public class SubPbLayout extends ViewGroup {
     }
 
     public static void a(Context context, TextView textView, int i) {
-        String string = TiebaApplication.h().getString(R.string.sub_pb_load_more);
+        String string = TiebaApplication.g().b().getString(R.string.sub_pb_load_more);
         String valueOf = String.valueOf(i);
         int indexOf = string.indexOf("%d");
         SpannableString spannableString = new SpannableString(string.replace("%d", valueOf));
-        if (TiebaApplication.h().al() == 1) {
+        if (TiebaApplication.g().al() == 1) {
             spannableString.setSpan(new ForegroundColorSpan(context.getResources().getColor(R.color.sub_pb_more_text_1)), indexOf, valueOf.length() + indexOf, 33);
             textView.setTextColor(context.getResources().getColor(R.color.sub_pb_more_text_1));
         } else {

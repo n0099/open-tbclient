@@ -1,11 +1,9 @@
 package com.baidu.tieba.pb;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.Button;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class q implements TextWatcher {
+public class q implements DialogInterface.OnCancelListener {
     final /* synthetic */ ImagePbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,24 +11,15 @@ public class q implements TextWatcher {
         this.a = imagePbActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        Button button;
-        Button button2;
-        if (editable == null || editable.length() <= 0) {
-            button = this.a.m;
-            button.setEnabled(false);
-            return;
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        af afVar;
+        af afVar2;
+        this.a.DeinitWaitingDialog();
+        afVar = this.a.u;
+        if (afVar != null) {
+            afVar2 = this.a.u;
+            afVar2.cancel();
         }
-        button2 = this.a.m;
-        button2.setEnabled(true);
     }
 }

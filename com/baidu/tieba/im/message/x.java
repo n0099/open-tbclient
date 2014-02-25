@@ -1,48 +1,28 @@
 package com.baidu.tieba.im.message;
 
+import com.baidu.tieba.im.messageCenter.IDuplicateProcess;
 import com.google.protobuf.MessageLite;
-import protobuf.CommitPusherCount.CommitPusherCountReq;
 /* loaded from: classes.dex */
-public class x extends q implements com.baidu.tieba.im.coder.g {
-    private int a;
-    private long b;
-    private long c;
-    private int d;
+public class x extends s implements com.baidu.tieba.im.coder.g, IDuplicateProcess {
+    private static final MessageLite a = new y();
+    private IDuplicateProcess.RemoveState b = IDuplicateProcess.RemoveState.REMOVE_ME;
 
-    public void a(int i) {
-        this.d = i;
+    public x() {
+        e(1003);
     }
 
-    public int b() {
-        return this.a;
-    }
-
-    public void b(int i) {
-        this.a = i;
-    }
-
-    public long c() {
+    @Override // com.baidu.tieba.im.messageCenter.IDuplicateProcess
+    public IDuplicateProcess.RemoveState h() {
         return this.b;
     }
 
-    public void a(long j) {
-        this.b = j;
-    }
-
-    public long d() {
-        return this.c;
-    }
-
-    public void b(long j) {
-        this.c = j;
-    }
-
-    public x() {
-        e(202101);
+    @Override // com.baidu.tieba.im.messageCenter.IDuplicateProcess
+    public boolean a(s sVar) {
+        return true;
     }
 
     @Override // com.baidu.tieba.im.coder.g
     public MessageLite a() {
-        return CommitPusherCountReq.CommitPusherCountReqIdl.newBuilder().a(CommitPusherCountReq.DataReq.newBuilder().c(d()).a(b()).b(c()).build()).build();
+        return a;
     }
 }

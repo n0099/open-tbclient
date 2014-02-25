@@ -2,10 +2,10 @@ package com.baidu.android.defense.a;
 
 import android.content.Context;
 import android.os.Environment;
+import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.text.TextUtils;
 import com.baidu.android.common.net.ConnectManager;
 import com.baidu.android.common.net.ProxyHttpClient;
-import com.google.protobuf.CodedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -27,7 +27,7 @@ public class a implements Runnable {
     }
 
     private boolean a(InputStream inputStream) {
-        if (com.baidu.android.systemmonitor.c.d.c() <= this.b.c * 1048576) {
+        if (com.baidu.android.systemmonitor.c.d.c() <= this.b.c * AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START) {
             return false;
         }
         this.c = e();
@@ -41,7 +41,7 @@ public class a implements Runnable {
         }
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(file);
-            byte[] bArr = new byte[CodedOutputStream.DEFAULT_BUFFER_SIZE];
+            byte[] bArr = new byte[4096];
             while (true) {
                 int read = inputStream.read(bArr);
                 if (read < 0) {

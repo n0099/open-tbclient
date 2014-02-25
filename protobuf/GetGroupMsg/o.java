@@ -1,15 +1,6 @@
 package protobuf.GetGroupMsg;
 
-import com.google.protobuf.AbstractParser;
-import com.google.protobuf.CodedInputStream;
-import com.google.protobuf.ExtensionRegistryLite;
-import protobuf.GetGroupMsg.GetGroupMsgRes;
+import com.google.protobuf.MessageLiteOrBuilder;
 /* loaded from: classes.dex */
-final class o extends AbstractParser<GetGroupMsgRes.GroupMsg> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.protobuf.Parser
-    /* renamed from: a */
-    public GetGroupMsgRes.GroupMsg parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-        return new GetGroupMsgRes.GroupMsg(codedInputStream, extensionRegistryLite);
-    }
+public interface o extends MessageLiteOrBuilder {
 }

@@ -1,56 +1,62 @@
 package com.baidu.tieba.frs;
 
-import android.app.Activity;
-import android.os.Handler;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.TextView;
-import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.R;
+import android.widget.AdapterView;
 /* loaded from: classes.dex */
-public class ai {
-    private Activity a;
-    private Animation b;
-    private Animation c;
-    private Handler d = new Handler();
-    private LayoutInflater e;
+class ai implements AdapterView.OnItemLongClickListener {
+    final /* synthetic */ FrsActivity a;
 
-    public ai(Activity activity) {
-        this.a = activity;
-        this.e = this.a.getLayoutInflater();
-        this.b = AnimationUtils.loadAnimation(this.a, R.anim.frs_like);
-        this.c = AnimationUtils.loadAnimation(this.a, R.anim.frs_sign);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ai(FrsActivity frsActivity) {
+        this.a = frsActivity;
     }
 
-    public void a(View view) {
-        View inflate = this.e.inflate(R.layout.frs_like_cover, (ViewGroup) null);
-        Button button = (Button) inflate.findViewById(R.id.btn_love);
-        TextView textView = (TextView) inflate.findViewById(R.id.tv_love);
-        if (TiebaApplication.h().al() == 1) {
-            textView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_like_1, 0, 0, 0);
-            textView.setShadowLayer(1.0f, 0.0f, 1.0f, R.color.frs_like_shadow_1);
-            button.setBackgroundResource(R.drawable.frs_btn_like_1);
-            textView.setTextColor(this.a.getResources().getColor(R.color.frs_like_txt_1));
-        } else {
-            textView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_like, 0, 0, 0);
-            textView.setShadowLayer(1.0f, 0.0f, 1.0f, R.color.frs_like_shadow);
-            button.setBackgroundResource(R.drawable.frs_btn_like);
-            textView.setTextColor(this.a.getResources().getColor(R.color.frs_like_txt));
+    @Override // android.widget.AdapterView.OnItemLongClickListener
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
+        br brVar;
+        br brVar2;
+        com.baidu.tieba.data.az azVar;
+        com.baidu.tieba.data.az azVar2;
+        com.baidu.tieba.data.az azVar3;
+        com.baidu.tieba.data.az azVar4;
+        br brVar3;
+        com.baidu.tieba.data.az azVar5;
+        if (i >= 0) {
+            brVar = this.a.p;
+            long itemId = brVar.n().getItemId(i);
+            if (itemId != -1 && itemId != -2) {
+                FrsActivity frsActivity = this.a;
+                brVar2 = this.a.p;
+                frsActivity.K = (com.baidu.tieba.data.az) brVar2.n().getItem(i);
+                azVar = this.a.K;
+                if (azVar instanceof g) {
+                    azVar5 = this.a.K;
+                    g gVar = (g) azVar5;
+                    int A = gVar.A();
+                    if (A == 0) {
+                        this.a.a(gVar, i);
+                    } else if (A == 2) {
+                        this.a.a(gVar);
+                    }
+                } else {
+                    FrsActivity frsActivity2 = this.a;
+                    azVar2 = this.a.K;
+                    frsActivity2.n = azVar2.a();
+                    azVar3 = this.a.K;
+                    String l = azVar3.l();
+                    if (l == null || l.equals("")) {
+                        this.a.o = false;
+                    } else {
+                        this.a.o = true;
+                    }
+                    FrsActivity frsActivity3 = this.a;
+                    azVar4 = this.a.K;
+                    frsActivity3.b(azVar4);
+                    brVar3 = this.a.p;
+                    brVar3.k();
+                }
+            }
         }
-        button.setLayoutParams(new FrameLayout.LayoutParams(view.getMeasuredWidth(), view.getMeasuredHeight()));
-        com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
-        gVar.a(false);
-        gVar.b(R.id.love).a(0).b(true);
-        gVar.a(new aj(this, inflate));
-        com.baidu.adp.lib.guide.d a = gVar.a();
-        a.a(this.a);
-        inflate.setAnimation(this.b);
-        this.b.start();
-        this.b.setAnimationListener(new ak(this, a));
+        return false;
     }
 }

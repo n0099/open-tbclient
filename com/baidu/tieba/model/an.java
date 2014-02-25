@@ -6,10 +6,9 @@ public class an {
     public int c = 0;
     public String d = "";
     public long e = 0;
-    public boolean f = false;
-    final /* synthetic */ ak g;
+    final /* synthetic */ al f;
 
-    public an(ak akVar) {
-        this.g = akVar;
+    public an(al alVar) {
+        this.f = alVar;
     }
 }

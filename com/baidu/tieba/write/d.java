@@ -1,23 +1,34 @@
 package com.baidu.tieba.write;
 
 import android.view.View;
-import android.widget.EditText;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ImageView;
+import com.baidu.tieba.data.MetaData;
+import com.baidu.tieba.util.cj;
 /* loaded from: classes.dex */
-public class d implements View.OnClickListener {
-    final /* synthetic */ AtListActivity a;
+class d implements cj {
+    final /* synthetic */ c a;
+    private final /* synthetic */ String b;
+    private final /* synthetic */ com.baidu.adp.widget.ImageView.b c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(AtListActivity atListActivity) {
-        this.a = atListActivity;
+    public d(c cVar, String str, com.baidu.adp.widget.ImageView.b bVar) {
+        this.a = cVar;
+        this.b = str;
+        this.c = bVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        EditText editText;
-        AtListActivity atListActivity = this.a;
-        editText = this.a.b;
-        com.baidu.adp.lib.g.g.a(atListActivity, editText);
-        this.a.finish();
+    @Override // com.baidu.tieba.util.cj
+    public boolean a(View view) {
+        if ((view instanceof ImageView) && view.getTag() != null) {
+            Object tag = view.getTag();
+            if (tag instanceof MetaData) {
+                ImageView imageView = (ImageView) view;
+                MetaData metaData = (MetaData) tag;
+                if (this.b != null && this.b.equals(metaData.getPortrait()) && this.c != null) {
+                    this.c.a(imageView);
+                }
+            }
+        }
+        return false;
     }
 }

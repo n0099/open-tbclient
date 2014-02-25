@@ -1,22 +1,40 @@
 package com.baidu.tieba.data;
-
-import com.baidu.cloudsdk.social.core.SocialConstants;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class g {
-    private String a = null;
+    private f a;
+    private boolean b;
+    private int c;
+    private String d;
 
-    public String a() {
+    public f a() {
         return this.a;
     }
 
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optString(SocialConstants.PARAM_CLIENT_ID);
-            } catch (Exception e) {
-                com.baidu.adp.lib.g.e.b(getClass().getName(), "parserJson", e.getMessage());
-            }
-        }
+    public void a(f fVar) {
+        this.a = fVar;
+    }
+
+    public boolean b() {
+        return this.b;
+    }
+
+    public void a(boolean z) {
+        this.b = z;
+    }
+
+    public int c() {
+        return this.c;
+    }
+
+    public void a(int i) {
+        this.c = i;
+    }
+
+    public String d() {
+        return this.d;
+    }
+
+    public void a(String str) {
+        this.d = str;
     }
 }

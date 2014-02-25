@@ -1,4 +1,6 @@
 package com.baidu.android.silentupdate;
+
+import android.support.v4.view.MotionEventCompat;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class a {
@@ -122,7 +124,7 @@ public final class a {
                     int i15 = i14 + 1;
                     bArr2[i14] = (byte) ((65280 & i13) >> 8);
                     i6 = i15 + 1;
-                    bArr2[i15] = (byte) (i13 & 255);
+                    bArr2[i15] = (byte) (i13 & MotionEventCompat.ACTION_MASK);
                 } else {
                     i6 = i12;
                 }

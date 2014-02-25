@@ -2,7 +2,7 @@ package com.baidu.tieba.im.model;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.a.d {
     private int a;
-    private com.baidu.tieba.im.message.af b;
+    private com.baidu.tieba.im.message.ak b;
 
     public int a() {
         return this.a;
@@ -18,10 +18,10 @@ public class c extends com.baidu.adp.a.d {
         return false;
     }
 
-    private com.baidu.tieba.im.message.af b(long j) {
-        com.baidu.tieba.im.message.af afVar = new com.baidu.tieba.im.message.af();
-        afVar.a(j);
-        return afVar;
+    private com.baidu.tieba.im.message.ak b(long j) {
+        com.baidu.tieba.im.message.ak akVar = new com.baidu.tieba.im.message.ak();
+        akVar.a(j);
+        return akVar;
     }
 
     public void a(long j) {

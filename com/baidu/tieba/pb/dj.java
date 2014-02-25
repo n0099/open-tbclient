@@ -1,32 +1,30 @@
 package com.baidu.tieba.pb;
 
-import android.app.Dialog;
-import android.content.DialogInterface;
-import android.view.KeyEvent;
-import android.widget.EditText;
+import android.os.Handler;
+import android.view.animation.Animation;
+import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dj implements DialogInterface.OnKeyListener {
-    final /* synthetic */ cr a;
+public class dj implements Animation.AnimationListener {
+    final /* synthetic */ cu a;
+    private final /* synthetic */ ImageView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dj(cr crVar) {
-        this.a = crVar;
+    public dj(cu cuVar, ImageView imageView) {
+        this.a = cuVar;
+        this.b = imageView;
     }
 
-    @Override // android.content.DialogInterface.OnKeyListener
-    public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
-        NewPbActivity newPbActivity;
-        EditText editText;
-        Dialog dialog;
-        if (i == 4) {
-            newPbActivity = this.a.g;
-            editText = this.a.t;
-            com.baidu.adp.lib.g.g.a(newPbActivity, editText);
-            dialog = this.a.p;
-            dialog.dismiss();
-            return true;
-        }
-        return false;
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        new Handler().post(new dk(this, this.b));
     }
 }

@@ -1,33 +1,51 @@
 package com.baidu.tieba.frs;
 
-import org.json.JSONObject;
+import android.app.NotificationManager;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
-public class a {
-    private int a;
-    private String b;
-    private String c;
+public class a implements com.baidu.tieba.d.f {
+    private NotificationManager a = null;
 
-    public String a() {
-        return this.b;
-    }
-
-    public String b() {
-        return String.valueOf(this.a);
-    }
-
-    public String c() {
-        return this.c;
-    }
-
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optInt("badge_id", 0);
-                this.b = jSONObject.optString("badge_url", "");
-                this.c = jSONObject.optString("webview");
-            } catch (Exception e) {
-                com.baidu.adp.lib.g.e.b("BadgeData", "parserJson", "error = " + e.getMessage());
+    @Override // com.baidu.tieba.d.f
+    public void c(com.baidu.tieba.d.a aVar) {
+        if (aVar != null) {
+            if (aVar.f() == 1) {
+                b.a().b(aVar);
             }
+            b.a().a(aVar);
         }
+    }
+
+    @Override // com.baidu.tieba.d.f
+    public boolean d(com.baidu.tieba.d.a aVar) {
+        if (aVar == null) {
+            return false;
+        }
+        aVar.e((String) null);
+        return true;
+    }
+
+    @Override // com.baidu.tieba.d.f
+    public boolean b(com.baidu.tieba.d.a aVar) {
+        if (aVar == null) {
+            return false;
+        }
+        aVar.e((String) null);
+        return true;
+    }
+
+    @Override // com.baidu.tieba.d.f
+    public void a(com.baidu.tieba.d.a aVar) {
+        if (this.a == null) {
+            this.a = b.a().c();
+        }
+        this.a.cancel(aVar.o());
+        UtilHelper.a(TiebaApplication.g().b(), b.a().a(aVar.e()));
+    }
+
+    @Override // com.baidu.tieba.d.f
+    public void a(com.baidu.tieba.d.a aVar, int i, String str) {
+        b.a().c(aVar);
     }
 }

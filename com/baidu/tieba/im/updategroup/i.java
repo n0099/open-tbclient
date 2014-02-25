@@ -14,9 +14,9 @@ class i implements DialogInterface.OnClickListener {
     public void onClick(DialogInterface dialogInterface, int i) {
         DialogInterface.OnClickListener onClickListener;
         DialogInterface.OnClickListener onClickListener2;
-        onClickListener = this.a.p;
+        onClickListener = this.a.a;
         if (onClickListener != null) {
-            onClickListener2 = this.a.p;
+            onClickListener2 = this.a.a;
             onClickListener2.onClick(dialogInterface, i);
         }
     }

@@ -14,15 +14,20 @@ import protobuf.Im;
 public final class UpdateMaskInfoRes {
 
     /* loaded from: classes.dex */
-    public final class UpdateMaskInfoResIdl extends GeneratedMessageLite implements k {
+    public final class UpdateMaskInfoResIdl extends GeneratedMessageLite implements i {
         public static final int ERROR_FIELD_NUMBER = 1;
-        public static Parser<UpdateMaskInfoResIdl> PARSER = new i();
+        public static Parser<UpdateMaskInfoResIdl> PARSER = new g();
         private static final UpdateMaskInfoResIdl a = new UpdateMaskInfoResIdl(true);
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private Im.Error error_;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ UpdateMaskInfoResIdl(GeneratedMessageLite.Builder builder, UpdateMaskInfoResIdl updateMaskInfoResIdl) {
+            this(builder);
+        }
 
         private UpdateMaskInfoResIdl(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -46,13 +51,12 @@ public final class UpdateMaskInfoRes {
         }
 
         private UpdateMaskInfoResIdl(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-            protobuf.c cVar;
-            boolean z;
+            protobuf.e eVar;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
             a();
-            boolean z2 = false;
-            while (!z2) {
+            boolean z = false;
+            while (!z) {
                 try {
                     try {
                         int readTag = codedInputStream.readTag();
@@ -62,28 +66,25 @@ public final class UpdateMaskInfoRes {
                                 break;
                             case 10:
                                 if ((this.bitField0_ & 1) != 1) {
-                                    cVar = null;
+                                    eVar = null;
                                 } else {
-                                    cVar = this.error_.toBuilder();
+                                    eVar = this.error_.toBuilder();
                                 }
                                 this.error_ = (Im.Error) codedInputStream.readMessage(Im.Error.PARSER, extensionRegistryLite);
-                                if (cVar != null) {
-                                    cVar.mergeFrom(this.error_);
-                                    this.error_ = cVar.buildPartial();
+                                if (eVar != null) {
+                                    eVar.mergeFrom(this.error_);
+                                    this.error_ = eVar.buildPartial();
                                 }
                                 this.bitField0_ |= 1;
-                                z = z2;
                                 break;
                             default:
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
                                 } else {
-                                    z = z2;
                                     break;
                                 }
                         }
-                        z2 = z;
                     } catch (InvalidProtocolBufferException e) {
                         throw e.setUnfinishedMessage(this);
                     } catch (IOException e2) {
@@ -93,6 +94,11 @@ public final class UpdateMaskInfoRes {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ UpdateMaskInfoResIdl(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, UpdateMaskInfoResIdl updateMaskInfoResIdl) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -190,23 +196,23 @@ public final class UpdateMaskInfoRes {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static j newBuilder() {
-            return j.f();
+        public static h newBuilder() {
+            return h.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public j newBuilderForType() {
+        public h newBuilderForType() {
             return newBuilder();
         }
 
-        public static j newBuilder(UpdateMaskInfoResIdl updateMaskInfoResIdl) {
+        public static h newBuilder(UpdateMaskInfoResIdl updateMaskInfoResIdl) {
             return newBuilder().mergeFrom(updateMaskInfoResIdl);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public j toBuilder() {
+        public h toBuilder() {
             return newBuilder(this);
         }
     }

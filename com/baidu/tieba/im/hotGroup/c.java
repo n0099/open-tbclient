@@ -1,9 +1,8 @@
 package com.baidu.tieba.im.hotGroup;
 
-import android.content.Context;
-import com.baidu.adp.lib.g.g;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.message.ak;
+import com.baidu.tieba.im.message.aq;
 import com.baidu.tieba.im.messageCenter.e;
 /* loaded from: classes.dex */
 public class c {
@@ -12,8 +11,8 @@ public class c {
     private boolean f;
     private boolean g;
     private final int h = 30;
-    private int b = g.a((Context) TiebaApplication.a(), 70.0f);
-    private int a = g.a((Context) TiebaApplication.a(), 70.0f);
+    private int b = BdUtilHelper.a(TiebaApplication.g().c(), 70.0f);
+    private int a = BdUtilHelper.a(TiebaApplication.g().c(), 70.0f);
     private int c = 30;
 
     public void a(int i) {
@@ -48,12 +47,12 @@ public class c {
         if (!c()) {
             c(true);
             if (z) {
-                ak akVar = new ak(this.b, this.a, this.c, this.d);
-                akVar.e(-116);
-                e.a().a(akVar);
+                aq aqVar = new aq(this.b, this.a, this.c, this.d);
+                aqVar.e(-116);
+                e.a().a(aqVar);
                 return;
             }
-            e.a().a(new ak(this.b, this.a, this.c, this.d));
+            e.a().a(new aq(this.b, this.a, this.c, this.d));
         }
     }
 }

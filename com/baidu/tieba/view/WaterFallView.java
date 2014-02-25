@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Scroller;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.widget.ScrollView.BdPullRefreshScrollView;
 import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.slidingmenu.lib.R;
@@ -17,9 +18,9 @@ public class WaterFallView extends BdPullRefreshScrollView {
     private int b;
     private LinearLayout c;
     private LinearLayout d;
-    private db e;
+    private dh e;
     private LinearLayout f;
-    private db g;
+    private dh g;
     private View h;
     private View i;
     private int j;
@@ -27,7 +28,7 @@ public class WaterFallView extends BdPullRefreshScrollView {
     private int l;
     private int m;
     private int n;
-    private dc o;
+    private di o;
 
     public WaterFallView(Context context) {
         super(context);
@@ -45,7 +46,7 @@ public class WaterFallView extends BdPullRefreshScrollView {
         this.m = 0;
         this.n = 20;
         this.o = null;
-        h();
+        j();
     }
 
     public WaterFallView(Context context, AttributeSet attributeSet) {
@@ -64,11 +65,11 @@ public class WaterFallView extends BdPullRefreshScrollView {
         this.m = 0;
         this.n = 20;
         this.o = null;
-        h();
+        j();
     }
 
-    public void setOnScrollListener(dc dcVar) {
-        this.o = dcVar;
+    public void setOnScrollListener(di diVar) {
+        this.o = diVar;
     }
 
     public void a(View view) {
@@ -79,7 +80,7 @@ public class WaterFallView extends BdPullRefreshScrollView {
         this.h = view;
     }
 
-    public void f() {
+    public void h() {
         if (this.h != null) {
             this.c.removeView(this.h);
             this.h = null;
@@ -102,41 +103,44 @@ public class WaterFallView extends BdPullRefreshScrollView {
         return this.i;
     }
 
-    private void h() {
-        this.e = new db(this);
-        this.g = new db(this);
-        this.n = com.baidu.adp.lib.g.g.a(getContext(), 20.0f);
-        this.b = com.baidu.adp.lib.g.g.a(getContext(), 3.0f);
+    private void j() {
+        this.e = new dh(this);
+        this.g = new dh(this);
+        this.n = BdUtilHelper.a(getContext(), 20.0f);
+        this.b = BdUtilHelper.a(getContext(), 3.0f);
         this.c = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.water_fall_view, (ViewGroup) null);
         addView(this.c);
         this.d = (LinearLayout) this.c.findViewById(R.id.line1);
         this.f = (LinearLayout) this.c.findViewById(R.id.line2);
-        measure(View.MeasureSpec.makeMeasureSpec(com.baidu.adp.lib.g.g.b(getContext()), 1073741824), 0);
+        measure(View.MeasureSpec.makeMeasureSpec(BdUtilHelper.b(getContext()), 1073741824), 0);
         this.j = this.d.getMeasuredWidth();
-        i();
+        k();
     }
 
     public int getLineWidth() {
         return this.j;
     }
 
-    private void i() {
-        this.k = new da(this);
+    private void k() {
+        this.k = new dg(this);
     }
 
     @Override // android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
         this.k.removeMessages(SocialAPIErrorCodes.ERROR_INVALID_CLIENT_ID);
-        boolean z = this.m - this.l == i2;
+        boolean z = false;
+        if (this.m - this.l == i2) {
+            z = true;
+        }
         if (i2 == 0 || z) {
             try {
-                Object obj = com.baidu.adp.lib.g.g.a(this, "mScroller").get(this);
+                Object obj = BdUtilHelper.a(this, "mScroller").get(this);
                 if (obj != null && (obj instanceof Scroller)) {
                     ((Scroller) obj).abortAnimation();
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.g.e.b(getClass().getName(), "onScrollChanged", e.getMessage());
+                com.baidu.adp.lib.util.f.b(getClass().getName(), "onScrollChanged", e.getMessage());
             }
         }
         if (this.o != null) {
@@ -187,7 +191,7 @@ public class WaterFallView extends BdPullRefreshScrollView {
         return this.e.c(rect.bottom);
     }
 
-    public void g() {
+    public void i() {
         this.d.removeAllViews();
         this.e.a();
         this.f.removeAllViews();

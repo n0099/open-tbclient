@@ -1,36 +1,32 @@
 package com.baidu.tieba.write;
 
-import android.graphics.Bitmap;
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
+import android.widget.EditText;
+import com.baidu.tieba.editortool.EditorToolComponetContainer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class as implements View.OnClickListener {
-    final /* synthetic */ String a;
-    final /* synthetic */ int b;
-    final /* synthetic */ WriteImageActivity c;
+public class as implements View.OnTouchListener {
+    final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public as(WriteImageActivity writeImageActivity, String str, int i) {
-        this.c = writeImageActivity;
-        this.a = str;
-        this.b = i;
+    public as(WriteActivity writeActivity) {
+        this.a = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ProgressBar progressBar;
-        ImageView imageView;
-        Bitmap bitmap;
-        progressBar = this.c.f;
-        if (progressBar.getVisibility() != 0) {
-            imageView = this.c.b;
-            bitmap = this.c.c;
-            imageView.setImageBitmap(bitmap);
-            this.c.w = false;
-            this.c.c(this.a);
-            this.c.r = this.b;
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        WriteEditorToolButtonContainer writeEditorToolButtonContainer;
+        EditorToolComponetContainer editorToolComponetContainer;
+        EditText editText;
+        if (motionEvent.getAction() == 1) {
+            writeEditorToolButtonContainer = this.a.A;
+            writeEditorToolButtonContainer.c();
+            editorToolComponetContainer = this.a.B;
+            editText = this.a.j;
+            editorToolComponetContainer.c(editText);
+            return false;
         }
+        return false;
     }
 }

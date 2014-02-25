@@ -1,10 +1,9 @@
 package com.baidu.tieba.im.groupInfo;
 
 import android.content.DialogInterface;
-import com.baidu.tieba.write.bb;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.write.bz;
 /* loaded from: classes.dex */
-public class i implements DialogInterface.OnClickListener {
+class i implements DialogInterface.OnClickListener {
     final /* synthetic */ GroupInfoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,9 +14,9 @@ public class i implements DialogInterface.OnClickListener {
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         if (i == 0) {
-            bb.a(this.a);
+            bz.a(this.a);
         } else if (i == 1) {
-            bb.b(this.a);
+            bz.b(this.a);
         }
     }
 }

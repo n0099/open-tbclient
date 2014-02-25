@@ -1,25 +1,24 @@
 package com.baidu.tieba.data;
 /* loaded from: classes.dex */
 public class f {
-    private e a;
-    private boolean b;
+    private String a;
+    private long b;
     private int c;
-    private String d;
 
-    public e a() {
+    public String a() {
         return this.a;
     }
 
-    public void a(e eVar) {
-        this.a = eVar;
+    public void a(String str) {
+        this.a = str;
     }
 
-    public boolean b() {
+    public long b() {
         return this.b;
     }
 
-    public void a(boolean z) {
-        this.b = z;
+    public void a(long j) {
+        this.b = j;
     }
 
     public int c() {
@@ -28,13 +27,5 @@ public class f {
 
     public void a(int i) {
         this.c = i;
-    }
-
-    public String d() {
-        return this.d;
-    }
-
-    public void a(String str) {
-        this.d = str;
     }
 }

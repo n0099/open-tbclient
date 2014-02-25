@@ -6,7 +6,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.by;
+import com.baidu.tieba.util.cb;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class c implements x {
@@ -50,7 +50,7 @@ public class c implements x {
 
     @Override // com.baidu.tieba.im.creategroup.x
     public View a() {
-        by.a(this.a, "create_g_intro", "pv", 1, new Object[0]);
+        cb.a(this.a, "create_g_intro", "pv", 1, new Object[0]);
         return this.b;
     }
 
@@ -60,15 +60,15 @@ public class c implements x {
     }
 
     public void e() {
-        this.a.getLayoutMode().a(TiebaApplication.h().al() == 1);
+        this.a.getLayoutMode().a(TiebaApplication.g().al() == 1);
         this.a.getLayoutMode().a(this.e);
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
     public void i() {
-        this.a.getLayoutMode().a(TiebaApplication.h().al() == 1);
+        this.a.getLayoutMode().a(TiebaApplication.g().al() == 1);
         this.a.getLayoutMode().a(this.b);
-        if (TiebaApplication.h().al() == 1) {
+        if (TiebaApplication.g().al() == 1) {
             this.d.setHintTextColor(this.a.getResources().getColor(R.color.create_group_input_hintcolor_1));
         } else {
             this.d.setHintTextColor(this.a.getResources().getColor(R.color.create_group_input_hintcolor));

@@ -1,8 +1,10 @@
 package com.baidu.tieba.im.mygroup;
 
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.tieba.im.message.cy;
+import com.baidu.tieba.im.message.da;
+import com.baidu.tieba.im.message.s;
 /* loaded from: classes.dex */
-class d implements q {
+class d implements com.baidu.tieba.im.messageCenter.g {
     final /* synthetic */ MyGroupFragment a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,8 +12,25 @@ class d implements q {
         this.a = myGroupFragment;
     }
 
-    @Override // com.baidu.adp.widget.ListView.q
-    public void a(int i, int i2) {
-        this.a.a();
+    @Override // com.baidu.tieba.im.messageCenter.g
+    public void a(s sVar) {
+        switch (sVar.w()) {
+            case -109:
+            case 103101:
+            case 103102:
+            case 103104:
+            case 103105:
+            case 103112:
+                if (sVar instanceof da) {
+                    da daVar = (da) sVar;
+                    if (daVar.l() && (!(sVar instanceof cy) || daVar.m() != 2230110)) {
+                        return;
+                    }
+                }
+                this.a.c = true;
+                return;
+            default:
+                return;
+        }
     }
 }

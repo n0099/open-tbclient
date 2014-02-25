@@ -1,28 +1,21 @@
 package com.baidu.tieba;
-
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.tieba.util.DatabaseService;
 /* loaded from: classes.dex */
-class ag extends Handler {
-    final /* synthetic */ LogoActivity a;
+class ag implements com.baidu.tieba.im.messageCenter.g {
+    final /* synthetic */ MainTabActivity a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(LogoActivity logoActivity) {
-        this.a = logoActivity;
+    private ag(MainTabActivity mainTabActivity) {
+        this.a = mainTabActivity;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        boolean z;
-        this.a.c = true;
-        z = this.a.b;
-        if (z) {
-            if (!this.a.getDatabasePath("baidu_tieba.db").exists()) {
-                TiebaApplication.a(DatabaseService.n(), this.a.getBaseContext());
-            }
-            this.a.a(this.a.getBaseContext());
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ag(MainTabActivity mainTabActivity, ag agVar) {
+        this(mainTabActivity);
+    }
+
+    @Override // com.baidu.tieba.im.messageCenter.g
+    public void a(com.baidu.tieba.im.message.s sVar) {
+        if (sVar != null && sVar.w() == -124) {
+            MainTabActivity.a(this.a, sVar);
         }
-        super.handleMessage(message);
     }
 }

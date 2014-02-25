@@ -1,147 +1,71 @@
 package com.baidu.tieba.model;
 
-import android.content.Context;
-import android.text.TextUtils;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.AccountData;
-import com.baidu.tieba.util.DatabaseService;
-import com.slidingmenu.lib.R;
+import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bz extends BdAsyncTask<Boolean, bx, bx> {
-    final /* synthetic */ bx a;
-    private com.baidu.tieba.util.ax b;
-    private volatile boolean c;
-    private boolean d;
+public class bz extends BdAsyncTask<Integer, Integer, Integer> {
+    private com.baidu.tieba.util.ba a = null;
+    private String b;
+    private long c;
+    private String d;
+    private WeakReference<by> e;
 
-    private bz(bx bxVar) {
-        this.a = bxVar;
+    public bz(String str, long j, String str2, by byVar) {
         this.b = null;
-        this.c = false;
-        this.d = false;
+        this.c = 0L;
+        this.e = null;
+        this.b = str;
+        this.c = j;
+        this.e = new WeakReference<>(byVar);
+        this.d = str2;
+        setPriority(3);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public bx a(Boolean... boolArr) {
-        bx bxVar;
-        Context context;
-        String e;
-        Context context2;
-        boolean booleanValue = boolArr[0].booleanValue();
-        this.d = boolArr[1].booleanValue();
+    public Integer a(Integer... numArr) {
         try {
-            if (this.a.c() && booleanValue && (e = DatabaseService.e()) != null) {
-                context2 = this.a.p;
-                bxVar = new bx(context2);
-                bxVar.b(e);
-                c((Object[]) new bx[]{bxVar});
-                this.d = false;
-            } else {
-                bxVar = null;
+            if (this.c != 0 && this.b != null) {
+                this.a = new com.baidu.tieba.util.ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/c/forum/unfavolike");
+                this.a.a("fid", String.valueOf(this.c));
+                this.a.a("kw", this.b);
+                this.a.a("favo_type", SocialConstants.TRUE);
+                this.a.a("st_type", this.d);
+                this.a.e(true);
+                this.a.m();
             }
-            if (!this.c && this.a.b() != null) {
-                this.b = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/u/user/profile");
-                this.b.a(SapiAccountManager.SESSION_UID, this.a.b());
-                this.b.a("need_post_count", SocialConstants.TRUE);
-                String m = this.b.m();
-                if (this.b.d()) {
-                    context = this.a.p;
-                    bx bxVar2 = new bx(context);
-                    bxVar2.b(m);
-                    if (this.a.c()) {
-                        DatabaseService.h(m);
-                        AccountData E = TiebaApplication.E();
-                        if (E == null) {
-                            return null;
-                        }
-                        if (bxVar2.d() != null && !TextUtils.isEmpty(bxVar2.d().getPortrait())) {
-                            DatabaseService.c(E.getAccount(), bxVar2.d().getPortrait());
-                            E.setPortrait(bxVar2.d().getPortrait());
-                            return bxVar2;
-                        }
-                        return bxVar2;
+            return 1;
+        } catch (Exception e) {
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.getMessage());
+            return 0;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(Integer num) {
+        by byVar;
+        super.a((bz) num);
+        if (this.e != null && (byVar = this.e.get()) != null) {
+            if (this.a != null) {
+                if (this.a.d()) {
+                    if (num.intValue() == 1) {
+                        TiebaApplication.g().f(this.b);
+                        byVar.a(this.b, this.c);
+                        return;
                     }
-                    return bxVar2;
+                    byVar.b(this.b, this.c);
+                    return;
                 }
-                return null;
+                byVar.b(this.b, this.c);
+                return;
             }
-            return bxVar;
-        } catch (Exception e2) {
-            com.baidu.adp.lib.g.e.b(getClass().getName(), "doInBackground", e2.getMessage());
-            return null;
+            byVar.b(this.b, this.c);
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void b(bx... bxVarArr) {
-        com.baidu.adp.a.g gVar;
-        boolean z = false;
-        super.b((Object[]) bxVarArr);
-        bx bxVar = bxVarArr[0];
-        if (bxVar != null) {
-            this.a.a(bxVar.d());
-            this.a.a(bxVar.a());
-            z = true;
-        }
-        this.a.mLoadDataMode = 2;
-        this.a.setErrorString(null);
-        gVar = this.a.mLoadDataCallBack;
-        gVar.a(Boolean.valueOf(z));
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(bx bxVar) {
-        com.baidu.adp.a.g gVar;
-        Context context;
-        com.baidu.adp.a.g gVar2;
-        com.baidu.adp.a.g gVar3;
-        super.a((bz) bxVar);
-        this.a.n = null;
-        bx bxVar2 = this.a;
-        gVar = this.a.mLoadDataCallBack;
-        bxVar2.o = new e(gVar);
-        if (bxVar != null) {
-            this.a.a(bxVar.d());
-            this.a.a(bxVar.a());
-            this.a.f().e(bxVar.d().getPortrait());
-            this.a.mLoadDataMode = 1;
-            gVar3 = this.a.mLoadDataCallBack;
-            gVar3.a(true);
-            return;
-        }
-        if (this.b != null && this.d) {
-            this.a.setErrorString(this.b.j());
-        } else {
-            bx bxVar3 = this.a;
-            context = this.a.p;
-            bxVar3.setErrorString(context.getString(R.string.neterror));
-        }
-        this.a.mLoadDataMode = 1;
-        gVar2 = this.a.mLoadDataCallBack;
-        gVar2.a(false);
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        com.baidu.adp.a.g gVar;
-        super.cancel(true);
-        this.c = true;
-        if (this.b != null) {
-            this.b.k();
-            this.b = null;
-        }
-        this.a.n = null;
-        gVar = this.a.mLoadDataCallBack;
-        gVar.a(false);
     }
 }

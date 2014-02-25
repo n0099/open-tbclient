@@ -1,5 +1,6 @@
 package com.baidu.adp.lib.webSocket;
 
+import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import java.io.OutputStream;
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
@@ -10,7 +11,7 @@ public class c extends OutputStream {
     private ByteBuffer c;
 
     public c() {
-        this(131072, 65536);
+        this(AccessibilityEventCompat.TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY, AccessibilityEventCompat.TYPE_VIEW_ACCESSIBILITY_FOCUS_CLEARED);
     }
 
     public c(int i, int i2) {

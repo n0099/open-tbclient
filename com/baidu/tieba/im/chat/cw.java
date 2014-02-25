@@ -1,20 +1,29 @@
 package com.baidu.tieba.im.chat;
 
-import android.content.DialogInterface;
+import android.view.View;
+import com.baidu.tieba.view.HeadImageView;
 /* loaded from: classes.dex */
-class cw implements DialogInterface.OnClickListener {
-    final /* synthetic */ int a;
-    final /* synthetic */ cp b;
+class cw implements com.baidu.tieba.util.cj {
+    final /* synthetic */ cv a;
+    private final /* synthetic */ String b;
+    private final /* synthetic */ com.baidu.adp.widget.ImageView.b c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cw(cp cpVar, int i) {
-        this.b = cpVar;
-        this.a = i;
+    public cw(cv cvVar, String str, com.baidu.adp.widget.ImageView.b bVar) {
+        this.a = cvVar;
+        this.b = str;
+        this.c = bVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        dialogInterface.dismiss();
-        this.b.b(this.a);
+    @Override // com.baidu.tieba.util.cj
+    public boolean a(View view) {
+        if ((view instanceof HeadImageView) && this.b.equals(view.getTag())) {
+            view.setTag(null);
+            HeadImageView headImageView = (HeadImageView) view;
+            headImageView.a();
+            this.c.a(headImageView);
+            return false;
+        }
+        return false;
     }
 }

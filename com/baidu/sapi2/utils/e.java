@@ -5,7 +5,6 @@ import android.os.Environment;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import com.baidu.account.AccountProxy;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -16,6 +15,7 @@ import java.util.UUID;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
+import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public final class e {
     private static final String a = "bd_setting_i";
@@ -57,12 +57,12 @@ public final class e {
         }
         String c22 = c(context);
         if (!z) {
-            return com.baidu.sapi2.utils.b.b.a((AccountProxy.BAIDUACCOUNT_TYPE + c22).getBytes(), true);
+            return com.baidu.sapi2.utils.b.b.a(("com.baidu" + c22).getBytes(), true);
         }
         String str3 = null;
         String string = Settings.System.getString(context.getContentResolver(), b);
         if (TextUtils.isEmpty(string)) {
-            str3 = com.baidu.sapi2.utils.b.b.a((AccountProxy.BAIDUACCOUNT_TYPE + str + c22).getBytes(), true);
+            str3 = com.baidu.sapi2.utils.b.b.a(("com.baidu" + str + c22).getBytes(), true);
             string = Settings.System.getString(context.getContentResolver(), str3);
             if (!TextUtils.isEmpty(string)) {
                 Settings.System.putString(context.getContentResolver(), b, string);
@@ -125,7 +125,7 @@ public final class e {
                     break;
                 }
                 sb.append(readLine);
-                sb.append("\r\n");
+                sb.append(IOUtils.LINE_SEPARATOR_WINDOWS);
             }
             bufferedReader.close();
             Object[] split = new String(b(c, c, com.baidu.sapi2.utils.b.c.a(sb.toString()))).split("=");

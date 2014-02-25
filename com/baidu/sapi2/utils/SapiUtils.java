@@ -68,28 +68,31 @@ public class SapiUtils {
     public static int readNetworkOperatorType(Context context) {
         int i;
         String networkOperator = ((TelephonyManager) context.getSystemService("phone")).getNetworkOperator();
-        if (!TextUtils.isEmpty(networkOperator) && networkOperator.substring(0, 3).equals("460")) {
-            try {
-                i = Integer.parseInt(networkOperator.substring(3));
-            } catch (NumberFormatException e) {
-                L.e(e);
-                i = 0;
+        if (TextUtils.isEmpty(networkOperator)) {
+            return 0;
+        }
+        if (networkOperator.length() < 3 || networkOperator.substring(0, 3).equals("460")) {
+            if (networkOperator.length() > 3) {
+                try {
+                    i = Integer.parseInt(networkOperator.substring(3));
+                } catch (NumberFormatException e) {
+                    L.e(e);
+                    i = 0;
+                }
+                switch (i) {
+                    case 0:
+                    case 2:
+                    case 7:
+                        return 1;
+                    case 1:
+                    case 6:
+                        return 2;
+                    case 3:
+                    case 5:
+                        return 3;
+                }
             }
-            switch (i) {
-                case 0:
-                case 2:
-                case 7:
-                    return 1;
-                case 1:
-                case 6:
-                    return 2;
-                case 3:
-                case 5:
-                    return 3;
-                case 4:
-                default:
-                    return 0;
-            }
+            return 0;
         }
         return 0;
     }

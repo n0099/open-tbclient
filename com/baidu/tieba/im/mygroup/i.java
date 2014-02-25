@@ -27,14 +27,14 @@ public class i extends com.baidu.adp.a.e {
         this.e.a(this.a.getString(R.string.my_group));
         this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.f = (NoNetworkView) this.a.findViewById(R.id.view_no_network);
-        this.c = (MyGroupFragment) this.a.getSupportFragmentManager().a(R.id.my_group_fragment);
+        this.c = (MyGroupFragment) this.a.getSupportFragmentManager().findFragmentById(R.id.my_group_fragment);
     }
 
     public void a(int i) {
         this.a.a().a(i == 1);
         this.a.a().a(this.d);
         this.e.c(i);
-        this.c.d(i);
+        this.c.c(i);
         this.f.a(i);
     }
 

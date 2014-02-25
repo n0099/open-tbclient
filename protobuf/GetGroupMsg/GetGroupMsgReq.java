@@ -17,7 +17,7 @@ import protobuf.Im;
 public final class GetGroupMsgReq {
 
     /* loaded from: classes.dex */
-    public final class DataReq extends GeneratedMessageLite implements d {
+    public final class DataReq extends GeneratedMessageLite implements c {
         public static final int GROUPMIDS_FIELD_NUMBER = 6;
         public static final int HEIGHT_FIELD_NUMBER = 2;
         public static final int PUSHTIMES_FIELD_NUMBER = 5;
@@ -34,8 +34,13 @@ public final class GetGroupMsgReq {
         private int smallHeight_;
         private int smallWidth_;
         private int width_;
-        public static Parser<DataReq> PARSER = new b();
+        public static Parser<DataReq> PARSER = new a();
         private static final DataReq a = new DataReq(true);
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ DataReq(GeneratedMessageLite.Builder builder, DataReq dataReq) {
+            this(builder);
+        }
 
         private DataReq(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -58,63 +63,59 @@ public final class GetGroupMsgReq {
             return a;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r3v3, resolved type: java.util.List<protobuf.Im$GroupLastId> */
-        /* JADX WARN: Multi-variable type inference failed */
         private DataReq(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-            boolean z = false;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
             a();
+            boolean z = false;
             boolean z2 = false;
             while (!z) {
                 try {
                     try {
-                        try {
-                            int readTag = codedInputStream.readTag();
-                            switch (readTag) {
-                                case 0:
+                        int readTag = codedInputStream.readTag();
+                        switch (readTag) {
+                            case 0:
+                                z = true;
+                                break;
+                            case 8:
+                                this.bitField0_ |= 1;
+                                this.width_ = codedInputStream.readInt32();
+                                break;
+                            case 16:
+                                this.bitField0_ |= 2;
+                                this.height_ = codedInputStream.readInt32();
+                                break;
+                            case Im.GroupInfo.ISHIDEPOSITION_FIELD_NUMBER /* 24 */:
+                                this.bitField0_ |= 4;
+                                this.smallWidth_ = codedInputStream.readInt32();
+                                break;
+                            case 32:
+                                this.bitField0_ |= 8;
+                                this.smallHeight_ = codedInputStream.readInt32();
+                                break;
+                            case 42:
+                                this.bitField0_ |= 16;
+                                this.pushTimes_ = codedInputStream.readBytes();
+                                break;
+                            case 50:
+                                if (!(z2 & true)) {
+                                    this.groupMids_ = new ArrayList();
+                                    z2 |= true;
+                                }
+                                this.groupMids_.add((Im.GroupLastId) codedInputStream.readMessage(Im.GroupLastId.PARSER, extensionRegistryLite));
+                                break;
+                            default:
+                                if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
-                                case 8:
-                                    this.bitField0_ |= 1;
-                                    this.width_ = codedInputStream.readInt32();
+                                } else {
                                     break;
-                                case 16:
-                                    this.bitField0_ |= 2;
-                                    this.height_ = codedInputStream.readInt32();
-                                    break;
-                                case Im.GroupInfo.ISHIDEPOSITION_FIELD_NUMBER /* 24 */:
-                                    this.bitField0_ |= 4;
-                                    this.smallWidth_ = codedInputStream.readInt32();
-                                    break;
-                                case Im.GroupInfo.ISNEWLYCREATE_FIELD_NUMBER /* 32 */:
-                                    this.bitField0_ |= 8;
-                                    this.smallHeight_ = codedInputStream.readInt32();
-                                    break;
-                                case 42:
-                                    this.bitField0_ |= 16;
-                                    this.pushTimes_ = codedInputStream.readBytes();
-                                    break;
-                                case 50:
-                                    if (!(z2 & true)) {
-                                        this.groupMids_ = new ArrayList();
-                                        z2 |= true;
-                                    }
-                                    this.groupMids_.add(codedInputStream.readMessage(Im.GroupLastId.PARSER, extensionRegistryLite));
-                                    break;
-                                default:
-                                    if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
-                                        z = true;
-                                        break;
-                                    } else {
-                                        break;
-                                    }
-                            }
-                        } catch (IOException e) {
-                            throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
+                                }
                         }
-                    } catch (InvalidProtocolBufferException e2) {
-                        throw e2.setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
                 } finally {
                     if (z2 & true) {
@@ -123,6 +124,11 @@ public final class GetGroupMsgReq {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ DataReq(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, DataReq dataReq) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -197,7 +203,7 @@ public final class GetGroupMsgReq {
             return this.groupMids_;
         }
 
-        public List<? extends protobuf.m> getGroupMidsOrBuilderList() {
+        public List<? extends protobuf.o> getGroupMidsOrBuilderList() {
             return this.groupMids_;
         }
 
@@ -209,7 +215,7 @@ public final class GetGroupMsgReq {
             return this.groupMids_.get(i);
         }
 
-        public protobuf.m getGroupMidsOrBuilder(int i) {
+        public protobuf.o getGroupMidsOrBuilder(int i) {
             return this.groupMids_.get(i);
         }
 
@@ -339,32 +345,32 @@ public final class GetGroupMsgReq {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static c newBuilder() {
-            return c.f();
+        public static b newBuilder() {
+            return b.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public c newBuilderForType() {
+        public b newBuilderForType() {
             return newBuilder();
         }
 
-        public static c newBuilder(DataReq dataReq) {
+        public static b newBuilder(DataReq dataReq) {
             return newBuilder().mergeFrom(dataReq);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public c toBuilder() {
+        public b toBuilder() {
             return newBuilder(this);
         }
     }
 
     /* loaded from: classes.dex */
-    public final class GetGroupMsgReqIdl extends GeneratedMessageLite implements g {
+    public final class GetGroupMsgReqIdl extends GeneratedMessageLite implements f {
         public static final int CUID_FIELD_NUMBER = 1;
         public static final int DATA_FIELD_NUMBER = 2;
-        public static Parser<GetGroupMsgReqIdl> PARSER = new e();
+        public static Parser<GetGroupMsgReqIdl> PARSER = new d();
         private static final GetGroupMsgReqIdl a = new GetGroupMsgReqIdl(true);
         private static final long serialVersionUID = 0;
         private int bitField0_;
@@ -372,6 +378,11 @@ public final class GetGroupMsgReq {
         private DataReq data_;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ GetGroupMsgReqIdl(GeneratedMessageLite.Builder builder, GetGroupMsgReqIdl getGroupMsgReqIdl) {
+            this(builder);
+        }
 
         private GetGroupMsgReqIdl(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -395,13 +406,12 @@ public final class GetGroupMsgReq {
         }
 
         private GetGroupMsgReqIdl(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-            c cVar;
-            boolean z;
+            b bVar;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
             a();
-            boolean z2 = false;
-            while (!z2) {
+            boolean z = false;
+            while (!z) {
                 try {
                     try {
                         int readTag = codedInputStream.readTag();
@@ -412,32 +422,28 @@ public final class GetGroupMsgReq {
                             case 10:
                                 this.bitField0_ |= 1;
                                 this.cuid_ = codedInputStream.readBytes();
-                                z = z2;
                                 break;
                             case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                                 if ((this.bitField0_ & 2) != 2) {
-                                    cVar = null;
+                                    bVar = null;
                                 } else {
-                                    cVar = this.data_.toBuilder();
+                                    bVar = this.data_.toBuilder();
                                 }
                                 this.data_ = (DataReq) codedInputStream.readMessage(DataReq.PARSER, extensionRegistryLite);
-                                if (cVar != null) {
-                                    cVar.mergeFrom(this.data_);
-                                    this.data_ = cVar.buildPartial();
+                                if (bVar != null) {
+                                    bVar.mergeFrom(this.data_);
+                                    this.data_ = bVar.buildPartial();
                                 }
                                 this.bitField0_ |= 2;
-                                z = z2;
                                 break;
                             default:
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
                                 } else {
-                                    z = z2;
                                     break;
                                 }
                         }
-                        z2 = z;
                     } catch (InvalidProtocolBufferException e) {
                         throw e.setUnfinishedMessage(this);
                     } catch (IOException e2) {
@@ -447,6 +453,11 @@ public final class GetGroupMsgReq {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ GetGroupMsgReqIdl(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, GetGroupMsgReqIdl getGroupMsgReqIdl) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -578,23 +589,23 @@ public final class GetGroupMsgReq {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static f newBuilder() {
-            return f.f();
+        public static e newBuilder() {
+            return e.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public f newBuilderForType() {
+        public e newBuilderForType() {
             return newBuilder();
         }
 
-        public static f newBuilder(GetGroupMsgReqIdl getGroupMsgReqIdl) {
+        public static e newBuilder(GetGroupMsgReqIdl getGroupMsgReqIdl) {
             return newBuilder().mergeFrom(getGroupMsgReqIdl);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public f toBuilder() {
+        public e toBuilder() {
             return newBuilder(this);
         }
     }

@@ -7,8 +7,8 @@ import android.content.IntentFilter;
 public final class o {
     private final Activity a;
     private final com.baidu.tieba.barcode.b.a.a b = new com.baidu.tieba.barcode.b.a.b().a();
-    private final BroadcastReceiver c = new r(this);
-    private q d;
+    private final BroadcastReceiver c = new q(this, null);
+    private p d;
 
     public o(Activity activity) {
         this.a = activity;
@@ -17,7 +17,7 @@ public final class o {
 
     public synchronized void a() {
         e();
-        this.d = new q(this);
+        this.d = new p(this, null);
         this.b.a(this.d, new Object[0]);
     }
 
@@ -32,9 +32,9 @@ public final class o {
     }
 
     public synchronized void e() {
-        q qVar = this.d;
-        if (qVar != null) {
-            qVar.cancel(true);
+        p pVar = this.d;
+        if (pVar != null) {
+            pVar.cancel(true);
             this.d = null;
         }
     }

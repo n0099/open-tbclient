@@ -1,75 +1,60 @@
 package com.baidu.tieba.more;
 
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.tieba.view.NavigationBar;
-import com.slidingmenu.lib.R;
+import android.view.animation.DecelerateInterpolator;
+import android.widget.Scroller;
 /* loaded from: classes.dex */
-public class an extends com.baidu.adp.a.e {
-    private NavigationBar a;
-    private ViewGroup c;
-    private ImageView d;
-    private TextView e;
-    private SettingTextTipView f;
-    private SecretSettingActivity g;
+public class an {
+    private View a;
+    private Scroller b;
+    private int c;
+    private int d;
+    private int e;
+    private boolean f;
+    private Runnable g = new ao(this);
 
-    public an(SecretSettingActivity secretSettingActivity) {
-        super(secretSettingActivity);
-        this.a = null;
-        this.g = secretSettingActivity;
-        secretSettingActivity.setContentView(R.layout.secret_setting_activity);
-    }
-
-    public void a(SecretSettingActivity secretSettingActivity) {
-        b(secretSettingActivity);
-    }
-
-    public void a(int i) {
-        this.g.getLayoutMode().a(i == 1);
-        this.g.getLayoutMode().a((View) this.c);
-        this.a.c(i);
-        this.f.a(i);
-    }
-
-    void b(SecretSettingActivity secretSettingActivity) {
-        this.c = (RelativeLayout) secretSettingActivity.findViewById(R.id.parent);
-        this.a = (NavigationBar) secretSettingActivity.findViewById(R.id.view_navigation_bar);
-        this.a.a(secretSettingActivity.getString(R.string.secretSetting_title));
-        this.d = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, secretSettingActivity);
-        this.e = (TextView) secretSettingActivity.findViewById(R.id.only_send_me);
-        this.e.setOnClickListener(this.g);
-        this.f = (SettingTextTipView) secretSettingActivity.findViewById(R.id.black_address_list);
-        this.f.setOnClickListener(this.g);
+    public an(View view, int i) {
+        this.a = view;
+        this.b = new Scroller(view.getContext(), new DecelerateInterpolator());
+        this.c = view.getPaddingTop();
+        this.d = -view.getMeasuredHeight();
+        this.e = i;
+        if (view.getVisibility() != 0) {
+            this.f = false;
+        } else {
+            this.f = true;
+        }
     }
 
     public void a() {
-        this.g.showLoadingDialog(this.g.getString(R.string.loading));
+        if (!this.f) {
+            this.f = true;
+            int paddingLeft = this.a.getPaddingLeft();
+            int paddingTop = this.a.getPaddingTop() == this.c ? -this.a.getMeasuredHeight() : this.a.getPaddingTop();
+            int paddingRight = this.a.getPaddingRight();
+            int paddingBottom = this.a.getPaddingBottom();
+            this.a.setVisibility(0);
+            this.a.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
+            if (!this.b.isFinished()) {
+                this.b.forceFinished(true);
+                this.a.removeCallbacks(this.g);
+            }
+            int paddingTop2 = this.a.getPaddingTop();
+            this.b.startScroll(paddingTop2, 0, this.c - paddingTop2, 0, this.e);
+            this.a.post(this.g);
+        }
     }
 
-    public void e() {
-        this.f.c();
-    }
-
-    public void f() {
-        this.g.showLoadingDialog(this.g.getString(R.string.saving));
-    }
-
-    public void g() {
-        this.g.closeLoadingDialog();
-    }
-
-    public ImageView h() {
-        return this.d;
-    }
-
-    public TextView i() {
-        return this.e;
-    }
-
-    public SettingTextTipView j() {
-        return this.f;
+    public void b() {
+        if (this.f) {
+            this.f = false;
+            if (!this.b.isFinished()) {
+                this.b.forceFinished(true);
+                this.a.removeCallbacks(this.g);
+            }
+            int paddingTop = this.a.getPaddingTop();
+            this.b.startScroll(paddingTop, 0, this.d - paddingTop, 0, this.e);
+            this.a.post(this.g);
+        }
     }
 }

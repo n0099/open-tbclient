@@ -112,15 +112,13 @@ public class RopeByteString extends ByteString {
         return this.totalLength;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.google.protobuf.ByteString
-    public int getTreeDepth() {
+    protected int getTreeDepth() {
         return this.treeDepth;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.google.protobuf.ByteString
-    public boolean isBalanced() {
+    protected boolean isBalanced() {
         return this.totalLength >= minLengthByDepth[this.treeDepth];
     }
 
@@ -151,9 +149,8 @@ public class RopeByteString extends ByteString {
         return this;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.google.protobuf.ByteString
-    public void copyToInternal(byte[] bArr, int i, int i2, int i3) {
+    protected void copyToInternal(byte[] bArr, int i, int i2, int i3) {
         if (i + i3 <= this.leftLength) {
             this.left.copyToInternal(bArr, i, i2, i3);
         } else if (i >= this.leftLength) {
@@ -202,9 +199,8 @@ public class RopeByteString extends ByteString {
         return this.right.partialIsValidUtf8(this.left.partialIsValidUtf8(0, 0, this.leftLength), 0, this.right.size()) == 0;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.google.protobuf.ByteString
-    public int partialIsValidUtf8(int i, int i2, int i3) {
+    protected int partialIsValidUtf8(int i, int i2, int i3) {
         if (i2 + i3 <= this.leftLength) {
             return this.left.partialIsValidUtf8(i, i2, i3);
         }
@@ -294,15 +290,13 @@ public class RopeByteString extends ByteString {
         return i;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.google.protobuf.ByteString
-    public int peekCachedHashCode() {
+    protected int peekCachedHashCode() {
         return this.hash;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.google.protobuf.ByteString
-    public int partialHash(int i, int i2, int i3) {
+    protected int partialHash(int i, int i2, int i3) {
         if (i2 + i3 <= this.leftLength) {
             return this.left.partialHash(i, i2, i3);
         }
@@ -323,9 +317,8 @@ public class RopeByteString extends ByteString {
         return new RopeInputStream();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class Balancer {
+    class Balancer {
         private final Stack<ByteString> prefixesStack;
 
         private Balancer() {

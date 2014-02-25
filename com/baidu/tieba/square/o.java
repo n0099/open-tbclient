@@ -17,7 +17,7 @@ public class o implements AdapterView.OnItemClickListener {
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         q qVar;
         qVar = this.a.i;
-        ArrayList<z> arrayList = qVar.a().d().e;
+        ArrayList<ab> arrayList = qVar.a().d().e;
         if (arrayList == null || i >= arrayList.size()) {
         }
     }

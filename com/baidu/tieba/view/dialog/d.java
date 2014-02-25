@@ -9,10 +9,9 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
-import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.j;
-import com.baidu.tieba.util.bs;
+import com.baidu.tieba.k;
+import com.baidu.tieba.util.bq;
 import com.slidingmenu.lib.R;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -80,10 +79,10 @@ public class d {
             if (!TextUtils.isEmpty(this.a)) {
                 this.h.setText(this.a);
                 this.h.setVisibility(0);
-                bs.f(this.g, (int) R.drawable.bg_unite_popup_share_down);
+                bq.f(this.g, (int) R.drawable.bg_unite_popup_share_down);
             } else {
                 this.h.setVisibility(8);
-                bs.f(this.g, (int) R.drawable.bg_unite_popup);
+                bq.f(this.g, (int) R.drawable.bg_unite_popup);
             }
             if (this.b != null && this.b.size() > 0) {
                 int size = this.b.size();
@@ -121,15 +120,15 @@ public class d {
     }
 
     private void d() {
-        int al = TiebaApplication.h().al();
-        if (this.e instanceof j) {
-            j jVar = (j) this.e;
-            jVar.getLayoutMode().a(al == 1);
-            jVar.getLayoutMode().a((View) this.f);
-        } else if (this.e instanceof BaseFragmentActivity) {
-            BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) this.e;
-            baseFragmentActivity.a().a(al == 1);
-            baseFragmentActivity.a().a((View) this.f);
+        int al = TiebaApplication.g().al();
+        if (this.e instanceof com.baidu.tieba.f) {
+            com.baidu.tieba.f fVar = (com.baidu.tieba.f) this.e;
+            fVar.getLayoutMode().a(al == 1);
+            fVar.getLayoutMode().a((View) this.f);
+        } else if (this.e instanceof k) {
+            k kVar = (k) this.e;
+            kVar.a().a(al == 1);
+            kVar.a().a((View) this.f);
         }
     }
 
@@ -139,25 +138,27 @@ public class d {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:17:0x009f  */
+    /* JADX WARN: Removed duplicated region for block: B:16:0x009c  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private View d(int i) {
-        String valueOf;
         int i2;
+        String str;
         int i3;
+        Exception exc;
+        int i4;
         View inflate = LayoutInflater.from(this.e).inflate(R.layout.dialog_bdlist_item, this.g, false);
         Button button = (Button) inflate.findViewById(R.id.dialog_item_btn);
         Object obj = this.b.get(i);
-        String str = "";
+        String str2 = "";
         int intValue = m.get(0)[0].intValue();
         int intValue2 = m.get(0)[1].intValue();
         if (obj instanceof Object[]) {
             Object[] objArr = (Object[]) obj;
             int length = objArr.length;
             if (length > 0) {
-                str = String.valueOf(objArr[0]);
+                str2 = String.valueOf(objArr[0]);
             }
             if (length > 1) {
                 try {
@@ -165,38 +166,40 @@ public class d {
                         i2 = m.get(1)[0].intValue();
                         try {
                             i3 = m.get(1)[1].intValue();
+                            str = str2;
                         } catch (Exception e) {
-                            e = e;
-                            e.printStackTrace();
-                            valueOf = str;
-                            button.setText(valueOf);
-                            bs.f((View) button, i2);
-                            bs.a(button, intValue2, 3);
+                            i4 = i2;
+                            exc = e;
+                            exc.printStackTrace();
+                            i2 = i4;
+                            i3 = intValue2;
+                            str = str2;
+                            button.setText(str);
+                            bq.f((View) button, i2);
+                            bq.a(button, i3, 3);
                             if (this.c != null) {
                             }
                             this.g.addView(inflate);
                             return inflate;
                         }
-                    } else {
-                        i3 = intValue2;
-                        i2 = intValue;
                     }
-                    intValue2 = i3;
                 } catch (Exception e2) {
-                    e = e2;
-                    i2 = intValue;
+                    exc = e2;
+                    i4 = intValue;
                 }
-            } else {
-                i2 = intValue;
             }
-            valueOf = str;
-        } else {
-            valueOf = String.valueOf(obj);
+            i3 = intValue2;
             i2 = intValue;
+            str = str2;
+        } else {
+            String valueOf = String.valueOf(obj);
+            i2 = intValue;
+            str = valueOf;
+            i3 = intValue2;
         }
-        button.setText(valueOf);
-        bs.f((View) button, i2);
-        bs.a(button, intValue2, 3);
+        button.setText(str);
+        bq.f((View) button, i2);
+        bq.a(button, i3, 3);
         if (this.c != null) {
             button.setOnClickListener(new e(this, i, button));
         }

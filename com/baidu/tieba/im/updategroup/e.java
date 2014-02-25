@@ -34,7 +34,7 @@ public class e extends g {
     }
 
     private void n() {
-        this.h.getLayoutMode().a(TiebaApplication.h().al() == 1);
+        this.h.getLayoutMode().a(TiebaApplication.g().al() == 1);
         this.h.getLayoutMode().a(this.a);
     }
 

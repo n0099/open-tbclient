@@ -20,6 +20,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -33,7 +34,7 @@ public final class SapiCache {
     private static final String a = "<link href=\"\" type=text/css rel=stylesheet id=product-skin>";
     private static final String b = "file:///android_asset";
     private static final com.baidu.sapi2.a.a c = new com.baidu.sapi2.a.a();
-    private static final Map<String, String> d = new ConcurrentHashMap();
+    private static final Map<String, SoftReference<String>> d = new ConcurrentHashMap();
     private static final List<String> e = new ArrayList();
     private static final List<String> f = new ArrayList();
     private static Context g;
@@ -55,7 +56,7 @@ public final class SapiCache {
     }
 
     static void a(String str, String str2) {
-        d.put(str, str2);
+        d.put(str, new SoftReference<>(str2));
     }
 
     static void a(String str) {
@@ -70,8 +71,8 @@ public final class SapiCache {
     static String b(Context context, String str) {
         d();
         if (d.a(context).e().b().a()) {
-            if (d.containsKey(str)) {
-                return d.get(str);
+            if (d.containsKey(str) && d.get(str) != null && d.get(str).get() != null) {
+                return d.get(str).get();
             }
             return c(context, str);
         }
@@ -318,8 +319,8 @@ public final class SapiCache {
                             SapiCache.c.a(SapiCache.g, AnonymousClass1.this.a.c.a, new i() { // from class: com.baidu.sapi2.SapiCache.3.1.1.1.1
                                 @Override // com.baidu.sapi2.a.i
                                 public void onSuccess(String str) {
-                                    d.a(SapiCache.g).a(AnonymousClass1.this.c);
-                                    if (!TextUtils.isEmpty(AnonymousClass1.this.a.a) && !TextUtils.isEmpty(str)) {
+                                    if (!TextUtils.isEmpty(AnonymousClass1.this.a.a) && !TextUtils.isEmpty(str) && AnonymousClass1.this.a.c.c.equals(com.baidu.sapi2.utils.b.d.a(str))) {
+                                        d.a(SapiCache.g).a(AnonymousClass1.this.c);
                                         SapiCache.a(AnonymousClass1.this.a.a, str);
                                         SapiCache.a(SapiCache.g, b.a.C0010a.a(AnonymousClass1.this.a.a), str.getBytes());
                                         SapiCache.a(b.a.C0010a.c(AnonymousClass1.this.a.a), str.getBytes());
@@ -402,7 +403,7 @@ public final class SapiCache {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [563=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [567=4] */
     static void a(Context context, String str, byte[] bArr) {
         FileOutputStream fileOutputStream;
         Throwable th;
@@ -443,7 +444,7 @@ public final class SapiCache {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [594=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [598=4] */
     static void a(String str, byte[] bArr) {
         FileOutputStream fileOutputStream;
         Throwable th;

@@ -1,82 +1,53 @@
 package com.baidu.tieba.data;
 
+import java.util.ArrayList;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class r {
-    private boolean b;
-    private int d;
-    private int e;
-    private String f;
-    private long c = 0;
-    private af a = new af();
+    private String a;
+    private String b;
+    private String c;
+    private boolean d;
+    private ArrayList<q> e = new ArrayList<>();
 
-    public r() {
-        this.b = true;
-        this.b = false;
+    public String a() {
+        return this.a;
     }
 
-    public int a() {
-        return this.d;
+    public String b() {
+        return this.b;
     }
 
-    public int b() {
+    public ArrayList<q> c() {
         return this.e;
     }
 
-    public String c() {
-        return this.f;
+    public boolean d() {
+        return this.d;
     }
 
-    public void a(String str) {
-        if (str == null || str.length() < 1) {
-            this.b = false;
-            return;
-        }
-        try {
-            a(new JSONObject(str));
-            this.b = true;
-        } catch (Exception e) {
-            this.b = false;
-            com.baidu.adp.lib.g.e.b(getClass().getName(), "parserJson", e.toString());
-        }
+    public void a(boolean z) {
+        this.d = z;
     }
 
     public void a(JSONObject jSONObject) {
         try {
-            this.d = jSONObject.optInt("msign_valid");
-            this.e = jSONObject.optInt("msign_level");
-            this.f = jSONObject.optString("msign_text");
-            JSONArray optJSONArray = jSONObject.optJSONArray("like_forum");
-            this.a.a(this.e);
-            this.a.a(optJSONArray);
-            this.c = jSONObject.optLong("time");
-        } catch (Exception e) {
-            this.b = false;
-            com.baidu.adp.lib.g.e.b(getClass().getName(), "parserJson", e.toString());
+            this.b = jSONObject.optString("publish_time");
+            this.a = jSONObject.optString("total");
+            this.c = jSONObject.optString("update_time");
+            JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
+            if (optJSONArray != null) {
+                int length = optJSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    q qVar = new q();
+                    qVar.a(optJSONArray.getJSONObject(i));
+                    this.e.add(qVar);
+                }
+            }
+        } catch (JSONException e) {
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.toString());
         }
-    }
-
-    public af d() {
-        return this.a;
-    }
-
-    public void a(boolean z) {
-        this.b = z;
-    }
-
-    public boolean e() {
-        return this.b;
-    }
-
-    public boolean f() {
-        return System.currentTimeMillis() / h.f.longValue() == (this.c * 1000) / h.f.longValue();
-    }
-
-    public boolean g() {
-        if (this.a != null) {
-            return this.a.b();
-        }
-        return false;
     }
 }

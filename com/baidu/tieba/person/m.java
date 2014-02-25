@@ -1,25 +1,22 @@
 package com.baidu.tieba.person;
 
 import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements View.OnClickListener {
-    final /* synthetic */ EditHeadActivity a;
+class m implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ l a;
+    private final /* synthetic */ View b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(EditHeadActivity editHeadActivity) {
-        this.a = editHeadActivity;
+    public m(l lVar, View view) {
+        this.a = lVar;
+        this.b = view;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        LinearLayout linearLayout;
-        Button button;
-        linearLayout = this.a.t;
-        linearLayout.setVisibility(0);
-        button = this.a.l;
-        button.setVisibility(8);
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        View findViewWithTag = this.b.findViewWithTag(str);
+        if (findViewWithTag != null) {
+            findViewWithTag.invalidate();
+        }
     }
 }

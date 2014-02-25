@@ -3,7 +3,7 @@ package com.baidu.tieba.im.a;
 import android.location.Address;
 import android.text.TextUtils;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.message.z;
+import com.baidu.tieba.im.message.ac;
 import com.baidu.tieba.im.messageCenter.e;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -29,29 +29,29 @@ public class c implements com.baidu.adp.lib.c.d {
                 dVar2 = this.a.h;
                 dVar2.a();
                 dVar3 = this.a.h;
-                dVar3.G();
+                dVar3.c();
             }
         } else if (address != null) {
             String valueOf = String.valueOf(address.getLatitude());
             String valueOf2 = String.valueOf(address.getLongitude());
-            TiebaApplication.h().x(valueOf);
-            TiebaApplication.h().y(valueOf2);
-            TiebaApplication.h().z(address.getAdminArea());
-            if (TextUtils.isEmpty(TiebaApplication.h().bf()) || TextUtils.isEmpty(TiebaApplication.h().bh())) {
+            TiebaApplication.g().x(valueOf);
+            TiebaApplication.g().y(valueOf2);
+            TiebaApplication.g().z(address.getAdminArea());
+            if (TextUtils.isEmpty(TiebaApplication.g().bc()) || TextUtils.isEmpty(TiebaApplication.g().be())) {
                 dVar4 = this.a.h;
                 if (dVar4 != null) {
                     dVar5 = this.a.h;
                     dVar5.a();
                     dVar6 = this.a.h;
-                    dVar6.G();
+                    dVar6.c();
                     return;
                 }
                 return;
             }
-            z zVar = new z();
-            zVar.b(TiebaApplication.h().bf());
-            zVar.a(TiebaApplication.h().bh());
-            e.a().a(zVar);
+            ac acVar = new ac();
+            acVar.b(TiebaApplication.g().bc());
+            acVar.a(TiebaApplication.g().be());
+            e.a().a(acVar);
         }
     }
 }

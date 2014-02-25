@@ -1,16 +1,31 @@
 package com.baidu.tieba.chat;
+
+import android.content.DialogInterface;
+import com.baidu.tieba.data.chat.ImMessageCenterShowItemData;
+import com.baidu.tieba.model.ag;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class l implements com.baidu.tieba.im.a<Void> {
-    final /* synthetic */ k a;
+public class l implements DialogInterface.OnClickListener {
+    final /* synthetic */ a a;
+    private final /* synthetic */ ImMessageCenterShowItemData b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(k kVar) {
-        this.a = kVar;
+    public l(a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+        this.a = aVar;
+        this.b = imMessageCenterShowItemData;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Void r2) {
-        this.a.b.K();
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        ag agVar;
+        switch (i) {
+            case 0:
+                this.a.i = 4;
+                agVar = this.a.c;
+                agVar.a(this.b, new m(this));
+                return;
+            default:
+                return;
+        }
     }
 }

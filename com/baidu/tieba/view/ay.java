@@ -1,25 +1,82 @@
 package com.baidu.tieba.view;
 
-import android.view.animation.Animation;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Handler;
+import android.os.Message;
+import android.widget.ImageView;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class ay implements Animation.AnimationListener {
-    final /* synthetic */ HorizontalPanelView a;
+class ay extends Handler {
+    final /* synthetic */ GoOnAnimView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ay(HorizontalPanelView horizontalPanelView) {
-        this.a = horizontalPanelView;
+    public ay(GoOnAnimView goOnAnimView) {
+        this.a = goOnAnimView;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        int i;
+        int i2;
+        ImageView imageView;
+        ImageView imageView2;
+        ImageView imageView3;
+        ImageView imageView4;
+        ImageView imageView5;
+        ImageView imageView6;
+        ImageView imageView7;
+        ImageView imageView8;
+        ImageView imageView9;
+        ImageView imageView10;
+        ImageView imageView11;
+        ImageView imageView12;
+        int i3;
+        Handler handler;
+        Handler handler2;
+        super.handleMessage(message);
+        GoOnAnimView goOnAnimView = this.a;
+        i = goOnAnimView.e;
+        goOnAnimView.e = i % 4;
+        i2 = this.a.e;
+        switch (i2) {
+            case 0:
+                imageView10 = this.a.b;
+                imageView10.setImageResource(R.drawable.pic_startpage1_next_1);
+                imageView11 = this.a.c;
+                imageView11.setImageResource(R.drawable.pic_startpage1_next_2);
+                imageView12 = this.a.d;
+                imageView12.setImageResource(R.drawable.pic_startpage1_next_3);
+                break;
+            case 1:
+                imageView7 = this.a.b;
+                imageView7.setImageResource(R.drawable.pic_startpage1_next_3);
+                imageView8 = this.a.c;
+                imageView8.setImageResource(R.drawable.pic_startpage1_next_1);
+                imageView9 = this.a.d;
+                imageView9.setImageResource(R.drawable.pic_startpage1_next_2);
+                break;
+            case 2:
+                imageView4 = this.a.b;
+                imageView4.setImageResource(R.drawable.pic_startpage1_next_2);
+                imageView5 = this.a.c;
+                imageView5.setImageResource(R.drawable.pic_startpage1_next_3);
+                imageView6 = this.a.d;
+                imageView6.setImageResource(R.drawable.pic_startpage1_next_1);
+                break;
+            case 3:
+                imageView = this.a.b;
+                imageView.setImageResource(R.drawable.pic_startpage1_next_2);
+                imageView2 = this.a.c;
+                imageView2.setImageResource(R.drawable.pic_startpage1_next_2);
+                imageView3 = this.a.d;
+                imageView3.setImageResource(R.drawable.pic_startpage1_next_2);
+                break;
+        }
+        GoOnAnimView goOnAnimView2 = this.a;
+        i3 = goOnAnimView2.e;
+        goOnAnimView2.e = i3 + 1;
+        handler = this.a.f;
+        handler.removeMessages(0);
+        handler2 = this.a.f;
+        handler2.sendEmptyMessageDelayed(0, 300L);
     }
 }

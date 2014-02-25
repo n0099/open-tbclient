@@ -1,29 +1,25 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
-import com.baidu.tieba.pb.NewPbActivity;
+import com.baidu.tieba.view.HeadImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ao implements View.OnClickListener {
-    final /* synthetic */ com.baidu.tieba.model.bl a;
-    final /* synthetic */ am b;
+public class ao implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ an a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(am amVar, com.baidu.tieba.model.bl blVar) {
-        this.b = amVar;
-        this.a = blVar;
+    public ao(an anVar) {
+        this.a = anVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (this.a.a() == 2) {
-            NewPbActivity.a(this.b.a, this.a.g(), (String) null, "");
-        } else if (this.a.i()) {
-            NewPbActivity.b(this.b.a, this.a.g(), this.a.h(), "");
-        } else {
-            NewPbActivity.a(this.b.a, this.a.g(), this.a.h(), "");
-        }
-        if (this.b.b.a() != null) {
-            com.baidu.tieba.util.by.a(this.b.a, "his_threads_item", "click", 1, new Object[0]);
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        HeadImageView headImageView;
+        HeadImageView headImageView2;
+        if (bVar != null) {
+            headImageView = this.a.j;
+            headImageView.setImageResource(0);
+            headImageView2 = this.a.j;
+            bVar.a(headImageView2);
         }
     }
 }

@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.forumdetail.ForumDetailData;
 import com.baidu.tieba.view.HeadImageView;
@@ -55,7 +56,7 @@ public class ItemHeaderView extends RelativeLayout {
         if (forumDetailData == null || forumDetailData.forumDir == null) {
             return false;
         }
-        int al = TiebaApplication.h().al();
+        int al = TiebaApplication.g().al();
         ForumDetailData.ForumInfo forumInfo = forumDetailData.forumInfo;
         this.d.setText(forumInfo.forumName);
         this.e.setText(String.valueOf(forumInfo.memberCount));
@@ -68,23 +69,25 @@ public class ItemHeaderView extends RelativeLayout {
                 } else {
                     i = i2 == 2 ? R.drawable.icon_brief_grade_blue_1 : R.drawable.icon_brief_grade_green_1;
                 }
+            } else if (i2 == 1) {
+                i = R.drawable.icon_brief_grade_orange;
             } else {
-                i = i2 == 1 ? R.drawable.icon_brief_grade_orange : i2 == 2 ? R.drawable.icon_brief_grade_blue : R.drawable.icon_brief_grade_green;
+                i = i2 == 2 ? R.drawable.icon_brief_grade_blue : R.drawable.icon_brief_grade_green;
             }
             this.c.setImageResource(i);
             this.c.setVisibility(0);
         } else {
             this.c.setVisibility(8);
         }
-        int a = com.baidu.adp.lib.g.g.a(this.a, 80.0f);
+        int a = BdUtilHelper.a(this.a, 80.0f);
         com.baidu.tieba.util.i iVar = new com.baidu.tieba.util.i(this.a);
         iVar.a(a, a);
         iVar.b(forumInfo.avatar, new j(this));
         return true;
     }
 
-    public void a(com.baidu.tieba.j jVar, int i) {
-        jVar.getLayoutMode().a(i == 1);
-        jVar.getLayoutMode().a((View) this);
+    public void a(com.baidu.tieba.f fVar, int i) {
+        fVar.getLayoutMode().a(i == 1);
+        fVar.getLayoutMode().a((View) this);
     }
 }

@@ -1,12 +1,12 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tieba.data.IconData;
+import com.baidu.tbadk.data.IconData;
 import com.baidu.tieba.data.UserData;
 import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.data.MsgLocalData;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public abstract class b extends q implements com.baidu.tieba.im.coder.g, com.baidu.tieba.im.messageCenter.c {
+public abstract class b extends s implements com.baidu.tieba.im.coder.g, com.baidu.tieba.im.messageCenter.c {
     public boolean a;
     private long b;
     private int c;
@@ -182,8 +182,8 @@ public abstract class b extends q implements com.baidu.tieba.im.coder.g, com.bai
     }
 
     @Override // com.baidu.tieba.im.messageCenter.c
-    public boolean a(q qVar) {
-        return qVar != null && (qVar instanceof b) && ((b) qVar).j() == this.f;
+    public boolean a(s sVar) {
+        return sVar != null && (sVar instanceof b) && ((b) sVar).j() == this.f;
     }
 
     public String toString() {

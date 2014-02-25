@@ -1,19 +1,17 @@
 package com.baidu.tieba.person;
 
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.view.View;
 /* loaded from: classes.dex */
-class aq {
-    LinearLayout a;
-    ImageView b;
-    TextView c;
-    TextView d;
-    TextView e;
-    final /* synthetic */ am f;
+class aq implements View.OnClickListener {
+    final /* synthetic */ MyPostActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aq(am amVar) {
-        this.f = amVar;
+    public aq(MyPostActivity myPostActivity) {
+        this.a = myPostActivity;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.c();
     }
 }

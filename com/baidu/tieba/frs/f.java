@@ -1,50 +1,33 @@
 package com.baidu.tieba.frs;
 
-import android.content.DialogInterface;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.pb.NewPbActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class f implements DialogInterface.OnClickListener {
-    final /* synthetic */ com.baidu.tieba.data.bb a;
-    final /* synthetic */ FrsActivity b;
+public class f {
+    private int a;
+    private String b;
+    private String c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public f(FrsActivity frsActivity, com.baidu.tieba.data.bb bbVar) {
-        this.b = frsActivity;
-        this.a = bbVar;
+    public String a() {
+        return this.b;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        String str;
-        String str2;
-        boolean z;
-        bk bkVar;
-        switch (i) {
-            case 0:
-                str = this.b.l;
-                if (str != null) {
-                    FrsActivity frsActivity = this.b;
-                    com.baidu.tieba.data.bb bbVar = this.a;
-                    str2 = this.b.f;
-                    z = this.b.m;
-                    NewPbActivity.a(frsActivity, bbVar, str2, null, 18003, true, false, z);
-                    break;
-                }
-                break;
-            case 1:
-                this.b.c(this.a);
-                break;
-            case 2:
-                this.b.d(this.a);
-                break;
+    public String b() {
+        return String.valueOf(this.a);
+    }
+
+    public String c() {
+        return this.c;
+    }
+
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.a = jSONObject.optInt("badge_id", 0);
+                this.b = jSONObject.optString("badge_url", "");
+                this.c = jSONObject.optString("webview");
+            } catch (Exception e) {
+                com.baidu.adp.lib.util.f.b("BadgeData", "parserJson", "error = " + e.getMessage());
+            }
         }
-        com.baidu.tieba.util.bq au = TiebaApplication.h().au();
-        if (au != null && !au.b(this.a.a())) {
-            au.a(this.a.a());
-        }
-        bkVar = this.b.n;
-        bkVar.r();
     }
 }

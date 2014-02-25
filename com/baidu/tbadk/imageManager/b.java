@@ -1,21 +1,13 @@
 package com.baidu.tbadk.imageManager;
+
+import android.content.Context;
 /* loaded from: classes.dex */
-public class b {
-    private int a;
-    private int b;
+public interface b {
+    int a(String str);
 
-    public b(int i, int i2) {
-        this.a = 0;
-        this.b = 0;
-        this.a = i;
-        this.b = i2;
-    }
+    c a(Context context, String str);
 
-    public int a() {
-        return this.a;
-    }
+    int b(String str);
 
-    public int b() {
-        return this.b;
-    }
+    String c(String str);
 }

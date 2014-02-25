@@ -18,30 +18,6 @@ public class BdStatSwitchData implements Serializable {
     public BdStatSwitchData() {
         this.uploadInterval = 0;
         this.uploadInterval = 3600;
-        BdStatCommonSwitchData common = this.debug.getCommon();
-        if (common == null) {
-            common = new BdStatCommonSwitchData();
-            this.debug.setCommon(common);
-        }
-        common.setIs_exact(false);
-        common.setIs_only_wifi(true);
-        common.setIs_open(false);
-        BdStatCommonSwitchData common2 = this.stat.getCommon();
-        if (common2 == null) {
-            common2 = new BdStatCommonSwitchData();
-            this.stat.setCommon(common2);
-        }
-        common2.setIs_exact(true);
-        common2.setIs_only_wifi(false);
-        common2.setIs_open(false);
-        BdStatCommonSwitchData common3 = this.error.getCommon();
-        if (common3 == null) {
-            common3 = new BdStatCommonSwitchData();
-            this.error.setCommon(common3);
-        }
-        common3.setIs_exact(false);
-        common3.setIs_only_wifi(false);
-        common3.setIs_open(false);
     }
 
     public int getError_code() {
@@ -101,7 +77,7 @@ public class BdStatSwitchData implements Serializable {
             try {
                 parserJson(new JSONObject(str));
             } catch (Exception e) {
-                com.baidu.adp.lib.g.e.a(getClass(), "parserJson", e);
+                com.baidu.adp.lib.util.f.a(getClass(), "parserJson", e);
             }
         }
     }
@@ -111,6 +87,10 @@ public class BdStatSwitchData implements Serializable {
             try {
                 setError_code(jSONObject.optInt(SocialConstants.PARAM_ERROR_CODE, 0));
                 setError_msg(jSONObject.optString(SocialConstants.PARAM_ERROR_CODE));
+                int optInt = jSONObject.optInt("upload_interval", 0);
+                if (optInt > 0) {
+                    setUploadInterval(optInt);
+                }
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject != null) {
                     this.debug.parserJson(optJSONObject.optJSONObject("debug"));
@@ -118,7 +98,7 @@ public class BdStatSwitchData implements Serializable {
                     this.error.parserJson(optJSONObject.optJSONObject("error"));
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.g.e.a(getClass(), "parserJson", e);
+                com.baidu.adp.lib.util.f.a(getClass(), "parserJson", e);
             }
         }
     }

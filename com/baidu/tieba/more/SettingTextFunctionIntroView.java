@@ -19,18 +19,16 @@ public class SettingTextFunctionIntroView extends SettingTextTipView {
 
     public void a() {
         boolean z = true;
-        boolean z2 = TiebaApplication.h().al() == 1;
-        VersionData as = TiebaApplication.h().as();
+        boolean z2 = TiebaApplication.g().al() == 1;
+        VersionData as = TiebaApplication.g().as();
         if (as == null || as.getHas_new_ver() != 1) {
             z = false;
         }
         boolean a2 = com.baidu.tieba.sharedPref.b.a().a(a, false);
         if (!z && !a2) {
-            this.e.setText("New");
-            this.e.setTextAppearance(this.b, z2 ? R.style.setting_version_prompt_text_1 : R.style.setting_version_prompt_text);
-            this.e.setBackgroundResource(z2 ? R.drawable.icon_news_text_prompt_1 : R.drawable.icon_news_text_prompt);
-            return;
+            this.e.setBackgroundResource(z2 ? R.drawable.icon_news_head_new_1 : R.drawable.icon_news_head_new);
+        } else {
+            c();
         }
-        b();
     }
 }

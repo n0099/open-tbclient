@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.chat;
 
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements View.OnClickListener {
@@ -14,9 +14,9 @@ public class m implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        Button button;
-        this.a.P();
-        button = this.a.C;
-        button.postDelayed(new n(this), 100L);
+        ImageView imageView;
+        this.a.R();
+        imageView = this.a.E;
+        imageView.postDelayed(new n(this), 100L);
     }
 }

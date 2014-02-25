@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tieba.BaseFragmentActivity;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class SearchBoxView extends RelativeLayout {
@@ -30,8 +29,8 @@ public class SearchBoxView extends RelativeLayout {
         this.c = null;
         this.d = null;
         this.e = null;
-        this.f = new cc(this);
-        this.g = new cd(this);
+        this.f = new cj(this);
+        this.g = new ck(this);
         a(context);
     }
 
@@ -41,8 +40,8 @@ public class SearchBoxView extends RelativeLayout {
         this.c = null;
         this.d = null;
         this.e = null;
-        this.f = new cc(this);
-        this.g = new cd(this);
+        this.f = new cj(this);
+        this.g = new ck(this);
         a(context);
     }
 
@@ -52,8 +51,8 @@ public class SearchBoxView extends RelativeLayout {
         this.c = null;
         this.d = null;
         this.e = null;
-        this.f = new cc(this);
-        this.g = new cd(this);
+        this.f = new cj(this);
+        this.g = new ck(this);
         a(context);
     }
 
@@ -72,15 +71,15 @@ public class SearchBoxView extends RelativeLayout {
     }
 
     public void a(int i) {
-        if (this.a instanceof com.baidu.tieba.j) {
-            com.baidu.tieba.j jVar = (com.baidu.tieba.j) this.a;
-            jVar.getLayoutMode().a(i == 1);
-            jVar.getLayoutMode().a((View) this);
+        if (this.a instanceof com.baidu.tieba.f) {
+            com.baidu.tieba.f fVar = (com.baidu.tieba.f) this.a;
+            fVar.getLayoutMode().a(i == 1);
+            fVar.getLayoutMode().a((View) this);
         }
-        if (this.a instanceof BaseFragmentActivity) {
-            BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) this.a;
-            baseFragmentActivity.a().a(i == 1);
-            baseFragmentActivity.a().a((View) this);
+        if (this.a instanceof com.baidu.tieba.k) {
+            com.baidu.tieba.k kVar = (com.baidu.tieba.k) this.a;
+            kVar.a().a(i == 1);
+            kVar.a().a((View) this);
         }
         if (i == 1) {
             this.d.setHintTextColor(getResources().getColor(R.color.widget_searchbox_text_1));

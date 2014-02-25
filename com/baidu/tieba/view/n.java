@@ -1,34 +1,29 @@
 package com.baidu.tieba.view;
 
 import android.content.Context;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.TextView;
-import com.slidingmenu.lib.R;
-import java.text.MessageFormat;
+import android.os.Handler;
+import android.os.Message;
+import android.view.inputmethod.InputMethodManager;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class n implements TextWatcher {
-    final /* synthetic */ l a;
+public class n extends Handler {
+    final /* synthetic */ m a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(l lVar) {
-        this.a = lVar;
+    public n(m mVar) {
+        this.a = mVar;
     }
 
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        TextView textView;
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
         Context context;
-        textView = this.a.d;
-        context = this.a.a;
-        textView.setText(MessageFormat.format(context.getResources().getString(R.string.chat_custom_default_text), Integer.valueOf(editable.length())));
+        switch (message.what) {
+            case 0:
+                context = this.a.a;
+                ((InputMethodManager) context.getSystemService("input_method")).toggleSoftInput(0, 2);
+                return;
+            default:
+                return;
+        }
     }
 }

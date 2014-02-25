@@ -5,7 +5,7 @@ import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b extends m<Result> {
+public class b extends l<Result> {
     final /* synthetic */ BdAsyncTask a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -30,7 +30,7 @@ public class b extends m<Result> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.m
+    @Override // com.baidu.adp.lib.asyncTask.l
     public void a() {
         this.a.cancel();
     }

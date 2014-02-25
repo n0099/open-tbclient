@@ -1,89 +1,35 @@
 package com.baidu.tieba.a;
 
-import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.ax;
-import java.io.File;
-import java.io.RandomAccessFile;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.app.Activity;
+import android.content.Intent;
+import com.baidu.tieba.im.data.GroupData;
 /* loaded from: classes.dex */
-public class b {
-    final /* synthetic */ a a;
+public class b extends com.baidu.tieba.f.a {
+    private GroupData a;
     private String b;
-    private String c;
-    private com.baidu.tieba.data.e d;
-    private ax e;
-    private boolean f = false;
-    private String g;
 
-    public b(a aVar, String str, com.baidu.tieba.data.e eVar, String str2, String str3) {
-        this.a = aVar;
+    public b(Activity activity, int i, String str, long j, String str2) {
+        super(activity);
+        this.a = null;
         this.b = null;
-        this.c = null;
-        this.d = null;
-        this.g = null;
-        this.b = str;
-        this.d = eVar;
-        this.c = str2;
-        this.g = str3;
+        GroupData groupData = new GroupData();
+        groupData.setGroupId(i);
+        groupData.setName(str);
+        groupData.setAuthorId(j);
+        this.a = groupData;
+        this.b = str2;
+        Intent d = d();
+        d.putExtra("chat_mode", 0);
+        d.putExtra("group", groupData);
+        d.putExtra("is_accept_notify", true);
+        d.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
     }
 
-    public com.baidu.tieba.data.f a() {
-        com.baidu.tieba.data.f fVar = new com.baidu.tieba.data.f();
-        long b = this.d.b();
-        long j = b % 30720 == 0 ? b / 30720 : (b / 30720) + 1;
-        int c = this.d.c();
-        if (c < j) {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.b), "r");
-            if (randomAccessFile.skipBytes(c * 30720) >= c * 30720) {
-                while (true) {
-                    int i = c;
-                    if (i < j) {
-                        int i2 = 30720;
-                        if (i == j - 1) {
-                            i2 = (int) (b - (30720 * (j - 1)));
-                        }
-                        byte[] bArr = new byte[i2];
-                        int read = randomAccessFile.read(bArr, 0, i2);
-                        if (read != -1) {
-                            this.e = new ax(this.c);
-                            this.e.a("voice_chunk", bArr);
-                            this.e.a("chunk_md5", this.d.a());
-                            this.e.a("length", String.valueOf(read));
-                            this.e.a("offset", String.valueOf(i * 30720));
-                            this.e.a("total_length", String.valueOf(b));
-                            this.e.a("chunk_no", String.valueOf(i + 1));
-                            this.e.a("total_num", String.valueOf(j));
-                            this.e.a("voice_md5", this.g);
-                            boolean z = false;
-                            if (this.f) {
-                                z = true;
-                            } else if (this.e.o() == null || !this.e.d()) {
-                                this.d.a(i);
-                                DatabaseService.a(this.d);
-                                randomAccessFile.close();
-                                z = true;
-                            }
-                            if (z) {
-                                fVar.a(this.e.f());
-                                fVar.a(this.e.j());
-                                fVar.a(this.d);
-                                fVar.a(false);
-                                return fVar;
-                            }
-                        }
-                        c = i + 1;
-                    } else {
-                        randomAccessFile.close();
-                        break;
-                    }
-                }
-            } else {
-                fVar.a(false);
-                randomAccessFile.close();
-                return fVar;
-            }
-        }
-        fVar.a(true);
-        return fVar;
+    public GroupData a() {
+        return this.a;
+    }
+
+    public String b() {
+        return this.b;
     }
 }

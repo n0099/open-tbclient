@@ -30,16 +30,11 @@ final class m extends Handler {
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         if (this.c) {
-            switch (message.what) {
-                case R.id.decode /* 2131099699 */:
-                    a((byte[]) message.obj, message.arg1, message.arg2);
-                    return;
-                case R.id.quit /* 2131099703 */:
-                    this.c = false;
-                    Looper.myLooper().quit();
-                    return;
-                default:
-                    return;
+            if (message.what == R.id.decode) {
+                a((byte[]) message.obj, message.arg1, message.arg2);
+            } else if (message.what == R.id.quit) {
+                this.c = false;
+                Looper.myLooper().quit();
             }
         }
     }
@@ -64,7 +59,7 @@ final class m extends Handler {
         }
         Handler b = this.a.b();
         if (result != null) {
-            com.baidu.adp.lib.g.e.e(getClass().getName(), "decode", "Found barcode in " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
+            com.baidu.adp.lib.util.f.e(getClass().getName(), "decode", "Found barcode in " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
             if (b != null) {
                 Message obtain = Message.obtain(b, R.id.decode_succeeded, result);
                 Bundle bundle = new Bundle();

@@ -3,7 +3,7 @@ package com.baidu.tieba.voice.service;
 import android.os.Parcel;
 import android.os.Parcelable;
 /* loaded from: classes.dex */
-final class i implements Parcelable.Creator<Voice> {
+class i implements Parcelable.Creator<Voice> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */

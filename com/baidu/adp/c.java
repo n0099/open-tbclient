@@ -29,12 +29,12 @@ public final class c {
     public static final int adp_debug_switch_edit_quit = 2130837535;
     public static final int adp_debug_update_package_item = 2130837536;
     public static final int adp_down_arrow = 2130837537;
-    public static final int btn_switch = 2130838531;
-    public static final int btn_switch_1 = 2130838532;
-    public static final int btn_switch_masking = 2130838533;
-    public static final int btn_switch_masking_1 = 2130838534;
-    public static final int btn_switch_masking_sidebar = 2130838535;
-    public static final int pull_icon = 2130839501;
-    public static final int pull_loading = 2130839502;
-    public static final int pull_progressbar = 2130839503;
+    public static final int btn_switch = 2130838626;
+    public static final int btn_switch_1 = 2130838627;
+    public static final int btn_switch_masking = 2130838628;
+    public static final int btn_switch_masking_1 = 2130838629;
+    public static final int btn_switch_masking_sidebar = 2130838630;
+    public static final int pull_icon = 2130839705;
+    public static final int pull_loading = 2130839706;
+    public static final int pull_progressbar = 2130839707;
 }

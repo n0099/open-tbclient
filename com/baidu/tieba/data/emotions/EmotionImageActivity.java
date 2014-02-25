@@ -11,7 +11,7 @@ import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class EmotionImageActivity extends com.baidu.tieba.j {
+public class EmotionImageActivity extends com.baidu.tieba.f {
     private NavigationBar a;
     private GifView b;
     private BDImageView c;
@@ -47,7 +47,7 @@ public class EmotionImageActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.emotion_activity);
@@ -85,7 +85,7 @@ public class EmotionImageActivity extends com.baidu.tieba.j {
 
     private void a() {
         FrameLayout.LayoutParams layoutParams;
-        com.baidu.adp.widget.ImageView.d i;
+        com.baidu.adp.widget.ImageView.b i;
         this.a = (NavigationBar) findViewById(R.id.navigation_bar);
         this.a.a(getString(R.string.emotion_image_title));
         this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new f(this));
@@ -97,7 +97,7 @@ public class EmotionImageActivity extends com.baidu.tieba.j {
         }
         this.b.setLayoutParams(layoutParams);
         boolean c = com.baidu.tieba.util.i.c();
-        com.baidu.adp.widget.ImageView.d a = this.p.a(this.f, this.k, c ? this.i : this.j, c, new g(this));
+        com.baidu.adp.widget.ImageView.b a = this.p.a(this.f, this.k, c ? this.i : this.j, c, new g(this));
         if (a != null) {
             this.b.setGif(a);
         }
@@ -105,8 +105,8 @@ public class EmotionImageActivity extends com.baidu.tieba.j {
         if (!TextUtils.isEmpty(this.h)) {
             this.p.b(this.h, new h(this));
         } else {
-            WritableEmotionGroup c2 = l.a().c(this.f);
-            if (c2 != null && (i = c2.i()) != null) {
+            WritableEmotionGroup d = l.a().d(this.f);
+            if (d != null && (i = d.i()) != null) {
                 i.a(this.c);
             }
         }
@@ -130,7 +130,7 @@ public class EmotionImageActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j
+    @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         getLayoutMode().a(i == 1);
@@ -139,7 +139,7 @@ public class EmotionImageActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         this.q = true;

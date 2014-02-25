@@ -1,27 +1,55 @@
 package com.baidu.tieba.model;
-
-import com.baidu.tieba.im.SingleRunnable;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k extends SingleRunnable<Void> {
-    final /* synthetic */ j a;
+public class k extends com.baidu.adp.a.d {
+    private com.baidu.tieba.data.s b;
+    private m a = null;
+    private boolean c = true;
+    private n d = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public k(j jVar) {
-        this.a = jVar;
+    public k() {
+        this.b = null;
+        this.b = new com.baidu.tieba.data.s();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.SingleRunnable
-    /* renamed from: a */
-    public Void b() {
-        String str;
-        if (this.a.b) {
-            str = com.baidu.tieba.im.db.t.b(this.a.a);
-        } else {
-            str = this.a.a;
+    public com.baidu.tieba.data.s a() {
+        return this.b;
+    }
+
+    public void a(n nVar) {
+        this.d = nVar;
+    }
+
+    @Override // com.baidu.adp.a.d
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.a.d
+    public boolean cancelLoadData() {
+        if (this.a != null) {
+            this.a.cancel();
+            return false;
         }
-        com.baidu.tieba.im.db.t.a().a(str, true);
-        return null;
+        return false;
+    }
+
+    public boolean a(boolean z) {
+        this.c = z;
+        if (this.a != null) {
+            return false;
+        }
+        this.a = new m(this, 1);
+        this.a.execute(new Object[0]);
+        return true;
+    }
+
+    public boolean b(boolean z) {
+        this.c = z;
+        if (this.a != null) {
+            return false;
+        }
+        this.a = new m(this, 0);
+        this.a.execute(new Object[0]);
+        return true;
     }
 }

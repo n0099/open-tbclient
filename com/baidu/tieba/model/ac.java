@@ -1,11 +1,15 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
 public class ac {
-    public com.baidu.tieba.data.v a;
-    public int b;
-    final /* synthetic */ aa c;
+    public boolean a = false;
+    public boolean b = false;
+    public int c = 0;
+    public String d = "";
+    public long e = 0;
+    public boolean f = false;
+    final /* synthetic */ z g;
 
-    public ac(aa aaVar) {
-        this.c = aaVar;
+    public ac(z zVar) {
+        this.g = zVar;
     }
 }

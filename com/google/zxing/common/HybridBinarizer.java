@@ -1,5 +1,6 @@
 package com.google.zxing.common;
 
+import android.support.v4.view.MotionEventCompat;
 import com.google.zxing.Binarizer;
 import com.google.zxing.LuminanceSource;
 import java.lang.reflect.Array;
@@ -83,7 +84,7 @@ public final class HybridBinarizer extends GlobalHistogramBinarizer {
         int i6 = 0;
         while (i6 < 8) {
             for (int i7 = 0; i7 < 8; i7++) {
-                if ((bArr[i5 + i7] & 255) <= i3) {
+                if ((bArr[i5 + i7] & MotionEventCompat.ACTION_MASK) <= i3) {
                     bitMatrix.set(i + i7, i2 + i6);
                 }
             }
@@ -110,7 +111,7 @@ public final class HybridBinarizer extends GlobalHistogramBinarizer {
                     i13 = i12;
                 }
                 int i14 = 0;
-                int i15 = 255;
+                int i15 = MotionEventCompat.ACTION_MASK;
                 int i16 = 0;
                 int i17 = 0;
                 int i18 = (i10 * i3) + i13;

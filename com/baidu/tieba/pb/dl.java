@@ -1,30 +1,35 @@
 package com.baidu.tieba.pb;
 
-import android.widget.ImageView;
-import com.baidu.adp.widget.ListView.BdListView;
+import android.os.Handler;
+import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dl implements com.baidu.tbadk.imageManager.c {
-    final /* synthetic */ cr a;
+public class dl implements Animation.AnimationListener {
+    final /* synthetic */ cu a;
+    private final /* synthetic */ com.baidu.tieba.data.av b;
+    private final /* synthetic */ boolean c;
+    private final /* synthetic */ String d;
+    private final /* synthetic */ String e;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dl(cr crVar) {
-        this.a = crVar;
+    public dl(cu cuVar, com.baidu.tieba.data.av avVar, boolean z, String str, String str2) {
+        this.a = cuVar;
+        this.b = avVar;
+        this.c = z;
+        this.d = str;
+        this.e = str2;
     }
 
-    @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
-        BdListView bdListView;
-        BdListView bdListView2;
-        if (dVar != null) {
-            bdListView = this.a.i;
-            ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
-            while (imageView != null) {
-                imageView.setTag(null);
-                imageView.setImageBitmap(dVar.h());
-                bdListView2 = this.a.i;
-                imageView = (ImageView) bdListView2.findViewWithTag(str);
-            }
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        new Handler().post(new dm(this, this.b, this.c, this.d, this.e));
     }
 }

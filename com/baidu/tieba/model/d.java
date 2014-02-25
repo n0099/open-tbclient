@@ -1,22 +1,27 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
 public class d {
-    private com.baidu.tieba.data.x a = null;
-    private com.baidu.tieba.data.ay b = null;
+    private e a;
+    private com.baidu.adp.a.g b;
 
-    public com.baidu.tieba.data.x a() {
-        return this.a;
+    public d(com.baidu.adp.a.g gVar) {
+        this.b = gVar;
     }
 
-    public void a(com.baidu.tieba.data.x xVar) {
-        this.a = xVar;
+    public void a(boolean z, String str, String str2) {
+        if (this.a == null) {
+            this.a = new e(this, null);
+            this.a.setPriority(2);
+            this.a.a(z);
+            this.a.a2(str);
+            this.a.b(str2);
+            this.a.execute(new Integer[0]);
+        }
     }
 
-    public com.baidu.tieba.data.ay b() {
-        return this.b;
-    }
-
-    public void a(com.baidu.tieba.data.ay ayVar) {
-        this.b = ayVar;
+    public void a() {
+        if (this.a != null) {
+            this.a.cancel();
+        }
     }
 }

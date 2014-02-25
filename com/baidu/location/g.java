@@ -11,6 +11,7 @@ import android.os.Message;
 import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
+import org.apache.commons.io.FileUtils;
 import org.apache.http.HttpHost;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -117,7 +118,7 @@ public class g {
         if (f158char || str == null) {
             return;
         }
-        f165long = Jni.m1if(str);
+        f165long = Jni.m2if(str);
         g = z;
         f158char = true;
         new Thread() { // from class: com.baidu.location.g.4
@@ -126,7 +127,7 @@ public class g {
                 Long valueOf;
                 boolean z2 = true;
                 try {
-                    HttpPost httpPost = new HttpPost(j.m234do());
+                    HttpPost httpPost = new HttpPost(j.m235do());
                     ArrayList arrayList = new ArrayList();
                     if (g.g) {
                         arrayList.add(new BasicNameValuePair("qt", "grid"));
@@ -166,12 +167,12 @@ public class g {
                                 }
                             }
                             if (z2) {
-                                g.m201for();
+                                g.m202for();
                             }
                         } else {
                             String entityUtils = EntityUtils.toString(execute.getEntity(), "utf-8");
                             j.a(g.f166new, "req config value:" + entityUtils);
-                            if (g.m208if(entityUtils)) {
+                            if (g.m209if(entityUtils)) {
                                 j.a(g.f166new, "Save to config");
                                 g.c();
                             }
@@ -192,7 +193,7 @@ public class g {
         if (context == null) {
             return false;
         }
-        m196do(context);
+        m197do(context);
         return f167try == 3;
     }
 
@@ -203,7 +204,7 @@ public class g {
         }
         i = true;
         j.a(f166new, "bloc : " + k);
-        k = Jni.m1if(str);
+        k = Jni.m2if(str);
         j.a(f166new, "NUMBER_e : " + k.length());
         f164int = handler;
         if (f159do == null) {
@@ -218,7 +219,7 @@ public class g {
                 int i2 = g.f168void;
                 while (i2 > 0) {
                     try {
-                        httpPost = new HttpPost(j.m234do());
+                        httpPost = new HttpPost(j.m235do());
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(new BasicNameValuePair("bloc", g.k));
                         if (g.f159do != null) {
@@ -267,7 +268,7 @@ public class g {
     }
 
     /* renamed from: byte  reason: not valid java name */
-    public static void m193byte() {
+    public static void m194byte() {
         try {
             File file = new File(f.aa + "/config.dat");
             if (file.exists()) {
@@ -277,11 +278,11 @@ public class g {
                     int readInt = randomAccessFile.readInt();
                     byte[] bArr = new byte[readInt];
                     randomAccessFile.read(bArr, 0, readInt);
-                    m208if(new String(bArr));
+                    m209if(new String(bArr));
                 }
                 randomAccessFile.seek(1L);
                 if (randomAccessFile.readBoolean()) {
-                    randomAccessFile.seek(1024L);
+                    randomAccessFile.seek(FileUtils.ONE_KB);
                     j.s = randomAccessFile.readDouble();
                     j.f194byte = randomAccessFile.readDouble();
                     j.e = randomAccessFile.readBoolean();
@@ -333,8 +334,8 @@ public class g {
     }
 
     /* renamed from: do  reason: not valid java name */
-    public static int m196do(Context context) {
-        f167try = m205if(context);
+    public static int m197do(Context context) {
+        f167try = m206if(context);
         return f167try;
     }
 
@@ -356,12 +357,12 @@ public class g {
                     f162goto = 2;
                     try {
                         if (j.E == 0) {
-                            a2 = f.m175new();
+                            a2 = f.m176new();
                             if (a2 == null) {
                                 a2 = b.e();
                             }
                         } else if (j.E == 1 && (a2 = b.e()) == null) {
-                            a2 = f.m175new();
+                            a2 = f.m176new();
                         }
                     } catch (Exception e2) {
                         a2 = null;
@@ -381,7 +382,7 @@ public class g {
                 @Override // java.lang.Thread, java.lang.Runnable
                 public void run() {
                     try {
-                        HttpPost httpPost = new HttpPost(j.m234do());
+                        HttpPost httpPost = new HttpPost(j.m235do());
                         ArrayList arrayList = new ArrayList();
                         for (int i3 = 0; i3 < g.e.size(); i3++) {
                             if (g.f162goto == 1) {
@@ -415,7 +416,7 @@ public class g {
     }
 
     /* renamed from: for  reason: not valid java name */
-    public static void m201for() {
+    public static void m202for() {
         try {
             File file = new File(f.aa + "/config.dat");
             if (!file.exists()) {
@@ -436,7 +437,7 @@ public class g {
             RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, "rw");
             randomAccessFile2.seek(1L);
             randomAccessFile2.writeBoolean(true);
-            randomAccessFile2.seek(1024L);
+            randomAccessFile2.seek(FileUtils.ONE_KB);
             randomAccessFile2.writeDouble(j.s);
             randomAccessFile2.writeDouble(j.f194byte);
             randomAccessFile2.writeBoolean(j.e);
@@ -449,16 +450,16 @@ public class g {
     }
 
     /* renamed from: for  reason: not valid java name */
-    public static boolean m202for(Context context) {
+    public static boolean m203for(Context context) {
         if (context == null) {
             return false;
         }
-        m196do(context);
+        m197do(context);
         return f167try == 1;
     }
 
     /* renamed from: if  reason: not valid java name */
-    private static int m205if(Context context) {
+    private static int m206if(Context context) {
         NetworkInfo networkInfo;
         try {
             try {
@@ -524,7 +525,7 @@ public class g {
     }
 
     /* renamed from: if  reason: not valid java name */
-    public static boolean m208if(String str) {
+    public static boolean m209if(String str) {
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -679,12 +680,12 @@ public class g {
 
     /* JADX WARN: Type inference failed for: r1v4, types: [com.baidu.location.g$2] */
     /* renamed from: if  reason: not valid java name */
-    public static boolean m209if(String str, Handler handler) {
+    public static boolean m210if(String str, Handler handler) {
         if (f160else || str == null) {
             return false;
         }
         f160else = true;
-        d = Jni.m1if(str);
+        d = Jni.m2if(str);
         j.a(f166new, "bloc : " + d);
         l = handler;
         if (f161for == null) {
@@ -699,7 +700,7 @@ public class g {
                 int i2 = g.f168void;
                 while (i2 > 0) {
                     try {
-                        httpPost = new HttpPost(j.m234do());
+                        httpPost = new HttpPost(j.m235do());
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(new BasicNameValuePair("bloc", g.d));
                         if (g.f161for != null) {

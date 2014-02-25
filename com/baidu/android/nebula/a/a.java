@@ -2,6 +2,7 @@ package com.baidu.android.nebula.a;
 
 import java.util.HashMap;
 import java.util.Map;
+import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public class a {
     private static final Map a = new HashMap();
@@ -43,12 +44,12 @@ public class a {
         if (str == null) {
             str = "Unknown";
         }
-        sb.append(this.e + " " + this.d + " " + str + "\r\n");
+        sb.append(this.e + " " + this.d + " " + str + IOUtils.LINE_SEPARATOR_WINDOWS);
         this.b.put("Content-Length", String.valueOf(this.c.toString().getBytes().length));
         for (String str2 : this.b.keySet()) {
-            sb.append(str2 + ": " + ((String) this.b.get(str2)) + "\r\n");
+            sb.append(str2 + ": " + ((String) this.b.get(str2)) + IOUtils.LINE_SEPARATOR_WINDOWS);
         }
-        sb.append("\r\n" + this.c.toString());
+        sb.append(IOUtils.LINE_SEPARATOR_WINDOWS + this.c.toString());
         return sb.toString();
     }
 }

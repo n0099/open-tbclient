@@ -33,8 +33,8 @@ public class p extends a implements Runnable {
 
     public q d() {
         q qVar = new q(this);
-        qVar.b = a("/proc/uid_stat/" + this.c + "/tcp_rcv");
-        qVar.c = a("/proc/uid_stat/" + this.c + "/tcp_snd");
+        qVar.b = a(String.valueOf("/proc/uid_stat/") + this.c + "/tcp_rcv");
+        qVar.c = a(String.valueOf("/proc/uid_stat/") + this.c + "/tcp_snd");
         qVar.a = com.baidu.adp.lib.debug.b.a(qVar.b + qVar.c);
         return qVar;
     }

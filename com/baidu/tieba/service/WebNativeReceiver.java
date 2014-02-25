@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.account.av;
+import com.baidu.tieba.account.ax;
 /* loaded from: classes.dex */
 public class WebNativeReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
@@ -20,7 +20,8 @@ public class WebNativeReceiver extends BroadcastReceiver {
                 if (stringExtra.equals("web")) {
                     intent2.putExtra("class", 0);
                     intent2.putExtra(SocialConstants.PARAM_URL, intent.getStringExtra(SocialConstants.PARAM_URL));
-                    new av(stringExtra2, SocialConstants.PARAM_URL).start();
+                    intent2.putExtra("from", stringExtra2);
+                    new ax(stringExtra2, SocialConstants.PARAM_URL).start();
                 } else if (stringExtra.equals("pb")) {
                     intent2.putExtra("class", 1);
                     intent2.putExtra("id", intent.getStringExtra("id"));

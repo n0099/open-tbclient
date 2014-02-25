@@ -1,13 +1,24 @@
 package com.baidu.tieba.view;
 
-import android.graphics.Bitmap;
+import android.app.Activity;
+import android.view.View;
+import com.baidu.tieba.forumdetail.ForumDetailActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class at {
-    public Bitmap a;
-    public int b;
+public class at implements View.OnClickListener {
+    final /* synthetic */ ar a;
 
-    public at(Bitmap bitmap, int i) {
-        this.a = bitmap;
-        this.b = i;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public at(ar arVar) {
+        this.a = arVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Activity activity;
+        String str;
+        activity = this.a.y;
+        str = this.a.A;
+        ForumDetailActivity.a(activity, str, ForumDetailActivity.FromType.FRS);
     }
 }

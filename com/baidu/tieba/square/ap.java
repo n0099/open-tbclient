@@ -3,14 +3,13 @@ package com.baidu.tieba.square;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ListView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ap implements View.OnKeyListener {
-    final /* synthetic */ SquareActivity a;
+class ap implements View.OnKeyListener {
+    final /* synthetic */ am a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(SquareActivity squareActivity) {
-        this.a = squareActivity;
+    public ap(am amVar) {
+        this.a = amVar;
     }
 
     @Override // android.view.View.OnKeyListener

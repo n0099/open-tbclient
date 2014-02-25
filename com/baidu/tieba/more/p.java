@@ -1,27 +1,27 @@
 package com.baidu.tieba.more;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
-import com.baidu.tieba.util.bs;
+import com.baidu.tieba.util.bq;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class p extends BaseAdapter {
-    private Context a;
+    private com.baidu.tieba.f a;
     private View.OnClickListener d;
     private ArrayList<AccountData> c = null;
     private boolean b = false;
 
-    public p(Context context, View.OnClickListener onClickListener) {
-        this.a = context;
+    public p(com.baidu.tieba.f fVar, View.OnClickListener onClickListener) {
+        this.a = fVar;
         this.d = onClickListener;
     }
 
@@ -54,81 +54,100 @@ public class p extends BaseAdapter {
         return -1L;
     }
 
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [131=4] */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x0115  */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x0184  */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x0186  */
     @Override // android.widget.Adapter
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public View getView(int i, View view, ViewGroup viewGroup) {
-        Exception exc;
+        q qVar;
         View view2;
-        r rVar;
-        View view3;
-        r rVar2;
         try {
-            if (view == null) {
-                LayoutInflater from = LayoutInflater.from(this.a);
+            try {
                 try {
-                    if (getItemViewType(i) == 0) {
-                        View inflate = from.inflate(R.layout.account_item, (ViewGroup) null);
-                        r rVar3 = new r(this);
-                        rVar3.a = (TextView) inflate.findViewById(R.id.account);
-                        rVar3.c = (ImageView) inflate.findViewById(R.id.active);
-                        rVar3.d = (Button) inflate.findViewById(R.id.delete);
-                        rVar3.d.setOnClickListener(this.d);
-                        inflate.setTag(rVar3);
-                        rVar2 = rVar3;
-                        view3 = inflate;
+                    if (view == null) {
+                        LayoutInflater from = LayoutInflater.from(this.a);
+                        if (getItemViewType(i) == 0) {
+                            view2 = from.inflate(R.layout.account_item, (ViewGroup) null);
+                            qVar = new q(this, null);
+                            qVar.a = (TextView) view2.findViewById(R.id.account);
+                            qVar.c = (ImageView) view2.findViewById(R.id.active);
+                            qVar.d = (Button) view2.findViewById(R.id.delete);
+                            qVar.e = (LinearLayout) view2.findViewById(R.id.account_item_line_layout);
+                            qVar.d.setOnClickListener(this.d);
+                            view2.setTag(qVar);
+                        } else {
+                            view2 = from.inflate(R.layout.account_add_item, (ViewGroup) null);
+                            qVar = new q(this, null);
+                            qVar.b = (TextView) view2.findViewById(R.id.add_text);
+                            view2.setTag(qVar);
+                        }
                     } else {
-                        View inflate2 = from.inflate(R.layout.account_add_item, (ViewGroup) null);
-                        r rVar4 = new r(this);
-                        rVar4.b = (TextView) inflate2.findViewById(R.id.add_text);
-                        inflate2.setTag(rVar4);
-                        rVar2 = rVar4;
-                        view3 = inflate2;
+                        qVar = (q) view.getTag();
+                        view2 = view;
                     }
-                    rVar = rVar2;
-                } catch (Exception e) {
-                    exc = e;
-                    view2 = rVar;
-                    com.baidu.adp.lib.g.e.b(getClass().getName(), "getView", exc.getMessage());
+                    if (getItemViewType(i) == 0) {
+                        if (TiebaApplication.g().al() == 1) {
+                            qVar.a.setTextColor(bq.a(1));
+                        } else {
+                            qVar.a.setTextColor(-12895429);
+                        }
+                        AccountData accountData = (AccountData) getItem(i);
+                        qVar.c.setVisibility(8);
+                        qVar.d.setVisibility(8);
+                        qVar.d.setTag(accountData);
+                        if (accountData != null) {
+                            qVar.a.setText(accountData.getAccount());
+                            if (accountData.getIsActive() == 1) {
+                                qVar.c.setVisibility(0);
+                            }
+                            if (this.b) {
+                                qVar.d.setVisibility(0);
+                            }
+                        }
+                        if (i == getCount() - 2) {
+                            qVar.e.setVisibility(8);
+                        } else {
+                            qVar.e.setVisibility(0);
+                        }
+                    } else {
+                        if (TiebaApplication.g().al() == 1) {
+                            qVar.b.setTextColor(bq.a(1));
+                        } else {
+                            qVar.b.setTextColor(-12895429);
+                        }
+                        qVar.e.setVisibility(8);
+                    }
+                    this.a.getLayoutMode().a(TiebaApplication.g().al() == 1);
+                    this.a.getLayoutMode().a(view2);
                     return view2;
+                } catch (Throwable th) {
+                    th = th;
+                    this.a.getLayoutMode().a(TiebaApplication.g().al() == 1);
+                    this.a.getLayoutMode().a(view);
+                    throw th;
                 }
-            } else {
-                rVar = (r) view.getTag();
-                view3 = view;
+            } catch (Exception e) {
+                e = e;
+                com.baidu.adp.lib.util.f.b(getClass().getName(), "getView", e.getMessage());
+                this.a.getLayoutMode().a(TiebaApplication.g().al() != 1);
+                this.a.getLayoutMode().a(view);
+                return view;
             }
         } catch (Exception e2) {
-            exc = e2;
-            view2 = view;
-        }
-        try {
-            if (getItemViewType(i) == 0) {
-                if (TiebaApplication.h().al() == 1) {
-                    rVar.a.setTextColor(bs.a(1));
-                } else {
-                    rVar.a.setTextColor(-12895429);
-                }
-                AccountData accountData = (AccountData) getItem(i);
-                rVar.c.setVisibility(8);
-                rVar.d.setVisibility(8);
-                rVar.d.setTag(accountData);
-                if (accountData != null) {
-                    rVar.a.setText(accountData.getAccount());
-                    if (accountData.getIsActive() == 1) {
-                        rVar.c.setVisibility(0);
-                    }
-                    if (this.b) {
-                        rVar.d.setVisibility(0);
-                    }
-                }
-            } else if (TiebaApplication.h().al() == 1) {
-                rVar.b.setTextColor(bs.a(1));
-            } else {
-                rVar.b.setTextColor(-12895429);
-            }
-            return view3;
-        } catch (Exception e3) {
-            view2 = view3;
-            exc = e3;
-            com.baidu.adp.lib.g.e.b(getClass().getName(), "getView", exc.getMessage());
-            return view2;
+            e = e2;
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "getView", e.getMessage());
+            this.a.getLayoutMode().a(TiebaApplication.g().al() != 1);
+            this.a.getLayoutMode().a(view);
+            return view;
+        } catch (Throwable th2) {
+            th = th2;
+            this.a.getLayoutMode().a(TiebaApplication.g().al() == 1);
+            this.a.getLayoutMode().a(view);
+            throw th;
         }
     }
 

@@ -1,30 +1,41 @@
 package com.baidu.tieba.account;
+
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.data.AccountData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class au extends Thread {
-    private int a;
-    private int b;
-    private String c = null;
+public class au extends BdAsyncTask<Object, Object, AccountData> {
+    private String a;
+    private String b;
+    private at c;
 
-    public au(int i, int i2) {
-        this.a = 0;
-        this.b = 0;
-        this.a = i;
-        this.b = i2;
+    public au(String str, String str2, at atVar) {
+        this.a = str;
+        this.b = str2;
+        this.c = atVar;
     }
 
-    public void a(String str) {
-        this.c = str;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public AccountData a(Object... objArr) {
+        AccountData b;
+        b = as.b(this.a, this.b);
+        return b;
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        super.run();
-        com.baidu.tieba.util.ax axVar = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/s/pv");
-        axVar.a("img_num", String.valueOf(this.a));
-        axVar.a("img_total", String.valueOf(this.b));
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(AccountData accountData) {
+        super.a((au) accountData);
         if (this.c != null) {
-            axVar.a("img_type", this.c);
+            if (accountData != null) {
+                this.c.a(accountData);
+            } else {
+                this.c.a(this.a);
+            }
         }
-        axVar.m();
     }
 }

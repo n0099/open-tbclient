@@ -1,11 +1,9 @@
 package com.baidu.tieba.flist;
 
-import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.adp.widget.ListView.BdListView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Handler;
+import android.widget.AbsListView;
 /* loaded from: classes.dex */
-public class ac implements View.OnClickListener {
+class ac implements AbsListView.OnScrollListener {
     final /* synthetic */ ForumRankActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,15 +11,21 @@ public class ac implements View.OnClickListener {
         this.a = forumRankActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        BdListView bdListView;
-        LinearLayout linearLayout;
-        s sVar;
-        bdListView = this.a.a;
-        linearLayout = this.a.h;
-        bdListView.removeFooterView(linearLayout);
-        sVar = this.a.c;
-        sVar.a(100);
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        Handler handler;
+        Runnable runnable;
+        Handler handler2;
+        Runnable runnable2;
+        handler = this.a.l;
+        runnable = this.a.r;
+        handler.removeCallbacks(runnable);
+        handler2 = this.a.l;
+        runnable2 = this.a.r;
+        handler2.postDelayed(runnable2, 300L);
     }
 }

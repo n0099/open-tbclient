@@ -1,37 +1,15 @@
 package com.baidu.tieba.util;
 
-import android.content.Context;
-import android.media.MediaScannerConnection;
-import android.net.Uri;
+import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class aw implements MediaScannerConnection.MediaScannerConnectionClient {
-    private MediaScannerConnection a;
-    private Context b;
-    private String c;
-    private String d;
+public interface aw {
+    LinkedList<String> getForumPhotoUrl();
 
-    public aw(Context context) {
-        this.b = context;
-    }
+    LinkedList<String> getImageUrl();
 
-    public void a(String str) {
-        this.c = str;
-        String substring = this.c.substring(this.c.lastIndexOf("."));
-        this.d = "image/jpeg";
-        if (substring.equals(".gif")) {
-            this.d = "image/gif";
-        }
-        this.a = new MediaScannerConnection(this.b, this);
-        this.a.connect();
-    }
+    LinkedList<av> getImagesWithEmotions();
 
-    @Override // android.media.MediaScannerConnection.MediaScannerConnectionClient
-    public void onMediaScannerConnected() {
-        this.a.scanFile(this.c, this.d);
-    }
+    LinkedList<String> getPhotoUrl();
 
-    @Override // android.media.MediaScannerConnection.OnScanCompletedListener
-    public void onScanCompleted(String str, Uri uri) {
-        this.a.disconnect();
-    }
+    boolean isSupportImageSize();
 }

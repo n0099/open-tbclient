@@ -1,12 +1,12 @@
 package com.baidu.tieba.im.data;
 
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.tieba.util.as;
-import com.baidu.tieba.view.cl;
+import com.baidu.tieba.util.au;
+import com.baidu.tieba.view.cs;
 import java.util.LinkedList;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class d extends as implements cl {
+public class d extends au implements cs {
     private String a;
     private String b;
     private String c;
@@ -59,7 +59,7 @@ public class d extends as implements cl {
             dVar.e(jSONObject.optString("sex", ""));
             return dVar;
         } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b("InviteFriendData", "parserJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.util.f.b("InviteFriendData", "parserJson", "error = " + e.getMessage());
             return null;
         }
     }
@@ -71,25 +71,25 @@ public class d extends as implements cl {
         return dVar.a().equals(a());
     }
 
-    @Override // com.baidu.tieba.util.as, com.baidu.tieba.util.au
+    @Override // com.baidu.tieba.util.au, com.baidu.tieba.util.aw
     public LinkedList<String> getImageUrl() {
         return null;
     }
 
-    @Override // com.baidu.tieba.util.as, com.baidu.tieba.util.au
+    @Override // com.baidu.tieba.util.au, com.baidu.tieba.util.aw
     public LinkedList<String> getPhotoUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(this.d);
         return linkedList;
     }
 
-    @Override // com.baidu.tieba.view.cl
-    public boolean d() {
+    @Override // com.baidu.tieba.view.cs
+    public boolean isChecked() {
         return this.f;
     }
 
-    @Override // com.baidu.tieba.view.cl
-    public void a(boolean z) {
+    @Override // com.baidu.tieba.view.cs
+    public void setChecked(boolean z) {
         this.f = z;
     }
 }

@@ -9,26 +9,27 @@ import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.CompoundButton;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.ao;
+import com.baidu.tieba.ai;
 import com.baidu.tieba.im.data.GroupAddressInfoData;
 import com.baidu.tieba.person.EditHeadActivity;
-import com.baidu.tieba.util.aj;
-import com.baidu.tieba.util.by;
-import com.baidu.tieba.write.bb;
+import com.baidu.tieba.util.al;
+import com.baidu.tieba.util.cb;
+import com.baidu.tieba.write.bz;
 import com.slidingmenu.lib.R;
 import java.util.List;
 /* loaded from: classes.dex */
-public class CreateGroupStepActivity extends com.baidu.tieba.j implements TextWatcher, CompoundButton.OnCheckedChangeListener, aj {
+public class CreateGroupStepActivity extends com.baidu.tieba.f implements TextWatcher, CompoundButton.OnCheckedChangeListener, al {
     com.baidu.tieba.im.model.a b;
     n a = null;
     private int c = 1014;
-    private k d = null;
+    private j d = null;
     private GroupAddressInfoData e = new GroupAddressInfoData();
     private int f = 0;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         int i = 3;
         super.onCreate(bundle);
@@ -45,11 +46,11 @@ public class CreateGroupStepActivity extends com.baidu.tieba.j implements TextWa
         this.a = new n(this, i, intent.getIntExtra("num_create_group_private", 0), intent.getIntExtra("num_create_group_normal", 0), intent.getIntExtra("num_create_group_offical", 0));
         this.a.a(intExtra, intExtra2);
         c();
-        by.a(this, "create_g_pv", "pv", 1, new Object[0]);
+        cb.a(this, "create_g_pv", "pv", 1, new Object[0]);
     }
 
     private void c() {
-        this.d = new k(this);
+        this.d = new j(this);
         com.baidu.tieba.im.messageCenter.e.a().a(103101, this.d);
     }
 
@@ -74,7 +75,7 @@ public class CreateGroupStepActivity extends com.baidu.tieba.j implements TextWa
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j
+    @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.a.a(i);
@@ -114,10 +115,10 @@ public class CreateGroupStepActivity extends com.baidu.tieba.j implements TextWa
         } else if (i2 == 0) {
             switch (i) {
                 case 12009:
-                    bb.b(this);
+                    bz.b(this);
                     return;
                 case 12010:
-                    bb.a(this);
+                    bz.a(this);
                     return;
                 default:
                     return;
@@ -125,7 +126,7 @@ public class CreateGroupStepActivity extends com.baidu.tieba.j implements TextWa
         }
     }
 
-    @Override // com.baidu.tieba.j, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tieba.f, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4 && keyEvent.getRepeatCount() == 0) {
             d();
@@ -154,7 +155,7 @@ public class CreateGroupStepActivity extends com.baidu.tieba.j implements TextWa
         if (view == this.a.f()) {
             d();
         } else if (view == this.a.h()) {
-            int a = com.baidu.adp.lib.g.g.a((Context) TiebaApplication.h(), 0.0f);
+            int a = BdUtilHelper.a((Context) TiebaApplication.g().b(), 0.0f);
             if (!this.a.L()) {
                 String F = this.a.F();
                 if (!TextUtils.isEmpty(F)) {
@@ -184,7 +185,7 @@ public class CreateGroupStepActivity extends com.baidu.tieba.j implements TextWa
         } else if (view == this.a.j() || view == this.a.k()) {
             this.a.P();
         } else if (view == this.a.s()) {
-            ao.a(this, "edit_place_at_creatgroup");
+            ai.a(this, "edit_place_at_creatgroup");
             switch (this.a.t()) {
                 case 0:
                     GroupAddressEditActivity.a(this, 21001, this.e.getAddressList(), this.f, false);
@@ -224,7 +225,7 @@ public class CreateGroupStepActivity extends com.baidu.tieba.j implements TextWa
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         this.b.b();
@@ -232,7 +233,7 @@ public class CreateGroupStepActivity extends com.baidu.tieba.j implements TextWa
         this.a.K();
     }
 
-    @Override // com.baidu.tieba.util.aj
+    @Override // com.baidu.tieba.util.al
     public void a(String str, List<String> list, double d, double d2) {
         this.a.b(String.valueOf(d));
         this.a.a(String.valueOf(d2));
@@ -247,12 +248,12 @@ public class CreateGroupStepActivity extends com.baidu.tieba.j implements TextWa
         this.a.e(str);
     }
 
-    @Override // com.baidu.tieba.util.aj
+    @Override // com.baidu.tieba.util.al
     public void a() {
         this.a.r();
     }
 
-    @Override // com.baidu.tieba.util.aj
+    @Override // com.baidu.tieba.util.al
     public void b() {
         this.a.q();
     }

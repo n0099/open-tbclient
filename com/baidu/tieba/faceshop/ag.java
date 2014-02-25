@@ -11,7 +11,7 @@ class ag {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ag(ae aeVar, af afVar) {
+    public /* synthetic */ ag(ae aeVar, ag agVar) {
         this(aeVar);
     }
 }

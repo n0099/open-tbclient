@@ -1,73 +1,140 @@
 package com.baidu.tieba.person;
-/* loaded from: classes.dex */
-class y extends com.baidu.tieba.m {
-    final /* synthetic */ EditMarkActivity b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y(EditMarkActivity editMarkActivity) {
-        super(editMarkActivity);
-        this.b = editMarkActivity;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.os.Build;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import cn.jingling.lib.filters.FilterFactory;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.tieba.view.EditHeadImageView;
+import java.util.HashMap;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes.dex */
+public class y extends BdAsyncTask<Object, Integer, Bitmap> {
+    final /* synthetic */ EditHeadActivity a;
+
+    private y(EditHeadActivity editHeadActivity) {
+        this.a = editHeadActivity;
     }
 
-    @Override // com.baidu.tieba.m
-    public void a(Object... objArr) {
-        boolean booleanValue;
-        aa aaVar;
-        com.baidu.tieba.model.o oVar;
-        aa aaVar2;
-        aa aaVar3;
-        com.baidu.tieba.model.o oVar2;
-        com.baidu.tieba.model.o oVar3;
-        aa aaVar4;
-        aa aaVar5;
-        aa aaVar6;
-        aa aaVar7;
-        com.baidu.tieba.model.o oVar4;
-        com.baidu.tieba.model.o oVar5;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ y(EditHeadActivity editHeadActivity, y yVar) {
+        this(editHeadActivity);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public Bitmap a(Object... objArr) {
+        boolean z;
+        HashMap hashMap;
+        String[] strArr;
+        HashMap hashMap2;
+        Bitmap bitmap = null;
         try {
-            if (((Integer) objArr[0]).intValue() == 0) {
-                aaVar6 = this.b.b;
-                aaVar6.j();
-                if (objArr[1] != null && (objArr[1] instanceof String)) {
-                    r1 = (String) objArr[1];
+            Bitmap c = com.baidu.tieba.util.af.c(null, "tieba_resized_image");
+            try {
+                if (c.getWidth() > 750 || c.getHeight() > 750) {
+                    Bitmap a = com.baidu.tieba.util.n.a(c, 750);
+                    try {
+                        c.recycle();
+                        c = a;
+                    } catch (Exception e) {
+                        e = e;
+                        bitmap = a;
+                        com.baidu.adp.lib.util.f.b(getClass().getName(), "GetImageTask", e.toString());
+                        return bitmap;
+                    }
                 }
-                aaVar7 = this.b.b;
-                oVar4 = this.b.a;
-                aaVar7.a(r1, oVar4, ((Boolean) objArr[2]).booleanValue());
-                EditMarkActivity editMarkActivity = this.b;
-                oVar5 = this.b.a;
-                editMarkActivity.d = oVar5.f();
-            } else if (((Integer) objArr[0]).intValue() == 3) {
-                aaVar4 = this.b.b;
-                aaVar4.j();
-                if (objArr[1] != null && (objArr[1] instanceof String)) {
-                    r1 = (String) objArr[1];
+                if (isCancelled() && c != null && !c.isRecycled()) {
+                    c.recycle();
+                    return null;
                 }
-                aaVar5 = this.b.b;
-                aaVar5.a(r1, (com.baidu.tieba.model.o) null, false);
-            } else if (((Integer) objArr[0]).intValue() == 1) {
-                boolean booleanValue2 = objArr[1] != null ? ((Boolean) objArr[1]).booleanValue() : false;
-                r1 = objArr[2] != null ? (String) objArr[2] : null;
-                booleanValue = objArr[3] != null ? ((Boolean) objArr[3]).booleanValue() : false;
-                aaVar2 = this.b.b;
-                aaVar2.a(booleanValue2, r1, booleanValue);
-                if (booleanValue2) {
-                    aaVar3 = this.b.b;
-                    oVar2 = this.b.a;
-                    aaVar3.a(oVar2.a());
-                    oVar3 = this.b.a;
-                    oVar3.a((Boolean) true);
+                int a2 = BdUtilHelper.a((Context) this.a, 63.5f);
+                if (Build.VERSION.SDK_INT >= 7) {
+                    z = this.a.A;
+                    if (z) {
+                        Bitmap a3 = com.baidu.tieba.util.n.a(com.baidu.tieba.util.n.b(c, a2), BdUtilHelper.a((Context) this.a, 5.0f), true);
+                        this.a.F = new HashMap();
+                        this.a.G = new HashMap();
+                        hashMap = this.a.F;
+                        hashMap.put("normal", a3);
+                        strArr = EditHeadActivity.f;
+                        for (String str : strArr) {
+                            String substring = str.substring(0, str.indexOf("|"));
+                            if (!substring.equals("normal")) {
+                                Bitmap apply = FilterFactory.createOneKeyFilter(this.a, substring).apply(this.a, a3.copy(a3.getConfig() == null ? com.baidu.tieba.data.i.m : a3.getConfig(), true));
+                                hashMap2 = this.a.F;
+                                hashMap2.put(substring, apply);
+                            }
+                        }
+                        return c;
+                    }
                 }
-            } else if (((Integer) objArr[0]).intValue() == 2) {
-                booleanValue = objArr[1] != null ? ((Boolean) objArr[1]).booleanValue() : false;
-                String str = objArr[2] != null ? (String) objArr[2] : null;
-                aaVar = this.b.b;
-                oVar = this.b.a;
-                aaVar.a(booleanValue, str, oVar.f());
+                return c;
+            } catch (Exception e2) {
+                bitmap = c;
+                e = e2;
             }
-        } catch (Exception e) {
-            com.baidu.adp.lib.g.e.d(e.getMessage());
+        } catch (Exception e3) {
+            e = e3;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void b() {
+        ProgressBar progressBar;
+        TextView textView;
+        progressBar = this.a.n;
+        progressBar.setVisibility(0);
+        textView = this.a.j;
+        textView.setEnabled(false);
+        super.b();
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        ProgressBar progressBar;
+        TextView textView;
+        this.a.o = null;
+        progressBar = this.a.n;
+        progressBar.setVisibility(8);
+        textView = this.a.j;
+        textView.setEnabled(true);
+        super.cancel(true);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(Bitmap bitmap) {
+        ProgressBar progressBar;
+        TextView textView;
+        EditHeadImageView editHeadImageView;
+        boolean z;
+        String[] strArr;
+        super.a((y) bitmap);
+        this.a.o = null;
+        this.a.h = bitmap;
+        progressBar = this.a.n;
+        progressBar.setVisibility(8);
+        textView = this.a.j;
+        textView.setEnabled(true);
+        if (bitmap != null && !bitmap.isRecycled() && bitmap != null) {
+            editHeadImageView = this.a.g;
+            editHeadImageView.setImageBitmap(bitmap);
+            if (Build.VERSION.SDK_INT >= 7) {
+                z = this.a.A;
+                if (z) {
+                    EditHeadActivity editHeadActivity = this.a;
+                    strArr = EditHeadActivity.f;
+                    editHeadActivity.a(strArr);
+                }
+            }
         }
     }
 }

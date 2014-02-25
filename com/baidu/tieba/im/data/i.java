@@ -1,10 +1,10 @@
 package com.baidu.tieba.im.data;
 
-import com.baidu.tieba.util.at;
-import com.baidu.tieba.util.au;
+import com.baidu.tieba.util.av;
+import com.baidu.tieba.util.aw;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class i extends h implements au {
+public class i extends h implements aw {
     private String a;
     private String b;
     private String c;
@@ -145,30 +145,30 @@ public class i extends h implements au {
         this.r = z;
     }
 
-    @Override // com.baidu.tieba.util.au
+    @Override // com.baidu.tieba.util.aw
     public LinkedList<String> getImageUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(this.e);
         return linkedList;
     }
 
-    @Override // com.baidu.tieba.util.au
+    @Override // com.baidu.tieba.util.aw
     public LinkedList<String> getPhotoUrl() {
         return null;
     }
 
-    @Override // com.baidu.tieba.util.au
+    @Override // com.baidu.tieba.util.aw
     public LinkedList<String> getForumPhotoUrl() {
         return null;
     }
 
-    @Override // com.baidu.tieba.util.au
+    @Override // com.baidu.tieba.util.aw
     public boolean isSupportImageSize() {
         return false;
     }
 
-    @Override // com.baidu.tieba.util.au
-    public LinkedList<at> getImagesWithEmotions() {
+    @Override // com.baidu.tieba.util.aw
+    public LinkedList<av> getImagesWithEmotions() {
         return null;
     }
 

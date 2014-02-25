@@ -1,29 +1,24 @@
 package com.baidu.tieba.im.model;
 
-import java.util.Comparator;
+import java.util.LinkedList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ab implements Comparator<com.baidu.tieba.im.message.b> {
+public class ab extends com.baidu.tieba.im.c<Boolean> {
     final /* synthetic */ MsglistModel a;
-
-    private ab(MsglistModel msglistModel) {
-        this.a = msglistModel;
-    }
+    private final /* synthetic */ com.baidu.tieba.im.message.w c;
+    private final /* synthetic */ LinkedList d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ab(MsglistModel msglistModel, o oVar) {
-        this(msglistModel);
+    public ab(MsglistModel msglistModel, com.baidu.tieba.im.message.w wVar, LinkedList linkedList) {
+        this.a = msglistModel;
+        this.c = wVar;
+        this.d = linkedList;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Comparator
+    @Override // com.baidu.tieba.im.c
     /* renamed from: a */
-    public int compare(com.baidu.tieba.im.message.b bVar, com.baidu.tieba.im.message.b bVar2) {
-        if (bVar == null || bVar2 == null) {
-            return 0;
-        }
-        if (bVar.j() > bVar2.j()) {
-            return 1;
-        }
-        return bVar.j() < bVar2.j() ? -1 : 0;
+    public Boolean b() {
+        return Boolean.valueOf(com.baidu.tieba.im.db.q.a().a(this.c.m(), this.c.c(), this.d, false));
     }
 }

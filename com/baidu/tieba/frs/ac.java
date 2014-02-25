@@ -1,22 +1,43 @@
 package com.baidu.tieba.frs;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.view.View;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.view.HeadImageView;
 /* loaded from: classes.dex */
-public class ac implements com.baidu.tieba.im.messageCenter.g {
+class ac implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ FrsActivity a;
 
-    private ac(FrsActivity frsActivity) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ac(FrsActivity frsActivity) {
         this.a = frsActivity;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ac(FrsActivity frsActivity, b bVar) {
-        this(frsActivity);
-    }
-
-    @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.q qVar) {
-        if (qVar != null && qVar.w() == -124) {
-            this.a.a(qVar);
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        br brVar;
+        br brVar2;
+        br brVar3;
+        if (bVar != null) {
+            brVar = this.a.p;
+            if (brVar != null) {
+                brVar2 = this.a.p;
+                if (brVar2.D() != null) {
+                    brVar3 = this.a.p;
+                    View findViewWithTag = brVar3.D().findViewWithTag(str);
+                    if (findViewWithTag != null) {
+                        if (findViewWithTag instanceof HeadImageView) {
+                            ((HeadImageView) findViewWithTag).invalidate();
+                        } else if (findViewWithTag instanceof TbImageView) {
+                            TbImageView tbImageView = (TbImageView) findViewWithTag;
+                            if (!tbImageView.getIsLoaded()) {
+                                tbImageView.invalidate();
+                            }
+                        } else {
+                            findViewWithTag.invalidate();
+                        }
+                    }
+                }
+            }
         }
     }
 }

@@ -1,18 +1,22 @@
 package com.baidu.tieba.pb;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.view.View;
+import com.baidu.tieba.editortool.EditorToolButton;
 /* loaded from: classes.dex */
-public class cn implements com.baidu.tieba.editortool.t {
-    final /* synthetic */ com.baidu.tieba.editortool.t a;
-    final /* synthetic */ PbEditorToolView b;
+class cn implements View.OnClickListener {
+    final /* synthetic */ PbEditorToolButtonContainer a;
+    private final /* synthetic */ com.baidu.tieba.editortool.z b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cn(PbEditorToolView pbEditorToolView, com.baidu.tieba.editortool.t tVar) {
-        this.b = pbEditorToolView;
-        this.a = tVar;
+    public cn(PbEditorToolButtonContainer pbEditorToolButtonContainer, com.baidu.tieba.editortool.z zVar) {
+        this.a = pbEditorToolButtonContainer;
+        this.b = zVar;
     }
 
-    @Override // com.baidu.tieba.editortool.t
-    public void a(int i, Object obj) {
-        this.a.a(i, obj);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (view instanceof EditorToolButton) {
+            this.a.a((EditorToolButton) view, this.b);
+        }
     }
 }

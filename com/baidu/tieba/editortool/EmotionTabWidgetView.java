@@ -16,7 +16,7 @@ public class EmotionTabWidgetView extends LinearLayout {
     private EmotionTabHorizonScrollView a;
     private ImageView b;
     private View c;
-    private t d;
+    private z d;
 
     public EmotionTabWidgetView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -33,7 +33,7 @@ public class EmotionTabWidgetView extends LinearLayout {
         ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.emotion_tab_widget, (ViewGroup) this, true);
         this.a = (EmotionTabHorizonScrollView) findViewById(R.id.face_tab_scroll_view);
         this.b = (ImageView) findViewById(R.id.face_tab_delete);
-        this.b.setOnClickListener(new r(this));
+        this.b.setOnClickListener(new x(this));
         this.c = findViewById(R.id.face_tab_zhanwei);
     }
 
@@ -55,8 +55,8 @@ public class EmotionTabWidgetView extends LinearLayout {
         this.a.setCurrentTab(i);
     }
 
-    public void setOnTabSelectedListener(s sVar) {
-        this.a.setOnTabSelectedListener(sVar);
+    public void setOnTabSelectedListener(y yVar) {
+        this.a.setOnTabSelectedListener(yVar);
     }
 
     public void a() {
@@ -86,7 +86,7 @@ public class EmotionTabWidgetView extends LinearLayout {
         this.a.a(i, z);
     }
 
-    public void setOnDataSelected(t tVar) {
-        this.d = tVar;
+    public void setOnDataSelected(z zVar) {
+        this.d = zVar;
     }
 }

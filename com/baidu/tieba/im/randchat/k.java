@@ -1,40 +1,37 @@
 package com.baidu.tieba.im.randchat;
 
-import com.baidu.tieba.im.chat.snapGroup.SnapGroupChatActivity;
-import com.baidu.tieba.im.data.RandChatRoomData;
 import com.baidu.tieba.im.model.ar;
+import com.baidu.tieba.im.randchat.WaitingTipView;
+import com.baidu.tieba.util.bt;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k implements c {
-    final /* synthetic */ String a;
-    final /* synthetic */ WaittingActivity b;
+public class k extends bt {
+    final /* synthetic */ WaittingActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(WaittingActivity waittingActivity, String str) {
-        this.b = waittingActivity;
-        this.a = str;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k(WaittingActivity waittingActivity, long j, long j2) {
+        super(j, j2);
+        this.a = waittingActivity;
     }
 
-    @Override // com.baidu.tieba.im.randchat.c
+    @Override // com.baidu.tieba.util.bt
+    public void a(long j) {
+    }
+
+    @Override // com.baidu.tieba.util.bt
     public void a() {
-        boolean z;
+        bt btVar;
         ar arVar;
-        ar arVar2;
-        ar arVar3;
-        ar arVar4;
-        z = this.b.g;
-        if (!z) {
-            arVar = this.b.b;
-            RandChatRoomData f = arVar.f();
-            arVar2 = this.b.b;
-            int g = arVar2.g();
-            WaittingActivity waittingActivity = this.b;
-            arVar3 = this.b.b;
-            String h = arVar3.h();
-            arVar4 = this.b.b;
-            SnapGroupChatActivity.a(waittingActivity, f, h, arVar4.i(), this.a, g);
-            this.b.finish();
-            this.b.g = true;
+        bt btVar2;
+        btVar = this.a.f;
+        if (btVar != null) {
+            btVar2 = this.a.f;
+            btVar2.b();
+        }
+        arVar = this.a.b;
+        if (arVar.d() <= 4) {
+            this.a.b(WaitingTipView.Type.WAIT_LONG, (Object[]) null);
         }
     }
 }

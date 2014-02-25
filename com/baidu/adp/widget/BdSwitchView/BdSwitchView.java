@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.baidu.adp.d;
 import com.baidu.adp.e;
+import com.baidu.adp.lib.util.f;
 /* loaded from: classes.dex */
 public class BdSwitchView extends FrameLayout {
     FrameLayout a;
@@ -28,14 +29,34 @@ public class BdSwitchView extends FrameLayout {
     /* loaded from: classes.dex */
     public enum SwitchState {
         ON,
-        OFF
+        OFF;
+
+        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
+        /* renamed from: values  reason: to resolve conflict with enum method */
+        public static SwitchState[] valuesCustom() {
+            SwitchState[] valuesCustom = values();
+            int length = valuesCustom.length;
+            SwitchState[] switchStateArr = new SwitchState[length];
+            System.arraycopy(valuesCustom, 0, switchStateArr, 0, length);
+            return switchStateArr;
+        }
     }
 
     /* loaded from: classes.dex */
     public enum SwitchStyle {
         DAY,
         NIGHT,
-        SIDE_BAR
+        SIDE_BAR;
+
+        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
+        /* renamed from: values  reason: to resolve conflict with enum method */
+        public static SwitchStyle[] valuesCustom() {
+            SwitchStyle[] valuesCustom = values();
+            int length = valuesCustom.length;
+            SwitchStyle[] switchStyleArr = new SwitchStyle[length];
+            System.arraycopy(valuesCustom, 0, switchStyleArr, 0, length);
+            return switchStyleArr;
+        }
     }
 
     public BdSwitchView(Context context) {
@@ -88,7 +109,7 @@ public class BdSwitchView extends FrameLayout {
             this.b.setLayoutParams(layoutParams);
             return;
         }
-        com.baidu.adp.lib.g.e.a("mSwitchImage is null or mSwitchImage.getBackground() is null");
+        f.b("mSwitchImage is null or mSwitchImage.getBackground() is null");
     }
 
     @Override // android.view.View

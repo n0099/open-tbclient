@@ -4,18 +4,18 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements Runnable {
-    final /* synthetic */ ArrayList a;
-    final /* synthetic */ l b;
+    final /* synthetic */ l a;
+    private final /* synthetic */ ArrayList b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(l lVar, ArrayList arrayList) {
-        this.b = lVar;
-        this.a = arrayList;
+        this.a = lVar;
+        this.b = arrayList;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.b.b = this.a;
+        this.a.b = this.b;
         com.baidu.tieba.im.messageCenter.e.a().d(new com.baidu.tieba.im.message.e(-120));
     }
 }

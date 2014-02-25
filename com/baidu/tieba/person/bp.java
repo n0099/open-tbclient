@@ -1,21 +1,23 @@
 package com.baidu.tieba.person;
 
+import android.view.MotionEvent;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bp implements com.baidu.tieba.view.dialog.f {
-    final /* synthetic */ PersonInfoActivity a;
+public class bp implements View.OnTouchListener {
+    final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bp(PersonInfoActivity personInfoActivity) {
-        this.a = personInfoActivity;
+    public bp(PersonChangeActivity personChangeActivity) {
+        this.a = personChangeActivity;
     }
 
-    @Override // com.baidu.tieba.view.dialog.f
-    public void a(com.baidu.tieba.view.dialog.d dVar, int i, View view) {
-        if (i == 0) {
-            this.a.J();
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (motionEvent.getAction() == 1) {
+            this.a.v = true;
+            return false;
         }
-        dVar.c();
+        return false;
     }
 }

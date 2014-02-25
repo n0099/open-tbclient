@@ -1,21 +1,29 @@
 package com.baidu.tieba.pb;
 
-import android.app.Dialog;
-import android.view.View;
+import android.view.animation.Animation;
+import android.widget.RelativeLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cy implements View.OnClickListener {
-    final /* synthetic */ cr a;
+public class cy implements Animation.AnimationListener {
+    final /* synthetic */ cu a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cy(cr crVar) {
-        this.a = crVar;
+    public cy(cu cuVar) {
+        this.a = cuVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
-        dialog = this.a.Z;
-        dialog.dismiss();
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        RelativeLayout relativeLayout;
+        relativeLayout = this.a.n;
+        relativeLayout.setVisibility(0);
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

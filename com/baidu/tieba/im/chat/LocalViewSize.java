@@ -1,11 +1,18 @@
 package com.baidu.tieba.im.chat;
 
 import android.content.Context;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class LocalViewSize {
     private static LocalViewSize a = null;
     private Context b = null;
+
+    public void a(com.baidu.tieba.img.a<?> aVar) {
+        ImageSize c = c();
+        ImageSize d = d();
+        aVar.a(d.width, d.height, c.width, c.height);
+    }
 
     public static LocalViewSize a() {
         if (a == null) {
@@ -53,7 +60,7 @@ public class LocalViewSize {
     }
 
     public int b() {
-        int b = com.baidu.adp.lib.g.g.b(this.b);
+        int b = BdUtilHelper.b(this.b);
         if (b >= 1080) {
             return 1080;
         }
@@ -62,8 +69,8 @@ public class LocalViewSize {
 
     public ImageSize c() {
         int i = 240;
-        int b = com.baidu.adp.lib.g.g.b(this.b);
-        com.baidu.adp.lib.g.e.c("=======getEquipmentWidth:" + b);
+        int b = BdUtilHelper.b(this.b);
+        com.baidu.adp.lib.util.f.d("=======getEquipmentWidth:" + b);
         if (b < 240) {
             i = b / 3;
         } else if (b <= 320) {
@@ -81,8 +88,8 @@ public class LocalViewSize {
 
     public ImageSize d() {
         ImageSize imageSize = new ImageSize();
-        imageSize.height = com.baidu.adp.lib.g.g.c(this.b);
-        imageSize.width = com.baidu.adp.lib.g.g.b(this.b);
+        imageSize.height = BdUtilHelper.c(this.b);
+        imageSize.width = BdUtilHelper.b(this.b);
         return imageSize;
     }
 

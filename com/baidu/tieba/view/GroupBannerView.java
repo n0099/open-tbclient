@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class GroupBannerView extends RelativeLayout {
@@ -26,7 +27,7 @@ public class GroupBannerView extends RelativeLayout {
         this.d = null;
         this.e = false;
         this.f = 0.1388889f;
-        this.a = new au(this);
+        this.a = new az(this);
         a(context);
     }
 
@@ -35,7 +36,7 @@ public class GroupBannerView extends RelativeLayout {
         this.d = null;
         this.e = false;
         this.f = 0.1388889f;
-        this.a = new au(this);
+        this.a = new az(this);
         a(context);
     }
 
@@ -44,7 +45,7 @@ public class GroupBannerView extends RelativeLayout {
         this.d = null;
         this.e = false;
         this.f = 0.1388889f;
-        this.a = new au(this);
+        this.a = new az(this);
         a(context);
     }
 
@@ -60,14 +61,14 @@ public class GroupBannerView extends RelativeLayout {
         this.g = str2;
         if (this.e) {
             setVisibility(8);
-        } else if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
+            return;
+        }
+        setVisibility(8);
+        if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
-            layoutParams.height = (int) ((com.baidu.adp.lib.g.g.b(getContext()) * this.f) + 0.5d);
+            layoutParams.height = (int) ((BdUtilHelper.b(getContext()) * this.f) + 0.5d);
             setLayoutParams(layoutParams);
-            setVisibility(0);
             setImageUrl(str);
-        } else {
-            setVisibility(8);
         }
     }
 
@@ -77,13 +78,13 @@ public class GroupBannerView extends RelativeLayout {
             this.d.a(720, 100);
             this.d.d(true);
         }
-        this.d.b(str, new av(this));
+        this.d.b(str, new ba(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void setImg(com.baidu.adp.widget.ImageView.d dVar) {
+    public void setImg(com.baidu.adp.widget.ImageView.b bVar) {
         Bitmap h;
-        if (dVar != null && (h = dVar.h()) != null) {
+        if (bVar != null && (h = bVar.h()) != null) {
             setBackgroundDrawable(new BitmapDrawable(h));
         }
     }

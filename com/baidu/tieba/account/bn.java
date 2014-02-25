@@ -1,37 +1,31 @@
 package com.baidu.tieba.account;
 
-import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.AccountData;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class bn implements View.OnFocusChangeListener {
-    final /* synthetic */ Register2Activity a;
+class bn implements az {
+    final /* synthetic */ SapiFastRegActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bn(Register2Activity register2Activity) {
-        this.a = register2Activity;
+    public bn(SapiFastRegActivity sapiFastRegActivity) {
+        this.a = sapiFastRegActivity;
     }
 
-    @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view, boolean z) {
-        EditText editText;
-        EditText editText2;
-        ImageView imageView = null;
-        editText = this.a.t;
-        if (view == editText) {
-            imageView = this.a.k;
-        } else {
-            editText2 = this.a.v;
-            if (view == editText2) {
-                imageView = this.a.l;
-            }
-        }
-        if (imageView != null) {
-            if (z) {
-                imageView.setVisibility(0);
-            } else {
-                imageView.setVisibility(8);
-            }
-        }
+    @Override // com.baidu.tieba.account.az
+    public void a(String str) {
+    }
+
+    @Override // com.baidu.tieba.account.az
+    public void a(AccountData accountData) {
+        TiebaApplication.a(accountData, this.a);
+        new bo(this, accountData).execute(new Void[0]);
+    }
+
+    @Override // com.baidu.tieba.account.az
+    public void a(String str, String str2) {
+        com.baidu.adp.lib.util.f.e("simon", "onFailure", str2);
+        this.a.showToast(R.string.relogin_fail);
+        this.a.finish();
     }
 }

@@ -1,23 +1,21 @@
 package com.baidu.tieba.recommend;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-public class u implements com.baidu.tbadk.imageManager.c {
-    final /* synthetic */ View a;
-    final /* synthetic */ DailyRecommendBannerPagerAdapter b;
+class u implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ t a;
+    private final /* synthetic */ TbImageView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(DailyRecommendBannerPagerAdapter dailyRecommendBannerPagerAdapter, View view) {
-        this.b = dailyRecommendBannerPagerAdapter;
-        this.a = view;
+    public u(t tVar, TbImageView tbImageView) {
+        this.a = tVar;
+        this.b = tbImageView;
     }
 
-    @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
-        View findViewWithTag;
-        if (this.a != null && (findViewWithTag = this.a.findViewWithTag(str)) != null) {
-            findViewWithTag.invalidate();
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        if (this.b != null) {
+            this.b.invalidate();
         }
     }
 }

@@ -18,27 +18,26 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Environment;
 import android.os.StatFs;
+import android.support.v4.view.MotionEventCompat;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
 import android.webkit.WebSettings;
 import android.widget.RemoteViews;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.pushservice.PushManager;
 import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.loginshare.Token;
-import com.baidu.tieba.CommonWebviewActivity;
-import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.flist.ForumRankActivity;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.home.ForumTopicActivity;
 import com.baidu.tieba.im.groupInfo.GroupInfoActivity;
 import com.baidu.tieba.im.groupUpdates.UpdatesActivity;
-import com.baidu.tieba.mention.MentionActivity;
 import com.baidu.tieba.pb.NewPbActivity;
 import com.baidu.tieba.pb.WebActivity;
 import com.baidu.tieba.pb.WebBdActivity;
-import com.baidu.tieba.person.PersonInfoActivity;
+import com.baidu.tieba.person.cm;
 import com.baidu.tieba.recommend.DailyRecommendActivity;
 import com.baidu.tieba.service.DealIntentService;
 import com.baidu.tieba.service.PerformMonitorService;
@@ -52,9 +51,11 @@ import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.apache.commons.io.FileUtils;
 /* loaded from: classes.dex */
 public class UtilHelper {
 
@@ -63,7 +64,17 @@ public class UtilHelper {
         UNAVAIL,
         WIFI,
         TwoG,
-        ThreeG
+        ThreeG;
+
+        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
+        /* renamed from: values  reason: to resolve conflict with enum method */
+        public static NetworkStateInfo[] valuesCustom() {
+            NetworkStateInfo[] valuesCustom = values();
+            int length = valuesCustom.length;
+            NetworkStateInfo[] networkStateInfoArr = new NetworkStateInfo[length];
+            System.arraycopy(valuesCustom, 0, networkStateInfoArr, 0, length);
+            return networkStateInfoArr;
+        }
     }
 
     public static boolean a(int i) {
@@ -72,7 +83,7 @@ public class UtilHelper {
                 return false;
             }
             StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
-            if ((statFs.getAvailableBlocks() * statFs.getBlockSize()) / 1024 <= i) {
+            if ((statFs.getAvailableBlocks() * statFs.getBlockSize()) / FileUtils.ONE_KB <= i) {
                 return false;
             }
             return true;
@@ -84,7 +95,7 @@ public class UtilHelper {
 
     public static void a(Context context, String str) {
         File d;
-        if (str != null && str.length() > 0 && (d = ad.d(str)) != null) {
+        if (str != null && str.length() > 0 && (d = af.d(str)) != null) {
             Intent intent = new Intent();
             intent.addFlags(268435456);
             intent.setAction("android.intent.action.VIEW");
@@ -94,20 +105,20 @@ public class UtilHelper {
     }
 
     public static void b(Context context, String str) {
-        u.a(context, str);
+        w.a(context, str);
     }
 
     public static void a(Context context, int i) {
-        u.a(context, i);
+        w.a(context, i);
     }
 
     public static void a(Activity activity) {
-        new AlertDialog.Builder(activity).setTitle(R.string.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(R.string.alert_quit_confirm).setPositiveButton(R.string.alert_yes_button, new cd(activity)).setNegativeButton(R.string.alert_no_button, new cc()).create().show();
+        new AlertDialog.Builder(activity).setTitle(R.string.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(R.string.alert_quit_confirm).setPositiveButton(R.string.alert_yes_button, new cf(activity)).setNegativeButton(R.string.alert_no_button, new cg()).create().show();
     }
 
     public static int a(Context context) {
         int bitmapMaxMemory = CompatibleUtile.getInstance().getBitmapMaxMemory(context);
-        com.baidu.adp.lib.g.e.e("UtilHelper", "getBitmapMaxMemory", String.valueOf(bitmapMaxMemory));
+        com.baidu.adp.lib.util.f.e("UtilHelper", "getBitmapMaxMemory", String.valueOf(bitmapMaxMemory));
         return bitmapMaxMemory;
     }
 
@@ -120,30 +131,47 @@ public class UtilHelper {
     }
 
     public static String a(String str) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(str);
-        if (str.indexOf("?") > 0) {
-            sb.append("&");
-        } else {
-            sb.append("?");
+        if (bs.c(str) || str.indexOf("cuid=") <= -1) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(str);
+            if (str.indexOf("?") > 0) {
+                sb.append("&");
+            } else {
+                sb.append("?");
+            }
+            sb.append("cuid=");
+            sb.append(TiebaApplication.g().o());
+            sb.append("&timestamp=");
+            sb.append(Long.toString(System.currentTimeMillis()));
+            return sb.toString();
         }
-        sb.append("cuid=");
-        sb.append(TiebaApplication.h().o());
-        sb.append("&timestamp=");
-        sb.append(Long.toString(System.currentTimeMillis()));
-        return sb.toString();
+        return str;
     }
 
     public static String b(String str) {
-        return str + "&_client_version=" + com.baidu.tieba.data.h.j();
+        return (bs.c(str) || str.indexOf("_client_version=") <= -1) ? String.valueOf(str) + "&_client_version=" + com.baidu.tieba.data.i.u() : str;
+    }
+
+    public static void c(Context context) {
+        com.baidu.tieba.account.o a = com.baidu.tieba.account.a.a(TiebaApplication.D());
+        CookieSyncManager.createInstance(context);
+        CookieManager cookieManager = CookieManager.getInstance();
+        if (a != null) {
+            cookieManager.setAcceptCookie(true);
+            cookieManager.setCookie("baidu.com", "BDUSS=" + a.a + "; domain=.baidu.com;");
+            cookieManager.setCookie("baidu.com", "PTOKEN=" + a.b + "; domain=.baidu.com;");
+        } else {
+            cookieManager.removeAllCookie();
+        }
+        CookieSyncManager.getInstance().sync();
     }
 
     public static void a(Context context, String str, boolean z) {
         if (z) {
-            Token a = com.baidu.tieba.account.a.a(TiebaApplication.D());
+            com.baidu.tieba.account.o a = com.baidu.tieba.account.a.a(TiebaApplication.D());
             String b = b(a(str));
             if (a != null) {
-                WebActivity.a(context, b, a.mBduss, a.mPtoken);
+                WebActivity.a(context, b, a.a, a.b);
                 return;
             } else {
                 WebActivity.a(context, b, null, null);
@@ -155,19 +183,20 @@ public class UtilHelper {
 
     public static void c(Context context, String str) {
         try {
-            Token a = com.baidu.tieba.account.a.a(TiebaApplication.D());
-            int i = Build.VERSION.SDK_INT;
             int b = com.baidu.adp.lib.a.d.a().b(SwitchKey.BAIDU_WEBVIEW);
+            com.baidu.tieba.account.o a = com.baidu.tieba.account.a.a(TiebaApplication.D());
             String b2 = b(a(str));
-            if (b == 1) {
+            if (b2.indexOf("tbwebview=1") > 0) {
+                TbWebViewActivity.a(context, b2, true, (HashMap<String, ca>) null);
+            } else if (b == 1) {
                 if (a != null) {
-                    WebActivity.a(context, b2, a.mBduss, a.mPtoken);
+                    WebActivity.a(context, b2, a.a, a.b);
                 } else {
                     WebActivity.a(context, b2, null, null);
                 }
-            } else if (i >= 7 && b == 0) {
+            } else if (Build.VERSION.SDK_INT >= 7 && b == 0) {
                 if (a != null) {
-                    WebBdActivity.a(context, b2, a.mBduss, a.mPtoken);
+                    WebBdActivity.a(context, b2, a.a, a.b);
                 } else {
                     WebBdActivity.a(context, b2, null, null);
                 }
@@ -175,29 +204,28 @@ public class UtilHelper {
                 e(context, b2);
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b("UtilHelper", "startWebActivity", e.getMessage());
+            com.baidu.adp.lib.util.f.b("UtilHelper", "startWebActivity", e.getMessage());
         }
     }
 
     public static void d(Context context, String str) {
         String b = b(a(str));
         try {
-            int i = Build.VERSION.SDK_INT;
-            Token a = com.baidu.tieba.account.a.a(TiebaApplication.D());
             int b2 = com.baidu.adp.lib.a.d.a().b(SwitchKey.BAIDU_WEBVIEW);
-            if (i > 7 && b2 == 0) {
+            com.baidu.tieba.account.o a = com.baidu.tieba.account.a.a(TiebaApplication.D());
+            if (!(b.indexOf("tbwebview=1") > 0) && Build.VERSION.SDK_INT > 7 && b2 == 0) {
                 if (a != null) {
-                    WebBdActivity.a(context, b, a.mBduss, a.mPtoken);
+                    WebBdActivity.a(context, b, a.a, a.b);
                 } else {
                     WebBdActivity.a(context, b, null, null);
                 }
             } else if (a != null) {
-                WebActivity.a(context, b, a.mBduss, a.mPtoken);
+                WebActivity.a(context, b, a.a, a.b);
             } else {
                 WebActivity.a(context, b, null, null);
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b("UtilHelper", "startInternalWebActivity", e.getMessage());
+            com.baidu.adp.lib.util.f.b("UtilHelper", "startInternalWebActivity", e.getMessage());
         }
     }
 
@@ -211,7 +239,7 @@ public class UtilHelper {
             }
             context.startActivity(intent);
         } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b("UtilHelper", "startExternWebActivity", e.getMessage());
+            com.baidu.adp.lib.util.f.b("UtilHelper", "startExternWebActivity", e.getMessage());
         }
     }
 
@@ -219,10 +247,11 @@ public class UtilHelper {
         CompatibleUtile.getInstance().WebViewNoDataBase(webSettings);
     }
 
-    public static void c(Context context) {
+    public static void d(Context context) {
         context.startService(new Intent(context, PerformMonitorService.class));
     }
 
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [520=5] */
     public static boolean a() {
         RandomAccessFile randomAccessFile;
         byte[] bArr;
@@ -234,13 +263,13 @@ public class UtilHelper {
                     try {
                     } catch (Exception e) {
                         e = e;
-                        com.baidu.adp.lib.g.e.a(e.getMessage());
-                        p.a(randomAccessFile);
+                        com.baidu.adp.lib.util.f.b(e.getMessage());
+                        r.a(randomAccessFile);
                         return false;
                     }
                 } catch (Throwable th) {
                     th = th;
-                    p.a(randomAccessFile);
+                    r.a(randomAccessFile);
                     throw th;
                 }
             } catch (Exception e2) {
@@ -249,23 +278,23 @@ public class UtilHelper {
             } catch (Throwable th2) {
                 th = th2;
                 randomAccessFile = null;
-                p.a(randomAccessFile);
+                r.a(randomAccessFile);
                 throw th;
             }
-            if (randomAccessFile.read(bArr) >= 1) {
-                String str = new String(bArr);
-                int indexOf = str.indexOf(0);
-                if (indexOf != -1) {
-                    str = str.substring(0, indexOf);
-                }
-                if (str.toLowerCase().contains("arm")) {
-                    p.a(randomAccessFile);
-                    return true;
-                }
-                p.a(randomAccessFile);
+            if (randomAccessFile.read(bArr) < 1) {
+                r.a(randomAccessFile);
                 return false;
             }
-            p.a(randomAccessFile);
+            String str = new String(bArr);
+            int indexOf = str.indexOf(0);
+            if (indexOf != -1) {
+                str = str.substring(0, indexOf);
+            }
+            if (str.toLowerCase().contains("arm")) {
+                r.a(randomAccessFile);
+                return true;
+            }
+            r.a(randomAccessFile);
             return false;
         }
         return true;
@@ -288,24 +317,25 @@ public class UtilHelper {
         return arrayList.contains(str);
     }
 
-    public static final boolean d(Context context) {
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [570=4] */
+    public static final boolean e(Context context) {
         SQLiteDatabase openOrCreateDatabase;
         try {
             openOrCreateDatabase = context.openOrCreateDatabase("webviewCache.db", 0, null);
         } catch (Throwable th) {
             try {
-                if (com.baidu.adp.lib.g.e.a()) {
-                    com.baidu.adp.lib.g.e.b(UtilHelper.class.getName(), "webViewIsProbablyCorrupt", th.getMessage());
+                if (com.baidu.adp.lib.util.f.a()) {
+                    com.baidu.adp.lib.util.f.b(UtilHelper.class.getName(), "webViewIsProbablyCorrupt", th.getMessage());
                 }
             } finally {
-                p.a((SQLiteDatabase) null);
+                r.a((SQLiteDatabase) null);
             }
         }
         if (openOrCreateDatabase != null) {
-            p.a(openOrCreateDatabase);
+            r.a(openOrCreateDatabase);
             return false;
         }
-        p.a(openOrCreateDatabase);
+        r.a(openOrCreateDatabase);
         return true;
     }
 
@@ -320,15 +350,15 @@ public class UtilHelper {
         } else if (lowerCase.startsWith("frs:")) {
             FrsActivity.a(context, lowerCase.substring(4), str3);
         } else if (lowerCase.startsWith("topic:")) {
-            ForumTopicActivity.a(context, lowerCase.substring(6), str2);
+            TbWebViewActivity.a(context, lowerCase.substring(6), str2);
         } else if (lowerCase.startsWith("zb:")) {
-            CommonWebviewActivity.a(context, context.getString(R.string.kn_zhibo), lowerCase.substring(3), true, "get");
+            TbWebViewActivity.b(context, context.getString(R.string.kn_zhibo), lowerCase.substring(3));
         } else if (lowerCase.startsWith("jctj:")) {
             DailyRecommendActivity.a(context, (String) null);
         } else if (lowerCase.startsWith("list:")) {
             ForumRankActivity.a(context, lowerCase.substring(5), str3);
         } else {
-            com.baidu.adp.lib.g.g.a(context, (int) R.string.deal_link_error);
+            BdUtilHelper.a(context, (int) R.string.deal_link_error);
         }
     }
 
@@ -345,28 +375,28 @@ public class UtilHelper {
         return str.concat(str3);
     }
 
-    public static void a(Context context, com.baidu.tieba.data.av avVar, int i) {
+    public static void a(Context context, com.baidu.tieba.data.at atVar, int i) {
         boolean z;
         boolean z2;
         int hours = new Date(System.currentTimeMillis()).getHours();
         if ((hours < 0 || hours > 7) && hours < 23) {
             long time = new Date().getTime();
-            if (com.baidu.tieba.mention.s.c()) {
+            if (com.baidu.tieba.mention.v.c()) {
                 z = false;
                 z2 = false;
-            } else if (time - TiebaApplication.h().aR() >= 5000) {
-                boolean z3 = TiebaApplication.h().S();
-                z = TiebaApplication.h().T();
-                TiebaApplication.h().c(time);
+            } else if (time - TiebaApplication.g().aO() >= 5000) {
+                boolean z3 = TiebaApplication.g().R();
+                z = TiebaApplication.g().S();
+                TiebaApplication.g().c(time);
                 z2 = z3;
             } else {
                 z = false;
                 z2 = false;
             }
             NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
-            String d = avVar.d();
-            String c = avVar.c();
-            if (TiebaApplication.h().O()) {
+            String d = atVar.d();
+            String c = atVar.c();
+            if (TiebaApplication.g().N()) {
                 Notification notification = new Notification(R.drawable.icon, d, System.currentTimeMillis());
                 if (c != null && c.length() > 0) {
                     Intent intent = new Intent(context, DealIntentService.class);
@@ -382,7 +412,7 @@ public class UtilHelper {
                         intent.putExtra("close_dialog", true);
                         intent.putExtra("locate_type", 0);
                         intent.setFlags(603979776);
-                        TiebaApplication.h().g(0);
+                        TiebaApplication.g().g(0);
                     } else if (c.startsWith("opfeature:")) {
                         try {
                             intent.putExtra("class", 0);
@@ -390,7 +420,7 @@ public class UtilHelper {
                             intent.putExtra(SocialConstants.PARAM_URL, c);
                             intent.putExtra("is_message_pv", true);
                         } catch (Exception e) {
-                            com.baidu.adp.lib.g.e.a("MessagePullService", "showNotification", e.toString());
+                            com.baidu.adp.lib.util.f.a("MessagePullService", "showNotification", e.toString());
                             return;
                         }
                     } else if (c.startsWith("pk_before:")) {
@@ -406,18 +436,18 @@ public class UtilHelper {
                     }
                     intent.putExtra("is_notify", true);
                     intent.putExtra("link", c);
-                    intent.putExtra("message_id", avVar.b());
-                    if (!TextUtils.isEmpty(avVar.a())) {
-                        intent.putExtra("stat", avVar.a());
+                    intent.putExtra("message_id", atVar.b());
+                    if (!TextUtils.isEmpty(atVar.a())) {
+                        intent.putExtra("stat", atVar.a());
                     }
                     PendingIntent service = PendingIntent.getService(context, 0, intent, 134217728);
                     String string = context.getString(R.string.app_name);
                     notification.icon = R.drawable.icon_notify;
                     notification.setLatestEventInfo(context, string, d, service);
-                    RemoteViews remoteViews = new RemoteViews(TiebaApplication.h().getPackageName(), (int) R.layout.custom_notification);
+                    RemoteViews remoteViews = new RemoteViews(TiebaApplication.g().b().getPackageName(), (int) R.layout.custom_notification);
                     remoteViews.setImageViewResource(R.id.notification_icon, R.drawable.icon);
                     remoteViews.setTextViewText(R.id.notification_content, d);
-                    remoteViews.setTextViewText(R.id.notification_time, bu.b(new Date()));
+                    remoteViews.setTextViewText(R.id.notification_time, bs.b(new Date()));
                     notification.contentView = remoteViews;
                     notification.defaults = -1;
                     if (!z) {
@@ -452,7 +482,7 @@ public class UtilHelper {
                     FrsActivity.a(context, intent.getStringExtra("fname"), intent.getStringExtra("from"));
                     return true;
                 case 3:
-                    intent.setClass(context, MainTabActivity.class);
+                    intent.setClass(context, com.baidu.tieba.mainentrance.f.a());
                     context.startActivity(intent);
                     return true;
                 case 4:
@@ -469,22 +499,22 @@ public class UtilHelper {
                     int intExtra6 = intent.getIntExtra("group_msg_validate", 0);
                     int intExtra7 = intent.getIntExtra("group_msg_updates", 0);
                     int intExtra8 = intent.getIntExtra("KeyOfNotiId", 16);
-                    com.baidu.tieba.mention.s.a().a(intExtra2, intExtra, intExtra3, intExtra4);
-                    com.baidu.adp.lib.g.e.d("group_msg:" + intExtra5 + " group_msg_validate:" + intExtra6 + " group_msg_updates" + intExtra7);
+                    com.baidu.tieba.mention.v.a().a(intExtra2, intExtra, intExtra3, intExtra4);
+                    com.baidu.adp.lib.util.f.e("group_msg:" + intExtra5 + " group_msg_validate:" + intExtra6 + " group_msg_updates" + intExtra7);
                     if (intExtra2 > 0 || intExtra > 0 || intExtra4 > 0 || intExtra7 > 0 || intExtra6 > 0 || intExtra5 > 0) {
-                        MainTabActivity.b(context, intExtra8);
+                        com.baidu.tieba.mainentrance.f.b(context, intExtra8);
                         return false;
                     }
                     return false;
                 case 8:
-                    MainTabActivity.a(context, 2);
+                    com.baidu.tieba.mainentrance.f.a(context, 2);
                     return true;
                 case 9:
-                    intent.setClass(context, MainTabActivity.class);
+                    intent.setClass(context, com.baidu.tieba.mainentrance.f.a());
                     context.startActivity(intent);
                     return true;
                 case 10:
-                    MainTabActivity.a(context, 4);
+                    com.baidu.tieba.mainentrance.f.a(context, 4);
                     return true;
                 case 11:
                     int intExtra9 = intent.getIntExtra("at_me", 0);
@@ -495,11 +525,11 @@ public class UtilHelper {
                     int intExtra14 = intent.getIntExtra("group_msg_validate", 0);
                     int intExtra15 = intent.getIntExtra("group_msg_updates", 0);
                     int intExtra16 = intent.getIntExtra("KeyOfNotiId", 16);
-                    com.baidu.tieba.mention.s.a().a(intExtra10, intExtra9, intExtra11, intExtra12);
-                    com.baidu.adp.lib.g.e.d("group_msg1:" + intExtra13 + " group_msg_validate1 " + intExtra14 + " group_msg_updates1 " + intExtra15);
+                    com.baidu.tieba.mention.v.a().a(intExtra10, intExtra9, intExtra11, intExtra12);
+                    com.baidu.adp.lib.util.f.e("group_msg1:" + intExtra13 + " group_msg_validate1 " + intExtra14 + " group_msg_updates1 " + intExtra15);
                     if (intExtra10 > 0 || intExtra9 > 0 || intExtra12 > 0 || intExtra15 > 0 || intExtra14 > 0 || intExtra13 > 0) {
-                        MentionActivity.b = true;
-                        MentionActivity.a(context, intExtra16);
+                        com.baidu.tieba.mention.c.c = true;
+                        com.baidu.tieba.mention.c.a(context, intExtra16);
                         return false;
                     }
                     return false;
@@ -509,7 +539,7 @@ public class UtilHelper {
                     if (TextUtils.isEmpty(A) || TextUtils.isEmpty(F)) {
                         return false;
                     }
-                    PersonInfoActivity.a(context, A, F);
+                    cm.a(context, A, F);
                     return false;
                 case 13:
                     GroupInfoActivity.a(context, Long.parseLong(intent.getStringExtra("groupid")), 0);
@@ -528,9 +558,9 @@ public class UtilHelper {
         try {
             context.startActivity(intent);
         } catch (ActivityNotFoundException e) {
-            com.baidu.adp.lib.g.e.a(e.getMessage());
+            com.baidu.adp.lib.util.f.b(e.getMessage());
         } catch (SecurityException e2) {
-            com.baidu.adp.lib.g.e.a(e2.getMessage());
+            com.baidu.adp.lib.util.f.b(e2.getMessage());
         }
     }
 
@@ -541,15 +571,15 @@ public class UtilHelper {
         try {
             context.startActivity(intent);
         } catch (ActivityNotFoundException e) {
-            com.baidu.adp.lib.g.e.a(e.getMessage());
+            com.baidu.adp.lib.util.f.b(e.getMessage());
         } catch (SecurityException e2) {
-            com.baidu.adp.lib.g.e.a(e2.getMessage());
+            com.baidu.adp.lib.util.f.b(e2.getMessage());
         }
     }
 
     public static void i(Context context, String str) {
         try {
-            by.a(context, "search_in_baidu", "searchclick", 1, new Object[0]);
+            cb.a(context, "search_in_baidu", "searchclick", 1, new Object[0]);
             Intent intent = new Intent();
             intent.addCategory("android.intent.category.DEFAULT");
             if (!TextUtils.isEmpty(str)) {
@@ -576,9 +606,9 @@ public class UtilHelper {
         }
     }
 
-    public static void e(Context context) {
+    public static void f(Context context) {
         if (context == null) {
-            com.baidu.adp.lib.g.e.b(UtilHelper.class.getName(), "startPushService", " context is null!");
+            com.baidu.adp.lib.util.f.b(UtilHelper.class.getName(), "startPushService", " context is null!");
             return;
         }
         String D = TiebaApplication.D();
@@ -593,12 +623,12 @@ public class UtilHelper {
         PushManager.startWork(context, "1095821", D);
     }
 
-    public static void f(Context context) {
+    public static void g(Context context) {
         PushManager.stopWork(context);
     }
 
     public static boolean b() {
-        return g(TiebaApplication.h().getApplicationContext()) != NetworkStateInfo.UNAVAIL;
+        return h(TiebaApplication.g().b().getApplicationContext()) != NetworkStateInfo.UNAVAIL;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x0069 */
@@ -609,7 +639,7 @@ public class UtilHelper {
     /* JADX WARN: Type inference failed for: r1v2 */
     /* JADX WARN: Type inference failed for: r1v3, types: [java.lang.Exception] */
     /* JADX WARN: Type inference failed for: r1v4, types: [java.lang.String] */
-    public static NetworkStateInfo g(Context context) {
+    public static NetworkStateInfo h(Context context) {
         NetworkStateInfo networkStateInfo;
         ?? e = NetworkStateInfo.UNAVAIL;
         try {
@@ -618,12 +648,12 @@ public class UtilHelper {
                 networkStateInfo = NetworkStateInfo.UNAVAIL;
                 try {
                     e = "NetWorkCore";
-                    com.baidu.adp.lib.g.e.a("NetWorkCore", "NetworkStateInfo", "UNAVAIL");
+                    com.baidu.adp.lib.util.f.a("NetWorkCore", "NetworkStateInfo", "UNAVAIL");
                 } catch (Exception e2) {
                     e = e2;
                 }
             } else if (activeNetworkInfo.getType() == 1) {
-                com.baidu.adp.lib.g.e.a("NetWorkCore", "NetworkStateInfo", "WIFI");
+                com.baidu.adp.lib.util.f.a("NetWorkCore", "NetworkStateInfo", "WIFI");
                 networkStateInfo = NetworkStateInfo.WIFI;
             } else {
                 switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
@@ -633,7 +663,7 @@ public class UtilHelper {
                     case 4:
                     case 7:
                     case 11:
-                        com.baidu.adp.lib.g.e.a("NetWorkCore", "NetworkStateInfo", "TwoG");
+                        com.baidu.adp.lib.util.f.a("NetWorkCore", "NetworkStateInfo", "TwoG");
                         networkStateInfo = NetworkStateInfo.TwoG;
                         break;
                     case 3:
@@ -646,11 +676,11 @@ public class UtilHelper {
                     case 13:
                     case 14:
                     case 15:
-                        com.baidu.adp.lib.g.e.a("NetWorkCore", "NetworkStateInfo", "ThreeG");
+                        com.baidu.adp.lib.util.f.a("NetWorkCore", "NetworkStateInfo", "ThreeG");
                         networkStateInfo = NetworkStateInfo.ThreeG;
                         break;
                     default:
-                        com.baidu.adp.lib.g.e.a("NetWorkCore", "NetworkStateInfo-default", "TwoG");
+                        com.baidu.adp.lib.util.f.a("NetWorkCore", "NetworkStateInfo-default", "TwoG");
                         networkStateInfo = NetworkStateInfo.TwoG;
                         break;
                 }
@@ -670,28 +700,27 @@ public class UtilHelper {
         double d = 0.0d;
         int i2 = 0;
         while (true) {
-            if (i2 < str.length()) {
-                char charAt = str.charAt(i2);
-                if ((charAt >= 'a' && charAt <= 'z') || ((charAt >= 'A' && charAt <= 'Z') || (charAt >= '0' && charAt <= '9'))) {
-                    d += 0.5d;
-                } else {
-                    d += 1.0d;
-                }
-                if (d <= i) {
-                    sb.append(charAt);
-                    i2++;
-                } else {
-                    sb.append("...");
-                    break;
-                }
+            if (i2 >= str.length()) {
+                break;
+            }
+            char charAt = str.charAt(i2);
+            if ((charAt >= 'a' && charAt <= 'z') || ((charAt >= 'A' && charAt <= 'Z') || (charAt >= '0' && charAt <= '9'))) {
+                d += 0.5d;
             } else {
+                d += 1.0d;
+            }
+            if (d <= i) {
+                sb.append(charAt);
+                i2++;
+            } else {
+                sb.append("...");
                 break;
             }
         }
         return sb.toString();
     }
 
-    public static String h(Context context) {
+    public static String i(Context context) {
         try {
             WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
             if (!wifiManager.isWifiEnabled()) {
@@ -699,13 +728,13 @@ public class UtilHelper {
             }
             return b(wifiManager.getConnectionInfo().getIpAddress());
         } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b("UtilHelper", "getWifiMac", e.toString());
+            com.baidu.adp.lib.util.f.b("UtilHelper", "getWifiMac", e.toString());
             return null;
         }
     }
 
     private static String b(int i) {
-        return (i & 255) + "." + ((i >> 8) & 255) + "." + ((i >> 16) & 255) + "." + ((i >> 24) & 255);
+        return String.valueOf(i & MotionEventCompat.ACTION_MASK) + "." + ((i >> 8) & MotionEventCompat.ACTION_MASK) + "." + ((i >> 16) & MotionEventCompat.ACTION_MASK) + "." + ((i >> 24) & MotionEventCompat.ACTION_MASK);
     }
 
     public static String c() {
@@ -721,7 +750,7 @@ public class UtilHelper {
                 }
             }
         } catch (SocketException e) {
-            com.baidu.adp.lib.g.e.b("UtilHelper", "getGprsIpAddress", e.toString());
+            com.baidu.adp.lib.util.f.b("UtilHelper", "getGprsIpAddress", e.toString());
         }
         return null;
     }
@@ -733,7 +762,7 @@ public class UtilHelper {
         try {
             return InetAddress.getByName(str).getHostAddress();
         } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b("UtilHelper", "getIpFromDomain", e.toString());
+            com.baidu.adp.lib.util.f.b("UtilHelper", "getIpFromDomain", e.toString());
             return null;
         }
     }

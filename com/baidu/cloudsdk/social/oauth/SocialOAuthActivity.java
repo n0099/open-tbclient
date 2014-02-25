@@ -9,15 +9,15 @@ import com.baidu.cloudsdk.IBaiduListener;
 import com.baidu.cloudsdk.common.util.Utils;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.cloudsdk.social.share.SocialShareConfig;
-import com.bp;
-import com.bq;
 import com.u;
+import com.v;
+import com.w;
 /* loaded from: classes.dex */
 public class SocialOAuthActivity extends Activity {
     private static IBaiduListener a;
     private String b;
     private String c;
-    private bp e;
+    private v e;
     private boolean d = false;
     private IBaiduListener f = new u(this);
 
@@ -58,7 +58,7 @@ public class SocialOAuthActivity extends Activity {
             this.b = bundle.getString(SocialConstants.PARAM_MEDIA_TYPE);
             this.c = bundle.getString(SocialConstants.PARAM_CLIENT_ID);
             this.d = bundle.getBoolean(SocialConstants.PARAM_ACTIVITY_STATE_FLAG);
-            this.e = new bq(this, this.c, this.f).a(this.b);
+            this.e = new w(this, this.c, this.f).a(this.b);
             if (this.d) {
                 return;
             }

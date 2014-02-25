@@ -1,9 +1,17 @@
 package com.baidu.tieba.view;
 
-import android.view.View;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.widget.ImageView;
 /* loaded from: classes.dex */
-public interface bb {
-    void a(View view, int i, int i2);
-
-    void d();
+public class bb extends ImageView {
+    public void a() {
+        if (getBackground() != null) {
+            Bitmap bitmap = ((BitmapDrawable) getBackground()).getBitmap();
+            setBackgroundDrawable(null);
+            if (bitmap != null && !bitmap.isRecycled()) {
+                bitmap.recycle();
+            }
+        }
+    }
 }

@@ -9,22 +9,23 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AbsListView;
 import cn.jingling.lib.file.Shared;
-import com.baidu.tieba.ao;
+import com.baidu.tieba.ai;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.frsgroup.GroupLevelActivity;
+import com.baidu.tieba.im.groupActivity.GroupActivityActivity;
 import com.baidu.tieba.im.groupInfo.GroupInfoActivity;
-import com.baidu.tieba.im.groupInfo.af;
-import com.baidu.tieba.im.groupInfo.ai;
-import com.baidu.tieba.im.message.cr;
-import com.baidu.tieba.im.message.q;
-import com.baidu.tieba.mention.s;
+import com.baidu.tieba.im.groupInfo.ag;
+import com.baidu.tieba.im.groupInfo.aj;
+import com.baidu.tieba.im.message.da;
+import com.baidu.tieba.im.message.s;
+import com.baidu.tieba.mention.v;
 import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class UpdatesActivity extends com.baidu.tieba.j implements AbsListView.OnScrollListener, com.baidu.tieba.im.c.l, com.baidu.tieba.im.messageCenter.g {
+public class UpdatesActivity extends com.baidu.tieba.f implements AbsListView.OnScrollListener, com.baidu.tieba.im.messageCenter.g {
     public static boolean a = false;
-    private n b;
+    private q b;
     private AlertDialog c;
     private com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> d;
     private com.baidu.tieba.im.a<Boolean> e;
@@ -43,35 +44,35 @@ public class UpdatesActivity extends com.baidu.tieba.j implements AbsListView.On
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.j = new m();
-        this.b = new n(this);
+        this.b = new q(this);
         c();
         this.g = new com.baidu.tieba.util.i(this);
         this.g.d(true);
-        com.baidu.tieba.im.c.m.a().a("group_intro_change", this);
-        com.baidu.tieba.im.c.m.a().a("group_level_up", this);
-        com.baidu.tieba.im.c.m.a().a("group_name_change", this);
-        com.baidu.tieba.im.c.m.a().a("group_notice_change", this);
-        com.baidu.tieba.im.c.m.a().a("dismiss_group", this);
+        com.baidu.tieba.im.messageCenter.e.a().a(-136, this);
+        com.baidu.tieba.im.messageCenter.e.a().a(-137, this);
+        com.baidu.tieba.im.messageCenter.e.a().a(-134, this);
+        com.baidu.tieba.im.messageCenter.e.a().a(-133, this);
+        com.baidu.tieba.im.messageCenter.e.a().a(-141, this);
         this.b.a(true);
         m.b(this.d);
         com.baidu.tieba.im.messageCenter.e.a().a(202004, this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, android.app.Activity
     public void onResume() {
         super.onResume();
         a = true;
-        s.a().a(2);
-        s.a().g();
+        v.a().a(2);
+        v.a().g();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, android.app.Activity
     public void onStop() {
         super.onStop();
         a = false;
@@ -90,7 +91,7 @@ public class UpdatesActivity extends com.baidu.tieba.j implements AbsListView.On
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, android.app.Activity
     public void onPause() {
         super.onPause();
         a = false;
@@ -102,7 +103,7 @@ public class UpdatesActivity extends com.baidu.tieba.j implements AbsListView.On
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         if (this.b != null) {
@@ -112,7 +113,7 @@ public class UpdatesActivity extends com.baidu.tieba.j implements AbsListView.On
             this.j.c();
         }
         this.i = null;
-        com.baidu.tieba.im.c.m.a().a(this);
+        com.baidu.tieba.im.messageCenter.e.a().a(this);
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
@@ -140,7 +141,7 @@ public class UpdatesActivity extends com.baidu.tieba.j implements AbsListView.On
         }
     }
 
-    @Override // com.baidu.tieba.j, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tieba.f, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (keyEvent == null) {
             return super.onKeyDown(i, keyEvent);
@@ -155,21 +156,24 @@ public class UpdatesActivity extends com.baidu.tieba.j implements AbsListView.On
         return super.onKeyDown(i, keyEvent);
     }
 
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x0068: ARITH  (r1v6 long A[REMOVE]) = (wrap: long : 0x005d: INVOKE  (r1v5 long A[REMOVE]) = 
+      (wrap: java.lang.String : 0x0059: INVOKE  (r1v4 java.lang.String A[REMOVE]) = (r7v0 com.baidu.tieba.im.groupUpdates.UpdatesItemData) type: VIRTUAL call: com.baidu.tieba.im.groupUpdates.UpdatesItemData.getNotice_id():java.lang.String)
+     type: STATIC call: java.lang.Long.parseLong(java.lang.String):long) / (100 long))] */
     /* JADX INFO: Access modifiers changed from: private */
     public void a(UpdatesItemData updatesItemData) {
         if (!UtilHelper.b()) {
             showToast(R.string.neterror);
-        } else if (updatesItemData != null && !TextUtils.isEmpty(com.baidu.tieba.im.c.m.a().d()) && TextUtils.isDigitsOnly(com.baidu.tieba.im.c.m.a().d()) && !TextUtils.isEmpty(updatesItemData.getNotice_id()) && TextUtils.isDigitsOnly(updatesItemData.getNotice_id())) {
+        } else if (updatesItemData != null && !TextUtils.isEmpty(com.baidu.tieba.im.c.j.a().e()) && TextUtils.isDigitsOnly(com.baidu.tieba.im.c.j.a().e()) && !TextUtils.isEmpty(updatesItemData.getNotice_id()) && TextUtils.isDigitsOnly(updatesItemData.getNotice_id())) {
             try {
                 this.b.a(true);
-                af afVar = new af();
-                afVar.a(Integer.parseInt(com.baidu.tieba.im.c.m.a().d()));
-                afVar.a("" + (Long.parseLong(updatesItemData.getNotice_id()) / 100));
-                com.baidu.adp.lib.g.e.d("del group info request: gid" + updatesItemData.getGroupId() + " msgid:" + updatesItemData.getNotice_id() + " systemGid:" + afVar.b());
-                com.baidu.tieba.im.messageCenter.e.a().a(afVar);
+                ag agVar = new ag();
+                agVar.a(Integer.parseInt(com.baidu.tieba.im.c.j.a().e()));
+                agVar.a(new StringBuilder().append(Long.parseLong(updatesItemData.getNotice_id()) / 100).toString());
+                com.baidu.adp.lib.util.f.e("del group info request: gid" + updatesItemData.getGroupId() + " msgid:" + updatesItemData.getNotice_id() + " systemGid:" + agVar.b());
+                com.baidu.tieba.im.messageCenter.e.a().a(agVar);
             } catch (Exception e) {
                 e.printStackTrace();
-                com.baidu.adp.lib.g.e.a(e.getMessage());
+                com.baidu.adp.lib.util.f.b(e.getMessage());
             }
         }
     }
@@ -178,20 +182,20 @@ public class UpdatesActivity extends com.baidu.tieba.j implements AbsListView.On
         if (!UtilHelper.b()) {
             showToast(R.string.neterror);
         } else if (!TextUtils.isEmpty(str)) {
-            String d = com.baidu.tieba.im.c.m.a().d();
-            if (!TextUtils.isEmpty(d) && TextUtils.isDigitsOnly(d)) {
+            String e = com.baidu.tieba.im.c.j.a().e();
+            if (!TextUtils.isEmpty(e) && TextUtils.isDigitsOnly(e)) {
                 this.b.a(true);
-                af afVar = new af();
-                afVar.a(Integer.parseInt(d));
-                afVar.a(str);
-                com.baidu.adp.lib.g.e.d("del group info request: " + str);
-                com.baidu.tieba.im.messageCenter.e.a().a(afVar);
+                ag agVar = new ag();
+                agVar.a(Integer.parseInt(e));
+                agVar.a(str);
+                com.baidu.adp.lib.util.f.e("del group info request: " + str);
+                com.baidu.tieba.im.messageCenter.e.a().a(agVar);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j
+    @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (this.b != null) {
@@ -199,25 +203,22 @@ public class UpdatesActivity extends com.baidu.tieba.j implements AbsListView.On
         }
     }
 
-    @Override // com.baidu.tieba.im.c.l
-    public void a(GroupNewsPojo groupNewsPojo) {
-        m.b(this.d);
-    }
-
     public void a(View view, int i, int i2, long j, UpdatesItemData updatesItemData) {
         if (updatesItemData != null && 101 == i && !b()) {
             String groupId = updatesItemData.getGroupId();
-            com.baidu.adp.lib.g.e.d("go to level gid:" + groupId);
+            com.baidu.adp.lib.util.f.e("go to level gid:" + groupId);
             String updatesType = updatesItemData.getUpdatesType();
-            com.baidu.adp.lib.g.e.d("updateType:" + updatesType);
+            com.baidu.adp.lib.util.f.e("updateType:" + updatesType);
             if (!TextUtils.isEmpty(updatesType)) {
                 try {
                     if (updatesType.equals("group_level_up")) {
                         GroupLevelActivity.a(this, Long.parseLong(groupId));
                     } else if (!updatesType.equals("dismiss_group")) {
                         if (updatesType.equals("group_event_info")) {
-                            ao.a(this, "update_activity_group_event_click");
+                            ai.a(this, "update_activity_group_event_click");
                             UtilHelper.a(this, updatesItemData.getEventLink(), null, null);
+                        } else if (updatesType.equals("group_activitys_change")) {
+                            GroupActivityActivity.a(this, com.baidu.adp.lib.f.b.a(updatesItemData.getGroupActivityId(), 0), com.baidu.adp.lib.f.b.a(updatesItemData.getGroupId(), 0L), 1);
                         } else {
                             GroupInfoActivity.a(this, Long.parseLong(groupId), 0);
                         }
@@ -307,25 +308,30 @@ public class UpdatesActivity extends com.baidu.tieba.j implements AbsListView.On
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(q qVar) {
+    public void a(s sVar) {
         this.b.a(false);
-        if (qVar != null && (qVar instanceof cr) && 202004 == qVar.w()) {
-            ai aiVar = (ai) qVar;
-            af afVar = (af) aiVar.n();
-            if (aiVar.k()) {
-                com.baidu.adp.lib.g.e.a("del group info err:" + aiVar.m());
-                return;
+        if (sVar != null && (sVar instanceof da)) {
+            int w = sVar.w();
+            if (202004 == w) {
+                aj ajVar = (aj) sVar;
+                ag agVar = (ag) ajVar.o();
+                if (ajVar.l()) {
+                    com.baidu.adp.lib.util.f.b("del group info err:" + ajVar.n());
+                    return;
+                }
+                com.baidu.adp.lib.util.f.e("del group info: gid" + agVar.b() + " msgid:" + agVar.c());
+                if (this.i != null) {
+                    m.a(this.i, this.e);
+                    this.i = null;
+                }
+                if (this.j != null && this.j.d() > 0) {
+                    this.j.a(this.e);
+                }
+                com.baidu.tieba.im.validate.l.a(Shared.INFINITY, 0, this.d);
+                com.baidu.tieba.im.c.a.a(false, (com.baidu.tieba.im.a<Void>) null);
+            } else if (-136 == w || -137 == w || -134 == w || -133 == w || -141 == w) {
+                m.b(this.d);
             }
-            com.baidu.adp.lib.g.e.d("del group info: gid" + afVar.b() + " msgid:" + afVar.c());
-            if (this.i != null) {
-                m.a(this.i, this.e);
-                this.i = null;
-            }
-            if (this.j != null && this.j.d() > 0) {
-                this.j.a(this.e);
-            }
-            com.baidu.tieba.im.validate.l.a(Shared.INFINITY, 0, this.d);
-            com.baidu.tieba.im.c.a.a(false, (com.baidu.tieba.im.a<Void>) null);
         }
     }
 }

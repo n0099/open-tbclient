@@ -16,7 +16,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ e(EmotionManageActivity emotionManageActivity, a aVar) {
+    public /* synthetic */ e(EmotionManageActivity emotionManageActivity, e eVar) {
         this(emotionManageActivity);
     }
 }

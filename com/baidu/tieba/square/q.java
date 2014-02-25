@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.ce;
+import com.baidu.tieba.util.ch;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class q extends BaseAdapter {
@@ -30,7 +30,7 @@ public class q extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        z d = this.c.d();
+        ab d = this.c.d();
         if (d == null || d.e == null) {
             return 0;
         }
@@ -42,11 +42,11 @@ public class q extends BaseAdapter {
         int itemViewType = getItemViewType(i);
         if (view == null) {
             view = a(viewGroup, itemViewType);
-            ce.b(view);
+            ch.b(view);
         }
-        ce.a(view);
+        ch.a(view);
         if (itemViewType != 3) {
-            int al = TiebaApplication.h().al();
+            int al = TiebaApplication.g().al();
             View findViewById = view.findViewById(R.id.container);
             View findViewById2 = view.findViewById(R.id.item_up);
             View findViewById3 = view.findViewById(R.id.item_down);
@@ -60,7 +60,7 @@ public class q extends BaseAdapter {
                 findViewById2.setVisibility(8);
                 findViewById3.setVisibility(8);
             }
-            ce.a(findViewById, itemViewType, al);
+            ch.a(findViewById, itemViewType, al);
             a(viewGroup, (s) view.getTag(), i);
         }
         return view;
@@ -80,9 +80,9 @@ public class q extends BaseAdapter {
     }
 
     private void a(ViewGroup viewGroup, s sVar, int i) {
-        z zVar = this.c.d().e.get(i / 2);
-        sVar.b = zVar;
-        sVar.a.setText(zVar.b);
+        ab abVar = this.c.d().e.get(i / 2);
+        sVar.b = abVar;
+        sVar.a.setText(abVar.b);
     }
 
     @Override // android.widget.Adapter

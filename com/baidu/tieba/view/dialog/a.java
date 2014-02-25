@@ -12,9 +12,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
-import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.j;
+import com.baidu.tieba.k;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
@@ -35,6 +34,11 @@ public class a {
     private int a = -1;
     private boolean o = false;
     private boolean p = true;
+
+    public a a(String str) {
+        this.d = str;
+        return this;
+    }
 
     public a a(View view) {
         this.c = view;
@@ -132,15 +136,15 @@ public class a {
     }
 
     private void d() {
-        int al = TiebaApplication.h().al();
-        if (this.l instanceof j) {
-            j jVar = (j) this.l;
-            jVar.getLayoutMode().a(al == 1);
-            jVar.getLayoutMode().a((View) this.m);
-        } else if (this.l instanceof BaseFragmentActivity) {
-            BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) this.l;
-            baseFragmentActivity.a().a(al == 1);
-            baseFragmentActivity.a().a((View) this.m);
+        int al = TiebaApplication.g().al();
+        if (this.l instanceof com.baidu.tieba.f) {
+            com.baidu.tieba.f fVar = (com.baidu.tieba.f) this.l;
+            fVar.getLayoutMode().a(al == 1);
+            fVar.getLayoutMode().a((View) this.m);
+        } else if (this.l instanceof k) {
+            k kVar = (k) this.l;
+            kVar.a().a(al == 1);
+            kVar.a().a((View) this.m);
         }
     }
 

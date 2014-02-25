@@ -2,7 +2,6 @@ package com.baidu.adp.lib.network;
 
 import android.net.Proxy;
 import android.text.TextUtils;
-import com.google.protobuf.CodedOutputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
@@ -24,6 +23,7 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
+import org.apache.commons.io.IOUtils;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class b {
@@ -31,7 +31,7 @@ public class b {
     public static String b = "";
     public static String c = "";
     public static String d = "";
-    private static String e = "\r\n";
+    private static String e = IOUtils.LINE_SEPARATOR_WINDOWS;
     private static String f = "--";
     private static String g = "--------7da3d81520810*";
 
@@ -65,14 +65,14 @@ public class b {
             String host = url.getHost();
             int port = url.getPort();
             int i = port != -1 ? port : 80;
-            if (str.indexOf(host + ":" + i) != -1) {
-                replaceFirst = str.replaceFirst(host + ":" + i, defaultHost + ":" + defaultPort);
+            if (str.indexOf(String.valueOf(host) + ":" + i) != -1) {
+                replaceFirst = str.replaceFirst(String.valueOf(host) + ":" + i, String.valueOf(defaultHost) + ":" + defaultPort);
             } else {
-                replaceFirst = str.replaceFirst(host, defaultHost + ":" + defaultPort);
+                replaceFirst = str.replaceFirst(host, String.valueOf(defaultHost) + ":" + defaultPort);
             }
             try {
                 httpURLConnection = (HttpURLConnection) new URL(replaceFirst).openConnection();
-                httpURLConnection.setRequestProperty("X-Online-Host", host + ":" + i);
+                httpURLConnection.setRequestProperty("X-Online-Host", String.valueOf(host) + ":" + i);
             } catch (MalformedURLException e2) {
                 return null;
             }
@@ -94,10 +94,13 @@ public class b {
         return httpURLConnection;
     }
 
-    public static HttpURLConnection a(String str, long j, long j2, LinkedList<BasicNameValuePair> linkedList) {
+    public static HttpURLConnection a(String str, long j, long j2, int i, LinkedList<BasicNameValuePair> linkedList) {
         HttpURLConnection a2 = a(str, linkedList);
         a2.setConnectTimeout(10000);
-        a2.setReadTimeout(30000);
+        if (i < 0) {
+            i = 30000;
+        }
+        a2.setReadTimeout(i);
         a2.setRequestMethod("GET");
         a2.setDoInput(true);
         a2.setUseCaches(false);
@@ -130,7 +133,7 @@ public class b {
         return a(httpURLConnection, z, bArr, gVar, dVar, aVar, (h) null);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [502=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [507=4] */
     /* JADX WARN: Removed duplicated region for block: B:135:0x0015 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:15:0x001a  */
     /* JADX WARN: Removed duplicated region for block: B:17:0x001f  */
@@ -201,7 +204,7 @@ public class b {
                 if (a) {
                     ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
-                    com.baidu.adp.lib.g.d.b(byteArrayInputStream, byteArrayOutputStream);
+                    com.baidu.adp.lib.util.e.b(byteArrayInputStream, byteArrayOutputStream);
                     bArr = byteArrayOutputStream.toByteArray();
                 }
                 DataOutputStream dataOutputStream3 = new DataOutputStream(httpURLConnection.getOutputStream());
@@ -291,20 +294,20 @@ public class b {
         throw new BdHttpCancelException();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:100:0x0016 A[EDGE_INSN: B:100:0x0016->B:10:0x0016 ?: BREAK  , SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x0089 A[LOOP:0: B:5:0x0009->B:47:0x0089, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:94:0x0075 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:100:0x0018 A[EDGE_INSN: B:100:0x0018->B:10:0x0018 ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x008b A[LOOP:0: B:5:0x0009->B:47:0x008b, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:92:0x0077 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static byte[] a(String str, long j, int i, ArrayList<byte[]> arrayList, int i2, int i3, d dVar, a aVar, LinkedList<BasicNameValuePair> linkedList) {
+    public static byte[] a(String str, long j, int i, ArrayList<byte[]> arrayList, int i2, int i3, int i4, d dVar, a aVar, LinkedList<BasicNameValuePair> linkedList) {
         long j2;
-        int i4;
-        long j3;
         int i5;
+        long j3;
         int i6;
+        int i7;
         HttpURLConnection a2;
-        int i7 = 0;
+        int i8 = 0;
         if (arrayList == null) {
             arrayList = new ArrayList<>();
             j2 = j;
@@ -314,7 +317,7 @@ public class b {
         while (true) {
             try {
                 try {
-                    a2 = a(str, j2, i <= 0 ? -1L : i + j2, linkedList);
+                    a2 = a(str, j2, i <= 0 ? -1L : i + j2, i4, linkedList);
                 } catch (BdHttpCancelException e2) {
                     throw e2;
                 } catch (Exception e3) {
@@ -323,13 +326,13 @@ public class b {
             } catch (BdHttpErrorException e4) {
                 e = e4;
                 j3 = j2;
-                i5 = i7;
+                i6 = i8;
             } catch (SocketException e5) {
                 e = e5;
-                i4 = i7;
+                i5 = i8;
             } catch (SocketTimeoutException e6) {
                 e = e6;
-                i4 = i7;
+                i5 = i8;
             }
             if (a2 == null) {
                 break;
@@ -337,83 +340,83 @@ public class b {
             f a3 = a(a2, true, (byte[]) null, (g) null, dVar, aVar);
             if (a3 == null || !(a3.a == 200 || a3.a == 206)) {
                 j3 = j2;
-                i5 = i7;
+                i6 = i8;
             } else {
-                i4 = 0;
+                i5 = 0;
                 try {
                     if (a3.d != null && a3.d.length > 0) {
                         arrayList.add(a3.d);
                         j3 = j2 + a3.d.length;
-                        i5 = 0;
+                        i6 = 0;
                     } else {
                         j3 = j2;
-                        i5 = 1;
+                        i6 = 1;
                     }
-                } catch (BdHttpErrorException e7) {
-                    e = e7;
-                    j3 = j2;
-                    i5 = 0;
-                } catch (SocketException e8) {
-                    e = e8;
-                } catch (SocketTimeoutException e9) {
-                    e = e9;
-                }
-                try {
-                    if (a3.d.length >= i) {
-                        if (a3.a == 200) {
+                    try {
+                        if (a3.d.length >= i) {
+                            if (a3.a == 200) {
+                                break;
+                            }
+                        } else {
                             break;
                         }
-                    } else {
-                        break;
+                    } catch (BdHttpErrorException e7) {
+                        e = e7;
+                        if (e.needRetry() && i6 < i2) {
+                            i7 = i6 + 1;
+                            if (i7 < i2 - 1) {
+                            }
+                            if (i7 < i2) {
+                            }
+                        } else {
+                            throw e;
+                        }
+                    } catch (SocketException e8) {
+                        e = e8;
+                        int i9 = i6;
+                        j2 = j3;
+                        i5 = i9;
+                        if (i5 < i2) {
+                            j3 = j2;
+                            i7 = i5 + 1;
+                            if (i7 < i2 - 1) {
+                            }
+                            if (i7 < i2) {
+                            }
+                        } else {
+                            throw e;
+                        }
+                    } catch (SocketTimeoutException e9) {
+                        e = e9;
+                        int i10 = i6;
+                        j2 = j3;
+                        i5 = i10;
+                        if (i5 < i2) {
+                            j3 = j2;
+                            i7 = i5 + 1;
+                            if (i7 < i2 - 1) {
+                            }
+                            if (i7 < i2) {
+                            }
+                        } else {
+                            throw e;
+                        }
                     }
                 } catch (BdHttpErrorException e10) {
                     e = e10;
-                    if (e.needRetry() && i5 < i2) {
-                        i6 = i5 + 1;
-                        if (i6 <= i2) {
-                        }
-                        if (i6 <= i2) {
-                        }
-                    } else {
-                        throw e;
-                    }
+                    j3 = j2;
+                    i6 = 0;
                 } catch (SocketException e11) {
                     e = e11;
-                    int i8 = i5;
-                    j2 = j3;
-                    i4 = i8;
-                    if (i4 < i2) {
-                        j3 = j2;
-                        i6 = i4 + 1;
-                        if (i6 <= i2) {
-                        }
-                        if (i6 <= i2) {
-                        }
-                    } else {
-                        throw e;
-                    }
                 } catch (SocketTimeoutException e12) {
                     e = e12;
-                    int i9 = i5;
-                    j2 = j3;
-                    i4 = i9;
-                    if (i4 < i2) {
-                        j3 = j2;
-                        i6 = i4 + 1;
-                        if (i6 <= i2) {
-                        }
-                        if (i6 <= i2) {
-                        }
-                    } else {
-                        throw e;
-                    }
                 }
             }
             if (a3 != null && (a3.a == 204 || a3.a == 416)) {
                 break;
             }
-            i6 = i5 + 1;
-            if (i6 <= i2) {
+            i7 = i6 + 1;
+            if (i7 < i2 - 1) {
                 try {
                     synchronized (Thread.currentThread()) {
                         Thread.currentThread().wait(i3);
@@ -421,16 +424,16 @@ public class b {
                 } catch (Exception e13) {
                 }
             }
-            if (i6 <= i2) {
+            if (i7 < i2) {
                 break;
             }
-            i7 = i6;
+            i8 = i7;
             j2 = j3;
         }
         return i.a(arrayList);
     }
 
-    public static boolean a(String str, String str2, boolean z, int i, int i2, d dVar, a aVar, LinkedList<BasicNameValuePair> linkedList) {
+    public static boolean a(String str, String str2, boolean z, int i, int i2, int i3, d dVar, a aVar, LinkedList<BasicNameValuePair> linkedList) {
         long j;
         HttpURLConnection a2;
         AtomicInteger atomicInteger = new AtomicInteger(0);
@@ -447,8 +450,8 @@ public class b {
         c cVar = new c(atomicInteger2, str2, atomicLong, atomicInteger);
         do {
             try {
-                j = i.a() ? 2000000L : 200000L;
-                a2 = a(str, atomicLong.longValue(), j <= 0 ? j : atomicLong.longValue() + j, linkedList);
+                j = i.a() ? 2000000 : 200000;
+                a2 = a(str, atomicLong.longValue(), j <= 0 ? j : atomicLong.longValue() + j, i3, linkedList);
             } catch (BdHttpCancelException e2) {
             } catch (Exception e3) {
                 e3.printStackTrace();
@@ -474,52 +477,52 @@ public class b {
                 } catch (Exception e4) {
                 }
             }
-        } while (atomicInteger2.intValue() <= i);
+        } while (atomicInteger2.intValue() < i);
         return false;
     }
 
-    public static f a(String str, boolean z, int i, d dVar, a aVar, LinkedList<BasicNameValuePair> linkedList) {
-        return a(true, z, str, (byte[]) null, i, dVar, aVar, linkedList);
+    public static f a(String str, boolean z, int i, int i2, d dVar, a aVar, LinkedList<BasicNameValuePair> linkedList) {
+        return a(true, z, str, (byte[]) null, i, i2, dVar, aVar, linkedList);
     }
 
-    public static f a(boolean z, String str, byte[] bArr, int i, d dVar, a aVar, LinkedList<BasicNameValuePair> linkedList) {
-        return a(false, z, str, bArr, i, dVar, aVar, linkedList);
+    public static f a(boolean z, String str, byte[] bArr, int i, int i2, d dVar, a aVar, LinkedList<BasicNameValuePair> linkedList) {
+        return a(false, z, str, bArr, i, i2, dVar, aVar, linkedList);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0043  */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x0072 A[LOOP:0: B:3:0x000b->B:48:0x0072, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:53:0x004f A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0046  */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x0075 A[LOOP:0: B:3:0x000b->B:48:0x0075, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x0052 A[SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static f a(boolean z, boolean z2, String str, byte[] bArr, int i, d dVar, a aVar, LinkedList<BasicNameValuePair> linkedList) {
-        int i2;
+    public static f a(boolean z, boolean z2, String str, byte[] bArr, int i, int i2, d dVar, a aVar, LinkedList<BasicNameValuePair> linkedList) {
         int i3;
+        int i4;
         f fVar;
-        int i4 = 0;
+        int i5 = 0;
         h hVar = new h();
         long currentTimeMillis = System.currentTimeMillis();
         while (true) {
             try {
-                fVar = a(z, z2, str, bArr, dVar, aVar, hVar, linkedList);
-                i3 = i4;
+                fVar = a(z, z2, str, bArr, dVar, i2, aVar, hVar, linkedList);
+                i4 = i5;
                 break;
             } catch (BdHttpCancelException e2) {
                 throw e2;
             } catch (BdHttpErrorException e3) {
-                if (e3.needRetry() && i4 < i) {
-                    i2 = i4 + 1;
-                    if (i2 <= i && i2 > 1) {
+                if (e3.needRetry() && i5 < i) {
+                    i3 = i5 + 1;
+                    if (i3 < i - 1 && i3 > 1) {
                         try {
                             Thread.sleep(100L);
                         } catch (Exception e4) {
                         }
                     }
-                    if (i2 <= i) {
-                        i3 = i2;
+                    if (i3 < i) {
+                        i4 = i3;
                         fVar = null;
                         if (hVar != null) {
-                            hVar.e = i3;
+                            hVar.e = i4;
                             hVar.f = new Date().getTime() - currentTimeMillis;
                         }
                         if (fVar != null) {
@@ -527,37 +530,37 @@ public class b {
                         }
                         return fVar;
                     }
-                    i4 = i2;
+                    i5 = i3;
                 } else {
                     throw e3;
                 }
             } catch (SocketException e5) {
-                if (i4 < i) {
-                    i2 = i4 + 1;
-                    if (i2 <= i) {
+                if (i5 < i) {
+                    i3 = i5 + 1;
+                    if (i3 < i - 1) {
                         Thread.sleep(100L);
                     }
-                    if (i2 <= i) {
+                    if (i3 < i) {
                     }
                 } else {
                     throw e5;
                 }
             } catch (SocketTimeoutException e6) {
-                if (i4 < i) {
-                    i2 = i4 + 1;
-                    if (i2 <= i) {
+                if (i5 < i) {
+                    i3 = i5 + 1;
+                    if (i3 < i - 1) {
                     }
-                    if (i2 <= i) {
+                    if (i3 < i) {
                     }
                 } else {
                     throw e6;
                 }
             } catch (IOException e7) {
-                if (i4 < i) {
-                    i2 = i4 + 1;
-                    if (i2 <= i) {
+                if (i5 < i) {
+                    i3 = i5 + 1;
+                    if (i3 < i - 1) {
                     }
-                    if (i2 <= i) {
+                    if (i3 < i) {
                     }
                 } else {
                     throw e7;
@@ -565,19 +568,19 @@ public class b {
             } catch (Exception e8) {
                 throw e8;
             }
-            i4 = i2;
+            i5 = i3;
         }
         throw e3;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1077=4] */
-    /* JADX WARN: Removed duplicated region for block: B:151:0x0034 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1090=4] */
+    /* JADX WARN: Removed duplicated region for block: B:154:0x0034 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:21:0x0039  */
     /* JADX WARN: Removed duplicated region for block: B:23:0x003e  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static f a(boolean z, boolean z2, String str, byte[] bArr, d dVar, a aVar, h hVar, LinkedList<BasicNameValuePair> linkedList) {
+    private static f a(boolean z, boolean z2, String str, byte[] bArr, d dVar, int i, a aVar, h hVar, LinkedList<BasicNameValuePair> linkedList) {
         HttpURLConnection httpURLConnection;
         DataOutputStream dataOutputStream;
         DataOutputStream dataOutputStream2;
@@ -613,7 +616,10 @@ public class b {
                     a2.setRequestProperty("Accept-Encoding", "gzip");
                 }
                 a2.setConnectTimeout(10000);
-                a2.setReadTimeout(30000);
+                if (i < 0) {
+                    i = 30000;
+                }
+                a2.setReadTimeout(i);
                 a2.setDoInput(true);
                 a2.setDoOutput(!z);
                 a2.setUseCaches(false);
@@ -635,7 +641,7 @@ public class b {
                             if (a) {
                                 ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
                                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
-                                com.baidu.adp.lib.g.d.b(byteArrayInputStream, byteArrayOutputStream);
+                                com.baidu.adp.lib.util.e.b(byteArrayInputStream, byteArrayOutputStream);
                                 bArr = byteArrayOutputStream.toByteArray();
                             }
                             DataOutputStream dataOutputStream4 = new DataOutputStream(a2.getOutputStream());
@@ -760,54 +766,54 @@ public class b {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0037  */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0040 A[LOOP:0: B:5:0x000d->B:22:0x0040, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x0025 A[EDGE_INSN: B:54:0x0025->B:12:0x0025 ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x003a  */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x0043 A[LOOP:0: B:5:0x000d->B:22:0x0043, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x0028 A[EDGE_INSN: B:50:0x0028->B:12:0x0028 ?: BREAK  , SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static f a(String str, boolean z, ArrayList<BasicNameValuePair> arrayList, HashMap<String, byte[]> hashMap, int i, d dVar, a aVar, h hVar, LinkedList<BasicNameValuePair> linkedList) {
+    public static f a(String str, boolean z, ArrayList<BasicNameValuePair> arrayList, HashMap<String, byte[]> hashMap, int i, int i2, d dVar, a aVar, h hVar, LinkedList<BasicNameValuePair> linkedList) {
         f fVar;
-        int i2;
-        int i3 = 0;
+        int i3;
+        int i4 = 0;
         f fVar2 = null;
         long currentTimeMillis = System.currentTimeMillis();
         h hVar2 = hVar == null ? new h() : hVar;
         while (true) {
             try {
                 try {
-                    fVar = a(str, z, arrayList, hashMap, dVar, aVar, hVar2, linkedList);
+                    fVar = a(str, z, arrayList, hashMap, i2, dVar, aVar, hVar2, linkedList);
                     if (fVar != null) {
                         try {
                             if (fVar.a == 200) {
-                                i2 = i3;
+                                i3 = i4;
                                 break;
                             }
                         } catch (BdHttpErrorException e2) {
                             e = e2;
-                            if (e.needRetry() && i3 < i) {
-                                i2 = i3 + 1;
-                                if (i2 <= i) {
+                            if (e.needRetry() && i4 < i) {
+                                i3 = i4 + 1;
+                                if (i3 < i - 1) {
                                 }
-                                if (i2 > i) {
+                                if (i3 >= i) {
                                 }
                             } else {
                                 throw e;
                             }
                         } catch (Exception e3) {
                             e = e3;
-                            if (i3 < i) {
-                                i2 = i3 + 1;
-                                if (i2 <= i) {
+                            if (i4 < i) {
+                                i3 = i4 + 1;
+                                if (i3 < i - 1) {
                                 }
-                                if (i2 > i) {
+                                if (i3 >= i) {
                                 }
                             } else {
                                 throw e;
                             }
                         }
                     }
-                    i2 = i3 + 1;
+                    i3 = i4 + 1;
                 } catch (BdHttpCancelException e4) {
                     throw e4;
                 }
@@ -818,33 +824,33 @@ public class b {
                 e = e6;
                 fVar = fVar2;
             }
-            if (i2 <= i) {
+            if (i3 < i - 1) {
                 try {
                     Thread.sleep(100L);
                 } catch (Exception e7) {
                 }
             }
-            if (i2 > i) {
+            if (i3 >= i) {
                 break;
             }
             fVar2 = fVar;
-            i3 = i2;
+            i4 = i3;
         }
         if (hVar2 != null) {
-            hVar2.e = i2;
+            hVar2.e = i3;
             hVar2.f = System.currentTimeMillis() - currentTimeMillis;
         }
         return fVar;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1345=4, 1348=5] */
-    /* JADX WARN: Removed duplicated region for block: B:177:0x001f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1362=4, 1364=5] */
     /* JADX WARN: Removed duplicated region for block: B:17:0x0024  */
+    /* JADX WARN: Removed duplicated region for block: B:182:0x001f A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:19:0x0029  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static f a(String str, boolean z, ArrayList<BasicNameValuePair> arrayList, HashMap<String, byte[]> hashMap, d dVar, a aVar, h hVar, LinkedList<BasicNameValuePair> linkedList) {
+    public static f a(String str, boolean z, ArrayList<BasicNameValuePair> arrayList, HashMap<String, byte[]> hashMap, int i, d dVar, a aVar, h hVar, LinkedList<BasicNameValuePair> linkedList) {
         HttpURLConnection httpURLConnection;
         DataOutputStream dataOutputStream;
         DataOutputStream dataOutputStream2;
@@ -902,7 +908,10 @@ public class b {
                 a2.setRequestProperty("Accept-Encoding", "gzip");
             }
             a2.setConnectTimeout(10000);
-            a2.setReadTimeout(30000);
+            if (i < 0) {
+                i = 30000;
+            }
+            a2.setReadTimeout(i);
             a2.setDoInput(true);
             a2.setDoOutput(true);
             a2.setUseCaches(false);
@@ -928,7 +937,7 @@ public class b {
                                 if (next != null) {
                                     String name = next.getName();
                                     String value = next.getValue();
-                                    byteArrayOutputStream.write((f + g + e).getBytes());
+                                    byteArrayOutputStream.write((String.valueOf(f) + g + e).getBytes());
                                     byteArrayOutputStream.write(("Content-Disposition: form-data; name=\"" + name + "\"" + e).getBytes());
                                     byteArrayOutputStream.write(e.getBytes());
                                     if (value == null) {
@@ -945,12 +954,12 @@ public class b {
                                 String key = entry.getKey();
                                 byte[] value2 = entry.getValue();
                                 if (value2 != null) {
-                                    byteArrayOutputStream.write((f + g + e).getBytes());
+                                    byteArrayOutputStream.write((String.valueOf(f) + g + e).getBytes());
                                     byteArrayOutputStream.write(("Content-Disposition: form-data; name=\"" + key + "\"; filename=\"file\"" + e).getBytes());
                                     byteArrayOutputStream.write(e.getBytes());
                                     byteArrayOutputStream.write(value2);
                                     byteArrayOutputStream.write(e.getBytes());
-                                    byteArrayOutputStream.write((f + g + f + e).getBytes());
+                                    byteArrayOutputStream.write((String.valueOf(f) + g + f + e).getBytes());
                                 }
                             }
                         }
@@ -958,7 +967,7 @@ public class b {
                         byteArrayOutputStream.close();
                         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
                         ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(1024);
-                        com.baidu.adp.lib.g.d.b(byteArrayInputStream, byteArrayOutputStream2);
+                        com.baidu.adp.lib.util.e.b(byteArrayInputStream, byteArrayOutputStream2);
                         DataOutputStream dataOutputStream4 = new DataOutputStream(a2.getOutputStream());
                         try {
                             dataOutputStream4.write(byteArrayOutputStream2.toByteArray());
@@ -992,7 +1001,7 @@ public class b {
                                     if (next2 != null) {
                                         String name2 = next2.getName();
                                         String value3 = next2.getValue();
-                                        dataOutputStream5.writeBytes(f + g + e);
+                                        dataOutputStream5.writeBytes(String.valueOf(f) + g + e);
                                         dataOutputStream5.writeBytes("Content-Disposition: form-data; name=\"" + name2 + "\"" + e);
                                         dataOutputStream5.writeBytes(e);
                                         if (value3 == null) {
@@ -1026,12 +1035,12 @@ public class b {
                                 String key2 = entry2.getKey();
                                 byte[] value4 = entry2.getValue();
                                 if (value4 != null) {
-                                    dataOutputStream5.writeBytes(f + g + e);
+                                    dataOutputStream5.writeBytes(String.valueOf(f) + g + e);
                                     dataOutputStream5.writeBytes("Content-Disposition: form-data; name=\"" + key2 + "\"; filename=\"file\"" + e);
                                     dataOutputStream5.writeBytes(e);
                                     dataOutputStream5.write(value4);
                                     dataOutputStream5.writeBytes(e);
-                                    dataOutputStream5.writeBytes(f + g + f + e);
+                                    dataOutputStream5.writeBytes(String.valueOf(f) + g + f + e);
                                 }
                             }
                         }
@@ -1161,7 +1170,7 @@ public class b {
                 throw new BdHttpCancelException();
             }
             if (inputStream2 != null && byteArrayOutputStream != null) {
-                byte[] bArr = new byte[CodedOutputStream.DEFAULT_BUFFER_SIZE];
+                byte[] bArr = new byte[4096];
                 int size = byteArrayOutputStream.size() + i;
                 do {
                     read = inputStream2.read(bArr);
@@ -1185,8 +1194,8 @@ public class b {
                 }
                 if (z2) {
                     ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
-                    ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(CodedOutputStream.DEFAULT_BUFFER_SIZE);
-                    com.baidu.adp.lib.g.d.a(byteArrayInputStream, byteArrayOutputStream2);
+                    ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(4096);
+                    com.baidu.adp.lib.util.e.a(byteArrayInputStream, byteArrayOutputStream2);
                     byte[] byteArray = byteArrayOutputStream2.toByteArray();
                     if (gVar != null) {
                         gVar.a(byteArray, 0, byteArray.length);

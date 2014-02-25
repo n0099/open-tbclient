@@ -5,12 +5,14 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.cloudsdk.BaiduException;
 import com.baidu.cloudsdk.IBaiduListener;
+import com.baidu.cloudsdk.common.imgloader.AsyncImageLoader;
 import com.baidu.cloudsdk.common.imgloader.ImageManager;
 import com.baidu.cloudsdk.common.util.Utils;
 import com.baidu.cloudsdk.social.core.MediaType;
@@ -23,6 +25,24 @@ import com.baidu.cloudsdk.social.share.handler.SocialShareStatisticsManager;
 public class ai extends ag {
     private String a;
     private String b;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes.dex */
+    public class a implements AsyncImageLoader.IAsyncImageLoaderListener {
+        private Uri b;
+
+        public a(Uri uri) {
+            this.b = uri;
+        }
+
+        @Override // com.baidu.cloudsdk.common.imgloader.AsyncImageLoader.IAsyncImageLoaderListener
+        public void onComplete(Bitmap bitmap) {
+            if (bitmap != null && !bitmap.isRecycled()) {
+                ai.this.mShareContent.setImageUri(Uri.parse(ImageManager.getInstance().getCachedFilePath(this.b)));
+            }
+            ai.this.c();
+        }
+    }
 
     public ai(Context context, IBaiduListener iBaiduListener, int i, String str, String str2) {
         super(context, iBaiduListener, i, MediaType.QQFRIEND.toString());
@@ -76,7 +96,7 @@ public class ai extends ag {
     private void a(ShareContent shareContent, IBaiduListener iBaiduListener) {
         Uri imageUri = shareContent.getImageUri();
         if (Utils.isUrl(imageUri)) {
-            ImageManager.getInstance().loadImage(this.mContext, imageUri, new e(this, imageUri));
+            ImageManager.getInstance().loadImage(this.mContext, imageUri, new a(imageUri));
         } else {
             c();
         }
@@ -139,11 +159,11 @@ public class ai extends ag {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        String a = a(this.mShareContent);
+        String a2 = a(this.mShareContent);
         Bundle bundle = new Bundle();
-        bundle.putString("scheme", a);
+        bundle.putString("scheme", a2);
         bundle.putString("appid", this.a);
-        Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(a));
+        Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(a2));
         intent.putExtra(MobileQQ.KEY_REQUEST_CODE, this.mRequestCode);
         intent.putExtra(MobileQQ.KEY_ACTION, "action_share_qq");
         intent.putExtra(MobileQQ.KEY_PARAMS, bundle);

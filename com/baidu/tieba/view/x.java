@@ -1,164 +1,82 @@
 package com.baidu.tieba.view;
 
-import android.view.animation.Animation;
-import android.view.animation.Interpolator;
-import android.view.animation.Transformation;
+import java.io.ByteArrayInputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x extends Animation {
-    final /* synthetic */ u a;
-    private boolean b = false;
-    private boolean c = false;
-    private long d;
-    private long e;
-    private int f;
-    private int g;
-    private long h;
-    private long i;
+public class x extends Thread {
+    final /* synthetic */ w a;
 
-    public x(u uVar) {
-        this.a = uVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public x(w wVar) {
+        this.a = wVar;
     }
 
-    public void a(float f, float f2) {
-        Interpolator interpolator;
-        if (f > 1500.0f) {
-            f = 1500.0f;
-        } else if (f < -1500.0f) {
-            f = -1500.0f;
-        }
-        if (f2 > 1500.0f) {
-            f2 = 1500.0f;
-        } else if (f2 < -1500.0f) {
-            f2 = -1500.0f;
-        }
-        this.d = f;
-        this.e = f2;
-        this.h = Math.abs((f * 1000.0f) / 2500.0f);
-        this.i = Math.abs((f2 * 1000.0f) / 2500.0f);
-        setDuration(Math.max(this.h, this.i));
-        interpolator = this.a.M;
-        setInterpolator(interpolator);
-        this.f = this.a.getScrollX();
-        this.g = this.a.getScrollY();
-        this.b = true;
-    }
-
-    @Override // android.view.animation.Animation
-    protected void applyTransformation(float f, Transformation transformation) {
-        long j;
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0063 A[Catch: Exception -> 0x0030, TryCatch #0 {Exception -> 0x0030, blocks: (B:3:0x0001, B:14:0x003d, B:16:0x0047, B:27:0x0090, B:19:0x0057, B:21:0x0063, B:22:0x0068, B:24:0x007e, B:26:0x008a, B:18:0x0051, B:8:0x002a, B:13:0x0037, B:4:0x0011), top: B:29:0x0001, inners: #1, #2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x007e A[Catch: Exception -> 0x0030, TryCatch #0 {Exception -> 0x0030, blocks: (B:3:0x0001, B:14:0x003d, B:16:0x0047, B:27:0x0090, B:19:0x0057, B:21:0x0063, B:22:0x0068, B:24:0x007e, B:26:0x008a, B:18:0x0051, B:8:0x002a, B:13:0x0037, B:4:0x0011), top: B:29:0x0001, inners: #1, #2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:34:? A[RETURN, SYNTHETIC] */
+    @Override // java.lang.Thread, java.lang.Runnable
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void run() {
         int i;
-        int i2;
-        float f2;
-        int i3;
-        int i4;
-        float f3;
-        float f4;
-        int i5;
-        float f5;
-        int i6;
-        float f6;
-        int i7;
-        int i8;
-        float f7;
-        int i9;
-        int i10;
-        int i11;
-        int i12 = 0;
-        if (f > 1.0f) {
-            f = 1.0f;
-        }
-        if (this.h > this.i) {
-            j = ((float) this.h) * f;
-        } else {
-            j = ((float) this.i) * f;
-        }
-        float f8 = ((float) (j > this.h ? this.h : j)) / 1000.0f;
-        if (this.d > 0) {
-            i = this.f - ((int) (f8 * (((float) this.d) - ((2500.0f * f8) / 2.0f))));
-        } else {
-            i = this.f - ((int) (f8 * (((float) this.d) + ((2500.0f * f8) / 2.0f))));
-        }
-        if (j > this.i) {
-            j = this.i;
-        }
-        float f9 = ((float) j) / 1000.0f;
-        if (this.e > 0) {
-            i2 = this.g - ((int) (f9 * (((float) this.e) - ((2500.0f * f9) / 2.0f))));
-        } else {
-            i2 = this.g - ((int) (f9 * (((float) this.e) + ((2500.0f * f9) / 2.0f))));
-        }
-        f2 = this.a.f;
-        i3 = this.a.I;
-        float f10 = f2 + i3;
-        i4 = this.a.J;
-        if (f10 + i4 > this.a.getHeight()) {
-            i6 = this.a.K;
-            if (i2 < (-i6)) {
-                i11 = this.a.K;
-                i2 = -i11;
-            }
-            f6 = this.a.f;
-            i7 = this.a.J;
-            float f11 = f6 + i7;
-            i8 = this.a.L;
-            if (this.a.getHeight() + i2 > f11 + i8) {
-                f7 = this.a.f;
-                i9 = this.a.J;
-                float height = (f7 - this.a.getHeight()) + i9;
-                i10 = this.a.L;
-                i2 = (int) (height + i10);
-            }
-        } else {
-            i2 = 0;
-        }
-        f3 = this.a.e;
-        if (f3 > this.a.getWidth()) {
-            f4 = this.a.e;
-            if (this.a.getWidth() + i > f4) {
-                f5 = this.a.e;
-                i5 = (int) (f5 - this.a.getWidth());
-            } else {
-                i5 = i;
-            }
-            if (i5 >= 0) {
-                i12 = i5;
-            }
-        }
-        this.a.scrollTo(i12, i2);
-        this.a.invalidate();
-    }
-
-    @Override // android.view.animation.Animation
-    public boolean getTransformation(long j, Transformation transformation) {
+        aw awVar;
+        byte[] bArr;
+        aw awVar2;
+        aw awVar3;
         boolean z;
-        if (!this.c) {
-            z = this.a.l;
-            if (z) {
-                this.b = false;
-                return false;
-            }
+        aw awVar4;
+        aw awVar5;
+        try {
+            w wVar = this.a;
+            i = this.a.n;
+            wVar.C = new aw(i);
             try {
-                if (super.getTransformation(j, transformation)) {
-                    return true;
+                try {
+                    awVar = this.a.C;
+                    bArr = this.a.m;
+                    if (awVar.a(new ByteArrayInputStream(bArr)) == 0) {
+                        awVar2 = this.a.C;
+                        if (awVar2.c != 0) {
+                            awVar5 = this.a.C;
+                            if (awVar5.d != 0) {
+                                this.a.B = 1;
+                                awVar3 = this.a.C;
+                                if (!awVar3.e()) {
+                                    this.a.postInvalidate();
+                                }
+                                this.a.F = System.currentTimeMillis();
+                                this.a.a = 2;
+                                z = this.a.H;
+                                if (!z) {
+                                    awVar4 = this.a.C;
+                                    if (!awVar4.a()) {
+                                        this.a.postInvalidate();
+                                        return;
+                                    }
+                                    return;
+                                }
+                                return;
+                            }
+                        }
+                        this.a.B = 0;
+                        awVar3 = this.a.C;
+                        if (!awVar3.e()) {
+                        }
+                        this.a.F = System.currentTimeMillis();
+                        this.a.a = 2;
+                        z = this.a.H;
+                        if (!z) {
+                        }
+                    }
+                } catch (OutOfMemoryError e) {
+                    this.a.c();
                 }
-                this.b = false;
-                return false;
-            } catch (Exception e) {
-                this.b = false;
-                return false;
+            } catch (Exception e2) {
+                this.a.c();
             }
+        } catch (Exception e3) {
+            this.a.a = 0;
         }
-        this.c = false;
-        this.b = false;
-        return false;
-    }
-
-    public boolean a() {
-        return this.b;
-    }
-
-    public void b() {
-        this.c = true;
     }
 }

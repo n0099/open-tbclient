@@ -13,7 +13,7 @@ public class d extends a implements Runnable {
         this.a = context.getPackageName();
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:25:0x0091 -> B:14:0x0074). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:25:0x0091 -> B:5:0x001e). Please submit an issue!!! */
     public String d() {
         try {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("top -n 1").getInputStream()));
@@ -21,7 +21,7 @@ public class d extends a implements Runnable {
                 String readLine = bufferedReader.readLine();
                 if (readLine == null) {
                     break;
-                } else if (readLine.contains(this.a) && !readLine.contains(this.a + ":remote") && !readLine.contains(this.a + ":debug")) {
+                } else if (readLine.contains(this.a) && !readLine.contains(String.valueOf(this.a) + ":remote") && !readLine.contains(String.valueOf(this.a) + ":debug")) {
                     String[] split = readLine.split("\\s+");
                     if (split[2].contains("%")) {
                         return split[2].trim();

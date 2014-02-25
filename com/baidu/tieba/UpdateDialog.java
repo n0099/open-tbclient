@@ -11,8 +11,8 @@ import com.baidu.tieba.data.VersionData;
 import com.baidu.tieba.service.TiebaUpdateService;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class UpdateDialog extends j {
-    private au c;
+public class UpdateDialog extends f {
+    private an c;
     private VersionData a = null;
     private CombineDownload b = null;
     private Dialog d = null;
@@ -26,13 +26,13 @@ public class UpdateDialog extends j {
             intent.putExtra("data", versionData);
             intent.putExtra("combineDownload", combineDownload);
             context.startActivity(intent);
-            TiebaApplication.h().u(true);
-            TiebaApplication.h().a(combineDownload);
+            TiebaApplication.g().u(true);
+            TiebaApplication.g().a(combineDownload);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         a(bundle);
@@ -59,10 +59,10 @@ public class UpdateDialog extends j {
             String.format(getString(R.string.update_client), this.a.getNew_version());
         }
         if (this.a.getHas_new_ver() == 1) {
-            this.c = new au(this, R.style.common_alert_dialog);
-            this.c.a(this.a, this.b, new bk(this));
-            this.c.setOnCancelListener(new bl(this));
-            this.c.setOnDismissListener(new bm(this));
+            this.c = new an(this, R.style.common_alert_dialog);
+            this.c.a(this.a, this.b, new bb(this));
+            this.c.setOnCancelListener(new bc(this));
+            this.c.setOnDismissListener(new bd(this));
             this.c.show();
         }
     }
@@ -76,7 +76,7 @@ public class UpdateDialog extends j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         if (this.d != null) {
@@ -89,8 +89,8 @@ public class UpdateDialog extends j {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        if (!com.baidu.tieba.util.ad.a()) {
-            showToast(com.baidu.tieba.util.ad.b());
+        if (!com.baidu.tieba.util.af.a()) {
+            showToast(com.baidu.tieba.util.af.b());
             return;
         }
         Intent intent = new Intent(this, TiebaUpdateService.class);
@@ -101,8 +101,8 @@ public class UpdateDialog extends j {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str) {
-        if (!com.baidu.tieba.util.ad.a()) {
-            showToast(com.baidu.tieba.util.ad.b());
+        if (!com.baidu.tieba.util.af.a()) {
+            showToast(com.baidu.tieba.util.af.b());
             return;
         }
         Intent intent = new Intent(this, TiebaUpdateService.class);

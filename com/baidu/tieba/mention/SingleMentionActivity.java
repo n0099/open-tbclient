@@ -2,27 +2,27 @@ package com.baidu.tieba.mention;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.ae;
-import com.baidu.tieba.BaseFragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 /* loaded from: classes.dex */
-public class SingleMentionActivity extends BaseFragmentActivity {
-    MentionActivity b;
+public class SingleMentionActivity extends com.baidu.tieba.k {
+    c d;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.BaseFragmentActivity, android.support.v4.app.n, android.app.Activity
+    @Override // com.baidu.tieba.k, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         Bundle a = a(bundle);
-        android.support.v4.app.t supportFragmentManager = getSupportFragmentManager();
-        this.b = new MentionActivity();
-        this.b.g(a);
-        ae a2 = supportFragmentManager.a();
-        a2.a(16908290, this.b);
-        a2.b();
+        FragmentManager supportFragmentManager = getSupportFragmentManager();
+        this.d = new c();
+        this.d.setArguments(a);
+        FragmentTransaction beginTransaction = supportFragmentManager.beginTransaction();
+        beginTransaction.add(16908290, this.d);
+        beginTransaction.commitAllowingStateLoss();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.n, android.app.Activity
+    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
     }
@@ -41,26 +41,26 @@ public class SingleMentionActivity extends BaseFragmentActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.BaseFragmentActivity, android.support.v4.app.n, android.app.Activity
+    @Override // com.baidu.tieba.k, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.n
+    @Override // android.support.v4.app.FragmentActivity
     public void onResumeFragments() {
         super.onResumeFragments();
     }
 
-    @Override // com.baidu.tieba.BaseFragmentActivity
-    protected void a(int i) {
+    @Override // com.baidu.tieba.k
+    protected void b(int i) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.n, android.app.Activity
+    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
-        if (this.b != null) {
-            this.b.a(i, i2, intent);
+        if (this.d != null) {
+            this.d.onActivityResult(i, i2, intent);
         }
     }
 }

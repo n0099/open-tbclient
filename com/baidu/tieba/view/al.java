@@ -1,33 +1,30 @@
 package com.baidu.tieba.view;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import android.view.View;
-import com.baidu.tieba.CommonWebviewActivity;
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tieba.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-public class al implements View.OnClickListener {
-    final /* synthetic */ FrsHeaderView a;
+public class al {
+    public LinearLayout a;
+    public RelativeLayout b;
+    public TextView c;
+    public TextView d;
+    public TextView e;
+    public TextView f;
+    public TextView g;
+    public TextView h;
+    public CommonImageLayout i;
+    public PlayVoiceBnt j;
+    public String k;
+    public String l;
+    public int m;
+    public boolean n;
+    public UserIconBox o;
+    public UserIconBox p = null;
+    final /* synthetic */ ai q;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public al(FrsHeaderView frsHeaderView) {
-        this.a = frsHeaderView;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        String str;
-        Activity activity;
-        Activity activity2;
-        String str2;
-        str = this.a.aj;
-        if (!TextUtils.isEmpty(str)) {
-            activity = this.a.A;
-            activity2 = this.a.A;
-            String string = activity2.getString(R.string.frs_badge_intro);
-            str2 = this.a.aj;
-            CommonWebviewActivity.a(activity, string, str2, true);
-        }
+    public al(ai aiVar) {
+        this.q = aiVar;
     }
 }

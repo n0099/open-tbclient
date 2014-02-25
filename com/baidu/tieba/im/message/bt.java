@@ -1,69 +1,32 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tieba.im.data.GroupInfoData;
-import com.baidu.tieba.im.data.GroupPermData;
-import java.util.ArrayList;
+import com.baidu.tieba.im.data.GroupActivityData;
 import java.util.LinkedList;
-import java.util.List;
-import protobuf.Im;
-import protobuf.QueryGroupsByUid.QueryGroupsByUidRes;
+import protobuf.AddGroupActivity.AddGroupActivityRes;
 /* loaded from: classes.dex */
-public class bt extends cr implements com.baidu.tieba.im.coder.f {
-    private List<GroupInfoData> a;
-    private GroupPermData b;
+public class bt extends da implements com.baidu.tieba.im.coder.f {
+    private GroupActivityData a;
 
-    public bt() {
-        super(103003);
-    }
-
-    public List<GroupInfoData> a() {
-        return this.a;
-    }
-
-    public void a(List<GroupInfoData> list) {
-        this.a = list;
-    }
-
-    public void a(GroupPermData groupPermData) {
-        this.b = groupPermData;
+    public void a(GroupActivityData groupActivityData) {
+        this.a = groupActivityData;
     }
 
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<q> linkedList, byte[] bArr, int i) {
-        QueryGroupsByUidRes.QueryGroupsByUidResIdl parseFrom = QueryGroupsByUidRes.QueryGroupsByUidResIdl.parseFrom(bArr);
+    public void a(LinkedList<s> linkedList, byte[] bArr, int i) {
+        AddGroupActivityRes.AddGroupActivityResIdl parseFrom = AddGroupActivityRes.AddGroupActivityResIdl.parseFrom(bArr);
+        e(i);
         g(parseFrom.getError().getErrorno());
         c(parseFrom.getError().getUsermsg());
         linkedList.add(this);
-        if (!k()) {
-            a(new ArrayList());
-            int groupsCount = parseFrom.getData().getGroupsCount();
-            for (int i2 = 0; i2 < groupsCount; i2++) {
-                Im.GroupInfo groups = parseFrom.getData().getGroups(i2);
-                GroupInfoData groupInfoData = new GroupInfoData();
-                groupInfoData.setGroupId(groups.getGroupId());
-                groupInfoData.setAuthorId(groups.getAuthorId());
-                groupInfoData.setAuthorName(groups.getAuthorName());
-                groupInfoData.setForumId(groups.getForumId());
-                groupInfoData.setGrade(groups.getGrade());
-                groupInfoData.setIntro(groups.getIntro());
-                groupInfoData.setName(groups.getName());
-                groupInfoData.setIsGroupManager(groups.getIsGroupManager());
-                groupInfoData.setMaxMemberNum(groups.getMaxMemberNum());
-                groupInfoData.setMemberNum(groups.getMemberNum());
-                groupInfoData.setPortrait(groups.getPortrait());
-                groupInfoData.setMemGroup(groups.getIsMemberGroup() == 1);
-                a().add(groupInfoData);
-            }
-            Im.GroupPermission groupPerm = parseFrom.getData().getGroupPerm();
-            GroupPermData groupPermData = new GroupPermData();
-            groupPermData.setCanCreateNormal(groupPerm.getCanCreateNormal());
-            groupPermData.setCanCreateOfficial(groupPerm.getCanCreateOfficial());
-            groupPermData.setCanCreatePersonal(groupPerm.getCanCreatePersonal());
-            groupPermData.setCreateNormalTip(groupPerm.getCreateNormalTip());
-            groupPermData.setCreateOfficialTip(groupPerm.getCreateOfficialTip());
-            groupPermData.setCreatePersonalTip(groupPerm.getCreatePersonalTip());
-            groupPermData.setIsManager(groupPerm.getIsForumManager());
-            a(groupPermData);
+        if (!l()) {
+            AddGroupActivityRes.DataRes data = parseFrom.getData();
+            GroupActivityData groupActivityData = new GroupActivityData();
+            groupActivityData.setgActivityArea(data.getGActivityArea());
+            groupActivityData.setgActivityTime(data.getGActivityTime());
+            groupActivityData.setgActivityTitle(data.getGActivityTitle());
+            groupActivityData.setGroupId(data.getGroupId());
+            groupActivityData.setGroupName(data.getGroupName());
+            a(groupActivityData);
         }
     }
 }

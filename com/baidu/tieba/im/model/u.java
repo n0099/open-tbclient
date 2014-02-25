@@ -1,19 +1,20 @@
 package com.baidu.tieba.im.model;
+
+import com.baidu.tieba.im.chat.MsglistActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ com.baidu.tieba.im.message.g a;
-    final /* synthetic */ MsglistModel b;
+public class u implements Runnable {
+    final /* synthetic */ MsglistModel a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(MsglistModel msglistModel, com.baidu.tieba.im.message.g gVar) {
-        this.b = msglistModel;
-        this.a = gVar;
+    public u(MsglistModel msglistModel) {
+        this.a = msglistModel;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Boolean bool) {
-        this.b.a((com.baidu.tieba.im.message.b) this.a);
+    @Override // java.lang.Runnable
+    public void run() {
+        MsglistActivity msglistActivity;
+        msglistActivity = this.a.p;
+        msglistActivity.finish();
     }
 }

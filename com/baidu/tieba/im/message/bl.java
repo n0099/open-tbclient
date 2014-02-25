@@ -1,11 +1,17 @@
 package com.baidu.tieba.im.message;
-/* loaded from: classes.dex */
-public abstract class bl extends cr implements com.baidu.tieba.im.coder.f {
-    private long a;
-    private long b;
-    private String c;
 
-    public long a() {
+import com.baidu.tieba.im.messageCenter.IDuplicateProcess;
+import com.google.protobuf.MessageLite;
+import protobuf.QueryUserPermission.QueryUserPermissionReq;
+/* loaded from: classes.dex */
+public class bl extends s implements com.baidu.tieba.im.coder.g, IDuplicateProcess {
+    private long a;
+
+    public bl() {
+        e(103008);
+    }
+
+    public long b() {
         return this.a;
     }
 
@@ -13,19 +19,18 @@ public abstract class bl extends cr implements com.baidu.tieba.im.coder.f {
         this.a = j;
     }
 
-    public long b() {
-        return this.b;
+    @Override // com.baidu.tieba.im.coder.g
+    public MessageLite a() {
+        return QueryUserPermissionReq.QueryUserPermissionReqIdl.newBuilder().a(QueryUserPermissionReq.DataReq.newBuilder().a((int) b()).build()).build();
     }
 
-    public void b(long j) {
-        this.b = j;
+    @Override // com.baidu.tieba.im.messageCenter.IDuplicateProcess
+    public IDuplicateProcess.RemoveState h() {
+        return IDuplicateProcess.RemoveState.REMOVE_ME;
     }
 
-    public String c() {
-        return this.c;
-    }
-
-    public void a(String str) {
-        this.c = str;
+    @Override // com.baidu.tieba.im.messageCenter.IDuplicateProcess
+    public boolean a(s sVar) {
+        return true;
     }
 }

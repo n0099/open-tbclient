@@ -15,15 +15,15 @@ public class r implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        z zVar;
+        ab abVar;
         String str;
         String str2;
         Object tag = view.getTag();
-        if ((tag instanceof s) && (zVar = ((s) tag).b) != null) {
+        if ((tag instanceof s) && (abVar = ((s) tag).b) != null) {
             Activity b = this.a.b();
-            String str3 = zVar.b;
-            String str4 = zVar.c;
-            String str5 = zVar.a;
+            String str3 = abVar.b;
+            String str4 = abVar.c;
+            String str5 = abVar.a;
             str = this.a.d;
             str2 = this.a.e;
             ForumListActivity.a(b, str3, str4, str5, str, str2);

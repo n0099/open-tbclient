@@ -1,144 +1,288 @@
 package com.baidu.tieba.util;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.CheckBox;
-import android.widget.TextView;
+import android.app.ActivityManager;
+import android.os.Build;
+import android.os.Debug;
+import android.os.Environment;
+import android.os.Process;
+import android.text.TextUtils;
+import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.R;
-import java.util.LinkedList;
+import com.baidu.tieba.switchs.SwitchKey;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.PrintStream;
+import java.lang.Thread;
+import java.util.List;
+import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
-public class ce {
-    private static int a = -1;
-    private static int b = -1;
-    private static boolean c = false;
-    private static com.baidu.adp.lib.d.a<Integer, Integer> d = new com.baidu.adp.lib.d.a<>(500);
-    private static TiebaApplication e = null;
+public class ce implements Thread.UncaughtExceptionHandler {
+    private static final String b = String.valueOf(Environment.getExternalStorageDirectory().getPath()) + File.separator + "tieba" + File.separator + "oom" + File.separator;
+    private Thread.UncaughtExceptionHandler a = Thread.getDefaultUncaughtExceptionHandler();
 
-    public static void a(TiebaApplication tiebaApplication) {
-        e = tiebaApplication;
-        c = true;
-    }
-
-    private static void a() {
-        if (e != null && e.getResources() != null) {
-            b = e.getResources().getColor(R.color.more_color);
-            a = e.getResources().getColor(R.color.skin_1_common_color);
-        }
-    }
-
-    private static int a(int i) {
-        return b(i == 1);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static int b(boolean z) {
-        if (c) {
-            c = false;
+    /* JADX WARN: Removed duplicated region for block: B:126:0x01f1 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:84:0x01f6 A[Catch: Exception -> 0x021c, TryCatch #9 {Exception -> 0x021c, blocks: (B:82:0x01f1, B:84:0x01f6, B:86:0x01fb), top: B:126:0x01f1 }] */
+    /* JADX WARN: Removed duplicated region for block: B:86:0x01fb A[Catch: Exception -> 0x021c, TRY_LEAVE, TryCatch #9 {Exception -> 0x021c, blocks: (B:82:0x01f1, B:84:0x01f6, B:86:0x01fb), top: B:126:0x01f1 }] */
+    /* JADX WARN: Removed duplicated region for block: B:89:0x0204  */
+    @Override // java.lang.Thread.UncaughtExceptionHandler
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void uncaughtException(Thread thread, Throwable th) {
+        FileWriter fileWriter;
+        PrintStream printStream;
+        ByteArrayOutputStream byteArrayOutputStream;
+        PrintStream printStream2;
+        ByteArrayOutputStream byteArrayOutputStream2;
+        String str;
+        FileWriter fileWriter2 = null;
+        if (com.baidu.tieba.data.i.F() && a(th)) {
             a();
         }
-        return z ? a : b;
-    }
-
-    public static void a(View view) {
-        if (view instanceof ViewGroup) {
-            a((ViewGroup) view, TiebaApplication.h().al());
-        }
-    }
-
-    public static void b(View view) {
-        if (view != null) {
-            d.b((com.baidu.adp.lib.d.a<Integer, Integer>) Integer.valueOf(System.identityHashCode(view)));
-        }
-    }
-
-    public static void a(ViewGroup viewGroup, int i) {
-        int identityHashCode = System.identityHashCode(viewGroup);
-        Integer a2 = d.a((com.baidu.adp.lib.d.a<Integer, Integer>) Integer.valueOf(identityHashCode));
-        if (a2 == null || i != a2.intValue()) {
-            b(viewGroup, i);
-            d.a(Integer.valueOf(identityHashCode), Integer.valueOf(i));
-        }
-    }
-
-    public static void a(ViewGroup viewGroup, boolean z, cg cgVar) {
-        if (!z || !cgVar.a(viewGroup)) {
-            LinkedList linkedList = new LinkedList();
-            while (true) {
-                int childCount = viewGroup.getChildCount();
-                for (int i = 0; i < childCount; i++) {
-                    View childAt = viewGroup.getChildAt(i);
-                    if (!cgVar.a(childAt)) {
-                        if (childAt instanceof ViewGroup) {
-                            linkedList.addLast((ViewGroup) childAt);
+        try {
+            byteArrayOutputStream = new ByteArrayOutputStream();
+            try {
+                printStream = new PrintStream(byteArrayOutputStream);
+                try {
+                    try {
+                        th.printStackTrace(printStream);
+                        String str2 = new String(byteArrayOutputStream.toByteArray());
+                        if (com.baidu.tieba.data.i.F()) {
+                            str = "fatal_error_debug.log";
+                        } else {
+                            str = "fatal_error.log";
                         }
-                    } else {
-                        return;
+                        File g = af.g(str);
+                        if (g != null && g.length() < 204800 && str2 != null) {
+                            fileWriter = new FileWriter(g, true);
+                            try {
+                                a(fileWriter, bs.a(), null);
+                                a(fileWriter, "tieba_crash_new_info", null);
+                                a(fileWriter, "version", com.baidu.tieba.data.i.u());
+                                a(fileWriter, "model", Build.MODEL);
+                                a(fileWriter, "android_version", Build.VERSION.RELEASE);
+                                a(fileWriter, "android_sdk", String.valueOf(Build.VERSION.SDK_INT));
+                                a(fileWriter, "from", com.baidu.tieba.data.i.l());
+                                a(fileWriter, "current_from", com.baidu.tieba.data.i.m());
+                                a(fileWriter, SapiAccountManager.SESSION_UID, TiebaApplication.A());
+                                a(fileWriter, SocialConstants.PARAM_CLIENT_ID, TiebaApplication.K());
+                                a(fileWriter, "imei", TiebaApplication.g().p());
+                                a(fileWriter, "uname", TiebaApplication.F());
+                                a(fileWriter, "activity", cc.b());
+                                a(fileWriter, "maxMemory", String.valueOf(Runtime.getRuntime().maxMemory()));
+                                a(fileWriter, "crash_type", th.getClass().getName());
+                                List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) TiebaApplication.g().b().getSystemService("activity")).getRunningAppProcesses();
+                                int myPid = Process.myPid();
+                                if (runningAppProcesses != null) {
+                                    int i = 0;
+                                    while (true) {
+                                        int i2 = i;
+                                        if (i2 >= runningAppProcesses.size()) {
+                                            break;
+                                        } else if (runningAppProcesses.get(i2).pid != myPid) {
+                                            i = i2 + 1;
+                                        } else {
+                                            a(fileWriter, "process_name", runningAppProcesses.get(i2).processName);
+                                            break;
+                                        }
+                                    }
+                                }
+                                a(fileWriter, "error", str2);
+                                a(fileWriter, "tieba_crash_new_info_end", null);
+                                fileWriter.append(IOUtils.LINE_SEPARATOR_UNIX);
+                                fileWriter.flush();
+                                fileWriter2 = fileWriter;
+                            } catch (Exception e) {
+                                e = e;
+                                fileWriter2 = fileWriter;
+                                printStream2 = printStream;
+                                byteArrayOutputStream2 = byteArrayOutputStream;
+                                try {
+                                    e.printStackTrace();
+                                    if (printStream2 != null) {
+                                        try {
+                                            printStream2.close();
+                                        } catch (Exception e2) {
+                                            e2.printStackTrace();
+                                            if (!com.baidu.tieba.data.i.F() && this.a != null) {
+                                                this.a.uncaughtException(thread, th);
+                                                return;
+                                            } else {
+                                                Process.killProcess(Process.myPid());
+                                                return;
+                                            }
+                                        }
+                                    }
+                                    if (byteArrayOutputStream2 != null) {
+                                        byteArrayOutputStream2.close();
+                                    }
+                                    if (fileWriter2 != null) {
+                                        fileWriter2.close();
+                                    }
+                                    if (!com.baidu.tieba.data.i.F()) {
+                                    }
+                                    Process.killProcess(Process.myPid());
+                                    return;
+                                } catch (Throwable th2) {
+                                    th = th2;
+                                    byteArrayOutputStream = byteArrayOutputStream2;
+                                    printStream = printStream2;
+                                    fileWriter = fileWriter2;
+                                    if (printStream != null) {
+                                        try {
+                                            printStream.close();
+                                        } catch (Exception e3) {
+                                            e3.printStackTrace();
+                                            if (!com.baidu.tieba.data.i.F()) {
+                                            }
+                                            Process.killProcess(Process.myPid());
+                                            throw th;
+                                        }
+                                    }
+                                    if (byteArrayOutputStream != null) {
+                                        byteArrayOutputStream.close();
+                                    }
+                                    if (fileWriter != null) {
+                                        fileWriter.close();
+                                    }
+                                    if (!com.baidu.tieba.data.i.F() && this.a != null) {
+                                        this.a.uncaughtException(thread, th);
+                                    } else {
+                                        Process.killProcess(Process.myPid());
+                                    }
+                                    throw th;
+                                }
+                            } catch (Throwable th3) {
+                                th = th3;
+                                if (printStream != null) {
+                                }
+                                if (byteArrayOutputStream != null) {
+                                }
+                                if (fileWriter != null) {
+                                }
+                                if (!com.baidu.tieba.data.i.F()) {
+                                }
+                                Process.killProcess(Process.myPid());
+                                throw th;
+                            }
+                        }
+                        if (str2 != null) {
+                            try {
+                                if (str2.contains("java.lang.SecurityException: No permission to modify given thread")) {
+                                    TiebaApplication.g().g(TiebaApplication.g().am() + 1);
+                                } else if (str2.contains("com.baidu.location")) {
+                                    TiebaApplication.g().ap();
+                                } else if (str2.contains("Couldn't load mtprocessor-jni")) {
+                                    com.baidu.adp.lib.a.d.a().a(SwitchKey.MOTU, 1);
+                                }
+                                if (cc.a() != null && cc.a().indexOf("NewVcode") != -1) {
+                                    TiebaApplication.g().i(TiebaApplication.g().ao() + 1);
+                                }
+                            } catch (Throwable th4) {
+                                th = th4;
+                                fileWriter = fileWriter2;
+                                if (printStream != null) {
+                                }
+                                if (byteArrayOutputStream != null) {
+                                }
+                                if (fileWriter != null) {
+                                }
+                                if (!com.baidu.tieba.data.i.F()) {
+                                }
+                                Process.killProcess(Process.myPid());
+                                throw th;
+                            }
+                        }
+                        com.baidu.adp.lib.a.d.a().a(str2);
+                        if (!TextUtils.isEmpty(str2)) {
+                            com.baidu.adp.lib.util.f.b(str2);
+                        }
+                        if (printStream != null) {
+                            try {
+                                printStream.close();
+                            } catch (Exception e4) {
+                                e4.printStackTrace();
+                            }
+                        }
+                        if (byteArrayOutputStream != null) {
+                            byteArrayOutputStream.close();
+                        }
+                        if (fileWriter2 != null) {
+                            fileWriter2.close();
+                        }
+                        if (com.baidu.tieba.data.i.F() && this.a != null) {
+                            this.a.uncaughtException(thread, th);
+                        } else {
+                            Process.killProcess(Process.myPid());
+                        }
+                    } catch (Throwable th5) {
+                        th = th5;
+                        fileWriter = null;
                     }
+                } catch (Exception e5) {
+                    e = e5;
+                    printStream2 = printStream;
+                    byteArrayOutputStream2 = byteArrayOutputStream;
                 }
-                if (!linkedList.isEmpty()) {
-                    viewGroup = (ViewGroup) linkedList.removeFirst();
-                } else {
-                    return;
-                }
+            } catch (Exception e6) {
+                e = e6;
+                printStream2 = null;
+                byteArrayOutputStream2 = byteArrayOutputStream;
+            } catch (Throwable th6) {
+                th = th6;
+                fileWriter = null;
+                printStream = null;
             }
+        } catch (Exception e7) {
+            e = e7;
+            printStream2 = null;
+            byteArrayOutputStream2 = null;
+        } catch (Throwable th7) {
+            th = th7;
+            fileWriter = null;
+            printStream = null;
+            byteArrayOutputStream = null;
         }
     }
 
-    private static void b(ViewGroup viewGroup, int i) {
-        a(viewGroup, true, (cg) new cf(i, i == 1));
-    }
-
-    public static void a(View view, int i) {
-        if (view != null) {
-            if (i == 1) {
-                view.setBackgroundColor(-14078923);
-            } else {
-                view.setBackgroundColor(-1183760);
+    private void a(FileWriter fileWriter, String str, String str2) {
+        try {
+            fileWriter.append((CharSequence) str);
+            if (str2 != null) {
+                fileWriter.append("=");
+                fileWriter.append((CharSequence) str2);
             }
+            fileWriter.append(IOUtils.LINE_SEPARATOR_UNIX);
+        } catch (Exception e) {
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "addInfo", e.getMessage());
         }
     }
 
-    public static void a(View view, int i, int i2) {
-        if (view != null) {
-            view.setBackgroundDrawable(null);
-            if (i2 == 1) {
-                if (i == 0) {
-                    view.setBackgroundResource(R.drawable.auto_skin_list_item_bg_up_1);
-                } else if (i == 2) {
-                    view.setBackgroundResource(R.drawable.auto_skin_list_item_bg_down_1);
-                } else {
-                    view.setBackgroundResource(R.drawable.list_selector_item_1);
-                }
-            } else if (i == 0) {
-                view.setBackgroundResource(R.drawable.auto_skin_list_item_bg_up);
-            } else if (i == 2) {
-                view.setBackgroundResource(R.drawable.auto_skin_list_item_bg_down);
-            } else {
-                view.setBackgroundResource(R.drawable.list_selector_item);
+    public static boolean a(Throwable th) {
+        if ("java.lang.OutOfMemoryError".equals(th.getClass().getName())) {
+            return true;
+        }
+        Throwable cause = th.getCause();
+        if (cause != null) {
+            return a(cause);
+        }
+        return false;
+    }
+
+    private void a() {
+        com.baidu.adp.lib.util.f.b("OOM!!!please keep alive, and getting in touch with RD!");
+        try {
+            File file = new File(b);
+            if (!file.exists()) {
+                file.mkdir();
             }
-        }
-    }
-
-    public static void a(TextView textView, int i) {
-        if (textView != null) {
-            if (i == 1) {
-                textView.setTextColor(-11446171);
-            } else {
-                textView.setTextColor(-5065030);
-            }
-        }
-    }
-
-    public static void b(TextView textView, int i) {
-        if (textView != null) {
-            textView.setTextColor(a(i));
-        }
-    }
-
-    public static void a(CheckBox checkBox, int i) {
-        if (checkBox != null) {
-            checkBox.setTextColor(a(i));
+            Debug.dumpHprofData(String.valueOf(b) + System.currentTimeMillis());
+        } catch (Exception e) {
+            com.baidu.adp.lib.util.f.b("couldn’t dump hprof:Exception");
+        } catch (OutOfMemoryError e2) {
+            com.baidu.adp.lib.util.f.b("couldn’t dump hprof: OutOfMemoryError");
         }
     }
 }

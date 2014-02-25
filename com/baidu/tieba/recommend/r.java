@@ -4,9 +4,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r {
+class r {
     View a;
     TextView b;
     LinearLayout c;
@@ -22,7 +21,7 @@ public class r {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ r(h hVar, i iVar) {
+    public /* synthetic */ r(h hVar, r rVar) {
         this(hVar);
     }
 }

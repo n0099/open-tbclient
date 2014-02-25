@@ -13,13 +13,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import protobuf.Im;
-import protobuf.ag;
-import protobuf.r;
+import protobuf.ai;
+import protobuf.t;
 /* loaded from: classes.dex */
 public final class UpdateClientInfoRes {
 
     /* loaded from: classes.dex */
-    public final class DataRes extends GeneratedMessageLite implements k {
+    public final class DataRes extends GeneratedMessageLite implements i {
         public static final int GROUPINFO_FIELD_NUMBER = 1;
         public static final int HEARTBEATINTERVAL_FIELD_NUMBER = 4;
         public static final int MASKINFO_FIELD_NUMBER = 3;
@@ -32,8 +32,13 @@ public final class UpdateClientInfoRes {
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
         private Im.UserInfo userInfo_;
-        public static Parser<DataRes> PARSER = new i();
+        public static Parser<DataRes> PARSER = new g();
         private static final DataRes a = new DataRes(true);
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ DataRes(GeneratedMessageLite.Builder builder, DataRes dataRes) {
+            this(builder);
+        }
 
         private DataRes(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -56,138 +61,93 @@ public final class UpdateClientInfoRes {
             return a;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r3v9, resolved type: java.util.List<protobuf.Im$GroupInfo> */
-        /* JADX WARN: Multi-variable type inference failed */
         private DataRes(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-            boolean z;
-            boolean z2;
-            boolean z3;
-            boolean z4;
-            boolean z5;
-            boolean z6 = false;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
             a();
-            boolean z7 = false;
-            while (!z6) {
+            boolean z = false;
+            boolean z2 = false;
+            while (!z) {
                 try {
                     try {
-                        int readTag = codedInputStream.readTag();
-                        switch (readTag) {
-                            case 0:
-                                z3 = true;
-                                z2 = z7;
-                                break;
-                            case 10:
-                                if (!z7 || !true) {
-                                    this.groupInfo_ = new ArrayList();
-                                    z5 = z7 | true;
-                                } else {
-                                    z5 = z7;
-                                }
-                                try {
-                                    this.groupInfo_.add(codedInputStream.readMessage(Im.GroupInfo.PARSER, extensionRegistryLite));
-                                    boolean z8 = z6;
-                                    z2 = z5;
-                                    z3 = z8;
+                        try {
+                            int readTag = codedInputStream.readTag();
+                            switch (readTag) {
+                                case 0:
+                                    z = true;
                                     break;
-                                } catch (InvalidProtocolBufferException e) {
-                                    e = e;
-                                    throw e.setUnfinishedMessage(this);
-                                } catch (IOException e2) {
-                                    e = e2;
-                                    throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
-                                } catch (Throwable th) {
-                                    z7 = z5;
-                                    th = th;
-                                    if (z7 & true) {
-                                        this.groupInfo_ = Collections.unmodifiableList(this.groupInfo_);
+                                case 10:
+                                    if (!(z2 & true)) {
+                                        this.groupInfo_ = new ArrayList();
+                                        z2 |= true;
                                     }
-                                    if (z7 & true) {
-                                        this.heartbeatInterval_ = Collections.unmodifiableList(this.heartbeatInterval_);
+                                    this.groupInfo_.add((Im.GroupInfo) codedInputStream.readMessage(Im.GroupInfo.PARSER, extensionRegistryLite));
+                                    break;
+                                case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
+                                    ai builder = (this.bitField0_ & 1) == 1 ? this.userInfo_.toBuilder() : null;
+                                    this.userInfo_ = (Im.UserInfo) codedInputStream.readMessage(Im.UserInfo.PARSER, extensionRegistryLite);
+                                    if (builder != null) {
+                                        builder.mergeFrom(this.userInfo_);
+                                        this.userInfo_ = builder.buildPartial();
                                     }
-                                    makeExtensionsImmutable();
-                                    throw th;
-                                }
-                            case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
-                                ag builder = (this.bitField0_ & 1) == 1 ? this.userInfo_.toBuilder() : null;
-                                this.userInfo_ = (Im.UserInfo) codedInputStream.readMessage(Im.UserInfo.PARSER, extensionRegistryLite);
-                                if (builder != null) {
-                                    builder.mergeFrom(this.userInfo_);
-                                    this.userInfo_ = builder.buildPartial();
-                                }
-                                this.bitField0_ |= 1;
-                                z3 = z6;
-                                z2 = z7;
-                                break;
-                            case Im.GroupInfo.NICKNAME_FIELD_NUMBER /* 26 */:
-                                r builder2 = (this.bitField0_ & 2) == 2 ? this.maskInfo_.toBuilder() : null;
-                                this.maskInfo_ = (Im.MaskInfo) codedInputStream.readMessage(Im.MaskInfo.PARSER, extensionRegistryLite);
-                                if (builder2 != null) {
-                                    builder2.mergeFrom(this.maskInfo_);
-                                    this.maskInfo_ = builder2.buildPartial();
-                                }
-                                this.bitField0_ |= 2;
-                                z3 = z6;
-                                z2 = z7;
-                                break;
-                            case Im.GroupInfo.ISNEWLYCREATE_FIELD_NUMBER /* 32 */:
-                                if (!(z7 & true)) {
-                                    this.heartbeatInterval_ = new ArrayList();
-                                    z4 = z7 | true;
-                                } else {
-                                    z4 = z7;
-                                }
-                                this.heartbeatInterval_.add(Integer.valueOf(codedInputStream.readInt32()));
-                                boolean z9 = z6;
-                                z2 = z4;
-                                z3 = z9;
-                                break;
-                            case Im.GroupInfo.ISMEMBERGROUP_FIELD_NUMBER /* 34 */:
-                                int pushLimit = codedInputStream.pushLimit(codedInputStream.readRawVarint32());
-                                if ((z7 & true) || codedInputStream.getBytesUntilLimit() <= 0) {
-                                    z = z7;
-                                } else {
-                                    this.heartbeatInterval_ = new ArrayList();
-                                    z = z7 | true;
-                                }
-                                while (codedInputStream.getBytesUntilLimit() > 0) {
+                                    this.bitField0_ |= 1;
+                                    break;
+                                case Im.GroupInfo.NICKNAME_FIELD_NUMBER /* 26 */:
+                                    t builder2 = (this.bitField0_ & 2) == 2 ? this.maskInfo_.toBuilder() : null;
+                                    this.maskInfo_ = (Im.MaskInfo) codedInputStream.readMessage(Im.MaskInfo.PARSER, extensionRegistryLite);
+                                    if (builder2 != null) {
+                                        builder2.mergeFrom(this.maskInfo_);
+                                        this.maskInfo_ = builder2.buildPartial();
+                                    }
+                                    this.bitField0_ |= 2;
+                                    break;
+                                case 32:
+                                    if (!(z2 & true)) {
+                                        this.heartbeatInterval_ = new ArrayList();
+                                        z2 |= true;
+                                    }
                                     this.heartbeatInterval_.add(Integer.valueOf(codedInputStream.readInt32()));
-                                }
-                                codedInputStream.popLimit(pushLimit);
-                                boolean z10 = z6;
-                                z2 = z;
-                                z3 = z10;
-                                break;
-                            default:
-                                if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
-                                    z3 = true;
-                                    z2 = z7;
                                     break;
-                                } else {
-                                    z3 = z6;
-                                    z2 = z7;
+                                case Im.GroupInfo.ISMEMBERGROUP_FIELD_NUMBER /* 34 */:
+                                    int pushLimit = codedInputStream.pushLimit(codedInputStream.readRawVarint32());
+                                    if (!(z2 & true) && codedInputStream.getBytesUntilLimit() > 0) {
+                                        this.heartbeatInterval_ = new ArrayList();
+                                        z2 |= true;
+                                    }
+                                    while (codedInputStream.getBytesUntilLimit() > 0) {
+                                        this.heartbeatInterval_.add(Integer.valueOf(codedInputStream.readInt32()));
+                                    }
+                                    codedInputStream.popLimit(pushLimit);
                                     break;
-                                }
+                                default:
+                                    if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
+                                        z = true;
+                                        break;
+                                    } else {
+                                        break;
+                                    }
+                            }
+                        } catch (IOException e) {
+                            throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
                         }
-                        z7 = z2;
-                        z6 = z3;
-                    } catch (Throwable th2) {
-                        th = th2;
+                    } catch (InvalidProtocolBufferException e2) {
+                        throw e2.setUnfinishedMessage(this);
                     }
-                } catch (InvalidProtocolBufferException e3) {
-                    e = e3;
-                } catch (IOException e4) {
-                    e = e4;
+                } finally {
+                    if (z2 & true) {
+                        this.groupInfo_ = Collections.unmodifiableList(this.groupInfo_);
+                    }
+                    if (z2 & true) {
+                        this.heartbeatInterval_ = Collections.unmodifiableList(this.heartbeatInterval_);
+                    }
+                    makeExtensionsImmutable();
                 }
             }
-            if (z7 & true) {
-                this.groupInfo_ = Collections.unmodifiableList(this.groupInfo_);
-            }
-            if (z7 & true) {
-                this.heartbeatInterval_ = Collections.unmodifiableList(this.heartbeatInterval_);
-            }
-            makeExtensionsImmutable();
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ DataRes(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, DataRes dataRes) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -203,7 +163,7 @@ public final class UpdateClientInfoRes {
             return this.groupInfo_;
         }
 
-        public List<? extends protobuf.j> getGroupInfoOrBuilderList() {
+        public List<? extends protobuf.l> getGroupInfoOrBuilderList() {
             return this.groupInfo_;
         }
 
@@ -215,7 +175,7 @@ public final class UpdateClientInfoRes {
             return this.groupInfo_.get(i);
         }
 
-        public protobuf.j getGroupInfoOrBuilder(int i) {
+        public protobuf.l getGroupInfoOrBuilder(int i) {
             return this.groupInfo_.get(i);
         }
 
@@ -354,32 +314,32 @@ public final class UpdateClientInfoRes {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static j newBuilder() {
-            return j.f();
+        public static h newBuilder() {
+            return h.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public j newBuilderForType() {
+        public h newBuilderForType() {
             return newBuilder();
         }
 
-        public static j newBuilder(DataRes dataRes) {
+        public static h newBuilder(DataRes dataRes) {
             return newBuilder().mergeFrom(dataRes);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public j toBuilder() {
+        public h toBuilder() {
             return newBuilder(this);
         }
     }
 
     /* loaded from: classes.dex */
-    public final class UpdateClientInfoResIdl extends GeneratedMessageLite implements n {
+    public final class UpdateClientInfoResIdl extends GeneratedMessageLite implements l {
         public static final int DATA_FIELD_NUMBER = 2;
         public static final int ERROR_FIELD_NUMBER = 1;
-        public static Parser<UpdateClientInfoResIdl> PARSER = new l();
+        public static Parser<UpdateClientInfoResIdl> PARSER = new j();
         private static final UpdateClientInfoResIdl a = new UpdateClientInfoResIdl(true);
         private static final long serialVersionUID = 0;
         private int bitField0_;
@@ -387,6 +347,11 @@ public final class UpdateClientInfoRes {
         private Im.Error error_;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ UpdateClientInfoResIdl(GeneratedMessageLite.Builder builder, UpdateClientInfoResIdl updateClientInfoResIdl) {
+            this(builder);
+        }
 
         private UpdateClientInfoResIdl(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -410,12 +375,11 @@ public final class UpdateClientInfoRes {
         }
 
         private UpdateClientInfoResIdl(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-            boolean z;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
             a();
-            boolean z2 = false;
-            while (!z2) {
+            boolean z = false;
+            while (!z) {
                 try {
                     try {
                         int readTag = codedInputStream.readTag();
@@ -424,35 +388,31 @@ public final class UpdateClientInfoRes {
                                 z = true;
                                 break;
                             case 10:
-                                protobuf.c builder = (this.bitField0_ & 1) == 1 ? this.error_.toBuilder() : null;
+                                protobuf.e builder = (this.bitField0_ & 1) == 1 ? this.error_.toBuilder() : null;
                                 this.error_ = (Im.Error) codedInputStream.readMessage(Im.Error.PARSER, extensionRegistryLite);
                                 if (builder != null) {
                                     builder.mergeFrom(this.error_);
                                     this.error_ = builder.buildPartial();
                                 }
                                 this.bitField0_ |= 1;
-                                z = z2;
                                 break;
                             case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
-                                j builder2 = (this.bitField0_ & 2) == 2 ? this.data_.toBuilder() : null;
+                                h builder2 = (this.bitField0_ & 2) == 2 ? this.data_.toBuilder() : null;
                                 this.data_ = (DataRes) codedInputStream.readMessage(DataRes.PARSER, extensionRegistryLite);
                                 if (builder2 != null) {
                                     builder2.mergeFrom(this.data_);
                                     this.data_ = builder2.buildPartial();
                                 }
                                 this.bitField0_ |= 2;
-                                z = z2;
                                 break;
                             default:
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
                                 } else {
-                                    z = z2;
                                     break;
                                 }
                         }
-                        z2 = z;
                     } catch (InvalidProtocolBufferException e) {
                         throw e.setUnfinishedMessage(this);
                     } catch (IOException e2) {
@@ -462,6 +422,11 @@ public final class UpdateClientInfoRes {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ UpdateClientInfoResIdl(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, UpdateClientInfoResIdl updateClientInfoResIdl) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -574,23 +539,23 @@ public final class UpdateClientInfoRes {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static m newBuilder() {
-            return m.f();
+        public static k newBuilder() {
+            return k.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public m newBuilderForType() {
+        public k newBuilderForType() {
             return newBuilder();
         }
 
-        public static m newBuilder(UpdateClientInfoResIdl updateClientInfoResIdl) {
+        public static k newBuilder(UpdateClientInfoResIdl updateClientInfoResIdl) {
             return newBuilder().mergeFrom(updateClientInfoResIdl);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public m toBuilder() {
+        public k toBuilder() {
             return newBuilder(this);
         }
     }

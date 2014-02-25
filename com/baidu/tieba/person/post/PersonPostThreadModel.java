@@ -12,7 +12,7 @@ public class PersonPostThreadModel extends com.baidu.adp.a.d implements Serializ
     public static final int PAGE_SIZE = 20;
     private static int a = 0;
     private static String b = "";
-    public static h sFetchThreadAsyncTask;
+    public static i sFetchThreadAsyncTask;
     @SerializedName("post_list")
     public List<PostList> post_list = new ArrayList();
     @SerializedName("hide_post")
@@ -156,7 +156,7 @@ public class PersonPostThreadModel extends com.baidu.adp.a.d implements Serializ
         return "PersonPostThreadModel{post_list=" + this.post_list + ", hide_post=" + this.hide_post + '}';
     }
 
-    public static void fetchThread(g gVar, boolean z, String str) {
+    public static void fetchThread(h hVar, boolean z, String str) {
         if (z || !str.equals(b)) {
             a = 1;
             b = str;
@@ -166,7 +166,7 @@ public class PersonPostThreadModel extends com.baidu.adp.a.d implements Serializ
         if (sFetchThreadAsyncTask != null && sFetchThreadAsyncTask.getStatus() != BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
             sFetchThreadAsyncTask.cancel();
         }
-        sFetchThreadAsyncTask = new h(gVar, z);
+        sFetchThreadAsyncTask = new i(hVar, z);
         sFetchThreadAsyncTask.execute(new Void[0]);
     }
 }

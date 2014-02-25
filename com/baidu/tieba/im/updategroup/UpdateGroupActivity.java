@@ -10,7 +10,7 @@ import android.view.View;
 import com.baidu.tieba.im.model.ao;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class UpdateGroupActivity extends com.baidu.tieba.j {
+public class UpdateGroupActivity extends com.baidu.tieba.f {
     private ao d;
     private a c = null;
     private int e = 1;
@@ -36,7 +36,7 @@ public class UpdateGroupActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         Intent intent = getIntent();
@@ -67,7 +67,7 @@ public class UpdateGroupActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j
+    @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.c.b(i);
@@ -76,7 +76,7 @@ public class UpdateGroupActivity extends com.baidu.tieba.j {
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.c.e_()) {
+        if (view == this.c.d_()) {
             if (this.c.l() && this.c.i()) {
                 c();
             } else {
@@ -89,7 +89,7 @@ public class UpdateGroupActivity extends com.baidu.tieba.j {
         }
     }
 
-    @Override // com.baidu.tieba.j, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tieba.f, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4 && keyEvent.getRepeatCount() == 0 && b()) {
             return true;
@@ -98,7 +98,7 @@ public class UpdateGroupActivity extends com.baidu.tieba.j {
     }
 
     private boolean b() {
-        if (TextUtils.isEmpty(this.c.k()) || !this.c.i() || this.c.k().equals(this.c.f_())) {
+        if (TextUtils.isEmpty(this.c.k()) || !this.c.i() || this.c.k().equals(this.c.e_())) {
             return false;
         }
         this.c.a();
@@ -119,7 +119,7 @@ public class UpdateGroupActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         releaseResouce();
         super.onDestroy();

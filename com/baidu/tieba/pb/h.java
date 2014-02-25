@@ -18,7 +18,7 @@ public class h implements com.baidu.tieba.view.a {
         a aVar;
         z = this.a.B;
         if (z) {
-            Intent intent = new Intent("com.baidu.tieba.broadcast.imagepb.pagechanged");
+            Intent intent = new Intent(com.baidu.tieba.data.i.c());
             intent.putExtra("index", -1);
             intent.putExtra(SocialConstants.PARAM_STATE, i);
             this.a.sendBroadcast(intent);

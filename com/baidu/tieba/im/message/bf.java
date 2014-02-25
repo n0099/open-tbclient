@@ -1,36 +1,18 @@
 package com.baidu.tieba.im.message;
-
-import com.baidu.tieba.im.messageCenter.IDuplicateProcess;
-import com.google.protobuf.MessageLite;
-import protobuf.QueryUserPermission.QueryUserPermissionReq;
 /* loaded from: classes.dex */
-public class bf extends q implements com.baidu.tieba.im.coder.g, IDuplicateProcess {
-    private long a;
+public class bf extends bg {
+    private String b;
 
-    public bf() {
-        e(103008);
+    public bf(String str) {
+        this.b = str;
     }
 
-    public long b() {
-        return this.a;
+    public String b() {
+        return this.b;
     }
 
-    public void a(long j) {
-        this.a = j;
-    }
-
-    @Override // com.baidu.tieba.im.coder.g
-    public MessageLite a() {
-        return QueryUserPermissionReq.QueryUserPermissionReqIdl.newBuilder().a(QueryUserPermissionReq.DataReq.newBuilder().a((int) b()).build()).build();
-    }
-
-    @Override // com.baidu.tieba.im.messageCenter.IDuplicateProcess
-    public IDuplicateProcess.RemoveState h() {
-        return IDuplicateProcess.RemoveState.REMOVE_ME;
-    }
-
-    @Override // com.baidu.tieba.im.messageCenter.IDuplicateProcess
-    public boolean a(q qVar) {
-        return true;
+    @Override // com.baidu.tieba.im.message.bg
+    protected void a(protobuf.k kVar) {
+        kVar.b(b());
     }
 }

@@ -1,193 +1,85 @@
 package com.baidu.tieba.b;
 
-import com.baidu.adp.lib.cache.BdCacheService;
-import com.baidu.adp.lib.cache.s;
+import com.baidu.tieba.data.AudioInfoData;
+import com.baidu.tieba.util.DatabaseService;
+import com.baidu.tieba.util.af;
+import com.baidu.tieba.util.ba;
+import com.baidu.tieba.util.bs;
+import java.io.File;
 /* loaded from: classes.dex */
 public class a {
-    private static a a = null;
-    private s<String> b = null;
-    private s<String> c = null;
-    private s<String> d = null;
-    private s<String> e = null;
-    private s<String> f = null;
-    private s<String> g = null;
-    private s<String> h = null;
-    private s<String> i = null;
-    private s<String> j = null;
-    private s<String> k = null;
-    private s<String> l = null;
-    private s<byte[]> m = null;
-    private s<byte[]> n = null;
-    private s<String> o = null;
-    private s<byte[]> p = null;
-    private s<String> q = null;
-    private s<String> r = null;
-    private s<String> s = null;
-    private s<byte[]> t = null;
-    private s<String> u = null;
-    private s<String> v = null;
+    private ba a;
+    private b b;
+    private com.baidu.tieba.data.g c;
+    private String d;
+    private String e;
 
-    public static a a() {
-        if (a == null) {
-            a = new a();
+    public a(String str, String str2) {
+        this.d = str;
+        this.e = str2;
+    }
+
+    public com.baidu.tieba.data.g a(String str) {
+        try {
+            File file = new File(str);
+            if (file == null || !file.exists()) {
+                return null;
+            }
+            this.a = new ba(String.valueOf(com.baidu.tieba.data.i.a) + this.d);
+            return a(str, file);
+        } catch (Exception e) {
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "upload", e.getMessage());
+            return null;
         }
-        return a;
     }
 
-    private a() {
-    }
-
-    public s<String> b() {
-        if (this.b == null) {
-            this.b = BdCacheService.c().a("tb.pb_mark", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 50);
+    private com.baidu.tieba.data.g a(String str, File file) {
+        String a;
+        String a2 = bs.a(af.a(file));
+        if (a2 != null && a2.length() > 0) {
+            a2 = a2.toLowerCase();
         }
-        return this.b;
-    }
-
-    public s<String> c() {
-        if (this.d == null) {
-            this.d = BdCacheService.c().a("tb.pb_normal", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 1);
+        com.baidu.tieba.data.f m = DatabaseService.m(a2);
+        if (m == null) {
+            m = new com.baidu.tieba.data.f();
+            m.a(a2);
+            m.a(0);
+            m.a(file.length());
         }
-        return this.d;
-    }
-
-    public s<String> d() {
-        if (this.c == null) {
-            this.c = BdCacheService.c().a("tb.pb_editor", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 50);
+        this.b = new b(this, str, m, String.valueOf(com.baidu.tieba.data.i.a) + this.d, a2);
+        this.c = this.b.a();
+        if (this.c.b() && (a = a(a2, m)) != null && !a.equals("")) {
+            AudioInfoData audioInfoData = new AudioInfoData();
+            audioInfoData.parserJson(a);
+            if (audioInfoData.getErrorCode() <= 0 && audioInfoData.getVoiceId() != null) {
+                m.a(audioInfoData.getVoiceId());
+                this.c.a(m);
+            } else {
+                this.c.a(audioInfoData.getErrorCode());
+                this.c.a(audioInfoData.getErrorMsg());
+                this.c.a(false);
+            }
         }
         return this.c;
     }
 
-    public s<byte[]> e() {
-        if (this.m == null) {
-            this.m = BdCacheService.c().b("tb.im_frsgroup", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 50);
+    private String a(String str, com.baidu.tieba.data.f fVar) {
+        this.a = new ba(String.valueOf(com.baidu.tieba.data.i.a) + this.e);
+        this.a.a("voice_md5", fVar.a());
+        String m = this.a.m();
+        if (m == null || !this.a.d()) {
+            fVar.a((int) a(fVar.b()));
+            DatabaseService.a(fVar);
+            this.c.a(this.a.f());
+            this.c.a(this.a.j());
+            this.c.a(false);
+            return null;
         }
-        return this.m;
+        DatabaseService.l(str);
+        return m;
     }
 
-    public s<byte[]> f() {
-        if (this.t == null) {
-            this.t = BdCacheService.c().b("tb.im_hotgroup", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 30);
-        }
-        return this.t;
-    }
-
-    public s<String> g() {
-        if (this.e == null) {
-            this.e = BdCacheService.c().a("tb.my_pages", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 5);
-        }
-        return this.e;
-    }
-
-    public s<String> h() {
-        if (this.o == null) {
-            this.o = BdCacheService.c().a("tb.im_group_search_history", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 50);
-        }
-        return this.o;
-    }
-
-    public void i() {
-        if (this.o != null) {
-            BdCacheService.c().a(this.o);
-            this.o = null;
-        }
-    }
-
-    public s<String> j() {
-        if (this.f == null) {
-            this.f = BdCacheService.c().a("tb.my_pages", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 5);
-        }
-        return this.f;
-    }
-
-    public s<String> k() {
-        if (this.g == null) {
-            this.g = BdCacheService.c().a("tb.my_pages", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 5);
-        }
-        return this.g;
-    }
-
-    public s<String> l() {
-        if (this.h == null) {
-            this.h = BdCacheService.c().a("tb.my_bookmarks", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 3);
-        }
-        return this.h;
-    }
-
-    public s<String> m() {
-        if (this.i == null) {
-            this.i = BdCacheService.c().a("tb.my_posts", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 3);
-        }
-        return this.i;
-    }
-
-    public s<String> n() {
-        if (this.j == null) {
-            this.j = BdCacheService.c().a("tb.my_forums", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 3);
-        }
-        return this.j;
-    }
-
-    public s<String> o() {
-        if (this.k == null) {
-            this.k = BdCacheService.c().a("tb.square", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.NO_EVICT, 1);
-        }
-        return this.k;
-    }
-
-    public s<String> p() {
-        if (this.l == null) {
-            this.l = BdCacheService.c().a("tb.first_dir", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.NO_EVICT, 1);
-        }
-        return this.l;
-    }
-
-    public s<byte[]> q() {
-        if (this.n == null) {
-            this.n = BdCacheService.c().b("tb.im_groupinfo", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 50);
-        }
-        return this.n;
-    }
-
-    public s<byte[]> r() {
-        if (this.p == null) {
-            this.p = BdCacheService.c().b("tb.im_entergroup", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 10);
-        }
-        return this.p;
-    }
-
-    public s<byte[]> s() {
-        if (this.p == null) {
-            this.p = BdCacheService.c().b("tb.im_enterforum_groupinfo", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 10);
-        }
-        return this.p;
-    }
-
-    public s<String> t() {
-        if (this.q == null) {
-            this.q = BdCacheService.c().a("tb.im_group_setting", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.NO_EVICT, 3);
-        }
-        return this.q;
-    }
-
-    public s<String> u() {
-        if (this.r == null) {
-            this.r = BdCacheService.c().a("tb.im_personal_chat_setting", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.NO_EVICT, 3);
-        }
-        return this.r;
-    }
-
-    public s<String> v() {
-        if (this.s == null) {
-            this.s = BdCacheService.c().a("tb.pic_gif", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 50);
-        }
-        return this.s;
-    }
-
-    public s<String> w() {
-        if (this.v == null) {
-            this.v = BdCacheService.c().a("tb_face_package", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 30);
-        }
-        return this.v;
+    private long a(long j) {
+        return j % 30720 == 0 ? j / 30720 : (j / 30720) + 1;
     }
 }

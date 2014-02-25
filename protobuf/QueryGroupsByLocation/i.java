@@ -1,15 +1,6 @@
 package protobuf.QueryGroupsByLocation;
 
-import com.google.protobuf.AbstractParser;
-import com.google.protobuf.CodedInputStream;
-import com.google.protobuf.ExtensionRegistryLite;
-import protobuf.QueryGroupsByLocation.QueryGroupsByLocationRes;
+import com.google.protobuf.MessageLiteOrBuilder;
 /* loaded from: classes.dex */
-final class i extends AbstractParser<QueryGroupsByLocationRes.Business> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.protobuf.Parser
-    /* renamed from: a */
-    public QueryGroupsByLocationRes.Business parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-        return new QueryGroupsByLocationRes.Business(codedInputStream, extensionRegistryLite);
-    }
+public interface i extends MessageLiteOrBuilder {
 }

@@ -1,9 +1,10 @@
 package com.baidu.tieba.flist;
 
-import android.os.Handler;
-import android.widget.AbsListView;
+import android.support.v4.view.PagerAdapter;
+import android.view.View;
+import android.view.ViewGroup;
 /* loaded from: classes.dex */
-class o implements AbsListView.OnScrollListener {
+class o extends PagerAdapter {
     final /* synthetic */ ForumListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,21 +12,34 @@ class o implements AbsListView.OnScrollListener {
         this.a = forumListActivity;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
+    @Override // android.support.v4.view.PagerAdapter
+    public int getCount() {
+        boolean z;
+        z = this.a.s;
+        return z ? 1 : 2;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        Handler handler;
-        Runnable runnable;
-        Handler handler2;
-        Runnable runnable2;
-        handler = this.a.e;
-        runnable = this.a.P;
-        handler.removeCallbacks(runnable);
-        handler2 = this.a.e;
-        runnable2 = this.a.P;
-        handler2.postDelayed(runnable2, 300L);
+    @Override // android.support.v4.view.PagerAdapter
+    public boolean isViewFromObject(View view, Object obj) {
+        return view.equals(obj);
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public Object instantiateItem(ViewGroup viewGroup, int i) {
+        switch (i) {
+            case 0:
+                viewGroup.addView(this.a.c.h);
+                return this.a.c.h;
+            case 1:
+                viewGroup.addView(this.a.c.i);
+                return this.a.c.i;
+            default:
+                return null;
+        }
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+        viewGroup.removeView((View) obj);
     }
 }

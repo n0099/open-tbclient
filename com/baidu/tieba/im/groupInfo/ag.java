@@ -1,43 +1,25 @@
 package com.baidu.tieba.im.groupInfo;
 
 import com.google.protobuf.MessageLite;
-import protobuf.ApplyJoinGroup.ApplyJoinGroupReq;
+import protobuf.DelGroupMsgs.DelGroupMsgsReq;
 /* loaded from: classes.dex */
-public class ag extends com.baidu.tieba.im.message.q implements com.baidu.tieba.im.coder.g {
+public class ag extends com.baidu.tieba.im.message.s implements com.baidu.tieba.im.coder.g {
     private int a;
     private String b;
-    private long c;
-    private int d;
 
     public ag() {
-        e(103110);
+        e(202004);
     }
 
     public int b() {
-        return this.d;
-    }
-
-    public void a(int i) {
-        this.d = i;
-    }
-
-    public long c() {
-        return this.c;
-    }
-
-    public void a(long j) {
-        this.c = j;
-    }
-
-    public int d() {
         return this.a;
     }
 
-    public void b(int i) {
+    public void a(int i) {
         this.a = i;
     }
 
-    public String e() {
+    public String c() {
         return this.b;
     }
 
@@ -47,6 +29,6 @@ public class ag extends com.baidu.tieba.im.message.q implements com.baidu.tieba.
 
     @Override // com.baidu.tieba.im.coder.g
     public MessageLite a() {
-        return ApplyJoinGroupReq.ApplyJoinGroupReqIdl.newBuilder().a(ApplyJoinGroupReq.DataReq.newBuilder().a(d()).a(c()).a(e()).b(b()).build()).build();
+        return DelGroupMsgsReq.DelGroupMsgsReqIdl.newBuilder().a(DelGroupMsgsReq.DataReq.newBuilder().a(b()).a(c()).build()).build();
     }
 }

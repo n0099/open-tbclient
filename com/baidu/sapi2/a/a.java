@@ -64,7 +64,7 @@ public class a {
         HttpConnectionParams.setSoTimeout(basicHttpParams, b);
         HttpConnectionParams.setConnectionTimeout(basicHttpParams, b);
         HttpConnectionParams.setTcpNoDelay(basicHttpParams, true);
-        HttpConnectionParams.setSocketBufferSize(basicHttpParams, d);
+        HttpConnectionParams.setSocketBufferSize(basicHttpParams, 8192);
         HttpProtocolParams.setVersion(basicHttpParams, HttpVersion.HTTP_1_1);
         SchemeRegistry schemeRegistry = new SchemeRegistry();
         schemeRegistry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 80));

@@ -1,11 +1,11 @@
 package com.baidu.tieba.account;
 
-import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
+import android.os.Handler;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class p implements View.OnClickListener {
+class p implements Runnable {
     final /* synthetic */ ActivationActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,72 +13,40 @@ class p implements View.OnClickListener {
         this.a = activationActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ImageView imageView;
-        RelativeLayout relativeLayout;
-        RelativeLayout relativeLayout2;
-        ImageView imageView2;
-        EditText editText;
-        boolean z;
+    @Override // java.lang.Runnable
+    public void run() {
+        int i;
+        int i2;
+        int i3;
+        TextView textView;
+        Handler handler;
+        Runnable runnable;
+        TextView textView2;
         t tVar;
-        s sVar;
-        t tVar2;
-        t tVar3;
-        s sVar2;
-        t tVar4;
-        s sVar3;
-        s sVar4;
-        imageView = this.a.b;
-        if (view != imageView) {
-            relativeLayout = this.a.j;
-            if (view == relativeLayout) {
-                sVar2 = this.a.m;
-                if (sVar2 == null) {
-                    tVar4 = this.a.l;
-                    if (tVar4 == null) {
-                        this.a.m = new s(this.a, null);
-                        sVar3 = this.a.m;
-                        sVar3.setPriority(3);
-                        sVar4 = this.a.m;
-                        sVar4.execute(new String[0]);
-                        return;
-                    }
-                    return;
-                }
-                return;
-            }
-            relativeLayout2 = this.a.k;
-            if (view == relativeLayout2) {
-                z = this.a.n;
-                if (z) {
-                    tVar = this.a.l;
-                    if (tVar == null) {
-                        sVar = this.a.m;
-                        if (sVar == null) {
-                            this.a.l = new t(this.a, null);
-                            tVar2 = this.a.l;
-                            tVar2.setPriority(3);
-                            tVar3 = this.a.l;
-                            tVar3.execute(new String[0]);
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                }
-                return;
-            }
-            imageView2 = this.a.d;
-            if (view == imageView2) {
-                editText = this.a.i;
-                editText.setText((CharSequence) null);
+        RelativeLayout relativeLayout;
+        ActivationActivity activationActivity = this.a;
+        i = activationActivity.o;
+        activationActivity.o = i - 1;
+        i2 = this.a.o;
+        if (i2 <= 0) {
+            this.a.n = true;
+            textView2 = this.a.g;
+            textView2.setText(this.a.getString(R.string.resend_code));
+            tVar = this.a.m;
+            if (tVar == null) {
+                relativeLayout = this.a.k;
+                relativeLayout.setEnabled(true);
                 return;
             }
             return;
         }
-        this.a.setResult(0);
-        this.a.finish();
-        com.baidu.adp.lib.g.e.a("ActivationActivity", "mBack", "onClick");
+        String string = this.a.getString(R.string.resend_code_second);
+        i3 = this.a.o;
+        String format = String.format(string, Integer.valueOf(i3));
+        textView = this.a.g;
+        textView.setText(format);
+        handler = this.a.q;
+        runnable = this.a.z;
+        handler.postDelayed(runnable, 1000L);
     }
 }

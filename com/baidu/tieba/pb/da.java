@@ -1,30 +1,31 @@
 package com.baidu.tieba.pb;
 
-import android.os.Handler;
-import android.view.animation.Animation;
-import android.widget.ImageView;
+import android.app.Dialog;
+import android.util.SparseArray;
+import android.view.View;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class da implements Animation.AnimationListener {
-    final /* synthetic */ ImageView a;
-    final /* synthetic */ cr b;
+public class da implements View.OnClickListener {
+    final /* synthetic */ cu a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public da(cr crVar, ImageView imageView) {
-        this.b = crVar;
-        this.a = imageView;
+    public da(cu cuVar) {
+        this.a = cuVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        new Handler().post(new db(this));
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Dialog dialog;
+        Dialog dialog2;
+        dialog = this.a.K;
+        if (dialog != null) {
+            dialog2 = this.a.K;
+            dialog2.dismiss();
+        }
+        SparseArray sparseArray = (SparseArray) view.getTag();
+        if (sparseArray != null) {
+            this.a.a(((Integer) sparseArray.get(R.id.tag_del_post_type)).intValue(), (String) sparseArray.get(R.id.tag_del_post_id), ((Integer) sparseArray.get(R.id.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(R.id.tag_del_post_is_self)).booleanValue());
+        }
     }
 }

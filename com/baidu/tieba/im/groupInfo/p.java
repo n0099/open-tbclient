@@ -1,9 +1,10 @@
 package com.baidu.tieba.im.groupInfo;
 
-import com.baidu.tieba.view.HeadImageView;
+import android.view.View;
+import com.baidu.location.LocationClientOption;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p implements com.baidu.tbadk.imageManager.c {
+public class p implements View.OnClickListener {
     final /* synthetic */ m a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,12 +12,10 @@ public class p implements com.baidu.tbadk.imageManager.c {
         this.a = mVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
-        HeadImageView headImageView;
-        if (dVar != null) {
-            headImageView = this.a.r;
-            dVar.a(headImageView);
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        EllipsizingTextView ellipsizingTextView;
+        ellipsizingTextView = this.a.n;
+        ellipsizingTextView.setMaxLines(LocationClientOption.MIN_SCAN_SPAN);
     }
 }

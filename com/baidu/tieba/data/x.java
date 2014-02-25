@@ -1,55 +1,33 @@
 package com.baidu.tieba.data;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class x {
-    private ArrayList<MetaData> a = new ArrayList<>();
-    private HashMap<String, String> b = null;
+    private int a;
+    private String b;
+    private String c;
 
-    public void a(JSONObject jSONObject, boolean z) {
-        if (jSONObject != null) {
-            if (z) {
-                try {
-                    if (this.b == null) {
-                        this.b = new HashMap<>();
-                    }
-                } catch (Exception e) {
-                    com.baidu.adp.lib.g.e.b("FriendData", "parserFreindJson", "error = " + e.getMessage());
-                    return;
-                }
-            }
-            JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    MetaData metaData = new MetaData();
-                    metaData.parserJson(optJSONArray.getJSONObject(i));
-                    if (metaData.getName_show() != null) {
-                        this.a.add(metaData);
-                        if (z) {
-                            this.b.put(metaData.getName_show(), metaData.getPortrait());
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public void a(String str) {
-        try {
-            a(new JSONObject(str), true);
-        } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b("FriendData", "parserFreindJson", "error = " + e.getMessage());
-        }
-    }
-
-    public ArrayList<MetaData> a() {
+    public int a() {
         return this.a;
     }
 
-    public HashMap<String, String> b() {
+    public String b() {
         return this.b;
+    }
+
+    public String c() {
+        return this.c;
+    }
+
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.a = jSONObject.optInt("bannerType");
+                this.b = jSONObject.optString("bannerUrl");
+                this.c = jSONObject.optString("value");
+            } catch (Exception e) {
+                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", "error=" + e.toString());
+            }
+        }
     }
 }

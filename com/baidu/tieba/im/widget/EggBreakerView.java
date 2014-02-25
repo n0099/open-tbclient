@@ -12,9 +12,10 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 /* loaded from: classes.dex */
 public class EggBreakerView extends GifView {
+    private static boolean c = false;
     private RotateAnimation b;
-    private com.baidu.adp.widget.ImageView.d c;
-    private h d;
+    private com.baidu.adp.widget.ImageView.b d;
+    private h e;
 
     public EggBreakerView(Context context) {
         this(context, null, 0);
@@ -28,23 +29,25 @@ public class EggBreakerView extends GifView {
         super(context, attributeSet, i);
         setAutoPlay(false);
         setPlayCallback(new f(this));
-        File file = new File(getContext().getCacheDir() + "/dandan2.gif");
-        if (!file.exists()) {
-            try {
-                InputStream open = getContext().getAssets().open("dandan2.gif");
-                byte[] bArr = new byte[open.available()];
-                open.read(bArr);
-                open.close();
-                FileOutputStream fileOutputStream = new FileOutputStream(file);
-                fileOutputStream.write(bArr);
-                fileOutputStream.close();
-            } catch (Exception e) {
-                throw new RuntimeException(e);
+        if (c) {
+            File file = new File(getContext().getCacheDir() + "/dandan2.gif");
+            if (!file.exists()) {
+                try {
+                    InputStream open = getContext().getAssets().open("dandan2.gif");
+                    byte[] bArr = new byte[open.available()];
+                    open.read(bArr);
+                    open.close();
+                    FileOutputStream fileOutputStream = new FileOutputStream(file);
+                    fileOutputStream.write(bArr);
+                    fileOutputStream.close();
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
             }
+            this.d = com.baidu.adp.gif.b.a().a(getContext().getCacheDir() + "/dandan2.gif");
+            setGif(this.d);
+            setLayoutParams(new ViewGroup.LayoutParams(getResources().getDimensionPixelSize(R.dimen.egg_breaker_width), getResources().getDimensionPixelSize(R.dimen.egg_breaker_height)));
         }
-        this.c = com.baidu.adp.gif.b.a().a(getContext().getCacheDir() + "/dandan2.gif");
-        setGif(this.c);
-        setLayoutParams(new ViewGroup.LayoutParams(getResources().getDimensionPixelSize(R.dimen.egg_breaker_width), getResources().getDimensionPixelSize(R.dimen.egg_breaker_height)));
     }
 
     public void h() {
@@ -63,6 +66,6 @@ public class EggBreakerView extends GifView {
     }
 
     public void setOnEggBrokeListener(h hVar) {
-        this.d = hVar;
+        this.e = hVar;
     }
 }

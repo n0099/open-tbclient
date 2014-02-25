@@ -1,34 +1,27 @@
 package com.baidu.tieba.mention;
 
-import android.view.View;
-import android.widget.ImageView;
-import com.baidu.tieba.BaseFragmentActivity;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.account.av;
-import com.baidu.tieba.util.by;
-import com.baidu.tieba.write.AtListActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.util.DatabaseService;
 /* loaded from: classes.dex */
-public class b implements View.OnClickListener {
-    final /* synthetic */ MentionActivity a;
+class b implements s {
+    final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b(MentionActivity mentionActivity) {
-        this.a = mentionActivity;
+    public b(a aVar) {
+        this.a = aVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ImageView imageView;
-        BaseFragmentActivity baseFragmentActivity;
-        BaseFragmentActivity baseFragmentActivity2;
-        imageView = this.a.Y;
-        if (view == imageView && TiebaApplication.B()) {
-            baseFragmentActivity = this.a.af;
-            by.a(baseFragmentActivity, "msg_newchat_tab_c", "click", 1, new Object[0]);
-            new av("pchat", "2").start();
-            baseFragmentActivity2 = this.a.af;
-            AtListActivity.a(baseFragmentActivity2, 12011);
-        }
+    @Override // com.baidu.tieba.mention.s
+    public void a(String str) {
+        DatabaseService.g(str);
+    }
+
+    @Override // com.baidu.tieba.mention.s
+    public String a() {
+        return DatabaseService.h();
+    }
+
+    @Override // com.baidu.tieba.mention.s
+    public void b() {
+        DatabaseService.g();
     }
 }

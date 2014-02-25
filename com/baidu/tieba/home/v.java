@@ -137,7 +137,7 @@ public class v {
                     this.k = false;
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.g.e.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }

@@ -1,25 +1,40 @@
 package com.baidu.tieba.frs;
 
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.tieba.pb.ImagePbActivity;
 /* loaded from: classes.dex */
-class ar implements View.OnClickListener {
-    final /* synthetic */ FrsImageActivity a;
+class ar implements com.baidu.adp.lib.guide.b {
+    final /* synthetic */ aq a;
+    private final /* synthetic */ View b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ar(FrsImageActivity frsImageActivity) {
-        this.a = frsImageActivity;
+    public ar(aq aqVar, View view) {
+        this.a = aqVar;
+        this.b = view;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        String str;
-        if (view.getTag() != null && (view.getTag() instanceof com.baidu.tieba.data.bc)) {
-            com.baidu.tieba.data.bc bcVar = (com.baidu.tieba.data.bc) view.getTag();
-            FrsImageActivity frsImageActivity = this.a;
-            String d = bcVar.d();
-            str = this.a.b;
-            ImagePbActivity.a(frsImageActivity, d, str, bcVar.c());
-        }
+    @Override // com.baidu.adp.lib.guide.b
+    public View a(LayoutInflater layoutInflater) {
+        return this.b;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int a() {
+        return 5;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int b() {
+        return 32;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int c() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int d() {
+        return 0;
     }
 }

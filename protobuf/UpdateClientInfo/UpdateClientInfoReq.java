@@ -1,5 +1,6 @@
 package protobuf.UpdateClientInfo;
 
+import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.CodedOutputStream;
@@ -14,7 +15,7 @@ import protobuf.Im;
 public final class UpdateClientInfoReq {
 
     /* loaded from: classes.dex */
-    public final class DataReq extends GeneratedMessageLite implements d {
+    public final class DataReq extends GeneratedMessageLite implements c {
         public static final int BDUSS_FIELD_NUMBER = 1;
         public static final int DEVICE_FIELD_NUMBER = 2;
         public static final int HEIGHT_FIELD_NUMBER = 7;
@@ -35,8 +36,13 @@ public final class UpdateClientInfoReq {
         private ByteString secretKey_;
         private int unreadMsg_;
         private int width_;
-        public static Parser<DataReq> PARSER = new b();
+        public static Parser<DataReq> PARSER = new a();
         private static final DataReq a = new DataReq(true);
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ DataReq(GeneratedMessageLite.Builder builder, DataReq dataReq) {
+            this(builder);
+        }
 
         private DataReq(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -67,62 +73,65 @@ public final class UpdateClientInfoReq {
             while (!z) {
                 try {
                     try {
-                        try {
-                            int readTag = codedInputStream.readTag();
-                            switch (readTag) {
-                                case 0:
+                        int readTag = codedInputStream.readTag();
+                        switch (readTag) {
+                            case 0:
+                                z = true;
+                                break;
+                            case 10:
+                                this.bitField0_ |= 1;
+                                this.bduss_ = codedInputStream.readBytes();
+                                break;
+                            case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
+                                this.bitField0_ |= 2;
+                                this.device_ = codedInputStream.readBytes();
+                                break;
+                            case Im.GroupInfo.NICKNAME_FIELD_NUMBER /* 26 */:
+                                this.bitField0_ |= 4;
+                                this.secretKey_ = codedInputStream.readBytes();
+                                break;
+                            case Im.GroupInfo.ISRECENTLYREPLY_FIELD_NUMBER /* 33 */:
+                                this.bitField0_ |= 8;
+                                this.lat_ = codedInputStream.readDouble();
+                                break;
+                            case 41:
+                                this.bitField0_ |= 16;
+                                this.lng_ = codedInputStream.readDouble();
+                                break;
+                            case 48:
+                                this.bitField0_ |= 32;
+                                this.width_ = codedInputStream.readInt32();
+                                break;
+                            case 56:
+                                this.bitField0_ |= 64;
+                                this.height_ = codedInputStream.readInt32();
+                                break;
+                            case AccessibilityNodeInfoCompat.ACTION_ACCESSIBILITY_FOCUS /* 64 */:
+                                this.bitField0_ |= 128;
+                                this.unreadMsg_ = codedInputStream.readInt32();
+                                break;
+                            default:
+                                if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
-                                case 10:
-                                    this.bitField0_ |= 1;
-                                    this.bduss_ = codedInputStream.readBytes();
+                                } else {
                                     break;
-                                case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
-                                    this.bitField0_ |= 2;
-                                    this.device_ = codedInputStream.readBytes();
-                                    break;
-                                case Im.GroupInfo.NICKNAME_FIELD_NUMBER /* 26 */:
-                                    this.bitField0_ |= 4;
-                                    this.secretKey_ = codedInputStream.readBytes();
-                                    break;
-                                case Im.GroupInfo.ISRECENTLYREPLY_FIELD_NUMBER /* 33 */:
-                                    this.bitField0_ |= 8;
-                                    this.lat_ = codedInputStream.readDouble();
-                                    break;
-                                case 41:
-                                    this.bitField0_ |= 16;
-                                    this.lng_ = codedInputStream.readDouble();
-                                    break;
-                                case 48:
-                                    this.bitField0_ |= 32;
-                                    this.width_ = codedInputStream.readInt32();
-                                    break;
-                                case 56:
-                                    this.bitField0_ |= 64;
-                                    this.height_ = codedInputStream.readInt32();
-                                    break;
-                                case 64:
-                                    this.bitField0_ |= 128;
-                                    this.unreadMsg_ = codedInputStream.readInt32();
-                                    break;
-                                default:
-                                    if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
-                                        z = true;
-                                        break;
-                                    } else {
-                                        break;
-                                    }
-                            }
-                        } catch (IOException e) {
-                            throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
+                                }
                         }
-                    } catch (InvalidProtocolBufferException e2) {
-                        throw e2.setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
                 } finally {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ DataReq(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, DataReq dataReq) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -363,32 +372,32 @@ public final class UpdateClientInfoReq {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static c newBuilder() {
-            return c.f();
+        public static b newBuilder() {
+            return b.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public c newBuilderForType() {
+        public b newBuilderForType() {
             return newBuilder();
         }
 
-        public static c newBuilder(DataReq dataReq) {
+        public static b newBuilder(DataReq dataReq) {
             return newBuilder().mergeFrom(dataReq);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public c toBuilder() {
+        public b toBuilder() {
             return newBuilder(this);
         }
     }
 
     /* loaded from: classes.dex */
-    public final class UpdateClientInfoReqIdl extends GeneratedMessageLite implements g {
+    public final class UpdateClientInfoReqIdl extends GeneratedMessageLite implements f {
         public static final int CUID_FIELD_NUMBER = 1;
         public static final int DATA_FIELD_NUMBER = 2;
-        public static Parser<UpdateClientInfoReqIdl> PARSER = new e();
+        public static Parser<UpdateClientInfoReqIdl> PARSER = new d();
         private static final UpdateClientInfoReqIdl a = new UpdateClientInfoReqIdl(true);
         private static final long serialVersionUID = 0;
         private int bitField0_;
@@ -396,6 +405,11 @@ public final class UpdateClientInfoReq {
         private DataReq data_;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ UpdateClientInfoReqIdl(GeneratedMessageLite.Builder builder, UpdateClientInfoReqIdl updateClientInfoReqIdl) {
+            this(builder);
+        }
 
         private UpdateClientInfoReqIdl(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -419,13 +433,12 @@ public final class UpdateClientInfoReq {
         }
 
         private UpdateClientInfoReqIdl(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-            c cVar;
-            boolean z;
+            b bVar;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
             a();
-            boolean z2 = false;
-            while (!z2) {
+            boolean z = false;
+            while (!z) {
                 try {
                     try {
                         int readTag = codedInputStream.readTag();
@@ -436,32 +449,28 @@ public final class UpdateClientInfoReq {
                             case 10:
                                 this.bitField0_ |= 1;
                                 this.cuid_ = codedInputStream.readBytes();
-                                z = z2;
                                 break;
                             case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                                 if ((this.bitField0_ & 2) != 2) {
-                                    cVar = null;
+                                    bVar = null;
                                 } else {
-                                    cVar = this.data_.toBuilder();
+                                    bVar = this.data_.toBuilder();
                                 }
                                 this.data_ = (DataReq) codedInputStream.readMessage(DataReq.PARSER, extensionRegistryLite);
-                                if (cVar != null) {
-                                    cVar.mergeFrom(this.data_);
-                                    this.data_ = cVar.buildPartial();
+                                if (bVar != null) {
+                                    bVar.mergeFrom(this.data_);
+                                    this.data_ = bVar.buildPartial();
                                 }
                                 this.bitField0_ |= 2;
-                                z = z2;
                                 break;
                             default:
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
                                 } else {
-                                    z = z2;
                                     break;
                                 }
                         }
-                        z2 = z;
                     } catch (InvalidProtocolBufferException e) {
                         throw e.setUnfinishedMessage(this);
                     } catch (IOException e2) {
@@ -471,6 +480,11 @@ public final class UpdateClientInfoReq {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ UpdateClientInfoReqIdl(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, UpdateClientInfoReqIdl updateClientInfoReqIdl) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -602,23 +616,23 @@ public final class UpdateClientInfoReq {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static f newBuilder() {
-            return f.f();
+        public static e newBuilder() {
+            return e.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public f newBuilderForType() {
+        public e newBuilderForType() {
             return newBuilder();
         }
 
-        public static f newBuilder(UpdateClientInfoReqIdl updateClientInfoReqIdl) {
+        public static e newBuilder(UpdateClientInfoReqIdl updateClientInfoReqIdl) {
             return newBuilder().mergeFrom(updateClientInfoReqIdl);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public f toBuilder() {
+        public e toBuilder() {
             return newBuilder(this);
         }
     }

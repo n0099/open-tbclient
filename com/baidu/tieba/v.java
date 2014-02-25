@@ -1,8 +1,22 @@
 package com.baidu.tieba;
 
-import android.support.v4.app.Fragment;
+import android.view.View;
 /* loaded from: classes.dex */
-public class v {
-    public FragmentTabIndicatorContainer a;
-    public Fragment b;
+class v implements View.OnClickListener {
+    final /* synthetic */ GuideActivity a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public v(GuideActivity guideActivity) {
+        this.a = guideActivity;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        String str;
+        str = this.a.e;
+        if (!str.equals("from_about_page")) {
+            this.a.a();
+        }
+        this.a.closeActivity();
+    }
 }

@@ -1,20 +1,19 @@
 package com.baidu.tieba.faceshop;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import com.baidu.tieba.view.by;
 /* loaded from: classes.dex */
-public class ar implements Runnable {
-    final /* synthetic */ aq a;
+class ar implements by {
+    final /* synthetic */ FaceShopActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ar(aq aqVar) {
-        this.a = aqVar;
+    public ar(FaceShopActivity faceShopActivity) {
+        this.a = faceShopActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        try {
-            this.a.f();
-        } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b(getClass().getName(), "run", e.toString());
+    @Override // com.baidu.tieba.view.by
+    public void a(boolean z) {
+        if (z) {
+            this.a.a(true);
         }
     }
 }

@@ -1,27 +1,33 @@
 package com.baidu.tieba.view;
+
+import android.app.Activity;
+import android.view.View;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bv implements Runnable {
-    final /* synthetic */ bu a;
+public class bv implements View.OnClickListener {
+    final /* synthetic */ NavigationBar a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bv(bu buVar) {
-        this.a = buVar;
+    public bv(NavigationBar navigationBar) {
+        this.a = navigationBar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        int i;
-        int i2;
-        this.a.f = true;
-        bu.a(this.a, 30);
-        i = this.a.i;
-        if (i > 360) {
-            bu buVar = this.a;
-            i2 = this.a.i;
-            buVar.i = i2 - 360;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean z;
+        Activity activity;
+        Activity activity2;
+        z = this.a.a;
+        if (z) {
+            int id = view.getId();
+            if (id == R.id.navigationBarGoBack) {
+                activity2 = this.a.f;
+                activity2.finish();
+            } else if (id == R.id.navigationBarHome) {
+                activity = this.a.f;
+                com.baidu.tieba.mainentrance.f.a(activity);
+            }
         }
-        this.a.invalidate(this.a.getRotateInvalidRect());
-        this.a.postDelayed(this.a.e, 50L);
     }
 }

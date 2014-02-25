@@ -1,64 +1,22 @@
 package com;
 
-import com.baidu.cloudsdk.common.http.BinaryHttpResponseHandler;
-import com.baidu.cloudsdk.common.http.HttpResponseHandler;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.impl.client.AbstractHttpClient;
-import org.apache.http.protocol.HttpContext;
+import com.baidu.cloudsdk.DefaultBaiduListener;
+import com.baidu.cloudsdk.social.share.uiwithlayout.ShareMediaItem;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class bb implements Runnable {
-    private AbstractHttpClient a;
-    private HttpContext b;
-    private HttpUriRequest c;
-    private HttpResponseHandler d;
-    private boolean e;
+class bb extends DefaultBaiduListener {
+    final /* synthetic */ ShareMediaItem a;
+    final /* synthetic */ ay b;
 
-    public bb(AbstractHttpClient abstractHttpClient, HttpContext httpContext, HttpUriRequest httpUriRequest, HttpResponseHandler httpResponseHandler) {
-        this.a = abstractHttpClient;
-        this.b = httpContext;
-        this.c = httpUriRequest;
-        this.d = httpResponseHandler;
-        if (httpResponseHandler instanceof BinaryHttpResponseHandler) {
-            this.e = true;
-        } else {
-            this.e = false;
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bb(ay ayVar, ShareMediaItem shareMediaItem) {
+        this.b = ayVar;
+        this.a = shareMediaItem;
     }
 
-    private void a() {
-        if (Thread.currentThread().isInterrupted()) {
-            return;
-        }
-        HttpResponse execute = this.a.execute(this.c, this.b);
-        if (Thread.currentThread().isInterrupted()) {
-            throw new InterruptedException("the request has been cancelled");
-        }
-        if (this.d != null) {
-            this.d.sendResponseMessage(execute);
-        }
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        try {
-            if (this.d != null) {
-                this.d.sendStartMessage();
-            }
-            a();
-            if (this.d != null) {
-                this.d.sendFinishMessage();
-            }
-        } catch (InterruptedException e) {
-        } catch (Exception e2) {
-            if (this.d != null) {
-                this.d.sendFinishMessage();
-                if (this.e) {
-                    this.d.sendFailureMessage(e2, (byte[]) null);
-                } else {
-                    this.d.sendFailureMessage(e2, (String) null);
-                }
-            }
-        }
+    @Override // com.baidu.cloudsdk.DefaultBaiduListener, com.baidu.cloudsdk.IBaiduListener
+    public void onComplete(JSONObject jSONObject) {
+        this.a.setUserName(jSONObject.optString("username"));
+        this.b.notifyDataSetChanged();
     }
 }

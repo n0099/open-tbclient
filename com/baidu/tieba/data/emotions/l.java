@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.ad;
+import com.baidu.tieba.util.af;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -32,7 +32,7 @@ public class l {
             this.c = new k();
         }
         arrayList.add(this.c);
-        if (ad.a()) {
+        if (af.a()) {
             for (MyEmotionGroupData myEmotionGroupData : j.a().c(TiebaApplication.A())) {
                 EmotionGroupData a2 = j.a().a(myEmotionGroupData.groupId);
                 if (a2 != null) {
@@ -43,11 +43,17 @@ public class l {
                 }
             }
             if (this.d != null) {
-                for (int i = 0; i < this.d.size(); i++) {
-                    a aVar = this.d.get(i);
+                int i = 0;
+                while (true) {
+                    int i2 = i;
+                    if (i2 >= this.d.size()) {
+                        break;
+                    }
+                    a aVar = this.d.get(i2);
                     if (aVar.b() && j.a().a(aVar.e()) == null) {
                         arrayList.add(aVar);
                     }
+                    i = i2 + 1;
                 }
             }
         }
@@ -68,77 +74,84 @@ public class l {
     }
 
     public String a(String str, boolean z) {
-        return (this.c == null || !z || this.c.a(str)) ? str : "#@" + str;
+        if (this.c == null || !z || this.c.a(str)) {
+            return str;
+        }
+        return "#@" + str;
     }
 
-    public com.baidu.adp.widget.ImageView.d b(String str) {
-        return com.baidu.tbadk.imageManager.d.a().c(a(str, true));
+    public com.baidu.adp.widget.ImageView.b b(String str) {
+        return com.baidu.tbadk.imageManager.e.a().c(str);
     }
 
-    public com.baidu.adp.widget.ImageView.d a(String str, String str2) {
-        com.baidu.adp.widget.ImageView.d dVar;
+    public com.baidu.adp.widget.ImageView.b c(String str) {
+        return com.baidu.tbadk.imageManager.e.a().c(a(str, true));
+    }
+
+    public com.baidu.adp.widget.ImageView.b a(String str, String str2) {
+        com.baidu.adp.widget.ImageView.b bVar;
         Bitmap a2;
-        com.baidu.adp.widget.ImageView.d c = com.baidu.tbadk.imageManager.d.a().c(str2);
+        com.baidu.adp.widget.ImageView.b c = com.baidu.tbadk.imageManager.e.a().c(str2);
         if (c != null) {
             return c;
         }
         Iterator<WritableEmotionGroup> it = this.b.iterator();
         while (true) {
             if (!it.hasNext()) {
-                dVar = c;
+                bVar = c;
                 break;
             }
             WritableEmotionGroup next = it.next();
             if (next.a(str2)) {
-                dVar = next.b(str2);
+                bVar = next.b(str2);
                 break;
             }
         }
-        if (dVar == null && str != null && (a2 = d.a(str, d.a(str2, false))) != null) {
-            dVar = new com.baidu.adp.widget.ImageView.d(a2, false, str2);
+        if (bVar == null && str != null && (a2 = d.a(str, d.a(str2, false))) != null) {
+            bVar = new com.baidu.adp.widget.ImageView.b(a2, false, str2);
         }
-        a(str2, dVar, false);
-        return dVar;
+        a(str2, bVar, false);
+        return bVar;
     }
 
-    public com.baidu.adp.widget.ImageView.d b(String str, String str2) {
-        com.baidu.adp.widget.ImageView.d dVar;
+    public com.baidu.adp.widget.ImageView.b b(String str, String str2) {
+        com.baidu.adp.widget.ImageView.b bVar;
         if (this.c == null) {
             return null;
         }
-        com.baidu.adp.widget.ImageView.d b = b(str2);
-        if (b != null) {
-            return b;
+        com.baidu.adp.widget.ImageView.b c = c(str2);
+        if (c != null) {
+            return c;
         }
         Iterator<WritableEmotionGroup> it = this.b.iterator();
         while (true) {
             if (!it.hasNext()) {
-                dVar = b;
+                bVar = c;
                 break;
             }
             WritableEmotionGroup next = it.next();
             if (next.a(str2)) {
-                dVar = next.c(str2);
+                bVar = next.c(str2);
                 break;
             }
         }
-        if (dVar == null && str != null) {
-            dVar = d.b(str, d.a(str2, true));
+        if (bVar == null && str != null) {
+            bVar = d.b(str, d.a(str2, true));
         }
-        a(str2, dVar, true);
-        return dVar;
+        a(str2, bVar, true);
+        return bVar;
     }
 
-    public void a(String str, com.baidu.adp.widget.ImageView.d dVar, boolean z) {
-        if (dVar != null) {
+    public void a(String str, com.baidu.adp.widget.ImageView.b bVar, boolean z) {
+        if (bVar != null) {
             if (z) {
                 if (!this.c.a(str)) {
                     str = "#@" + str;
                 }
-                com.baidu.tbadk.imageManager.d.a().b(str, dVar, true);
+                com.baidu.tbadk.imageManager.e.a().b(str, bVar, true);
                 return;
             }
-            com.baidu.tbadk.imageManager.d.a().b(str, dVar, false);
+            com.baidu.tbadk.imageManager.e.a().b(str, bVar, false);
         }
     }
 
@@ -146,7 +159,7 @@ public class l {
         return this.b;
     }
 
-    public WritableEmotionGroup c(String str) {
+    public WritableEmotionGroup d(String str) {
         Iterator<WritableEmotionGroup> it = this.b.iterator();
         while (it.hasNext()) {
             WritableEmotionGroup next = it.next();

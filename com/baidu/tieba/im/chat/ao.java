@@ -1,22 +1,23 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.im.SingleRunnable;
+import com.baidu.tieba.voice.VoiceManager;
 /* loaded from: classes.dex */
-class ao extends SingleRunnable<Void> {
-    final /* synthetic */ GroupSettingActivity a;
+class ao implements p {
+    final /* synthetic */ GroupChatActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(GroupSettingActivity groupSettingActivity) {
-        this.a = groupSettingActivity;
+    public ao(GroupChatActivity groupChatActivity) {
+        this.a = groupChatActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.SingleRunnable
-    /* renamed from: a */
-    public Void b() {
-        as asVar;
-        asVar = this.a.b;
-        com.baidu.tieba.im.db.a.a(asVar.c());
-        return null;
+    @Override // com.baidu.tieba.im.chat.p
+    public void a(VoiceManager.VoiceModel voiceModel) {
+        if (voiceModel != null) {
+            this.a.e.a(voiceModel.voiceId, voiceModel.duration);
+        }
+    }
+
+    @Override // com.baidu.tieba.im.chat.p
+    public void a() {
     }
 }

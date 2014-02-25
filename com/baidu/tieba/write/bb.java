@@ -1,111 +1,26 @@
 package com.baidu.tieba.write;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.media.ExifInterface;
-import android.net.Uri;
-import com.baidu.tieba.BaseFragmentActivity;
-import com.slidingmenu.lib.R;
+import android.os.Environment;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import java.io.File;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bb {
-    public static void a(Activity activity) {
-        try {
-            if (!com.baidu.tieba.util.ad.a()) {
-                if (activity instanceof com.baidu.tieba.j) {
-                    ((com.baidu.tieba.j) activity).showToast(com.baidu.tieba.util.ad.b());
-                } else if (activity instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) activity).a(com.baidu.tieba.util.ad.b());
-                }
-            } else {
-                File f = com.baidu.tieba.util.ad.f("camera.jpg");
-                if (f != null) {
-                    Uri fromFile = Uri.fromFile(f);
-                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                    intent.putExtra("output", fromFile);
-                    activity.startActivityForResult(intent, 12001);
-                } else if (activity instanceof com.baidu.tieba.j) {
-                    ((com.baidu.tieba.j) activity).showToast(activity.getString(R.string.error_sd_error));
-                } else if (activity instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) activity).a(activity.getString(R.string.error_sd_error));
-                }
-            }
-        } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b("WriteUtil", "takePhoto", "error = " + e.getMessage());
-        }
+public class bb extends BdAsyncTask<Void, Integer, Void> {
+    final /* synthetic */ WriteActivity a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bb(WriteActivity writeActivity) {
+        this.a = writeActivity;
     }
 
-    public static void b(Activity activity) {
-        c(activity);
-    }
-
-    public static void c(Activity activity) {
-        try {
-            Intent intent = new Intent();
-            intent.setType("image/*");
-            intent.setAction("android.intent.action.GET_CONTENT");
-            activity.startActivityForResult(intent, 12002);
-        } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b("WriteUtil", "getAlbumImage", "error = " + e.getMessage());
-        }
-    }
-
-    public static int a(String str) {
-        try {
-            switch (new ExifInterface(str).getAttributeInt("Orientation", 1)) {
-                case 3:
-                    return 180;
-                case 4:
-                case 5:
-                case 7:
-                default:
-                    return 0;
-                case 6:
-                    return 90;
-                case 8:
-                    return 270;
-            }
-        } catch (Exception e) {
-            com.baidu.adp.lib.g.e.a(e.getMessage());
-            return 0;
-        }
-    }
-
-    private static Bitmap a(int i) {
-        Exception e;
-        try {
-            int a = a(com.baidu.tieba.util.ad.c("camera.jpg"));
-            Bitmap a2 = com.baidu.tieba.util.n.a("camera.jpg", i);
-            if (a != 0 && a2 != null) {
-                try {
-                    return com.baidu.tieba.util.n.e(a2, a);
-                } catch (Exception e2) {
-                    e = e2;
-                    com.baidu.adp.lib.g.e.b("WriteUtil", "photoResult", "error = " + e.getMessage());
-                    return null;
-                }
-            }
-            return a2;
-        } catch (Exception e3) {
-            e = e3;
-        }
-    }
-
-    private static Bitmap a(Context context, Uri uri, int i) {
-        try {
-            return com.baidu.tieba.util.n.a(context, uri, i);
-        } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b("WriteUtil", "AlbumImageResult", "error = " + e.getMessage());
-            return null;
-        }
-    }
-
-    public static Bitmap a(int i, Context context, Uri uri, int i2) {
-        if (i == 12001) {
-            return a(i2);
-        }
-        return a(context, uri, i2);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Void a(Void... voidArr) {
+        String str;
+        StringBuilder append = new StringBuilder().append(Environment.getExternalStorageDirectory()).append("/").append(com.baidu.tieba.data.i.k()).append("/");
+        str = this.a.E;
+        com.baidu.tieba.util.af.c(new File(append.append(str).toString()));
+        return null;
     }
 }

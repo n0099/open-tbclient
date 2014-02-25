@@ -1,23 +1,25 @@
 package com.baidu.tieba.flist;
 
-import android.view.KeyEvent;
-import android.view.View;
+import android.widget.PopupWindow;
+import com.baidu.tieba.TiebaApplication;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z implements View.OnKeyListener {
-    final /* synthetic */ y a;
+public class z implements PopupWindow.OnDismissListener {
+    final /* synthetic */ w a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(y yVar) {
-        this.a = yVar;
+    public z(w wVar) {
+        this.a = wVar;
     }
 
-    @Override // android.view.View.OnKeyListener
-    public boolean onKey(View view, int i, KeyEvent keyEvent) {
-        if (i == 4 && this.a.t.isShowing()) {
-            this.a.t.dismiss();
-            return false;
+    @Override // android.widget.PopupWindow.OnDismissListener
+    public void onDismiss() {
+        this.a.B = false;
+        if (TiebaApplication.g().al() == 1) {
+            this.a.z.setImageResource(R.drawable.btn_allsproutpop_down_1);
+        } else {
+            this.a.z.setImageResource(R.drawable.btn_allsproutpop_down);
         }
-        return false;
     }
 }

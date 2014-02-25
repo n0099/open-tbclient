@@ -146,7 +146,7 @@ public class a extends d {
     }
 
     public void a(String str) {
-        this.e.setText(h().getString(com.baidu.adp.f.adp_pull_view_date_tip) + str);
+        this.e.setText(String.valueOf(h().getString(com.baidu.adp.f.adp_pull_view_date_tip)) + str);
     }
 
     @Override // com.baidu.adp.widget.ListView.d

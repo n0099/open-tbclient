@@ -7,23 +7,24 @@ import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
-public class ProtocolActivity extends com.baidu.tieba.j {
+public class ProtocolActivity extends com.baidu.tieba.f {
     private TextView a = null;
     private RelativeLayout b = null;
     private NavigationBar c;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.account_protocol_activity);
         a();
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x0086 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x0081 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x0089 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x0084 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r2v1 */
     /* JADX WARN: Type inference failed for: r2v2, types: [java.io.BufferedReader] */
     /* JADX WARN: Type inference failed for: r2v3 */
@@ -51,7 +52,7 @@ public class ProtocolActivity extends com.baidu.tieba.j {
                             break;
                         }
                         sb.append(readLine);
-                        sb.append("\n");
+                        sb.append(IOUtils.LINE_SEPARATOR_UNIX);
                     } catch (Exception e) {
                         e = e;
                         e.printStackTrace();
@@ -97,11 +98,11 @@ public class ProtocolActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j
+    @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.c.c(i);
-        com.baidu.tieba.util.bs.c(this.b, i);
-        com.baidu.tieba.util.bs.b(this.a, i);
+        com.baidu.tieba.util.bq.c(this.b, i);
+        com.baidu.tieba.util.bq.b(this.a, i);
     }
 }

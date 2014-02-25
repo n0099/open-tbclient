@@ -20,14 +20,14 @@ class b implements View.OnClickListener {
                     this.a.showToast(R.string.neterror);
                     return;
                 }
-                ag agVar = new ag();
-                agVar.b(com.baidu.adp.lib.f.b.a(this.a.k, 0));
-                agVar.a(this.a.b.getText().toString());
-                agVar.a(this.a.r);
-                agVar.a(this.a.n);
-                com.baidu.adp.lib.g.e.d("groupId:" + this.a.k + "userMsg:" + this.a.b.getContext().toString());
+                ah ahVar = new ah();
+                ahVar.b(com.baidu.adp.lib.f.b.a(this.a.k, 0));
+                ahVar.a(this.a.b.getText().toString());
+                ahVar.a(this.a.r);
+                ahVar.a(this.a.n);
+                com.baidu.adp.lib.util.f.e("groupId:" + this.a.k + "userMsg:" + this.a.b.getContext().toString());
                 this.a.f.setEnabled(false);
-                com.baidu.tieba.im.messageCenter.e.a().a(agVar);
+                com.baidu.tieba.im.messageCenter.e.a().a(ahVar);
             } else if (view.equals(this.a.e)) {
                 this.a.finish();
             }

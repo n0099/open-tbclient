@@ -1,6 +1,6 @@
 package com.baidu.adp.lib.voice;
 
-import com.baidu.adp.lib.g.e;
+import com.baidu.adp.lib.util.f;
 import java.io.File;
 /* loaded from: classes.dex */
 public class Amrnb {
@@ -29,8 +29,8 @@ public class Amrnb {
         String str = null;
         bLoadLibrary = false;
         try {
-            if (com.baidu.adp.a.b.a() != null && com.baidu.adp.a.b.a().getApplicationInfo() != null) {
-                String str2 = com.baidu.adp.a.b.a().getApplicationInfo().dataDir + File.separator + "lib/libamrnb.so";
+            if (com.baidu.adp.a.b.a().b() != null && com.baidu.adp.a.b.a().b().getApplicationInfo() != null) {
+                String str2 = String.valueOf(com.baidu.adp.a.b.a().b().getApplicationInfo().dataDir) + File.separator + "lib/libamrnb.so";
                 if (new File(str2).exists()) {
                     str = str2;
                 }
@@ -42,13 +42,13 @@ public class Amrnb {
             }
             bLoadLibrary = true;
         } catch (Throwable th) {
-            e.c("----load amrnb so failed.");
+            f.d("----load amrnb so failed.");
             try {
                 System.loadLibrary("amrnb");
                 bLoadLibrary = true;
             } catch (Throwable th2) {
                 bLoadLibrary = false;
-                e.c("----load amrnb so failed2.");
+                f.d("----load amrnb so failed2.");
             }
         }
         if (bLoadLibrary) {
@@ -57,7 +57,7 @@ public class Amrnb {
                 bLoadLibrary = true;
             } catch (Throwable th3) {
                 bLoadLibrary = false;
-                e.c("----load amrnb so failed2.");
+                f.d("----load amrnb so failed2.");
             }
         }
     }

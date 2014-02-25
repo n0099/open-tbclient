@@ -1,18 +1,23 @@
 package com.baidu.tieba.pb;
+
+import android.view.View;
+import android.widget.AdapterView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ei implements Runnable {
-    final /* synthetic */ String a;
-    final /* synthetic */ eb b;
+public class ei implements AdapterView.OnItemLongClickListener {
+    final /* synthetic */ ed a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ei(eb ebVar, String str) {
-        this.b = ebVar;
-        this.a = str;
+    public ei(ed edVar) {
+        this.a = edVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.b.a(this.a);
+    @Override // android.widget.AdapterView.OnItemLongClickListener
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
+        if (this.a.K != null) {
+            this.a.K.onLongClick(view);
+            return false;
+        }
+        return false;
     }
 }

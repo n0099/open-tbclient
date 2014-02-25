@@ -1,18 +1,22 @@
 package com.baidu.tieba.pb;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import com.baidu.adp.widget.ColumnLayout;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.view.HeadImageView;
 /* loaded from: classes.dex */
-public class cg implements Runnable {
-    final /* synthetic */ int a;
-    final /* synthetic */ PbEditor b;
+public class cg {
+    public View a;
+    public ColumnLayout b;
+    public HeadImageView c;
+    public TextView d;
+    public Button e;
+    public TbRichTextView f;
+    final /* synthetic */ cf g;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public cg(PbEditor pbEditor, int i) {
-        this.b = pbEditor;
-        this.a = i;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        this.b.a(this.a, new ch(this));
+    public cg(cf cfVar) {
+        this.g = cfVar;
     }
 }

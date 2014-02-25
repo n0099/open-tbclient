@@ -1,5 +1,6 @@
 package com.baidu.location;
 
+import android.support.v4.view.MotionEventCompat;
 import java.security.MessageDigest;
 /* loaded from: classes.dex */
 class d {
@@ -19,9 +20,9 @@ class d {
             for (int i = 0; i < bytes.length; i++) {
                 bArr[i] = bytes[i];
             }
-            bArr[bytes.length] = (byte) (Integer.parseInt(String.copyValueOf(a2, 10, 2), 16) & 255);
-            bArr[bytes.length + 1] = (byte) (Integer.parseInt(String.copyValueOf(a2, 20, 2), 16) & 255);
-            String str2 = (("" + ((char) (Integer.parseInt(String.copyValueOf(a2, 6, 2), 16) & 255))) + ((char) (Integer.parseInt(String.copyValueOf(a2, 16, 2), 16) & 255))) + ((char) (Integer.parseInt(String.copyValueOf(a2, 26, 2), 16) & 255));
+            bArr[bytes.length] = (byte) (Integer.parseInt(String.copyValueOf(a2, 10, 2), 16) & MotionEventCompat.ACTION_MASK);
+            bArr[bytes.length + 1] = (byte) (Integer.parseInt(String.copyValueOf(a2, 20, 2), 16) & MotionEventCompat.ACTION_MASK);
+            String str2 = (("" + ((char) (Integer.parseInt(String.copyValueOf(a2, 6, 2), 16) & MotionEventCompat.ACTION_MASK))) + ((char) (Integer.parseInt(String.copyValueOf(a2, 16, 2), 16) & MotionEventCompat.ACTION_MASK))) + ((char) (Integer.parseInt(String.copyValueOf(a2, 26, 2), 16) & MotionEventCompat.ACTION_MASK));
             char[] a3 = a((str2 + "webgis").getBytes("iso-8859-1"));
             int length = bArr.length;
             int length2 = str2.length();
@@ -35,7 +36,7 @@ class d {
             for (int i5 = 0; i5 < length2; i5++) {
                 bArr2[length + i5] = (byte) str2.charAt(i5);
             }
-            return new String(m116if(bArr2));
+            return new String(m117if(bArr2));
         } catch (Exception e) {
             e.printStackTrace();
             return "UnsupportedEncodingException";
@@ -63,7 +64,7 @@ class d {
     }
 
     /* renamed from: if  reason: not valid java name */
-    private static char[] m116if(byte[] bArr) {
+    private static char[] m117if(byte[] bArr) {
         boolean z;
         boolean z2;
         char[] cArr = new char[((bArr.length + 2) / 3) * 4];

@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.view.bq;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
@@ -15,21 +15,21 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.ForumInfoData;
 import com.baidu.tieba.flist.ForumListModel;
-import com.baidu.tieba.model.ax;
-import com.baidu.tieba.util.bu;
-import com.baidu.tieba.util.by;
+import com.baidu.tieba.model.ar;
+import com.baidu.tieba.util.bs;
+import com.baidu.tieba.util.cb;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class ForumListActivity extends com.baidu.tieba.j implements bq {
+public class ForumListActivity extends com.baidu.tieba.f implements ViewPager.OnPageChangeListener {
     private ForumListModel.RequestParams A;
-    private s D;
-    private s E;
+    private r D;
+    private r E;
     private c F;
-    private u G;
+    private t G;
     public ForumListModel.List a;
     public ForumListModel.List b;
-    public y c;
+    public w c;
     private int f;
     private int g;
     private int h;
@@ -47,7 +47,7 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
     private int n = 200;
     private int o = 200;
     private int p = 0;
-    private ax q = new ax();
+    private ar q = new ar();
     private com.baidu.tieba.util.i r = null;
     private boolean s = false;
     private int t = 0;
@@ -59,18 +59,18 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
     private int z = 0;
     private boolean B = false;
     private boolean C = false;
-    private w H = new g(this);
-    private f I = new h(this);
-    private AdapterView.OnItemClickListener J = new i(this);
-    private com.baidu.adp.widget.ListView.b K = new j(this);
-    private Runnable P = new n(this);
-    private AbsListView.OnScrollListener Q = new o(this);
+    private u H = new f(this);
+    private e I = new g(this);
+    private AdapterView.OnItemClickListener J = new h(this);
+    private com.baidu.adp.widget.ListView.b K = new i(this);
+    private Runnable P = new j(this);
+    private AbsListView.OnScrollListener Q = new k(this);
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str) {
-        com.baidu.tieba.square.z a = this.c.x.a();
+        com.baidu.tieba.square.ab a = this.c.x.a();
         if (a != null) {
-            ArrayList<com.baidu.tieba.square.z> arrayList = a.e;
+            ArrayList<com.baidu.tieba.square.ab> arrayList = a.e;
             int size = arrayList.size();
             for (int i = 0; i < size; i++) {
                 if (arrayList.get(i).b.equals(str)) {
@@ -92,7 +92,7 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
             this.A.parent_menu_name = getIntent().getStringExtra("parent_menu_name");
             this.A.offset = 0;
             this.A.rn = 10;
-            com.baidu.adp.lib.g.e.e("ForumListActivity", "onCreate", this.A.toString());
+            com.baidu.adp.lib.util.f.e("ForumListActivity", "onCreate", this.A.toString());
         } catch (NullPointerException e) {
             finish();
         }
@@ -132,27 +132,27 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
         context.startActivity(intent);
     }
 
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.forum_list_activity);
-        this.c = new y(this);
+        this.c = new w(this);
         this.c.h = (BdListView) a();
         this.c.i = (BdListView) c();
         this.c.A.setVisibility(0);
         this.c.y.setOnClickListener(null);
         this.c.y.setClickable(false);
-        this.c.d.setAdapter(new p(this));
-        this.D = new s(this, 0);
+        this.c.d.setAdapter(new o(this));
+        this.D = new r(this, 0);
         this.c.h.setAdapter((ListAdapter) this.D);
-        this.E = new s(this, 1);
+        this.E = new r(this, 1);
         this.c.i.setAdapter((ListAdapter) this.E);
         b(getIntent().getStringExtra("parent_menu_name"), getIntent().getStringExtra("parent_menu_id"), getIntent().getStringExtra("menu_type"), getIntent().getStringExtra("level_2_menu_name"));
     }
 
     private void b(String str, String str2, String str3, String str4) {
         this.e = new Handler();
-        if (bu.c(str4)) {
+        if (bs.c(str4)) {
             str4 = str;
         }
         this.c.g.setText(str4);
@@ -166,7 +166,7 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
             this.A.parent_menu_name = str;
             this.A.offset = 0;
             this.A.rn = 10;
-            com.baidu.adp.lib.g.e.e("ForumListActivity", "onCreate", this.A.toString());
+            com.baidu.adp.lib.util.f.e("ForumListActivity", "onCreate", this.A.toString());
         } catch (NullPointerException e) {
             finish();
         }
@@ -190,7 +190,7 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
         this.c.r.a(this.K);
         this.c.s.a(this.K);
         if (str3.equals("2")) {
-            com.baidu.adp.lib.g.e.e("ForumListActivity", "OnCreate", "from frs");
+            com.baidu.adp.lib.util.f.e("ForumListActivity", "OnCreate", "from frs");
             this.c.z.setVisibility(8);
             this.c.d();
         } else {
@@ -198,7 +198,7 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
             this.F.a(this.I);
             this.F.LoadData();
         }
-        this.G = new u(this, this.A);
+        this.G = new t(this, this.A);
         this.G.a(this.H);
         this.c.h.b();
     }
@@ -211,7 +211,7 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, android.app.Activity
     public void onResume() {
         super.onResume();
         if (d) {
@@ -236,7 +236,7 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, android.app.Activity
     public void onPause() {
         super.onPause();
         this.e.removeCallbacks(this.P);
@@ -244,7 +244,7 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         if (this.q != null) {
@@ -267,12 +267,12 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j
+    @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         getLayoutMode().a(i == 1);
         getLayoutMode().a((View) this.c.a);
         this.c.f.c(i);
-        if (TiebaApplication.h().al() == 1) {
+        if (TiebaApplication.g().al() == 1) {
             this.D.a(true);
             this.E.a(true);
         } else {
@@ -364,17 +364,17 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.tab_recommends /* 2131100285 */:
+            case R.id.tab_recommends /* 2131100368 */:
                 this.c.d.setCurrentItem(0);
                 this.p = 0;
-                by.a(view.getContext(), "recommend_list_click", "click", 1, new Object[0]);
+                cb.a(view.getContext(), "recommend_list_click", "click", 1, new Object[0]);
                 return;
-            case R.id.tab_hot /* 2131100286 */:
+            case R.id.tab_hot /* 2131100369 */:
                 this.c.d.setCurrentItem(1);
                 this.p = 1;
-                by.a(view.getContext(), "hot_list_click", "click", 1, new Object[0]);
+                cb.a(view.getContext(), "hot_list_click", "click", 1, new Object[0]);
                 return;
-            case R.id.title_menu /* 2131100927 */:
+            case R.id.title_menu /* 2131101118 */:
                 this.c.a(this.J);
                 return;
             default:
@@ -384,7 +384,7 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
 
     private View a() {
         this.c.h = e();
-        this.c.l.setOnClickListener(new k(this));
+        this.c.l.setOnClickListener(new l(this));
         return this.c.h;
     }
 
@@ -403,14 +403,14 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
             return;
         }
         this.n = 50;
-        r rVar = new r(this, null);
-        rVar.a(true);
-        rVar.execute(new Void[0]);
+        q qVar = new q(this, null);
+        qVar.a(true);
+        qVar.execute(new Void[0]);
     }
 
     private View c() {
         this.c.i = e();
-        this.c.o.setOnClickListener(new l(this));
+        this.c.o.setOnClickListener(new m(this));
         return this.c.i;
     }
 
@@ -429,9 +429,9 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
             return;
         }
         this.o = 50;
-        q qVar = new q(this, null);
-        qVar.a(true);
-        qVar.execute(new Void[0]);
+        p pVar = new p(this, null);
+        pVar.a(true);
+        pVar.execute(new Void[0]);
     }
 
     private BdListView e() {
@@ -449,12 +449,12 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
         return bdListView;
     }
 
-    @Override // android.support.v4.view.bq
-    public void a(int i, float f, int i2) {
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrolled(int i, float f, int i2) {
     }
 
-    @Override // android.support.v4.view.bq
-    public void a_(int i) {
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageSelected(int i) {
         this.z = i;
         if (!this.s) {
             if (i == 0) {
@@ -477,8 +477,8 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
         }
     }
 
-    @Override // android.support.v4.view.bq
-    public void b(int i) {
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrollStateChanged(int i) {
     }
 
     @Override // android.app.Activity
@@ -491,7 +491,7 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
             } else {
                 a = this.E.a();
             }
-            this.q.setLoadDataCallBack(new m(this, a));
+            this.q.setLoadDataCallBack(new n(this, a));
             if (this.p == 0) {
                 this.q.a(a[this.D.a].forum_name, String.valueOf(a[this.D.a].forum_id));
             } else {

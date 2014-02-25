@@ -1,25 +1,21 @@
 package com.baidu.tieba.util;
 
-import android.widget.ImageView;
+import android.view.ViewGroup;
 import android.widget.ListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class aq implements com.baidu.tbadk.imageManager.c {
-    final /* synthetic */ ListView a;
+public class aq implements com.baidu.tbadk.imageManager.d {
+    private final /* synthetic */ ListView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(ListView listView) {
         this.a = listView;
     }
 
-    @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
-        if (dVar != null) {
-            ImageView imageView = (ImageView) this.a.findViewWithTag(str);
-            while (imageView != null) {
-                imageView.setTag(null);
-                imageView.setImageBitmap(dVar.h());
-                imageView = (ImageView) this.a.findViewWithTag(str);
-            }
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        if (bVar != null && str != null) {
+            ch.a((ViewGroup) this.a, false, (cj) new ar(this, str));
         }
     }
 }

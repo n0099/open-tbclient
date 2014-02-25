@@ -1,94 +1,68 @@
 package com.baidu.tieba.model;
-
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import java.util.ArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s extends BdAsyncTask<o, Integer, Boolean> {
-    final /* synthetic */ o a;
-    private com.baidu.tieba.util.ax b;
-    private com.baidu.tieba.data.ba c;
+public class s extends com.baidu.adp.a.d {
+    private t a = null;
+    private v b = null;
+    private x c = null;
 
-    private s(o oVar) {
-        this.a = oVar;
-        this.b = null;
-        this.c = null;
+    @Override // com.baidu.adp.a.d
+    protected boolean LoadData() {
+        return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void b() {
-        this.c = new com.baidu.tieba.data.ba();
+    @Override // com.baidu.adp.a.d
+    public boolean cancelLoadData() {
+        a();
+        return false;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Boolean a(o... oVarArr) {
-        o oVar = new o();
-        try {
-            oVar.i();
-            this.b = new com.baidu.tieba.util.ax();
-            this.b.a(com.baidu.tieba.data.h.a + "c/c/post/addstore");
-            int k = this.a.k();
-            if (oVar.g() - 1 <= k) {
-                k = oVar.g() - 1;
-            }
-            while (k >= 0) {
-                String a = oVar.a(k, 20);
-                this.b.a(new ArrayList<>());
-                this.b.a("data", a);
-                this.c.a(this.b.m());
-                if (!this.b.d() || this.c.a() != 0) {
-                    break;
-                }
-                k -= 20;
-            }
-            this.a.c(k);
-            if (k >= 0) {
-                return false;
-            }
-            return true;
-        } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
-            return false;
+    public void a() {
+        if (this.a != null) {
+            this.a.cancel();
+            this.a = null;
         }
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        super.cancel(true);
         if (this.b != null) {
-            this.b.k();
+            this.b.cancel();
+            this.b = null;
         }
-        this.a.c = null;
-        if (this.a.a != null) {
-            this.a.a.a(1, false, null, false);
+        if (this.c != null) {
+            this.c.cancel();
+            this.c = null;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Boolean bool) {
-        String str;
-        boolean z;
-        ArrayList arrayList;
-        this.a.c = null;
-        if (bool.booleanValue()) {
-            arrayList = this.a.e;
-            arrayList.clear();
-            str = null;
-            z = false;
-        } else if (this.b.d()) {
-            str = this.c.b();
-            z = false;
+    public void a(String str, String str2, String str3, String str4, int i, int i2, boolean z) {
+        if (this.a != null) {
+            this.a.cancel();
+            this.a = null;
+        }
+        this.mLoadDataMode = 0;
+        this.a = new t(this, str, str2, str3, str4, i, i2, z);
+        this.a.setPriority(2);
+        this.a.execute(new String[0]);
+    }
+
+    public boolean b() {
+        return (this.a == null && this.b == null && this.c == null) ? false : true;
+    }
+
+    public void a(String str, String str2, String str3, int i, String str4) {
+        String str5;
+        if (this.c != null) {
+            this.c.cancel();
+            this.c = null;
+        }
+        this.mLoadDataMode = i;
+        this.c = new x(this, str, str2, str3, i, str4);
+        this.c.setPriority(2);
+        String str6 = com.baidu.tieba.data.i.a;
+        if (i == 6) {
+            str5 = String.valueOf(str6) + "c/c/bawu/goodlist";
+        } else if (i == 2 || i == 3) {
+            str5 = String.valueOf(str6) + "c/c/bawu/commitgood";
         } else {
-            str = null;
-            z = true;
+            str5 = String.valueOf(str6) + "c/c/bawu/committop";
         }
-        if (this.a.a != null) {
-            this.a.a.a(1, bool, str, Boolean.valueOf(z));
-        }
+        this.c.execute(str5);
     }
 }

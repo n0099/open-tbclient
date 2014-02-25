@@ -1,85 +1,97 @@
 package com.baidu.tieba.view;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class co extends com.baidu.adp.widget.ListView.c {
-    private com.baidu.tieba.j a;
+    private Context a;
     private TextView b = null;
     private ProgressBar c = null;
-    private View.OnClickListener d = null;
-    private View e = null;
-    private View f;
+    private ImageView d = null;
+    private View.OnClickListener e = null;
+    private View f = null;
+    private int g = 0;
 
-    public co(com.baidu.tieba.j jVar) {
+    public co(Context context) {
         this.a = null;
-        this.a = jVar;
+        this.a = context;
     }
 
     @Override // com.baidu.adp.widget.ListView.c
     public View a() {
-        this.e = LayoutInflater.from(this.a).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
-        this.e.setPadding(0, this.a.getResources().getDimensionPixelSize(R.dimen.listview_item_margin), 0, this.a.getResources().getDimensionPixelSize(R.dimen.listview_item_margin));
-        this.b = (TextView) this.e.findViewById(R.id.pb_more_text);
-        this.f = this.e.findViewById(R.id.pb_more_view);
-        this.f.setVisibility(8);
-        this.c = (ProgressBar) this.e.findViewById(R.id.progress);
-        a(TiebaApplication.h().al());
-        this.f.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-        return this.e;
-    }
-
-    public void a(int i) {
-        int color;
-        this.a.getLayoutMode().a(this.f);
-        String string = this.a.getString(R.string.nearby_group_no_more);
-        String charSequence = this.b.getText() != null ? this.b.getText().toString() : null;
-        boolean z = i == 1;
-        if (charSequence != null && charSequence.equals(string)) {
-            color = this.a.getResources().getColor(z ? R.color.pb_list_morebutton_nomore_text_1 : R.color.pb_list_morebutton_nomore_text);
+        this.f = LayoutInflater.from(this.a).inflate(R.layout.new_sub_pb_list_more, (ViewGroup) null);
+        this.b = (TextView) this.f.findViewById(R.id.sub_pb_more_text);
+        this.d = (ImageView) this.f.findViewById(R.id.image);
+        if (TiebaApplication.g().al() == 1) {
+            this.d.setBackgroundResource(R.drawable.icon_downward_1);
         } else {
-            color = this.a.getResources().getColor(z ? R.color.pb_more_txt_1 : R.color.pb_more_txt);
+            this.d.setBackgroundResource(R.drawable.icon_downward);
         }
-        this.b.setTextColor(color);
-    }
-
-    public void a(View.OnClickListener onClickListener) {
-        this.d = onClickListener;
+        this.c = (ProgressBar) this.f.findViewById(R.id.progress);
+        return this.f;
     }
 
     public void c() {
-        this.e.setVisibility(8);
+        this.c.setVisibility(0);
+        this.d.setVisibility(8);
+        this.b.setText(this.a.getText(R.string.loading));
+        e();
+    }
+
+    public void a(int i) {
+        this.g = i;
+        this.c.setVisibility(8);
+        this.d.setVisibility(0);
+        if (i > 0) {
+            com.baidu.tieba.pb.cd.a(this.a, this.b, i);
+        } else {
+            this.b.setText(this.a.getText(R.string.load_more));
+        }
+        e();
     }
 
     public void d() {
-        this.e.setVisibility(0);
+        this.c.setVisibility(8);
+        this.d.setVisibility(0);
+        if (this.g > 0) {
+            com.baidu.tieba.pb.cd.a(this.a, this.b, this.g);
+        } else {
+            this.b.setText(this.a.getText(R.string.load_more));
+        }
+        e();
+    }
+
+    public void a(View.OnClickListener onClickListener) {
+        this.e = onClickListener;
+    }
+
+    protected void b(int i) {
+        this.b.setTextColor(this.a.getResources().getColor(i));
     }
 
     public void e() {
-        this.c.setVisibility(0);
-        this.b.setText(this.a.getText(R.string.loading));
-        this.f.setVisibility(0);
-        a(TiebaApplication.h().al());
-    }
-
-    public void f() {
-        this.c.setVisibility(8);
-        this.b.setText(R.string.nearby_group_no_more);
-        this.b.setVisibility(0);
-        this.f.setVisibility(0);
-        a(TiebaApplication.h().al());
+        boolean z = TiebaApplication.g().al() == 1;
+        String charSequence = this.b.getText().toString();
+        if (charSequence != null && !charSequence.equals("")) {
+            if (charSequence.equals(this.a.getString(R.string.loading))) {
+                b(z ? R.color.pb_more_txt_1 : R.color.pb_more_txt);
+            } else {
+                b(z ? R.color.sub_pb_more_text_1 : R.color.sub_pb_more_text);
+            }
+        }
     }
 
     @Override // com.baidu.adp.widget.ListView.c
     public void onClick() {
-        if (this.d != null) {
-            this.d.onClick(this.e);
+        if (this.e != null) {
+            this.e.onClick(this.f);
         }
     }
 }

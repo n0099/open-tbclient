@@ -1,35 +1,40 @@
 package com.baidu.tieba.topRec;
 
-import android.app.Activity;
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
-import com.baidu.tieba.TiebaApplication;
+import android.view.ViewGroup;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class p {
-    Activity a;
-    int b = 0;
+class p implements com.baidu.adp.lib.guide.b {
+    final /* synthetic */ o a;
 
-    public p(Activity activity) {
-        this.a = activity;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public p(o oVar) {
+        this.a = oVar;
     }
 
-    public static boolean a() {
-        return com.baidu.tieba.sharedPref.b.a().a("toprec_first_in", false);
+    @Override // com.baidu.adp.lib.guide.b
+    public View a(LayoutInflater layoutInflater) {
+        return layoutInflater.inflate(R.layout.top_cover, (ViewGroup) null);
     }
 
-    public static void b() {
-        com.baidu.tieba.sharedPref.b.a().b("toprec_first_in", true);
+    @Override // com.baidu.adp.lib.guide.b
+    public int a() {
+        return 5;
     }
 
-    public void a(View view) {
-        if (!a() && TiebaApplication.h().al() == 0) {
-            com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
-            gVar.a(view).a(SocialAPIErrorCodes.ERROR_AUTHORIZATION_CANCELED).b(true);
-            q qVar = new q(this);
-            gVar.a(qVar).a(new r(this));
-            gVar.a().a(this.a);
-            com.baidu.adp.lib.g.e.e("TOPRECTipCover", "show", "done");
-            b();
-        }
+    @Override // com.baidu.adp.lib.guide.b
+    public int b() {
+        return 32;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int c() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int d() {
+        return 0;
     }
 }

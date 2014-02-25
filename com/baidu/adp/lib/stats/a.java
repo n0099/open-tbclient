@@ -10,108 +10,115 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import org.apache.commons.io.FileUtils;
 /* loaded from: classes.dex */
-public class a extends e {
+public class a extends d {
     private String p;
     private String q;
     private String r;
     private String s;
 
     public a(Context context, Handler handler, String str) {
-        super(context, handler, str + File.separator + "dbg");
+        super(context, handler, String.valueOf(str) + File.separator + "dbg");
         this.q = null;
         this.r = null;
         this.s = "yyyyMMddkkmmss";
-        this.a = false;
-        this.b = true;
-        this.c = false;
         this.d = 500;
-        this.r = str + File.separator + "dbgbak";
-        com.baidu.adp.lib.g.b.f(this.r);
+        this.r = String.valueOf(str) + File.separator + "dbgbak";
+        com.baidu.adp.lib.util.c.f(this.r);
         a((String) null);
     }
 
-    @Override // com.baidu.adp.lib.stats.e
+    @Override // com.baidu.adp.lib.stats.d
     public void a(boolean z) {
         if (this.j != null) {
-            if (z || i()) {
+            if (z || k()) {
+                this.j.removeMessages(2);
                 this.j.sendMessage(this.j.obtainMessage(2));
             }
         }
     }
 
-    @Override // com.baidu.adp.lib.stats.e
+    @Override // com.baidu.adp.lib.stats.d
     public void a(String str) {
         this.l = str;
         if (TextUtils.isEmpty(str)) {
             this.q = "dbg" + g;
         } else {
-            this.q = str + g;
+            this.q = String.valueOf(str) + g;
         }
         this.p = null;
     }
 
-    @Override // com.baidu.adp.lib.stats.e
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x0013 */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v13, resolved type: java.io.FileOutputStream */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v14, resolved type: java.io.FileOutputStream */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: java.io.FileOutputStream */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: java.io.FileOutputStream */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v8, resolved type: java.io.FileOutputStream */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.baidu.adp.lib.stats.d
     public void a() {
+        Class<?> cls;
         if (this.e <= 5) {
             if (this.i > 0) {
-                FileOutputStream a = s.a(l(), true);
-                if (a != null) {
-                    try {
+                FileOutputStream a = o.a(n(), true);
+                try {
+                    if (a != 0) {
                         try {
                             a.write(this.h.toString().getBytes("utf-8"));
-                            k();
+                            m();
                         } catch (Exception e) {
                             this.e++;
-                            com.baidu.adp.lib.g.e.a(getClass(), "refreshFile", e);
+                            com.baidu.adp.lib.util.f.a(getClass(), "refreshFile", e);
                             try {
                                 a.close();
+                                cls = a;
                             } catch (IOException e2) {
-                                com.baidu.adp.lib.g.e.a(getClass(), "refreshFile", e2);
+                                Class<?> cls2 = getClass();
+                                com.baidu.adp.lib.util.f.a(cls2, "refreshFile", e2);
+                                cls = cls2;
                             }
                             d(this.k);
+                            a = cls;
                         }
-                    } finally {
-                        try {
-                            a.close();
-                        } catch (IOException e3) {
-                            com.baidu.adp.lib.g.e.a(getClass(), "refreshFile", e3);
-                        }
-                        d(this.k);
+                    } else {
+                        this.e++;
                     }
-                } else {
-                    this.e++;
+                } finally {
+                    try {
+                        a.close();
+                    } catch (IOException e3) {
+                        com.baidu.adp.lib.util.f.a(getClass(), "refreshFile", e3);
+                    }
+                    d(this.k);
                 }
             }
-            c(false);
+            b(false);
         }
     }
 
-    public boolean b(boolean z) {
-        if ((!this.b || this.f) && !TextUtils.isEmpty(this.p)) {
-            if (this.i > this.d) {
+    public boolean b() {
+        if (this.i > this.d) {
+            return true;
+        }
+        if (TextUtils.isEmpty(this.p)) {
+            return false;
+        }
+        try {
+            File file = new File(this.p);
+            if (file.exists() && file.length() > 102400) {
+                this.p = null;
                 return true;
             }
-            try {
-                File file = new File(this.p);
-                if (file.exists()) {
-                    if (z || file.length() > 102400) {
-                        this.p = null;
-                        return true;
-                    }
-                    return false;
-                }
-                return false;
-            } catch (Exception e) {
-                com.baidu.adp.lib.g.e.a(getClass(), "shouldUpload", e);
-                return false;
-            }
+        } catch (Exception e) {
+            com.baidu.adp.lib.util.f.a(getClass(), "shouldUpload", e);
         }
         return false;
     }
 
-    @Override // com.baidu.adp.lib.stats.e
-    public ArrayList<String> b() {
+    @Override // com.baidu.adp.lib.stats.d
+    public ArrayList<String> c() {
         ArrayList<String> arrayList = null;
         File[] listFiles = new File(this.k).listFiles();
         if (listFiles != null) {
@@ -128,16 +135,16 @@ public class a extends e {
         return arrayList;
     }
 
-    private String l() {
+    private String n() {
         if (this.p == null) {
-            this.p = this.k + File.separator + this.q + "-" + DateFormat.format(this.s, System.currentTimeMillis()).toString() + ".log";
+            this.p = String.valueOf(this.k) + File.separator + this.q + "-" + DateFormat.format(this.s, System.currentTimeMillis()).toString() + ".log";
         }
         return this.p;
     }
 
     private void d(String str) {
-        if (com.baidu.adp.lib.g.b.a(str, true) > ImageFile.MIN_SD_CARD_SPACE) {
-            a(str, 1048576L);
+        if (com.baidu.adp.lib.util.c.a(str, true) > ImageFile.MIN_SD_CARD_SPACE) {
+            a(str, FileUtils.ONE_MB);
         }
     }
 
@@ -145,11 +152,11 @@ public class a extends e {
         try {
             File[] listFiles = new File(str).listFiles();
             if (listFiles != null && listFiles.length != 0) {
-                Arrays.sort(listFiles, new c(this));
+                Arrays.sort(listFiles, new b(this, null));
                 long j2 = 0;
                 for (File file : listFiles) {
                     if (file.isFile()) {
-                        long a = com.baidu.adp.lib.g.b.a(file);
+                        long a = com.baidu.adp.lib.util.c.a(file);
                         if (a(file)) {
                             j2 += a;
                             if (j2 >= j && j > 0) {
@@ -162,7 +169,7 @@ public class a extends e {
                 }
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.g.e.a(getClass(), "deleteFiles", e);
+            com.baidu.adp.lib.util.f.a(getClass(), "deleteFiles", e);
         }
     }
 
@@ -170,37 +177,59 @@ public class a extends e {
         try {
             return file.delete();
         } catch (Exception e) {
-            com.baidu.adp.lib.g.e.a(getClass(), "deleteFiles", e);
+            com.baidu.adp.lib.util.f.a(getClass(), "deleteFiles", e);
             return false;
         }
     }
 
-    @Override // com.baidu.adp.lib.stats.e
-    public void c(boolean z) {
-        if (this.j != null && b(z)) {
-            this.j.sendMessage(this.j.obtainMessage(5));
+    @Override // com.baidu.adp.lib.stats.d
+    public void b(boolean z) {
+        if (this.j != null) {
+            if (!this.b || this.f) {
+                if (b()) {
+                    this.j.sendMessage(this.j.obtainMessage(5));
+                } else if (z && System.currentTimeMillis() - h() >= g.a().d()) {
+                    this.j.removeMessages(5);
+                    this.j.sendMessage(this.j.obtainMessage(5));
+                }
+            }
         }
     }
 
-    @Override // com.baidu.adp.lib.stats.e
-    public String c() {
+    @Override // com.baidu.adp.lib.stats.d
+    public String d() {
         return "omp";
     }
 
-    @Override // com.baidu.adp.lib.stats.e
+    @Override // com.baidu.adp.lib.stats.d
     public void b(String str) {
         try {
             File file = new File(str);
-            file.renameTo(new File(this.r + File.separator + file.getName()));
+            file.renameTo(new File(String.valueOf(this.r) + File.separator + file.getName()));
             this.n = System.currentTimeMillis();
+            k.a().b(this.n, this.l);
         } catch (Exception e) {
-            com.baidu.adp.lib.g.e.a(getClass(), "uploadSucc", e);
+            com.baidu.adp.lib.util.f.a(getClass(), "uploadSucc", e);
         }
         d(this.r);
     }
 
-    @Override // com.baidu.adp.lib.stats.e
-    public boolean d() {
+    @Override // com.baidu.adp.lib.stats.d
+    public boolean e() {
         return this.e > 5;
+    }
+
+    public void f() {
+        try {
+            m();
+            File[] listFiles = new File(this.k).listFiles();
+            if (listFiles != null && listFiles.length > 0) {
+                for (File file : listFiles) {
+                    file.renameTo(new File(String.valueOf(this.r) + File.separator + file.getName()));
+                }
+            }
+        } catch (Exception e) {
+            com.baidu.adp.lib.util.f.a(getClass(), "clearLogs", e);
+        }
     }
 }

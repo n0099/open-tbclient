@@ -1,19 +1,36 @@
 package com.baidu.tieba.more;
 
-import android.view.View;
-import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class x implements com.baidu.adp.widget.BdSwitchView.c {
-    final /* synthetic */ w a;
+public class x implements DialogInterface.OnClickListener {
+    final /* synthetic */ v a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(w wVar) {
-        this.a = wVar;
+    public x(v vVar) {
+        this.a = vVar;
     }
 
-    @Override // com.baidu.adp.widget.BdSwitchView.c
-    public void a(View view, BdSwitchView.SwitchState switchState) {
-        com.baidu.tieba.e.a.a().b(switchState == BdSwitchView.SwitchState.ON);
-        this.a.o();
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        switch (i) {
+            case 0:
+                com.baidu.tieba.h.a.a().a(true);
+                com.baidu.tieba.h.a.a().c(0);
+                break;
+            case 1:
+                com.baidu.tieba.h.a.a().a(true);
+                com.baidu.tieba.h.a.a().c(1);
+                break;
+            case 2:
+                com.baidu.tieba.h.a.a().a(true);
+                com.baidu.tieba.h.a.a().c(2);
+                break;
+            case 3:
+                com.baidu.tieba.h.a.a().a(false);
+                break;
+        }
+        this.a.B();
+        this.a.q();
     }
 }

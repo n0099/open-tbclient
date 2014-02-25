@@ -1,24 +1,31 @@
 package com.baidu.tieba.person;
 
-import android.content.DialogInterface;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 /* loaded from: classes.dex */
-class z implements DialogInterface.OnClickListener {
-    final /* synthetic */ EditMarkActivity a;
+class z extends BroadcastReceiver {
+    final /* synthetic */ EditHeadActivity a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public z(EditMarkActivity editMarkActivity) {
-        this.a = editMarkActivity;
+    private z(EditHeadActivity editHeadActivity) {
+        this.a = editHeadActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        aa aaVar;
-        com.baidu.tieba.model.o oVar;
-        com.baidu.tieba.model.o oVar2;
-        aaVar = this.a.b;
-        oVar = this.a.a;
-        aaVar.a(oVar.a());
-        oVar2 = this.a.a;
-        oVar2.a((Boolean) true);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ z(EditHeadActivity editHeadActivity, z zVar) {
+        this(editHeadActivity);
+    }
+
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        this.a.releaseResouce();
+        if (intent.getBooleanExtra("result", false)) {
+            EditHeadActivity.h(this.a);
+            return;
+        }
+        this.a.showToast(intent.getStringExtra("error"));
+        if (EditHeadActivity.d(this.a) != null) {
+            EditHeadActivity.d(this.a).setEnabled(false);
+        }
     }
 }

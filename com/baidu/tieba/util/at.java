@@ -1,12 +1,37 @@
 package com.baidu.tieba.util;
-/* loaded from: classes.dex */
-public class at {
-    public String a;
-    public int b;
-    public int c;
-    public com.baidu.tbadk.widget.richText.e d;
 
-    public String a() {
-        return this.d == null ? this.a : this.d.c;
+import android.view.View;
+import android.widget.ListView;
+import com.baidu.tbadk.gif.GifView;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes.dex */
+public class at implements com.baidu.tbadk.imageManager.d {
+    private final /* synthetic */ ListView a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public at(ListView listView) {
+        this.a = listView;
+    }
+
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        com.baidu.adp.lib.util.f.e("LoadImageHelper", "imageLoaded", "callback:" + str);
+        View findViewWithTag = this.a.findViewWithTag(str);
+        while (findViewWithTag != null) {
+            com.baidu.adp.lib.util.f.e("LoadImageHelper", "imageLoaded", "gif set");
+            GifView gifView = (GifView) findViewWithTag;
+            com.baidu.tbadk.widget.richText.e tbRichTextEmotionINfo = gifView.getTbRichTextEmotionINfo();
+            if (bVar == null) {
+                if (tbRichTextEmotionINfo != null) {
+                    tbRichTextEmotionINfo.j = true;
+                }
+            } else if (tbRichTextEmotionINfo != null) {
+                tbRichTextEmotionINfo.j = false;
+            }
+            gifView.setGif(bVar);
+            gifView.setIsLoading(false);
+            gifView.setTag(null);
+            findViewWithTag = this.a.findViewWithTag(str);
+        }
     }
 }

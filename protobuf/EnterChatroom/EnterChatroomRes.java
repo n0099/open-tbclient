@@ -14,12 +14,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import protobuf.Im;
-import protobuf.ah;
+import protobuf.aj;
 /* loaded from: classes.dex */
 public final class EnterChatroomRes {
 
     /* loaded from: classes.dex */
-    public final class ChatroomTopic extends GeneratedMessageLite implements k {
+    public final class ChatroomTopic extends GeneratedMessageLite implements i {
         public static final int CONTENT_FIELD_NUMBER = 2;
         public static final int TITLE_FIELD_NUMBER = 1;
         private static final long serialVersionUID = 0;
@@ -28,8 +28,13 @@ public final class EnterChatroomRes {
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
         private Object title_;
-        public static Parser<ChatroomTopic> PARSER = new i();
+        public static Parser<ChatroomTopic> PARSER = new g();
         private static final ChatroomTopic a = new ChatroomTopic(true);
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ ChatroomTopic(GeneratedMessageLite.Builder builder, ChatroomTopic chatroomTopic) {
+            this(builder);
+        }
 
         private ChatroomTopic(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -60,38 +65,41 @@ public final class EnterChatroomRes {
             while (!z) {
                 try {
                     try {
-                        try {
-                            int readTag = codedInputStream.readTag();
-                            switch (readTag) {
-                                case 0:
+                        int readTag = codedInputStream.readTag();
+                        switch (readTag) {
+                            case 0:
+                                z = true;
+                                break;
+                            case 10:
+                                this.bitField0_ |= 1;
+                                this.title_ = codedInputStream.readBytes();
+                                break;
+                            case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
+                                this.bitField0_ |= 2;
+                                this.content_ = codedInputStream.readBytes();
+                                break;
+                            default:
+                                if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
-                                case 10:
-                                    this.bitField0_ |= 1;
-                                    this.title_ = codedInputStream.readBytes();
+                                } else {
                                     break;
-                                case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
-                                    this.bitField0_ |= 2;
-                                    this.content_ = codedInputStream.readBytes();
-                                    break;
-                                default:
-                                    if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
-                                        z = true;
-                                        break;
-                                    } else {
-                                        break;
-                                    }
-                            }
-                        } catch (IOException e) {
-                            throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
+                                }
                         }
-                    } catch (InvalidProtocolBufferException e2) {
-                        throw e2.setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
                 } finally {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ ChatroomTopic(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, ChatroomTopic chatroomTopic) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -242,29 +250,29 @@ public final class EnterChatroomRes {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static j newBuilder() {
-            return j.f();
+        public static h newBuilder() {
+            return h.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public j newBuilderForType() {
+        public h newBuilderForType() {
             return newBuilder();
         }
 
-        public static j newBuilder(ChatroomTopic chatroomTopic) {
+        public static h newBuilder(ChatroomTopic chatroomTopic) {
             return newBuilder().mergeFrom(chatroomTopic);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public j toBuilder() {
+        public h toBuilder() {
             return newBuilder(this);
         }
     }
 
     /* loaded from: classes.dex */
-    public final class DataRes extends GeneratedMessageLite implements n {
+    public final class DataRes extends GeneratedMessageLite implements l {
         public static final int AVERAGEWAITTIME_FIELD_NUMBER = 7;
         public static final int CONTENT_FIELD_NUMBER = 9;
         public static final int DURATIONTIME_FIELD_NUMBER = 5;
@@ -291,8 +299,13 @@ public final class EnterChatroomRes {
         private List<ChatroomTopic> topicList_;
         private List<Im.UserInfo> userList_;
         private int userNum_;
-        public static Parser<DataRes> PARSER = new l();
+        public static Parser<DataRes> PARSER = new j();
         private static final DataRes a = new DataRes(true);
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ DataRes(GeneratedMessageLite.Builder builder, DataRes dataRes) {
+            this(builder);
+        }
 
         private DataRes(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -315,85 +328,84 @@ public final class EnterChatroomRes {
             return a;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r3v24, resolved type: java.util.List<protobuf.Im$UserInfo> */
-        /* JADX DEBUG: Multi-variable search result rejected for r3v6, resolved type: java.util.List<protobuf.EnterChatroom.EnterChatroomRes$ChatroomTopic> */
-        /* JADX WARN: Multi-variable type inference failed */
         private DataRes(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-            boolean z = false;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
             a();
+            boolean z = false;
             boolean z2 = false;
             while (!z) {
                 try {
                     try {
-                        int readTag = codedInputStream.readTag();
-                        switch (readTag) {
-                            case 0:
-                                z = true;
-                                break;
-                            case 8:
-                                this.bitField0_ |= 1;
-                                this.groupId_ = codedInputStream.readInt32();
-                                break;
-                            case 16:
-                                this.bitField0_ |= 2;
-                                this.userNum_ = codedInputStream.readInt32();
-                                break;
-                            case Im.GroupInfo.ISHIDEPOSITION_FIELD_NUMBER /* 24 */:
-                                this.bitField0_ |= 4;
-                                this.maxUserNum_ = codedInputStream.readInt32();
-                                break;
-                            case Im.GroupInfo.ISMEMBERGROUP_FIELD_NUMBER /* 34 */:
-                                if (!(z2 & true)) {
-                                    this.userList_ = new ArrayList();
-                                    z2 |= true;
-                                }
-                                this.userList_.add(codedInputStream.readMessage(Im.UserInfo.PARSER, extensionRegistryLite));
-                                break;
-                            case 40:
-                                this.bitField0_ |= 8;
-                                this.durationTime_ = codedInputStream.readInt32();
-                                break;
-                            case 48:
-                                this.bitField0_ |= 16;
-                                this.silenceTime_ = codedInputStream.readInt32();
-                                break;
-                            case 56:
-                                this.bitField0_ |= 32;
-                                this.averageWaitTime_ = codedInputStream.readInt32();
-                                break;
-                            case BDLocation.TypeOffLineLocation /* 66 */:
-                                this.bitField0_ |= 64;
-                                this.title_ = codedInputStream.readBytes();
-                                break;
-                            case 74:
-                                this.bitField0_ |= 128;
-                                this.content_ = codedInputStream.readBytes();
-                                break;
-                            case 82:
-                                if (!(z2 & true)) {
-                                    this.topicList_ = new ArrayList();
-                                    z2 |= true;
-                                }
-                                this.topicList_.add(codedInputStream.readMessage(ChatroomTopic.PARSER, extensionRegistryLite));
-                                break;
-                            case 88:
-                                this.bitField0_ |= 256;
-                                this.lastMsgId_ = codedInputStream.readInt64();
-                                break;
-                            default:
-                                if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
+                        try {
+                            int readTag = codedInputStream.readTag();
+                            switch (readTag) {
+                                case 0:
                                     z = true;
                                     break;
-                                } else {
+                                case 8:
+                                    this.bitField0_ |= 1;
+                                    this.groupId_ = codedInputStream.readInt32();
                                     break;
-                                }
+                                case 16:
+                                    this.bitField0_ |= 2;
+                                    this.userNum_ = codedInputStream.readInt32();
+                                    break;
+                                case Im.GroupInfo.ISHIDEPOSITION_FIELD_NUMBER /* 24 */:
+                                    this.bitField0_ |= 4;
+                                    this.maxUserNum_ = codedInputStream.readInt32();
+                                    break;
+                                case Im.GroupInfo.ISMEMBERGROUP_FIELD_NUMBER /* 34 */:
+                                    if (!(z2 & true)) {
+                                        this.userList_ = new ArrayList();
+                                        z2 |= true;
+                                    }
+                                    this.userList_.add((Im.UserInfo) codedInputStream.readMessage(Im.UserInfo.PARSER, extensionRegistryLite));
+                                    break;
+                                case 40:
+                                    this.bitField0_ |= 8;
+                                    this.durationTime_ = codedInputStream.readInt32();
+                                    break;
+                                case 48:
+                                    this.bitField0_ |= 16;
+                                    this.silenceTime_ = codedInputStream.readInt32();
+                                    break;
+                                case 56:
+                                    this.bitField0_ |= 32;
+                                    this.averageWaitTime_ = codedInputStream.readInt32();
+                                    break;
+                                case BDLocation.TypeOffLineLocation /* 66 */:
+                                    this.bitField0_ |= 64;
+                                    this.title_ = codedInputStream.readBytes();
+                                    break;
+                                case 74:
+                                    this.bitField0_ |= 128;
+                                    this.content_ = codedInputStream.readBytes();
+                                    break;
+                                case 82:
+                                    if (!(z2 & true)) {
+                                        this.topicList_ = new ArrayList();
+                                        z2 |= true;
+                                    }
+                                    this.topicList_.add((ChatroomTopic) codedInputStream.readMessage(ChatroomTopic.PARSER, extensionRegistryLite));
+                                    break;
+                                case 88:
+                                    this.bitField0_ |= 256;
+                                    this.lastMsgId_ = codedInputStream.readInt64();
+                                    break;
+                                default:
+                                    if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
+                                        z = true;
+                                        break;
+                                    } else {
+                                        break;
+                                    }
+                            }
+                        } catch (IOException e) {
+                            throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
                         }
-                    } catch (InvalidProtocolBufferException e) {
-                        throw e.setUnfinishedMessage(this);
-                    } catch (IOException e2) {
-                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e2) {
+                        throw e2.setUnfinishedMessage(this);
                     }
                 } finally {
                     if (z2 & true) {
@@ -405,6 +417,11 @@ public final class EnterChatroomRes {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ DataRes(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, DataRes dataRes) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -444,7 +461,7 @@ public final class EnterChatroomRes {
             return this.userList_;
         }
 
-        public List<? extends ah> getUserListOrBuilderList() {
+        public List<? extends aj> getUserListOrBuilderList() {
             return this.userList_;
         }
 
@@ -456,7 +473,7 @@ public final class EnterChatroomRes {
             return this.userList_.get(i);
         }
 
-        public ah getUserListOrBuilder(int i) {
+        public aj getUserListOrBuilder(int i) {
             return this.userList_.get(i);
         }
 
@@ -542,7 +559,7 @@ public final class EnterChatroomRes {
             return this.topicList_;
         }
 
-        public List<? extends k> getTopicListOrBuilderList() {
+        public List<? extends i> getTopicListOrBuilderList() {
             return this.topicList_;
         }
 
@@ -554,7 +571,7 @@ public final class EnterChatroomRes {
             return this.topicList_.get(i);
         }
 
-        public k getTopicListOrBuilder(int i) {
+        public i getTopicListOrBuilder(int i) {
             return this.topicList_.get(i);
         }
 
@@ -715,32 +732,32 @@ public final class EnterChatroomRes {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static m newBuilder() {
-            return m.f();
+        public static k newBuilder() {
+            return k.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public m newBuilderForType() {
+        public k newBuilderForType() {
             return newBuilder();
         }
 
-        public static m newBuilder(DataRes dataRes) {
+        public static k newBuilder(DataRes dataRes) {
             return newBuilder().mergeFrom(dataRes);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public m toBuilder() {
+        public k toBuilder() {
             return newBuilder(this);
         }
     }
 
     /* loaded from: classes.dex */
-    public final class EnterChatroomResIdl extends GeneratedMessageLite implements q {
+    public final class EnterChatroomResIdl extends GeneratedMessageLite implements o {
         public static final int DATA_FIELD_NUMBER = 2;
         public static final int ERROR_FIELD_NUMBER = 1;
-        public static Parser<EnterChatroomResIdl> PARSER = new o();
+        public static Parser<EnterChatroomResIdl> PARSER = new m();
         private static final EnterChatroomResIdl a = new EnterChatroomResIdl(true);
         private static final long serialVersionUID = 0;
         private int bitField0_;
@@ -748,6 +765,11 @@ public final class EnterChatroomRes {
         private Im.Error error_;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ EnterChatroomResIdl(GeneratedMessageLite.Builder builder, EnterChatroomResIdl enterChatroomResIdl) {
+            this(builder);
+        }
 
         private EnterChatroomResIdl(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -771,12 +793,11 @@ public final class EnterChatroomRes {
         }
 
         private EnterChatroomResIdl(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-            boolean z;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
             a();
-            boolean z2 = false;
-            while (!z2) {
+            boolean z = false;
+            while (!z) {
                 try {
                     try {
                         int readTag = codedInputStream.readTag();
@@ -785,35 +806,31 @@ public final class EnterChatroomRes {
                                 z = true;
                                 break;
                             case 10:
-                                protobuf.c builder = (this.bitField0_ & 1) == 1 ? this.error_.toBuilder() : null;
+                                protobuf.e builder = (this.bitField0_ & 1) == 1 ? this.error_.toBuilder() : null;
                                 this.error_ = (Im.Error) codedInputStream.readMessage(Im.Error.PARSER, extensionRegistryLite);
                                 if (builder != null) {
                                     builder.mergeFrom(this.error_);
                                     this.error_ = builder.buildPartial();
                                 }
                                 this.bitField0_ |= 1;
-                                z = z2;
                                 break;
                             case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
-                                m builder2 = (this.bitField0_ & 2) == 2 ? this.data_.toBuilder() : null;
+                                k builder2 = (this.bitField0_ & 2) == 2 ? this.data_.toBuilder() : null;
                                 this.data_ = (DataRes) codedInputStream.readMessage(DataRes.PARSER, extensionRegistryLite);
                                 if (builder2 != null) {
                                     builder2.mergeFrom(this.data_);
                                     this.data_ = builder2.buildPartial();
                                 }
                                 this.bitField0_ |= 2;
-                                z = z2;
                                 break;
                             default:
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
                                 } else {
-                                    z = z2;
                                     break;
                                 }
                         }
-                        z2 = z;
                     } catch (InvalidProtocolBufferException e) {
                         throw e.setUnfinishedMessage(this);
                     } catch (IOException e2) {
@@ -823,6 +840,11 @@ public final class EnterChatroomRes {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ EnterChatroomResIdl(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, EnterChatroomResIdl enterChatroomResIdl) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -935,23 +957,23 @@ public final class EnterChatroomRes {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static p newBuilder() {
-            return p.f();
+        public static n newBuilder() {
+            return n.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public p newBuilderForType() {
+        public n newBuilderForType() {
             return newBuilder();
         }
 
-        public static p newBuilder(EnterChatroomResIdl enterChatroomResIdl) {
+        public static n newBuilder(EnterChatroomResIdl enterChatroomResIdl) {
             return newBuilder().mergeFrom(enterChatroomResIdl);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public p toBuilder() {
+        public n toBuilder() {
             return newBuilder(this);
         }
     }

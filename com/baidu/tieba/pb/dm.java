@@ -1,39 +1,43 @@
 package com.baidu.tieba.pb;
-
-import android.widget.ImageView;
-import com.baidu.adp.widget.ImageView.BDImageView;
-import com.baidu.adp.widget.ListView.BdListView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dm implements com.baidu.tbadk.imageManager.c {
-    final /* synthetic */ cr a;
+class dm implements Runnable {
+    final /* synthetic */ dl a;
+    private final /* synthetic */ com.baidu.tieba.data.av b;
+    private final /* synthetic */ boolean c;
+    private final /* synthetic */ String d;
+    private final /* synthetic */ String e;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dm(cr crVar) {
-        this.a = crVar;
+    public dm(dl dlVar, com.baidu.tieba.data.av avVar, boolean z, String str, String str2) {
+        this.a = dlVar;
+        this.b = avVar;
+        this.c = z;
+        this.d = str;
+        this.e = str2;
     }
 
-    @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
-        BdListView bdListView;
-        bdListView = this.a.i;
-        ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
-        if (dVar == null) {
-            if (imageView != null && (imageView instanceof com.baidu.tieba.view.bu)) {
-                ((com.baidu.tieba.view.bu) imageView).a(false);
-            }
-        } else if (imageView != null) {
-            if (imageView instanceof com.baidu.tieba.view.bu) {
-                ((com.baidu.tieba.view.bu) imageView).a(true);
-                if (!((com.baidu.tieba.view.bu) imageView).getIsLoaded()) {
-                    imageView.invalidate();
-                }
-            } else if (imageView instanceof BDImageView) {
-                imageView.setImageBitmap(dVar.h());
-                imageView.invalidate();
-            } else {
-                imageView.invalidate();
-            }
+    @Override // java.lang.Runnable
+    public void run() {
+        cu cuVar;
+        dy dyVar;
+        cu cuVar2;
+        cu cuVar3;
+        ed edVar;
+        cu cuVar4;
+        dy dyVar2;
+        cuVar = this.a.a;
+        dyVar = cuVar.aj;
+        if (dyVar != null) {
+            cuVar4 = this.a.a;
+            dyVar2 = cuVar4.aj;
+            dyVar2.a(this.b);
         }
+        if (this.c) {
+            cuVar3 = this.a.a;
+            edVar = cuVar3.s;
+            edVar.a(this.d, this.e);
+        }
+        cuVar2 = this.a.a;
+        cuVar2.ak();
     }
 }

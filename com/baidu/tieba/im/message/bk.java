@@ -1,23 +1,34 @@
 package com.baidu.tieba.im.message;
 
-import java.util.LinkedList;
-import protobuf.CommitInviteMsg.CommitInviteMsgRes;
+import com.google.protobuf.MessageLite;
+import protobuf.UpgradeMemberGroup.UpgradeMemberGroupReq;
 /* loaded from: classes.dex */
-public class bk extends cr implements com.baidu.tieba.im.coder.f {
-    private CommitInviteMsgRes.DataRes a;
+public class bk extends s implements com.baidu.tieba.im.coder.g {
+    private long a;
+    private int b = 1;
 
     public bk() {
-        super(205002);
+        e(103105);
     }
 
-    @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<q> linkedList, byte[] bArr, int i) {
-        CommitInviteMsgRes.CommitInviteMsgResIdl parseFrom = CommitInviteMsgRes.CommitInviteMsgResIdl.parseFrom(bArr);
-        g(parseFrom.getError().getErrorno());
-        c(parseFrom.getError().getUsermsg());
-        linkedList.add(this);
-        if (!k()) {
-            this.a = parseFrom.getData();
+    public long b() {
+        return this.a;
+    }
+
+    public void a(boolean z) {
+        if (z) {
+            this.b = 1;
+        } else {
+            this.b = 0;
         }
+    }
+
+    public void a(long j) {
+        this.a = j;
+    }
+
+    @Override // com.baidu.tieba.im.coder.g
+    public MessageLite a() {
+        return UpgradeMemberGroupReq.UpgradeMemberGroupReqIdl.newBuilder().a(UpgradeMemberGroupReq.DataReq.newBuilder().a((int) this.a).b(this.b).build()).build();
     }
 }

@@ -1,9 +1,10 @@
 package com.baidu.tieba.frs;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.GridView;
 /* loaded from: classes.dex */
-public class o implements DialogInterface.OnClickListener {
+class o implements AdapterView.OnItemClickListener {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,8 +12,17 @@ public class o implements DialogInterface.OnClickListener {
         this.a = frsActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        dialogInterface.dismiss();
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        br brVar;
+        if (i >= 0) {
+            brVar = this.a.p;
+            brVar.i(i);
+            this.a.w = true;
+            this.a.v = ((com.baidu.tieba.data.z) ((GridView) adapterView).getAdapter().getItem(i)).b();
+            this.a.j = 1;
+            this.a.f = 3;
+            this.a.D();
+        }
     }
 }

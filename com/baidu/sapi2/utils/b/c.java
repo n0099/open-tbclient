@@ -1,5 +1,6 @@
 package com.baidu.sapi2.utils.b;
 
+import android.support.v4.view.MotionEventCompat;
 import com.baidu.sapi2.utils.L;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -84,11 +85,11 @@ public class c {
                 i++;
             } else if (i != length) {
                 int a2 = (a(str.charAt(i), 0) << 18) + (a(str.charAt(i + 1), 0) << 12) + (a(str.charAt(i + 2), 0) << 6) + a(str.charAt(i + 3), 0);
-                byteArrayOutputStream.write((a2 >> 16) & 255);
+                byteArrayOutputStream.write((a2 >> 16) & MotionEventCompat.ACTION_MASK);
                 if (str.charAt(i + 2) != '=') {
-                    byteArrayOutputStream.write((a2 >> 8) & 255);
+                    byteArrayOutputStream.write((a2 >> 8) & MotionEventCompat.ACTION_MASK);
                     if (str.charAt(i + 3) != '=') {
-                        byteArrayOutputStream.write(a2 & 255);
+                        byteArrayOutputStream.write(a2 & MotionEventCompat.ACTION_MASK);
                         i += 4;
                     } else {
                         return;

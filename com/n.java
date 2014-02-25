@@ -1,26 +1,31 @@
 package com;
 
-import android.view.GestureDetector;
-import android.view.MotionEvent;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-import com.baidu.cloudsdk.social.share.uiwithlayout.ShareDialog;
+import android.location.Location;
+import android.location.LocationListener;
+import android.os.Bundle;
+import com.baidu.cloudsdk.common.util.PositionManager;
 /* loaded from: classes.dex */
-public class n extends GestureDetector.SimpleOnGestureListener {
-    final /* synthetic */ ShareDialog a;
+public class n implements LocationListener {
+    final /* synthetic */ PositionManager.a a;
 
-    public n(ShareDialog shareDialog) {
-        this.a = shareDialog;
+    public n(PositionManager.a aVar) {
+        this.a = aVar;
     }
 
-    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        EditText editText;
-        if (motionEvent2.getY() - motionEvent.getY() <= 100.0f || Math.abs(f2) <= 200.0f) {
-            return true;
-        }
-        editText = this.a.m;
-        ((InputMethodManager) this.a.getContext().getSystemService("input_method")).hideSoftInputFromWindow(editText.getApplicationWindowToken(), 0);
-        return true;
+    @Override // android.location.LocationListener
+    public void onLocationChanged(Location location) {
+        PositionManager.this.b = location;
+    }
+
+    @Override // android.location.LocationListener
+    public void onProviderDisabled(String str) {
+    }
+
+    @Override // android.location.LocationListener
+    public void onProviderEnabled(String str) {
+    }
+
+    @Override // android.location.LocationListener
+    public void onStatusChanged(String str, int i, Bundle bundle) {
     }
 }

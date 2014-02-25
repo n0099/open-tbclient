@@ -30,7 +30,7 @@ public class BdStatSecondSwitchData implements Serializable {
                 setIs_open(jSONObject.optInt("is_open", 0) != 0);
                 setType(jSONObject.optString("type"));
             } catch (Exception e) {
-                com.baidu.adp.lib.g.e.a(getClass(), "parserJson", e);
+                com.baidu.adp.lib.util.f.a(getClass(), "parserJson", e);
             }
         }
     }

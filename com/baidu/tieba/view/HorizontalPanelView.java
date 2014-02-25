@@ -9,8 +9,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
-import com.baidu.tieba.im.data.UserData;
-import com.baidu.tieba.person.PersonInfoActivity;
+import com.baidu.tieba.data.UserData;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +55,7 @@ public class HorizontalPanelView extends LinearLayout implements View.OnClickLis
     public void b() {
         if (this.e == null) {
             this.e = AnimationUtils.loadAnimation(this.a, R.anim.panel_fold_up);
-            this.e.setAnimationListener(new ay(this));
+            this.e.setAnimationListener(new bd(this));
         }
         startAnimation(this.e);
         this.h = true;
@@ -72,7 +71,7 @@ public class HorizontalPanelView extends LinearLayout implements View.OnClickLis
     }
 
     public void a(UserData userData) {
-        com.baidu.tieba.util.ce.a((ViewGroup) this.d, false, (com.baidu.tieba.util.cg) new az(this, userData));
+        com.baidu.tieba.util.ch.a((ViewGroup) this.d, false, (com.baidu.tieba.util.cj) new be(this, userData));
     }
 
     public void setData(List<UserData> list) {
@@ -100,9 +99,9 @@ public class HorizontalPanelView extends LinearLayout implements View.OnClickLis
                         if (this.b == null) {
                             this.b = new com.baidu.tieba.util.i(this.a);
                         }
-                        this.b.c(userData.getPortrait(), new ba(this));
+                        this.b.c(userData.getPortrait(), new bf(this));
                     } else {
-                        com.baidu.adp.lib.g.e.a("HorizontalPanelView not Portrait");
+                        com.baidu.adp.lib.util.f.b("HorizontalPanelView not Portrait");
                     }
                 }
             }
@@ -140,14 +139,14 @@ public class HorizontalPanelView extends LinearLayout implements View.OnClickLis
             if (view instanceof HeadImageView) {
                 HeadImageView headImageView = (HeadImageView) view;
                 if (!TextUtils.isEmpty(headImageView.getUserId())) {
-                    com.baidu.tieba.ao.a(getContext(), "snap_chat_member_head_click");
-                    PersonInfoActivity.a(this.a, headImageView.getUserId(), headImageView.getUserName());
+                    com.baidu.tieba.ai.a(getContext(), "snap_chat_member_head_click");
+                    com.baidu.tieba.person.cm.a(this.a, headImageView.getUserId(), headImageView.getUserName());
                     return;
                 }
-                com.baidu.adp.lib.g.e.d("no user id");
+                com.baidu.adp.lib.util.f.e("no user id");
                 return;
             }
-            com.baidu.adp.lib.g.e.d("not image view");
+            com.baidu.adp.lib.util.f.e("not image view");
         }
     }
 }

@@ -1,11 +1,6 @@
 package com.baidu.tieba.pb;
-
-import android.content.DialogInterface;
-import com.baidu.tieba.FileDownloader;
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bg implements DialogInterface.OnClickListener {
+class bg implements com.baidu.tieba.view.by {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,12 +8,22 @@ public class bg implements DialogInterface.OnClickListener {
         this.a = newPbActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        if (!com.baidu.tieba.util.ad.a()) {
-            this.a.showToast(com.baidu.tieba.util.ad.b());
-        } else {
-            FileDownloader.a(this.a, "http://bcscdn.baidu.com/videoandroid/baiduvideo_4099e.apk", null, this.a.getString(R.string.download_baidu_video));
+    @Override // com.baidu.tieba.view.by
+    public void a(boolean z) {
+        boolean z2;
+        com.baidu.tieba.model.bb bbVar;
+        com.baidu.tieba.model.bb bbVar2;
+        cu cuVar;
+        z2 = this.a.d;
+        if (!z2 && z) {
+            bbVar = this.a.w;
+            if (!bbVar.k()) {
+                bbVar2 = this.a.w;
+                if (bbVar2.p()) {
+                    cuVar = this.a.C;
+                    cuVar.q();
+                }
+            }
         }
     }
 }

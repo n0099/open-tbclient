@@ -1,19 +1,24 @@
 package com.baidu.tieba.pb;
 
-import android.view.MotionEvent;
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 /* loaded from: classes.dex */
-public class di implements View.OnTouchListener {
-    final /* synthetic */ cr a;
+class di implements Runnable {
+    final /* synthetic */ dh a;
+    private final /* synthetic */ ImageView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public di(cr crVar) {
-        this.a = crVar;
+    public di(dh dhVar, ImageView imageView) {
+        this.a = dhVar;
+        this.b = imageView;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        return motionEvent.getAction() == 0;
+    @Override // java.lang.Runnable
+    public void run() {
+        cu cuVar;
+        FrameLayout frameLayout;
+        cuVar = this.a.a;
+        frameLayout = cuVar.i;
+        frameLayout.removeView(this.b);
     }
 }

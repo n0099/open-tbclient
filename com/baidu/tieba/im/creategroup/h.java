@@ -14,8 +14,8 @@ public class h implements x {
     HeadImageView c;
     ImageView d;
     Button e;
-    private com.baidu.adp.widget.ImageView.d f = null;
-    private j g = null;
+    private com.baidu.adp.widget.ImageView.b f = null;
+    private i g = null;
     private int h;
     private int i;
     private int j;
@@ -41,7 +41,7 @@ public class h implements x {
             this.g.cancel();
         }
         this.f = null;
-        this.g = new j(this);
+        this.g = new i(this, null);
         this.g.execute(new Object[0]);
     }
 
@@ -65,9 +65,9 @@ public class h implements x {
 
     @Override // com.baidu.tieba.im.creategroup.x
     public void i() {
-        this.a.getLayoutMode().a(TiebaApplication.h().al() == 1);
+        this.a.getLayoutMode().a(TiebaApplication.g().al() == 1);
         this.a.getLayoutMode().a(this.b);
-        this.c.e();
+        this.c.f();
     }
 
     @Override // com.baidu.tieba.im.creategroup.x

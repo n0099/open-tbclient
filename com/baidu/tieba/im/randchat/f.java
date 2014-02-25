@@ -49,7 +49,7 @@ public class f extends com.baidu.adp.a.e {
         }
     }
 
-    public com.baidu.tieba.view.o e() {
+    public com.baidu.tieba.view.p e() {
         if (this.e == null) {
             return null;
         }

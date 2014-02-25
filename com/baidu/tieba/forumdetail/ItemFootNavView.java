@@ -13,10 +13,10 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.forumdetail.ForumDetailActivity;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.model.ax;
-import com.baidu.tieba.model.ci;
+import com.baidu.tieba.model.ar;
+import com.baidu.tieba.model.bx;
 import com.baidu.tieba.switchs.SwitchKey;
-import com.baidu.tieba.util.by;
+import com.baidu.tieba.util.cb;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class ItemFootNavView extends LinearLayout {
@@ -49,58 +49,58 @@ public class ItemFootNavView extends LinearLayout {
         this.e = (ViewGroup) findViewById(R.id.fn_enter_box);
     }
 
-    public boolean a(ForumDetailData forumDetailData, com.baidu.tieba.j jVar) {
-        this.g = jVar.getIntent().getStringExtra("from_type").equals(ForumDetailActivity.FromType.FRS.toString());
+    public boolean a(ForumDetailData forumDetailData, com.baidu.tieba.f fVar) {
+        this.g = fVar.getIntent().getStringExtra("from_type").equals(ForumDetailActivity.FromType.FRS.toString());
         if (forumDetailData == null || forumDetailData.forumInfo == null) {
             return false;
         }
         this.f = forumDetailData;
         String str = forumDetailData.forumInfo.forumName;
         b(forumDetailData.forumInfo.isLike == 1);
-        this.b.setOnClickListener(new f(this, jVar));
-        this.e.setOnClickListener(new g(this, jVar, str));
+        this.b.setOnClickListener(new f(this, fVar));
+        this.e.setOnClickListener(new g(this, fVar, str));
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(com.baidu.tieba.j jVar) {
+    public void b(com.baidu.tieba.f fVar) {
         boolean z = (TiebaApplication.A() == null || TiebaApplication.F() == null) ? false : true;
         Object tag = this.c.getTag();
         boolean z2 = (tag == null || ((Integer) tag).intValue() != 2) ? true : true;
         if (!z && !z2) {
-            this.c.setTag(new Integer(2));
-            LoginActivity.a((Activity) jVar, getResources().getString(R.string.login_to_use), true, 11034);
+            this.c.setTag(2);
+            LoginActivity.a((Activity) fVar, getResources().getString(R.string.login_to_use), true, 11034);
             return;
         }
-        this.c.setTag(new Integer(3));
+        this.c.setTag(3);
         int intValue = ((Integer) this.b.getTag()).intValue();
         if (intValue == 0) {
-            b(jVar, this.g);
+            b(fVar, this.g);
         } else if (intValue == 1) {
-            a(jVar, this.g);
+            a(fVar, this.g);
         }
-        by.a(this.a, intValue == 1 ? "detail_care_add" : "detail_care_cancel", "click", 1, new Object[0]);
+        cb.a(this.a, intValue == 1 ? "detail_care_add" : "detail_care_cancel", "click", 1, new Object[0]);
     }
 
-    private void a(com.baidu.tieba.j jVar, boolean z) {
-        ax axVar = new ax();
-        axVar.a(SwitchKey.BAR_DETAIL_DIR);
-        axVar.setLoadDataCallBack(new h(this, axVar, jVar, z));
-        axVar.a(this.f.forumInfo.forumName, String.valueOf(this.f.forumInfo.forumID));
+    private void a(com.baidu.tieba.f fVar, boolean z) {
+        ar arVar = new ar();
+        arVar.a(SwitchKey.BAR_DETAIL_DIR);
+        arVar.setLoadDataCallBack(new h(this, arVar, fVar, z));
+        arVar.a(this.f.forumInfo.forumName, String.valueOf(this.f.forumInfo.forumID));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z) {
         if (z) {
-            FrsActivity.a = !FrsActivity.a;
+            FrsActivity.b = !FrsActivity.b;
         }
     }
 
-    private void b(com.baidu.tieba.j jVar, boolean z) {
-        ci ciVar = new ci();
-        ciVar.a(SwitchKey.BAR_DETAIL_DIR);
-        ciVar.a(new i(this, jVar, z));
-        ciVar.a(this.f.forumInfo.forumName, this.f.forumInfo.forumID);
+    private void b(com.baidu.tieba.f fVar, boolean z) {
+        bx bxVar = new bx();
+        bxVar.a(SwitchKey.BAR_DETAIL_DIR);
+        bxVar.a(new i(this, fVar, z));
+        bxVar.a(this.f.forumInfo.forumName, this.f.forumInfo.forumID);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -109,14 +109,14 @@ public class ItemFootNavView extends LinearLayout {
         int i2;
         int i3;
         int i4;
-        int al = TiebaApplication.h().al();
+        int al = TiebaApplication.g().al();
         if (z) {
             if (al == 1) {
                 i4 = R.drawable.icon_brief_cancel_1;
             } else {
                 i4 = R.drawable.icon_brief_cancel;
             }
-            this.b.setTag(new Integer(0));
+            this.b.setTag(0);
             i2 = i4;
             i3 = R.string.forum_detail_fans_cancel;
         } else {
@@ -125,7 +125,7 @@ public class ItemFootNavView extends LinearLayout {
             } else {
                 i = R.drawable.icon_brief_attention;
             }
-            this.b.setTag(new Integer(1));
+            this.b.setTag(1);
             i2 = i;
             i3 = R.string.forum_detail_fans;
         }
@@ -133,15 +133,15 @@ public class ItemFootNavView extends LinearLayout {
         this.c.setText(this.a.getResources().getString(i3));
     }
 
-    public void a(com.baidu.tieba.j jVar, int i) {
-        jVar.getLayoutMode().a(i == 1);
-        jVar.getLayoutMode().a((View) this);
+    public void a(com.baidu.tieba.f fVar, int i) {
+        fVar.getLayoutMode().a(i == 1);
+        fVar.getLayoutMode().a((View) this);
     }
 
-    public void a(com.baidu.tieba.j jVar) {
+    public void a(com.baidu.tieba.f fVar) {
         Object tag;
         if (this.c != null && (tag = this.c.getTag()) != null && ((Integer) tag).intValue() == 2) {
-            b(jVar);
+            b(fVar);
         }
     }
 }

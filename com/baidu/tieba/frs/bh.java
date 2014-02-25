@@ -1,22 +1,34 @@
 package com.baidu.tieba.frs;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import com.baidu.tieba.view.di;
 /* loaded from: classes.dex */
-public class bh implements com.baidu.tieba.im.messageCenter.g {
+class bh implements di {
     final /* synthetic */ FrsImageActivity a;
 
-    private bh(FrsImageActivity frsImageActivity) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bh(FrsImageActivity frsImageActivity) {
         this.a = frsImageActivity;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bh(FrsImageActivity frsImageActivity, ao aoVar) {
-        this(frsImageActivity);
+    @Override // com.baidu.tieba.view.di
+    public void a() {
+        int i;
+        FrsImageActivity frsImageActivity = this.a;
+        i = this.a.h;
+        frsImageActivity.d(i);
     }
 
-    @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.q qVar) {
-        if (qVar != null && qVar.w() == -124) {
-            this.a.a(qVar);
-        }
+    @Override // com.baidu.tieba.view.di
+    public void b() {
+        this.a.g();
+    }
+
+    @Override // com.baidu.tieba.view.di
+    public void c() {
+    }
+
+    @Override // com.baidu.tieba.view.di
+    public void d() {
+        this.a.g();
     }
 }

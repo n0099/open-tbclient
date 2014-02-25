@@ -1,54 +1,72 @@
 package com.baidu.tieba.home;
 
-import android.text.Selection;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.EditText;
-import android.widget.ListView;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.util.DatabaseService;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class aj implements AdapterView.OnItemClickListener {
-    final /* synthetic */ SearchActivity a;
+public class aj {
+    private int a;
+    private String b;
+    private int c;
+    private String d;
+    private q e = new q();
+    private ArrayList<ak> f = new ArrayList<>();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public aj(SearchActivity searchActivity) {
-        this.a = searchActivity;
+    public int a() {
+        return this.a;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        int i2;
-        aw awVar;
-        aw awVar2;
-        EditText editText;
-        EditText editText2;
-        EditText editText3;
-        aw awVar3;
-        aw awVar4;
-        String str = (String) ((ListView) adapterView).getAdapter().getItem(i);
-        i2 = this.a.B;
-        if (i2 == 0) {
-            DatabaseService.m(str);
-            FrsActivity.a(this.a, str, "tb_searchlist");
-            awVar3 = this.a.o;
-            awVar3.a(i);
-            awVar4 = this.a.o;
-            awVar4.notifyDataSetChanged();
-            this.a.finish();
-        } else if (str != null && str.length() > 0) {
-            awVar = this.a.o;
-            awVar.a(i);
-            awVar2 = this.a.o;
-            awVar2.notifyDataSetChanged();
-            this.a.a(1, str);
-            editText = this.a.c;
-            editText.setText(str);
-            editText2 = this.a.c;
-            editText2.requestFocus();
-            editText3 = this.a.c;
-            Selection.setSelection(editText3.getText(), str.length());
+    public String b() {
+        return this.b;
+    }
+
+    public q c() {
+        return this.e;
+    }
+
+    public ArrayList<ak> d() {
+        return this.f;
+    }
+
+    public int e() {
+        return this.c;
+    }
+
+    public String f() {
+        return this.d;
+    }
+
+    public void a(String str) {
+        if (str != null) {
+            try {
+                a(new JSONObject(str));
+            } catch (Exception e) {
+                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
+            }
+        }
+    }
+
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.e.a(jSONObject.optJSONObject("error"));
+                this.a = jSONObject.optInt("show_dialog");
+                this.b = jSONObject.optString("sign_notice");
+                this.c = jSONObject.optInt("is_timeout");
+                this.d = jSONObject.optString("timeout_notice");
+                JSONArray optJSONArray = jSONObject.optJSONArray("info");
+                if (optJSONArray != null) {
+                    int length = optJSONArray.length();
+                    for (int i = 0; i < length; i++) {
+                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
+                        ak akVar = new ak();
+                        akVar.a(jSONObject2);
+                        this.f.add(akVar);
+                    }
+                }
+            } catch (Exception e) {
+                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
+            }
         }
     }
 }

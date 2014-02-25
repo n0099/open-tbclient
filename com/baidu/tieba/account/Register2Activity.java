@@ -1,6 +1,5 @@
 package com.baidu.tieba.account;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.SpannableString;
@@ -26,7 +25,7 @@ import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class Register2Activity extends com.baidu.tieba.j {
+public class Register2Activity extends com.baidu.tieba.f {
     private static int c = LocationClientOption.MIN_SCAN_SPAN;
     private static int d = 27;
     private static int e = 29;
@@ -66,25 +65,21 @@ public class Register2Activity extends com.baidu.tieba.j {
     private String L = null;
     RelativeLayout a = null;
     TextView b = null;
-    private bq N = null;
-    private br O = null;
-    private com.baidu.tieba.model.be P = null;
-    private View.OnClickListener Q = new bl(this);
-    private TextWatcher R = new bm(this);
-    private View.OnFocusChangeListener S = new bn(this);
-    private RadioGroup.OnCheckedChangeListener T = new bo(this);
-
-    public static void a(Activity activity, int i) {
-        activity.startActivityForResult(new Intent(activity, Register2Activity.class), i);
-    }
+    private bl N = null;
+    private bm O = null;
+    private com.baidu.tieba.model.at P = null;
+    private View.OnClickListener Q = new bg(this);
+    private TextWatcher R = new bh(this);
+    private View.OnFocusChangeListener S = new bi(this);
+    private RadioGroup.OnCheckedChangeListener T = new bj(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.account_register2_activity);
         h();
-        new av("reg").start();
+        new ax("reg").start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -104,7 +99,7 @@ public class Register2Activity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         if (this.O != null) {
@@ -113,7 +108,7 @@ public class Register2Activity extends com.baidu.tieba.j {
         if (this.N != null) {
             this.N.cancel();
         }
-        com.baidu.adp.lib.g.e.a("Register2Activity", "onDestroy", "onDestroy");
+        com.baidu.adp.lib.util.f.a("Register2Activity", "onDestroy", "onDestroy");
     }
 
     private void h() {
@@ -167,12 +162,12 @@ public class Register2Activity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j
+    @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.M.c(i);
-        com.baidu.tieba.util.bs.a(this.b, i);
-        com.baidu.tieba.util.bs.c(this.a, i);
+        com.baidu.tieba.util.bq.a(this.b, i);
+        com.baidu.tieba.util.bq.c(this.a, i);
         n();
         k();
     }
@@ -261,7 +256,7 @@ public class Register2Activity extends com.baidu.tieba.j {
                 this.N.cancel();
             }
             if (this.P != null) {
-                this.N = new bq(this, this.P.b().getVcode_pic_url());
+                this.N = new bl(this, this.P.b().getVcode_pic_url());
                 this.N.setPriority(3);
                 this.N.execute(new String[0]);
             }
@@ -337,12 +332,12 @@ public class Register2Activity extends com.baidu.tieba.j {
     }
 
     private void n() {
-        String string = getString(R.string.reg_info);
-        int length = string.length();
-        String str = string + getString(R.string.user_server_agreement);
+        String string;
+        int length = getString(R.string.reg_info).length();
+        String str = String.valueOf(string) + getString(R.string.user_server_agreement);
         int length2 = str.length();
         SpannableString spannableString = new SpannableString(str);
-        spannableString.setSpan(new bp(this, this), length, length2, 33);
+        spannableString.setSpan(new bk(this, this), length, length2, 33);
         if (this.mSkinType == 1) {
             spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.skin_1_common_color)), 0, length, 33);
         }
@@ -354,7 +349,7 @@ public class Register2Activity extends com.baidu.tieba.j {
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == c && i2 == -1) {
-            com.baidu.adp.lib.g.e.a("Register2Activity", "onActivityResult", "onActivityResult");
+            com.baidu.adp.lib.util.f.a("Register2Activity", "onActivityResult", "onActivityResult");
             setResult(-1);
             finish();
         }

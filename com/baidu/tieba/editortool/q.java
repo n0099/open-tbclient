@@ -1,60 +1,39 @@
 package com.baidu.tieba.editortool;
 
-import com.baidu.tieba.data.emotions.WritableEmotionGroup;
+import android.support.v4.view.PagerAdapter;
+import android.view.View;
+import android.view.ViewGroup;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class q {
-    private String a;
-    private String b;
-    private String c;
-    private WritableEmotionGroup.EmotionGroupType d;
-    private int e;
-    private int f;
+public class q extends PagerAdapter {
+    final /* synthetic */ EmotionTabContentView a;
+    private ArrayList<View> b;
 
-    public String a() {
-        return this.a;
+    public q(EmotionTabContentView emotionTabContentView, ArrayList<View> arrayList) {
+        this.a = emotionTabContentView;
+        this.b = new ArrayList<>();
+        this.b = arrayList;
     }
 
-    public void a(String str) {
-        this.a = str;
+    @Override // android.support.v4.view.PagerAdapter
+    public int getCount() {
+        return this.b.size();
     }
 
-    public WritableEmotionGroup.EmotionGroupType b() {
-        return this.d;
+    @Override // android.support.v4.view.PagerAdapter
+    public boolean isViewFromObject(View view, Object obj) {
+        return view == obj;
     }
 
-    public void a(WritableEmotionGroup.EmotionGroupType emotionGroupType) {
-        this.d = emotionGroupType;
+    @Override // android.support.v4.view.PagerAdapter
+    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+        viewGroup.removeView(this.b.get(i));
     }
 
-    public String c() {
-        return this.b;
-    }
-
-    public void b(String str) {
-        this.b = str;
-    }
-
-    public String d() {
-        return this.c;
-    }
-
-    public void c(String str) {
-        this.c = str;
-    }
-
-    public int e() {
-        return this.e;
-    }
-
-    public void a(int i) {
-        this.e = i;
-    }
-
-    public int f() {
-        return this.f;
-    }
-
-    public void b(int i) {
-        this.f = i;
+    @Override // android.support.v4.view.PagerAdapter
+    public Object instantiateItem(ViewGroup viewGroup, int i) {
+        View view = this.b.get(i);
+        viewGroup.addView(view);
+        return view;
     }
 }

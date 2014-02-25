@@ -1,22 +1,21 @@
 package com.baidu.tieba.im.messageCenter.a;
 
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.message.ak;
-import com.baidu.tieba.im.message.bu;
+import com.baidu.tieba.im.message.al;
+import com.baidu.tieba.im.message.bx;
 /* loaded from: classes.dex */
 public class k extends com.baidu.tieba.im.messageCenter.a {
     @Override // com.baidu.tieba.im.messageCenter.a
-    public com.baidu.tieba.im.message.q a(com.baidu.tieba.im.message.q qVar, com.baidu.tieba.im.coder.d dVar) {
-        if (qVar != null && (qVar instanceof bu)) {
-            bu buVar = (bu) qVar;
-            if (!buVar.k() && (buVar.n() instanceof ak) && ((ak) buVar.n()).f()) {
-                String str = "";
-                if (TiebaApplication.E() != null) {
-                    str = TiebaApplication.E().getID();
-                }
-                l.a(com.baidu.tieba.b.a.a().f(), "p_hot_groups_info" + str, dVar);
-            }
+    public com.baidu.tieba.im.message.s a(com.baidu.tieba.im.message.s sVar, com.baidu.tieba.im.coder.d dVar) {
+        if (sVar == null || !(sVar instanceof bx)) {
+            return null;
         }
-        return null;
+        bx bxVar = (bx) sVar;
+        com.baidu.tieba.im.message.s o = bxVar.o();
+        if (o != null && (o instanceof al) && !bxVar.l()) {
+            al alVar = (al) o;
+            n.a(com.baidu.tieba.c.a.a().e(), "pb_" + alVar.e() + "_" + alVar.d(), dVar);
+            return sVar;
+        }
+        return sVar;
     }
 }

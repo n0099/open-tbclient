@@ -3,7 +3,10 @@ package com.baidu.tieba.person;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.FrameLayout;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -12,23 +15,26 @@ import android.widget.TextView;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class EditBarActivity extends com.baidu.tieba.j {
-    private NavigationBar c;
-    private com.baidu.tieba.model.h a = null;
+public class EditBarActivity extends com.baidu.tieba.f {
+    private NavigationBar f;
+    private LinearLayout p;
+    private TextView q;
+    private com.baidu.tieba.model.f a = null;
     private ListView b = null;
-    private TextView d = null;
+    private View c = null;
+    private View d = null;
     private TextView e = null;
-    private i f = null;
-    private ProgressBar g = null;
-    private g h = null;
-    private int i = -1;
-    private String j = null;
-    private h k = null;
-    private RelativeLayout l = null;
-    private FrameLayout m = null;
-    private TextView n = null;
-    private String o = null;
-    private int p = 0;
+    private TextView g = null;
+    private TextView h = null;
+    private l i = null;
+    private ProgressBar j = null;
+    private j k = null;
+    private int l = -1;
+    private String m = null;
+    private k n = null;
+    private RelativeLayout o = null;
+    private String r = null;
+    private int s = 0;
 
     public static void a(Activity activity, int i, String str, int i2) {
         Intent intent = new Intent(activity, EditBarActivity.class);
@@ -40,7 +46,7 @@ public class EditBarActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.edit_bar_activity);
@@ -50,101 +56,108 @@ public class EditBarActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
-        if (this.h != null) {
-            this.h.cancel();
-        }
         if (this.k != null) {
             this.k.cancel();
         }
-        if (this.g != null) {
-            this.g.setVisibility(8);
+        if (this.n != null) {
+            this.n.cancel();
+        }
+        if (this.j != null) {
+            this.j.setVisibility(8);
         }
         super.onDestroy();
     }
 
     private void a() {
-        if (this.h != null) {
-            this.h.cancel();
+        if (this.k != null) {
+            this.k.cancel();
         }
-        this.h = new g(this, null);
-        this.h.setPriority(3);
-        this.h.execute(new Object[0]);
+        this.k = new j(this, null);
+        this.k.setPriority(3);
+        this.k.execute(new Object[0]);
     }
 
     private void b() {
-        this.a = new com.baidu.tieba.model.h();
-        this.o = getIntent().getStringExtra("view_user_id");
-        this.p = getIntent().getIntExtra("user_sex", 0);
+        this.a = new com.baidu.tieba.model.f();
+        this.r = getIntent().getStringExtra("view_user_id");
+        this.s = getIntent().getIntExtra("user_sex", 0);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j
+    @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.c.c(i);
-        com.baidu.tieba.util.bs.a(this.l, i);
-        this.f.notifyDataSetChanged();
-        if (i == 1) {
-            this.b.setDivider(getResources().getDrawable(R.drawable.list_divider_1));
-            this.b.setSelector(R.drawable.list_selector_1);
-            this.n.setTextColor(getResources().getColor(R.color.person_post_header_uname_1));
-            return;
-        }
-        this.b.setDivider(getResources().getDrawable(R.drawable.list_divider));
-        this.b.setSelector(R.drawable.list_selector);
-        this.n.setTextColor(getResources().getColor(R.color.person_post_header_uname));
+        getLayoutMode().a(i == 1);
+        getLayoutMode().a((View) this.o);
+        this.f.c(i);
+        this.i.notifyDataSetChanged();
+        getLayoutMode().a(i == 1);
+        getLayoutMode().a(this.d);
     }
 
     private void c() {
-        this.l = (RelativeLayout) findViewById(R.id.parent);
-        this.c = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.e = this.c.a("");
-        this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.d = this.c.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.edit));
-        this.m = (FrameLayout) findViewById(R.id.empty_textview_container);
-        this.n = (TextView) findViewById(R.id.empty_textview);
-        this.g = (ProgressBar) findViewById(R.id.progress);
-        this.f = new i(this, this.a);
-        this.f.a(new d(this));
+        this.o = (RelativeLayout) findViewById(R.id.parent);
+        this.f = (NavigationBar) findViewById(R.id.view_navigation_bar);
+        this.h = this.f.a("");
+        this.f.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.g = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.edit));
+        this.p = (LinearLayout) findViewById(R.id.no_data_container);
+        this.q = (TextView) findViewById(R.id.no_data_image_text);
+        this.j = (ProgressBar) findViewById(R.id.progress);
+        this.i = new l(this, this.a, this.r == null);
+        this.i.a(new g(this));
         this.b = (ListView) findViewById(R.id.list);
-        this.b.setAdapter((ListAdapter) this.f);
-        this.b.setOnItemClickListener(new e(this));
-        this.d.setOnClickListener(new f(this));
-        if (this.o != null) {
-            this.d.setVisibility(4);
-            if (this.p == 2) {
-                this.e.setText(getString(R.string.her_attention_forums));
-                this.n.setText(getString(R.string.she_no_like_forum_other));
+        this.c = LayoutInflater.from(this).inflate(R.layout.person_list_newheader, (ViewGroup) null);
+        this.d = this.c.findViewById(R.id.newheader_root);
+        this.c.setVisibility(8);
+        this.c.setClickable(false);
+        this.c.setEnabled(false);
+        this.e = (TextView) this.c.findViewById(R.id.person_list_title);
+        this.b.addHeaderView(this.c, null, false);
+        this.b.setAdapter((ListAdapter) this.i);
+        this.b.setOnScrollListener(this.i);
+        this.b.setOnItemClickListener(new h(this));
+        this.g.setOnClickListener(new i(this));
+        if (this.r != null) {
+            this.g.setVisibility(4);
+            if (this.s == 2) {
+                this.h.setText(getString(R.string.her_attention_forums));
+                this.q.setText(getString(R.string.she_no_like_forum_other));
                 return;
-            } else if (this.p == 1) {
-                this.e.setText(getString(R.string.his_attention_forums));
-                this.n.setText(getString(R.string.he_no_like_forum_other));
+            } else if (this.s == 1) {
+                this.h.setText(getString(R.string.his_attention_forums));
+                this.q.setText(getString(R.string.he_no_like_forum_other));
                 return;
             } else {
-                this.e.setText(getString(R.string.ta_attention_forums));
-                this.n.setText(getString(R.string.no_like_forum_other));
+                this.h.setText(getString(R.string.ta_attention_forums));
+                this.q.setText(getString(R.string.no_like_forum_other));
                 return;
             }
         }
-        this.n.setText(getString(R.string.not_have_like_bars));
-        this.e.setText(getString(R.string.my_bar));
+        this.q.setText(getString(R.string.not_have_like_bars));
+        this.h.setText(getString(R.string.my_bar));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z) {
-        if (this.f != null) {
-            this.f.b();
-            if (this.f.c()) {
+        if (this.i != null) {
+            this.i.b();
+            if (this.i.c()) {
                 if (z) {
-                    this.d.setVisibility(4);
-                    this.f.a(false);
-                    this.m.setVisibility(0);
+                    this.g.setVisibility(4);
+                    this.i.a(false);
+                    this.p.setVisibility(0);
+                    this.b.setVisibility(8);
+                    return;
                 }
-            } else if (this.o == null) {
-                this.d.setVisibility(0);
-                this.m.setVisibility(8);
+                return;
+            }
+            this.p.setVisibility(8);
+            this.b.setVisibility(0);
+            if (this.r == null) {
+                this.g.setVisibility(0);
             }
         }
     }

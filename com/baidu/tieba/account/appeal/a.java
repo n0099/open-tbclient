@@ -37,7 +37,7 @@ class a implements TextWatcher {
             textView4.setTextColor(this.a.getResources().getColor(R.color.red));
             return;
         }
-        int al = TiebaApplication.h().al();
+        int al = TiebaApplication.g().al();
         textView3 = this.a.e;
         textView3.setTextColor(this.a.getResources().getColor(al == 1 ? R.color.appeal_hint : R.color.appeal_hint_1));
     }

@@ -17,7 +17,7 @@ public class q extends BdAsyncTask<Void, Void, ForumListModel> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ q(ForumListActivity forumListActivity, g gVar) {
+    public /* synthetic */ q(ForumListActivity forumListActivity, q qVar) {
         this(forumListActivity);
     }
 
@@ -28,8 +28,8 @@ public class q extends BdAsyncTask<Void, Void, ForumListModel> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
-        this.b.c.o.setEnabled(false);
-        this.b.c.p.setText(this.b.getString(R.string.flist_loading));
+        this.b.c.l.setEnabled(false);
+        this.b.c.m.setText(this.b.getString(R.string.flist_loading));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -43,11 +43,11 @@ public class q extends BdAsyncTask<Void, Void, ForumListModel> {
         ForumListModel.RequestParams requestParams4;
         try {
             requestParams = this.b.A;
-            requestParams.recommend_type = 2;
+            requestParams.recommend_type = 1;
             requestParams2 = this.b.A;
             requestParams2.offset = 0;
             requestParams3 = this.b.A;
-            i = this.b.o;
+            i = this.b.n;
             requestParams3.rn = i;
             ForumListActivity forumListActivity = this.b;
             requestParams4 = this.b.A;
@@ -66,57 +66,57 @@ public class q extends BdAsyncTask<Void, Void, ForumListModel> {
         int i3;
         int i4;
         ForumListModel.RequestParams requestParams;
-        s sVar;
-        s sVar2;
+        r rVar;
+        r rVar2;
         int i5;
         int i6;
         int i7;
-        if (forumListModel != null && forumListModel.recommend_list_right != null) {
-            int min = Math.min(forumListModel.recommend_list_right.forum_list.length, this.b.b.forum_list.length);
-            System.arraycopy(forumListModel.recommend_list_right.forum_list, 0, this.b.b.forum_list, 0, min);
-            sVar = this.b.E;
-            sVar.a(min);
-            sVar2 = this.b.E;
-            sVar2.a(this.b.b.forum_list);
-            i5 = this.b.o;
+        if (forumListModel != null && forumListModel.recommend_list_left != null) {
+            int min = Math.min(forumListModel.recommend_list_left.forum_list.length, this.b.a.forum_list.length);
+            System.arraycopy(forumListModel.recommend_list_left.forum_list, 0, this.b.a.forum_list, 0, min);
+            rVar = this.b.D;
+            rVar.a(min);
+            rVar2 = this.b.D;
+            rVar2.a(this.b.a.forum_list);
+            i5 = this.b.n;
             if (i5 == 200) {
-                this.b.c.p.setText(this.b.getString(R.string.flist_expand_list));
-                ImageView imageView = this.b.c.q;
+                this.b.c.m.setText(this.b.getString(R.string.flist_expand_list));
+                ImageView imageView = this.b.c.n;
                 i7 = this.b.l;
                 imageView.setImageResource(i7);
             } else {
-                this.b.c.p.setText(this.b.getString(R.string.flist_collapse_list));
-                ImageView imageView2 = this.b.c.q;
+                this.b.c.m.setText(this.b.getString(R.string.flist_collapse_list));
+                ImageView imageView2 = this.b.c.n;
                 i6 = this.b.m;
                 imageView2.setImageResource(i6);
-                this.b.C = true;
+                this.b.B = true;
             }
         } else {
             this.b.showToast(this.b.getString(R.string.neterror));
             if (!this.a) {
-                i = this.b.o;
+                i = this.b.n;
                 if (i == 200) {
-                    this.b.c.p.setText(this.b.getString(R.string.flist_expand_list));
-                    ImageView imageView3 = this.b.c.q;
+                    this.b.c.m.setText(this.b.getString(R.string.flist_expand_list));
+                    ImageView imageView3 = this.b.c.n;
                     i3 = this.b.l;
                     imageView3.setImageResource(i3);
                 } else {
-                    this.b.c.p.setText(this.b.getString(R.string.flist_collapse_list));
-                    ImageView imageView4 = this.b.c.q;
+                    this.b.c.m.setText(this.b.getString(R.string.flist_collapse_list));
+                    ImageView imageView4 = this.b.c.n;
                     i2 = this.b.m;
                     imageView4.setImageResource(i2);
                 }
             } else {
-                this.b.c.p.setText(this.b.getString(R.string.flist_expand_list));
-                ImageView imageView5 = this.b.c.q;
+                this.b.c.m.setText(this.b.getString(R.string.flist_expand_list));
+                ImageView imageView5 = this.b.c.n;
                 i4 = this.b.l;
                 imageView5.setImageResource(i4);
                 requestParams = this.b.A;
                 requestParams.rn = 200;
-                this.b.o = 200;
+                this.b.n = 200;
             }
         }
-        this.b.c.o.setEnabled(true);
+        this.b.c.l.setEnabled(true);
         this.b.c.c();
     }
 }

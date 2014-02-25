@@ -6,11 +6,11 @@ import android.content.ContentValues;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Process;
-import com.baidu.adp.lib.g.e;
+import com.baidu.adp.lib.util.f;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.compatible.EditorHelper;
-import com.baidu.tieba.data.h;
+import com.baidu.tieba.data.i;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -27,7 +27,7 @@ public class b {
         f.put(a.a, "settings");
         f.put(a.b, "remote_settings");
         f.put(a.c, "bdservice_settings");
-        b = TiebaApplication.h().getContentResolver();
+        b = TiebaApplication.g().b().getContentResolver();
     }
 
     public static synchronized b a() {
@@ -48,7 +48,7 @@ public class b {
                 try {
                     return Boolean.parseBoolean(c);
                 } catch (NumberFormatException e) {
-                    e.b("SharedPrefHelper", "getBoolean", "Convert error:" + c);
+                    f.b("SharedPrefHelper", "getBoolean", "Convert error:" + c);
                     return z;
                 }
             }
@@ -65,7 +65,7 @@ public class b {
                 try {
                     return Integer.parseInt(c);
                 } catch (NumberFormatException e) {
-                    e.b("SharedPrefHelper", "getInt", "Convert error:" + c);
+                    f.b("SharedPrefHelper", "getInt", "Convert error:" + c);
                     return i;
                 }
             }
@@ -82,7 +82,7 @@ public class b {
                 try {
                     return Long.parseLong(c);
                 } catch (NumberFormatException e) {
-                    e.b("SharedPrefHelper", "getLong", "Convert error:" + c);
+                    f.b("SharedPrefHelper", "getLong", "Convert error:" + c);
                     return j;
                 }
             }
@@ -206,11 +206,11 @@ public class b {
                 this.e = "settings";
             }
         }
-        return TiebaApplication.h().getSharedPreferences(this.e, 0);
+        return TiebaApplication.g().b().getSharedPreferences(this.e, 0);
     }
 
     private String d() {
-        ActivityManager activityManager = (ActivityManager) TiebaApplication.h().getSystemService("activity");
+        ActivityManager activityManager = (ActivityManager) TiebaApplication.g().b().getSystemService("activity");
         if (activityManager != null) {
             List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = activityManager.getRunningAppProcesses();
             int myPid = Process.myPid();
@@ -232,10 +232,10 @@ public class b {
     }
 
     public void b() {
-        SharedPreferences sharedPreferences = TiebaApplication.h().getSharedPreferences("settings", 0);
+        SharedPreferences sharedPreferences = TiebaApplication.g().b().getSharedPreferences("settings", 0);
         String string = sharedPreferences.getString("lase_version", "");
-        String j = h.j();
-        if (string != null && string.length() != 0 && j != null && j.length() != 0 && !string.equals(j) && "4.5.0".compareTo(string) > 0 && "4.5.0".compareTo(j) <= 0) {
+        String u = i.u();
+        if (string != null && string.length() != 0 && u != null && u.length() != 0 && !string.equals(u) && "4.5.0".compareTo(string) > 0 && "4.5.0".compareTo(u) <= 0) {
             a().b("skin", sharedPreferences.getInt("skin", 0));
             String string2 = sharedPreferences.getString("from_id", null);
             if (string2 != null && string2.length() > 0) {

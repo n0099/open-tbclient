@@ -6,8 +6,9 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class r extends BaseAdapter {
+public class r extends BaseAdapter {
     final /* synthetic */ JigsawAlbumListActivity a;
     private Context b;
 

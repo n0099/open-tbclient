@@ -1,11 +1,10 @@
 package com.baidu.tieba.account.appeal;
 
+import android.view.View;
 import android.widget.TextView;
-import com.baidu.tieba.util.bu;
 import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b implements l {
+class b implements View.OnClickListener {
     final /* synthetic */ AppealActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,20 +12,23 @@ public class b implements l {
         this.a = appealActivity;
     }
 
-    @Override // com.baidu.tieba.account.appeal.l
-    public void a(ForbidReasonData forbidReasonData) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         TextView textView;
         String str;
-        TextView textView2;
-        textView = this.a.b;
-        str = this.a.h;
-        textView.setText(str);
-        textView2 = this.a.c;
-        textView2.setText(!bu.c(forbidReasonData.reason) ? forbidReasonData.reason : this.a.getString(R.string.default_forbid_reason));
-    }
-
-    @Override // com.baidu.tieba.account.appeal.l
-    public void b(ForbidReasonData forbidReasonData) {
-        this.a.showToast(forbidReasonData.error.b);
+        String str2;
+        String str3;
+        textView = this.a.d;
+        String charSequence = textView.getText().toString();
+        if (charSequence.length() < 20) {
+            this.a.showToast(R.string.appeal_min_size);
+        } else if (charSequence.length() <= 150) {
+            str = this.a.f;
+            str2 = this.a.g;
+            str3 = this.a.h;
+            f.a(str, str2, str3, charSequence, new c(this));
+        } else {
+            this.a.showToast(R.string.appeal_max_size);
+        }
     }
 }

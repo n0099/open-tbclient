@@ -1,9 +1,8 @@
 package com.baidu.tieba.pb;
 
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class et implements View.OnClickListener {
+class et implements View.OnClickListener {
     final /* synthetic */ WebActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,6 +12,8 @@ public class et implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.closeActivity();
+        if (this.a.a.canGoForward()) {
+            this.a.a.goForward();
+        }
     }
 }

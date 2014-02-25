@@ -1,53 +1,24 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.data.UserData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class co implements com.baidu.tbadk.imageManager.c {
-    final /* synthetic */ GifView a;
-    final /* synthetic */ String b;
-    final /* synthetic */ com.baidu.tieba.im.message.b c;
-    final /* synthetic */ String d;
-    final /* synthetic */ com.baidu.tieba.util.i e;
-    final /* synthetic */ String f;
-    final /* synthetic */ String g;
+public class co extends com.baidu.tieba.im.c<Void> {
+    final /* synthetic */ PersonalChatActivity a;
+    private final /* synthetic */ UserData c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public co(GifView gifView, String str, com.baidu.tieba.im.message.b bVar, String str2, com.baidu.tieba.util.i iVar, String str3, String str4) {
-        this.a = gifView;
-        this.b = str;
-        this.c = bVar;
-        this.d = str2;
-        this.e = iVar;
-        this.f = str3;
-        this.g = str4;
+    public co(PersonalChatActivity personalChatActivity, UserData userData) {
+        this.a = personalChatActivity;
+        this.c = userData;
     }
 
-    @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
-        Object tag = this.a.getTag();
-        if (tag != null && ((String) tag).equals(this.b)) {
-            if (dVar != null) {
-                this.a.setGif(dVar);
-                this.c.b(true);
-            } else if (dVar == null) {
-                if (str != null && UtilHelper.g(TiebaApplication.h()) == UtilHelper.NetworkStateInfo.UNAVAIL && !this.c.a) {
-                    this.c.a = true;
-                    com.baidu.adp.widget.ImageView.d b = str.equals(this.d) ? ci.b(this.e, this.f, this.b, this.g, false, this) : ci.b(this.e, this.f, this.b, this.d, true, this);
-                    if (b != null) {
-                        this.a.setGif(b);
-                        this.a.setIsLoading(false);
-                        this.c.b(true);
-                        return;
-                    }
-                    this.a.setIsLoading(true);
-                    return;
-                }
-                this.a.setGif(dVar);
-                this.c.b(false);
-            }
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.c
+    /* renamed from: a */
+    public Void b() {
+        com.baidu.tieba.im.chat.personaltalk.a.a(TiebaApplication.A(), PersonalChatActivity.b, this.c);
+        return null;
     }
 }

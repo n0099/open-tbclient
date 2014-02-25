@@ -1,8 +1,12 @@
 package com.baidu.tieba.pb;
 
 import android.content.DialogInterface;
+import com.baidu.tieba.album.AlbumActivity;
+import com.baidu.tieba.img.WriteImagesInfo;
+import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bn implements DialogInterface.OnClickListener {
+public class bn implements DialogInterface.OnClickListener {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,13 +16,30 @@ class bn implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        if (this.a.b != null) {
-            if (i == 0) {
-                this.a.b.c(this.a);
-                this.a.b = null;
-            } else if (i == 1) {
-                this.a.a(this.a.b);
+        WriteImagesInfo writeImagesInfo;
+        WriteImagesInfo writeImagesInfo2;
+        String str;
+        WriteImagesInfo writeImagesInfo3;
+        WriteImagesInfo writeImagesInfo4;
+        if (i == 0) {
+            writeImagesInfo2 = this.a.m;
+            if (writeImagesInfo2.getChosedFiles() != null) {
+                writeImagesInfo3 = this.a.m;
+                int size = writeImagesInfo3.getChosedFiles().size();
+                writeImagesInfo4 = this.a.m;
+                if (size >= writeImagesInfo4.getMaxImagesAllowed()) {
+                    this.a.showToast(String.format(this.a.getString(R.string.editor_mutiiamge_max), 10));
+                    return;
+                }
             }
+            this.a.n = String.valueOf(System.currentTimeMillis());
+            NewPbActivity newPbActivity = this.a;
+            str = this.a.n;
+            com.baidu.tieba.write.bz.a(newPbActivity, str);
+        } else if (i == 1) {
+            NewPbActivity newPbActivity2 = this.a;
+            writeImagesInfo = this.a.m;
+            AlbumActivity.a(newPbActivity2, writeImagesInfo, 12002);
         }
     }
 }

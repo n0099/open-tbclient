@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ public class ReplyLinearLayout extends LinearLayout {
 
     public ReplyLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.c = new w(this);
+        this.c = new aa(this);
         this.a = new ArrayList();
     }
 
@@ -65,28 +66,28 @@ public class ReplyLinearLayout extends LinearLayout {
     }
 
     private void a(TextView textView, int i) {
-        if (TiebaApplication.h().al() == 1) {
+        if (TiebaApplication.g().al() == 1) {
             if (i == 0) {
                 textView.setTextColor(getResources().getColor(R.color.person_post_content_main_1));
-                textView.setPadding(0, com.baidu.adp.lib.g.g.a(getContext(), 10.0f), 0, com.baidu.adp.lib.g.g.a(getContext(), 10.0f));
+                textView.setPadding(0, BdUtilHelper.a(getContext(), 10.0f), 0, BdUtilHelper.a(getContext(), 10.0f));
             } else if (i % 2 == 1) {
                 textView.setTextColor(getResources().getColor(R.color.person_post_content_sub_1));
                 textView.setBackgroundResource(R.drawable.person_post_sep_line_1);
-                textView.setPadding(0, com.baidu.adp.lib.g.g.a(getContext(), 10.0f), 0, com.baidu.adp.lib.g.g.a(getContext(), 2.0f));
+                textView.setPadding(0, BdUtilHelper.a(getContext(), 10.0f), 0, BdUtilHelper.a(getContext(), 2.0f));
             } else {
                 textView.setTextColor(getResources().getColor(R.color.person_post_header_time_1));
-                textView.setPadding(0, com.baidu.adp.lib.g.g.a(getContext(), 2.0f), 0, com.baidu.adp.lib.g.g.a(getContext(), 10.0f));
+                textView.setPadding(0, BdUtilHelper.a(getContext(), 2.0f), 0, BdUtilHelper.a(getContext(), 10.0f));
             }
         } else if (i == 0) {
             textView.setTextColor(getResources().getColor(R.color.person_post_content_main));
-            textView.setPadding(0, com.baidu.adp.lib.g.g.a(getContext(), 10.0f), 0, com.baidu.adp.lib.g.g.a(getContext(), 10.0f));
+            textView.setPadding(0, BdUtilHelper.a(getContext(), 10.0f), 0, BdUtilHelper.a(getContext(), 10.0f));
         } else if (i % 2 == 1) {
             textView.setTextColor(getResources().getColor(R.color.person_post_content_sub));
             textView.setBackgroundResource(R.drawable.person_post_sep_line);
-            textView.setPadding(0, com.baidu.adp.lib.g.g.a(getContext(), 10.0f), 0, com.baidu.adp.lib.g.g.a(getContext(), 2.0f));
+            textView.setPadding(0, BdUtilHelper.a(getContext(), 10.0f), 0, BdUtilHelper.a(getContext(), 2.0f));
         } else {
             textView.setTextColor(getResources().getColor(R.color.person_post_header_time));
-            textView.setPadding(0, com.baidu.adp.lib.g.g.a(getContext(), 2.0f), 0, com.baidu.adp.lib.g.g.a(getContext(), 10.0f));
+            textView.setPadding(0, BdUtilHelper.a(getContext(), 2.0f), 0, BdUtilHelper.a(getContext(), 10.0f));
         }
     }
 }

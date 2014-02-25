@@ -9,12 +9,54 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public class BDImageView2 extends ImageView {
+    private static /* synthetic */ int[] g;
     private int a;
     private Paint b;
     private Matrix c;
     private Matrix d;
     private String e;
     private int f;
+
+    static /* synthetic */ int[] b() {
+        int[] iArr = g;
+        if (iArr == null) {
+            iArr = new int[ImageView.ScaleType.values().length];
+            try {
+                iArr[ImageView.ScaleType.CENTER.ordinal()] = 1;
+            } catch (NoSuchFieldError e) {
+            }
+            try {
+                iArr[ImageView.ScaleType.CENTER_CROP.ordinal()] = 2;
+            } catch (NoSuchFieldError e2) {
+            }
+            try {
+                iArr[ImageView.ScaleType.CENTER_INSIDE.ordinal()] = 3;
+            } catch (NoSuchFieldError e3) {
+            }
+            try {
+                iArr[ImageView.ScaleType.FIT_CENTER.ordinal()] = 4;
+            } catch (NoSuchFieldError e4) {
+            }
+            try {
+                iArr[ImageView.ScaleType.FIT_END.ordinal()] = 5;
+            } catch (NoSuchFieldError e5) {
+            }
+            try {
+                iArr[ImageView.ScaleType.FIT_START.ordinal()] = 6;
+            } catch (NoSuchFieldError e6) {
+            }
+            try {
+                iArr[ImageView.ScaleType.FIT_XY.ordinal()] = 7;
+            } catch (NoSuchFieldError e7) {
+            }
+            try {
+                iArr[ImageView.ScaleType.MATRIX.ordinal()] = 8;
+            } catch (NoSuchFieldError e8) {
+            }
+            g = iArr;
+        }
+        return iArr;
+    }
 
     public BDImageView2(Context context) {
         super(context);
@@ -24,7 +66,7 @@ public class BDImageView2 extends ImageView {
         this.d = null;
         this.e = null;
         this.f = 0;
-        b();
+        c();
     }
 
     public BDImageView2(Context context, AttributeSet attributeSet) {
@@ -35,7 +77,7 @@ public class BDImageView2 extends ImageView {
         this.d = null;
         this.e = null;
         this.f = 0;
-        b();
+        c();
     }
 
     public BDImageView2(Context context, AttributeSet attributeSet, int i) {
@@ -46,7 +88,7 @@ public class BDImageView2 extends ImageView {
         this.d = null;
         this.e = null;
         this.f = 0;
-        b();
+        c();
     }
 
     @Override // android.view.View
@@ -54,7 +96,7 @@ public class BDImageView2 extends ImageView {
         super.setTag(obj);
     }
 
-    private void b() {
+    private void c() {
         this.b = new Paint();
     }
 
@@ -85,11 +127,11 @@ public class BDImageView2 extends ImageView {
         this.d = null;
     }
 
-    private Matrix a(d dVar) {
+    private Matrix a(b bVar) {
         float f;
         float f2;
         float f3 = 0.0f;
-        if (dVar == null) {
+        if (bVar == null) {
             return null;
         }
         ImageView.ScaleType scaleType = getScaleType();
@@ -97,53 +139,53 @@ public class BDImageView2 extends ImageView {
         int paddingRight = getPaddingRight();
         int paddingTop = getPaddingTop();
         int paddingBottom = getPaddingBottom();
-        int d = dVar.d();
-        int c = dVar.c();
+        int d = bVar.d();
+        int c = bVar.c();
         int height = (getHeight() - paddingTop) - paddingBottom;
         int width = (getWidth() - paddingLeft) - paddingRight;
         float f4 = width / c;
         float f5 = height / d;
-        switch (c.a[scaleType.ordinal()]) {
+        switch (b()[scaleType.ordinal()]) {
             case 1:
-                r0 = f5;
-                f2 = f4;
-                f = 0.0f;
-                break;
-            case 2:
-                r0 = Math.min(f4, f5);
-                f2 = r0;
-                f = 0.0f;
-                break;
-            case 3:
-                r0 = Math.min(f4, f5);
-                f3 = (width - (c * r0)) / 2.0f;
-                f = (height - (d * r0)) / 2.0f;
-                f2 = r0;
-                break;
-            case 4:
-                r0 = Math.min(f4, f5);
-                f3 = width - (c * r0);
-                f = height - (d * r0);
-                f2 = r0;
-                break;
-            case 5:
                 f3 = (width - c) / 2;
                 f = (height - d) / 2;
                 f2 = 1.0f;
                 break;
-            case 6:
+            case 2:
                 float max = Math.max(f4, f5);
                 r0 = Math.max(max, f5);
                 f3 = (width - (c * max)) / 2.0f;
                 f = (height - (d * r0)) / 2.0f;
                 f2 = max;
                 break;
-            case 7:
+            case 3:
                 float min = Math.min(f4, f5);
                 r0 = min <= 1.0f ? min : 1.0f;
                 f3 = (width - (c * r0)) / 2.0f;
                 f = (height - (d * r0)) / 2.0f;
                 f2 = r0;
+                break;
+            case 4:
+                r0 = Math.min(f4, f5);
+                f3 = (width - (c * r0)) / 2.0f;
+                f = (height - (d * r0)) / 2.0f;
+                f2 = r0;
+                break;
+            case 5:
+                r0 = Math.min(f4, f5);
+                f3 = width - (c * r0);
+                f = height - (d * r0);
+                f2 = r0;
+                break;
+            case 6:
+                r0 = Math.min(f4, f5);
+                f2 = r0;
+                f = 0.0f;
+                break;
+            case 7:
+                r0 = f5;
+                f2 = f4;
+                f = 0.0f;
                 break;
             default:
                 r0 = f5;
@@ -163,12 +205,12 @@ public class BDImageView2 extends ImageView {
         invalidate();
     }
 
-    private d getImage() {
+    private b getImage() {
         if (this.e != null) {
             try {
                 Object a = com.baidu.adp.lib.e.c.a().a(this.e, this.f, null, getContext(), null, 1);
-                if (a != null && (a instanceof d)) {
-                    return (d) a;
+                if (a != null && (a instanceof b)) {
+                    return (b) a;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -181,14 +223,14 @@ public class BDImageView2 extends ImageView {
     protected void onDraw(Canvas canvas) {
         Matrix matrix;
         super.onDraw(canvas);
-        d image = getImage();
+        b image = getImage();
         if (image != null) {
             if (this.d == null) {
                 this.d = a(image);
             }
             matrix = this.d;
         } else {
-            image = new d(com.baidu.adp.lib.g.a.a().a(this.a), false, null);
+            image = new b(com.baidu.adp.lib.util.b.a().a(this.a), false, null);
             if (this.c == null) {
                 this.c = a(image);
             }

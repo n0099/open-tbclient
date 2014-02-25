@@ -1,85 +1,11 @@
 package com.baidu.tieba.a;
 
-import com.baidu.tieba.data.AudioInfoData;
-import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.ad;
-import com.baidu.tieba.util.ax;
-import com.baidu.tieba.util.bu;
-import java.io.File;
+import android.content.Context;
 /* loaded from: classes.dex */
-public class a {
-    private ax a;
-    private b b;
-    private com.baidu.tieba.data.f c;
-    private String d;
-    private String e;
-
-    public a(String str, String str2) {
-        this.d = str;
-        this.e = str2;
-    }
-
-    public com.baidu.tieba.data.f a(String str) {
-        try {
-            File file = new File(str);
-            if (file == null || !file.exists()) {
-                return null;
-            }
-            this.a = new ax(com.baidu.tieba.data.h.a + this.d);
-            return a(str, file);
-        } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b(getClass().getName(), "upload", e.getMessage());
-            return null;
-        }
-    }
-
-    private com.baidu.tieba.data.f a(String str, File file) {
-        String a;
-        String a2 = bu.a(ad.a(file));
-        if (a2 != null && a2.length() > 0) {
-            a2 = a2.toLowerCase();
-        }
-        com.baidu.tieba.data.e p = DatabaseService.p(a2);
-        if (p == null) {
-            p = new com.baidu.tieba.data.e();
-            p.a(a2);
-            p.a(0);
-            p.a(file.length());
-        }
-        this.b = new b(this, str, p, com.baidu.tieba.data.h.a + this.d, a2);
-        this.c = this.b.a();
-        if (this.c.b() && (a = a(a2, p)) != null && !a.equals("")) {
-            AudioInfoData audioInfoData = new AudioInfoData();
-            audioInfoData.parserJson(a);
-            if (audioInfoData.getErrorCode() <= 0 && audioInfoData.getVoiceId() != null) {
-                p.a(audioInfoData.getVoiceId());
-                this.c.a(p);
-            } else {
-                this.c.a(audioInfoData.getErrorCode());
-                this.c.a(audioInfoData.getErrorMsg());
-                this.c.a(false);
-            }
-        }
-        return this.c;
-    }
-
-    private String a(String str, com.baidu.tieba.data.e eVar) {
-        this.a = new ax(com.baidu.tieba.data.h.a + this.e);
-        this.a.a("voice_md5", eVar.a());
-        String m = this.a.m();
-        if (m == null || !this.a.d()) {
-            eVar.a((int) a(eVar.b()));
-            DatabaseService.a(eVar);
-            this.c.a(this.a.f());
-            this.c.a(this.a.j());
-            this.c.a(false);
-            return null;
-        }
-        DatabaseService.o(str);
-        return m;
-    }
-
-    private long a(long j) {
-        return j % 30720 == 0 ? j / 30720 : (j / 30720) + 1;
+public class a extends com.baidu.tieba.f.a {
+    public a(Context context, String str, boolean z) {
+        super(context);
+        d().putExtra("forum_id", str);
+        d().putExtra("show_recommend", z);
     }
 }

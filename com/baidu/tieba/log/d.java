@@ -45,9 +45,8 @@ public class d extends BdAsyncTask<String, Integer, String> {
                         String name = file.getName();
                         if (name.contains(".log") && (TextUtils.isEmpty(this.c) || !this.c.equals(name))) {
                             e eVar = this.b;
-                            StringBuilder sb = new StringBuilder();
                             str2 = a.c;
-                            eVar.a(sb.append(str2).append("/").append(name).toString(), "c/s/logupload", true);
+                            eVar.a(String.valueOf(str2) + "/" + name, "c/s/logupload", true);
                         }
                     }
                 }

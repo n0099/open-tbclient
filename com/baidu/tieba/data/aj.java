@@ -1,44 +1,37 @@
 package com.baidu.tieba.data;
 
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class aj {
-    private int a = -1;
+    private boolean g = false;
+    private int a = 0;
     private String b = null;
+    private int e = 0;
     private String c = null;
+    private String d = null;
+    private String f = null;
 
-    public int a() {
-        return this.a;
-    }
-
-    public String b() {
-        return this.b;
-    }
-
-    public String c() {
-        return this.c;
-    }
-
-    public void a(int i) {
-        this.a = i;
-    }
-
-    public void a(String str) {
-        this.b = str;
+    public boolean a() {
+        return this.g;
     }
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.a = jSONObject.optInt("type");
-                if (this.a == 3) {
-                    this.b = jSONObject.optString("big_pic");
-                } else if (this.a == 5) {
-                    this.b = jSONObject.optString("vpic");
-                    this.c = jSONObject.optString("vsrc");
+                this.b = jSONObject.optString("id");
+                this.a = jSONObject.optInt("is_login", 0);
+                this.e = jSONObject.optInt("no_un", 0);
+                this.c = jSONObject.optString(SocialConstants.PARAM_MEDIA_UNAME);
+                this.d = jSONObject.optString("name_show");
+                this.f = jSONObject.optString("portrait");
+                if (jSONObject.optInt("is_manager", 0) == 1) {
+                    this.g = true;
+                } else {
+                    this.g = false;
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.g.e.b(getClass().getName(), "parserJson", "error=" + e.toString());
+                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
             }
         }
     }

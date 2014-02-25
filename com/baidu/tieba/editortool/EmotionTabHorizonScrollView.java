@@ -19,7 +19,7 @@ public class EmotionTabHorizonScrollView extends HorizontalScrollView {
     private LinearLayout a;
     private int b;
     private ArrayList<WritableEmotionGroup> c;
-    private s d;
+    private y d;
     private int e;
     private int f;
     private int g;
@@ -92,23 +92,23 @@ public class EmotionTabHorizonScrollView extends HorizontalScrollView {
             if (writableEmotionGroup.i() != null) {
                 writableEmotionGroup.i().a(bDImageView);
             }
-            linearLayout.setOnClickListener(new o(this, this.a.getChildCount() - 2, null));
+            linearLayout.setOnClickListener(new u(this, this.a.getChildCount() - 2, null));
         } else if (c == WritableEmotionGroup.EmotionGroupType.PROMOTION) {
             if (writableEmotionGroup.a() != null) {
                 writableEmotionGroup.a().a(bDImageView);
             }
-            linearLayout.setOnClickListener(new p(this, writableEmotionGroup.e(), null));
+            linearLayout.setOnClickListener(new v(this, writableEmotionGroup.e(), null));
         } else if (c == WritableEmotionGroup.EmotionGroupType.BIG_EMOTION) {
             if (this.m) {
                 if (writableEmotionGroup.i() != null) {
                     writableEmotionGroup.i().a(bDImageView);
                 }
-                linearLayout.setOnClickListener(new o(this, this.a.getChildCount() - 2, null));
+                linearLayout.setOnClickListener(new u(this, this.a.getChildCount() - 2, null));
             } else {
                 if (writableEmotionGroup.a() != null) {
                     writableEmotionGroup.a().a(bDImageView);
                 }
-                linearLayout.setOnClickListener(new l(this));
+                linearLayout.setOnClickListener(new r(this));
             }
         }
         return bDImageView;
@@ -129,7 +129,7 @@ public class EmotionTabHorizonScrollView extends HorizontalScrollView {
         linearLayout.setPadding(0, getResources().getDimensionPixelSize(R.dimen.default_gap_6), 0, 0);
         frameLayout.addView(linearLayout, new FrameLayout.LayoutParams(-1, -1));
         this.j = new TextView(getContext());
-        if (TiebaApplication.h().bm()) {
+        if (TiebaApplication.g().bj()) {
             this.j.setVisibility(0);
         } else {
             this.j.setVisibility(8);
@@ -141,7 +141,7 @@ public class EmotionTabHorizonScrollView extends HorizontalScrollView {
         this.j.setBackgroundResource(this.g == 1 ? R.drawable.icon_news_head_prompt_one_1 : R.drawable.icon_news_head_prompt_one);
         frameLayout.addView(this.j, new FrameLayout.LayoutParams(-2, -2, 53));
         this.a.addView(frameLayout, new LinearLayout.LayoutParams(getResources().getDimensionPixelSize(R.dimen.face_tab_widget_width), -1));
-        frameLayout.setOnClickListener(new m(this));
+        frameLayout.setOnClickListener(new s(this));
     }
 
     public void a(WritableEmotionGroup writableEmotionGroup) {
@@ -156,15 +156,15 @@ public class EmotionTabHorizonScrollView extends HorizontalScrollView {
         if (i2 < childCount && writableEmotionGroup.c() == WritableEmotionGroup.EmotionGroupType.BIG_EMOTION) {
             LinearLayout linearLayout = (LinearLayout) this.a.getChildAt(i2);
             BDImageView bDImageView = (BDImageView) linearLayout.getChildAt(0);
-            if (!z) {
-                linearLayout.setOnClickListener(new n(this));
+            if (!this.m) {
+                linearLayout.setOnClickListener(new t(this));
                 if (writableEmotionGroup.a() != null) {
                     writableEmotionGroup.a().a(bDImageView);
                     return;
                 }
                 return;
             }
-            linearLayout.setOnClickListener(new o(this, i2 - 1, null));
+            linearLayout.setOnClickListener(new u(this, i2 - 1, null));
             if (writableEmotionGroup.i() != null) {
                 writableEmotionGroup.i().a(bDImageView);
             }
@@ -224,7 +224,7 @@ public class EmotionTabHorizonScrollView extends HorizontalScrollView {
         }
     }
 
-    public void setOnTabSelectedListener(s sVar) {
-        this.d = sVar;
+    public void setOnTabSelectedListener(y yVar) {
+        this.d = yVar;
     }
 }

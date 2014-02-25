@@ -1,6 +1,7 @@
 package com.baidu.adp.lib.e;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class d extends b {
+public class d extends b {
     final /* synthetic */ c a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

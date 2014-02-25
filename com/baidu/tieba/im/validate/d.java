@@ -13,12 +13,12 @@ public class d implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        n nVar;
+        r rVar;
         ValidateItemData validateItemData;
         switch (i) {
             case 0:
-                nVar = this.a.b;
-                nVar.a(true);
+                rVar = this.a.b;
+                rVar.a(true);
                 ValidateActivity validateActivity = this.a;
                 validateItemData = this.a.f;
                 validateActivity.c(validateItemData);

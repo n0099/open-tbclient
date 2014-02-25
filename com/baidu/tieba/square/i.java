@@ -6,18 +6,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.ce;
+import com.baidu.tieba.util.ch;
 import com.baidu.tieba.view.HeadImageView;
+import com.baidu.tieba.view.bg;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class i extends BaseAdapter implements com.baidu.tieba.view.bb {
+public class i extends BaseAdapter implements bg {
     private final Context b;
-    private at c;
+    private au c;
     private com.baidu.tieba.util.i d;
     private String e = null;
     View.OnClickListener a = new j(this);
@@ -25,12 +26,12 @@ public class i extends BaseAdapter implements com.baidu.tieba.view.bb {
     public i(Context context) {
         this.b = context;
         this.d = new com.baidu.tieba.util.i(context);
-        int a = com.baidu.adp.lib.g.g.a(context, 45.0f);
+        int a = BdUtilHelper.a(context, 45.0f);
         this.d.a(a, a);
     }
 
-    public void a(at atVar) {
-        this.c = atVar;
+    public void a(au auVar) {
+        this.c = auVar;
     }
 
     @Override // android.widget.Adapter
@@ -38,7 +39,7 @@ public class i extends BaseAdapter implements com.baidu.tieba.view.bb {
         if (this.c == null || this.c.d().size() == 0) {
             return 0;
         }
-        ArrayList<as> d = this.c.d();
+        ArrayList<at> d = this.c.d();
         if (d == null || d.size() <= 0) {
             return 1;
         }
@@ -51,23 +52,23 @@ public class i extends BaseAdapter implements com.baidu.tieba.view.bb {
         int itemViewType = getItemViewType(i);
         if (view == null) {
             view = a(i, viewGroup, itemViewType);
-            ce.b(view);
+            ch.b(view);
         }
         if (itemViewType == 0) {
             if (this.c != null) {
                 ((TextView) view.findViewById(R.id.title)).setText(this.c.e());
             }
         } else if (itemViewType == 2) {
-            ce.a(view);
+            ch.a(view);
             a(viewGroup, (n) view.getTag(), i, "all");
         } else if (itemViewType == 1) {
-            ce.a(view);
+            ch.a(view);
             a(viewGroup, (n) view.getTag(), i, "normal");
         }
-        int al = TiebaApplication.h().al();
-        BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) this.b;
-        baseFragmentActivity.a().a(al == 1);
-        baseFragmentActivity.a().a(view);
+        int al = TiebaApplication.g().al();
+        com.baidu.tieba.k kVar = (com.baidu.tieba.k) this.b;
+        kVar.a().a(al == 1);
+        kVar.a().a(view);
         if (itemViewType == 0) {
             View findViewById2 = view.findViewById(R.id.post_recommend_line_up);
             View findViewById3 = view.findViewById(R.id.post_recommend_line_down);
@@ -97,52 +98,52 @@ public class i extends BaseAdapter implements com.baidu.tieba.view.bb {
         }
         if (i2 == 2) {
             View inflate = from.inflate(R.layout.bar_home_all_dir_item, (ViewGroup) null);
-            as asVar = new as();
-            asVar.f = SocialConstants.TRUE;
+            at atVar = new at();
+            atVar.f = SocialConstants.TRUE;
             n nVar = new n();
             nVar.a = (HeadImageView) inflate.findViewById(R.id.portrait);
             nVar.b = (TextView) inflate.findViewById(R.id.squre_name);
             nVar.c = (BestStringsFitTextView) inflate.findViewById(R.id.description);
-            nVar.d = asVar;
+            nVar.d = atVar;
             inflate.setOnClickListener(this.a);
             inflate.setTag(nVar);
             return inflate;
         }
         View inflate2 = from.inflate(R.layout.bar_home_first_dir_item, (ViewGroup) null);
         inflate2.setOnClickListener(this.a);
-        as asVar2 = new as();
-        asVar2.f = SocialConstants.FALSE;
+        at atVar2 = new at();
+        atVar2.f = SocialConstants.FALSE;
         n nVar2 = new n();
         nVar2.a = (HeadImageView) inflate2.findViewById(R.id.portrait);
         nVar2.b = (TextView) inflate2.findViewById(R.id.squre_name);
         nVar2.c = (BestStringsFitTextView) inflate2.findViewById(R.id.description);
-        nVar2.d = asVar2;
+        nVar2.d = atVar2;
         inflate2.setTag(nVar2);
         return inflate2;
     }
 
     private void a(ViewGroup viewGroup, n nVar, int i, String str) {
-        as asVar = this.c.d().get(i - 1);
-        asVar.a = i - 1;
-        if (asVar.f.equals(SocialConstants.TRUE) && str.equals("all")) {
-            a(viewGroup, nVar, asVar);
-        } else if (asVar.f.equals(SocialConstants.FALSE) && str.equals("normal")) {
-            a(viewGroup, nVar, asVar);
+        at atVar = this.c.d().get(i - 1);
+        atVar.a = i - 1;
+        if (atVar.f.equals(SocialConstants.TRUE) && str.equals("all")) {
+            a(viewGroup, nVar, atVar);
+        } else if (atVar.f.equals(SocialConstants.FALSE) && str.equals("normal")) {
+            a(viewGroup, nVar, atVar);
         }
     }
 
-    private void a(ViewGroup viewGroup, n nVar, as asVar) {
-        nVar.d = asVar;
-        nVar.b.setText(UtilHelper.a(asVar.b, 11));
-        if (asVar.c != null) {
-            nVar.c.setText(asVar.c);
+    private void a(ViewGroup viewGroup, n nVar, at atVar) {
+        nVar.d = atVar;
+        nVar.b.setText(UtilHelper.a(atVar.b, 11));
+        if (atVar.c != null) {
+            nVar.c.setText(atVar.c);
             nVar.c.setVisibility(0);
         } else {
             nVar.c.setVisibility(8);
         }
-        if (asVar.e != null) {
-            nVar.a.setTag(asVar.e);
-            this.d.b(asVar.e, new k(this, viewGroup));
+        if (atVar.e != null) {
+            nVar.a.setTag(atVar.e);
+            this.d.b(atVar.e, new k(this, viewGroup));
         }
     }
 
@@ -176,19 +177,19 @@ public class i extends BaseAdapter implements com.baidu.tieba.view.bb {
         return this.b;
     }
 
-    @Override // com.baidu.tieba.view.bb
+    @Override // com.baidu.tieba.view.bg
     public void d() {
         this.d.d();
     }
 
-    @Override // com.baidu.tieba.view.bb
+    @Override // com.baidu.tieba.view.bg
     public void a(View view, int i, int i2) {
         while (i <= i2) {
             if (getItemViewType(i) == 1) {
                 this.d.a();
-                as asVar = this.c.d().get(i - 1);
-                if (asVar.e != null && this.d.d(asVar.e) == null) {
-                    this.d.b(asVar.e, new m(this, view));
+                at atVar = this.c.d().get(i - 1);
+                if (atVar.e != null && this.d.d(atVar.e) == null) {
+                    this.d.b(atVar.e, new m(this, view));
                 }
             }
             i++;

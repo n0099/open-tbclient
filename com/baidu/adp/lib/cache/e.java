@@ -19,7 +19,7 @@ public abstract class e<T> implements r<T> {
 
     protected String a(String str, String str2) {
         if (this.a) {
-            return str + "@" + str2;
+            return String.valueOf(str) + "@" + str2;
         }
         return str2;
     }
@@ -28,15 +28,15 @@ public abstract class e<T> implements r<T> {
         String a = a(str, str2);
         m<T> a2 = a(a);
         if (a2 == null) {
-            if (com.baidu.adp.lib.g.e.a()) {
-                com.baidu.adp.lib.g.e.e("cache", "get", "cache miss:" + a);
+            if (com.baidu.adp.lib.util.f.a()) {
+                com.baidu.adp.lib.util.f.e("cache", "get", "cache miss:" + a);
                 return null;
             }
             return null;
         } else if (a2.f < System.currentTimeMillis()) {
             c(a);
-            if (com.baidu.adp.lib.g.e.a()) {
-                com.baidu.adp.lib.g.e.e("cache", "get", "cache miss on expired:" + a);
+            if (com.baidu.adp.lib.util.f.a()) {
+                com.baidu.adp.lib.util.f.e("cache", "get", "cache miss on expired:" + a);
                 return null;
             }
             return null;
@@ -45,8 +45,8 @@ public abstract class e<T> implements r<T> {
                 a2.e = System.currentTimeMillis();
                 a(a2);
             }
-            if (com.baidu.adp.lib.g.e.a()) {
-                com.baidu.adp.lib.g.e.e("cache", "get", "cache hit:" + a);
+            if (com.baidu.adp.lib.util.f.a()) {
+                com.baidu.adp.lib.util.f.e("cache", "get", "cache hit:" + a);
             }
             return a2;
         }

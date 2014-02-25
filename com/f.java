@@ -1,27 +1,28 @@
 package com;
 
-import android.graphics.Bitmap;
-import android.net.Uri;
-import com.baidu.cloudsdk.common.imgloader.AsyncImageLoader;
-import com.baidu.cloudsdk.common.imgloader.ImageManager;
-import java.io.File;
+import java.net.Socket;
+import java.security.KeyStore;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import org.apache.http.conn.ssl.SSLSocketFactory;
 /* loaded from: classes.dex */
-class f implements AsyncImageLoader.IAsyncImageLoaderListener {
-    final /* synthetic */ Uri a;
-    final /* synthetic */ ak b;
+class f extends SSLSocketFactory {
+    private SSLContext a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public f(ak akVar, Uri uri) {
-        this.b = akVar;
-        this.a = uri;
+    public f(KeyStore keyStore) {
+        super(keyStore);
+        g gVar = new g(this);
+        this.a = SSLContext.getInstance("TLS");
+        this.a.init(null, new TrustManager[]{gVar}, null);
     }
 
-    @Override // com.baidu.cloudsdk.common.imgloader.AsyncImageLoader.IAsyncImageLoaderListener
-    public void onComplete(Bitmap bitmap) {
-        if (bitmap == null || bitmap.isRecycled()) {
-            this.b.doShare(null);
-            return;
-        }
-        this.b.doShare(Uri.fromFile(new File(ImageManager.getInstance().getCachedFilePath(this.a))));
+    @Override // org.apache.http.conn.ssl.SSLSocketFactory, org.apache.http.conn.scheme.SocketFactory
+    public Socket createSocket() {
+        return this.a.getSocketFactory().createSocket();
+    }
+
+    @Override // org.apache.http.conn.ssl.SSLSocketFactory, org.apache.http.conn.scheme.LayeredSocketFactory
+    public Socket createSocket(Socket socket, String str, int i, boolean z) {
+        return this.a.getSocketFactory().createSocket(socket, str, i, z);
     }
 }

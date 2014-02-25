@@ -1,11 +1,11 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tieba.im.message.au;
+import com.baidu.tieba.im.message.ba;
 /* loaded from: classes.dex */
 public class al extends com.baidu.adp.a.d {
     private int a;
     private int b;
-    private au c;
+    private ba c;
 
     public void a(int i) {
         this.a = i;
@@ -25,11 +25,11 @@ public class al extends com.baidu.adp.a.d {
         return false;
     }
 
-    private au c() {
-        au auVar = new au();
-        auVar.a(this.a);
-        auVar.b(this.b);
-        return auVar;
+    private ba c() {
+        ba baVar = new ba();
+        baVar.a(this.a);
+        baVar.b(this.b);
+        return baVar;
     }
 
     public void a() {

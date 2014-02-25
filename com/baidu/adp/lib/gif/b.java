@@ -1,7 +1,8 @@
 package com.baidu.adp.lib.gif;
 
 import android.graphics.Bitmap;
-import com.google.protobuf.CodedOutputStream;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.MotionEventCompat;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -94,16 +95,16 @@ public class b extends Thread {
                 return z2;
             }
             if (str.endsWith(File.separator)) {
-                file = new File(str + list[i]);
+                file = new File(String.valueOf(str) + list[i]);
             } else {
-                file = new File(str + File.separator + list[i]);
+                file = new File(String.valueOf(str) + File.separator + list[i]);
             }
             if (file.isFile()) {
                 file.delete();
                 z = z2;
             } else if (file.isDirectory()) {
-                a(str + File.separator + list[i]);
-                a(str + File.separator + list[i], true);
+                a(String.valueOf(str) + File.separator + list[i]);
+                a(String.valueOf(str) + File.separator + list[i], true);
                 z = true;
             } else {
                 z = z2;
@@ -118,8 +119,8 @@ public class b extends Thread {
 
     private void a(Bitmap bitmap, String str) {
         try {
-            new File(this.S + File.separator + str + ".png");
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, new FileOutputStream(this.S + File.separator + e() + ".png"));
+            new File(String.valueOf(this.S) + File.separator + str + ".png");
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, new FileOutputStream(String.valueOf(this.S) + File.separator + e() + ".png"));
         } catch (Exception e) {
         }
     }
@@ -256,11 +257,10 @@ public class b extends Thread {
     public c b(int i) {
         int i2 = 0;
         for (c cVar = this.O; cVar != null; cVar = cVar.d) {
-            if (i2 != i) {
-                i2++;
-            } else {
+            if (i2 == i) {
                 return cVar;
             }
+            i2++;
         }
         return null;
     }
@@ -318,7 +318,7 @@ public class b extends Thread {
         return this.d;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:79:0x00e8 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:79:0x00df */
     /* JADX DEBUG: Multi-variable search result rejected for r6v13, resolved type: short */
     /* JADX WARN: Multi-variable type inference failed */
     private void i() {
@@ -337,13 +337,13 @@ public class b extends Thread {
             this.N = new byte[i10];
         }
         if (this.K == null) {
-            this.K = new short[CodedOutputStream.DEFAULT_BUFFER_SIZE];
+            this.K = new short[4096];
         }
         if (this.L == null) {
-            this.L = new byte[CodedOutputStream.DEFAULT_BUFFER_SIZE];
+            this.L = new byte[4096];
         }
         if (this.M == null) {
-            this.M = new byte[4097];
+            this.M = new byte[FragmentTransaction.TRANSIT_FRAGMENT_OPEN];
         }
         int l = l();
         int i11 = 1 << l;
@@ -537,11 +537,11 @@ public class b extends Thread {
                         case 249:
                             o();
                             continue;
-                        case 255:
+                        case MotionEventCompat.ACTION_MASK /* 255 */:
                             m();
                             String str = "";
                             for (int i = 0; i < 11; i++) {
-                                str = str + ((char) this.D[i]);
+                                str = String.valueOf(str) + ((char) this.D[i]);
                             }
                             if (str.equals("NETSCAPE2.0")) {
                                 s();
@@ -583,7 +583,7 @@ public class b extends Thread {
     private void p() {
         String str = "";
         for (int i = 0; i < 6; i++) {
-            str = str + ((char) l());
+            str = String.valueOf(str) + ((char) l());
         }
         if (!str.startsWith("GIF")) {
             this.d = 1;
@@ -633,7 +633,7 @@ public class b extends Thread {
                 if (this.O == null) {
                     if (this.T) {
                         String e = e();
-                        this.O = new c(this.S + File.separator + e + ".png", this.I);
+                        this.O = new c(String.valueOf(this.S) + File.separator + e + ".png", this.I);
                         a(this.z, e);
                     } else {
                         this.O = new c(this.z, this.I);
@@ -646,7 +646,7 @@ public class b extends Thread {
                     }
                     if (this.T) {
                         String e2 = e();
-                        cVar.d = new c(this.S + File.separator + e2 + ".png", this.I);
+                        cVar.d = new c(String.valueOf(this.S) + File.separator + e2 + ".png", this.I);
                         a(this.z, e2);
                     } else {
                         cVar.d = new c(this.z, this.I);

@@ -20,6 +20,7 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.gson.Gson;
 import com.baidu.tieba.data.emotions.WritableEmotionGroup;
 import com.baidu.tieba.editortool.EmotionTabHost;
+import com.baidu.tieba.editortool.ToolMoreView;
 import com.baidu.tieba.im.data.MsgPageData;
 import com.baidu.tieba.im.widget.EggBreakerView;
 import com.baidu.tieba.view.NavigationBar;
@@ -33,71 +34,71 @@ import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public abstract class a extends com.baidu.adp.a.e implements com.baidu.tieba.editortool.t, com.baidu.tieba.voice.ae {
-    private static final String i = a.class.getName();
+public abstract class a extends com.baidu.adp.a.e implements com.baidu.tieba.editortool.z, com.baidu.tieba.voice.ae {
+    private static final String k = a.class.getName();
     private LinearLayout A;
-    private Button B;
-    private Button C;
-    private Button D;
-    private EditText E;
-    private LinearLayout F;
-    private Button G;
-    private Button H;
-    private Button I;
-    private LinearLayout J;
-    private TextView K;
-    private EggBreakerView L;
-    private MsglistActivity M;
-    private bz N;
-    private AlertDialog O;
-    private FrameLayout P;
+    private LinearLayout B;
+    private LinearLayout C;
+    private ImageView D;
+    private ImageView E;
+    private Button F;
+    private EditText G;
+    private ToolMoreView H;
+    private LinearLayout I;
+    private TextView J;
+    private EggBreakerView K;
+    private MsglistActivity L;
+    private ch M;
+    private AlertDialog N;
+    private FrameLayout O;
+    private int P;
     private int Q;
-    private int R;
-    private Handler S;
-    private p T;
-    private VoiceManager.VoiceModel U;
-    private int V;
-    private long W;
+    private Handler R;
+    private p S;
+    private VoiceManager.VoiceModel T;
+    private int U;
+    private long V;
     protected NavigationBar a;
-    protected TextView c;
-    protected EmotionTabHost d;
-    protected AlertDialog e;
+    protected View c;
+    protected ImageView d;
+    protected EmotionTabHost e;
     protected AlertDialog f;
     protected AlertDialog g;
-    protected int h;
-    private final int j;
-    private ImageView k;
-    private TextView l;
+    protected AlertDialog h;
+    protected AlertDialog i;
+    protected int j;
+    private final int l;
     private ImageView m;
-    private ImageView n;
-    private NoNetworkView o;
-    private BdListView p;
-    private ProgressBar q;
-    private LinearLayout r;
-    private Button s;
-    private Button t;
-    private RelativeLayout u;
-    private TextView v;
-    private ImageView w;
-    private LinearLayout x;
-    private LinearLayout y;
+    private TextView n;
+    private ImageView o;
+    private ImageView p;
+    private NoNetworkView q;
+    private BdListView r;
+    private ProgressBar s;
+    private LinearLayout t;
+    private ImageView u;
+    private ImageView v;
+    private RelativeLayout w;
+    private TextView x;
+    private ImageView y;
     private LinearLayout z;
 
-    protected abstract void b(cp cpVar);
+    protected abstract void b(cz czVar);
 
-    protected abstract void c(cp cpVar);
+    protected abstract void c(cz czVar);
 
-    protected abstract void d(cp cpVar);
+    protected abstract void d(cz czVar);
 
-    public a(MsglistActivity msglistActivity, boolean z, int i2) {
+    protected abstract void e(cz czVar);
+
+    public a(MsglistActivity msglistActivity, boolean z, int i) {
         super(msglistActivity);
-        this.j = 100;
+        this.l = 100;
         this.a = null;
-        this.k = null;
-        this.l = null;
-        this.c = null;
         this.m = null;
         this.n = null;
+        this.c = null;
+        this.d = null;
         this.o = null;
         this.p = null;
         this.q = null;
@@ -118,247 +119,242 @@ public abstract class a extends com.baidu.adp.a.e implements com.baidu.tieba.edi
         this.F = null;
         this.G = null;
         this.H = null;
-        this.I = null;
-        this.d = null;
-        this.J = null;
-        this.K = null;
-        this.M = null;
         this.e = null;
+        this.I = null;
+        this.J = null;
+        this.L = null;
         this.f = null;
         this.g = null;
+        this.h = null;
+        this.i = null;
+        this.N = null;
         this.O = null;
-        this.P = null;
-        this.Q = 0;
-        this.R = 5;
-        this.h = 0;
-        this.S = new b(this);
-        this.V = 0;
-        this.W = 0L;
-        this.M = msglistActivity;
-        this.h = i2;
+        this.P = 0;
+        this.Q = 5;
+        this.j = 0;
+        this.R = new b(this);
+        this.U = 0;
+        this.V = 0L;
+        this.L = msglistActivity;
+        this.j = i;
         msglistActivity.setContentView(R.layout.msg_msglist_activity);
         a(msglistActivity, z);
-        e(msglistActivity);
+        f(msglistActivity);
         a(msglistActivity);
         b(msglistActivity);
-        f(msglistActivity);
         g(msglistActivity);
         h(msglistActivity);
         i(msglistActivity);
+        j(msglistActivity);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(cp cpVar, boolean z) {
-        this.a = (NavigationBar) cpVar.findViewById(R.id.lay_title_bar);
-        this.k = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, cpVar);
-        this.l = this.a.a("");
-        cpVar.getLayoutInflater();
-        View inflate = LayoutInflater.from(this.M).inflate(R.layout.msg_chat_top_notify, (ViewGroup) null);
-        this.m = (ImageView) inflate.findViewById(R.id.img_receiver);
-        this.n = (ImageView) inflate.findViewById(R.id.img_close_notify);
+    public void a(cz czVar, boolean z) {
+        this.a = (NavigationBar) czVar.findViewById(R.id.lay_title_bar);
+        this.m = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, czVar);
+        this.n = this.a.a("");
+        czVar.getLayoutInflater();
+        View inflate = LayoutInflater.from(this.L).inflate(R.layout.msg_chat_top_notify, (ViewGroup) null);
+        this.o = (ImageView) inflate.findViewById(R.id.img_receiver);
+        this.p = (ImageView) inflate.findViewById(R.id.img_close_notify);
         this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, inflate, (View.OnClickListener) null);
         if (z) {
-            I();
+            K();
         } else {
-            J();
+            L();
         }
-        this.L = (EggBreakerView) cpVar.findViewById(R.id.egg_breaker);
+        this.K = (EggBreakerView) czVar.findViewById(R.id.egg_breaker);
     }
 
-    private void e(cp cpVar) {
-        this.o = (NoNetworkView) cpVar.findViewById(R.id.view_no_network);
+    private void f(cz czVar) {
+        this.q = (NoNetworkView) czVar.findViewById(R.id.view_no_network);
     }
 
-    public bz a() {
-        return this.N;
+    public ch a() {
+        return this.M;
     }
 
     private void a(MsglistActivity msglistActivity) {
-        this.p = (BdListView) msglistActivity.findViewById(R.id.lis_msg);
-        this.q = (ProgressBar) msglistActivity.findViewById(R.id.msg_progress);
-        this.q.setVisibility(8);
-        this.N = new bz(msglistActivity, this.h);
-        this.N.a((com.baidu.adp.lib.b.a) msglistActivity);
-        this.N.a((com.baidu.adp.lib.b.b) msglistActivity);
-        this.p.setAdapter((ListAdapter) this.N);
-        this.p.setOnScrollListener(new f(this));
-        this.p.setOnSrollToTopListener(msglistActivity);
-        this.p.setOnSrollToBottomListener(msglistActivity);
-        this.p.setItemsCanFocus(true);
-        this.p.setFocusable(false);
-        this.p.setFocusableInTouchMode(false);
-        this.p.setClickable(false);
-        this.p.setOnTouchListener(new g(this));
-        this.p.setKybdsScrollBottom(true);
-        this.p.setRecyclerListener(new h(this));
+        this.r = (BdListView) msglistActivity.findViewById(R.id.lis_msg);
+        this.s = (ProgressBar) msglistActivity.findViewById(R.id.msg_progress);
+        this.s.setVisibility(8);
+        this.M = new ch(msglistActivity, this.j);
+        this.M.a((com.baidu.adp.lib.b.a) msglistActivity);
+        this.M.a((com.baidu.adp.lib.b.b) msglistActivity);
+        this.r.setAdapter((ListAdapter) this.M);
+        this.r.setOnScrollListener(new f(this));
+        this.r.setOnSrollToTopListener(msglistActivity);
+        this.r.setOnSrollToBottomListener(msglistActivity);
+        this.r.setItemsCanFocus(true);
+        this.r.setFocusable(false);
+        this.r.setFocusableInTouchMode(false);
+        this.r.setClickable(false);
+        this.r.setOnTouchListener(new g(this));
+        this.r.setKybdsScrollBottom(true);
+        this.r.setRecyclerListener(new h(this));
     }
 
     private void b(MsglistActivity msglistActivity) {
-        this.r = (LinearLayout) msglistActivity.findViewById(R.id.lay_msgsend_voice);
-        this.r.setVisibility(8);
-        this.s = (Button) msglistActivity.findViewById(R.id.btn_msgsend_softkey);
-        this.s.setOnClickListener(new i(this));
-        this.t = (Button) msglistActivity.findViewById(R.id.btn_msgsend_more1);
-        this.t.setOnClickListener(new k(this));
-        this.u = (RelativeLayout) msglistActivity.findViewById(R.id.btn_msgsend_voice);
-        this.u.setOnTouchListener(msglistActivity);
-        this.v = (TextView) msglistActivity.findViewById(R.id.tex_send_voice);
-        this.x = (LinearLayout) msglistActivity.findViewById(R.id.lay_msgsend_voicelayer);
-        this.x.setVisibility(8);
-        this.w = (ImageView) msglistActivity.findViewById(R.id.img_msgsend_recording);
-        this.y = (LinearLayout) msglistActivity.findViewById(R.id.lay_msgsend_voicelayer_short);
-        this.z = (LinearLayout) msglistActivity.findViewById(R.id.lay_msgsend_voicelayer_cancel);
+        this.t = (LinearLayout) msglistActivity.findViewById(R.id.lay_msgsend_voice);
+        this.t.setVisibility(8);
+        this.u = (ImageView) msglistActivity.findViewById(R.id.btn_msgsend_softkey);
+        this.u.setOnClickListener(new i(this));
+        this.v = (ImageView) msglistActivity.findViewById(R.id.btn_msgsend_more1);
+        this.v.setOnClickListener(new k(this));
+        this.w = (RelativeLayout) msglistActivity.findViewById(R.id.btn_msgsend_voice);
+        this.w.setOnTouchListener(msglistActivity);
+        this.x = (TextView) msglistActivity.findViewById(R.id.tex_send_voice);
+        this.z = (LinearLayout) msglistActivity.findViewById(R.id.lay_msgsend_voicelayer);
+        this.z.setVisibility(8);
+        this.y = (ImageView) msglistActivity.findViewById(R.id.img_msgsend_recording);
+        this.A = (LinearLayout) msglistActivity.findViewById(R.id.lay_msgsend_voicelayer_short);
+        this.B = (LinearLayout) msglistActivity.findViewById(R.id.lay_msgsend_voicelayer_cancel);
     }
 
-    private void f(cp cpVar) {
-        this.A = (LinearLayout) cpVar.findViewById(R.id.lay_msgsend_text);
-        this.A.setVisibility(0);
-        this.B = (Button) cpVar.findViewById(R.id.btn_msgsend_govoice);
-        this.B.setOnClickListener(new l(this));
-        this.C = (Button) cpVar.findViewById(R.id.btn_msgsend_more2);
-        this.C.setOnClickListener(new m(this));
-        this.E = (EditText) cpVar.findViewById(R.id.edt_msgsend_text);
-        this.E.setCursorVisible(false);
-        this.E.setFocusable(true);
-        this.E.setFocusableInTouchMode(true);
-        this.E.addTextChangedListener(new o(this));
-        this.E.setOnTouchListener(new c(this));
-        this.D = (Button) cpVar.findViewById(R.id.btn_msgsend_send);
-        this.D.setOnClickListener(cpVar);
-        this.D.setEnabled(false);
-        this.D.setTextColor(this.M.getResources().getColorStateList(R.color.post_image_btn_color));
+    private void g(cz czVar) {
+        this.C = (LinearLayout) czVar.findViewById(R.id.lay_msgsend_text);
+        this.C.setVisibility(0);
+        this.D = (ImageView) czVar.findViewById(R.id.btn_msgsend_govoice);
+        this.D.setOnClickListener(new l(this));
+        this.E = (ImageView) czVar.findViewById(R.id.btn_msgsend_more2);
+        this.E.setOnClickListener(new m(this));
+        this.G = (EditText) czVar.findViewById(R.id.edt_msgsend_text);
+        this.G.setCursorVisible(false);
+        this.G.setFocusable(true);
+        this.G.setFocusableInTouchMode(true);
+        this.G.addTextChangedListener(new o(this));
+        this.G.setOnTouchListener(new c(this));
+        this.F = (Button) czVar.findViewById(R.id.btn_msgsend_send);
+        this.F.setOnClickListener(czVar);
+        this.F.setEnabled(false);
+        this.F.setTextColor(this.L.getResources().getColorStateList(R.color.post_image_btn_color));
     }
 
-    private void g(cp cpVar) {
-        this.F = (LinearLayout) cpVar.findViewById(R.id.lay_msgsend_more);
-        this.F.setVisibility(8);
-        this.G = (Button) cpVar.findViewById(R.id.btn_msgsend_camera);
-        this.G.setOnClickListener(cpVar);
-        this.H = (Button) cpVar.findViewById(R.id.btn_msgsend_image);
-        this.H.setOnClickListener(cpVar);
-        this.I = (Button) cpVar.findViewById(R.id.btn_msgsend_expression);
-        a(cpVar);
+    private void h(cz czVar) {
+        this.H = (ToolMoreView) czVar.findViewById(R.id.lay_msgsend_more);
+        this.H.setVisibility(8);
+        this.H.setOnClickListener(czVar);
+        this.H.c();
+        a(czVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(cp cpVar) {
-        this.d = (EmotionTabHost) cpVar.findViewById(R.id.face_view);
-        this.d.setOnDataSelected(this);
-        this.d.setIsInChat(true);
-        this.I.setOnClickListener(new d(this));
+    public void a(cz czVar) {
+        this.e = (EmotionTabHost) czVar.findViewById(R.id.face_view);
+        this.e.setOnDataSelected(this);
+        this.e.setIsInChat(true);
+        this.H.getFaceButton().setOnClickListener(new d(this));
     }
 
-    private void h(cp cpVar) {
-        this.J = (LinearLayout) cpVar.findViewById(R.id.lay_last_msg);
-        this.K = (TextView) cpVar.findViewById(R.id.text_last_msg);
-        this.J.setOnClickListener(cpVar);
+    private void i(cz czVar) {
+        this.I = (LinearLayout) czVar.findViewById(R.id.lay_last_msg);
+        this.J = (TextView) czVar.findViewById(R.id.text_last_msg);
+        this.I.setOnClickListener(czVar);
     }
 
-    private void i(cp cpVar) {
-        this.P = (FrameLayout) cpVar.findViewById(R.id.lay_bottom_bar);
+    private void j(cz czVar) {
+        this.O = (FrameLayout) czVar.findViewById(R.id.lay_bottom_bar);
     }
 
     public FrameLayout e() {
-        return this.P;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void P() {
-        a(this.E);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void Q() {
-        this.F.setVisibility(8);
+        return this.O;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void R() {
-        this.d.setVisibility(8);
+        a(this.G);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void S() {
-        this.r.setVisibility(8);
-        this.A.setVisibility(0);
+        this.H.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void T() {
-        this.r.setVisibility(0);
-        this.A.setVisibility(8);
+        this.e.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void U() {
-        X();
-        this.E.requestFocus();
-        a(this.E, 100);
+        this.t.setVisibility(8);
+        this.C.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void V() {
-        this.E.requestFocus();
-        this.d.setVisibility(0);
+        this.t.setVisibility(0);
+        this.C.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void W() {
-        new Handler().postDelayed(new e(this), 100L);
+        Z();
+        this.G.requestFocus();
+        a(this.G, 100);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void X() {
-        List<com.baidu.tieba.im.message.b> b = this.N.b();
+        this.G.requestFocus();
+        this.e.setVisibility(0);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void Y() {
+        new Handler().postDelayed(new e(this), 100L);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void Z() {
+        List<com.baidu.tieba.im.message.b> b = this.M.b();
         if (b != null && b.size() > 0) {
-            this.p.setSelection(b.size() - 1);
+            this.r.setSelection(b.size() - 1);
             p();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Y() {
-        if (this.F.getVisibility() != 0) {
-            if (this.d.getVisibility() == 0) {
-                this.d.setVisibility(8);
-                this.F.setVisibility(0);
+    public void aa() {
+        if (this.H.getVisibility() != 0) {
+            if (this.e.getVisibility() == 0) {
+                this.e.setVisibility(8);
+                this.H.setVisibility(0);
                 return;
             }
-            this.F.setVisibility(0);
+            this.H.setVisibility(0);
         }
     }
 
-    public void a(MsgPageData msgPageData, int i2) {
+    public void a(MsgPageData msgPageData, int i) {
         if (msgPageData != null) {
-            this.N.a(i2);
-            this.N.a(msgPageData.getChatMessages());
-            this.N.notifyDataSetInvalidated();
+            this.M.a(i);
+            this.M.a(msgPageData.getChatMessages());
+            this.M.notifyDataSetInvalidated();
         }
     }
 
     public void a(String str, boolean z) {
-        this.l.setText(str);
-        if (z) {
-        }
+        this.n.setText(str);
     }
 
     public void f() {
-        this.N.notifyDataSetChanged();
+        this.M.notifyDataSetChanged();
     }
 
-    private void b(MsgPageData msgPageData, int i2) {
+    private void b(MsgPageData msgPageData, int i) {
         try {
-            com.baidu.adp.lib.g.e.a(i, "doRefresh", "selection:" + i2);
+            com.baidu.adp.lib.util.f.a(k, "doRefresh", "selection:" + i);
             if (msgPageData != null) {
-                this.N.a();
-                this.N.a(msgPageData.getChatMessages());
-                this.N.notifyDataSetChanged();
-                if (i2 >= 0) {
-                    this.p.setSelection(i2);
+                this.M.a();
+                this.M.a(msgPageData.getChatMessages());
+                this.M.notifyDataSetChanged();
+                if (i >= 0) {
+                    this.r.setSelection(i);
                 }
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b(i, "doRefresh", e.getMessage());
+            com.baidu.adp.lib.util.f.b(k, "doRefresh", e.getMessage());
         }
     }
 
@@ -371,13 +367,13 @@ public abstract class a extends com.baidu.adp.a.e implements com.baidu.tieba.edi
             try {
                 e(msgPageData);
                 int size = msgPageData.getChatMessages().size();
-                int i2 = 0;
+                int i = 0;
                 if (size > 0) {
-                    i2 = size - 1;
+                    i = size - 1;
                 }
-                b(msgPageData, i2);
+                b(msgPageData, i);
             } catch (Exception e) {
-                com.baidu.adp.lib.g.e.b(i, "refreshGo2New", e.getMessage());
+                com.baidu.adp.lib.util.f.b(k, "refreshGo2New", e.getMessage());
                 b(msgPageData, -1);
             }
         }
@@ -385,81 +381,81 @@ public abstract class a extends com.baidu.adp.a.e implements com.baidu.tieba.edi
 
     public void c(MsgPageData msgPageData) {
         try {
-            com.baidu.adp.lib.g.e.a(i, "refreshPrepage", "new:" + msgPageData.getNewAddNum());
-            int firstVisiblePosition = this.p.getFirstVisiblePosition();
-            com.baidu.adp.lib.g.e.d("pos" + firstVisiblePosition);
+            com.baidu.adp.lib.util.f.a(k, "refreshPrepage", "new:" + msgPageData.getNewAddNum());
+            int firstVisiblePosition = this.r.getFirstVisiblePosition();
+            com.baidu.adp.lib.util.f.e("pos" + firstVisiblePosition);
             if (msgPageData.getIsNewAdd()) {
                 int newAddNum = msgPageData.getNewAddNum();
-                com.baidu.adp.lib.g.e.d("num new " + newAddNum);
-                int i2 = firstVisiblePosition + newAddNum;
-                com.baidu.adp.lib.g.e.d("pos2" + i2);
-                b(msgPageData, i2);
+                com.baidu.adp.lib.util.f.e("num new " + newAddNum);
+                int i = firstVisiblePosition + newAddNum;
+                com.baidu.adp.lib.util.f.e("pos2" + i);
+                b(msgPageData, i);
             } else {
                 b(msgPageData, -1);
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b(i, "refreshPrepage", e.getMessage());
+            com.baidu.adp.lib.util.f.b(k, "refreshPrepage", e.getMessage());
             b(msgPageData, -1);
         }
     }
 
     public String g() {
-        String obj = this.E.getText().toString();
-        if (TextUtils.isEmpty(obj)) {
+        String editable = this.G.getText().toString();
+        if (TextUtils.isEmpty(editable)) {
             return null;
         }
-        return obj;
+        return editable;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean Z() {
+    public boolean ab() {
         try {
         } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b(i, "checkTextNum", e.getMessage());
+            com.baidu.adp.lib.util.f.b(k, "checkTextNum", e.getMessage());
         }
-        if (Pattern.compile("\\s*|\t|\r|\n").matcher(this.E.getText().toString()).replaceAll("").length() == 0) {
+        if (Pattern.compile("\\s*|\t|\r|\n").matcher(this.G.getText().toString()).replaceAll("").length() == 0) {
             return false;
         }
         return true;
     }
 
     public void h() {
-        this.E.setText("");
+        this.G.setText("");
     }
 
     public void a(String str) {
+        String editable;
         String str2;
-        String obj = this.E.getText().toString();
-        if (obj.equals("")) {
+        if (this.G.getText().toString().equals("")) {
             str2 = "@" + str + " ";
         } else {
-            str2 = obj + " @" + str + " ";
+            str2 = String.valueOf(editable) + " @" + str + " ";
         }
-        this.E.setText(str2);
-        this.E.setSelection(str2.length());
-        Q();
-        R();
+        this.G.setText(str2);
+        this.G.setSelection(str2.length());
         S();
+        T();
         U();
+        W();
     }
 
     public void a(boolean z) {
         if (z) {
-            this.u.setBackgroundResource(R.drawable.but_talk_s);
-            this.v.setText(this.M.getString(R.string.msglist_no_push));
+            this.w.setBackgroundResource(R.drawable.but_talk_s);
+            this.x.setText(this.L.getString(R.string.msglist_no_push));
             return;
         }
-        this.u.setBackgroundResource(R.drawable.but_talk_n);
-        this.v.setText(this.M.getString(R.string.msglist_push_talk));
+        this.w.setBackgroundResource(R.drawable.but_talk_n);
+        this.x.setText(this.L.getString(R.string.msglist_push_talk));
     }
 
     public void d(MsgPageData msgPageData) {
         if (msgPageData != null) {
             try {
-                com.baidu.adp.lib.g.e.a(i, "refreshCheckNew", "new:" + msgPageData.getNewAddNum());
+                com.baidu.adp.lib.util.f.a(k, "refreshCheckNew", "new:" + msgPageData.getNewAddNum());
                 boolean z = false;
                 if (msgPageData.getIsNewAdd()) {
-                    z = g(msgPageData.getNewAddNum());
+                    z = h(msgPageData.getNewAddNum());
                 }
                 if (z) {
                     b(msgPageData);
@@ -470,144 +466,150 @@ public abstract class a extends com.baidu.adp.a.e implements com.baidu.tieba.edi
                     a(msgPageData.getChatMessages().get(msgPageData.getChatMessages().size() - 1));
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.g.e.b(i, "refreshCheckNew", e.getMessage());
+                com.baidu.adp.lib.util.f.b(k, "refreshCheckNew", e.getMessage());
                 b(msgPageData, -1);
             }
         }
     }
 
     public BdListView i() {
-        return this.p;
+        return this.r;
     }
 
-    private boolean g(int i2) {
-        List<com.baidu.tieba.im.message.b> b = this.N.b();
+    private boolean h(int i) {
+        List<com.baidu.tieba.im.message.b> b = this.M.b();
         if (b == null) {
             return false;
         }
-        if (b.size() <= i2) {
+        if (b.size() <= i) {
             return true;
         }
-        com.baidu.adp.lib.g.e.e("simon", "checkListAtNew", "lastVisiblePosition = " + this.p.getLastVisiblePosition());
-        com.baidu.adp.lib.g.e.e("simon", "checkListAtNew", "data.size = " + b.size());
-        com.baidu.adp.lib.g.e.e("simon", "checkListAtNew", "num = " + i2);
-        return this.p.getLastVisiblePosition() == (b.size() - (this.h == 2 ? 0 : 1)) - i2;
+        com.baidu.adp.lib.util.f.e("simon", "checkListAtNew", "lastVisiblePosition = " + this.r.getLastVisiblePosition());
+        com.baidu.adp.lib.util.f.e("simon", "checkListAtNew", "data.size = " + b.size());
+        com.baidu.adp.lib.util.f.e("simon", "checkListAtNew", "num = " + i);
+        return this.r.getLastVisiblePosition() == (b.size() - (this.j == 2 ? 0 : 1)) - i;
     }
 
     public void j() {
-        this.x.setVisibility(0);
-    }
-
-    public void k() {
-        this.x.setVisibility(8);
-    }
-
-    public void l() {
-        this.y.setVisibility(0);
-    }
-
-    public void m() {
-        this.y.setVisibility(8);
-    }
-
-    public void n() {
         this.z.setVisibility(0);
     }
 
-    public void o() {
+    public void k() {
         this.z.setVisibility(8);
     }
 
+    public void l() {
+        this.A.setVisibility(0);
+    }
+
+    public void m() {
+        this.A.setVisibility(8);
+    }
+
+    public void n() {
+        this.B.setVisibility(0);
+    }
+
+    public void o() {
+        this.B.setVisibility(8);
+    }
+
     private void a(com.baidu.tieba.im.message.b bVar) {
-        if (bVar != null && !com.baidu.tieba.im.d.d.d(bVar)) {
+        if (bVar != null && !com.baidu.tieba.im.util.l.d(bVar)) {
             String b = b(bVar);
             if (!TextUtils.isEmpty(b)) {
-                this.J.setVisibility(0);
-                this.K.setText(b);
+                this.I.setVisibility(0);
+                this.J.setText(b);
             }
         }
     }
 
     private String b(com.baidu.tieba.im.message.b bVar) {
-        return com.baidu.tieba.im.d.d.h(bVar);
+        return com.baidu.tieba.im.util.l.i(bVar);
     }
 
     public void p() {
-        if (this.J.getVisibility() == 0) {
-            this.J.setVisibility(8);
-            this.K.setText("");
+        if (this.I.getVisibility() == 0) {
+            this.I.setVisibility(8);
+            this.J.setText("");
         }
     }
 
-    public void a(int i2) {
-        b((cp) this.M);
-        this.e.getListView().setTag(Integer.valueOf(i2));
-        this.e.show();
-    }
-
-    public void b(int i2) {
-        c(this.M);
-        this.f.getListView().setTag(Integer.valueOf(i2));
+    public void a(int i) {
+        b((cz) this.L);
+        this.f.getListView().setTag(Integer.valueOf(i));
         this.f.show();
     }
 
-    public void c(int i2) {
-        d(this.M);
-        this.g.getListView().setTag(Integer.valueOf(i2));
+    public void b(int i) {
+        c(this.L);
+        this.g.getListView().setTag(Integer.valueOf(i));
         this.g.show();
     }
 
+    public void c(int i) {
+        d(this.L);
+        this.h.getListView().setTag(Integer.valueOf(i));
+        this.h.show();
+    }
+
+    public void d(int i) {
+        e(this.L);
+        this.i.getListView().setTag(Integer.valueOf(i));
+        this.i.show();
+    }
+
     public void q() {
-        this.q.setVisibility(8);
+        this.s.setVisibility(8);
     }
 
     public void r() {
-        this.o.setVisible(true);
+        this.q.setVisible(true);
     }
 
     public void s() {
-        this.o.setVisible(false);
+        this.q.setVisible(false);
     }
 
     public boolean t() {
-        return this.d.getVisibility() == 0 || this.F.getVisibility() == 0;
+        return this.e.getVisibility() == 0 || this.H.getVisibility() == 0;
     }
 
     public void u() {
-        if (this.d.getVisibility() == 0) {
-            this.d.setVisibility(8);
+        if (this.e.getVisibility() == 0) {
+            this.e.setVisibility(8);
         }
-        if (this.F.getVisibility() == 0) {
-            this.F.setVisibility(8);
+        if (this.H.getVisibility() == 0) {
+            this.H.setVisibility(8);
         }
     }
 
     public ImageView v() {
-        return this.k;
+        return this.m;
     }
 
     public Button w() {
-        return this.D;
+        return this.F;
     }
 
-    public Button x() {
-        return this.G;
+    public View x() {
+        return this.H.getFaceButton();
     }
 
-    public Button y() {
-        return this.H;
+    public View y() {
+        return this.H.getCameraButton();
     }
 
-    public TextView z() {
+    public View z() {
+        return this.H.getImageButton();
+    }
+
+    public View A() {
         return this.c;
     }
 
-    public RelativeLayout A() {
-        return this.u;
-    }
-
-    public AlertDialog B() {
-        return this.e;
+    public RelativeLayout B() {
+        return this.w;
     }
 
     public AlertDialog C() {
@@ -618,121 +620,127 @@ public abstract class a extends com.baidu.adp.a.e implements com.baidu.tieba.edi
         return this.g;
     }
 
-    public LinearLayout E() {
-        return this.J;
+    public AlertDialog E() {
+        return this.h;
+    }
+
+    public AlertDialog F() {
+        return this.i;
+    }
+
+    public LinearLayout G() {
+        return this.I;
     }
 
     @Override // com.baidu.tieba.voice.ae
     public void b(boolean z) {
-        if (z) {
-        }
     }
 
     @Override // com.baidu.tieba.voice.ae
-    public void F() {
+    public void H() {
     }
 
     @Override // com.baidu.tieba.voice.ae
-    public void a(int i2, String str) {
-        if (!com.baidu.adp.lib.g.m.a(str)) {
-            com.baidu.adp.lib.g.e.c("----record error. " + i2 + "---errMsg:" + str);
-            if (i2 == 3) {
-                this.M.showToast(str);
+    public void a(int i, String str) {
+        if (!com.baidu.adp.lib.util.m.a(str)) {
+            com.baidu.adp.lib.util.f.d("----record error. " + i + "---errMsg:" + str);
+            if (i == 3) {
+                this.L.showToast(str);
                 k();
-            } else if (i2 == 2) {
+            } else if (i == 2) {
                 o();
                 m();
                 l();
-                this.S.sendMessageDelayed(this.S.obtainMessage(1), 500L);
+                this.R.sendMessageDelayed(this.R.obtainMessage(1), 500L);
             } else {
-                this.M.showToast(str);
+                this.L.showToast(str);
             }
         }
     }
 
     @Override // com.baidu.tieba.voice.ae
-    public void a(String str, int i2) {
+    public void a(String str, int i) {
         VoiceManager.VoiceModel voiceModel = new VoiceManager.VoiceModel();
-        voiceModel.duration = i2;
+        voiceModel.duration = i;
         voiceModel.voiceId = str;
         voiceModel.voice_status = 1;
-        this.U = voiceModel;
-        if (this.T != null) {
-            this.T.a(voiceModel);
+        this.T = voiceModel;
+        if (this.S != null) {
+            this.S.a(voiceModel);
         }
     }
 
     @Override // com.baidu.tieba.voice.ae
     public void b(String str) {
-        this.U = null;
-        if (this.T != null) {
-            this.T.a();
+        this.T = null;
+        if (this.S != null) {
+            this.S.a();
         }
     }
 
     @Override // com.baidu.tieba.voice.ae
-    public void d(int i2) {
+    public void e(int i) {
     }
 
     @Override // com.baidu.tieba.voice.ae
-    public void e(int i2) {
-        this.V = Math.max(i2, this.V);
+    public void f(int i) {
+        this.U = Math.max(i, this.U);
         long uptimeMillis = SystemClock.uptimeMillis();
-        if (uptimeMillis - this.W > 150) {
-            this.V = 0;
-            this.W = uptimeMillis;
+        if (uptimeMillis - this.V > 150) {
+            this.U = 0;
+            this.V = uptimeMillis;
         }
-        this.Q++;
-        if (this.Q % this.R == 0) {
-            this.Q = 0;
-            if (this.V < 2) {
-                this.w.setImageResource(R.drawable.icon_chat_talk_sound_up_zero);
-            } else if (this.V < 10) {
-                this.w.setImageResource(R.drawable.icon_chat_talk_sound_up_one);
-            } else if (this.V < 20) {
-                this.w.setImageResource(R.drawable.icon_chat_talk_sound_up_two);
-            } else if (this.V < 30) {
-                this.w.setImageResource(R.drawable.icon_chat_talk_sound_up_three);
-            } else if (this.V < 40) {
-                this.w.setImageResource(R.drawable.icon_chat_talk_sound_up_four);
-            } else if (this.V < 50) {
-                this.w.setImageResource(R.drawable.icon_chat_talk_sound_up_five);
+        this.P++;
+        if (this.P % this.Q == 0) {
+            this.P = 0;
+            if (this.U < 2) {
+                this.y.setImageResource(R.drawable.icon_chat_talk_sound_up_zero);
+            } else if (this.U < 10) {
+                this.y.setImageResource(R.drawable.icon_chat_talk_sound_up_one);
+            } else if (this.U < 20) {
+                this.y.setImageResource(R.drawable.icon_chat_talk_sound_up_two);
+            } else if (this.U < 30) {
+                this.y.setImageResource(R.drawable.icon_chat_talk_sound_up_three);
+            } else if (this.U < 40) {
+                this.y.setImageResource(R.drawable.icon_chat_talk_sound_up_four);
+            } else if (this.U < 50) {
+                this.y.setImageResource(R.drawable.icon_chat_talk_sound_up_five);
             } else {
-                this.w.setImageResource(R.drawable.icon_chat_talk_sound_up_three);
+                this.y.setImageResource(R.drawable.icon_chat_talk_sound_up_three);
             }
         }
     }
 
     public void a(p pVar) {
-        this.T = pVar;
-    }
-
-    public void G() {
-        this.m.setVisibility(8);
-    }
-
-    public void H() {
-        this.m.setVisibility(0);
+        this.S = pVar;
     }
 
     public void I() {
-        this.n.setVisibility(8);
+        this.o.setVisibility(8);
     }
 
     public void J() {
-        this.n.setVisibility(0);
+        this.o.setVisibility(0);
+    }
+
+    public void K() {
+        this.p.setVisibility(8);
+    }
+
+    public void L() {
+        this.p.setVisibility(0);
     }
 
     public void c(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.E.setText(jSONObject.getString("input_draft"));
-                this.E.setSelection(this.E.getText().toString().length());
+                this.G.setText(jSONObject.getString("input_draft"));
+                this.G.setSelection(this.G.getText().toString().length());
                 if (jSONObject.getString("input_status").equals("input_voice")) {
-                    T();
+                    V();
                 } else {
-                    S();
+                    U();
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -740,94 +748,95 @@ public abstract class a extends com.baidu.adp.a.e implements com.baidu.tieba.edi
         }
     }
 
-    public String K() {
+    public String M() {
         String str;
-        if (this.A.getVisibility() == 0) {
+        if (this.C.getVisibility() == 0) {
             str = "input_text";
         } else {
             str = "input_voice";
         }
         HashMap hashMap = new HashMap();
-        hashMap.put("input_draft", this.E.getText().toString());
+        hashMap.put("input_draft", this.G.getText().toString());
         hashMap.put("input_status", str);
         return new Gson().toJson(hashMap);
     }
 
-    public void L() {
-        if (this.S != null) {
-            this.S.removeMessages(1);
+    public void N() {
+        if (this.R != null) {
+            this.R.removeMessages(1);
         }
     }
 
     private void e(MsgPageData msgPageData) {
         int size;
         if (msgPageData != null && msgPageData.getChatMessages() != null && msgPageData.getChatMessages().size() != 0 && (size = msgPageData.getChatMessages().size()) > 100) {
-            com.baidu.adp.lib.g.e.d("++++++ num = " + size);
-            int i2 = size - 100;
-            com.baidu.adp.lib.g.e.d("++++++ removeCount= " + i2);
-            for (int i3 = 0; i3 < i2; i3++) {
+            com.baidu.adp.lib.util.f.e("++++++ num = " + size);
+            int i = size - 100;
+            com.baidu.adp.lib.util.f.e("++++++ removeCount= " + i);
+            for (int i2 = 0; i2 < i; i2++) {
                 msgPageData.getChatMessages().remove(0);
             }
         }
     }
 
-    public void a(int i2, com.baidu.tieba.im.message.b bVar) {
-        bVar.a(i2);
-        this.N.a(bVar);
+    public void a(int i, com.baidu.tieba.im.message.b bVar) {
+        bVar.a(i);
+        this.M.a(bVar);
     }
 
-    public void f(int i2) {
+    public void g(int i) {
         this.a.c(0);
-        this.o.a(0);
-        this.d.b(0);
+        this.q.a(0);
+        this.e.b(0);
+        this.H.a(0);
     }
 
-    public com.baidu.tieba.util.i M() {
-        if (this.N != null) {
-            return this.N.c();
+    public com.baidu.tieba.util.i O() {
+        if (this.M != null) {
+            return this.M.c();
         }
         return null;
     }
 
-    @Override // com.baidu.tieba.editortool.t
-    public void a(int i2, Object obj) {
-        if (i2 == 20) {
-            if (obj != null && (obj instanceof com.baidu.tieba.editortool.q)) {
-                com.baidu.tieba.editortool.q qVar = (com.baidu.tieba.editortool.q) obj;
-                WritableEmotionGroup.EmotionGroupType b = qVar.b();
-                String a = qVar.a();
+    @Override // com.baidu.tieba.editortool.z
+    public void a(int i, Object obj) {
+        if (i == 20) {
+            if (obj != null && (obj instanceof com.baidu.tieba.editortool.w)) {
+                com.baidu.tieba.editortool.w wVar = (com.baidu.tieba.editortool.w) obj;
+                WritableEmotionGroup.EmotionGroupType b = wVar.b();
+                String a = wVar.a();
                 if (b == WritableEmotionGroup.EmotionGroupType.LOCAL) {
                     if (a != null) {
-                        this.E.getText().insert(this.E.getSelectionStart(), a);
+                        this.G.getText().insert(this.G.getSelectionStart(), a);
                     }
                 } else if (a != null) {
-                    this.M.a(qVar);
+                    this.L.a(wVar);
                 }
             }
-        } else if (i2 == 21 && this.E.getSelectionStart() > 0) {
-            String substring = this.E.getText().toString().substring(0, this.E.getSelectionStart());
+        } else if (i == 21 && this.G.getSelectionStart() > 0) {
+            String substring = this.G.getText().toString().substring(0, this.G.getSelectionStart());
             Matcher matcher = Pattern.compile("#\\([^#\\)\\(]+\\)$").matcher(substring);
             if (matcher.find()) {
-                this.E.getText().delete(this.E.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.E.getSelectionStart());
+                this.G.getText().delete(this.G.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.G.getSelectionStart());
                 return;
             }
-            this.E.getText().delete(this.E.getSelectionStart() - 1, this.E.getSelectionStart());
+            this.G.getText().delete(this.G.getSelectionStart() - 1, this.G.getSelectionStart());
         }
     }
 
-    public void N() {
-        this.G.setEnabled(false);
-        this.H.setEnabled(false);
-        this.u.setEnabled(false);
-        this.B.setEnabled(false);
-        this.I.setEnabled(false);
-        this.t.setEnabled(false);
-        this.C.setEnabled(false);
-        this.E.setEnabled(false);
+    public void P() {
+        y().setEnabled(false);
+        z().setEnabled(false);
+        this.w.setEnabled(false);
         this.D.setEnabled(false);
+        x().setEnabled(false);
+        this.v.setEnabled(false);
+        this.E.setEnabled(false);
+        this.G.setEnabled(false);
+        this.F.setEnabled(false);
     }
 
-    public EggBreakerView O() {
-        return this.L;
+    public EggBreakerView Q() {
+        return this.K;
     }
 }

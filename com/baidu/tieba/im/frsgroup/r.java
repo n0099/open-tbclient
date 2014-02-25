@@ -1,16 +1,23 @@
 package com.baidu.tieba.im.frsgroup;
 
-import android.content.DialogInterface;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tieba.util.ap;
 /* loaded from: classes.dex */
-class r implements DialogInterface.OnClickListener {
-    final /* synthetic */ p a;
+class r implements Runnable {
+    final /* synthetic */ MembersActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(p pVar) {
-        this.a = pVar;
+    public r(MembersActivity membersActivity) {
+        this.a = membersActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
+    @Override // java.lang.Runnable
+    public void run() {
+        ae aeVar;
+        ae aeVar2;
+        aeVar = this.a.b;
+        BdListView l = aeVar.l();
+        aeVar2 = this.a.b;
+        ap.a(l, aeVar2.i().e(), 1, 0);
     }
 }

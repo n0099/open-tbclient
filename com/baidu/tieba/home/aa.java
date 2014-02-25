@@ -3,10 +3,11 @@ package com.baidu.tieba.home;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
+import com.baidu.tieba.util.ba;
 /* loaded from: classes.dex */
 public class aa {
-    private static final String b = com.baidu.tieba.data.h.a + "c/c/forum/msign";
-    private com.baidu.tieba.util.ax a = null;
+    private static final String b = String.valueOf(com.baidu.tieba.data.i.a) + "c/c/forum/msign";
+    private ba a = null;
 
     public String a(String str) {
         AccountData E = TiebaApplication.E();
@@ -14,7 +15,7 @@ public class aa {
         if (E != null) {
             str2 = E.getID();
         }
-        this.a = new com.baidu.tieba.util.ax(b);
+        this.a = new ba(b);
         this.a.a(PushConstants.EXTRA_USER_ID, str2);
         this.a.a("forum_ids", str);
         this.a.c(true);

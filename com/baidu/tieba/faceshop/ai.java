@@ -1,8 +1,8 @@
 package com.baidu.tieba.faceshop;
 
-import com.slidingmenu.lib.R;
+import com.baidu.tieba.view.by;
 /* loaded from: classes.dex */
-class ai extends com.baidu.adp.a.g {
+class ai implements by {
     final /* synthetic */ FacePurchaseRecordsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,32 +10,10 @@ class ai extends com.baidu.adp.a.g {
         this.a = facePurchaseRecordsActivity;
     }
 
-    @Override // com.baidu.adp.a.g
-    public void a(Object obj) {
-        aq aqVar;
-        aq aqVar2;
-        aq aqVar3;
-        this.a.hideProgressBar();
-        if (obj != null && (obj instanceof FacePurchaseRecordsData)) {
-            aqVar = this.a.a;
-            if (aqVar != null) {
-                FacePurchaseRecordsData facePurchaseRecordsData = (FacePurchaseRecordsData) obj;
-                if (facePurchaseRecordsData.errno == 0 && facePurchaseRecordsData.usermsg != null) {
-                    aqVar3 = this.a.a;
-                    aqVar3.a(facePurchaseRecordsData);
-                    return;
-                } else if (facePurchaseRecordsData.usermsg != null) {
-                    this.a.showToast(facePurchaseRecordsData.usermsg);
-                    aqVar2 = this.a.a;
-                    aqVar2.c();
-                    return;
-                } else {
-                    this.a.showToast(R.string.neterror);
-                    return;
-                }
-            }
-            return;
+    @Override // com.baidu.tieba.view.by
+    public void a(boolean z) {
+        if (z) {
+            this.a.a(true);
         }
-        this.a.showToast(R.string.neterror);
     }
 }

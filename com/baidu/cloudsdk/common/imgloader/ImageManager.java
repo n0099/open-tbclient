@@ -8,7 +8,7 @@ import com.baidu.cloudsdk.common.imgloader.AsyncImageLoader;
 import com.baidu.cloudsdk.common.imgloader.MemoryBitmapCache;
 import com.baidu.cloudsdk.common.util.Utils;
 import com.baidu.cloudsdk.common.util.Validator;
-import com.bg;
+import com.h;
 import com.j;
 /* loaded from: classes.dex */
 public class ImageManager {
@@ -18,7 +18,7 @@ public class ImageManager {
     private static ImageManager d;
     private int c = 19656;
     private MemoryBitmapCache a = new MemoryBitmapCache(20);
-    private bg b = new bg(DEFAULT_STORAGE_PATH, 1, this.c, this.a);
+    private h b = new h(DEFAULT_STORAGE_PATH, 1, this.c, this.a);
 
     private ImageManager() {
     }

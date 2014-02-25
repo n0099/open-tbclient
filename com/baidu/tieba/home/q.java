@@ -1,22 +1,29 @@
 package com.baidu.tieba.home;
 
-import android.app.Activity;
-import android.view.View;
-import com.baidu.tieba.account.SapiFastRegActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class q implements View.OnClickListener {
-    final /* synthetic */ o a;
+public class q {
+    private int a = -1;
+    private String b = null;
+    private String c = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public q(o oVar) {
-        this.a = oVar;
+    public int a() {
+        return this.a;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Activity activity;
-        activity = this.a.a;
-        SapiFastRegActivity.a(activity, 22002);
+    public String b() {
+        return this.c;
+    }
+
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.a = jSONObject.optInt("errno");
+                this.b = jSONObject.optString("errmsg");
+                this.c = jSONObject.optString("usermsg");
+            } catch (Exception e) {
+                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
+            }
+        }
     }
 }

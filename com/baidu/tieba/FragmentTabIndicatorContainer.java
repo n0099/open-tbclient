@@ -7,21 +7,21 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class FragmentTabIndicatorContainer extends FrameLayout {
-    private FragmentTabIndicator a;
-    private HashMap<String, w> b;
+    public FragmentTabIndicator a;
+    private HashMap<String, q> b;
 
-    public void a(String str, w wVar) {
-        if (wVar != null && wVar.c != null) {
-            this.b.put(str, wVar);
-            addView(wVar.c);
+    public void a(String str, q qVar) {
+        if (qVar != null && qVar.c != null) {
+            this.b.put(str, qVar);
+            addView(qVar.c);
         }
     }
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        for (Map.Entry<String, w> entry : this.b.entrySet()) {
-            w value = entry.getValue();
+        for (Map.Entry<String, q> entry : this.b.entrySet()) {
+            q value = entry.getValue();
             if (value.c != null && value.c.getVisibility() == 0) {
                 int measuredWidth = (getMeasuredWidth() / 2) + value.a;
                 int i5 = value.b;
@@ -50,5 +50,12 @@ public class FragmentTabIndicatorContainer extends FrameLayout {
             this.a = (FragmentTabIndicator) getChildAt(0);
         }
         this.a.a(i);
+    }
+
+    public void setText(String str) {
+        if (this.a == null) {
+            this.a = (FragmentTabIndicator) getChildAt(0);
+        }
+        this.a.setText(str);
     }
 }

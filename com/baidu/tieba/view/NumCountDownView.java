@@ -14,8 +14,8 @@ public class NumCountDownView extends LinearLayout {
     private TextView c;
     private String d;
     private String e;
-    private com.baidu.tieba.util.bv f;
-    private bt g;
+    private com.baidu.tieba.util.bt f;
+    private ca g;
 
     public NumCountDownView(Context context) {
         super(context);
@@ -43,12 +43,12 @@ public class NumCountDownView extends LinearLayout {
     }
 
     public void a(long j, long j2) {
-        this.f = new bs(this, j, j2);
+        this.f = new bz(this, j, j2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(long j) {
-        this.d = String.valueOf(j / 1000) + "\"";
+        this.d = String.valueOf(String.valueOf(j / 1000)) + "\"";
         this.b.setText(this.d);
     }
 
@@ -64,7 +64,7 @@ public class NumCountDownView extends LinearLayout {
         }
     }
 
-    public void setOnFinishlistener(bt btVar) {
-        this.g = btVar;
+    public void setOnFinishlistener(ca caVar) {
+        this.g = caVar;
     }
 }

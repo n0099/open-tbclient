@@ -1,20 +1,27 @@
 package com.baidu.tieba.view;
 
-import android.view.View;
+import android.content.Context;
+import android.widget.TextView;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class cw implements com.baidu.tbadk.imageManager.c {
-    final /* synthetic */ UserIconBox a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public cw(UserIconBox userIconBox) {
-        this.a = userIconBox;
+public class cw extends com.baidu.adp.widget.ScrollView.q {
+    public cw(Context context) {
+        super(context);
     }
 
-    @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
-        View findViewWithTag = this.a.findViewWithTag(str);
-        if (findViewWithTag != null && dVar != null) {
-            findViewWithTag.invalidate();
+    public void a(int i) {
+        TextView d = d();
+        TextView c = c();
+        if (d != null && c != null) {
+            if (i == 1) {
+                int color = h().getResources().getColor(R.color.adp_pullview_night);
+                d.setTextColor(color);
+                c.setTextColor(color);
+                return;
+            }
+            int color2 = h().getResources().getColor(R.color.adp_pullview_day);
+            d.setTextColor(color2);
+            c.setTextColor(color2);
         }
     }
 }

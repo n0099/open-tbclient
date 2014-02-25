@@ -1,5 +1,6 @@
 package com.baidu.adp.lib.webSocket;
 
+import com.baidu.adp.lib.util.BdUtilHelper;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.http.message.BasicNameValuePair;
@@ -30,8 +31,8 @@ public class m {
         this.e = str2;
         this.d = strArr;
         this.c = list;
-        if (k()) {
-            com.baidu.adp.lib.g.e.d("----ws init " + str);
+        if (j()) {
+            com.baidu.adp.lib.util.f.e("----ws init " + str);
         }
     }
 
@@ -41,14 +42,14 @@ public class m {
     }
 
     public boolean b() {
-        if (k()) {
-            com.baidu.adp.lib.g.g.a();
-            com.baidu.adp.lib.g.e.d("----open");
+        if (j()) {
+            BdUtilHelper.b();
+            com.baidu.adp.lib.util.f.e("----open");
         }
         if (this.f != null) {
             if (this.f.e() || this.f.f()) {
-                if (k()) {
-                    com.baidu.adp.lib.g.e.d("----WebSocketConnection connecting");
+                if (j()) {
+                    com.baidu.adp.lib.util.f.e("----WebSocketConnection connecting");
                 }
                 return true;
             }
@@ -73,33 +74,29 @@ public class m {
             this.f = null;
             oVar.a(i, (String) null);
             if (this.f != null) {
-                com.baidu.adp.lib.g.e.a("close is opened and thread is leaded!!!");
+                com.baidu.adp.lib.util.f.b("close is opened and thread is leaded!!!");
                 this.f = null;
             }
         }
     }
 
-    public void c() {
-        a(1);
-    }
-
-    public boolean d() {
-        if (k()) {
-            com.baidu.adp.lib.g.g.a();
+    public boolean c() {
+        if (j()) {
+            BdUtilHelper.b();
         }
         return (this.f == null || !this.f.f() || this.f.d()) ? false : true;
     }
 
-    public boolean e() {
-        if (k()) {
-            com.baidu.adp.lib.g.g.a();
+    public boolean d() {
+        if (j()) {
+            BdUtilHelper.b();
         }
         return this.f != null && this.f.f();
     }
 
-    public boolean f() {
-        if (k()) {
-            com.baidu.adp.lib.g.g.a();
+    public boolean e() {
+        if (j()) {
+            BdUtilHelper.b();
         }
         return this.f != null && this.f.e();
     }
@@ -108,7 +105,7 @@ public class m {
         boolean z = false;
         synchronized (this) {
             if (dVar != null) {
-                com.baidu.adp.lib.g.g.a();
+                BdUtilHelper.b();
                 if (this.f != null) {
                     z = this.f.a(dVar);
                 } else if (dVar != null) {
@@ -130,30 +127,30 @@ public class m {
         return false;
     }
 
-    private boolean k() {
-        return com.baidu.adp.a.b.a().b();
+    private boolean j() {
+        return com.baidu.adp.a.b.a().d();
     }
 
-    public void g() {
+    public void f() {
         if (this.f != null) {
             this.f.g();
         }
     }
 
-    public long h() {
+    public long g() {
         if (this.f != null) {
             return this.f.h();
         }
         return 0L;
     }
 
-    public void i() {
+    public void h() {
         if (this.f != null) {
             this.f.i();
         }
     }
 
-    public long j() {
+    public long i() {
         if (this.f != null) {
             return this.f.j();
         }

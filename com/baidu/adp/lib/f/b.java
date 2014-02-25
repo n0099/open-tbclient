@@ -23,6 +23,17 @@ public abstract class b {
         return j;
     }
 
+    public static float a(String str, float f) {
+        if (str != null) {
+            try {
+                return Float.parseFloat(str);
+            } catch (Exception e) {
+                return f;
+            }
+        }
+        return f;
+    }
+
     public static double a(String str, double d) {
         if (str != null) {
             try {

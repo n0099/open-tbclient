@@ -13,7 +13,7 @@ public class q implements Runnable {
         this.a = jigsawAlbumListActivity;
     }
 
-    /* JADX WARN: Incorrect condition in loop: B:12:0x0046 */
+    /* JADX WARN: Incorrect condition in loop: B:13:0x0047 */
     @Override // java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -47,7 +47,7 @@ public class q implements Runnable {
             viewphotoLinkedHashMap = this.a.h;
             if (viewphotoLinkedHashMap.size() != 0) {
                 i3 = JigsawAlbumListActivity.j;
-                int unused = JigsawAlbumListActivity.k = i3;
+                JigsawAlbumListActivity.k = i3;
                 for (i4 = JigsawAlbumListActivity.k; i4 < i5 + i2; i4++) {
                     i8 = JigsawAlbumListActivity.k;
                     i9 = JigsawAlbumListActivity.j;

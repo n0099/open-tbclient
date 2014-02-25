@@ -22,7 +22,7 @@ public class ShutDownValidateTipView extends FrameLayout {
     private TextView e;
     private Context g;
     private boolean h;
-    private ArrayList<cg> i;
+    private ArrayList<cn> i;
 
     public ShutDownValidateTipView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -81,7 +81,7 @@ public class ShutDownValidateTipView extends FrameLayout {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation.setFillAfter(true);
                 alphaAnimation.setDuration(500L);
-                alphaAnimation.setAnimationListener(new ce(this));
+                alphaAnimation.setAnimationListener(new cl(this));
                 setVisibility(0);
                 startAnimation(alphaAnimation);
                 for (int i = 0; i < this.i.size(); i++) {
@@ -91,7 +91,7 @@ public class ShutDownValidateTipView extends FrameLayout {
                 AlphaAnimation alphaAnimation2 = new AlphaAnimation(1.0f, 0.0f);
                 alphaAnimation2.setFillAfter(true);
                 alphaAnimation2.setDuration(500L);
-                alphaAnimation2.setAnimationListener(new cf(this));
+                alphaAnimation2.setAnimationListener(new cm(this));
                 startAnimation(alphaAnimation2);
                 for (int i2 = 0; i2 < this.i.size(); i2++) {
                     this.i.get(i2).a(true);

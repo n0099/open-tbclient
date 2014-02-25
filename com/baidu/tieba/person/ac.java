@@ -1,25 +1,24 @@
 package com.baidu.tieba.person;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-public class ac extends com.baidu.adp.a.g {
-    final /* synthetic */ MoreDiscoveryActivity a;
+class ac implements DialogInterface.OnClickListener {
+    final /* synthetic */ EditMarkActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(MoreDiscoveryActivity moreDiscoveryActivity) {
-        this.a = moreDiscoveryActivity;
+    public ac(EditMarkActivity editMarkActivity) {
+        this.a = editMarkActivity;
     }
 
-    @Override // com.baidu.adp.a.g
-    public void a(Object obj) {
-        ah ahVar;
-        ah ahVar2;
-        ae aeVar;
-        boolean unused = MoreDiscoveryActivity.e = true;
-        ahVar = this.a.b;
-        if (ahVar != null) {
-            ahVar2 = this.a.b;
-            aeVar = this.a.c;
-            ahVar2.a(aeVar, ((Boolean) obj).booleanValue());
-        }
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        ad adVar;
+        com.baidu.tieba.model.g gVar;
+        com.baidu.tieba.model.g gVar2;
+        adVar = this.a.b;
+        gVar = this.a.a;
+        adVar.a(gVar.a());
+        gVar2 = this.a.a;
+        gVar2.a((Boolean) true);
     }
 }

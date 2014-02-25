@@ -1,21 +1,30 @@
 package com.baidu.tieba.view;
-
-import android.app.Activity;
-import android.view.View;
-import com.baidu.tieba.barcode.CaptureActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cc implements View.OnClickListener {
-    final /* synthetic */ SearchBoxView a;
+public class cc implements Runnable {
+    final /* synthetic */ cb a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cc(SearchBoxView searchBoxView) {
-        this.a = searchBoxView;
+    public cc(cb cbVar) {
+        this.a = cbVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Activity activity;
-        activity = this.a.a;
-        CaptureActivity.a(activity, 16003);
+    @Override // java.lang.Runnable
+    public void run() {
+        int i;
+        int i2;
+        int i3;
+        this.a.f = true;
+        cb cbVar = this.a;
+        i = cbVar.i;
+        cbVar.i = i + 30;
+        i2 = this.a.i;
+        if (i2 > 360) {
+            cb cbVar2 = this.a;
+            i3 = cbVar2.i;
+            cbVar2.i = i3 - 360;
+        }
+        this.a.invalidate(this.a.getRotateInvalidRect());
+        this.a.postDelayed(this.a.e, 50L);
     }
 }

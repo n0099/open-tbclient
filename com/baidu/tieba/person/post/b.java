@@ -3,25 +3,25 @@ package com.baidu.tieba.person.post;
 import com.baidu.tieba.view.HeadImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b implements com.baidu.tbadk.imageManager.c {
-    final /* synthetic */ String a;
-    final /* synthetic */ a b;
+public class b implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ a a;
+    private final /* synthetic */ String b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar, String str) {
-        this.b = aVar;
-        this.a = str;
+        this.a = aVar;
+        this.b = str;
     }
 
-    @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
-        com.baidu.adp.widget.ImageView.d dVar2;
-        if (dVar != null) {
-            com.baidu.adp.widget.ImageView.d unused = a.j = dVar;
-            String unused2 = a.k = this.a;
-            HeadImageView headImageView = this.b.b;
-            dVar2 = a.j;
-            headImageView.setImageBitmap(dVar2.h());
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        com.baidu.adp.widget.ImageView.b bVar2;
+        if (bVar != null) {
+            a.j = bVar;
+            a.k = this.b;
+            HeadImageView headImageView = this.a.b;
+            bVar2 = a.j;
+            headImageView.setImageBitmap(bVar2.h());
         }
     }
 }

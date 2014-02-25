@@ -1,18 +1,33 @@
 package com.baidu.tieba.barcode;
 
-import com.google.zxing.ResultPoint;
-import com.google.zxing.ResultPointCallback;
+import android.os.Handler;
+import android.os.Message;
 /* loaded from: classes.dex */
-final class s implements ResultPointCallback {
-    private final ViewfinderView a;
+class s extends Handler {
+    final /* synthetic */ ViewfinderView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(ViewfinderView viewfinderView) {
         this.a = viewfinderView;
     }
 
-    @Override // com.google.zxing.ResultPointCallback
-    public void foundPossibleResultPoint(ResultPoint resultPoint) {
-        this.a.a(resultPoint);
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        Handler handler;
+        Handler handler2;
+        Handler handler3;
+        super.handleMessage(message);
+        switch (message.what) {
+            case 1:
+                this.a.invalidate();
+                handler = this.a.r;
+                handler.removeMessages(1);
+                handler2 = this.a.r;
+                handler3 = this.a.r;
+                handler2.sendMessageDelayed(handler3.obtainMessage(1), 100L);
+                return;
+            default:
+                return;
+        }
     }
 }

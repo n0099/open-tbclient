@@ -11,12 +11,10 @@ public class u implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        int i;
-        if (this.a.a != null) {
-            i = this.a.H;
-            if (i == 2) {
-                this.a.a.F();
-            }
+        ad m;
+        m = this.a.m();
+        if (m != null) {
+            this.a.b(m);
         }
     }
 }

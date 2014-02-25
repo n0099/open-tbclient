@@ -3,30 +3,48 @@ package com.baidu.tieba.data;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class be {
-    private int a = 0;
+    private String a = null;
     private int b = 0;
-    private String c = "";
+    private int d = 0;
+    private int e = 0;
+    private int c = 0;
 
     public int a() {
-        return this.a;
+        return this.d;
     }
 
     public int b() {
-        return this.b;
+        return this.e;
     }
 
     public String c() {
+        return this.a;
+    }
+
+    public int d() {
+        return this.b;
+    }
+
+    public void a(int i) {
+        this.b = i;
+    }
+
+    public int e() {
         return this.c;
+    }
+
+    public void b(int i) {
+        this.c = i;
     }
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.a = jSONObject.optInt("is_lpost", 0);
-                this.b = jSONObject.optInt("topic_type", 0);
-                this.c = jSONObject.optString("link", "");
+                this.a = jSONObject.optString("id");
+                this.d = jSONObject.optInt("width", 0);
+                this.e = jSONObject.optInt("height", 0);
             } catch (Exception e) {
-                com.baidu.adp.lib.g.e.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
             }
         }
     }

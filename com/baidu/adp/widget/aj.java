@@ -1,15 +1,9 @@
 package com.baidu.adp.widget;
 
-import android.view.animation.Interpolator;
+import android.graphics.Canvas;
 /* loaded from: classes.dex */
-abstract class aj {
-    public static final Interpolator a = new ak();
-    public static final Interpolator b = new al();
+public interface aj {
+    void a(int i, int i2);
 
-    public static int a(float f, float f2, boolean z) {
-        if (z) {
-            return (int) (f - (a.getInterpolation(f2 / (f2 - f)) * f));
-        }
-        return (int) (a.getInterpolation(f2 / f) * f);
-    }
+    void a(Canvas canvas);
 }

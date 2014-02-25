@@ -1,10 +1,10 @@
 package com.baidu.cloudsdk.common.http;
 
 import android.content.Context;
-import com.ba;
+import com.b;
 import com.baidu.android.common.net.ConnectManager;
-import com.bb;
-import com.x;
+import com.c;
+import com.d;
 import java.io.InputStream;
 import java.lang.ref.WeakReference;
 import java.util.LinkedList;
@@ -69,8 +69,8 @@ public class AsyncHttpClient extends DefaultHttpClient {
         HttpProtocolParams.setUserAgent(params, "Baidu-Android-Lib-V1.0");
         HttpClientParams.setCookiePolicy(params, "compatibility");
         params.setParameter("http.connection-manager.factory-object", new com.a(this));
-        addRequestInterceptor(new x(this));
-        addResponseInterceptor(new ba(this));
+        addRequestInterceptor(new b(this));
+        addResponseInterceptor(new c(this));
         this.mRequestMap = new WeakHashMap();
     }
 
@@ -193,7 +193,7 @@ public class AsyncHttpClient extends DefaultHttpClient {
 
     protected void sendRequest(HttpUriRequest httpUriRequest, HttpResponseHandler httpResponseHandler, Context context) {
         a(context);
-        Future<?> submit = sThreadPool.submit(new bb(this, new SyncBasicHttpContext(new BasicHttpContext()), httpUriRequest, httpResponseHandler));
+        Future<?> submit = sThreadPool.submit(new d(this, new SyncBasicHttpContext(new BasicHttpContext()), httpUriRequest, httpResponseHandler));
         if (context != null) {
             List list = (List) this.mRequestMap.get(context);
             if (list == null) {

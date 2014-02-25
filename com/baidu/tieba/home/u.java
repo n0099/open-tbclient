@@ -21,7 +21,7 @@ public class u {
     private ArrayList<v> l = new ArrayList<>();
     private ArrayList<v> m = new ArrayList<>();
     private HashMap<String, v> n = new HashMap<>();
-    private n o = new n();
+    private q o = new q();
     private int p;
 
     public String a() {
@@ -64,7 +64,7 @@ public class u {
         return this.k;
     }
 
-    public n k() {
+    public q k() {
         return this.o;
     }
 
@@ -81,25 +81,25 @@ public class u {
             try {
                 a(new JSONObject(str));
             } catch (Exception e) {
-                com.baidu.adp.lib.g.e.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }
 
-    public void a(bl blVar) {
-        ArrayList<bm> d = blVar.d();
+    public void a(aj ajVar) {
+        ArrayList<ak> d = ajVar.d();
         int size = d.size();
         for (int i = 0; i < size; i++) {
-            bm bmVar = d.get(i);
-            String str = bmVar.a() + "";
-            v vVar = this.n.get(str);
+            ak akVar = d.get(i);
+            String sb = new StringBuilder(String.valueOf(akVar.a())).toString();
+            v vVar = this.n.get(sb);
             if (vVar != null) {
-                if (bmVar.b() != 0) {
-                    this.n.remove(str);
+                if (akVar.b() != 0) {
+                    this.n.remove(sb);
                     this.m.remove(vVar);
                     vVar.a(1);
-                    vVar.b(bmVar.c());
-                    vVar.d(bmVar.d());
+                    vVar.b(akVar.c());
+                    vVar.d(akVar.d());
                     vVar.a(true);
                     vVar.b(false);
                     vVar.c(false);
@@ -108,12 +108,12 @@ public class u {
                         vVar.e(true);
                     }
                     this.l.add(vVar);
-                    TiebaApplication.h().a(vVar.b(), vVar.m(), -1);
+                    TiebaApplication.g().a(vVar.b(), vVar.m(), -1);
                 } else {
                     vVar.a(false);
                     vVar.b(true);
                     vVar.c(false);
-                    vVar.a(bmVar.e().b());
+                    vVar.a(akVar.e().b());
                 }
             }
         }
@@ -134,10 +134,10 @@ public class u {
                 this.i = jSONObject.optString("sign_notice");
                 this.j = jSONObject.optInt("valid");
                 this.p = jSONObject.optInt("sign_max_num");
-                bu.a = this.p;
+                as.a = this.p;
                 JSONArray optJSONArray = jSONObject.optJSONArray("forum_info");
                 if (optJSONArray != null) {
-                    int min = Math.min(optJSONArray.length(), bu.a);
+                    int min = Math.min(optJSONArray.length(), as.a);
                     for (int i = 0; i < min; i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
@@ -148,17 +148,17 @@ public class u {
                                     vVar.b(true);
                                 }
                                 this.m.add(vVar);
-                                this.n.put(vVar.a() + "", vVar);
+                                this.n.put(new StringBuilder(String.valueOf(vVar.a())).toString(), vVar);
                             } else {
                                 this.l.add(vVar);
-                                TiebaApplication.h().a(vVar.b(), vVar.m(), -1);
+                                TiebaApplication.g().a(vVar.b(), vVar.m(), -1);
                             }
                             this.k.add(vVar);
                         }
                     }
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.g.e.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }

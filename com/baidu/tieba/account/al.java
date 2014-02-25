@@ -16,6 +16,7 @@ public class al implements TextWatcher {
     public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         this.a.n = true;
         this.a.n();
+        this.a.o();
     }
 
     @Override // android.text.TextWatcher

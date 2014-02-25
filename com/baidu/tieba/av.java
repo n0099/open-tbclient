@@ -1,22 +1,21 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tieba.util.by;
+import android.app.Application;
+import com.baidu.tieba.data.AccountData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class av implements View.OnClickListener {
-    final /* synthetic */ au a;
+public class av implements Runnable {
+    private final /* synthetic */ AccountData a;
+    private final /* synthetic */ Application b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public av(au auVar) {
-        this.a = auVar;
+    public av(AccountData accountData, Application application) {
+        this.a = accountData;
+        this.b = application;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ax axVar;
-        boolean isChecked = this.a.e.isChecked();
-        by.a(this.a.getContext(), "upgrade_channel", isChecked ? "withOtherApp" : "withoutOtherApp", 1, new Object[0]);
-        axVar = this.a.h;
-        axVar.a(isChecked);
+    @Override // java.lang.Runnable
+    public void run() {
+        TiebaApplication.b(this.a, this.b);
     }
 }

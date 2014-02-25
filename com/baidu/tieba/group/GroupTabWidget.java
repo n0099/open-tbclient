@@ -10,10 +10,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.at;
-import com.baidu.tieba.j;
+import com.baidu.tieba.am;
+import com.baidu.tieba.k;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class GroupTabWidget extends RelativeLayout {
@@ -64,7 +63,7 @@ public class GroupTabWidget extends RelativeLayout {
         this.d = (ImageView) findViewById(R.id.left_icon);
         this.e = (TextView) findViewById(R.id.text);
         this.f = (ImageView) findViewById(R.id.right_arraw);
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, at.groupTabWidget);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, am.groupTabWidget);
         this.e.setText(obtainStyledAttributes.getString(1));
         this.d.setImageDrawable(obtainStyledAttributes.getDrawable(0));
         this.g[0] = obtainStyledAttributes.getResourceId(0, 0);
@@ -83,7 +82,7 @@ public class GroupTabWidget extends RelativeLayout {
         } else {
             this.g[1] = this.g[0];
         }
-        if (1 == TiebaApplication.h().al()) {
+        if (1 == TiebaApplication.g().al()) {
             this.d.setImageResource(this.g[1]);
         } else {
             this.d.setImageResource(this.g[0]);
@@ -105,12 +104,12 @@ public class GroupTabWidget extends RelativeLayout {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
         if (str.length() > i) {
             Context context = getContext();
-            if (context instanceof j) {
-                z = ((j) context).getLayoutMode().a();
-            } else if (!(context instanceof BaseFragmentActivity)) {
+            if (context instanceof com.baidu.tieba.f) {
+                z = ((com.baidu.tieba.f) context).getLayoutMode().a();
+            } else if (!(context instanceof k)) {
                 z = false;
             } else {
-                z = ((BaseFragmentActivity) getContext()).a().a();
+                z = ((k) getContext()).a().a();
             }
             spannableStringBuilder.setSpan(new ForegroundColorSpan(z ? getResources().getColor(R.color.im_near_group_count_1) : getResources().getColor(R.color.im_near_group_count)), i, i2, 33);
         }
@@ -124,10 +123,10 @@ public class GroupTabWidget extends RelativeLayout {
             this.d.setImageResource(this.g[0]);
         }
         Context context = getContext();
-        if (context instanceof j) {
-            ((j) context).getLayoutMode().a((View) this);
-        } else if (context instanceof BaseFragmentActivity) {
-            ((BaseFragmentActivity) getContext()).a().a((View) this);
+        if (context instanceof com.baidu.tieba.f) {
+            ((com.baidu.tieba.f) context).getLayoutMode().a((View) this);
+        } else if (context instanceof k) {
+            ((k) getContext()).a().a((View) this);
         }
         if (this.a) {
             a(this.e.getText().toString(), this.b, this.c);

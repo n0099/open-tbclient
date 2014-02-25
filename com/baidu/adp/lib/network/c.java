@@ -4,11 +4,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class c implements g {
-    final /* synthetic */ AtomicInteger a;
-    final /* synthetic */ String b;
-    final /* synthetic */ AtomicLong c;
-    final /* synthetic */ AtomicInteger d;
+public class c implements g {
+    private final /* synthetic */ AtomicInteger a;
+    private final /* synthetic */ String b;
+    private final /* synthetic */ AtomicLong c;
+    private final /* synthetic */ AtomicInteger d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(AtomicInteger atomicInteger, String str, AtomicLong atomicLong, AtomicInteger atomicInteger2) {

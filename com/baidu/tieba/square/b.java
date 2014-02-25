@@ -5,7 +5,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Object, h, h> {
     final /* synthetic */ BarFolderFirstDirActivity a;
-    private com.baidu.tieba.util.ax b;
+    private com.baidu.tieba.util.ba b;
 
     private b(BarFolderFirstDirActivity barFolderFirstDirActivity) {
         this.a = barFolderFirstDirActivity;
@@ -13,7 +13,7 @@ public class b extends BdAsyncTask<Object, h, h> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ b(BarFolderFirstDirActivity barFolderFirstDirActivity, a aVar) {
+    public /* synthetic */ b(BarFolderFirstDirActivity barFolderFirstDirActivity, b bVar) {
         this(barFolderFirstDirActivity);
     }
 
@@ -28,17 +28,17 @@ public class b extends BdAsyncTask<Object, h, h> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Can't wrap try/catch for region: R(11:1|(3:22|23|(9:25|4|5|6|(1:8)|9|(2:11|(1:(1:14))(1:18))(1:19)|16|17))|3|4|5|6|(0)|9|(0)(0)|16|17) */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x00bc, code lost:
+    /* JADX WARN: Can't wrap try/catch for region: R(10:1|(3:21|22|(8:24|4|5|(1:7)|8|(2:10|(1:(1:13))(1:17))(1:18)|15|16))|3|4|5|(0)|8|(0)(0)|15|16) */
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x00b2, code lost:
         r0 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x00bd, code lost:
-        r3.a(r0.getMessage());
-        com.baidu.adp.lib.g.e.b(getClass().getName(), "doInBackground", r0.getMessage());
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x00b3, code lost:
+        r1.a(r0.getMessage());
+        com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", r0.getMessage());
      */
-    /* JADX WARN: Removed duplicated region for block: B:10:0x0052 A[Catch: Exception -> 0x00bc, TryCatch #0 {Exception -> 0x00bc, blocks: (B:8:0x002e, B:10:0x0052, B:11:0x005f, B:13:0x006d, B:18:0x00a8, B:20:0x00b2), top: B:27:0x002e }] */
-    /* JADX WARN: Removed duplicated region for block: B:13:0x006d A[Catch: Exception -> 0x00bc, TryCatch #0 {Exception -> 0x00bc, blocks: (B:8:0x002e, B:10:0x0052, B:11:0x005f, B:13:0x006d, B:18:0x00a8, B:20:0x00b2), top: B:27:0x002e }] */
-    /* JADX WARN: Removed duplicated region for block: B:20:0x00b2 A[Catch: Exception -> 0x00bc, TRY_LEAVE, TryCatch #0 {Exception -> 0x00bc, blocks: (B:8:0x002e, B:10:0x0052, B:11:0x005f, B:13:0x006d, B:18:0x00a8, B:20:0x00b2), top: B:27:0x002e }] */
+    /* JADX WARN: Removed duplicated region for block: B:12:0x006c A[Catch: Exception -> 0x00b2, TryCatch #1 {Exception -> 0x00b2, blocks: (B:7:0x002d, B:9:0x0051, B:10:0x005e, B:12:0x006c, B:19:0x009e, B:21:0x00a8), top: B:27:0x002d }] */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x00a8 A[Catch: Exception -> 0x00b2, TRY_LEAVE, TryCatch #1 {Exception -> 0x00b2, blocks: (B:7:0x002d, B:9:0x0051, B:10:0x005e, B:12:0x006c, B:19:0x009e, B:21:0x00a8), top: B:27:0x002d }] */
+    /* JADX WARN: Removed duplicated region for block: B:9:0x0051 A[Catch: Exception -> 0x00b2, TryCatch #1 {Exception -> 0x00b2, blocks: (B:7:0x002d, B:9:0x0051, B:10:0x005e, B:12:0x006c, B:19:0x009e, B:21:0x00a8), top: B:27:0x002d }] */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: d */
     /*
@@ -48,28 +48,26 @@ public class b extends BdAsyncTask<Object, h, h> {
         String str;
         String str2;
         boolean z = true;
-        boolean z2 = false;
         h hVar = new h();
-        com.baidu.adp.lib.cache.s<String> p = com.baidu.tieba.b.a.a().p();
+        com.baidu.adp.lib.cache.s<String> p = com.baidu.tieba.c.a.a().p();
         String a = p.a("first_dir_cache_key");
         if (a != null) {
             if (!a.equals("")) {
                 hVar.b(a);
                 c((Object[]) new h[]{hVar});
-                z2 = z;
-                this.b = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/f/forum/forumdir");
+                this.b = new com.baidu.tieba.util.ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/f/forum/forumdir");
                 str = this.a.g;
                 if (str != null) {
-                    com.baidu.tieba.util.ax axVar = this.b;
+                    com.baidu.tieba.util.ba baVar = this.b;
                     String str3 = BarFolderFirstDirActivity.c;
                     str2 = this.a.g;
-                    axVar.a(str3, str2);
+                    baVar.a(str3, str2);
                 }
                 String m = this.b.m();
                 if (!this.b.d()) {
                     hVar.b(m);
-                    if ((m + "").trim().equals((a + "").trim())) {
-                        if (z2) {
+                    if (new StringBuilder(String.valueOf(m)).toString().trim().equals(new StringBuilder(String.valueOf(a)).toString().trim())) {
+                        if (z) {
                             return null;
                         }
                     } else {
@@ -82,8 +80,7 @@ public class b extends BdAsyncTask<Object, h, h> {
             }
         }
         z = false;
-        z2 = z;
-        this.b = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/f/forum/forumdir");
+        this.b = new com.baidu.tieba.util.ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/f/forum/forumdir");
         str = this.a.g;
         if (str != null) {
         }

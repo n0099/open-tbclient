@@ -17,11 +17,11 @@ public class a implements AdapterView.OnItemClickListener {
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         c cVar;
-        z zVar;
+        ab abVar;
         cVar = this.a.e;
-        ArrayList<z> a = cVar.a();
-        if (a != null && i < a.size() && (zVar = a.get(i)) != null) {
-            ForumListActivity.a(this.a, zVar.b, zVar.a, zVar.c);
+        ArrayList<ab> a = cVar.a();
+        if (a != null && i < a.size() && (abVar = a.get(i)) != null) {
+            ForumListActivity.a(this.a, abVar.b, abVar.a, abVar.c);
         }
     }
 }

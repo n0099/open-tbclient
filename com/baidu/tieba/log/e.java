@@ -4,16 +4,16 @@ import android.text.TextUtils;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.ad;
-import com.baidu.tieba.util.ak;
-import com.baidu.tieba.util.ax;
+import com.baidu.tieba.util.af;
+import com.baidu.tieba.util.am;
+import com.baidu.tieba.util.ba;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 /* loaded from: classes.dex */
 class e {
     final /* synthetic */ a a;
-    private ax b;
+    private ba b;
 
     private e(a aVar) {
         this.a = aVar;
@@ -21,13 +21,13 @@ class e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ e(a aVar, b bVar) {
+    public /* synthetic */ e(a aVar, e eVar) {
         this(aVar);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [604=4, 605=4, 608=4, 609=4, 614=4, 615=4, 618=4, 619=4] */
-    /* JADX WARN: Removed duplicated region for block: B:91:0x0086 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:95:0x008b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [601=4, 602=4, 605=4, 606=8, 607=4, 611=4, 612=4, 615=4, 616=8, 617=4] */
+    /* JADX WARN: Removed duplicated region for block: B:92:0x008b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:94:0x0086 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -48,7 +48,7 @@ class e {
                     byteArrayOutputStream = new ByteArrayOutputStream(1024);
                     try {
                         if (z) {
-                            ak.a(fileInputStream, byteArrayOutputStream);
+                            am.a(fileInputStream, byteArrayOutputStream);
                         } else {
                             byte[] bArr = new byte[1024];
                             while (true) {
@@ -66,7 +66,7 @@ class e {
                                 try {
                                     byteArrayOutputStream.close();
                                 } catch (Exception e) {
-                                    com.baidu.adp.lib.g.e.b(getClass().getName(), "sendLogFile", e.getMessage());
+                                    com.baidu.adp.lib.util.f.b(getClass().getName(), "sendLogFile", e.getMessage());
                                 }
                             }
                             if (fileInputStream != null) {
@@ -74,19 +74,19 @@ class e {
                                     fileInputStream.close();
                                     return;
                                 } catch (Exception e2) {
-                                    com.baidu.adp.lib.g.e.b(getClass().getName(), "sendLogFile", e2.getMessage());
+                                    com.baidu.adp.lib.util.f.b(getClass().getName(), "sendLogFile", e2.getMessage());
                                     return;
                                 }
                             }
                             return;
                         }
-                        this.b = new ax(com.baidu.tieba.data.h.a + str2);
-                        this.b.a(SocialConstants.PARAM_CUID, com.baidu.tieba.im.i.a());
+                        this.b = new ba(String.valueOf(com.baidu.tieba.data.i.a) + str2);
+                        this.b.a(SocialConstants.PARAM_CUID, com.baidu.tieba.im.f.a());
                         this.b.a(SapiAccountManager.SESSION_UID, TiebaApplication.A());
                         this.b.a("time", str5);
                         this.b.a("errortype", "99");
                         this.b.a("logfile", byteArray);
-                        this.b.o();
+                        this.b.n();
                         if (byteArrayOutputStream != null) {
                             byteArrayOutputStream.close();
                             byteArrayOutputStream = null;
@@ -97,9 +97,9 @@ class e {
                         }
                         if (this.b.d()) {
                             str3 = a.d;
-                            ad.k(str3);
-                            if (TextUtils.isEmpty(ad.a("log", name, "logbak", name))) {
-                                com.baidu.adp.lib.g.e.b(getClass().getName(), "sendLogFile", "file.move error");
+                            af.l(str3);
+                            if (TextUtils.isEmpty(af.a("log", name, "logbak", name))) {
+                                com.baidu.adp.lib.util.f.b(getClass().getName(), "sendLogFile", "file.move error");
                             }
                             a aVar = this.a;
                             str4 = a.d;
@@ -109,12 +109,12 @@ class e {
                         e = e3;
                         byteArrayOutputStream2 = byteArrayOutputStream;
                         try {
-                            com.baidu.adp.lib.g.e.b(getClass().getName(), "sendLogFile", e.getMessage());
+                            com.baidu.adp.lib.util.f.b(getClass().getName(), "sendLogFile", e.getMessage());
                             if (byteArrayOutputStream2 != null) {
                                 try {
                                     byteArrayOutputStream2.close();
                                 } catch (Exception e4) {
-                                    com.baidu.adp.lib.g.e.b(getClass().getName(), "sendLogFile", e4.getMessage());
+                                    com.baidu.adp.lib.util.f.b(getClass().getName(), "sendLogFile", e4.getMessage());
                                 }
                             }
                             if (fileInputStream != null) {
@@ -122,7 +122,7 @@ class e {
                                     fileInputStream.close();
                                     return;
                                 } catch (Exception e5) {
-                                    com.baidu.adp.lib.g.e.b(getClass().getName(), "sendLogFile", e5.getMessage());
+                                    com.baidu.adp.lib.util.f.b(getClass().getName(), "sendLogFile", e5.getMessage());
                                     return;
                                 }
                             }
@@ -134,14 +134,14 @@ class e {
                                 try {
                                     byteArrayOutputStream.close();
                                 } catch (Exception e6) {
-                                    com.baidu.adp.lib.g.e.b(getClass().getName(), "sendLogFile", e6.getMessage());
+                                    com.baidu.adp.lib.util.f.b(getClass().getName(), "sendLogFile", e6.getMessage());
                                 }
                             }
                             if (fileInputStream != null) {
                                 try {
                                     fileInputStream.close();
                                 } catch (Exception e7) {
-                                    com.baidu.adp.lib.g.e.b(getClass().getName(), "sendLogFile", e7.getMessage());
+                                    com.baidu.adp.lib.util.f.b(getClass().getName(), "sendLogFile", e7.getMessage());
                                 }
                             }
                             throw th;
@@ -168,14 +168,14 @@ class e {
                 try {
                     byteArrayOutputStream.close();
                 } catch (Exception e9) {
-                    com.baidu.adp.lib.g.e.b(getClass().getName(), "sendLogFile", e9.getMessage());
+                    com.baidu.adp.lib.util.f.b(getClass().getName(), "sendLogFile", e9.getMessage());
                 }
             }
             if (fileInputStream != null) {
                 try {
                     fileInputStream.close();
                 } catch (Exception e10) {
-                    com.baidu.adp.lib.g.e.b(getClass().getName(), "sendLogFile", e10.getMessage());
+                    com.baidu.adp.lib.util.f.b(getClass().getName(), "sendLogFile", e10.getMessage());
                 }
             }
         } catch (Exception e11) {

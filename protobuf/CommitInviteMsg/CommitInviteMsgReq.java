@@ -14,7 +14,7 @@ import protobuf.Im;
 public final class CommitInviteMsgReq {
 
     /* loaded from: classes.dex */
-    public final class DataReq extends GeneratedMessageLite implements g {
+    public final class DataReq extends GeneratedMessageLite implements f {
         public static final int CONTENT_FIELD_NUMBER = 4;
         public static final int DURATION_FIELD_NUMBER = 5;
         public static final int GROUPID_FIELD_NUMBER = 1;
@@ -31,8 +31,13 @@ public final class CommitInviteMsgReq {
         private int msgType_;
         private long recordId_;
         private Object toUids_;
-        public static Parser<DataReq> PARSER = new e();
+        public static Parser<DataReq> PARSER = new d();
         private static final DataReq a = new DataReq(true);
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ DataReq(GeneratedMessageLite.Builder builder, DataReq dataReq) {
+            this(builder);
+        }
 
         private DataReq(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -63,54 +68,57 @@ public final class CommitInviteMsgReq {
             while (!z) {
                 try {
                     try {
-                        try {
-                            int readTag = codedInputStream.readTag();
-                            switch (readTag) {
-                                case 0:
+                        int readTag = codedInputStream.readTag();
+                        switch (readTag) {
+                            case 0:
+                                z = true;
+                                break;
+                            case 8:
+                                this.bitField0_ |= 1;
+                                this.groupId_ = codedInputStream.readInt32();
+                                break;
+                            case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
+                                this.bitField0_ |= 2;
+                                this.toUids_ = codedInputStream.readBytes();
+                                break;
+                            case Im.GroupInfo.ISHIDEPOSITION_FIELD_NUMBER /* 24 */:
+                                this.bitField0_ |= 4;
+                                this.msgType_ = codedInputStream.readInt32();
+                                break;
+                            case Im.GroupInfo.ISMEMBERGROUP_FIELD_NUMBER /* 34 */:
+                                this.bitField0_ |= 8;
+                                this.content_ = codedInputStream.readBytes();
+                                break;
+                            case 40:
+                                this.bitField0_ |= 16;
+                                this.duration_ = codedInputStream.readInt32();
+                                break;
+                            case 48:
+                                this.bitField0_ |= 32;
+                                this.recordId_ = codedInputStream.readInt64();
+                                break;
+                            default:
+                                if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
-                                case 8:
-                                    this.bitField0_ |= 1;
-                                    this.groupId_ = codedInputStream.readInt32();
+                                } else {
                                     break;
-                                case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
-                                    this.bitField0_ |= 2;
-                                    this.toUids_ = codedInputStream.readBytes();
-                                    break;
-                                case Im.GroupInfo.ISHIDEPOSITION_FIELD_NUMBER /* 24 */:
-                                    this.bitField0_ |= 4;
-                                    this.msgType_ = codedInputStream.readInt32();
-                                    break;
-                                case Im.GroupInfo.ISMEMBERGROUP_FIELD_NUMBER /* 34 */:
-                                    this.bitField0_ |= 8;
-                                    this.content_ = codedInputStream.readBytes();
-                                    break;
-                                case 40:
-                                    this.bitField0_ |= 16;
-                                    this.duration_ = codedInputStream.readInt32();
-                                    break;
-                                case 48:
-                                    this.bitField0_ |= 32;
-                                    this.recordId_ = codedInputStream.readInt64();
-                                    break;
-                                default:
-                                    if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
-                                        z = true;
-                                        break;
-                                    } else {
-                                        break;
-                                    }
-                            }
-                        } catch (IOException e) {
-                            throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
+                                }
                         }
-                    } catch (InvalidProtocolBufferException e2) {
-                        throw e2.setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
                 } finally {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ DataReq(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, DataReq dataReq) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -321,37 +329,42 @@ public final class CommitInviteMsgReq {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static f newBuilder() {
-            return f.f();
+        public static e newBuilder() {
+            return e.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public f newBuilderForType() {
+        public e newBuilderForType() {
             return newBuilder();
         }
 
-        public static f newBuilder(DataReq dataReq) {
+        public static e newBuilder(DataReq dataReq) {
             return newBuilder().mergeFrom(dataReq);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public f toBuilder() {
+        public e toBuilder() {
             return newBuilder(this);
         }
     }
 
     /* loaded from: classes.dex */
-    public final class CommitInviteMsgReqIdl extends GeneratedMessageLite implements d {
+    public final class CommitInviteMsgReqIdl extends GeneratedMessageLite implements c {
         public static final int DATA_FIELD_NUMBER = 1;
-        public static Parser<CommitInviteMsgReqIdl> PARSER = new b();
+        public static Parser<CommitInviteMsgReqIdl> PARSER = new a();
         private static final CommitInviteMsgReqIdl a = new CommitInviteMsgReqIdl(true);
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private DataReq data_;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ CommitInviteMsgReqIdl(GeneratedMessageLite.Builder builder, CommitInviteMsgReqIdl commitInviteMsgReqIdl) {
+            this(builder);
+        }
 
         private CommitInviteMsgReqIdl(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -375,13 +388,12 @@ public final class CommitInviteMsgReq {
         }
 
         private CommitInviteMsgReqIdl(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-            f fVar;
-            boolean z;
+            e eVar;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
             a();
-            boolean z2 = false;
-            while (!z2) {
+            boolean z = false;
+            while (!z) {
                 try {
                     try {
                         int readTag = codedInputStream.readTag();
@@ -391,28 +403,25 @@ public final class CommitInviteMsgReq {
                                 break;
                             case 10:
                                 if ((this.bitField0_ & 1) != 1) {
-                                    fVar = null;
+                                    eVar = null;
                                 } else {
-                                    fVar = this.data_.toBuilder();
+                                    eVar = this.data_.toBuilder();
                                 }
                                 this.data_ = (DataReq) codedInputStream.readMessage(DataReq.PARSER, extensionRegistryLite);
-                                if (fVar != null) {
-                                    fVar.mergeFrom(this.data_);
-                                    this.data_ = fVar.buildPartial();
+                                if (eVar != null) {
+                                    eVar.mergeFrom(this.data_);
+                                    this.data_ = eVar.buildPartial();
                                 }
                                 this.bitField0_ |= 1;
-                                z = z2;
                                 break;
                             default:
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
                                 } else {
-                                    z = z2;
                                     break;
                                 }
                         }
-                        z2 = z;
                     } catch (InvalidProtocolBufferException e) {
                         throw e.setUnfinishedMessage(this);
                     } catch (IOException e2) {
@@ -422,6 +431,11 @@ public final class CommitInviteMsgReq {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ CommitInviteMsgReqIdl(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, CommitInviteMsgReqIdl commitInviteMsgReqIdl) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -519,23 +533,23 @@ public final class CommitInviteMsgReq {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static c newBuilder() {
-            return c.f();
+        public static b newBuilder() {
+            return b.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public c newBuilderForType() {
+        public b newBuilderForType() {
             return newBuilder();
         }
 
-        public static c newBuilder(CommitInviteMsgReqIdl commitInviteMsgReqIdl) {
+        public static b newBuilder(CommitInviteMsgReqIdl commitInviteMsgReqIdl) {
             return newBuilder().mergeFrom(commitInviteMsgReqIdl);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public c toBuilder() {
+        public b toBuilder() {
             return newBuilder(this);
         }
     }

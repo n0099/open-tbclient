@@ -78,7 +78,7 @@ public class u {
         try {
             int dimension = (int) context.getResources().getDimension(R.dimen.jigsawSelectedImageWidth);
             if (b.b(context, uri, dimension, dimension) == null) {
-                x.a(R.string.open_error);
+                y.a(R.string.open_error);
                 return false;
             }
             Iterator<Uri> it = c(context).iterator();
@@ -98,15 +98,15 @@ public class u {
             return true;
         } catch (OtherException e) {
             e.printStackTrace();
-            x.a(R.string.open_error);
+            y.a(R.string.open_error);
             return false;
         } catch (FileNotFoundException e2) {
             e2.printStackTrace();
-            x.a(R.string.open_error);
+            y.a(R.string.open_error);
             return false;
         } catch (OutOfMemoryError e3) {
             e3.printStackTrace();
-            x.a(R.string.open_error);
+            y.a(R.string.open_error);
             return false;
         }
     }
@@ -126,8 +126,7 @@ public class u {
     }
 
     public List<Uri> c(Context context) {
-        if (this.c.size() == 0) {
-        }
+        this.c.size();
         return this.c;
     }
 
@@ -150,14 +149,14 @@ public class u {
     public Bitmap a(Context context, c cVar, int i) {
         Bitmap bitmap;
         Bitmap bitmap2;
-        Uri parse = Uri.parse(String.valueOf(MediaStore.Images.Media.EXTERNAL_CONTENT_URI) + "/" + String.valueOf(cVar.c));
+        Uri parse = Uri.parse(String.valueOf(String.valueOf(MediaStore.Images.Media.EXTERNAL_CONTENT_URI)) + "/" + String.valueOf(cVar.c));
         try {
             Bitmap a2 = b.a(context, parse, i, i);
             if (a2 == null) {
                 return null;
             }
             try {
-                int a3 = v.a(context, parse, false);
+                int a3 = w.a(context, parse, false);
                 if (a3 != 0) {
                     Matrix matrix = new Matrix();
                     matrix.setRotate(a3);

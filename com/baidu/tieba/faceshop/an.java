@@ -1,46 +1,69 @@
 package com.baidu.tieba.faceshop;
 
-import com.baidu.tieba.TiebaApplication;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.gson.GsonBuilder;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class an extends com.baidu.adp.a.d {
-    private ap a;
-    private String b;
-    private int c;
-    private int d;
-    private float e;
+public class an extends BdAsyncTask<Object, FacePurchaseRecordsData, FacePurchaseRecordsData> {
+    final /* synthetic */ am a;
+    private com.baidu.tieba.util.ba b;
 
-    public an() {
-        this.c = 0;
-        this.d = 0;
-        TiebaApplication h = TiebaApplication.h();
-        this.c = com.baidu.adp.lib.g.g.b(h);
-        this.d = com.baidu.adp.lib.g.g.c(h);
-        this.e = h.getResources().getDisplayMetrics().density;
+    private an(am amVar) {
+        this.a = amVar;
     }
 
-    public void a(String str) {
-        this.b = str;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ an(am amVar, an anVar) {
+        this(amVar);
     }
 
-    public void a() {
-        if (this.a == null) {
-            this.a = new ap(this);
-            this.a.setPriority(3);
-            this.a.execute(new Object[0]);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public FacePurchaseRecordsData a(Object... objArr) {
+        String str;
+        int i;
+        int i2;
+        float f;
+        try {
+            this.b = new com.baidu.tieba.util.ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/e/faces/getpackhis");
+            com.baidu.tieba.util.ba baVar = this.b;
+            str = this.a.b;
+            baVar.a("st_type", str);
+            com.baidu.tieba.util.ba baVar2 = this.b;
+            i = this.a.c;
+            baVar2.a("scr_w", String.valueOf(i));
+            com.baidu.tieba.util.ba baVar3 = this.b;
+            i2 = this.a.d;
+            baVar3.a("scr_h", String.valueOf(i2));
+            com.baidu.tieba.util.ba baVar4 = this.b;
+            f = this.a.e;
+            baVar4.a("scr_dip", String.valueOf(f));
+            return (FacePurchaseRecordsData) new GsonBuilder().create().fromJson(this.b.m(), (Class<Object>) FacePurchaseRecordsData.class);
+        } catch (Exception e) {
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.toString());
+            return null;
         }
     }
 
-    @Override // com.baidu.adp.a.d
-    protected boolean LoadData() {
-        return false;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(FacePurchaseRecordsData facePurchaseRecordsData) {
+        com.baidu.adp.a.g gVar;
+        this.a.a = null;
+        gVar = this.a.mLoadDataCallBack;
+        gVar.a(facePurchaseRecordsData);
+        super.a((an) facePurchaseRecordsData);
     }
 
-    @Override // com.baidu.adp.a.d
-    public boolean cancelLoadData() {
-        if (this.a != null) {
-            this.a.cancel();
-            return true;
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel(true);
+        if (this.b != null) {
+            this.b.k();
         }
-        return true;
+        this.a.a = null;
     }
 }

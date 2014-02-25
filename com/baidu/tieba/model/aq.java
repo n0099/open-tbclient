@@ -1,54 +1,62 @@
 package com.baidu.tieba.model;
 
-import com.baidu.tieba.data.AntiData;
-import com.baidu.tieba.data.ForumData;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import android.graphics.Bitmap;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aq {
-    private ForumData a = new ForumData();
-    private ArrayList<com.baidu.tieba.data.bc> b = new ArrayList<>();
-    private ArrayList<String> c = new ArrayList<>();
-    private int d = 0;
-    private int e = 0;
-    private int f = 0;
-    private AntiData g = new AntiData();
-    private com.baidu.tieba.data.al h = new com.baidu.tieba.data.al();
+public class aq extends BdAsyncTask<Object, Integer, Bitmap> {
+    final /* synthetic */ ap a;
+    private String b;
 
-    public ArrayList<com.baidu.tieba.data.bc> a() {
-        return this.b;
+    public aq(ap apVar, String str) {
+        this.a = apVar;
+        this.b = null;
+        this.b = str;
     }
 
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a.parserJson(jSONObject.optJSONObject("forum"));
-                this.h.a(jSONObject.optJSONObject("user"));
-                this.g.parserJson(jSONObject.optJSONObject("anti"));
-                JSONObject optJSONObject = jSONObject.optJSONObject("photo_data");
-                if (optJSONObject != null) {
-                    JSONArray optJSONArray = optJSONObject.optJSONArray("thread_list");
-                    if (optJSONArray != null) {
-                        for (int i = 0; i < optJSONArray.length(); i++) {
-                            com.baidu.tieba.data.bc bcVar = new com.baidu.tieba.data.bc();
-                            bcVar.a(optJSONArray.optJSONObject(i));
-                            this.b.add(bcVar);
-                        }
-                    }
-                    JSONArray optJSONArray2 = optJSONObject.optJSONArray("alb_id_list");
-                    if (optJSONArray2 != null) {
-                        for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                            this.c.add(optJSONArray2.optString(i2));
-                        }
-                    }
-                    this.d = optJSONObject.optInt("has_more", 0);
-                    this.e = optJSONObject.optInt("amount", 0);
-                    this.f = optJSONObject.optInt("current_count", 0);
-                }
-            } catch (Exception e) {
-                com.baidu.adp.lib.g.e.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public Bitmap a(Object... objArr) {
+        if (this.b != null && !this.b.equals("tieba_resized_image")) {
+            com.baidu.tieba.util.af.e("photos/" + this.b, "tieba_resized_image");
+        }
+        return com.baidu.tieba.util.n.a(com.baidu.tieba.util.n.b(com.baidu.tieba.util.af.c(null, "tieba_resized_image")), 5.0f, true);
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        com.baidu.adp.a.g gVar;
+        com.baidu.adp.a.g gVar2;
+        this.a.a = null;
+        gVar = this.a.mLoadDataCallBack;
+        if (gVar != null) {
+            gVar2 = this.a.mLoadDataCallBack;
+            gVar2.a(null);
+        }
+        super.cancel(true);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void c() {
+        super.c();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(Bitmap bitmap) {
+        com.baidu.adp.a.g gVar;
+        com.baidu.adp.a.g gVar2;
+        super.a((aq) bitmap);
+        this.a.a = null;
+        com.baidu.adp.lib.util.f.a(getClass().getName(), "onPostExecute", "is Null?" + String.valueOf(bitmap == null));
+        gVar = this.a.mLoadDataCallBack;
+        if (gVar != null) {
+            gVar2 = this.a.mLoadDataCallBack;
+            gVar2.a(bitmap);
         }
     }
 }

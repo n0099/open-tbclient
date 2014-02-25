@@ -2,7 +2,7 @@ package com.baidu.tieba.im.validate;
 
 import android.text.TextUtils;
 import com.baidu.gson.GsonBuilder;
-import com.baidu.tieba.data.chat.RecentChatFriendData;
+import com.baidu.tieba.data.chat.ImMessageCenterShowItemData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.message.GroupUpdateMessage;
 import java.util.Iterator;
@@ -14,13 +14,13 @@ import org.json.JSONObject;
 public class l {
     public static void a(com.baidu.tieba.im.a<Boolean> aVar, ValidateItemData validateItemData) {
         if (validateItemData != null) {
-            com.baidu.tieba.im.db.l.a().a(validateItemData, aVar);
+            com.baidu.tieba.im.j.a(new m(validateItemData), aVar);
         }
     }
 
     public static void a(List<ValidateItemData> list) {
         if (list != null && !list.isEmpty()) {
-            RecentChatFriendData l = com.baidu.tieba.im.c.a.h().l();
+            ImMessageCenterShowItemData j = com.baidu.tieba.im.c.a.f().j();
             LinkedList linkedList = new LinkedList();
             int size = list.size();
             for (int i = 0; i < size; i++) {
@@ -28,27 +28,26 @@ public class l {
                 if (validateItemData != null && !validateItemData.isShown()) {
                     validateItemData.setShown(true);
                     linkedList.add(new GroupNewsPojo(validateItemData));
-                    l.setUnReadCount(l.getUnReadCount() - 1);
-                    com.baidu.tieba.im.c.a.h().a(l.getUnReadCount());
+                    j.setUnReadCount(j.getUnReadCount() - 1);
                 }
             }
-            new m(linkedList).execute(new Void[0]);
+            new n(linkedList).execute(new Void[0]);
         }
     }
 
     public static void a(ValidateItemData validateItemData, com.baidu.tieba.im.a<Boolean> aVar) {
         if (validateItemData != null) {
-            com.baidu.adp.lib.g.e.d("lastmid:" + validateItemData.getNotice_id());
-            com.baidu.tieba.im.db.l.a().b(validateItemData.getNotice_id(), aVar);
+            com.baidu.adp.lib.util.f.e("lastmid:" + validateItemData.getNotice_id());
+            com.baidu.tieba.im.j.a(new o(validateItemData), aVar);
         }
     }
 
     public static void a(int i, int i2, com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> aVar) {
-        com.baidu.tieba.im.db.l.a().a(0L, i, i2, "apply_join_group", aVar);
+        com.baidu.tieba.im.j.a(new p(i, i2), aVar);
     }
 
     public static void a(com.baidu.tieba.im.a<Integer> aVar) {
-        com.baidu.tieba.im.db.l.a().a("apply_join_group", aVar);
+        com.baidu.tieba.im.j.a(new q(), aVar);
     }
 
     public static List<ValidateItemData> a(LinkedList<GroupNewsPojo> linkedList) {
@@ -77,7 +76,7 @@ public class l {
         }
         try {
             JSONObject jSONObject = new JSONObject(content);
-            if (true == jSONObject.isNull("notice_id")) {
+            if (jSONObject.isNull("notice_id")) {
                 validateItemData = new ValidateItemData();
                 validateItemData.setNotice_id(groupNewsPojo.getNotice_id());
                 validateItemData.setApplyReason(jSONObject.optString("userMsg"));
@@ -90,7 +89,7 @@ public class l {
                     validateItemData.setPortrait(optJSONObject.optString("portrait"));
                     String optString = optJSONObject.optString("groupId");
                     validateItemData.setGroupId(optString);
-                    com.baidu.adp.lib.g.e.d("getGroupInfo gid:" + optString);
+                    com.baidu.adp.lib.util.f.e("getGroupInfo gid:" + optString);
                     a(validateItemData, optString);
                     validateItemData.setUserId(optJSONObject.optString("userId"));
                     validateItemData.setInviterUserId(optJSONObject.optLong("inviteUserId"));
@@ -110,11 +109,15 @@ public class l {
 
     private static void a(ValidateItemData validateItemData, String str) {
         String str2 = "";
-        List<GroupUpdateMessage> m = com.baidu.tieba.im.c.a.h().m();
-        if (m != null && !TextUtils.isEmpty(str)) {
-            for (GroupUpdateMessage groupUpdateMessage : m) {
-                str2 = str.equals(String.valueOf(groupUpdateMessage.getGroupId())) ? groupUpdateMessage.getName() : str2;
+        List<GroupUpdateMessage> k = com.baidu.tieba.im.c.a.f().k();
+        if (k != null && !TextUtils.isEmpty(str)) {
+            String str3 = "";
+            for (GroupUpdateMessage groupUpdateMessage : k) {
+                if (str.equals(String.valueOf(groupUpdateMessage.getGroupId()))) {
+                    str3 = groupUpdateMessage.getName();
+                }
             }
+            str2 = str3;
         }
         validateItemData.setGroupName(str2);
     }

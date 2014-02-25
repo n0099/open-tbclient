@@ -32,7 +32,7 @@ public class FloatingLayout extends LinearLayout {
         setMeasuredDimension(this.c + getPaddingLeft() + getPaddingRight(), this.d + getPaddingTop() + getPaddingBottom());
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x003a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x003f, code lost:
         if ((r0 & 1) == 1) goto L26;
      */
     /*
@@ -84,7 +84,7 @@ public class FloatingLayout extends LinearLayout {
         this.c = this.a;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x003a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x003f, code lost:
         if ((r0 & 1) == 1) goto L26;
      */
     /*
@@ -147,7 +147,7 @@ public class FloatingLayout extends LinearLayout {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x0059, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x005a, code lost:
         if ((r10 & 1) == 1) goto L23;
      */
     /*
@@ -191,7 +191,7 @@ public class FloatingLayout extends LinearLayout {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x0055, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0056, code lost:
         if ((r10 & 1) == 1) goto L22;
      */
     /*

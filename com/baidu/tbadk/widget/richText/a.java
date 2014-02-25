@@ -11,14 +11,6 @@ public class a {
     private ArrayList<c> c;
     private Context d;
 
-    public a(Context context, String str) {
-        this.a = null;
-        this.b = 0;
-        this.c = null;
-        this.d = null;
-        a(context, a(str), -1, false);
-    }
-
     public a(Context context, JSONArray jSONArray, int i) {
         this.a = null;
         this.b = 0;
@@ -47,15 +39,6 @@ public class a {
         this.d = null;
         this.d = context;
         this.c = arrayList;
-    }
-
-    private JSONArray a(String str) {
-        try {
-            return new JSONArray(str);
-        } catch (Exception e) {
-            com.baidu.adp.lib.g.e.a(e.getMessage());
-            return null;
-        }
     }
 
     private void a(JSONArray jSONArray, int i, boolean z) {

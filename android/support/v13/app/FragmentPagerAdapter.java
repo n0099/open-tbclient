@@ -4,11 +4,11 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Parcelable;
-import android.support.v4.view.ae;
+import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
-public abstract class FragmentPagerAdapter extends ae {
+public abstract class FragmentPagerAdapter extends PagerAdapter {
     private static final boolean DEBUG = false;
     private static final String TAG = "FragmentPagerAdapter";
     private FragmentTransaction mCurTransaction = null;
@@ -21,11 +21,11 @@ public abstract class FragmentPagerAdapter extends ae {
         this.mFragmentManager = fragmentManager;
     }
 
-    @Override // android.support.v4.view.ae
+    @Override // android.support.v4.view.PagerAdapter
     public void startUpdate(ViewGroup viewGroup) {
     }
 
-    @Override // android.support.v4.view.ae
+    @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         if (this.mCurTransaction == null) {
             this.mCurTransaction = this.mFragmentManager.beginTransaction();
@@ -45,7 +45,7 @@ public abstract class FragmentPagerAdapter extends ae {
         return findFragmentByTag;
     }
 
-    @Override // android.support.v4.view.ae
+    @Override // android.support.v4.view.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         if (this.mCurTransaction == null) {
             this.mCurTransaction = this.mFragmentManager.beginTransaction();
@@ -53,7 +53,7 @@ public abstract class FragmentPagerAdapter extends ae {
         this.mCurTransaction.detach((Fragment) obj);
     }
 
-    @Override // android.support.v4.view.ae
+    @Override // android.support.v4.view.PagerAdapter
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         Fragment fragment = (Fragment) obj;
         if (fragment != this.mCurrentPrimaryItem) {
@@ -69,7 +69,7 @@ public abstract class FragmentPagerAdapter extends ae {
         }
     }
 
-    @Override // android.support.v4.view.ae
+    @Override // android.support.v4.view.PagerAdapter
     public void finishUpdate(ViewGroup viewGroup) {
         if (this.mCurTransaction != null) {
             this.mCurTransaction.commitAllowingStateLoss();
@@ -78,7 +78,7 @@ public abstract class FragmentPagerAdapter extends ae {
         }
     }
 
-    @Override // android.support.v4.view.ae
+    @Override // android.support.v4.view.PagerAdapter
     public boolean isViewFromObject(View view, Object obj) {
         if (((Fragment) obj).getView() == view) {
             return true;
@@ -86,12 +86,12 @@ public abstract class FragmentPagerAdapter extends ae {
         return DEBUG;
     }
 
-    @Override // android.support.v4.view.ae
+    @Override // android.support.v4.view.PagerAdapter
     public Parcelable saveState() {
         return null;
     }
 
-    @Override // android.support.v4.view.ae
+    @Override // android.support.v4.view.PagerAdapter
     public void restoreState(Parcelable parcelable, ClassLoader classLoader) {
     }
 

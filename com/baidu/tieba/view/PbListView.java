@@ -24,7 +24,17 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
     /* loaded from: classes.dex */
     public enum IconType {
         ICON_DOWN_WARD,
-        ICON_UP_WARD
+        ICON_UP_WARD;
+
+        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
+        /* renamed from: values  reason: to resolve conflict with enum method */
+        public static IconType[] valuesCustom() {
+            IconType[] valuesCustom = values();
+            int length = valuesCustom.length;
+            IconType[] iconTypeArr = new IconType[length];
+            System.arraycopy(valuesCustom, 0, iconTypeArr, 0, length);
+            return iconTypeArr;
+        }
     }
 
     public PbListView(Context context) {
@@ -57,7 +67,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
     public void c() {
         this.c.setVisibility(0);
         this.b.setText(this.a.getText(R.string.loading));
-        d(TiebaApplication.h().al());
+        d(TiebaApplication.g().al());
     }
 
     public void d() {
@@ -67,7 +77,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
         } else {
             this.b.setText(this.a.getText(R.string.pb_load_more));
         }
-        d(TiebaApplication.h().al());
+        d(TiebaApplication.g().al());
     }
 
     public void a(int i) {
@@ -83,7 +93,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
     public void a(String str) {
         this.f = str;
         this.b.setText(str);
-        d(TiebaApplication.h().al());
+        d(TiebaApplication.g().al());
     }
 
     public void c(int i) {

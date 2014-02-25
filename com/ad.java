@@ -1,22 +1,26 @@
 package com;
 
-import android.view.KeyEvent;
-import android.view.View;
-import com.baidu.cloudsdk.social.share.uiwithlayout.ShareMenu;
+import com.baidu.cloudsdk.DefaultBaiduListener;
+import com.baidu.cloudsdk.IBaiduListener;
+import com.baidu.cloudsdk.social.share.ShareContent;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ad implements View.OnKeyListener {
-    final /* synthetic */ ShareMenu a;
+public class ad extends DefaultBaiduListener {
+    final /* synthetic */ ShareContent a;
+    final /* synthetic */ boolean b;
+    final /* synthetic */ ab c;
 
-    public ad(ShareMenu shareMenu) {
-        this.a = shareMenu;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ad(ab abVar, IBaiduListener iBaiduListener, ShareContent shareContent, boolean z) {
+        super(iBaiduListener);
+        this.c = abVar;
+        this.a = shareContent;
+        this.b = z;
     }
 
-    @Override // android.view.View.OnKeyListener
-    public boolean onKey(View view, int i, KeyEvent keyEvent) {
-        if (keyEvent.getAction() == 0 && i == 4 && this.a.isShowing()) {
-            this.a.dismiss();
-            return true;
-        }
-        return false;
+    @Override // com.baidu.cloudsdk.DefaultBaiduListener, com.baidu.cloudsdk.IBaiduListener
+    public void onComplete() {
+        this.c.share(this.a, this.mListener, this.b);
     }
 }

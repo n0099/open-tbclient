@@ -1,42 +1,31 @@
 package com.baidu.tieba.person;
 
-import android.view.LayoutInflater;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.view.View;
-import android.widget.ImageView;
 import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ci implements com.baidu.adp.lib.guide.b {
-    final /* synthetic */ cg a;
+public class ci implements View.OnLongClickListener {
+    final /* synthetic */ PersonImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ci(cg cgVar) {
-        this.a = cgVar;
+    public ci(PersonImageActivity personImageActivity) {
+        this.a = personImageActivity;
     }
 
-    @Override // com.baidu.adp.lib.guide.b
-    public int d() {
-        return -22;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int c() {
-        return 40;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public View a(LayoutInflater layoutInflater) {
-        ImageView imageView = new ImageView(this.a.a);
-        imageView.setBackgroundResource(R.drawable.bg_center_guide);
-        return imageView;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int b() {
-        return 16;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int a() {
-        return 4;
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        Context context;
+        Context context2;
+        DialogInterface.OnClickListener onClickListener;
+        context = this.a.i;
+        context2 = this.a.i;
+        String[] strArr = {context.getString(R.string.save), context2.getString(R.string.cancel)};
+        PersonImageActivity personImageActivity = this.a;
+        onClickListener = this.a.f;
+        personImageActivity.createListMenu(strArr, onClickListener);
+        this.a.showListMenu();
+        return false;
     }
 }

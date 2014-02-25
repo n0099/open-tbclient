@@ -1,31 +1,28 @@
 package com.baidu.tieba.square;
 
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import android.content.Context;
+import android.view.View;
+import com.baidu.tieba.util.UtilHelper;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z {
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public ArrayList<z> e;
+public class z implements View.OnClickListener {
+    final /* synthetic */ y a;
+    private final /* synthetic */ av b;
+    private final /* synthetic */ int c;
 
-    public void a(JSONObject jSONObject) {
-        this.a = jSONObject.optString("menu_type");
-        this.b = jSONObject.optString("menu_name");
-        this.c = jSONObject.optString("menu_id");
-        this.d = jSONObject.optString("default_logo_url", null);
-        this.d = this.d != null ? this.d + "?v=2" : null;
-        if (jSONObject.has("child_menu_list")) {
-            ArrayList<z> arrayList = new ArrayList<>();
-            JSONArray optJSONArray = jSONObject.optJSONArray("child_menu_list");
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                z zVar = new z();
-                zVar.a(optJSONArray.getJSONObject(i));
-                arrayList.add(zVar);
-            }
-            this.e = arrayList;
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public z(y yVar, av avVar, int i) {
+        this.a = yVar;
+        this.b = avVar;
+        this.c = i;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        String b = this.b.b();
+        String a = am.a("carousel_recommend", String.valueOf(this.c));
+        context = this.a.f;
+        UtilHelper.a(context, b, null, a);
     }
 }

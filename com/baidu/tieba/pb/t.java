@@ -1,10 +1,6 @@
 package com.baidu.tieba.pb;
-
-import android.view.View;
-import android.widget.LinearLayout;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t implements View.OnClickListener {
+class t implements ad {
     final /* synthetic */ ImagePbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,14 +8,15 @@ public class t implements View.OnClickListener {
         this.a = imagePbActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        LinearLayout linearLayout;
-        linearLayout = this.a.q;
-        if (linearLayout.getVisibility() == 0) {
-            this.a.b(false);
-        } else {
-            this.a.finish();
+    @Override // com.baidu.tieba.pb.ad
+    public void a(int i, int i2, int i3) {
+        ab abVar;
+        com.baidu.tieba.data.ab abVar2;
+        abVar = this.a.b;
+        if (abVar == null) {
+            ImagePbActivity imagePbActivity = this.a;
+            abVar2 = this.a.G;
+            imagePbActivity.a(abVar2.l(), 0, 10, false);
         }
     }
 }

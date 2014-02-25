@@ -1,24 +1,52 @@
 package com.baidu.tieba.im.groupInfo;
 
-import com.baidu.tieba.im.message.cr;
-import java.util.LinkedList;
-import protobuf.AddGroupUsers.AddGroupUsersRes;
+import com.google.protobuf.MessageLite;
+import protobuf.ApplyJoinGroup.ApplyJoinGroupReq;
 /* loaded from: classes.dex */
-public class ah extends cr implements com.baidu.tieba.im.coder.f {
+public class ah extends com.baidu.tieba.im.message.s implements com.baidu.tieba.im.coder.g {
     private int a;
+    private String b;
+    private long c;
+    private int d;
 
     public ah() {
-        e(103111);
+        e(103110);
     }
 
-    @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<com.baidu.tieba.im.message.q> linkedList, byte[] bArr, int i) {
-        AddGroupUsersRes.AddGroupUsersResIdl parseFrom = AddGroupUsersRes.AddGroupUsersResIdl.parseFrom(bArr);
-        g(parseFrom.getError().getErrorno());
-        c(parseFrom.getError().getUsermsg());
-        linkedList.add(this);
-        if (!k()) {
-            this.a = parseFrom.getData().getGroupId();
-        }
+    public int b() {
+        return this.d;
+    }
+
+    public void a(int i) {
+        this.d = i;
+    }
+
+    public long c() {
+        return this.c;
+    }
+
+    public void a(long j) {
+        this.c = j;
+    }
+
+    public int d() {
+        return this.a;
+    }
+
+    public void b(int i) {
+        this.a = i;
+    }
+
+    public String e() {
+        return this.b;
+    }
+
+    public void a(String str) {
+        this.b = str;
+    }
+
+    @Override // com.baidu.tieba.im.coder.g
+    public MessageLite a() {
+        return ApplyJoinGroupReq.ApplyJoinGroupReqIdl.newBuilder().a(ApplyJoinGroupReq.DataReq.newBuilder().a(d()).a(c()).a(e()).b(b()).build()).build();
     }
 }

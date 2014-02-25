@@ -25,16 +25,14 @@ public class j implements Animation.AnimationListener {
         i = this.a.k;
         if (i < 100) {
             button3 = this.a.d;
-            StringBuilder sb = new StringBuilder();
             topRecActivity2 = this.a.j;
-            StringBuilder append = sb.append(topRecActivity2.getString(R.string.done)).append("(");
+            StringBuilder append = new StringBuilder(String.valueOf(topRecActivity2.getString(R.string.done))).append("(");
             i2 = this.a.k;
             button3.setText(append.append(i2).append(")").toString());
         } else {
             button = this.a.d;
-            StringBuilder sb2 = new StringBuilder();
             topRecActivity = this.a.j;
-            button.setText(sb2.append(topRecActivity.getString(R.string.done)).append("(99+)").toString());
+            button.setText(String.valueOf(topRecActivity.getString(R.string.done)) + "(99+)");
         }
         button2 = this.a.d;
         button2.invalidate();

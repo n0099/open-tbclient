@@ -7,10 +7,10 @@ import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class TbCheckBox extends ImageView {
-    private ck a;
+    private cr a;
 
-    public void setTagData(cl clVar) {
-        setTag(clVar);
+    public void setTagData(cs csVar) {
+        setTag(csVar);
         a();
     }
 
@@ -25,16 +25,16 @@ public class TbCheckBox extends ImageView {
     }
 
     private void c() {
-        setOnClickListener(new cj(this));
+        setOnClickListener(new cq(this));
         a();
     }
 
-    public void setStatedChangedListener(ck ckVar) {
-        this.a = ckVar;
+    public void setStatedChangedListener(cr crVar) {
+        this.a = crVar;
     }
 
     public void a() {
-        if (TiebaApplication.h().al() == 1) {
+        if (TiebaApplication.g().al() == 1) {
             setImageResource(d() ? R.drawable.btn_friend_choose_s_1 : R.drawable.btn_friend_choose_n_1);
         } else {
             setImageResource(d() ? R.drawable.btn_friend_choose_s : R.drawable.btn_friend_choose_n);
@@ -48,16 +48,16 @@ public class TbCheckBox extends ImageView {
     /* JADX INFO: Access modifiers changed from: private */
     public boolean d() {
         Object tag = getTag();
-        if (tag == null || !(tag instanceof cl)) {
+        if (tag == null || !(tag instanceof cs)) {
             return false;
         }
-        return ((cl) tag).d();
+        return ((cs) tag).isChecked();
     }
 
     public void setChecked(boolean z) {
         Object tag = getTag();
-        if (tag != null && (tag instanceof cl)) {
-            ((cl) tag).a(z);
+        if (tag != null && (tag instanceof cs)) {
+            ((cs) tag).setChecked(z);
         }
         a();
         if (this.a != null) {

@@ -1,22 +1,24 @@
 package com.baidu.tieba.pb;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 /* loaded from: classes.dex */
-public class dk implements View.OnFocusChangeListener {
-    final /* synthetic */ cr a;
+class dk implements Runnable {
+    final /* synthetic */ dj a;
+    private final /* synthetic */ ImageView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dk(cr crVar) {
-        this.a = crVar;
+    public dk(dj djVar, ImageView imageView) {
+        this.a = djVar;
+        this.b = imageView;
     }
 
-    @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view, boolean z) {
-        NewPbActivity newPbActivity;
-        if (!z) {
-            newPbActivity = this.a.g;
-            com.baidu.adp.lib.g.g.a(newPbActivity, view);
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        cu cuVar;
+        FrameLayout frameLayout;
+        cuVar = this.a.a;
+        frameLayout = cuVar.i;
+        frameLayout.removeView(this.b);
     }
 }

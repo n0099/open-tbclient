@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tieba.im.message.bg;
+import com.baidu.tieba.im.message.bm;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.a.d {
     private int c;
@@ -13,8 +13,8 @@ public class a extends com.baidu.adp.a.d {
     private String j;
     private int k;
     private int l;
-    private com.baidu.tieba.im.message.aa a = null;
-    private bg b = null;
+    private com.baidu.tieba.im.message.ad a = null;
+    private bm b = null;
     private int m = -1;
 
     public void a(int i) {
@@ -71,36 +71,36 @@ public class a extends com.baidu.adp.a.d {
         this.m = i;
     }
 
-    private com.baidu.tieba.im.message.aa c() {
-        com.baidu.tieba.im.message.aa aaVar = new com.baidu.tieba.im.message.aa();
-        aaVar.a(this.c);
-        aaVar.a(this.d);
-        aaVar.b(this.e);
-        aaVar.c(this.f);
-        aaVar.d(this.g);
-        aaVar.e(this.h);
-        aaVar.f(this.i);
-        aaVar.g(this.j);
-        aaVar.b(this.k);
-        aaVar.c(this.l);
+    private com.baidu.tieba.im.message.ad c() {
+        com.baidu.tieba.im.message.ad adVar = new com.baidu.tieba.im.message.ad();
+        adVar.a(this.c);
+        adVar.a(this.d);
+        adVar.b(this.e);
+        adVar.c(this.f);
+        adVar.d(this.g);
+        adVar.e(this.h);
+        adVar.f(this.i);
+        adVar.g(this.j);
+        adVar.b(this.k);
+        adVar.c(this.l);
         switch (this.m) {
             case 1011:
-                aaVar.h("neargp");
+                adVar.h("neargp");
                 break;
             case 1012:
-                aaVar.h("mygp");
+                adVar.h("mygp");
                 break;
             case 1013:
-                aaVar.h("bargp");
+                adVar.h("bargp");
                 break;
             case 1014:
-                aaVar.h("");
+                adVar.h("");
                 break;
             default:
-                aaVar.h("");
+                adVar.h("");
                 break;
         }
-        return aaVar;
+        return adVar;
     }
 
     public void a() {

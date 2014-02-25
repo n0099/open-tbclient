@@ -13,10 +13,10 @@ class as implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        av avVar;
+        au auVar;
         this.a.showLoadingDialog(this.a.getString(R.string.deleting));
-        avVar = this.a.b;
-        avVar.a();
+        auVar = this.a.b;
+        auVar.b();
         dialogInterface.cancel();
     }
 }

@@ -9,6 +9,7 @@ import android.util.Log;
 import android.widget.Toast;
 import com.baidu.cloudsdk.BaiduException;
 import com.baidu.cloudsdk.IBaiduListener;
+import com.baidu.cloudsdk.common.imgloader.AsyncImageLoader;
 import com.baidu.cloudsdk.common.imgloader.ImageManager;
 import com.baidu.cloudsdk.common.util.Utils;
 import com.baidu.cloudsdk.social.core.MediaType;
@@ -32,6 +33,29 @@ public class ao implements ISocialShareHandler {
     private boolean f;
     private Weixin g;
     private String h;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes.dex */
+    public class a implements AsyncImageLoader.IAsyncImageLoaderListener {
+        private ShareContent b;
+
+        public a(ShareContent shareContent) {
+            this.b = shareContent;
+        }
+
+        @Override // com.baidu.cloudsdk.common.imgloader.AsyncImageLoader.IAsyncImageLoaderListener
+        public void onComplete(Bitmap bitmap) {
+            if (bitmap != null && !bitmap.isRecycled()) {
+                ao.this.a(this.b, ao.this.a(bitmap));
+                return;
+            }
+            IBaiduListener a = ao.a(ao.this.h);
+            ao.b(ao.this.h);
+            if (a != null) {
+                a.onError(new BaiduException("failed to load image uri "));
+            }
+        }
+    }
 
     public ao(Context context, String str, boolean z) {
         this.d = context;
@@ -76,7 +100,7 @@ public class ao implements ISocialShareHandler {
         if (shareContent.getImageData() != null) {
             a(shareContent, a(shareContent.getImageData()), WXMediaMessage.getCompressedImageData(shareContent.getImageData()), false);
         } else if (shareContent.getImageUri() != null) {
-            ImageManager.getInstance().loadImage(this.d, shareContent.getImageUri(), new g(this, shareContent));
+            ImageManager.getInstance().loadImage(this.d, shareContent.getImageUri(), new a(shareContent));
         } else {
             a(shareContent, (byte[]) null);
         }
@@ -245,6 +269,6 @@ public class ao implements ISocialShareHandler {
         if (this.f) {
             mediaType = MediaType.WEIXIN_TIMELINE;
         }
-        SocialShareStatisticsManager.getInstance(this.d).getBackUrl(shareContent.getLinkUrl(), mediaType.toString(), new h(this, shareContent, iBaiduListener));
+        SocialShareStatisticsManager.getInstance(this.d).getBackUrl(shareContent.getLinkUrl(), mediaType.toString(), new ap(this, shareContent, iBaiduListener));
     }
 }

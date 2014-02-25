@@ -1,40 +1,26 @@
 package com.baidu.tieba.account;
 
-import com.baidu.tieba.data.AccountData;
+import android.content.Context;
+import android.content.Intent;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bk implements be {
-    final /* synthetic */ ReLoginShareActivity a;
+public class bk extends com.baidu.tieba.util.ao {
+    final /* synthetic */ Register2Activity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bk(ReLoginShareActivity reLoginShareActivity) {
-        this.a = reLoginShareActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bk(Register2Activity register2Activity, Context context) {
+        super(context);
+        this.a = register2Activity;
     }
 
-    @Override // com.baidu.tieba.account.be
-    public void a(String str) {
-        String str2;
-        ReLoginShareActivity reLoginShareActivity = this.a;
-        str2 = this.a.f;
-        reLoginShareActivity.a(0, str2, null);
-    }
-
-    @Override // com.baidu.tieba.account.be
-    public void a(AccountData accountData) {
-        String str;
-        if (accountData.getAccount() != null) {
-            this.a.a(accountData);
-        } else {
-            ReLoginShareActivity reLoginShareActivity = this.a;
-            str = this.a.f;
-            reLoginShareActivity.a(2, str, accountData);
+    @Override // com.baidu.tieba.util.ao, android.text.style.ClickableSpan
+    public void onClick(View view) {
+        bm bmVar;
+        bmVar = this.a.O;
+        if (bmVar == null) {
+            a().startActivity(new Intent(a(), ProtocolActivity.class));
         }
-        a.a().b("share_login_success");
-    }
-
-    @Override // com.baidu.tieba.account.be
-    public void a(String str, String str2) {
-        l.a().b(str);
-        this.a.a(1, str2, null);
-        a.a().b("share_login_failure");
     }
 }

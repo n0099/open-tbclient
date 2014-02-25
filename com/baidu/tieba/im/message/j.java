@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.message;
 /* loaded from: classes.dex */
-public class j extends q {
+public class j extends s {
     public j() {
-        e(-115);
+        e(-140);
     }
 }

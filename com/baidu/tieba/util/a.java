@@ -6,9 +6,9 @@ import com.baidu.tieba.account.AccountRestoreActivity;
 import com.baidu.tieba.util.AntiHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class a implements DialogInterface.OnClickListener {
-    final /* synthetic */ Context a;
-    final /* synthetic */ AntiHelper.PageType b;
+public class a implements DialogInterface.OnClickListener {
+    private final /* synthetic */ Context a;
+    private final /* synthetic */ AntiHelper.PageType b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Context context, AntiHelper.PageType pageType) {

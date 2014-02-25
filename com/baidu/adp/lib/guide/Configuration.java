@@ -2,12 +2,13 @@ package com.baidu.adp.lib.guide;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.v4.view.MotionEventCompat;
 import android.view.View;
 /* loaded from: classes.dex */
 class Configuration implements Parcelable {
     public static Parcelable.Creator<Configuration> k = new c();
     View a = null;
-    int b = 255;
+    int b = MotionEventCompat.ACTION_MASK;
     int c = -1;
     int d = -1;
     int e = 17170444;

@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Message;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-final class b implements Handler.Callback {
+class b implements Handler.Callback {
     @Override // android.os.Handler.Callback
     public boolean handleMessage(Message message) {
         j jVar;
@@ -50,8 +50,8 @@ final class b implements Handler.Callback {
                 }
                 break;
         }
-        int unused = a.a = 0;
-        j unused2 = a.d = null;
+        a.a = 0;
+        a.d = null;
         return false;
     }
 }

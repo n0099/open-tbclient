@@ -1,6 +1,10 @@
 package com.baidu.tieba.pb;
+
+import android.content.DialogInterface;
+import com.baidu.tieba.img.WriteImagesInfo;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class ay implements by {
+class ay implements DialogInterface.OnClickListener {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,29 +12,36 @@ class ay implements by {
         this.a = newPbActivity;
     }
 
-    @Override // com.baidu.tieba.pb.by
-    public void a(boolean z) {
-        com.baidu.tieba.model.bm bmVar;
-        com.baidu.tieba.model.bm bmVar2;
-        com.baidu.tieba.model.bm bmVar3;
-        com.baidu.tieba.model.bm bmVar4;
-        com.baidu.tieba.model.bm bmVar5;
-        com.baidu.tieba.model.bm bmVar6;
-        if (z) {
-            bmVar6 = this.a.u;
-            bmVar6.b(true);
-            return;
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        cu cuVar;
+        cu cuVar2;
+        WriteImagesInfo writeImagesInfo;
+        String str;
+        WriteImagesInfo writeImagesInfo2;
+        WriteImagesInfo writeImagesInfo3;
+        NewPbActivity newPbActivity = this.a;
+        cuVar = this.a.C;
+        newPbActivity.D = cuVar.ad();
+        cuVar2 = this.a.C;
+        cuVar2.j();
+        if (i == 0) {
+            writeImagesInfo = this.a.m;
+            if (writeImagesInfo.getChosedFiles() != null) {
+                writeImagesInfo2 = this.a.m;
+                int size = writeImagesInfo2.getChosedFiles().size();
+                writeImagesInfo3 = this.a.m;
+                if (size >= writeImagesInfo3.getMaxImagesAllowed()) {
+                    this.a.showToast(String.format(this.a.getString(R.string.editor_mutiiamge_max), 10));
+                    return;
+                }
+            }
+            this.a.n = String.valueOf(System.currentTimeMillis());
+            NewPbActivity newPbActivity2 = this.a;
+            str = this.a.n;
+            com.baidu.tieba.write.bz.a(newPbActivity2, str);
+        } else if (i == 1) {
+            com.baidu.tieba.write.bz.b(this.a);
         }
-        bmVar = this.a.u;
-        int d = bmVar.m().d();
-        bmVar2 = this.a.u;
-        if (d < bmVar2.m().a()) {
-            bmVar4 = this.a.u;
-            bmVar5 = this.a.u;
-            bmVar4.c(bmVar5.m().d() + 1);
-            return;
-        }
-        bmVar3 = this.a.u;
-        bmVar3.a(true);
     }
 }

@@ -1,33 +1,45 @@
 package com.baidu.tieba.editortool;
 
-import com.baidu.tbadk.gif.GifView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.tieba.img.ImageFileInfo;
+import com.slidingmenu.lib.R;
+import java.io.File;
 /* loaded from: classes.dex */
-public class i implements com.baidu.tbadk.imageManager.c {
-    final /* synthetic */ EmotionTabContentView a;
+class i implements View.OnClickListener {
+    final /* synthetic */ g a;
+    private final /* synthetic */ ViewGroup b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(EmotionTabContentView emotionTabContentView) {
-        this.a = emotionTabContentView;
+    public i(g gVar, ViewGroup viewGroup) {
+        this.a = gVar;
+        this.b = viewGroup;
     }
 
-    @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
-        GifView gifView;
-        GifView gifView2;
-        GifView gifView3;
-        GifView gifView4;
-        gifView = this.a.e;
-        Object tag = gifView.getTag();
-        if (dVar == null || tag == null || !(tag instanceof String)) {
-            gifView2 = this.a.e;
-            gifView2.setGif(null);
-        } else if (((String) tag).equals(str)) {
-            gifView4 = this.a.e;
-            gifView4.setGif(dVar);
-        } else {
-            gifView3 = this.a.e;
-            gifView3.setGif(null);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean z;
+        EditorToolComponetContainer editorToolComponetContainer;
+        z zVar;
+        EditorToolComponetContainer editorToolComponetContainer2;
+        int indexOfChild = this.b.indexOfChild(view);
+        if (indexOfChild >= 0) {
+            ImageFileInfo imageFileInfo = (ImageFileInfo) this.a.getItem(indexOfChild);
+            if (imageFileInfo == null) {
+                z = false;
+            } else {
+                File file = new File(imageFileInfo.getFilePath());
+                z = file.exists() && file.length() != 0;
+            }
+            if (!z) {
+                editorToolComponetContainer2 = this.a.a;
+                BdUtilHelper.b(editorToolComponetContainer2.getContext(), (int) R.string.editor_mutiiamge_image_error);
+                return;
+            }
+            editorToolComponetContainer = this.a.a;
+            zVar = editorToolComponetContainer.r;
+            zVar.a(42, Integer.valueOf(indexOfChild));
         }
     }
 }

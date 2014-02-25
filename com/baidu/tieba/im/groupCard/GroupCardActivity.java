@@ -7,24 +7,23 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.SparseArray;
 import android.view.View;
-import com.baidu.adp.lib.g.g;
-import com.baidu.cloudsdk.social.core.MediaType;
-import com.baidu.cloudsdk.social.share.ShareContent;
-import com.baidu.tieba.data.h;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.tieba.data.i;
+import com.baidu.tieba.f;
 import com.baidu.tieba.im.chat.LocalViewSize;
-import com.baidu.tieba.j;
-import com.baidu.tieba.util.ad;
-import com.baidu.tieba.util.by;
+import com.baidu.tieba.im.g;
+import com.baidu.tieba.util.af;
+import com.baidu.tieba.util.cb;
 import com.slidingmenu.lib.R;
 import java.text.MessageFormat;
-import java.util.HashMap;
 /* loaded from: classes.dex */
-public class GroupCardActivity extends j implements View.OnClickListener {
+public class GroupCardActivity extends f implements View.OnClickListener {
     public static String a = "groupid";
     public static String b = "groupname";
     public static String c = "groupportrait";
-    private static String j = h.a + "c/p/groupShareImg?group_id=";
+    private static String j = String.valueOf(i.a) + "c/p/groupShareImg?group_id=";
     private d d = null;
     private b e = null;
     private long f = 0;
@@ -43,7 +42,7 @@ public class GroupCardActivity extends j implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         e();
@@ -51,7 +50,7 @@ public class GroupCardActivity extends j implements View.OnClickListener {
     }
 
     public boolean a() {
-        if (ad.a()) {
+        if (af.a()) {
             return true;
         }
         this.d.a(0, getString(R.string.voice_error_sdcard));
@@ -59,7 +58,7 @@ public class GroupCardActivity extends j implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j
+    @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.d.a(i);
@@ -70,60 +69,60 @@ public class GroupCardActivity extends j implements View.OnClickListener {
         super.onClick(view);
         if (view == this.d.g()) {
             if (a() && this.i != null) {
-                by.a(this, "group_card_save", "click", 1, new Object[0]);
+                cb.a(this, "group_card_save", "click", 1, new Object[0]);
                 this.e.a(this.i);
             }
         } else if (view == this.d.i()) {
             finish();
         } else if (view == this.d.h()) {
-            by.a(this, "group_card_share", "click", 1, new Object[0]);
+            cb.a(this, "group_card_share", "click", 1, new Object[0]);
             b();
         }
     }
 
     private void b() {
-        ShareContent shareContent = new ShareContent();
-        shareContent.setTitle(MessageFormat.format(getString(R.string.im_share_title), this.g));
-        shareContent.setContent(MessageFormat.format(getString(R.string.im_share_content), this.g, String.valueOf(this.f)));
-        shareContent.setLinkUrl(com.baidu.tieba.im.j.h + this.f);
+        com.baidu.tieba.widget.share.f fVar = new com.baidu.tieba.widget.share.f();
+        fVar.a = MessageFormat.format(getString(R.string.im_share_title), this.g);
+        fVar.b = MessageFormat.format(getString(R.string.im_share_content), this.g, String.valueOf(this.f));
+        fVar.c = String.valueOf(g.h) + this.f;
         try {
-            shareContent.setImageUri(Uri.parse(j + this.f + "&w=" + LocalViewSize.a().b()));
+            fVar.d = Uri.parse(String.valueOf(j) + this.f + "&w=" + LocalViewSize.a().b());
         } catch (Throwable th) {
         }
-        com.baidu.tieba.widget.share.b bVar = new com.baidu.tieba.widget.share.b(this);
-        bVar.a(shareContent, true);
-        bVar.a(MediaType.WEIXIN_FRIEND, c(), true);
-        bVar.a(d());
-        bVar.a();
+        com.baidu.tieba.widget.share.d dVar = new com.baidu.tieba.widget.share.d(this);
+        dVar.a(fVar, true);
+        dVar.a(3, c(), true);
+        dVar.a(d());
+        dVar.a();
     }
 
-    private ShareContent c() {
-        ShareContent shareContent = new ShareContent();
-        shareContent.setTitle(MessageFormat.format(getString(R.string.im_share_title), this.g));
-        shareContent.setContent(MessageFormat.format(getString(R.string.im_share_content), this.g, String.valueOf(this.f)));
-        shareContent.setLinkUrl(com.baidu.tieba.im.j.h + this.f);
+    private com.baidu.tieba.widget.share.f c() {
+        com.baidu.tieba.widget.share.f fVar = new com.baidu.tieba.widget.share.f();
+        fVar.a = MessageFormat.format(getString(R.string.im_share_title), this.g);
+        fVar.b = MessageFormat.format(getString(R.string.im_share_content), this.g, String.valueOf(this.f));
+        fVar.c = String.valueOf(g.h) + this.f;
         try {
             if (this.h == null || this.h.equals("")) {
-                shareContent.setImageData(BitmapFactory.decodeResource(getResources(), R.drawable.icon));
+                fVar.a(BitmapFactory.decodeResource(getResources(), R.drawable.icon));
             } else if (this.h.startsWith("http")) {
-                shareContent.setImageUri(Uri.parse(this.h));
+                fVar.d = Uri.parse(this.h);
             } else {
-                shareContent.setImageData(ad.c(null, "tieba_group_image"));
+                fVar.a(af.c(null, "tieba_group_image"));
             }
         } catch (Throwable th) {
         }
-        return shareContent;
+        return fVar;
     }
 
-    private HashMap<MediaType, String> d() {
-        HashMap<MediaType, String> hashMap = new HashMap<>(6);
-        hashMap.put(MediaType.WEIXIN_TIMELINE, "gc_wx_timeline");
-        hashMap.put(MediaType.WEIXIN_FRIEND, "gc_wx_friend");
-        hashMap.put(MediaType.QZONE, "gc_qq_zone");
-        hashMap.put(MediaType.QQWEIBO, "gc_tencen_weibo");
-        hashMap.put(MediaType.SINAWEIBO, "gc_sina_weibo");
-        hashMap.put(MediaType.RENREN, "gc_renren");
-        return hashMap;
+    private SparseArray<String> d() {
+        SparseArray<String> sparseArray = new SparseArray<>(7);
+        sparseArray.put(2, "gc_wx_timeline");
+        sparseArray.put(3, "gc_wx_friend");
+        sparseArray.put(4, "gc_qq_zone");
+        sparseArray.put(5, "gc_tencen_weibo");
+        sparseArray.put(6, "gc_sina_weibo");
+        sparseArray.put(7, "gc_renren");
+        return sparseArray;
     }
 
     private void e() {
@@ -138,7 +137,7 @@ public class GroupCardActivity extends j implements View.OnClickListener {
         this.h = intent.getStringExtra(c);
         this.e = new b(this.f, this);
         if (this.e != null) {
-            com.baidu.adp.widget.ImageView.d a2 = this.e.a(this, g.b(this) - g.a((Context) this, 10.0f), (g.c(this) - this.d.j().getHeight()) - this.d.k().getHeight(), new a(this));
+            com.baidu.adp.widget.ImageView.b a2 = this.e.a(this, BdUtilHelper.b(this) - BdUtilHelper.a((Context) this, 10.0f), (BdUtilHelper.c(this) - this.d.j().getHeight()) - this.d.k().getHeight(), new a(this));
             if (a2 != null) {
                 this.d.e();
                 this.i = a2.h();

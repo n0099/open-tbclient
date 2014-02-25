@@ -5,7 +5,7 @@ import android.os.Message;
 import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-final class g implements Handler.Callback {
+class g implements Handler.Callback {
     @Override // android.os.Handler.Callback
     public boolean handleMessage(Message message) {
         r rVar;
@@ -39,7 +39,7 @@ final class g implements Handler.Callback {
                     rVar21 = f.d;
                     str = f.c;
                     rVar21.a(str, message.arg1);
-                    r unused = f.d = null;
+                    f.d = null;
                     break;
                 }
                 break;
@@ -47,14 +47,14 @@ final class g implements Handler.Callback {
             case 3:
                 rVar9 = f.d;
                 if (rVar9 != null) {
-                    if (com.baidu.adp.lib.g.b.b()) {
+                    if (com.baidu.adp.lib.util.c.b()) {
                         rVar11 = f.d;
                         rVar11.a(message.what, ak.a(R.string.voice_err_create_file_fail));
                     } else {
                         rVar10 = f.d;
                         rVar10.a(message.what, ak.a(R.string.voice_err_sdcard_nospace));
                     }
-                    r unused2 = f.d = null;
+                    f.d = null;
                     break;
                 }
                 break;
@@ -63,7 +63,7 @@ final class g implements Handler.Callback {
                 if (rVar3 != null) {
                     rVar4 = f.d;
                     rVar4.a(message.what, ak.a(R.string.voice_err_file_fail));
-                    r unused3 = f.d = null;
+                    f.d = null;
                     break;
                 }
                 break;
@@ -80,7 +80,7 @@ final class g implements Handler.Callback {
                 if (rVar5 != null) {
                     rVar6 = f.d;
                     rVar6.a(message.what, ak.a(R.string.voice_err_load_lib_fail));
-                    r unused4 = f.d = null;
+                    f.d = null;
                     break;
                 }
                 break;
@@ -89,7 +89,7 @@ final class g implements Handler.Callback {
                 if (rVar != null) {
                     rVar2 = f.d;
                     rVar2.a(message.what, ak.a(R.string.voice_err_init_fail));
-                    r unused5 = f.d = null;
+                    f.d = null;
                     break;
                 }
                 break;
@@ -98,7 +98,7 @@ final class g implements Handler.Callback {
                 if (rVar14 != null) {
                     rVar15 = f.d;
                     rVar15.a(message.what, ak.a(R.string.voice_record_timeout_tip));
-                    r unused6 = f.d = null;
+                    f.d = null;
                     break;
                 }
                 break;
@@ -107,8 +107,8 @@ final class g implements Handler.Callback {
                 if (rVar12 != null) {
                     rVar13 = f.d;
                     rVar13.a(message.what, ak.a(R.string.voice_record_short_tip));
-                    r unused7 = f.d = null;
-                    com.baidu.adp.lib.g.e.c("----record too short......");
+                    f.d = null;
+                    com.baidu.adp.lib.util.f.d("----record too short......");
                     break;
                 }
                 break;
@@ -133,12 +133,12 @@ final class g implements Handler.Callback {
                 if (rVar22 != null) {
                     rVar23 = f.d;
                     rVar23.a(message.what, ak.a(R.string.voice_err_other));
-                    r unused8 = f.d = null;
+                    f.d = null;
                     break;
                 }
                 break;
         }
-        int unused9 = f.a = 0;
+        f.a = 0;
         return false;
     }
 }

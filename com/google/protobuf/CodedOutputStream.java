@@ -1,5 +1,6 @@
 package com.google.protobuf;
 
+import android.support.v4.view.MotionEventCompat;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -16,7 +17,10 @@ public final class CodedOutputStream {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static int computePreferredBufferSize(int i) {
-        return i > 4096 ? DEFAULT_BUFFER_SIZE : i;
+        if (i > 4096) {
+            return 4096;
+        }
+        return i;
     }
 
     private CodedOutputStream(byte[] bArr, int i, int i2) {
@@ -34,7 +38,7 @@ public final class CodedOutputStream {
     }
 
     public static CodedOutputStream newInstance(OutputStream outputStream) {
-        return newInstance(outputStream, DEFAULT_BUFFER_SIZE);
+        return newInstance(outputStream, 4096);
     }
 
     public static CodedOutputStream newInstance(OutputStream outputStream, int i) {
@@ -604,21 +608,21 @@ public final class CodedOutputStream {
     }
 
     public void writeRawLittleEndian32(int i) {
-        writeRawByte(i & 255);
-        writeRawByte((i >> 8) & 255);
-        writeRawByte((i >> 16) & 255);
-        writeRawByte((i >> 24) & 255);
+        writeRawByte(i & MotionEventCompat.ACTION_MASK);
+        writeRawByte((i >> 8) & MotionEventCompat.ACTION_MASK);
+        writeRawByte((i >> 16) & MotionEventCompat.ACTION_MASK);
+        writeRawByte((i >> 24) & MotionEventCompat.ACTION_MASK);
     }
 
     public void writeRawLittleEndian64(long j) {
-        writeRawByte(((int) j) & 255);
-        writeRawByte(((int) (j >> 8)) & 255);
-        writeRawByte(((int) (j >> 16)) & 255);
-        writeRawByte(((int) (j >> 24)) & 255);
-        writeRawByte(((int) (j >> 32)) & 255);
-        writeRawByte(((int) (j >> 40)) & 255);
-        writeRawByte(((int) (j >> 48)) & 255);
-        writeRawByte(((int) (j >> 56)) & 255);
+        writeRawByte(((int) j) & MotionEventCompat.ACTION_MASK);
+        writeRawByte(((int) (j >> 8)) & MotionEventCompat.ACTION_MASK);
+        writeRawByte(((int) (j >> 16)) & MotionEventCompat.ACTION_MASK);
+        writeRawByte(((int) (j >> 24)) & MotionEventCompat.ACTION_MASK);
+        writeRawByte(((int) (j >> 32)) & MotionEventCompat.ACTION_MASK);
+        writeRawByte(((int) (j >> 40)) & MotionEventCompat.ACTION_MASK);
+        writeRawByte(((int) (j >> 48)) & MotionEventCompat.ACTION_MASK);
+        writeRawByte(((int) (j >> 56)) & MotionEventCompat.ACTION_MASK);
     }
 
     public static int encodeZigZag32(int i) {

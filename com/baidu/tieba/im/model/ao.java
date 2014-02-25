@@ -1,12 +1,12 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tieba.im.message.ax;
-import com.baidu.tieba.im.message.ay;
-import com.baidu.tieba.im.message.az;
-import com.baidu.tieba.im.message.ba;
-import com.baidu.tieba.im.message.bb;
-import com.baidu.tieba.im.message.bc;
-import com.baidu.tieba.im.message.cn;
+import com.baidu.tieba.im.message.bd;
+import com.baidu.tieba.im.message.be;
+import com.baidu.tieba.im.message.bf;
+import com.baidu.tieba.im.message.bg;
+import com.baidu.tieba.im.message.bh;
+import com.baidu.tieba.im.message.bi;
+import com.baidu.tieba.im.message.cw;
 /* loaded from: classes.dex */
 public class ao extends com.baidu.adp.a.d {
     private int a;
@@ -17,8 +17,8 @@ public class ao extends com.baidu.adp.a.d {
     private String f;
     private String g = null;
     private int h = 0;
-    private ba i;
-    private cn j;
+    private bg i;
+    private cw j;
 
     public int a() {
         return this.a;
@@ -98,32 +98,32 @@ public class ao extends com.baidu.adp.a.d {
         return false;
     }
 
-    private ba d(int i) {
-        ba baVar = null;
+    private bg d(int i) {
+        bg bgVar = null;
         switch (i) {
             case 1:
-                baVar = new az(c());
+                bgVar = new bf(c());
                 break;
             case 2:
-                baVar = new bb(b());
+                bgVar = new bh(b());
                 break;
             case 3:
-                baVar = new ax(g());
+                bgVar = new bd(g());
                 break;
             case 4:
-                baVar = new bc(d());
+                bgVar = new bi(d());
                 break;
             case 5:
-                baVar = new ay(h(), e(), f());
+                bgVar = new be(h(), e(), f());
             default:
-                com.baidu.adp.lib.g.e.a("no right type");
+                com.baidu.adp.lib.util.f.b("no right type");
                 break;
         }
-        if (baVar != null) {
-            baVar.a(a());
-            baVar.b(i);
+        if (bgVar != null) {
+            bgVar.a(a());
+            bgVar.b(i);
         }
-        return baVar;
+        return bgVar;
     }
 
     public void c(int i) {

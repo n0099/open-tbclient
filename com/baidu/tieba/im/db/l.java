@@ -1,363 +1,209 @@
 package com.baidu.tieba.im.db;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
-import android.database.sqlite.SQLiteStatement;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.PushConstants;
-import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.baidu.tieba.im.groupUpdates.UpdatesItemData;
-import com.baidu.tieba.im.validate.ValidateItemData;
-import com.baidu.tieba.util.by;
-import java.util.ArrayList;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.im.chat.GroupChatActivity;
+import com.baidu.tieba.im.chat.PersonalChatActivity;
+import com.baidu.tieba.im.chat.aj;
+import com.baidu.tieba.im.data.SystemMsgData;
+import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes.dex */
 public class l {
-    private static l a;
-    private StringBuffer b = new StringBuffer();
-    private SQLiteStatement c;
+    private static l a = new l();
+    private o b;
 
     private l() {
-        this.b.append("INSERT INTO ");
-        this.b.append("tb_group_news");
-        this.b.append("(");
-        this.b.append("cmd");
-        this.b.append(",");
-        this.b.append(PushConstants.EXTRA_CONTENT);
-        this.b.append(",");
-        this.b.append("content_status");
-        this.b.append(",");
-        this.b.append("ext");
-        this.b.append(",");
-        this.b.append(PushConstants.EXTRA_GID);
-        this.b.append(",");
-        this.b.append("notice_id");
-        this.b.append(",");
-        this.b.append("time");
-        this.b.append(") VALUES(?,?,?,?,?,?,?)");
-        this.c = r.a(this.b.toString());
     }
 
-    public static synchronized l a() {
-        l lVar;
-        synchronized (l.class) {
-            if (a == null) {
-                a = new l();
-            }
-            lVar = a;
-        }
-        return lVar;
+    public static l a() {
+        return a;
     }
 
-    public synchronized void a(String str) {
-        try {
-            SQLiteDatabase a2 = s.a();
-            if (!TextUtils.isEmpty(str) && a2 != null) {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put("content_status", (Integer) 2);
-                com.baidu.adp.lib.g.e.d("count:" + a2.update("tb_group_news", contentValues, "cmd=?", new String[]{str}) + " cmd:" + str);
-            }
-        } catch (Exception e) {
-            by.a(e, "GroupNewsDao.markReadByCmd", new Object[0]);
-            e.printStackTrace();
-        }
+    public void b() {
+        c();
     }
 
-    public synchronized int a(String str, int i) {
-        Cursor cursor = null;
-        int i2 = 0;
+    private void c() {
+        this.b = new o(this, null);
+        com.baidu.tieba.im.messageCenter.e.a().a(103112, this.b);
+        com.baidu.tieba.im.messageCenter.e.a().a(103101, this.b);
+    }
+
+    public synchronized boolean a(String str, int i, CommonMsgPojo commonMsgPojo) {
+        boolean b;
+        boolean z = false;
         synchronized (this) {
-            SQLiteDatabase a2 = s.a();
-            if (a2 != null) {
-                try {
-                    String format = String.format("select count(*) from tb_group_news WHERE cmd IN ( '%1$s' ) and content_status = %2$s", str, "" + i);
-                    com.baidu.adp.lib.g.e.d("sql:" + format);
-                    cursor = a2.rawQuery(format, null);
-                    if (cursor.moveToFirst()) {
-                        i2 = cursor.getInt(0);
-                    } else {
-                        i2 = -1;
+            if (commonMsgPojo != null) {
+                boolean z2 = true;
+                com.baidu.tieba.im.message.g chatMessage = commonMsgPojo.toChatMessage();
+                if (chatMessage != null) {
+                    SystemMsgData j = com.baidu.tieba.im.util.l.j(chatMessage);
+                    if (j != null && !j.getIsSelf()) {
+                        z2 = false;
                     }
-                    com.baidu.tieba.util.p.a(cursor);
-                } catch (SQLiteException e) {
-                    by.a(e, "GroupNewsDao.getNewCountByCmd", new Object[0]);
-                    e.printStackTrace();
-                    com.baidu.tieba.util.p.a(cursor);
-                } catch (Exception e2) {
-                    by.a(e2, "GroupNewsDao.getNewCountByCmd", new Object[0]);
-                    e2.printStackTrace();
-                    com.baidu.tieba.util.p.a(cursor);
-                }
-            }
-        }
-        return i2;
-    }
-
-    public synchronized int b(String str) {
-        Cursor cursor = null;
-        int i = 0;
-        synchronized (this) {
-            SQLiteDatabase a2 = s.a();
-            if (a2 != null) {
-                try {
-                    try {
-                        String format = String.format("select count(*) from tb_group_news WHERE cmd IN ( '%1$s' )", str);
-                        com.baidu.adp.lib.g.e.d("sql:" + format);
-                        cursor = a2.rawQuery(format, null);
-                        if (cursor.moveToFirst()) {
-                            i = cursor.getInt(0);
-                        } else {
-                            i = -1;
-                        }
-                        com.baidu.tieba.util.p.a(cursor);
-                    } catch (SQLiteException e) {
-                        by.a(e, "GroupNewsDao.getCountByCmd", new Object[0]);
-                        e.printStackTrace();
-                        com.baidu.tieba.util.p.a(cursor);
-                    }
-                } catch (Exception e2) {
-                    by.a(e2, "GroupNewsDao.getCountByCmd", new Object[0]);
-                    e2.printStackTrace();
-                    com.baidu.tieba.util.p.a(cursor);
-                }
-            }
-        }
-        return i;
-    }
-
-    public synchronized void a(String str, com.baidu.tieba.im.a<Integer> aVar) {
-        com.baidu.tieba.im.m.a(new m(this, str), aVar);
-    }
-
-    public synchronized void a(long j, int i, int i2, String str, com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> aVar) {
-        com.baidu.tieba.im.m.a(new n(this, j, i, i2, str), aVar);
-    }
-
-    public synchronized void a(ValidateItemData validateItemData, com.baidu.tieba.im.a<Boolean> aVar) {
-        if (validateItemData != null) {
-            com.baidu.tieba.im.m.a(new o(this, validateItemData), aVar);
-        }
-    }
-
-    public Boolean a(LinkedList<GroupNewsPojo> linkedList) {
-        Boolean bool = false;
-        SQLiteDatabase a2 = s.a();
-        if (a2 != null && linkedList != null) {
-            try {
-                if (linkedList.size() != 0) {
-                    try {
-                        a2.beginTransaction();
-                        Iterator<GroupNewsPojo> it = linkedList.iterator();
-                        while (it.hasNext()) {
-                            GroupNewsPojo next = it.next();
-                            ContentValues contentValues = new ContentValues();
-                            contentValues.put("cmd", next.getCmd());
-                            contentValues.put(PushConstants.EXTRA_CONTENT, next.getContent());
-                            contentValues.put("content_status", Integer.valueOf(next.getContent_status()));
-                            contentValues.put("ext", next.getExt());
-                            contentValues.put(PushConstants.EXTRA_GID, next.getGid());
-                            contentValues.put("notice_id", next.getNotice_id());
-                            contentValues.put("time", Long.valueOf(next.getTime()));
-                            if (a2.update("tb_group_news", contentValues, "notice_id=?", new String[]{next.getNotice_id()}) == 0) {
-                                a(next);
-                            }
-                            bool = Boolean.valueOf(bool.booleanValue() & true);
-                        }
-                        a2.setTransactionSuccessful();
-                        a2.endTransaction();
-                        return bool;
-                    } catch (Exception e) {
-                        by.a(e, "GroupNewsDao.updateData", new Object[0]);
-                        e.printStackTrace();
-                        a2.endTransaction();
-                        return false;
-                    }
-                }
-            } catch (Throwable th) {
-                a2.endTransaction();
-                throw th;
-            }
-        }
-        return false;
-    }
-
-    public synchronized LinkedList<GroupNewsPojo> a(long j, int i, int i2, String str) {
-        LinkedList<GroupNewsPojo> linkedList;
-        Cursor cursor = null;
-        synchronized (this) {
-            if (i2 < 0) {
-                i2 = 0;
-            }
-            linkedList = new LinkedList<>();
-            if (i <= 0) {
-                i = 20;
-            }
-            SQLiteDatabase a2 = s.a();
-            if (a2 != null) {
-                try {
-                    if (j <= 0) {
-                        if (TextUtils.isEmpty(str)) {
-                            String str2 = "select * from tb_group_news ORDER BY time DESC LIMIT " + i + " OFFSET " + i2;
-                            com.baidu.adp.lib.g.e.d("sql:" + str2);
-                            cursor = a2.rawQuery(str2, null);
-                        } else {
-                            String format = String.format("select * from tb_group_news WHERE cmd IN ( '%1$s' ) ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, str);
-                            com.baidu.adp.lib.g.e.d("sql:" + format);
-                            cursor = a2.rawQuery(format, null);
-                            com.baidu.adp.lib.g.e.d(" test sql:" + format);
-                        }
-                    } else if (TextUtils.isEmpty(str)) {
-                        String str3 = "select * from tb_group_news WHERE time <=? ORDER BY time DESC LIMIT " + i + " OFFSET " + i2;
-                        com.baidu.adp.lib.g.e.d("sql:" + str3);
-                        cursor = a2.rawQuery(str3, new String[]{String.valueOf(j)});
-                    } else {
-                        String str4 = "select * from tb_group_news WHERE time <=? AND cmd IN ( ? ) ORDER BY time DESC LIMIT " + i + " OFFSET " + i2;
-                        com.baidu.adp.lib.g.e.d("sql:" + str4);
-                        cursor = a2.rawQuery(str4, new String[]{String.valueOf(j), str});
-                    }
-                    if (cursor != null) {
-                        while (cursor.moveToNext()) {
-                            GroupNewsPojo groupNewsPojo = new GroupNewsPojo();
-                            groupNewsPojo.setCmd(cursor.getString(cursor.getColumnIndex("cmd")));
-                            groupNewsPojo.setContent(cursor.getString(cursor.getColumnIndex(PushConstants.EXTRA_CONTENT)));
-                            groupNewsPojo.setContent_status(cursor.getInt(cursor.getColumnIndex("content_status")));
-                            groupNewsPojo.setExt(cursor.getString(cursor.getColumnIndex("ext")));
-                            groupNewsPojo.setGid(cursor.getString(cursor.getColumnIndex(PushConstants.EXTRA_GID)));
-                            groupNewsPojo.setNotice_id(cursor.getString(cursor.getColumnIndex("notice_id")));
-                            groupNewsPojo.setTime(cursor.getLong(cursor.getColumnIndex("time")));
-                            linkedList.add(groupNewsPojo);
+                    if (TiebaApplication.B()) {
+                        if (chatMessage.g().getUserId().equals(TiebaApplication.A()) && chatMessage.i() != 11) {
+                            z2 = false;
                         }
                     }
-                    com.baidu.tieba.util.p.a(cursor);
-                } catch (Exception e) {
-                    by.a(e, "GroupNewsDao.getAllByCmd", new Object[0]);
-                    e.printStackTrace();
-                    com.baidu.tieba.util.p.a(cursor);
                 }
-                linkedList = b(linkedList);
-            }
-        }
-        return linkedList;
-    }
-
-    private LinkedList<GroupNewsPojo> b(LinkedList<GroupNewsPojo> linkedList) {
-        LinkedList<GroupNewsPojo> linkedList2 = new LinkedList<>();
-        ArrayList arrayList = new ArrayList();
-        int size = linkedList.size();
-        com.baidu.adp.lib.g.e.d("before unique size:" + size);
-        for (int i = 0; i < size; i++) {
-            GroupNewsPojo groupNewsPojo = linkedList.get(i);
-            boolean z = false;
-            for (int i2 = 0; i2 < linkedList2.size(); i2++) {
-                if (linkedList2.get(i2).getContent().equals(groupNewsPojo.getContent())) {
-                    z = true;
+                if (commonMsgPojo.getRead_flag() == 0) {
+                    z2 = false;
                 }
-            }
-            if (z) {
-                arrayList.add(groupNewsPojo.getNotice_id());
-            } else {
-                linkedList2.add(groupNewsPojo);
-            }
-            int size2 = arrayList.size();
-            for (int i3 = 0; i3 < size2; i3++) {
-                b((String) arrayList.get(i3), 3);
-            }
-            com.baidu.adp.lib.g.e.d("after unique size:" + linkedList2.size());
-        }
-        return linkedList2;
-    }
-
-    public synchronized void b(String str, com.baidu.tieba.im.a<Boolean> aVar) {
-        com.baidu.tieba.im.m.a(new p(this, str), aVar);
-    }
-
-    public synchronized boolean a(String str, String str2) {
-        boolean z = true;
-        synchronized (this) {
-            try {
-                SQLiteDatabase a2 = s.a();
-                if (a2 != null) {
-                    a2.delete("tb_group_news", "gid = ? AND cmd = ?", new String[]{str, str2});
+                if (!TiebaApplication.g().Y() && !commonMsgPojo.isPrivate()) {
+                    z2 = false;
+                }
+                if (!TiebaApplication.g().X() && commonMsgPojo.isPrivate()) {
+                    z2 = false;
+                }
+                String gid = commonMsgPojo.getGid();
+                if (!TextUtils.isEmpty(gid) && GroupChatActivity.a && gid.equals(GroupChatActivity.b)) {
+                    z2 = false;
+                } else if (!TextUtils.isEmpty(gid) && PersonalChatActivity.a && gid.equals(PersonalChatActivity.b)) {
+                    z2 = false;
+                }
+                com.baidu.tieba.im.c.i e = com.baidu.tieba.im.c.a.f().e(gid);
+                if (e != null) {
+                    b = e.isAcceptNotify();
                 } else {
-                    z = false;
+                    b = com.baidu.tieba.im.chat.personaltalk.a.b(TiebaApplication.A(), commonMsgPojo.getGid());
                 }
-            } catch (Exception e) {
-                by.a(e, "GroupNewsDao.deleteByGidAndCmd", new Object[0]);
-                e.printStackTrace();
-                z = false;
+                if (!z2 || b) {
+                    z = z2;
+                }
             }
         }
         return z;
     }
 
-    public synchronized int b(String str, int i) {
-        int i2;
-        SQLiteDatabase a2;
-        try {
-            a2 = s.a();
-        } catch (Exception e) {
-            by.a(e, "GroupNewsDao.hideByNoticeIdSync", new Object[0]);
-            e.printStackTrace();
+    public boolean a(HashMap<String, aj> hashMap) {
+        boolean z = false;
+        for (String str : hashMap.keySet()) {
+            aj ajVar = hashMap.get(str);
+            h.a().a(ajVar.a, ajVar.c, ajVar.b);
+            if (a(ajVar.a, ajVar.c, ajVar.b)) {
+                z = true;
+            }
         }
-        if (!TextUtils.isEmpty(str) && a2 != null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("content_status", (Integer) 3);
-            i2 = a2.update("tb_group_news", contentValues, "notice_id= ?", new String[]{str});
-            com.baidu.adp.lib.g.e.d("count:" + i2);
-        }
-        i2 = 0;
-        return i2;
+        return z;
     }
 
-    public synchronized void a(List<UpdatesItemData> list, com.baidu.tieba.im.a<Boolean> aVar) {
-        com.baidu.tieba.im.m.a(new q(this, list), aVar);
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:6:0x0015, code lost:
-        if (r7.c == null) goto L7;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private long a(GroupNewsPojo groupNewsPojo) {
-        long j = -1;
-        try {
-            if (this.c == null) {
-                this.c = r.a(this.b.toString());
+    public synchronized void a(ImMessageCenterPojo imMessageCenterPojo) {
+        if (imMessageCenterPojo != null) {
+            String gid = imMessageCenterPojo.getGid();
+            if (!TextUtils.isEmpty(gid)) {
+                d d = h.a().d();
+                ImMessageCenterPojo a2 = d.a(gid);
+                if (a2 == null) {
+                    a2 = new ImMessageCenterPojo();
+                    a2.setGid(gid);
+                }
+                a2.setExt(imMessageCenterPojo.getExt());
+                a2.setGroup_ext(imMessageCenterPojo.getGroup_ext());
+                a2.setGroup_head(imMessageCenterPojo.getGroup_head());
+                a2.setGroup_name(imMessageCenterPojo.getGroup_name());
+                a2.setGroup_type(imMessageCenterPojo.getGroup_type());
+                a2.setIs_delete(imMessageCenterPojo.getIs_delete());
+                a2.setIs_hidden(imMessageCenterPojo.getIs_hidden());
+                a2.setLast_content_time(imMessageCenterPojo.getLast_content_time());
+                a2.setLast_content(imMessageCenterPojo.getLast_content());
+                a2.setLast_user_name(imMessageCenterPojo.getLast_user_name());
+                a2.setOrderCol(imMessageCenterPojo.getOrderCol());
+                a2.setType(imMessageCenterPojo.getType());
+                a2.setUnread_count(imMessageCenterPojo.getUnread_count());
+                if (imMessageCenterPojo.getLast_rid() > a2.getLast_rid()) {
+                    a2.setLast_rid(imMessageCenterPojo.getLast_rid());
+                }
+                long pulled_msgId = a2.getPulled_msgId();
+                long pulled_msgId2 = imMessageCenterPojo.getPulled_msgId();
+                if (pulled_msgId <= pulled_msgId2) {
+                    a2.setPulled_msgId(pulled_msgId2);
+                    long last_rid = a2.getLast_rid();
+                    long last_rid2 = imMessageCenterPojo.getLast_rid();
+                    if (last_rid <= last_rid2) {
+                        a2.setLast_rid(last_rid2);
+                        d.a(a2);
+                    }
+                }
             }
-            SQLiteDatabase a2 = s.a();
-            if (a2 == null || !a2.isOpen()) {
-                by.a("GroupNewsDao.insertByStatement", -10, "db is invalid", new Object[0]);
-                b();
-            } else {
-                this.c.clearBindings();
-                r.a(this.c, 1, groupNewsPojo.getCmd());
-                r.a(this.c, 2, groupNewsPojo.getContent());
-                this.c.bindLong(3, groupNewsPojo.getContent_status());
-                r.a(this.c, 4, groupNewsPojo.getExt());
-                r.a(this.c, 5, groupNewsPojo.getGid());
-                r.a(this.c, 6, groupNewsPojo.getNotice_id());
-                this.c.bindLong(7, groupNewsPojo.getTime());
-                j = this.c.executeInsert();
-            }
-        } catch (Exception e) {
-            by.a(e, "GroupNewsDao.insertByStatement", new Object[0]);
         }
-        return j;
     }
 
-    public void b() {
-        try {
-            if (this.c != null) {
-                this.c.close();
-                this.c = null;
+    public synchronized void a(String str) {
+        ImMessageCenterPojo a2 = h.a().d().a(str);
+        if (a2 != null) {
+            a2.setLast_rid(0L);
+            a2.setPulled_msgId(0L);
+            a2.setIs_delete(1);
+        } else {
+            com.baidu.adp.lib.util.f.b("删除gid失败");
+        }
+    }
+
+    public synchronized void b(String str) {
+        h.a().d().b(str);
+    }
+
+    public synchronized void b(ImMessageCenterPojo imMessageCenterPojo) {
+        if (imMessageCenterPojo != null) {
+            d d = h.a().d();
+            ImMessageCenterPojo a2 = d.a(imMessageCenterPojo.getGid());
+            if (a2 == null) {
+                a2 = new ImMessageCenterPojo();
             }
-        } catch (Exception e) {
-            by.a(e, "GroupNewsDao.resetStatement", new Object[0]);
+            a2.setExt(imMessageCenterPojo.getExt());
+            a2.setGid(imMessageCenterPojo.getGid());
+            a2.setGroup_ext(imMessageCenterPojo.getGroup_ext());
+            a2.setGroup_head(imMessageCenterPojo.getGroup_head());
+            a2.setGroup_name(imMessageCenterPojo.getGroup_name());
+            a2.setGroup_type(imMessageCenterPojo.getGroup_type());
+            a2.setIs_delete(0);
+            a2.setIs_hidden(0);
+            a2.setType(imMessageCenterPojo.getType());
+            a2.setUnread_count(imMessageCenterPojo.getUnread_count());
+            d.a(a2);
+        }
+    }
+
+    public void c(String str) {
+        d d;
+        ImMessageCenterPojo a2;
+        if (!TextUtils.isEmpty(str) && (d = h.a().d()) != null && (a2 = d.a(str)) != null) {
+            a2.setUnread_count(0);
+        }
+    }
+
+    public void a(d dVar, LinkedList<ImMessageCenterPojo> linkedList) {
+        if (dVar != null && linkedList != null) {
+            HashSet hashSet = new HashSet();
+            dVar.a(new m(this, hashSet));
+            Iterator<ImMessageCenterPojo> it = linkedList.iterator();
+            while (it.hasNext()) {
+                ImMessageCenterPojo next = it.next();
+                hashSet.remove(next.getGid());
+                ImMessageCenterPojo a2 = dVar.a(next.getGid());
+                if (a2 != null) {
+                    a2.setExt(next.getExt());
+                    a2.setGroup_ext(next.getGroup_ext());
+                    a2.setGroup_head(next.getGroup_head());
+                    a2.setGroup_name(next.getGroup_name());
+                    a2.setGroup_type(next.getGroup_type());
+                    a2.setIs_delete(next.getIs_delete());
+                    a2.setIs_hidden(next.getIs_hidden());
+                    a2.setOrderCol(next.getOrderCol());
+                    if (a2.getPulled_msgId() == 0) {
+                        a2.setPulled_msgId(next.getPulled_msgId());
+                    }
+                } else {
+                    dVar.a(next);
+                }
+            }
+            com.baidu.tieba.im.j.a(new n(this, linkedList), null);
         }
     }
 }

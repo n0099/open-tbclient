@@ -1,20 +1,27 @@
 package com.baidu.tieba.person.post;
 
 import android.view.View;
-import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tieba.util.bq;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class v {
-    BdListView a;
-    TextView b;
-    ProgressBar c;
+class v extends a {
+    TextView g;
+    TextView h;
+    TripleTbImageView i;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(View view) {
-        this.a = (BdListView) view.findViewById(R.id.list);
-        this.b = (TextView) view.findViewById(R.id.no_post_view);
-        this.c = (ProgressBar) view.findViewById(R.id.progress);
+        super(view);
+        this.g = (TextView) view.findViewById(R.id.title);
+        this.h = (TextView) view.findViewById(R.id.content);
+        this.i = (TripleTbImageView) view.findViewById(R.id.images);
+    }
+
+    @Override // com.baidu.tieba.person.post.a
+    public void a(int i) {
+        super.a(i);
+        bq.c(this.g, i);
+        bq.d(this.h, i);
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.message;
 /* loaded from: classes.dex */
-public class c extends cr {
+public class c extends da {
     private String a;
 
     public c() {

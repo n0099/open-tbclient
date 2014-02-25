@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -31,7 +32,17 @@ public class WaitingTipView extends RelativeLayout {
         PERSON_LEAVE,
         WAIT_TIP,
         CLEAR,
-        WAIT_TIP_RAND
+        WAIT_TIP_RAND;
+
+        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
+        /* renamed from: values  reason: to resolve conflict with enum method */
+        public static Type[] valuesCustom() {
+            Type[] valuesCustom = values();
+            int length = valuesCustom.length;
+            Type[] typeArr = new Type[length];
+            System.arraycopy(valuesCustom, 0, typeArr, 0, length);
+            return typeArr;
+        }
     }
 
     public WaitingTipView(Context context, AttributeSet attributeSet, int i) {
@@ -63,16 +74,16 @@ public class WaitingTipView extends RelativeLayout {
     }
 
     public void a(HeadImageView headImageView, boolean z) {
-        int a = com.baidu.tieba.im.d.c.a(this.a, R.dimen.head_view_circle_bg);
-        int a2 = com.baidu.tieba.im.d.c.a(this.a, R.dimen.tip_view_image_width);
-        int a3 = com.baidu.tieba.im.d.c.a(this.a, R.dimen.tip_view_image_height);
+        int c = BdUtilHelper.c(this.a, R.dimen.head_view_circle_bg);
+        int c2 = BdUtilHelper.c(this.a, R.dimen.tip_view_image_width);
+        int c3 = BdUtilHelper.c(this.a, R.dimen.tip_view_image_height);
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) headImageView.getLayoutParams();
         if (z) {
-            layoutParams.width = a2 - a;
-            layoutParams.height = a3 - a;
+            layoutParams.width = c2 - c;
+            layoutParams.height = c3 - c;
         } else {
-            layoutParams.width = a2;
-            layoutParams.height = a3;
+            layoutParams.width = c2;
+            layoutParams.height = c3;
         }
         headImageView.setLayoutParams(layoutParams);
     }

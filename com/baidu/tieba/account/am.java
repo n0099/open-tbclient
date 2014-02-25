@@ -1,9 +1,10 @@
 package com.baidu.tieba.account;
 
-import android.view.View;
+import android.text.Editable;
+import android.text.TextWatcher;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class am implements View.OnClickListener {
+public class am implements TextWatcher {
     final /* synthetic */ LoginActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,8 +12,18 @@ public class am implements View.OnClickListener {
         this.a = loginActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.g();
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        this.a.n = true;
+        this.a.n();
+    }
+
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        this.a.d();
     }
 }

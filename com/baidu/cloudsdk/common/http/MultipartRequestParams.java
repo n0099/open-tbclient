@@ -1,7 +1,7 @@
 package com.baidu.cloudsdk.common.http;
 
 import android.text.TextUtils;
-import com.bc;
+import com.e;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -57,9 +57,9 @@ public class MultipartRequestParams extends RequestParams {
         if (this.mFileParams.isEmpty()) {
             return super.getHttpEntity();
         }
-        bc bcVar = new bc();
+        e eVar = new e();
         for (Map.Entry entry : this.mParams.entrySet()) {
-            bcVar.a((String) entry.getKey(), (String) entry.getValue());
+            eVar.a((String) entry.getKey(), (String) entry.getValue());
         }
         for (Map.Entry entry2 : this.mParamsWithArray.entrySet()) {
             String str = (String) entry2.getKey();
@@ -67,7 +67,7 @@ public class MultipartRequestParams extends RequestParams {
             while (it.hasNext()) {
                 String str2 = (String) it.next();
                 if (!TextUtils.isEmpty(str2)) {
-                    bcVar.a(str, str2);
+                    eVar.a(str, str2);
                 }
             }
         }
@@ -75,10 +75,10 @@ public class MultipartRequestParams extends RequestParams {
         int i = 0;
         for (Map.Entry entry3 : this.mFileParams.entrySet()) {
             a aVar = (a) entry3.getValue();
-            bcVar.a((String) entry3.getKey(), aVar.a(), aVar.c, aVar.b, i == size);
+            eVar.a((String) entry3.getKey(), aVar.a(), aVar.c, aVar.b, i == size);
             i++;
         }
-        return bcVar;
+        return eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

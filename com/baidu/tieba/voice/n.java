@@ -3,22 +3,22 @@ package com.baidu.tieba.voice;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class n implements Runnable {
-    final /* synthetic */ String a;
-    final /* synthetic */ RecordVoiceBnt b;
+    final /* synthetic */ RecordVoiceBnt a;
+    private final /* synthetic */ String b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(RecordVoiceBnt recordVoiceBnt, String str) {
-        this.b = recordVoiceBnt;
-        this.a = str;
+        this.a = recordVoiceBnt;
+        this.b = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         TextView textView;
         TextView textView2;
-        textView = this.b.s;
+        textView = this.a.s;
         textView.setVisibility(0);
-        textView2 = this.b.s;
-        textView2.setText(this.a);
+        textView2 = this.a.s;
+        textView2.setText(this.b);
     }
 }

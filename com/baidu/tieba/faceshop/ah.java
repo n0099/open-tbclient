@@ -1,7 +1,8 @@
 package com.baidu.tieba.faceshop;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class ah implements com.baidu.adp.widget.ListView.b {
+class ah extends com.baidu.adp.a.g {
     final /* synthetic */ FacePurchaseRecordsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,8 +10,32 @@ public class ah implements com.baidu.adp.widget.ListView.b {
         this.a = facePurchaseRecordsActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.b
-    public void a(boolean z) {
-        this.a.a(false);
+    @Override // com.baidu.adp.a.g
+    public void a(Object obj) {
+        ao aoVar;
+        ao aoVar2;
+        ao aoVar3;
+        this.a.hideProgressBar();
+        if (obj != null && (obj instanceof FacePurchaseRecordsData)) {
+            aoVar = this.a.a;
+            if (aoVar != null) {
+                FacePurchaseRecordsData facePurchaseRecordsData = (FacePurchaseRecordsData) obj;
+                if (facePurchaseRecordsData.errno == 0 && facePurchaseRecordsData.usermsg != null) {
+                    aoVar3 = this.a.a;
+                    aoVar3.a(facePurchaseRecordsData);
+                    return;
+                } else if (facePurchaseRecordsData.usermsg != null) {
+                    this.a.showToast(facePurchaseRecordsData.usermsg);
+                    aoVar2 = this.a.a;
+                    aoVar2.c();
+                    return;
+                } else {
+                    this.a.showToast(R.string.neterror);
+                    return;
+                }
+            }
+            return;
+        }
+        this.a.showToast(R.string.neterror);
     }
 }

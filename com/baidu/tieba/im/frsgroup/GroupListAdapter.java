@@ -10,9 +10,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.data.GroupInfoData;
-import com.baidu.tieba.util.bs;
+import com.baidu.tieba.util.bq;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
@@ -31,7 +32,17 @@ public class GroupListAdapter extends BaseAdapter {
     public enum BOTTOM_TYPE {
         LINE,
         HAVE_MORE,
-        NO_MORE
+        NO_MORE;
+
+        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
+        /* renamed from: values  reason: to resolve conflict with enum method */
+        public static BOTTOM_TYPE[] valuesCustom() {
+            BOTTOM_TYPE[] valuesCustom = values();
+            int length = valuesCustom.length;
+            BOTTOM_TYPE[] bottom_typeArr = new BOTTOM_TYPE[length];
+            System.arraycopy(valuesCustom, 0, bottom_typeArr, 0, length);
+            return bottom_typeArr;
+        }
     }
 
     public void a(List<GroupInfoData> list) {
@@ -108,85 +119,85 @@ public class GroupListAdapter extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        l lVar;
+        n nVar;
         if (this.e == null) {
             return LayoutInflater.from(this.a).inflate(R.layout.im_frsgroup_list_item, viewGroup, false);
         }
         if (view == null) {
             view = LayoutInflater.from(this.a).inflate(R.layout.im_frsgroup_list_item, viewGroup, false);
-            lVar = new l();
-            lVar.b = (LinearLayout) view.findViewById(R.id.list_item_content);
-            lVar.a = (LinearLayout) view.findViewById(R.id.list_more);
-            lVar.c = (HeadImageView) view.findViewById(R.id.item_head);
-            lVar.d = (TextView) view.findViewById(R.id.item_group_name);
-            lVar.e = (TextView) view.findViewById(R.id.item_group_meizi);
-            lVar.f = (TextView) view.findViewById(R.id.item_group_num);
-            lVar.g = (TextView) view.findViewById(R.id.item_introduce);
-            lVar.m = (TextView) view.findViewById(R.id.list_more_title);
-            lVar.n = (ProgressBar) view.findViewById(R.id.list_more_progress);
-            lVar.o = (ImageView) view.findViewById(R.id.list_more_line);
-            lVar.l = (LinearLayout) view.findViewById(R.id.list_more_text);
-            lVar.h = (ImageView) view.findViewById(R.id.item_grade1);
-            lVar.i = (ImageView) view.findViewById(R.id.item_grade2);
-            lVar.j = (ImageView) view.findViewById(R.id.item_grade3);
-            lVar.k = new ImageView[4];
-            lVar.k[1] = lVar.h;
-            lVar.k[2] = lVar.i;
-            lVar.k[3] = lVar.j;
-            view.setTag(lVar);
+            nVar = new n();
+            nVar.b = (LinearLayout) view.findViewById(R.id.list_item_content);
+            nVar.a = (LinearLayout) view.findViewById(R.id.list_more);
+            nVar.c = (HeadImageView) view.findViewById(R.id.item_head);
+            nVar.d = (TextView) view.findViewById(R.id.item_group_name);
+            nVar.e = (TextView) view.findViewById(R.id.item_group_meizi);
+            nVar.f = (TextView) view.findViewById(R.id.item_group_num);
+            nVar.g = (TextView) view.findViewById(R.id.item_introduce);
+            nVar.m = (TextView) view.findViewById(R.id.list_more_title);
+            nVar.n = (ProgressBar) view.findViewById(R.id.list_more_progress);
+            nVar.o = (ImageView) view.findViewById(R.id.list_more_line);
+            nVar.l = (LinearLayout) view.findViewById(R.id.list_more_text);
+            nVar.h = (ImageView) view.findViewById(R.id.item_grade1);
+            nVar.i = (ImageView) view.findViewById(R.id.item_grade2);
+            nVar.j = (ImageView) view.findViewById(R.id.item_grade3);
+            nVar.k = new ImageView[4];
+            nVar.k[1] = nVar.h;
+            nVar.k[2] = nVar.i;
+            nVar.k[3] = nVar.j;
+            view.setTag(nVar);
         } else {
-            lVar = (l) view.getTag();
+            nVar = (n) view.getTag();
         }
         if (getItemViewType(i) == 1) {
-            lVar.a.setVisibility(0);
-            lVar.b.setVisibility(8);
+            nVar.a.setVisibility(0);
+            nVar.b.setVisibility(8);
             if (this.b == BOTTOM_TYPE.LINE) {
-                lVar.o.setVisibility(0);
-                lVar.l.setVisibility(8);
+                nVar.o.setVisibility(0);
+                nVar.l.setVisibility(8);
                 return view;
             }
-            lVar.o.setVisibility(8);
-            lVar.l.setVisibility(0);
+            nVar.o.setVisibility(8);
+            nVar.l.setVisibility(0);
             if (this.b == BOTTOM_TYPE.HAVE_MORE) {
-                lVar.m.setText(R.string.frsgroup_load_more);
-                lVar.n.setVisibility(0);
+                nVar.m.setText(R.string.frsgroup_load_more);
+                nVar.n.setVisibility(0);
                 return view;
             }
-            lVar.m.setText(R.string.frsgroup_no_more);
-            lVar.n.setVisibility(8);
+            nVar.m.setText(R.string.frsgroup_no_more);
+            nVar.n.setVisibility(8);
             return view;
         }
-        lVar.a.setVisibility(8);
-        lVar.b.setVisibility(0);
+        nVar.a.setVisibility(8);
+        nVar.b.setVisibility(0);
         GroupInfoData groupInfoData = (GroupInfoData) getItem(i);
-        lVar.c.setTag(null);
-        lVar.c.setDrawBorder(true);
-        lVar.c.setRadius(com.baidu.adp.lib.g.g.a((Context) this.a, 5.0f));
-        lVar.c.setDefaultResource(R.drawable.avatar_poto_defaul140);
-        lVar.c.setNightDefaultResource(R.drawable.avatar_poto_defaul140);
-        lVar.c.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
+        nVar.c.setTag(null);
+        nVar.c.setDrawBorder(true);
+        nVar.c.setRadius(BdUtilHelper.a((Context) this.a, 5.0f));
+        nVar.c.setDefaultResource(R.drawable.avatar_poto_defaul140);
+        nVar.c.setNightDefaultResource(R.drawable.avatar_poto_defaul140);
+        nVar.c.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
         String portrait = groupInfoData.getPortrait();
         if (!TextUtils.isEmpty(portrait)) {
-            lVar.c.setTag(portrait);
+            nVar.c.setTag(portrait);
         }
-        lVar.d.setText(groupInfoData.getName());
-        lVar.e.setVisibility(groupInfoData.autorIsMeizhi() ? 0 : 8);
-        lVar.f.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
-        lVar.g.setText(groupInfoData.getIntro().trim());
-        a(lVar.k, groupInfoData.getGrade());
+        nVar.d.setText(groupInfoData.getName());
+        nVar.e.setVisibility(groupInfoData.autorIsMeizhi() ? 0 : 8);
+        nVar.f.setText(String.valueOf(groupInfoData.getMemberNum()) + "/" + groupInfoData.getMaxMemberNum());
+        nVar.g.setText(groupInfoData.getIntro().trim());
+        a(nVar.k, groupInfoData.getGrade());
         a(view);
         if (groupInfoData.isMemGroup()) {
-            bs.a(lVar.d, R.color.im_group_vip_text, 1);
-            bs.d(lVar.h, (int) R.drawable.icon_vip_grade_big_small_s);
-            bs.d(lVar.i, (int) R.drawable.icon_vip_grade_big_small_s);
-            bs.d(lVar.j, (int) R.drawable.icon_vip_grade_big_small_s);
+            bq.a(nVar.d, R.color.im_group_vip_text, 1);
+            bq.d(nVar.h, (int) R.drawable.icon_vip_grade_big_small_s);
+            bq.d(nVar.i, (int) R.drawable.icon_vip_grade_big_small_s);
+            bq.d(nVar.j, (int) R.drawable.icon_vip_grade_big_small_s);
             return view;
         }
         return view;
     }
 
     private void a(View view) {
-        this.a.a().a(TiebaApplication.h().al() == 1);
+        this.a.a().a(TiebaApplication.g().al() == 1);
         this.a.a().a(view);
     }
 

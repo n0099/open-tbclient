@@ -4,22 +4,23 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tieba.im.friend.IMBlackListActivity;
 /* loaded from: classes.dex */
-public class SecretSettingActivity extends com.baidu.tieba.j implements View.OnClickListener {
-    private com.baidu.tieba.im.model.m a;
-    private an b;
-    private com.baidu.tieba.im.messageCenter.g c = new am(this);
+public class SecretSettingActivity extends com.baidu.tieba.f implements View.OnClickListener, com.baidu.adp.widget.BdSwitchView.c {
+    private com.baidu.tieba.im.model.k a;
+    private am b;
+    private com.baidu.tieba.im.messageCenter.g c = new al(this);
 
     public static void a(Context context) {
         context.startActivity(new Intent(context, SecretSettingActivity.class));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.b = new an(this);
+        this.b = new am(this);
         this.b.a(this);
         b();
         a();
@@ -31,7 +32,7 @@ public class SecretSettingActivity extends com.baidu.tieba.j implements View.OnC
     }
 
     private void b() {
-        this.a = new com.baidu.tieba.im.model.m();
+        this.a = new com.baidu.tieba.im.model.k();
     }
 
     private void c() {
@@ -45,21 +46,21 @@ public class SecretSettingActivity extends com.baidu.tieba.j implements View.OnC
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         this.a.b(this.c);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j
+    @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.b.a(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j
+    @Override // com.baidu.tieba.f
     public void onResourceRecycle() {
         super.onResourceRecycle();
         this.b.e();
@@ -77,14 +78,19 @@ public class SecretSettingActivity extends com.baidu.tieba.j implements View.OnC
             finish();
         } else if (view == this.b.j()) {
             d();
-        } else if (view == this.b.i()) {
-            boolean z = !view.isSelected();
-            this.b.i().setTag(Boolean.valueOf(z));
-            a(z);
         }
     }
 
     private void d() {
         IMBlackListActivity.a(this);
+    }
+
+    @Override // com.baidu.adp.widget.BdSwitchView.c
+    public void a(View view, BdSwitchView.SwitchState switchState) {
+        if (switchState == BdSwitchView.SwitchState.ON) {
+            a(true);
+        } else {
+            a(false);
+        }
     }
 }

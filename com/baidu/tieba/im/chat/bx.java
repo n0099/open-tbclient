@@ -1,21 +1,18 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.SingleRunnable;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bx extends SingleRunnable<Boolean> {
-    final /* synthetic */ MsglistActivity a;
+public class bx implements View.OnClickListener {
+    final /* synthetic */ bs a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bx(MsglistActivity msglistActivity) {
-        this.a = msglistActivity;
+    public bx(bs bsVar) {
+        this.a = bsVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.SingleRunnable
-    /* renamed from: a */
-    public Boolean b() {
-        return Boolean.valueOf(com.baidu.tieba.im.chat.personaltalk.a.b(TiebaApplication.A(), String.valueOf(this.a.e.b().getUserId())));
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.c.a(view, 7, this.a.f, 0L);
     }
 }

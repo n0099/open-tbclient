@@ -6,8 +6,8 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Handler;
-import com.bk;
-import com.bl;
+import com.m;
+import com.n;
 /* loaded from: classes.dex */
 public class PositionManager {
     private LocationManager a;
@@ -27,7 +27,7 @@ public class PositionManager {
     public class a extends AsyncTask {
         private String b;
         private IPositionManagerListener c;
-        private LocationListener d = new bl(this);
+        private LocationListener d = new n(this);
 
         public a(String str, IPositionManagerListener iPositionManagerListener) {
             this.b = str;
@@ -130,7 +130,7 @@ public class PositionManager {
             }
             this.c = new a(str, iPositionManagerListener);
             this.c.execute(new Void[0]);
-            this.e.postDelayed(new bk(this), 3000L);
+            this.e.postDelayed(new m(this), 3000L);
         }
     }
 }

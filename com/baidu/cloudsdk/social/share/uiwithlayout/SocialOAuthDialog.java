@@ -23,13 +23,13 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.aq;
 import com.baidu.cloudsdk.BaiduException;
 import com.baidu.cloudsdk.IBaiduListener;
 import com.baidu.cloudsdk.common.util.Utils;
 import com.baidu.cloudsdk.social.core.SocialConfig;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
-import com.i;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class SocialOAuthDialog extends Dialog implements View.OnClickListener {
@@ -105,9 +105,9 @@ public class SocialOAuthDialog extends Dialog implements View.OnClickListener {
         this.d = str2;
         this.e = iBaiduListener;
         this.f = SocialConfig.getInstance(context);
-        setContentView(i.a(getContext(), "bdsocialshare_socialoauthdialoglayout"));
+        setContentView(aq.a(getContext(), "bdsocialshare_socialoauthdialoglayout"));
         this.h = new WebView(context.getApplicationContext());
-        ((LinearLayout) findViewById(i.d(getContext(), "socialoauthdialog_rootlayout"))).addView(this.h, new ViewGroup.LayoutParams(-1, -1));
+        ((LinearLayout) findViewById(aq.d(getContext(), "socialoauthdialog_rootlayout"))).addView(this.h, new ViewGroup.LayoutParams(-1, -1));
         if (this.f.getInt(b) == 1) {
             if (com.baidu.cloudsdk.Build.DEBUG) {
                 Log.d("SocialOAuthActivity", "resumeTimers");
@@ -129,22 +129,22 @@ public class SocialOAuthDialog extends Dialog implements View.OnClickListener {
     }
 
     private void a(Context context) {
-        this.i = i.d(getContext(), "socialoauthdialog_button_back");
-        this.j = i.d(getContext(), "socialoauthdialog_button_refresh");
-        ((RelativeLayout) findViewById(i.d(getContext(), "socialoauthdialog_titlebar"))).setBackgroundResource(i.b(getContext(), "bdsocialshare_titlebar_bg"));
-        int b2 = i.b(getContext(), "bdsocialshare_sharedialog_button");
+        this.i = aq.d(getContext(), "socialoauthdialog_button_back");
+        this.j = aq.d(getContext(), "socialoauthdialog_button_refresh");
+        ((RelativeLayout) findViewById(aq.d(getContext(), "socialoauthdialog_titlebar"))).setBackgroundResource(aq.b(getContext(), "bdsocialshare_titlebar_bg"));
+        int b2 = aq.b(getContext(), "bdsocialshare_sharedialog_button");
         Button button = (Button) findViewById(this.i);
         button.setText(this.f.getString("back"));
-        button.setTextColor(Color.parseColor(i.e(getContext())));
+        button.setTextColor(Color.parseColor(aq.e(getContext())));
         button.setBackgroundResource(b2);
         Button button2 = (Button) findViewById(this.j);
         button2.setText(this.f.getString("refresh"));
-        button2.setTextColor(Color.parseColor(i.e(getContext())));
+        button2.setTextColor(Color.parseColor(aq.e(getContext())));
         button2.setBackgroundResource(b2);
         button.setOnClickListener(this);
         button2.setOnClickListener(this);
-        TextView textView = (TextView) findViewById(i.d(getContext(), "socialoauthdialog_textview_title"));
-        textView.setTextColor(Color.parseColor(i.f(getContext())));
+        TextView textView = (TextView) findViewById(aq.d(getContext(), "socialoauthdialog_textview_title"));
+        textView.setTextColor(Color.parseColor(aq.f(getContext())));
         textView.setText(this.f.getString("auth_dialog_title"));
     }
 

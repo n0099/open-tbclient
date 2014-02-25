@@ -17,8 +17,6 @@ public class NSGif implements c {
 
     private static native int nativeDestroy(int i);
 
-    private static native int nativeGetCurrentFrame(int i);
-
     private static native int nativeGetFrameCount(int i);
 
     private static native int nativeGetFrameDelay(int i, int i2);
@@ -58,17 +56,17 @@ public class NSGif implements c {
     }
 
     @Override // com.baidu.adp.gif.c
-    public int c() {
+    public int b() {
         return this.c;
     }
 
     @Override // com.baidu.adp.gif.c
-    public int d() {
+    public int c() {
         return this.d;
     }
 
     @Override // com.baidu.adp.gif.c
-    public int e() {
+    public int d() {
         return this.e;
     }
 
@@ -79,11 +77,6 @@ public class NSGif implements c {
             return 100;
         }
         return nativeGetFrameDelay * 10;
-    }
-
-    @Override // com.baidu.adp.gif.c
-    public int b() {
-        return nativeGetCurrentFrame(this.b);
     }
 
     @Override // com.baidu.adp.gif.c
@@ -101,8 +94,8 @@ public class NSGif implements c {
 
     static {
         try {
-            if (com.baidu.adp.a.b.a() != null && com.baidu.adp.a.b.a().getApplicationInfo() != null) {
-                String str = com.baidu.adp.a.b.a().getApplicationInfo().dataDir + File.separator + "lib/libnsgif_jni.so";
+            if (com.baidu.adp.a.b.a().b() != null && com.baidu.adp.a.b.a().b().getApplicationInfo() != null) {
+                String str = String.valueOf(com.baidu.adp.a.b.a().b().getApplicationInfo().dataDir) + File.separator + "lib/libnsgif_jni.so";
                 if (new File(str).exists()) {
                     System.load(str);
                 } else {

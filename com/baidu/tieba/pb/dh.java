@@ -1,29 +1,30 @@
 package com.baidu.tieba.pb;
 
-import android.view.View;
-import com.slidingmenu.lib.R;
+import android.os.Handler;
+import android.view.animation.Animation;
+import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dh implements View.OnClickListener {
-    final /* synthetic */ cr a;
+public class dh implements Animation.AnimationListener {
+    final /* synthetic */ cu a;
+    private final /* synthetic */ ImageView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dh(cr crVar) {
-        this.a = crVar;
+    public dh(cu cuVar, ImageView imageView) {
+        this.a = cuVar;
+        this.b = imageView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        View view2;
-        view2 = this.a.k;
-        View findViewById = view2.findViewById(R.id.manage_bottom_bar);
-        if (findViewById != null) {
-            if (findViewById.getVisibility() == 0) {
-                findViewById.setVisibility(8);
-            } else {
-                findViewById.setVisibility(0);
-            }
-            this.a.ai();
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        new Handler().post(new di(this, this.b));
     }
 }

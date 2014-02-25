@@ -28,7 +28,7 @@ public class d extends e {
         this.d.a(R.string.hot_group);
         this.f = this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.f.setOnClickListener(this.a);
-        this.g = (HotGroupFragment) this.a.getSupportFragmentManager().a(R.id.hot_group_fragment);
+        this.g = (HotGroupFragment) this.a.getSupportFragmentManager().findFragmentById(R.id.hot_group_fragment);
         this.e = (NoNetworkView) this.a.findViewById(R.id.view_no_network);
     }
 
@@ -40,7 +40,7 @@ public class d extends e {
         this.a.a().a(i == 1);
         this.a.a().a(this.c);
         this.d.c(i);
-        this.g.d(i);
+        this.g.c(i);
         this.e.a(i);
     }
 }

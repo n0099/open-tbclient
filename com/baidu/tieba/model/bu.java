@@ -1,137 +1,118 @@
 package com.baidu.tieba.model;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.AntiData;
-import com.baidu.tieba.data.ErrorData;
-import com.baidu.tieba.data.WriteData;
-import com.slidingmenu.lib.R;
+import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.tieba.data.SignData;
+import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bu extends BdAsyncTask<Integer, Integer, String> {
-    final /* synthetic */ bs a;
-    private com.baidu.tieba.a.i b = null;
-    private String c = null;
-    private boolean d = false;
+public class bu extends BdAsyncTask<Object, Integer, SignData> {
+    final /* synthetic */ bt a;
+    private volatile com.baidu.tieba.util.ba b;
 
-    public bu(bs bsVar) {
-        this.a = bsVar;
-        setPriority(3);
+    private bu(bt btVar) {
+        this.a = btVar;
+        this.b = null;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ bu(bt btVar, bu buVar) {
+        this(btVar);
+    }
+
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public String a(Integer... numArr) {
-        WriteData writeData;
-        boolean z;
-        if (this.d) {
-            return null;
+    public void b() {
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x008c */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x005b */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:? */
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v11 */
+    /* JADX WARN: Type inference failed for: r0v12 */
+    /* JADX WARN: Type inference failed for: r0v13 */
+    /* JADX WARN: Type inference failed for: r0v15, types: [boolean] */
+    /* JADX WARN: Type inference failed for: r0v2 */
+    /* JADX WARN: Type inference failed for: r0v22 */
+    /* JADX WARN: Type inference failed for: r0v23 */
+    /* JADX WARN: Type inference failed for: r0v3, types: [com.baidu.tieba.data.SignData] */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public SignData a(Object... objArr) {
+        Object obj;
+        Exception e;
+        String str;
+        String str2;
+        String m;
+        JSONObject jSONObject;
+        Object obj2 = null;
+        try {
+            this.b = new com.baidu.tieba.util.ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/c/forum/sign");
+            com.baidu.tieba.util.ba baVar = this.b;
+            str = this.a.a;
+            baVar.a("kw", str);
+            com.baidu.tieba.util.ba baVar2 = this.b;
+            str2 = this.a.b;
+            baVar2.a("fid", str2);
+            this.b.e(true);
+            m = this.b.m();
+        } catch (Exception e2) {
+            obj = obj2;
+            e = e2;
         }
-        this.b = new com.baidu.tieba.a.i();
-        com.baidu.tieba.a.i iVar = this.b;
-        writeData = this.a.b;
-        z = this.a.d;
-        this.c = iVar.a(writeData, z);
-        return this.c;
+        if (this.b.e()) {
+            obj = this.b.d();
+            try {
+                if (obj != 0) {
+                    SignData signData = new SignData();
+                    signData.parserJson(m);
+                    obj = signData;
+                } else if (!com.baidu.tieba.util.bs.c(m) && (jSONObject = new JSONObject(m)) != null && "199901".equals(jSONObject.optString(SocialConstants.PARAM_ERROR_CODE))) {
+                    SignData signData2 = new SignData();
+                    signData2.parserJson(m);
+                    signData2.setIsSigned(1);
+                    signData2.setCountSignNum(1);
+                    obj2 = null;
+                    signData2.setBonusPoint(0);
+                    obj = signData2;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.getMessage());
+                return obj;
+            }
+            return obj;
+        }
+        obj = 0;
+        return obj;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        bt btVar;
-        bt btVar2;
-        this.d = true;
+        com.baidu.adp.a.g gVar;
         if (this.b != null) {
-            this.b.d();
+            this.b.k();
         }
-        btVar = this.a.c;
-        if (btVar != null) {
-            btVar2 = this.a.c;
-            btVar2.a(false, null, null, null, null);
-        }
+        this.a.c = null;
         super.cancel(true);
-        this.a.a = null;
-    }
-
-    private void a(int i, String str) {
-        bt btVar;
-        bt btVar2;
-        WriteData writeData;
-        WriteData writeData2;
-        WriteData writeData3;
-        bt btVar3;
-        bt btVar4;
-        WriteData writeData4;
-        bt btVar5;
-        bt btVar6;
-        AntiData e = this.b != null ? this.b.e() : null;
-        if (i != 5 && i != 6) {
-            btVar5 = this.a.c;
-            if (btVar5 != null) {
-                btVar6 = this.a.c;
-                btVar6.a(false, str, null, null, e);
-                return;
-            }
-            return;
-        }
-        com.baidu.tieba.data.bf bfVar = new com.baidu.tieba.data.bf();
-        bfVar.a(this.c);
-        if (bfVar.b() != null) {
-            writeData = this.a.b;
-            if (writeData != null) {
-                writeData2 = this.a.b;
-                writeData2.setVcodeMD5(bfVar.a());
-                writeData3 = this.a.b;
-                writeData3.setVcodeUrl(bfVar.b());
-                btVar3 = this.a.c;
-                if (btVar3 != null) {
-                    btVar4 = this.a.c;
-                    writeData4 = this.a.b;
-                    btVar4.a(false, str, bfVar, writeData4, e);
-                    return;
-                }
-                return;
-            }
-        }
-        btVar = this.a.c;
-        if (btVar != null) {
-            btVar2 = this.a.c;
-            btVar2.a(false, str, null, null, e);
-        }
+        gVar = this.a.mLoadDataCallBack;
+        gVar.a(null);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(String str) {
-        bt btVar;
-        bt btVar2;
-        bt btVar3;
-        super.a((bu) str);
-        com.baidu.adp.lib.g.e.e(getClass().getName(), "onPostExecute", "result:" + str);
-        this.a.a = null;
-        if (!this.d) {
-            if (str == null) {
-                btVar = this.a.c;
-                btVar.a(false, TiebaApplication.h().getString(R.string.neterror), null, null, null);
-            } else if (this.b.a()) {
-                ErrorData errorData = new ErrorData();
-                errorData.parserJson(this.c);
-                if (errorData.getError_msg() == null || errorData.getError_msg().length() <= 0) {
-                    errorData.setError_msg(TiebaApplication.h().getString(R.string.send_success));
-                    btVar2 = this.a.c;
-                    if (btVar2 != null) {
-                        AntiData e = (this.b == null || !this.b.a()) ? null : this.b.e();
-                        btVar3 = this.a.c;
-                        btVar3.a(true, errorData.getError_msg(), null, null, e);
-                        return;
-                    }
-                    return;
-                }
-                a(errorData.getError_code(), errorData.getError_msg());
-            } else {
-                a(this.b.b(), this.b.c());
-            }
+    public void a(SignData signData) {
+        com.baidu.adp.a.g gVar;
+        this.a.c = null;
+        if (signData == null && this.b != null) {
+            this.a.mErrorCode = this.b.f();
+            this.a.mErrorString = this.b.j();
         }
+        gVar = this.a.mLoadDataCallBack;
+        gVar.a(signData);
     }
 }

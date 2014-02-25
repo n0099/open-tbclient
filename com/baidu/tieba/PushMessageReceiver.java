@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.by;
+import com.baidu.tieba.util.cb;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class PushMessageReceiver extends BroadcastReceiver {
@@ -15,6 +15,7 @@ public class PushMessageReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         byte[] byteArrayExtra;
+        JSONObject jSONObject;
         JSONObject optJSONObject;
         if (intent != null && context != null) {
             if (intent.getAction().equals(PushConstants.ACTION_MESSAGE)) {
@@ -24,13 +25,13 @@ public class PushMessageReceiver extends BroadcastReceiver {
                         string = new String(byteArrayExtra, "utf-8");
                     }
                     if (TextUtils.isEmpty(string)) {
-                        com.baidu.adp.lib.g.e.a("receive message is empty");
+                        com.baidu.adp.lib.util.f.b("receive message is empty");
                         return;
                     }
-                    JSONObject jSONObject = new JSONObject(string);
-                    if (jSONObject != null) {
-                        int optInt = jSONObject.optInt("tp");
-                        String optString = jSONObject.optString("msg");
+                    JSONObject jSONObject2 = new JSONObject(string);
+                    if (jSONObject2 != null) {
+                        int optInt = jSONObject2.optInt("tp");
+                        String optString = jSONObject2.optString("msg");
                         if (!TextUtils.isEmpty(optString)) {
                             switch (optInt) {
                                 case 1:
@@ -38,10 +39,10 @@ public class PushMessageReceiver extends BroadcastReceiver {
                                 case 9:
                                 case 13:
                                     if (TiebaApplication.A() != null) {
-                                        com.baidu.tieba.data.av avVar = new com.baidu.tieba.data.av();
-                                        avVar.a(optString);
-                                        if (TiebaApplication.A().equals(avVar.e()) && TiebaApplication.h().aa()) {
-                                            com.baidu.tieba.mention.s.a().k();
+                                        com.baidu.tieba.data.at atVar = new com.baidu.tieba.data.at();
+                                        atVar.a(optString);
+                                        if (TiebaApplication.A().equals(atVar.e()) && TiebaApplication.g().Z()) {
+                                            com.baidu.tieba.mention.v.a().k();
                                             return;
                                         }
                                         return;
@@ -49,23 +50,23 @@ public class PushMessageReceiver extends BroadcastReceiver {
                                     return;
                                 case 14:
                                     if (TiebaApplication.A() != null) {
-                                        UtilHelper.a(context, new com.baidu.tieba.data.av(-1L, "vote", optString), 15);
+                                        UtilHelper.a(context, new com.baidu.tieba.data.at(-1L, "vote", optString), 15);
                                         return;
                                     }
                                     return;
                                 case 65535:
-                                    com.baidu.tieba.data.av avVar2 = new com.baidu.tieba.data.av();
-                                    avVar2.a(optString);
-                                    if (TiebaApplication.h().s() && !TextUtils.isEmpty(avVar2.a())) {
-                                        by.a(TiebaApplication.h().getApplicationContext(), "push_noti:" + avVar2.a(), "msgID:" + avVar2.b());
+                                    com.baidu.tieba.data.at atVar2 = new com.baidu.tieba.data.at();
+                                    atVar2.a(optString);
+                                    if (TiebaApplication.g().s() && !TextUtils.isEmpty(atVar2.a())) {
+                                        cb.a(TiebaApplication.g().b().getApplicationContext(), "push_noti:" + atVar2.a(), "msgID:" + atVar2.b());
                                     }
-                                    if (!TextUtils.isEmpty(avVar2.c()) && !TextUtils.isEmpty(avVar2.a())) {
-                                        by.a(avVar2.b(), 1, avVar2.c(), avVar2.a());
+                                    if (!TextUtils.isEmpty(atVar2.c()) && !TextUtils.isEmpty(atVar2.a())) {
+                                        cb.a(atVar2.b(), 1, atVar2.c(), atVar2.a());
                                     }
-                                    if (avVar2.b() != -1) {
-                                        TiebaApplication.h().b(avVar2.b());
+                                    if (atVar2.b() != -1) {
+                                        TiebaApplication.g().b(atVar2.b());
                                     }
-                                    UtilHelper.a(TiebaApplication.h().getApplicationContext(), avVar2, 13);
+                                    UtilHelper.a(TiebaApplication.g().b().getApplicationContext(), atVar2, 13);
                                     return;
                                 default:
                                     return;
@@ -76,29 +77,29 @@ public class PushMessageReceiver extends BroadcastReceiver {
                     e.printStackTrace();
                 }
             } else if (intent.getAction().equals(PushConstants.ACTION_RECEIVE)) {
-                String stringExtra = intent.getStringExtra(PushConstants.EXTRA_METHOD);
-                int intExtra = intent.getIntExtra("error_msg", 0);
-                String str = new String(intent.getByteArrayExtra(PushConstants.EXTRA_CONTENT));
-                if (PushConstants.METHOD_BIND.equals(stringExtra) && intExtra == 0) {
-                    try {
-                        JSONObject jSONObject2 = new JSONObject(str);
-                        if (jSONObject2 != null && (optJSONObject = jSONObject2.optJSONObject("response_params")) != null) {
+                try {
+                    String stringExtra = intent.getStringExtra(PushConstants.EXTRA_METHOD);
+                    int intExtra = intent.getIntExtra("error_msg", 0);
+                    byte[] byteArrayExtra2 = intent.getByteArrayExtra(PushConstants.EXTRA_CONTENT);
+                    if (byteArrayExtra2 != null && byteArrayExtra2.length != 0) {
+                        String str = new String(byteArrayExtra2);
+                        if (PushConstants.METHOD_BIND.equals(stringExtra) && intExtra == 0 && (jSONObject = new JSONObject(str)) != null && (optJSONObject = jSONObject.optJSONObject("response_params")) != null) {
                             String optString2 = optJSONObject.optString("channel_id");
                             String optString3 = optJSONObject.optString(PushConstants.EXTRA_USER_ID);
                             if (optString2 != null) {
-                                TiebaApplication.h().v(optString2);
+                                TiebaApplication.g().v(optString2);
                             }
                             if (optString3 != null) {
-                                TiebaApplication.h().w(optString3);
+                                TiebaApplication.g().w(optString3);
                             }
-                            new ar().start();
+                            new ak(null).start();
                         }
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
                     }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
             } else if (intent.getAction().equals(PushConstants.ACTION_RECEIVER_NOTIFICATION_CLICK)) {
-                com.baidu.adp.lib.g.e.e(a, "onReceive:click message", "EXTRA_EXTRA = " + intent.getStringExtra(PushConstants.EXTRA_EXTRA));
+                com.baidu.adp.lib.util.f.e(a, "onReceive:click message", "EXTRA_EXTRA = " + intent.getStringExtra(PushConstants.EXTRA_EXTRA));
             }
         }
     }

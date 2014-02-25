@@ -1,29 +1,39 @@
 package com.baidu.tieba.write;
 
-import android.content.DialogInterface;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ah implements DialogInterface.OnClickListener {
-    final /* synthetic */ WriteActivity a;
+public class ah extends BdAsyncTask<String, String, WriteData> {
+    private final ag a;
+    private final String b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(WriteActivity writeActivity) {
-        this.a = writeActivity;
+    public ah(String str, ag agVar) {
+        setPriority(3);
+        this.a = agVar;
+        this.b = str;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        WriteData writeData;
-        WriteData writeData2;
-        if (i == 0) {
-            bb.a(this.a);
-            writeData2 = this.a.b;
-            writeData2.setPicType(2);
-        } else if (i == 1) {
-            bb.b(this.a);
-            writeData = this.a.b;
-            writeData.setPicType(1);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public WriteData a(String... strArr) {
+        String str;
+        try {
+            str = com.baidu.tieba.c.a.a().d().a(this.b);
+        } catch (Exception e) {
+            str = null;
+        }
+        return WriteData.fromDraftString(str);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(WriteData writeData) {
+        super.a((ah) writeData);
+        if (this.a != null) {
+            this.a.a(writeData);
         }
     }
 }

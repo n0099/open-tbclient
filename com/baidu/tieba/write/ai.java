@@ -1,36 +1,35 @@
 package com.baidu.tieba.write;
 
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-import com.baidu.tieba.editortool.EditorToolComponetContainer;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.data.AntiData;
 /* loaded from: classes.dex */
-public class ai implements View.OnClickListener {
-    final /* synthetic */ WriteActivity a;
+public class ai {
+    final int a;
+    final String b;
+    final AntiData c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(WriteActivity writeActivity) {
-        this.a = writeActivity;
+    public ai(int i, String str, AntiData antiData) {
+        this.a = i;
+        this.b = str;
+        this.c = antiData;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        InputMethodManager inputMethodManager;
-        EditText editText;
-        InputMethodManager inputMethodManager2;
-        EditText editText2;
-        EditorToolComponetContainer editorToolComponetContainer;
-        WriteActivity writeActivity = this.a;
-        inputMethodManager = this.a.e;
-        editText = this.a.f;
-        writeActivity.HidenSoftKeyPad(inputMethodManager, editText);
-        WriteActivity writeActivity2 = this.a;
-        inputMethodManager2 = this.a.e;
-        editText2 = this.a.h;
-        writeActivity2.HidenSoftKeyPad(inputMethodManager2, editText2);
-        editorToolComponetContainer = this.a.z;
-        editorToolComponetContainer.k();
-        this.a.m();
+    public boolean a() {
+        return this.a != 0;
+    }
+
+    public boolean b() {
+        return this.a == 5 || this.a == 6;
+    }
+
+    public int c() {
+        return this.a;
+    }
+
+    public String d() {
+        return this.b;
+    }
+
+    public AntiData e() {
+        return this.c;
     }
 }

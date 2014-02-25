@@ -10,11 +10,13 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.ParcelFileDescriptor;
 import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.Hashtable;
 /* loaded from: classes.dex */
@@ -24,7 +26,7 @@ public class n {
 
     public static Bitmap a(int i) {
         Bitmap bitmap = b.get(Integer.valueOf(i));
-        if (bitmap == null && (bitmap = b(TiebaApplication.h(), i)) != null) {
+        if (bitmap == null && (bitmap = b(TiebaApplication.g().b(), i)) != null) {
             b.put(Integer.valueOf(i), bitmap);
         }
         return bitmap;
@@ -44,10 +46,10 @@ public class n {
     public static Bitmap a(Context context, int i) {
         try {
             BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inPreferredConfig = com.baidu.tieba.data.h.m;
+            options.inPreferredConfig = com.baidu.tieba.data.i.m;
             return BitmapFactory.decodeResource(context.getResources(), i, options);
         } catch (Throwable th) {
-            com.baidu.adp.lib.g.e.b("BitmapHelper", "getResBitmap", "error = " + th.getMessage());
+            com.baidu.adp.lib.util.f.b("BitmapHelper", "getResBitmap", "error = " + th.getMessage());
             return null;
         }
     }
@@ -56,12 +58,12 @@ public class n {
         try {
             return BitmapFactory.decodeResource(context.getResources(), i, new BitmapFactory.Options());
         } catch (Throwable th) {
-            com.baidu.adp.lib.g.e.b("BitmapHelper", "getResBitmap", "error = " + th.getMessage());
+            com.baidu.adp.lib.util.f.b("BitmapHelper", "getResBitmap", "error = " + th.getMessage());
             return null;
         }
     }
 
-    public static Bitmap a(Bitmap bitmap, int i, int i2) {
+    public static Bitmap a(Bitmap bitmap, int i, int i2, boolean z) {
         float f;
         Bitmap createBitmap;
         if (i <= 0 || i2 < 0 || bitmap == null || bitmap.isRecycled()) {
@@ -79,7 +81,7 @@ public class n {
                 Matrix matrix = new Matrix();
                 matrix.postScale(f, f);
                 createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
-                if (createBitmap != bitmap) {
+                if (createBitmap != bitmap && z) {
                     bitmap.recycle();
                 }
             }
@@ -88,7 +90,7 @@ public class n {
         return bitmap;
     }
 
-    public static Bitmap b(Bitmap bitmap, int i, int i2) {
+    public static Bitmap a(Bitmap bitmap, int i, int i2) {
         float f;
         Bitmap createBitmap;
         if (i <= 0 || i2 < 0 || bitmap == null || bitmap.isRecycled()) {
@@ -115,11 +117,176 @@ public class n {
     }
 
     public static Bitmap a(Bitmap bitmap, int i) {
-        return a(bitmap, i, i);
+        return a(bitmap, i, i, true);
     }
 
     public static Bitmap b(Bitmap bitmap, int i) {
-        return b(bitmap, i, i);
+        return a(bitmap, i, i);
+    }
+
+    /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
+        jadx.core.utils.exceptions.JadxRuntimeException: Found unreachable blocks
+        	at jadx.core.dex.visitors.blocks.DominatorTree.sortBlocks(DominatorTree.java:35)
+        	at jadx.core.dex.visitors.blocks.DominatorTree.compute(DominatorTree.java:25)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.computeDominators(BlockProcessor.java:202)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
+        */
+    public static android.graphics.Bitmap a(java.lang.String r8, int r9, int r10) {
+        /*
+            r1 = 1
+            r0 = 0
+            if (r8 == 0) goto Le
+            int r2 = r8.length()
+            if (r2 <= 0) goto Le
+            if (r9 <= 0) goto Le
+            if (r10 > 0) goto Lf
+        Le:
+            return r0
+        Lf:
+            java.io.File r4 = new java.io.File
+            r4.<init>(r8)
+            boolean r2 = r4.exists()
+            if (r2 == 0) goto Le
+            java.lang.Object r5 = com.baidu.tieba.util.n.a     // Catch: java.lang.Throwable -> L6d
+            monitor-enter(r5)     // Catch: java.lang.Throwable -> L6d
+            android.graphics.BitmapFactory$Options r6 = new android.graphics.BitmapFactory$Options     // Catch: java.lang.Throwable -> L5b
+            r6.<init>()     // Catch: java.lang.Throwable -> L5b
+            r2 = 1
+            r6.inJustDecodeBounds = r2     // Catch: java.lang.Throwable -> L5b
+            java.io.FileInputStream r3 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> L5b
+            r3.<init>(r4)     // Catch: java.lang.Throwable -> L5b
+            r2 = 0
+            android.graphics.BitmapFactory.decodeStream(r3, r2, r6)     // Catch: java.lang.Throwable -> L70
+            android.graphics.Bitmap$Config r2 = com.baidu.tieba.data.i.m     // Catch: java.lang.Throwable -> L70
+            r6.inPreferredConfig = r2     // Catch: java.lang.Throwable -> L70
+            com.baidu.tieba.util.r.a(r3)     // Catch: java.lang.Throwable -> L70
+        L35:
+            int r2 = r6.outWidth     // Catch: java.lang.Throwable -> L70
+            int r7 = r1 * 2
+            int r2 = r2 / r7
+            if (r2 > r9) goto L58
+            int r2 = r6.outHeight     // Catch: java.lang.Throwable -> L70
+            int r7 = r1 * 2
+            int r2 = r2 / r7
+            if (r2 > r10) goto L58
+            r2 = 0
+            r6.inJustDecodeBounds = r2     // Catch: java.lang.Throwable -> L70
+            r6.inSampleSize = r1     // Catch: java.lang.Throwable -> L70
+            java.io.FileInputStream r2 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> L70
+            r2.<init>(r4)     // Catch: java.lang.Throwable -> L70
+            r1 = 0
+            android.graphics.Bitmap r1 = android.graphics.BitmapFactory.decodeStream(r2, r1, r6)     // Catch: java.lang.Throwable -> L73
+            monitor-exit(r5)     // Catch: java.lang.Throwable -> L73
+            com.baidu.tieba.util.r.a(r2)
+            r0 = r1
+            goto Le
+        L58:
+            int r1 = r1 * 2
+            goto L35
+        L5b:
+            r1 = move-exception
+            r2 = r0
+        L5d:
+            monitor-exit(r5)     // Catch: java.lang.Throwable -> L73
+            throw r1     // Catch: java.lang.Throwable -> L5f
+        L5f:
+            r1 = move-exception
+        L60:
+            com.baidu.tieba.util.r.a(r2)
+            goto Le
+        L64:
+            r1 = move-exception
+            r2 = r0
+            r0 = r1
+        L67:
+            com.baidu.tieba.util.r.a(r2)
+            throw r0
+        L6b:
+            r0 = move-exception
+            goto L67
+        L6d:
+            r1 = move-exception
+            r2 = r0
+            goto L60
+        L70:
+            r1 = move-exception
+            r2 = r3
+            goto L5d
+        L73:
+            r1 = move-exception
+            goto L5d
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.util.n.a(java.lang.String, int, int):android.graphics.Bitmap");
+    }
+
+    /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
+        jadx.core.utils.exceptions.JadxRuntimeException: Found unreachable blocks
+        	at jadx.core.dex.visitors.blocks.DominatorTree.sortBlocks(DominatorTree.java:35)
+        	at jadx.core.dex.visitors.blocks.DominatorTree.compute(DominatorTree.java:25)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.computeDominators(BlockProcessor.java:202)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
+        */
+    public static android.graphics.Bitmap a(java.lang.String r5) {
+        /*
+            r0 = 0
+            if (r5 == 0) goto L9
+            int r1 = r5.length()
+            if (r1 > 0) goto La
+        L9:
+            return r0
+        La:
+            java.io.File r1 = new java.io.File
+            r1.<init>(r5)
+            boolean r2 = r1.exists()
+            if (r2 == 0) goto L9
+            java.lang.Object r3 = com.baidu.tieba.util.n.a     // Catch: java.lang.Throwable -> L46
+            monitor-enter(r3)     // Catch: java.lang.Throwable -> L46
+            android.graphics.BitmapFactory$Options r4 = new android.graphics.BitmapFactory$Options     // Catch: java.lang.Throwable -> L34
+            r4.<init>()     // Catch: java.lang.Throwable -> L34
+            android.graphics.Bitmap$Config r2 = com.baidu.tieba.data.i.m     // Catch: java.lang.Throwable -> L34
+            r4.inPreferredConfig = r2     // Catch: java.lang.Throwable -> L34
+            r2 = 0
+            r4.inJustDecodeBounds = r2     // Catch: java.lang.Throwable -> L34
+            java.io.FileInputStream r2 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> L34
+            r2.<init>(r1)     // Catch: java.lang.Throwable -> L34
+            r1 = 0
+            android.graphics.Bitmap r1 = android.graphics.BitmapFactory.decodeStream(r2, r1, r4)     // Catch: java.lang.Throwable -> L49
+            monitor-exit(r3)     // Catch: java.lang.Throwable -> L49
+            com.baidu.tieba.util.r.a(r2)
+            r0 = r1
+            goto L9
+        L34:
+            r1 = move-exception
+            r2 = r0
+        L36:
+            monitor-exit(r3)     // Catch: java.lang.Throwable -> L49
+            throw r1     // Catch: java.lang.Throwable -> L38
+        L38:
+            r1 = move-exception
+        L39:
+            com.baidu.tieba.util.r.a(r2)
+            goto L9
+        L3d:
+            r1 = move-exception
+            r2 = r0
+            r0 = r1
+        L40:
+            com.baidu.tieba.util.r.a(r2)
+            throw r0
+        L44:
+            r0 = move-exception
+            goto L40
+        L46:
+            r1 = move-exception
+            r2 = r0
+            goto L39
+        L49:
+            r1 = move-exception
+            goto L36
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.util.n.a(java.lang.String):android.graphics.Bitmap");
     }
 
     public static Bitmap a(String str, int i) {
@@ -132,19 +299,19 @@ public class n {
             synchronized (a) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
-                InputStream h = ad.h(str);
+                InputStream h = af.h(str);
                 BitmapFactory.decodeStream(h, null, options);
-                options.inPreferredConfig = com.baidu.tieba.data.h.m;
-                p.a(h);
+                options.inPreferredConfig = com.baidu.tieba.data.i.m;
+                r.a(h);
                 while (true) {
                     if (options.outWidth / (i2 * 2) > i || options.outHeight / (i2 * 2) > i) {
                         i2 *= 2;
                     } else {
                         options.inJustDecodeBounds = false;
                         options.inSampleSize = i2;
-                        InputStream h2 = ad.h(str);
+                        InputStream h2 = af.h(str);
                         decodeStream = BitmapFactory.decodeStream(h2, null, options);
-                        p.a(h2);
+                        r.a(h2);
                     }
                 }
             }
@@ -166,7 +333,7 @@ public class n {
         }
         try {
             BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inPreferredConfig = com.baidu.tieba.data.h.m;
+            options.inPreferredConfig = com.baidu.tieba.data.i.m;
             options.inDither = false;
             options.inJustDecodeBounds = true;
             synchronized (a) {
@@ -194,26 +361,32 @@ public class n {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:10:0x0057, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:10:0x0056, code lost:
+        r11.recycle();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x0059, code lost:
         return r0;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:32:?, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:33:?, code lost:
         return r0;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:35:?, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:34:?, code lost:
+        return r0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:37:?, code lost:
         return r0;
      */
     /* JADX WARN: Code restructure failed: missing block: B:8:0x0052, code lost:
-        if (r0 == r11) goto L19;
+        if (r0 == r11) goto L21;
      */
     /* JADX WARN: Code restructure failed: missing block: B:9:0x0054, code lost:
-        r11.recycle();
+        if (r13 == false) goto L20;
      */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:11:0x0058 -> B:12:0x0059). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:12:0x005a -> B:13:0x005b). Please submit an issue!!! */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static Bitmap a(Bitmap bitmap, float f) {
+    public static Bitmap a(Bitmap bitmap, float f, boolean z) {
         Bitmap bitmap2 = null;
         try {
             synchronized (a) {
@@ -283,7 +456,7 @@ public class n {
             return null;
         }
         BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inPreferredConfig = com.baidu.tieba.data.h.m;
+        options.inPreferredConfig = com.baidu.tieba.data.i.m;
         try {
             synchronized (a) {
                 try {
@@ -366,6 +539,27 @@ public class n {
         return bitmap2;
     }
 
+    public static int b(String str) {
+        try {
+            switch (new ExifInterface(str).getAttributeInt("Orientation", 1)) {
+                case 3:
+                    return 180;
+                case 4:
+                case 5:
+                case 7:
+                default:
+                    return 0;
+                case 6:
+                    return 90;
+                case 8:
+                    return 270;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
     public static Bitmap f(Bitmap bitmap, int i) {
         Bitmap createBitmap;
         Matrix matrix = new Matrix();
@@ -391,7 +585,7 @@ public class n {
     }
 
     public static int b(int i) {
-        int al = TiebaApplication.h().al();
+        int al = TiebaApplication.g().al();
         if (i > 15) {
             if (al == 1) {
                 return R.drawable.icon_grade_yellow_1;

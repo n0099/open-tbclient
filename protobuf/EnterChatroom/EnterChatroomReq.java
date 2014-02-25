@@ -13,15 +13,20 @@ import java.io.InputStream;
 public final class EnterChatroomReq {
 
     /* loaded from: classes.dex */
-    public final class DataReq extends GeneratedMessageLite implements d {
+    public final class DataReq extends GeneratedMessageLite implements c {
         public static final int LASTGROUPID_FIELD_NUMBER = 1;
-        public static Parser<DataReq> PARSER = new b();
+        public static Parser<DataReq> PARSER = new a();
         private static final DataReq a = new DataReq(true);
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private int lastGroupId_;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ DataReq(GeneratedMessageLite.Builder builder, DataReq dataReq) {
+            this(builder);
+        }
 
         private DataReq(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -52,27 +57,25 @@ public final class EnterChatroomReq {
             while (!z) {
                 try {
                     try {
-                        try {
-                            int readTag = codedInputStream.readTag();
-                            switch (readTag) {
-                                case 0:
+                        int readTag = codedInputStream.readTag();
+                        switch (readTag) {
+                            case 0:
+                                z = true;
+                                break;
+                            case 8:
+                                this.bitField0_ |= 1;
+                                this.lastGroupId_ = codedInputStream.readInt32();
+                                break;
+                            default:
+                                if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
-                                case 8:
-                                    this.bitField0_ |= 1;
-                                    this.lastGroupId_ = codedInputStream.readInt32();
+                                } else {
                                     break;
-                                default:
-                                    if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
-                                        z = true;
-                                        break;
-                                    } else {
-                                        break;
-                                    }
-                            }
-                        } catch (InvalidProtocolBufferException e) {
-                            throw e.setUnfinishedMessage(this);
+                                }
                         }
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
                     } catch (IOException e2) {
                         throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
@@ -80,6 +83,11 @@ public final class EnterChatroomReq {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ DataReq(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, DataReq dataReq) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -177,37 +185,42 @@ public final class EnterChatroomReq {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static c newBuilder() {
-            return c.f();
+        public static b newBuilder() {
+            return b.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public c newBuilderForType() {
+        public b newBuilderForType() {
             return newBuilder();
         }
 
-        public static c newBuilder(DataReq dataReq) {
+        public static b newBuilder(DataReq dataReq) {
             return newBuilder().mergeFrom(dataReq);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public c toBuilder() {
+        public b toBuilder() {
             return newBuilder(this);
         }
     }
 
     /* loaded from: classes.dex */
-    public final class EnterChatroomReqIdl extends GeneratedMessageLite implements g {
+    public final class EnterChatroomReqIdl extends GeneratedMessageLite implements f {
         public static final int DATAREQ_FIELD_NUMBER = 1;
-        public static Parser<EnterChatroomReqIdl> PARSER = new e();
+        public static Parser<EnterChatroomReqIdl> PARSER = new d();
         private static final EnterChatroomReqIdl a = new EnterChatroomReqIdl(true);
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private DataReq dataReq_;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ EnterChatroomReqIdl(GeneratedMessageLite.Builder builder, EnterChatroomReqIdl enterChatroomReqIdl) {
+            this(builder);
+        }
 
         private EnterChatroomReqIdl(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -231,13 +244,12 @@ public final class EnterChatroomReq {
         }
 
         private EnterChatroomReqIdl(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-            c cVar;
-            boolean z;
+            b bVar;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
             a();
-            boolean z2 = false;
-            while (!z2) {
+            boolean z = false;
+            while (!z) {
                 try {
                     try {
                         int readTag = codedInputStream.readTag();
@@ -247,28 +259,25 @@ public final class EnterChatroomReq {
                                 break;
                             case 10:
                                 if ((this.bitField0_ & 1) != 1) {
-                                    cVar = null;
+                                    bVar = null;
                                 } else {
-                                    cVar = this.dataReq_.toBuilder();
+                                    bVar = this.dataReq_.toBuilder();
                                 }
                                 this.dataReq_ = (DataReq) codedInputStream.readMessage(DataReq.PARSER, extensionRegistryLite);
-                                if (cVar != null) {
-                                    cVar.mergeFrom(this.dataReq_);
-                                    this.dataReq_ = cVar.buildPartial();
+                                if (bVar != null) {
+                                    bVar.mergeFrom(this.dataReq_);
+                                    this.dataReq_ = bVar.buildPartial();
                                 }
                                 this.bitField0_ |= 1;
-                                z = z2;
                                 break;
                             default:
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
                                 } else {
-                                    z = z2;
                                     break;
                                 }
                         }
-                        z2 = z;
                     } catch (InvalidProtocolBufferException e) {
                         throw e.setUnfinishedMessage(this);
                     } catch (IOException e2) {
@@ -278,6 +287,11 @@ public final class EnterChatroomReq {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ EnterChatroomReqIdl(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, EnterChatroomReqIdl enterChatroomReqIdl) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -375,23 +389,23 @@ public final class EnterChatroomReq {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static f newBuilder() {
-            return f.f();
+        public static e newBuilder() {
+            return e.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public f newBuilderForType() {
+        public e newBuilderForType() {
             return newBuilder();
         }
 
-        public static f newBuilder(EnterChatroomReqIdl enterChatroomReqIdl) {
+        public static e newBuilder(EnterChatroomReqIdl enterChatroomReqIdl) {
             return newBuilder().mergeFrom(enterChatroomReqIdl);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public f toBuilder() {
+        public e toBuilder() {
             return newBuilder(this);
         }
     }

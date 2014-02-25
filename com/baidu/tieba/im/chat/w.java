@@ -1,29 +1,20 @@
 package com.baidu.tieba.im.chat;
-
-import java.util.ArrayList;
-import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w implements com.baidu.tieba.im.a<LinkedList<String>> {
-    final /* synthetic */ az a;
-    final /* synthetic */ q b;
+public class w extends com.baidu.tieba.im.c<Boolean> {
+    final /* synthetic */ q a;
+    private final /* synthetic */ com.baidu.tieba.im.message.bp c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(q qVar, az azVar) {
-        this.b = qVar;
-        this.a = azVar;
+    public w(q qVar, com.baidu.tieba.im.message.bp bpVar) {
+        this.a = qVar;
+        this.c = bpVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(LinkedList<String> linkedList) {
-        ArrayList<String> arrayList = new ArrayList<>();
-        while (!linkedList.isEmpty()) {
-            String a = com.baidu.tieba.im.d.d.a(linkedList.removeLast(), true);
-            if (a != null) {
-                arrayList.add(a);
-            }
-        }
-        this.a.a(arrayList);
+    @Override // com.baidu.tieba.im.c
+    /* renamed from: a */
+    public Boolean b() {
+        return Boolean.valueOf(com.baidu.tieba.im.db.b.a().b(this.c.c(), String.valueOf(this.c.b()), String.valueOf(this.c.a()), 3));
     }
 }

@@ -1,24 +1,20 @@
 package com.baidu.tieba.person;
 
-import android.widget.ImageView;
-import com.baidu.adp.widget.ListView.BdListView;
+import android.widget.ScrollView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bx implements com.baidu.tbadk.imageManager.c {
-    final /* synthetic */ bw a;
+public class bx implements Runnable {
+    final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bx(bw bwVar) {
-        this.a = bwVar;
+    public bx(PersonChangeActivity personChangeActivity) {
+        this.a = personChangeActivity;
     }
 
-    @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
-        BdListView bdListView;
-        bdListView = this.a.a.b;
-        ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
-        if (imageView != null && dVar != null) {
-            dVar.a(imageView);
-            imageView.setTag(null);
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        ScrollView scrollView;
+        scrollView = this.a.i;
+        scrollView.fullScroll(130);
     }
 }

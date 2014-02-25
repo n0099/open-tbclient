@@ -5,16 +5,16 @@ import java.util.HashSet;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class l {
-    public HashSet<com.baidu.tbadk.imageManager.c> b;
+    public HashSet<com.baidu.tbadk.imageManager.d> b;
     public String c;
     public volatile int d;
     public volatile Bitmap e;
     public boolean g;
-    public volatile com.baidu.adp.widget.ImageView.d i;
+    public volatile com.baidu.adp.widget.ImageView.b i;
     public boolean o;
     public boolean p;
     public Map<String, Object> q;
-    public volatile ax a = null;
+    public volatile ba a = null;
     public boolean f = false;
     public volatile boolean h = false;
     public byte[] j = null;
@@ -32,7 +32,7 @@ public class l {
         this.r = z;
     }
 
-    public l(String str, int i, com.baidu.tbadk.imageManager.c cVar, boolean z, boolean z2, boolean z3, Map<String, Object> map) {
+    public l(String str, int i, com.baidu.tbadk.imageManager.d dVar, boolean z, boolean z2, boolean z3, Map<String, Object> map) {
         this.b = null;
         this.c = null;
         this.d = 0;
@@ -43,7 +43,7 @@ public class l {
         this.c = str;
         this.d = i;
         this.b = new HashSet<>();
-        this.b.add(cVar);
+        this.b.add(dVar);
         this.e = null;
         this.g = z;
         this.p = z2;
@@ -56,11 +56,11 @@ public class l {
         return (this.d != 6 || this.q == null || (obj = this.q.get("em_sharp_text")) == null) ? this.c : obj.toString();
     }
 
-    public void a(com.baidu.tbadk.imageManager.c cVar) {
+    public void a(com.baidu.tbadk.imageManager.d dVar) {
         if (this.b == null) {
             this.b = new HashSet<>();
         }
-        this.b.add(cVar);
+        this.b.add(dVar);
     }
 
     public void c() {

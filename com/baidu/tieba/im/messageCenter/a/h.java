@@ -1,22 +1,40 @@
 package com.baidu.tieba.im.messageCenter.a;
 
-import com.baidu.tieba.im.message.ag;
-import com.baidu.tieba.im.message.bp;
-import com.baidu.tieba.im.message.cr;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.im.message.ao;
+import com.baidu.tieba.im.message.ca;
+import com.baidu.tieba.im.message.da;
 /* loaded from: classes.dex */
 public class h extends com.baidu.tieba.im.messageCenter.d {
     @Override // com.baidu.tieba.im.messageCenter.d
-    public cr a(com.baidu.tieba.im.message.q qVar) {
-        if (qVar == null || !(qVar instanceof ag)) {
-            return null;
+    public da a(com.baidu.tieba.im.message.s sVar) {
+        if (sVar == null || !(sVar instanceof ao)) {
+            return a(103004, sVar);
         }
-        ag agVar = (ag) qVar;
-        cr a = l.a(103002, com.baidu.tieba.b.a.a().e().a("pb_" + agVar.e() + "_" + agVar.d()));
-        if (a == null) {
-            a = new bp();
+        ao aoVar = (ao) sVar;
+        int w = aoVar.w();
+        String str = "";
+        if (TiebaApplication.E() != null) {
+            str = TiebaApplication.E().getID();
         }
-        a.e(-201);
-        a.a(qVar);
-        return a;
+        byte[] a = com.baidu.tieba.c.a.a().q().a("group_info" + str + aoVar.b());
+        if (a != null) {
+            da a2 = n.a(103004, a);
+            if (a2 == null) {
+                return a(w, sVar);
+            }
+            a2.e(w);
+            a2.a(sVar);
+            return a2;
+        }
+        return a(w, sVar);
+    }
+
+    private ca a(int i, com.baidu.tieba.im.message.s sVar) {
+        ca caVar = new ca();
+        caVar.e(i);
+        caVar.g(-18);
+        caVar.a(sVar);
+        return caVar;
     }
 }

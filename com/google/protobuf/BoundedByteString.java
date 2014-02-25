@@ -46,9 +46,8 @@ public class BoundedByteString extends LiteralByteString {
         return this.bytesOffset;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.google.protobuf.LiteralByteString, com.google.protobuf.ByteString
-    public void copyToInternal(byte[] bArr, int i, int i2, int i3) {
+    protected void copyToInternal(byte[] bArr, int i, int i2, int i3) {
         System.arraycopy(this.bytes, getOffsetIntoBytes() + i, bArr, i2, i3);
     }
 

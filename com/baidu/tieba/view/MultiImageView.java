@@ -1,12 +1,15 @@
 package com.baidu.tieba.view;
 
 import android.content.Context;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
@@ -16,12 +19,12 @@ public class MultiImageView extends RelativeLayout {
     private Button b;
     private LinearLayout c;
     private View.OnClickListener d;
-    private GalleryViewPager e;
-    private android.support.v4.view.bq f;
-    private android.support.v4.view.bq g;
-    private z h;
-    private ImagePagerAdapter i;
-    private y j;
+    private av e;
+    private ViewPager.OnPageChangeListener f;
+    private ViewPager.OnPageChangeListener g;
+    private ab h;
+    private bh i;
+    private aa j;
     private int k;
     private boolean l;
     private boolean m;
@@ -101,10 +104,10 @@ public class MultiImageView extends RelativeLayout {
     }
 
     private void g() {
-        this.d = new bj(this);
-        this.f = new bk(this);
-        this.h = new bl(this);
-        this.j = new bm(this);
+        this.d = new bq(this);
+        this.f = new br(this);
+        this.h = new bs(this);
+        this.j = new bt(this);
     }
 
     public void a() {
@@ -113,14 +116,14 @@ public class MultiImageView extends RelativeLayout {
                 int childCount = this.e.getChildCount();
                 for (int i = 0; i < childCount; i++) {
                     View childAt = this.e.getChildAt(i);
-                    if (childAt != null && (childAt instanceof cq) && ((cq) childAt).getImageView() != this.e.getCurrentView()) {
-                        ((cq) childAt).d();
+                    if (childAt != null && (childAt instanceof cx) && ((cx) childAt).getImageView() != this.e.getCurrentView()) {
+                        ((cx) childAt).d();
                     }
                 }
             }
             View findViewWithTag = this.e.findViewWithTag(String.valueOf(this.e.getCurrentItem()));
-            if (findViewWithTag != null && (findViewWithTag instanceof cq)) {
-                ((cq) findViewWithTag).a(this.o);
+            if (findViewWithTag != null && (findViewWithTag instanceof cx)) {
+                ((cx) findViewWithTag).a(this.o);
             }
             this.e.getCurrentView().e();
         }
@@ -137,21 +140,21 @@ public class MultiImageView extends RelativeLayout {
             int childCount = this.e.getChildCount();
             for (int i = 0; i < childCount; i++) {
                 View childAt = this.e.getChildAt(i);
-                if (childAt != null && (childAt instanceof cq)) {
-                    ((cq) childAt).c();
+                if (childAt != null && (childAt instanceof cx)) {
+                    ((cx) childAt).c();
                 }
             }
         }
     }
 
     private void h() {
-        this.e = new GalleryViewPager(getContext());
+        this.e = new av(getContext());
         this.e.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
         this.e.setOnPageChangeListener(this.f);
         addView(this.e);
         this.c = new LinearLayout(getContext());
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-        layoutParams.bottomMargin = com.baidu.adp.lib.g.g.a(getContext(), 10.0f);
+        layoutParams.bottomMargin = BdUtilHelper.a(getContext(), 10.0f);
         layoutParams.addRule(12);
         layoutParams.addRule(14);
         this.c.setOrientation(0);
@@ -173,12 +176,12 @@ public class MultiImageView extends RelativeLayout {
         if (this.m) {
             this.c.setVisibility(8);
         }
-        this.i = new ImagePagerAdapter(getContext(), null, this.j);
+        this.i = new bh(getContext(), null, this.j);
         setAdapter(this.i);
     }
 
-    public void setOnPageChangeListener(android.support.v4.view.bq bqVar) {
-        this.g = bqVar;
+    public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
+        this.g = onPageChangeListener;
     }
 
     public int getItemNum() {
@@ -189,14 +192,14 @@ public class MultiImageView extends RelativeLayout {
         return this.e.getCurrentItem();
     }
 
-    public void setZoomButton(u uVar) {
-        if (uVar != null) {
-            if (uVar.p()) {
+    public void setZoomButton(w wVar) {
+        if (wVar != null) {
+            if (wVar.p()) {
                 this.a.setEnabled(true);
             } else {
                 this.a.setEnabled(false);
             }
-            if (uVar.q()) {
+            if (wVar.q()) {
                 this.b.setEnabled(true);
                 return;
             } else {
@@ -221,7 +224,7 @@ public class MultiImageView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public u getCurrentImageView() {
+    public w getCurrentImageView() {
         return this.e.getCurrentView();
     }
 
@@ -244,19 +247,19 @@ public class MultiImageView extends RelativeLayout {
         } else {
             this.l = false;
         }
-        android.support.v4.view.ae adapter = this.e.getAdapter();
-        if (adapter != null && (adapter instanceof ImagePagerAdapter)) {
-            ((ImagePagerAdapter) adapter).b(this.k);
+        PagerAdapter adapter = this.e.getAdapter();
+        if (adapter != null && (adapter instanceof bh)) {
+            ((bh) adapter).b(this.k);
         }
     }
 
-    private void setAdapter(ImagePagerAdapter imagePagerAdapter) {
-        imagePagerAdapter.a(this.h);
-        this.e.setAdapter(imagePagerAdapter);
+    private void setAdapter(bh bhVar) {
+        bhVar.a(this.h);
+        this.e.setAdapter(bhVar);
     }
 
     public void a(int i, boolean z) {
-        this.e.a(i, z);
+        this.e.setCurrentItem(i, z);
     }
 
     public void setTempSize(int i) {
@@ -291,7 +294,7 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public byte[] getCurrentImageData() {
-        u selectedView = this.e.getSelectedView();
+        w selectedView = this.e.getSelectedView();
         if (selectedView == null) {
             return null;
         }
@@ -299,7 +302,7 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public String getCurrentImageUrl() {
-        u selectedView = this.e.getSelectedView();
+        w selectedView = this.e.getSelectedView();
         if (!(selectedView.getTag() instanceof String)) {
             return null;
         }
@@ -317,6 +320,12 @@ public class MultiImageView extends RelativeLayout {
         this.n = z;
         if (this.i != null) {
             this.i.c(z);
+        }
+    }
+
+    public void setHeadImage(boolean z) {
+        if (this.i != null) {
+            this.i.d(z);
         }
     }
 }

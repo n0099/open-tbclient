@@ -1,16 +1,5 @@
 package com.baidu.tieba.view;
-
-import android.content.Context;
-import android.view.View;
-import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class cn extends cm {
-    public cn(Context context) {
-        super(context);
-    }
-
-    @Override // com.baidu.adp.widget.ListView.a, com.baidu.adp.widget.ListView.d
-    public View a() {
-        return a(h().getString(R.string.pull_view_pull_more), h().getString(R.string.pull_view_release_more), null);
-    }
+public interface cn {
+    void a(boolean z);
 }

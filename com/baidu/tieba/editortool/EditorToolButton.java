@@ -1,10 +1,11 @@
 package com.baidu.tieba.editortool;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tieba.at;
+import com.baidu.tieba.am;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class EditorToolButton extends ImageView {
@@ -41,7 +42,9 @@ public class EditorToolButton extends ImageView {
         this.f = false;
         this.g = 0;
         this.b = context;
-        this.c = this.b.obtainStyledAttributes(attributeSet, at.custom_state).getBoolean(1, false);
+        TypedArray obtainStyledAttributes = this.b.obtainStyledAttributes(attributeSet, am.custom_state);
+        this.c = obtainStyledAttributes.getBoolean(1, false);
+        obtainStyledAttributes.recycle();
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -89,6 +92,13 @@ public class EditorToolButton extends ImageView {
     public void e() {
         if (this.a != null) {
             this.a.setVisibility(0);
+        }
+    }
+
+    public void a(String str) {
+        if (this.a != null) {
+            this.a.setVisibility(0);
+            this.a.setText(str);
         }
     }
 

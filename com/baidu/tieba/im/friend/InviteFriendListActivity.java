@@ -6,13 +6,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.tieba.im.message.bk;
+import com.baidu.tieba.im.message.bq;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class InviteFriendListActivity extends com.baidu.tieba.j implements View.OnClickListener, com.baidu.tieba.im.messageCenter.g {
-    private t a;
+public class InviteFriendListActivity extends com.baidu.tieba.f implements View.OnClickListener, com.baidu.tieba.im.messageCenter.g {
+    private u a;
     private com.baidu.tieba.im.model.h b;
-    private com.baidu.adp.a.g c = new l(this);
+    private com.baidu.adp.a.g c = new k(this);
 
     public static void a(Context context, int i, int i2) {
         Intent intent = new Intent(context, InviteFriendListActivity.class);
@@ -22,7 +22,7 @@ public class InviteFriendListActivity extends com.baidu.tieba.j implements View.
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         com.baidu.tieba.im.messageCenter.e.a().a(205002, this);
@@ -44,7 +44,7 @@ public class InviteFriendListActivity extends com.baidu.tieba.j implements View.
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         com.baidu.tieba.im.messageCenter.e.a().a(this);
@@ -57,9 +57,9 @@ public class InviteFriendListActivity extends com.baidu.tieba.j implements View.
     }
 
     private void c() {
-        this.a = new t(this);
+        this.a = new u(this);
         this.a.a(100);
-        this.a.a(new k(this));
+        this.a.a(new l(this));
     }
 
     private void d() {
@@ -86,13 +86,13 @@ public class InviteFriendListActivity extends com.baidu.tieba.j implements View.
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.q qVar) {
+    public void a(com.baidu.tieba.im.message.s sVar) {
         closeLoadingDialog();
-        if (qVar != null && qVar.w() == 205002 && (qVar instanceof bk)) {
+        if (sVar != null && sVar.w() == 205002 && (sVar instanceof bq)) {
             try {
-                bk bkVar = (bk) qVar;
-                if (bkVar.k()) {
-                    showToast(bkVar.m());
+                bq bqVar = (bq) sVar;
+                if (bqVar.l()) {
+                    showToast(bqVar.n());
                 } else {
                     showToast(getString(R.string.send_success), false);
                     new Handler().postDelayed(new n(this), 400L);
@@ -104,7 +104,7 @@ public class InviteFriendListActivity extends com.baidu.tieba.j implements View.
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j
+    @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         this.a.a();
     }

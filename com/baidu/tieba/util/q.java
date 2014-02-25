@@ -1,13 +1,31 @@
 package com.baidu.tieba.util;
 /* loaded from: classes.dex */
-public class q {
-    private static String a = null;
+class q {
+    StringBuffer a;
+    final /* synthetic */ o b;
 
-    public static void a(String str) {
-        a = str;
+    private q(o oVar) {
+        this.b = oVar;
+        this.a = new StringBuffer(100);
     }
 
-    public static String a() {
-        return a;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ q(o oVar, q qVar) {
+        this(oVar);
+    }
+
+    public void a(int i) {
+        if (this.a.length() != 0) {
+            this.a.append(",");
+        }
+        this.a.append(i);
+    }
+
+    public void a() {
+        this.a.setLength(0);
+    }
+
+    public String toString() {
+        return this.a.toString();
     }
 }

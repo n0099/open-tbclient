@@ -20,7 +20,6 @@ import com.baidu.android.moplus.MoPlusReceiver;
 import com.baidu.android.moplus.MoPlusService;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.systemmonitor.c.d;
-import com.google.protobuf.CodedOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -179,7 +178,7 @@ public final class b {
 
     private static boolean a(Context context, String... strArr) {
         try {
-            String[] strArr2 = context.getPackageManager().getPackageInfo(context.getPackageName(), CodedOutputStream.DEFAULT_BUFFER_SIZE).requestedPermissions;
+            String[] strArr2 = context.getPackageManager().getPackageInfo(context.getPackageName(), 4096).requestedPermissions;
             HashMap hashMap = new HashMap();
             for (String str : strArr2) {
                 hashMap.put(str, str);

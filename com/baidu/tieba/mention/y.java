@@ -1,44 +1,34 @@
 package com.baidu.tieba.mention;
 
 import android.view.View;
-import com.baidu.tieba.model.bv;
-import com.baidu.tieba.pb.ImageActivity;
-import com.baidu.tieba.util.bu;
-import java.util.ArrayList;
+import com.baidu.tieba.data.aq;
+import com.baidu.tieba.model.bn;
+import com.baidu.tieba.person.cm;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y implements View.OnClickListener {
     final /* synthetic */ PostActivity a;
-    private ArrayList<com.baidu.tieba.data.j> b;
-    private int c;
 
-    public y(PostActivity postActivity, ArrayList<com.baidu.tieba.data.j> arrayList, int i) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public y(PostActivity postActivity) {
         this.a = postActivity;
-        this.b = arrayList;
-        this.c = i;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        bv bvVar;
-        try {
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < this.b.size(); i++) {
-                if (this.b.get(i).a() == 3) {
-                    StringBuffer stringBuffer = new StringBuffer(100);
-                    stringBuffer.append("size=");
-                    stringBuffer.append(com.baidu.tieba.data.h.i());
-                    stringBuffer.append("&src=");
-                    stringBuffer.append(bu.d(this.b.get(i).e()));
-                    arrayList.add(stringBuffer.toString());
+        bn bnVar;
+        bn bnVar2;
+        bn bnVar3;
+        bnVar = this.a.l;
+        if (bnVar != null) {
+            bnVar2 = this.a.l;
+            if (bnVar2.a() != null) {
+                bnVar3 = this.a.l;
+                aq aqVar = bnVar3.a().e().get(0);
+                if (aqVar != null) {
+                    cm.a(this.a, aqVar.g().getUserId(), aqVar.g().getUserName());
                 }
             }
-            PostActivity postActivity = this.a;
-            int i2 = this.c;
-            bvVar = this.a.l;
-            ImageActivity.a(postActivity, arrayList, i2, bvVar);
-        } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b("PbAdapter", "ImageOnClickListener", "error = " + e.getMessage());
         }
     }
 }

@@ -1,46 +1,23 @@
 package com.baidu.tieba.im.randchat;
 
-import com.baidu.tieba.im.randchat.WaitingTipView;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-/* synthetic */ class m {
-    static final /* synthetic */ int[] a = new int[WaitingTipView.Type.values().length];
+class m extends BroadcastReceiver {
+    final /* synthetic */ WaittingActivity a;
 
-    static {
-        try {
-            a[WaitingTipView.Type.TOPIC_UPDATE.ordinal()] = 1;
-        } catch (NoSuchFieldError e) {
-        }
-        try {
-            a[WaitingTipView.Type.ORIGINAL_ENTER.ordinal()] = 2;
-        } catch (NoSuchFieldError e2) {
-        }
-        try {
-            a[WaitingTipView.Type.PERSON_ENTER.ordinal()] = 3;
-        } catch (NoSuchFieldError e3) {
-        }
-        try {
-            a[WaitingTipView.Type.PERSONS_READY.ordinal()] = 4;
-        } catch (NoSuchFieldError e4) {
-        }
-        try {
-            a[WaitingTipView.Type.WAIT_LONG.ordinal()] = 5;
-        } catch (NoSuchFieldError e5) {
-        }
-        try {
-            a[WaitingTipView.Type.PERSON_LEAVE.ordinal()] = 6;
-        } catch (NoSuchFieldError e6) {
-        }
-        try {
-            a[WaitingTipView.Type.WAIT_TIP.ordinal()] = 7;
-        } catch (NoSuchFieldError e7) {
-        }
-        try {
-            a[WaitingTipView.Type.WAIT_TIP_RAND.ordinal()] = 8;
-        } catch (NoSuchFieldError e8) {
-        }
-        try {
-            a[WaitingTipView.Type.CLEAR.ordinal()] = 9;
-        } catch (NoSuchFieldError e9) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public m(WaittingActivity waittingActivity) {
+        this.a = waittingActivity;
+    }
+
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        if (intent != null && "android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction()) && ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo() == null) {
+            this.a.showToast(R.string.rand_chat_waiting_net_error);
         }
     }
 }

@@ -1,80 +1,49 @@
 package com.baidu.tieba.data;
-
-import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class an {
-    private int a = 0;
-    private int b = 0;
-    private int d = 0;
-    private int e = 0;
-    private int f = 0;
-    private int g = 0;
-    private int c = 0;
-
-    public int a() {
-        return this.a;
-    }
+    private volatile long a = 0;
+    private volatile long b = 0;
+    private volatile int c = 0;
+    private volatile boolean d = false;
 
     public void a(int i) {
-        this.a = i;
-    }
-
-    public int b() {
-        return this.b;
+        if (i > 0) {
+            this.d = true;
+            this.a = i;
+        }
     }
 
     public void b(int i) {
-        this.b = i;
-    }
-
-    public int c() {
-        return this.c;
-    }
-
-    public int d() {
-        return this.d;
+        if (i > 0) {
+            this.d = true;
+            this.b = i;
+        }
     }
 
     public void c(int i) {
-        this.d = i;
+        if (i != 0) {
+            this.d = true;
+            this.c = i;
+        }
     }
 
-    public int e() {
-        return this.e;
+    public void a() {
+        this.d = false;
+        this.a = 0L;
+        this.b = 0L;
+        this.c = 0;
     }
 
-    public void d(int i) {
-        this.e = i;
-    }
-
-    public void e(int i) {
-        this.f = i;
-    }
-
-    public int f() {
-        return this.f;
-    }
-
-    public void f(int i) {
-        this.g = i;
-    }
-
-    public int g() {
-        return this.g;
-    }
-
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optInt("total_page", 0);
-                this.b = jSONObject.optInt("total_num", 0);
-                this.c = jSONObject.optInt("total_count", 0);
-                this.d = jSONObject.optInt("current_page", 0);
-                this.e = jSONObject.optInt("page_size", 0);
-                this.f = jSONObject.optInt("has_more", 0);
-                this.g = jSONObject.optInt("has_prev", 0);
-            } catch (Exception e) {
-                com.baidu.adp.lib.g.e.b("PageData", "parserJson", "error = " + e.getMessage());
+    public void a(com.baidu.tieba.util.ba baVar) {
+        if (baVar != null) {
+            if (this.a != 0) {
+                baVar.a("ctime", String.valueOf(this.a));
+            }
+            if (this.b != 0) {
+                baVar.a("data_size", String.valueOf(this.b));
+            }
+            if (this.c != 0) {
+                baVar.a("net_error", String.valueOf(this.c));
             }
         }
     }

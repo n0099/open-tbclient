@@ -1,33 +1,25 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
-import com.baidu.tieba.data.UserData;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class by implements View.OnClickListener {
-    final /* synthetic */ PersonListActivity a;
+public class by implements DialogInterface.OnCancelListener {
+    final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public by(PersonListActivity personListActivity) {
-        this.a = personListActivity;
+    public by(PersonChangeActivity personChangeActivity) {
+        this.a = personChangeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        cd cdVar;
-        cd cdVar2;
-        cd cdVar3;
-        int intValue = ((Integer) view.getTag()).intValue();
-        cdVar = this.a.e;
-        if (cdVar != null) {
-            cdVar2 = this.a.e;
-            if (cdVar2.getItemViewType(intValue) == 0) {
-                cdVar3 = this.a.e;
-                UserData userData = (UserData) cdVar3.getItem(intValue);
-                if (userData != null && userData.getId() != null) {
-                    PersonInfoActivity.a(this.a, userData.getId(), userData.getName_show());
-                }
-            }
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        cg cgVar;
+        cg cgVar2;
+        this.a.DeinitWaitingDialog();
+        cgVar = this.a.z;
+        if (cgVar != null) {
+            cgVar2 = this.a.z;
+            cgVar2.cancel();
         }
     }
 }

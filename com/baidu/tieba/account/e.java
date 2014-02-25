@@ -1,47 +1,25 @@
 package com.baidu.tieba.account;
 
-import android.app.Activity;
-import com.baidu.tieba.MainTabActivity;
-import com.baidu.tieba.TiebaApplication;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.data.AccountData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.util.DatabaseService;
 /* loaded from: classes.dex */
-public class e implements as {
-    final /* synthetic */ a a;
+class e extends BdAsyncTask<Void, Void, Void> {
+    final /* synthetic */ d a;
+    private final /* synthetic */ AccountData b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(a aVar) {
-        this.a = aVar;
+    public e(d dVar, AccountData accountData) {
+        this.a = dVar;
+        this.b = accountData;
     }
 
-    @Override // com.baidu.tieba.account.as
-    public void a(AccountData accountData) {
-        Activity activity;
-        Activity activity2;
-        Activity activity3;
-        int i;
-        activity = this.a.b;
-        TiebaApplication.a(accountData, activity);
-        activity2 = this.a.b;
-        if (activity2 != null) {
-            activity3 = this.a.b;
-            i = this.a.c;
-            MainTabActivity.c(activity3, i);
-        }
-        new f(this, accountData).execute(new Void[0]);
-    }
-
-    @Override // com.baidu.tieba.account.as
-    public void a(String str) {
-        boolean z;
-        Activity activity;
-        int i;
-        z = this.a.g;
-        if (!z) {
-            a aVar = this.a;
-            activity = this.a.b;
-            i = this.a.c;
-            aVar.a(activity, i);
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Void a(Void... voidArr) {
+        DatabaseService.a(this.b);
+        DatabaseService.b(this.b);
+        return null;
     }
 }

@@ -1,8 +1,8 @@
 package com.baidu.tieba.motu_gallery;
 
-import android.view.View;
+import android.os.Handler;
 /* loaded from: classes.dex */
-class e implements View.OnClickListener {
+class e implements Runnable {
     final /* synthetic */ JigsawAlbumActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,8 +10,13 @@ class e implements View.OnClickListener {
         this.a = jigsawAlbumActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.finish();
+    @Override // java.lang.Runnable
+    public void run() {
+        Handler handler;
+        Handler handler2;
+        this.a.c();
+        handler = this.a.u;
+        handler2 = this.a.u;
+        handler.sendMessage(handler2.obtainMessage(2));
     }
 }

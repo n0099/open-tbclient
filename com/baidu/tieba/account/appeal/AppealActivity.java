@@ -7,12 +7,13 @@ import android.os.Bundle;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class AppealActivity extends com.baidu.tieba.j {
+public class AppealActivity extends com.baidu.tieba.f {
     private NavigationBar a;
     private TextView b;
     private TextView c;
@@ -22,7 +23,7 @@ public class AppealActivity extends com.baidu.tieba.j {
     private String g;
     private String h;
     private TextWatcher i = new a(this);
-    private View.OnClickListener j = new c(this);
+    private View.OnClickListener j = new b(this);
 
     public static void a(Context context, String str, String str2, String str3) {
         Intent intent = new Intent(context, AppealActivity.class);
@@ -33,7 +34,7 @@ public class AppealActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.account_appeal_activity);
@@ -49,7 +50,7 @@ public class AppealActivity extends com.baidu.tieba.j {
         this.d.setFocusable(true);
         this.d.setFocusableInTouchMode(true);
         this.d.requestFocus();
-        com.baidu.adp.lib.g.g.b(this, this.d);
+        BdUtilHelper.b(this, this.d);
         this.d.addTextChangedListener(this.i);
         a();
     }
@@ -59,7 +60,7 @@ public class AppealActivity extends com.baidu.tieba.j {
         this.f = intent.getStringExtra("forum_id");
         this.g = intent.getStringExtra(PushConstants.EXTRA_USER_ID);
         this.h = intent.getStringExtra("user_name");
-        j.a(this.f, this.g, new b(this));
+        j.a(this.f, this.g, new d(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -72,7 +73,7 @@ public class AppealActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j
+    @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         boolean z = i == 1;

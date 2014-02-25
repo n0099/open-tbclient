@@ -8,11 +8,6 @@ public class y implements Runnable {
     private int b;
     private Scroller c;
 
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.ListView.x.run():void] */
-    public static /* synthetic */ void a(y yVar) {
-        yVar.b();
-    }
-
     public y(w wVar, Context context) {
         this.a = wVar;
         this.c = new Scroller(context);
@@ -64,6 +59,11 @@ public class y implements Runnable {
             this.c.startScroll(0, 0, 0, i3, i2);
             this.a.c.post(this);
         }
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.ListView.x.run():void] */
+    public static /* synthetic */ void a(y yVar) {
+        yVar.b();
     }
 
     public void b() {

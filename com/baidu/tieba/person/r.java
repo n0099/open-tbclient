@@ -2,7 +2,9 @@ package com.baidu.tieba.person;
 
 import android.graphics.Bitmap;
 import android.view.View;
-import android.widget.ProgressBar;
+import com.baidu.tieba.im.chat.LocalViewSize;
+import com.baidu.tieba.view.EditHeadImageView;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements View.OnClickListener {
@@ -15,22 +17,34 @@ public class r implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        ProgressBar progressBar;
-        Bitmap bitmap;
-        Bitmap bitmap2;
-        progressBar = this.a.n;
-        if (progressBar.getVisibility() != 0) {
-            bitmap = this.a.h;
-            if (bitmap == null) {
-                bitmap2 = this.a.w;
-                if (bitmap2 == null) {
-                    return;
-                }
+        int i;
+        EditHeadImageView editHeadImageView;
+        int i2;
+        boolean a;
+        int i3;
+        String str = "tieba_head_image";
+        i = this.a.i;
+        if (i != 0) {
+            str = "tieba_group_image";
+        }
+        editHeadImageView = this.a.g;
+        i2 = this.a.i;
+        Bitmap a2 = editHeadImageView.a(i2);
+        if (a2 == null) {
+            return;
+        }
+        a = this.a.a(str, a2);
+        if (a) {
+            i3 = this.a.i;
+            if (i3 == 0) {
+                this.a.d();
+                return;
             }
-            if (view.getTag() != null) {
-                this.a.D = false;
-                this.a.a(view.getTag().toString());
-            }
+            com.baidu.tieba.img.a<?> aVar = new com.baidu.tieba.img.a<>(com.baidu.tieba.util.af.c("tieba_group_image"), "head");
+            LocalViewSize.a().a(aVar);
+            aVar.a((com.baidu.tieba.img.d) new s(this));
+            aVar.a();
+            this.a.showLoadingDialog(this.a.getString(R.string.uploading));
         }
     }
 }

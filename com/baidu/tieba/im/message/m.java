@@ -1,28 +1,28 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.sapi2.shell.SapiErrorCode;
+import com.google.protobuf.MessageLite;
+import protobuf.QueryGroupsByUid.QueryGroupsByUidReq;
 /* loaded from: classes.dex */
-public class m extends q {
-    private int a = 0;
-    private String b;
+public class m extends s implements com.baidu.tieba.im.coder.g {
+    private int a;
+    private int b;
 
-    public m() {
-        e(SapiErrorCode.INVALID_ARG);
-    }
-
-    public String a() {
-        return this.b;
-    }
-
-    public void a(String str) {
-        this.b = str;
+    public m(int i, int i2) {
+        e(103003);
+        this.a = i;
+        this.b = i2;
     }
 
     public int b() {
         return this.a;
     }
 
-    public void a(int i) {
-        this.a = i;
+    public int c() {
+        return this.b;
+    }
+
+    @Override // com.baidu.tieba.im.coder.g
+    public MessageLite a() {
+        return QueryGroupsByUidReq.QueryGroupsByUidReqIdl.newBuilder().a(QueryGroupsByUidReq.DataReq.newBuilder().a(b()).b(c()).build()).build();
     }
 }

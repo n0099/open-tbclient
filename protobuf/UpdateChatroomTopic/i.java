@@ -1,15 +1,6 @@
 package protobuf.UpdateChatroomTopic;
 
-import com.google.protobuf.AbstractParser;
-import com.google.protobuf.CodedInputStream;
-import com.google.protobuf.ExtensionRegistryLite;
-import protobuf.UpdateChatroomTopic.UpdateChatroomTopicRes;
+import com.google.protobuf.MessageLiteOrBuilder;
 /* loaded from: classes.dex */
-final class i extends AbstractParser<UpdateChatroomTopicRes.UpdateChatroomTopicResIdl> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.protobuf.Parser
-    /* renamed from: a */
-    public UpdateChatroomTopicRes.UpdateChatroomTopicResIdl parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-        return new UpdateChatroomTopicRes.UpdateChatroomTopicResIdl(codedInputStream, extensionRegistryLite);
-    }
+public interface i extends MessageLiteOrBuilder {
 }

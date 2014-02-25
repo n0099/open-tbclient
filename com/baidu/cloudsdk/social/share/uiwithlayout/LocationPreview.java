@@ -9,13 +9,13 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.aq;
+import com.ar;
 import com.at;
 import com.baidu.cloudsdk.common.http.AsyncHttpClient;
 import com.baidu.cloudsdk.common.http.RequestParams;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.cloudsdk.social.share.SocialShareConfig;
-import com.i;
-import com.k;
 /* loaded from: classes.dex */
 public class LocationPreview extends RelativeLayout {
     private static final String a = LocationPreview.class.getSimpleName();
@@ -31,13 +31,13 @@ public class LocationPreview extends RelativeLayout {
         super(context, attributeSet);
         this.f = false;
         this.b = SocialShareConfig.getInstance(context);
-        addView(LayoutInflater.from(context).inflate(i.a(context, "bdsocialshare_sharedialoglocationlayout"), (ViewGroup) null));
-        this.c = (ImageView) findViewById(i.d(context, "sharedialog_location_icon"));
-        this.c.setImageResource(i.c(context, "bdsocialshare_location"));
-        this.e = (TextView) findViewById(i.d(context, "sharedialog_location_text"));
+        addView(LayoutInflater.from(context).inflate(aq.a(context, "bdsocialshare_sharedialoglocationlayout"), (ViewGroup) null));
+        this.c = (ImageView) findViewById(aq.d(context, "sharedialog_location_icon"));
+        this.c.setImageResource(aq.c(context, "bdsocialshare_location"));
+        this.e = (TextView) findViewById(aq.d(context, "sharedialog_location_text"));
         this.e.setText(this.b.getString("insert_location"));
-        this.d = (ImageView) findViewById(i.d(context, "sharedialog_location_delete"));
-        setOnClickListener(new k(this));
+        this.d = (ImageView) findViewById(aq.d(context, "sharedialog_location_delete"));
+        setOnClickListener(new ar(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -56,7 +56,7 @@ public class LocationPreview extends RelativeLayout {
         this.f = true;
         this.e.setText(str);
         this.d.setVisibility(0);
-        this.c.setImageResource(i.c(getContext(), "bdsocialshare_location_enabled"));
+        this.c.setImageResource(aq.c(getContext(), "bdsocialshare_location_enabled"));
     }
 
     /* JADX INFO: Access modifiers changed from: private */

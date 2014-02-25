@@ -1,7 +1,7 @@
 package com.baidu.tieba.voice;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.util.by;
+import com.baidu.tieba.util.cb;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,14 +14,14 @@ public class ac extends BdAsyncTask<Void, Void, Void> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ac(VoiceManager voiceManager, s sVar) {
+    public /* synthetic */ ac(VoiceManager voiceManager, ac acVar) {
         this(voiceManager);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1830=4, 1831=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1904=4, 1905=4] */
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x00af A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x00a7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -46,9 +46,9 @@ public class ac extends BdAsyncTask<Void, Void, Void> {
                     }
                 } catch (FileNotFoundException e2) {
                     e = e2;
-                    com.baidu.tieba.util.ac acVar = new com.baidu.tieba.util.ac();
-                    acVar.a("path", "/sys/class/switch/h2w/state");
-                    by.b("", -1111, "CheckHeadsetPlugAsyncTask exception: " + e.getMessage(), acVar.toString());
+                    com.baidu.tieba.util.ae aeVar = new com.baidu.tieba.util.ae();
+                    aeVar.a("path", "/sys/class/switch/h2w/state");
+                    cb.b("", -1111, "CheckHeadsetPlugAsyncTask exception: " + e.getMessage(), aeVar.toString());
                     if (fileReader != null) {
                         try {
                             fileReader.close();
@@ -58,9 +58,9 @@ public class ac extends BdAsyncTask<Void, Void, Void> {
                     return null;
                 } catch (Exception e4) {
                     e = e4;
-                    com.baidu.tieba.util.ac acVar2 = new com.baidu.tieba.util.ac();
-                    acVar2.a("path", "/sys/class/switch/h2w/state");
-                    by.b("", -1111, "CheckHeadsetPlugAsyncTask exception: " + e.getMessage(), acVar2.toString());
+                    com.baidu.tieba.util.ae aeVar2 = new com.baidu.tieba.util.ae();
+                    aeVar2.a("path", "/sys/class/switch/h2w/state");
+                    cb.b("", -1111, "CheckHeadsetPlugAsyncTask exception: " + e.getMessage(), aeVar2.toString());
                     if (fileReader != null) {
                         try {
                             fileReader.close();

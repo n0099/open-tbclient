@@ -1,21 +1,17 @@
 package com.baidu.tieba.im.message;
-
-import com.google.protobuf.MessageLite;
-import protobuf.QueryUserInfos.QueryUserInfosReq;
 /* loaded from: classes.dex */
-public class ar extends q implements com.baidu.tieba.im.coder.g {
-    protobuf.QueryUserInfos.c a = QueryUserInfosReq.DataReq.newBuilder();
+public class ar extends s {
+    private String a;
 
     public ar() {
-        e(205003);
+        super.e(-110);
     }
 
-    public void a(long j) {
-        this.a.a(j);
+    public String a() {
+        return this.a;
     }
 
-    @Override // com.baidu.tieba.im.coder.g
-    public MessageLite a() {
-        return QueryUserInfosReq.QueryUserInfosReqIdl.newBuilder().a(this.a.build()).build();
+    public void a(String str) {
+        this.a = str;
     }
 }

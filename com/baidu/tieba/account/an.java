@@ -1,11 +1,9 @@
 package com.baidu.tieba.account;
 
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.AccountData;
-import com.baidu.tieba.util.DatabaseService;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class an implements ac {
+public class an implements View.OnClickListener {
     final /* synthetic */ LoginActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,10 +11,8 @@ public class an implements ac {
         this.a = loginActivity;
     }
 
-    @Override // com.baidu.tieba.account.ac
-    public void a(AccountData accountData) {
-        DatabaseService.a(accountData);
-        TiebaApplication.a(accountData, this.a.getBaseContext());
-        this.a.a();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.g();
     }
 }

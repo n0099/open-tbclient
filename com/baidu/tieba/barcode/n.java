@@ -33,7 +33,7 @@ public final class n extends Thread {
             this.b.put(DecodeHintType.CHARACTER_SET, str);
         }
         this.b.put(DecodeHintType.NEED_RESULT_POINT_CALLBACK, resultPointCallback);
-        com.baidu.adp.lib.g.e.a(getClass().getName(), "DecodeThread", "Hints: " + this.b);
+        com.baidu.adp.lib.util.f.a(getClass().getName(), "DecodeThread", "Hints: " + this.b);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

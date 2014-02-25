@@ -16,6 +16,7 @@ public class l extends a implements Runnable {
         this.a = (ActivityManager) context.getSystemService("activity");
     }
 
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0039: IGET  (r0v5 int A[REMOVE]) = (r0v4 android.app.ActivityManager$RunningAppProcessInfo) android.app.ActivityManager.RunningAppProcessInfo.importance int)] */
     public String d() {
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = this.a.getRunningAppProcesses();
         for (int i = 0; i < runningAppProcesses.size(); i++) {
@@ -24,8 +25,8 @@ public class l extends a implements Runnable {
             String str = runningAppProcessInfo.processName;
             int i3 = this.a.getProcessMemoryInfo(new int[]{i2})[0].dalvikPrivateDirty;
             if (this.b.contains(str)) {
-                Log.i("processInfo", "" + runningAppProcessInfo.importance);
-                return i3 + "kb";
+                Log.i("processInfo", new StringBuilder().append(runningAppProcessInfo.importance).toString());
+                return String.valueOf(i3) + "kb";
             }
         }
         return "null";

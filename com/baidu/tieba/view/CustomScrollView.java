@@ -8,6 +8,7 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.ScrollView;
 import android.widget.Scroller;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class CustomScrollView extends ScrollView {
@@ -20,7 +21,7 @@ public class CustomScrollView extends ScrollView {
         super(context, attributeSet);
         this.c = 0;
         this.d = 0;
-        this.b = new GestureDetector(context, new s(this));
+        this.b = new GestureDetector(context, new u(this));
         setFadingEdgeLength(0);
     }
 
@@ -34,11 +35,14 @@ public class CustomScrollView extends ScrollView {
 
     @Override // android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
-        boolean z = this.c - this.d == i2;
+        boolean z = false;
+        if (this.c - this.d == i2) {
+            z = true;
+        }
         if (i2 == 0 || z) {
             try {
                 if (this.a == null) {
-                    this.a = com.baidu.adp.lib.g.g.a(this, "mScroller");
+                    this.a = BdUtilHelper.a(this, "mScroller");
                 }
                 Object obj = this.a.get(this);
                 if (obj != null && (obj instanceof Scroller)) {
@@ -47,7 +51,7 @@ public class CustomScrollView extends ScrollView {
                     return;
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.g.e.b(getClass().getName(), "onScrollChanged", e.getMessage());
+                com.baidu.adp.lib.util.f.b(getClass().getName(), "onScrollChanged", e.getMessage());
             }
         }
         super.onScrollChanged(i, i2, i3, i4);
@@ -56,14 +60,14 @@ public class CustomScrollView extends ScrollView {
     private void a() {
         try {
             if (this.a == null) {
-                this.a = com.baidu.adp.lib.g.g.a(this, "mScroller");
+                this.a = BdUtilHelper.a(this, "mScroller");
             }
             Object obj = this.a.get(this);
             if (obj != null) {
                 obj.getClass().getMethod("abortAnimation", new Class[0]).invoke(obj, new Object[0]);
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b(getClass().getName(), "stopAnim", e.getMessage());
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "stopAnim", e.getMessage());
         }
     }
 

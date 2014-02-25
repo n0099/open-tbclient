@@ -10,14 +10,13 @@ import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import com.baidu.adp.gif.IGifPlay;
 import com.baidu.adp.gif.c;
-import com.baidu.adp.widget.ImageView.d;
+import com.baidu.adp.lib.util.f;
 import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.tbadk.widget.richText.e;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
-public class GifView extends ImageView implements IGifPlay, Runnable {
+public class GifView extends ImageView implements Runnable {
     public static Bitmap a;
     private WeakReference<c> b;
     private Bitmap c;
@@ -36,16 +35,12 @@ public class GifView extends ImageView implements IGifPlay, Runnable {
     private Rect p;
     private Rect q;
     private boolean r;
-    private Handler s;
-    private boolean t;
-    private boolean u;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ int a(GifView gifView, int i) {
-        int i2 = gifView.d + i;
-        gifView.d = i2;
-        return i2;
-    }
+    private boolean s;
+    private Drawable t;
+    private int u;
+    private Handler v;
+    private boolean w;
+    private boolean x;
 
     public GifView(Context context) {
         this(context, null, 0);
@@ -63,7 +58,7 @@ public class GifView extends ImageView implements IGifPlay, Runnable {
         this.p = new Rect();
         this.q = new Rect();
         this.r = true;
-        this.s = new a(this);
+        this.v = new a(this);
         this.f = (BitmapDrawable) getResources().getDrawable(com.baidu.tbadk.c.icon_content_animation);
         this.f.setBounds(0, 0, this.f.getIntrinsicWidth(), this.f.getIntrinsicHeight());
         this.o = 30.0f;
@@ -89,55 +84,83 @@ public class GifView extends ImageView implements IGifPlay, Runnable {
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
         if (i != i3 || i2 != i4) {
-            int i5 = i / 4;
-            int i6 = (i - i5) / 2;
-            int i7 = (i2 - i5) / 2;
-            com.baidu.adp.lib.g.e.e("GifView", "onSizeChanged", "w:" + i + "h:" + i2 + "dw:" + i5 + "dh:" + i5);
-            this.p.set(i6, i7, i6 + i5, i7 + i5);
+            int paddingLeft = getPaddingLeft();
+            int paddingRight = getPaddingRight();
+            int paddingTop = getPaddingTop();
+            int paddingBottom = i2 - (getPaddingBottom() + paddingTop);
+            int i5 = i - (paddingRight + paddingLeft);
+            if (a != null) {
+                int i6 = i5 / 4;
+                int i7 = ((i5 - i6) / 2) + paddingLeft;
+                int i8 = ((paddingBottom - i6) / 2) + paddingTop;
+                this.p.set(i7, i8, i7 + i6, i8 + i6);
+                f.e("GifView", "onSizeChanged", "w:" + i5 + "h:" + paddingBottom + "dw:" + i6 + "dh:" + i6);
+            }
             int intrinsicWidth = this.j.getIntrinsicWidth();
             int intrinsicHeight = this.j.getIntrinsicHeight();
-            int i8 = (i - intrinsicWidth) / 2;
-            int i9 = (i2 - intrinsicHeight) / 2;
-            this.j.setBounds(i8, i9, intrinsicWidth + i8, intrinsicHeight + i9);
+            if (intrinsicWidth > i5) {
+                intrinsicWidth = i5;
+            }
+            if (intrinsicHeight > paddingBottom) {
+                intrinsicHeight = paddingBottom;
+            }
+            int i9 = ((i5 - intrinsicWidth) / 2) + paddingLeft;
+            int i10 = ((paddingBottom - intrinsicHeight) / 2) + paddingTop;
+            this.j.setBounds(i9, i10, intrinsicWidth + i9, intrinsicHeight + i10);
+            if (this.t != null) {
+                int intrinsicWidth2 = this.t.getIntrinsicWidth();
+                int intrinsicHeight2 = this.t.getIntrinsicHeight();
+                if (intrinsicWidth2 > i5) {
+                    intrinsicWidth2 = i5;
+                }
+                if (intrinsicHeight2 > paddingBottom) {
+                    intrinsicHeight2 = paddingBottom;
+                }
+                int i11 = ((i5 - intrinsicWidth2) / 2) + paddingLeft;
+                int i12 = ((paddingBottom - intrinsicHeight2) / 2) + paddingTop;
+                this.t.setBounds(i11, i12, intrinsicWidth2 + i11, intrinsicHeight2 + i12);
+            }
         }
     }
 
-    public void setGif(d dVar) {
-        com.baidu.adp.lib.g.e.e("GifView", "setGif", "" + dVar);
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r7v0 com.baidu.adp.widget.ImageView.b)] */
+    public void setGif(com.baidu.adp.widget.ImageView.b bVar) {
+        f.e("GifView", "setGif", new StringBuilder().append(bVar).toString());
         this.i = false;
         this.h = false;
-        if (dVar == null) {
+        this.s = false;
+        if (bVar == null) {
             this.i = true;
             this.g = false;
             setImageBitmap(null);
             if (this.b != null) {
                 this.b.clear();
             }
-        } else if (dVar.b() == null) {
-            if (!dVar.a()) {
-                com.baidu.adp.lib.g.e.e("GifView", "setGif", "static");
+        } else if (bVar.b() == null) {
+            if (!bVar.a()) {
+                f.e("GifView", "setGif", "static");
                 this.g = true;
-                dVar.a(this);
+                bVar.a(this);
                 this.h = false;
             }
             if (this.b != null) {
                 this.b.clear();
             }
-        } else if (this.b == null || !dVar.b().equals(this.b.get())) {
+        } else if (this.b == null || !bVar.b().equals(this.b.get())) {
             this.g = false;
-            if (this.c == null || (this.c.getWidth() != dVar.b().c() && this.c.getHeight() != dVar.b().d())) {
-                this.c = Bitmap.createBitmap(dVar.b().c(), dVar.b().d(), Bitmap.Config.ARGB_8888);
+            if (this.c == null || (this.c.getWidth() != bVar.b().b() && this.c.getHeight() != bVar.b().c())) {
+                this.c = Bitmap.createBitmap(bVar.b().b(), bVar.b().c(), Bitmap.Config.ARGB_8888);
             }
-            this.b = new WeakReference<>(dVar.b());
-            dVar.b().a(0);
-            dVar.b().a(this.c, null);
+            this.b = new WeakReference<>(bVar.b());
+            bVar.b().a(0);
+            bVar.b().a(this.c, null);
             setImageBitmap(this.c);
             if (this.r) {
                 c();
             }
         } else {
-            dVar.b().a(this.d);
-            dVar.b().a(this.c, null);
+            bVar.b().a(this.d);
+            bVar.b().a(this.c, null);
             setImageBitmap(this.c);
             if (this.r) {
                 a();
@@ -156,20 +179,20 @@ public class GifView extends ImageView implements IGifPlay, Runnable {
     public void a() {
         c cVar;
         if (this.b != null && (cVar = this.b.get()) != null) {
-            this.s.removeMessages(1);
-            this.s.sendEmptyMessageDelayed(1, cVar.b(this.d));
-            com.baidu.adp.lib.g.e.e("GifView", "resume", "resumed");
+            this.v.removeMessages(1);
+            this.v.sendEmptyMessageDelayed(1, cVar.b(this.d));
+            f.e("GifView", "resume", "resumed");
         }
     }
 
     public void b() {
         c cVar;
         if (this.b != null && (cVar = this.b.get()) != null) {
-            this.s.removeMessages(1);
+            this.v.removeMessages(1);
             cVar.a(0);
             cVar.a(this.c, null);
             invalidate();
-            com.baidu.adp.lib.g.e.e("GifView", "stop", "stopped");
+            f.e("GifView", "stop", "stopped");
         }
     }
 
@@ -180,14 +203,14 @@ public class GifView extends ImageView implements IGifPlay, Runnable {
                 this.d = 0;
             }
             cVar.a(0);
-            this.s.removeMessages(1);
-            this.s.sendEmptyMessageDelayed(1, cVar.b(this.d));
-            com.baidu.adp.lib.g.e.e("GifView", "play", "played");
+            this.v.removeMessages(1);
+            this.v.sendEmptyMessageDelayed(1, cVar.b(this.d));
+            f.e("GifView", "play", "played");
         }
     }
 
     public void d() {
-        this.u = true;
+        this.x = true;
         c();
     }
 
@@ -204,7 +227,7 @@ public class GifView extends ImageView implements IGifPlay, Runnable {
     @Override // android.view.View
     protected void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
-        com.baidu.adp.lib.g.e.e("GifView", "onWindowVisibilityChanged", "changed = " + i);
+        f.e("GifView", "onWindowVisibilityChanged", "changed = " + i);
         if (!this.g) {
             if (i == 4 || i == 8) {
                 b();
@@ -217,11 +240,11 @@ public class GifView extends ImageView implements IGifPlay, Runnable {
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
         c cVar;
-        if (!this.h) {
+        if (!this.h && !this.i && !this.s) {
             super.onDraw(canvas);
         }
         canvas.save();
-        if (this.b != null && !this.h && (cVar = this.b.get()) != null) {
+        if (this.b != null && !this.h && !this.i && !this.s && (cVar = this.b.get()) != null) {
             cVar.a(null, canvas);
         }
         canvas.restore();
@@ -235,15 +258,20 @@ public class GifView extends ImageView implements IGifPlay, Runnable {
             this.j.draw(canvas);
             canvas.restore();
         }
+        if (this.s) {
+            canvas.save();
+            this.t.draw(canvas);
+            canvas.restore();
+        }
         if (this.h && a != null) {
             canvas.save();
-            canvas.rotate(this.l, getWidth() * 0.5f, getHeight() * 0.5f);
+            canvas.rotate(this.l, (((getWidth() - getPaddingLeft()) - getPaddingRight()) * 0.5f) + getPaddingLeft(), (((getHeight() - getPaddingTop()) - getPaddingBottom()) * 0.5f) + getPaddingTop());
             canvas.drawBitmap(a, this.q, this.p, (Paint) null);
             canvas.restore();
-            if (!this.t) {
+            if (!this.w) {
                 f();
             }
-        } else if (a != null && this.t) {
+        } else if (a != null && this.w) {
             g();
         }
     }
@@ -252,6 +280,33 @@ public class GifView extends ImageView implements IGifPlay, Runnable {
         this.h = z;
         if (z) {
             this.i = false;
+            this.s = false;
+        }
+        invalidate();
+    }
+
+    public void a(boolean z, int i) {
+        this.s = z;
+        if (z) {
+            this.h = false;
+            this.i = false;
+            if (this.t == null || this.u != i) {
+                this.u = i;
+                this.t = getResources().getDrawable(i);
+                int intrinsicWidth = this.t.getIntrinsicWidth();
+                int intrinsicHeight = this.t.getIntrinsicHeight();
+                int measuredWidth = getMeasuredWidth();
+                int measuredHeight = getMeasuredHeight();
+                if (intrinsicWidth > measuredWidth) {
+                    intrinsicWidth = measuredWidth;
+                }
+                if (intrinsicHeight > measuredHeight) {
+                    intrinsicHeight = measuredHeight;
+                }
+                int paddingLeft = ((measuredWidth - intrinsicWidth) / 2) + getPaddingLeft();
+                int paddingTop = ((measuredHeight - intrinsicHeight) / 2) + getPaddingTop();
+                this.t.setBounds(paddingLeft, paddingTop, intrinsicWidth + paddingLeft, intrinsicHeight + paddingTop);
+            }
         }
         invalidate();
     }
@@ -274,19 +329,19 @@ public class GifView extends ImageView implements IGifPlay, Runnable {
     @Override // android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        com.baidu.adp.lib.g.e.e("GifView", "onLayout", "" + this + ": onLayout");
-        com.baidu.adp.lib.g.e.e("GifView", "onLayout", "width=" + i3 + " height=" + i4);
+        f.e("GifView", "onLayout", this + ": onLayout");
+        f.e("GifView", "onLayout", "width=" + i3 + " height=" + i4);
     }
 
     public void f() {
-        if (!this.t) {
-            this.t = true;
+        if (!this.w) {
+            this.w = true;
             h();
         }
     }
 
     public void g() {
-        this.t = false;
+        this.w = false;
         removeCallbacks(this);
     }
 
@@ -307,5 +362,14 @@ public class GifView extends ImageView implements IGifPlay, Runnable {
 
     public void setPlayCallback(b bVar) {
         this.e = bVar;
+    }
+
+    @Override // android.widget.ImageView, android.view.View
+    protected void drawableStateChanged() {
+        super.drawableStateChanged();
+        if (this.t != null && this.t.isStateful()) {
+            this.t.setState(getDrawableState());
+            invalidate();
+        }
     }
 }

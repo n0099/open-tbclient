@@ -1,7 +1,6 @@
 package com.baidu.tieba.recommend;
 
 import android.support.v4.view.ViewPager;
-import com.baidu.tieba.view.ChildViewPager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends ViewPager.SimpleOnPageChangeListener {
@@ -12,57 +11,57 @@ public class j extends ViewPager.SimpleOnPageChangeListener {
         this.a = hVar;
     }
 
-    @Override // android.support.v4.view.ViewPager.SimpleOnPageChangeListener, android.support.v4.view.bq
-    public void b(int i) {
-        ChildViewPager childViewPager;
-        ChildViewPager childViewPager2;
-        DailyRecommendBannerPagerAdapter dailyRecommendBannerPagerAdapter;
-        ChildViewPager childViewPager3;
-        ChildViewPager childViewPager4;
-        ChildViewPager childViewPager5;
-        ChildViewPager childViewPager6;
-        DailyRecommendBannerPagerAdapter dailyRecommendBannerPagerAdapter2;
-        ChildViewPager childViewPager7;
+    @Override // android.support.v4.view.ViewPager.SimpleOnPageChangeListener, android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrollStateChanged(int i) {
+        com.baidu.tieba.view.q qVar;
+        com.baidu.tieba.view.q qVar2;
+        t tVar;
+        com.baidu.tieba.view.q qVar3;
+        com.baidu.tieba.view.q qVar4;
+        com.baidu.tieba.view.q qVar5;
+        com.baidu.tieba.view.q qVar6;
+        t tVar2;
+        com.baidu.tieba.view.q qVar7;
         if (i == 0) {
-            childViewPager2 = this.a.f;
-            int currentItem = childViewPager2.getCurrentItem();
+            qVar2 = this.a.f;
+            int currentItem = qVar2.getCurrentItem();
             if (currentItem < 1) {
-                childViewPager6 = this.a.f;
-                dailyRecommendBannerPagerAdapter2 = this.a.g;
-                childViewPager6.a(dailyRecommendBannerPagerAdapter2.getCount() - 2, false);
-                childViewPager7 = this.a.f;
-                childViewPager7.invalidate();
+                qVar6 = this.a.f;
+                tVar2 = this.a.g;
+                qVar6.setCurrentItem(tVar2.getCount() - 2, false);
+                qVar7 = this.a.f;
+                qVar7.invalidate();
             } else {
-                dailyRecommendBannerPagerAdapter = this.a.g;
-                if (currentItem > dailyRecommendBannerPagerAdapter.getCount() - 2) {
-                    childViewPager3 = this.a.f;
-                    childViewPager3.a(1, false);
-                    childViewPager4 = this.a.f;
-                    childViewPager4.invalidate();
+                tVar = this.a.g;
+                if (currentItem > tVar.getCount() - 2) {
+                    qVar3 = this.a.f;
+                    qVar3.setCurrentItem(1, false);
+                    qVar4 = this.a.f;
+                    qVar4.invalidate();
                 }
             }
-            childViewPager5 = this.a.f;
-            childViewPager5.requestDisallowInterceptTouchEvent(false);
+            qVar5 = this.a.f;
+            qVar5.requestDisallowInterceptTouchEvent(false);
         } else if (i == 1) {
-            childViewPager = this.a.f;
-            childViewPager.requestDisallowInterceptTouchEvent(true);
+            qVar = this.a.f;
+            qVar.requestDisallowInterceptTouchEvent(true);
         }
     }
 
-    @Override // android.support.v4.view.ViewPager.SimpleOnPageChangeListener, android.support.v4.view.bq
-    public void a_(int i) {
-        DailyRecommendBannerPagerAdapter dailyRecommendBannerPagerAdapter;
-        DailyRecommendBannerPagerAdapter dailyRecommendBannerPagerAdapter2;
-        ChildViewPager childViewPager;
-        DailyRecommendBannerPagerAdapter dailyRecommendBannerPagerAdapter3;
-        dailyRecommendBannerPagerAdapter = this.a.g;
-        if (dailyRecommendBannerPagerAdapter != null) {
-            dailyRecommendBannerPagerAdapter2 = this.a.g;
-            int size = dailyRecommendBannerPagerAdapter2.a.size();
-            childViewPager = this.a.f;
-            if (size > childViewPager.getCurrentItem()) {
-                dailyRecommendBannerPagerAdapter3 = this.a.g;
-                dailyRecommendBannerPagerAdapter3.a.get(i).invalidate();
+    @Override // android.support.v4.view.ViewPager.SimpleOnPageChangeListener, android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageSelected(int i) {
+        t tVar;
+        t tVar2;
+        com.baidu.tieba.view.q qVar;
+        t tVar3;
+        tVar = this.a.g;
+        if (tVar != null) {
+            tVar2 = this.a.g;
+            int size = tVar2.a.size();
+            qVar = this.a.f;
+            if (size > qVar.getCurrentItem()) {
+                tVar3 = this.a.g;
+                tVar3.a.get(i).invalidate();
             }
         }
     }

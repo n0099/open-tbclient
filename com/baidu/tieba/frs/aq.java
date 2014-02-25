@@ -1,34 +1,56 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tieba.view.dc;
+import android.app.Activity;
+import android.os.Handler;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.TextView;
+import com.baidu.tieba.TiebaApplication;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class aq implements dc {
-    final /* synthetic */ FrsImageActivity a;
+public class aq {
+    private Activity a;
+    private Animation b;
+    private Animation c;
+    private Handler d = new Handler();
+    private LayoutInflater e;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public aq(FrsImageActivity frsImageActivity) {
-        this.a = frsImageActivity;
+    public aq(Activity activity) {
+        this.a = activity;
+        this.e = this.a.getLayoutInflater();
+        this.b = AnimationUtils.loadAnimation(this.a, R.anim.frs_like);
+        this.c = AnimationUtils.loadAnimation(this.a, R.anim.frs_sign);
     }
 
-    @Override // com.baidu.tieba.view.dc
-    public void a() {
-        int i;
-        FrsImageActivity frsImageActivity = this.a;
-        i = this.a.h;
-        frsImageActivity.d(i);
-    }
-
-    @Override // com.baidu.tieba.view.dc
-    public void b() {
-        this.a.f();
-    }
-
-    @Override // com.baidu.tieba.view.dc
-    public void c() {
-    }
-
-    @Override // com.baidu.tieba.view.dc
-    public void d() {
-        this.a.f();
+    public void a(View view) {
+        View inflate = this.e.inflate(R.layout.frs_like_cover, (ViewGroup) null);
+        Button button = (Button) inflate.findViewById(R.id.btn_love);
+        TextView textView = (TextView) inflate.findViewById(R.id.tv_love);
+        if (TiebaApplication.g().al() == 1) {
+            textView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_like_1, 0, 0, 0);
+            textView.setShadowLayer(1.0f, 0.0f, 1.0f, R.color.frs_like_shadow_1);
+            button.setBackgroundResource(R.drawable.frs_btn_like_1);
+            textView.setTextColor(this.a.getResources().getColor(R.color.frs_like_txt_1));
+        } else {
+            textView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_like, 0, 0, 0);
+            textView.setShadowLayer(1.0f, 0.0f, 1.0f, R.color.frs_like_shadow);
+            button.setBackgroundResource(R.drawable.frs_btn_like);
+            textView.setTextColor(this.a.getResources().getColor(R.color.frs_like_txt));
+        }
+        button.setLayoutParams(new FrameLayout.LayoutParams(view.getMeasuredWidth(), view.getMeasuredHeight()));
+        com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
+        gVar.a(false);
+        gVar.b(R.id.love).a(0).b(true);
+        gVar.a(new ar(this, inflate));
+        com.baidu.adp.lib.guide.d a = gVar.a();
+        a.a(this.a);
+        inflate.setAnimation(this.b);
+        this.b.start();
+        this.b.setAnimationListener(new as(this, a));
     }
 }

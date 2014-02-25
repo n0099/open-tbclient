@@ -1,5 +1,7 @@
 package com.baidu.tieba.faceshop;
 
+import android.content.Context;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
 public class ac extends com.baidu.adp.a.d {
@@ -12,10 +14,10 @@ public class ac extends com.baidu.adp.a.d {
     public ac() {
         this.c = 0;
         this.d = 0;
-        TiebaApplication h = TiebaApplication.h();
-        this.c = com.baidu.adp.lib.g.g.b(h);
-        this.d = com.baidu.adp.lib.g.g.c(h);
-        this.e = h.getResources().getDisplayMetrics().density;
+        Context c = TiebaApplication.g().c();
+        this.c = BdUtilHelper.b(c);
+        this.d = BdUtilHelper.c(c);
+        this.e = c.getResources().getDisplayMetrics().density;
     }
 
     public void a(String str) {

@@ -1,24 +1,27 @@
 package com.baidu.tieba.square;
 
-import android.view.ViewGroup;
-import com.baidu.tieba.util.ce;
-import com.baidu.tieba.util.cg;
+import android.view.View;
+import com.baidu.tieba.flist.ForumListActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements com.baidu.tbadk.imageManager.c {
-    final /* synthetic */ ViewGroup a;
-    final /* synthetic */ c b;
+public class d implements View.OnClickListener {
+    final /* synthetic */ c a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(c cVar, ViewGroup viewGroup) {
-        this.b = cVar;
-        this.a = viewGroup;
+    public d(c cVar) {
+        this.a = cVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
-        if (dVar != null) {
-            ce.a(this.a, false, (cg) new e(this, str, dVar));
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ab abVar;
+        Object tag = view.getTag();
+        if ((tag instanceof g) && (abVar = ((g) tag).d) != null) {
+            if (abVar.a == null) {
+                BarFolderFirstDirActivity.a(this.a.b(), (String) null);
+            } else {
+                ForumListActivity.a(this.a.b(), abVar.b, abVar.a, abVar.c);
+            }
         }
     }
 }

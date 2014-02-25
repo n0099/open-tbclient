@@ -5,7 +5,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ProgressBar;
-import com.baidu.tieba.MainTabActivity;
+import com.baidu.tieba.util.bq;
+import com.baidu.tieba.util.cb;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class BarFolderSecondDirActivity extends com.baidu.tieba.a {
@@ -18,7 +19,7 @@ public class BarFolderSecondDirActivity extends com.baidu.tieba.a {
     private String n;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.bar_folder_dir_activity);
@@ -28,7 +29,7 @@ public class BarFolderSecondDirActivity extends com.baidu.tieba.a {
         c();
         e();
         d();
-        com.baidu.tieba.util.by.a(this, "category_2", "enter");
+        cb.a(this, "category_2", "enter");
     }
 
     protected void c() {
@@ -40,10 +41,10 @@ public class BarFolderSecondDirActivity extends com.baidu.tieba.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.a, com.baidu.tieba.j
+    @Override // com.baidu.tieba.a, com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        com.baidu.tieba.util.bs.c(this.k, i);
+        bq.c(this.k, i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -59,7 +60,7 @@ public class BarFolderSecondDirActivity extends com.baidu.tieba.a {
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.k) {
-            MainTabActivity.a(this);
+            com.baidu.tieba.mainentrance.f.a(this);
         }
     }
 

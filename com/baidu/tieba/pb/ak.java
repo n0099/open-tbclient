@@ -1,53 +1,31 @@
 package com.baidu.tieba.pb;
 
-import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import com.baidu.tieba.view.ImagePbImageView;
 /* loaded from: classes.dex */
-class ak implements com.baidu.adp.lib.d.c<ImageView> {
-    final /* synthetic */ NewPbActivity a;
+class ak {
+    TextView a;
+    TextView b;
+    TextView c;
+    LinearLayout d;
+    TextView e;
+    ProgressBar f;
+    LinearLayout g;
+    ImagePbImageView h;
+    TextView i;
+    TextView j;
+    TextView k;
+    LinearLayout l;
+    final /* synthetic */ ah m;
+
+    private ak(ah ahVar) {
+        this.m = ahVar;
+    }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(NewPbActivity newPbActivity) {
-        this.a = newPbActivity;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    /* renamed from: b */
-    public ImageView a() {
-        return new com.baidu.tieba.view.bu(this.a);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    public void a(ImageView imageView) {
-        imageView.setBackgroundDrawable(null);
-        imageView.setImageDrawable(null);
-        imageView.setTag(null);
-        imageView.setOnClickListener(null);
-        if (imageView instanceof com.baidu.tieba.view.bu) {
-            ((com.baidu.tieba.view.bu) imageView).h();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    public ImageView b(ImageView imageView) {
-        if (imageView instanceof com.baidu.tieba.view.bu) {
-            ((com.baidu.tieba.view.bu) imageView).g();
-        }
-        return imageView;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    public ImageView c(ImageView imageView) {
-        imageView.setBackgroundDrawable(null);
-        imageView.setImageDrawable(null);
-        imageView.setTag(null);
-        imageView.setOnClickListener(null);
-        if (imageView instanceof com.baidu.tieba.view.bu) {
-            ((com.baidu.tieba.view.bu) imageView).h();
-        }
-        return imageView;
+    public /* synthetic */ ak(ah ahVar, ak akVar) {
+        this(ahVar);
     }
 }

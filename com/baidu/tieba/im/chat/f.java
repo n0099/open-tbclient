@@ -17,8 +17,8 @@ public class f implements AbsListView.OnScrollListener {
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
-        this.a.P();
-        this.a.Q();
         this.a.R();
+        this.a.S();
+        this.a.T();
     }
 }

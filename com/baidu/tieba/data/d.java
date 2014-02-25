@@ -1,47 +1,27 @@
 package com.baidu.tieba.data;
 
-import java.util.ArrayList;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d {
-    private UserData a;
-    private ArrayList<String> b;
+    private int a = 0;
+    private int b = 0;
 
-    public d() {
-        this.a = null;
-        this.b = null;
-        this.a = new UserData();
-        this.b = new ArrayList<>(3);
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.a = jSONObject.optInt("group_count", 0);
+                this.b = jSONObject.optInt("hide_recommend_group", 0);
+            } catch (Exception e) {
+                com.baidu.adp.lib.util.f.b("FrsStarData", "parserJson", "error = " + e.getMessage());
+            }
+        }
     }
 
-    public UserData a() {
+    public int a() {
         return this.a;
     }
 
-    public ArrayList<String> b() {
+    public int b() {
         return this.b;
-    }
-
-    public void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b(getClass().getName(), "parserJson", e.getMessage());
-        }
-    }
-
-    public void a(JSONObject jSONObject) {
-        try {
-            this.a.parserJson(jSONObject.optJSONObject("user"));
-            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.b.add(optJSONArray.optString(i, null));
-                }
-            }
-        } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b(getClass().getName(), "parserJson", e.getMessage());
-        }
     }
 }

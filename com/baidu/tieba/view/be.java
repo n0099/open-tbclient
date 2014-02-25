@@ -1,21 +1,36 @@
 package com.baidu.tieba.view;
 
 import android.view.View;
+import android.widget.LinearLayout;
+import com.baidu.tieba.data.UserData;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class be implements View.OnClickListener {
-    final /* synthetic */ ImagePbPagerAdapter a;
+public class be implements com.baidu.tieba.util.cj {
+    final /* synthetic */ HorizontalPanelView a;
+    private final /* synthetic */ UserData b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public be(ImagePbPagerAdapter imagePbPagerAdapter) {
-        this.a = imagePbPagerAdapter;
+    public be(HorizontalPanelView horizontalPanelView, UserData userData) {
+        this.a = horizontalPanelView;
+        this.b = userData;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        int i;
-        ImagePbPagerAdapter imagePbPagerAdapter = this.a;
-        i = this.a.q;
-        imagePbPagerAdapter.a(i);
+    @Override // com.baidu.tieba.util.cj
+    public boolean a(View view) {
+        List list;
+        LinearLayout linearLayout;
+        if (view != null && (view instanceof HeadImageView)) {
+            HeadImageView headImageView = (HeadImageView) view;
+            if (headImageView.getUserId() != null && headImageView.getUserId().equals(String.valueOf(this.b.getUserId()))) {
+                list = this.a.g;
+                list.remove(headImageView);
+                linearLayout = this.a.d;
+                linearLayout.removeView(headImageView);
+                return false;
+            }
+            return false;
+        }
+        return false;
     }
 }

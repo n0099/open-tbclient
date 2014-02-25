@@ -1,27 +1,15 @@
 package com.baidu.tieba.data;
-
-import org.json.JSONObject;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ar {
-    private String a = null;
-    private String b = null;
-    private String c = null;
-    private String d = null;
+public class ar implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ aq a;
 
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optString("player_id");
-                this.b = jSONObject.optString("player_name");
-                this.c = jSONObject.optString("small_head_url");
-                a(jSONObject.optString("big_head_url"));
-            } catch (Exception e) {
-                com.baidu.adp.lib.g.e.b("PlayerInfoData", "parserJson", "error = " + e.getMessage());
-            }
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ar(aq aqVar) {
+        this.a = aqVar;
     }
 
-    public void a(String str) {
-        this.d = str;
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
     }
 }

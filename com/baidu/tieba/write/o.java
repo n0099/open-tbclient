@@ -1,17 +1,23 @@
 package com.baidu.tieba.write;
 
 import android.view.View;
+import android.widget.TextView;
+import com.baidu.tieba.view.HeadImageView;
+import com.baidu.tieba.view.TbCheckBox;
 /* loaded from: classes.dex */
-class o implements View.OnClickListener {
-    final /* synthetic */ VcodeActivity a;
+class o {
+    public View a;
+    public HeadImageView b;
+    public TextView c;
+    public TbCheckBox d;
+    final /* synthetic */ n e;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public o(VcodeActivity vcodeActivity) {
-        this.a = vcodeActivity;
+    private o(n nVar) {
+        this.e = nVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.finish();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ o(n nVar, o oVar) {
+        this(nVar);
     }
 }

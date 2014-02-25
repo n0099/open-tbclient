@@ -1,23 +1,25 @@
 package com.baidu.tieba.im.frsgroup;
 
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.util.an;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import com.baidu.tieba.view.HeadImageView;
 /* loaded from: classes.dex */
-class n implements Runnable {
-    final /* synthetic */ MembersActivity a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public n(MembersActivity membersActivity) {
-        this.a = membersActivity;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        ac acVar;
-        ac acVar2;
-        acVar = this.a.b;
-        BdListView l = acVar.l();
-        acVar2 = this.a.b;
-        an.a(l, acVar2.i().e(), 1, 0);
-    }
+class n {
+    LinearLayout a;
+    LinearLayout b;
+    HeadImageView c;
+    TextView d;
+    TextView e;
+    TextView f;
+    TextView g;
+    ImageView h;
+    ImageView i;
+    ImageView j;
+    ImageView[] k;
+    LinearLayout l;
+    TextView m;
+    ProgressBar n;
+    ImageView o;
 }

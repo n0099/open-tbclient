@@ -1,31 +1,19 @@
 package com.baidu.tieba.im.chat;
 
-import android.text.TextUtils;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bw implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ MsglistActivity a;
+public class bw implements View.OnLongClickListener {
+    final /* synthetic */ bs a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bw(MsglistActivity msglistActivity) {
-        this.a = msglistActivity;
+    public bw(bs bsVar) {
+        this.a = bsVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Boolean bool) {
-        if (bool != null) {
-            if (bool.booleanValue()) {
-                this.a.d.I();
-            } else {
-                this.a.d.J();
-            }
-            if (this.a.e != null && this.a.e.a() != null) {
-                String name = this.a.e.a().getName();
-                if (!TextUtils.isEmpty(name)) {
-                    this.a.d.a(name, true);
-                }
-            }
-        }
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        this.a.d.b(view, 3, this.a.f, 0L);
+        return true;
     }
 }

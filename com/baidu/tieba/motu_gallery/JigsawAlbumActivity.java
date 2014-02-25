@@ -1,5 +1,7 @@
 package com.baidu.tieba.motu_gallery;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -20,7 +22,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class JigsawAlbumActivity extends com.baidu.tieba.j {
+public class JigsawAlbumActivity extends com.baidu.tieba.f {
     private static boolean n = false;
     private static boolean o = true;
     TextView a;
@@ -41,9 +43,18 @@ public class JigsawAlbumActivity extends com.baidu.tieba.j {
     private byte[] s = new byte[1];
     private boolean t = false;
     private Handler u = new Handler(new d(this));
-    private Runnable w = new i(this);
+    private Runnable w = new e(this);
     int b = 0;
     int c = 0;
+
+    public static void a(Context context, int i) {
+        Intent intent = new Intent(context, JigsawAlbumActivity.class);
+        if (context instanceof Activity) {
+            ((Activity) context).startActivityForResult(intent, i);
+        } else {
+            context.startActivity(intent);
+        }
+    }
 
     public boolean a() {
         return n;
@@ -59,7 +70,7 @@ public class JigsawAlbumActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
@@ -67,7 +78,7 @@ public class JigsawAlbumActivity extends com.baidu.tieba.j {
         } catch (Exception e) {
             e.printStackTrace();
             finish();
-            x.a(R.string.oom_retry);
+            y.a(R.string.oom_retry);
         }
         this.a = (TextView) findViewById(R.id.jigsaw_selected_text);
         this.k = u.a();
@@ -75,16 +86,16 @@ public class JigsawAlbumActivity extends com.baidu.tieba.j {
         this.j = (ListView) findViewById(R.id.albums_list);
         this.m = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.m.a(getString(R.string.jigsaw_photo_storage));
-        this.m.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new e(this));
-        ((Button) this.m.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_textbtn, new f(this))).setText(R.string.jigsaw_start);
+        this.m.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new f(this));
+        ((Button) this.m.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_textbtn, new g(this))).setText(R.string.jigsaw_start);
         this.i = new j(this, this);
         this.u.sendMessage(this.u.obtainMessage(1));
         this.j.setAdapter((ListAdapter) this.i);
-        this.j.setOnItemClickListener(new g(this));
+        this.j.setOnItemClickListener(new h(this));
         this.v = (LinearLayout) findViewById(R.id.selected_ll);
     }
 
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, android.app.Activity
     public void onResume() {
         o = true;
         this.t = false;
@@ -96,7 +107,7 @@ public class JigsawAlbumActivity extends com.baidu.tieba.j {
         super.onResume();
     }
 
-    @Override // com.baidu.tieba.j
+    @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         this.m.c(i);
     }
@@ -104,25 +115,26 @@ public class JigsawAlbumActivity extends com.baidu.tieba.j {
     private void b() {
         this.v.removeAllViews();
         for (Uri uri : this.k.c(this)) {
-            w wVar = new w(this);
+            x xVar = new x(this);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams((int) getResources().getDimension(R.dimen.jigsawSelectedWidth), (int) getResources().getDimension(R.dimen.jigsawSelectedHeight));
             layoutParams.setMargins(0, 0, 0, 0);
-            wVar.setLayoutParams(layoutParams);
-            if (wVar.a(uri)) {
-                this.v.addView(wVar);
-                wVar.setOnClickListener(new h(this, wVar));
+            xVar.setLayoutParams(layoutParams);
+            if (xVar.a(uri)) {
+                this.v.addView(xVar);
+                xVar.setOnClickListener(new i(this, xVar));
             }
         }
     }
 
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         this.h.clear();
         super.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:16:0x006c A[Catch: all -> 0x01b5, TryCatch #5 {, blocks: (B:14:0x0068, B:16:0x006c, B:17:0x0071, B:18:0x0074, B:58:0x01bc, B:60:0x01c0, B:61:0x01c5, B:4:0x0004, B:6:0x003c, B:8:0x0044, B:10:0x004a, B:12:0x0060, B:20:0x0076, B:22:0x0098, B:25:0x00ab, B:27:0x00b3, B:29:0x00bb, B:30:0x00f8, B:36:0x014b, B:32:0x011f, B:33:0x0125, B:39:0x0153, B:41:0x015b, B:43:0x016b, B:44:0x0195, B:45:0x019b, B:57:0x01b9), top: B:69:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x01ce A[LOOP:0: B:66:0x004a->B:65:0x01ce, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:73:0x0069 A[EDGE_INSN: B:73:0x0069->B:15:0x0069 ?: BREAK  , SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -134,77 +146,76 @@ public class JigsawAlbumActivity extends com.baidu.tieba.j {
                 this.f.clear();
                 this.d = null;
                 this.d = getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, new String[]{"_data", "_id", "title", "_display_name"}, null, null, "datetaken desc");
-            } catch (Exception e) {
-                e.printStackTrace();
+                if (this.d != null && this.d.getCount() > 0) {
+                    this.d.moveToFirst();
+                    int i2 = 0;
+                    while (true) {
+                        try {
+                            String string = this.d.getString(this.d.getColumnIndexOrThrow("_data"));
+                            if (string.equals("")) {
+                                i = i2;
+                            } else {
+                                int i3 = this.d.getInt(this.d.getColumnIndexOrThrow("_id"));
+                                if (b(this.d.getString(this.d.getColumnIndexOrThrow("_display_name"))) < 0) {
+                                    i = i2;
+                                } else {
+                                    String substring = string.substring(0, string.lastIndexOf("/"));
+                                    if (!a(substring)) {
+                                        if (substring != null && substring.endsWith(com.baidu.tieba.data.i.k()) && !this.f.isEmpty()) {
+                                            c remove = this.f.remove(0);
+                                            this.f.add(0, new c(0, substring, 0));
+                                            int intValue = this.g.get(String.valueOf(0)).intValue();
+                                            this.g.put(String.valueOf(0), 1);
+                                            i = this.f.size();
+                                            try {
+                                                remove.a = i;
+                                                this.f.add(remove);
+                                                this.g.put(String.valueOf(i), Integer.valueOf(intValue));
+                                                a(0, i);
+                                                this.e.add(new c(0, string, i3));
+                                            } catch (Exception e) {
+                                                e = e;
+                                                e.printStackTrace();
+                                                if (this.d.moveToNext()) {
+                                                }
+                                            }
+                                        } else {
+                                            i = this.f.size();
+                                            this.f.add(new c(i, substring, 0));
+                                            this.g.put(String.valueOf(i), 1);
+                                            this.e.add(new c(i, string, i3));
+                                        }
+                                    } else {
+                                        i = i2;
+                                        int i4 = 0;
+                                        while (i4 < this.f.size()) {
+                                            if (this.f.get(i4).b.equals(substring)) {
+                                                i = this.f.get(i4).a;
+                                                this.g.put(String.valueOf(i), Integer.valueOf(this.g.get(String.valueOf(i)).intValue() + 1));
+                                            }
+                                            i4++;
+                                            i = i;
+                                        }
+                                        this.e.add(new c(i, string, i3));
+                                    }
+                                }
+                            }
+                        } catch (Exception e2) {
+                            e = e2;
+                            i = i2;
+                        }
+                        if (this.d.moveToNext()) {
+                            break;
+                        }
+                        i2 = i;
+                    }
+                }
                 if (this.d != null) {
                     this.d.close();
                 }
                 this.d = null;
-            }
-            if (this.d != null && this.d.getCount() > 0) {
-                this.d.moveToFirst();
-                int i2 = 0;
-                do {
-                    try {
-                        String string = this.d.getString(this.d.getColumnIndexOrThrow("_data"));
-                        if (!string.equals("")) {
-                            int i3 = this.d.getInt(this.d.getColumnIndexOrThrow("_id"));
-                            if (b(this.d.getString(this.d.getColumnIndexOrThrow("_display_name"))) >= 0) {
-                                String substring = string.substring(0, string.lastIndexOf("/"));
-                                if (!a(substring)) {
-                                    if (substring != null && substring.endsWith("tieba") && !this.f.isEmpty()) {
-                                        c remove = this.f.remove(0);
-                                        this.f.add(0, new c(0, substring, 0));
-                                        int intValue = this.g.get(String.valueOf(0)).intValue();
-                                        this.g.put(String.valueOf(0), new Integer(1));
-                                        i = this.f.size();
-                                        try {
-                                            remove.a = i;
-                                            this.f.add(remove);
-                                            this.g.put(String.valueOf(i), new Integer(intValue));
-                                            a(0, i);
-                                            this.e.add(new c(0, string, i3));
-                                        } catch (Exception e2) {
-                                            e = e2;
-                                            e.printStackTrace();
-                                            i2 = i;
-                                            if (!this.d.moveToNext()) {
-                                                if (this.d != null) {
-                                                }
-                                                this.d = null;
-                                            }
-                                        }
-                                    } else {
-                                        i = this.f.size();
-                                        this.f.add(new c(i, substring, 0));
-                                        this.g.put(String.valueOf(i), new Integer(1));
-                                        this.e.add(new c(i, string, i3));
-                                    }
-                                } else {
-                                    i = i2;
-                                    int i4 = 0;
-                                    while (i4 < this.f.size()) {
-                                        if (this.f.get(i4).b.equals(substring)) {
-                                            i = this.f.get(i4).a;
-                                            this.g.put(String.valueOf(i), new Integer(this.g.get(String.valueOf(i)).intValue() + 1));
-                                        }
-                                        i4++;
-                                        i = i;
-                                    }
-                                    this.e.add(new c(i, string, i3));
-                                }
-                                i2 = i;
-                            }
-                        }
-                    } catch (Exception e3) {
-                        e = e3;
-                        i = i2;
-                    }
-                } while (!this.d.moveToNext());
-                if (this.d != null) {
-                }
-                this.d = null;
-            } else {
+            } catch (Exception e3) {
+                e3.printStackTrace();
                 if (this.d != null) {
                     this.d.close();
                 }

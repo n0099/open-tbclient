@@ -30,7 +30,7 @@ public class g implements x {
 
     @Override // com.baidu.tieba.im.creategroup.x
     public void i() {
-        this.a.getLayoutMode().a(TiebaApplication.h().al() == 1);
+        this.a.getLayoutMode().a(TiebaApplication.g().al() == 1);
         this.a.getLayoutMode().a(this.c);
     }
 

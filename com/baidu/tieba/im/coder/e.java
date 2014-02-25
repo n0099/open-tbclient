@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.coder;
 
 import android.util.SparseBooleanArray;
-import com.baidu.tieba.im.j;
+import com.baidu.tieba.im.util.n;
 import java.security.PublicKey;
 import javax.crypto.SecretKey;
 /* loaded from: classes.dex */
@@ -32,16 +32,16 @@ public class e {
         this.d = null;
         try {
             this.d = new SparseBooleanArray();
-            PublicKey a2 = com.baidu.tieba.im.d.f.a(j.a());
-            String a3 = com.baidu.tieba.im.d.f.a(32);
+            PublicKey a2 = n.a(com.baidu.tieba.im.g.a());
+            String a3 = n.a(32);
             byte[] bArr = new byte[a3.length()];
             for (int i = 0; i < a3.length(); i++) {
                 bArr[i] = (byte) a3.charAt(i);
             }
-            this.b = com.baidu.tieba.im.d.f.a(a3);
-            this.c = com.baidu.tieba.im.d.f.a(a2, bArr);
+            this.b = n.a(a3);
+            this.c = n.a(a2, bArr);
         } catch (Throwable th) {
-            com.baidu.adp.lib.g.e.a(th.getMessage());
+            com.baidu.adp.lib.util.f.b(th.getMessage());
             this.b = null;
             this.c = new byte[0];
         }

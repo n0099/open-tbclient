@@ -8,18 +8,18 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tieba.view.HeadImageView;
 import com.baidu.tieba.view.TbCheckBox;
-import com.baidu.tieba.view.ck;
+import com.baidu.tieba.view.cr;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class o extends BaseAdapter {
-    private Context a;
+    private final Context a;
     private com.baidu.tieba.util.i b;
     private ArrayList<com.baidu.tieba.im.data.d> c;
-    private ck d;
-    private s e = null;
+    private cr d;
+    private t e = null;
     private ViewGroup f = null;
-    private View.OnClickListener g = new q(this);
+    private final View.OnClickListener g = new p(this);
 
     public o(Context context) {
         this.b = null;
@@ -27,16 +27,16 @@ public class o extends BaseAdapter {
         this.b = new com.baidu.tieba.util.i(context);
     }
 
-    public void a(s sVar) {
-        this.e = sVar;
+    public void a(t tVar) {
+        this.e = tVar;
     }
 
     public void a(ArrayList<com.baidu.tieba.im.data.d> arrayList) {
         this.c = arrayList;
     }
 
-    public void a(ck ckVar) {
-        this.d = ckVar;
+    public void a(cr crVar) {
+        this.d = crVar;
     }
 
     @Override // android.widget.Adapter
@@ -66,61 +66,61 @@ public class o extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        r rVar;
+        s sVar;
         if (this.f == null) {
             this.f = viewGroup;
         }
         com.baidu.tieba.im.data.d dVar = (com.baidu.tieba.im.data.d) getItem(i);
         if (dVar != null) {
-            rVar = a(view != null ? view.getTag() : null, dVar);
+            sVar = a(view != null ? view.getTag() : null, dVar);
         } else {
-            rVar = null;
+            sVar = null;
         }
-        if (rVar != null) {
-            return rVar.a;
+        if (sVar != null) {
+            return sVar.a;
         }
         return null;
     }
 
-    private r a(Object obj, com.baidu.tieba.im.data.d dVar) {
-        r rVar;
+    private s a(Object obj, com.baidu.tieba.im.data.d dVar) {
+        s sVar;
         if (obj == null) {
-            rVar = b();
+            sVar = b();
         } else {
-            rVar = (r) obj;
+            sVar = (s) obj;
         }
         if (this.e != null) {
-            this.e.a(rVar.a, dVar);
+            this.e.a(sVar.a, dVar);
         }
-        a(dVar, rVar, dVar.c());
-        rVar.c.setText(dVar.b());
-        rVar.d.setTagData(dVar);
+        a(dVar, sVar, dVar.c());
+        sVar.c.setText(dVar.b());
+        sVar.d.setTagData(dVar);
         if (this.a instanceof InviteFriendListActivity) {
-            ((InviteFriendListActivity) this.a).getLayoutMode().a(rVar.a);
+            ((InviteFriendListActivity) this.a).getLayoutMode().a(sVar.a);
         }
-        return rVar;
+        return sVar;
     }
 
-    private void a(com.baidu.tieba.im.data.d dVar, r rVar, String str) {
+    private void a(com.baidu.tieba.im.data.d dVar, s sVar, String str) {
         if (dVar != null) {
-            rVar.b.setImageBitmap(null);
-            rVar.b.setTag(str);
-            this.b.c(str, new p(this, rVar));
+            sVar.b.setImageBitmap(null);
+            sVar.b.setTag(str);
+            this.b.c(str, new q(this));
         }
     }
 
-    private r b() {
-        r rVar = new r(this, null);
-        rVar.a = LayoutInflater.from(this.a).inflate(R.layout.invite_friend_list_item, (ViewGroup) null);
-        rVar.b = (HeadImageView) rVar.a.findViewById(R.id.photo);
-        rVar.b.setIsRound(true);
-        rVar.c = (TextView) rVar.a.findViewById(R.id.txt_user_name);
-        rVar.d = (TbCheckBox) rVar.a.findViewById(R.id.ckb_select);
-        rVar.a.setOnClickListener(this.g);
+    private s b() {
+        s sVar = new s(this, null);
+        sVar.a = LayoutInflater.from(this.a).inflate(R.layout.invite_friend_list_item, (ViewGroup) null);
+        sVar.b = (HeadImageView) sVar.a.findViewById(R.id.photo);
+        sVar.b.setIsRound(true);
+        sVar.c = (TextView) sVar.a.findViewById(R.id.txt_user_name);
+        sVar.d = (TbCheckBox) sVar.a.findViewById(R.id.ckb_select);
+        sVar.a.setOnClickListener(this.g);
         if (this.d != null) {
-            rVar.d.setStatedChangedListener(this.d);
+            sVar.d.setStatedChangedListener(this.d);
         }
-        rVar.a.setTag(rVar);
-        return rVar;
+        sVar.a.setTag(sVar);
+        return sVar;
     }
 }

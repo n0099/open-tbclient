@@ -24,22 +24,22 @@ public class n implements l {
     }
 
     @Override // com.baidu.adp.lib.webSocket.l
-    public void a(byte[] bArr) {
-        ArrayList arrayList;
-        arrayList = this.a.g;
-        Iterator it = arrayList.iterator();
-        while (it.hasNext()) {
-            ((l) it.next()).a(bArr);
-        }
-    }
-
-    @Override // com.baidu.adp.lib.webSocket.l
     public void b(byte[] bArr) {
         ArrayList arrayList;
         arrayList = this.a.g;
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
             ((l) it.next()).b(bArr);
+        }
+    }
+
+    @Override // com.baidu.adp.lib.webSocket.l
+    public void a(byte[] bArr) {
+        ArrayList arrayList;
+        arrayList = this.a.g;
+        Iterator it = arrayList.iterator();
+        while (it.hasNext()) {
+            ((l) it.next()).a(bArr);
         }
     }
 

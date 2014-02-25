@@ -1,21 +1,31 @@
 package com.baidu.tieba.util;
 
-import android.view.ViewGroup;
-import android.widget.ListView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.text.style.ClickableSpan;
+import android.view.View;
+import com.baidu.tieba.pb.NewPbActivity;
 /* loaded from: classes.dex */
-public final class ao implements com.baidu.tbadk.imageManager.c {
-    final /* synthetic */ ListView a;
+public class ao extends ClickableSpan {
+    private Context a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(ListView listView) {
-        this.a = listView;
+    public ao(Context context) {
+        this.a = null;
+        this.a = context;
     }
 
-    @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
-        if (dVar != null && str != null) {
-            ce.a((ViewGroup) this.a, false, (cg) new ap(this, str));
-        }
+    @Override // android.text.style.ClickableSpan
+    public void onClick(View view) {
+    }
+
+    public Context a() {
+        return this.a;
+    }
+
+    public void a(String str) {
+        UtilHelper.c(this.a, str);
+    }
+
+    public void b(String str) {
+        NewPbActivity.a(this.a, str, (String) null, (String) null);
     }
 }

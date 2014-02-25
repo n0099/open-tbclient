@@ -1,47 +1,38 @@
 package com;
 
-import android.content.Context;
-import android.graphics.Color;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.cloudsdk.social.core.MediaType;
-import com.baidu.cloudsdk.social.share.SocialShareConfig;
-import java.util.List;
+import android.text.TextUtils;
+import com.baidu.cloudsdk.common.http.JsonHttpResponseHandler;
+import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.cloudsdk.social.share.ShareContent;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ah extends ArrayAdapter {
-    private SocialShareConfig a;
+public class ah extends JsonHttpResponseHandler {
+    final /* synthetic */ ShareContent a;
+    final /* synthetic */ ag b;
 
-    public ah(Context context, List list) {
-        super(context, 0, list);
-        this.a = SocialShareConfig.getInstance(context);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ah(ag agVar, ShareContent shareContent) {
+        this.b = agVar;
+        this.a = shareContent;
     }
 
-    @Override // android.widget.ArrayAdapter, android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        ap apVar;
-        TextView textView;
-        ImageView imageView;
-        TextView textView2;
-        if (view == null || view.getTag() == null) {
-            apVar = new ap(this);
-            view = LayoutInflater.from(getContext()).inflate(i.a(getContext(), "bdsocialshare_sharemenugriditem"), (ViewGroup) null);
-            apVar.b = (ImageView) view.findViewById(i.d(getContext(), "sharemenugrid_iconview"));
-            apVar.c = (TextView) view.findViewById(i.d(getContext(), "sharemenugrid_icontext"));
-            textView = apVar.c;
-            textView.setTextColor(Color.parseColor(i.a(getContext())));
-        } else {
-            apVar = (ap) view.getTag();
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
+    public void onFailure(Throwable th, String str) {
+        this.b.a(this.a);
+    }
+
+    @Override // com.baidu.cloudsdk.common.http.JsonHttpResponseHandler
+    protected void onSuccess(JSONObject jSONObject) {
+        try {
+            String string = jSONObject.getString(SocialConstants.PARAM_URL);
+            if (!TextUtils.isEmpty(string)) {
+                this.a.setLinkUrl(string);
+            }
+        } catch (JSONException e) {
         }
-        MediaType mediaType = (MediaType) getItem(i);
-        int c = i.c(getContext(), "bdsocialshare_" + mediaType.toString());
-        imageView = apVar.b;
-        imageView.setImageResource(c);
-        textView2 = apVar.c;
-        textView2.setText(this.a.getString(mediaType.toString()));
-        return view;
+        this.b.a(this.a);
     }
 }

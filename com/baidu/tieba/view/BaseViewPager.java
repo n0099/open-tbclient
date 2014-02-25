@@ -16,7 +16,7 @@ public class BaseViewPager extends ViewPager implements GestureDetector.OnGestur
         this.a = null;
         this.b = null;
         this.c = null;
-        g();
+        a();
     }
 
     public BaseViewPager(Context context, AttributeSet attributeSet) {
@@ -24,7 +24,7 @@ public class BaseViewPager extends ViewPager implements GestureDetector.OnGestur
         this.a = null;
         this.b = null;
         this.c = null;
-        g();
+        a();
     }
 
     public void setOnFlipOutListener(a aVar) {
@@ -44,7 +44,7 @@ public class BaseViewPager extends ViewPager implements GestureDetector.OnGestur
         return super.onTouchEvent(motionEvent);
     }
 
-    private void g() {
+    private void a() {
         this.a = new GestureDetector(this);
     }
 

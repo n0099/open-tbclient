@@ -1,67 +1,98 @@
 package com.baidu.tieba.im.net;
 
-import android.os.Handler;
-import android.os.Looper;
-import com.baidu.adp.lib.webSocket.m;
-import com.baidu.location.LocationClientOption;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.j;
-import com.baidu.tieba.util.by;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private boolean a = false;
-    private int b = 0;
-    private int[] c = new int[0];
-    private Handler d = new c(this, Looper.getMainLooper());
+    private String a;
+    private List<String> b;
+    private d c;
+    private boolean d;
+
+    public static b a() {
+        b bVar;
+        bVar = e.a;
+        return bVar;
+    }
+
+    private b() {
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = false;
+        this.d = false;
+        this.b = null;
+    }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ int c(b bVar) {
-        int i = bVar.b;
-        bVar.b = i + 1;
-        return i;
+    public /* synthetic */ b(b bVar) {
+        this();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    public int b() {
+        return com.baidu.tieba.sharedPref.b.a().a("KeyOfSharedPrefImCount", 0);
+    }
+
+    public String c() {
+        int b = b();
+        if (b >= 10) {
+            com.baidu.tieba.sharedPref.b.a().b("KeyOfSharedPrefImCount", 0);
+            com.baidu.tieba.sharedPref.b.a().b("KeyOfSharedPrefValidIp", "");
+            this.a = null;
+            return null;
+        }
+        if (this.a == null) {
+            this.a = com.baidu.tieba.sharedPref.b.a().a("KeyOfSharedPrefValidIp", (String) null);
+        }
+        if (!com.baidu.adp.lib.util.h.b(this.a)) {
+            com.baidu.tieba.sharedPref.b.a().b("KeyOfSharedPrefImCount", b + 1);
+        } else {
+            this.a = null;
+        }
+        return this.a;
+    }
+
     public void a(String str) {
-        if (!this.a) {
-            this.a = true;
-            this.d.removeMessages(1);
-            if (m.a().e()) {
-                com.baidu.adp.lib.g.e.d("启动重连策略失败，  WebSocketClient opened");
-                b("in Opened");
-                return;
-            }
-            a();
-            com.baidu.adp.lib.g.e.d("启动重连策略");
-            this.b = 0;
-            if (this.c != null && this.c.length >= 1) {
-                com.baidu.adp.lib.g.e.c("start reconnStrategy... the first will be delay" + this.c[0]);
-                this.d.sendMessageDelayed(this.d.obtainMessage(1), this.c[0] * LocationClientOption.MIN_SCAN_SPAN);
-                return;
-            }
-            com.baidu.adp.lib.g.e.c("don't have reconnStrategy!");
-            return;
+        if (!"ws://im.tieba.baidu.com:8000".equals(str)) {
+            this.a = str;
+            com.baidu.tieba.sharedPref.b.a().b("KeyOfSharedPrefValidIp", str);
         }
-        com.baidu.adp.lib.g.e.d("重连策略正在运行中， 再次启动无效");
-        by.b(str, "ReConnStrategy:start", "in Running,so failed");
     }
 
-    private void a() {
-        int[] aX = TiebaApplication.h().aX();
-        if (aX == null || aX.length == 0) {
-            aX = j.b;
+    public List<String> d() {
+        if (this.b == null) {
+            this.b = b(com.baidu.tieba.sharedPref.b.a().a("KeyOfSharedPrefIpList", (String) null));
         }
-        this.c = aX;
+        return this.b;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void b(String str) {
-        if (this.a) {
-            by.b(str, "ReConnStrategy:stop", "succ");
-            this.a = false;
-            this.b = 0;
-            com.baidu.adp.lib.g.e.c("stop reconnStrategy");
-            this.d.removeMessages(1);
+    public void e() {
+        this.d = false;
+    }
+
+    public boolean f() {
+        return this.d;
+    }
+
+    public void a(c cVar) {
+        if (this.c == null) {
+            this.d = true;
+            this.c = new d(this, cVar);
+            this.c.setPriority(3);
+            this.c.execute(new Object[0]);
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public List<String> b(String str) {
+        String[] split;
+        ArrayList arrayList = null;
+        if (str != null && str.length() > 0 && (split = str.split(",")) != null && split.length > 0) {
+            arrayList = new ArrayList(3);
+            for (String str2 : split) {
+                arrayList.add(str2);
+            }
+        }
+        return arrayList;
     }
 }

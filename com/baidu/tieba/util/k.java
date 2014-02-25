@@ -6,7 +6,7 @@ import java.util.Map;
 public class k {
     String a;
     int b;
-    com.baidu.tbadk.imageManager.c c;
+    com.baidu.tbadk.imageManager.d c;
     boolean d;
     boolean e;
     boolean f;
@@ -20,7 +20,7 @@ public class k {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ k(i iVar, j jVar) {
+    public /* synthetic */ k(i iVar, k kVar) {
         this(iVar);
     }
 }

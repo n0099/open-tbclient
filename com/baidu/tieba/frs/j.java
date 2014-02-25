@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tieba.util.by;
+import com.baidu.tieba.util.cb;
 /* loaded from: classes.dex */
 class j implements com.baidu.adp.widget.ListView.b {
     final /* synthetic */ FrsActivity a;
@@ -12,7 +12,7 @@ class j implements com.baidu.adp.widget.ListView.b {
 
     @Override // com.baidu.adp.widget.ListView.b
     public void a(boolean z) {
-        by.a(this.a, "frs_pulldown", "frsclick", 1, new Object[0]);
-        this.a.z();
+        cb.a(this.a, "frs_pulldown", "frsclick", 1, new Object[0]);
+        this.a.C();
     }
 }

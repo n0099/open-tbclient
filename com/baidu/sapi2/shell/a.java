@@ -398,6 +398,7 @@ public final class a {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 fastRegResponse.displayname = jSONObject.optString(SapiAccountManager.SESSION_DISPLAYNAME);
+                fastRegResponse.username = jSONObject.optString("uname");
                 fastRegResponse.uid = jSONObject.optString(SapiAccountManager.SESSION_UID);
                 fastRegResponse.bduss = jSONObject.optString("bduss");
                 fastRegResponse.ptoken = jSONObject.optString(SapiAccountManager.SESSION_PTOKEN);

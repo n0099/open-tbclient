@@ -2,7 +2,6 @@ package com.baidu.tieba.im.groupCard;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
-import com.baidu.tieba.data.h;
 import com.baidu.tieba.im.chat.LocalViewSize;
 import com.baidu.tieba.util.i;
 /* loaded from: classes.dex */
@@ -13,16 +12,17 @@ public class b extends com.baidu.adp.a.d {
     private GroupCardActivity b;
     private i c = null;
     private c d = null;
-    private String e = h.a + "c/p/groupShareImg?group_id=";
+    private String e;
 
     public static void a() {
         f = 0L;
     }
 
     public b(long j, GroupCardActivity groupCardActivity) {
+        this.e = String.valueOf(com.baidu.tieba.data.i.a) + "c/p/groupShareImg?group_id=";
         this.a = j;
-        this.e += this.a;
-        this.e += "&w=" + LocalViewSize.a().b();
+        this.e = String.valueOf(this.e) + this.a;
+        this.e = String.valueOf(this.e) + "&w=" + LocalViewSize.a().b();
         this.b = groupCardActivity;
     }
 
@@ -36,7 +36,7 @@ public class b extends com.baidu.adp.a.d {
         return false;
     }
 
-    public com.baidu.adp.widget.ImageView.d a(Activity activity, int i, int i2, com.baidu.tbadk.imageManager.c cVar) {
+    public com.baidu.adp.widget.ImageView.b a(Activity activity, int i, int i2, com.baidu.tbadk.imageManager.d dVar) {
         this.c = new i(activity);
         if (System.currentTimeMillis() - f.longValue() > g.longValue()) {
             f = Long.valueOf(System.currentTimeMillis());
@@ -44,7 +44,7 @@ public class b extends com.baidu.adp.a.d {
         this.c.b("&t=" + f);
         this.c.b(true);
         this.c.a(i, i2);
-        return this.c.a(this.e, cVar, false);
+        return this.c.a(this.e, dVar, false);
     }
 
     public void a(Bitmap bitmap) {

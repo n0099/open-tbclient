@@ -1,11 +1,12 @@
 package com.baidu.tieba.im.chat.personaltalk;
 
 import android.text.TextUtils;
-import com.baidu.tieba.im.message.bd;
-import com.baidu.tieba.im.message.ce;
-import com.baidu.tieba.im.message.co;
-import com.baidu.tieba.im.message.cr;
-import com.baidu.tieba.im.message.cv;
+import com.baidu.tieba.im.message.bj;
+import com.baidu.tieba.im.message.cn;
+import com.baidu.tieba.im.message.cx;
+import com.baidu.tieba.im.message.da;
+import com.baidu.tieba.im.message.de;
+import com.baidu.tieba.im.message.s;
 import com.slidingmenu.lib.R;
 import protobuf.QueryUserInfos.QueryUserInfosRes;
 /* loaded from: classes.dex */
@@ -14,7 +15,7 @@ public class l implements com.baidu.tieba.im.messageCenter.g {
     private com.baidu.tieba.util.i g;
     private PersonalTalkSettingActivity h;
     private o i;
-    private com.baidu.tieba.model.e b = new com.baidu.tieba.model.e(null);
+    private com.baidu.tieba.model.d b = new com.baidu.tieba.model.d(null);
     private boolean d = false;
     private boolean e = false;
     private boolean f = false;
@@ -45,7 +46,7 @@ public class l implements com.baidu.tieba.im.messageCenter.g {
         this.i = oVar;
         personalTalkSettingActivity.showProgressBar();
         this.g = new com.baidu.tieba.util.i(personalTalkSettingActivity);
-        com.baidu.tieba.im.m.a(new m(this, j), new n(this, j));
+        com.baidu.tieba.im.j.a(new m(this, j), new n(this, j));
     }
 
     public void e() {
@@ -64,14 +65,14 @@ public class l implements com.baidu.tieba.im.messageCenter.g {
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.q qVar) {
-        if (qVar != null) {
-            switch (qVar.w()) {
+    public void a(s sVar) {
+        if (sVar != null) {
+            switch (sVar.w()) {
                 case -118:
-                    if (qVar instanceof cv) {
-                        cv cvVar = (cv) qVar;
-                        if (cvVar.a()) {
-                            this.d = cvVar.d();
+                    if (sVar instanceof de) {
+                        de deVar = (de) sVar;
+                        if (deVar.a()) {
+                            this.d = deVar.d();
                             if (this.h != null) {
                                 if (this.d) {
                                     this.h.showToast(R.string.add_succ);
@@ -84,8 +85,8 @@ public class l implements com.baidu.tieba.im.messageCenter.g {
                                 return;
                             }
                             return;
-                        } else if (this.h != null && !TextUtils.isEmpty(cvVar.b())) {
-                            this.h.showToast(cvVar.b());
+                        } else if (this.h != null && !TextUtils.isEmpty(deVar.b())) {
+                            this.h.showToast(deVar.b());
                             return;
                         } else {
                             return;
@@ -93,18 +94,18 @@ public class l implements com.baidu.tieba.im.messageCenter.g {
                     }
                     return;
                 case 104102:
-                    if (qVar instanceof cr) {
+                    if (sVar instanceof da) {
                         this.h.closeLoadingDialog();
-                        if (((cr) qVar).k()) {
-                            this.h.showToast(((cr) qVar).m());
+                        if (((da) sVar).l()) {
+                            this.h.showToast(((da) sVar).n());
                         }
                     }
-                    if (qVar instanceof co) {
-                        co coVar = (co) qVar;
-                        if (coVar.n() instanceof bd) {
-                            bd bdVar = (bd) coVar.n();
-                            if (bdVar.b() == 10) {
-                                this.e = bdVar.c() == 1;
+                    if (sVar instanceof cx) {
+                        cx cxVar = (cx) sVar;
+                        if (cxVar.o() instanceof bj) {
+                            bj bjVar = (bj) cxVar.o();
+                            if (bjVar.b() == 10) {
+                                this.e = bjVar.c() == 1;
                                 if (this.i != null) {
                                     this.i.a();
                                     return;
@@ -117,14 +118,14 @@ public class l implements com.baidu.tieba.im.messageCenter.g {
                     }
                     return;
                 case 205003:
-                    if ((qVar instanceof cr) && ((cr) qVar).k()) {
+                    if ((sVar instanceof da) && ((da) sVar).l()) {
                         this.h.hideProgressBar();
-                        this.h.showToast(((cr) qVar).m());
+                        this.h.showToast(((da) sVar).n());
                         return;
-                    } else if (qVar instanceof ce) {
-                        ce ceVar = (ce) qVar;
-                        if (ceVar.a() != null) {
-                            this.c = ceVar.a();
+                    } else if (sVar instanceof cn) {
+                        cn cnVar = (cn) sVar;
+                        if (cnVar.a() != null) {
+                            this.c = cnVar.a();
                             this.d = this.c.getHasConcerned() == 1;
                             this.e = this.c.getIsBlacklist() == 1;
                             this.h.hideProgressBar();

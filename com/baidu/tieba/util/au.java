@@ -2,14 +2,29 @@ package com.baidu.tieba.util;
 
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public interface au {
-    LinkedList<String> getForumPhotoUrl();
+public abstract class au implements aw {
+    @Override // com.baidu.tieba.util.aw
+    public boolean isSupportImageSize() {
+        return false;
+    }
 
-    LinkedList<String> getImageUrl();
+    @Override // com.baidu.tieba.util.aw
+    public LinkedList<String> getImageUrl() {
+        return null;
+    }
 
-    LinkedList<at> getImagesWithEmotions();
+    @Override // com.baidu.tieba.util.aw
+    public LinkedList<av> getImagesWithEmotions() {
+        return null;
+    }
 
-    LinkedList<String> getPhotoUrl();
+    @Override // com.baidu.tieba.util.aw
+    public LinkedList<String> getPhotoUrl() {
+        return null;
+    }
 
-    boolean isSupportImageSize();
+    @Override // com.baidu.tieba.util.aw
+    public LinkedList<String> getForumPhotoUrl() {
+        return null;
+    }
 }

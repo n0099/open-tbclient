@@ -22,30 +22,25 @@ class k implements h {
     }
 
     public String a(String str) {
-        String key;
-        long j;
-        String str2 = null;
+        String str2;
         if (!this.b.containsKey(str) && this.b.size() >= this.a) {
             synchronized (this) {
-                long j2 = -1;
+                long j = -1;
+                str2 = null;
                 for (Map.Entry<String, Long> entry : this.b.entrySet()) {
                     long longValue = entry.getValue().longValue();
-                    if (j2 == -1 || j2 > longValue) {
-                        key = entry.getKey();
+                    if (j == -1 || j > longValue) {
                         j = longValue;
-                    } else {
-                        j = j2;
-                        key = str2;
+                        str2 = entry.getKey();
                     }
-                    j2 = j;
-                    str2 = key;
                 }
                 if (str2 != null) {
                     this.b.remove(str2);
                 }
             }
+            return str2;
         }
-        return str2;
+        return null;
     }
 
     @Override // com.baidu.adp.lib.cache.h

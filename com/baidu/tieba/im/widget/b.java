@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.widget;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class b implements com.baidu.tieba.view.dialog.c {
+public class b implements com.baidu.tieba.view.dialog.c {
     @Override // com.baidu.tieba.view.dialog.c
     public void onClick(com.baidu.tieba.view.dialog.a aVar) {
         com.baidu.tieba.view.dialog.a aVar2;

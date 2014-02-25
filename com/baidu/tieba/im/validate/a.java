@@ -13,11 +13,11 @@ public class a implements com.baidu.tieba.im.a<Boolean> {
     @Override // com.baidu.tieba.im.a
     public void a(Boolean bool) {
         boolean z;
-        n nVar;
+        r rVar;
         z = this.a.i;
         if (!z) {
-            nVar = this.a.b;
-            nVar.a(false);
+            rVar = this.a.b;
+            rVar.a(false);
         }
         com.baidu.tieba.im.c.a.a((com.baidu.tieba.im.a<Void>) null);
     }

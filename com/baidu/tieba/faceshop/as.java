@@ -1,42 +1,55 @@
 package com.baidu.tieba.faceshop;
 
-import android.os.Handler;
-import android.widget.AbsListView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class as implements AbsListView.OnScrollListener {
-    final /* synthetic */ aq a;
+class as extends com.baidu.adp.a.g {
+    final /* synthetic */ FaceShopActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public as(aq aqVar) {
-        this.a = aqVar;
+    public as(FaceShopActivity faceShopActivity) {
+        this.a = faceShopActivity;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        Handler handler;
-        Handler handler2;
-        Handler handler3;
-        Runnable runnable;
-        Handler handler4;
-        Runnable runnable2;
-        handler = this.a.j;
-        if (handler != null) {
-            handler4 = this.a.j;
-            runnable2 = this.a.l;
-            handler4.removeCallbacks(runnable2);
-        }
-        if (i == 0) {
-            handler2 = this.a.j;
-            if (handler2 != null) {
-                handler3 = this.a.j;
-                runnable = this.a.l;
-                handler3.postDelayed(runnable, 300L);
+    @Override // com.baidu.adp.a.g
+    public void a(Object obj) {
+        be beVar;
+        be beVar2;
+        be beVar3;
+        bc bcVar;
+        be beVar4;
+        be beVar5;
+        be beVar6;
+        this.a.hideProgressBar();
+        if (obj != null && (obj instanceof FaceShopData)) {
+            beVar2 = this.a.a;
+            if (beVar2 != null) {
+                FaceShopData faceShopData = (FaceShopData) obj;
+                if (faceShopData.errno == 0 && faceShopData.usermsg != null) {
+                    bcVar = this.a.b;
+                    if (bcVar.b()) {
+                        beVar6 = this.a.a;
+                        beVar6.e();
+                    } else {
+                        beVar4 = this.a.a;
+                        beVar4.d();
+                    }
+                    beVar5 = this.a.a;
+                    beVar5.a(faceShopData);
+                    return;
+                }
+                if (faceShopData.usermsg != null) {
+                    this.a.showToast(faceShopData.usermsg);
+                } else {
+                    this.a.showToast(R.string.neterror);
+                }
+                beVar3 = this.a.a;
+                beVar3.b();
+                return;
             }
+            return;
         }
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        this.a.showToast(R.string.neterror);
+        beVar = this.a.a;
+        beVar.b();
     }
 }

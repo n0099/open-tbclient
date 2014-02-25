@@ -1,37 +1,28 @@
 package com.baidu.tieba.write;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.widget.TextView;
+import android.text.SpannableStringBuilder;
+import com.baidu.tieba.data.emotions.WritableEmotionGroup;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ax extends BroadcastReceiver {
-    final /* synthetic */ WriteImageActivity a;
-
-    private ax(WriteImageActivity writeImageActivity) {
-        this.a = writeImageActivity;
-    }
+public class ax implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ WriteActivity a;
+    private final /* synthetic */ SpannableStringBuilder b;
+    private final /* synthetic */ int c;
+    private final /* synthetic */ WritableEmotionGroup.EmotionGroupType d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ax(WriteImageActivity writeImageActivity, an anVar) {
-        this(writeImageActivity);
+    public ax(WriteActivity writeActivity, SpannableStringBuilder spannableStringBuilder, int i, WritableEmotionGroup.EmotionGroupType emotionGroupType) {
+        this.a = writeActivity;
+        this.b = spannableStringBuilder;
+        this.c = i;
+        this.d = emotionGroupType;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        TextView textView;
-        TextView textView2;
-        this.a.releaseResouce();
-        if (intent.getBooleanExtra("result", false)) {
-            this.a.c();
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        if (bVar == null) {
             return;
         }
-        this.a.showToast(intent.getStringExtra("error"));
-        textView = this.a.d;
-        if (textView != null) {
-            textView2 = this.a.d;
-            textView2.setEnabled(false);
-        }
+        this.a.a(this.b, this.c, bVar, this.d);
     }
 }

@@ -1,10 +1,11 @@
 package com.baidu.tieba.im.coder;
 
 import android.util.SparseArray;
-import com.baidu.tieba.im.k;
-import com.baidu.tieba.im.message.q;
-import com.baidu.tieba.util.ak;
-import com.baidu.tieba.util.p;
+import com.baidu.tieba.im.h;
+import com.baidu.tieba.im.message.s;
+import com.baidu.tieba.im.util.n;
+import com.baidu.tieba.util.am;
+import com.baidu.tieba.util.r;
 import com.google.protobuf.MessageLite;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -34,41 +35,41 @@ public class c {
         this.b = new SparseArray<>();
     }
 
-    public byte[] a(q qVar, int i, boolean z) {
+    public byte[] a(s sVar, int i, boolean z) {
         MessageLite messageLite = null;
         try {
-            if (qVar instanceof g) {
-                messageLite = ((g) qVar).a();
+            if (sVar instanceof g) {
+                messageLite = ((g) sVar).a();
             }
             byte[] byteArray = messageLite.toByteArray();
             if (byteArray != null && z) {
                 byteArray = b(byteArray, 0, byteArray.length);
             }
-            boolean b = e.a().b(qVar.w());
+            boolean b = e.a().b(sVar.w());
             if (byteArray != null && b) {
-                byteArray = com.baidu.tieba.im.d.f.a(e.a().c(), byteArray);
+                byteArray = n.a(e.a().c(), byteArray);
             }
-            return b.a(b, z, qVar.w(), i, byteArray);
+            return b.a(b, z, sVar.w(), i, byteArray);
         } catch (Exception e) {
-            throw new CoderException(k.l);
+            throw new CoderException(h.l);
         }
     }
 
     public d a(d dVar) {
         if (dVar == null || dVar.a == null || dVar.b == null) {
-            throw new CoderException(k.b);
+            throw new CoderException(h.b);
         }
         b bVar = dVar.a;
         if (bVar.d()) {
             if (e.a().c() == null) {
-                throw new CoderException(k.i);
+                throw new CoderException(h.i);
             }
             try {
-                dVar.b = com.baidu.tieba.im.d.f.a(e.a().c(), dVar.b, dVar.c, dVar.d);
+                dVar.b = n.a(e.a().c(), dVar.b, dVar.c, dVar.d);
                 dVar.c = 0;
                 dVar.d = dVar.b.length;
             } catch (Exception e) {
-                throw new CoderException(k.k);
+                throw new CoderException(h.k);
             }
         }
         if (bVar.b()) {
@@ -77,7 +78,7 @@ public class c {
                 dVar.c = 0;
                 dVar.d = dVar.b.length;
             } catch (Exception e2) {
-                throw new CoderException(k.h);
+                throw new CoderException(h.h);
             }
         }
         return dVar;
@@ -86,11 +87,11 @@ public class c {
     public d a(byte[] bArr) {
         int a2 = b.a();
         if (bArr == null || bArr.length < a2) {
-            throw new CoderException(k.b);
+            throw new CoderException(h.b);
         }
         b a3 = b.a(bArr);
         if (a3 == null) {
-            throw new CoderException(k.b);
+            throw new CoderException(h.b);
         }
         d dVar = new d();
         dVar.a = a3;
@@ -100,21 +101,21 @@ public class c {
         return dVar;
     }
 
-    public List<q> a(int i, byte[] bArr, int i2, int i3) {
+    public List<s> a(int i, byte[] bArr, int i2, int i3) {
         Class<?> cls = this.b.get(i);
         if (cls == null) {
-            throw new CoderException(k.c);
+            throw new CoderException(h.c);
         }
         if (i2 != 0 || i3 != bArr.length) {
             bArr = ByteBuffer.wrap(bArr, i2, i3).array();
         }
         try {
-            LinkedList<q> linkedList = new LinkedList<>();
-            com.baidu.adp.lib.g.e.d("decode cmd:" + i);
+            LinkedList<s> linkedList = new LinkedList<>();
+            com.baidu.adp.lib.util.f.e("decode cmd:" + i);
             ((f) cls.newInstance()).a(linkedList, bArr, i);
             return linkedList;
         } catch (Exception e) {
-            throw new CoderException(k.e);
+            throw new CoderException(h.e);
         }
     }
 
@@ -122,12 +123,12 @@ public class c {
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try {
-            ak.b(byteArrayInputStream, byteArrayOutputStream);
+            am.b(byteArrayInputStream, byteArrayOutputStream);
             byteArrayOutputStream.flush();
             return byteArrayOutputStream.toByteArray();
         } finally {
-            p.a((OutputStream) byteArrayOutputStream);
-            p.a((InputStream) byteArrayInputStream);
+            r.a((OutputStream) byteArrayOutputStream);
+            r.a((InputStream) byteArrayInputStream);
         }
     }
 
@@ -135,12 +136,12 @@ public class c {
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try {
-            ak.a(byteArrayInputStream, byteArrayOutputStream);
+            am.a(byteArrayInputStream, byteArrayOutputStream);
             byteArrayOutputStream.flush();
             return byteArrayOutputStream.toByteArray();
         } finally {
-            p.a((OutputStream) byteArrayOutputStream);
-            p.a((InputStream) byteArrayInputStream);
+            r.a((OutputStream) byteArrayOutputStream);
+            r.a((InputStream) byteArrayInputStream);
         }
     }
 

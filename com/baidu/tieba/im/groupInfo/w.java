@@ -1,30 +1,25 @@
 package com.baidu.tieba.im.groupInfo;
 
-import com.baidu.tieba.im.SingleRunnable;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class w extends SingleRunnable<Boolean> {
-    final /* synthetic */ String a;
-    final /* synthetic */ String b;
-    final /* synthetic */ long c;
+public class w extends BdAsyncTask<Void, Void, Void> {
+    private final /* synthetic */ String a;
+    private final /* synthetic */ String b;
+    private final /* synthetic */ boolean c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(String str, String str2, long j) {
+    public w(String str, String str2, boolean z) {
         this.a = str;
         this.b = str2;
-        this.c = j;
+        this.c = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.SingleRunnable
-    /* renamed from: a */
-    public Boolean b() {
-        GroupSettingItemData a = u.a(this.a, this.b);
-        if (a != null && a.isAlreadyApply()) {
-            if (System.currentTimeMillis() - a.getLastApplyTimeStamp() <= this.c) {
-                return false;
-            }
-        }
-        return true;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Void a(Void... voidArr) {
+        v.c(this.a, this.b, this.c);
+        return null;
     }
 }

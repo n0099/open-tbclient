@@ -55,11 +55,11 @@ public class AccountData implements Serializable {
     }
 
     public void logPrint() {
-        com.baidu.adp.lib.g.e.d(getClass().getName(), "logPrint", "mAccount = " + this.mAccount);
-        com.baidu.adp.lib.g.e.d(getClass().getName(), "logPrint", "mPassword = " + this.mPassword);
-        com.baidu.adp.lib.g.e.d(getClass().getName(), "logPrint", "mIsActive = " + String.valueOf(this.mIsActive));
-        com.baidu.adp.lib.g.e.d(getClass().getName(), "logPrint", "BDUSS = " + this.BDUSS);
-        com.baidu.adp.lib.g.e.d(getClass().getName(), "logPrint", "portrait = " + this.portrait);
+        com.baidu.adp.lib.util.f.d(getClass().getName(), "logPrint", "mAccount = " + this.mAccount);
+        com.baidu.adp.lib.util.f.d(getClass().getName(), "logPrint", "mPassword = " + this.mPassword);
+        com.baidu.adp.lib.util.f.d(getClass().getName(), "logPrint", "mIsActive = " + String.valueOf(this.mIsActive));
+        com.baidu.adp.lib.util.f.d(getClass().getName(), "logPrint", "BDUSS = " + this.BDUSS);
+        com.baidu.adp.lib.util.f.d(getClass().getName(), "logPrint", "portrait = " + this.portrait);
     }
 
     public void setTbs(String str) {

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageInfo;
 import android.os.Build;
+import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import com.baidu.android.systemmonitor.c.c;
 import com.baidu.android.systemmonitor.freqstatistic.d;
 import com.baidu.android.systemmonitor.freqstatistic.e;
@@ -115,7 +116,7 @@ public final class AppManager {
             if (Build.VERSION.SDK_INT < 8) {
                 aVar.h = false;
             } else {
-                aVar.h = (packageInfo.applicationInfo == null || (packageInfo.applicationInfo.flags & 262144) == 0) ? false : true;
+                aVar.h = (packageInfo.applicationInfo == null || (packageInfo.applicationInfo.flags & AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START) == 0) ? false : true;
             }
             aVar.e(packageInfo.packageName);
             c.a(this.a, packageInfo, aVar);
@@ -125,7 +126,7 @@ public final class AppManager {
                     aVar.i = 1;
                 } else if (Build.VERSION.SDK_INT < 8) {
                     aVar.i = 2;
-                } else if ((packageInfo.applicationInfo.flags & 262144) != 0) {
+                } else if ((packageInfo.applicationInfo.flags & AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START) != 0) {
                     aVar.i = 3;
                 } else {
                     aVar.i = 2;

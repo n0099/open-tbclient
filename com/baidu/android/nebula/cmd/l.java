@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import org.apache.commons.io.IOUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements Runnable {
@@ -43,7 +44,7 @@ public class l implements Runnable {
         dataOutputStream2 = m.c;
         if (dataOutputStream2 != null) {
             dataOutputStream3 = m.c;
-            dataOutputStream3.writeBytes(a + "\r\n");
+            dataOutputStream3.writeBytes(a + IOUtils.LINE_SEPARATOR_WINDOWS);
             dataOutputStream4 = m.c;
             dataOutputStream4.flush();
             if (this.b != null && com.baidu.android.moplus.util.b.b(this.b, com.baidu.android.moplus.util.b.m(this.b)) && com.baidu.android.systemmonitor.c.d.a(this.b)) {

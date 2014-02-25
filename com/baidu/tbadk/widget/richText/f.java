@@ -46,25 +46,25 @@ public class f extends BitmapDrawable {
 
     @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        com.baidu.adp.widget.ImageView.d dVar;
+        com.baidu.adp.widget.ImageView.b bVar;
         if (this.a > 0 && this.b != null) {
-            com.baidu.tbadk.imageManager.d a = com.baidu.tbadk.imageManager.d.a();
-            com.baidu.adp.widget.ImageView.d c = (a == null || this.d == null) ? null : a.c(this.d);
+            com.baidu.tbadk.imageManager.e a = com.baidu.tbadk.imageManager.e.a();
+            com.baidu.adp.widget.ImageView.b c = (a == null || this.d == null) ? null : a.c(this.d);
             if (c == null) {
                 Bitmap decodeResource = BitmapFactory.decodeResource(this.b.getResources(), this.a);
                 if (decodeResource != null) {
-                    c = new com.baidu.adp.widget.ImageView.d(decodeResource, false, null);
+                    c = new com.baidu.adp.widget.ImageView.b(decodeResource, false, null);
                 }
                 if (a != null && c != null && this.d != null) {
                     a.b(this.d, c);
                 }
-                dVar = c;
+                bVar = c;
             } else {
-                dVar = c;
+                bVar = c;
             }
-            if (dVar != null) {
-                int c2 = dVar.c();
-                int d = dVar.d();
+            if (bVar != null) {
+                int c2 = bVar.c();
+                int d = bVar.d();
                 if (c2 > 0 && d > 0 && this.c != null) {
                     canvas.save();
                     canvas.clipRect(super.getBounds());
@@ -79,9 +79,9 @@ public class f extends BitmapDrawable {
                             }
                             this.e.postScale(f, f);
                         }
-                        dVar.a(canvas, this.e, null);
+                        bVar.a(canvas, this.e, null);
                     } else {
-                        dVar.a(canvas, 0.0f, 0.0f, null);
+                        bVar.a(canvas, 0.0f, 0.0f, null);
                     }
                     canvas.restore();
                 }

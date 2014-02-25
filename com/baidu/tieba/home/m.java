@@ -1,8 +1,7 @@
 package com.baidu.tieba.home;
 
-import android.content.Context;
 import android.view.View;
-import com.baidu.tieba.BaseFragmentActivity;
+import com.baidu.tieba.guide.NewUserGuideActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements View.OnClickListener {
@@ -15,21 +14,25 @@ public class m implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
+        com.baidu.tieba.data.ae aeVar;
         boolean z;
-        BaseFragmentActivity baseFragmentActivity;
-        String str;
-        BaseFragmentActivity baseFragmentActivity2;
-        BaseFragmentActivity baseFragmentActivity3;
-        z = this.a.s;
-        if (z) {
-            baseFragmentActivity3 = this.a.a;
-            SignAllForumActivity.a(baseFragmentActivity3);
-        } else {
-            baseFragmentActivity = this.a.a;
-            str = this.a.t;
-            com.baidu.adp.lib.g.g.a((Context) baseFragmentActivity, str);
+        com.baidu.tieba.k kVar;
+        com.baidu.tieba.data.ae aeVar2;
+        com.baidu.tieba.data.ae aeVar3;
+        aeVar = this.a.b;
+        if (aeVar != null) {
+            aeVar2 = this.a.b;
+            if (aeVar2.a() != null) {
+                aeVar3 = this.a.b;
+                if (aeVar3.a().size() > 0) {
+                    z = true;
+                    kVar = this.a.a;
+                    NewUserGuideActivity.a(kVar, false, z);
+                }
+            }
         }
-        baseFragmentActivity2 = this.a.a;
-        com.baidu.tieba.ao.a(baseFragmentActivity2, "signall_enter_click");
+        z = false;
+        kVar = this.a.a;
+        NewUserGuideActivity.a(kVar, false, z);
     }
 }

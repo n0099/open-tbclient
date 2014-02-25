@@ -1,26 +1,13 @@
 package com.baidu.adp.gif;
-
-import android.os.Build;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g {
-    public static final String[] a = {"ZTE-T U880", "U880"};
-
-    public static boolean a(String str) {
-        for (String str2 : a) {
-            if (str2.equals(str)) {
-                return false;
-            }
+public class g implements a {
+    @Override // com.baidu.adp.gif.a
+    public com.baidu.adp.widget.ImageView.b a(String str) {
+        NSGif a = NSGif.a(str);
+        if (a == null) {
+            return null;
         }
-        return true;
-    }
-
-    private static boolean b() {
-        return Build.VERSION.SDK_INT > 7;
-    }
-
-    public static boolean a() {
-        String str = Build.MODEL;
-        com.baidu.adp.lib.g.e.e("NSGifCompat", "shouldUseNSGif", "model: " + str);
-        return a(str) && b() && NSGif.a;
+        return new com.baidu.adp.widget.ImageView.b(a);
     }
 }

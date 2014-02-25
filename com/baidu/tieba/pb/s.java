@@ -1,10 +1,10 @@
 package com.baidu.tieba.pb;
 
-import android.widget.Button;
-import android.widget.LinearLayout;
-import com.slidingmenu.lib.R;
+import android.text.InputFilter;
+import android.text.Spanned;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class s implements com.baidu.tieba.view.bh {
+public class s implements InputFilter {
     final /* synthetic */ ImagePbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,16 +12,16 @@ class s implements com.baidu.tieba.view.bh {
         this.a = imagePbActivity;
     }
 
-    @Override // com.baidu.tieba.view.bh
-    public void a(int i) {
-        LinearLayout linearLayout;
-        Button button;
-        if (i == -2) {
-            linearLayout = this.a.q;
-            linearLayout.setVisibility(8);
-            this.a.r.setVisibility(0);
-            button = this.a.n;
-            button.setBackgroundResource(R.drawable.sub_pb_face);
+    @Override // android.text.InputFilter
+    public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
+        boolean g;
+        g = this.a.g();
+        if (g) {
+            if (charSequence.length() <= 0 && spanned.length() > 0) {
+                return spanned.subSequence(i3, i4 - 1);
+            }
+            return "";
         }
+        return null;
     }
 }

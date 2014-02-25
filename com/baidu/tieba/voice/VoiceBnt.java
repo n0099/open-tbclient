@@ -39,7 +39,7 @@ public class VoiceBnt extends ImageView {
     public VoiceManager getVoiceManager() {
         Context context = getContext();
         if (context instanceof af) {
-            return ((af) context).d_();
+            return ((af) context).h();
         }
         return null;
     }

@@ -1,6 +1,15 @@
 package protobuf.DelGroupMsgs;
 
-import com.google.protobuf.MessageLiteOrBuilder;
+import com.google.protobuf.AbstractParser;
+import com.google.protobuf.CodedInputStream;
+import com.google.protobuf.ExtensionRegistryLite;
+import protobuf.DelGroupMsgs.DelGroupMsgsReq;
 /* loaded from: classes.dex */
-public interface d extends MessageLiteOrBuilder {
+class d extends AbstractParser<DelGroupMsgsReq.DelGroupMsgsReqIdl> {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.google.protobuf.Parser
+    /* renamed from: a */
+    public DelGroupMsgsReq.DelGroupMsgsReqIdl parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
+        return new DelGroupMsgsReq.DelGroupMsgsReqIdl(codedInputStream, extensionRegistryLite, null);
+    }
 }

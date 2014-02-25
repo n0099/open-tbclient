@@ -100,7 +100,7 @@ public class InviteFriendCandidateList extends HorizontalScrollView {
             HeadImageView f = f();
             f.setIsRound(true);
             if (this.f != null) {
-                com.baidu.adp.widget.ImageView.d c = this.f.c(dVar.c());
+                com.baidu.adp.widget.ImageView.b c = this.f.c(dVar.c());
                 if (c != null) {
                     c.a(f);
                 } else {
@@ -126,7 +126,7 @@ public class InviteFriendCandidateList extends HorizontalScrollView {
         for (int i = 0; i < childCount; i++) {
             View childAt = this.b.getChildAt(i);
             if (childAt != this.h && (tag = childAt.getTag()) != null && (tag instanceof com.baidu.tieba.im.data.d) && ((com.baidu.tieba.im.data.d) tag).a(dVar)) {
-                dVar.a(true);
+                dVar.setChecked(true);
                 childAt.setTag(dVar);
                 return true;
             }
@@ -151,7 +151,7 @@ public class InviteFriendCandidateList extends HorizontalScrollView {
     }
 
     private boolean e() {
-        return TiebaApplication.h().al() == 1;
+        return TiebaApplication.g().al() == 1;
     }
 
     public void c(com.baidu.tieba.im.data.d dVar) {

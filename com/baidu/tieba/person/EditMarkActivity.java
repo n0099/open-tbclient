@@ -9,9 +9,9 @@ import com.baidu.tieba.data.MarkData;
 import com.baidu.tieba.pb.NewPbActivity;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class EditMarkActivity extends com.baidu.tieba.j implements com.baidu.adp.widget.ListView.b, com.baidu.adp.widget.ListView.r {
-    private com.baidu.tieba.model.o a = null;
-    private aa b = null;
+public class EditMarkActivity extends com.baidu.tieba.f implements com.baidu.adp.widget.ListView.b, com.baidu.adp.widget.ListView.r {
+    private com.baidu.tieba.model.g a = null;
+    private ad b = null;
     private int c = -1;
     private ArrayList<MarkData> d = null;
 
@@ -20,18 +20,18 @@ public class EditMarkActivity extends com.baidu.tieba.j implements com.baidu.adp
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.a = new com.baidu.tieba.model.o();
-        this.a.a(new y(this));
-        this.b = new aa(this);
-        this.b.a(new z(this));
+        this.a = new com.baidu.tieba.model.g();
+        this.a.a(new ab(this, this));
+        this.b = new ad(this);
+        this.b.a(new ac(this));
         b();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j
+    @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.b.b(i);
@@ -49,7 +49,7 @@ public class EditMarkActivity extends com.baidu.tieba.j implements com.baidu.adp
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         this.b.i();
@@ -77,12 +77,12 @@ public class EditMarkActivity extends com.baidu.tieba.j implements com.baidu.adp
             MarkData markData = this.a.f().get(i);
             MarkData markData2 = this.d.get(i);
             int b = this.a.b();
-            int r = com.baidu.tieba.mention.s.a().r();
+            int r = com.baidu.tieba.mention.v.a().r();
             if (markData2.getNewCounts() > 0) {
                 if (r > 0) {
-                    com.baidu.tieba.mention.s.a().f(r - 1);
+                    com.baidu.tieba.mention.v.a().f(r - 1);
                 } else {
-                    com.baidu.tieba.mention.s.a().f(0);
+                    com.baidu.tieba.mention.v.a().f(0);
                 }
                 if (b > 0) {
                     this.a.a(b - 1);
@@ -99,7 +99,7 @@ public class EditMarkActivity extends com.baidu.tieba.j implements com.baidu.adp
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, android.app.Activity
     public void onResume() {
         super.onResume();
         this.b.a(this.d);

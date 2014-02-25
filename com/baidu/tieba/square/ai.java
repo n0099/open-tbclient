@@ -2,50 +2,27 @@ package com.baidu.tieba.square;
 
 import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import com.baidu.tieba.forumdetail.ForumDetailData;
+import com.baidu.tieba.util.UtilHelper;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ai extends BaseAdapter {
-    private aj a;
-    private ForumDetailData.ThreadInfo[] b = null;
+public class ai implements View.OnClickListener {
+    final /* synthetic */ ah a;
+    private final /* synthetic */ av b;
+    private final /* synthetic */ int c;
 
-    public ai(Context context) {
-        this.a = null;
-        this.a = new aj(context);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ai(ah ahVar, av avVar, int i) {
+        this.a = ahVar;
+        this.b = avVar;
+        this.c = i;
     }
 
-    public void a(ForumDetailData.ThreadInfo[] threadInfoArr) {
-        this.b = threadInfoArr;
-        if (this.a != null) {
-            this.a.setData(threadInfoArr);
-        }
-    }
-
-    public void a(int i) {
-        if (this.a != null) {
-            this.a.a(i);
-        }
-        notifyDataSetChanged();
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        return (this.b == null || this.b.length <= 0) ? 0 : 1;
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        return Integer.valueOf(i);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        return this.a;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        String b = this.b.b();
+        String a = am.a("forum_topics_recommend", String.valueOf(this.c));
+        context = this.a.a;
+        UtilHelper.a(context, b, null, a);
     }
 }

@@ -1,35 +1,29 @@
 package com.baidu.tieba.recommend;
+
+import android.view.animation.Animation;
+import android.widget.TextView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab {
-    public String a;
-    public String b;
+public class ab implements Animation.AnimationListener {
+    final /* synthetic */ z a;
 
-    public ab(String str, String str2) {
-        this.a = "";
-        this.b = "";
-        this.a = str;
-        this.b = str2;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ab(z zVar) {
+        this.a = zVar;
     }
 
-    public int hashCode() {
-        return (((this.a == null ? 0 : this.a.hashCode()) + 31) * 31) + (this.b != null ? this.b.hashCode() : 0);
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
     }
 
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj != null && getClass() == obj.getClass()) {
-            ab abVar = (ab) obj;
-            if (this.a == null) {
-                if (abVar.a != null) {
-                    return false;
-                }
-            } else if (!this.a.equals(abVar.a)) {
-                return false;
-            }
-            return this.b == null ? abVar.b == null : this.b.equals(abVar.b);
-        }
-        return false;
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        TextView textView;
+        textView = this.a.i;
+        textView.setVisibility(8);
     }
 }

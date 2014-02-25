@@ -1,21 +1,21 @@
 package com.baidu.tieba.im.mygroup;
 
-import android.content.Context;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.message.k;
 import com.baidu.tieba.im.message.l;
+import com.baidu.tieba.im.message.m;
 /* loaded from: classes.dex */
 public class h {
     private boolean c = false;
-    public int a = com.baidu.adp.lib.g.g.a((Context) TiebaApplication.a(), 70.0f);
-    public int b = com.baidu.adp.lib.g.g.a((Context) TiebaApplication.a(), 70.0f);
+    public int a = BdUtilHelper.a(TiebaApplication.g().c(), 70.0f);
+    public int b = BdUtilHelper.a(TiebaApplication.g().c(), 70.0f);
 
     public void a() {
         if (this.c) {
-            com.baidu.tieba.im.messageCenter.e.a().a(new l(this.a, this.b));
+            com.baidu.tieba.im.messageCenter.e.a().a(new m(this.a, this.b));
             return;
         }
         this.c = true;
-        com.baidu.tieba.im.messageCenter.e.a().a(new k());
+        com.baidu.tieba.im.messageCenter.e.a().a(new l());
     }
 }

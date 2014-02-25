@@ -22,7 +22,7 @@ public class g extends b {
         try {
             return CommitGroupMsgReq.CommitGroupMsgReqIdl.newBuilder().a(CommitGroupMsgReq.DataReq.newBuilder().a(k()).a(Integer.valueOf(u()).intValue()).b(i()).a(j()).build()).build();
         } catch (Exception e) {
-            com.baidu.adp.lib.g.e.d("data convert error");
+            com.baidu.adp.lib.util.f.e("data convert error");
             return null;
         }
     }

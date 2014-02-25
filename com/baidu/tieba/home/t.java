@@ -1,22 +1,24 @@
 package com.baidu.tieba.home;
 
-import android.webkit.WebChromeClient;
-import android.webkit.WebView;
+import android.app.Activity;
+import android.view.View;
+import com.baidu.tieba.account.SapiFastRegActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t extends WebChromeClient {
-    final /* synthetic */ ForumTopicActivity a;
+public class t implements View.OnClickListener {
+    final /* synthetic */ r a;
+    private final /* synthetic */ Activity b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public t(ForumTopicActivity forumTopicActivity) {
-        this.a = forumTopicActivity;
+    public t(r rVar, Activity activity) {
+        this.a = rVar;
+        this.b = activity;
     }
 
-    @Override // android.webkit.WebChromeClient
-    public void onProgressChanged(WebView webView, int i) {
-        super.onProgressChanged(webView, i);
-        if (i == 100) {
-            this.a.f();
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Activity activity;
+        activity = this.a.a;
+        SapiFastRegActivity.a(activity, 22002);
     }
 }

@@ -1,10 +1,10 @@
 package com.baidu.tbadk.widget.richText;
 
 import android.content.Context;
+import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.text.TextPaint;
 import android.text.style.ClickableSpan;
 import android.view.View;
-import protobuf.Im;
 /* loaded from: classes.dex */
 public class h extends ClickableSpan {
     private Context a;
@@ -45,10 +45,10 @@ public class h extends ClickableSpan {
                 case 16:
                     jVar.a(this.a, this.c);
                     return;
-                case Im.GroupInfo.ISNEWLYCREATE_FIELD_NUMBER /* 32 */:
+                case 32:
                     jVar.c(this.a, this.c);
                     return;
-                case 64:
+                case AccessibilityNodeInfoCompat.ACTION_ACCESSIBILITY_FOCUS /* 64 */:
                     jVar.d(this.a, this.c);
                     return;
                 case 128:

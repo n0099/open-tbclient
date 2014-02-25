@@ -1,15 +1,6 @@
 package protobuf.CommitPusherCount;
 
-import com.google.protobuf.AbstractParser;
-import com.google.protobuf.CodedInputStream;
-import com.google.protobuf.ExtensionRegistryLite;
-import protobuf.CommitPusherCount.CommitPusherCountRes;
+import com.google.protobuf.MessageLiteOrBuilder;
 /* loaded from: classes.dex */
-final class i extends AbstractParser<CommitPusherCountRes.CommitPusherCountResIdl> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.protobuf.Parser
-    /* renamed from: a */
-    public CommitPusherCountRes.CommitPusherCountResIdl parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-        return new CommitPusherCountRes.CommitPusherCountResIdl(codedInputStream, extensionRegistryLite);
-    }
+public interface i extends MessageLiteOrBuilder {
 }

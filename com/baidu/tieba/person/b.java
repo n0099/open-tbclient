@@ -1,9 +1,11 @@
 package com.baidu.tieba.person;
 
-import android.os.Handler;
-import android.os.Message;
+import android.view.View;
+import android.widget.AdapterView;
+import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class b implements Handler.Callback {
+public class b implements AdapterView.OnItemClickListener {
     final /* synthetic */ AllPostActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,14 +13,21 @@ class b implements Handler.Callback {
         this.a = allPostActivity;
     }
 
-    @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
-        switch (message.what) {
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        switch (this.a.e.getItemViewType(i)) {
+            case 0:
             case 1:
-                this.a.finish();
-                return false;
             default:
-                return false;
+                return;
+            case 2:
+                if (this.a.f.g()) {
+                    this.a.a(1);
+                    return;
+                } else {
+                    this.a.showToast(this.a.getString(R.string.no_more_to_load));
+                    return;
+                }
         }
     }
 }

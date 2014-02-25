@@ -1,29 +1,14 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import com.baidu.tieba.util.DatabaseService;
+import android.content.Context;
+import com.baidu.tieba.util.cb;
 /* loaded from: classes.dex */
-class ai extends Thread {
-    final /* synthetic */ LogoActivity a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(LogoActivity logoActivity) {
-        this.a = logoActivity;
+public class ai {
+    public static void a(Context context, String str) {
+        cb.a(context, str, "click", 1, new Object[0]);
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        Handler handler;
-        Handler handler2;
-        super.run();
-        try {
-            DatabaseService.t();
-            DatabaseService.w();
-            this.a.a(this.a.getCacheDir());
-        } catch (Exception e) {
-        }
-        handler = this.a.i;
-        handler2 = this.a.i;
-        handler.sendMessage(handler2.obtainMessage());
+    public static void b(Context context, String str) {
+        cb.a(context, str, "visit", 1, new Object[0]);
     }
 }

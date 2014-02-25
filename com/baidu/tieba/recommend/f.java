@@ -1,9 +1,7 @@
 package com.baidu.tieba.recommend;
-
-import android.os.Handler;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements x {
+public class f implements Runnable {
     final /* synthetic */ DailyRecommendActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,48 +9,16 @@ public class f implements x {
         this.a = dailyRecommendActivity;
     }
 
-    @Override // com.baidu.tieba.recommend.x
-    public void a() {
-    }
-
-    @Override // com.baidu.tieba.recommend.x
-    public void a(boolean z, String str, com.baidu.tieba.data.o oVar, int i) {
-        y yVar;
-        y yVar2;
-        y yVar3;
-        Handler handler;
-        Runnable runnable;
-        Handler handler2;
-        Runnable runnable2;
-        y yVar4;
-        yVar = this.a.c;
-        yVar.a(true, "");
-        if (z) {
-            yVar3 = this.a.c;
-            yVar3.a(oVar);
-            handler = this.a.e;
-            runnable = this.a.f;
-            handler.removeCallbacks(runnable);
-            handler2 = this.a.e;
-            runnable2 = this.a.f;
-            handler2.postDelayed(runnable2, 0L);
-            if (i == 0) {
-                yVar4 = this.a.c;
-                yVar4.g();
-            }
-        } else {
-            yVar2 = this.a.c;
-            yVar2.a((com.baidu.tieba.data.o) null);
-            if (i != 1) {
-                if (str.equals("70000")) {
-                    this.a.showToast("已经无新数据了");
-                } else {
-                    this.a.showToast("获取数据失败");
-                }
-            }
-        }
-        if (i == 1) {
-            this.a.a(true, (String) null);
+    @Override // java.lang.Runnable
+    public void run() {
+        String str;
+        z zVar;
+        try {
+            zVar = this.a.c;
+            zVar.h();
+        } catch (Exception e) {
+            str = this.a.b;
+            com.baidu.adp.lib.util.f.b(str, "mLoadImageRunnable.run", "error = " + e.getMessage());
         }
     }
 }

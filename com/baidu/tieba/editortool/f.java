@@ -1,23 +1,20 @@
 package com.baidu.tieba.editortool;
+
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements com.baidu.tieba.voice.p {
-    final /* synthetic */ t a;
-    final /* synthetic */ EditorToolComponetContainer b;
+public class f implements View.OnClickListener {
+    final /* synthetic */ EditorToolComponetContainer a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(EditorToolComponetContainer editorToolComponetContainer, t tVar) {
-        this.b = editorToolComponetContainer;
-        this.a = tVar;
+    public f(EditorToolComponetContainer editorToolComponetContainer) {
+        this.a = editorToolComponetContainer;
     }
 
-    @Override // com.baidu.tieba.voice.p
-    public void a() {
-        this.a.a(14, null);
-    }
-
-    @Override // com.baidu.tieba.voice.p
-    public void b() {
-        this.a.a(15, null);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        z zVar;
+        zVar = this.a.r;
+        zVar.a(7, null);
     }
 }

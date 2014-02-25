@@ -1,31 +1,47 @@
 package com.baidu.tieba.data;
+
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private String a;
-    private long b;
-    private int c;
+    private UserData a;
+    private ArrayList<String> b;
 
-    public String a() {
+    public e() {
+        this.a = null;
+        this.b = null;
+        this.a = new UserData();
+        this.b = new ArrayList<>(3);
+    }
+
+    public UserData a() {
         return this.a;
     }
 
-    public void a(String str) {
-        this.a = str;
-    }
-
-    public long b() {
+    public ArrayList<String> b() {
         return this.b;
     }
 
-    public void a(long j) {
-        this.b = j;
+    public void a(String str) {
+        try {
+            a(new JSONObject(str));
+        } catch (Exception e) {
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
+        }
     }
 
-    public int c() {
-        return this.c;
-    }
-
-    public void a(int i) {
-        this.c = i;
+    public void a(JSONObject jSONObject) {
+        try {
+            this.a.parserJson(jSONObject.optJSONObject("user"));
+            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    this.b.add(optJSONArray.optString(i, null));
+                }
+            }
+        } catch (Exception e) {
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
+        }
     }
 }

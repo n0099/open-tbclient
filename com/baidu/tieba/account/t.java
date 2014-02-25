@@ -1,16 +1,18 @@
 package com.baidu.tieba.account;
 
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.data.RegistData;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t extends BdAsyncTask<String, Integer, Boolean> {
+public class t extends BdAsyncTask<String, Integer, com.baidu.tieba.model.at> {
     final /* synthetic */ ActivationActivity a;
-    private com.baidu.tieba.util.ax b;
+    private com.baidu.tieba.util.ba b;
 
     private t(ActivationActivity activationActivity) {
         this.a = activationActivity;
@@ -18,70 +20,86 @@ public class t extends BdAsyncTask<String, Integer, Boolean> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ t(ActivationActivity activationActivity, o oVar) {
+    public /* synthetic */ t(ActivationActivity activationActivity, t tVar) {
         this(activationActivity);
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        ProgressBar progressBar;
-        EditText editText;
-        RelativeLayout relativeLayout;
-        this.a.l = null;
-        progressBar = this.a.e;
-        progressBar.setVisibility(8);
-        editText = this.a.i;
-        if (editText.length() == 6) {
-            relativeLayout = this.a.j;
-            relativeLayout.setEnabled(true);
-        }
-        if (this.b != null) {
-            this.b.k();
-        }
-        super.cancel(true);
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Boolean a(String... strArr) {
+    public com.baidu.tieba.model.at a(String... strArr) {
         RegistData registData;
-        boolean z = false;
+        RegistData registData2;
+        RegistData registData3;
+        RegistData registData4;
+        RegistData registData5;
+        EditText editText;
+        RegistData registData6;
+        RegistData registData7;
         try {
-            this.b = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/s/getsmscode");
-            com.baidu.tieba.util.ax axVar = this.b;
+            this.b = new com.baidu.tieba.util.ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/s/regreal");
+            com.baidu.tieba.util.ba baVar = this.b;
             registData = this.a.p;
-            axVar.a("phonenum", registData.getPhone());
-            this.b.m();
-            if (this.b.d()) {
-                z = true;
+            baVar.a("un", registData.getName());
+            com.baidu.tieba.util.ba baVar2 = this.b;
+            registData2 = this.a.p;
+            baVar2.a("phonenum", registData2.getPhone());
+            com.baidu.tieba.util.ba baVar3 = this.b;
+            registData3 = this.a.p;
+            baVar3.a("passwd", registData3.getPsw());
+            registData4 = this.a.p;
+            if (registData4.getVcode() != null) {
+                com.baidu.tieba.util.ba baVar4 = this.b;
+                registData7 = this.a.p;
+                baVar4.a("vcode", registData7.getVcode());
             }
+            registData5 = this.a.p;
+            if (registData5.getVcodeMd5() != null) {
+                com.baidu.tieba.util.ba baVar5 = this.b;
+                registData6 = this.a.p;
+                baVar5.a("vcode_md5", registData6.getVcodeMd5());
+            }
+            com.baidu.tieba.util.ba baVar6 = this.b;
+            editText = this.a.i;
+            baVar6.a("smscode", editText.getText().toString());
+            String m = this.b.m();
+            if (this.b.d()) {
+                com.baidu.tieba.model.at atVar = new com.baidu.tieba.model.at();
+                atVar.a(m);
+                return atVar;
+            }
+            return null;
         } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.getMessage());
+            return null;
         }
-        return Boolean.valueOf(z);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Boolean bool) {
+    public void a(com.baidu.tieba.model.at atVar) {
         ProgressBar progressBar;
-        EditText editText;
+        boolean z;
+        LinearLayout linearLayout;
+        LinearLayout linearLayout2;
+        int i;
+        int i2;
         TextView textView;
         TextView textView2;
         RelativeLayout relativeLayout;
-        super.a((t) bool);
-        this.a.l = null;
-        progressBar = this.a.e;
+        super.a((t) atVar);
+        progressBar = this.a.f;
         progressBar.setVisibility(8);
-        editText = this.a.i;
-        if (editText.length() == 6) {
-            relativeLayout = this.a.j;
+        this.a.m = null;
+        this.a.a(true);
+        z = this.a.n;
+        if (z) {
+            relativeLayout = this.a.k;
             relativeLayout.setEnabled(true);
         }
-        if (bool.booleanValue()) {
-            this.a.a();
+        if (atVar != null) {
+            this.a.a(atVar);
             return;
         }
         String j = this.b.j();
@@ -91,23 +109,63 @@ public class t extends BdAsyncTask<String, Integer, Boolean> {
             textView2 = this.a.h;
             textView2.setText(j);
         }
+        if (this.b.f() == 26) {
+            this.a.y = 26;
+            linearLayout = this.a.c;
+            linearLayout.setBackgroundResource(R.drawable.pass_input_wrong);
+            linearLayout2 = this.a.c;
+            i = this.a.w;
+            i2 = this.a.x;
+            linearLayout2.setPadding(i, 0, i2, 0);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
         ProgressBar progressBar;
+        RelativeLayout relativeLayout;
         TextView textView;
         TextView textView2;
-        RelativeLayout relativeLayout;
-        progressBar = this.a.e;
+        LinearLayout linearLayout;
+        LinearLayout linearLayout2;
+        int i;
+        int i2;
+        progressBar = this.a.f;
         progressBar.setVisibility(0);
+        relativeLayout = this.a.k;
+        relativeLayout.setEnabled(false);
+        this.a.a(false);
         textView = this.a.h;
         textView.setVisibility(4);
         textView2 = this.a.h;
         textView2.setText((CharSequence) null);
-        relativeLayout = this.a.j;
-        relativeLayout.setEnabled(false);
+        linearLayout = this.a.c;
+        linearLayout.setBackgroundResource(R.drawable.pass_input);
+        linearLayout2 = this.a.c;
+        i = this.a.w;
+        i2 = this.a.x;
+        linearLayout2.setPadding(i, 0, i2, 0);
         super.b();
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        ProgressBar progressBar;
+        boolean z;
+        RelativeLayout relativeLayout;
+        this.a.m = null;
+        progressBar = this.a.f;
+        progressBar.setVisibility(8);
+        z = this.a.n;
+        if (z) {
+            relativeLayout = this.a.k;
+            relativeLayout.setEnabled(true);
+        }
+        if (this.b != null) {
+            this.b.k();
+        }
+        this.a.a(true);
+        super.cancel(true);
     }
 }

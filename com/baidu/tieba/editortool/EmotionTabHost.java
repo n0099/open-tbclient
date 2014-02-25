@@ -10,7 +10,7 @@ import com.baidu.tieba.data.emotions.WritableEmotionGroup;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class EmotionTabHost extends LinearLayout implements s, com.baidu.tieba.im.messageCenter.g {
+public class EmotionTabHost extends LinearLayout implements y, com.baidu.tieba.im.messageCenter.g {
     private LayoutInflater a;
     private EmotionTabContentView b;
     private EmotionTabWidgetView c;
@@ -49,7 +49,7 @@ public class EmotionTabHost extends LinearLayout implements s, com.baidu.tieba.i
         this.c = (EmotionTabWidgetView) findViewById(R.id.face_tab_widget);
         this.c.setOnTabSelectedListener(this);
         setOrientation(1);
-        this.g = TiebaApplication.h().al();
+        this.g = TiebaApplication.g().al();
         b(this.g);
         b();
     }
@@ -90,7 +90,7 @@ public class EmotionTabHost extends LinearLayout implements s, com.baidu.tieba.i
     @Override // android.view.View
     public void setVisibility(int i) {
         super.setVisibility(i);
-        int al = TiebaApplication.h().al();
+        int al = TiebaApplication.g().al();
         if (al != this.g) {
             this.g = al;
             b(this.g);
@@ -141,8 +141,8 @@ public class EmotionTabHost extends LinearLayout implements s, com.baidu.tieba.i
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.q qVar) {
-        switch (qVar.w()) {
+    public void a(com.baidu.tieba.im.message.s sVar) {
+        switch (sVar.w()) {
             case -120:
                 a();
                 b();
@@ -152,18 +152,18 @@ public class EmotionTabHost extends LinearLayout implements s, com.baidu.tieba.i
         }
     }
 
-    @Override // com.baidu.tieba.editortool.s
+    @Override // com.baidu.tieba.editortool.y
     public void a(int i) {
         setCurrentEmotionGroup(i);
     }
 
     public void b(int i) {
         this.c.a(i);
-        this.b.c(i);
+        this.b.a(i);
     }
 
-    public void setOnDataSelected(t tVar) {
-        this.b.setOnDataSelected(tVar);
-        this.c.setOnDataSelected(tVar);
+    public void setOnDataSelected(z zVar) {
+        this.b.setOnDataSelected(zVar);
+        this.c.setOnDataSelected(zVar);
     }
 }

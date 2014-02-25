@@ -1,20 +1,30 @@
 package com.baidu.tieba.pb;
 
-import android.widget.CompoundButton;
+import android.view.animation.Animation;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cx implements CompoundButton.OnCheckedChangeListener {
-    final /* synthetic */ cr a;
+public class cx implements Animation.AnimationListener {
+    final /* synthetic */ cu a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cx(cr crVar) {
-        this.a = crVar;
+    public cx(cu cuVar) {
+        this.a = cuVar;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        if (z) {
-            this.a.af = (String) compoundButton.getTag();
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        NewPbActivity newPbActivity;
+        this.a.f.setVisibility(4);
+        newPbActivity = this.a.h;
+        newPbActivity.showToast(R.string.pb_double_click_tips, 0);
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

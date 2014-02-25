@@ -6,35 +6,35 @@ import com.baidu.tieba.flist.ForumListActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements View.OnClickListener {
-    final /* synthetic */ boolean a;
-    final /* synthetic */ String b;
-    final /* synthetic */ String c;
-    final /* synthetic */ String d;
-    final /* synthetic */ String e;
-    final /* synthetic */ com.baidu.tieba.j f;
-    final /* synthetic */ ItemInfoView g;
+    final /* synthetic */ ItemInfoView a;
+    private final /* synthetic */ boolean b;
+    private final /* synthetic */ String c;
+    private final /* synthetic */ String d;
+    private final /* synthetic */ String e;
+    private final /* synthetic */ String f;
+    private final /* synthetic */ com.baidu.tieba.f g;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(ItemInfoView itemInfoView, boolean z, String str, String str2, String str3, String str4, com.baidu.tieba.j jVar) {
-        this.g = itemInfoView;
-        this.a = z;
-        this.b = str;
-        this.c = str2;
-        this.d = str3;
-        this.e = str4;
-        this.f = jVar;
+    public m(ItemInfoView itemInfoView, boolean z, String str, String str2, String str3, String str4, com.baidu.tieba.f fVar) {
+        this.a = itemInfoView;
+        this.b = z;
+        this.c = str;
+        this.d = str2;
+        this.e = str3;
+        this.f = str4;
+        this.g = fVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
-        if (!this.a) {
-            context = this.g.a;
-            ForumListActivity.a(context, this.b, this.d, this.c, this.e);
+        if (!this.b) {
+            context = this.a.a;
+            ForumListActivity.a(context, this.c, this.e, this.d, this.f);
             return;
         }
         ForumListActivity.d = !ForumListActivity.d;
-        ForumListActivity.a(this.b, this.c, this.d, this.e);
-        this.f.finish();
+        ForumListActivity.a(this.c, this.d, this.e, this.f);
+        this.g.finish();
     }
 }

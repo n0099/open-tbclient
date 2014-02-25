@@ -1,29 +1,19 @@
 package com.baidu.tieba.im.chat;
-
-import java.util.ArrayList;
-import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v implements com.baidu.tieba.im.a<LinkedList<String>> {
-    final /* synthetic */ az a;
-    final /* synthetic */ q b;
+public class v implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ q a;
+    private final /* synthetic */ com.baidu.tieba.im.message.da b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(q qVar, az azVar) {
-        this.b = qVar;
-        this.a = azVar;
+    public v(q qVar, com.baidu.tieba.im.message.da daVar) {
+        this.a = qVar;
+        this.b = daVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
-    public void a(LinkedList<String> linkedList) {
-        ArrayList<String> arrayList = new ArrayList<>();
-        while (!linkedList.isEmpty()) {
-            String a = com.baidu.tieba.im.d.d.a(linkedList.removeLast(), true);
-            if (a != null) {
-                arrayList.add(a);
-            }
-        }
-        this.a.a(arrayList);
+    public void a(Boolean bool) {
+        this.a.a((com.baidu.tieba.im.message.s) this.b);
     }
 }

@@ -1,33 +1,22 @@
 package com.baidu.tieba.im.messageCenter.a;
 
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.message.bx;
-import com.baidu.tieba.im.message.cr;
+import com.baidu.tieba.im.message.aq;
+import com.baidu.tieba.im.message.cd;
 /* loaded from: classes.dex */
-public class m extends com.baidu.tieba.im.messageCenter.d {
-    @Override // com.baidu.tieba.im.messageCenter.d
-    public cr a(com.baidu.tieba.im.message.q qVar) {
-        bx bxVar;
-        if (qVar == null || !(qVar instanceof com.baidu.tieba.im.message.j)) {
-            return null;
-        }
-        String str = "";
-        if (TiebaApplication.E() != null) {
-            str = TiebaApplication.E().getID();
-        }
-        byte[] a = com.baidu.tieba.b.a.a().r().a("p_nearby_group_info" + str);
-        bx bxVar2 = new bx();
-        if (a != null) {
-            try {
-                bxVar = (bx) l.a(103009, a);
-            } catch (Exception e) {
-                e.printStackTrace();
+public class m extends com.baidu.tieba.im.messageCenter.a {
+    @Override // com.baidu.tieba.im.messageCenter.a
+    public com.baidu.tieba.im.message.s a(com.baidu.tieba.im.message.s sVar, com.baidu.tieba.im.coder.d dVar) {
+        if (sVar != null && (sVar instanceof cd)) {
+            cd cdVar = (cd) sVar;
+            if (!cdVar.l() && (cdVar.o() instanceof aq) && ((aq) cdVar.o()).f()) {
+                String str = "";
+                if (TiebaApplication.E() != null) {
+                    str = TiebaApplication.E().getID();
+                }
+                n.a(com.baidu.tieba.c.a.a().f(), "p_hot_groups_info" + str, dVar);
             }
-            bxVar.e(-115);
-            return bxVar;
         }
-        bxVar = bxVar2;
-        bxVar.e(-115);
-        return bxVar;
+        return null;
     }
 }

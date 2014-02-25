@@ -1,8 +1,9 @@
 package com.baidu.tieba.more;
 
+import android.content.DialogInterface;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class aq extends com.baidu.adp.a.g {
+class aq implements DialogInterface.OnClickListener {
     final /* synthetic */ SystemHelpSettingActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,9 +11,12 @@ class aq extends com.baidu.adp.a.g {
         this.a = systemHelpSettingActivity;
     }
 
-    @Override // com.baidu.adp.a.g
-    public void a(Object obj) {
-        this.a.closeLoadingDialog();
-        this.a.showToast(R.string.image_cash_del_suc);
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        au auVar;
+        this.a.showLoadingDialog(this.a.getString(R.string.deleting));
+        auVar = this.a.b;
+        auVar.a();
+        dialogInterface.cancel();
     }
 }

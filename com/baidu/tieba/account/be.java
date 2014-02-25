@@ -1,11 +1,18 @@
 package com.baidu.tieba.account;
 
 import com.baidu.tieba.data.AccountData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface be {
-    void a(AccountData accountData);
+public class be implements ad {
+    final /* synthetic */ ReLoginShareActivity a;
 
-    void a(String str);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public be(ReLoginShareActivity reLoginShareActivity) {
+        this.a = reLoginShareActivity;
+    }
 
-    void a(String str, String str2);
+    @Override // com.baidu.tieba.account.ad
+    public void a(AccountData accountData) {
+        this.a.a(accountData);
+    }
 }

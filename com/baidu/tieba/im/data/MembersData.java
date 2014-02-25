@@ -1,19 +1,19 @@
 package com.baidu.tieba.im.data;
 
-import com.baidu.tieba.im.data.UserData;
+import com.baidu.tbadk.data.UserData;
 import java.io.Serializable;
 import java.util.List;
 /* loaded from: classes.dex */
 public class MembersData implements Serializable {
     private static final long serialVersionUID = -7753167435649497271L;
     private UserData.Permission permission;
-    private List<UserData> users;
+    private List<com.baidu.tieba.data.UserData> users;
 
-    public List<UserData> getUsers() {
+    public List<com.baidu.tieba.data.UserData> getUsers() {
         return this.users;
     }
 
-    public void setUsers(List<UserData> list) {
+    public void setUsers(List<com.baidu.tieba.data.UserData> list) {
         this.users = list;
     }
 

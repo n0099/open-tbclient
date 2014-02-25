@@ -1,19 +1,26 @@
 package com.baidu.tieba.person.post;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.view.View;
+import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.tieba.pb.NewPbActivity;
 /* loaded from: classes.dex */
-public class aa implements com.baidu.tbadk.imageManager.c {
-    final /* synthetic */ String a;
-    final /* synthetic */ TripleTbImageView b;
+class aa implements View.OnClickListener {
+    final /* synthetic */ ReplyLinearLayout a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(TripleTbImageView tripleTbImageView, String str) {
-        this.b = tripleTbImageView;
-        this.a = str;
+    public aa(ReplyLinearLayout replyLinearLayout) {
+        this.a = replyLinearLayout;
     }
 
-    @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
-        this.b.b.setTag(this.a);
-        this.b.a(this.b.b, dVar);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        String[] strArr = (String[]) view.getTag();
+        if (strArr != null) {
+            if (SocialConstants.FALSE.equals(strArr[3])) {
+                NewPbActivity.a(this.a.getContext(), strArr[1], strArr[2], "person_post_reply");
+            } else {
+                NewPbActivity.b(this.a.getContext(), strArr[1], strArr[2], "person_post_reply");
+            }
+        }
     }
 }

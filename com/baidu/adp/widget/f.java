@@ -1,23 +1,44 @@
 package com.baidu.adp.widget;
 
-import com.baidu.adp.widget.HorizontalTranslateLayout;
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.sapi2.shell.SapiErrorCode;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public /* synthetic */ class f {
-    static final /* synthetic */ int[] a = new int[HorizontalTranslateLayout.TrackDirection.values().length];
+public class f extends Handler {
+    final /* synthetic */ HorizontalTranslateLayout a;
 
-    static {
-        try {
-            a[HorizontalTranslateLayout.TrackDirection.left.ordinal()] = 1;
-        } catch (NoSuchFieldError e) {
-        }
-        try {
-            a[HorizontalTranslateLayout.TrackDirection.right.ordinal()] = 2;
-        } catch (NoSuchFieldError e2) {
-        }
-        try {
-            a[HorizontalTranslateLayout.TrackDirection.horizontal.ordinal()] = 3;
-        } catch (NoSuchFieldError e3) {
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        g gVar;
+        g gVar2;
+        g gVar3;
+        g gVar4;
+        g gVar5;
+        gVar = this.a.t;
+        if (gVar.g) {
+            switch (message.what) {
+                case SapiErrorCode.GET_CERT_FAIL /* -105 */:
+                    gVar5 = this.a.t;
+                    gVar5.d();
+                    return;
+                case SapiErrorCode.GETTING_CERT /* -104 */:
+                    gVar2 = this.a.t;
+                    gVar2.c();
+                    return;
+                case SapiErrorCode.INVALID_ARG /* -103 */:
+                case SapiErrorCode.NOT_INIT /* -102 */:
+                default:
+                    return;
+                case SapiErrorCode.SENT_SUCCEED /* -101 */:
+                    gVar3 = this.a.t;
+                    gVar3.b();
+                    return;
+                case SapiErrorCode.ERROR_UNKNOWN /* -100 */:
+                    gVar4 = this.a.t;
+                    gVar4.a();
+                    return;
+            }
         }
     }
 }

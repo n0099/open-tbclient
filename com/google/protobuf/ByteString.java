@@ -127,7 +127,7 @@ public abstract class ByteString implements Iterable<Byte> {
     }
 
     public static ByteString readFrom(InputStream inputStream) {
-        return readFrom(inputStream, MIN_READ_FROM_CHUNK_SIZE, MAX_READ_FROM_CHUNK_SIZE);
+        return readFrom(inputStream, 256, 8192);
     }
 
     public static ByteString readFrom(InputStream inputStream, int i) {
@@ -245,7 +245,7 @@ public abstract class ByteString implements Iterable<Byte> {
     }
 
     public static Output newOutput() {
-        return new Output(CONCATENATE_BY_COPY_SIZE);
+        return new Output(128);
     }
 
     /* loaded from: classes.dex */

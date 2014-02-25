@@ -1,38 +1,91 @@
 package com.baidu.tieba.data;
 
-import com.baidu.cloudsdk.social.core.SocialConstants;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class s {
-    private String a = null;
-    private String b = null;
-    private int c = 0;
-    private int d = 0;
-    private int e = 0;
-    private int f = 0;
-    private int g = 0;
-    private String h = null;
-    private String i = null;
+    private boolean b;
+    private boolean c;
+    private int e;
+    private int f;
+    private String g;
+    private long d = 0;
+    private ae a = new ae();
 
-    public String a() {
+    public boolean a() {
         return this.b;
     }
 
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optString("id");
-                this.b = jSONObject.optString(SocialConstants.PARAM_MEDIA_UNAME);
-                this.c = jSONObject.optInt("member_count", 0);
-                this.d = jSONObject.optInt("is_like", 0);
-                this.e = this.d;
-                this.f = jSONObject.optInt("level_id", 1);
-                this.g = jSONObject.optInt("favo_type", 0);
-                this.h = jSONObject.optString("desc");
-                this.i = jSONObject.optString("avatar", "");
-            } catch (Exception e) {
-                com.baidu.adp.lib.g.e.b("LikeForumData", "parserJson", "error = " + e.getMessage());
-            }
+    public void a(boolean z) {
+        this.b = z;
+    }
+
+    public s() {
+        this.c = true;
+        this.c = false;
+    }
+
+    public int b() {
+        return this.e;
+    }
+
+    public int c() {
+        return this.f;
+    }
+
+    public String d() {
+        return this.g;
+    }
+
+    public void a(String str) {
+        if (str == null || str.length() < 1) {
+            this.c = false;
+            return;
         }
+        try {
+            a(new JSONObject(str));
+            this.c = true;
+        } catch (Exception e) {
+            this.c = false;
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.toString());
+        }
+    }
+
+    public void a(JSONObject jSONObject) {
+        try {
+            this.e = jSONObject.optInt("msign_valid");
+            this.f = jSONObject.optInt("msign_level");
+            this.g = jSONObject.optString("msign_text");
+            JSONArray optJSONArray = jSONObject.optJSONArray("like_forum");
+            this.a.a(this.f);
+            this.a.a(optJSONArray);
+            this.d = jSONObject.optLong("time");
+        } catch (Exception e) {
+            this.c = false;
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.toString());
+        }
+    }
+
+    public ae e() {
+        return this.a;
+    }
+
+    public void b(boolean z) {
+        this.c = z;
+    }
+
+    public boolean f() {
+        return this.c;
+    }
+
+    public boolean g() {
+        return System.currentTimeMillis() / i.f.longValue() == (this.d * 1000) / i.f.longValue();
+    }
+
+    public boolean h() {
+        if (this.a != null) {
+            return this.a.b();
+        }
+        return false;
     }
 }

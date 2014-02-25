@@ -14,9 +14,9 @@ import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.tbadk.data.IconData;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.ForumData;
-import com.baidu.tieba.data.IconData;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.switchs.SwitchKey;
 import com.baidu.tieba.util.UtilHelper;
@@ -33,7 +33,7 @@ public class FrsHeaderView {
     private HeadImageView L;
     private com.baidu.tieba.util.i M;
     private TextView N;
-    private aj O;
+    private am O;
     private String P;
     private int Q;
     private int R;
@@ -42,7 +42,7 @@ public class FrsHeaderView {
     private boolean aa;
     private int ab;
     private int ac;
-    private com.baidu.tieba.frs.ai ae;
+    private com.baidu.tieba.frs.aq ae;
     private ViewGroup af;
     private ImageView ag;
     private UserIconBox ah;
@@ -76,23 +76,33 @@ public class FrsHeaderView {
     private String G = null;
     private String H = null;
     private String I = null;
-    private com.baidu.tieba.model.ak J = null;
+    private com.baidu.tieba.model.z J = null;
     private boolean K = false;
-    com.baidu.tieba.data.bb a = null;
+    com.baidu.tieba.data.az a = null;
     private float T = 0.0f;
     private float U = 0.0f;
     private boolean V = false;
     private boolean W = false;
     private boolean ad = false;
     private int ai = 2;
-    private String aj = com.baidu.tieba.data.h.b + "mo/q/topic_page/133_1";
-    private ArrayList<com.baidu.tieba.frs.a> ak = null;
-    View.OnClickListener b = new al(this);
+    private String aj = String.valueOf(com.baidu.tieba.data.i.b) + "mo/q/topic_page/133_1";
+    private ArrayList<com.baidu.tieba.frs.f> ak = null;
+    View.OnClickListener b = new ao(this);
 
     /* loaded from: classes.dex */
     public enum PAGE {
         FRS_LIST,
-        FRS_IMAGE
+        FRS_IMAGE;
+
+        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
+        /* renamed from: values  reason: to resolve conflict with enum method */
+        public static PAGE[] valuesCustom() {
+            PAGE[] valuesCustom = values();
+            int length = valuesCustom.length;
+            PAGE[] pageArr = new PAGE[length];
+            System.arraycopy(valuesCustom, 0, pageArr, 0, length);
+            return pageArr;
+        }
     }
 
     public FrsHeaderView(Activity activity, PAGE page, String str, String str2) {
@@ -144,7 +154,7 @@ public class FrsHeaderView {
         } else {
             this.af.setVisibility(8);
         }
-        this.O = new aj(this.s, this.A);
+        this.O = new am(this.s, this.A);
         this.p = (TextView) this.s.findViewById(R.id.level_name);
         this.q = (TextView) this.s.findViewById(R.id.level);
         this.r = (ImageView) this.s.findViewById(R.id.love_level_top);
@@ -169,7 +179,7 @@ public class FrsHeaderView {
         this.v = (TextView) this.s.findViewById(R.id.frs_header_groups_text);
         this.M = new com.baidu.tieba.util.i(this.A);
         this.M.a(this.A.getResources().getDimensionPixelSize(R.dimen.frs_header_photo_width), this.A.getResources().getDimensionPixelSize(R.dimen.frs_header_photo_height));
-        this.ae = new com.baidu.tieba.frs.ai(this.A);
+        this.ae = new com.baidu.tieba.frs.aq(this.A);
     }
 
     public void a(View.OnClickListener onClickListener) {
@@ -178,17 +188,17 @@ public class FrsHeaderView {
         this.u.setOnClickListener(onClickListener);
         this.o.setOnClickListener(onClickListener);
         if (com.baidu.adp.lib.a.d.a().b(SwitchKey.BAR_DETAIL_FRS) == 0) {
-            this.s.setOnClickListener(new am(this));
+            this.s.setOnClickListener(new ap(this));
         }
         this.O.a(onClickListener);
-        this.N.setOnClickListener(new an(this));
+        this.N.setOnClickListener(new aq(this));
     }
 
     public com.baidu.tieba.util.i a() {
         return this.M;
     }
 
-    public com.baidu.tieba.data.bb b() {
+    public com.baidu.tieba.data.az b() {
         return this.a;
     }
 
@@ -207,31 +217,31 @@ public class FrsHeaderView {
         if (i == 1) {
             this.t.setBackgroundColor(this.A.getResources().getColor(R.color.frs_header_bg_1));
             if (this.F >= 0 && this.F < Y.length) {
-                com.baidu.tieba.util.bs.e((View) this.N, Z[this.F]);
+                com.baidu.tieba.util.bq.e((View) this.N, Z[this.F]);
             }
             this.h.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_like_1, 0, 0, 0);
             this.k.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_sign_1, 0, 0, 0);
             this.h.setShadowLayer(1.0f, 0.0f, 1.0f, this.A.getResources().getColor(R.color.frs_like_shadow_1));
             this.k.setShadowLayer(1.0f, 0.0f, 1.0f, this.A.getResources().getColor(R.color.frs_sign_shadow_1));
-            com.baidu.tieba.util.bs.e(this.ag, (int) R.drawable.icon_arrow_right_1);
+            com.baidu.tieba.util.bq.e(this.ag, (int) R.drawable.icon_arrow_right_1);
             return;
         }
         this.t.setBackgroundColor(this.A.getResources().getColor(R.color.frs_header_bg));
         if (this.F >= 0 && this.F < Y.length) {
-            com.baidu.tieba.util.bs.e((View) this.N, Y[this.F]);
+            com.baidu.tieba.util.bq.e((View) this.N, Y[this.F]);
         }
         this.h.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_like, 0, 0, 0);
         this.k.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_sign, 0, 0, 0);
         this.h.setShadowLayer(1.0f, 0.0f, 1.0f, this.A.getResources().getColor(R.color.frs_like_shadow));
         this.k.setShadowLayer(1.0f, 0.0f, 1.0f, this.A.getResources().getColor(R.color.frs_sign_shadow));
-        com.baidu.tieba.util.bs.e(this.ag, (int) R.drawable.icon_arrow_right);
+        com.baidu.tieba.util.bq.e(this.ag, (int) R.drawable.icon_arrow_right);
     }
 
     public View c() {
         return this.s;
     }
 
-    public void a(ForumData forumData, com.baidu.tieba.model.ak akVar) {
+    public void a(ForumData forumData, com.baidu.tieba.model.z zVar) {
         this.B = forumData.getName();
         this.C = forumData.getId();
         this.D = forumData.getMember_num();
@@ -245,13 +255,13 @@ public class FrsHeaderView {
         this.R = forumData.getCurScore();
         this.S = forumData.getLevelupScore();
         this.ak = forumData.getBadgeData();
-        this.J = akVar;
+        this.J = zVar;
         this.s.setVisibility(0);
-        this.a = new com.baidu.tieba.data.bb();
-        com.baidu.tieba.data.aj ajVar = new com.baidu.tieba.data.aj();
-        ajVar.a(3);
-        ajVar.a(this.I);
-        this.a.p().add(ajVar);
+        this.a = new com.baidu.tieba.data.az();
+        com.baidu.tieba.data.ah ahVar = new com.baidu.tieba.data.ah();
+        ahVar.a(3);
+        ahVar.a(this.I);
+        this.a.p().add(ahVar);
         this.O.a(forumData.getName());
         k();
     }
@@ -268,7 +278,7 @@ public class FrsHeaderView {
             if (this.ak != null && this.ak.size() > 0) {
                 this.B = UtilHelper.a(this.B, 7);
             }
-            this.e.setText(this.B + this.A.getString(R.string.forum));
+            this.e.setText(String.valueOf(this.B) + this.A.getString(R.string.forum));
         }
         if (this.G != null && this.G.length() > 0) {
             if (this.N != null) {
@@ -277,10 +287,10 @@ public class FrsHeaderView {
             if (this.N != null && this.H != null && this.H.length() > 0) {
                 this.F = Integer.parseInt(this.H);
                 if (this.F >= 0 && this.F < Y.length) {
-                    if (TiebaApplication.h().al() == 1) {
-                        com.baidu.tieba.util.bs.e((View) this.N, Z[this.F]);
+                    if (TiebaApplication.g().al() == 1) {
+                        com.baidu.tieba.util.bq.e((View) this.N, Z[this.F]);
                     } else {
-                        com.baidu.tieba.util.bs.e((View) this.N, Y[this.F]);
+                        com.baidu.tieba.util.bq.e((View) this.N, Y[this.F]);
                     }
                 }
             }
@@ -366,14 +376,14 @@ public class FrsHeaderView {
         this.z.setVisibility(0);
         if (this.S >= 10000) {
             if (this.S % 10000 == 0) {
-                this.z.setText(this.A.getString(R.string.experience_divider) + String.valueOf(this.S / 10000) + this.A.getString(R.string.member_count_unit));
+                this.z.setText(String.valueOf(this.A.getString(R.string.experience_divider)) + String.valueOf(this.S / 10000) + this.A.getString(R.string.member_count_unit));
                 return;
             } else {
-                this.z.setText(this.A.getString(R.string.experience_divider) + String.valueOf(this.S / 10000.0f) + this.A.getString(R.string.member_count_unit));
+                this.z.setText(String.valueOf(this.A.getString(R.string.experience_divider)) + String.valueOf(this.S / 10000.0f) + this.A.getString(R.string.member_count_unit));
                 return;
             }
         }
-        this.z.setText(this.A.getString(R.string.experience_divider) + String.valueOf(this.S));
+        this.z.setText(String.valueOf(this.A.getString(R.string.experience_divider)) + String.valueOf(this.S));
     }
 
     public void a(int i, String str, int i2, float f, boolean z) {
@@ -460,7 +470,7 @@ public class FrsHeaderView {
         if (this.ac == 1) {
             this.n.setText(this.A.getString(R.string.signed));
         } else {
-            this.n.setText(this.A.getString(R.string.signed_less) + String.valueOf(this.ac) + this.A.getString(R.string.day));
+            this.n.setText(String.valueOf(this.A.getString(R.string.signed_less)) + String.valueOf(this.ac) + this.A.getString(R.string.day));
         }
         this.m.setVisibility(0);
     }

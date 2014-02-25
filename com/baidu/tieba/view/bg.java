@@ -1,27 +1,9 @@
 package com.baidu.tieba.view;
 
-import android.app.Dialog;
-import android.os.Bundle;
 import android.view.View;
-import android.widget.ProgressBar;
 /* loaded from: classes.dex */
-public class bg extends Dialog {
-    private View a;
-    private ProgressBar b;
-    private View.OnTouchListener c;
+public interface bg {
+    void a(View view, int i, int i2);
 
-    @Override // android.app.Dialog
-    protected void onStop() {
-        super.onStop();
-        this.b.setVisibility(8);
-    }
-
-    @Override // android.app.Dialog
-    protected void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        setContentView(this.a);
-        setCanceledOnTouchOutside(true);
-        setCancelable(true);
-        getWindow().getDecorView().setOnTouchListener(this.c);
-    }
+    void d();
 }

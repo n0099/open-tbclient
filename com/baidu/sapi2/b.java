@@ -3,6 +3,7 @@ package com.baidu.sapi2;
 import com.baidu.sapi2.utils.enums.RegistMode;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.io.IOUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -119,11 +120,11 @@ public final class b {
             }
 
             public static String a(String str) {
-                return b(str).replace('/', '-');
+                return b(str).replace(IOUtils.DIR_SEPARATOR_UNIX, '-');
             }
 
             public static String b(String str) {
-                return str.replace(':', '/');
+                return str.replace(':', IOUtils.DIR_SEPARATOR_UNIX);
             }
 
             public static String c(String str) {

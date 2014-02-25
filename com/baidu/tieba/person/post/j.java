@@ -1,125 +1,95 @@
 package com.baidu.tieba.person.post;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.LayoutInflater;
+import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.FrameLayout;
+import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.person.post.PersonPostReplyModel;
-import com.baidu.tieba.util.bu;
+import com.baidu.tieba.util.bq;
+import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
-import java.util.ArrayList;
-import java.util.regex.Pattern;
 /* loaded from: classes.dex */
-public class j extends BaseAdapter {
-    private m a;
-    private PersonPostReplyModel b;
-    private String c;
-    private String d;
-    private Activity e;
-    private e f = new k(this);
-    private c g = new l(this);
+public class j implements ViewPager.OnPageChangeListener {
+    public FrameLayout a;
+    public ViewPager b;
+    public TextView c;
+    public TextView d;
+    public int e = 1;
+    private NavigationBar f;
+    private k g;
 
-    public j(Context context, String str, String str2) {
-        this.e = (Activity) context;
-        this.c = str;
+    public j(PersonPostActivity personPostActivity) {
+        personPostActivity.setContentView(R.layout.person_post_activity);
+        this.a = (FrameLayout) personPostActivity.findViewById(16908290);
+        this.f = (NavigationBar) personPostActivity.findViewById(R.id.view_navigation_bar);
+        this.f.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        View a = this.f.a(R.layout.nb_item_person_post, (View.OnClickListener) null);
+        this.c = (TextView) a.findViewById(R.id.thread);
+        this.c.setOnClickListener(personPostActivity);
+        this.d = (TextView) a.findViewById(R.id.reply);
+        this.d.setOnClickListener(personPostActivity);
+        this.b = (ViewPager) personPostActivity.findViewById(R.id.pager);
+        this.b.setOnPageChangeListener(this);
     }
 
-    public void a(m mVar) {
-        this.a = mVar;
+    public void a(int i) {
+        bq.b(this.a, i);
+        this.f.c(i);
+        b(this.e);
     }
 
-    public void a(boolean z) {
-        PersonPostReplyModel.fetchReply(this.f, z, this.c);
-    }
-
-    public void a() {
-        if (this.b != null) {
-            this.b.cancelLoadData();
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        if (this.b == null || this.b.post_list == null) {
-            return 0;
-        }
-        return this.b.post_list.size();
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        return null;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return 0L;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        n nVar;
-        if (view == null) {
-            view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.person_post_item_reply, viewGroup, false);
-            nVar = new n(view);
-            view.setTag(nVar);
-        } else {
-            nVar = (n) view.getTag();
-        }
-        if (i == 0) {
-            nVar.a.setVisibility(0);
-        } else {
-            nVar.a.setVisibility(8);
-        }
-        a(i, nVar, viewGroup);
-        return view;
-    }
-
-    private PersonPostReplyModel.Post a(int i) {
-        return this.b.post_list.get(i);
-    }
-
-    private void a(int i, n nVar, ViewGroup viewGroup) {
-        PersonPostReplyModel.Post a = a(i);
-        if (this.d == null) {
-            this.d = a.user_portrait;
-        }
-        nVar.a(a, this.d);
-        ArrayList<String[]> arrayList = new ArrayList<>();
-        int length = a.content.length;
-        for (int i2 = 0; i2 < length; i2++) {
-            if (a.content[i2].post_content.length != 0) {
-                StringBuffer stringBuffer = new StringBuffer();
-                if (!a.content[i2].post_content[0].text.startsWith("回复 ")) {
-                    stringBuffer.append("回复：");
+    public void b(int i) {
+        boolean z = TiebaApplication.g().al() == 1;
+        switch (i) {
+            case 1:
+                if (z) {
+                    this.c.setTextColor(this.c.getContext().getResources().getColor(R.color.navi_multiview_text_s_1));
+                    this.d.setTextColor(this.d.getContext().getResources().getColor(R.color.navi_multiview_text_n_1));
+                } else {
+                    this.c.setTextColor(this.c.getContext().getResources().getColor(R.color.navi_multiview_text_s));
+                    this.d.setTextColor(this.d.getContext().getResources().getColor(R.color.navi_multiview_text_n));
                 }
-                int length2 = a.content[i2].post_content.length;
-                for (int i3 = 0; i3 < length2; i3++) {
-                    stringBuffer.append(a.content[i2].post_content[i3].text);
+                bq.e((View) this.c, z ? R.drawable.btn_jin_ba_s_1 : R.drawable.btn_jin_ba_s);
+                bq.e((View) this.d, z ? R.drawable.btn_jin_qun_n_1 : R.drawable.btn_jin_qun_n);
+                return;
+            case 2:
+                if (z) {
+                    this.c.setTextColor(this.c.getContext().getResources().getColor(R.color.navi_multiview_text_n_1));
+                    this.d.setTextColor(this.d.getContext().getResources().getColor(R.color.navi_multiview_text_s_1));
+                } else {
+                    this.c.setTextColor(this.c.getContext().getResources().getColor(R.color.navi_multiview_text_n));
+                    this.d.setTextColor(this.d.getContext().getResources().getColor(R.color.navi_multiview_text_s));
                 }
-                arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(a.thread_id), String.valueOf(a.content[i2].post_id), String.valueOf(a.content[i2].post_type), bu.a(a.content[i2].create_time * 1000)});
-            }
+                bq.e((View) this.c, z ? R.drawable.btn_jin_ba_n_1 : R.drawable.btn_jin_ba_n);
+                bq.e((View) this.d, z ? R.drawable.btn_jin_qun_s_1 : R.drawable.btn_jin_qun_s);
+                return;
+            default:
+                return;
         }
-        nVar.g.setContent(arrayList);
-        if (Pattern.compile("^回复：").matcher(a.title).find()) {
-            nVar.h.setText(a.title.replaceFirst("回复：", "原贴："));
-        } else {
-            nVar.h.setText(a.title);
+    }
+
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrolled(int i, float f, int i2) {
+    }
+
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageSelected(int i) {
+        this.e = i + 1;
+        if (this.e == 1) {
+            b(1);
+        } else if (this.e == 2) {
+            b(2);
         }
-        nVar.h.setTag(new String[]{String.valueOf(a.thread_id), null, null});
-        if (TiebaApplication.h().al() == 1) {
-            nVar.h.setTextColor(viewGroup.getResources().getColor(R.color.person_post_content_ori_1));
-            nVar.h.setBackgroundResource(R.drawable.person_post_line_1);
-        } else {
-            nVar.h.setTextColor(viewGroup.getResources().getColor(R.color.person_post_content_ori));
-            nVar.h.setBackgroundResource(R.drawable.person_post_line);
+    }
+
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrollStateChanged(int i) {
+        if (i == 0 && this.g != null) {
+            this.g.a(this.e - 1);
         }
-        int dimensionPixelSize = viewGroup.getResources().getDimensionPixelSize(R.dimen.person_post_reply_ori_padding);
-        nVar.h.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
-        nVar.a(this.g);
-        nVar.a(TiebaApplication.h().al());
+    }
+
+    public void a(k kVar) {
+        this.g = kVar;
     }
 }

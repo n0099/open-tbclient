@@ -1,7 +1,23 @@
 package com.baidu.tieba.account;
 
-import com.baidu.tieba.data.AccountData;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface ac {
-    void a(AccountData accountData);
+public class ac implements CompoundButton.OnCheckedChangeListener {
+    final /* synthetic */ y a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ac(y yVar) {
+        this.a = yVar;
+    }
+
+    @Override // android.widget.CompoundButton.OnCheckedChangeListener
+    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+        EditText editText;
+        if (z) {
+            editText = this.a.c;
+            editText.setText(compoundButton.getText());
+        }
+    }
 }

@@ -31,6 +31,7 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
+import org.apache.commons.io.IOUtils;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class SilentManager {
@@ -139,7 +140,7 @@ public class SilentManager {
                         if (readLine == null) {
                             break;
                         }
-                        str4 = str4 + readLine + "\r\n";
+                        str4 = str4 + readLine + IOUtils.LINE_SEPARATOR_WINDOWS;
                     }
                 } catch (Exception e2) {
                     return false;
@@ -155,7 +156,7 @@ public class SilentManager {
                 if (readLine2 == null) {
                     break;
                 }
-                str5 = str5 + readLine2 + "\r\n";
+                str5 = str5 + readLine2 + IOUtils.LINE_SEPARATOR_WINDOWS;
             }
             JSONObject jSONObject2 = new JSONObject(a(str, str5));
             if (!jSONObject2.getString("flag").equals(jSONObject.getString("flag"))) {

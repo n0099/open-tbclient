@@ -1,34 +1,21 @@
 package com.baidu.tieba;
-
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
-class af extends BdAsyncTask<String, Integer, Boolean> {
-    final /* synthetic */ GuideActivity a;
-
-    private af(GuideActivity guideActivity) {
-        this.a = guideActivity;
-    }
+class af implements o {
+    final /* synthetic */ MainTabActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ af(GuideActivity guideActivity, aa aaVar) {
-        this(guideActivity);
+    public af(MainTabActivity mainTabActivity) {
+        this.a = mainTabActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Boolean a(String... strArr) {
-        boolean d;
-        d = this.a.d();
-        return Boolean.valueOf(d);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Boolean bool) {
-        if (!bool.booleanValue()) {
-            this.a.c();
+    @Override // com.baidu.tieba.o
+    public void a(int i, int i2) {
+        q qVar;
+        if (i == 4) {
+            this.a.r = true;
+            this.a.s = true;
+            qVar = this.a.m;
+            qVar.c.setVisibility(8);
         }
     }
 }

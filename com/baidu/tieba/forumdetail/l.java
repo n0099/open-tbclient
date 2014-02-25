@@ -1,9 +1,8 @@
 package com.baidu.tieba.forumdetail;
 
 import android.widget.TextView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l {
+class l {
     TextView a;
     TextView b;
     TextView c;
@@ -15,7 +14,7 @@ public class l {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ l(k kVar) {
+    public /* synthetic */ l(l lVar) {
         this();
     }
 }

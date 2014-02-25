@@ -2,12 +2,12 @@ package com.baidu.cloudsdk.social.share.uiwithlayout;
 
 import android.content.Context;
 import android.view.View;
-import com.ay;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.cloudsdk.IBaiduListener;
 import com.baidu.cloudsdk.common.util.Validator;
 import com.baidu.cloudsdk.social.share.ShareContent;
 import com.baidu.cloudsdk.social.share.SocialShare;
+import com.bh;
 /* loaded from: classes.dex */
 public class ShareUIWidget {
     private Context a;
@@ -35,6 +35,6 @@ public class ShareUIWidget {
         Validator.notNull(theme, "theme");
         this.b = new ShareMenu(this.a, theme, z);
         this.b.show(view, shareContent, iBaiduListener);
-        this.b.setOnDismissListener(new ay(this));
+        this.b.setOnDismissListener(new bh(this));
     }
 }

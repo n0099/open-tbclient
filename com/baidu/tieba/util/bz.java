@@ -1,47 +1,26 @@
 package com.baidu.tieba.util;
 
-import android.text.TextUtils;
-import java.util.HashMap;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import android.widget.ProgressBar;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bz {
-    private static String a;
-    private static final HashMap<String, String> b = new HashMap<>();
+public class bz extends WebChromeClient {
+    final /* synthetic */ TbWebViewActivity a;
 
-    public static void a(String str) {
-        if (TextUtils.isEmpty(str)) {
-            a = str;
-            return;
-        }
-        int lastIndexOf = str.lastIndexOf(".");
-        if (lastIndexOf != -1 && lastIndexOf + 1 < str.length()) {
-            str = str.substring(lastIndexOf + 1, str.length());
-        }
-        if (b != null) {
-            a = b.get(str);
-        }
-        if (a == null) {
-            a = b(str);
-            if (b != null) {
-                b.put(str, a);
-            }
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bz(TbWebViewActivity tbWebViewActivity) {
+        this.a = tbWebViewActivity;
     }
 
-    private static String b(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            int length = str.length();
-            if ((str.toLowerCase().endsWith("activity") || str.toLowerCase().endsWith("fragment")) && length - 8 >= 0) {
-                return str.substring(0, length - 8);
-            }
-            return str;
+    @Override // android.webkit.WebChromeClient
+    public void onProgressChanged(WebView webView, int i) {
+        ProgressBar progressBar;
+        super.onProgressChanged(webView, i);
+        if (i == 100) {
+            this.a.m = false;
+            progressBar = this.a.j;
+            progressBar.setVisibility(8);
         }
-        return str;
-    }
-
-    public static String a() {
-        if (TextUtils.isEmpty(a)) {
-            return a;
-        }
-        return a + System.currentTimeMillis();
     }
 }

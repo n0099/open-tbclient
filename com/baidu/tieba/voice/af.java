@@ -5,5 +5,5 @@ import com.baidu.tieba.voice.VoiceManager;
 public interface af {
     ad a(VoiceManager.VoiceModel voiceModel);
 
-    VoiceManager d_();
+    VoiceManager h();
 }

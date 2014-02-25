@@ -12,38 +12,39 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.ForumInfoData;
 import com.baidu.tieba.forumdetail.ForumDetailActivity;
-import com.baidu.tieba.model.ax;
-import com.baidu.tieba.util.an;
-import com.baidu.tieba.util.au;
-import com.baidu.tieba.util.bs;
+import com.baidu.tieba.model.ar;
+import com.baidu.tieba.util.ap;
+import com.baidu.tieba.util.aw;
+import com.baidu.tieba.util.bq;
 import com.baidu.tieba.view.NavigationBar;
-import com.baidu.tieba.view.cm;
+import com.baidu.tieba.view.ct;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class ForumRankActivity extends com.baidu.tieba.j {
+public class ForumRankActivity extends com.baidu.tieba.f {
     private BdListView a = null;
-    private ai b = null;
-    private s c = null;
+    private ag b = null;
+    private r c = null;
     private NavigationBar d = null;
     private TbImageView e = null;
     private com.baidu.tieba.util.i f = null;
-    private ax g = null;
+    private ar g = null;
     private LinearLayout h = null;
-    private cm i = null;
+    private ct i = null;
     private FrameLayout j = null;
     private TextView k = null;
     private Handler l = null;
     private String m = null;
     private boolean n = false;
-    private com.baidu.adp.a.g o = new ae(this);
-    private au p = new af(this);
-    private AbsListView.OnScrollListener q = new ag(this);
-    private Runnable r = new ah(this);
+    private com.baidu.adp.a.g o = new aa(this);
+    private aw p = new ab(this);
+    private AbsListView.OnScrollListener q = new ac(this);
+    private Runnable r = new ad(this);
 
     public static void a(Context context, String str, String str2) {
         if (context != null && str != null) {
@@ -58,7 +59,7 @@ public class ForumRankActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         a();
@@ -71,19 +72,19 @@ public class ForumRankActivity extends com.baidu.tieba.j {
         this.e = new TbImageView(this);
         this.e.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.f = new com.baidu.tieba.util.i(this);
-        int b = com.baidu.adp.lib.g.g.b(this);
+        int b = BdUtilHelper.b(this);
         this.f.a(b, b);
         this.d = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.a = (BdListView) findViewById(R.id.list);
-        this.e.setLayoutParams(new AbsListView.LayoutParams(com.baidu.adp.lib.g.g.b(this), (int) (com.baidu.adp.lib.g.g.b(this) * 0.5d)));
+        this.e.setLayoutParams(new AbsListView.LayoutParams(BdUtilHelper.b(this), (int) (BdUtilHelper.b(this) * 0.5d)));
         this.a.setOnScrollListener(this.q);
         this.e.setVisibility(8);
         this.h = (LinearLayout) getLayoutInflater().inflate(R.layout.forum_list_forum_footer, (ViewGroup) null);
-        this.h.setOnClickListener(new ac(this));
-        this.i = new cm(this);
+        this.h.setOnClickListener(new ae(this));
+        this.i = new ct(this);
         this.a.setPullRefresh(this.i);
-        this.i.a(new ad(this));
+        this.i.a(new af(this));
         this.j = (FrameLayout) findViewById(R.id.empty_textview_container);
         this.k = (TextView) findViewById(R.id.empty_textview);
     }
@@ -96,13 +97,13 @@ public class ForumRankActivity extends com.baidu.tieba.j {
 
     private void a(Bundle bundle) {
         if (bundle != null) {
-            this.b = new ai(bundle);
+            this.b = new ag(bundle);
         } else {
-            this.b = new ai(getIntent());
+            this.b = new ag(getIntent());
         }
         this.n = true;
         this.b.setLoadDataCallBack(this.o);
-        this.c = new s(this, 0);
+        this.c = new r(this, 0);
         this.c.a(100);
         this.c.a((Boolean) true);
         this.c.a(ForumDetailActivity.FromType.BAR_RANK);
@@ -111,14 +112,14 @@ public class ForumRankActivity extends com.baidu.tieba.j {
             this.c.a(100);
             showProgressBar();
         }
-        this.g = new ax();
+        this.g = new ar();
         this.c.a(this.g);
     }
 
     private void b() {
         ForumInfoData[] a = this.c.a();
         for (int i = 0; i < a.length; i++) {
-            int d = TiebaApplication.h().d(a[i].forum_name);
+            int d = TiebaApplication.g().d(a[i].forum_name);
             if (d == 1) {
                 a[i].is_like = 1;
             } else if (d == -1) {
@@ -129,15 +130,15 @@ public class ForumRankActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, android.app.Activity
     public void onResume() {
         super.onResume();
         b();
-        an.a(this.a, this.f, 0, -1);
+        ap.a(this.a, this.f, 0, -1);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, android.app.Activity
     public void onPause() {
         super.onPause();
         this.l.removeCallbacks(this.r);
@@ -145,7 +146,7 @@ public class ForumRankActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         this.l.removeCallbacks(this.r);
@@ -153,7 +154,7 @@ public class ForumRankActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j
+    @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         this.d.c(i);
         if (i == 1) {
@@ -163,7 +164,7 @@ public class ForumRankActivity extends com.baidu.tieba.j {
             this.a.setBackgroundColor(getResources().getColor(R.color.backgroundcolor));
             this.c.a(false);
         }
-        bs.b(findViewById(R.id.root_view), i);
+        bq.b(findViewById(R.id.root_view), i);
         this.i.a(i);
         if (i == 1) {
             this.c.a(R.drawable.btn_add_end_1, R.drawable.btn_add_1);

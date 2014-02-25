@@ -2,50 +2,37 @@ package com.baidu.tieba.view;
 
 import android.content.Context;
 import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.TextView;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.pb.NewPbActivity;
 import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aj {
-    View a;
-    private View b;
-    private FrameLayout c;
-    private TextView d;
-    private Context e;
+public class aj implements View.OnClickListener {
+    final /* synthetic */ ai a;
+    private final /* synthetic */ Context b;
 
-    public aj(View view, Context context) {
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.e = context;
-        this.a = view;
-        this.b = this.a.findViewById(R.id.frs_header_divider_fortune);
-        this.c = (FrameLayout) this.a.findViewById(R.id.frs_fortune_layout);
-        this.d = (TextView) this.a.findViewById(R.id.frs_header_fortune_arrow);
-        this.d.setText("");
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public aj(ai aiVar, Context context) {
+        this.a = aiVar;
+        this.b = context;
     }
 
-    public void a(String str) {
-        this.d.setText(String.format(this.e.getResources().getString(R.string.frs_fu_text), str));
-    }
-
-    public void a() {
-        this.b.setVisibility(0);
-        this.c.setVisibility(0);
-    }
-
-    public void b() {
-        this.b.setVisibility(8);
-        this.c.setVisibility(8);
-    }
-
-    public void a(View.OnClickListener onClickListener) {
-        this.c.setOnClickListener(onClickListener);
-    }
-
-    public boolean a(View view) {
-        return view != null && view.equals(this.c);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        Context context2;
+        if (view.getId() == R.id.textHomeListFrsName) {
+            String obj = view.getTag().toString();
+            context2 = this.a.a;
+            FrsActivity.a(context2, obj, "");
+            com.baidu.tieba.util.cb.a(this.b, "forum_feed_frsclick", "frs_click", 1, new Object[0]);
+            return;
+        }
+        al alVar = (al) view.getTag();
+        if (alVar != null) {
+            context = this.a.a;
+            NewPbActivity.a(context, alVar.l, (String) null, (String) null);
+            com.baidu.tieba.util.cb.a(this.b, "forum_feed_pbclick", "pb_click", 1, new Object[0]);
+        }
     }
 }

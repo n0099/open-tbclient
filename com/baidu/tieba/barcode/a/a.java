@@ -10,7 +10,7 @@ public final class a implements Camera.AutoFocusCallback {
     private boolean b;
     private final boolean c;
     private final Camera d;
-    private c e;
+    private b e;
     private final com.baidu.tieba.barcode.b.a.a f = new com.baidu.tieba.barcode.b.a.b().a();
 
     static {
@@ -22,14 +22,14 @@ public final class a implements Camera.AutoFocusCallback {
         this.d = camera;
         String focusMode = camera.getParameters().getFocusMode();
         this.c = a.contains(focusMode);
-        com.baidu.adp.lib.g.e.a(getClass().getName(), "AutoFocusManager", "Current focus mode '" + focusMode + "'; use auto focus? " + this.c);
+        com.baidu.adp.lib.util.f.a(getClass().getName(), "AutoFocusManager", "Current focus mode '" + focusMode + "'; use auto focus? " + this.c);
         a();
     }
 
     @Override // android.hardware.Camera.AutoFocusCallback
     public synchronized void onAutoFocus(boolean z, Camera camera) {
         if (this.b) {
-            this.e = new c(this);
+            this.e = new b(this, null);
             this.f.a(this.e, new Object[0]);
         }
     }
@@ -40,7 +40,7 @@ public final class a implements Camera.AutoFocusCallback {
             try {
                 this.d.autoFocus(this);
             } catch (RuntimeException e) {
-                com.baidu.adp.lib.g.e.c(getClass().getName(), "start", "Unexpected exception while focusing" + e.toString());
+                com.baidu.adp.lib.util.f.c(getClass().getName(), "start", "Unexpected exception while focusing" + e.toString());
             }
         }
     }
@@ -50,7 +50,7 @@ public final class a implements Camera.AutoFocusCallback {
             try {
                 this.d.cancelAutoFocus();
             } catch (RuntimeException e) {
-                com.baidu.adp.lib.g.e.c(getClass().getName(), "stop", "Unexpected exception while cancelling focusing" + e.toString());
+                com.baidu.adp.lib.util.f.c(getClass().getName(), "stop", "Unexpected exception while cancelling focusing" + e.toString());
             }
         }
         if (this.e != null) {

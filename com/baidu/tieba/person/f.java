@@ -1,49 +1,17 @@
 package com.baidu.tieba.person;
-
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements View.OnClickListener {
-    final /* synthetic */ EditBarActivity a;
+class f {
+    final /* synthetic */ BdCenterListView a;
+    private int b;
+    private int c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public f(EditBarActivity editBarActivity) {
-        this.a = editBarActivity;
+    public f(BdCenterListView bdCenterListView, int i, int i2, int i3, int i4) {
+        this.a = bdCenterListView;
+        this.b = i;
+        this.c = i2;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        i iVar;
-        i iVar2;
-        TextView textView;
-        TextView textView2;
-        i iVar3;
-        i iVar4;
-        TextView textView3;
-        TextView textView4;
-        i iVar5;
-        iVar = this.a.f;
-        if (!iVar.a()) {
-            iVar4 = this.a.f;
-            iVar4.a(true);
-            textView3 = this.a.d;
-            textView3.setText(R.string.done);
-            textView4 = this.a.d;
-            com.baidu.tieba.util.bs.h(textView4, TiebaApplication.h().al());
-            iVar5 = this.a.f;
-            iVar5.notifyDataSetChanged();
-            return;
-        }
-        iVar2 = this.a.f;
-        iVar2.a(false);
-        textView = this.a.d;
-        textView.setText(R.string.edit);
-        textView2 = this.a.d;
-        com.baidu.tieba.util.bs.j(textView2, TiebaApplication.h().al());
-        iVar3 = this.a.f;
-        iVar3.notifyDataSetChanged();
+    public int a(float f) {
+        return (int) (this.c + (f / 2.5f));
     }
 }

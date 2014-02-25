@@ -1,15 +1,23 @@
 package com.baidu.tieba.account;
-
-import android.os.Build;
 /* loaded from: classes.dex */
 public class v extends Thread {
+    private String a;
+    private String b;
+    private String c;
+
+    public v(String str, String str2, String str3) {
+        this.a = str;
+        this.b = str2;
+        this.c = str3;
+    }
+
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         super.run();
-        com.baidu.tieba.util.ax axVar = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/s/inpv");
-        axVar.a("st_type", "enter_fore");
-        axVar.a("os_version", Build.VERSION.RELEASE);
-        axVar.a("subapp_type", "im");
-        axVar.m();
+        com.baidu.tieba.util.ba baVar = new com.baidu.tieba.util.ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/s/clientcall");
+        baVar.a("tid", this.a);
+        baVar.a("phonenum", this.b);
+        baVar.a("optype", this.c);
+        baVar.m();
     }
 }

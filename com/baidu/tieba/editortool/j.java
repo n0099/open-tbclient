@@ -1,95 +1,67 @@
 package com.baidu.tieba.editortool;
 
-import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import com.baidu.adp.widget.ImageView.BDImageView;
-import com.baidu.tieba.data.emotions.WritableEmotionGroup;
+import android.widget.FrameLayout;
+import com.baidu.tieba.img.ImageFileInfo;
+import com.baidu.tieba.img.WriteImagesInfo;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class j extends BaseAdapter {
-    final /* synthetic */ EmotionTabContentView a;
-    private int b;
-    private int c;
+class j implements View.OnClickListener {
+    final /* synthetic */ g a;
+    private final /* synthetic */ FrameLayout b;
 
-    public j(EmotionTabContentView emotionTabContentView, Context context, int i, int i2) {
-        this.a = emotionTabContentView;
-        this.b = i;
-        this.c = i2;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public j(g gVar, FrameLayout frameLayout) {
+        this.a = gVar;
+        this.b = frameLayout;
     }
 
-    public int a() {
-        return this.c;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        return this.b;
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        return Integer.valueOf(i);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        LinearLayout linearLayout;
-        WritableEmotionGroup writableEmotionGroup;
-        WritableEmotionGroup writableEmotionGroup2;
-        int i2;
-        WritableEmotionGroup writableEmotionGroup3;
-        com.baidu.tieba.util.i iVar;
-        int i3;
-        int i4;
-        int i5;
-        int i6;
-        LinearLayout.LayoutParams layoutParams;
-        int i7 = this.c + i;
-        if (view == null) {
-            LinearLayout linearLayout2 = new LinearLayout(this.a.getContext());
-            i3 = this.a.k;
-            i4 = this.a.k;
-            i5 = this.a.k;
-            i6 = this.a.k;
-            linearLayout2.setPadding(i3, i4, i5, i6);
-            BDImageView bDImageView = new BDImageView(this.a.getContext());
-            bDImageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            layoutParams = this.a.s;
-            linearLayout2.addView(bDImageView, layoutParams);
-            linearLayout = linearLayout2;
-        } else {
-            linearLayout = view;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        EditorToolComponetContainer editorToolComponetContainer;
+        EditorToolComponetContainer editorToolComponetContainer2;
+        EditorToolComponetContainer editorToolComponetContainer3;
+        EditorToolComponetContainer editorToolComponetContainer4;
+        WriteImagesInfo writeImagesInfo;
+        EditorToolComponetContainer editorToolComponetContainer5;
+        EditorToolComponetContainer editorToolComponetContainer6;
+        WriteImagesInfo writeImagesInfo2;
+        EditorToolComponetContainer editorToolComponetContainer7;
+        EditorToolComponetContainer editorToolComponetContainer8;
+        EditorToolComponetContainer editorToolComponetContainer9;
+        EditorToolComponetContainer editorToolComponetContainer10;
+        z zVar;
+        EditorToolComponetContainer editorToolComponetContainer11;
+        editorToolComponetContainer = this.a.a;
+        if (!editorToolComponetContainer.i.e()) {
+            editorToolComponetContainer2 = this.a.a;
+            editorToolComponetContainer2.g.a(this.b);
+            editorToolComponetContainer3 = this.a.a;
+            int a = editorToolComponetContainer3.i.a(this.b);
+            editorToolComponetContainer4 = this.a.a;
+            writeImagesInfo = editorToolComponetContainer4.q;
+            ImageFileInfo remove = writeImagesInfo.getChosedFiles().remove(a);
+            if (remove.isTempFile()) {
+                this.a.a(remove.getFilePath());
+            }
+            editorToolComponetContainer5 = this.a.a;
+            int maxItemNum = editorToolComponetContainer5.i.getMaxItemNum();
+            editorToolComponetContainer6 = this.a.a;
+            writeImagesInfo2 = editorToolComponetContainer6.q;
+            int size = writeImagesInfo2.size();
+            editorToolComponetContainer7 = this.a.a;
+            String string = editorToolComponetContainer7.getResources().getString(R.string.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size));
+            editorToolComponetContainer8 = this.a.a;
+            editorToolComponetContainer8.j.setText(string);
+            editorToolComponetContainer9 = this.a.a;
+            editorToolComponetContainer9.b.a(new StringBuilder(String.valueOf(size)).toString());
+            if (size == 0) {
+                editorToolComponetContainer11 = this.a.a;
+                editorToolComponetContainer11.b.a();
+            }
+            editorToolComponetContainer10 = this.a.a;
+            zVar = editorToolComponetContainer10.r;
+            zVar.a(13, null);
         }
-        int measuredWidth = viewGroup.getMeasuredWidth();
-        int measuredHeight = viewGroup.getMeasuredHeight();
-        writableEmotionGroup = this.a.b;
-        int j = measuredWidth / writableEmotionGroup.j();
-        writableEmotionGroup2 = this.a.b;
-        LinearLayout linearLayout3 = (LinearLayout) linearLayout;
-        linearLayout3.setLayoutParams(new AbsListView.LayoutParams(j, measuredHeight / writableEmotionGroup2.k()));
-        BDImageView bDImageView2 = (BDImageView) linearLayout3.getChildAt(0);
-        i2 = this.a.q;
-        bDImageView2.setBackgroundResource(i2 == 1 ? R.drawable.btn_choose_face_selector_1 : R.drawable.btn_choose_face_selector);
-        bDImageView2.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        writableEmotionGroup3 = this.a.b;
-        String a = writableEmotionGroup3.a(i7);
-        bDImageView2.setTag(a);
-        iVar = this.a.r;
-        com.baidu.adp.widget.ImageView.d a2 = iVar.a(a, false, (com.baidu.tbadk.imageManager.c) new k(this));
-        if (a2 != null) {
-            a2.a(bDImageView2);
-            bDImageView2.setTag(null);
-        }
-        return linearLayout3;
     }
 }

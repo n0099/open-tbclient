@@ -4,5 +4,5 @@ import android.widget.TextView;
 /* loaded from: classes.dex */
 public class s {
     public TextView a;
-    public z b;
+    public ab b;
 }

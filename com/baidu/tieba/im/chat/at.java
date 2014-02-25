@@ -1,25 +1,24 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.TiebaApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class at extends BdAsyncTask<Void, Void, Void> {
-    final /* synthetic */ boolean a;
-    final /* synthetic */ as b;
+class at implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ ar a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public at(as asVar, boolean z) {
-        this.b = asVar;
-        this.a = z;
+    public at(ar arVar) {
+        this.a = arVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void a(Void... voidArr) {
-        com.baidu.tieba.im.groupInfo.u.b(TiebaApplication.A(), this.b.c(), this.a);
-        com.baidu.tieba.im.c.a.h().a(this.b.c());
-        return null;
+    @Override // com.baidu.tieba.im.a
+    public void a(Boolean bool) {
+        GroupSettingActivity groupSettingActivity;
+        GroupSettingActivity groupSettingActivity2;
+        groupSettingActivity = this.a.a;
+        groupSettingActivity.closeLoadingDialog();
+        com.baidu.tieba.im.messageCenter.e.a().e(new com.baidu.tieba.im.message.h());
+        groupSettingActivity2 = this.a.a;
+        groupSettingActivity2.showToast(R.string.cash_del_suc, false);
     }
 }

@@ -21,15 +21,15 @@ public class x extends BdAsyncTask<Object, Integer, u> {
     public u a(Object... objArr) {
         u uVar;
         this.b = new z();
-        if (UtilHelper.g(TiebaApplication.h().getApplicationContext()) != UtilHelper.NetworkStateInfo.UNAVAIL) {
-            this.a.b = d();
+        if (UtilHelper.h(TiebaApplication.g().b().getApplicationContext()) != UtilHelper.NetworkStateInfo.UNAVAIL) {
+            this.a.b = e();
             uVar = this.a.b;
             return uVar;
         }
         return null;
     }
 
-    private u d() {
+    private u e() {
         String a = this.b.a();
         if (this.b.c()) {
             u uVar = new u();

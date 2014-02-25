@@ -3,8 +3,9 @@ package com.baidu.adp.widget.ListView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class l implements AdapterView.OnItemSelectedListener {
+public class l implements AdapterView.OnItemLongClickListener {
     final /* synthetic */ BdListView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,36 +13,28 @@ class l implements AdapterView.OnItemSelectedListener {
         this.a = bdListView;
     }
 
-    @Override // android.widget.AdapterView.OnItemSelectedListener
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long j) {
+    @Override // android.widget.AdapterView.OnItemLongClickListener
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
         e eVar;
         e eVar2;
-        AdapterView.OnItemSelectedListener onItemSelectedListener;
-        AdapterView.OnItemSelectedListener onItemSelectedListener2;
+        AdapterView.OnItemLongClickListener onItemLongClickListener;
+        AdapterView.OnItemLongClickListener onItemLongClickListener2;
         eVar = this.a.a;
         int c = eVar.c();
-        if (i >= c) {
-            int i2 = i - c;
-            eVar2 = this.a.a;
-            ListAdapter b = eVar2.b();
-            if (b != null && i2 < b.getCount()) {
-                onItemSelectedListener = this.a.d;
-                if (onItemSelectedListener != null) {
-                    onItemSelectedListener2 = this.a.d;
-                    onItemSelectedListener2.onItemSelected(adapterView, view, i2, j);
-                }
-            }
+        if (i < c) {
+            return true;
         }
-    }
-
-    @Override // android.widget.AdapterView.OnItemSelectedListener
-    public void onNothingSelected(AdapterView<?> adapterView) {
-        AdapterView.OnItemSelectedListener onItemSelectedListener;
-        AdapterView.OnItemSelectedListener onItemSelectedListener2;
-        onItemSelectedListener = this.a.d;
-        if (onItemSelectedListener != null) {
-            onItemSelectedListener2 = this.a.d;
-            onItemSelectedListener2.onNothingSelected(adapterView);
+        int i2 = i - c;
+        eVar2 = this.a.a;
+        ListAdapter b = eVar2.b();
+        if (b == null || i2 >= b.getCount()) {
+            return true;
         }
+        onItemLongClickListener = this.a.c;
+        if (onItemLongClickListener != null) {
+            onItemLongClickListener2 = this.a.c;
+            return onItemLongClickListener2.onItemLongClick(adapterView, view, i2, j);
+        }
+        return false;
     }
 }

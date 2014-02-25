@@ -29,7 +29,7 @@ public class PartSwipeableViewPager extends ViewPager {
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         this.a.clear();
-        a((ViewGroup) this);
+        a(this);
     }
 
     private void a(ViewGroup viewGroup) {

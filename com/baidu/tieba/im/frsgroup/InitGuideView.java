@@ -79,7 +79,7 @@ public class InitGuideView extends RelativeLayout {
                 this.c.setTextColor(-8815226);
                 if (this.d != null) {
                     this.d.setBackgroundResource(R.drawable.btn_blue_square_1);
-                    this.d.setTextColor(TiebaApplication.a().getResources().getColor(R.color.c_acc5e0));
+                    this.d.setTextColor(TiebaApplication.g().b().getResources().getColor(R.color.c_acc5e0));
                     return;
                 }
                 return;
@@ -89,7 +89,7 @@ public class InitGuideView extends RelativeLayout {
             this.c.setTextColor(-5065030);
             if (this.d != null) {
                 this.d.setBackgroundResource(R.drawable.btn_blue_square);
-                this.d.setTextColor(TiebaApplication.a().getResources().getColor(R.color.white));
+                this.d.setTextColor(TiebaApplication.g().b().getResources().getColor(R.color.white));
             }
         }
     }
@@ -161,7 +161,7 @@ public class InitGuideView extends RelativeLayout {
     }
 
     public void e() {
-        a(TiebaApplication.h().al());
+        a(TiebaApplication.g().al());
     }
 
     public void f() {

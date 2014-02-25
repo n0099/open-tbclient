@@ -1,21 +1,21 @@
 package com.baidu.tieba.view;
 
+import android.app.Activity;
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.barcode.CaptureActivity;
 /* loaded from: classes.dex */
-public class cj implements View.OnClickListener {
-    final /* synthetic */ TbCheckBox a;
+class cj implements View.OnClickListener {
+    final /* synthetic */ SearchBoxView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cj(TbCheckBox tbCheckBox) {
-        this.a = tbCheckBox;
+    public cj(SearchBoxView searchBoxView) {
+        this.a = searchBoxView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        boolean d;
-        TbCheckBox tbCheckBox = this.a;
-        d = this.a.d();
-        tbCheckBox.setChecked(!d);
+        Activity activity;
+        activity = this.a.a;
+        CaptureActivity.a(activity, 16003);
     }
 }

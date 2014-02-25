@@ -1,154 +1,75 @@
 package com.baidu.tieba.write;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.os.Build;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import cn.jingling.lib.filters.FilterFactory;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import java.util.HashMap;
+import com.baidu.tieba.album.AlbumActivity;
+import com.baidu.tieba.editortool.EditorToolComponetContainer;
+import com.baidu.tieba.img.WriteImagesInfo;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aw extends BdAsyncTask<Object, Integer, Bitmap> {
-    final /* synthetic */ WriteImageActivity a;
-
-    private aw(WriteImageActivity writeImageActivity) {
-        this.a = writeImageActivity;
-    }
+public class aw implements com.baidu.tieba.editortool.z {
+    final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ aw(WriteImageActivity writeImageActivity, an anVar) {
-        this(writeImageActivity);
+    public aw(WriteActivity writeActivity) {
+        this.a = writeActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public Bitmap a(Object... objArr) {
-        Bitmap c;
-        boolean z;
-        Object obj;
-        HashMap hashMap;
-        String[] strArr;
-        Object obj2;
-        HashMap hashMap2;
-        Bitmap bitmap = null;
-        try {
-            c = com.baidu.tieba.util.ad.c(null, "tieba_resized_image");
-        } catch (Exception e) {
-            e = e;
-        }
-        try {
-            if (isCancelled() && c != null && !c.isRecycled()) {
-                c.recycle();
-                return null;
+    @Override // com.baidu.tieba.editortool.z
+    public void a(int i, Object obj) {
+        WriteImagesInfo writeImagesInfo;
+        WriteImagesInfo writeImagesInfo2;
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        WriteEditorToolButtonContainer writeEditorToolButtonContainer;
+        EditorToolComponetContainer editorToolComponetContainer;
+        WriteImagesInfo writeImagesInfo3;
+        if (i == 2) {
+            this.a.a(2);
+        } else if (i == 3) {
+            this.a.i();
+        } else if (i == 0) {
+            AtListActivity.a(this.a, 12004, true);
+        } else if (i == 8) {
+            editorToolComponetContainer = this.a.B;
+            if (editorToolComponetContainer.q()) {
+                this.a.a(8);
+                return;
             }
-            if (c != null) {
-                int a = com.baidu.adp.lib.g.g.a((Context) this.a, 63.5f);
-                if (Build.VERSION.SDK_INT >= 7) {
-                    z = this.a.t;
-                    if (z) {
-                        Bitmap b = com.baidu.tieba.util.n.b(c, a);
-                        if (b == null) {
-                            return null;
-                        }
-                        if (b.equals(c)) {
-                            c = com.baidu.tieba.util.n.a(com.baidu.tieba.util.n.c(c, 100));
-                        }
-                        Bitmap a2 = com.baidu.tieba.util.n.a(b, com.baidu.adp.lib.g.g.a((Context) this.a, 5.0f));
-                        if (a2 == null) {
-                            return null;
-                        }
-                        obj = this.a.C;
-                        synchronized (obj) {
-                            this.a.A = new HashMap();
-                            this.a.B = new HashMap();
-                            hashMap = this.a.A;
-                            hashMap.put("normal", a2);
-                        }
-                        strArr = WriteImageActivity.a;
-                        for (String str : strArr) {
-                            String substring = str.substring(0, str.indexOf("|"));
-                            if (!substring.equals("normal")) {
-                                Bitmap.Config config = a2.getConfig();
-                                if (config == null) {
-                                    config = com.baidu.tieba.data.h.m;
-                                }
-                                Bitmap apply = FilterFactory.createOneKeyFilter(this.a, substring).apply(this.a, a2.copy(config, true));
-                                if (apply == null) {
-                                    return null;
-                                }
-                                obj2 = this.a.C;
-                                synchronized (obj2) {
-                                    hashMap2 = this.a.A;
-                                    hashMap2.put(substring, apply);
-                                }
-                            }
-                        }
-                    }
+            WriteActivity writeActivity = this.a;
+            writeImagesInfo3 = this.a.D;
+            AlbumActivity.a(writeActivity, writeImagesInfo3, 12002);
+        } else if (i == 9) {
+            this.a.i();
+        } else if (i == 4) {
+            str2 = this.a.z;
+            if (str2 != null) {
+                str3 = this.a.z;
+                if (str3.length() > 0) {
+                    WriteActivity writeActivity2 = this.a;
+                    str4 = this.a.z;
+                    writeActivity2.showToast(str4);
+                    writeEditorToolButtonContainer = this.a.A;
+                    writeEditorToolButtonContainer.setAudioFocusable(false);
                 }
             }
-            return c;
-        } catch (Exception e2) {
-            bitmap = c;
-            e = e2;
-            e.printStackTrace();
-            com.baidu.adp.lib.g.e.b(getClass().getName(), "GetImageTask", e.toString());
-            return bitmap;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void b() {
-        ProgressBar progressBar;
-        TextView textView;
-        progressBar = this.a.f;
-        progressBar.setVisibility(0);
-        textView = this.a.d;
-        textView.setClickable(false);
-        super.b();
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        ProgressBar progressBar;
-        this.a.g = null;
-        progressBar = this.a.f;
-        progressBar.setVisibility(8);
-        super.cancel(true);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Bitmap bitmap) {
-        TextView textView;
-        ProgressBar progressBar;
-        ImageView imageView;
-        boolean z;
-        String[] strArr;
-        super.a((aw) bitmap);
-        textView = this.a.d;
-        textView.setClickable(true);
-        this.a.g = null;
-        this.a.c = bitmap;
-        progressBar = this.a.f;
-        progressBar.setVisibility(8);
-        if (bitmap != null && !bitmap.isRecycled() && bitmap != null) {
-            imageView = this.a.b;
-            imageView.setImageBitmap(bitmap);
-            if (Build.VERSION.SDK_INT >= 7) {
-                z = this.a.t;
-                if (z) {
-                    WriteImageActivity writeImageActivity = this.a;
-                    strArr = WriteImageActivity.a;
-                    writeImageActivity.a(strArr);
-                }
+        } else if (i == 5) {
+            this.a.a(5);
+        } else if (i == 6) {
+            this.a.i();
+        } else if (i == 22) {
+            writeImagesInfo = this.a.D;
+            int size = writeImagesInfo.size();
+            writeImagesInfo2 = this.a.D;
+            if (size < writeImagesInfo2.getMaxImagesAllowed()) {
+                this.a.E = String.valueOf(System.currentTimeMillis());
+                WriteActivity writeActivity3 = this.a;
+                str = this.a.E;
+                bz.a(writeActivity3, str);
+                return;
             }
+            this.a.showToast(String.format(this.a.getString(R.string.editor_mutiiamge_max), 10));
         }
     }
 }

@@ -1,17 +1,25 @@
 package com.baidu.tieba.write;
 
-import android.graphics.Bitmap;
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ay implements Runnable {
-    final /* synthetic */ WriteImagePreview a;
+public class ay implements DialogInterface.OnCancelListener {
+    final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ay(WriteImagePreview writeImagePreview) {
-        this.a = writeImagePreview;
+    public ay(WriteActivity writeActivity) {
+        this.a = writeActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.a.a((Bitmap) null);
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        bk bkVar;
+        bk bkVar2;
+        this.a.DeinitWaitingDialog();
+        bkVar = this.a.r;
+        if (bkVar != null) {
+            bkVar2 = this.a.r;
+            bkVar2.cancel();
+        }
     }
 }

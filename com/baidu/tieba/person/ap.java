@@ -1,15 +1,17 @@
 package com.baidu.tieba.person;
 
-import android.widget.ProgressBar;
-import android.widget.TextView;
+import android.view.View;
 /* loaded from: classes.dex */
-class ap {
-    TextView a;
-    ProgressBar b;
-    final /* synthetic */ am c;
+class ap implements View.OnClickListener {
+    final /* synthetic */ MyPostActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(am amVar) {
-        this.c = amVar;
+    public ap(MyPostActivity myPostActivity) {
+        this.a = myPostActivity;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.finish();
     }
 }

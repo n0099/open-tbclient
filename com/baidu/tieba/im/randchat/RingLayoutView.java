@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewParent;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -25,7 +26,7 @@ public class RingLayoutView extends RelativeLayout {
     private Point[] g;
     private HeadImageView[] h;
     private a i;
-    private com.baidu.tieba.view.o j;
+    private com.baidu.tieba.view.p j;
     private Point k;
     private com.baidu.tieba.util.i l;
     private int m;
@@ -82,10 +83,10 @@ public class RingLayoutView extends RelativeLayout {
         this.a = context;
         DisplayMetrics displayMetrics = new DisplayMetrics();
         ((Activity) context).getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        this.b = com.baidu.tieba.im.d.c.a(context, R.dimen.wait_chat_large_circle_radius);
-        this.c = com.baidu.tieba.im.d.c.a(context, R.dimen.wait_chat_large_circle_stroke);
+        this.b = BdUtilHelper.c(context, R.dimen.wait_chat_large_circle_radius);
+        this.c = BdUtilHelper.c(context, R.dimen.wait_chat_large_circle_stroke);
         this.k.x = displayMetrics.widthPixels / 2;
-        this.k.y = com.baidu.tieba.im.d.c.a(context, R.dimen.wait_chat_large_circle_margintop) + (com.baidu.tieba.im.d.c.a(context, R.dimen.wait_chat_person_circle_lheight) / 2) + com.baidu.tieba.im.d.c.a(context, R.dimen.wait_chat_large_circle_radius);
+        this.k.y = BdUtilHelper.c(context, R.dimen.wait_chat_large_circle_margintop) + (BdUtilHelper.c(context, R.dimen.wait_chat_person_circle_lheight) / 2) + BdUtilHelper.c(context, R.dimen.wait_chat_large_circle_radius);
         this.e = new Paint();
         this.e.setColor(context.getResources().getColor(R.color.wait_chat_large_circle_stroke_color));
         this.e.setStyle(Paint.Style.STROKE);
@@ -106,7 +107,7 @@ public class RingLayoutView extends RelativeLayout {
         a(this.k, this.g, i);
         a(this.d);
         a(this.g);
-        this.m = this.k.y + this.b + (com.baidu.tieba.im.d.c.a(this.a, R.dimen.wait_chat_person_circle_height) / 2) + com.baidu.tieba.im.d.c.a(this.a, R.dimen.wait_chat_large_circle_marginbottom);
+        this.m = this.k.y + this.b + (BdUtilHelper.c(this.a, R.dimen.wait_chat_person_circle_height) / 2) + BdUtilHelper.c(this.a, R.dimen.wait_chat_large_circle_marginbottom);
     }
 
     public void a(c cVar) {
@@ -171,15 +172,17 @@ public class RingLayoutView extends RelativeLayout {
         }
         Point point2 = this.g[0];
         while (true) {
-            if (i >= this.f) {
-                point = point2;
-                break;
-            } else if (this.g[i].x >= 0 || this.g[i].y > 0) {
-                i++;
+            if (i < this.f) {
+                if (this.g[i].x >= 0 || this.g[i].y > 0) {
+                    i++;
+                } else {
+                    Point point3 = this.g[i];
+                    this.d = i;
+                    point = point3;
+                    break;
+                }
             } else {
-                Point point3 = this.g[i];
-                this.d = i;
-                point = point3;
+                point = point2;
                 break;
             }
         }
@@ -203,7 +206,7 @@ public class RingLayoutView extends RelativeLayout {
             }
             this.h[i].setTag(str);
             a(i, this.h[i], true);
-            com.baidu.adp.widget.ImageView.d d = this.l.d(str, new d(this, eVar));
+            com.baidu.adp.widget.ImageView.b d = this.l.d(str, new d(this, eVar));
             if (d != null) {
                 this.h[i].setImageBitmap(d.h());
             }
@@ -211,9 +214,19 @@ public class RingLayoutView extends RelativeLayout {
     }
 
     private void a(int i, HeadImageView headImageView, boolean z) {
-        int a = com.baidu.tieba.im.d.c.a(this.a, R.dimen.head_view_circle_bg);
-        int a2 = i == 0 ? com.baidu.tieba.im.d.c.a(this.a, R.dimen.wait_chat_person_circle_lwidth) : com.baidu.tieba.im.d.c.a(this.a, R.dimen.wait_chat_person_circle_width);
-        int a3 = i == 0 ? com.baidu.tieba.im.d.c.a(this.a, R.dimen.wait_chat_person_circle_lheight) : com.baidu.tieba.im.d.c.a(this.a, R.dimen.wait_chat_person_circle_height);
+        int c;
+        int c2;
+        int c3 = BdUtilHelper.c(this.a, R.dimen.head_view_circle_bg);
+        if (i == 0) {
+            c = BdUtilHelper.c(this.a, R.dimen.wait_chat_person_circle_lwidth);
+        } else {
+            c = BdUtilHelper.c(this.a, R.dimen.wait_chat_person_circle_width);
+        }
+        if (i == 0) {
+            c2 = BdUtilHelper.c(this.a, R.dimen.wait_chat_person_circle_lheight);
+        } else {
+            c2 = BdUtilHelper.c(this.a, R.dimen.wait_chat_person_circle_height);
+        }
         CircleBgView circleBgView = null;
         ViewParent parent = headImageView.getParent();
         if (parent != null && (parent instanceof CircleBgView)) {
@@ -221,14 +234,14 @@ public class RingLayoutView extends RelativeLayout {
         }
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) headImageView.getLayoutParams();
         if (z) {
-            layoutParams.width = a2 - a;
-            layoutParams.height = a3 - a;
+            layoutParams.width = c - c3;
+            layoutParams.height = c2 - c3;
             if (circleBgView != null) {
                 circleBgView.setHasBg(true);
             }
         } else {
-            layoutParams.width = a2;
-            layoutParams.height = a3;
+            layoutParams.width = c;
+            layoutParams.height = c2;
             if (circleBgView != null) {
                 circleBgView.setHasBg(false);
             }
@@ -240,22 +253,31 @@ public class RingLayoutView extends RelativeLayout {
     }
 
     private void a(Point[] pointArr) {
+        int c;
+        int c2;
         removeAllViews();
-        int i = 0;
-        while (i < this.f) {
+        for (int i = 0; i < this.f; i++) {
             Point point = pointArr[i];
-            int a = i == 0 ? com.baidu.tieba.im.d.c.a(this.a, R.dimen.wait_chat_person_circle_lwidth) : com.baidu.tieba.im.d.c.a(this.a, R.dimen.wait_chat_person_circle_width);
-            int a2 = i == 0 ? com.baidu.tieba.im.d.c.a(this.a, R.dimen.wait_chat_person_circle_lheight) : com.baidu.tieba.im.d.c.a(this.a, R.dimen.wait_chat_person_circle_height);
+            if (i == 0) {
+                c = BdUtilHelper.c(this.a, R.dimen.wait_chat_person_circle_lwidth);
+            } else {
+                c = BdUtilHelper.c(this.a, R.dimen.wait_chat_person_circle_width);
+            }
+            if (i == 0) {
+                c2 = BdUtilHelper.c(this.a, R.dimen.wait_chat_person_circle_lheight);
+            } else {
+                c2 = BdUtilHelper.c(this.a, R.dimen.wait_chat_person_circle_height);
+            }
             CircleBgView circleBgView = new CircleBgView(this.a);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(a, a2);
-            layoutParams.leftMargin = (int) (point.x - (a / 2.0f));
-            layoutParams.topMargin = (int) (point.y - (a2 / 2.0f));
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(c, c2);
+            layoutParams.leftMargin = (int) (point.x - (c / 2.0f));
+            layoutParams.topMargin = (int) (point.y - (c2 / 2.0f));
             circleBgView.setLayoutParams(layoutParams);
             circleBgView.setBackgroundColor(0);
             circleBgView.setHasBg(false);
             circleBgView.invalidate();
             HeadImageView headImageView = new HeadImageView(this.a);
-            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(a, a2);
+            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(c, c2);
             layoutParams2.gravity = 17;
             headImageView.setLayoutParams(layoutParams2);
             headImageView.setGifIconSupport(false);
@@ -269,20 +291,19 @@ public class RingLayoutView extends RelativeLayout {
             this.h[i] = headImageView;
             circleBgView.addView(headImageView);
             addView(circleBgView);
-            i++;
         }
         a aVar = new a(this.a);
-        int a3 = com.baidu.tieba.im.d.c.a(this.a, R.dimen.loading_view_width);
-        int a4 = com.baidu.tieba.im.d.c.a(this.a, R.dimen.loading_view_height);
-        RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(a3, a4);
-        layoutParams3.leftMargin = this.k.x - (a3 / 2);
-        layoutParams3.topMargin = this.k.y - (a4 / 2);
+        int c3 = BdUtilHelper.c(this.a, R.dimen.loading_view_width);
+        int c4 = BdUtilHelper.c(this.a, R.dimen.loading_view_height);
+        RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(c3, c4);
+        layoutParams3.leftMargin = this.k.x - (c3 / 2);
+        layoutParams3.topMargin = this.k.y - (c4 / 2);
         aVar.setLayoutParams(layoutParams3);
-        int a5 = com.baidu.tieba.im.d.c.a(this.a, R.dimen.ds450);
-        RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams(a5, a5);
-        layoutParams4.leftMargin = this.k.x - (a5 / 2);
-        layoutParams4.topMargin = this.k.y - (a5 / 2);
-        this.j = new com.baidu.tieba.view.o(this.a);
+        int c5 = BdUtilHelper.c(this.a, R.dimen.ds450);
+        RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams(c5, c5);
+        layoutParams4.leftMargin = this.k.x - (c5 / 2);
+        layoutParams4.topMargin = this.k.y - (c5 / 2);
+        this.j = new com.baidu.tieba.view.p(this.a);
         this.j.setLayoutParams(layoutParams4);
         this.i = aVar;
         this.i.setVisibility(8);
@@ -295,7 +316,7 @@ public class RingLayoutView extends RelativeLayout {
         this.j.setOnClickListener(onClickListener);
     }
 
-    public com.baidu.tieba.view.o getChatterboxView() {
+    public com.baidu.tieba.view.p getChatterboxView() {
         return this.j;
     }
 

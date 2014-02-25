@@ -4,7 +4,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.topRec.TRForumListData;
-import com.baidu.tieba.util.ax;
+import com.baidu.tieba.util.ba;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<Integer, Integer, String> {
@@ -12,7 +12,7 @@ public class d extends BdAsyncTask<Integer, Integer, String> {
     int b;
     TRForumListData.TRForum c;
     final /* synthetic */ TopRecActivity d;
-    private ax e;
+    private ba e;
 
     private d(TopRecActivity topRecActivity) {
         this.d = topRecActivity;
@@ -22,7 +22,7 @@ public class d extends BdAsyncTask<Integer, Integer, String> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ d(TopRecActivity topRecActivity, a aVar) {
+    public /* synthetic */ d(TopRecActivity topRecActivity, d dVar) {
         this(topRecActivity);
     }
 
@@ -41,7 +41,7 @@ public class d extends BdAsyncTask<Integer, Integer, String> {
         }
         try {
             if (this.c != null && this.c.forum_id != 0 && this.c.forum_name != null) {
-                this.e = new ax(com.baidu.tieba.data.h.a + "c/c/forum/unfavolike");
+                this.e = new ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/c/forum/unfavolike");
                 this.e.a("fid", String.valueOf(this.c.forum_id));
                 this.e.a("kw", this.c.forum_name);
                 this.e.a("favo_type", SocialConstants.TRUE);
@@ -52,7 +52,7 @@ public class d extends BdAsyncTask<Integer, Integer, String> {
             }
             return null;
         } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.getMessage());
             return null;
         }
     }
@@ -70,7 +70,7 @@ public class d extends BdAsyncTask<Integer, Integer, String> {
         } else if (str == null) {
             this.d.a(this.a, this.c.forum_id);
         } else {
-            TiebaApplication.h().f(this.c.forum_name);
+            TiebaApplication.g().f(this.c.forum_name);
             this.d.d();
         }
     }

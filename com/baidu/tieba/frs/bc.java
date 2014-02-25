@@ -1,9 +1,7 @@
 package com.baidu.tieba.frs;
-
-import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bc extends com.baidu.adp.a.g {
+public class bc implements com.baidu.tieba.model.by {
     final /* synthetic */ FrsImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,15 +9,14 @@ public class bc extends com.baidu.adp.a.g {
         this.a = frsImageActivity;
     }
 
-    @Override // com.baidu.adp.a.g
-    public void a(Object obj) {
-        com.baidu.tieba.model.ar arVar;
-        if (obj != null && (obj instanceof com.baidu.tieba.data.ag)) {
-            arVar = this.a.q;
-            arVar.b().setLike(1);
-            this.a.showToast(this.a.getString(R.string.like_success));
-            return;
-        }
-        this.a.showToast(this.a.getString(R.string.had_liked_forum));
+    @Override // com.baidu.tieba.model.by
+    public void a(String str, long j) {
+        com.baidu.tieba.model.al alVar;
+        alVar = this.a.q;
+        alVar.b().setLike(0);
+    }
+
+    @Override // com.baidu.tieba.model.by
+    public void b(String str, long j) {
     }
 }

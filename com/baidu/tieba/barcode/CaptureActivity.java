@@ -19,11 +19,12 @@ import android.view.SurfaceView;
 import android.webkit.URLUtil;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tieba.barcode.result.ZxingResult;
 import com.baidu.tieba.service.TiebaPrepareImageService;
-import com.baidu.tieba.util.ad;
-import com.baidu.tieba.util.bx;
-import com.baidu.tieba.util.by;
+import com.baidu.tieba.util.af;
+import com.baidu.tieba.util.bv;
+import com.baidu.tieba.util.cb;
 import com.baidu.tieba.view.NavigationBar;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.BinaryBitmap;
@@ -42,8 +43,8 @@ import java.io.IOException;
 import java.util.Hashtable;
 import protobuf.Im;
 /* loaded from: classes.dex */
-public final class CaptureActivity extends com.baidu.tieba.j implements SurfaceHolder.Callback {
-    private com.baidu.tieba.barcode.a.f a;
+public final class CaptureActivity extends com.baidu.tieba.f implements SurfaceHolder.Callback {
+    private com.baidu.tieba.barcode.a.e a;
     private CaptureActivityHandler b;
     private Result c;
     private ViewfinderView d;
@@ -61,7 +62,6 @@ public final class CaptureActivity extends com.baidu.tieba.j implements SurfaceH
         activity.startActivityForResult(new Intent(activity, CaptureActivity.class), i);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public ViewfinderView a() {
         return this.d;
     }
@@ -70,12 +70,11 @@ public final class CaptureActivity extends com.baidu.tieba.j implements SurfaceH
         return this.b;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public com.baidu.tieba.barcode.a.f c() {
+    public com.baidu.tieba.barcode.a.e c() {
         return this.a;
     }
 
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         getWindow().addFlags(128);
@@ -92,9 +91,8 @@ public final class CaptureActivity extends com.baidu.tieba.j implements SurfaceH
         f();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public boolean e() {
-        if (ad.a()) {
+        if (af.a()) {
             return true;
         }
         showToast(getString(R.string.voice_error_sdcard));
@@ -105,18 +103,17 @@ public final class CaptureActivity extends com.baidu.tieba.j implements SurfaceH
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i2 == -1 && i == 12002 && intent != null && intent.getData() != null) {
-            TiebaPrepareImageService.a(i, intent.getData(), bx.a().e(), com.baidu.adp.lib.g.g.b(this));
+            TiebaPrepareImageService.a(i, intent.getData(), bv.a().e(), BdUtilHelper.b(this));
         }
     }
 
     private void f() {
         this.i = new k(this, null);
         IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction("com.baidu.tieba.broadcast.image.resized");
+        intentFilter.addAction(com.baidu.tieba.data.i.b());
         registerReceiver(this.i, intentFilter);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void g() {
         if (this.j != null) {
             this.j.cancel();
@@ -125,16 +122,15 @@ public final class CaptureActivity extends com.baidu.tieba.j implements SurfaceH
         this.j.execute(new Object[0]);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void a(String str) {
         if (TextUtils.isEmpty(str)) {
-            com.baidu.tieba.im.d.b.a((Context) this, (DialogInterface.OnClickListener) new c(this));
+            com.baidu.tieba.im.util.b.a((Context) this, (DialogInterface.OnClickListener) new c(this));
             return;
         }
-        by.a(this, "2d_code_scan_suc", "onclick", 1, new Object[0]);
+        cb.a(this, "2d_code_scan_suc", "onclick", 1, new Object[0]);
         if (URLUtil.isHttpUrl(str) || URLUtil.isHttpsUrl(str)) {
-            if (com.baidu.tieba.im.d.i.a(str)) {
-                com.baidu.tieba.im.d.i.a((Context) this, str, false);
+            if (com.baidu.tieba.im.util.q.a(str)) {
+                com.baidu.tieba.im.util.q.a((Context) this, str, false);
                 Intent intent = new Intent();
                 intent.putExtra("result", str);
                 setResult(-1, intent);
@@ -142,13 +138,12 @@ public final class CaptureActivity extends com.baidu.tieba.j implements SurfaceH
                 finish();
                 return;
             }
-            com.baidu.tieba.im.d.b.a(this, new d(this, str), new e(this), str);
+            com.baidu.tieba.im.util.b.a(this, new d(this, str), new e(this), str);
             return;
         }
-        com.baidu.tieba.im.d.b.a(this, new f(this), str);
+        com.baidu.tieba.im.util.b.a(this, new f(this), str);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public String a(Bitmap bitmap) {
         Hashtable hashtable = new Hashtable();
         hashtable.put(DecodeHintType.CHARACTER_SET, "utf-8");
@@ -170,11 +165,10 @@ public final class CaptureActivity extends com.baidu.tieba.j implements SurfaceH
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.a = new com.baidu.tieba.barcode.a.f(getApplication());
+        this.a = new com.baidu.tieba.barcode.a.e(getApplication());
         this.d = (ViewfinderView) findViewById(R.id.viewfinder_view);
         this.d.setCameraManager(this.a);
         this.b = null;
@@ -189,8 +183,7 @@ public final class CaptureActivity extends com.baidu.tieba.j implements SurfaceH
         this.f.c();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, android.app.Activity
     public void onPause() {
         if (this.b != null) {
             this.b.a();
@@ -207,8 +200,7 @@ public final class CaptureActivity extends com.baidu.tieba.j implements SurfaceH
         super.onPause();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         TiebaPrepareImageService.a();
         this.f.d();
@@ -222,7 +214,7 @@ public final class CaptureActivity extends com.baidu.tieba.j implements SurfaceH
         super.onDestroy();
     }
 
-    @Override // com.baidu.tieba.j, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tieba.f, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         switch (i) {
             case Im.GroupInfo.ACTIVEDAY_FIELD_NUMBER /* 27 */:
@@ -250,7 +242,7 @@ public final class CaptureActivity extends com.baidu.tieba.j implements SurfaceH
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
         if (surfaceHolder == null) {
-            com.baidu.adp.lib.g.e.b(getClass().getName(), "surfaceCreated", "*** WARNING *** surfaceCreated() gave us a null surface!");
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "surfaceCreated", "*** WARNING *** surfaceCreated() gave us a null surface!");
         }
         if (!this.e) {
             this.e = true;
@@ -306,17 +298,16 @@ public final class CaptureActivity extends com.baidu.tieba.j implements SurfaceH
         this.d.setVisibility(8);
         ZxingResult zxingResult = new ZxingResult();
         zxingResult.a(ResultParser.parseResult(result).getDisplayResult().toString());
-        by.a(this, "2d_code_scan", "onclick", 1, new Object[0]);
+        cb.a(this, "2d_code_scan", "onclick", 1, new Object[0]);
         a(zxingResult.a());
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void a(SurfaceHolder surfaceHolder) {
         if (surfaceHolder == null) {
             throw new IllegalStateException("No SurfaceHolder provided");
         }
         if (this.a.a()) {
-            com.baidu.adp.lib.g.e.c(getClass().getName(), "initCamera", "initCamera() while already open -- late SurfaceView callback?");
+            com.baidu.adp.lib.util.f.c(getClass().getName(), "initCamera", "initCamera() while already open -- late SurfaceView callback?");
             return;
         }
         try {
@@ -326,10 +317,10 @@ public final class CaptureActivity extends com.baidu.tieba.j implements SurfaceH
             }
             a((Bitmap) null, (Result) null);
         } catch (IOException e) {
-            com.baidu.adp.lib.g.e.c(getClass().getName(), "initCamera", e.toString());
+            com.baidu.adp.lib.util.f.c(getClass().getName(), "initCamera", e.toString());
             h();
         } catch (RuntimeException e2) {
-            com.baidu.adp.lib.g.e.c(getClass().getName(), "initCamera", "Unexpected error initializing camera" + e2.toString());
+            com.baidu.adp.lib.util.f.c(getClass().getName(), "initCamera", "Unexpected error initializing camera" + e2.toString());
             h();
         }
     }
@@ -351,8 +342,7 @@ public final class CaptureActivity extends com.baidu.tieba.j implements SurfaceH
         this.d.c();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j
+    @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.g.c(i);

@@ -17,8 +17,8 @@ public class k implements i {
         BdPullRefreshScrollView.State state2;
         b bVar;
         b bVar2;
-        n nVar;
-        n nVar2;
+        m mVar;
+        m mVar2;
         state = this.a.c;
         if (state != BdPullRefreshScrollView.State.RELEASE_TO_REFRESH) {
             state2 = this.a.c;
@@ -35,10 +35,10 @@ public class k implements i {
         BdPullRefreshScrollView.State state4 = BdPullRefreshScrollView.State.REFRESHING;
         bVar2 = this.a.n;
         bdPullRefreshScrollView2.a(state4, bVar2);
-        nVar = this.a.t;
-        if (nVar != null) {
-            nVar2 = this.a.t;
-            nVar2.a();
+        mVar = this.a.t;
+        if (mVar != null) {
+            mVar2 = this.a.t;
+            mVar2.a();
         }
     }
 }

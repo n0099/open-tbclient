@@ -4,32 +4,43 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallelType;
 /* loaded from: classes.dex */
 public class bp extends BdAsyncTask<String, String, String> {
-    final /* synthetic */ bo a;
-    private String b;
-    private String c;
-    private boolean d;
-    private boolean e;
-    private boolean f;
+    private l a;
 
-    public bp(bo boVar, String str, String str2, boolean z, boolean z2, boolean z3) {
-        this.a = boVar;
-        this.b = str;
-        this.c = str2;
-        this.d = z;
-        this.e = z2;
-        this.f = z3;
+    public bp(l lVar) {
+        this.a = null;
+        this.a = lVar;
         setParallelTag(1);
         setType(BdAsyncTaskParallelType.SERIAL);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
+    /* JADX WARN: Type inference failed for: r5v0, types: [byte[], java.lang.String] */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public String a(String... strArr) {
         try {
-            this.a.a(this.b, this.c, this.d, this.e, this.f);
-        } finally {
-            return null;
+            if (!this.a.p) {
+                if (this.a.d == 4) {
+                    if (this.a.k != null) {
+                        br.a().a(this.a.k, this.a.j);
+                    }
+                } else if (this.a.d == 5) {
+                    DatabaseService.a(this.a.l, this.a.e);
+                } else if (this.a.k != null) {
+                    com.baidu.adp.lib.cache.s<String> w = com.baidu.tieba.c.a.a().w();
+                    if (w != null && this.a.h) {
+                        w.a(this.a.l, "gif", 315532800000L);
+                    }
+                    br.a().a(this.a.k, this.a.j);
+                }
+            }
+        } catch (Throwable th) {
+            try {
+                cb.a("", -1004, "cache img err: " + th.toString(), this.a.m);
+            } finally {
+                this.a.j = null;
+                this.a.m = null;
+            }
         }
         return null;
     }

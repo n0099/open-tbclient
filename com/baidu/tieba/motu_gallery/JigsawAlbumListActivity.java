@@ -17,7 +17,7 @@ import android.widget.TextView;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class JigsawAlbumListActivity extends com.baidu.tieba.j implements AbsListView.OnScrollListener {
+public class JigsawAlbumListActivity extends com.baidu.tieba.f implements AbsListView.OnScrollListener {
     private static volatile int j = 0;
     private static volatile int k = 0;
     private static boolean q = false;
@@ -36,7 +36,7 @@ public class JigsawAlbumListActivity extends com.baidu.tieba.j implements AbsLis
     int d = 0;
     int e = 0;
     private boolean p = false;
-    private Handler s = new p(this);
+    private Handler s = new m(this);
 
     public boolean a() {
         return q;
@@ -52,7 +52,7 @@ public class JigsawAlbumListActivity extends com.baidu.tieba.j implements AbsLis
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.motu_albums_list_activity);
@@ -68,14 +68,14 @@ public class JigsawAlbumListActivity extends com.baidu.tieba.j implements AbsLis
         this.i.setAdapter((ListAdapter) this.b);
         this.i.setOnScrollListener(this);
         this.l = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.l.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new m(this));
-        ((Button) this.l.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_textbtn, new n(this))).setText(R.string.jigsaw_start);
+        this.l.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new n(this));
+        ((Button) this.l.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_textbtn, new o(this))).setText(R.string.jigsaw_start);
         this.m = (LinearLayout) findViewById(R.id.selected_ll);
         this.n = (HorizontalScrollView) findViewById(R.id.hsv);
         this.l.a(this.a.d());
     }
 
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, android.app.Activity
     public void onResume() {
         super.onResume();
         this.p = true;
@@ -88,12 +88,12 @@ public class JigsawAlbumListActivity extends com.baidu.tieba.j implements AbsLis
         d();
     }
 
-    @Override // com.baidu.tieba.j
+    @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         this.l.c(i);
     }
 
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         this.h.clear();
         super.onDestroy();
@@ -102,13 +102,13 @@ public class JigsawAlbumListActivity extends com.baidu.tieba.j implements AbsLis
     private void d() {
         this.m.removeAllViews();
         for (Uri uri : this.a.c(this)) {
-            w wVar = new w(this);
+            x xVar = new x(this);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams((int) getResources().getDimension(R.dimen.jigsawSelectedWidth), (int) getResources().getDimension(R.dimen.jigsawSelectedHeight));
             layoutParams.setMargins(0, 0, 0, 0);
-            wVar.setLayoutParams(layoutParams);
-            if (wVar.a(uri)) {
-                this.m.addView(wVar);
-                wVar.setOnClickListener(new o(this, wVar));
+            xVar.setLayoutParams(layoutParams);
+            if (xVar.a(uri)) {
+                this.m.addView(xVar);
+                xVar.setOnClickListener(new p(this, xVar));
             }
         }
     }
@@ -119,7 +119,7 @@ public class JigsawAlbumListActivity extends com.baidu.tieba.j implements AbsLis
         if (uri != null) {
             for (int i = 0; i < this.m.getChildCount(); i++) {
                 View childAt = this.m.getChildAt(i);
-                if ((childAt instanceof w) && uri.equals(((w) childAt).getUri())) {
+                if ((childAt instanceof x) && uri.equals(((x) childAt).getUri())) {
                     this.m.removeView(childAt);
                 }
             }
@@ -132,7 +132,7 @@ public class JigsawAlbumListActivity extends com.baidu.tieba.j implements AbsLis
         }
     }
 
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, android.app.Activity
     public void onPause() {
         super.onPause();
         this.c.a();
@@ -180,7 +180,7 @@ public class JigsawAlbumListActivity extends com.baidu.tieba.j implements AbsLis
             }
             return;
         }
-        x.a(R.string.jigsaw_2_least);
+        y.a(R.string.jigsaw_2_least);
     }
 
     @Override // android.widget.AbsListView.OnScrollListener

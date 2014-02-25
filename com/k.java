@@ -1,65 +1,23 @@
 package com;
 
-import android.location.Location;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.cloudsdk.common.util.PositionManager;
-import com.baidu.cloudsdk.social.share.SocialShareConfig;
-import com.baidu.cloudsdk.social.share.uiwithlayout.LocationPreview;
+import com.baidu.cloudsdk.common.util.CoordinateManager;
 /* loaded from: classes.dex */
-public class k implements View.OnClickListener {
-    final /* synthetic */ LocationPreview a;
+public class k implements Runnable {
+    final /* synthetic */ CoordinateManager a;
 
-    public k(LocationPreview locationPreview) {
-        this.a = locationPreview;
+    public k(CoordinateManager coordinateManager) {
+        this.a = coordinateManager;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean z;
-        String str;
-        TextView textView;
-        SocialShareConfig socialShareConfig;
-        Location location;
-        Location location2;
-        String str2;
-        TextView textView2;
-        SocialShareConfig socialShareConfig2;
-        ImageView imageView;
-        z = this.a.f;
-        if (z) {
-            this.a.f = false;
-            textView2 = this.a.e;
-            socialShareConfig2 = this.a.b;
-            textView2.setText(socialShareConfig2.getString("insert_location"));
-            imageView = this.a.d;
-            imageView.setVisibility(8);
+    @Override // java.lang.Runnable
+    public void run() {
+        CoordinateManager.a aVar;
+        CoordinateManager.a aVar2;
+        aVar = this.a.d;
+        if (aVar.isCancelled()) {
             return;
         }
-        str = this.a.h;
-        if (!TextUtils.isEmpty(str)) {
-            LocationPreview locationPreview = this.a;
-            str2 = this.a.h;
-            locationPreview.a(str2);
-            return;
-        }
-        textView = this.a.e;
-        socialShareConfig = this.a.b;
-        textView.setText(socialShareConfig.getString("get_location"));
-        location = this.a.g;
-        if (location != null) {
-            LocationPreview locationPreview2 = this.a;
-            location2 = this.a.g;
-            locationPreview2.a(location2);
-            return;
-        }
-        try {
-            if (this.a.getContext().checkCallingOrSelfPermission("android.permission.ACCESS_FINE_LOCATION") == 0) {
-                new PositionManager(this.a.getContext()).requestLoation(new l(this));
-            }
-        } catch (Exception e) {
-        }
+        aVar2 = this.a.d;
+        aVar2.cancel(true);
     }
 }

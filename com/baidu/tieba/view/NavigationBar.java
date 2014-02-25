@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tieba.BaseFragmentActivity;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class NavigationBar extends RelativeLayout {
@@ -30,7 +30,17 @@ public class NavigationBar extends RelativeLayout {
     public enum ControlAlign {
         HORIZONTAL_LEFT,
         HORIZONTAL_CENTER,
-        HORIZONTAL_RIGHT
+        HORIZONTAL_RIGHT;
+
+        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
+        /* renamed from: values  reason: to resolve conflict with enum method */
+        public static ControlAlign[] valuesCustom() {
+            ControlAlign[] valuesCustom = values();
+            int length = valuesCustom.length;
+            ControlAlign[] controlAlignArr = new ControlAlign[length];
+            System.arraycopy(valuesCustom, 0, controlAlignArr, 0, length);
+            return controlAlignArr;
+        }
     }
 
     /* loaded from: classes.dex */
@@ -40,7 +50,17 @@ public class NavigationBar extends RelativeLayout {
         ADD_CHAT,
         EDIT_BUTTON,
         MORE_BUTTON,
-        CAMERA_BUTTON
+        CAMERA_BUTTON;
+
+        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
+        /* renamed from: values  reason: to resolve conflict with enum method */
+        public static ControlType[] valuesCustom() {
+            ControlType[] valuesCustom = values();
+            int length = valuesCustom.length;
+            ControlType[] controlTypeArr = new ControlType[length];
+            System.arraycopy(valuesCustom, 0, controlTypeArr, 0, length);
+            return controlTypeArr;
+        }
     }
 
     public NavigationBar(Context context) {
@@ -48,7 +68,7 @@ public class NavigationBar extends RelativeLayout {
         this.a = true;
         this.i = 0;
         this.j = 0;
-        this.k = new bo(this);
+        this.k = new bv(this);
         a(context);
     }
 
@@ -57,7 +77,7 @@ public class NavigationBar extends RelativeLayout {
         this.a = true;
         this.i = 0;
         this.j = 0;
-        this.k = new bo(this);
+        this.k = new bv(this);
         a(context);
     }
 
@@ -66,7 +86,7 @@ public class NavigationBar extends RelativeLayout {
         this.a = true;
         this.i = 0;
         this.j = 0;
-        this.k = new bo(this);
+        this.k = new bv(this);
         a(context);
     }
 
@@ -85,7 +105,7 @@ public class NavigationBar extends RelativeLayout {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a() {
-        setPadding(com.baidu.adp.lib.g.g.a(this.f, getResources().getDimension(R.dimen.navi_padding_left)), com.baidu.adp.lib.g.g.a(this.f, getResources().getDimension(R.dimen.navi_padding_top)), com.baidu.adp.lib.g.g.a(this.f, getResources().getDimension(R.dimen.navi_padding_right)), com.baidu.adp.lib.g.g.a(this.f, getResources().getDimension(R.dimen.navi_padding_bottom)));
+        setPadding(BdUtilHelper.a(this.f, getResources().getDimension(R.dimen.navi_padding_left)), BdUtilHelper.a(this.f, getResources().getDimension(R.dimen.navi_padding_top)), BdUtilHelper.a(this.f, getResources().getDimension(R.dimen.navi_padding_right)), BdUtilHelper.a(this.f, getResources().getDimension(R.dimen.navi_padding_bottom)));
     }
 
     @Override // android.widget.RelativeLayout, android.view.View
@@ -220,14 +240,14 @@ public class NavigationBar extends RelativeLayout {
             this.e.setBackgroundColor(getResources().getColor(R.color.navi_line));
         }
         a();
-        if (this.f instanceof com.baidu.tieba.j) {
-            com.baidu.tieba.j jVar = (com.baidu.tieba.j) this.f;
-            jVar.getLayoutMode().a(i == 1);
-            jVar.getLayoutMode().a((View) this);
-        } else if (this.f instanceof BaseFragmentActivity) {
-            BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) this.f;
-            baseFragmentActivity.a().a(i == 1);
-            baseFragmentActivity.a().a((View) this);
+        if (this.f instanceof com.baidu.tieba.f) {
+            com.baidu.tieba.f fVar = (com.baidu.tieba.f) this.f;
+            fVar.getLayoutMode().a(i == 1);
+            fVar.getLayoutMode().a((View) this);
+        } else if (this.f instanceof com.baidu.tieba.k) {
+            com.baidu.tieba.k kVar = (com.baidu.tieba.k) this.f;
+            kVar.a().a(i == 1);
+            kVar.a().a((View) this);
         }
     }
 }

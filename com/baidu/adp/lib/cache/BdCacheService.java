@@ -5,7 +5,7 @@ import java.util.HashMap;
 /* loaded from: classes.dex */
 public class BdCacheService {
     private static BdCacheService a;
-    private z b;
+    private aa b;
     private Context c;
     private com.baidu.adp.a.h d;
     private final String e;
@@ -17,13 +17,33 @@ public class BdCacheService {
     public enum CacheEvictPolicy {
         NO_EVICT,
         LRU_ON_COUNT,
-        LRU_ON_INSERT
+        LRU_ON_INSERT;
+
+        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
+        /* renamed from: values  reason: to resolve conflict with enum method */
+        public static CacheEvictPolicy[] valuesCustom() {
+            CacheEvictPolicy[] valuesCustom = values();
+            int length = valuesCustom.length;
+            CacheEvictPolicy[] cacheEvictPolicyArr = new CacheEvictPolicy[length];
+            System.arraycopy(valuesCustom, 0, cacheEvictPolicyArr, 0, length);
+            return cacheEvictPolicyArr;
+        }
     }
 
     /* loaded from: classes.dex */
     public enum CacheStorage {
         SQLite_CACHE_PER_TABLE,
-        SQLite_CACHE_All_IN_ONE_TABLE
+        SQLite_CACHE_All_IN_ONE_TABLE;
+
+        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
+        /* renamed from: values  reason: to resolve conflict with enum method */
+        public static CacheStorage[] valuesCustom() {
+            CacheStorage[] valuesCustom = values();
+            int length = valuesCustom.length;
+            CacheStorage[] cacheStorageArr = new CacheStorage[length];
+            System.arraycopy(valuesCustom, 0, cacheStorageArr, 0, length);
+            return cacheStorageArr;
+        }
     }
 
     public boolean a() {
@@ -33,12 +53,12 @@ public class BdCacheService {
     private BdCacheService(String str) {
         this.e = str;
         if (com.baidu.adp.a.b.a() != null) {
-            this.f = com.baidu.adp.a.b.a().b();
+            this.f = com.baidu.adp.a.b.a().d();
         }
     }
 
     public Context b() {
-        return this.c == null ? com.baidu.adp.a.b.a() : this.c;
+        return this.c == null ? com.baidu.adp.a.b.a().b() : this.c;
     }
 
     public static BdCacheService c() {
@@ -51,7 +71,7 @@ public class BdCacheService {
     public synchronized String a(c<?> cVar, String str, String str2, int i) {
         n a2;
         int a3 = cVar.a();
-        z d = d();
+        aa d = d();
         a2 = d.a(str);
         if (a2 == null) {
             a2 = new n();
@@ -78,7 +98,7 @@ public class BdCacheService {
     public synchronized s<String> a(String str, CacheStorage cacheStorage, CacheEvictPolicy cacheEvictPolicy, int i) {
         s<String> sVar;
         f a2;
-        ab aaVar;
+        ac abVar;
         boolean z;
         sVar = this.g.get(str);
         if (sVar == null) {
@@ -90,14 +110,14 @@ public class BdCacheService {
                 a2 = i.a();
             }
             if (cacheStorage == CacheStorage.SQLite_CACHE_PER_TABLE) {
-                aaVar = new ab(e());
+                abVar = new ac(e());
                 z = false;
             } else {
-                aaVar = new aa(e(), "cache_kv_tshare");
+                abVar = new ab(e(), "cache_kv_tshare");
                 z = true;
             }
-            aaVar.a(a2, a(aaVar, str, "text", i));
-            sVar = a(str, new o(aaVar, a2, z));
+            abVar.a(a2, a(abVar, str, "text", i));
+            sVar = a(str, new o(abVar, a2, z));
         }
         return sVar;
     }
@@ -105,17 +125,17 @@ public class BdCacheService {
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r1v7, types: [com.baidu.adp.lib.cache.v] */
     public synchronized s<String> a(String str, r<String> rVar) {
-        x xVar;
-        x xVar2;
+        y yVar;
+        y yVar2;
         s<String> sVar = this.g.get(str);
-        xVar2 = sVar;
+        yVar2 = sVar;
         if (sVar != null) {
             if (rVar != null) {
                 boolean z = sVar instanceof u;
-                xVar2 = sVar;
+                yVar2 = sVar;
                 if (z) {
                     r<String> b = ((u) sVar).b();
-                    xVar2 = sVar;
+                    yVar2 = sVar;
                     if (b != rVar) {
                         throw new IllegalStateException("nameSpace:[" + str + "] is already used for storage:[" + rVar + "]. Make sure to return the old cache before re-use the same namespace.");
                     }
@@ -123,15 +143,15 @@ public class BdCacheService {
             }
         } else {
             if (a()) {
-                xVar = new v(str, rVar);
+                yVar = new v(str, rVar);
             } else {
-                xVar = new x(str, rVar);
+                yVar = new y(str, rVar);
             }
-            this.g.put(str, xVar);
-            xVar.d();
-            xVar2 = xVar;
+            this.g.put(str, yVar);
+            yVar.d();
+            yVar2 = yVar;
         }
-        return xVar2;
+        return yVar2;
     }
 
     public synchronized s<byte[]> b(String str, CacheStorage cacheStorage, CacheEvictPolicy cacheEvictPolicy, int i) {
@@ -164,17 +184,17 @@ public class BdCacheService {
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r1v7, types: [com.baidu.adp.lib.cache.v] */
     public synchronized s<byte[]> b(String str, r<byte[]> rVar) {
-        x xVar;
-        x xVar2;
+        y yVar;
+        y yVar2;
         s<byte[]> sVar = this.h.get(str);
-        xVar2 = sVar;
+        yVar2 = sVar;
         if (sVar != null) {
             if (rVar != null) {
                 boolean z = sVar instanceof u;
-                xVar2 = sVar;
+                yVar2 = sVar;
                 if (z) {
                     r<byte[]> b = ((u) sVar).b();
-                    xVar2 = sVar;
+                    yVar2 = sVar;
                     if (b != rVar) {
                         throw new IllegalStateException("nameSpace:[" + str + "] is already used for storage:[" + rVar + "]. Make sure to return the old cache before re-use the same namespace.");
                     }
@@ -182,15 +202,15 @@ public class BdCacheService {
             }
         } else {
             if (a()) {
-                xVar = new v(str, rVar);
+                yVar = new v(str, rVar);
             } else {
-                xVar = new x(str, rVar);
+                yVar = new y(str, rVar);
             }
-            this.h.put(str, xVar);
-            xVar.d();
-            xVar2 = xVar;
+            this.h.put(str, yVar);
+            yVar.d();
+            yVar2 = yVar;
         }
-        return xVar2;
+        return yVar2;
     }
 
     public void a(s<?> sVar) {
@@ -204,9 +224,9 @@ public class BdCacheService {
         }
     }
 
-    public z d() {
+    public aa d() {
         if (this.b == null) {
-            this.b = new z(b(), e());
+            this.b = new aa(b(), e());
         }
         return this.b;
     }

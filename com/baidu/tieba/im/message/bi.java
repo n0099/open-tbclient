@@ -1,32 +1,19 @@
 package com.baidu.tieba.im.message;
-
-import java.util.LinkedList;
-import protobuf.CheckMaskUser.CheckMaskUserRes;
 /* loaded from: classes.dex */
-public class bi extends cr implements com.baidu.tieba.im.coder.f {
-    private boolean a;
+public class bi extends bg {
+    private String b;
 
-    public bi() {
-        super(104104);
-        this.a = false;
+    public bi(String str) {
+        this.b = null;
+        this.b = str;
     }
 
-    @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<q> linkedList, byte[] bArr, int i) {
-        CheckMaskUserRes.CheckMaskUserResIdl parseFrom = CheckMaskUserRes.CheckMaskUserResIdl.parseFrom(bArr);
-        g(parseFrom.getError().getErrorno());
-        c(parseFrom.getError().getUsermsg());
-        linkedList.add(this);
-        if (!k()) {
-            a(parseFrom.getData().getIsMask() == 1);
-        }
+    public String b() {
+        return this.b;
     }
 
-    public boolean a() {
-        return this.a;
-    }
-
-    public void a(boolean z) {
-        this.a = z;
+    @Override // com.baidu.tieba.im.message.bg
+    protected void a(protobuf.k kVar) {
+        kVar.c(b());
     }
 }

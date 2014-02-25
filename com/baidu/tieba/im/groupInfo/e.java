@@ -13,13 +13,21 @@ class e implements Animation.AnimationListener {
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
+        GroupImageActivity groupImageActivity;
+        GroupImageActivity groupImageActivity2;
         boolean z;
+        GroupImageActivity groupImageActivity3;
+        GroupImageActivity groupImageActivity4;
         NavigationBar navigationBar;
-        this.a.a.o = true;
-        z = this.a.a.p;
+        groupImageActivity = this.a.a;
+        groupImageActivity.o = true;
+        groupImageActivity2 = this.a.a;
+        z = groupImageActivity2.p;
         if (z) {
-            this.a.a.p = false;
-            navigationBar = this.a.a.e;
+            groupImageActivity3 = this.a.a;
+            groupImageActivity3.p = false;
+            groupImageActivity4 = this.a.a;
+            navigationBar = groupImageActivity4.e;
             navigationBar.setVisibility(8);
         }
     }

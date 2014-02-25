@@ -71,17 +71,16 @@ public class j extends BaseAdapter {
         } else {
             kVar = (k) view.getTag();
         }
-        StringBuilder sb = new StringBuilder();
         String str = this.a.get(i).b;
         arrayList = this.b.f;
-        StringBuilder append = sb.append(str.substring(((c) arrayList.get(i)).b.lastIndexOf("/") + 1)).append("(");
+        StringBuilder append = new StringBuilder(String.valueOf(str.substring(((c) arrayList.get(i)).b.lastIndexOf("/") + 1))).append("(");
         map = this.b.g;
         arrayList2 = this.b.f;
-        String sb2 = append.append(String.valueOf(map.get(String.valueOf(((c) arrayList2.get(i)).a)))).append(")").toString();
+        String sb = append.append(String.valueOf(map.get(String.valueOf(((c) arrayList2.get(i)).a)))).append(")").toString();
         JigsawAlbumActivity jigsawAlbumActivity = this.b;
         arrayList3 = this.b.f;
         a = jigsawAlbumActivity.a(((c) arrayList3.get(i)).a);
-        kVar.c.setText(sb2);
+        kVar.c.setText(sb);
         kVar.a = String.valueOf(i);
         map2 = this.b.h;
         if (map2.containsKey(a)) {

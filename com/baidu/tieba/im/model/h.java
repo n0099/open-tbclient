@@ -6,8 +6,8 @@ import com.baidu.android.pushservice.PushConstants;
 import protobuf.CommitInviteMsg.CommitInviteMsgReq;
 /* loaded from: classes.dex */
 public class h extends com.baidu.adp.a.d {
-    private j a = null;
-    private com.baidu.tieba.im.message.ad b;
+    private i a = null;
+    private com.baidu.tieba.im.message.ag b;
     private int c;
     private int d;
 
@@ -51,7 +51,7 @@ public class h extends com.baidu.adp.a.d {
         if (this.a != null) {
             this.a.cancel();
         }
-        this.a = new j(this);
+        this.a = new i(this, null);
         this.a.execute(str);
     }
 
@@ -60,10 +60,10 @@ public class h extends com.baidu.adp.a.d {
         com.baidu.tieba.im.messageCenter.e.a().a(this.b);
     }
 
-    private com.baidu.tieba.im.message.ad a(int i, int i2, String str) {
+    private com.baidu.tieba.im.message.ag a(int i, int i2, String str) {
         CommitInviteMsgReq.DataReq build = CommitInviteMsgReq.DataReq.newBuilder().a(i).b(5).a(str).b("{\"type\":" + String.valueOf(1) + ",\"groupId\":" + String.valueOf(i2) + "}").build();
-        com.baidu.tieba.im.message.ad adVar = new com.baidu.tieba.im.message.ad();
-        adVar.a(build);
-        return adVar;
+        com.baidu.tieba.im.message.ag agVar = new com.baidu.tieba.im.message.ag();
+        agVar.a(build);
+        return agVar;
     }
 }

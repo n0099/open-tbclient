@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.i;
 /* loaded from: classes.dex */
 public class MainSharedPrefProvider extends ContentProvider {
     @Override // android.content.ContentProvider
@@ -74,10 +75,10 @@ public class MainSharedPrefProvider extends ContentProvider {
 
     private void a(String str, String str2) {
         Intent intent = new Intent();
-        intent.setAction("com.baidu.tieba.broadcast.changeSharedPref");
+        intent.setAction(i.j());
         intent.putExtra("intent_key", str);
         intent.putExtra("intent_value", str2);
-        TiebaApplication.h().sendBroadcast(intent);
+        TiebaApplication.g().b().sendBroadcast(intent);
     }
 
     private boolean a(String str) {
@@ -95,8 +96,8 @@ public class MainSharedPrefProvider extends ContentProvider {
 
     private SharedPreferences a() {
         try {
-            if (TiebaApplication.h() != null) {
-                return TiebaApplication.h().getSharedPreferences("common_settings", 0);
+            if (TiebaApplication.g().b() != null) {
+                return TiebaApplication.g().b().getSharedPreferences("common_settings", 0);
             }
             return null;
         } catch (Exception e) {

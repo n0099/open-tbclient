@@ -10,19 +10,25 @@ import com.google.protobuf.Parser;
 import java.io.IOException;
 import java.io.InputStream;
 import protobuf.Im;
+import protobuf.k;
 /* loaded from: classes.dex */
 public final class UpdateGroupReq {
 
     /* loaded from: classes.dex */
-    public final class UpdateGroupReqIdl extends GeneratedMessageLite implements d {
+    public final class UpdateGroupReqIdl extends GeneratedMessageLite implements c {
         public static final int DATA_FIELD_NUMBER = 1;
-        public static Parser<UpdateGroupReqIdl> PARSER = new b();
+        public static Parser<UpdateGroupReqIdl> PARSER = new a();
         private static final UpdateGroupReqIdl a = new UpdateGroupReqIdl(true);
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private Im.GroupInfo data_;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ UpdateGroupReqIdl(GeneratedMessageLite.Builder builder, UpdateGroupReqIdl updateGroupReqIdl) {
+            this(builder);
+        }
 
         private UpdateGroupReqIdl(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -46,13 +52,12 @@ public final class UpdateGroupReq {
         }
 
         private UpdateGroupReqIdl(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-            protobuf.i iVar;
-            boolean z;
+            k kVar;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
             a();
-            boolean z2 = false;
-            while (!z2) {
+            boolean z = false;
+            while (!z) {
                 try {
                     try {
                         int readTag = codedInputStream.readTag();
@@ -62,28 +67,25 @@ public final class UpdateGroupReq {
                                 break;
                             case 10:
                                 if ((this.bitField0_ & 1) != 1) {
-                                    iVar = null;
+                                    kVar = null;
                                 } else {
-                                    iVar = this.data_.toBuilder();
+                                    kVar = this.data_.toBuilder();
                                 }
                                 this.data_ = (Im.GroupInfo) codedInputStream.readMessage(Im.GroupInfo.PARSER, extensionRegistryLite);
-                                if (iVar != null) {
-                                    iVar.mergeFrom(this.data_);
-                                    this.data_ = iVar.buildPartial();
+                                if (kVar != null) {
+                                    kVar.mergeFrom(this.data_);
+                                    this.data_ = kVar.buildPartial();
                                 }
                                 this.bitField0_ |= 1;
-                                z = z2;
                                 break;
                             default:
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
                                 } else {
-                                    z = z2;
                                     break;
                                 }
                         }
-                        z2 = z;
                     } catch (InvalidProtocolBufferException e) {
                         throw e.setUnfinishedMessage(this);
                     } catch (IOException e2) {
@@ -93,6 +95,11 @@ public final class UpdateGroupReq {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ UpdateGroupReqIdl(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, UpdateGroupReqIdl updateGroupReqIdl) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -190,23 +197,23 @@ public final class UpdateGroupReq {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static c newBuilder() {
-            return c.f();
+        public static b newBuilder() {
+            return b.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public c newBuilderForType() {
+        public b newBuilderForType() {
             return newBuilder();
         }
 
-        public static c newBuilder(UpdateGroupReqIdl updateGroupReqIdl) {
+        public static b newBuilder(UpdateGroupReqIdl updateGroupReqIdl) {
             return newBuilder().mergeFrom(updateGroupReqIdl);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public c toBuilder() {
+        public b toBuilder() {
             return newBuilder(this);
         }
     }

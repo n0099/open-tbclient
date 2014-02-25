@@ -1,7 +1,5 @@
 package com.baidu.adp.lib.d;
 
-import android.util.Log;
-import com.baidu.adp.lib.g.e;
 import java.util.LinkedHashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
@@ -13,11 +11,9 @@ public class a<K, V> {
     private int e;
     private int f;
     private int g;
-    private int h;
 
     public a(int i) {
-        this.d = i;
-        this.b = this.d / 5;
+        this.c = i;
     }
 
     public final V a(K k) {
@@ -26,10 +22,10 @@ public class a<K, V> {
             synchronized (this) {
                 V v2 = this.a.get(k);
                 if (v2 != null) {
-                    this.g++;
+                    this.f++;
                     v = v2;
                 } else {
-                    this.h++;
+                    this.g++;
                 }
             }
         }
@@ -37,47 +33,35 @@ public class a<K, V> {
     }
 
     public final V a(K k, V v) {
-        V v2 = null;
-        if (k != null && v != null) {
-            if (b(k, v) > this.b) {
-                if (e.a()) {
-                    Log.w("adp", "image too big:" + v + ", size:" + b(k, v), new Exception());
-                }
-                a(false, k, v, null);
-            } else {
-                synchronized (this) {
-                    this.e++;
-                    this.c += c(k, v);
-                    v2 = this.a.put(k, v);
-                    if (v2 != null) {
-                        this.c -= c(k, v2);
-                    }
-                }
-                if (v2 != null) {
-                    a(false, k, v2, v);
-                }
-                b(this.d);
+        V put;
+        if (k == null || v == null) {
+            return null;
+        }
+        synchronized (this) {
+            this.d++;
+            this.b += c(k, v);
+            put = this.a.put(k, v);
+            if (put != null) {
+                this.b -= c(k, put);
             }
         }
-        return v2;
+        if (put != null) {
+            a(false, k, put, v);
+        }
+        b(this.c);
+        return put;
     }
 
     public synchronized boolean a(int i) {
-        boolean z;
-        if (i > this.b) {
-            z = false;
-        } else {
-            int i2 = this.c - i;
-            if (i2 > this.d * 0.6d) {
-                b(i2);
-            }
-            z = true;
+        int i2 = this.b - i;
+        if (i2 > this.c * 0.6d) {
+            b(i2);
         }
-        return z;
+        return true;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:10:0x0031, code lost:
-        throw new java.lang.IllegalStateException(getClass().getName() + ".sizeOf() is reporting inconsistent results!");
+        throw new java.lang.IllegalStateException(java.lang.String.valueOf(getClass().getName()) + ".sizeOf() is reporting inconsistent results!");
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -87,17 +71,17 @@ public class a<K, V> {
         V value;
         while (true) {
             synchronized (this) {
-                if (this.c < 0 || (this.a.isEmpty() && this.c != 0)) {
+                if (this.b < 0 || (this.a.isEmpty() && this.b != 0)) {
                     break;
-                } else if (this.c <= i || this.a.isEmpty()) {
+                } else if (this.b <= i || this.a.isEmpty()) {
                     break;
                 } else {
                     Map.Entry<K, V> next = this.a.entrySet().iterator().next();
                     key = next.getKey();
                     value = next.getValue();
                     this.a.remove(key);
-                    this.c -= c(key, value);
-                    this.f++;
+                    this.b -= c(key, value);
+                    this.e++;
                 }
             }
             a(true, key, value, null);
@@ -112,7 +96,7 @@ public class a<K, V> {
         synchronized (this) {
             remove = this.a.remove(k);
             if (remove != null) {
-                this.c -= c(k, remove);
+                this.b -= c(k, remove);
             }
         }
         if (remove != null) {
@@ -142,24 +126,23 @@ public class a<K, V> {
 
     public final void b() {
         a();
+        this.d = 0;
         this.e = 0;
         this.f = 0;
         this.g = 0;
-        this.h = 0;
     }
 
     public final synchronized int c() {
-        return this.c;
+        return this.b;
     }
 
     public final synchronized int d() {
-        return this.d;
+        return this.c;
     }
 
     public final void c(int i) {
         synchronized (this) {
-            this.d = i;
-            this.b = this.d / 5;
+            this.c = i;
             b(i);
         }
     }

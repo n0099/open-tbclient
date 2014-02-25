@@ -1,8 +1,10 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.ForumData;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class t implements Runnable {
+class t implements bx {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,45 +12,41 @@ class t implements Runnable {
         this.a = frsActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        bk bkVar;
-        bk bkVar2;
-        bk bkVar3;
-        String str;
-        String str2;
-        com.baidu.tieba.model.ak akVar;
-        bk bkVar4;
-        bk bkVar5;
-        try {
-            bkVar = this.a.n;
-            bkVar.n().a().a();
-            bkVar2 = this.a.n;
-            bkVar2.p().a().a();
-            bkVar3 = this.a.n;
-            bkVar3.o().a().a();
-            str = this.a.C;
-            if (!str.equals("frs_page")) {
-                str2 = this.a.C;
-                if (str2.equals("normal_page")) {
-                    akVar = this.a.w;
-                    String image_url = akVar.b().getImage_url();
-                    if (image_url != null && image_url.length() > 0) {
-                        this.a.b();
-                    }
-                }
-            } else {
-                this.a.d();
-            }
-            this.a.m();
-            if (com.baidu.tieba.e.a.a().f()) {
-                bkVar4 = this.a.n;
-                BdListView D = bkVar4.D();
-                bkVar5 = this.a.n;
-                com.baidu.tieba.util.an.a(D, bkVar5.n().a(), this.a.b, null, null, 0, -1);
-            }
-        } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b("FrsActivity", "mGetImageRunnble.run", "error = " + e.getMessage());
+    @Override // com.baidu.tieba.frs.bx
+    public void a(com.baidu.tieba.model.ab abVar, com.baidu.tieba.model.ac acVar) {
+        br brVar;
+        br brVar2;
+        br brVar3;
+        com.baidu.tieba.model.z zVar;
+        com.baidu.tieba.model.z zVar2;
+        br brVar4;
+        com.baidu.tieba.model.z zVar3;
+        com.baidu.tieba.model.z zVar4;
+        if (abVar.a) {
+            brVar3 = this.a.p;
+            brVar3.a(this.a.getString(R.string.add_fan_sucess));
+            zVar = this.a.A;
+            zVar.g().b(1);
+            zVar2 = this.a.A;
+            zVar2.g().c(abVar.c);
+            brVar4 = this.a.p;
+            zVar3 = this.a.A;
+            ForumData b = zVar3.b();
+            zVar4 = this.a.A;
+            brVar4.a(1, b, zVar4, false);
+            TiebaApplication.g().h(true);
+            return;
         }
+        if (acVar.d == null || acVar.d.length() <= 0) {
+            brVar = this.a.p;
+            brVar.a(this.a.getString(R.string.add_fan_error));
+        } else {
+            brVar2 = this.a.p;
+            brVar2.a(acVar.d);
+        }
+        if (acVar.c != 120002) {
+            return;
+        }
+        this.a.C();
     }
 }

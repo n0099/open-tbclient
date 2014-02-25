@@ -103,16 +103,16 @@ public class MarkData implements Serializable {
     }
 
     public void logPrint() {
-        com.baidu.adp.lib.g.e.d("MarkData", "logPrint", "mId = " + this.mId);
-        com.baidu.adp.lib.g.e.d("MarkData", "logPrint", "mAccount = " + this.mAccount);
-        com.baidu.adp.lib.g.e.d("MarkData", "logPrint", "mFloor = " + String.valueOf(this.mFloor));
-        com.baidu.adp.lib.g.e.d("MarkData", "logPrint", "mTime = " + String.valueOf(this.mTime));
-        com.baidu.adp.lib.g.e.d("MarkData", "logPrint", "mSequence = " + String.valueOf(this.mSequence));
-        com.baidu.adp.lib.g.e.d("MarkData", "logPrint", "mHostMode = " + String.valueOf(this.mHostMode));
-        com.baidu.adp.lib.g.e.d("MarkData", "logPrint", "mTitle = " + this.mTitle);
-        com.baidu.adp.lib.g.e.d("MarkData", "logPrint", "mPostId = " + this.mPostId);
-        com.baidu.adp.lib.g.e.d("MarkData", "logPrint", "mAuthorName = " + this.mAuthorName);
-        com.baidu.adp.lib.g.e.d("MarkData", "logPrint", "mFloorNum = " + String.valueOf(this.mReplyNum));
+        com.baidu.adp.lib.util.f.d("MarkData", "logPrint", "mId = " + this.mId);
+        com.baidu.adp.lib.util.f.d("MarkData", "logPrint", "mAccount = " + this.mAccount);
+        com.baidu.adp.lib.util.f.d("MarkData", "logPrint", "mFloor = " + String.valueOf(this.mFloor));
+        com.baidu.adp.lib.util.f.d("MarkData", "logPrint", "mTime = " + String.valueOf(this.mTime));
+        com.baidu.adp.lib.util.f.d("MarkData", "logPrint", "mSequence = " + String.valueOf(this.mSequence));
+        com.baidu.adp.lib.util.f.d("MarkData", "logPrint", "mHostMode = " + String.valueOf(this.mHostMode));
+        com.baidu.adp.lib.util.f.d("MarkData", "logPrint", "mTitle = " + this.mTitle);
+        com.baidu.adp.lib.util.f.d("MarkData", "logPrint", "mPostId = " + this.mPostId);
+        com.baidu.adp.lib.util.f.d("MarkData", "logPrint", "mAuthorName = " + this.mAuthorName);
+        com.baidu.adp.lib.util.f.d("MarkData", "logPrint", "mFloorNum = " + String.valueOf(this.mReplyNum));
     }
 
     public void setAccount(String str) {
@@ -169,7 +169,7 @@ public class MarkData implements Serializable {
             }
             return jSONObject;
         } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b(getClass().getName(), "toJson", e.toString());
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "toJson", e.toString());
             return null;
         }
     }
@@ -191,7 +191,7 @@ public class MarkData implements Serializable {
                 this.mSequence = false;
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b(getClass().getName(), "fromJson", e.toString());
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "fromJson", e.toString());
         }
     }
 }

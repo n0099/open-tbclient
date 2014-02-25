@@ -2,7 +2,7 @@ package com.baidu.tieba.im.chat.personaltalk;
 
 import java.io.Serializable;
 /* loaded from: classes.dex */
-public class PersonalSettingItemData implements com.baidu.tieba.im.c.k, Serializable {
+public class PersonalSettingItemData implements com.baidu.tieba.im.c.i, Serializable {
     private static final long serialVersionUID = 6507309561121772239L;
     private String draft;
     private boolean isAcceptNotify;
@@ -28,7 +28,7 @@ public class PersonalSettingItemData implements com.baidu.tieba.im.c.k, Serializ
         this.toUid = str;
     }
 
-    @Override // com.baidu.tieba.im.c.k
+    @Override // com.baidu.tieba.im.c.i
     public boolean isAcceptNotify() {
         return this.isAcceptNotify;
     }

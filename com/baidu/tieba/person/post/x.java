@@ -1,19 +1,21 @@
 package com.baidu.tieba.person.post;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements com.baidu.tbadk.imageManager.c {
-    final /* synthetic */ String a;
-    final /* synthetic */ TripleTbImageView b;
+class x implements com.baidu.adp.widget.ListView.b {
+    final /* synthetic */ w a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(TripleTbImageView tripleTbImageView, String str) {
-        this.b = tripleTbImageView;
-        this.a = str;
+    public x(w wVar) {
+        this.a = wVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
-        this.b.b.setTag(this.a);
-        this.b.a(this.b.b, dVar);
+    @Override // com.baidu.adp.widget.ListView.b
+    public void a(boolean z) {
+        t tVar;
+        t tVar2;
+        tVar = this.a.c;
+        if (tVar != null) {
+            tVar2 = this.a.c;
+            tVar2.a(true);
+        }
     }
 }

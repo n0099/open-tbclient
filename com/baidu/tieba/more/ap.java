@@ -1,50 +1,33 @@
 package com.baidu.tieba.more;
 
-import android.view.View;
-import android.widget.Scroller;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.model.MoreModel;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class ap implements Runnable {
-    final /* synthetic */ ao a;
+class ap extends com.baidu.tieba.i {
+    final /* synthetic */ SystemHelpSettingActivity b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(ao aoVar) {
-        this.a = aoVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ap(SystemHelpSettingActivity systemHelpSettingActivity, com.baidu.tieba.f fVar) {
+        super(fVar);
+        this.b = systemHelpSettingActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        Scroller scroller;
-        boolean z;
-        View view;
-        Scroller scroller2;
-        View view2;
-        View view3;
-        View view4;
-        View view5;
-        View view6;
-        View view7;
-        scroller = this.a.b;
-        if (scroller.computeScrollOffset()) {
-            scroller2 = this.a.b;
-            int currX = scroller2.getCurrX();
-            view2 = this.a.a;
-            view3 = this.a.a;
-            int paddingLeft = view3.getPaddingLeft();
-            view4 = this.a.a;
-            int paddingRight = view4.getPaddingRight();
-            view5 = this.a.a;
-            view2.setPadding(paddingLeft, currX, paddingRight, view5.getPaddingBottom());
-            view6 = this.a.a;
-            view6.invalidate();
-            view7 = this.a.a;
-            view7.post(this);
-            return;
-        }
-        z = this.a.f;
-        if (!z) {
-            view = this.a.a;
-            view.setVisibility(8);
+    @Override // com.baidu.tieba.i
+    public void a(Object... objArr) {
+        ay ayVar;
+        ay ayVar2;
+        Object obj = objArr[0];
+        if (objArr != null && (obj instanceof MoreModel.TaskType)) {
+            if (obj == MoreModel.TaskType.DO_CLEAR) {
+                this.b.closeLoadingDialog();
+                ayVar2 = this.b.a;
+                ayVar2.f().setTip("");
+                this.b.showToast(R.string.image_cash_del_suc);
+            } else if (obj == MoreModel.TaskType.GET_SIZE) {
+                ayVar = this.b.a;
+                ayVar.f().setTip((String) objArr[1]);
+            }
         }
     }
 }

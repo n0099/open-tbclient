@@ -1,81 +1,162 @@
 package com.baidu.adp.lib.stats;
 
-import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
-import com.baidu.tieba.switchs.SwitchKey;
-import java.util.HashMap;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.Proxy;
+import android.telephony.TelephonyManager;
+import com.baidu.cloudsdk.social.core.SocialConstants;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.security.MessageDigest;
+import java.util.Random;
 /* loaded from: classes.dex */
 public class o {
-    private static o c;
-    private HashMap<String, q> a = new HashMap<>();
-    private HashMap<String, r> b = new HashMap<>();
+    private static Random a = new Random();
 
-    public static o a() {
-        if (c == null) {
-            synchronized (BdStatSwitchData.class) {
-                if (c == null) {
-                    c = new o();
-                }
-            }
+    public static String a() {
+        try {
+            return Long.toHexString(Math.abs(a.nextLong()));
+        } catch (Exception e) {
+            return Long.toHexString(System.currentTimeMillis());
         }
-        return c;
     }
 
-    public o() {
-        r rVar = new r(this);
-        rVar.a(3000);
-        rVar.b(120000);
-        rVar.c(SocialAPIErrorCodes.ERROR_INVALID_AUTHORIZED_CODE);
-        this.b.put(com.baidu.loginshare.e.e, rVar);
-        this.b.put("op", rVar);
-        this.b.put("stat", rVar);
-        r rVar2 = new r(this);
-        rVar2.a(60000);
-        rVar2.b(120000);
-        rVar2.c(10);
-        this.b.put("file", rVar2);
-        this.b.put("db", rVar2);
-        this.b.put("img", rVar2);
-        this.b.put(SwitchKey.VOICE, rVar2);
+    public static String a(Context context) {
+        NetworkInfo activeNetworkInfo;
+        if (context == null) {
+            return null;
+        }
+        try {
+            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+            if (connectivityManager != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null) {
+                int type = activeNetworkInfo.getType();
+                if (type == 1) {
+                    return "WIFI";
+                }
+                if (type == 0) {
+                    int c = com.baidu.adp.lib.network.i.c();
+                    StringBuilder sb = new StringBuilder();
+                    switch (c) {
+                        case 1:
+                            sb.append('M');
+                            break;
+                        case 2:
+                            sb.append('U');
+                            break;
+                        case 3:
+                            sb.append('T');
+                            break;
+                        default:
+                            sb.append('N');
+                            break;
+                    }
+                    if (activeNetworkInfo.getExtraInfo() != null && activeNetworkInfo.getExtraInfo().contains(com.baidu.loginshare.e.d)) {
+                        sb.append("_WAP_");
+                    } else {
+                        sb.append("_NET_");
+                    }
+                    TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
+                    if (telephonyManager != null) {
+                        switch (telephonyManager.getNetworkType()) {
+                            case 1:
+                            case 2:
+                            case 4:
+                            case 5:
+                                sb.append("2G");
+                                break;
+                            case 3:
+                            case 6:
+                            case 7:
+                            case 8:
+                            case 9:
+                            case 10:
+                                sb.append("3G");
+                                break;
+                            default:
+                                sb.append('N');
+                                break;
+                        }
+                    } else {
+                        sb.append('N');
+                    }
+                    return sb.toString();
+                }
+            }
+            return "unknown";
+        } catch (Exception e) {
+            return null;
+        }
     }
 
-    public boolean a(String str) {
-        r rVar = this.b.get(str);
-        if (rVar == null) {
-            return false;
+    public static String b(Context context) {
+        if (context == null) {
+            return null;
         }
-        q qVar = this.a.get(str);
-        long currentTimeMillis = System.currentTimeMillis();
-        if (qVar == null) {
-            qVar = new q(this);
-            qVar.b(false);
-            qVar.a(false);
-            qVar.b(currentTimeMillis);
-            this.a.put(str, qVar);
-        }
-        if (qVar.a()) {
-            return true;
-        }
-        if (qVar.e()) {
-            qVar.a(qVar.c() + 1);
-            if (currentTimeMillis - qVar.b() < rVar.b()) {
-                if (qVar.c() >= rVar.c()) {
-                    qVar.a(true);
-                    h.a().a(false, "d", "logfast", null, null, 0L, 99999, str, new Object[0]);
-                    return true;
+        try {
+            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
+            if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
+                if (activeNetworkInfo.getTypeName().equalsIgnoreCase("WIFI")) {
+                    return "3";
                 }
-                return false;
+                String defaultHost = Proxy.getDefaultHost();
+                if (defaultHost != null) {
+                    if (defaultHost.length() > 0) {
+                        return "2";
+                    }
+                }
+                return SocialConstants.TRUE;
             }
-            qVar.b(false);
-            qVar.a(0);
-            qVar.b(currentTimeMillis);
-            return false;
-        } else if (currentTimeMillis - qVar.d() < rVar.a()) {
-            qVar.b(true);
-            qVar.a(currentTimeMillis);
-            return false;
-        } else {
-            qVar.b(currentTimeMillis);
-            return false;
+            return null;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public static FileOutputStream a(String str, boolean z) {
+        return a(new File(str), z);
+    }
+
+    public static FileOutputStream a(File file, boolean z) {
+        if (file == null) {
+            return null;
+        }
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                com.baidu.adp.lib.util.f.a("BdStatsHelper", "getFileOutputStream", e);
+            }
+        }
+        try {
+            return new FileOutputStream(file, z);
+        } catch (FileNotFoundException e2) {
+            com.baidu.adp.lib.util.f.a("BdStatsHelper", "getFileOutputStream", e2);
+            return null;
+        }
+    }
+
+    public static String a(byte[] bArr) {
+        char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            messageDigest.update(bArr);
+            byte[] digest = messageDigest.digest();
+            char[] cArr2 = new char[32];
+            int i = 0;
+            for (int i2 = 0; i2 < 16; i2++) {
+                byte b = digest[i2];
+                int i3 = i + 1;
+                cArr2[i] = cArr[(b >>> 4) & 15];
+                i = i3 + 1;
+                cArr2[i3] = cArr[b & 15];
+            }
+            return new String(cArr2);
+        } catch (Exception e) {
+            com.baidu.adp.lib.util.f.a("BdStatsHelper", "getMD5", e);
+            return null;
         }
     }
 }

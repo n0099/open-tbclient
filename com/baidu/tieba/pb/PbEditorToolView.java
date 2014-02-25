@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import com.baidu.location.LocationClientOption;
 import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class PbEditorToolView extends LinearLayout {
     protected Context a;
@@ -46,15 +47,31 @@ public class PbEditorToolView extends LinearLayout {
         this.c.setFilters(new InputFilter[]{new InputFilter.LengthFilter(LocationClientOption.MIN_SCAN_SPAN)});
     }
 
-    public void a(String str) {
-        this.c.getText().insert(this.c.getSelectionStart(), "@" + str + " ");
+    public void a(ArrayList<String> arrayList) {
+        if (arrayList != null && arrayList.size() != 0) {
+            StringBuilder sb = new StringBuilder();
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 < arrayList.size()) {
+                    sb.append("@");
+                    sb.append(arrayList.get(i2));
+                    sb.append(" ");
+                    i = i2 + 1;
+                } else {
+                    String sb2 = sb.toString();
+                    this.c.getText().insert(this.c.getSelectionStart(), sb2);
+                    return;
+                }
+            }
+        }
     }
 
-    public void setOnActionListener(com.baidu.tieba.editortool.t tVar) {
-        this.b.setOnActionListener(new cn(this, tVar));
-        this.c.setOnTouchListener(new co(this, tVar));
-        this.c.addTextChangedListener(new cp(this, tVar));
-        this.d.setOnClickListener(new cq(this, tVar));
+    public void setOnActionListener(com.baidu.tieba.editortool.z zVar) {
+        this.b.setOnActionListener(new co(this, zVar));
+        this.c.setOnTouchListener(new cp(this, zVar));
+        this.c.addTextChangedListener(new cq(this, zVar));
+        this.d.setOnClickListener(new cr(this, zVar));
     }
 
     public void b() {
@@ -73,7 +90,7 @@ public class PbEditorToolView extends LinearLayout {
 
     public void e() {
         this.d.setEnabled(true);
-        if (TiebaApplication.h().al() == 1) {
+        if (TiebaApplication.g().al() == 1) {
             this.d.setTextColor(this.a.getResources().getColor(R.color.editor_tool_post_enable_text_1));
         } else {
             this.d.setTextColor(this.a.getResources().getColor(R.color.editor_tool_post_enable_text));
@@ -82,7 +99,7 @@ public class PbEditorToolView extends LinearLayout {
 
     public void f() {
         this.d.setEnabled(false);
-        if (TiebaApplication.h().al() == 1) {
+        if (TiebaApplication.g().al() == 1) {
             this.d.setTextColor(this.a.getResources().getColor(R.color.editor_tool_post_disable_text_1));
         } else {
             this.d.setTextColor(this.a.getResources().getColor(R.color.editor_tool_post_disable_text));
@@ -98,6 +115,14 @@ public class PbEditorToolView extends LinearLayout {
     }
 
     public void i() {
+        this.b.h();
+    }
+
+    public void j() {
+        this.b.i();
+    }
+
+    public void k() {
         this.b.c();
     }
 

@@ -5,15 +5,16 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class CommonImageLayout extends ViewGroup {
     private static com.baidu.tieba.util.i j;
-    public ci b;
-    public ci c;
-    public ci d;
-    private com.baidu.tieba.data.aj[] k;
+    public cp b;
+    public cp c;
+    public cp d;
+    private com.baidu.tieba.data.ah[] k;
     private int l;
     private boolean m;
     private boolean n;
@@ -32,7 +33,7 @@ public class CommonImageLayout extends ViewGroup {
 
     private void b() {
         if (a < 0.0f) {
-            a = com.baidu.adp.lib.g.g.b(this.o) / 320.0f;
+            a = BdUtilHelper.b(this.o) / 320.0f;
             for (int i2 = 0; i2 < e.length; i2++) {
                 float[] fArr = e;
                 fArr[i2] = fArr[i2] * a;
@@ -52,9 +53,9 @@ public class CommonImageLayout extends ViewGroup {
         this.p = "other";
         this.o = context;
         b();
-        this.b = new ci(context);
-        this.c = new ci(context);
-        this.d = new ci(context);
+        this.b = new cp(context);
+        this.c = new cp(context);
+        this.d = new cp(context);
         this.b.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.c.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.d.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -90,8 +91,8 @@ public class CommonImageLayout extends ViewGroup {
         }
     }
 
-    public void setData(com.baidu.tieba.data.aj[] ajVarArr) {
-        this.k = ajVarArr;
+    public void setData(com.baidu.tieba.data.ah[] ahVarArr) {
+        this.k = ahVarArr;
         if (this.k == null || this.k.length <= 0) {
             if (this.b != null) {
                 this.b.setTag(null);
@@ -270,22 +271,20 @@ public class CommonImageLayout extends ViewGroup {
         this.l = i2;
     }
 
-    private void a(TbImageView tbImageView, com.baidu.tieba.data.aj ajVar) {
+    private void a(TbImageView tbImageView, com.baidu.tieba.data.ah ahVar) {
         if (tbImageView != null) {
-            String b = ajVar.b();
-            if (ajVar.a() == 5) {
+            String b = ahVar.b();
+            if (ahVar.a() == 5) {
                 b = null;
                 tbImageView.setDefaultResource(R.drawable.pic_video);
                 tbImageView.setNightDefaultResource(R.drawable.pic_video_1);
-                tbImageView.setOnClickListener(new r(this, ajVar));
+                tbImageView.setOnClickListener(new t(this, ahVar));
             } else {
                 tbImageView.setDefaultResource(R.drawable.pic_baidu_logo_d);
                 tbImageView.setNightDefaultResource(R.drawable.pic_baidu_logo_d_1);
                 tbImageView.setClickable(false);
             }
             tbImageView.setTag(b);
-            if (j != null) {
-            }
         }
     }
 
@@ -311,13 +310,13 @@ public class CommonImageLayout extends ViewGroup {
 
     public void a() {
         if (this.b != null) {
-            this.b.e();
+            this.b.f();
         }
         if (this.c != null) {
-            this.c.e();
+            this.c.f();
         }
         if (this.d != null) {
-            this.d.e();
+            this.d.f();
         }
     }
 }

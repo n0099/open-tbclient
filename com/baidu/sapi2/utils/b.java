@@ -164,7 +164,7 @@ public class b {
                                 socialResponse2 = socialResponse;
                                 continue;
                             } else if (name.equalsIgnoreCase("passport_uname")) {
-                                socialResponse.baiduUname = newPullParser.nextText();
+                                socialResponse.username = newPullParser.nextText();
                                 socialResponse2 = socialResponse;
                                 continue;
                             } else if (name.equalsIgnoreCase("bduid")) {

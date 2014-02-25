@@ -1,8 +1,7 @@
 package com.baidu.tieba.faceshop;
-
-import com.baidu.tieba.view.br;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aj implements br {
+public class aj implements com.baidu.adp.widget.ListView.b {
     final /* synthetic */ FacePurchaseRecordsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,10 +9,8 @@ class aj implements br {
         this.a = facePurchaseRecordsActivity;
     }
 
-    @Override // com.baidu.tieba.view.br
+    @Override // com.baidu.adp.widget.ListView.b
     public void a(boolean z) {
-        if (z) {
-            this.a.a(true);
-        }
+        this.a.a(false);
     }
 }

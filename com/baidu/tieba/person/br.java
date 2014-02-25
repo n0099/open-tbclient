@@ -1,22 +1,23 @@
 package com.baidu.tieba.person;
+
+import android.view.MotionEvent;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class br implements com.baidu.tieba.im.messageCenter.g {
-    final /* synthetic */ PersonInfoActivity a;
-
-    private br(PersonInfoActivity personInfoActivity) {
-        this.a = personInfoActivity;
-    }
+public class br implements View.OnTouchListener {
+    final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ br(PersonInfoActivity personInfoActivity, bl blVar) {
-        this(personInfoActivity);
+    public br(PersonChangeActivity personChangeActivity) {
+        this.a = personChangeActivity;
     }
 
-    @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.q qVar) {
-        if (qVar != null && qVar.w() == -124) {
-            this.a.b(qVar);
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (motionEvent.getAction() == 1) {
+            this.a.v = true;
+            return false;
         }
+        return false;
     }
 }

@@ -3,9 +3,8 @@ package com.baidu.tieba.pb;
 import com.baidu.sapi2.shell.SapiErrorCode;
 import com.baidu.tieba.view.MultiImageView;
 import java.util.ArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements c {
+class d implements c {
     final /* synthetic */ ImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -20,6 +19,7 @@ public class d implements c {
         MultiImageView multiImageView3;
         MultiImageView multiImageView4;
         MultiImageView multiImageView5;
+        int i3;
         MultiImageView multiImageView6;
         MultiImageView multiImageView7;
         MultiImageView multiImageView8;
@@ -59,12 +59,14 @@ public class d implements c {
         if (arrayList.size() >= 400) {
             multiImageView4 = this.a.m;
             if (multiImageView4.getCurrentItem() > 200) {
-                for (int i3 = 0; i3 < 200; i3++) {
+                for (int i4 = 0; i4 < 200; i4++) {
                     arrayList.remove(0);
                 }
                 multiImageView5 = this.a.m;
                 multiImageView5.setUrlData(arrayList);
-                ImageActivity.b(this.a, 200);
+                ImageActivity imageActivity = this.a;
+                i3 = imageActivity.b;
+                imageActivity.b = i3 + 200;
                 multiImageView6 = this.a.m;
                 multiImageView7 = this.a.m;
                 multiImageView6.a(multiImageView7.getCurrentItem() + SapiErrorCode.NETWORK_FAILED, false);

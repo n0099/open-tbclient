@@ -1,12 +1,13 @@
 package com.baidu.tieba.pb;
 
 import android.content.Intent;
+import android.support.v4.view.ViewPager;
 import com.baidu.tieba.view.MultiImageView;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements android.support.v4.view.bq {
+public class g implements ViewPager.OnPageChangeListener {
     final /* synthetic */ ImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,8 +15,8 @@ public class g implements android.support.v4.view.bq {
         this.a = imageActivity;
     }
 
-    @Override // android.support.v4.view.bq
-    public void a_(int i) {
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageSelected(int i) {
         boolean z;
         a aVar;
         MultiImageView multiImageView;
@@ -32,7 +33,7 @@ public class g implements android.support.v4.view.bq {
                 }
             }
         } else {
-            Intent intent = new Intent("com.baidu.tieba.broadcast.imagepb.pagechanged");
+            Intent intent = new Intent(com.baidu.tieba.data.i.c());
             intent.putExtra("index", i);
             this.a.sendBroadcast(intent);
         }
@@ -43,12 +44,12 @@ public class g implements android.support.v4.view.bq {
         this.a.f();
     }
 
-    @Override // android.support.v4.view.bq
-    public void a(int i, float f, int i2) {
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrolled(int i, float f, int i2) {
     }
 
-    @Override // android.support.v4.view.bq
-    public void b(int i) {
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrollStateChanged(int i) {
         long j;
         ArrayList arrayList;
         int i2;
@@ -68,7 +69,7 @@ public class g implements android.support.v4.view.bq {
                         hashMap = this.a.w;
                         arrayList3 = this.a.c;
                         i3 = this.a.d;
-                        hashMap.put(arrayList3.get(i3), true);
+                        hashMap.put((String) arrayList3.get(i3), true);
                     }
                 }
             }

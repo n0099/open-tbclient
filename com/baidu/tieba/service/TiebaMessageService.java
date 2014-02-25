@@ -5,22 +5,16 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.ak;
+import com.baidu.tieba.data.ai;
+import com.baidu.tieba.mention.v;
 /* loaded from: classes.dex */
 public class TiebaMessageService extends Service {
-    private n a = null;
-    private n b = null;
-    private ak c = null;
+    private m a = null;
+    private m b = null;
+    private ai c = null;
     private int d = 0;
     private boolean e = false;
-    private Handler f = new m(this);
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ int b(TiebaMessageService tiebaMessageService) {
-        int i = tiebaMessageService.d;
-        tiebaMessageService.d = i + 1;
-        return i;
-    }
+    private Handler f = new l(this);
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -44,7 +38,7 @@ public class TiebaMessageService extends Service {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (!TiebaApplication.h().aa()) {
+        if (!TiebaApplication.g().Z()) {
             stopSelf();
             return;
         }
@@ -74,7 +68,7 @@ public class TiebaMessageService extends Service {
                     if (this.a != null) {
                         this.a.cancel();
                     }
-                    this.a = new n(this, i);
+                    this.a = new m(this, i);
                     this.a.execute(new String[0]);
                 } else if (i == 2) {
                     if (this.b != null) {
@@ -83,42 +77,42 @@ public class TiebaMessageService extends Service {
                     if (this.a != null) {
                         this.a.cancel();
                     }
-                    this.b = new n(this, i);
+                    this.b = new m(this, i);
                     this.b.execute(new String[0]);
                 }
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b(getClass().getName(), "getMsg", e.getMessage());
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "getMsg", e.getMessage());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i) {
         if (this.c != null && this.c.a() >= 0 && this.c.b() >= 0 && this.c.c() >= 0 && this.c.d() >= 0 && this.c.e() >= 0) {
-            if (!TiebaApplication.h().X()) {
+            if (!TiebaApplication.g().W()) {
                 this.c.a(0);
             }
-            if (!TiebaApplication.h().W()) {
+            if (!TiebaApplication.g().V()) {
                 this.c.b(0);
             }
-            if (!TiebaApplication.h().V()) {
+            if (!TiebaApplication.g().U()) {
                 this.c.c(0);
             }
-            if (!TiebaApplication.h().Y()) {
+            if (!TiebaApplication.g().X()) {
                 this.c.d(0);
             }
-            Intent intent = new Intent("com.baidu.tieba.broadcast.service");
+            Intent intent = new Intent(com.baidu.tieba.data.i.e());
             intent.putExtra("relay", this.c.a());
             intent.putExtra("at_me", this.c.b());
             intent.putExtra("fans", this.c.c());
             intent.putExtra("pletter", this.c.d());
             if (i == 1) {
-                intent.putExtra("new_bookmark", com.baidu.tieba.mention.s.a().r());
+                intent.putExtra("new_bookmark", v.a().r());
             } else if (i == 2) {
                 intent.putExtra("new_bookmark", this.c.e());
             }
             sendBroadcast(intent);
-            com.baidu.adp.lib.g.e.a(getClass().getName(), "broadcastMsg", "sendBroadcast: " + String.format("%d %d %d %d", Integer.valueOf(this.c.a()), Integer.valueOf(this.c.b()), Integer.valueOf(this.c.c()), Integer.valueOf(this.c.e())));
+            com.baidu.adp.lib.util.f.a(getClass().getName(), "broadcastMsg", "sendBroadcast: " + String.format("%d %d %d %d", Integer.valueOf(this.c.a()), Integer.valueOf(this.c.b()), Integer.valueOf(this.c.c()), Integer.valueOf(this.c.e())));
         }
     }
 }

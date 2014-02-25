@@ -12,4 +12,6 @@ public interface s<T> {
     void b(String str, T t, long j);
 
     void c(String str);
+
+    void d(String str);
 }

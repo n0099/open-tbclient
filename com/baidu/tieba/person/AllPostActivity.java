@@ -11,21 +11,21 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class AllPostActivity extends com.baidu.tieba.j {
+public class AllPostActivity extends com.baidu.tieba.f {
     FrameLayout a = null;
     TextView b = null;
     ListView c = null;
     ImageView d = null;
-    am e = null;
-    com.baidu.tieba.model.bk f = null;
+    as e = null;
+    com.baidu.tieba.model.az f = null;
     c g = null;
     private ProgressBar h = null;
     private boolean i = false;
     private int j = 0;
-    private Handler k = new Handler(new b(this));
+    private Handler k = new Handler(new a(this));
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.all_post_activity);
@@ -51,14 +51,14 @@ public class AllPostActivity extends com.baidu.tieba.j {
         this.d = (ImageView) findViewById(R.id.time_line);
         this.d.setVisibility(8);
         this.c = (ListView) findViewById(R.id.all_post_list);
-        this.e = new am(this, this.f);
+        this.e = new as(this, this.f);
         this.c.setAdapter((ListAdapter) this.e);
-        this.c.setOnItemClickListener(new a(this));
+        this.c.setOnItemClickListener(new b(this));
         this.h = (ProgressBar) findViewById(R.id.loading_progress);
     }
 
     void a(Bundle bundle) {
-        this.f = new com.baidu.tieba.model.bk();
+        this.f = new com.baidu.tieba.model.az();
         if (bundle != null) {
             this.f.a(bundle.getString("user"));
             this.f.a(bundle.getInt("user_sex"));
@@ -97,12 +97,12 @@ public class AllPostActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j
+    @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        com.baidu.tieba.util.bs.a(this.a, i);
+        com.baidu.tieba.util.bq.a(this.a, i);
         if (i == 1) {
-            this.b.setTextColor(com.baidu.tieba.util.bs.a(i));
+            this.b.setTextColor(com.baidu.tieba.util.bq.a(i));
             this.d.setBackgroundResource(R.drawable.time_line_skin_1);
             return;
         }
@@ -111,19 +111,19 @@ public class AllPostActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, android.app.Activity
     public void onResume() {
         super.onResume();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, android.app.Activity
     public void onPause() {
         super.onPause();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         if (this.g != null) {
             this.g.cancel();

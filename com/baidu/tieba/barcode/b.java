@@ -1,7 +1,7 @@
 package com.baidu.tieba.barcode;
 
 import android.view.View;
-import com.baidu.tieba.write.bb;
+import com.baidu.tieba.write.bz;
 /* loaded from: classes.dex */
 class b implements View.OnClickListener {
     final /* synthetic */ CaptureActivity a;
@@ -16,7 +16,7 @@ class b implements View.OnClickListener {
         boolean e;
         e = this.a.e();
         if (e) {
-            bb.b(this.a);
+            bz.b(this.a);
         }
     }
 }

@@ -1,113 +1,45 @@
 package com;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import com.baidu.cloudsdk.common.imgloader.AsyncImageLoader;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+import android.content.Context;
+import android.graphics.Color;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
+import com.baidu.cloudsdk.social.core.MediaType;
+import com.baidu.cloudsdk.social.share.SocialShareConfig;
+import java.util.List;
 /* loaded from: classes.dex */
-public class bg implements bh {
-    private String a;
-    private bh b;
-    private int c;
-    private int d;
-    private Map e = new HashMap();
+public class bg extends ArrayAdapter {
+    private SocialShareConfig a;
 
-    public bg(String str, int i, int i2, bh bhVar) {
-        this.a = str;
-        this.c = i;
-        this.d = i2;
-        this.b = bhVar;
-    }
+    /* loaded from: classes.dex */
+    class a {
+        private TextView a;
 
-    public bg a(int i) {
-        this.d = i;
-        return this;
-    }
-
-    public bg a(String str) {
-        this.a = str;
-        return this;
-    }
-
-    @Override // com.bh
-    public void a(String str, Bitmap bitmap) {
-        FileOutputStream fileOutputStream;
-        File file = new File(c(str));
-        File parentFile = file.getParentFile();
-        if (parentFile != null && !parentFile.exists()) {
-            parentFile.mkdirs();
-        }
-        FileOutputStream fileOutputStream2 = null;
-        try {
-            fileOutputStream = new FileOutputStream(file);
-        } catch (Exception e) {
-            fileOutputStream = null;
-        } catch (Throwable th) {
-            th = th;
-        }
-        try {
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream);
-            fileOutputStream.flush();
-            this.e.put(str, 1);
-            if (fileOutputStream != null) {
-                try {
-                    fileOutputStream.close();
-                } catch (IOException e2) {
-                }
-            }
-        } catch (Exception e3) {
-            if (fileOutputStream != null) {
-                try {
-                    fileOutputStream.close();
-                } catch (IOException e4) {
-                }
-            }
-        } catch (Throwable th2) {
-            fileOutputStream2 = fileOutputStream;
-            th = th2;
-            if (fileOutputStream2 != null) {
-                try {
-                    fileOutputStream2.close();
-                } catch (IOException e5) {
-                }
-            }
-            throw th;
+        private a() {
         }
     }
 
-    public Bitmap b(String str) {
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inJustDecodeBounds = true;
-        BitmapFactory.decodeFile(c(str), options);
-        options.inSampleSize = AsyncImageLoader.computeSampleSize(options, -1, this.d);
-        options.inJustDecodeBounds = false;
-        Bitmap decodeFile = BitmapFactory.decodeFile(c(str), options);
-        if (decodeFile != null) {
-            Integer num = (Integer) this.e.get(str);
-            if (num == null) {
-                num = 0;
-            }
-            if (num.intValue() + 1 < this.c || this.b == null) {
-                this.e.put(str, Integer.valueOf(num.intValue() + 1));
-                return decodeFile;
-            }
-            this.b.a(str, decodeFile);
-            this.e.remove(str);
-            return decodeFile;
+    public bg(Context context, List list) {
+        super(context, 0, list);
+        this.a = SocialShareConfig.getInstance(context);
+    }
+
+    @Override // android.widget.ArrayAdapter, android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        a aVar;
+        if (view == null || view.getTag() == null) {
+            aVar = new a();
+            view = LayoutInflater.from(getContext()).inflate(aq.a(getContext(), "bdsocialshare_sharemenuweixinitem"), (ViewGroup) null);
+            view.setBackgroundResource(aq.b(getContext(), "bdsocialshare_sharemenu_item_click"));
+            aVar.a = (TextView) view.findViewById(aq.d(getContext(), "sharemenuweixin_itemtext"));
+            aVar.a.setTextColor(Color.parseColor(aq.a(getContext())));
+        } else {
+            aVar = (a) view.getTag();
         }
-        return null;
-    }
-
-    public bg b(int i) {
-        this.c = i;
-        return this;
-    }
-
-    public String c(String str) {
-        return this.a + "/" + str + ".png";
+        aVar.a.setText(this.a.getString(((MediaType) getItem(i)).toString()));
+        return view;
     }
 }

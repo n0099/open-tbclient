@@ -8,7 +8,7 @@ import android.widget.AdapterView;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import java.util.List;
 /* loaded from: classes.dex */
-public class GroupAddressEditActivity extends com.baidu.tieba.j implements AdapterView.OnItemClickListener, com.baidu.adp.widget.BdSwitchView.c {
+public class GroupAddressEditActivity extends com.baidu.tieba.f implements AdapterView.OnItemClickListener, com.baidu.adp.widget.BdSwitchView.c {
     p a = null;
     private String[] b = null;
     private boolean c = false;
@@ -34,7 +34,7 @@ public class GroupAddressEditActivity extends com.baidu.tieba.j implements Adapt
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         Intent intent = getIntent();
@@ -47,7 +47,7 @@ public class GroupAddressEditActivity extends com.baidu.tieba.j implements Adapt
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j
+    @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.a.a(i);

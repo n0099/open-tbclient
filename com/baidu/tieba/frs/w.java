@@ -1,74 +1,50 @@
 package com.baidu.tieba.frs;
 
+import android.content.DialogInterface;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.ForumData;
-import com.slidingmenu.lib.R;
+import com.baidu.tieba.pb.NewPbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w extends com.baidu.adp.a.g {
+public class w implements DialogInterface.OnClickListener {
     final /* synthetic */ FrsActivity a;
+    private final /* synthetic */ com.baidu.tieba.data.az b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(FrsActivity frsActivity) {
+    public w(FrsActivity frsActivity, com.baidu.tieba.data.az azVar) {
         this.a = frsActivity;
+        this.b = azVar;
     }
 
-    @Override // com.baidu.adp.a.g
-    public void a(Object obj) {
-        com.baidu.tieba.model.ax axVar;
-        bk bkVar;
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
         String str;
         String str2;
-        bk bkVar2;
-        com.baidu.tieba.model.ak akVar;
-        com.baidu.tieba.model.ak akVar2;
-        bk bkVar3;
-        String str3;
-        bk bkVar4;
-        com.baidu.tieba.model.ak akVar3;
-        com.baidu.tieba.model.ak akVar4;
-        String str4;
-        com.baidu.tieba.model.ak akVar5;
-        boolean z = false;
-        if (obj != null && (obj instanceof com.baidu.tieba.data.ag)) {
-            com.baidu.tieba.model.z a = com.baidu.tieba.model.z.a();
-            str4 = this.a.f;
-            a.b(str4);
-            ((com.baidu.tieba.data.ag) obj).b(1);
-            akVar5 = this.a.w;
-            akVar5.a((com.baidu.tieba.data.ag) obj);
-            z = true;
-        }
-        if (z) {
-            str = this.a.C;
-            if (str.equals("normal_page")) {
-                bkVar4 = this.a.n;
-                akVar3 = this.a.w;
-                ForumData b = akVar3.b();
-                akVar4 = this.a.w;
-                bkVar4.b(1, b, akVar4, true);
-            } else {
-                str2 = this.a.C;
-                if (str2.equals("frs_page")) {
-                    bkVar2 = this.a.n;
-                    akVar = this.a.w;
-                    ForumData b2 = akVar.b();
-                    akVar2 = this.a.w;
-                    bkVar2.a(1, b2, akVar2, true);
+        boolean z;
+        br brVar;
+        switch (i) {
+            case 0:
+                str = this.a.n;
+                if (str != null) {
+                    FrsActivity frsActivity = this.a;
+                    com.baidu.tieba.data.az azVar = this.b;
+                    str2 = this.a.g;
+                    z = this.a.o;
+                    NewPbActivity.a(frsActivity, azVar, str2, null, 18003, true, false, z);
+                    break;
                 }
-            }
-            bkVar3 = this.a.n;
-            bkVar3.a(this.a.getString(R.string.like_success));
-            TiebaApplication h = TiebaApplication.h();
-            str3 = this.a.f;
-            h.e(str3);
-            return;
+                break;
+            case 1:
+                this.a.c(this.b);
+                break;
+            case 2:
+                this.a.d(this.b);
+                break;
         }
-        axVar = this.a.x;
-        if (axVar.getErrorCode() == 22) {
+        com.baidu.tieba.util.bo at = TiebaApplication.g().at();
+        if (at != null && !at.b(this.b.a())) {
+            at.a(this.b.a());
         }
-        bkVar = this.a.n;
-        bkVar.a(this.a.getString(R.string.had_liked_forum));
-        this.a.z();
+        brVar = this.a.p;
+        brVar.r();
     }
 }

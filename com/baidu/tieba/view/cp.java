@@ -1,27 +1,29 @@
 package com.baidu.tieba.view;
 
 import android.content.Context;
-import android.widget.TextView;
+import android.graphics.Canvas;
+import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class cp extends com.baidu.adp.widget.ScrollView.r {
+public class cp extends com.baidu.tbadk.widget.b {
+    private int b;
+
     public cp(Context context) {
         super(context);
+        this.b = -1;
     }
 
-    public void a(int i) {
-        TextView d = d();
-        TextView c = c();
-        if (d != null && c != null) {
-            if (i == 1) {
-                int color = h().getResources().getColor(R.color.adp_pullview_night);
-                d.setTextColor(color);
-                c.setTextColor(color);
-                return;
-            }
-            int color2 = h().getResources().getColor(R.color.adp_pullview_day);
-            d.setTextColor(color2);
-            c.setTextColor(color2);
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.widget.b, com.baidu.tbadk.widget.TbImageView, com.baidu.adp.widget.ImageView.BDImageView, android.widget.ImageView, android.view.View
+    public void onDraw(Canvas canvas) {
+        if (TiebaApplication.g().al() == 1) {
+            this.b = getResources().getColor(R.color.pb_default_image_bg_1);
+        } else {
+            this.b = getResources().getColor(R.color.pb_default_image_bg);
         }
+        if (getImage() == null && this.b != -1) {
+            canvas.drawColor(this.b);
+        }
+        super.onDraw(canvas);
     }
 }

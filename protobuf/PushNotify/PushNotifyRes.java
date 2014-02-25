@@ -13,15 +13,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import protobuf.Im;
-import protobuf.aa;
+import protobuf.ac;
 /* loaded from: classes.dex */
 public final class PushNotifyRes {
 
     /* loaded from: classes.dex */
-    public final class PusherMsg extends GeneratedMessageLite implements k {
+    public final class PusherMsg extends GeneratedMessageLite implements i {
         public static final int CMD_FIELD_NUMBER = 1;
         public static final int DATA_FIELD_NUMBER = 2;
-        public static Parser<PusherMsg> PARSER = new i();
+        public static Parser<PusherMsg> PARSER = new g();
         private static final PusherMsg a = new PusherMsg(true);
         private static final long serialVersionUID = 0;
         private int bitField0_;
@@ -29,6 +29,11 @@ public final class PushNotifyRes {
         private Im.PusherMsgInfo data_;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ PusherMsg(GeneratedMessageLite.Builder builder, PusherMsg pusherMsg) {
+            this(builder);
+        }
 
         private PusherMsg(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -52,13 +57,12 @@ public final class PushNotifyRes {
         }
 
         private PusherMsg(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-            aa aaVar;
-            boolean z;
+            ac acVar;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
             a();
-            boolean z2 = false;
-            while (!z2) {
+            boolean z = false;
+            while (!z) {
                 try {
                     try {
                         int readTag = codedInputStream.readTag();
@@ -69,32 +73,28 @@ public final class PushNotifyRes {
                             case 8:
                                 this.bitField0_ |= 1;
                                 this.cmd_ = codedInputStream.readInt32();
-                                z = z2;
                                 break;
                             case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                                 if ((this.bitField0_ & 2) != 2) {
-                                    aaVar = null;
+                                    acVar = null;
                                 } else {
-                                    aaVar = this.data_.toBuilder();
+                                    acVar = this.data_.toBuilder();
                                 }
                                 this.data_ = (Im.PusherMsgInfo) codedInputStream.readMessage(Im.PusherMsgInfo.PARSER, extensionRegistryLite);
-                                if (aaVar != null) {
-                                    aaVar.mergeFrom(this.data_);
-                                    this.data_ = aaVar.buildPartial();
+                                if (acVar != null) {
+                                    acVar.mergeFrom(this.data_);
+                                    this.data_ = acVar.buildPartial();
                                 }
                                 this.bitField0_ |= 2;
-                                z = z2;
                                 break;
                             default:
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
                                 } else {
-                                    z = z2;
                                     break;
                                 }
                         }
-                        z2 = z;
                     } catch (InvalidProtocolBufferException e) {
                         throw e.setUnfinishedMessage(this);
                     } catch (IOException e2) {
@@ -104,6 +104,11 @@ public final class PushNotifyRes {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ PusherMsg(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, PusherMsg pusherMsg) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -216,29 +221,29 @@ public final class PushNotifyRes {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static j newBuilder() {
-            return j.f();
+        public static h newBuilder() {
+            return h.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public j newBuilderForType() {
+        public h newBuilderForType() {
             return newBuilder();
         }
 
-        public static j newBuilder(PusherMsg pusherMsg) {
+        public static h newBuilder(PusherMsg pusherMsg) {
             return newBuilder().mergeFrom(pusherMsg);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public j toBuilder() {
+        public h toBuilder() {
             return newBuilder(this);
         }
     }
 
     /* loaded from: classes.dex */
-    public final class PushNotifyResIdl extends GeneratedMessageLite implements h {
+    public final class PushNotifyResIdl extends GeneratedMessageLite implements f {
         public static final int MULTIMSG_FIELD_NUMBER = 2;
         public static final int PUSHTIME_FIELD_NUMBER = 1;
         private static final long serialVersionUID = 0;
@@ -247,8 +252,13 @@ public final class PushNotifyRes {
         private int memoizedSerializedSize;
         private List<PusherMsg> multiMsg_;
         private long pushTime_;
-        public static Parser<PushNotifyResIdl> PARSER = new f();
+        public static Parser<PushNotifyResIdl> PARSER = new d();
         private static final PushNotifyResIdl a = new PushNotifyResIdl(true);
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ PushNotifyResIdl(GeneratedMessageLite.Builder builder, PushNotifyResIdl pushNotifyResIdl) {
+            this(builder);
+        }
 
         private PushNotifyResIdl(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -271,13 +281,11 @@ public final class PushNotifyRes {
             return a;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r3v3, resolved type: java.util.List<protobuf.PushNotify.PushNotifyRes$PusherMsg> */
-        /* JADX WARN: Multi-variable type inference failed */
         private PushNotifyResIdl(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-            boolean z = false;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
             a();
+            boolean z = false;
             boolean z2 = false;
             while (!z) {
                 try {
@@ -297,7 +305,7 @@ public final class PushNotifyRes {
                                         this.multiMsg_ = new ArrayList();
                                         z2 |= true;
                                     }
-                                    this.multiMsg_.add(codedInputStream.readMessage(PusherMsg.PARSER, extensionRegistryLite));
+                                    this.multiMsg_.add((PusherMsg) codedInputStream.readMessage(PusherMsg.PARSER, extensionRegistryLite));
                                     break;
                                 default:
                                     if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
@@ -322,6 +330,11 @@ public final class PushNotifyRes {
             }
         }
 
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ PushNotifyResIdl(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, PushNotifyResIdl pushNotifyResIdl) {
+            this(codedInputStream, extensionRegistryLite);
+        }
+
         static {
             a.a();
         }
@@ -343,7 +356,7 @@ public final class PushNotifyRes {
             return this.multiMsg_;
         }
 
-        public List<? extends k> getMultiMsgOrBuilderList() {
+        public List<? extends i> getMultiMsgOrBuilderList() {
             return this.multiMsg_;
         }
 
@@ -355,7 +368,7 @@ public final class PushNotifyRes {
             return this.multiMsg_.get(i);
         }
 
-        public k getMultiMsgOrBuilder(int i) {
+        public i getMultiMsgOrBuilder(int i) {
             return this.multiMsg_.get(i);
         }
 
@@ -457,23 +470,23 @@ public final class PushNotifyRes {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static g newBuilder() {
-            return g.f();
+        public static e newBuilder() {
+            return e.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public g newBuilderForType() {
+        public e newBuilderForType() {
             return newBuilder();
         }
 
-        public static g newBuilder(PushNotifyResIdl pushNotifyResIdl) {
+        public static e newBuilder(PushNotifyResIdl pushNotifyResIdl) {
             return newBuilder().mergeFrom(pushNotifyResIdl);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public g toBuilder() {
+        public e toBuilder() {
             return newBuilder(this);
         }
     }

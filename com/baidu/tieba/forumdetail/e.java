@@ -8,7 +8,7 @@ import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.a.e {
-    com.baidu.tieba.j a;
+    com.baidu.tieba.f a;
     private ForumDetailData c;
     private ViewGroup d;
     private ProgressBar e;
@@ -18,12 +18,12 @@ public class e extends com.baidu.adp.a.e {
     private ItemHotThreadView i;
     private ItemFootNavView j;
 
-    public e(com.baidu.tieba.j jVar) {
-        super(jVar);
+    public e(com.baidu.tieba.f fVar) {
+        super(fVar);
         this.a = null;
         this.c = null;
         this.d = null;
-        this.a = jVar;
+        this.a = fVar;
         e();
     }
 

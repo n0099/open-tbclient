@@ -29,7 +29,7 @@ public class h extends Dialog {
 
     public void a() {
         this.d = this.c.inflate(R.layout.face_buy_loading, (ViewGroup) null);
-        this.a = TiebaApplication.h().al();
+        this.a = TiebaApplication.g().al();
         setContentView(this.d, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.faceshop_buy_dialog_width), getContext().getResources().getDimensionPixelSize(R.dimen.faceshop_buy_dialog_height)));
         setCancelable(false);
         c();
@@ -38,7 +38,7 @@ public class h extends Dialog {
     public void b() {
         ForegroundColorSpan foregroundColorSpan;
         this.d = this.c.inflate(R.layout.face_buy_fail, (ViewGroup) null);
-        this.a = TiebaApplication.h().al();
+        this.a = TiebaApplication.g().al();
         String string = getContext().getResources().getString(R.string.query_buy_fail_tel);
         this.e = new SpannableString(string);
         if (this.a == 1) {
@@ -57,9 +57,9 @@ public class h extends Dialog {
     }
 
     private void c() {
-        if (this.b instanceof com.baidu.tieba.j) {
-            ((com.baidu.tieba.j) this.b).getLayoutMode().a(this.a == 1);
-            ((com.baidu.tieba.j) this.b).getLayoutMode().a(this.d);
+        if (this.b instanceof com.baidu.tieba.f) {
+            ((com.baidu.tieba.f) this.b).getLayoutMode().a(this.a == 1);
+            ((com.baidu.tieba.f) this.b).getLayoutMode().a(this.d);
         }
     }
 }

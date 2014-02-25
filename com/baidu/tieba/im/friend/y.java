@@ -1,43 +1,22 @@
 package com.baidu.tieba.im.friend;
 
-import com.baidu.tieba.view.TbCheckBox;
-import com.baidu.tieba.view.ck;
-import com.slidingmenu.lib.R;
+import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y implements ck {
-    final /* synthetic */ t a;
+public class y implements AbsListView.OnScrollListener {
+    final /* synthetic */ u a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public y(t tVar) {
-        this.a = tVar;
+    public y(u uVar) {
+        this.a = uVar;
     }
 
-    @Override // com.baidu.tieba.view.ck
-    public void a(TbCheckBox tbCheckBox, boolean z, Object obj) {
-        InviteFriendCandidateList inviteFriendCandidateList;
-        InviteFriendListActivity inviteFriendListActivity;
-        InviteFriendListActivity inviteFriendListActivity2;
-        int i;
-        this.a.k();
-        if (obj != null && (obj instanceof com.baidu.tieba.im.data.d)) {
-            if (z) {
-                int n = this.a.n();
-                inviteFriendCandidateList = this.a.l;
-                if (n <= inviteFriendCandidateList.getItemLength()) {
-                    inviteFriendListActivity = this.a.a;
-                    inviteFriendListActivity2 = this.a.a;
-                    String string = inviteFriendListActivity2.getString(R.string.invite_friend_exceed_max_count);
-                    i = this.a.p;
-                    inviteFriendListActivity.showToast(String.format(string, Integer.valueOf(i)));
-                    tbCheckBox.setChecked(false);
-                    ((com.baidu.tieba.im.data.d) obj).a(false);
-                    return;
-                }
-                this.a.a((com.baidu.tieba.im.data.d) obj);
-                return;
-            }
-            this.a.b((com.baidu.tieba.im.data.d) obj);
-        }
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        this.a.e();
     }
 }

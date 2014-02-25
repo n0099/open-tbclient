@@ -1,14 +1,9 @@
 package com.baidu.tieba.frs;
 
-import android.app.Activity;
-import android.content.DialogInterface;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.account.LoginActivity;
-import com.baidu.tieba.model.ci;
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.frs.FrsImageActivity;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class bf implements DialogInterface.OnClickListener {
+class bf implements bn {
     final /* synthetic */ FrsImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,21 +11,46 @@ public class bf implements DialogInterface.OnClickListener {
         this.a = frsImageActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        ci ciVar;
-        com.baidu.tieba.model.ar arVar;
-        com.baidu.tieba.model.ar arVar2;
-        dialogInterface.dismiss();
-        String A = TiebaApplication.A();
-        if (A != null && A.length() > 0) {
-            ciVar = this.a.t;
-            arVar = this.a.q;
-            String name = arVar.b().getName();
-            arVar2 = this.a.q;
-            ciVar.a(name, Long.valueOf(arVar2.b().getId()).longValue());
+    @Override // com.baidu.tieba.frs.bn
+    public void a(int i) {
+        this.a.a(FrsImageActivity.FooterType.LOADING);
+    }
+
+    @Override // com.baidu.tieba.frs.bn
+    public void a(int i, JSONObject jSONObject, com.baidu.tieba.model.an anVar) {
+        int i2;
+        com.baidu.tieba.model.af afVar;
+        com.baidu.tieba.model.af afVar2;
+        int i3;
+        com.baidu.tieba.model.al alVar;
+        com.baidu.tieba.model.al alVar2;
+        this.a.d();
+        this.a.a(FrsImageActivity.FooterType.NORMAL);
+        if (jSONObject == null) {
+            if (anVar != null && anVar.a) {
+                this.a.showToast(anVar.d);
+                return;
+            }
             return;
         }
-        LoginActivity.a((Activity) this.a, this.a.getString(R.string.login_to_use), true, 11036);
+        FrsImageActivity frsImageActivity = this.a;
+        i2 = frsImageActivity.h;
+        frsImageActivity.h = i2 + 30;
+        this.a.r = new com.baidu.tieba.model.af();
+        afVar = this.a.r;
+        afVar.a(jSONObject);
+        FrsImageActivity frsImageActivity2 = this.a;
+        afVar2 = this.a.r;
+        frsImageActivity2.a(afVar2.a());
+        i3 = this.a.h;
+        alVar = this.a.q;
+        if (i3 >= alVar.d().size()) {
+            alVar2 = this.a.q;
+            if (alVar2.e() == 0) {
+                this.a.a(FrsImageActivity.FooterType.LAST);
+            } else {
+                this.a.a(FrsImageActivity.FooterType.NEXT);
+            }
+        }
     }
 }

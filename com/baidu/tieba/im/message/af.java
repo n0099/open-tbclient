@@ -1,21 +1,25 @@
 package com.baidu.tieba.im.message;
 
 import com.google.protobuf.MessageLite;
-import protobuf.EnterChatroom.EnterChatroomReq;
+import protobuf.CheckMaskUser.CheckMaskUserReq;
 /* loaded from: classes.dex */
-public class af extends q implements com.baidu.tieba.im.coder.g {
-    private long a;
+public class af extends s implements com.baidu.tieba.im.coder.g {
+    private int a;
 
     public af() {
-        e(106101);
-    }
-
-    public void a(long j) {
-        this.a = j;
+        e(104104);
     }
 
     @Override // com.baidu.tieba.im.coder.g
     public MessageLite a() {
-        return EnterChatroomReq.EnterChatroomReqIdl.newBuilder().a(EnterChatroomReq.DataReq.newBuilder().a((int) this.a).build()).build();
+        return CheckMaskUserReq.CheckMaskUserIdl.newBuilder().a(CheckMaskUserReq.DataReq.newBuilder().a(b()).build()).build();
+    }
+
+    public int b() {
+        return this.a;
+    }
+
+    public void a(int i) {
+        this.a = i;
     }
 }

@@ -1,13 +1,22 @@
 package com.baidu.tieba.pb;
 
-import android.view.View;
+import com.baidu.adp.widget.ListView.BdListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class dx {
-    int a;
-    View b;
+public class dx implements Runnable {
+    final /* synthetic */ cu a;
+    private final /* synthetic */ boolean b;
 
-    private dx(int i, View view) {
-        this.a = i;
-        this.b = view;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public dx(cu cuVar, boolean z) {
+        this.a = cuVar;
+        this.b = z;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        BdListView bdListView;
+        bdListView = this.a.j;
+        bdListView.setEnabled(this.b);
     }
 }

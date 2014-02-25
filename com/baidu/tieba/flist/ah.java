@@ -1,22 +1,40 @@
 package com.baidu.tieba.flist;
 
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.util.an;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ah implements Runnable {
-    final /* synthetic */ ForumRankActivity a;
+public class ah extends BdAsyncTask<Void, Void, ForumRankData> {
+    final /* synthetic */ ag a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(ForumRankActivity forumRankActivity) {
-        this.a = forumRankActivity;
+    private ah(ag agVar) {
+        this.a = agVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        BdListView bdListView;
-        com.baidu.tieba.util.i iVar;
-        bdListView = this.a.a;
-        iVar = this.a.f;
-        an.a(bdListView, iVar, 0, -1);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ah(ag agVar, ah ahVar) {
+        this(agVar);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public ForumRankData a(Void... voidArr) {
+        return ag.a(this.a);
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel(true);
+        ag.a(this.a, null);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(ForumRankData forumRankData) {
+        ag.a(this.a, null);
+        if (ag.b(this.a) != null) {
+            ag.b(this.a).a(forumRankData);
+        }
     }
 }

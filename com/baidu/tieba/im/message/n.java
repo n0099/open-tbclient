@@ -1,28 +1,14 @@
 package com.baidu.tieba.im.message;
-
-import com.baidu.sapi2.shell.SapiErrorCode;
 /* loaded from: classes.dex */
-public class n extends cr {
+public class n extends s {
     private String a;
-    private String b;
 
-    public n() {
-        e(SapiErrorCode.INVALID_ARG);
+    public n(String str) {
+        e(-128);
+        this.a = str;
     }
 
     public String a() {
         return this.a;
-    }
-
-    public void a(String str) {
-        this.a = str;
-    }
-
-    public String b() {
-        return this.b;
-    }
-
-    public void b(String str) {
-        this.b = str;
     }
 }

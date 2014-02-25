@@ -1,76 +1,78 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tieba.data.IconData;
-import com.baidu.tieba.im.data.MembersData;
-import com.baidu.tieba.im.data.UserData;
+import com.baidu.tieba.data.UserData;
+import com.baidu.tieba.im.data.ChatRoomTopicData;
+import com.baidu.tieba.im.data.RandChatRoomData;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import protobuf.EnterChatroom.EnterChatroomRes;
 import protobuf.Im;
-import protobuf.QueryGroupUserList.QueryGroupUserListRes;
 /* loaded from: classes.dex */
-public class bw extends cr implements com.baidu.tieba.im.coder.f {
-    private MembersData a;
+public class bw extends da implements com.baidu.tieba.im.coder.f {
+    private RandChatRoomData a;
 
-    public MembersData a() {
+    public bw() {
+        super(106101);
+    }
+
+    public RandChatRoomData a() {
         return this.a;
     }
 
-    public void a(MembersData membersData) {
-        this.a = membersData;
+    public void a(RandChatRoomData randChatRoomData) {
+        this.a = randChatRoomData;
     }
 
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<q> linkedList, byte[] bArr, int i) {
-        QueryGroupUserListRes.QueryGroupUserListResIdl parseFrom = QueryGroupUserListRes.QueryGroupUserListResIdl.parseFrom(bArr);
+    public void a(LinkedList<s> linkedList, byte[] bArr, int i) {
+        EnterChatroomRes.EnterChatroomResIdl parseFrom = EnterChatroomRes.EnterChatroomResIdl.parseFrom(bArr);
         e(i);
         g(parseFrom.getError().getErrorno());
         c(parseFrom.getError().getUsermsg());
         linkedList.add(this);
-        if (!k()) {
-            a(new MembersData());
-            a().setUsers(new ArrayList());
-            int userListCount = parseFrom.getData().getUserListCount();
-            for (int i2 = 0; i2 < userListCount; i2++) {
-                Im.UserInfo userList = parseFrom.getData().getUserList(i2);
-                UserData userData = new UserData();
-                userData.setInTime(userList.getInTime());
-                userData.setLastReplyTime(userList.getLastReplyTime());
-                userData.setLat(String.valueOf(userList.getLat()));
-                userData.setLng(String.valueOf(userList.getLng()));
-                userData.setLoginTime(userList.getLoginTime());
-                userData.setPortrait(userList.getPortrait());
-                userData.setPosition(userList.getPosition());
-                userData.setSex(userList.getSex());
-                userData.setUserId(userList.getUserId());
-                userData.setUserName(userList.getUserName());
-                List<Im.TshowInfo> tshowIconList = userList.getTshowIconList();
-                if (tshowIconList != null) {
-                    LinkedList<IconData> linkedList2 = new LinkedList<>();
-                    int i3 = 0;
-                    while (true) {
-                        int i4 = i3;
-                        if (i4 >= tshowIconList.size()) {
-                            break;
-                        }
-                        Im.TshowInfo tshowInfo = tshowIconList.get(i4);
-                        linkedList2.add(new IconData(tshowInfo.getIcon(), tshowInfo.getName(), tshowInfo.getUrl()));
-                        i3 = i4 + 1;
-                    }
-                    userData.setTShowInfo(linkedList2);
+        if (!l()) {
+            a(new RandChatRoomData());
+            EnterChatroomRes.DataRes data = parseFrom.getData();
+            if (data != null) {
+                a().a(data.getGroupId());
+                a().c(data.getMaxUserNum());
+                a().b(data.getUserNum());
+                a().a(data.getDurationTime());
+                a().c(data.getAverageWaitTime());
+                a().b(data.getSilenceTime());
+                a().d(data.getLastMsgId());
+                a().b(new ArrayList());
+                ChatRoomTopicData chatRoomTopicData = new ChatRoomTopicData();
+                chatRoomTopicData.setTitle(data.getTitle());
+                chatRoomTopicData.setContent(data.getContent());
+                a().a(chatRoomTopicData);
+                ArrayList arrayList = new ArrayList();
+                for (EnterChatroomRes.ChatroomTopic chatroomTopic : data.getTopicListList()) {
+                    ChatRoomTopicData chatRoomTopicData2 = new ChatRoomTopicData();
+                    chatRoomTopicData2.setTitle(chatroomTopic.getTitle());
+                    chatRoomTopicData2.setContent(chatroomTopic.getContent());
+                    arrayList.add(chatRoomTopicData2);
                 }
-                Im.UserPermission permission = userList.getPermission();
-                UserData.Permission permission2 = new UserData.Permission();
-                permission2.setIsGroupManager(permission.getIsGroupManager());
-                permission2.setIsGroupOwner(permission.getIsGroupOwner());
-                userData.setPermission(permission2);
-                a().getUsers().add(userData);
+                a().a(arrayList);
+                List<Im.UserInfo> userListList = data.getUserListList();
+                if (userListList != null) {
+                    for (Im.UserInfo userInfo : userListList) {
+                        UserData userData = new UserData();
+                        userData.setInTime(userInfo.getInTime());
+                        userData.setLastReplyTime(userInfo.getLastReplyTime());
+                        userData.setLat(String.valueOf(userInfo.getLat()));
+                        userData.setLng(String.valueOf(userInfo.getLng()));
+                        userData.setLoginTime(userInfo.getLoginTime());
+                        userData.setPortrait(userInfo.getPortrait());
+                        userData.setPosition(userInfo.getPosition());
+                        userData.setSex(userInfo.getSex());
+                        userData.setUserIdLong(userInfo.getUserId());
+                        userData.setUserName(userInfo.getUserName());
+                        a().j().add(userData);
+                    }
+                }
             }
-            Im.UserPermission permission3 = parseFrom.getData().getPermission();
-            UserData.Permission permission4 = new UserData.Permission();
-            permission4.setIsGroupManager(permission3.getIsGroupManager());
-            permission4.setIsGroupOwner(permission3.getIsGroupOwner());
-            a().setPermission(permission4);
         }
     }
 }

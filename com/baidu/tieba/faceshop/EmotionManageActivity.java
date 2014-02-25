@@ -13,14 +13,14 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bs;
+import com.baidu.tieba.util.bq;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class EmotionManageActivity extends com.baidu.tieba.j implements com.baidu.tieba.im.messageCenter.g {
+public class EmotionManageActivity extends com.baidu.tieba.f implements com.baidu.tieba.im.messageCenter.g {
     private List<e> a;
     private f c;
     private c d;
@@ -45,7 +45,7 @@ public class EmotionManageActivity extends com.baidu.tieba.j implements com.baid
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.activity_emotion_manage);
@@ -55,7 +55,7 @@ public class EmotionManageActivity extends com.baidu.tieba.j implements com.baid
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         com.baidu.tieba.im.messageCenter.e.a().a(this);
@@ -66,11 +66,11 @@ public class EmotionManageActivity extends com.baidu.tieba.j implements com.baid
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j
+    @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.f.c(i);
-        bs.f((View) this.h, (int) R.drawable.navi_del_text_bg);
+        bq.f((View) this.h, (int) R.drawable.navi_del_text_bg);
     }
 
     private void a() {
@@ -78,7 +78,7 @@ public class EmotionManageActivity extends com.baidu.tieba.j implements com.baid
         this.f = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.f.a(R.string.title_activity_emotion_manage);
         this.g = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.h = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getString(R.string.delete) + "(" + this.b.size() + ")", this.q);
+        this.h = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, String.valueOf(getString(R.string.delete)) + "(" + this.b.size() + ")", this.q);
         f();
         this.i = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.edit), this.q);
         this.j = (TextView) findViewById(R.id.emotion_manager_title);
@@ -89,7 +89,7 @@ public class EmotionManageActivity extends com.baidu.tieba.j implements com.baid
         this.l.addFooterView(this.n);
         this.m = (TextView) this.n.findViewById(R.id.emotion_manage_enter_record);
         this.m.setOnClickListener(this.q);
-        getLayoutMode().a(TiebaApplication.h().al() == 1);
+        getLayoutMode().a(TiebaApplication.g().al() == 1);
         getLayoutMode().a((View) this.e);
         getLayoutMode().a(this.n);
         e();
@@ -181,8 +181,8 @@ public class EmotionManageActivity extends com.baidu.tieba.j implements com.baid
 
     private void f() {
         int size = this.b.size();
-        int al = TiebaApplication.h().al();
-        this.h.setText(getString(R.string.delete) + "(" + size + ")");
+        int al = TiebaApplication.g().al();
+        this.h.setText(String.valueOf(getString(R.string.delete)) + "(" + size + ")");
         if (size == 0) {
             this.h.setEnabled(false);
             if (al == 1) {
@@ -220,8 +220,8 @@ public class EmotionManageActivity extends com.baidu.tieba.j implements com.baid
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.q qVar) {
-        if (qVar.w() == -120) {
+    public void a(com.baidu.tieba.im.message.s sVar) {
+        if (sVar.w() == -120) {
             this.c = new f(this, null);
             this.c.execute(new String[0]);
         }

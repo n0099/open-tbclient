@@ -20,12 +20,10 @@ public class SwitchModel {
         for (int i = 0; i < SWITCH_LIST.length; i++) {
             try {
                 try {
-                    try {
-                        Class.forName(SWITCH_LIST[i]).newInstance();
-                    } catch (InstantiationException e) {
-                        e.printStackTrace();
-                    }
-                } catch (IllegalAccessException e2) {
+                    Class.forName(SWITCH_LIST[i]).newInstance();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                } catch (InstantiationException e2) {
                     e2.printStackTrace();
                 }
             } catch (ClassNotFoundException e3) {

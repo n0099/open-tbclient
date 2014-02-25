@@ -12,6 +12,8 @@ class n implements DialogInterface.OnCancelListener {
 
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
-        this.a.a.DeinitWaitingDialog();
+        AccountActivity accountActivity;
+        accountActivity = this.a.a;
+        accountActivity.DeinitWaitingDialog();
     }
 }

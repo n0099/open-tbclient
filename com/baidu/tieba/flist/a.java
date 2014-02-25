@@ -11,7 +11,7 @@ import com.slidingmenu.lib.R;
 public class a extends BaseAdapter {
     b a;
     Activity b;
-    private com.baidu.tieba.square.z c;
+    private com.baidu.tieba.square.ab c;
     private int d = 0;
 
     public a(Activity activity) {
@@ -45,10 +45,10 @@ public class a extends BaseAdapter {
             view = b();
         }
         if (this.c != null) {
-            com.baidu.tieba.square.z zVar = this.c.e.get(i);
+            com.baidu.tieba.square.ab abVar = this.c.e.get(i);
             this.a = (b) view.getTag();
-            if (zVar != null) {
-                a(this.a, zVar, view, i);
+            if (abVar != null) {
+                a(this.a, abVar, view, i);
             }
         }
         return view;
@@ -59,11 +59,11 @@ public class a extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public void a(com.baidu.tieba.square.z zVar) {
-        this.c = zVar;
+    public void a(com.baidu.tieba.square.ab abVar) {
+        this.c = abVar;
     }
 
-    public com.baidu.tieba.square.z a() {
+    public com.baidu.tieba.square.ab a() {
         return this.c;
     }
 
@@ -76,13 +76,13 @@ public class a extends BaseAdapter {
         return inflate;
     }
 
-    private void a(b bVar, com.baidu.tieba.square.z zVar, View view, int i) {
-        if (bVar != null && zVar != null) {
+    private void a(b bVar, com.baidu.tieba.square.ab abVar, View view, int i) {
+        if (bVar != null && abVar != null) {
             bVar.b.setText("");
             if (i == 0) {
-                bVar.b.setText(this.b.getString(R.string.forum_list_menu_all) + zVar.b);
+                bVar.b.setText(String.valueOf(this.b.getString(R.string.forum_list_menu_all)) + abVar.b);
             } else {
-                bVar.b.setText(zVar.b);
+                bVar.b.setText(abVar.b);
             }
             if (i != this.d) {
                 bVar.a.setVisibility(4);

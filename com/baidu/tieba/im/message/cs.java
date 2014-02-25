@@ -1,37 +1,21 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.sapi2.shell.SapiErrorCode;
+import java.util.LinkedList;
+import protobuf.QueryGroupLocation.QueryGroupLocationRes;
 /* loaded from: classes.dex */
-public class cs extends q {
-    private String a;
-    private String b;
-    private int c = 0;
-
-    public cs() {
-        e(SapiErrorCode.GETTING_CERT);
-    }
-
-    public String a() {
-        return this.b;
-    }
-
-    public void a(String str) {
-        this.b = str;
-    }
-
-    public String b() {
-        return this.a;
-    }
-
-    public void b(String str) {
-        this.a = str;
-    }
-
-    public int c() {
-        return this.c;
-    }
-
-    public void a(int i) {
-        this.c = i;
+public class cs implements com.baidu.tieba.im.coder.f {
+    @Override // com.baidu.tieba.im.coder.f
+    public void a(LinkedList<s> linkedList, byte[] bArr, int i) {
+        QueryGroupLocationRes.QueryGroupLocationResIdl parseFrom = QueryGroupLocationRes.QueryGroupLocationResIdl.parseFrom(bArr);
+        QueryGroupLocationRes.DataRes data = parseFrom.getData();
+        cr crVar = new cr(103010);
+        crVar.g(parseFrom.getError().getErrorno());
+        crVar.c(parseFrom.getError().getUsermsg());
+        crVar.a(crVar.a());
+        int businessCount = data.getBusinessCount();
+        for (int i2 = 0; i2 < businessCount; i2++) {
+            crVar.b(data.getBusiness(i2));
+        }
+        linkedList.add(crVar);
     }
 }

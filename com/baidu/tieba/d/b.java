@@ -1,12 +1,17 @@
 package com.baidu.tieba.d;
 
-import android.view.MotionEvent;
-import android.view.View;
+import com.baidu.tieba.im.message.s;
+import java.util.List;
 /* loaded from: classes.dex */
-public interface b {
-    boolean a(View view, MotionEvent motionEvent);
+public class b extends s {
+    private List<a> a;
 
-    boolean b(View view, MotionEvent motionEvent);
+    public b(List<a> list) {
+        e(-122);
+        this.a = list;
+    }
 
-    boolean c(View view, MotionEvent motionEvent);
+    public List<a> a() {
+        return this.a;
+    }
 }

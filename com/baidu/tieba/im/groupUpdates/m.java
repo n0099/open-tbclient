@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.groupUpdates;
 
 import android.text.TextUtils;
-import cn.jingling.lib.file.Shared;
 import com.baidu.gson.GsonBuilder;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import java.util.ArrayList;
@@ -15,12 +14,12 @@ public class m {
 
     public static void a(UpdatesItemData updatesItemData, com.baidu.tieba.im.a<Boolean> aVar) {
         if (updatesItemData != null) {
-            com.baidu.tieba.im.db.l.a().b(updatesItemData.getNotice_id(), aVar);
+            com.baidu.tieba.im.j.a(new n(updatesItemData), aVar);
         }
     }
 
     public void a(com.baidu.tieba.im.a<Boolean> aVar) {
-        com.baidu.tieba.im.db.l.a().a(this.a, aVar);
+        com.baidu.tieba.im.j.a(new o(this), aVar);
     }
 
     public String a() {
@@ -36,9 +35,9 @@ public class m {
             if (updatesItemData == null || TextUtils.isEmpty(updatesItemData.getNotice_id()) || !TextUtils.isDigitsOnly(updatesItemData.getNotice_id())) {
                 str = str2;
             } else {
-                str = str2 + (Long.parseLong(updatesItemData.getNotice_id()) / 100);
+                str = String.valueOf(str2) + (Long.parseLong(updatesItemData.getNotice_id()) / 100);
                 if (i < size - 1) {
-                    str = str + ",";
+                    str = String.valueOf(str) + ",";
                 }
             }
             i++;
@@ -68,7 +67,7 @@ public class m {
     }
 
     public static void b(com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> aVar) {
-        com.baidu.tieba.im.db.l.a().a(0L, Shared.INFINITY, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info", aVar);
+        com.baidu.tieba.im.j.a(new p(), aVar);
     }
 
     public static List<UpdatesItemData> a(LinkedList<GroupNewsPojo> linkedList) {
@@ -94,7 +93,7 @@ public class m {
         }
         try {
             JSONObject jSONObject = new JSONObject(content);
-            if (true == jSONObject.isNull("notice_id")) {
+            if (jSONObject.isNull("notice_id")) {
                 updatesItemData = new UpdatesItemData();
                 updatesItemData.setNotice_id(groupNewsPojo.getNotice_id());
                 updatesItemData.setContent(jSONObject.optString("userMsg"));
@@ -106,11 +105,12 @@ public class m {
                     updatesItemData.setGroupHeadUrl(optJSONObject.optString("groupImage"));
                     updatesItemData.setGroupId(optJSONObject.optString("groupId"));
                     updatesItemData.setGroupName(optJSONObject.optString("groupName"));
-                    updatesItemData.setAuthorId(optJSONObject.optString("authorId"));
+                    updatesItemData.setAuthorId(optJSONObject.optString("                                                                                                                                                                   "));
                     updatesItemData.setAuthorName(optJSONObject.optString("authorName"));
                     updatesItemData.setTime(groupNewsPojo.getTime());
                     updatesItemData.setTitle(optJSONObject.optString("title"));
                     updatesItemData.setEventLink(optJSONObject.optString("eventLink"));
+                    updatesItemData.setGroupActivityId(optJSONObject.optString("activityId"));
                 }
             } else {
                 updatesItemData = (UpdatesItemData) new GsonBuilder().create().fromJson(content, (Class<Object>) UpdatesItemData.class);

@@ -9,6 +9,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.widget.ImageView.BDImageView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.data.PhotoUrlData;
@@ -27,8 +28,8 @@ public class PhotoWallView extends FrameLayout {
     private TextView h;
     private int i;
     private com.baidu.tieba.util.i j;
-    private y k;
-    private z l;
+    private z k;
+    private aa l;
     private boolean m;
     private List<PhotoUrlData> n;
 
@@ -83,7 +84,7 @@ public class PhotoWallView extends FrameLayout {
         this.f.setVisibility(8);
         this.g = (LinearLayout) findViewById(R.id.lay_hint_text);
         this.h = (TextView) findViewById(R.id.hint_text);
-        this.i = com.baidu.adp.lib.g.g.b(this.c);
+        this.i = BdUtilHelper.b(this.c);
         this.j = new com.baidu.tieba.util.i(this.c);
     }
 
@@ -108,7 +109,7 @@ public class PhotoWallView extends FrameLayout {
                 }
             }
             if (z) {
-                com.baidu.adp.lib.g.e.d("equal");
+                com.baidu.adp.lib.util.f.e("equal");
                 return;
             }
             if (this.n == null) {
@@ -136,7 +137,7 @@ public class PhotoWallView extends FrameLayout {
                     bDImageView = bDImageView2;
                 }
                 bDImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                if (TiebaApplication.h().al() == 1) {
+                if (TiebaApplication.g().al() == 1) {
                     bDImageView.setBackgroundResource(R.drawable.image_group_qzl_1);
                 } else {
                     bDImageView.setBackgroundResource(R.drawable.image_group_qzl);
@@ -144,9 +145,9 @@ public class PhotoWallView extends FrameLayout {
                 PhotoUrlData photoUrlData2 = list.get(i2);
                 if (photoUrlData2 != null) {
                     a(bDImageView, photoUrlData2.getSmallurl());
-                    bDImageView.setOnClickListener(new aa(this, photoUrlData2, i2));
+                    bDImageView.setOnClickListener(new ab(this, photoUrlData2, i2));
                     if (this.m) {
-                        bDImageView.setOnLongClickListener(new ab(this, photoUrlData2, i2));
+                        bDImageView.setOnLongClickListener(new ac(this, photoUrlData2, i2));
                     }
                 }
                 if (i2 < 4) {
@@ -182,12 +183,12 @@ public class PhotoWallView extends FrameLayout {
                 this.b[size3] = bDImageView4;
             }
             bDImageView4.setImageBitmap(null);
-            if (TiebaApplication.h().al() == 1) {
+            if (TiebaApplication.g().al() == 1) {
                 bDImageView4.setBackgroundResource(R.drawable.add_group_frd_1);
             } else {
                 bDImageView4.setBackgroundResource(R.drawable.add_group_frd);
             }
-            bDImageView4.setOnClickListener(new ac(this, size3));
+            bDImageView4.setOnClickListener(new ad(this, size3));
             bDImageView4.setOnLongClickListener(null);
             if (size3 < 4) {
                 if (size3 == 0) {
@@ -219,7 +220,7 @@ public class PhotoWallView extends FrameLayout {
             this.j = new com.baidu.tieba.util.i(this.c);
         }
         this.j.d(true);
-        this.j.b(str, new ad(this, bDImageView));
+        this.j.b(str, new ae(this, bDImageView));
     }
 
     private LinearLayout.LayoutParams a(int i) {
@@ -249,19 +250,19 @@ public class PhotoWallView extends FrameLayout {
         }
     }
 
-    public void setPhotoClickListener(y yVar) {
-        this.k = yVar;
+    public void setPhotoClickListener(z zVar) {
+        this.k = zVar;
     }
 
-    public void setPhotoLongClickListener(z zVar) {
-        this.l = zVar;
+    public void setPhotoLongClickListener(aa aaVar) {
+        this.l = aaVar;
     }
 
     public void setIsManager(boolean z) {
         this.m = z;
     }
 
-    public void a(int i, com.baidu.tieba.j jVar) {
-        jVar.getLayoutMode().a((View) this.d);
+    public void a(int i, com.baidu.tieba.f fVar) {
+        fVar.getLayoutMode().a((View) this.d);
     }
 }

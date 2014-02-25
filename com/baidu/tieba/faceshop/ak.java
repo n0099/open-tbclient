@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bu;
+import com.baidu.tieba.util.bs;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import java.util.Date;
@@ -60,40 +60,40 @@ public class ak extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        int al = TiebaApplication.h().al();
+        int al = TiebaApplication.g().al();
         if (view == null) {
             view = b();
         }
-        am amVar = (am) view.getTag();
-        if (this.a instanceof com.baidu.tieba.j) {
-            ((com.baidu.tieba.j) this.a).getLayoutMode().a(al == 1);
-            ((com.baidu.tieba.j) this.a).getLayoutMode().a(view);
+        al alVar = (al) view.getTag();
+        if (this.a instanceof com.baidu.tieba.f) {
+            ((com.baidu.tieba.f) this.a).getLayoutMode().a(al == 1);
+            ((com.baidu.tieba.f) this.a).getLayoutMode().a(view);
         }
-        a(i, amVar);
+        a(i, alVar);
         return view;
     }
 
     private View b() {
         LayoutInflater from = LayoutInflater.from(this.a);
-        am amVar = new am(this);
+        al alVar = new al(this, null);
         View inflate = from.inflate(R.layout.face_purchase_record_item, (ViewGroup) null);
-        amVar.a = (TbImageView) inflate.findViewById(R.id.cover);
-        amVar.b = (TextView) inflate.findViewById(R.id.title);
-        amVar.c = (TextView) inflate.findViewById(R.id.time);
-        amVar.d = (TextView) inflate.findViewById(R.id.price);
-        inflate.setTag(amVar);
+        alVar.a = (TbImageView) inflate.findViewById(R.id.cover);
+        alVar.b = (TextView) inflate.findViewById(R.id.title);
+        alVar.c = (TextView) inflate.findViewById(R.id.time);
+        alVar.d = (TextView) inflate.findViewById(R.id.price);
+        inflate.setTag(alVar);
         return inflate;
     }
 
-    private void a(int i, am amVar) {
+    private void a(int i, al alVar) {
         FacePurchasePackageData facePurchasePackageData = (FacePurchasePackageData) getItem(i);
         if (facePurchasePackageData != null) {
-            amVar.a.setTag(facePurchasePackageData.coverUrl);
-            amVar.d.setText(facePurchasePackageData.price);
-            amVar.b.setText(facePurchasePackageData.pname);
+            alVar.a.setTag(facePurchasePackageData.coverUrl);
+            alVar.d.setText(facePurchasePackageData.price);
+            alVar.b.setText(facePurchasePackageData.pname);
             Date date = new Date();
             date.setTime(facePurchasePackageData.puyTime * 1000);
-            amVar.c.setText(bu.c(date));
+            alVar.c.setText(bs.c(date));
         }
     }
 }

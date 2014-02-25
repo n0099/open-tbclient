@@ -1,16 +1,12 @@
 package com.baidu.adp.widget;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
 /* loaded from: classes.dex */
-public class t implements com.baidu.adp.widget.ListView.s {
-    final /* synthetic */ PinnedHeaderListView a;
+public interface t {
+    void a(ColorFilter colorFilter);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public t(PinnedHeaderListView pinnedHeaderListView) {
-        this.a = pinnedHeaderListView;
-    }
+    void draw(Canvas canvas);
 
-    @Override // com.baidu.adp.widget.ListView.s
-    public void a(boolean z) {
-        this.a.l = z;
-    }
+    void setBounds(int i, int i2, int i3, int i4);
 }

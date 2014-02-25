@@ -94,6 +94,7 @@ public class i {
         }
     }
 
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [233=4] */
     public static boolean a(String str, long j, byte[] bArr, int i, int i2) {
         RandomAccessFile randomAccessFile;
         if (str == null || bArr == null || bArr.length <= 0) {

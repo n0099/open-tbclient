@@ -23,11 +23,11 @@ public class j implements AsyncImageLoader.IAsyncImageLoaderListener {
     @Override // com.baidu.cloudsdk.common.imgloader.AsyncImageLoader.IAsyncImageLoaderListener
     public void onComplete(Bitmap bitmap) {
         MemoryBitmapCache memoryBitmapCache;
-        bg bgVar;
+        h hVar;
         if (bitmap != null) {
             if (Utils.isUrl(this.a)) {
-                bgVar = this.d.b;
-                bgVar.a(this.b, bitmap);
+                hVar = this.d.b;
+                hVar.a(this.b, bitmap);
             } else {
                 memoryBitmapCache = this.d.a;
                 memoryBitmapCache.a(this.b, bitmap);

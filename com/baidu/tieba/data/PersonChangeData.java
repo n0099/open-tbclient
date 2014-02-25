@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class PersonChangeData implements Serializable {
     private static final long serialVersionUID = 4345761658406426272L;
     private String mIntro = null;
-    private int mSex = 1;
+    private int mSex = 0;
     private String mName = null;
     private String mPortrait = null;
     private boolean mPhotoChanged = false;

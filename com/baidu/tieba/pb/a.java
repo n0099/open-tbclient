@@ -53,7 +53,7 @@ public class a {
 
     private void a(String str, String str2, int i, int i2) {
         if (this.h != null) {
-            if (str2 == null || !str2.equals(this.h.d())) {
+            if (str2 == null || !str2.equals(this.h.e())) {
                 this.h.cancel();
             } else {
                 return;
@@ -69,25 +69,25 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String a(com.baidu.tieba.data.ab abVar) {
-        if (abVar.j() != null && abVar.j().length() > 0) {
-            return abVar.j();
+    public String a(com.baidu.tieba.data.aa aaVar) {
+        if (aaVar.j() != null && aaVar.j().length() > 0) {
+            return aaVar.j();
         }
         StringBuilder sb = new StringBuilder((int) SocialAPIErrorCodes.ERROR_AUTHORIZATION_CANCELED);
-        if (abVar.g() * abVar.f() > com.baidu.tieba.data.h.i() * com.baidu.tieba.data.h.i()) {
-            double sqrt = Math.sqrt((com.baidu.tieba.data.h.i() * com.baidu.tieba.data.h.i()) / (abVar.g() * abVar.f()));
+        if (aaVar.g() * aaVar.f() > com.baidu.tieba.data.i.t() * com.baidu.tieba.data.i.t()) {
+            double sqrt = Math.sqrt((com.baidu.tieba.data.i.t() * com.baidu.tieba.data.i.t()) / (aaVar.g() * aaVar.f()));
             sb.append("width=");
-            sb.append(String.valueOf((int) (abVar.f() * sqrt)));
+            sb.append(String.valueOf((int) (aaVar.f() * sqrt)));
             sb.append("&height=");
-            sb.append(String.valueOf((int) (sqrt * abVar.g())));
+            sb.append(String.valueOf((int) (sqrt * aaVar.g())));
         } else {
             sb.append("width=");
-            sb.append(String.valueOf(abVar.f()));
+            sb.append(String.valueOf(aaVar.f()));
             sb.append("&height=");
-            sb.append(String.valueOf(abVar.g()));
+            sb.append(String.valueOf(aaVar.g()));
         }
         sb.append("&src=");
-        sb.append(com.baidu.tieba.util.bu.d(abVar.b()));
+        sb.append(com.baidu.tieba.util.bs.d(aaVar.b()));
         return sb.toString();
     }
 }

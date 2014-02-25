@@ -5,7 +5,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
 public class p extends BdAsyncTask<Object, Integer, t> {
     final /* synthetic */ BarFolderSecondDirActivity a;
-    private com.baidu.tieba.util.ax b;
+    private com.baidu.tieba.util.ba b;
 
     private p(BarFolderSecondDirActivity barFolderSecondDirActivity) {
         this.a = barFolderSecondDirActivity;
@@ -13,7 +13,7 @@ public class p extends BdAsyncTask<Object, Integer, t> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ p(BarFolderSecondDirActivity barFolderSecondDirActivity, o oVar) {
+    public /* synthetic */ p(BarFolderSecondDirActivity barFolderSecondDirActivity, p pVar) {
         this(barFolderSecondDirActivity);
     }
 
@@ -29,16 +29,16 @@ public class p extends BdAsyncTask<Object, Integer, t> {
         qVar = this.a.i;
         t a = qVar.a();
         try {
-            this.b = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/f/forum/seconddir");
-            com.baidu.tieba.util.ax axVar = this.b;
+            this.b = new com.baidu.tieba.util.ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/f/forum/seconddir");
+            com.baidu.tieba.util.ba baVar = this.b;
             str = this.a.l;
-            axVar.a("menu_name", str);
-            com.baidu.tieba.util.ax axVar2 = this.b;
+            baVar.a("menu_name", str);
+            com.baidu.tieba.util.ba baVar2 = this.b;
             str2 = this.a.m;
-            axVar2.a("menu_type", str2);
-            com.baidu.tieba.util.ax axVar3 = this.b;
+            baVar2.a("menu_type", str2);
+            com.baidu.tieba.util.ba baVar3 = this.b;
             str3 = this.a.n;
-            axVar3.a("menu_id", str3);
+            baVar3.a("menu_id", str3);
             String m = this.b.m();
             if (this.b.d()) {
                 a.b(m);
@@ -47,7 +47,7 @@ public class p extends BdAsyncTask<Object, Integer, t> {
             }
         } catch (Exception e) {
             a.a(e.getMessage());
-            com.baidu.adp.lib.g.e.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.getMessage());
         }
         return a;
     }

@@ -6,7 +6,7 @@ import java.io.Serializable;
 public class LocalPicModel extends com.baidu.adp.a.d implements Serializable {
     private String mDName;
     private String mDPath;
-    private l mImageTask = null;
+    private j mImageTask = null;
     private String mSName;
     private String mSPath;
 
@@ -30,7 +30,7 @@ public class LocalPicModel extends com.baidu.adp.a.d implements Serializable {
         if (this.mImageTask != null) {
             return false;
         }
-        this.mImageTask = new l(this);
+        this.mImageTask = new j(this, null);
         this.mImageTask.setSelfExecute(true);
         this.mImageTask.execute(new Object[0]);
         return true;

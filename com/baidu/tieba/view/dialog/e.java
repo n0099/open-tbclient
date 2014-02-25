@@ -5,21 +5,21 @@ import android.widget.Button;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-    final /* synthetic */ int a;
-    final /* synthetic */ Button b;
-    final /* synthetic */ d c;
+    final /* synthetic */ d a;
+    private final /* synthetic */ int b;
+    private final /* synthetic */ Button c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar, int i, Button button) {
-        this.c = dVar;
-        this.a = i;
-        this.b = button;
+        this.a = dVar;
+        this.b = i;
+        this.c = button;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         f fVar;
-        fVar = this.c.c;
-        fVar.a(this.c, this.a, this.b);
+        fVar = this.a.c;
+        fVar.a(this.a, this.b, this.c);
     }
 }

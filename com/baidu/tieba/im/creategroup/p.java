@@ -6,7 +6,7 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.more.SettingTextSwitchView;
-import com.baidu.tieba.util.bs;
+import com.baidu.tieba.util.bq;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -87,7 +87,7 @@ public class p extends com.baidu.adp.a.e {
     public void a(int i) {
         this.d.getLayoutMode().a(i == 1);
         this.d.getLayoutMode().a(this.c);
-        bs.b(this.c, i);
+        bq.b(this.c, i);
         this.a.c(i);
         if (i == 1) {
             this.c.setBackgroundResource(R.color.group_info_bg_1);

@@ -1,40 +1,30 @@
 package com.baidu.tieba.model;
-
-import android.content.Context;
 /* loaded from: classes.dex */
-public class ap {
-    private long a;
-    private long b;
-    private long c;
-    private long d;
+public class ap extends com.baidu.adp.a.d {
+    private aq a = null;
+    private String b = null;
 
-    public ap(Context context) {
-        a(0L);
-        b(0L);
-        c(0L);
+    public boolean a(String str) {
+        this.b = str;
+        return LoadData();
     }
 
-    public void a(long j) {
-        this.a = j;
+    @Override // com.baidu.adp.a.d
+    protected boolean LoadData() {
+        if (this.a != null) {
+            this.a.cancel();
+        }
+        this.a = new aq(this, this.b);
+        this.a.execute(new Object[0]);
+        return true;
     }
 
-    public void b(long j) {
-        this.b = j;
-    }
-
-    public long a() {
-        return this.b + this.c;
-    }
-
-    public void c(long j) {
-        this.c = j;
-    }
-
-    public long b() {
-        return this.d;
-    }
-
-    public void d(long j) {
-        this.d = j;
+    @Override // com.baidu.adp.a.d
+    public boolean cancelLoadData() {
+        if (this.a != null) {
+            this.a.cancel();
+            return true;
+        }
+        return true;
     }
 }

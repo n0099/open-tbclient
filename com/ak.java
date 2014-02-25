@@ -12,6 +12,7 @@ import com.baidu.cloudsdk.common.util.Utils;
 import com.baidu.cloudsdk.social.share.ShareContent;
 import com.baidu.cloudsdk.social.share.SocialShareConfig;
 import com.baidu.cloudsdk.social.share.handler.SocialShareStatisticsManager;
+import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public abstract class ak extends ag {
     protected static final String BLUETOOTH_PACKAGE = "com.android.bluetooth";
@@ -77,7 +78,7 @@ public abstract class ak extends ag {
         StringBuilder sb = new StringBuilder(this.mShareContent.getContent());
         String linkUrl = this.mShareContent.getLinkUrl();
         if (!TextUtils.isEmpty(linkUrl)) {
-            sb.append("\r\n").append(linkUrl);
+            sb.append(IOUtils.LINE_SEPARATOR_WINDOWS).append(linkUrl);
         }
         Intent intent = new Intent("android.intent.action.SEND");
         intent.setPackage(MMS_PACKAGE);
@@ -118,7 +119,7 @@ public abstract class ak extends ag {
         if (imageUri != null && !Utils.isUrl(imageUri)) {
             doShare(imageUri);
         } else if (imageUri != null) {
-            ImageManager.getInstance().loadImage(this.mContext, imageUri, new f(this, imageUri));
+            ImageManager.getInstance().loadImage(this.mContext, imageUri, new al(this, imageUri));
         } else {
             doShare(null);
         }

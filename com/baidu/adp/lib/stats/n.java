@@ -1,45 +1,42 @@
 package com.baidu.adp.lib.stats;
-
-import android.text.TextUtils;
-import com.baidu.adp.lib.cache.BdCacheService;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n {
-    private static n b;
-    private com.baidu.adp.lib.cache.s<byte[]> a = null;
+    final /* synthetic */ l a;
+    private int b;
+    private int c;
+    private int d;
 
-    public static n a() {
-        if (b == null) {
-            synchronized (n.class) {
-                if (b == null) {
-                    b = new n();
-                }
-            }
-        }
-        return b;
+    private n(l lVar) {
+        this.a = lVar;
     }
 
-    private com.baidu.adp.lib.cache.s<byte[]> b() {
-        if (this.a == null) {
-            this.a = BdCacheService.c().b("adp.stat", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 100);
-        }
-        return this.a;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ n(l lVar, n nVar) {
+        this(lVar);
     }
 
-    public void a(byte[] bArr, String str) {
-        if (bArr != null && bArr.length > 0) {
-            String str2 = "adp.stat.switch_data";
-            if (!TextUtils.isEmpty(str)) {
-                str2 = "adp.stat.switch_data" + str;
-            }
-            b().a(str2, bArr);
-        }
+    public int a() {
+        return this.b;
     }
 
-    public byte[] a(String str) {
-        String str2 = "adp.stat.switch_data";
-        if (!TextUtils.isEmpty(str)) {
-            str2 = "adp.stat.switch_data" + str;
-        }
-        return b().a(str2);
+    public void a(int i) {
+        this.b = i;
+    }
+
+    public int b() {
+        return this.c;
+    }
+
+    public void b(int i) {
+        this.c = i;
+    }
+
+    public int c() {
+        return this.d;
+    }
+
+    public void c(int i) {
+        this.d = i;
     }
 }

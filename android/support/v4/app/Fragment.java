@@ -9,6 +9,7 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.v4.util.DebugUtils;
 import android.util.AttributeSet;
 import android.util.SparseArray;
 import android.view.ContextMenu;
@@ -21,63 +22,86 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuListener {
-    private static final HashMap<String, Class<?>> a = new HashMap<>();
-    int A;
-    v B;
-    n C;
-    v D;
-    Fragment E;
-    int F;
-    int G;
-    String H;
-    boolean I;
-    boolean J;
-    boolean K;
-    boolean L;
-    boolean M;
-    boolean O;
-    int P;
-    ViewGroup Q;
-    View R;
-    View S;
-    boolean T;
-    aj V;
-    boolean W;
-    boolean X;
-    View k;
-    int l;
-    Bundle m;
-    SparseArray<Parcelable> n;
-    String p;
-    Bundle q;
-    Fragment r;
-    int t;
-    boolean u;
-    boolean v;
-    boolean w;
-    boolean x;
-    boolean y;
-    boolean z;
-    int j = 0;
-    int o = -1;
-    int s = -1;
-    boolean N = true;
-    boolean U = true;
+    static final int ACTIVITY_CREATED = 2;
+    static final int CREATED = 1;
+    static final int INITIALIZING = 0;
+    static final int RESUMED = 5;
+    static final int STARTED = 4;
+    static final int STOPPED = 3;
+    private static final HashMap<String, Class<?>> sClassMap = new HashMap<>();
+    FragmentActivity mActivity;
+    boolean mAdded;
+    View mAnimatingAway;
+    Bundle mArguments;
+    int mBackStackNesting;
+    boolean mCalled;
+    boolean mCheckedForLoaderManager;
+    FragmentManagerImpl mChildFragmentManager;
+    ViewGroup mContainer;
+    int mContainerId;
+    boolean mDeferStart;
+    boolean mDetached;
+    int mFragmentId;
+    FragmentManagerImpl mFragmentManager;
+    boolean mFromLayout;
+    boolean mHasMenu;
+    boolean mHidden;
+    boolean mInLayout;
+    View mInnerView;
+    LoaderManagerImpl mLoaderManager;
+    boolean mLoadersStarted;
+    int mNextAnim;
+    Fragment mParentFragment;
+    boolean mRemoving;
+    boolean mRestored;
+    boolean mResumed;
+    boolean mRetainInstance;
+    boolean mRetaining;
+    Bundle mSavedFragmentState;
+    SparseArray<Parcelable> mSavedViewState;
+    int mStateAfterAnimating;
+    String mTag;
+    Fragment mTarget;
+    int mTargetRequestCode;
+    View mView;
+    String mWho;
+    int mState = 0;
+    int mIndex = -1;
+    int mTargetIndex = -1;
+    boolean mMenuVisible = true;
+    boolean mUserVisibleHint = true;
 
     /* loaded from: classes.dex */
     public class SavedState implements Parcelable {
-        public static final Parcelable.Creator<SavedState> CREATOR = new m();
-        final Bundle a;
+        public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: android.support.v4.app.Fragment.SavedState.1
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // android.os.Parcelable.Creator
+            public SavedState createFromParcel(Parcel parcel) {
+                return new SavedState(parcel, null);
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // android.os.Parcelable.Creator
+            public SavedState[] newArray(int i) {
+                return new SavedState[i];
+            }
+        };
+        final Bundle mState;
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public SavedState(Parcel parcel, ClassLoader classLoader) {
-            this.a = parcel.readBundle();
-            if (classLoader != null && this.a != null) {
-                this.a.setClassLoader(classLoader);
+        public SavedState(Bundle bundle) {
+            this.mState = bundle;
+        }
+
+        SavedState(Parcel parcel, ClassLoader classLoader) {
+            this.mState = parcel.readBundle();
+            if (classLoader != null && this.mState != null) {
+                this.mState.setClassLoader(classLoader);
             }
         }
 
@@ -88,7 +112,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
         @Override // android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
-            parcel.writeBundle(this.a);
+            parcel.writeBundle(this.mState);
         }
     }
 
@@ -99,21 +123,21 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
-    public static Fragment a(Context context, String str) {
-        return a(context, str, (Bundle) null);
+    public static Fragment instantiate(Context context, String str) {
+        return instantiate(context, str, null);
     }
 
-    public static Fragment a(Context context, String str, Bundle bundle) {
+    public static Fragment instantiate(Context context, String str, Bundle bundle) {
         try {
-            Class<?> cls = a.get(str);
+            Class<?> cls = sClassMap.get(str);
             if (cls == null) {
                 cls = context.getClassLoader().loadClass(str);
-                a.put(str, cls);
+                sClassMap.put(str, cls);
             }
             Fragment fragment = (Fragment) cls.newInstance();
             if (bundle != null) {
                 bundle.setClassLoader(fragment.getClass().getClassLoader());
-                fragment.q = bundle;
+                fragment.mArguments = bundle;
             }
             return fragment;
         } catch (ClassNotFoundException e) {
@@ -126,31 +150,31 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void f(Bundle bundle) {
-        if (this.n != null) {
-            this.S.restoreHierarchyState(this.n);
-            this.n = null;
+    public final void restoreViewState(Bundle bundle) {
+        if (this.mSavedViewState != null) {
+            this.mInnerView.restoreHierarchyState(this.mSavedViewState);
+            this.mSavedViewState = null;
         }
-        this.O = false;
-        h(bundle);
-        if (!this.O) {
+        this.mCalled = false;
+        onViewStateRestored(bundle);
+        if (!this.mCalled) {
             throw new SuperNotCalledException("Fragment " + this + " did not call through to super.onViewStateRestored()");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void a(int i, Fragment fragment) {
-        this.o = i;
+    public final void setIndex(int i, Fragment fragment) {
+        this.mIndex = i;
         if (fragment != null) {
-            this.p = fragment.p + ":" + this.o;
+            this.mWho = fragment.mWho + ":" + this.mIndex;
         } else {
-            this.p = "android:fragment:" + this.o;
+            this.mWho = "android:fragment:" + this.mIndex;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final boolean f() {
-        return this.A > 0;
+    public final boolean isInBackStack() {
+        return this.mBackStackNesting > 0;
     }
 
     public final boolean equals(Object obj) {
@@ -163,522 +187,643 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
     public String toString() {
         StringBuilder sb = new StringBuilder(128);
-        android.support.v4.b.a.a(this, sb);
-        if (this.o >= 0) {
+        DebugUtils.buildShortClassTag(this, sb);
+        if (this.mIndex >= 0) {
             sb.append(" #");
-            sb.append(this.o);
+            sb.append(this.mIndex);
         }
-        if (this.F != 0) {
+        if (this.mFragmentId != 0) {
             sb.append(" id=0x");
-            sb.append(Integer.toHexString(this.F));
+            sb.append(Integer.toHexString(this.mFragmentId));
         }
-        if (this.H != null) {
+        if (this.mTag != null) {
             sb.append(" ");
-            sb.append(this.H);
+            sb.append(this.mTag);
         }
         sb.append('}');
         return sb.toString();
     }
 
-    public final String g() {
-        return this.H;
+    public final int getId() {
+        return this.mFragmentId;
     }
 
-    public void g(Bundle bundle) {
-        if (this.o >= 0) {
+    public final String getTag() {
+        return this.mTag;
+    }
+
+    public void setArguments(Bundle bundle) {
+        if (this.mIndex >= 0) {
             throw new IllegalStateException("Fragment already active");
         }
-        this.q = bundle;
+        this.mArguments = bundle;
     }
 
-    public final Bundle h() {
-        return this.q;
+    public final Bundle getArguments() {
+        return this.mArguments;
     }
 
-    public final n i() {
-        return this.C;
+    public void setInitialSavedState(SavedState savedState) {
+        if (this.mIndex >= 0) {
+            throw new IllegalStateException("Fragment already active");
+        }
+        this.mSavedFragmentState = (savedState == null || savedState.mState == null) ? null : savedState.mState;
     }
 
-    public final Resources j() {
-        if (this.C == null) {
+    public void setTargetFragment(Fragment fragment, int i) {
+        this.mTarget = fragment;
+        this.mTargetRequestCode = i;
+    }
+
+    public final Fragment getTargetFragment() {
+        return this.mTarget;
+    }
+
+    public final int getTargetRequestCode() {
+        return this.mTargetRequestCode;
+    }
+
+    public final FragmentActivity getActivity() {
+        return this.mActivity;
+    }
+
+    public final Resources getResources() {
+        if (this.mActivity == null) {
             throw new IllegalStateException("Fragment " + this + " not attached to Activity");
         }
-        return this.C.getResources();
+        return this.mActivity.getResources();
     }
 
-    public final String a(int i) {
-        return j().getString(i);
+    public final CharSequence getText(int i) {
+        return getResources().getText(i);
     }
 
-    public final String a(int i, Object... objArr) {
-        return j().getString(i, objArr);
+    public final String getString(int i) {
+        return getResources().getString(i);
     }
 
-    public final t k() {
-        return this.B;
+    public final String getString(int i, Object... objArr) {
+        return getResources().getString(i, objArr);
     }
 
-    public final t l() {
-        if (this.D == null) {
-            w();
-            if (this.j >= 5) {
-                this.D.m();
-            } else if (this.j >= 4) {
-                this.D.l();
-            } else if (this.j >= 2) {
-                this.D.k();
-            } else if (this.j >= 1) {
-                this.D.j();
+    public final FragmentManager getFragmentManager() {
+        return this.mFragmentManager;
+    }
+
+    public final FragmentManager getChildFragmentManager() {
+        if (this.mChildFragmentManager == null) {
+            instantiateChildFragmentManager();
+            if (this.mState >= 5) {
+                this.mChildFragmentManager.dispatchResume();
+            } else if (this.mState >= 4) {
+                this.mChildFragmentManager.dispatchStart();
+            } else if (this.mState >= 2) {
+                this.mChildFragmentManager.dispatchActivityCreated();
+            } else if (this.mState >= 1) {
+                this.mChildFragmentManager.dispatchCreate();
             }
         }
-        return this.D;
+        return this.mChildFragmentManager;
     }
 
-    public final Fragment m() {
-        return this.E;
+    public final Fragment getParentFragment() {
+        return this.mParentFragment;
     }
 
-    public final boolean n() {
-        return this.C != null && this.u;
+    public final boolean isAdded() {
+        return this.mActivity != null && this.mAdded;
     }
 
-    public final boolean o() {
-        return this.J;
+    public final boolean isDetached() {
+        return this.mDetached;
     }
 
-    public final boolean p() {
-        return this.I;
+    public final boolean isRemoving() {
+        return this.mRemoving;
     }
 
-    public void b(boolean z) {
+    public final boolean isInLayout() {
+        return this.mInLayout;
     }
 
-    public void c(boolean z) {
-        if (this.N != z) {
-            this.N = z;
-            if (this.M && n() && !p()) {
-                this.C.supportInvalidateOptionsMenu();
+    public final boolean isResumed() {
+        return this.mResumed;
+    }
+
+    public final boolean isVisible() {
+        return (!isAdded() || isHidden() || this.mView == null || this.mView.getWindowToken() == null || this.mView.getVisibility() != 0) ? false : true;
+    }
+
+    public final boolean isHidden() {
+        return this.mHidden;
+    }
+
+    public void onHiddenChanged(boolean z) {
+    }
+
+    public void setRetainInstance(boolean z) {
+        if (z && this.mParentFragment != null) {
+            throw new IllegalStateException("Can't retain fragements that are nested in other fragments");
+        }
+        this.mRetainInstance = z;
+    }
+
+    public final boolean getRetainInstance() {
+        return this.mRetainInstance;
+    }
+
+    public void setHasOptionsMenu(boolean z) {
+        if (this.mHasMenu != z) {
+            this.mHasMenu = z;
+            if (isAdded() && !isHidden()) {
+                this.mActivity.supportInvalidateOptionsMenu();
             }
         }
     }
 
-    public void d(boolean z) {
-        if (!this.U && z && this.j < 4) {
-            this.B.a(this);
+    public void setMenuVisibility(boolean z) {
+        if (this.mMenuVisible != z) {
+            this.mMenuVisible = z;
+            if (this.mHasMenu && isAdded() && !isHidden()) {
+                this.mActivity.supportInvalidateOptionsMenu();
+            }
         }
-        this.U = z;
-        this.T = !z;
     }
 
-    public void a(int i, int i2, Intent intent) {
+    public void setUserVisibleHint(boolean z) {
+        if (!this.mUserVisibleHint && z && this.mState < 4) {
+            this.mFragmentManager.performPendingDeferredStart(this);
+        }
+        this.mUserVisibleHint = z;
+        this.mDeferStart = !z;
     }
 
-    public LayoutInflater b(Bundle bundle) {
-        return this.C.getLayoutInflater();
+    public boolean getUserVisibleHint() {
+        return this.mUserVisibleHint;
     }
 
-    public void a(Activity activity, AttributeSet attributeSet, Bundle bundle) {
-        this.O = true;
+    public LoaderManager getLoaderManager() {
+        if (this.mLoaderManager != null) {
+            return this.mLoaderManager;
+        }
+        if (this.mActivity == null) {
+            throw new IllegalStateException("Fragment " + this + " not attached to Activity");
+        }
+        this.mCheckedForLoaderManager = true;
+        this.mLoaderManager = this.mActivity.getLoaderManager(this.mWho, this.mLoadersStarted, true);
+        return this.mLoaderManager;
     }
 
-    public void a(Activity activity) {
-        this.O = true;
+    public void startActivity(Intent intent) {
+        if (this.mActivity == null) {
+            throw new IllegalStateException("Fragment " + this + " not attached to Activity");
+        }
+        this.mActivity.startActivityFromFragment(this, intent, -1);
     }
 
-    public Animation a(int i, boolean z, int i2) {
+    public void startActivityForResult(Intent intent, int i) {
+        if (this.mActivity == null) {
+            throw new IllegalStateException("Fragment " + this + " not attached to Activity");
+        }
+        this.mActivity.startActivityFromFragment(this, intent, i);
+    }
+
+    public void onActivityResult(int i, int i2, Intent intent) {
+    }
+
+    public LayoutInflater getLayoutInflater(Bundle bundle) {
+        return this.mActivity.getLayoutInflater();
+    }
+
+    public void onInflate(Activity activity, AttributeSet attributeSet, Bundle bundle) {
+        this.mCalled = true;
+    }
+
+    public void onAttach(Activity activity) {
+        this.mCalled = true;
+    }
+
+    public Animation onCreateAnimation(int i, boolean z, int i2) {
         return null;
     }
 
-    public void a(Bundle bundle) {
-        this.O = true;
+    public void onCreate(Bundle bundle) {
+        this.mCalled = true;
     }
 
-    public View a(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         return null;
     }
 
-    public void a(View view, Bundle bundle) {
+    public void onViewCreated(View view, Bundle bundle) {
     }
 
-    public View q() {
-        return this.R;
+    public View getView() {
+        return this.mView;
     }
 
-    public void d(Bundle bundle) {
-        this.O = true;
+    public void onActivityCreated(Bundle bundle) {
+        this.mCalled = true;
     }
 
-    public void h(Bundle bundle) {
-        this.O = true;
+    public void onViewStateRestored(Bundle bundle) {
+        this.mCalled = true;
     }
 
-    public void c_() {
-        this.O = true;
-        if (!this.W) {
-            this.W = true;
-            if (!this.X) {
-                this.X = true;
-                this.V = this.C.getLoaderManager(this.p, this.W, false);
+    public void onStart() {
+        this.mCalled = true;
+        if (!this.mLoadersStarted) {
+            this.mLoadersStarted = true;
+            if (!this.mCheckedForLoaderManager) {
+                this.mCheckedForLoaderManager = true;
+                this.mLoaderManager = this.mActivity.getLoaderManager(this.mWho, this.mLoadersStarted, false);
             }
-            if (this.V != null) {
-                this.V.b();
+            if (this.mLoaderManager != null) {
+                this.mLoaderManager.doStart();
             }
         }
     }
 
-    public void r() {
-        this.O = true;
+    public void onResume() {
+        this.mCalled = true;
     }
 
-    public void e(Bundle bundle) {
+    public void onSaveInstanceState(Bundle bundle) {
     }
 
     @Override // android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
-        this.O = true;
+        this.mCalled = true;
     }
 
-    public void s() {
-        this.O = true;
+    public void onPause() {
+        this.mCalled = true;
     }
 
-    public void d() {
-        this.O = true;
+    public void onStop() {
+        this.mCalled = true;
     }
 
     @Override // android.content.ComponentCallbacks
     public void onLowMemory() {
-        this.O = true;
+        this.mCalled = true;
     }
 
-    public void e() {
-        this.O = true;
+    public void onDestroyView() {
+        this.mCalled = true;
     }
 
-    public void t() {
-        this.O = true;
-        if (!this.X) {
-            this.X = true;
-            this.V = this.C.getLoaderManager(this.p, this.W, false);
+    public void onDestroy() {
+        this.mCalled = true;
+        if (!this.mCheckedForLoaderManager) {
+            this.mCheckedForLoaderManager = true;
+            this.mLoaderManager = this.mActivity.getLoaderManager(this.mWho, this.mLoadersStarted, false);
         }
-        if (this.V != null) {
-            this.V.h();
+        if (this.mLoaderManager != null) {
+            this.mLoaderManager.doDestroy();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void u() {
-        this.o = -1;
-        this.p = null;
-        this.u = false;
-        this.v = false;
-        this.w = false;
-        this.x = false;
-        this.y = false;
-        this.z = false;
-        this.A = 0;
-        this.B = null;
-        this.C = null;
-        this.F = 0;
-        this.G = 0;
-        this.H = null;
-        this.I = false;
-        this.J = false;
-        this.L = false;
-        this.V = null;
-        this.W = false;
-        this.X = false;
+    public void initState() {
+        this.mIndex = -1;
+        this.mWho = null;
+        this.mAdded = false;
+        this.mRemoving = false;
+        this.mResumed = false;
+        this.mFromLayout = false;
+        this.mInLayout = false;
+        this.mRestored = false;
+        this.mBackStackNesting = 0;
+        this.mFragmentManager = null;
+        this.mActivity = null;
+        this.mFragmentId = 0;
+        this.mContainerId = 0;
+        this.mTag = null;
+        this.mHidden = false;
+        this.mDetached = false;
+        this.mRetaining = false;
+        this.mLoaderManager = null;
+        this.mLoadersStarted = false;
+        this.mCheckedForLoaderManager = false;
     }
 
-    public void b() {
-        this.O = true;
+    public void onDetach() {
+        this.mCalled = true;
     }
 
-    public void a(Menu menu, MenuInflater menuInflater) {
+    public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
     }
 
-    public void a(Menu menu) {
+    public void onPrepareOptionsMenu(Menu menu) {
     }
 
-    public void v() {
+    public void onDestroyOptionsMenu() {
     }
 
-    public boolean a(MenuItem menuItem) {
+    public boolean onOptionsItemSelected(MenuItem menuItem) {
         return false;
     }
 
-    public void b(Menu menu) {
+    public void onOptionsMenuClosed(Menu menu) {
     }
 
     @Override // android.view.View.OnCreateContextMenuListener
     public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
-        i().onCreateContextMenu(contextMenu, view, contextMenuInfo);
+        getActivity().onCreateContextMenu(contextMenu, view, contextMenuInfo);
     }
 
-    public boolean b(MenuItem menuItem) {
+    public void registerForContextMenu(View view) {
+        view.setOnCreateContextMenuListener(this);
+    }
+
+    public void unregisterForContextMenu(View view) {
+        view.setOnCreateContextMenuListener(null);
+    }
+
+    public boolean onContextItemSelected(MenuItem menuItem) {
         return false;
     }
 
-    public void a(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+    public void dump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
         printWriter.print(str);
         printWriter.print("mFragmentId=#");
-        printWriter.print(Integer.toHexString(this.F));
+        printWriter.print(Integer.toHexString(this.mFragmentId));
         printWriter.print(" mContainerId=#");
-        printWriter.print(Integer.toHexString(this.G));
+        printWriter.print(Integer.toHexString(this.mContainerId));
         printWriter.print(" mTag=");
-        printWriter.println(this.H);
+        printWriter.println(this.mTag);
         printWriter.print(str);
         printWriter.print("mState=");
-        printWriter.print(this.j);
+        printWriter.print(this.mState);
         printWriter.print(" mIndex=");
-        printWriter.print(this.o);
+        printWriter.print(this.mIndex);
         printWriter.print(" mWho=");
-        printWriter.print(this.p);
+        printWriter.print(this.mWho);
         printWriter.print(" mBackStackNesting=");
-        printWriter.println(this.A);
+        printWriter.println(this.mBackStackNesting);
         printWriter.print(str);
         printWriter.print("mAdded=");
-        printWriter.print(this.u);
+        printWriter.print(this.mAdded);
         printWriter.print(" mRemoving=");
-        printWriter.print(this.v);
+        printWriter.print(this.mRemoving);
         printWriter.print(" mResumed=");
-        printWriter.print(this.w);
+        printWriter.print(this.mResumed);
         printWriter.print(" mFromLayout=");
-        printWriter.print(this.x);
+        printWriter.print(this.mFromLayout);
         printWriter.print(" mInLayout=");
-        printWriter.println(this.y);
+        printWriter.println(this.mInLayout);
         printWriter.print(str);
         printWriter.print("mHidden=");
-        printWriter.print(this.I);
+        printWriter.print(this.mHidden);
         printWriter.print(" mDetached=");
-        printWriter.print(this.J);
+        printWriter.print(this.mDetached);
         printWriter.print(" mMenuVisible=");
-        printWriter.print(this.N);
+        printWriter.print(this.mMenuVisible);
         printWriter.print(" mHasMenu=");
-        printWriter.println(this.M);
+        printWriter.println(this.mHasMenu);
         printWriter.print(str);
         printWriter.print("mRetainInstance=");
-        printWriter.print(this.K);
+        printWriter.print(this.mRetainInstance);
         printWriter.print(" mRetaining=");
-        printWriter.print(this.L);
+        printWriter.print(this.mRetaining);
         printWriter.print(" mUserVisibleHint=");
-        printWriter.println(this.U);
-        if (this.B != null) {
+        printWriter.println(this.mUserVisibleHint);
+        if (this.mFragmentManager != null) {
             printWriter.print(str);
             printWriter.print("mFragmentManager=");
-            printWriter.println(this.B);
+            printWriter.println(this.mFragmentManager);
         }
-        if (this.C != null) {
+        if (this.mActivity != null) {
             printWriter.print(str);
             printWriter.print("mActivity=");
-            printWriter.println(this.C);
+            printWriter.println(this.mActivity);
         }
-        if (this.E != null) {
+        if (this.mParentFragment != null) {
             printWriter.print(str);
             printWriter.print("mParentFragment=");
-            printWriter.println(this.E);
+            printWriter.println(this.mParentFragment);
         }
-        if (this.q != null) {
+        if (this.mArguments != null) {
             printWriter.print(str);
             printWriter.print("mArguments=");
-            printWriter.println(this.q);
+            printWriter.println(this.mArguments);
         }
-        if (this.m != null) {
+        if (this.mSavedFragmentState != null) {
             printWriter.print(str);
             printWriter.print("mSavedFragmentState=");
-            printWriter.println(this.m);
+            printWriter.println(this.mSavedFragmentState);
         }
-        if (this.n != null) {
+        if (this.mSavedViewState != null) {
             printWriter.print(str);
             printWriter.print("mSavedViewState=");
-            printWriter.println(this.n);
+            printWriter.println(this.mSavedViewState);
         }
-        if (this.r != null) {
+        if (this.mTarget != null) {
             printWriter.print(str);
             printWriter.print("mTarget=");
-            printWriter.print(this.r);
+            printWriter.print(this.mTarget);
             printWriter.print(" mTargetRequestCode=");
-            printWriter.println(this.t);
+            printWriter.println(this.mTargetRequestCode);
         }
-        if (this.P != 0) {
+        if (this.mNextAnim != 0) {
             printWriter.print(str);
             printWriter.print("mNextAnim=");
-            printWriter.println(this.P);
+            printWriter.println(this.mNextAnim);
         }
-        if (this.Q != null) {
+        if (this.mContainer != null) {
             printWriter.print(str);
             printWriter.print("mContainer=");
-            printWriter.println(this.Q);
+            printWriter.println(this.mContainer);
         }
-        if (this.R != null) {
+        if (this.mView != null) {
             printWriter.print(str);
             printWriter.print("mView=");
-            printWriter.println(this.R);
+            printWriter.println(this.mView);
         }
-        if (this.S != null) {
+        if (this.mInnerView != null) {
             printWriter.print(str);
             printWriter.print("mInnerView=");
-            printWriter.println(this.R);
+            printWriter.println(this.mView);
         }
-        if (this.k != null) {
+        if (this.mAnimatingAway != null) {
             printWriter.print(str);
             printWriter.print("mAnimatingAway=");
-            printWriter.println(this.k);
+            printWriter.println(this.mAnimatingAway);
             printWriter.print(str);
             printWriter.print("mStateAfterAnimating=");
-            printWriter.println(this.l);
+            printWriter.println(this.mStateAfterAnimating);
         }
-        if (this.V != null) {
+        if (this.mLoaderManager != null) {
             printWriter.print(str);
             printWriter.println("Loader Manager:");
-            this.V.a(str + "  ", fileDescriptor, printWriter, strArr);
+            this.mLoaderManager.dump(str + "  ", fileDescriptor, printWriter, strArr);
         }
-        if (this.D != null) {
+        if (this.mChildFragmentManager != null) {
             printWriter.print(str);
-            printWriter.println("Child " + this.D + ":");
-            this.D.a(str + "  ", fileDescriptor, printWriter, strArr);
+            printWriter.println("Child " + this.mChildFragmentManager + ":");
+            this.mChildFragmentManager.dump(str + "  ", fileDescriptor, printWriter, strArr);
         }
-    }
-
-    void w() {
-        this.D = new v();
-        this.D.a(this.C, new l(this), this);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void i(Bundle bundle) {
-        Parcelable parcelable;
-        if (this.D != null) {
-            this.D.i();
+    public Fragment findFragmentByWho(String str) {
+        if (!str.equals(this.mWho)) {
+            if (this.mChildFragmentManager != null) {
+                return this.mChildFragmentManager.findFragmentByWho(str);
+            }
+            return null;
         }
-        this.O = false;
-        a(bundle);
-        if (!this.O) {
+        return this;
+    }
+
+    void instantiateChildFragmentManager() {
+        this.mChildFragmentManager = new FragmentManagerImpl();
+        this.mChildFragmentManager.attachActivity(this.mActivity, new FragmentContainer() { // from class: android.support.v4.app.Fragment.1
+            @Override // android.support.v4.app.FragmentContainer
+            public View findViewById(int i) {
+                if (Fragment.this.mView == null) {
+                    throw new IllegalStateException("Fragment does not have a view");
+                }
+                return Fragment.this.mView.findViewById(i);
+            }
+        }, this);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void performCreate(Bundle bundle) {
+        Parcelable parcelable;
+        if (this.mChildFragmentManager != null) {
+            this.mChildFragmentManager.noteStateNotSaved();
+        }
+        this.mCalled = false;
+        onCreate(bundle);
+        if (!this.mCalled) {
             throw new SuperNotCalledException("Fragment " + this + " did not call through to super.onCreate()");
         }
         if (bundle != null && (parcelable = bundle.getParcelable("android:support:fragments")) != null) {
-            if (this.D == null) {
-                w();
+            if (this.mChildFragmentManager == null) {
+                instantiateChildFragmentManager();
             }
-            this.D.a(parcelable, (ArrayList<Fragment>) null);
-            this.D.j();
+            this.mChildFragmentManager.restoreAllState(parcelable, null);
+            this.mChildFragmentManager.dispatchCreate();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public View b(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        if (this.D != null) {
-            this.D.i();
+    public View performCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        if (this.mChildFragmentManager != null) {
+            this.mChildFragmentManager.noteStateNotSaved();
         }
-        return a(layoutInflater, viewGroup, bundle);
+        return onCreateView(layoutInflater, viewGroup, bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void j(Bundle bundle) {
-        if (this.D != null) {
-            this.D.i();
+    public void performActivityCreated(Bundle bundle) {
+        if (this.mChildFragmentManager != null) {
+            this.mChildFragmentManager.noteStateNotSaved();
         }
-        this.O = false;
-        d(bundle);
-        if (!this.O) {
+        this.mCalled = false;
+        onActivityCreated(bundle);
+        if (!this.mCalled) {
             throw new SuperNotCalledException("Fragment " + this + " did not call through to super.onActivityCreated()");
         }
-        if (this.D != null) {
-            this.D.k();
+        if (this.mChildFragmentManager != null) {
+            this.mChildFragmentManager.dispatchActivityCreated();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void x() {
-        if (this.D != null) {
-            this.D.i();
-            this.D.e();
+    public void performStart() {
+        if (this.mChildFragmentManager != null) {
+            this.mChildFragmentManager.noteStateNotSaved();
+            this.mChildFragmentManager.execPendingActions();
         }
-        this.O = false;
-        c_();
-        if (!this.O) {
+        this.mCalled = false;
+        onStart();
+        if (!this.mCalled) {
             throw new SuperNotCalledException("Fragment " + this + " did not call through to super.onStart()");
         }
-        if (this.D != null) {
-            this.D.l();
+        if (this.mChildFragmentManager != null) {
+            this.mChildFragmentManager.dispatchStart();
         }
-        if (this.V != null) {
-            this.V.g();
+        if (this.mLoaderManager != null) {
+            this.mLoaderManager.doReportStart();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void y() {
-        if (this.D != null) {
-            this.D.i();
-            this.D.e();
+    public void performResume() {
+        if (this.mChildFragmentManager != null) {
+            this.mChildFragmentManager.noteStateNotSaved();
+            this.mChildFragmentManager.execPendingActions();
         }
-        this.O = false;
-        r();
-        if (!this.O) {
+        this.mCalled = false;
+        onResume();
+        if (!this.mCalled) {
             throw new SuperNotCalledException("Fragment " + this + " did not call through to super.onResume()");
         }
-        if (this.D != null) {
-            this.D.m();
-            this.D.e();
+        if (this.mChildFragmentManager != null) {
+            this.mChildFragmentManager.dispatchResume();
+            this.mChildFragmentManager.execPendingActions();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(Configuration configuration) {
+    public void performConfigurationChanged(Configuration configuration) {
         onConfigurationChanged(configuration);
-        if (this.D != null) {
-            this.D.a(configuration);
+        if (this.mChildFragmentManager != null) {
+            this.mChildFragmentManager.dispatchConfigurationChanged(configuration);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void z() {
+    public void performLowMemory() {
         onLowMemory();
-        if (this.D != null) {
-            this.D.s();
+        if (this.mChildFragmentManager != null) {
+            this.mChildFragmentManager.dispatchLowMemory();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean b(Menu menu, MenuInflater menuInflater) {
+    public boolean performCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
         boolean z = false;
-        if (this.I) {
+        if (this.mHidden) {
             return false;
         }
-        if (this.M && this.N) {
+        if (this.mHasMenu && this.mMenuVisible) {
             z = true;
-            a(menu, menuInflater);
+            onCreateOptionsMenu(menu, menuInflater);
         }
-        if (this.D != null) {
-            return z | this.D.a(menu, menuInflater);
+        if (this.mChildFragmentManager != null) {
+            return z | this.mChildFragmentManager.dispatchCreateOptionsMenu(menu, menuInflater);
         }
         return z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean c(Menu menu) {
+    public boolean performPrepareOptionsMenu(Menu menu) {
         boolean z = false;
-        if (this.I) {
+        if (this.mHidden) {
             return false;
         }
-        if (this.M && this.N) {
+        if (this.mHasMenu && this.mMenuVisible) {
             z = true;
-            a(menu);
+            onPrepareOptionsMenu(menu);
         }
-        if (this.D != null) {
-            return z | this.D.a(menu);
+        if (this.mChildFragmentManager != null) {
+            return z | this.mChildFragmentManager.dispatchPrepareOptionsMenu(menu);
         }
         return z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean c(MenuItem menuItem) {
-        if (!this.I) {
-            if (this.M && this.N && a(menuItem)) {
+    public boolean performOptionsItemSelected(MenuItem menuItem) {
+        if (!this.mHidden) {
+            if (this.mHasMenu && this.mMenuVisible && onOptionsItemSelected(menuItem)) {
                 return true;
             }
-            if (this.D != null && this.D.a(menuItem)) {
+            if (this.mChildFragmentManager != null && this.mChildFragmentManager.dispatchOptionsItemSelected(menuItem)) {
                 return true;
             }
         }
@@ -686,12 +831,12 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean d(MenuItem menuItem) {
-        if (!this.I) {
-            if (b(menuItem)) {
+    public boolean performContextItemSelected(MenuItem menuItem) {
+        if (!this.mHidden) {
+            if (onContextItemSelected(menuItem)) {
                 return true;
             }
-            if (this.D != null && this.D.b(menuItem)) {
+            if (this.mChildFragmentManager != null && this.mChildFragmentManager.dispatchContextItemSelected(menuItem)) {
                 return true;
             }
         }
@@ -699,94 +844,94 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void d(Menu menu) {
-        if (!this.I) {
-            if (this.M && this.N) {
-                b(menu);
+    public void performOptionsMenuClosed(Menu menu) {
+        if (!this.mHidden) {
+            if (this.mHasMenu && this.mMenuVisible) {
+                onOptionsMenuClosed(menu);
             }
-            if (this.D != null) {
-                this.D.b(menu);
+            if (this.mChildFragmentManager != null) {
+                this.mChildFragmentManager.dispatchOptionsMenuClosed(menu);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void k(Bundle bundle) {
-        Parcelable h;
-        e(bundle);
-        if (this.D != null && (h = this.D.h()) != null) {
-            bundle.putParcelable("android:support:fragments", h);
+    public void performSaveInstanceState(Bundle bundle) {
+        Parcelable saveAllState;
+        onSaveInstanceState(bundle);
+        if (this.mChildFragmentManager != null && (saveAllState = this.mChildFragmentManager.saveAllState()) != null) {
+            bundle.putParcelable("android:support:fragments", saveAllState);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void A() {
-        if (this.D != null) {
-            this.D.n();
+    public void performPause() {
+        if (this.mChildFragmentManager != null) {
+            this.mChildFragmentManager.dispatchPause();
         }
-        this.O = false;
-        s();
-        if (!this.O) {
+        this.mCalled = false;
+        onPause();
+        if (!this.mCalled) {
             throw new SuperNotCalledException("Fragment " + this + " did not call through to super.onPause()");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void B() {
-        if (this.D != null) {
-            this.D.o();
+    public void performStop() {
+        if (this.mChildFragmentManager != null) {
+            this.mChildFragmentManager.dispatchStop();
         }
-        this.O = false;
-        d();
-        if (!this.O) {
+        this.mCalled = false;
+        onStop();
+        if (!this.mCalled) {
             throw new SuperNotCalledException("Fragment " + this + " did not call through to super.onStop()");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void C() {
-        if (this.D != null) {
-            this.D.p();
+    public void performReallyStop() {
+        if (this.mChildFragmentManager != null) {
+            this.mChildFragmentManager.dispatchReallyStop();
         }
-        if (this.W) {
-            this.W = false;
-            if (!this.X) {
-                this.X = true;
-                this.V = this.C.getLoaderManager(this.p, this.W, false);
+        if (this.mLoadersStarted) {
+            this.mLoadersStarted = false;
+            if (!this.mCheckedForLoaderManager) {
+                this.mCheckedForLoaderManager = true;
+                this.mLoaderManager = this.mActivity.getLoaderManager(this.mWho, this.mLoadersStarted, false);
             }
-            if (this.V != null) {
-                if (!this.C.mRetaining) {
-                    this.V.c();
+            if (this.mLoaderManager != null) {
+                if (!this.mActivity.mRetaining) {
+                    this.mLoaderManager.doStop();
                 } else {
-                    this.V.d();
+                    this.mLoaderManager.doRetain();
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void D() {
-        if (this.D != null) {
-            this.D.q();
+    public void performDestroyView() {
+        if (this.mChildFragmentManager != null) {
+            this.mChildFragmentManager.dispatchDestroyView();
         }
-        this.O = false;
-        e();
-        if (!this.O) {
+        this.mCalled = false;
+        onDestroyView();
+        if (!this.mCalled) {
             throw new SuperNotCalledException("Fragment " + this + " did not call through to super.onDestroyView()");
         }
-        if (this.V != null) {
-            this.V.f();
+        if (this.mLoaderManager != null) {
+            this.mLoaderManager.doReportNextStart();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void E() {
-        if (this.D != null) {
-            this.D.r();
+    public void performDestroy() {
+        if (this.mChildFragmentManager != null) {
+            this.mChildFragmentManager.dispatchDestroy();
         }
-        this.O = false;
-        t();
-        if (!this.O) {
+        this.mCalled = false;
+        onDestroy();
+        if (!this.mCalled) {
             throw new SuperNotCalledException("Fragment " + this + " did not call through to super.onDestroy()");
         }
     }

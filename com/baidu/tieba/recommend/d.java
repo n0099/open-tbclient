@@ -1,7 +1,6 @@
 package com.baidu.tieba.recommend;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements Runnable {
+class d implements com.baidu.adp.widget.ListView.r {
     final /* synthetic */ DailyRecommendActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,16 +8,8 @@ public class d implements Runnable {
         this.a = dailyRecommendActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        String str;
-        y yVar;
-        try {
-            yVar = this.a.c;
-            yVar.h();
-        } catch (Exception e) {
-            str = this.a.b;
-            com.baidu.adp.lib.g.e.b(str, "mLoadImageRunnable.run", "error = " + e.getMessage());
-        }
+    @Override // com.baidu.adp.widget.ListView.r
+    public void a() {
+        this.a.b();
     }
 }

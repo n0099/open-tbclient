@@ -1,49 +1,24 @@
 package com.baidu.tieba.write;
 
-import android.graphics.Bitmap;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.view.View;
+import com.baidu.tieba.editortool.EditorToolComponetContainer;
 /* loaded from: classes.dex */
-public class ba extends BdAsyncTask<Object, Integer, Bitmap> {
-    final /* synthetic */ WriteImagePreview a;
-    private String b;
+class ba implements View.OnClickListener {
+    final /* synthetic */ WriteActivity a;
 
-    public ba(WriteImagePreview writeImagePreview, String str) {
-        this.a = writeImagePreview;
-        this.b = null;
-        this.b = str;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ba(WriteActivity writeActivity) {
+        this.a = writeActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public Bitmap a(Object... objArr) {
-        if (this.b != null && !this.b.equals("tieba_resized_image")) {
-            com.baidu.tieba.util.ad.e("photos/" + this.b, "tieba_resized_image");
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        EditorToolComponetContainer editorToolComponetContainer;
+        EditorToolComponetContainer editorToolComponetContainer2;
+        editorToolComponetContainer = this.a.B;
+        if (editorToolComponetContainer.j()) {
+            editorToolComponetContainer2 = this.a.B;
+            editorToolComponetContainer2.k();
         }
-        return com.baidu.tieba.util.ad.c(null, "tieba_resized_image_display");
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        super.cancel(true);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void c() {
-        super.c();
-        if (this.a.f != null) {
-            this.a.f.a(31, null);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Bitmap bitmap) {
-        super.a((ba) bitmap);
-        com.baidu.adp.lib.g.e.a(getClass().getName(), "onPostExecute", "is Null?" + String.valueOf(bitmap == null));
-        this.a.a(bitmap);
     }
 }

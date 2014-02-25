@@ -1,17 +1,29 @@
 package com.baidu.tieba.home;
 
-import android.content.DialogInterface;
+import android.graphics.Camera;
+import android.graphics.Matrix;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.Transformation;
 /* loaded from: classes.dex */
-class ah implements DialogInterface.OnClickListener {
-    final /* synthetic */ ag a;
+public class ah extends Animation {
+    private Camera a = new Camera();
+    private View b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(ag agVar) {
-        this.a = agVar;
+    public ah(View view) {
+        this.b = view;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        dialogInterface.cancel();
+    @Override // android.view.animation.Animation
+    protected void applyTransformation(float f, Transformation transformation) {
+        int width = this.b.getWidth() / 2;
+        int height = this.b.getHeight() / 2;
+        Matrix matrix = transformation.getMatrix();
+        this.a.save();
+        this.a.translate(0.0f, 0.0f, (-150.0f) * (1.0f - f));
+        this.a.getMatrix(matrix);
+        this.a.restore();
+        matrix.preTranslate(-width, -height);
+        matrix.postTranslate(width, height);
     }
 }

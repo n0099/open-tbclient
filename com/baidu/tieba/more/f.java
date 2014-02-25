@@ -4,9 +4,8 @@ import android.app.AlertDialog;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements View.OnClickListener {
+class f implements View.OnClickListener {
     final /* synthetic */ AccountActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

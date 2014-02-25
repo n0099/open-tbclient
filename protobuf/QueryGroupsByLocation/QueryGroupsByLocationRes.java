@@ -17,10 +17,10 @@ import protobuf.Im;
 public final class QueryGroupsByLocationRes {
 
     /* loaded from: classes.dex */
-    public final class Business extends GeneratedMessageLite implements k {
+    public final class Business extends GeneratedMessageLite implements i {
         public static final int BUSINESS_FIELD_NUMBER = 1;
         public static final int GROUPS_FIELD_NUMBER = 2;
-        public static Parser<Business> PARSER = new i();
+        public static Parser<Business> PARSER = new g();
         private static final Business a = new Business(true);
         private static final long serialVersionUID = 0;
         private int bitField0_;
@@ -28,6 +28,11 @@ public final class QueryGroupsByLocationRes {
         private List<Im.GroupInfo> groups_;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ Business(GeneratedMessageLite.Builder builder, Business business) {
+            this(builder);
+        }
 
         private Business(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -50,13 +55,11 @@ public final class QueryGroupsByLocationRes {
             return a;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r3v3, resolved type: java.util.List<protobuf.Im$GroupInfo> */
-        /* JADX WARN: Multi-variable type inference failed */
         private Business(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-            boolean z = false;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
             a();
+            boolean z = false;
             boolean z2 = false;
             while (!z) {
                 try {
@@ -76,7 +79,7 @@ public final class QueryGroupsByLocationRes {
                                         this.groups_ = new ArrayList();
                                         z2 |= true;
                                     }
-                                    this.groups_.add(codedInputStream.readMessage(Im.GroupInfo.PARSER, extensionRegistryLite));
+                                    this.groups_.add((Im.GroupInfo) codedInputStream.readMessage(Im.GroupInfo.PARSER, extensionRegistryLite));
                                     break;
                                 default:
                                     if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
@@ -99,6 +102,11 @@ public final class QueryGroupsByLocationRes {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ Business(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, Business business) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -141,7 +149,7 @@ public final class QueryGroupsByLocationRes {
             return this.groups_;
         }
 
-        public List<? extends protobuf.j> getGroupsOrBuilderList() {
+        public List<? extends protobuf.l> getGroupsOrBuilderList() {
             return this.groups_;
         }
 
@@ -153,7 +161,7 @@ public final class QueryGroupsByLocationRes {
             return this.groups_.get(i);
         }
 
-        public protobuf.j getGroupsOrBuilder(int i) {
+        public protobuf.l getGroupsOrBuilder(int i) {
             return this.groups_.get(i);
         }
 
@@ -255,34 +263,34 @@ public final class QueryGroupsByLocationRes {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static j newBuilder() {
-            return j.f();
+        public static h newBuilder() {
+            return h.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public j newBuilderForType() {
+        public h newBuilderForType() {
             return newBuilder();
         }
 
-        public static j newBuilder(Business business) {
+        public static h newBuilder(Business business) {
             return newBuilder().mergeFrom(business);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public j toBuilder() {
+        public h toBuilder() {
             return newBuilder(this);
         }
     }
 
     /* loaded from: classes.dex */
-    public final class DataRes extends GeneratedMessageLite implements n {
+    public final class DataRes extends GeneratedMessageLite implements l {
         public static final int GEO_FIELD_NUMBER = 2;
         public static final int GROUPS_FIELD_NUMBER = 1;
         public static final int HASMORE_FIELD_NUMBER = 4;
         public static final int OFFSET_FIELD_NUMBER = 3;
-        public static Parser<DataRes> PARSER = new l();
+        public static Parser<DataRes> PARSER = new j();
         private static final DataRes a = new DataRes(true);
         private static final long serialVersionUID = 0;
         private int bitField0_;
@@ -292,6 +300,11 @@ public final class QueryGroupsByLocationRes {
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
         private int offset_;
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ DataRes(GeneratedMessageLite.Builder builder, DataRes dataRes) {
+            this(builder);
+        }
 
         private DataRes(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -314,13 +327,11 @@ public final class QueryGroupsByLocationRes {
             return a;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r3v13, resolved type: java.util.List<protobuf.QueryGroupsByLocation.QueryGroupsByLocationRes$Business> */
-        /* JADX WARN: Multi-variable type inference failed */
         private DataRes(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-            boolean z = false;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
             a();
+            boolean z = false;
             boolean z2 = false;
             while (!z) {
                 try {
@@ -336,7 +347,7 @@ public final class QueryGroupsByLocationRes {
                                         this.groups_ = new ArrayList();
                                         z2 |= true;
                                     }
-                                    this.groups_.add(codedInputStream.readMessage(Business.PARSER, extensionRegistryLite));
+                                    this.groups_.add((Business) codedInputStream.readMessage(Business.PARSER, extensionRegistryLite));
                                     break;
                                 case 16:
                                     this.bitField0_ |= 1;
@@ -346,7 +357,7 @@ public final class QueryGroupsByLocationRes {
                                     this.bitField0_ |= 2;
                                     this.offset_ = codedInputStream.readInt32();
                                     break;
-                                case Im.GroupInfo.ISNEWLYCREATE_FIELD_NUMBER /* 32 */:
+                                case 32:
                                     this.bitField0_ |= 4;
                                     this.hasMore_ = codedInputStream.readInt32();
                                     break;
@@ -358,11 +369,11 @@ public final class QueryGroupsByLocationRes {
                                         break;
                                     }
                             }
-                        } catch (InvalidProtocolBufferException e) {
-                            throw e.setUnfinishedMessage(this);
+                        } catch (IOException e) {
+                            throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
                         }
-                    } catch (IOException e2) {
-                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e2) {
+                        throw e2.setUnfinishedMessage(this);
                     }
                 } finally {
                     if (z2 & true) {
@@ -371,6 +382,11 @@ public final class QueryGroupsByLocationRes {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ DataRes(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, DataRes dataRes) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -386,7 +402,7 @@ public final class QueryGroupsByLocationRes {
             return this.groups_;
         }
 
-        public List<? extends k> getGroupsOrBuilderList() {
+        public List<? extends i> getGroupsOrBuilderList() {
             return this.groups_;
         }
 
@@ -398,7 +414,7 @@ public final class QueryGroupsByLocationRes {
             return this.groups_.get(i);
         }
 
-        public k getGroupsOrBuilder(int i) {
+        public i getGroupsOrBuilder(int i) {
             return this.groups_.get(i);
         }
 
@@ -534,32 +550,32 @@ public final class QueryGroupsByLocationRes {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static m newBuilder() {
-            return m.f();
+        public static k newBuilder() {
+            return k.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public m newBuilderForType() {
+        public k newBuilderForType() {
             return newBuilder();
         }
 
-        public static m newBuilder(DataRes dataRes) {
+        public static k newBuilder(DataRes dataRes) {
             return newBuilder().mergeFrom(dataRes);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public m toBuilder() {
+        public k toBuilder() {
             return newBuilder(this);
         }
     }
 
     /* loaded from: classes.dex */
-    public final class QueryGroupsByLocationResIdl extends GeneratedMessageLite implements q {
+    public final class QueryGroupsByLocationResIdl extends GeneratedMessageLite implements o {
         public static final int DATA_FIELD_NUMBER = 2;
         public static final int ERROR_FIELD_NUMBER = 1;
-        public static Parser<QueryGroupsByLocationResIdl> PARSER = new o();
+        public static Parser<QueryGroupsByLocationResIdl> PARSER = new m();
         private static final QueryGroupsByLocationResIdl a = new QueryGroupsByLocationResIdl(true);
         private static final long serialVersionUID = 0;
         private int bitField0_;
@@ -567,6 +583,11 @@ public final class QueryGroupsByLocationRes {
         private Im.Error error_;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ QueryGroupsByLocationResIdl(GeneratedMessageLite.Builder builder, QueryGroupsByLocationResIdl queryGroupsByLocationResIdl) {
+            this(builder);
+        }
 
         private QueryGroupsByLocationResIdl(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -590,12 +611,11 @@ public final class QueryGroupsByLocationRes {
         }
 
         private QueryGroupsByLocationResIdl(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-            boolean z;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
             a();
-            boolean z2 = false;
-            while (!z2) {
+            boolean z = false;
+            while (!z) {
                 try {
                     try {
                         int readTag = codedInputStream.readTag();
@@ -604,35 +624,31 @@ public final class QueryGroupsByLocationRes {
                                 z = true;
                                 break;
                             case 10:
-                                protobuf.c builder = (this.bitField0_ & 1) == 1 ? this.error_.toBuilder() : null;
+                                protobuf.e builder = (this.bitField0_ & 1) == 1 ? this.error_.toBuilder() : null;
                                 this.error_ = (Im.Error) codedInputStream.readMessage(Im.Error.PARSER, extensionRegistryLite);
                                 if (builder != null) {
                                     builder.mergeFrom(this.error_);
                                     this.error_ = builder.buildPartial();
                                 }
                                 this.bitField0_ |= 1;
-                                z = z2;
                                 break;
                             case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
-                                m builder2 = (this.bitField0_ & 2) == 2 ? this.data_.toBuilder() : null;
+                                k builder2 = (this.bitField0_ & 2) == 2 ? this.data_.toBuilder() : null;
                                 this.data_ = (DataRes) codedInputStream.readMessage(DataRes.PARSER, extensionRegistryLite);
                                 if (builder2 != null) {
                                     builder2.mergeFrom(this.data_);
                                     this.data_ = builder2.buildPartial();
                                 }
                                 this.bitField0_ |= 2;
-                                z = z2;
                                 break;
                             default:
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
                                 } else {
-                                    z = z2;
                                     break;
                                 }
                         }
-                        z2 = z;
                     } catch (InvalidProtocolBufferException e) {
                         throw e.setUnfinishedMessage(this);
                     } catch (IOException e2) {
@@ -642,6 +658,11 @@ public final class QueryGroupsByLocationRes {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ QueryGroupsByLocationResIdl(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, QueryGroupsByLocationResIdl queryGroupsByLocationResIdl) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -754,23 +775,23 @@ public final class QueryGroupsByLocationRes {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static p newBuilder() {
-            return p.f();
+        public static n newBuilder() {
+            return n.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public p newBuilderForType() {
+        public n newBuilderForType() {
             return newBuilder();
         }
 
-        public static p newBuilder(QueryGroupsByLocationResIdl queryGroupsByLocationResIdl) {
+        public static n newBuilder(QueryGroupsByLocationResIdl queryGroupsByLocationResIdl) {
             return newBuilder().mergeFrom(queryGroupsByLocationResIdl);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public p toBuilder() {
+        public n toBuilder() {
             return newBuilder(this);
         }
     }

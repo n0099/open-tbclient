@@ -5,14 +5,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tieba.data.IconData;
+import com.baidu.tbadk.data.IconData;
 import com.baidu.tieba.data.UserData;
 import com.baidu.tieba.view.HeadImageShaderView;
 import com.baidu.tieba.view.UserIconBox;
 import com.slidingmenu.lib.R;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class MsgleftView extends bk {
+public class MsgleftView extends bs {
     private static final String p = MsgleftView.class.getName();
     View.OnLongClickListener o;
     private HeadImageShaderView q;
@@ -27,7 +27,7 @@ public class MsgleftView extends bk {
         super(context, R.layout.msg_msgleft_view);
         this.v = new TouchType();
         this.w = 0;
-        this.o = new bt(this);
+        this.o = new bz(this);
         e();
         this.r = (TextView) a(R.id.tex_msgitem_name);
         this.s = (ImageView) a(R.id.iv_sex);
@@ -35,14 +35,14 @@ public class MsgleftView extends bk {
         this.q = (HeadImageShaderView) a(R.id.img_msgitem_photo);
         this.q.setAutoChangeStyle(false);
         this.u = (UserIconBox) a(R.id.user_tshow_icon_box);
-        this.q.setOnClickListener(new br(this));
+        this.q.setOnClickListener(new ca(this));
         this.q.setLongClickable(true);
         this.q.setOnLongClickListener(this.o);
-        this.q.setOnTouchListener(new bs(this));
+        this.q.setOnTouchListener(new cb(this));
         d(i);
     }
 
-    @Override // com.baidu.tieba.im.chat.bk
+    @Override // com.baidu.tieba.im.chat.bs
     public void b(View view, com.baidu.tieba.im.message.b bVar) {
         String str = null;
         super.b(view, bVar);
@@ -63,16 +63,16 @@ public class MsgleftView extends bk {
             this.n.setTag(null);
             return;
         }
-        a(bVar);
         b(bVar);
+        a(bVar);
         this.r.setText("");
         try {
             if (bVar.g() != null) {
-                this.r.setText(bVar.g().getName());
-                this.q.setUserId(bVar.g().getId());
+                this.r.setText(bVar.g().getUserName());
+                this.q.setUserId(bVar.g().getUserId());
                 str = bVar.g().getPortrait();
             }
-            this.e.c(str, new bu(this));
+            this.e.c(str, new cc(this));
             this.j.setVisibility(8);
             c(8);
             this.l.setVisibility(8);
@@ -98,12 +98,12 @@ public class MsgleftView extends bk {
                     return;
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b("MsgleftView", "setData", "error = " + e.getMessage());
+            com.baidu.adp.lib.util.f.b("MsgleftView", "setData", "error = " + e.getMessage());
             e.printStackTrace();
         }
     }
 
-    private void b(com.baidu.tieba.im.message.b bVar) {
+    private void a(com.baidu.tieba.im.message.b bVar) {
         if (bVar != null) {
             if (this.w == 1) {
                 this.s.setVisibility(8);

@@ -58,11 +58,11 @@ public class MyPostActivity extends ActivityGroup {
             this.f.setText(R.string.my_post);
         }
         this.d = (ImageView) findViewById(R.id.back);
-        this.d.setOnClickListener(new aj(this));
+        this.d.setOnClickListener(new ap(this));
         this.e = (ImageView) findViewById(R.id.refresh);
-        this.e.setOnClickListener(new ak(this));
+        this.e.setOnClickListener(new aq(this));
         this.g = (RadioGroup) findViewById(R.id.posttype_tabs);
-        this.g.setOnCheckedChangeListener(new al(this));
+        this.g.setOnCheckedChangeListener(new ar(this));
         this.g.check(R.id.all_tab);
         this.g.setVisibility(8);
     }
@@ -70,18 +70,18 @@ public class MyPostActivity extends ActivityGroup {
     @Override // android.app.ActivityGroup, android.app.Activity
     protected void onResume() {
         super.onResume();
-        if (TiebaApplication.h().al() != this.a) {
-            this.a = TiebaApplication.h().al();
+        if (TiebaApplication.g().al() != this.a) {
+            this.a = TiebaApplication.g().al();
             a(this.a);
         }
     }
 
     public void a(int i) {
-        com.baidu.tieba.util.bs.a(this.b, i);
-        com.baidu.tieba.util.bs.d(this.c, i);
-        com.baidu.tieba.util.bs.e(this.f, i);
-        com.baidu.tieba.util.bs.a(this.d, i);
-        com.baidu.tieba.util.bs.b(this.e, i);
+        com.baidu.tieba.util.bq.a(this.b, i);
+        com.baidu.tieba.util.bq.d(this.c, i);
+        com.baidu.tieba.util.bq.e(this.f, i);
+        com.baidu.tieba.util.bq.a(this.d, i);
+        com.baidu.tieba.util.bq.b(this.e, i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -95,9 +95,8 @@ public class MyPostActivity extends ActivityGroup {
         Activity currentActivity = getLocalActivityManager().getCurrentActivity();
         if (currentId.equals("all")) {
             ((AllPostActivity) currentActivity).a(0);
-            return;
-        }
-        if (currentId.equals("my_thread") || currentId.equals("my_reply")) {
+        } else if (!currentId.equals("my_thread")) {
+            currentId.equals("my_reply");
         }
     }
 }

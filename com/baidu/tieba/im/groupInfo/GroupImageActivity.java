@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.v4.view.bq;
+import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -13,16 +13,17 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bs;
+import com.baidu.tieba.util.bq;
 import com.baidu.tieba.view.MultiImageView;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
-public class GroupImageActivity extends com.baidu.tieba.j {
+public class GroupImageActivity extends com.baidu.tieba.f {
     private FrameLayout g;
     private int q;
     private String r;
@@ -37,7 +38,7 @@ public class GroupImageActivity extends com.baidu.tieba.j {
     private MultiImageView j = null;
     private View.OnClickListener k = null;
     private com.baidu.tieba.view.a l = null;
-    private bq m = null;
+    private ViewPager.OnPageChangeListener m = null;
     private AlphaAnimation n = null;
     private boolean o = true;
     private boolean p = false;
@@ -55,10 +56,10 @@ public class GroupImageActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        TiebaApplication.h().a((com.baidu.tieba.j) this);
+        TiebaApplication.g().a((com.baidu.tieba.f) this);
         setContentView(R.layout.image_activity_2);
         a(bundle);
         a();
@@ -70,9 +71,9 @@ public class GroupImageActivity extends com.baidu.tieba.j {
             }
             String str = this.b.get(i);
             if (!TextUtils.isEmpty(str)) {
-                com.baidu.adp.lib.g.e.d("get img url :" + str);
+                com.baidu.adp.lib.util.f.e("get img url :" + str);
                 if (str.equals(this.r)) {
-                    com.baidu.adp.lib.g.e.d("get img idx:" + i);
+                    com.baidu.adp.lib.util.f.e("get img idx:" + i);
                     this.c = i;
                     break;
                 }
@@ -89,11 +90,11 @@ public class GroupImageActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j
+    @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1) {
-            this.j.setBackgroundColor(bs.d(i));
+            this.j.setBackgroundColor(bq.d(i));
         } else {
             this.j.setBackgroundColor(-16777216);
         }
@@ -101,28 +102,28 @@ public class GroupImageActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, android.app.Activity
     public void onPause() {
         super.onPause();
         this.j.b();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, android.app.Activity
     public void onResume() {
         super.onResume();
         this.j.a();
     }
 
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a
     public void releaseResouce() {
         this.j.c();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
-        TiebaApplication.h().b((com.baidu.tieba.j) this);
+        TiebaApplication.g().b((com.baidu.tieba.f) this);
         a(this.c, this.c);
         this.j.c();
         if (this.d != null) {
@@ -135,7 +136,7 @@ public class GroupImageActivity extends com.baidu.tieba.j {
         super.onDestroy();
     }
 
-    @Override // com.baidu.tieba.j, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tieba.f, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
             Intent intent = new Intent();
@@ -161,8 +162,8 @@ public class GroupImageActivity extends com.baidu.tieba.j {
         this.g.setOnClickListener(this.k);
         this.h.setOnClickListener(this.k);
         this.j = (MultiImageView) findViewById(R.id.viewpager);
-        this.j.setPageMargin(com.baidu.adp.lib.g.g.a((Context) this, 8.0f));
-        this.j.a(2, com.baidu.tieba.data.h.i() * com.baidu.tieba.data.h.i());
+        this.j.setPageMargin(BdUtilHelper.a((Context) this, 8.0f));
+        this.j.a(2, com.baidu.tieba.data.i.t() * com.baidu.tieba.data.i.t());
         this.j.setOnPageChangeListener(this.m);
         this.j.setItemOnclickListener(this.k);
         this.j.a(c(), false);
@@ -178,7 +179,7 @@ public class GroupImageActivity extends com.baidu.tieba.j {
         if (this.b != null) {
             String valueOf = String.valueOf(this.c + 1);
             if (this.q > 0) {
-                valueOf = (valueOf + "/") + this.q;
+                valueOf = String.valueOf(String.valueOf(valueOf) + "/") + this.q;
             }
             if (this.j.getHasNext() && this.c == this.j.getItemNum() - 1) {
                 this.i.setText(getString(R.string.image_recommend));
@@ -207,12 +208,12 @@ public class GroupImageActivity extends com.baidu.tieba.j {
 
     private void a(Bundle bundle) {
         if (bundle != null) {
-            com.baidu.adp.lib.g.e.d(" have savedInstanceState");
+            com.baidu.adp.lib.util.f.e(" have savedInstanceState");
             this.b = bundle.getStringArrayList(SocialConstants.PARAM_URL);
             this.c = bundle.getInt("index", -1);
             this.r = bundle.getString("curImgUrl");
         } else {
-            com.baidu.adp.lib.g.e.d(" not have savedInstanceState");
+            com.baidu.adp.lib.util.f.e(" not have savedInstanceState");
             Intent intent = getIntent();
             if (intent != null) {
                 this.b = intent.getStringArrayListExtra(SocialConstants.PARAM_URL);

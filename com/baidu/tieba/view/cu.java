@@ -1,14 +1,16 @@
 package com.baidu.tieba.view;
 
-import android.graphics.Bitmap;
+import android.content.Context;
+import android.view.View;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class cu {
-    public String a;
-    public byte[] b;
-    public Bitmap c;
-    final /* synthetic */ cq d;
+public class cu extends ct {
+    public cu(Context context) {
+        super(context);
+    }
 
-    private cu(cq cqVar) {
-        this.d = cqVar;
+    @Override // com.baidu.adp.widget.ListView.a, com.baidu.adp.widget.ListView.d
+    public View a() {
+        return a(h().getString(R.string.pull_view_pull_more), h().getString(R.string.pull_view_release_more), null);
     }
 }

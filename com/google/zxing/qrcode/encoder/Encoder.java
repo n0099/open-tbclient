@@ -1,5 +1,6 @@
 package com.google.zxing.qrcode.encoder;
 
+import android.support.v4.view.MotionEventCompat;
 import cn.jingling.lib.file.Shared;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
@@ -415,7 +416,7 @@ public final class Encoder {
                 if (i == -1) {
                     throw new WriterException("Invalid byte sequence");
                 }
-                bitArray.appendBits((i & 255) + ((i >> 8) * 192), 13);
+                bitArray.appendBits((i & MotionEventCompat.ACTION_MASK) + ((i >> 8) * 192), 13);
             }
         } catch (UnsupportedEncodingException e) {
             throw new WriterException(e);

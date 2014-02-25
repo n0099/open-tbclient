@@ -1,9 +1,8 @@
 package com.baidu.tieba.pb;
 
-import android.os.Handler;
-import android.os.Message;
+import com.baidu.tbadk.gif.GifView;
 /* loaded from: classes.dex */
-class bs implements Handler.Callback {
+class bs implements com.baidu.adp.lib.d.c<GifView> {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,29 +10,32 @@ class bs implements Handler.Callback {
         this.a = newPbActivity;
     }
 
-    @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
-        com.baidu.tieba.model.bm bmVar;
-        cr crVar;
-        cr crVar2;
-        switch (message.what) {
-            case 0:
-                crVar2 = this.a.A;
-                crVar2.ac();
-                return false;
-            case 1:
-                crVar = this.a.A;
-                crVar.ab();
-                return false;
-            case 2:
-                bmVar = this.a.u;
-                if (bmVar.t()) {
-                    this.a.t();
-                    return false;
-                }
-                return false;
-            default:
-                return false;
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.d.c
+    /* renamed from: b */
+    public GifView a() {
+        com.baidu.adp.lib.util.f.e("NewPbActivity", "GifViewPool", "makeObject");
+        return new GifView(this.a);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.d.c
+    public void a(GifView gifView) {
+        com.baidu.adp.lib.util.f.e("NewPbActivity", "GifViewPool", "destroyObject");
+        gifView.e();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.d.c
+    public GifView b(GifView gifView) {
+        com.baidu.adp.lib.util.f.e("NewPbActivity", "GifViewPool", "activateObject");
+        return gifView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.d.c
+    public GifView c(GifView gifView) {
+        com.baidu.adp.lib.util.f.e("NewPbActivity", "GifViewPool", "passivateObject");
+        return gifView;
     }
 }

@@ -1,33 +1,26 @@
 package com.baidu.tieba.im.frsgroup;
 
 import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.List;
 /* loaded from: classes.dex */
-public class v implements DialogInterface.OnClickListener {
-    final /* synthetic */ MembersActivity a;
+class v implements DialogInterface.OnClickListener {
+    final /* synthetic */ u a;
+    private final /* synthetic */ List b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(MembersActivity membersActivity) {
-        this.a = membersActivity;
+    public v(u uVar, List list) {
+        this.a = uVar;
+        this.b = list;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.im.model.n nVar;
-        ac acVar;
-        int i2 = 0;
-        switch (i) {
-            case 1:
-                i2 = 1;
-                break;
-            case 2:
-                i2 = 2;
-                break;
-        }
-        nVar = this.a.c;
-        nVar.a(i2);
-        acVar = this.a.b;
-        acVar.c(i);
-        this.a.g();
+        MembersActivity membersActivity;
+        MembersActivity membersActivity2;
+        com.baidu.tieba.im.model.l lVar;
+        membersActivity = this.a.a;
+        membersActivity2 = this.a.a;
+        lVar = membersActivity2.c;
+        membersActivity.a(lVar.f(), this.b);
     }
 }

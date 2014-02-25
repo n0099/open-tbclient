@@ -1,11 +1,46 @@
 package com.baidu.tieba.account;
+
+import com.baidu.tieba.data.AccountData;
 /* loaded from: classes.dex */
-public class bd {
-    public static void a(String str, String str2, String str3, be beVar, boolean z) {
-        new bf(str, str2, str3, beVar, z, false).execute(new String[0]);
+class bd implements az {
+    final /* synthetic */ ReLoginShareActivity a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bd(ReLoginShareActivity reLoginShareActivity) {
+        this.a = reLoginShareActivity;
     }
 
-    public static void b(String str, String str2, String str3, be beVar, boolean z) {
-        new bf(str, str2, str3, beVar, z, true).execute(new String[0]);
+    @Override // com.baidu.tieba.account.az
+    public void a(String str) {
+        String str2;
+        ReLoginShareActivity reLoginShareActivity = this.a;
+        str2 = this.a.f;
+        reLoginShareActivity.a(0, str2, null);
+    }
+
+    @Override // com.baidu.tieba.account.az
+    public void a(AccountData accountData) {
+        boolean z;
+        String str;
+        z = this.a.j;
+        if (z) {
+            a(accountData.getAccount(), "");
+            return;
+        }
+        if (accountData.getAccount() != null) {
+            this.a.a(accountData);
+        } else {
+            ReLoginShareActivity reLoginShareActivity = this.a;
+            str = this.a.f;
+            reLoginShareActivity.a(2, str, accountData);
+        }
+        a.a().b("share_login_success");
+    }
+
+    @Override // com.baidu.tieba.account.az
+    public void a(String str, String str2) {
+        m.a().b(str);
+        this.a.a(1, str2, null);
+        a.a().b("share_login_failure");
     }
 }

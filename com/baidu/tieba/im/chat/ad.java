@@ -1,52 +1,29 @@
 package com.baidu.tieba.im.chat;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ad implements com.baidu.tieba.im.messageCenter.g {
+public class ad implements com.baidu.tieba.im.a<LinkedList<String>> {
     final /* synthetic */ q a;
-
-    private ad(q qVar) {
-        this.a = qVar;
-    }
+    private final /* synthetic */ bd b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ad(q qVar, r rVar) {
-        this(qVar);
+    public ad(q qVar, bd bdVar) {
+        this.a = qVar;
+        this.b = bdVar;
     }
 
-    @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.q qVar) {
-        if (qVar == null) {
-            com.baidu.adp.lib.g.e.a("msg == null");
-        } else if (qVar.w() == -100) {
-            this.a.a(qVar);
-        } else if (qVar.w() == 205001) {
-            b(qVar);
-            this.a.c(qVar);
-        } else if (qVar.w() == 202001) {
-            b(qVar);
-            this.a.b(qVar);
-        } else if (qVar.w() == -103) {
-            if (qVar instanceof com.baidu.tieba.im.message.n) {
-                this.a.d(qVar);
-            }
-        } else if (qVar.w() == -105) {
-            if (qVar instanceof com.baidu.tieba.im.message.p) {
-                this.a.d(qVar);
-            }
-        } else {
-            com.baidu.adp.lib.g.e.a("convert error need GroupMsgData");
-        }
-    }
-
-    private void b(com.baidu.tieba.im.message.q qVar) {
-        if (qVar instanceof com.baidu.tieba.im.message.cr) {
-            com.baidu.tieba.im.message.q n = ((com.baidu.tieba.im.message.cr) qVar).n();
-            if (n instanceof com.baidu.tieba.im.message.b) {
-                long b = ((com.baidu.tieba.im.message.b) n).b();
-                if (b != 0) {
-                    com.baidu.tieba.util.by.a(qVar.v(), System.currentTimeMillis() - b);
-                }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(LinkedList<String> linkedList) {
+        ArrayList<String> arrayList = new ArrayList<>();
+        while (!linkedList.isEmpty()) {
+            String a = com.baidu.tieba.im.util.l.a(linkedList.removeLast(), true);
+            if (a != null) {
+                arrayList.add(a);
             }
         }
+        this.b.a(arrayList);
     }
 }

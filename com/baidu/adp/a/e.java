@@ -25,7 +25,7 @@ public class e {
         this.a = inputMethodManager;
     }
 
-    public InputMethodManager g_() {
+    public InputMethodManager f_() {
         if (this.a == null) {
             this.a = (InputMethodManager) this.b.getSystemService("input_method");
         }
@@ -38,15 +38,15 @@ public class e {
                 this.a.hideSoftInputFromWindow(view.getWindowToken(), 2);
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b(getClass().getName(), "HidenSoftKeyPad", "error = " + e.getMessage());
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "HidenSoftKeyPad", "error = " + e.getMessage());
         }
     }
 
     public void b(View view) {
         try {
-            g_().showSoftInput(view, 0);
+            f_().showSoftInput(view, 0);
         } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b(getClass().getName(), "ShowSoftKeyPad", "error = " + e.getMessage());
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "ShowSoftKeyPad", "error = " + e.getMessage());
         }
     }
 

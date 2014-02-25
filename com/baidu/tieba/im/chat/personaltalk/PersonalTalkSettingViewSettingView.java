@@ -6,7 +6,6 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.more.SettingTextSwitchView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -50,10 +49,10 @@ public class PersonalTalkSettingViewSettingView extends LinearLayout {
     public void b(boolean z) {
         boolean z2 = false;
         Context context = getContext();
-        if (context instanceof com.baidu.tieba.j) {
-            z2 = ((com.baidu.tieba.j) context).getLayoutMode().a();
-        } else if (context instanceof BaseFragmentActivity) {
-            z2 = ((BaseFragmentActivity) getContext()).a().a();
+        if (context instanceof com.baidu.tieba.f) {
+            z2 = ((com.baidu.tieba.f) context).getLayoutMode().a();
+        } else if (context instanceof com.baidu.tieba.k) {
+            z2 = ((com.baidu.tieba.k) getContext()).a().a();
         }
         if (z) {
             this.b.setText(R.string.cancel_attention);

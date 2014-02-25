@@ -13,12 +13,17 @@ import java.io.InputStream;
 public final class PushNotifyReq {
 
     /* loaded from: classes.dex */
-    public final class PushNotifyReqIdl extends GeneratedMessageLite implements d {
-        public static Parser<PushNotifyReqIdl> PARSER = new b();
+    public final class PushNotifyReqIdl extends GeneratedMessageLite implements c {
+        public static Parser<PushNotifyReqIdl> PARSER = new a();
         private static final PushNotifyReqIdl a = new PushNotifyReqIdl(true);
         private static final long serialVersionUID = 0;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ PushNotifyReqIdl(GeneratedMessageLite.Builder builder, PushNotifyReqIdl pushNotifyReqIdl) {
+            this(builder);
+        }
 
         private PushNotifyReqIdl(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -49,23 +54,21 @@ public final class PushNotifyReq {
             while (!z) {
                 try {
                     try {
-                        try {
-                            int readTag = codedInputStream.readTag();
-                            switch (readTag) {
-                                case 0:
+                        int readTag = codedInputStream.readTag();
+                        switch (readTag) {
+                            case 0:
+                                z = true;
+                                break;
+                            default:
+                                if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
-                                default:
-                                    if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
-                                        z = true;
-                                        break;
-                                    } else {
-                                        break;
-                                    }
-                            }
-                        } catch (InvalidProtocolBufferException e) {
-                            throw e.setUnfinishedMessage(this);
+                                } else {
+                                    break;
+                                }
                         }
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
                     } catch (IOException e2) {
                         throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
@@ -73,6 +76,11 @@ public final class PushNotifyReq {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ PushNotifyReqIdl(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, PushNotifyReqIdl pushNotifyReqIdl) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -158,23 +166,23 @@ public final class PushNotifyReq {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static c newBuilder() {
-            return c.f();
+        public static b newBuilder() {
+            return b.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public c newBuilderForType() {
+        public b newBuilderForType() {
             return newBuilder();
         }
 
-        public static c newBuilder(PushNotifyReqIdl pushNotifyReqIdl) {
+        public static b newBuilder(PushNotifyReqIdl pushNotifyReqIdl) {
             return newBuilder().mergeFrom(pushNotifyReqIdl);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public c toBuilder() {
+        public b toBuilder() {
             return newBuilder(this);
         }
     }

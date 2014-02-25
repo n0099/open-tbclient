@@ -2,6 +2,7 @@ package com.baidu.tieba.im.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.baidu.tieba.data.UserData;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -17,11 +18,6 @@ public class RandChatRoomData implements Parcelable {
     private List<UserData> h;
     private ChatRoomTopicData i;
     private List<ChatRoomTopicData> j;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ RandChatRoomData(Parcel parcel, j jVar) {
-        this(parcel);
-    }
 
     public RandChatRoomData() {
         this.h = new ArrayList();
@@ -142,6 +138,11 @@ public class RandChatRoomData implements Parcelable {
         this.h = parcel.readArrayList(getClass().getClassLoader());
         this.i = (ChatRoomTopicData) parcel.readSerializable();
         this.j = parcel.readArrayList(getClass().getClassLoader());
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ RandChatRoomData(Parcel parcel, RandChatRoomData randChatRoomData) {
+        this(parcel);
     }
 
     @Override // android.os.Parcelable

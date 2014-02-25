@@ -1,188 +1,175 @@
 package com.baidu.tieba.data;
 
-import android.content.Context;
-import android.graphics.drawable.BitmapDrawable;
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.text.style.ImageSpan;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.tbadk.imageManager.TbFaceManager;
+import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.location.LocationClientOption;
 import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.R;
-import java.util.regex.Pattern;
+import com.baidu.tieba.switchs.SwitchKey;
+import com.baidu.tieba.switchs.SwitchModel;
+import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.voice.VoiceManager;
+import java.util.HashMap;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class j {
-    private static final Pattern j = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
-    private static final Pattern k = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
-    private String c;
-    private int d;
-    private int e;
+    private HashMap<String, Integer> p;
+    private boolean h = true;
+    private boolean i = true;
+    private int k = 100000;
+    private boolean l = true;
+    private int m = 600;
+    private int n = 10;
+    private int o = 10;
+    private boolean r = false;
     private int a = 0;
-    private String b = null;
+    private int b = 0;
+    private int c = 1;
+    private String d = null;
+    private String e = null;
+    private String f = null;
     private String g = null;
-    private String h = null;
-    private SpannableStringBuilder i = null;
-    private boolean f = false;
+    private BannerData j = new BannerData();
+    private c q = new c();
 
-    public static boolean a(int i, int i2) {
-        return i == 0 && i2 != 3;
-    }
-
-    public static boolean b(int i, int i2) {
-        return (i != 0 || i2 == 3 || i2 == 2) ? false : true;
-    }
-
-    public void a(int i) {
-        this.a = i;
+    public j() {
+        this.p = null;
+        this.p = new HashMap<>();
     }
 
     public int a() {
-        return this.a;
-    }
-
-    public String b() {
-        return this.b;
-    }
-
-    public String c() {
-        return this.c;
-    }
-
-    public void a(SpannableStringBuilder spannableStringBuilder) {
-        this.i = spannableStringBuilder;
-    }
-
-    public SpannableStringBuilder d() {
-        return this.i;
-    }
-
-    public SpannableStringBuilder a(SpannableString spannableString) {
-        if (this.i == null) {
-            this.i = new SpannableStringBuilder();
-        }
-        this.i.append((CharSequence) spannableString);
-        return this.i;
-    }
-
-    public SpannableString a(Context context) {
-        String str;
-        switch (this.a) {
-            case 0:
-                return new SpannableString(this.b);
-            case 1:
-                if (!this.b.endsWith(" ")) {
-                    this.b += " ";
-                }
-                SpannableString spannableString = new SpannableString(this.b);
-                spannableString.setSpan(new l(this, context), 0, this.b.length() - 1, 33);
-                return spannableString;
-            case 2:
-                SpannableString spannableString2 = new SpannableString(this.b + " ");
-                com.baidu.adp.widget.ImageView.d j2 = TiebaApplication.h().j(this.b);
-                if (j2 != null) {
-                    BitmapDrawable i = j2.i();
-                    i.setBounds(0, 0, j2.c(), j2.d());
-                    spannableString2.setSpan(new ImageSpan(i, 1), 0, this.b.length(), 33);
-                    return spannableString2;
-                }
-                return spannableString2;
-            case 3:
-            case 6:
-            case 7:
-            case 8:
-            case 9:
-            case 10:
-            case 11:
-            default:
-                return null;
-            case 4:
-                if (!this.b.endsWith(" ")) {
-                    this.b += " ";
-                }
-                SpannableString spannableString3 = new SpannableString(this.b);
-                spannableString3.setSpan(new m(this, context), 0, this.b.length() - 1, 33);
-                return spannableString3;
-            case 5:
-                if (!this.b.endsWith(" ")) {
-                    this.b += " ";
-                }
-                String string = context.getString(R.string.video);
-                SpannableString spannableString4 = new SpannableString(string + this.b);
-                spannableString4.setSpan(new k(this, context), string.length(), str.length() - 1, 33);
-                return spannableString4;
-        }
-    }
-
-    public SpannableString a(Context context, int i, int i2) {
-        int d;
-        if (this.a != 2) {
-            return null;
-        }
-        SpannableString spannableString = new SpannableString(this.b + " ");
-        com.baidu.adp.widget.ImageView.d j2 = TiebaApplication.h().j(this.b);
-        if (j2 != null) {
-            BitmapDrawable i3 = j2.i();
-            if (i - i2 > 0) {
-                d = j2.d() + ((i - i2) >> 1);
-            } else {
-                d = j2.d();
-            }
-            i3.setBounds(0, 0, j2.c(), d);
-            spannableString.setSpan(new ImageSpan(i3, 1), 0, this.b.length(), 33);
-        }
-        return spannableString;
-    }
-
-    public String e() {
-        return this.g;
+        return this.k;
     }
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.a = jSONObject.optInt("type", 0);
-                if (this.a == 3) {
-                    this.g = jSONObject.optString("src");
-                    this.b = jSONObject.optString("bsize");
-                    this.h = jSONObject.optString("cdn_src", null);
-                    try {
-                        String[] split = this.b.split(",");
-                        if (split.length > 1) {
-                            this.d = Integer.valueOf(split[0]).intValue();
-                            this.e = Integer.valueOf(split[1]).intValue();
+                this.j.parserJson(jSONObject.optJSONObject("banner"));
+                this.a = jSONObject.optInt("pb_max_floor_total_num", 0);
+                this.b = jSONObject.optInt("pb_big_image_width", 0);
+                this.d = jSONObject.optString("big_head_image_host");
+                this.e = jSONObject.optString("small_head_image_host");
+                this.f = jSONObject.optString("yijianfankui_fname");
+                this.g = jSONObject.optString("yijianfankui_fid");
+                this.c = jSONObject.optInt("img_chunk_upload_enable", 1);
+                this.m = jSONObject.optInt("kuainan_vote_cd", 600);
+                this.n = jSONObject.optInt("kuainan_vote_max", 10);
+                this.o = jSONObject.optInt("kuainan_vote_rate", 10);
+                int optInt = jSONObject.optInt("app_recommend", -1);
+                int optInt2 = jSONObject.optInt("use_baidu_statis_gbk", 1);
+                if (this.q == null) {
+                    this.q = new c();
+                }
+                this.q.a(jSONObject.optString("photo_strategy"));
+                com.baidu.tieba.util.o.a().a(this.q);
+                JSONArray optJSONArray = jSONObject.optJSONArray("switch");
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
+                        if (jSONObject2 != null) {
+                            String optString = jSONObject2.optString(SocialConstants.PARAM_MEDIA_UNAME);
+                            Integer valueOf = Integer.valueOf(jSONObject2.optInt("type", -1));
+                            if ("netlib_type".equals(optString)) {
+                                TiebaApplication.g().k(jSONObject2.optInt("type", 1) == 0 ? 1 : 0);
+                            }
+                            this.p.put(optString, valueOf);
                         }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    if (this.d <= 0) {
-                        this.d = 1;
-                    }
-                    if (this.e <= 0) {
-                        this.e = 1;
-                    }
-                    if (this.g != null && this.g.indexOf(".baidu.com") != -1) {
-                        this.f = true;
-                    }
-                } else if (this.a == 4) {
-                    this.b = jSONObject.optString("text");
-                    this.g = jSONObject.optString(SapiAccountManager.SESSION_UID);
-                } else if (this.a == 11) {
-                    this.c = jSONObject.optString("c");
-                } else {
-                    this.b = jSONObject.optString("text");
-                    this.g = jSONObject.optString("link");
-                    if (this.a == 2 && TbFaceManager.a().b(this.b) == 0) {
-                        this.a = 0;
-                        this.b = "[" + jSONObject.optString("c") + "]";
                     }
                 }
-                if (this.a != 0) {
-                    this.b = this.b.replaceAll("\n", "");
-                    this.g = this.g.replaceAll("\n", "");
+                if (this.p != null && this.p.size() > 0) {
+                    SwitchModel.refreshSwitchManager(this.p);
+                    if (com.baidu.adp.lib.a.d.a().b(SwitchKey.LOG) == 0) {
+                        com.baidu.tieba.log.a.a(true);
+                    } else {
+                        com.baidu.tieba.log.a.a(false);
+                    }
                 }
-            } catch (Exception e2) {
-                com.baidu.adp.lib.g.e.b("ContentData", "parserJson", "error = " + e2.getMessage());
+                this.l = jSONObject.optInt("is_pushservice_open", 1) == 1;
+                TiebaApplication.g().f(this.l);
+                TiebaApplication.g().e(jSONObject.optInt("is_moplus_open", 1) == 1);
+                if (!this.l) {
+                    UtilHelper.g(TiebaApplication.g().b().getApplicationContext());
+                }
+                this.i = jSONObject.optInt("gpu_open", 1) == 1;
+                TiebaApplication.g().d(this.i);
+                this.r = jSONObject.optInt("voice_use_soft_decoder", 0) == 1;
+                VoiceManager.a(this.r);
+                if (TiebaApplication.g().aH()) {
+                    int optInt3 = jSONObject.optInt("open_abstract", 0);
+                    if (!(optInt3 == 0 || TiebaApplication.g().aj() != 0)) {
+                        TiebaApplication.g().d(optInt3);
+                    }
+                    TiebaApplication.g().w(false);
+                }
+                if (optInt == 1) {
+                    TiebaApplication.g().g(true);
+                } else if (optInt == 0) {
+                    TiebaApplication.g().g(false);
+                }
+                TiebaApplication.g().j(this.m);
+                TiebaApplication.g().n(this.n);
+                TiebaApplication.g().o(this.o);
+                this.k = jSONObject.optInt("perform_sample_param", 100000);
+                JSONObject optJSONObject = jSONObject.optJSONObject("keepalive");
+                if (optJSONObject != null) {
+                    JSONObject optJSONObject2 = optJSONObject.optJSONObject("wifi");
+                    if (optJSONObject2 != null) {
+                        TiebaApplication.g().l(optJSONObject2.optInt("switch"));
+                    }
+                    JSONObject optJSONObject3 = optJSONObject.optJSONObject("nonwifi");
+                    if (optJSONObject3 != null) {
+                        TiebaApplication.g().m(optJSONObject3.optInt("switch"));
+                    }
+                }
+                JSONArray optJSONArray2 = jSONObject.optJSONArray("lcsReconStrategy");
+                if (optJSONArray2 != null) {
+                    int length = optJSONArray2.length();
+                    String str = "";
+                    for (int i2 = 0; i2 < length; i2++) {
+                        str = String.valueOf(str) + optJSONArray2.get(i2);
+                        if (i2 < length - 1) {
+                            str = String.valueOf(str) + ",";
+                        }
+                    }
+                    TiebaApplication.g().s(str);
+                }
+                JSONArray optJSONArray3 = jSONObject.optJSONArray("lcsHeartbeatStrategy");
+                if (optJSONArray3 != null) {
+                    int length2 = optJSONArray3.length();
+                    String str2 = "";
+                    for (int i3 = 0; i3 < length2; i3++) {
+                        str2 = String.valueOf(str2) + optJSONArray3.get(i3);
+                        if (i3 < length2 - 1) {
+                            str2 = String.valueOf(str2) + ",";
+                        }
+                    }
+                    TiebaApplication.g().t(str2);
+                }
+                JSONArray optJSONArray4 = jSONObject.optJSONArray("imGetMsgStrategy");
+                if (optJSONArray4 != null) {
+                    int length3 = optJSONArray4.length();
+                    String str3 = "";
+                    for (int i4 = 0; i4 < length3; i4++) {
+                        str3 = String.valueOf(str3) + optJSONArray4.get(i4);
+                        if (i4 < length3 - 1) {
+                            str3 = String.valueOf(str3) + ",";
+                        }
+                    }
+                    TiebaApplication.g().u(str3);
+                }
+                JSONObject optJSONObject4 = jSONObject.optJSONObject("imNetworkTimeOut");
+                if (optJSONObject4 != null) {
+                    TiebaApplication.g().a(new int[]{optJSONObject4.optInt("2gTo", 0) * LocationClientOption.MIN_SCAN_SPAN, optJSONObject4.optInt("3gTo", 0) * LocationClientOption.MIN_SCAN_SPAN, optJSONObject4.optInt("wifiTo", 0) * LocationClientOption.MIN_SCAN_SPAN});
+                }
+                com.baidu.tieba.im.messageCenter.m.a().e();
+                com.baidu.tieba.im.b.a.c().d();
+                TiebaApplication.g().c(optInt2 == 1);
+                i.b(this.a);
+                i.f(this.d);
+                i.e(this.e);
+                i.a(this.f, this.g);
+                i.c(this.c);
+            } catch (Exception e) {
+                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }

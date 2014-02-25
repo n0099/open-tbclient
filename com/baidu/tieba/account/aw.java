@@ -1,39 +1,30 @@
 package com.baidu.tieba.account;
-
-import com.baidu.tieba.data.AccountData;
 /* loaded from: classes.dex */
-class aw implements Runnable {
-    final /* synthetic */ ReLoginActivity a;
+public class aw extends Thread {
+    private int a;
+    private int b;
+    private String c = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public aw(ReLoginActivity reLoginActivity) {
-        this.a = reLoginActivity;
+    public aw(int i, int i2) {
+        this.a = 0;
+        this.b = 0;
+        this.a = i;
+        this.b = i2;
     }
 
-    @Override // java.lang.Runnable
+    public void a(String str) {
+        this.c = str;
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        AccountData accountData;
-        String str;
-        AccountData accountData2;
-        AccountData accountData3;
-        AccountData accountData4;
-        accountData = this.a.i;
-        if (accountData != null) {
-            accountData2 = this.a.i;
-            if (accountData2.getAccount() != null) {
-                accountData3 = this.a.i;
-                if (!accountData3.getAccount().equals("BaiduUser")) {
-                    ReLoginActivity reLoginActivity = this.a;
-                    accountData4 = this.a.i;
-                    reLoginActivity.a(accountData4);
-                    return;
-                }
-            }
-            this.a.e();
-            return;
+        super.run();
+        com.baidu.tieba.util.ba baVar = new com.baidu.tieba.util.ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/s/pv");
+        baVar.a("img_num", String.valueOf(this.a));
+        baVar.a("img_total", String.valueOf(this.b));
+        if (this.c != null) {
+            baVar.a("img_type", this.c);
         }
-        ReLoginActivity reLoginActivity2 = this.a;
-        str = this.a.l;
-        reLoginActivity2.a(1, str);
+        baVar.m();
     }
 }

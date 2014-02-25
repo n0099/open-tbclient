@@ -7,11 +7,13 @@ import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import com.baidu.tieba.util.ce;
+import com.baidu.tieba.util.bq;
+import com.baidu.tieba.util.cb;
+import com.baidu.tieba.util.ch;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class BarFolderFirstDirActivity extends com.baidu.tieba.j {
+public class BarFolderFirstDirActivity extends com.baidu.tieba.f {
     public static String c = "st_type";
     protected ViewGroup b;
     private ProgressBar d;
@@ -28,18 +30,18 @@ public class BarFolderFirstDirActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.bar_folder_dir_activity);
         a();
         a(bundle);
         b();
-        com.baidu.tieba.util.by.a(this, "category_1", "enter");
+        cb.a(this, "category_1", "enter");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, android.app.Activity
     public void onResume() {
         super.onResume();
         this.e.notifyDataSetChanged();
@@ -54,11 +56,11 @@ public class BarFolderFirstDirActivity extends com.baidu.tieba.j {
         this.a.setAdapter((ListAdapter) this.e);
         this.d = (ProgressBar) findViewById(R.id.progress);
         this.b = (ViewGroup) findViewById(R.id.body_container);
-        ce.b(this.b);
+        ch.b(this.b);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         if (this.f != null) {
@@ -105,7 +107,7 @@ public class BarFolderFirstDirActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j
+    @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.h.c(i);
@@ -113,8 +115,8 @@ public class BarFolderFirstDirActivity extends com.baidu.tieba.j {
             this.a.invalidateViews();
         }
         if (this.b != null) {
-            ce.a(this.b, i);
+            ch.a(this.b, i);
         }
-        com.baidu.tieba.util.bs.b(findViewById(R.id.root_view), i);
+        bq.b(findViewById(R.id.root_view), i);
     }
 }

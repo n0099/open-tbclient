@@ -9,7 +9,6 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import java.util.ArrayList;
 import org.json.JSONObject;
-import protobuf.Im;
 /* loaded from: classes.dex */
 public class i {
     private int a = 0;
@@ -118,7 +117,7 @@ public class i {
             return null;
         }
         if (!a.endsWith(" ")) {
-            a = a + " ";
+            a = String.valueOf(a) + " ";
         }
         SpannableString spannableString = new SpannableString(a);
         h hVar = new h(context, this.a, a);
@@ -141,12 +140,12 @@ public class i {
             String b = this.b.b();
             int b2 = TbFaceManager.a().b(a);
             if (b2 != 0) {
-                spannableString = new SpannableString(b + " ");
+                spannableString = new SpannableString(String.valueOf(b) + " ");
                 f fVar = new f(context, b2);
                 if (arrayList != null) {
                     arrayList.add(fVar);
                 }
-                com.baidu.tbadk.imageManager.b c = TbFaceManager.a().c(a);
+                com.baidu.tbadk.imageManager.c c = TbFaceManager.a().c(a);
                 if (c != null) {
                     fVar.setBounds(new Rect(0, 0, c.a(), c.b()));
                 } else {
@@ -163,7 +162,7 @@ public class i {
             return null;
         }
         if (!str.endsWith(" ")) {
-            str = str + " ";
+            str = String.valueOf(str) + " ";
         }
         SpannableString spannableString = new SpannableString(str);
         spannableString.setSpan(new h(context, i, str2), 0, str.length() - 1, 33);
@@ -184,7 +183,7 @@ public class i {
                 return null;
             case 16:
                 return c(context);
-            case Im.GroupInfo.ISNEWLYCREATE_FIELD_NUMBER /* 32 */:
+            case 32:
                 return a(context, arrayList);
             case 128:
                 return b(context, arrayList);
@@ -221,7 +220,7 @@ public class i {
                     }
                 }
                 String str2 = split[i].split("_")[0];
-                com.baidu.adp.lib.g.e.e("TbRichTextView", "onClick", str2);
+                com.baidu.adp.lib.util.f.e("TbRichTextView", "onClick", str2);
                 this.e.e = str2;
             } else {
                 this.b = new b(jSONObject);
@@ -241,7 +240,7 @@ public class i {
                 this.b.c();
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.g.e.a(e.getMessage());
+            com.baidu.adp.lib.util.f.b(e.getMessage());
         }
     }
 

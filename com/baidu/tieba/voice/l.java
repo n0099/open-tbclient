@@ -1,6 +1,5 @@
 package com.baidu.tieba.voice;
 
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -14,12 +13,10 @@ public class l implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        AlertDialog alertDialog;
-        AlertDialog alertDialog2;
-        alertDialog = this.a.C;
-        if (alertDialog != null) {
-            alertDialog2 = this.a.C;
-            alertDialog2.dismiss();
+        this.a.e();
+        if (this.a.getVoiceManager() != null) {
+            this.a.getVoiceManager().a(this.a.a.voiceId);
+            this.a.a = null;
         }
     }
 }

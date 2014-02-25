@@ -1,34 +1,35 @@
 package com.baidu.tieba.im.message;
-
-import com.google.protobuf.MessageLite;
-import protobuf.UpgradeMemberGroup.UpgradeMemberGroupReq;
 /* loaded from: classes.dex */
-public class be extends q implements com.baidu.tieba.im.coder.g {
-    private long a;
-    private int b = 1;
+public class be extends bg {
+    private int b;
+    private String c;
+    private String d;
 
-    public be() {
-        e(103105);
+    public int b() {
+        return this.b;
     }
 
-    public long b() {
-        return this.a;
+    public String c() {
+        return this.c;
     }
 
-    public void a(boolean z) {
-        if (z) {
-            this.b = 1;
-        } else {
-            this.b = 0;
-        }
+    public String d() {
+        return this.d;
     }
 
-    public void a(long j) {
-        this.a = j;
+    public be(int i, String str, String str2) {
+        this.b = 0;
+        this.c = "";
+        this.d = "";
+        this.b = i;
+        this.c = str;
+        this.d = str2;
     }
 
-    @Override // com.baidu.tieba.im.coder.g
-    public MessageLite a() {
-        return UpgradeMemberGroupReq.UpgradeMemberGroupReqIdl.newBuilder().a(UpgradeMemberGroupReq.DataReq.newBuilder().a((int) this.a).b(this.b).build()).build();
+    @Override // com.baidu.tieba.im.message.bg
+    protected void a(protobuf.k kVar) {
+        kVar.e(d());
+        kVar.d(c());
+        kVar.d(b());
     }
 }

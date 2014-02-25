@@ -33,7 +33,7 @@ public class ColumnLayout extends ViewGroup {
         this.b = new ArrayList();
         this.c = new ArrayList();
         this.d = new ArrayList();
-        this.e = new int[]{0, 0, 0};
+        this.e = new int[3];
         this.h = new int[3];
         a(context, attributeSet);
     }
@@ -315,51 +315,57 @@ public class ColumnLayout extends ViewGroup {
     }
 
     private void a(List<View> list, int i, int i2, int i3) {
-        int i4 = this.e[0];
+        int i4;
+        int i5 = this.e[0];
         int measuredHeight = getMeasuredHeight();
         for (View view : list) {
             if (view.getVisibility() != 8) {
                 d dVar = (d) view.getLayoutParams();
                 d generateDefaultLayoutParams = dVar == null ? generateDefaultLayoutParams() : dVar;
-                switch (i4 == 1 ? generateDefaultLayoutParams.gravity & 7 : generateDefaultLayoutParams.gravity & SocialAPIErrorCodes.ERROR_EXPIRED_SESSION_KEY) {
+                if (i5 == 1) {
+                    i4 = generateDefaultLayoutParams.gravity & 7;
+                } else {
+                    i4 = generateDefaultLayoutParams.gravity & SocialAPIErrorCodes.ERROR_EXPIRED_SESSION_KEY;
+                }
+                switch (i4) {
                     case 1:
-                        int i5 = generateDefaultLayoutParams.topMargin + i2;
-                        int measuredHeight2 = view.getMeasuredHeight() + i5;
-                        view.layout(((((i3 - generateDefaultLayoutParams.leftMargin) - generateDefaultLayoutParams.rightMargin) - view.getMeasuredWidth()) + i) >> 1, i5, ((((i3 - generateDefaultLayoutParams.leftMargin) - generateDefaultLayoutParams.rightMargin) + view.getMeasuredWidth()) + i) >> 1, measuredHeight2);
+                        int i6 = generateDefaultLayoutParams.topMargin + i2;
+                        int measuredHeight2 = view.getMeasuredHeight() + i6;
+                        view.layout(((((i3 - generateDefaultLayoutParams.leftMargin) - generateDefaultLayoutParams.rightMargin) - view.getMeasuredWidth()) + i) >> 1, i6, ((((i3 - generateDefaultLayoutParams.leftMargin) - generateDefaultLayoutParams.rightMargin) + view.getMeasuredWidth()) + i) >> 1, measuredHeight2);
                         i2 = measuredHeight2 + generateDefaultLayoutParams.bottomMargin;
                         continue;
                     case 3:
-                        int i6 = generateDefaultLayoutParams.topMargin + i2;
+                        int i7 = generateDefaultLayoutParams.topMargin + i2;
                         int measuredWidth = generateDefaultLayoutParams.leftMargin + i + view.getMeasuredWidth();
-                        int measuredHeight3 = view.getMeasuredHeight() + i6;
-                        view.layout(generateDefaultLayoutParams.leftMargin + i, i6, measuredWidth, measuredHeight3);
+                        int measuredHeight3 = view.getMeasuredHeight() + i7;
+                        view.layout(generateDefaultLayoutParams.leftMargin + i, i7, measuredWidth, measuredHeight3);
                         i2 = measuredHeight3 + generateDefaultLayoutParams.bottomMargin;
                         continue;
                     case 5:
                         int measuredWidth2 = ((i + i3) - generateDefaultLayoutParams.rightMargin) - view.getMeasuredWidth();
-                        int i7 = generateDefaultLayoutParams.topMargin + i2;
-                        int i8 = (i + i3) - generateDefaultLayoutParams.rightMargin;
-                        int measuredHeight4 = view.getMeasuredHeight() + i7;
-                        view.layout(measuredWidth2, i7, i8, measuredHeight4);
+                        int i8 = generateDefaultLayoutParams.topMargin + i2;
+                        int i9 = (i + i3) - generateDefaultLayoutParams.rightMargin;
+                        int measuredHeight4 = view.getMeasuredHeight() + i8;
+                        view.layout(measuredWidth2, i8, i9, measuredHeight4);
                         i2 = measuredHeight4 + generateDefaultLayoutParams.bottomMargin;
                         continue;
                     case 16:
-                        int i9 = generateDefaultLayoutParams.leftMargin + i;
-                        int measuredWidth3 = view.getMeasuredWidth() + i9;
-                        view.layout(i9, ((((measuredHeight - generateDefaultLayoutParams.topMargin) - generateDefaultLayoutParams.bottomMargin) - view.getMeasuredHeight()) + i2) >> 1, measuredWidth3, ((((measuredHeight - generateDefaultLayoutParams.topMargin) - generateDefaultLayoutParams.bottomMargin) + view.getMeasuredHeight()) + i2) >> 1);
+                        int i10 = generateDefaultLayoutParams.leftMargin + i;
+                        int measuredWidth3 = view.getMeasuredWidth() + i10;
+                        view.layout(i10, ((((measuredHeight - generateDefaultLayoutParams.topMargin) - generateDefaultLayoutParams.bottomMargin) - view.getMeasuredHeight()) + i2) >> 1, measuredWidth3, ((((measuredHeight - generateDefaultLayoutParams.topMargin) - generateDefaultLayoutParams.bottomMargin) + view.getMeasuredHeight()) + i2) >> 1);
                         i = measuredWidth3 + generateDefaultLayoutParams.rightMargin;
                         continue;
                     case 48:
-                        int i10 = generateDefaultLayoutParams.leftMargin + i;
-                        int measuredWidth4 = view.getMeasuredWidth() + i10;
-                        view.layout(i10, generateDefaultLayoutParams.topMargin + i2, measuredWidth4, generateDefaultLayoutParams.topMargin + i2 + view.getMeasuredHeight());
+                        int i11 = generateDefaultLayoutParams.leftMargin + i;
+                        int measuredWidth4 = view.getMeasuredWidth() + i11;
+                        view.layout(i11, generateDefaultLayoutParams.topMargin + i2, measuredWidth4, generateDefaultLayoutParams.topMargin + i2 + view.getMeasuredHeight());
                         i = measuredWidth4 + generateDefaultLayoutParams.rightMargin;
                         continue;
                     case com.baidu.loginshare.e.i /* 80 */:
-                        int i11 = generateDefaultLayoutParams.leftMargin + i;
+                        int i12 = generateDefaultLayoutParams.leftMargin + i;
                         int measuredHeight5 = ((i2 + measuredHeight) - generateDefaultLayoutParams.bottomMargin) - view.getMeasuredHeight();
-                        int measuredWidth5 = view.getMeasuredWidth() + i11;
-                        view.layout(i11, measuredHeight5, measuredWidth5, (i2 + measuredHeight) - generateDefaultLayoutParams.bottomMargin);
+                        int measuredWidth5 = view.getMeasuredWidth() + i12;
+                        view.layout(i12, measuredHeight5, measuredWidth5, (i2 + measuredHeight) - generateDefaultLayoutParams.bottomMargin);
                         i = measuredWidth5 + generateDefaultLayoutParams.rightMargin;
                         continue;
                 }

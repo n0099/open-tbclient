@@ -1,25 +1,43 @@
 package com.baidu.tieba.view;
 
-import android.view.animation.Animation;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.Button;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cf implements Animation.AnimationListener {
-    final /* synthetic */ ShutDownValidateTipView a;
+public class cf implements TextWatcher {
+    final /* synthetic */ SearchBar a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cf(ShutDownValidateTipView shutDownValidateTipView) {
-        this.a = shutDownValidateTipView;
+    public cf(SearchBar searchBar) {
+        this.a = searchBar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        this.a.setVisibility(8);
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        Button button;
+        ci ciVar;
+        ci ciVar2;
+        Button button2;
+        if (this.a.getSearchText().length() > 0) {
+            button2 = this.a.c;
+            button2.setVisibility(0);
+        } else {
+            button = this.a.c;
+            button.setVisibility(8);
+        }
+        ciVar = this.a.e;
+        if (ciVar != null) {
+            ciVar2 = this.a.e;
+            ciVar2.a(this.a.getSearchText());
+        }
     }
 }

@@ -5,19 +5,17 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.PersonChangeData;
@@ -25,41 +23,42 @@ import com.baidu.tieba.view.HeadImageView;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class PersonChangeActivity extends com.baidu.tieba.j {
+public class PersonChangeActivity extends com.baidu.tieba.f {
     private Boolean b = false;
     private AlertDialog c = null;
-    private HeadImageView d = null;
+    private int d = -1;
     private NavigationBar e = null;
     private ImageView f = null;
     private TextView g = null;
     private LinearLayout h = null;
-    private TextView i = null;
+    private ScrollView i = null;
     private TextView j = null;
-    private TextView k = null;
-    private ImageView l = null;
-    private ImageView m = null;
-    private ImageView n = null;
-    private LinearLayout o = null;
-    private RelativeLayout p = null;
-    private TextView q = null;
+    private LinearLayout k = null;
+    private TextView l = null;
+    private LinearLayout m = null;
+    private LinearLayout n = null;
+    private TextView o = null;
+    private EditText p = null;
+    private LinearLayout q = null;
     private TextView r = null;
-    private EditText s = null;
-    private RadioGroup t = null;
-    private RadioButton u = null;
-    private RadioButton v = null;
-    private InputMethodManager w = null;
-    private boolean x = false;
-    private com.baidu.tieba.model.bw y = null;
-    protected FrameLayout a = null;
-    private com.baidu.adp.widget.ImageView.d z = null;
-    private be A = null;
-    private bf B = null;
-    private ProgressBar C = null;
-    private DialogInterface.OnCancelListener D = null;
-    private com.baidu.tieba.util.i E = null;
-    private Dialog F = null;
-    private boolean G = false;
-    private View.OnClickListener H = new av(this);
+    private TextView s = null;
+    private TextView t = null;
+    private InputMethodManager u = null;
+    private boolean v = false;
+    private com.baidu.tieba.model.bo w = null;
+    protected HeadImageView a = null;
+    private com.baidu.adp.widget.ImageView.b x = null;
+    private cf y = null;
+    private cg z = null;
+    private ProgressBar A = null;
+    private DialogInterface.OnCancelListener B = null;
+    private com.baidu.tieba.util.i C = null;
+    private Dialog D = null;
+    private Dialog E = null;
+    private boolean F = false;
+    private int G = 0;
+    private final int H = 50;
+    private View.OnClickListener I = new bo(this);
 
     public static void a(Activity activity, int i, PersonChangeData personChangeData, Boolean bool) {
         Intent intent = new Intent(activity, PersonChangeActivity.class);
@@ -69,13 +68,13 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.person_change_activity);
-        this.w = (InputMethodManager) getSystemService("input_method");
+        this.u = (InputMethodManager) getSystemService("input_method");
         a(bundle);
-        c();
+        d();
         if (bundle != null) {
             this.b = Boolean.valueOf(bundle.getBoolean("isFromPersonInfo"));
         } else {
@@ -84,25 +83,25 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
+        if (this.y != null) {
+            this.y.cancel();
+        }
+        if (this.z != null) {
+            this.z.cancel();
+        }
         if (this.A != null) {
-            this.A.cancel();
-        }
-        if (this.B != null) {
-            this.B.cancel();
-        }
-        if (this.C != null) {
-            this.C.setVisibility(8);
+            this.A.setVisibility(8);
         }
         super.onDestroy();
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        this.x = false;
+        this.v = false;
         boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
-        if (motionEvent.getAction() == 1 && !this.x) {
+        if (motionEvent.getAction() == 1 && !this.v) {
             a();
         }
         return dispatchTouchEvent;
@@ -110,37 +109,44 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        if (this.s.getVisibility() == 0) {
-            this.s.setVisibility(8);
-            String replaceAll = this.s.getText().toString().replaceAll("\\s*", "");
+        if (this.p.getVisibility() == 0) {
+            this.q.setVisibility(8);
+            this.p.setVisibility(8);
+            String replaceAll = this.p.getText().toString().replaceAll("\\s*", "");
             if (replaceAll.length() > 0) {
-                this.q.setText(replaceAll);
+                this.o.setText(replaceAll);
             } else {
-                this.q.setText(getString(R.string.add_intro));
+                this.o.setText(getString(R.string.add_intro));
             }
-            if (this.y.a().getIntro() == null || !this.y.a().getIntro().equals(replaceAll)) {
-                this.G = true;
+            if (this.w.a().getIntro() == null || !this.w.a().getIntro().equals(replaceAll)) {
+                this.F = true;
             }
-            this.y.a().setIntro(replaceAll);
-            this.q.setVisibility(0);
-            HidenSoftKeyPad(this.w, this.s);
+            this.w.a().setIntro(replaceAll);
+            this.o.setVisibility(0);
+            HidenSoftKeyPad(this.u, this.p);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        if (this.s.getVisibility() != 0) {
-            this.q.setVisibility(8);
-            this.s.setText(this.y.a().getIntro());
-            this.s.setVisibility(0);
-            this.s.requestFocus();
-            ShowSoftKeyPad(this.w, this.s);
+        if (this.p.getVisibility() != 0) {
+            this.o.setVisibility(8);
+            this.p.setText(this.w.a().getIntro());
+            this.p.setVisibility(0);
+            this.p.requestFocus();
+            ShowSoftKeyPad(this.u, this.p);
+            a(500);
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(int i) {
+        this.i.postDelayed(new bx(this), i);
     }
 
     private void a(Bundle bundle) {
         PersonChangeData personChangeData;
-        this.D = new as(this);
+        this.B = new by(this);
         if (bundle != null) {
             personChangeData = (PersonChangeData) bundle.getSerializable("data");
         } else {
@@ -149,117 +155,184 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
         if (personChangeData == null) {
             personChangeData = new PersonChangeData();
         }
-        this.y = new com.baidu.tieba.model.bw(personChangeData);
-        this.E = new com.baidu.tieba.util.i(this);
+        this.w = new com.baidu.tieba.model.bo(personChangeData);
+        this.C = new com.baidu.tieba.util.i(this);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c() {
+        BitmapDrawable bitmapDrawable;
+        if (TiebaApplication.g().al() == 1) {
+            if (this.G == 1) {
+                bitmapDrawable = (BitmapDrawable) getResources().getDrawable(R.drawable.icon_pop_boy_1);
+            } else {
+                if (this.G == 2) {
+                    bitmapDrawable = (BitmapDrawable) getResources().getDrawable(R.drawable.icon_pop_girl_1);
+                }
+                bitmapDrawable = null;
+            }
+        } else if (this.G == 1) {
+            bitmapDrawable = (BitmapDrawable) getResources().getDrawable(R.drawable.icon_pop_boy);
+        } else {
+            if (this.G == 2) {
+                bitmapDrawable = (BitmapDrawable) getResources().getDrawable(R.drawable.icon_pop_girl);
+            }
+            bitmapDrawable = null;
+        }
+        if (bitmapDrawable != null) {
+            bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
+            this.l.setCompoundDrawables(null, null, bitmapDrawable, null);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j
+    @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        com.baidu.tieba.util.bs.a(this.h, i);
+        getLayoutMode().a(i == 1);
+        getLayoutMode().a((View) this.h);
         this.e.c(i);
-        this.d.e();
-        if (i == 1) {
-            this.i.setTextColor(com.baidu.tieba.util.bs.a(i));
-            this.j.setTextColor(com.baidu.tieba.util.bs.a(i));
-            this.k.setTextColor(com.baidu.tieba.util.bs.a(i));
-            this.u.setTextColor(com.baidu.tieba.util.bs.a(i));
-            this.v.setTextColor(com.baidu.tieba.util.bs.a(i));
-            this.r.setTextColor(com.baidu.tieba.util.bs.a(i));
-            this.q.setTextColor(com.baidu.tieba.util.bs.a(i));
-            this.l.setImageResource(R.drawable.list_divider_1);
-            this.m.setImageResource(R.drawable.list_divider_1);
-            this.n.setImageResource(R.drawable.list_divider_1);
-            this.a.setForeground(getResources().getDrawable(R.drawable.pic_bj_touxiang_n_1));
-            return;
-        }
-        this.i.setTextColor(-14277082);
-        this.j.setTextColor(-14277082);
-        this.k.setTextColor(-14277082);
-        this.u.setTextColor(-14277082);
-        this.v.setTextColor(-14277082);
-        this.r.setTextColor(-14277082);
-        this.q.setTextColor(-14277082);
-        this.l.setImageResource(R.drawable.list_divider);
-        this.m.setImageResource(R.drawable.list_divider);
-        this.n.setImageResource(R.drawable.list_divider);
-        this.a.setForeground(getResources().getDrawable(R.drawable.pic_bj_touxiang_n));
+        this.a.f();
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putSerializable("data", this.y.a());
+        bundle.putSerializable("data", this.w.a());
     }
 
-    private void c() {
+    private void d() {
+        this.d = TiebaApplication.g().al();
         String[] strArr = {getString(R.string.take_photo), getString(R.string.album)};
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(getString(R.string.operation));
-        builder.setItems(strArr, new aw(this));
+        builder.setItems(strArr, new bz(this));
         if (this.c == null) {
             this.c = builder.create();
         }
-        this.p = (RelativeLayout) findViewById(R.id.info);
-        this.p.setOnClickListener(new ax(this));
-        this.d = (HeadImageView) findViewById(R.id.photo);
-        d();
-        this.a = (FrameLayout) findViewById(R.id.frame_photo);
-        this.z = this.E.c(this.y.a().getPortrait());
-        if (this.z != null) {
-            this.z.a(this.d);
+        this.n = (LinearLayout) findViewById(R.id.photo_layout);
+        this.a = (HeadImageView) findViewById(R.id.photo);
+        this.a.setIsRound(true);
+        this.a.setAutoChangeStyle(true);
+        this.a.setDrawBorder(false);
+        this.a.setOnClickListener(new ca(this));
+        this.x = this.C.c(this.w.a().getPortrait());
+        h();
+        if (this.x != null) {
+            this.x.a(this.a);
         } else {
-            this.E.a(this.y.a().getPortrait(), new ay(this));
+            this.C.a(this.w.a().getPortrait(), new cb(this));
         }
         this.h = (LinearLayout) findViewById(R.id.parent);
-        this.l = (ImageView) findViewById(R.id.divider1);
-        this.m = (ImageView) findViewById(R.id.divider2);
-        this.n = (ImageView) findViewById(R.id.divider3);
-        this.j = (TextView) findViewById(R.id.change_text);
-        this.k = (TextView) findViewById(R.id.sex_text);
+        this.i = (ScrollView) findViewById(R.id.person_change_scroll);
+        this.k = (LinearLayout) findViewById(R.id.person_sex);
+        this.l = (TextView) findViewById(R.id.sex_show);
         this.e = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.e.a(getResources().getString(R.string.my_info));
-        this.f = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.H);
+        this.f = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.I);
         this.g = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.save));
-        this.g.setOnClickListener(new az(this));
-        this.o = (LinearLayout) findViewById(R.id.intro_click);
-        this.o.setOnClickListener(new ba(this));
-        this.o.setOnTouchListener(new bb(this));
-        this.r = (TextView) findViewById(R.id.intro_text);
-        this.q = (TextView) findViewById(R.id.intro);
-        if (this.y.a().getIntro() != null && this.y.a().getIntro().length() > 0) {
-            this.q.setText(this.y.a().getIntro());
+        this.g.setOnClickListener(new cc(this));
+        this.k.setOnClickListener(new cd(this));
+        this.m = (LinearLayout) findViewById(R.id.intro_click);
+        this.m.setOnClickListener(new ce(this));
+        this.m.setOnTouchListener(new bp(this));
+        this.j = (TextView) findViewById(R.id.nick_name_show);
+        this.j.setText(this.w.a().getName());
+        this.o = (TextView) findViewById(R.id.intro);
+        if (this.w.a().getIntro() != null && this.w.a().getIntro().length() > 0) {
+            this.o.setText(this.w.a().getIntro());
         } else {
-            this.q.setText(getString(R.string.add_intro));
+            this.o.setText(getString(R.string.add_intro));
         }
-        this.s = (EditText) findViewById(R.id.edit);
-        this.s.setText(this.y.a().getIntro());
-        this.s.setOnFocusChangeListener(new bc(this));
-        this.s.setOnTouchListener(new bd(this));
-        this.t = (RadioGroup) findViewById(R.id.sexgroup);
-        this.u = (RadioButton) findViewById(R.id.man);
-        this.v = (RadioButton) findViewById(R.id.woman);
-        if (this.y.a().getSex() == 1) {
-            this.u.setChecked(true);
-        } else if (this.y.a().getSex() == 2) {
-            this.v.setChecked(true);
+        this.p = (EditText) findViewById(R.id.edit);
+        this.p.setText(this.w.a().getIntro());
+        this.p.setOnFocusChangeListener(new bq(this));
+        this.p.setOnTouchListener(new br(this));
+        this.p.setOnClickListener(new bs(this));
+        this.p.addTextChangedListener(new bt(this));
+        if (this.w.a().getSex() == 1) {
+            this.G = 1;
+            this.l.setText(R.string.man);
+        } else if (this.w.a().getSex() == 2) {
+            this.G = 2;
+            this.l.setText(R.string.woman);
+        } else {
+            this.l.setText(R.string.change_sex);
         }
-        this.i = (TextView) findViewById(R.id.name);
-        this.i.setText(this.y.a().getName());
-        this.C = (ProgressBar) findViewById(R.id.image_progress);
+        this.q = (LinearLayout) findViewById(R.id.intro_text_tip);
+        this.r = (TextView) findViewById(R.id.intro_text_tip_num);
+        this.s = (TextView) findViewById(R.id.intro_text_tip_divider);
+        this.t = (TextView) findViewById(R.id.intro_text_tip_limit);
+        c();
+        this.A = (ProgressBar) findViewById(R.id.image_progress);
         AlertDialog.Builder builder2 = new AlertDialog.Builder(this);
         builder2.setMessage(getString(R.string.confirm_giveup));
-        builder2.setPositiveButton(getString(R.string.alert_yes_button), new at(this));
-        builder2.setNeutralButton(getString(R.string.cancel), new au(this));
-        this.F = builder2.create();
+        builder2.setPositiveButton(getString(R.string.alert_yes_button), new bu(this));
+        builder2.setNeutralButton(getString(R.string.cancel), new bv(this));
+        this.D = builder2.create();
     }
 
-    @Override // com.baidu.tieba.j, android.app.Activity, android.view.KeyEvent.Callback
+    /* JADX INFO: Access modifiers changed from: private */
+    public void e() {
+        int color;
+        int color2;
+        if (this.p.getText().toString().replaceAll("\\s*", "").length() >= 50) {
+            color = getResources().getColor(R.color.person_change_up_limit_text);
+            color2 = getResources().getColor(R.color.person_change_up_limit_text_1);
+        } else {
+            color = getResources().getColor(R.color.person_change_not_up_limit_text);
+            color2 = getResources().getColor(R.color.person_change_not_up_limit_text_1);
+        }
+        a(color, color2);
+    }
+
+    private void a(int i, int i2) {
+        if (this.d == 1) {
+            this.r.setTextColor(i2);
+            this.s.setTextColor(i2);
+            this.t.setTextColor(i2);
+            return;
+        }
+        this.r.setTextColor(i);
+        this.s.setTextColor(i);
+        this.t.setTextColor(i);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void f() {
+        if (this.w != null && this.w.a() != null) {
+            a();
+            this.w.a().setIntro(this.p.getText().toString().replaceAll("\\s*", ""));
+            this.w.a().setSex(this.G);
+            if (this.z == null) {
+                this.z = new cg(this, this.w);
+                this.z.setPriority(3);
+                this.z.execute(new String[0]);
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void g() {
+        if (this.E == null) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            String string = getString(R.string.man);
+            String string2 = getString(R.string.woman);
+            builder.setTitle(R.string.choose_sex);
+            builder.setItems(new String[]{string, string2}, new bw(this, string, string2));
+            this.E = builder.create();
+            this.E.setCanceledOnTouchOutside(true);
+            this.E.show();
+            return;
+        }
+        this.E.show();
+    }
+
+    @Override // com.baidu.tieba.f, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
             a();
-            this.H.onClick(null);
+            this.I.onClick(null);
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -281,9 +354,9 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
                     return;
                 case 12009:
                 case 12010:
-                    this.y.a().setPhotoChanged(true);
-                    e();
-                    MoreDiscoveryActivity.a(true);
+                    this.w.a().setPhotoChanged(true);
+                    i();
+                    ai.a(true);
                     return;
                 default:
                     return;
@@ -291,10 +364,10 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
         } else if (i2 == 0) {
             switch (i) {
                 case 12009:
-                    com.baidu.tieba.write.bb.c(this);
+                    com.baidu.tieba.write.bz.d(this);
                     return;
                 case 12010:
-                    com.baidu.tieba.write.bb.a(this);
+                    com.baidu.tieba.write.bz.a(this);
                     return;
                 default:
                     return;
@@ -302,19 +375,19 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
         }
     }
 
-    private void d() {
-        this.d.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.d.setDefaultResource(0);
-        this.d.setNightDefaultResource(0);
-        this.d.setImageBitmap(com.baidu.tieba.util.n.a((int) R.drawable.person_photo));
+    private void h() {
+        this.a.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.a.setDefaultResource(0);
+        this.a.setNightDefaultResource(0);
+        this.a.setImageBitmap(com.baidu.tieba.util.n.a((int) R.drawable.person_photo));
     }
 
-    private void e() {
-        if (this.A != null) {
-            this.A.cancel();
+    private void i() {
+        if (this.y != null) {
+            this.y.cancel();
         }
-        this.z = null;
-        this.A = new be(this, null);
-        this.A.execute(new Object[0]);
+        this.x = null;
+        this.y = new cf(this, null);
+        this.y.execute(new Object[0]);
     }
 }

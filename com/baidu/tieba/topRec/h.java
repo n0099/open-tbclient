@@ -14,9 +14,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bs;
+import com.baidu.tieba.util.bq;
 import com.baidu.tieba.view.NavigationBar;
-import com.baidu.tieba.view.cm;
+import com.baidu.tieba.view.ct;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class h {
@@ -24,7 +24,7 @@ public class h {
     Handler b;
     private BdListView c;
     private Button d;
-    private cm e;
+    private ct e;
     private final View f;
     private LinearLayout g;
     private TextView h;
@@ -34,7 +34,7 @@ public class h {
     private TextView m;
     private Animation o;
     private Animation p;
-    private p q;
+    private o q;
     private int k = 0;
     private boolean n = false;
 
@@ -51,7 +51,7 @@ public class h {
         this.d = (Button) a.findViewById(R.id.title_finish);
         this.d.setOnClickListener(this.j);
         this.m = (TextView) a.findViewById(R.id.title_finish_cover);
-        this.e = new cm(this.j);
+        this.e = new ct(this.j);
         this.g = (LinearLayout) topRecActivity.getLayoutInflater().inflate(R.layout.forum_list_forum_footer, (ViewGroup) null);
         this.f = this.g.findViewById(R.id.footer_background);
         this.h = (TextView) this.g.findViewById(R.id.footer_text);
@@ -61,11 +61,11 @@ public class h {
         this.p = AnimationUtils.loadAnimation(this.j, R.anim.top_recommended_finish_b);
         this.o.setAnimationListener(new i(this));
         this.p.setAnimationListener(new j(this));
-        this.d.setText(this.j.getString(R.string.done) + "(" + this.k + ")");
+        this.d.setText(String.valueOf(this.j.getString(R.string.done)) + "(" + this.k + ")");
         this.c.setPullRefresh(this.e);
         this.l = (ProgressBar) this.j.findViewById(R.id.loading);
-        if (!p.a()) {
-            this.q = new p(topRecActivity);
+        if (!o.a()) {
+            this.q = new o(topRecActivity);
         }
     }
 
@@ -94,9 +94,9 @@ public class h {
     public void a(int i) {
         this.d.invalidate();
         if (this.k < 100) {
-            this.m.setText(this.j.getString(R.string.done) + "(" + this.k + ")");
+            this.m.setText(String.valueOf(this.j.getString(R.string.done)) + "(" + this.k + ")");
         } else {
-            this.m.setText(this.j.getString(R.string.done) + "(99+)");
+            this.m.setText(String.valueOf(this.j.getString(R.string.done)) + "(99+)");
         }
         this.d.setText(" ");
         this.m.setVisibility(0);
@@ -107,7 +107,7 @@ public class h {
 
     public void d() {
         this.h.setText(this.j.getString(R.string.flist_expand_list));
-        if (TiebaApplication.h().al() == 1) {
+        if (TiebaApplication.g().al() == 1) {
             this.i.setBackgroundResource(R.drawable.ico_downward_1);
         } else {
             this.i.setBackgroundResource(R.drawable.ico_downward);
@@ -124,11 +124,11 @@ public class h {
 
     public void b(int i) {
         this.a.c(i);
-        bs.b(this.j.findViewById(R.id.container), i);
-        bs.f((TextView) this.d, i);
-        bs.e((TextView) this.d, i);
-        bs.e(this.m, i);
-        if (TiebaApplication.h().al() == 1) {
+        bq.b(this.j.findViewById(R.id.container), i);
+        bq.f((TextView) this.d, i);
+        bq.e((TextView) this.d, i);
+        bq.e(this.m, i);
+        if (TiebaApplication.g().al() == 1) {
             this.c.setDivider(new ColorDrawable(-13881543));
         } else {
             this.c.setDivider(new ColorDrawable(-1775893));
@@ -166,7 +166,7 @@ public class h {
     }
 
     public void f() {
-        if (this.q != null && !p.a()) {
+        if (this.q != null && !o.a()) {
             this.b.postDelayed(new k(this), 300L);
         }
     }

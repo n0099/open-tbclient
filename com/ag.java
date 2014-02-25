@@ -90,6 +90,6 @@ public class ag implements ISocialShareHandler {
     public void share(ShareContent shareContent, IBaiduListener iBaiduListener, boolean z) {
         Toast.makeText(this.mContext, SocialShareConfig.getInstance(this.mContext).getString("pls_waiting"), 0).show();
         this.mListener = iBaiduListener;
-        SocialShareStatisticsManager.getInstance(this.mContext).getBackUrl(shareContent.getLinkUrl(), this.mMediaType, new d(this, shareContent));
+        SocialShareStatisticsManager.getInstance(this.mContext).getBackUrl(shareContent.getLinkUrl(), this.mMediaType, new ah(this, shareContent));
     }
 }

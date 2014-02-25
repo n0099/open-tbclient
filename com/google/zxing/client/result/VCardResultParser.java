@@ -9,6 +9,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public final class VCardResultParser extends ResultParser {
     private static final Pattern BEGIN_VCARD = Pattern.compile("BEGIN:VCARD", 2);
@@ -145,13 +146,13 @@ public final class VCardResultParser extends ResultParser {
                 if (z4) {
                     replaceAll = decodeQuotedPrintable(substring, str2);
                     if (z2) {
-                        replaceAll = UNESCAPED_SEMICOLONS.matcher(replaceAll).replaceAll("\n").trim();
+                        replaceAll = UNESCAPED_SEMICOLONS.matcher(replaceAll).replaceAll(IOUtils.LINE_SEPARATOR_UNIX).trim();
                     }
                 } else {
                     if (z2) {
-                        substring = UNESCAPED_SEMICOLONS.matcher(substring).replaceAll("\n").trim();
+                        substring = UNESCAPED_SEMICOLONS.matcher(substring).replaceAll(IOUtils.LINE_SEPARATOR_UNIX).trim();
                     }
-                    replaceAll = VCARD_ESCAPES.matcher(NEWLINE_ESCAPE.matcher(CR_LF_SPACE_TAB.matcher(substring).replaceAll("")).replaceAll("\n")).replaceAll("$1");
+                    replaceAll = VCARD_ESCAPES.matcher(NEWLINE_ESCAPE.matcher(CR_LF_SPACE_TAB.matcher(substring).replaceAll("")).replaceAll(IOUtils.LINE_SEPARATOR_UNIX)).replaceAll("$1");
                 }
                 if (arrayList == null) {
                     ArrayList arrayList4 = new ArrayList(1);

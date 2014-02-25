@@ -28,10 +28,10 @@ public class i implements AdapterView.OnItemClickListener {
                 pVar3 = this.a.b;
                 AccountData accountData = (AccountData) pVar3.getItem(i);
                 if (accountData != null && accountData.getIsActive() != 1) {
-                    this.a.g = new m(this.a, accountData);
-                    mVar = this.a.g;
+                    this.a.h = new m(this.a, accountData);
+                    mVar = this.a.h;
                     mVar.setPriority(3);
-                    mVar2 = this.a.g;
+                    mVar2 = this.a.h;
                     mVar2.execute(new Object[0]);
                     return;
                 }

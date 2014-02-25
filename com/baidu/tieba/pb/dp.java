@@ -1,27 +1,33 @@
 package com.baidu.tieba.pb;
 
-import android.util.SparseArray;
-import android.view.View;
-import com.slidingmenu.lib.R;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.view.KeyEvent;
+import android.widget.EditText;
+import com.baidu.adp.lib.util.BdUtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dp implements View.OnClickListener {
-    final /* synthetic */ cr a;
+public class dp implements DialogInterface.OnKeyListener {
+    final /* synthetic */ cu a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dp(cr crVar) {
-        this.a = crVar;
+    public dp(cu cuVar) {
+        this.a = cuVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        SparseArray sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            if (!"".equals(sparseArray.get(R.id.tag_forbid_user_name)) && !"".equals(sparseArray.get(R.id.tag_del_post_id))) {
-                this.a.a(view);
-            } else {
-                this.a.a(((Integer) sparseArray.get(R.id.tag_del_post_type)).intValue(), (String) sparseArray.get(R.id.tag_del_post_id), ((Integer) sparseArray.get(R.id.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(R.id.tag_del_post_is_self)).booleanValue());
-            }
+    @Override // android.content.DialogInterface.OnKeyListener
+    public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
+        NewPbActivity newPbActivity;
+        EditText editText;
+        Dialog dialog;
+        if (i == 4) {
+            newPbActivity = this.a.h;
+            editText = this.a.u;
+            BdUtilHelper.a(newPbActivity, editText);
+            dialog = this.a.q;
+            dialog.dismiss();
+            return true;
         }
+        return false;
     }
 }

@@ -1,20 +1,23 @@
 package com.baidu.tieba.home;
 
-import android.app.AlertDialog;
 import android.view.View;
-import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ag implements View.OnClickListener {
-    final /* synthetic */ SearchActivity a;
+public class ag implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ ae a;
+    private final /* synthetic */ View b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(SearchActivity searchActivity) {
-        this.a = searchActivity;
+    public ag(ae aeVar, View view) {
+        this.a = aeVar;
+        this.b = view;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        new AlertDialog.Builder(this.a).setTitle("提醒").setIcon(R.drawable.dialogue_quit).setMessage("确认清除搜索记录？").setPositiveButton("确认", new ai(this)).setNegativeButton("取消", new ah(this)).create().show();
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        View findViewWithTag = this.b.findViewWithTag(str);
+        if (findViewWithTag != null) {
+            findViewWithTag.invalidate();
+        }
     }
 }

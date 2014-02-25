@@ -1,9 +1,10 @@
 package com.baidu.tieba.im.chat.snapGroup;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.im.chat.p;
+import com.baidu.tieba.im.model.MsglistModel;
+import com.baidu.tieba.voice.VoiceManager;
 /* loaded from: classes.dex */
-public class e implements DialogInterface.OnCancelListener {
+class e implements p {
     final /* synthetic */ SnapGroupChatActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,10 +12,16 @@ public class e implements DialogInterface.OnCancelListener {
         this.a = snapGroupChatActivity;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        com.baidu.tieba.im.model.c cVar;
-        cVar = this.a.p;
-        cVar.b();
+    @Override // com.baidu.tieba.im.chat.p
+    public void a(VoiceManager.VoiceModel voiceModel) {
+        MsglistModel msglistModel;
+        if (voiceModel != null) {
+            msglistModel = this.a.e;
+            msglistModel.a(voiceModel.voiceId, voiceModel.duration);
+        }
+    }
+
+    @Override // com.baidu.tieba.im.chat.p
+    public void a() {
     }
 }

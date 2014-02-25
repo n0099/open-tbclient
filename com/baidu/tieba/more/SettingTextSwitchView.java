@@ -25,14 +25,14 @@ public class SettingTextSwitchView extends FrameLayout {
         this.b = context;
         d();
         a(attributeSet);
-        a(TiebaApplication.h().al());
+        a(TiebaApplication.g().al());
     }
 
     public SettingTextSwitchView(Context context) {
         super(context);
         this.b = context;
         d();
-        a(TiebaApplication.h().al());
+        a(TiebaApplication.g().al());
     }
 
     public SettingTextSwitchView(Context context, AttributeSet attributeSet, int i) {
@@ -40,7 +40,7 @@ public class SettingTextSwitchView extends FrameLayout {
         this.b = context;
         d();
         a(attributeSet);
-        a(TiebaApplication.h().al());
+        a(TiebaApplication.g().al());
     }
 
     @Override // android.view.View
@@ -58,18 +58,18 @@ public class SettingTextSwitchView extends FrameLayout {
 
     public void a(int i) {
         if (i == 1) {
-            this.d.setTextColor(this.b.getResources().getColor(R.color.skin_1_common_color));
+            this.d.setTextColor(this.b.getResources().getColor(R.color.about_tip_color_1));
             this.e.setSwitchStyle(BdSwitchView.SwitchStyle.NIGHT);
             if (this.a != null) {
-                this.a.setTextColor(this.b.getResources().getColor(R.color.c_FF515865));
+                this.a.setTextColor(this.b.getResources().getColor(R.color.setting_subtip_color_1));
                 return;
             }
             return;
         }
-        this.d.setTextColor(this.b.getResources().getColor(R.color.more_color));
+        this.d.setTextColor(this.b.getResources().getColor(R.color.about_tip_color));
         this.e.setSwitchStyle(BdSwitchView.SwitchStyle.DAY);
         if (this.a != null) {
-            this.a.setTextColor(this.b.getResources().getColor(R.color.c_FFB2B6BA));
+            this.a.setTextColor(this.b.getResources().getColor(R.color.setting_subtip_color));
         }
     }
 
@@ -110,7 +110,7 @@ public class SettingTextSwitchView extends FrameLayout {
     }
 
     private void a(AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = this.b.obtainStyledAttributes(attributeSet, com.baidu.tieba.at.SettingView);
+        TypedArray obtainStyledAttributes = this.b.obtainStyledAttributes(attributeSet, com.baidu.tieba.am.SettingView);
         String string = obtainStyledAttributes.getString(0);
         int color = obtainStyledAttributes.getColor(1, -1);
         float dimension = obtainStyledAttributes.getDimension(2, -1.0f);

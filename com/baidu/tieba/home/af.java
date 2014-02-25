@@ -1,37 +1,42 @@
 package com.baidu.tieba.home;
 
+import android.content.Context;
 import android.view.View;
 import com.slidingmenu.lib.R;
+import java.util.HashMap;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class af implements View.OnClickListener {
-    final /* synthetic */ SearchActivity a;
+public class af implements View.OnClickListener {
+    final /* synthetic */ ae a;
+    private final /* synthetic */ v b;
+    private final /* synthetic */ ai c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public af(SearchActivity searchActivity) {
-        this.a = searchActivity;
+    public af(ae aeVar, v vVar, ai aiVar) {
+        this.a = aeVar;
+        this.b = vVar;
+        this.c = aiVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        String str;
-        String str2;
-        int i;
-        String str3;
-        str = this.a.A;
-        if (str != null) {
-            str2 = this.a.A;
-            if (str2.trim().length() >= 1) {
-                i = this.a.B;
-                if (i == 0) {
-                    this.a.d();
-                    return;
-                }
-                SearchActivity searchActivity = this.a;
-                str3 = this.a.A;
-                searchActivity.a(1, str3);
-                return;
+        HashMap hashMap;
+        Context context;
+        if (!this.b.k()) {
+            this.c.i.setVisibility(4);
+            this.c.j.setVisibility(0);
+            this.c.k.setText(R.string.signallforum_resigning);
+            this.b.c(true);
+            au auVar = new au();
+            auVar.a(this.a);
+            String sb = new StringBuilder(String.valueOf(this.b.a())).toString();
+            synchronized (this.a) {
+                hashMap = this.a.g;
+                hashMap.put(sb, auVar);
             }
+            auVar.a(this.b.b(), sb);
+            context = this.a.c;
+            com.baidu.tieba.ai.a(context, "signall_resign_click");
         }
-        this.a.showToast(this.a.getResources().getString(R.string.write_keyword));
     }
 }

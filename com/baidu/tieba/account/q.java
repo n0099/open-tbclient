@@ -1,12 +1,11 @@
 package com.baidu.tieba.account;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.LinearLayout;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class q implements TextWatcher {
+class q implements View.OnClickListener {
     final /* synthetic */ ActivationActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,39 +13,72 @@ class q implements TextWatcher {
         this.a = activationActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ImageView imageView;
         RelativeLayout relativeLayout;
-        int i;
-        LinearLayout linearLayout;
-        LinearLayout linearLayout2;
-        int i2;
-        int i3;
         RelativeLayout relativeLayout2;
-        if (editable.length() == 6) {
-            relativeLayout2 = this.a.j;
-            relativeLayout2.setEnabled(true);
-        } else {
+        ImageView imageView2;
+        EditText editText;
+        boolean z;
+        u uVar;
+        t tVar;
+        u uVar2;
+        u uVar3;
+        t tVar2;
+        u uVar4;
+        t tVar3;
+        t tVar4;
+        imageView = this.a.b;
+        if (view != imageView) {
             relativeLayout = this.a.j;
-            relativeLayout.setEnabled(false);
+            if (view != relativeLayout) {
+                relativeLayout2 = this.a.k;
+                if (view != relativeLayout2) {
+                    imageView2 = this.a.d;
+                    if (view == imageView2) {
+                        editText = this.a.i;
+                        editText.setText((CharSequence) null);
+                        return;
+                    }
+                    return;
+                }
+                z = this.a.n;
+                if (z) {
+                    uVar = this.a.l;
+                    if (uVar == null) {
+                        tVar = this.a.m;
+                        if (tVar == null) {
+                            this.a.l = new u(this.a, null);
+                            uVar2 = this.a.l;
+                            uVar2.setPriority(3);
+                            uVar3 = this.a.l;
+                            uVar3.execute(new String[0]);
+                            return;
+                        }
+                        return;
+                    }
+                    return;
+                }
+                return;
+            }
+            tVar2 = this.a.m;
+            if (tVar2 == null) {
+                uVar4 = this.a.l;
+                if (uVar4 == null) {
+                    this.a.m = new t(this.a, null);
+                    tVar3 = this.a.m;
+                    tVar3.setPriority(3);
+                    tVar4 = this.a.m;
+                    tVar4.execute(new String[0]);
+                    return;
+                }
+                return;
+            }
+            return;
         }
-        i = this.a.y;
-        if (i != 0) {
-            this.a.y = 0;
-            linearLayout = this.a.c;
-            linearLayout.setBackgroundResource(R.drawable.pass_input);
-            linearLayout2 = this.a.c;
-            i2 = this.a.w;
-            i3 = this.a.x;
-            linearLayout2.setPadding(i2, 0, i3, 0);
-        }
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        this.a.setResult(0);
+        this.a.finish();
+        com.baidu.adp.lib.util.f.a("ActivationActivity", "mBack", "onClick");
     }
 }

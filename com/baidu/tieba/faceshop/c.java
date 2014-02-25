@@ -14,7 +14,7 @@ public class c extends BdAsyncTask<List<String>, Integer, Boolean> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ c(EmotionManageActivity emotionManageActivity, a aVar) {
+    public /* synthetic */ c(EmotionManageActivity emotionManageActivity, c cVar) {
         this(emotionManageActivity);
     }
 
@@ -22,25 +22,21 @@ public class c extends BdAsyncTask<List<String>, Integer, Boolean> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Boolean a(List<String>... listArr) {
-        int i;
         List<String> list = listArr[0];
         if (list == null || list.isEmpty()) {
             return false;
         }
-        int i2 = 0;
+        int i = 0;
         for (String str : list) {
             MyEmotionGroupData myEmotionGroupData = new MyEmotionGroupData();
             myEmotionGroupData.setGroupId(str);
             myEmotionGroupData.setUid(TiebaApplication.A());
             if (com.baidu.tieba.data.emotions.j.a().a(myEmotionGroupData)) {
-                com.baidu.adp.lib.g.e.d("delete my emotion:" + myEmotionGroupData.getId());
-                i = i2 + 1;
-            } else {
-                i = i2;
+                com.baidu.adp.lib.util.f.e("delete my emotion:" + myEmotionGroupData.getId());
+                i++;
             }
-            i2 = i;
         }
-        if (i2 > 0) {
+        if (i > 0) {
             return true;
         }
         return false;

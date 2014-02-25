@@ -1,23 +1,64 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.data.NewErrorData;
 /* loaded from: classes.dex */
-public class l implements Runnable {
-    final /* synthetic */ j a;
-    private View b;
+public class l {
+    protected com.baidu.tieba.util.ba a;
+    protected NewErrorData b = null;
 
-    public l(j jVar, View view) {
-        this.a = jVar;
-        this.b = null;
-        this.b = view;
+    public l() {
+        this.a = null;
+        this.a = new com.baidu.tieba.util.ba();
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        if (!this.a.isFinishing()) {
-            this.a.ShowSoftKeyPad((InputMethodManager) this.a.getSystemService("input_method"), this.b);
+    public void a() {
+        if (this.a != null) {
+            this.a.k();
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void a(String str) {
+        this.a.a(str);
+    }
+
+    public void a(String str, String str2) {
+        this.a.a(str, str2);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public String b() {
+        String m = this.a.m();
+        this.b = new NewErrorData();
+        this.b.parserJson(m);
+        return m;
+    }
+
+    public boolean c() {
+        if (this.a != null) {
+            return this.a.d();
+        }
+        return false;
+    }
+
+    public String d() {
+        if (this.a != null) {
+            return this.a.j();
+        }
+        return null;
+    }
+
+    public int e() {
+        if (this.b != null) {
+            return this.b.getErrorNumber();
+        }
+        return -1;
+    }
+
+    public String f() {
+        if (this.b != null) {
+            return this.b.getErrorMsg();
+        }
+        return null;
     }
 }

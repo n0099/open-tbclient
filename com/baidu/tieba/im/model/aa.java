@@ -1,23 +1,19 @@
 package com.baidu.tieba.im.model;
-
-import com.baidu.tieba.im.SingleRunnable;
-import com.baidu.tieba.im.chat.PersonalChatActivity;
-import com.baidu.tieba.im.db.au;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa extends SingleRunnable<Void> {
+public class aa implements com.baidu.tieba.im.a<Boolean> {
     final /* synthetic */ MsglistModel a;
+    private final /* synthetic */ com.baidu.tieba.im.message.g b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(MsglistModel msglistModel) {
+    public aa(MsglistModel msglistModel, com.baidu.tieba.im.message.g gVar) {
         this.a = msglistModel;
+        this.b = gVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.SingleRunnable
-    /* renamed from: a */
-    public Void b() {
-        au.a().a(PersonalChatActivity.b);
-        return null;
+    @Override // com.baidu.tieba.im.a
+    public void a(Boolean bool) {
+        this.a.a((com.baidu.tieba.im.message.b) this.b);
     }
 }

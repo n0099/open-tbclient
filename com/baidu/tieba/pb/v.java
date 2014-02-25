@@ -1,6 +1,7 @@
 package com.baidu.tieba.pb;
 
 import android.view.View;
+import android.widget.LinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements View.OnClickListener {
@@ -13,6 +14,12 @@ public class v implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.b(true);
+        LinearLayout linearLayout;
+        linearLayout = this.a.q;
+        if (linearLayout.getVisibility() != 0) {
+            this.a.finish();
+        } else {
+            this.a.b(false);
+        }
     }
 }

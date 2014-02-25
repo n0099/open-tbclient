@@ -1,6 +1,6 @@
 package com.baidu.tieba.voice;
 
-import com.baidu.tieba.util.by;
+import com.baidu.tieba.util.cb;
 import com.baidu.tieba.voice.VoiceManager;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ public class ai implements com.baidu.tieba.voice.a.c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ai(VoiceManager voiceManager, s sVar) {
+    public /* synthetic */ ai(VoiceManager voiceManager, ai aiVar) {
         this(voiceManager);
     }
 
@@ -31,7 +31,7 @@ public class ai implements com.baidu.tieba.voice.a.c {
         if (voiceModel != null) {
             adVar = this.a.y;
             if (adVar != null) {
-                if (!com.baidu.adp.lib.g.m.a(str) && !com.baidu.adp.lib.g.m.a(str2)) {
+                if (!com.baidu.adp.lib.util.m.a(str) && !com.baidu.adp.lib.util.m.a(str2)) {
                     voiceModel3 = this.a.v;
                     if (voiceModel3.voiceId.equals(str2)) {
                         voiceModel4 = this.a.v;
@@ -45,9 +45,9 @@ public class ai implements com.baidu.tieba.voice.a.c {
                     }
                     return;
                 }
-                com.baidu.adp.lib.g.e.b("VoiceManager", "VoiceLoaderCallback::voiceLoaded", "error code:" + i + " error msg:" + str3);
-                by.b("", i, str3, str);
-                if (i <= 0 || com.baidu.adp.lib.g.m.a(str3) || (i != 2 && i != 4 && i != 3 && i != 7)) {
+                com.baidu.adp.lib.util.f.b("VoiceManager", "VoiceLoaderCallback::voiceLoaded", "error code:" + i + " error msg:" + str3);
+                cb.b("", i, str3, str);
+                if (i <= 0 || com.baidu.adp.lib.util.m.a(str3) || (i != 2 && i != 4 && i != 3 && i != 7)) {
                     adVar2 = this.a.y;
                     adVar2.a(5, ak.a(R.string.voice_err_load_fail));
                 } else {

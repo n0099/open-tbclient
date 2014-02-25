@@ -1,35 +1,54 @@
 package com.baidu.tieba.model;
-
-import android.content.Context;
-import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class ba extends com.baidu.adp.a.d {
-    private Context c;
-    private bd a = null;
-    private ArrayList<com.baidu.tieba.data.ah> b = null;
-    private bc d = null;
+public class ba {
+    int a;
+    String b;
+    String c;
+    String d;
+    String e;
+    String f;
+    String g;
+    String h;
+    boolean i;
+    final /* synthetic */ az j;
 
-    public ba(Context context) {
-        this.c = null;
-        this.c = context;
+    public ba(az azVar) {
+        this.j = azVar;
     }
 
-    public void a(bc bcVar) {
-        this.d = bcVar;
+    public int a() {
+        return this.a;
     }
 
-    @Override // com.baidu.adp.a.d
-    protected boolean LoadData() {
-        if (this.a == null) {
-            this.a = new bd(this);
-            this.a.execute(new String[0]);
-            return true;
-        }
-        return false;
+    public String b() {
+        return this.b;
     }
 
-    @Override // com.baidu.adp.a.d
-    public boolean cancelLoadData() {
-        return false;
+    public String c() {
+        return this.c;
+    }
+
+    public String d() {
+        return this.d;
+    }
+
+    public String e() {
+        return this.e;
+    }
+
+    public String f() {
+        return this.f;
+    }
+
+    public String g() {
+        return this.g;
+    }
+
+    public String h() {
+        return this.h;
+    }
+
+    public boolean i() {
+        return this.i;
     }
 }

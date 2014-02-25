@@ -10,7 +10,5 @@ class g implements com.baidu.tieba.view.a {
 
     @Override // com.baidu.tieba.view.a
     public void a(int i) {
-        if (i == 0) {
-        }
     }
 }

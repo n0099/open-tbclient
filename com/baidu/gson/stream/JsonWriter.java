@@ -4,6 +4,7 @@ import java.io.Closeable;
 import java.io.Flushable;
 import java.io.IOException;
 import java.io.Writer;
+import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public class JsonWriter implements Closeable, Flushable {
     private static final String[] HTML_SAFE_REPLACEMENT_CHARS;
@@ -287,7 +288,7 @@ public class JsonWriter implements Closeable, Flushable {
 
     private void newline() {
         if (this.indent != null) {
-            this.out.write("\n");
+            this.out.write(IOUtils.LINE_SEPARATOR_UNIX);
             int i = this.stackSize;
             for (int i2 = 1; i2 < i; i2++) {
                 this.out.write(this.indent);

@@ -10,17 +10,7 @@ import java.util.Map;
 public class c {
     private static c c;
     private a a = null;
-    private SparseArray<g> b = null;
-
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.lib.e.e.a(java.lang.String[]):java.lang.Object] */
-    public static /* synthetic */ a a(c cVar) {
-        return cVar.a;
-    }
-
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.lib.e.e.a(java.lang.String[]):java.lang.Object] */
-    public static /* synthetic */ g a(c cVar, int i) {
-        return cVar.a(i);
-    }
+    private SparseArray<i> b = null;
 
     public c a(a aVar) {
         this.a = aVar;
@@ -39,56 +29,53 @@ public class c {
     }
 
     public void a(String str, Context context, b bVar) {
-        Map map;
         int i;
-        Map map2;
-        BdAsyncTask<?, ?, ?> searchTask = BdAsyncTask.searchTask(str + context.getClass().getName());
+        BdAsyncTask<?, ?, ?> searchTask = BdAsyncTask.searchTask(String.valueOf(str) + context.getClass().getName());
         if (searchTask != null) {
-            e eVar = (e) searchTask;
-            map = eVar.d;
-            Iterator it = map.entrySet().iterator();
+            f fVar = (f) searchTask;
+            Iterator<Map.Entry<b, h>> it = fVar.a.entrySet().iterator();
             int i2 = 0;
             while (true) {
                 i = i2;
                 if (!it.hasNext()) {
                     break;
                 }
-                Map.Entry entry = (Map.Entry) it.next();
-                b bVar2 = (b) entry.getKey();
-                f fVar = (f) entry.getValue();
+                Map.Entry<b, h> next = it.next();
+                b key = next.getKey();
+                next.getValue();
                 i2 = (bVar == null || bVar.b()) ? i : i + 1;
                 if (bVar == null) {
-                    eVar.a(bVar2);
+                    fVar.a(key);
                 }
             }
-            if (i < 2) {
-                eVar.cancel();
+            if (i >= 2) {
+                if (fVar.a.containsKey(bVar)) {
+                    fVar.a(bVar);
+                    return;
+                }
                 return;
             }
-            map2 = eVar.d;
-            if (map2.containsKey(bVar)) {
-                eVar.a(bVar);
-            }
+            fVar.cancel();
         }
     }
 
-    public Object a(String str, int i, b bVar, Context context, f fVar, BdAsyncTaskParallelType bdAsyncTaskParallelType, int i2) {
+    public Object a(String str, int i, b bVar, Context context, h hVar, BdAsyncTaskParallelType bdAsyncTaskParallelType, int i2) {
         boolean z;
         BdAsyncTask<?, ?, ?> bdAsyncTask;
         Object a;
         if (this.a == null) {
             throw new Exception("BdLoaderCreaterAbstractFactory can not be null");
         }
-        g a2 = a(i);
+        i a2 = a(i);
         if (a2 == null) {
             throw new Exception("Can't find the ResourceLoaderProc with type " + i);
         }
-        Object a3 = a2.a(str, fVar);
+        Object a3 = a2.a(str, hVar);
         if (a3 == null) {
             b dVar = bVar == null ? new d(this) : bVar;
-            String str2 = str + context.getClass().getName();
+            String str2 = String.valueOf(str) + context.getClass().getName();
             BdAsyncTask<?, ?, ?> searchTask = BdAsyncTask.searchTask(str2);
-            if (fVar == null || (a = fVar.a("param_immediatelyExecut")) == null || !(a instanceof Boolean)) {
+            if (hVar == null || (a = hVar.a("param_immediatelyExecut")) == null || !(a instanceof Boolean)) {
                 z = false;
             } else {
                 z = ((Boolean) a).booleanValue();
@@ -103,42 +90,44 @@ public class c {
                 }
             }
             if (bdAsyncTask != null && bdAsyncTask.getStatus() != BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
-                ((e) bdAsyncTask).a(dVar, fVar);
+                ((f) bdAsyncTask).a(dVar, hVar);
             } else {
-                e eVar = new e(this, str, i, dVar, fVar);
+                f fVar = new f(this, str, i, dVar, hVar);
                 if (bdAsyncTaskParallelType != null) {
-                    eVar.setType(bdAsyncTaskParallelType);
+                    fVar.setType(bdAsyncTaskParallelType);
                 }
-                eVar.setPriority(i2);
-                eVar.setKey(str + context.getClass().getName());
-                if (context != null) {
+                fVar.setPriority(i2);
+                fVar.setKey(String.valueOf(str) + context.getClass().getName());
+                if (context != null && (context instanceof com.baidu.adp.a.a)) {
+                    fVar.setTag(((com.baidu.adp.a.a) context).getUniqueId());
                 }
-                eVar.setImmediatelyExecut(z);
-                eVar.execute(new String[0]);
+                fVar.setImmediatelyExecut(z);
+                fVar.execute(new String[0]);
             }
             return null;
         }
         return a3;
     }
 
-    public Object a(String str, int i, b bVar, Context context, f fVar) {
-        return a(str, i, bVar, context, fVar, null, 1);
+    public Object a(String str, int i, b bVar, Context context, h hVar) {
+        return a(str, i, bVar, context, hVar, null, 1);
     }
 
-    public Object a(String str, int i, b bVar, Context context, f fVar, int i2) {
-        return a(str, i, bVar, context, fVar, null, i2);
+    public Object a(String str, int i, b bVar, Context context, h hVar, int i2) {
+        return a(str, i, bVar, context, hVar, null, i2);
     }
 
-    public g a(int i) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public i a(int i) {
         if (this.b == null) {
             this.b = new SparseArray<>();
         }
-        g gVar = this.b.get(i);
-        if (gVar == null) {
-            g a = this.a.a(i);
+        i iVar = this.b.get(i);
+        if (iVar == null) {
+            i a = this.a.a(i);
             this.b.put(i, a);
             return a;
         }
-        return gVar;
+        return iVar;
     }
 }

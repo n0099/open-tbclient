@@ -1,42 +1,41 @@
 package com.baidu.tieba.im.message;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes.dex */
-public class cr extends q {
-    private int a;
-    private String b;
-    private q c;
+public class cr extends da {
+    private String a;
+    private List<String> b;
 
     public cr() {
+        this.a = "";
+        this.b = new ArrayList();
     }
 
     public cr(int i) {
-        e(i);
+        super(i);
+        this.a = "";
+        this.b = new ArrayList();
     }
 
-    public boolean k() {
-        return this.a != 0;
+    public void a(String str) {
+        if (str != null) {
+            this.a = str;
+        }
     }
 
-    public int l() {
+    public String a() {
         return this.a;
     }
 
-    public void g(int i) {
-        this.a = i;
+    public void b(String str) {
+        if (str != null && !str.equals("") && !this.b.contains(str)) {
+            this.b.add(str);
+        }
     }
 
-    public String m() {
-        return this.b;
-    }
-
-    public void c(String str) {
-        this.b = str;
-    }
-
-    public q n() {
-        return this.c;
-    }
-
-    public void a(q qVar) {
-        this.c = qVar;
+    public Iterator<String> b() {
+        return this.b.iterator();
     }
 }

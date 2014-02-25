@@ -1,31 +1,61 @@
 package com.baidu.tieba.util;
 
-import android.content.Context;
-import android.text.style.ClickableSpan;
-import android.view.View;
-import com.baidu.tieba.pb.NewPbActivity;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.zip.GZIPInputStream;
+import java.util.zip.GZIPOutputStream;
 /* loaded from: classes.dex */
-public class am extends ClickableSpan {
-    private Context a;
-
-    public am(Context context) {
-        this.a = null;
-        this.a = context;
+public class am {
+    public static void a(InputStream inputStream, OutputStream outputStream) {
+        GZIPOutputStream gZIPOutputStream;
+        try {
+            gZIPOutputStream = new GZIPOutputStream(outputStream);
+            try {
+                byte[] bArr = new byte[1024];
+                while (true) {
+                    int read = inputStream.read(bArr, 0, 1024);
+                    if (read != -1) {
+                        gZIPOutputStream.write(bArr, 0, read);
+                    } else {
+                        gZIPOutputStream.flush();
+                        r.a((OutputStream) gZIPOutputStream);
+                        return;
+                    }
+                }
+            } catch (Throwable th) {
+                th = th;
+                r.a((OutputStream) gZIPOutputStream);
+                throw th;
+            }
+        } catch (Throwable th2) {
+            th = th2;
+            gZIPOutputStream = null;
+        }
     }
 
-    @Override // android.text.style.ClickableSpan
-    public void onClick(View view) {
-    }
-
-    public Context a() {
-        return this.a;
-    }
-
-    public void a(String str) {
-        UtilHelper.c(this.a, str);
-    }
-
-    public void b(String str) {
-        NewPbActivity.a(this.a, str, (String) null, (String) null);
+    public static void b(InputStream inputStream, OutputStream outputStream) {
+        GZIPInputStream gZIPInputStream;
+        try {
+            gZIPInputStream = new GZIPInputStream(inputStream);
+        } catch (Throwable th) {
+            th = th;
+            gZIPInputStream = null;
+        }
+        try {
+            byte[] bArr = new byte[1024];
+            while (true) {
+                int read = gZIPInputStream.read(bArr, 0, 1024);
+                if (read != -1) {
+                    outputStream.write(bArr, 0, read);
+                } else {
+                    r.a((InputStream) gZIPInputStream);
+                    return;
+                }
+            }
+        } catch (Throwable th2) {
+            th = th2;
+            r.a((InputStream) gZIPInputStream);
+            throw th;
+        }
     }
 }

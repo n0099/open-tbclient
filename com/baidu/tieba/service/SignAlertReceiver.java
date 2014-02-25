@@ -7,13 +7,13 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.mention.v;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class SignAlertReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        TiebaApplication h;
-        if (intent.getAction().equals("com.baidu.tieba.broadcast.signalert")) {
+        if (intent.getAction().equals(com.baidu.tieba.data.i.h())) {
             try {
                 Intent intent2 = new Intent(context, DealIntentService.class);
                 intent2.putExtra("class", 9);
@@ -30,14 +30,14 @@ public class SignAlertReceiver extends BroadcastReceiver {
                 notification.icon = R.drawable.icon;
                 notification.setLatestEventInfo(context, string2, string, service);
                 notification.defaults = -1;
-                if (com.baidu.tieba.mention.s.c()) {
+                if (v.c()) {
                     notification.defaults &= -2;
                     notification.defaults &= -3;
                 } else {
-                    if (!TiebaApplication.h().T()) {
+                    if (!TiebaApplication.g().S()) {
                         notification.defaults &= -3;
                     }
-                    if (!TiebaApplication.h().S()) {
+                    if (!TiebaApplication.g().R()) {
                         notification.defaults &= -2;
                     } else {
                         notification.audioStreamType = 5;
@@ -45,19 +45,15 @@ public class SignAlertReceiver extends BroadcastReceiver {
                 }
                 notification.flags |= 16;
                 ((NotificationManager) context.getSystemService("notification")).notify(12, notification);
-                h = TiebaApplication.h();
             } catch (Throwable th) {
                 try {
-                    if (com.baidu.adp.lib.g.e.a()) {
-                        com.baidu.adp.lib.g.e.a(th.getMessage());
+                    if (com.baidu.adp.lib.util.f.a()) {
+                        com.baidu.adp.lib.util.f.b(th.getMessage());
                     }
-                    h = TiebaApplication.h();
-                } catch (Throwable th2) {
-                    TiebaApplication.h().ae();
-                    throw th2;
+                } finally {
+                    TiebaApplication.g().ad();
                 }
             }
-            h.ae();
         }
     }
 }

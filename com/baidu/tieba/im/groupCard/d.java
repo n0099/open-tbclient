@@ -6,9 +6,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import com.baidu.adp.a.e;
-import com.baidu.adp.lib.g.g;
-import com.baidu.tieba.util.bs;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.tieba.im.util.o;
+import com.baidu.tieba.util.bq;
 import com.baidu.tieba.view.NavigationBar;
+import com.baidu.tieba.widget.share.g;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class d extends e {
@@ -50,7 +52,11 @@ public class d extends e {
         this.d = (LinearLayout) this.c.findViewById(R.id.groud_card_save);
         this.d.setOnClickListener(this.c);
         this.e = (LinearLayout) this.c.findViewById(R.id.group_card_share);
-        this.e.setOnClickListener(this.c);
+        if (g.a(this.c)) {
+            this.e.setOnClickListener(this.c);
+        } else {
+            this.e.setVisibility(8);
+        }
         this.f = (LinearLayout) this.c.findViewById(R.id.group_card_setting);
         this.h = (ProgressBar) this.c.findViewById(R.id.progress);
         this.j = (ImageView) this.c.findViewById(R.id.group_card_inner_image);
@@ -61,20 +67,20 @@ public class d extends e {
         this.g.setOnClickListener(this.c);
     }
 
-    public void a(com.baidu.adp.widget.ImageView.d dVar) {
-        if (dVar != null) {
-            dVar.a(this.j);
+    public void a(com.baidu.adp.widget.ImageView.b bVar) {
+        if (bVar != null) {
+            bVar.a(this.j);
         }
     }
 
     public void a(int i, String str) {
         if (str != null) {
-            g.a((Context) this.c, str);
+            BdUtilHelper.a((Context) this.c, str);
             return;
         }
-        String a = com.baidu.tieba.im.d.g.a(i);
+        String a = o.a(i);
         if (a != null && a.length() > 0) {
-            g.a((Context) this.c, a);
+            BdUtilHelper.a((Context) this.c, a);
         }
     }
 
@@ -113,7 +119,7 @@ public class d extends e {
     public void a(int i) {
         this.c.getLayoutMode().a(i == 1);
         this.c.getLayoutMode().a(this.a);
-        bs.a(this.a, i);
+        bq.a(this.a, i);
         this.i.c(i);
     }
 }

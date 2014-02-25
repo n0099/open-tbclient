@@ -1,18 +1,25 @@
 package com.baidu.tieba.voice;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class aa implements Runnable {
-    final /* synthetic */ VoiceManager a;
+class aa implements Runnable {
+    final /* synthetic */ z a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(VoiceManager voiceManager) {
-        this.a = voiceManager;
+    public aa(z zVar) {
+        this.a = zVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        if (!this.a.e()) {
-            this.a.w();
-        }
+        VoiceManager voiceManager;
+        VoiceManager voiceManager2;
+        VoiceManager voiceManager3;
+        voiceManager = this.a.a;
+        ae aeVar = voiceManager.a;
+        voiceManager2 = this.a.a;
+        aeVar.a(4, voiceManager2.d.getString(R.string.voice_error_file_md5));
+        voiceManager3 = this.a.a;
+        voiceManager3.H = 1;
     }
 }

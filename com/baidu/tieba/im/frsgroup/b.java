@@ -1,37 +1,48 @@
 package com.baidu.tieba.im.frsgroup;
 
-import com.baidu.adp.widget.ListView.BdListView;
+import android.text.TextUtils;
+import com.baidu.tieba.im.data.GroupPermData;
+import com.baidu.tieba.im.message.cz;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class b implements com.baidu.adp.widget.ListView.b {
-    final /* synthetic */ FrsGroupListFragment a;
+class b implements com.baidu.tieba.im.messageCenter.g {
+    final /* synthetic */ FrsGroupActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b(FrsGroupListFragment frsGroupListFragment) {
-        this.a = frsGroupListFragment;
+    public b(FrsGroupActivity frsGroupActivity) {
+        this.a = frsGroupActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.b
-    public void a(boolean z) {
+    @Override // com.baidu.tieba.im.messageCenter.g
+    public void a(com.baidu.tieba.im.message.s sVar) {
+        i iVar;
+        i iVar2;
         com.baidu.tieba.im.model.d dVar;
-        com.baidu.tieba.im.model.d dVar2;
-        int i;
-        BdListView bdListView;
-        dVar = this.a.b;
-        if (!dVar.h() || !z) {
-            dVar2 = this.a.b;
-            if (dVar2.i()) {
-                i = this.a.Y;
-                if (i == com.baidu.tieba.im.d.c.a()) {
-                    bdListView = this.a.d;
-                    bdListView.a();
-                    this.a.c(R.string.frsgroup_hot_cannot_refresh_tip);
-                    return;
-                }
-            }
-            this.a.J();
+        iVar = this.a.d;
+        iVar.d(false);
+        iVar2 = this.a.d;
+        iVar2.b(true);
+        if (sVar == null || !(sVar instanceof cz)) {
+            this.a.c(R.string.neterror);
             return;
         }
-        this.a.a(false);
+        cz czVar = (cz) sVar;
+        if (czVar.l()) {
+            if (czVar.m() > 0) {
+                if (!TextUtils.isEmpty(czVar.n())) {
+                    this.a.a(czVar.n());
+                    return;
+                }
+                return;
+            }
+            this.a.c(R.string.neterror);
+            return;
+        }
+        GroupPermData a = czVar.a();
+        if (a != null) {
+            dVar = this.a.e;
+            dVar.a(a);
+            this.a.a(a);
+        }
     }
 }

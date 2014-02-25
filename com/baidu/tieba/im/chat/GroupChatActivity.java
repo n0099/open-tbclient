@@ -1,20 +1,26 @@
 package com.baidu.tieba.im.chat;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.UserData;
 import com.baidu.tieba.im.data.GroupData;
-import com.baidu.tieba.im.data.UserData;
 import com.baidu.tieba.im.groupInfo.GroupInfoActivity;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class GroupChatActivity extends MsglistActivity {
     public static boolean a;
     public static String b = "";
+
+    static {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2001003, new al());
+        customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        com.baidu.adp.framework.c.a().a(customMessageTask);
+    }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.MsglistActivity
@@ -25,32 +31,32 @@ public class GroupChatActivity extends MsglistActivity {
     }
 
     @Override // com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.q qVar) {
-        super.a(qVar);
-        switch (qVar.w()) {
+    public void a(com.baidu.tieba.im.message.s sVar) {
+        super.a(sVar);
+        switch (sVar.w()) {
             case -125:
-                if (TiebaApplication.h().aV() && this.i == 0) {
-                    this.d.O().setVisibility(0);
-                    this.d.O().h();
+                if (TiebaApplication.g().aS() && this.i == 0) {
+                    this.d.Q().setVisibility(0);
+                    this.d.Q().h();
                     return;
                 }
                 return;
             case 103013:
-                if (qVar instanceof com.baidu.tieba.im.message.cd) {
-                    com.baidu.tieba.im.message.cd cdVar = (com.baidu.tieba.im.message.cd) qVar;
-                    if (cdVar.k()) {
-                        if (cdVar.l() > 0 && !TextUtils.isEmpty(cdVar.m())) {
-                            showToast(cdVar.m());
+                if (sVar instanceof com.baidu.tieba.im.message.cm) {
+                    com.baidu.tieba.im.message.cm cmVar = (com.baidu.tieba.im.message.cm) sVar;
+                    if (cmVar.l()) {
+                        if (cmVar.m() > 0 && !TextUtils.isEmpty(cmVar.n())) {
+                            showToast(cmVar.n());
                             return;
                         } else {
                             showToast(R.string.neterror);
                             return;
                         }
-                    } else if (cdVar.a() == 0) {
-                        showToast(cdVar.b());
+                    } else if (cmVar.a() == 0) {
+                        showToast(cmVar.b());
                         return;
                     } else {
-                        com.baidu.tieba.im.widget.a.a(this, cdVar.c());
+                        com.baidu.tieba.im.widget.a.a(this, cmVar.c());
                         return;
                     }
                 }
@@ -60,52 +66,26 @@ public class GroupChatActivity extends MsglistActivity {
         }
     }
 
-    public static void a(Activity activity, int i, String str, long j, String str2) {
-        GroupData groupData = new GroupData();
-        groupData.setGroupId(i);
-        groupData.setName(str);
-        groupData.setAuthorId(j);
-        String valueOf = String.valueOf(i);
-        if (!com.baidu.tieba.model.cb.a().a(valueOf)) {
-            new com.baidu.tieba.account.w("chat_pg", str2, valueOf).start();
-            com.baidu.tieba.model.cb.a().a(valueOf, Long.valueOf(System.currentTimeMillis()));
-        }
-        a(activity, groupData, true);
-    }
-
-    private static void a(Activity activity, GroupData groupData, boolean z) {
-        Intent intent = new Intent(activity, GroupChatActivity.class);
-        if (groupData.getGroupId() == 0) {
-            com.baidu.adp.lib.g.e.d("grounid" + groupData.getGroupId());
-            return;
-        }
-        intent.putExtra("chat_mode", 0);
-        intent.putExtra("group", groupData);
-        intent.putExtra("is_accept_notify", z);
-        intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
-        activity.startActivity(intent);
-    }
-
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.cp, com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.cz, com.baidu.tieba.f, android.app.Activity
     public void onPause() {
         super.onPause();
         a = false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.chat.cp, com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.chat.cz, com.baidu.tieba.f, android.app.Activity
     public void onResume() {
         super.onResume();
         a = true;
-        com.baidu.tieba.mention.s.a().a(b);
+        com.baidu.tieba.mention.v.a().a(b);
         if (!TextUtils.isEmpty(b)) {
-            com.baidu.tieba.model.i.a(b);
+            com.baidu.tieba.model.ag.a(b);
         }
-        if (TiebaApplication.h().aV() && this.i == 0 && this.d != null && this.d.O() != null) {
-            this.d.O().setVisibility(0);
-            this.d.O().h();
-            this.d.O().setOnClickListener(new ag(this));
+        if (TiebaApplication.g().aS() && this.i == 0 && this.d != null && this.d.Q() != null) {
+            this.d.Q().setVisibility(0);
+            this.d.Q().h();
+            this.d.Q().setOnClickListener(new am(this));
         }
     }
 
@@ -127,10 +107,10 @@ public class GroupChatActivity extends MsglistActivity {
     protected boolean k() {
         GroupData a2 = this.e.a();
         if (a2 == null) {
-            com.baidu.adp.lib.g.e.a("error:group or forum is null");
+            com.baidu.adp.lib.util.f.b("error:group or forum is null");
             return false;
         } else if (a2.getGroupId() == 0) {
-            com.baidu.adp.lib.g.e.a("error:gid invalid," + a2.getGroupId());
+            com.baidu.adp.lib.util.f.b("error:gid invalid," + a2.getGroupId());
             return false;
         } else {
             return true;
@@ -151,14 +131,17 @@ public class GroupChatActivity extends MsglistActivity {
             this.d.a(this.e.b().getUserName(), false);
         }
         this.d.a(this.e.c(), i);
-        this.d.a(new ai(this));
+        this.d.a(new ao(this));
     }
 
-    @Override // com.baidu.tieba.im.chat.cp, com.baidu.adp.a.a, android.view.View.OnClickListener
+    @Override // com.baidu.tieba.im.chat.cz, com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.d.z()) {
+        if (view == this.d.A()) {
             GroupInfoActivity.a(this, this.e.a().getGroupId(), 3);
+            if (TiebaApplication.A().equals(getIntent().getStringExtra("group_author_id")) && (this.d instanceof GroupChatView)) {
+                ((GroupChatView) this.d).S();
+            }
         }
     }
 }

@@ -5,9 +5,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.widget.TbImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o {
+class o {
     View a;
     LinearLayout b;
     RelativeLayout c;
@@ -24,7 +23,7 @@ public class o {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ o(h hVar, i iVar) {
+    public /* synthetic */ o(h hVar, o oVar) {
         this(hVar);
     }
 }

@@ -1,16 +1,16 @@
 package com.slidingmenu.lib.app;
 
 import android.os.Bundle;
-import android.support.v4.app.n;
+import android.support.v4.app.FragmentActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
-public class SlidingFragmentActivity extends n implements SlidingActivityBase {
+public class SlidingFragmentActivity extends FragmentActivity implements SlidingActivityBase {
     private SlidingActivityHelper mHelper;
 
-    @Override // android.support.v4.app.n, android.app.Activity
+    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.mHelper = new SlidingActivityHelper(this);
@@ -30,7 +30,7 @@ public class SlidingFragmentActivity extends n implements SlidingActivityBase {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.n, android.app.Activity
+    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         this.mHelper.onSaveInstanceState(bundle);

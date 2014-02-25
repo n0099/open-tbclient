@@ -1,70 +1,31 @@
 package com.baidu.tieba.view;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class j {
-    final /* synthetic */ h a;
-    private View b = null;
-    private LinearLayout c = null;
-    private TextView d = null;
-    private ImageView e = null;
-    private String f = null;
+public class j implements View.OnClickListener {
+    final /* synthetic */ i a;
 
-    public j(h hVar, LayoutInflater layoutInflater) {
-        this.a = hVar;
-        a(layoutInflater);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public j(i iVar) {
+        this.a = iVar;
     }
 
-    private void a(LayoutInflater layoutInflater) {
-        this.b = layoutInflater.inflate(R.layout.chatterbox_dialog_item, (ViewGroup) null);
-        this.d = (TextView) this.b.findViewById(R.id.chatterbox_text);
-        this.c = (LinearLayout) this.b.findViewById(R.id.chatterbox_item_layout);
-        this.e = (ImageView) this.b.findViewById(R.id.chatterbox_selected);
-    }
-
-    public boolean a(View view) {
-        return this.c.equals(view);
-    }
-
-    public void a(boolean z) {
-        if (z) {
-            this.e.setVisibility(0);
-        } else {
-            this.e.setVisibility(8);
-        }
-    }
-
-    public String a() {
-        return this.f;
-    }
-
-    public void a(String str) {
-        this.f = str;
-    }
-
-    public void b(String str) {
-        this.d.setText(str);
-    }
-
-    public String b() {
-        CharSequence text = this.d.getText();
-        if (text != null) {
-            return text.toString();
-        }
-        return null;
-    }
-
-    public View c() {
-        return this.b;
-    }
-
-    public void a(View.OnClickListener onClickListener) {
-        this.c.setOnClickListener(onClickListener);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        m mVar;
+        String str;
+        m mVar2;
+        String str2;
+        m mVar3;
+        mVar = this.a.e;
+        str = this.a.g;
+        mVar.a(str);
+        mVar2 = this.a.e;
+        str2 = this.a.h;
+        mVar2.b(str2);
+        mVar3 = this.a.e;
+        mVar3.show();
+        this.a.cancel();
     }
 }

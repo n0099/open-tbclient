@@ -1,6 +1,8 @@
 package com.baidu.tieba.pb;
+
+import android.graphics.Bitmap;
 /* loaded from: classes.dex */
-class az implements com.baidu.adp.widget.ListView.b {
+class az extends com.baidu.adp.a.g {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,16 +10,18 @@ class az implements com.baidu.adp.widget.ListView.b {
         this.a = newPbActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.b
-    public void a(boolean z) {
-        com.baidu.tieba.model.bm bmVar;
-        cr crVar;
-        bmVar = this.a.u;
-        if (!bmVar.b(true)) {
-            crVar = this.a.A;
-            crVar.t();
-            return;
+    @Override // com.baidu.adp.a.g
+    public void a(Object obj) {
+        cu cuVar;
+        com.baidu.tieba.model.bk bkVar;
+        if (obj instanceof Bitmap) {
+            Bitmap bitmap = (Bitmap) obj;
+            if (obj != null) {
+                cuVar = this.a.C;
+                cuVar.a(bitmap);
+                bkVar = this.a.y;
+                bkVar.a(true);
+            }
         }
-        com.baidu.tieba.util.by.a(this.a, "pb_pulldown", "pbclick", 1, new Object[0]);
     }
 }

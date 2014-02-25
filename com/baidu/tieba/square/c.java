@@ -7,31 +7,32 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.ce;
+import com.baidu.tieba.util.ch;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class c extends BaseAdapter {
-    View.OnClickListener a = new f(this);
+    View.OnClickListener a = new d(this);
     private Activity b;
-    private ArrayList<z> c;
+    private ArrayList<ab> c;
     private com.baidu.tieba.util.i d;
 
     public c(Activity activity, h hVar, boolean z) {
         this.b = activity;
         this.c = hVar.d();
         this.d = new com.baidu.tieba.util.i(activity);
-        int a = com.baidu.adp.lib.g.g.a((Context) activity, 45.0f);
+        int a = BdUtilHelper.a((Context) activity, 45.0f);
         this.d.a(a, a);
     }
 
-    public ArrayList<z> a() {
+    public ArrayList<ab> a() {
         return this.c;
     }
 
-    public void a(ArrayList<z> arrayList) {
+    public void a(ArrayList<ab> arrayList) {
         this.c = arrayList;
     }
 
@@ -48,13 +49,13 @@ public class c extends BaseAdapter {
         int itemViewType = getItemViewType(i);
         if (view == null) {
             view = a(viewGroup, itemViewType);
-            ce.b(view);
+            ch.b(view);
         }
-        ce.a(view);
+        ch.a(view);
         if (itemViewType != 3) {
-            int al = TiebaApplication.h().al();
+            int al = TiebaApplication.g().al();
             View findViewById = view.findViewById(R.id.container);
-            ce.a(findViewById, 1, al);
+            ch.a(findViewById, 1, al);
             if (itemViewType == 2) {
                 if (getCount() > 1) {
                     findViewById.setVisibility(0);
@@ -86,28 +87,28 @@ public class c extends BaseAdapter {
 
     private void a(ViewGroup viewGroup, g gVar, int i) {
         int i2 = 0;
-        z zVar = this.c.get(i / 2);
-        gVar.d = zVar;
-        gVar.b.setText(zVar.b);
-        if (zVar.e != null) {
+        ab abVar = this.c.get(i / 2);
+        gVar.d = abVar;
+        gVar.b.setText(abVar.b);
+        if (abVar.e != null) {
             gVar.c.setVisibility(0);
-            String[] strArr = new String[zVar.e.size()];
+            String[] strArr = new String[abVar.e.size()];
             while (true) {
                 int i3 = i2;
-                if (i3 >= zVar.e.size()) {
+                if (i3 >= abVar.e.size()) {
                     break;
                 }
-                strArr[i3] = zVar.e.get(i3).b;
+                strArr[i3] = abVar.e.get(i3).b;
                 i2 = i3 + 1;
             }
             gVar.c.setTextArray(strArr);
         } else {
             gVar.c.setVisibility(8);
         }
-        if (zVar.d != null) {
+        if (abVar.d != null) {
             gVar.a.setImageBitmap(null);
-            gVar.a.setTag(zVar.d);
-            this.d.b(zVar.d, new d(this, viewGroup));
+            gVar.a.setTag(abVar.d);
+            this.d.b(abVar.d, new e(this, viewGroup));
         }
     }
 

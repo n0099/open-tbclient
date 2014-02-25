@@ -1,48 +1,51 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
-import android.content.DialogInterface;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.by;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.ImageView;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bs implements DialogInterface.OnClickListener {
-    final /* synthetic */ bq a;
+public class bs implements View.OnTouchListener {
+    final /* synthetic */ br a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bs(bq bqVar) {
-        this.a = bqVar;
+    public bs(br brVar) {
+        this.a = brVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        boolean z;
-        Context context;
-        switch (i) {
-            case 0:
-                if (TiebaApplication.h().ak() != 1) {
-                    this.a.q = true;
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        int i;
+        ImageView imageView;
+        ImageView imageView2;
+        int i2;
+        ImageView imageView3;
+        ImageView imageView4;
+        if (view.getId() == R.id.refresh_layout) {
+            if (motionEvent.getAction() == 1 || motionEvent.getAction() == 4 || motionEvent.getAction() == 3) {
+                i = this.a.z;
+                if (i == 1) {
+                    imageView2 = this.a.l;
+                    imageView2.setImageResource(R.drawable.pic_fresh_n_1);
+                } else {
+                    imageView = this.a.l;
+                    imageView.setImageResource(R.drawable.pic_fresh_n);
                 }
-                TiebaApplication.h().d(1);
-                break;
-            case 1:
-                if (TiebaApplication.h().ak() != 0) {
-                    this.a.q = true;
+            }
+            if (motionEvent.getAction() == 0) {
+                i2 = this.a.z;
+                if (i2 == 1) {
+                    imageView4 = this.a.l;
+                    imageView4.setImageResource(R.drawable.pic_fresh_s_1);
+                    return false;
                 }
-                TiebaApplication.h().d(0);
-                break;
-            case 2:
-                if (TiebaApplication.h().ak() != 2) {
-                    this.a.q = true;
-                }
-                TiebaApplication.h().d(2);
-                break;
+                imageView3 = this.a.l;
+                imageView3.setImageResource(R.drawable.pic_fresh_s);
+                return false;
+            }
+            return false;
         }
-        z = this.a.q;
-        if (z) {
-            context = this.a.b;
-            by.a(context, "frs_abstract", "frsclick", 1, new Object[0]);
-        }
-        this.a.h();
+        return false;
     }
 }

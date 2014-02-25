@@ -1,31 +1,47 @@
 package com.baidu.tieba.faceshop;
+
+import android.app.Activity;
+import android.content.Context;
+import android.view.View;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.account.LoginActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ax extends com.baidu.adp.a.g {
-    final /* synthetic */ int a;
-    final /* synthetic */ FaceShopActivity b;
+public class ax implements View.OnClickListener {
+    final /* synthetic */ aw a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ax(FaceShopActivity faceShopActivity, int i) {
-        this.b = faceShopActivity;
-        this.a = i;
+    public ax(aw awVar) {
+        this.a = awVar;
     }
 
-    @Override // com.baidu.adp.a.g
-    public void a(Object obj) {
-        if (obj != null && (obj instanceof FaceBuyQueryData)) {
-            FaceBuyQueryData faceBuyQueryData = (FaceBuyQueryData) obj;
-            if (faceBuyQueryData.errno == 0 && faceBuyQueryData.usermsg != null) {
-                if (faceBuyQueryData.buyResult.status == 2) {
-                    this.b.a(this.a);
-                    return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        try {
+            bb bbVar = (bb) view.getTag();
+            if (bbVar != null) {
+                int i = bbVar.a;
+                if (!TiebaApplication.B()) {
+                    this.a.j = bbVar.a;
+                    context = this.a.c;
+                    LoginActivity.a((Activity) ((com.baidu.adp.a.a) context), (String) null, true, 11003);
                 } else {
-                    this.b.a();
-                    return;
+                    switch (bbVar.b) {
+                        case 2:
+                            this.a.a(i);
+                            break;
+                        case 3:
+                            this.a.b(i);
+                            break;
+                        case 4:
+                            this.a.c(i);
+                            break;
+                    }
                 }
             }
-            this.b.a();
-            return;
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        this.b.a();
     }
 }

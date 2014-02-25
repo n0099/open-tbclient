@@ -13,7 +13,7 @@ public class a extends WritableEmotionGroup {
     }
 
     public boolean a(AdsEmotionGroupData adsEmotionGroupData, c cVar) {
-        com.baidu.tieba.util.i iVar = new com.baidu.tieba.util.i(TiebaApplication.h());
+        com.baidu.tieba.util.i iVar = new com.baidu.tieba.util.i(TiebaApplication.g().b());
         iVar.d(true);
         iVar.b(adsEmotionGroupData.getColorCoverUrl(), new b(this, cVar));
         if (b()) {
@@ -24,7 +24,7 @@ public class a extends WritableEmotionGroup {
     }
 
     @Override // com.baidu.tieba.data.emotions.WritableEmotionGroup
-    public com.baidu.adp.widget.ImageView.d a() {
+    public com.baidu.adp.widget.ImageView.b a() {
         return super.i();
     }
 
@@ -48,12 +48,12 @@ public class a extends WritableEmotionGroup {
     }
 
     @Override // com.baidu.tieba.data.emotions.WritableEmotionGroup
-    public com.baidu.adp.widget.ImageView.d b(String str) {
+    public com.baidu.adp.widget.ImageView.b b(String str) {
         return null;
     }
 
     @Override // com.baidu.tieba.data.emotions.WritableEmotionGroup
-    public com.baidu.adp.widget.ImageView.d c(String str) {
+    public com.baidu.adp.widget.ImageView.b c(String str) {
         return null;
     }
 

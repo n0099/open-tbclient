@@ -1,22 +1,19 @@
 package com;
 
-import com.baidu.cloudsdk.DefaultBaiduListener;
-import com.baidu.cloudsdk.social.share.uiwithlayout.ShareMediaItem;
-import org.json.JSONObject;
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-class ac extends DefaultBaiduListener {
-    final /* synthetic */ ShareMediaItem a;
-    final /* synthetic */ s b;
+class ac implements DialogInterface.OnDismissListener {
+    final /* synthetic */ ab a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(s sVar, ShareMediaItem shareMediaItem) {
-        this.b = sVar;
-        this.a = shareMediaItem;
+    public ac(ab abVar) {
+        this.a = abVar;
     }
 
-    @Override // com.baidu.cloudsdk.DefaultBaiduListener, com.baidu.cloudsdk.IBaiduListener
-    public void onComplete(JSONObject jSONObject) {
-        this.a.setUserName(jSONObject.optString("username"));
-        this.b.notifyDataSetChanged();
+    @Override // android.content.DialogInterface.OnDismissListener
+    public void onDismiss(DialogInterface dialogInterface) {
+        if (this.a.mShareDialog != null) {
+            this.a.mShareDialog = null;
+        }
     }
 }

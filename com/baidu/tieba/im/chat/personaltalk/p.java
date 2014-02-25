@@ -2,7 +2,7 @@ package com.baidu.tieba.im.chat.personaltalk;
 
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.tieba.data.IconData;
+import com.baidu.tbadk.data.IconData;
 import com.baidu.tieba.view.HeadImageView;
 import com.baidu.tieba.view.NavigationBar;
 import com.baidu.tieba.view.UserIconBox;

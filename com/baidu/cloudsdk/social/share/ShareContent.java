@@ -15,6 +15,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
+import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public final class ShareContent implements Parcelable {
     private String b;
@@ -83,7 +84,7 @@ public final class ShareContent implements Parcelable {
         if (Build.VERSION.SDK_INT >= 16) {
             str = this.d;
         }
-        return TextUtils.isEmpty(str) ? getContent() + "\r\n" + getLinkUrl() : str;
+        return TextUtils.isEmpty(str) ? getContent() + IOUtils.LINE_SEPARATOR_WINDOWS + getLinkUrl() : str;
     }
 
     public Bitmap getImageData() {

@@ -1,20 +1,29 @@
 package com.baidu.tieba.im.messageCenter.a;
 
-import com.baidu.tieba.im.message.av;
-import com.baidu.tieba.im.message.ck;
-import com.baidu.tieba.im.message.cr;
+import com.baidu.tieba.im.message.ab;
+import com.baidu.tieba.im.message.cl;
+import com.baidu.tieba.im.message.da;
 /* loaded from: classes.dex */
 public class s extends com.baidu.tieba.im.messageCenter.d {
     @Override // com.baidu.tieba.im.messageCenter.d
-    public cr a(com.baidu.tieba.im.message.q qVar) {
-        if (qVar == null || !(qVar instanceof av)) {
+    public da a(com.baidu.tieba.im.message.s sVar) {
+        cl clVar;
+        if (sVar == null || !(sVar instanceof ab)) {
             return null;
         }
-        com.baidu.tieba.b.a.a().i();
-        ck ckVar = new ck();
-        ckVar.e(-203);
-        ckVar.a(qVar);
-        ckVar.g(0);
-        return ckVar;
+        byte[] a = com.baidu.tieba.c.a.a().s().a("p_enter_forum_group_info");
+        cl clVar2 = new cl();
+        if (a != null) {
+            try {
+                clVar = (cl) n.a(103011, a);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            clVar.e(-114);
+            return clVar;
+        }
+        clVar = clVar2;
+        clVar.e(-114);
+        return clVar;
     }
 }

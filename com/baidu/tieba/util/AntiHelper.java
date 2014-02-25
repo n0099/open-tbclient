@@ -14,7 +14,17 @@ public class AntiHelper {
         CREATE_THREAD,
         SIGN,
         LIKE,
-        REPLY
+        REPLY;
+
+        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
+        /* renamed from: values  reason: to resolve conflict with enum method */
+        public static OperationType[] valuesCustom() {
+            OperationType[] valuesCustom = values();
+            int length = valuesCustom.length;
+            OperationType[] operationTypeArr = new OperationType[length];
+            System.arraycopy(valuesCustom, 0, operationTypeArr, 0, length);
+            return operationTypeArr;
+        }
     }
 
     /* loaded from: classes.dex */
@@ -24,7 +34,17 @@ public class AntiHelper {
         PB,
         IMAGE_PB,
         FLOOR_IN_FLOOR,
-        WRITE
+        WRITE;
+
+        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
+        /* renamed from: values  reason: to resolve conflict with enum method */
+        public static PageType[] valuesCustom() {
+            PageType[] valuesCustom = values();
+            int length = valuesCustom.length;
+            PageType[] pageTypeArr = new PageType[length];
+            System.arraycopy(valuesCustom, 0, pageTypeArr, 0, length);
+            return pageTypeArr;
+        }
     }
 
     public static boolean a(Context context, AntiData antiData, OperationType operationType, PageType pageType) {

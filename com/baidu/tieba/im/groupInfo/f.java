@@ -1,11 +1,11 @@
 package com.baidu.tieba.im.groupInfo;
 
-import android.support.v4.view.bq;
+import android.support.v4.view.ViewPager;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements bq {
+public class f implements ViewPager.OnPageChangeListener {
     final /* synthetic */ GroupImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,8 +13,8 @@ public class f implements bq {
         this.a = groupImageActivity;
     }
 
-    @Override // android.support.v4.view.bq
-    public void a_(int i) {
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageSelected(int i) {
         int i2;
         GroupImageActivity groupImageActivity = this.a;
         i2 = this.a.c;
@@ -23,12 +23,12 @@ public class f implements bq {
         this.a.b();
     }
 
-    @Override // android.support.v4.view.bq
-    public void a(int i, float f, int i2) {
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrolled(int i, float f, int i2) {
     }
 
-    @Override // android.support.v4.view.bq
-    public void b(int i) {
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrollStateChanged(int i) {
         long j;
         ArrayList arrayList;
         int i2;
@@ -48,7 +48,7 @@ public class f implements bq {
                         hashMap = this.a.t;
                         arrayList3 = this.a.b;
                         i3 = this.a.c;
-                        hashMap.put(arrayList3.get(i3), true);
+                        hashMap.put((String) arrayList3.get(i3), true);
                     }
                 }
             }

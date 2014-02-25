@@ -1,8 +1,8 @@
 package com.baidu.tieba.im.updategroup;
 
 import android.content.Intent;
-import com.baidu.tieba.im.message.cn;
-import com.baidu.tieba.im.message.q;
+import com.baidu.tieba.im.message.cw;
+import com.baidu.tieba.im.message.s;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class d implements com.baidu.tieba.im.messageCenter.g {
@@ -13,19 +13,19 @@ public class d implements com.baidu.tieba.im.messageCenter.g {
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(q qVar) {
+    public void a(s sVar) {
         a aVar;
         a aVar2;
-        if (qVar != null && qVar.w() == 103102) {
+        if (sVar != null && sVar.w() == 103102) {
             aVar = this.a.c;
             aVar.a(false);
-            if (!(qVar instanceof cn)) {
+            if (!(sVar instanceof cw)) {
                 this.a.showToast(R.string.group_update_fail);
                 return;
             }
-            cn cnVar = (cn) qVar;
-            if (cnVar.k()) {
-                this.a.a(cnVar.m(), cnVar.l());
+            cw cwVar = (cw) sVar;
+            if (cwVar.l()) {
+                this.a.a(cwVar.n(), cwVar.m());
                 return;
             }
             this.a.showToast(R.string.group_update_success);

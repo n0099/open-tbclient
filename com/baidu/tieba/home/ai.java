@@ -1,26 +1,32 @@
 package com.baidu.tieba.home;
 
-import android.content.DialogInterface;
-import com.baidu.tieba.util.DatabaseService;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tieba.view.HeadImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ai implements DialogInterface.OnClickListener {
-    final /* synthetic */ ag a;
+public class ai {
+    public HeadImageView a;
+    public LinearLayout b;
+    public TextView c;
+    public TextView d;
+    public TextView e;
+    public FrameLayout f;
+    public TextView g;
+    public RelativeLayout h;
+    public ImageView i;
+    public ProgressBar j;
+    public TextView k;
+    public TextView l;
+    public TextView m;
+    final /* synthetic */ ae n;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(ag agVar) {
-        this.a = agVar;
-    }
-
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        int i2;
-        i2 = this.a.a.B;
-        if (i2 == 0) {
-            DatabaseService.q();
-            this.a.a.f();
-            return;
-        }
-        DatabaseService.r();
-        this.a.a.h();
+    public ai(ae aeVar) {
+        this.n = aeVar;
     }
 }

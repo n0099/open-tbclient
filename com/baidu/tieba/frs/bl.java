@@ -1,18 +1,23 @@
 package com.baidu.tieba.frs;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
-public class bl implements com.baidu.tieba.view.ae {
-    final /* synthetic */ bk a;
+class bl implements SlidingMenu.OnClosedListener {
+    final /* synthetic */ FrsImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bl(bk bkVar) {
-        this.a = bkVar;
+    public bl(FrsImageActivity frsImageActivity) {
+        this.a = frsImageActivity;
     }
 
-    @Override // com.baidu.tieba.view.ae
-    public void a(boolean z) {
+    @Override // com.slidingmenu.lib.SlidingMenu.OnClosedListener
+    public void onClosed() {
+        boolean z;
+        z = this.a.o;
         if (z) {
-            this.a.F();
+            this.a.o = false;
+            this.a.q = null;
+            this.a.c(1);
         }
     }
 }

@@ -1,74 +1,36 @@
 package com.baidu.tieba.faceshop;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.gson.Gson;
 import com.baidu.gson.GsonBuilder;
-import com.baidu.tieba.util.bu;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l extends BdAsyncTask<Object, FaceBuyQueryData, FaceBuyQueryData> {
+public class l extends BdAsyncTask<Object, FaceBuyData, FaceBuyData> {
     final /* synthetic */ j a;
-    private com.baidu.tieba.util.ax b;
-    private volatile boolean c;
+    private com.baidu.tieba.util.ba b;
 
     private l(j jVar) {
         this.a = jVar;
-        this.c = false;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ l(j jVar, l lVar) {
+        this(jVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: d */
-    public FaceBuyQueryData a(Object... objArr) {
-        int i;
-        int i2 = 0;
-        FaceBuyQueryData faceBuyQueryData = null;
+    public FaceBuyData a(Object... objArr) {
         String obj = objArr[0].toString();
-        if (!bu.c(obj)) {
-            Gson create = new GsonBuilder().create();
-            this.b = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/e/faces/querybuyresult");
-            this.b.a("order_id", obj);
-            while (!this.c) {
-                i = this.a.c;
-                if (i2 < i) {
-                    faceBuyQueryData = (FaceBuyQueryData) create.fromJson(this.b.m(), (Class<Object>) FaceBuyQueryData.class);
-                    if (faceBuyQueryData != null && faceBuyQueryData.buyResult != null) {
-                        if (faceBuyQueryData.buyResult.status == 2) {
-                            break;
-                        }
-                        try {
-                            Thread.sleep(3000L);
-                        } catch (InterruptedException e) {
-                            com.baidu.adp.lib.g.e.b(getClass().getName(), "doInBackground", e.toString());
-                        }
-                        i2++;
-                    } else {
-                        try {
-                            Thread.sleep(3000L);
-                        } catch (InterruptedException e2) {
-                            com.baidu.adp.lib.g.e.b(getClass().getName(), "FaceBuyQueryTask doInBackground", e2.toString());
-                        }
-                        i2++;
-                    }
-                } else {
-                    break;
-                }
-            }
+        try {
+            this.b = new com.baidu.tieba.util.ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/e/faces/buyfacepack");
+            this.b.a("pid", obj);
+            return (FaceBuyData) new GsonBuilder().create().fromJson(this.b.m(), (Class<Object>) FaceBuyData.class);
+        } catch (Exception e) {
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.toString());
+            return null;
         }
-        return faceBuyQueryData;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(FaceBuyQueryData faceBuyQueryData) {
-        com.baidu.adp.a.g gVar;
-        super.a((l) faceBuyQueryData);
-        this.a.b = null;
-        this.c = true;
-        gVar = this.a.mLoadDataCallBack;
-        gVar.a(faceBuyQueryData);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -78,8 +40,19 @@ public class l extends BdAsyncTask<Object, FaceBuyQueryData, FaceBuyQueryData> {
         if (this.b != null) {
             this.b.k();
         }
-        this.a.b = null;
+        this.a.a = null;
         gVar = this.a.mLoadDataCallBack;
         gVar.a(null);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(FaceBuyData faceBuyData) {
+        com.baidu.adp.a.g gVar;
+        super.a((l) faceBuyData);
+        this.a.a = null;
+        gVar = this.a.mLoadDataCallBack;
+        gVar.a(faceBuyData);
     }
 }

@@ -9,7 +9,7 @@ public class b extends TbImageView {
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.widget.ImageView.BDImageView
-    public com.baidu.adp.widget.ImageView.d getImage() {
+    public com.baidu.adp.widget.ImageView.b getImage() {
         return super.getImage();
     }
 
@@ -23,10 +23,10 @@ public class b extends TbImageView {
     @Override // com.baidu.tbadk.widget.TbImageView, android.widget.ImageView, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        e();
+        f();
     }
 
-    public void e() {
+    public void f() {
         setTag(null);
         a listViewActivity = getListViewActivity();
         if (listViewActivity != null) {

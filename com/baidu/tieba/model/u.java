@@ -1,13 +1,13 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
 public class u {
-    public String a = "";
-    public boolean b = false;
-    public int c = -1;
-    public com.baidu.tieba.data.r d = null;
-    final /* synthetic */ t e;
+    public boolean a;
+    public String b;
+    public int c;
+    public String d;
+    final /* synthetic */ s e;
 
-    public u(t tVar) {
-        this.e = tVar;
+    public u(s sVar) {
+        this.e = sVar;
     }
 }

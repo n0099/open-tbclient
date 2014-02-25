@@ -538,7 +538,7 @@ public class JsonReader implements Closeable {
             case '\n':
             case '\f':
             case '\r':
-            case Im.GroupInfo.ISNEWLYCREATE_FIELD_NUMBER /* 32 */:
+            case ' ':
             case ',':
             case ':':
             case '[':
@@ -744,7 +744,7 @@ public class JsonReader implements Closeable {
                     case '\n':
                     case '\f':
                     case '\r':
-                    case Im.GroupInfo.ISNEWLYCREATE_FIELD_NUMBER /* 32 */:
+                    case ' ':
                     case ',':
                     case ':':
                     case '[':
@@ -836,7 +836,7 @@ public class JsonReader implements Closeable {
                     case '\n':
                     case '\f':
                     case '\r':
-                    case Im.GroupInfo.ISNEWLYCREATE_FIELD_NUMBER /* 32 */:
+                    case ' ':
                     case ',':
                     case ':':
                     case '[':

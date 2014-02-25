@@ -1,7 +1,6 @@
 package com.baidu.tieba.more;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.util.DatabaseService;
@@ -34,7 +33,7 @@ public class m extends BdAsyncTask<Object, Integer, Boolean> {
             this.b.setIsActive(1);
             DatabaseService.a(this.b);
         } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
         }
         return true;
     }
@@ -48,8 +47,11 @@ public class m extends BdAsyncTask<Object, Integer, Boolean> {
             new o(this.a, this.b.getBDUSS()).start();
         }
         this.a.closeLoadingDialog();
-        com.baidu.tieba.c.d.a().b();
-        MainTabActivity.c(this.a, 1);
-        this.a.g = null;
+        com.baidu.tieba.d.d.a().b();
+        TiebaApplication.g().z();
+        com.baidu.tieba.mention.v.a().l();
+        com.baidu.tieba.mention.v.a().j();
+        com.baidu.tieba.mainentrance.f.a(this.a, 1, false);
+        this.a.h = null;
     }
 }

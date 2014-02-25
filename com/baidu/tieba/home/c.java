@@ -2,13 +2,14 @@ package com.baidu.tieba.home;
 
 import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.util.ba;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, Integer, String> {
     final /* synthetic */ CreateBarActivity a;
     private String b;
     private String c;
-    private com.baidu.tieba.util.ax d = null;
+    private ba d = null;
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
@@ -36,17 +37,17 @@ public class c extends BdAsyncTask<String, Integer, String> {
     public String a(String... strArr) {
         String str;
         try {
-            this.d = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/c/forum/create");
+            this.d = new ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/c/forum/create");
             this.d.e(true);
             this.d.a("kw", this.b);
             this.d.a("vcode", this.c);
-            com.baidu.tieba.util.ax axVar = this.d;
+            ba baVar = this.d;
             str = this.a.s;
-            axVar.a("vcode_md5", str);
+            baVar.a("vcode_md5", str);
             this.d.m();
             return null;
         } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.getMessage());
             return null;
         }
     }

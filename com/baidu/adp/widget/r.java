@@ -1,24 +1,16 @@
 package com.baidu.adp.widget;
-
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.location.LocationClientOption;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class r extends Handler {
-    final /* synthetic */ q a;
+public class r implements com.baidu.adp.widget.ListView.s {
+    final /* synthetic */ PinnedHeaderListView a;
 
-    private r(q qVar) {
-        this.a = qVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public r(PinnedHeaderListView pinnedHeaderListView) {
+        this.a = pinnedHeaderListView;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        switch (message.what) {
-            case LocationClientOption.MIN_SCAN_SPAN /* 1000 */:
-                q.a(this.a);
-                return;
-            default:
-                return;
-        }
+    @Override // com.baidu.adp.widget.ListView.s
+    public void a(boolean z) {
+        this.a.l = z;
     }
 }

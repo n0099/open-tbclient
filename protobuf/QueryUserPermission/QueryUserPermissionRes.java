@@ -10,20 +10,25 @@ import com.google.protobuf.Parser;
 import java.io.IOException;
 import java.io.InputStream;
 import protobuf.Im;
-import protobuf.o;
+import protobuf.q;
 /* loaded from: classes.dex */
 public final class QueryUserPermissionRes {
 
     /* loaded from: classes.dex */
-    public final class DataRes extends GeneratedMessageLite implements k {
+    public final class DataRes extends GeneratedMessageLite implements i {
         public static final int GROUPPERM_FIELD_NUMBER = 1;
-        public static Parser<DataRes> PARSER = new i();
+        public static Parser<DataRes> PARSER = new g();
         private static final DataRes a = new DataRes(true);
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private Im.GroupPermission groupPerm_;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ DataRes(GeneratedMessageLite.Builder builder, DataRes dataRes) {
+            this(builder);
+        }
 
         private DataRes(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -47,13 +52,12 @@ public final class QueryUserPermissionRes {
         }
 
         private DataRes(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-            o oVar;
-            boolean z;
+            q qVar;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
             a();
-            boolean z2 = false;
-            while (!z2) {
+            boolean z = false;
+            while (!z) {
                 try {
                     try {
                         int readTag = codedInputStream.readTag();
@@ -63,28 +67,25 @@ public final class QueryUserPermissionRes {
                                 break;
                             case 10:
                                 if ((this.bitField0_ & 1) != 1) {
-                                    oVar = null;
+                                    qVar = null;
                                 } else {
-                                    oVar = this.groupPerm_.toBuilder();
+                                    qVar = this.groupPerm_.toBuilder();
                                 }
                                 this.groupPerm_ = (Im.GroupPermission) codedInputStream.readMessage(Im.GroupPermission.PARSER, extensionRegistryLite);
-                                if (oVar != null) {
-                                    oVar.mergeFrom(this.groupPerm_);
-                                    this.groupPerm_ = oVar.buildPartial();
+                                if (qVar != null) {
+                                    qVar.mergeFrom(this.groupPerm_);
+                                    this.groupPerm_ = qVar.buildPartial();
                                 }
                                 this.bitField0_ |= 1;
-                                z = z2;
                                 break;
                             default:
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
                                 } else {
-                                    z = z2;
                                     break;
                                 }
                         }
-                        z2 = z;
                     } catch (InvalidProtocolBufferException e) {
                         throw e.setUnfinishedMessage(this);
                     } catch (IOException e2) {
@@ -94,6 +95,11 @@ public final class QueryUserPermissionRes {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ DataRes(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, DataRes dataRes) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -191,32 +197,32 @@ public final class QueryUserPermissionRes {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static j newBuilder() {
-            return j.f();
+        public static h newBuilder() {
+            return h.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public j newBuilderForType() {
+        public h newBuilderForType() {
             return newBuilder();
         }
 
-        public static j newBuilder(DataRes dataRes) {
+        public static h newBuilder(DataRes dataRes) {
             return newBuilder().mergeFrom(dataRes);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public j toBuilder() {
+        public h toBuilder() {
             return newBuilder(this);
         }
     }
 
     /* loaded from: classes.dex */
-    public final class QueryUserPermissionResIdl extends GeneratedMessageLite implements n {
+    public final class QueryUserPermissionResIdl extends GeneratedMessageLite implements l {
         public static final int DATA_FIELD_NUMBER = 2;
         public static final int ERROR_FIELD_NUMBER = 1;
-        public static Parser<QueryUserPermissionResIdl> PARSER = new l();
+        public static Parser<QueryUserPermissionResIdl> PARSER = new j();
         private static final QueryUserPermissionResIdl a = new QueryUserPermissionResIdl(true);
         private static final long serialVersionUID = 0;
         private int bitField0_;
@@ -224,6 +230,11 @@ public final class QueryUserPermissionRes {
         private Im.Error error_;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ QueryUserPermissionResIdl(GeneratedMessageLite.Builder builder, QueryUserPermissionResIdl queryUserPermissionResIdl) {
+            this(builder);
+        }
 
         private QueryUserPermissionResIdl(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -247,12 +258,11 @@ public final class QueryUserPermissionRes {
         }
 
         private QueryUserPermissionResIdl(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-            boolean z;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
             a();
-            boolean z2 = false;
-            while (!z2) {
+            boolean z = false;
+            while (!z) {
                 try {
                     try {
                         int readTag = codedInputStream.readTag();
@@ -261,35 +271,31 @@ public final class QueryUserPermissionRes {
                                 z = true;
                                 break;
                             case 10:
-                                protobuf.c builder = (this.bitField0_ & 1) == 1 ? this.error_.toBuilder() : null;
+                                protobuf.e builder = (this.bitField0_ & 1) == 1 ? this.error_.toBuilder() : null;
                                 this.error_ = (Im.Error) codedInputStream.readMessage(Im.Error.PARSER, extensionRegistryLite);
                                 if (builder != null) {
                                     builder.mergeFrom(this.error_);
                                     this.error_ = builder.buildPartial();
                                 }
                                 this.bitField0_ |= 1;
-                                z = z2;
                                 break;
                             case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
-                                j builder2 = (this.bitField0_ & 2) == 2 ? this.data_.toBuilder() : null;
+                                h builder2 = (this.bitField0_ & 2) == 2 ? this.data_.toBuilder() : null;
                                 this.data_ = (DataRes) codedInputStream.readMessage(DataRes.PARSER, extensionRegistryLite);
                                 if (builder2 != null) {
                                     builder2.mergeFrom(this.data_);
                                     this.data_ = builder2.buildPartial();
                                 }
                                 this.bitField0_ |= 2;
-                                z = z2;
                                 break;
                             default:
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
                                 } else {
-                                    z = z2;
                                     break;
                                 }
                         }
-                        z2 = z;
                     } catch (InvalidProtocolBufferException e) {
                         throw e.setUnfinishedMessage(this);
                     } catch (IOException e2) {
@@ -299,6 +305,11 @@ public final class QueryUserPermissionRes {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ QueryUserPermissionResIdl(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, QueryUserPermissionResIdl queryUserPermissionResIdl) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -411,23 +422,23 @@ public final class QueryUserPermissionRes {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static m newBuilder() {
-            return m.f();
+        public static k newBuilder() {
+            return k.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public m newBuilderForType() {
+        public k newBuilderForType() {
             return newBuilder();
         }
 
-        public static m newBuilder(QueryUserPermissionResIdl queryUserPermissionResIdl) {
+        public static k newBuilder(QueryUserPermissionResIdl queryUserPermissionResIdl) {
             return newBuilder().mergeFrom(queryUserPermissionResIdl);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public m toBuilder() {
+        public k toBuilder() {
             return newBuilder(this);
         }
     }

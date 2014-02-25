@@ -4,13 +4,13 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements Runnable {
-    final /* synthetic */ String a;
-    final /* synthetic */ a b;
+    final /* synthetic */ a a;
+    private final /* synthetic */ String b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar, String str) {
-        this.b = aVar;
-        this.a = str;
+        this.a = aVar;
+        this.b = str;
     }
 
     @Override // java.lang.Runnable
@@ -20,16 +20,16 @@ public class c implements Runnable {
         AtomicBoolean atomicBoolean3;
         try {
             try {
-                this.b.f(this.a);
-                atomicBoolean3 = this.b.a;
+                this.a.f(this.b);
+                atomicBoolean3 = this.a.a;
                 atomicBoolean3.set(false);
             } catch (Exception e) {
-                com.baidu.adp.lib.g.e.a("BdLogger", "write error ", e);
-                atomicBoolean = this.b.a;
+                com.baidu.adp.lib.util.f.a("BdLogger", "write error ", e);
+                atomicBoolean = this.a.a;
                 atomicBoolean.set(false);
             }
         } catch (Throwable th) {
-            atomicBoolean2 = this.b.a;
+            atomicBoolean2 = this.a.a;
             atomicBoolean2.set(false);
             throw th;
         }

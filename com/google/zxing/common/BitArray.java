@@ -1,4 +1,6 @@
 package com.google.zxing.common;
+
+import org.apache.commons.io.FilenameUtils;
 /* loaded from: classes.dex */
 public final class BitArray {
     private int[] bits;
@@ -243,7 +245,7 @@ public final class BitArray {
             if ((i & 7) == 0) {
                 sb.append(' ');
             }
-            sb.append(get(i) ? 'X' : '.');
+            sb.append(get(i) ? 'X' : FilenameUtils.EXTENSION_SEPARATOR);
         }
         return sb.toString();
     }

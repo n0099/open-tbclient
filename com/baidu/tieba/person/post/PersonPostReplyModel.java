@@ -10,7 +10,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class PersonPostReplyModel extends com.baidu.adp.a.d implements Serializable {
     public static final int PAGE_SIZE = 20;
-    public static f sFetchReplyAsyncTask;
+    public static g sFetchReplyAsyncTask;
     @SerializedName("post_list")
     public List<Post> post_list = new ArrayList();
     static int mReplyPn = 0;
@@ -166,7 +166,7 @@ public class PersonPostReplyModel extends com.baidu.adp.a.d implements Serializa
         return i;
     }
 
-    public static void fetchReply(e eVar, boolean z, String str) {
+    public static void fetchReply(f fVar, boolean z, String str) {
         if (z || !str.equals(mLastReplyUid)) {
             mReplyPn = 1;
             mLastReplyUid = str;
@@ -176,7 +176,7 @@ public class PersonPostReplyModel extends com.baidu.adp.a.d implements Serializa
         if (sFetchReplyAsyncTask != null && sFetchReplyAsyncTask.getStatus() != BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
             sFetchReplyAsyncTask.cancel();
         }
-        sFetchReplyAsyncTask = new f(eVar, z);
+        sFetchReplyAsyncTask = new g(fVar, z);
         sFetchReplyAsyncTask.execute(new Void[0]);
     }
 }

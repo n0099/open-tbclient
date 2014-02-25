@@ -1,130 +1,69 @@
 package com.baidu.tieba.model;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.r> {
-    final /* synthetic */ t a;
-    private com.baidu.tieba.a.c b = null;
-    private int c;
-
-    public v(t tVar, int i) {
-        this.a = tVar;
-        this.c = 1;
-        this.c = i;
-        setPriority(3);
-    }
+public class v extends BdAsyncTask<String, Integer, String> {
+    final /* synthetic */ s a;
+    private com.baidu.tieba.util.ba b;
+    private String c;
+    private String d;
+    private String e;
+    private String f;
+    private String g;
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public com.baidu.tieba.data.r a(Object... objArr) {
-        boolean z;
-        com.baidu.tieba.data.r rVar = new com.baidu.tieba.data.r();
-        this.b = new com.baidu.tieba.a.c();
-        z = this.a.c;
-        if (!z) {
-            rVar.a(true);
-            return rVar;
+    public String a(String... strArr) {
+        this.b = new com.baidu.tieba.util.ba(strArr[0]);
+        this.b.a("day", this.g);
+        this.b.a("un", this.f);
+        this.b.a("fid", this.c);
+        this.b.a("word", this.d);
+        this.b.a("z", this.e);
+        this.b.a("ntn", "banid");
+        this.b.e(true);
+        this.b.m();
+        if (this.b.d()) {
+            return null;
         }
-        int i = this.c;
-        if (i == 0) {
-            return e();
-        }
-        if (i == 1) {
-            if (UtilHelper.g(TiebaApplication.h().getApplicationContext()) != UtilHelper.NetworkStateInfo.UNAVAIL) {
-                return d();
-            }
-            return e();
-        }
-        return rVar;
-    }
-
-    private com.baidu.tieba.data.r d() {
-        com.baidu.tieba.data.r rVar = new com.baidu.tieba.data.r();
-        String g = this.b.g();
-        if (this.b.c()) {
-            rVar.a(g);
-            a(g);
-        }
-        return rVar;
-    }
-
-    private com.baidu.tieba.data.r e() {
-        boolean z;
-        com.baidu.tieba.data.r rVar = new com.baidu.tieba.data.r();
-        String str = null;
-        z = this.a.c;
-        if (z) {
-            str = DatabaseService.d();
-        }
-        if (str != null) {
-            rVar.a(str);
-            if (rVar.e() && !rVar.f()) {
-                rVar.d().c();
-            }
-        }
-        return rVar;
-    }
-
-    private void a(String str) {
-        boolean z;
-        z = this.a.c;
-        if (z) {
-            DatabaseService.d(str);
-        }
+        return this.b.j();
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        super.cancel();
-        this.a.a = null;
+        com.baidu.adp.a.g gVar;
+        if (this.b != null) {
+            this.b.k();
+        }
+        this.a.b = null;
+        super.cancel(true);
+        gVar = this.a.mLoadDataCallBack;
+        gVar.a(null);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(com.baidu.tieba.data.r rVar) {
-        w wVar;
-        w wVar2;
-        com.baidu.tieba.data.r rVar2;
-        w wVar3;
-        com.baidu.tieba.data.r rVar3;
-        w wVar4;
-        this.a.a = null;
-        this.a.b = rVar;
-        u uVar = new u(this.a);
-        uVar.c = this.c;
-        wVar = this.a.d;
-        if (wVar != null) {
-            if (this.c != 0 && (this.b == null || !this.b.c())) {
-                rVar2 = this.a.b;
-                if (rVar2 != null) {
-                    rVar3 = this.a.b;
-                    if (rVar3.e()) {
-                        uVar.b = true;
-                        uVar.d = rVar;
-                        wVar4 = this.a.d;
-                        wVar4.a(uVar);
-                        return;
-                    }
-                }
-                String d = this.b != null ? this.b.d() : null;
-                uVar.b = false;
-                uVar.a = d;
-                uVar.d = rVar;
-                wVar3 = this.a.d;
-                wVar3.a(uVar);
-                return;
-            }
-            uVar.b = true;
-            uVar.d = rVar;
-            wVar2 = this.a.d;
-            wVar2.a(uVar);
+    public void a(String str) {
+        com.baidu.adp.a.g gVar;
+        com.baidu.adp.a.g gVar2;
+        super.a((v) str);
+        this.a.b = null;
+        if (this.b == null) {
+            gVar2 = this.a.mLoadDataCallBack;
+            gVar2.a(null);
+            return;
         }
+        w wVar = new w(this.a);
+        if (str == null) {
+            wVar.a = true;
+        } else {
+            wVar.a = false;
+            wVar.b = str;
+        }
+        gVar = this.a.mLoadDataCallBack;
+        gVar.a(wVar);
     }
 }

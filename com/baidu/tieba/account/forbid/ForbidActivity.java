@@ -8,14 +8,15 @@ import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.account.LoginActivity;
-import com.baidu.tieba.util.bs;
+import com.baidu.tieba.util.bq;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class ForbidActivity extends com.baidu.tieba.j {
+public class ForbidActivity extends com.baidu.tieba.f {
     private NavigationBar a;
     private RadioGroup b;
     private String c;
@@ -26,7 +27,7 @@ public class ForbidActivity extends com.baidu.tieba.j {
     private TextView h;
     private BdListView i;
     private e j;
-    private View.OnClickListener k = new c(this);
+    private View.OnClickListener k = new a(this);
 
     public static void a(Context context, String str, String str2, String str3, String str4, String str5) {
         Intent intent = new Intent(context, ForbidActivity.class);
@@ -38,8 +39,9 @@ public class ForbidActivity extends com.baidu.tieba.j {
         context.startActivity(intent);
     }
 
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
-    protected void onCreate(Bundle bundle) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.account_forbid_activity);
         String A = TiebaApplication.A();
@@ -54,7 +56,7 @@ public class ForbidActivity extends com.baidu.tieba.j {
         this.h = (TextView) findViewById(R.id.forbid_id);
         this.i = (BdListView) findViewById(R.id.listview_forbid_reason);
         this.b = (RadioGroup) findViewById(R.id.forbid_days);
-        this.b.setOnCheckedChangeListener(new a(this));
+        this.b.setOnCheckedChangeListener(new c(this));
         a();
     }
 
@@ -65,12 +67,12 @@ public class ForbidActivity extends com.baidu.tieba.j {
         this.e = intent.getStringExtra("thread_id");
         this.f = intent.getStringExtra("bar_manager_user_id");
         this.g = intent.getStringExtra("user_name");
-        l.a(this.c, this.f, new b(this));
+        l.a(this.c, this.f, new d(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i) {
-        boolean z = TiebaApplication.h().al() == 1;
+        boolean z = TiebaApplication.g().al() == 1;
         int i2 = !z ? R.drawable.btn_prohibit_day_n : R.drawable.btn_prohibit_day_n_1;
         int i3 = !z ? R.color.appeal_com_text : R.color.appeal_com_text_1;
         int i4 = !z ? R.drawable.btn_prohibit_day_s : R.drawable.btn_prohibit_day_s_1;
@@ -78,17 +80,18 @@ public class ForbidActivity extends com.baidu.tieba.j {
         for (int i6 = 0; i6 < 3; i6++) {
             RadioButton radioButton = (RadioButton) this.b.getChildAt(i6);
             if (radioButton.getId() == i) {
-                bs.e((View) radioButton, i4);
+                bq.e((View) radioButton, i4);
                 radioButton.setTextColor(getResources().getColor(i5));
             } else {
-                bs.e((View) radioButton, i2);
+                bq.e((View) radioButton, i2);
                 radioButton.setTextColor(getResources().getColor(i3));
             }
         }
     }
 
-    @Override // com.baidu.tieba.j
-    protected void onChangeSkinType(int i) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.f
+    public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         boolean z = i == 1;
         View findViewById = findViewById(R.id.root);
@@ -96,6 +99,6 @@ public class ForbidActivity extends com.baidu.tieba.j {
         getLayoutMode().a(findViewById);
         this.a.c(i);
         this.i.setDivider(getResources().getDrawable(z ? R.drawable.forbid_list_divider_1 : R.drawable.forbid_list_divider));
-        this.i.setDividerHeight(com.baidu.adp.lib.g.g.a((Context) this, 1.0f));
+        this.i.setDividerHeight(BdUtilHelper.a((Context) this, 1.0f));
     }
 }

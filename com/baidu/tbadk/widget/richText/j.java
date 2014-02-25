@@ -19,6 +19,8 @@ public interface j {
 
     void c(Context context, String str);
 
+    com.baidu.adp.lib.d.b<View> c_();
+
     int d();
 
     void d(Context context, String str);
@@ -30,8 +32,6 @@ public interface j {
     com.baidu.adp.lib.d.b<TextView> f();
 
     com.baidu.adp.lib.d.b<GifView> g();
-
-    com.baidu.adp.lib.d.b<View> h();
 
     com.baidu.adp.lib.d.b<LinearLayout> i();
 }

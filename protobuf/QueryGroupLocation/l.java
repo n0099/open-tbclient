@@ -1,15 +1,6 @@
 package protobuf.QueryGroupLocation;
 
-import com.google.protobuf.AbstractParser;
-import com.google.protobuf.CodedInputStream;
-import com.google.protobuf.ExtensionRegistryLite;
-import protobuf.QueryGroupLocation.QueryGroupLocationRes;
+import com.google.protobuf.MessageLiteOrBuilder;
 /* loaded from: classes.dex */
-final class l extends AbstractParser<QueryGroupLocationRes.QueryGroupLocationResIdl> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.protobuf.Parser
-    /* renamed from: a */
-    public QueryGroupLocationRes.QueryGroupLocationResIdl parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-        return new QueryGroupLocationRes.QueryGroupLocationResIdl(codedInputStream, extensionRegistryLite);
-    }
+public interface l extends MessageLiteOrBuilder {
 }

@@ -1,9 +1,9 @@
 package com.baidu.tieba.more;
 
 import com.baidu.tieba.TiebaApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.util.ba;
 /* loaded from: classes.dex */
-public class l extends Thread {
+class l extends Thread {
     final /* synthetic */ AccountActivity a;
     private String b;
 
@@ -16,12 +16,12 @@ public class l extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         super.run();
-        com.baidu.tieba.util.ax axVar = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/s/logout");
-        axVar.c(false);
-        axVar.a(false);
-        axVar.a("BDUSS", this.b);
-        axVar.a("channel_id", TiebaApplication.h().bb());
-        axVar.a("channel_uid", TiebaApplication.h().ba());
-        axVar.m();
+        ba baVar = new ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/s/logout");
+        baVar.c(false);
+        baVar.a(false);
+        baVar.a("BDUSS", this.b);
+        baVar.a("channel_id", TiebaApplication.g().aY());
+        baVar.a("channel_uid", TiebaApplication.g().aX());
+        baVar.m();
     }
 }

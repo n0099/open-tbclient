@@ -1,23 +1,21 @@
 package com.baidu.tieba.im.chat;
 
-import android.content.Context;
-import android.widget.TextView;
-import com.slidingmenu.lib.R;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bb extends com.baidu.adp.a.c<com.baidu.tieba.im.message.b> {
-    private TextView c;
+public class bb implements DialogInterface.OnClickListener {
+    final /* synthetic */ az a;
 
-    public bb(Context context) {
-        super(context, R.layout.msg_msg_chat_rule_view);
-        this.c = (TextView) a(R.id.tex_msgcontent);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bb(az azVar) {
+        this.a = azVar;
     }
 
-    public void a(com.baidu.tieba.im.message.b bVar) {
-        String str;
-        if (bVar == null) {
-            this.c = null;
-        } else if ((bVar instanceof com.baidu.tieba.im.message.f) && (str = ((com.baidu.tieba.im.message.f) bVar).b) != null) {
-            this.c.setText(str);
-        }
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        AlertDialog alertDialog;
+        alertDialog = this.a.o;
+        alertDialog.dismiss();
     }
 }

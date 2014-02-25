@@ -4,9 +4,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import com.baidu.tieba.view.HeadImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e {
+class e {
     public View a;
     public HeadImageView b;
     public TextView c;
@@ -18,7 +17,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ e(c cVar, d dVar) {
+    public /* synthetic */ e(c cVar, e eVar) {
         this(cVar);
     }
 }

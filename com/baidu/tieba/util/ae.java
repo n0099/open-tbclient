@@ -1,93 +1,46 @@
 package com.baidu.tieba.util;
-
-import com.baidu.tieba.TiebaApplication;
-import java.io.File;
 /* loaded from: classes.dex */
 public class ae {
-    public static final String a = TiebaApplication.h().getFileStreamPath("").getAbsolutePath();
+    private StringBuilder a;
 
-    public static boolean a(String str) {
-        try {
-            return new File(new StringBuilder().append(a).append("/").append(str).toString()).exists();
-        } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b("FileHelper", "checkFile", "error = " + e.getMessage());
-            by.a(e, "FileHelper.checkFile " + str);
-            return false;
-        }
+    public ae() {
+        this.a = null;
+        this.a = null;
     }
 
-    public static boolean b(String str) {
-        try {
-            File file = new File(a + "/" + str);
-            if (file.exists()) {
-                return false;
-            }
-            return file.createNewFile();
-        } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b("FileHelper", "createFile", "error = " + e.getMessage());
-            by.a(e, "FileHelper.createFile " + str);
-            return false;
-        }
-    }
-
-    public static void a(File file) {
-        try {
-            if (file.exists()) {
-                if (file.isDirectory()) {
-                    File[] listFiles = file.listFiles();
-                    int length = listFiles.length;
-                    for (int i = 0; i < length; i++) {
-                        if (listFiles[i].isFile()) {
-                            listFiles[i].delete();
-                        } else {
-                            a(listFiles[i]);
-                        }
-                    }
+    public void a(String str, Object obj) {
+        if (!bs.c(str) && obj != null) {
+            try {
+                if (this.a == null) {
+                    this.a = new StringBuilder();
+                    this.a.append(str);
+                    this.a.append("=");
+                    this.a.append(obj.toString());
+                } else {
+                    this.a.append("|");
+                    this.a.append(str);
+                    this.a.append("=");
+                    this.a.append(obj.toString());
                 }
-                file.delete();
+            } catch (Exception e) {
+                com.baidu.adp.lib.util.f.b("FieldBuilder", "append", e.getMessage());
             }
-        } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b("FileHelper", "deleteFileOrDir", "error = " + e.getMessage());
-            by.a(e, "FileHelper.deleteFileOrDir");
         }
     }
 
-    public static boolean c(String str) {
-        try {
-            File file = new File(a + "/" + str);
-            if (file.exists()) {
-                if (!file.isDirectory()) {
-                    return false;
-                }
-                a(file);
+    public void a(ae aeVar) {
+        if (aeVar != null) {
+            if (this.a == null) {
+                this.a = new StringBuilder();
+                this.a.append(aeVar.toString());
+                return;
             }
-            return file.mkdirs();
-        } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b("FileHelper", "cleanDirectory", "error = " + e.getMessage());
-            by.a(e, "FileHelper.cleanDirectory " + str);
-            return false;
+            this.a.append("|");
+            this.a.append(aeVar.toString());
         }
     }
 
-    public static String d(String str) {
-        String str2 = null;
-        try {
-            File file = new File(a + "/" + str);
-            if (file.exists() && file.isDirectory()) {
-                File[] listFiles = file.listFiles();
-                int length = listFiles.length;
-                long j = 0;
-                for (int i = 0; i < length; i++) {
-                    if (j > listFiles[i].lastModified()) {
-                        j = listFiles[i].lastModified();
-                        str2 = listFiles[i].getName();
-                    }
-                }
-            }
-        } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b("FileHelper", "getLatestFileName", "error = " + e.getMessage());
-            by.a(e, "FileHelper.getLatestFileName " + str);
-        }
-        return str2;
+    public String toString() {
+        return this.a != null ? this.a.toString() : "";
     }
 }

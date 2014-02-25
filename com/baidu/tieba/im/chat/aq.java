@@ -1,8 +1,6 @@
 package com.baidu.tieba.im.chat;
-
-import android.content.DialogInterface;
 /* loaded from: classes.dex */
-class aq implements DialogInterface.OnClickListener {
+class aq implements com.baidu.tieba.im.a<Boolean> {
     final /* synthetic */ GroupSettingActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,23 +8,17 @@ class aq implements DialogInterface.OnClickListener {
         this.a = groupSettingActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.im.model.al alVar;
-        com.baidu.tieba.im.model.al alVar2;
-        as asVar;
-        com.baidu.tieba.im.model.al alVar3;
-        com.baidu.tieba.im.model.al alVar4;
-        alVar = this.a.d;
-        if (alVar == null) {
-            this.a.d = new com.baidu.tieba.im.model.al();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(Boolean bool) {
+        az azVar;
+        az azVar2;
+        if (bool == null || !bool.equals(true)) {
+            azVar = this.a.a;
+            azVar.u().b();
+            return;
         }
-        alVar2 = this.a.d;
-        asVar = this.a.b;
-        alVar2.a(Integer.parseInt(asVar.c()));
-        alVar3 = this.a.d;
-        alVar3.b(i);
-        alVar4 = this.a.d;
-        alVar4.a();
+        azVar2 = this.a.a;
+        azVar2.u().a();
     }
 }

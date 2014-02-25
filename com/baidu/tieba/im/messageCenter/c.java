@@ -1,5 +1,7 @@
 package com.baidu.tieba.im.messageCenter;
+
+import com.baidu.tieba.im.message.s;
 /* loaded from: classes.dex */
 public interface c {
-    boolean a(com.baidu.tieba.im.message.q qVar);
+    boolean a(s sVar);
 }

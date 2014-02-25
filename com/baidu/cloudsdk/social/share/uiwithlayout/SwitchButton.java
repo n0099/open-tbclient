@@ -11,15 +11,16 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.view.MotionEventCompat;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import android.view.ViewParent;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import com.az;
+import com.aq;
 import com.baidu.location.LocationClientOption;
-import com.i;
+import com.bi;
 /* loaded from: classes.dex */
 public class SwitchButton extends CheckBox {
     private boolean A;
@@ -69,7 +70,7 @@ public class SwitchButton extends CheckBox {
             private HandlerC0000a() {
             }
 
-            /* synthetic */ HandlerC0000a(az azVar) {
+            /* synthetic */ HandlerC0000a(bi biVar) {
                 this();
             }
 
@@ -101,7 +102,7 @@ public class SwitchButton extends CheckBox {
         private b() {
         }
 
-        /* synthetic */ b(SwitchButton switchButton, az azVar) {
+        /* synthetic */ b(SwitchButton switchButton, bi biVar) {
             this();
         }
 
@@ -117,7 +118,7 @@ public class SwitchButton extends CheckBox {
         private c() {
         }
 
-        /* synthetic */ c(SwitchButton switchButton, az azVar) {
+        /* synthetic */ c(SwitchButton switchButton, bi biVar) {
             this();
         }
 
@@ -140,8 +141,8 @@ public class SwitchButton extends CheckBox {
 
     public SwitchButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.w = 255;
-        this.x = 255;
+        this.w = MotionEventCompat.ACTION_MASK;
+        this.x = MotionEventCompat.ACTION_MASK;
         this.y = false;
         this.F = 350.0f;
         a(context);
@@ -164,11 +165,11 @@ public class SwitchButton extends CheckBox {
         Resources resources = context.getApplicationContext().getResources();
         this.u = ViewConfiguration.getPressedStateDuration() + ViewConfiguration.getTapTimeout();
         this.v = ViewConfiguration.get(context).getScaledTouchSlop();
-        this.c = BitmapFactory.decodeResource(resources, i.b(context, "bdsocialshare_switch_background"));
-        this.e = BitmapFactory.decodeResource(resources, i.c(context, "bdsocialshare_switch_round"));
+        this.c = BitmapFactory.decodeResource(resources, aq.b(context, "bdsocialshare_switch_background"));
+        this.e = BitmapFactory.decodeResource(resources, aq.c(context, "bdsocialshare_switch_round"));
         this.f = this.e;
-        this.g = BitmapFactory.decodeResource(resources, i.b(context, "bdsocialshare_switch_frame"));
-        this.h = BitmapFactory.decodeResource(resources, i.c(context, "bdsocialshare_switch_mask"));
+        this.g = BitmapFactory.decodeResource(resources, aq.b(context, "bdsocialshare_switch_frame"));
+        this.h = BitmapFactory.decodeResource(resources, aq.c(context, "bdsocialshare_switch_mask"));
         this.d = this.f;
         this.s = this.e.getWidth();
         this.q = this.h.getWidth();
@@ -183,7 +184,7 @@ public class SwitchButton extends CheckBox {
     }
 
     private void a(boolean z) {
-        postDelayed(new az(this, z), 10L);
+        postDelayed(new bi(this, z), 10L);
     }
 
     private void b() {
@@ -317,7 +318,7 @@ public class SwitchButton extends CheckBox {
 
     @Override // android.widget.TextView, android.view.View
     public void setEnabled(boolean z) {
-        this.x = z ? 255 : 127;
+        this.x = z ? MotionEventCompat.ACTION_MASK : 127;
         super.setEnabled(z);
     }
 

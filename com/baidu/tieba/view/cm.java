@@ -1,27 +1,25 @@
 package com.baidu.tieba.view;
 
-import android.content.Context;
-import android.widget.TextView;
-import com.slidingmenu.lib.R;
+import android.view.animation.Animation;
 /* loaded from: classes.dex */
-public class cm extends com.baidu.adp.widget.ListView.a {
-    public cm(Context context) {
-        super(context);
+class cm implements Animation.AnimationListener {
+    final /* synthetic */ ShutDownValidateTipView a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cm(ShutDownValidateTipView shutDownValidateTipView) {
+        this.a = shutDownValidateTipView;
     }
 
-    public void a(int i) {
-        TextView d = d();
-        TextView c = c();
-        if (d != null && c != null) {
-            if (i == 1) {
-                int color = h().getResources().getColor(R.color.adp_pullview_night);
-                d.setTextColor(color);
-                c.setTextColor(color);
-                return;
-            }
-            int color2 = h().getResources().getColor(R.color.adp_pullview_day);
-            d.setTextColor(color2);
-            c.setTextColor(color2);
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        this.a.setVisibility(8);
     }
 }

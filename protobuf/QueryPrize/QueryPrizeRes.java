@@ -1,5 +1,6 @@
 package protobuf.QueryPrize;
 
+import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.CodedOutputStream;
@@ -18,7 +19,7 @@ import protobuf.Im;
 public final class QueryPrizeRes {
 
     /* loaded from: classes.dex */
-    public final class PrizeInfo extends GeneratedMessageLite implements n {
+    public final class PrizeInfo extends GeneratedMessageLite implements l {
         public static final int ABSTRACT_FIELD_NUMBER = 6;
         public static final int LINK_FIELD_NUMBER = 3;
         public static final int NAME_FIELD_NUMBER = 1;
@@ -39,8 +40,13 @@ public final class QueryPrizeRes {
         private int prizeId_;
         private int subType_;
         private int type_;
-        public static Parser<PrizeInfo> PARSER = new l();
+        public static Parser<PrizeInfo> PARSER = new j();
         private static final PrizeInfo a = new PrizeInfo(true);
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ PrizeInfo(GeneratedMessageLite.Builder builder, PrizeInfo prizeInfo) {
+            this(builder);
+        }
 
         private PrizeInfo(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -108,7 +114,7 @@ public final class QueryPrizeRes {
                                 this.bitField0_ |= 32;
                                 this.prizeId_ = codedInputStream.readInt32();
                                 break;
-                            case 64:
+                            case AccessibilityNodeInfoCompat.ACTION_ACCESSIBILITY_FOCUS /* 64 */:
                                 this.bitField0_ |= 64;
                                 this.opTime_ = codedInputStream.readInt32();
                                 break;
@@ -132,6 +138,11 @@ public final class QueryPrizeRes {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ PrizeInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, PrizeInfo prizeInfo) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -401,29 +412,29 @@ public final class QueryPrizeRes {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static m newBuilder() {
-            return m.f();
+        public static k newBuilder() {
+            return k.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public m newBuilderForType() {
+        public k newBuilderForType() {
             return newBuilder();
         }
 
-        public static m newBuilder(PrizeInfo prizeInfo) {
+        public static k newBuilder(PrizeInfo prizeInfo) {
             return newBuilder().mergeFrom(prizeInfo);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public m toBuilder() {
+        public k toBuilder() {
             return newBuilder(this);
         }
     }
 
     /* loaded from: classes.dex */
-    public final class DataRes extends GeneratedMessageLite implements k {
+    public final class DataRes extends GeneratedMessageLite implements i {
         public static final int MSGINONEDAY_FIELD_NUMBER = 1;
         public static final int NOSENDMSGTIP_FIELD_NUMBER = 2;
         public static final int PRIZE_FIELD_NUMBER = 3;
@@ -434,8 +445,13 @@ public final class QueryPrizeRes {
         private int msgInOneDay_;
         private Object noSendMsgTip_;
         private PrizeInfo prize_;
-        public static Parser<DataRes> PARSER = new i();
+        public static Parser<DataRes> PARSER = new g();
         private static final DataRes a = new DataRes(true);
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ DataRes(GeneratedMessageLite.Builder builder, DataRes dataRes) {
+            this(builder);
+        }
 
         private DataRes(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -459,13 +475,12 @@ public final class QueryPrizeRes {
         }
 
         private DataRes(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-            m mVar;
-            boolean z;
+            k kVar;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
             a();
-            boolean z2 = false;
-            while (!z2) {
+            boolean z = false;
+            while (!z) {
                 try {
                     try {
                         int readTag = codedInputStream.readTag();
@@ -476,37 +491,32 @@ public final class QueryPrizeRes {
                             case 8:
                                 this.bitField0_ |= 1;
                                 this.msgInOneDay_ = codedInputStream.readInt32();
-                                z = z2;
                                 break;
                             case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                                 this.bitField0_ |= 2;
                                 this.noSendMsgTip_ = codedInputStream.readBytes();
-                                z = z2;
                                 break;
                             case Im.GroupInfo.NICKNAME_FIELD_NUMBER /* 26 */:
                                 if ((this.bitField0_ & 4) != 4) {
-                                    mVar = null;
+                                    kVar = null;
                                 } else {
-                                    mVar = this.prize_.toBuilder();
+                                    kVar = this.prize_.toBuilder();
                                 }
                                 this.prize_ = (PrizeInfo) codedInputStream.readMessage(PrizeInfo.PARSER, extensionRegistryLite);
-                                if (mVar != null) {
-                                    mVar.mergeFrom(this.prize_);
-                                    this.prize_ = mVar.buildPartial();
+                                if (kVar != null) {
+                                    kVar.mergeFrom(this.prize_);
+                                    this.prize_ = kVar.buildPartial();
                                 }
                                 this.bitField0_ |= 4;
-                                z = z2;
                                 break;
                             default:
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
                                 } else {
-                                    z = z2;
                                     break;
                                 }
                         }
-                        z2 = z;
                     } catch (InvalidProtocolBufferException e) {
                         throw e.setUnfinishedMessage(this);
                     } catch (IOException e2) {
@@ -516,6 +526,11 @@ public final class QueryPrizeRes {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ DataRes(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, DataRes dataRes) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -662,32 +677,32 @@ public final class QueryPrizeRes {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static j newBuilder() {
-            return j.f();
+        public static h newBuilder() {
+            return h.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public j newBuilderForType() {
+        public h newBuilderForType() {
             return newBuilder();
         }
 
-        public static j newBuilder(DataRes dataRes) {
+        public static h newBuilder(DataRes dataRes) {
             return newBuilder().mergeFrom(dataRes);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public j toBuilder() {
+        public h toBuilder() {
             return newBuilder(this);
         }
     }
 
     /* loaded from: classes.dex */
-    public final class QueryPrizeResIdl extends GeneratedMessageLite implements q {
+    public final class QueryPrizeResIdl extends GeneratedMessageLite implements o {
         public static final int DATA_FIELD_NUMBER = 2;
         public static final int ERROR_FIELD_NUMBER = 1;
-        public static Parser<QueryPrizeResIdl> PARSER = new o();
+        public static Parser<QueryPrizeResIdl> PARSER = new m();
         private static final QueryPrizeResIdl a = new QueryPrizeResIdl(true);
         private static final long serialVersionUID = 0;
         private int bitField0_;
@@ -695,6 +710,11 @@ public final class QueryPrizeRes {
         private Im.Error error_;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ QueryPrizeResIdl(GeneratedMessageLite.Builder builder, QueryPrizeResIdl queryPrizeResIdl) {
+            this(builder);
+        }
 
         private QueryPrizeResIdl(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -718,12 +738,11 @@ public final class QueryPrizeRes {
         }
 
         private QueryPrizeResIdl(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-            boolean z;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
             a();
-            boolean z2 = false;
-            while (!z2) {
+            boolean z = false;
+            while (!z) {
                 try {
                     try {
                         int readTag = codedInputStream.readTag();
@@ -732,35 +751,31 @@ public final class QueryPrizeRes {
                                 z = true;
                                 break;
                             case 10:
-                                protobuf.c builder = (this.bitField0_ & 1) == 1 ? this.error_.toBuilder() : null;
+                                protobuf.e builder = (this.bitField0_ & 1) == 1 ? this.error_.toBuilder() : null;
                                 this.error_ = (Im.Error) codedInputStream.readMessage(Im.Error.PARSER, extensionRegistryLite);
                                 if (builder != null) {
                                     builder.mergeFrom(this.error_);
                                     this.error_ = builder.buildPartial();
                                 }
                                 this.bitField0_ |= 1;
-                                z = z2;
                                 break;
                             case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
-                                j builder2 = (this.bitField0_ & 2) == 2 ? this.data_.toBuilder() : null;
+                                h builder2 = (this.bitField0_ & 2) == 2 ? this.data_.toBuilder() : null;
                                 this.data_ = (DataRes) codedInputStream.readMessage(DataRes.PARSER, extensionRegistryLite);
                                 if (builder2 != null) {
                                     builder2.mergeFrom(this.data_);
                                     this.data_ = builder2.buildPartial();
                                 }
                                 this.bitField0_ |= 2;
-                                z = z2;
                                 break;
                             default:
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
                                 } else {
-                                    z = z2;
                                     break;
                                 }
                         }
-                        z2 = z;
                     } catch (InvalidProtocolBufferException e) {
                         throw e.setUnfinishedMessage(this);
                     } catch (IOException e2) {
@@ -770,6 +785,11 @@ public final class QueryPrizeRes {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ QueryPrizeResIdl(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, QueryPrizeResIdl queryPrizeResIdl) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -882,23 +902,23 @@ public final class QueryPrizeRes {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static p newBuilder() {
-            return p.f();
+        public static n newBuilder() {
+            return n.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public p newBuilderForType() {
+        public n newBuilderForType() {
             return newBuilder();
         }
 
-        public static p newBuilder(QueryPrizeResIdl queryPrizeResIdl) {
+        public static n newBuilder(QueryPrizeResIdl queryPrizeResIdl) {
             return newBuilder().mergeFrom(queryPrizeResIdl);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public p toBuilder() {
+        public n toBuilder() {
             return newBuilder(this);
         }
     }

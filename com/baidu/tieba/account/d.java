@@ -1,50 +1,51 @@
 package com.baidu.tieba.account;
 
 import android.app.Activity;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
-import com.baidu.tieba.util.DatabaseService;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class d extends BdAsyncTask<Void, Void, AccountData> {
-    final /* synthetic */ String a;
-    final /* synthetic */ c b;
+public class d implements at {
+    final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(c cVar, String str) {
-        this.b = cVar;
-        this.a = str;
+    public d(a aVar) {
+        this.a = aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public AccountData a(Void... voidArr) {
-        return DatabaseService.l(this.a);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    @Override // com.baidu.tieba.account.at
     public void a(AccountData accountData) {
+        Activity activity;
+        Activity activity2;
+        k kVar;
+        k kVar2;
+        activity = this.a.b;
+        TiebaApplication.a(accountData, activity);
+        activity2 = this.a.b;
+        if (activity2 != null) {
+            TiebaApplication.g().z();
+            com.baidu.tieba.mention.v.a().l();
+            com.baidu.tieba.mention.v.a().j();
+            kVar = this.a.d;
+            if (kVar != null) {
+                kVar2 = this.a.d;
+                kVar2.a();
+            }
+        }
+        new e(this, accountData).execute(new Void[0]);
+    }
+
+    @Override // com.baidu.tieba.account.at
+    public void a(String str) {
         boolean z;
         Activity activity;
         int i;
-        as asVar;
-        super.a((d) accountData);
-        if (accountData == null || com.baidu.tieba.util.bu.c(accountData.getPassword())) {
-            z = this.b.a.g;
-            if (!z) {
-                a aVar = this.b.a;
-                activity = this.b.a.b;
-                i = this.b.a.c;
-                aVar.a(activity, i);
-                return;
-            }
-            return;
+        z = this.a.h;
+        if (!z) {
+            a aVar = this.a;
+            activity = this.a.b;
+            i = this.a.c;
+            aVar.a(activity, i);
         }
-        String account = accountData.getAccount();
-        String password = accountData.getPassword();
-        asVar = this.b.a.j;
-        ar.a(account, password, asVar);
     }
 }

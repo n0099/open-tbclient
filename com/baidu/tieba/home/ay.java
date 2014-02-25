@@ -1,12 +1,21 @@
 package com.baidu.tieba.home;
-
-import android.widget.TextView;
 /* loaded from: classes.dex */
 class ay {
-    TextView a;
-    final /* synthetic */ aw b;
+    private int a = -1;
 
-    private ay(aw awVar) {
-        this.b = awVar;
+    public void a(int i) {
+        this.a = i;
+    }
+
+    public int a() {
+        return this.a;
+    }
+
+    public boolean b(int i) {
+        if (i == a()) {
+            return false;
+        }
+        a(i);
+        return true;
     }
 }

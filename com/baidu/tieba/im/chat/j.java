@@ -10,6 +10,8 @@ class j implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.a.a.U();
+        a aVar;
+        aVar = this.a.a;
+        aVar.W();
     }
 }

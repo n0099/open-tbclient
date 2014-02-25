@@ -1,26 +1,32 @@
 package com;
 
-import com.baidu.cloudsdk.DefaultBaiduListener;
-import com.baidu.cloudsdk.IBaiduListener;
-import com.baidu.cloudsdk.social.share.ShareContent;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.cloudsdk.common.http.AsyncHttpClient;
+import org.apache.http.Header;
+import org.apache.http.HeaderElement;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpResponseInterceptor;
+import org.apache.http.protocol.HttpContext;
 /* loaded from: classes.dex */
-public class c extends DefaultBaiduListener {
-    final /* synthetic */ ShareContent a;
-    final /* synthetic */ boolean b;
-    final /* synthetic */ ab c;
+public class c implements HttpResponseInterceptor {
+    final /* synthetic */ AsyncHttpClient a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c(ab abVar, IBaiduListener iBaiduListener, ShareContent shareContent, boolean z) {
-        super(iBaiduListener);
-        this.c = abVar;
-        this.a = shareContent;
-        this.b = z;
+    public c(AsyncHttpClient asyncHttpClient) {
+        this.a = asyncHttpClient;
     }
 
-    @Override // com.baidu.cloudsdk.DefaultBaiduListener, com.baidu.cloudsdk.IBaiduListener
-    public void onComplete() {
-        this.c.share(this.a, this.mListener, this.b);
+    public void process(HttpResponse httpResponse, HttpContext httpContext) {
+        Header contentEncoding;
+        HttpEntity entity = httpResponse.getEntity();
+        if (entity == null || (contentEncoding = entity.getContentEncoding()) == null) {
+            return;
+        }
+        HeaderElement[] elements = contentEncoding.getElements();
+        for (HeaderElement headerElement : elements) {
+            if (headerElement.getName().equalsIgnoreCase("gzip")) {
+                httpResponse.setEntity(new AsyncHttpClient.a(httpResponse.getEntity()));
+                return;
+            }
+        }
     }
 }

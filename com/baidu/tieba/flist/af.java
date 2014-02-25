@@ -1,9 +1,9 @@
 package com.baidu.tieba.flist;
 
-import com.baidu.tieba.util.as;
-import java.util.LinkedList;
+import com.baidu.adp.widget.ListView.BdListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class af extends as {
+public class af implements com.baidu.adp.widget.ListView.b {
     final /* synthetic */ ForumRankActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,17 +11,14 @@ class af extends as {
         this.a = forumRankActivity;
     }
 
-    @Override // com.baidu.tieba.util.as, com.baidu.tieba.util.au
-    public LinkedList<String> getImageUrl() {
-        String str;
-        String str2;
-        str = this.a.m;
-        if (str == null) {
-            return null;
+    @Override // com.baidu.adp.widget.ListView.b
+    public void a(boolean z) {
+        ag agVar;
+        BdListView bdListView;
+        agVar = this.a.b;
+        if (!agVar.LoadData()) {
+            bdListView = this.a.a;
+            bdListView.a();
         }
-        LinkedList<String> linkedList = new LinkedList<>();
-        str2 = this.a.m;
-        linkedList.add(str2);
-        return linkedList;
     }
 }

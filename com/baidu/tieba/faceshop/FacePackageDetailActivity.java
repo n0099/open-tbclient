@@ -3,23 +3,29 @@ package com.baidu.tieba.faceshop;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Rect;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.GridView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.account.LoginActivity;
-import com.baidu.tieba.util.bu;
-import com.baidu.tieba.view.br;
+import com.baidu.tieba.util.bs;
+import com.baidu.tieba.view.by;
 import com.slidingmenu.lib.R;
 import java.util.List;
 /* loaded from: classes.dex */
-public class FacePackageDetailActivity extends com.baidu.tieba.j implements com.baidu.tieba.im.messageCenter.g {
-    private w a;
-    private z b;
+public class FacePackageDetailActivity extends com.baidu.tieba.f implements com.baidu.tieba.im.messageCenter.g {
+    private v a;
+    private x b;
     private ac c;
     private j d;
     private boolean e = false;
-    private br f = new r(this);
-    private com.baidu.tieba.m g = new s(this);
+    private Rect f = new Rect();
+    private by g = new q(this);
+    private com.baidu.tieba.i h = new r(this, this);
 
     public static void a(Context context, String str, boolean z, String str2) {
         Intent intent = new Intent(context, FacePackageDetailActivity.class);
@@ -30,7 +36,7 @@ public class FacePackageDetailActivity extends com.baidu.tieba.j implements com.
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         a(bundle);
@@ -39,14 +45,14 @@ public class FacePackageDetailActivity extends com.baidu.tieba.j implements com.
     }
 
     private void e() {
-        this.b = new z(this);
+        this.b = new x(this);
         f();
         com.baidu.tieba.im.messageCenter.e.a().a(-122, this);
-        com.baidu.tieba.c.d.a();
+        com.baidu.tieba.d.d.a();
     }
 
     private void a(Bundle bundle) {
-        this.a = new w();
+        this.a = new v();
         if (bundle != null) {
             this.a.c(bundle.getString("st_type"));
             this.a.b(bundle.getString("pkg_id"));
@@ -55,9 +61,9 @@ public class FacePackageDetailActivity extends com.baidu.tieba.j implements com.
             this.a.c(getIntent().getStringExtra("st_type"));
             this.a.b(getIntent().getStringExtra("pkg_id"));
             this.a.a(getIntent().getBooleanExtra("is_downloading", false));
-            com.baidu.tieba.ao.a(this, getIntent().getStringExtra("st_type"));
+            com.baidu.tieba.ai.a(this, getIntent().getStringExtra("st_type"));
         }
-        this.a.a(this.g);
+        this.a.a(this.h);
     }
 
     public void a() {
@@ -66,11 +72,11 @@ public class FacePackageDetailActivity extends com.baidu.tieba.j implements com.
     }
 
     private void f() {
-        this.b.a(this.f);
+        this.b.a(this.g);
     }
 
     private void g() {
-        this.b.b(this.f);
+        this.b.b(this.g);
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
@@ -84,14 +90,14 @@ public class FacePackageDetailActivity extends com.baidu.tieba.j implements com.
                     switch (this.a.d()) {
                         case 2:
                         case 3:
-                            com.baidu.tieba.ao.a(this, "emotion_package_detail_free");
+                            com.baidu.tieba.ai.a(this, "emotion_package_detail_free");
                             String b = this.a.b();
-                            com.baidu.tieba.c.a aVar = new com.baidu.tieba.c.a(this.a.e());
+                            com.baidu.tieba.d.a aVar = new com.baidu.tieba.d.a(this.a.e());
                             aVar.a(1);
-                            aVar.d((String) null);
+                            aVar.e((String) null);
                             aVar.b(11);
-                            com.baidu.tieba.c.d.a().a(aVar);
-                            if (!bu.c(b)) {
+                            com.baidu.tieba.d.d.a().a(aVar);
+                            if (!bs.c(b)) {
                                 if (this.a.a() != null && this.a.a().facePackage != null) {
                                     a(this.a.e(), this.a.a().facePackage.pname, b);
                                     break;
@@ -104,7 +110,7 @@ public class FacePackageDetailActivity extends com.baidu.tieba.j implements com.
                             }
                             break;
                         case 4:
-                            com.baidu.tieba.ao.a(this, "emotion_package_detail_buy");
+                            com.baidu.tieba.ai.a(this, "emotion_package_detail_buy");
                             b();
                             break;
                     }
@@ -112,13 +118,13 @@ public class FacePackageDetailActivity extends com.baidu.tieba.j implements com.
                     return;
                 }
             } else if (view == this.b.k()) {
-                com.baidu.tieba.c.a aVar2 = new com.baidu.tieba.c.a(this.a.e());
+                com.baidu.tieba.d.a aVar2 = new com.baidu.tieba.d.a(this.a.e());
                 aVar2.a(4);
-                aVar2.d((String) null);
+                aVar2.e((String) null);
                 aVar2.b(11);
-                com.baidu.tieba.c.d.a().a(aVar2);
+                com.baidu.tieba.d.d.a().a(aVar2);
                 this.a.a(false);
-                com.baidu.tieba.c.d.a().a(this.a.e());
+                com.baidu.tieba.d.d.a().a(this.a.e());
             }
             super.onClick(view);
         }
@@ -127,27 +133,27 @@ public class FacePackageDetailActivity extends com.baidu.tieba.j implements com.
     private void h() {
         this.c = new ac();
         this.c.a(this.a.e());
-        com.baidu.tieba.c.a aVar = new com.baidu.tieba.c.a(this.a.e());
+        com.baidu.tieba.d.a aVar = new com.baidu.tieba.d.a(this.a.e());
         aVar.b(11);
         aVar.a(2);
-        aVar.d(getResources().getString(R.string.neterror));
-        this.c.setLoadDataCallBack(new t(this, aVar));
+        aVar.e(getResources().getString(R.string.neterror));
+        this.c.setLoadDataCallBack(new s(this, aVar));
     }
 
     public void a(String str, String str2, String str3) {
-        com.baidu.tieba.c.d.a().a(str, str2, str3);
+        com.baidu.tieba.d.d.a().a(str, str2, str3);
     }
 
     public void b() {
         showProgressBar();
         String e = this.a.e();
         this.d = new j();
-        this.d.setLoadDataCallBack(new u(this));
+        this.d.setLoadDataCallBack(new t(this));
         this.d.a(e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, android.app.Activity
     public void onResume() {
         if (this.b != null) {
             this.b.h();
@@ -156,7 +162,7 @@ public class FacePackageDetailActivity extends com.baidu.tieba.j implements com.
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         if (this.b != null) {
@@ -176,7 +182,7 @@ public class FacePackageDetailActivity extends com.baidu.tieba.j implements com.
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j
+    @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         if (this.b != null) {
             this.b.a(i);
@@ -200,12 +206,12 @@ public class FacePackageDetailActivity extends com.baidu.tieba.j implements com.
             if (i == 10001) {
                 String stringExtra = intent.getStringExtra("tag_order_id");
                 if (this.a.a().facePackage != null) {
-                    if (bu.c(stringExtra)) {
+                    if (bs.c(stringExtra)) {
                         stringExtra = this.a.f();
                     }
                     this.b.e();
                     this.d = new j();
-                    this.d.setLoadDataCallBack(new v(this));
+                    this.d.setLoadDataCallBack(new u(this));
                     this.d.b(stringExtra);
                 }
             } else if (i == 11003) {
@@ -219,10 +225,10 @@ public class FacePackageDetailActivity extends com.baidu.tieba.j implements com.
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.q qVar) {
-        List<com.baidu.tieba.c.a> a;
-        com.baidu.tieba.c.a aVar;
-        if (this.a != null && this.a.a() != null && this.b != null && qVar.w() == -122 && (qVar instanceof com.baidu.tieba.c.b) && (a = ((com.baidu.tieba.c.b) qVar).a()) != null) {
+    public void a(com.baidu.tieba.im.message.s sVar) {
+        List<com.baidu.tieba.d.a> a;
+        com.baidu.tieba.d.a aVar;
+        if (this.a != null && this.a.a() != null && this.b != null && sVar.w() == -122 && (sVar instanceof com.baidu.tieba.d.b) && (a = ((com.baidu.tieba.d.b) sVar).a()) != null) {
             FacePackageData facePackageData = this.a.a().facePackage;
             if (a.size() >= 1 && (aVar = a.get(0)) != null && aVar.a().equals(this.a.e())) {
                 int f = aVar.f();
@@ -230,7 +236,7 @@ public class FacePackageDetailActivity extends com.baidu.tieba.j implements com.
                     facePackageData.downloaded = 1;
                     facePackageData.downloading = 0;
                 } else if (f == 2 || f == 4) {
-                    if (!bu.c(aVar.n())) {
+                    if (!bs.c(aVar.n())) {
                         showToast(aVar.n());
                     }
                     if (this.c != null) {
@@ -248,5 +254,54 @@ public class FacePackageDetailActivity extends com.baidu.tieba.j implements com.
             this.a.a(facePackageData);
             this.b.c(this.a);
         }
+    }
+
+    @Override // com.baidu.adp.a.a, android.widget.AdapterView.OnItemLongClickListener
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
+        a(view, i);
+        return true;
+    }
+
+    private void a(View view, int i) {
+        FacePackageData facePackageData;
+        if (view != null) {
+            view.getDrawingRect(this.f);
+            ((ViewGroup) getWindow().getDecorView()).offsetDescendantRectToMyCoords(view, this.f);
+            if (this.a.a() != null && (facePackageData = this.a.a().facePackage) != null) {
+                this.b.a(i, this.f, facePackageData);
+            }
+        }
+    }
+
+    @Override // android.app.Activity, android.view.Window.Callback
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        if (this.b.l()) {
+            switch (motionEvent.getAction()) {
+                case 1:
+                case 3:
+                    this.b.m();
+                    break;
+                case 2:
+                    int x = (int) motionEvent.getX();
+                    int y = (int) motionEvent.getY();
+                    this.f.set(x, y, x + 1, y + 1);
+                    GridView o = this.b.o();
+                    ((ViewGroup) getWindow().getDecorView()).offsetRectIntoDescendantCoords(o, this.f);
+                    int pointToPosition = o.pointToPosition(this.f.left, this.f.top);
+                    if (pointToPosition != -1) {
+                        a(o.getChildAt(pointToPosition - o.getFirstVisiblePosition()), pointToPosition);
+                        break;
+                    }
+                    break;
+            }
+            return true;
+        }
+        return super.dispatchTouchEvent(motionEvent);
+    }
+
+    @Override // android.app.Activity, android.view.Window.Callback
+    public void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        this.b.n();
     }
 }

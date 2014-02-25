@@ -10,7 +10,7 @@ import com.slidingmenu.lib.R;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public abstract class MsglistActivity extends cp implements com.baidu.tieba.im.c.l, com.baidu.tieba.im.messageCenter.g {
+public abstract class MsglistActivity extends cz implements com.baidu.tieba.im.messageCenter.g {
     protected abstract void a(Intent intent);
 
     protected abstract void a(Bundle bundle);
@@ -20,7 +20,7 @@ public abstract class MsglistActivity extends cp implements com.baidu.tieba.im.c
     protected abstract void l();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.cp, com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.cz, com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
@@ -32,19 +32,19 @@ public abstract class MsglistActivity extends cp implements com.baidu.tieba.im.c
                 if (s()) {
                     t();
                     j();
-                    ci.a = com.baidu.tieba.util.i.b();
+                    cs.a = com.baidu.tieba.util.i.b();
                 }
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.g.e.a(e.getMessage());
+            com.baidu.adp.lib.util.f.b(e.getMessage());
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.cp, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.cz, android.app.Activity
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         try {
-            com.baidu.adp.lib.g.e.c("----onNewIntent start-----");
+            com.baidu.adp.lib.util.f.d("----onNewIntent start-----");
             setIntent(intent);
             if (!b((Bundle) null)) {
                 finish();
@@ -56,20 +56,20 @@ public abstract class MsglistActivity extends cp implements com.baidu.tieba.im.c
                 }
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.g.e.a(e.getMessage());
+            com.baidu.adp.lib.util.f.b(e.getMessage());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j
+    @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (this.d != null) {
-            this.d.f(i);
+            this.d.g(i);
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.cp, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.cz, android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         bundle.putInt("chat_mode", this.e.k());
@@ -82,20 +82,20 @@ public abstract class MsglistActivity extends cp implements com.baidu.tieba.im.c
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.cp, com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.cz, com.baidu.tieba.f, android.app.Activity
     public void onResume() {
         super.onResume();
         if (this.d != null) {
-            this.d.f(TiebaApplication.h().al());
+            this.d.g(TiebaApplication.g().al());
             q();
         }
     }
 
     private void q() {
-        if (TiebaApplication.h().aj()) {
-            this.d.H();
+        if (TiebaApplication.g().ai()) {
+            this.d.J();
         } else {
-            this.d.G();
+            this.d.I();
         }
         if (this.e.k() == 0 || this.e.k() == 2) {
             if (this.e.a() != null) {
@@ -104,10 +104,10 @@ public abstract class MsglistActivity extends cp implements com.baidu.tieba.im.c
                     this.d.a(name, true);
                 }
             }
-            com.baidu.tieba.im.m.a(new bv(this), new bw(this));
+            com.baidu.tieba.im.j.a(new cd(this), new ce(this));
             return;
         }
-        com.baidu.tieba.im.m.a(new bx(this), new by(this));
+        com.baidu.tieba.im.j.a(new cf(this), new cg(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -122,7 +122,7 @@ public abstract class MsglistActivity extends cp implements com.baidu.tieba.im.c
             }
             return k();
         } catch (Exception e) {
-            com.baidu.adp.lib.g.e.a(e.getMessage());
+            com.baidu.adp.lib.util.f.b(e.getMessage());
             return false;
         }
     }
@@ -132,7 +132,7 @@ public abstract class MsglistActivity extends cp implements com.baidu.tieba.im.c
         this.i = intent.getIntExtra("chat_mode", 0);
         boolean booleanExtra = intent.getBooleanExtra("is_accept_notify", true);
         if (this.e == null) {
-            com.baidu.adp.lib.g.e.a("mListModel is null");
+            com.baidu.adp.lib.util.f.b("mListModel is null");
             return;
         }
         this.e.a(booleanExtra);
@@ -159,9 +159,9 @@ public abstract class MsglistActivity extends cp implements com.baidu.tieba.im.c
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.cp, com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.cz, com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
-        com.baidu.adp.lib.g.e.d("----ondestroy---");
+        com.baidu.adp.lib.util.f.e("----ondestroy---");
         super.onDestroy();
         u();
     }
@@ -173,35 +173,31 @@ public abstract class MsglistActivity extends cp implements com.baidu.tieba.im.c
         com.baidu.tieba.im.messageCenter.e.a().a(103112, this);
         com.baidu.tieba.im.messageCenter.e.a().a(103104, this);
         com.baidu.tieba.im.messageCenter.e.a().a(-109, this);
-        com.baidu.tieba.im.c.m.a().a("apply_join_success", this);
-        com.baidu.tieba.im.c.m.a().a("kick_out", this);
-        com.baidu.tieba.im.c.m.a().a("group_intro_change", this);
-        com.baidu.tieba.im.c.m.a().a("group_name_change", this);
-        com.baidu.tieba.im.c.m.a().a("group_level_up", this);
-        com.baidu.tieba.im.c.m.a().a("group_head_change", this);
-        com.baidu.tieba.im.c.m.a().a("dismiss_group", this);
+        com.baidu.tieba.im.messageCenter.e.a().a(-130, this);
+        com.baidu.tieba.im.messageCenter.e.a().a(-132, this);
+        com.baidu.tieba.im.messageCenter.e.a().a(-138, this);
+        com.baidu.tieba.im.messageCenter.e.a().a(-136, this);
+        com.baidu.tieba.im.messageCenter.e.a().a(-134, this);
+        com.baidu.tieba.im.messageCenter.e.a().a(-137, this);
+        com.baidu.tieba.im.messageCenter.e.a().a(-141, this);
     }
 
     private void u() {
-        com.baidu.tieba.im.c.m.a().a(this);
         com.baidu.tieba.im.messageCenter.e.a().a(this);
     }
 
-    @Override // com.baidu.tieba.im.c.l
-    public void a(GroupNewsPojo groupNewsPojo) {
-        if (groupNewsPojo != null) {
-            String cmd = groupNewsPojo.getCmd();
-            if (!TextUtils.isEmpty(cmd)) {
-                this.d.f();
-                if (!cmd.equals("apply_join_success")) {
-                    if (cmd.equals("kick_out")) {
-                        b(groupNewsPojo);
-                    } else if (cmd.equals("group_name_change")) {
-                        c(groupNewsPojo);
-                    } else if (cmd.equals("dismiss_group")) {
-                        d(groupNewsPojo);
-                    }
+    private void a(GroupNewsPojo groupNewsPojo) {
+        if (groupNewsPojo != null && this.e != null && this.e.a() != null) {
+            try {
+                JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
+                String string = jSONObject.getJSONObject("eventParam").getString("groupId");
+                if (jSONObject.getString("eventId").equals("003") && string.equals(String.valueOf(this.e.a().getGroupId()))) {
+                    showToast(R.string.group_is_kicked, false);
+                    finish();
+                    com.baidu.adp.lib.util.f.e("newSystemMessageNotify suc and closeBottom");
                 }
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -210,11 +206,15 @@ public abstract class MsglistActivity extends cp implements com.baidu.tieba.im.c
         if (groupNewsPojo != null && this.e != null && this.e.a() != null) {
             try {
                 JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
-                String string = jSONObject.getJSONObject("eventParam").getString("groupId");
-                if (jSONObject.getString("eventId").equals("003") && string.equals(String.valueOf(this.e.a().getGroupId()))) {
-                    showToast(R.string.group_is_kicked, false);
-                    finish();
-                    com.baidu.adp.lib.g.e.d("newSystemMessageNotify suc and closeBottom");
+                JSONObject jSONObject2 = jSONObject.getJSONObject("eventParam");
+                String string = jSONObject2.getString("groupId");
+                if (jSONObject.getString("eventId").equals("101") && string.equals(String.valueOf(this.e.a().getGroupId()))) {
+                    String string2 = jSONObject2.getString("groupName");
+                    if (!TextUtils.isEmpty(string2)) {
+                        this.d.a(string2, true);
+                        this.e.a().setName(string2);
+                        com.baidu.adp.lib.util.f.e("newSystemMessageNotify suc and change name");
+                    }
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -226,31 +226,11 @@ public abstract class MsglistActivity extends cp implements com.baidu.tieba.im.c
         if (groupNewsPojo != null && this.e != null && this.e.a() != null) {
             try {
                 JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
-                JSONObject jSONObject2 = jSONObject.getJSONObject("eventParam");
-                String string = jSONObject2.getString("groupId");
-                if (jSONObject.getString("eventId").equals("101") && string.equals(String.valueOf(this.e.a().getGroupId()))) {
-                    String string2 = jSONObject2.getString("groupName");
-                    if (!TextUtils.isEmpty(string2)) {
-                        this.d.a(string2, true);
-                        this.e.a().setName(string2);
-                        com.baidu.adp.lib.g.e.d("newSystemMessageNotify suc and change name");
-                    }
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    private void d(GroupNewsPojo groupNewsPojo) {
-        if (groupNewsPojo != null && this.e != null && this.e.a() != null) {
-            try {
-                JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
                 String string = jSONObject.getJSONObject("eventParam").getString("groupId");
                 if (jSONObject.getString("eventId").equals("107") && string.equals(String.valueOf(this.e.a().getGroupId()))) {
                     showToast(R.string.group_is_dismiss, false);
                     finish();
-                    com.baidu.adp.lib.g.e.d("dismiss suc");
+                    com.baidu.adp.lib.util.f.e("dismiss suc");
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -258,9 +238,40 @@ public abstract class MsglistActivity extends cp implements com.baidu.tieba.im.c
         }
     }
 
-    public void a(com.baidu.tieba.im.message.q qVar) {
-        if (qVar != null) {
-            switch (qVar.w()) {
+    public void a(com.baidu.tieba.im.message.s sVar) {
+        GroupNewsPojo a;
+        if (sVar != null) {
+            switch (sVar.w()) {
+                case -141:
+                case -138:
+                case -137:
+                case -136:
+                case -134:
+                case -132:
+                case -130:
+                    if ((sVar instanceof com.baidu.tieba.im.message.aa) && (a = ((com.baidu.tieba.im.message.aa) sVar).a()) != null) {
+                        String cmd = a.getCmd();
+                        if (!TextUtils.isEmpty(cmd)) {
+                            this.d.f();
+                            if (!cmd.equals("apply_join_success")) {
+                                if (cmd.equals("kick_out")) {
+                                    a(a);
+                                    return;
+                                } else if (cmd.equals("group_name_change")) {
+                                    b(a);
+                                    return;
+                                } else if (cmd.equals("dismiss_group")) {
+                                    c(a);
+                                    return;
+                                } else {
+                                    return;
+                                }
+                            }
+                            return;
+                        }
+                        return;
+                    }
+                    return;
                 case -109:
                 case 103101:
                 case 103110:
@@ -268,9 +279,9 @@ public abstract class MsglistActivity extends cp implements com.baidu.tieba.im.c
                     this.d.f();
                     return;
                 case 103104:
-                    if (qVar instanceof com.baidu.tieba.im.message.bn) {
-                        com.baidu.tieba.im.message.bn bnVar = (com.baidu.tieba.im.message.bn) qVar;
-                        if (!bnVar.k() && this.e.a().getGroupId() == bnVar.a()) {
+                    if (sVar instanceof com.baidu.tieba.im.message.bv) {
+                        com.baidu.tieba.im.message.bv bvVar = (com.baidu.tieba.im.message.bv) sVar;
+                        if (!bvVar.l() && this.e.a().getGroupId() == bvVar.a()) {
                             finish();
                             return;
                         }

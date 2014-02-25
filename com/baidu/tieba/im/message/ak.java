@@ -1,44 +1,21 @@
 package com.baidu.tieba.im.message;
 
 import com.google.protobuf.MessageLite;
-import protobuf.QueryHotGroups.QueryHotGroupsReq;
+import protobuf.EnterChatroom.EnterChatroomReq;
 /* loaded from: classes.dex */
-public class ak extends q implements com.baidu.tieba.im.coder.g {
-    private int a;
-    private int b;
-    private int c;
-    private int d;
+public class ak extends s implements com.baidu.tieba.im.coder.g {
+    private long a;
 
-    public ak(int i, int i2, int i3, int i4) {
-        super.e(103012);
-        this.a = i;
-        this.b = i2;
-        this.c = i3;
-        this.d = i4;
+    public ak() {
+        e(106101);
     }
 
-    public int b() {
-        return this.c;
-    }
-
-    public int c() {
-        return this.a;
-    }
-
-    public int d() {
-        return this.b;
-    }
-
-    public int e() {
-        return this.d;
-    }
-
-    public boolean f() {
-        return this.d == 0;
+    public void a(long j) {
+        this.a = j;
     }
 
     @Override // com.baidu.tieba.im.coder.g
     public MessageLite a() {
-        return QueryHotGroupsReq.QueryHotGroupsReqIdl.newBuilder().a(QueryHotGroupsReq.DataReq.newBuilder().c(d()).a(e()).b(b()).d(c()).build()).build();
+        return EnterChatroomReq.EnterChatroomReqIdl.newBuilder().a(EnterChatroomReq.DataReq.newBuilder().a((int) this.a).build()).build();
     }
 }

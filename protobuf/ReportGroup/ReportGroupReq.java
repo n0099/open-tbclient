@@ -13,7 +13,7 @@ import java.io.InputStream;
 public final class ReportGroupReq {
 
     /* loaded from: classes.dex */
-    public final class DataReq extends GeneratedMessageLite implements d {
+    public final class DataReq extends GeneratedMessageLite implements c {
         public static final int GROUPID_FIELD_NUMBER = 1;
         public static final int REPORTTYPE_FIELD_NUMBER = 2;
         private static final long serialVersionUID = 0;
@@ -22,8 +22,13 @@ public final class ReportGroupReq {
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
         private int reportType_;
-        public static Parser<DataReq> PARSER = new b();
+        public static Parser<DataReq> PARSER = new a();
         private static final DataReq a = new DataReq(true);
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ DataReq(GeneratedMessageLite.Builder builder, DataReq dataReq) {
+            this(builder);
+        }
 
         private DataReq(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -54,38 +59,41 @@ public final class ReportGroupReq {
             while (!z) {
                 try {
                     try {
-                        try {
-                            int readTag = codedInputStream.readTag();
-                            switch (readTag) {
-                                case 0:
+                        int readTag = codedInputStream.readTag();
+                        switch (readTag) {
+                            case 0:
+                                z = true;
+                                break;
+                            case 8:
+                                this.bitField0_ |= 1;
+                                this.groupId_ = codedInputStream.readInt32();
+                                break;
+                            case 16:
+                                this.bitField0_ |= 2;
+                                this.reportType_ = codedInputStream.readInt32();
+                                break;
+                            default:
+                                if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
-                                case 8:
-                                    this.bitField0_ |= 1;
-                                    this.groupId_ = codedInputStream.readInt32();
+                                } else {
                                     break;
-                                case 16:
-                                    this.bitField0_ |= 2;
-                                    this.reportType_ = codedInputStream.readInt32();
-                                    break;
-                                default:
-                                    if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
-                                        z = true;
-                                        break;
-                                    } else {
-                                        break;
-                                    }
-                            }
-                        } catch (IOException e) {
-                            throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
+                                }
                         }
-                    } catch (InvalidProtocolBufferException e2) {
-                        throw e2.setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
                 } finally {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ DataReq(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, DataReq dataReq) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -198,37 +206,42 @@ public final class ReportGroupReq {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static c newBuilder() {
-            return c.f();
+        public static b newBuilder() {
+            return b.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public c newBuilderForType() {
+        public b newBuilderForType() {
             return newBuilder();
         }
 
-        public static c newBuilder(DataReq dataReq) {
+        public static b newBuilder(DataReq dataReq) {
             return newBuilder().mergeFrom(dataReq);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public c toBuilder() {
+        public b toBuilder() {
             return newBuilder(this);
         }
     }
 
     /* loaded from: classes.dex */
-    public final class ReportGroupReqIdl extends GeneratedMessageLite implements g {
+    public final class ReportGroupReqIdl extends GeneratedMessageLite implements f {
         public static final int DATA_FIELD_NUMBER = 1;
-        public static Parser<ReportGroupReqIdl> PARSER = new e();
+        public static Parser<ReportGroupReqIdl> PARSER = new d();
         private static final ReportGroupReqIdl a = new ReportGroupReqIdl(true);
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private DataReq data_;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ ReportGroupReqIdl(GeneratedMessageLite.Builder builder, ReportGroupReqIdl reportGroupReqIdl) {
+            this(builder);
+        }
 
         private ReportGroupReqIdl(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -252,13 +265,12 @@ public final class ReportGroupReq {
         }
 
         private ReportGroupReqIdl(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-            c cVar;
-            boolean z;
+            b bVar;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
             a();
-            boolean z2 = false;
-            while (!z2) {
+            boolean z = false;
+            while (!z) {
                 try {
                     try {
                         int readTag = codedInputStream.readTag();
@@ -268,28 +280,25 @@ public final class ReportGroupReq {
                                 break;
                             case 10:
                                 if ((this.bitField0_ & 1) != 1) {
-                                    cVar = null;
+                                    bVar = null;
                                 } else {
-                                    cVar = this.data_.toBuilder();
+                                    bVar = this.data_.toBuilder();
                                 }
                                 this.data_ = (DataReq) codedInputStream.readMessage(DataReq.PARSER, extensionRegistryLite);
-                                if (cVar != null) {
-                                    cVar.mergeFrom(this.data_);
-                                    this.data_ = cVar.buildPartial();
+                                if (bVar != null) {
+                                    bVar.mergeFrom(this.data_);
+                                    this.data_ = bVar.buildPartial();
                                 }
                                 this.bitField0_ |= 1;
-                                z = z2;
                                 break;
                             default:
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
                                 } else {
-                                    z = z2;
                                     break;
                                 }
                         }
-                        z2 = z;
                     } catch (InvalidProtocolBufferException e) {
                         throw e.setUnfinishedMessage(this);
                     } catch (IOException e2) {
@@ -299,6 +308,11 @@ public final class ReportGroupReq {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ ReportGroupReqIdl(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, ReportGroupReqIdl reportGroupReqIdl) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -396,23 +410,23 @@ public final class ReportGroupReq {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static f newBuilder() {
-            return f.f();
+        public static e newBuilder() {
+            return e.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public f newBuilderForType() {
+        public e newBuilderForType() {
             return newBuilder();
         }
 
-        public static f newBuilder(ReportGroupReqIdl reportGroupReqIdl) {
+        public static e newBuilder(ReportGroupReqIdl reportGroupReqIdl) {
             return newBuilder().mergeFrom(reportGroupReqIdl);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public f toBuilder() {
+        public e toBuilder() {
             return newBuilder(this);
         }
     }

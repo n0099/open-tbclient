@@ -1,52 +1,51 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tieba.im.data.AddGroupInfoData;
-import java.util.LinkedList;
-import protobuf.AddGroup.AddGroupRes;
+import com.baidu.tieba.im.messageCenter.IDuplicateProcess;
+import com.google.protobuf.MessageLite;
 import protobuf.Im;
+import protobuf.UpdateGroup.UpdateGroupReq;
 /* loaded from: classes.dex */
-public class bg extends cr implements com.baidu.tieba.im.coder.f {
-    private AddGroupInfoData a;
+public abstract class bg extends s implements com.baidu.tieba.im.coder.g, IDuplicateProcess {
+    public int a;
+    private int b;
+
+    protected abstract void a(protobuf.k kVar);
 
     public bg() {
-        e(103101);
+        e(103102);
     }
 
-    public AddGroupInfoData a() {
+    public int e() {
+        return this.b;
+    }
+
+    public void a(int i) {
+        this.b = i;
+    }
+
+    public int f() {
         return this.a;
     }
 
-    public void a(AddGroupInfoData addGroupInfoData) {
-        this.a = addGroupInfoData;
+    public void b(int i) {
+        this.a = i;
     }
 
-    @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<q> linkedList, byte[] bArr, int i) {
-        AddGroupRes.AddGroupResIdl parseFrom = AddGroupRes.AddGroupResIdl.parseFrom(bArr);
-        g(parseFrom.getError().getErrorno());
-        c(parseFrom.getError().getUsermsg());
-        linkedList.add(this);
-        if (!k()) {
-            AddGroupInfoData addGroupInfoData = new AddGroupInfoData();
-            Im.GroupInfo group = parseFrom.getData().getGroup();
-            addGroupInfoData.setGroupId(group.getGroupId());
-            addGroupInfoData.setForumId(group.getForumId());
-            addGroupInfoData.setName(group.getName());
-            addGroupInfoData.setIntro(group.getIntro());
-            addGroupInfoData.setPortrait(group.getPortrait());
-            addGroupInfoData.setPosition(group.getPosition());
-            addGroupInfoData.setLng(String.valueOf(group.getLng()));
-            addGroupInfoData.setLat(String.valueOf(group.getLat()));
-            addGroupInfoData.setNotice(group.getNotice());
-            addGroupInfoData.setAlbum(group.getAlbum());
-            addGroupInfoData.setStatus(group.getStatus());
-            addGroupInfoData.setAuthorId(group.getAuthorId());
-            addGroupInfoData.setAuthorName(group.getAuthorName());
-            addGroupInfoData.setCreateTime(group.getCreateTime());
-            addGroupInfoData.setMaxMemberNum(group.getMaxMemberNum());
-            addGroupInfoData.setMemberNum(group.getMemberNum());
-            addGroupInfoData.setGroupType(group.getGroupType());
-            a(addGroupInfoData);
-        }
+    @Override // com.baidu.tieba.im.messageCenter.IDuplicateProcess
+    public IDuplicateProcess.RemoveState h() {
+        return IDuplicateProcess.RemoveState.REMOVE_ME;
+    }
+
+    @Override // com.baidu.tieba.im.messageCenter.IDuplicateProcess
+    public boolean a(s sVar) {
+        return true;
+    }
+
+    @Override // com.baidu.tieba.im.coder.g
+    public MessageLite a() {
+        protobuf.k newBuilder = Im.GroupInfo.newBuilder();
+        newBuilder.a(e());
+        a(newBuilder);
+        return UpdateGroupReq.UpdateGroupReqIdl.newBuilder().a(newBuilder.build()).build();
     }
 }

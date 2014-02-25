@@ -5,11 +5,13 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.tieba.data.bd;
+import com.baidu.tieba.util.ba;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<String, Integer, Bitmap> {
     final /* synthetic */ CreateBarActivity a;
-    private com.baidu.tieba.util.ax b;
+    private ba b;
     private volatile boolean c;
 
     private d(CreateBarActivity createBarActivity) {
@@ -19,7 +21,7 @@ public class d extends BdAsyncTask<String, Integer, Bitmap> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ d(CreateBarActivity createBarActivity, a aVar) {
+    public /* synthetic */ d(CreateBarActivity createBarActivity, d dVar) {
         this(createBarActivity);
     }
 
@@ -41,28 +43,28 @@ public class d extends BdAsyncTask<String, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Bitmap a(String... strArr) {
         try {
-            this.b = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/f/anti/vcode");
+            this.b = new ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/f/anti/vcode");
             this.b.a("fid", SocialConstants.FALSE);
             this.b.a("pub_type", SocialConstants.FALSE);
             this.b.a("fname", "");
             this.b.a("tid", SocialConstants.FALSE);
             String m = this.b.m();
             if (this.b.d()) {
-                com.baidu.tieba.data.bf bfVar = new com.baidu.tieba.data.bf();
-                bfVar.a(m);
-                if (bfVar.b() == null || bfVar.b().length() <= 0) {
+                bd bdVar = new bd();
+                bdVar.a(m);
+                if (bdVar.b() == null || bdVar.b().length() <= 0) {
                     return null;
                 }
-                this.a.s = bfVar.a();
+                this.a.s = bdVar.a();
                 if (this.c) {
                     return null;
                 }
-                this.b = new com.baidu.tieba.util.ax(bfVar.b());
+                this.b = new ba(bdVar.b());
                 return com.baidu.tieba.util.n.a(this.b.l());
             }
             return null;
         } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.getMessage());
             return null;
         }
     }

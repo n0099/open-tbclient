@@ -1,27 +1,50 @@
 package com;
 
-import java.security.cert.X509Certificate;
-import javax.net.ssl.X509TrustManager;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.graphics.Color;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.cloudsdk.social.core.MediaType;
+import com.baidu.cloudsdk.social.share.SocialShareConfig;
+import java.util.List;
 /* loaded from: classes.dex */
-public class bf implements X509TrustManager {
-    final /* synthetic */ be a;
+public class bf extends ArrayAdapter {
+    private SocialShareConfig a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bf(be beVar) {
-        this.a = beVar;
+    /* loaded from: classes.dex */
+    class a {
+        private ImageView b;
+        private TextView c;
+
+        private a() {
+        }
     }
 
-    @Override // javax.net.ssl.X509TrustManager
-    public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) {
+    public bf(Context context, List list) {
+        super(context, 0, list);
+        this.a = SocialShareConfig.getInstance(context);
     }
 
-    @Override // javax.net.ssl.X509TrustManager
-    public void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) {
-    }
-
-    @Override // javax.net.ssl.X509TrustManager
-    public X509Certificate[] getAcceptedIssuers() {
-        return null;
+    @Override // android.widget.ArrayAdapter, android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        a aVar;
+        if (view == null || view.getTag() == null) {
+            aVar = new a();
+            view = LayoutInflater.from(getContext()).inflate(aq.a(getContext(), "bdsocialshare_sharemenulistitem"), (ViewGroup) null);
+            view.setBackgroundResource(aq.b(getContext(), "bdsocialshare_sharemenu_item_click"));
+            aVar.b = (ImageView) view.findViewById(aq.d(getContext(), "sharemenulist_iconview"));
+            aVar.c = (TextView) view.findViewById(aq.d(getContext(), "sharemenulist_icontext"));
+            aVar.c.setTextColor(Color.parseColor(aq.a(getContext())));
+        } else {
+            aVar = (a) view.getTag();
+        }
+        MediaType mediaType = (MediaType) getItem(i);
+        aVar.b.setImageResource(aq.c(getContext(), "bdsocialshare_" + mediaType.toString()));
+        aVar.c.setText(this.a.getString(mediaType.toString()));
+        return view;
     }
 }

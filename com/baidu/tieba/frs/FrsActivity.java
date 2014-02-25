@@ -1,10 +1,12 @@
 package com.baidu.tieba.frs;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -13,144 +15,169 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.LogoActivity;
-import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.data.AntiData;
 import com.baidu.tieba.home.CreateBarActivity;
-import com.baidu.tieba.model.cc;
-import com.baidu.tieba.model.ci;
 import com.baidu.tieba.pb.NewPbActivity;
 import com.baidu.tieba.util.AntiHelper;
 import com.baidu.tieba.util.DatabaseService;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.bx;
-import com.baidu.tieba.util.by;
+import com.baidu.tieba.util.cb;
 import com.baidu.tieba.view.NoNetworkView;
 import com.baidu.tieba.view.UserIconBox;
-import com.baidu.tieba.view.cz;
+import com.baidu.tieba.view.df;
 import com.baidu.tieba.voice.VoiceManager;
 import com.baidu.tieba.write.WriteActivity;
 import com.baidu.tieba.write.WriteImageActivity;
 import com.slidingmenu.lib.R;
 import com.slidingmenu.lib.SlidingMenu;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
-public class FrsActivity extends com.baidu.tieba.j implements com.baidu.adp.widget.BdSwitchView.c, com.baidu.tbadk.widget.a, cz, com.baidu.tieba.voice.af {
-    private com.baidu.tieba.model.ap D;
-    private com.baidu.tieba.model.x E;
-    private bp H;
-    VoiceManager c;
-    public static boolean a = false;
-    private static volatile long q = 0;
-    private static volatile long r = 0;
-    private static volatile int s = 0;
-    private static boolean S = false;
-    private boolean d = true;
-    private int e = 3;
-    private String f = null;
+public class FrsActivity extends com.baidu.tieba.f implements com.baidu.adp.widget.BdSwitchView.c, com.baidu.tbadk.widget.a, df, com.baidu.tieba.voice.af {
+    private com.baidu.tieba.model.ae H;
+    private com.baidu.tieba.model.k I;
+    private bw L;
+    VoiceManager d;
+    public static String a = "has_shown_frs_guide";
+    public static boolean b = false;
+    private static volatile long s = 0;
+    private static volatile long t = 0;
+    private static volatile int u = 0;
+    private static boolean Y = false;
+    private boolean e = true;
+    private int f = 3;
     private String g = null;
-    private int h = 0;
-    private int i = 1;
-    private boolean j = false;
+    private String h = null;
+    private int i = 0;
+    private int j = 1;
     private boolean k = false;
-    private String l = null;
+    private boolean l = false;
     private boolean m = false;
-    private bk n = null;
-    private String o = null;
-    private com.baidu.tieba.data.bb p = null;
-    private long t = 0;
-    private boolean u = false;
-    private boolean v = true;
-    private com.baidu.tieba.model.ak w = null;
-    private com.baidu.tieba.model.ax x = null;
-    private ci y = null;
-    private cc z = null;
-    private Handler A = null;
-    private long B = 0;
-    private String C = "normal_page";
-    private boolean F = false;
-    private com.baidu.tieba.data.bb G = null;
-    private com.baidu.adp.lib.d.b<TbImageView> I = UserIconBox.a(this, 8);
+    private String n = null;
+    private boolean o = false;
+    private br p = null;
+    private String q = null;
+    private final com.baidu.tieba.data.az r = null;
+    private long v = 0;
+    private boolean w = false;
+    private boolean x = true;
+    private boolean y = true;
+    private boolean z = true;
+    private com.baidu.tieba.model.z A = null;
+    private com.baidu.tieba.model.ar B = null;
+    private com.baidu.tieba.model.bx C = null;
+    private com.baidu.tieba.model.bt D = null;
+    private Handler E = null;
+    private long F = 0;
+    private String G = "normal_page";
     private boolean J = false;
-    private ac K = null;
-    private long L = -1;
-    private ab M = new b(this);
-    private aa N = new l(this);
-    private Handler O = null;
-    private com.baidu.tieba.util.i P = null;
-    private Runnable Q = new t(this);
-    com.baidu.tbadk.imageManager.c b = new u(this);
-    private com.baidu.tbadk.imageManager.c R = new v(this);
-    private com.baidu.adp.widget.ListView.r T = new d(this);
-    private com.baidu.adp.widget.ListView.t U = new e(this);
-    private AdapterView.OnItemClickListener V = new g(this);
-    private AdapterView.OnItemLongClickListener W = new i(this);
-    private com.baidu.adp.widget.ListView.b X = new j(this);
-    private View.OnClickListener Y = new k(this);
-    private int Z = 0;
-    private AbsListView.OnScrollListener aa = new m(this);
-    private SlidingMenu.OnClosedListener ab = new p(this);
-    private SlidingMenu.OnOpenedListener ac = new q(this);
-    private AdapterView.OnItemClickListener ad = new r(this);
-    private com.baidu.tieba.view.br ae = new s(this);
-    private List<com.baidu.tbadk.widget.b> af = new ArrayList();
+    private com.baidu.tieba.data.az K = null;
+    private final com.baidu.adp.lib.d.b<TbImageView> M = UserIconBox.a(this, 8);
+    private boolean N = false;
+    private aj O = null;
+    private long P = -1;
+    private AlertDialog Q = null;
+    private String R = "";
+    private final by S = new i(this);
+    private final bx T = new t(this);
+    private Handler U = null;
+    private com.baidu.tieba.util.i V = null;
+    private final Runnable W = new ab(this);
+    com.baidu.tbadk.imageManager.d c = new ac(this);
+    private final com.baidu.tbadk.imageManager.d X = new ad(this);
+    private final com.baidu.adp.widget.ListView.r Z = new ae(this);
+    private final com.baidu.adp.widget.ListView.t aa = new af(this);
+    private final AdapterView.OnItemClickListener ab = new ag(this);
+    private final AdapterView.OnItemLongClickListener ac = new ai(this);
+    private final com.baidu.adp.widget.ListView.b ad = new j(this);
+    private final View.OnClickListener ae = new k(this);
+    private int af = 0;
+    private final AbsListView.OnScrollListener ag = new l(this);
+    private final SlidingMenu.OnClosedListener ah = new m(this);
+    private final SlidingMenu.OnOpenedListener ai = new n(this);
+    private final AdapterView.OnItemClickListener aj = new o(this);
+    private final com.baidu.tieba.view.by ak = new p(this);
+    private final List<com.baidu.tbadk.widget.b> al = new ArrayList();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ int j(FrsActivity frsActivity) {
-        int i = frsActivity.i;
-        frsActivity.i = i - 1;
-        return i;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ int w(FrsActivity frsActivity) {
-        int i = frsActivity.i;
-        frsActivity.i = i + 1;
-        return i;
-    }
-
-    @Override // com.baidu.tieba.j
+    @Override // com.baidu.tieba.f
     public boolean getGpuSwitch() {
-        return TiebaApplication.h().u();
+        return TiebaApplication.g().u();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(com.baidu.tieba.model.an anVar) {
-        if (this.d) {
-            if (anVar != null) {
-                if (anVar.a && anVar.b) {
-                    if (anVar.c == 3) {
-                        this.j = false;
-                        this.f = this.f.replace(" ", "");
-                        String str = this.f;
-                        if (str.length() > 31) {
-                            str = str.substring(0, 31) + "...";
-                        }
-                        this.n.b(str);
-                    } else if (UtilHelper.g(this) != UtilHelper.NetworkStateInfo.UNAVAIL) {
-                        this.n.a(anVar.d);
+    public void a(com.baidu.tieba.model.z zVar) {
+        int i;
+        com.baidu.tieba.data.az azVar;
+        if (zVar != null && zVar.b() != null) {
+            h bannerListData = zVar.b().getBannerListData();
+            ArrayList<com.baidu.tieba.data.az> c = zVar.c();
+            if (bannerListData != null && bannerListData.a() != null && c != null && c.size() > 0) {
+                int i2 = 0;
+                Iterator<com.baidu.tieba.data.az> it = c.iterator();
+                while (true) {
+                    i = i2;
+                    if (!it.hasNext()) {
+                        break;
                     }
-                } else if (UtilHelper.g(this) != UtilHelper.NetworkStateInfo.UNAVAIL) {
-                    this.n.a(anVar.d);
+                    com.baidu.tieba.data.az next = it.next();
+                    if (next.f() != 1 && next.f() != 2) {
+                        break;
+                    }
+                    i2 = i + 1;
+                }
+                Iterator<g> it2 = bannerListData.a().iterator();
+                while (it2.hasNext()) {
+                    g next2 = it2.next();
+                    int u2 = (next2.u() + i) - 1;
+                    if (this.p != null && this.p.n() != null && this.p.n().d().size() > 0 && (azVar = (com.baidu.tieba.data.az) this.p.n().getItem(u2)) != null && (azVar instanceof g)) {
+                        next2.d(((g) azVar).A());
+                    }
+                    if (!UtilHelper.f(this, next2.y())) {
+                        zVar.c().add(u2, next2);
+                    }
                 }
             }
-        } else if (anVar != null) {
-            this.n.a(anVar.d);
+        }
+    }
+
+    public void a(com.baidu.tieba.model.ac acVar) {
+        if (this.e) {
+            if (acVar != null) {
+                if (acVar.a && acVar.b) {
+                    if (acVar.c == 3) {
+                        this.k = false;
+                        this.g = this.g.replace(" ", "");
+                        String str = this.g;
+                        if (str.length() > 31) {
+                            str = String.valueOf(str.substring(0, 31)) + "...";
+                        }
+                        this.p.b(str);
+                    } else if (UtilHelper.h(this) != UtilHelper.NetworkStateInfo.UNAVAIL) {
+                        this.p.a(acVar.d);
+                    }
+                } else if (UtilHelper.h(this) != UtilHelper.NetworkStateInfo.UNAVAIL) {
+                    this.p.a(acVar.d);
+                }
+            }
+        } else if (acVar != null) {
+            this.p.a(acVar.d);
         }
     }
 
     public static void a(Context context, String str, String str2) {
-        if (TiebaApplication.h().g(str)) {
+        if (TiebaApplication.g().g(str)) {
             FrsImageActivity.a(context, str, str2, 0);
         } else {
             a(context, str, str2, false, false);
@@ -158,36 +185,34 @@ public class FrsActivity extends com.baidu.tieba.j implements com.baidu.adp.widg
     }
 
     public static void b(Context context, String str, String str2) {
-        if (TiebaApplication.h().g(str)) {
+        if (TiebaApplication.g().g(str)) {
             FrsImageActivity.a(context, str, str2, 0);
         } else {
             a(context, str, str2, false, true);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public void b() {
-        com.baidu.tieba.data.bb b = this.n.o().b();
-        if (b != null) {
-            ArrayList<com.baidu.tieba.data.aj> p = b.p();
+        com.baidu.tieba.data.az b2 = this.p.o().b();
+        if (b2 != null) {
+            ArrayList<com.baidu.tieba.data.ah> p = b2.p();
             int size = p.size();
             for (int i = 0; i < size; i++) {
                 if (p.get(i).a() == 3) {
-                    this.n.o().a().b(p.get(i).b(), this.R);
+                    this.p.o().a().b(p.get(i).b(), this.X);
                 }
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void d() {
-        com.baidu.tieba.data.bb b = this.n.p().b();
-        if (b != null) {
-            ArrayList<com.baidu.tieba.data.aj> p = b.p();
+    public void e() {
+        com.baidu.tieba.data.az b2 = this.p.p().b();
+        if (b2 != null) {
+            ArrayList<com.baidu.tieba.data.ah> p = b2.p();
             int size = p.size();
             for (int i = 0; i < size; i++) {
                 if (p.get(i).a() == 3) {
-                    this.n.p().a().b(p.get(i).b(), this.R);
+                    this.p.p().a().b(p.get(i).b(), this.X);
                 }
             }
         }
@@ -209,7 +234,7 @@ public class FrsActivity extends com.baidu.tieba.j implements com.baidu.adp.widg
     }
 
     public static void a(Context context, String str, String str2, int i) {
-        if (TiebaApplication.h().g(str)) {
+        if (TiebaApplication.g().g(str)) {
             FrsImageActivity.a(context, str, str2, i);
             return;
         }
@@ -241,185 +266,202 @@ public class FrsActivity extends com.baidu.tieba.j implements com.baidu.adp.widg
         return intent;
     }
 
-    private void n() {
-        this.P = new com.baidu.tieba.util.i(this);
-        this.P.b(true);
-        int a2 = com.baidu.adp.lib.g.g.a((Context) this, 427.0f);
+    private void o() {
+        this.V = new com.baidu.tieba.util.i(this);
+        this.V.b(true);
+        int a2 = BdUtilHelper.a((Context) this, 427.0f);
         int i = a2 <= 640 ? a2 : 640;
-        this.P.a(i, (int) (i * 1.6f));
+        this.V.a(i, (int) (i * 1.6f));
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         Intent intent = getIntent();
         if (intent != null) {
-            this.L = intent.getLongExtra("TibaStatic.StartTime", -1L);
+            this.P = intent.getLongExtra("TibaStatic.StartTime", -1L);
         } else {
-            this.L = System.currentTimeMillis();
+            this.P = System.currentTimeMillis();
         }
-        if (w()) {
-            this.c = d_();
-            this.c.a((Activity) this);
-            x();
+        if (y()) {
+            this.d = h();
+            this.d.a((Activity) this);
+            A();
             a(bundle);
-            this.n.I();
+            this.p.J();
         }
     }
 
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        this.c = d_();
-        this.c.b((Activity) this);
+        this.d = h();
+        this.d.b((Activity) this);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(com.baidu.tieba.model.ak akVar) {
-        if (akVar != null) {
+    public void b(com.baidu.tieba.model.z zVar) {
+        if (zVar != null) {
             try {
-                if (this.v) {
-                    this.n.B();
-                    this.v = false;
+                if (this.x) {
+                    this.p.B();
+                    this.x = false;
                 }
-                if (akVar.j() == 1) {
-                    this.n.n().f(true);
+                if (zVar.j() == 1) {
+                    this.p.n().f(true);
                 } else {
-                    this.n.n().f(false);
+                    this.p.n().f(false);
                 }
-                this.n.a(akVar.b());
-                if (akVar.g().a() == 1) {
-                    this.C = "frs_page";
-                    this.n.t();
+                this.p.a(this.A.b());
+                if (zVar.g().a() == 1) {
+                    this.G = "frs_page";
+                    this.p.t();
                 } else {
-                    this.C = "normal_page";
-                    this.n.s();
+                    this.G = "normal_page";
+                    this.p.s();
                 }
-                this.n.q();
-                this.f = akVar.b().getName();
-                this.n.c(this.f);
-                B();
-                com.baidu.tieba.data.bd top_notice_data = akVar.b().getTop_notice_data();
+                this.p.q();
+                this.g = zVar.b().getName();
+                this.p.c(this.g);
+                E();
+                if (this.z && !TiebaApplication.g().br().contains(this.g)) {
+                    a(zVar);
+                    this.z = false;
+                }
+                com.baidu.tieba.data.bb top_notice_data = zVar.b().getTop_notice_data();
                 if (top_notice_data != null && top_notice_data.a() != null) {
-                    com.baidu.tieba.data.bb bbVar = new com.baidu.tieba.data.bb();
-                    bbVar.c(top_notice_data.a());
-                    bbVar.a(2);
-                    bbVar.b(top_notice_data.b());
-                    bbVar.t();
-                    akVar.c().add(0, bbVar);
+                    com.baidu.tieba.data.az azVar = new com.baidu.tieba.data.az();
+                    azVar.c(top_notice_data.a());
+                    azVar.a(2);
+                    azVar.b(top_notice_data.b());
+                    azVar.t();
+                    zVar.c().add(0, azVar);
                 }
-                ArrayList<com.baidu.tieba.data.bb> c = akVar.c();
+                ArrayList<com.baidu.tieba.data.az> c = zVar.c();
                 if (c != null) {
-                    this.n.a(c, this.i, this.w);
-                    if (this.C.equals("frs_page")) {
-                        this.n.a(akVar.b(), akVar);
-                    } else if (this.C.equals("normal_page")) {
-                        this.n.b(akVar.b(), akVar);
+                    this.p.a(c, this.j, this.A);
+                    J();
+                    if (this.G.equals("frs_page")) {
+                        this.p.a(zVar.b(), zVar);
+                    } else if (this.G.equals("normal_page")) {
+                        this.p.b(zVar.b(), zVar);
                     }
-                    this.n.b(this.i);
-                    this.n.c(akVar.f().f());
-                    this.n.E();
-                    this.n.d(0);
+                    this.p.b(this.j);
+                    this.p.c(zVar.f().f());
+                    this.p.E();
+                    this.p.d(0);
                 }
-                if (akVar.j() == 1) {
-                    this.n.n().a().d(true);
+                if (zVar.j() == 1) {
+                    this.p.n().a().d(true);
                 } else {
-                    this.n.n().a().d(false);
+                    this.p.n().a().d(false);
                 }
-                this.O.removeCallbacks(this.Q);
-                this.O.postDelayed(this.Q, 300L);
+                if (zVar.a()) {
+                    this.p.o().j();
+                    this.p.p().i();
+                } else {
+                    this.p.o().i();
+                    this.p.p().h();
+                }
+                this.U.removeCallbacks(this.W);
+                this.U.postDelayed(this.W, 300L);
             } catch (Exception e) {
-                com.baidu.adp.lib.g.e.b("FrsActivity", "refreshWithCache", "FrsActivity.refreshWithFrs error = " + e.getMessage());
+                com.baidu.adp.lib.util.f.b("FrsActivity", "refreshWithCache", "FrsActivity.refreshWithFrs error = " + e.getMessage());
             }
         }
     }
 
     private void a(Bundle bundle) {
-        this.O = new Handler();
-        n();
-        this.k = TiebaApplication.B();
+        this.U = new Handler();
+        o();
+        this.O = new aj(this, null);
+        v();
+        this.m = TiebaApplication.B();
         if (bundle != null) {
-            this.f = bundle.getString(SocialConstants.PARAM_MEDIA_UNAME);
-            this.g = bundle.getString("from");
-            this.h = bundle.getInt("flag", 0);
+            this.g = bundle.getString(SocialConstants.PARAM_MEDIA_UNAME);
+            this.h = bundle.getString("from");
+            this.i = bundle.getInt("flag", 0);
         } else {
             Intent intent = getIntent();
-            this.f = intent.getStringExtra(SocialConstants.PARAM_MEDIA_UNAME);
-            this.g = intent.getStringExtra("from");
-            this.h = intent.getIntExtra("flag", 0);
-            this.u = intent.getBooleanExtra("good", false);
+            this.g = intent.getStringExtra(SocialConstants.PARAM_MEDIA_UNAME);
+            this.h = intent.getStringExtra("from");
+            this.i = intent.getIntExtra("flag", 0);
+            this.w = intent.getBooleanExtra("good", false);
         }
-        if (this.f != null && this.f.length() > 0) {
-            if (this.g == null || this.g.length() <= 0) {
-                this.g = "tb_forumlist";
+        if (this.g != null && this.g.length() > 0) {
+            if (this.h == null || this.h.length() <= 0) {
+                this.h = "tb_forumlist";
             }
-            this.o = this.g;
-            this.F = false;
-            s();
-            o();
+            this.q = this.h;
+            this.J = false;
+            t();
             p();
             q();
             r();
-            this.D = new com.baidu.tieba.model.ap(this);
-            if (this.k) {
-                e();
-                u();
-                this.E.a(false, true, true, this.f);
+            s();
+            this.H = new com.baidu.tieba.model.ae(this);
+            if (this.m) {
+                f();
+                w();
+                this.I.b(true);
             }
         }
     }
 
-    private void o() {
-        this.x = new com.baidu.tieba.model.ax();
-        this.x.setLoadDataCallBack(new w(this));
-    }
-
     private void p() {
-        this.y = new ci();
-        this.y.a("from_frs");
-        this.y.a(new x(this));
+        this.B = new com.baidu.tieba.model.ar();
+        this.B.setLoadDataCallBack(new q(this));
     }
 
     private void q() {
-        this.z = new cc();
-        this.z.setLoadDataCallBack(new y(this));
+        this.C = new com.baidu.tieba.model.bx();
+        this.C.a("from_frs");
+        this.C.a(new r(this));
     }
 
     private void r() {
-        this.E = new com.baidu.tieba.model.x();
-        this.E.setLoadDataCallBack(new z(this));
+        this.D = new com.baidu.tieba.model.bt();
+        this.D.setLoadDataCallBack(new s(this));
     }
 
     private void s() {
-        this.A = new c(this);
+        this.I = new com.baidu.tieba.model.k();
+        this.I.a(new u(this));
     }
 
-    public void e() {
-        if (this.D != null && this.n != null) {
-            this.D.a(com.baidu.tieba.mention.s.a().o());
-            this.D.c(com.baidu.tieba.mention.s.a().m());
-            this.D.b(com.baidu.tieba.mention.s.a().n());
-            this.D.d(com.baidu.tieba.mention.s.a().p());
-            this.n.a(this.D);
+    @SuppressLint({"HandlerLeak"})
+    private void t() {
+        this.E = new v(this);
+    }
+
+    public void f() {
+        if (this.H != null && this.p != null) {
+            this.H.a(com.baidu.tieba.mention.v.a().o());
+            this.H.c(com.baidu.tieba.mention.v.a().m());
+            this.H.b(com.baidu.tieba.mention.v.a().n());
+            this.H.d(com.baidu.tieba.mention.v.a().p());
+            this.p.a(this.H);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void t() {
-        this.n.f().a(this.E.a());
-    }
-
-    private void u() {
-        this.K = new ac(this, null);
-        com.baidu.tieba.im.messageCenter.e.a().a(-124, this.K);
+    public void u() {
+        if (this.I != null && this.I.a() != null && this.I.a().e() != null) {
+            this.p.f().a(this.I.a().e().a());
+        }
     }
 
     private void v() {
-        com.baidu.tieba.im.messageCenter.e.a().a(this.K);
+        com.baidu.tieba.im.messageCenter.e.a().a(-122, this.O);
     }
 
-    private boolean w() {
+    private void w() {
+        com.baidu.tieba.im.messageCenter.e.a().a(-124, this.O);
+    }
+
+    private void x() {
+        com.baidu.tieba.im.messageCenter.e.a().a(this.O);
+    }
+
+    private boolean y() {
         if (getIntent().getBooleanExtra("from_short_cut", false)) {
             Iterator<ActivityManager.RunningTaskInfo> it = ((ActivityManager) getSystemService("activity")).getRunningTasks(10).iterator();
             while (true) {
@@ -443,56 +485,58 @@ public class FrsActivity extends com.baidu.tieba.j implements com.baidu.adp.widg
         return true;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
-        v();
-        if (this.n != null) {
-            this.n.l();
+        x();
+        if (this.p != null) {
+            this.p.l();
         }
-        if (this.O != null) {
-            this.O.removeCallbacks(this.Q);
+        if (this.U != null) {
+            this.U.removeCallbacks(this.W);
         }
-        if (this.A != null) {
-            this.A.removeMessages(1);
+        if (this.E != null) {
+            this.E.removeMessages(1);
         }
         super.onDestroy();
         try {
-            if (this.w != null) {
-                this.w.i();
+            if (this.A != null) {
+                this.A.i();
             }
-            if (this.x != null) {
-                this.x.a();
+            if (this.B != null) {
+                this.B.a();
             }
-            if (this.z != null) {
-                this.z.a();
+            if (this.D != null) {
+                this.D.a();
             }
-            if (this.E != null) {
-                this.E.cancelLoadData();
+            if (this.I != null) {
+                this.I.cancelLoadData();
             }
-            this.n.H();
+            this.p.H();
             System.gc();
         } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b("FrsActivity", "onDestroy", e.getMessage());
+            com.baidu.adp.lib.util.f.b("FrsActivity", "onDestroy", e.getMessage());
         }
-        this.c = d_();
-        this.c.g(this);
+        this.d = h();
+        this.d.g(this);
+        TiebaApplication.g().bn();
+        com.baidu.tbadk.imageManager.e.a().c();
+        this.Q = null;
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putString(SocialConstants.PARAM_MEDIA_UNAME, this.f);
-        bundle.putString("from", this.g);
-        this.c = d_();
-        if (this.c != null) {
-            this.c.e(this);
+        bundle.putString(SocialConstants.PARAM_MEDIA_UNAME, this.g);
+        bundle.putString("from", this.h);
+        this.d = h();
+        if (this.d != null) {
+            this.d.e(this);
         }
     }
 
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
-        boolean z;
+        boolean z = true;
         super.onActivityResult(i, i2, intent);
         if (i2 == -1) {
             switch (i) {
@@ -500,26 +544,26 @@ public class FrsActivity extends com.baidu.tieba.j implements com.baidu.adp.widg
                     b(0);
                     return;
                 case 11002:
-                    i();
+                    j();
                     return;
                 case 11011:
-                    c(this.p);
+                    c(this.r);
                     return;
                 case 11012:
-                    d(this.G);
+                    d(this.K);
                     return;
                 case 11013:
-                    y();
+                    B();
                     return;
                 case 11014:
-                    k();
+                    l();
                     return;
                 case 11016:
-                    this.n.C();
+                    this.p.C();
                     return;
                 case 11021:
-                    if (this.w != null) {
-                        h();
+                    if (this.A != null) {
+                        i();
                         return;
                     }
                     return;
@@ -527,62 +571,60 @@ public class FrsActivity extends com.baidu.tieba.j implements com.baidu.adp.widg
                 default:
                     return;
                 case 11036:
-                    j();
+                    k();
                     return;
                 case 12001:
-                    if (this.w != null && this.w.b() != null) {
-                        WriteImageActivity.a(this, 12001, 12010, null, this.w.b().getId(), this.f, this.w.e());
+                    if (this.A != null && this.A.b() != null) {
+                        WriteImageActivity.a(this, 12001, 12010, null, this.A.b().getId(), this.g, this.A.e());
                         return;
                     }
                     return;
                 case 12002:
-                    if (this.w != null && this.w.b() != null && intent != null && intent.getData() != null) {
-                        WriteImageActivity.a(this, 12002, 12009, intent.getData(), this.w.b().getId(), this.f, this.w.e());
+                    if (this.A != null && this.A.b() != null && intent != null && intent.getData() != null) {
+                        WriteImageActivity.a(this, 12002, 12009, intent.getData(), this.A.b().getId(), this.g, this.A.e());
                         return;
                     }
                     return;
                 case 12009:
                 case 12010:
-                    if (this.w != null && this.w.b() != null) {
+                    if (this.A != null && this.A.b() != null) {
                         if (intent == null || intent.getStringExtra("filename") == null) {
-                            WriteActivity.a((Activity) this, this.w.b().getId(), this.f, (AntiData) null, true, (String) null);
+                            WriteActivity.a((Activity) this, this.A.b().getId(), this.g, (AntiData) null, true, (String) null);
                             return;
                         } else {
-                            WriteActivity.a((Activity) this, this.w.b().getId(), this.f, (AntiData) null, true, intent.getStringExtra("filename"));
+                            WriteActivity.a((Activity) this, this.A.b().getId(), this.g, (AntiData) null, true, intent.getStringExtra("filename"));
                             return;
                         }
                     }
                     return;
                 case 13003:
-                    z();
+                    C();
                     return;
                 case 18003:
-                    this.n.n().notifyDataSetChanged();
+                    this.p.n().notifyDataSetChanged();
                     String stringExtra = intent.getStringExtra("tid");
                     if (stringExtra != null) {
-                        int size = this.w.c().size();
+                        int size = this.A.c().size();
                         int i3 = 0;
                         while (true) {
                             if (i3 >= size) {
                                 z = false;
-                            } else if (stringExtra.equals(this.w.c().get(i3).a())) {
-                                z = true;
-                            } else {
+                            } else if (!stringExtra.equals(this.A.c().get(i3).a())) {
                                 i3++;
                             }
                         }
                         if (z) {
                             int intExtra = intent.getIntExtra("type", 0);
                             if (intExtra == 2) {
-                                this.w.c().get(i3).b(intent.getIntExtra("good_data", 0));
-                                this.w.c().get(i3).t();
-                                z();
+                                this.A.c().get(i3).b(intent.getIntExtra("good_data", 0));
+                                this.A.c().get(i3).t();
+                                C();
                                 return;
                             } else if (intExtra == 0) {
-                                this.w.c().remove(i3);
-                                this.n.E();
-                                if (com.baidu.tieba.model.z.a() != null) {
-                                    com.baidu.tieba.model.z.a().b(this.f);
+                                this.A.c().remove(i3);
+                                this.p.E();
+                                if (com.baidu.tieba.model.o.a() != null) {
+                                    com.baidu.tieba.model.o.a().b(this.g);
                                     return;
                                 }
                                 return;
@@ -593,14 +635,17 @@ public class FrsActivity extends com.baidu.tieba.j implements com.baidu.adp.widg
                         return;
                     }
                     return;
+                case 18004:
+                    H();
+                    return;
             }
         } else if (i2 == 0) {
             switch (i) {
                 case 12009:
-                    com.baidu.tieba.write.bb.c(this);
+                    com.baidu.tieba.write.bz.b(this);
                     return;
                 case 12010:
-                    com.baidu.tieba.write.bb.a(this);
+                    com.baidu.tieba.write.bz.a(this);
                     return;
                 default:
                     return;
@@ -609,47 +654,59 @@ public class FrsActivity extends com.baidu.tieba.j implements com.baidu.adp.widg
     }
 
     public static void a(boolean z) {
-        S = z;
+        Y = z;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, android.app.Activity
     public void onResume() {
         NetworkInfo activeNetworkInfo;
         super.onResume();
-        this.Z = 0;
-        NoNetworkView j = this.n.j();
+        this.af = 0;
+        NoNetworkView j = this.p.j();
         if (j != null && j.getVisibility() == 0 && (activeNetworkInfo = ((ConnectivityManager) getSystemService("connectivity")).getActiveNetworkInfo()) != null && activeNetworkInfo.isAvailable()) {
             j.setVisible(false);
         }
-        if (S) {
-            S = false;
-            this.n.I();
-        } else if (a) {
-            a = false;
-            this.n.I();
+        if (Y) {
+            Y = false;
+            this.p.J();
+        } else if (b) {
+            b = false;
+            this.p.J();
         } else {
-            if (!this.k && TiebaApplication.B()) {
-                this.k = true;
-                if (this.w != null && this.w.e() != null) {
-                    this.w.e().setIfpost(1);
+            if (!this.m && TiebaApplication.B()) {
+                this.m = true;
+                if (this.A != null && this.A.e() != null) {
+                    this.A.e().setIfpost(1);
                 }
-                this.E.a(false, true, true, this.f);
-                z();
+                this.I.b(true);
+                C();
             }
-            this.n.f().b(this.k);
-            this.Q.run();
-            if (this.A != null) {
-                this.A.removeMessages(1);
-                this.A.sendMessageDelayed(this.A.obtainMessage(1), 1000L);
+            this.p.f().b(this.m);
+            this.W.run();
+            if (this.E != null) {
+                this.E.removeMessages(1);
+                this.E.sendMessageDelayed(this.E.obtainMessage(1), 1000L);
             }
-            this.c = d_();
-            this.c.c(this);
-            com.baidu.tieba.im.c.a.h().b(false, (com.baidu.tieba.im.a<Void>) null);
+            this.d = h();
+            this.d.c(this);
+            com.baidu.tieba.im.c.a.f().b(false, null);
         }
     }
 
-    @Override // com.baidu.tieba.j
+    @Override // android.app.Activity
+    protected void onNewIntent(Intent intent) {
+        this.l = intent.getBooleanExtra("refresh_all", false);
+        if (this.l) {
+            z();
+        }
+    }
+
+    private void z() {
+        this.p.J();
+        this.p.g().toggle(false);
+    }
+
+    @Override // com.baidu.tieba.f
     public void closeActivity() {
         if (!getIntent().getBooleanExtra("back_special", false)) {
             finish();
@@ -657,309 +714,297 @@ public class FrsActivity extends com.baidu.tieba.j implements com.baidu.adp.widg
         }
         String A = TiebaApplication.A();
         if (A != null && A.length() > 0) {
-            MainTabActivity.a(this, 1);
+            com.baidu.tieba.mainentrance.f.a(this, 1);
         } else {
-            MainTabActivity.a(this, 2);
+            com.baidu.tieba.mainentrance.f.a(this, 2);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public void g() {
-        this.n.H();
+        this.p.H();
         finish();
         CompatibleUtile.setAnim(this, R.anim.frs_browser_enter, R.anim.no_effect);
     }
 
-    private void x() {
-        this.d = true;
-        this.f = "";
+    private void A() {
+        this.e = true;
         this.g = "";
-        this.h = 0;
-        this.i = 1;
-        this.u = false;
-        this.t = 0L;
-        this.e = 3;
-        this.n = new bk(this, this.Y);
-        this.n.f().e();
-        this.n.a(this.T);
-        this.n.a(this.U);
-        this.n.a(this.V);
-        this.n.a(this.W);
-        this.n.a(this.aa);
-        this.n.a(this.X);
-        this.n.a(this.ab);
-        this.n.a(this.ac);
-        this.n.a(this.ae);
+        this.h = "";
+        this.i = 0;
+        this.j = 1;
+        this.w = false;
+        this.v = 0L;
+        this.f = 3;
+        this.p = new br(this, this.ae);
+        this.p.f().e();
+        this.p.a(this.Z);
+        this.p.a(this.aa);
+        this.p.a(this.ab);
+        this.p.a(this.ac);
+        this.p.a(this.ag);
+        this.p.a(this.ad);
+        this.p.a(this.ah);
+        this.p.a(this.ai);
+        this.p.a(this.ak);
         if (com.baidu.tieba.sharedPref.b.a().a("frs_first_in", true)) {
-            this.H = new bp(this);
+            this.L = new bw(this);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j
+    @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.n.j(i);
+        this.p.j(i);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void y() {
+    public void B() {
         String A = TiebaApplication.A();
         if (A == null || A.length() <= 0) {
             LoginActivity.a((Activity) this, getString(R.string.login_to_use), true, 11013);
             return;
         }
-        CreateBarActivity.a(this, this.f, true);
+        CreateBarActivity.a(this, this.g, true);
         finish();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void a(String str) {
         Intent a2;
         if (str != null && (a2 = a((Context) this, str)) != null) {
             Intent intent = new Intent("com.android.launcher.action.INSTALL_SHORTCUT");
             intent.putExtra("duplicate", false);
-            intent.putExtra("android.intent.extra.shortcut.NAME", str + getString(R.string.bar));
+            intent.putExtra("android.intent.extra.shortcut.NAME", String.valueOf(str) + getString(R.string.bar));
             intent.putExtra("android.intent.extra.shortcut.INTENT", a2);
             intent.putExtra("android.intent.extra.shortcut.ICON_RESOURCE", Intent.ShortcutIconResource.fromContext(this, R.drawable.icon));
             sendBroadcast(intent);
-            new com.baidu.tieba.account.av("add_to_launcher").start();
+            new com.baidu.tieba.account.ax("add_to_launcher").start();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void b(int i) {
         String A = TiebaApplication.A();
         if (A == null || A.length() <= 0) {
-            if (this.w != null && this.w.e() != null) {
-                this.w.e().setIfpost(1);
+            if (this.A != null && this.A.e() != null) {
+                this.A.e().setIfpost(1);
             }
             if (i == 0) {
                 LoginActivity.a((Activity) this, getString(R.string.login_to_use), true, 11001);
             } else {
                 LoginActivity.a((Activity) this, getString(R.string.login_to_use), true, 11016);
             }
-        } else if (this.w != null) {
+        } else if (this.A != null) {
             if (i == 0) {
-                AntiData e = this.w.e();
+                AntiData e = this.A.e();
                 if (AntiHelper.a(e) || AntiHelper.b(e) || AntiHelper.c(e)) {
-                    e.setBlock_forum_name(this.f);
-                    e.setBlock_forum_id(this.w.b().getId());
-                    e.setUser_name(this.w.d().getName());
-                    e.setUser_id(this.w.d().getId());
+                    e.setBlock_forum_name(this.g);
+                    e.setBlock_forum_id(this.A.b().getId());
+                    e.setUser_name(this.A.d().getUserName());
+                    e.setUser_id(this.A.d().getUserId());
                     if (AntiHelper.a(this, e, AntiHelper.OperationType.CREATE_THREAD, AntiHelper.PageType.FRS)) {
                         return;
                     }
                 }
-                WriteActivity.a((Activity) this, this.w.b().getId(), this.f, this.w.e(), false, (String) null);
+                WriteActivity.a((Activity) this, this.A.b().getId(), this.g, this.A.e(), false, (String) null);
                 return;
             }
-            this.n.C();
+            this.p.C();
         }
     }
 
-    private boolean a(com.baidu.tieba.data.bb bbVar) {
-        String id;
-        return bbVar == null || bbVar.j() == null || (id = bbVar.j().getId()) == null || id.equals(SocialConstants.FALSE);
+    private boolean a(com.baidu.tieba.data.az azVar) {
+        String userId;
+        return azVar == null || azVar.j() == null || (userId = azVar.j().getUserId()) == null || userId.equals(SocialConstants.FALSE);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(com.baidu.tieba.data.bb bbVar) {
-        boolean a2 = a(bbVar);
-        this.n.a(new f(this, bbVar));
-        this.n.a(bbVar, a2);
+    public void b(com.baidu.tieba.data.az azVar) {
+        boolean a2 = a(azVar);
+        this.p.a(new w(this, azVar));
+        this.p.a(azVar, a2);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void c(com.baidu.tieba.data.bb bbVar) {
-        boolean a2 = a(bbVar);
-        if (this.l != null) {
+    public void c(com.baidu.tieba.data.az azVar) {
+        boolean a2 = a(azVar);
+        if (this.n != null) {
             if (!a2) {
-                NewPbActivity.a(this, bbVar, this.f, null, 18003, true, true, this.m);
+                NewPbActivity.a(this, azVar, this.g, null, 18003, true, true, this.o);
             } else {
-                NewPbActivity.a(this, bbVar, this.f, null, 18003, false, false, this.m);
+                NewPbActivity.a(this, azVar, this.g, null, 18003, false, false, this.o);
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void d(com.baidu.tieba.data.bb bbVar) {
-        if (this.l != null) {
-            NewPbActivity.a(this, bbVar, this.f, null, 18003, false, false, this.m);
+    public void d(com.baidu.tieba.data.az azVar) {
+        if (this.n != null) {
+            NewPbActivity.a(this, azVar, this.g, null, 18003, false, false, this.o);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void z() {
-        E();
-        this.i = 1;
-        this.e = 3;
-        A();
+    public void C() {
+        I();
+        this.j = 1;
+        this.f = 3;
+        D();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void A() {
+    public void D() {
         BasicNameValuePair basicNameValuePair;
         boolean z = false;
-        switch (this.e) {
+        switch (this.f) {
             case 1:
-                if (this.n.n().b()) {
+                if (this.p.n().b()) {
                     return;
                 }
                 break;
             case 2:
-                if (this.n.n().c()) {
+                if (this.p.n().c()) {
                     return;
                 }
                 break;
             case 3:
-                if (this.n.m()) {
+                if (this.p.m()) {
                     return;
                 }
                 break;
         }
         StringBuffer stringBuffer = new StringBuffer(30);
-        stringBuffer.append(com.baidu.tieba.data.h.a);
+        stringBuffer.append(com.baidu.tieba.data.i.a);
         stringBuffer.append("c/f/frs/page");
         ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
-        arrayList.add(new BasicNameValuePair("kw", this.f));
-        arrayList.add(new BasicNameValuePair("pn", String.valueOf(this.i)));
-        if (com.baidu.tieba.e.a.a().f()) {
+        arrayList.add(new BasicNameValuePair("kw", this.g));
+        arrayList.add(new BasicNameValuePair("pn", String.valueOf(this.j)));
+        if (com.baidu.tieba.h.a.a().f()) {
             basicNameValuePair = new BasicNameValuePair("rn", String.valueOf(35));
         } else {
             basicNameValuePair = new BasicNameValuePair("rn", String.valueOf(50));
         }
         arrayList.add(basicNameValuePair);
         arrayList.add(new BasicNameValuePair("with_group", SocialConstants.TRUE));
-        if (this.u) {
+        if (this.w) {
             arrayList.add(new BasicNameValuePair("is_good", SocialConstants.TRUE));
-            arrayList.add(new BasicNameValuePair("cid", String.valueOf(this.t)));
+            arrayList.add(new BasicNameValuePair("cid", String.valueOf(this.v)));
         }
-        int b = com.baidu.adp.lib.g.g.b(this);
-        int c = com.baidu.adp.lib.g.g.c(this);
-        float f = b / 320.0f;
-        int i = bx.a().b() ? 2 : 1;
-        arrayList.add(new BasicNameValuePair("scr_w", String.valueOf(b)));
+        int b2 = BdUtilHelper.b(this);
+        int c = BdUtilHelper.c(this);
+        float f = b2 / 320.0f;
+        int i = com.baidu.tieba.util.bv.a().b() ? 2 : 1;
+        arrayList.add(new BasicNameValuePair("scr_w", String.valueOf(b2)));
         arrayList.add(new BasicNameValuePair("scr_h", String.valueOf(c)));
         arrayList.add(new BasicNameValuePair("scr_dip", String.valueOf(f)));
         arrayList.add(new BasicNameValuePair("q_type", String.valueOf(i)));
-        if (this.o != null) {
-            arrayList.add(new BasicNameValuePair("st_type", this.o));
-        }
-        if (q != 0) {
-            arrayList.add(new BasicNameValuePair("ctime", String.valueOf(q)));
-        }
-        if (r != 0) {
-            arrayList.add(new BasicNameValuePair("data_size", String.valueOf(r)));
+        if (this.q != null) {
+            arrayList.add(new BasicNameValuePair("st_type", this.q));
         }
         if (s != 0) {
-            arrayList.add(new BasicNameValuePair("net_error", String.valueOf(s)));
+            arrayList.add(new BasicNameValuePair("ctime", String.valueOf(s)));
         }
-        this.n.b(true);
-        this.n.n().b(false);
-        this.n.n().c(false);
-        this.n.n().notifyDataSetChanged();
-        if (this.i == 1 && ((this.C.equals("normal_page") || this.C.equals("frs_page")) && !this.u)) {
+        if (t != 0) {
+            arrayList.add(new BasicNameValuePair("data_size", String.valueOf(t)));
+        }
+        if (u != 0) {
+            arrayList.add(new BasicNameValuePair("net_error", String.valueOf(u)));
+        }
+        this.p.b(true);
+        this.p.n().b(false);
+        this.p.n().c(false);
+        this.p.n().notifyDataSetChanged();
+        if (this.j == 1 && ((this.G.equals("normal_page") || this.G.equals("frs_page")) && !this.w)) {
             z = true;
         }
-        if (this.w == null) {
-            this.w = new com.baidu.tieba.model.ak();
+        if (this.A == null) {
+            this.A = new com.baidu.tieba.model.z();
         }
-        this.w.a(this.M);
-        this.w.a(stringBuffer.toString(), arrayList, this.e, z, this.f);
+        this.A.a(this.S);
+        this.A.a(stringBuffer.toString(), arrayList, this.f, z, this.g);
     }
 
-    private void B() {
-        switch (this.h) {
+    private void E() {
+        switch (this.i) {
             case 1:
-                DatabaseService.m(this.f);
+                DatabaseService.j(this.g);
                 break;
         }
-        this.h = 0;
+        this.i = 0;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void C() {
-        E();
+    public void F() {
+        I();
         try {
-            if (this.w != null) {
-                this.n.q();
-                this.f = this.w.b().getName();
-                this.n.c(this.f);
-                B();
-                this.d = false;
-                ArrayList<com.baidu.tieba.data.bb> c = this.w.c();
+            if (this.A != null) {
+                this.p.q();
+                this.g = this.A.b().getName();
+                this.p.c(this.g);
+                E();
+                this.e = false;
+                ArrayList<com.baidu.tieba.data.az> c = this.A.c();
                 if (c != null) {
-                    this.n.a(c, this.i, this.w);
-                    if (this.C.equals("frs_page")) {
-                        D();
-                    } else if (this.C.equals("normal_page")) {
-                        this.n.b(this.w.b(), this.w);
+                    this.p.a(c, this.j, this.A);
+                    J();
+                    if (this.G.equals("frs_page")) {
+                        G();
+                    } else if (this.G.equals("normal_page")) {
+                        this.p.b(this.A.b(), this.A);
                     }
-                    this.n.b(this.i);
-                    this.n.c(this.w.f().f());
-                    this.n.E();
-                    if (this.w.j() == 1) {
-                        this.n.n().f(true);
+                    this.p.b(this.j);
+                    this.p.c(this.A.f().f());
+                    this.p.E();
+                    if (this.A.j() == 1) {
+                        this.p.n().f(true);
                     } else {
-                        this.n.n().f(false);
+                        this.p.n().f(false);
                     }
-                    if (this.e == 1) {
-                        this.n.d(3);
-                    } else if (this.e == 2) {
-                        if (this.i == 1) {
-                            this.n.d(0);
+                    if (this.f == 1) {
+                        this.p.d(3);
+                    } else if (this.f == 2) {
+                        if (this.j == 1) {
+                            this.p.d(0);
                         } else {
-                            this.n.d(3);
+                            this.p.d(3);
                         }
                     } else {
-                        this.n.d(0);
+                        this.p.d(0);
                     }
-                    if (this.O != null && this.Q != null) {
-                        this.O.removeCallbacks(this.Q);
-                        this.O.postDelayed(this.Q, 300L);
+                    if (this.U != null && this.W != null) {
+                        this.U.removeCallbacks(this.W);
+                        this.U.postDelayed(this.W, 300L);
                     }
                 }
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b("FrsActivity", "", "FrsActivity.refreshFrs error = " + e.getMessage());
+            com.baidu.adp.lib.util.f.b("FrsActivity", "", "FrsActivity.refreshFrs error = " + e.getMessage());
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.n.G();
-        if (this.A != null) {
-            this.A.removeMessages(1);
+        this.p.G();
+        if (this.E != null) {
+            this.E.removeMessages(1);
         }
-        this.c = d_();
-        this.c.d(this);
-        if (this.af != null) {
-            this.af.clear();
+        this.d = h();
+        this.d.d(this);
+        if (this.al != null) {
+            this.al.clear();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, android.app.Activity
     public void onStop() {
         super.onStop();
-        this.c = d_();
-        if (this.c != null) {
-            this.c.f(this);
+        this.d = h();
+        if (this.d != null) {
+            this.d.f(this);
         }
     }
 
-    @Override // com.baidu.tieba.j, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tieba.f, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i != 82 || this.j) {
+        if (i != 82 || this.k) {
             if (i == 4) {
-                if (this.n.g().isMenuShowing()) {
-                    this.n.g().toggle(true);
-                    if (this.n.f().g()) {
-                        this.n.f().c(false);
-                        z();
+                if (this.p.g().isMenuShowing()) {
+                    this.p.g().toggle(true);
+                    if (this.p.f().g()) {
+                        this.p.f().c(false);
+                        C();
                         return true;
                     }
                     return true;
@@ -972,77 +1017,107 @@ public class FrsActivity extends com.baidu.tieba.j implements com.baidu.adp.widg
         return true;
     }
 
-    private void D() {
-        this.n.a(this.w.b(), this.w);
-        this.A.removeMessages(1);
-        if (this.i == 1 && this.C.equals("frs_page") && this.w.g().f() == 0) {
-            this.B = System.nanoTime() / 1000000000;
-            if (this.w.g().g() > 0) {
-                this.A.sendMessageDelayed(this.A.obtainMessage(1), 1000L);
+    public void a(g gVar, int i) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.anti_title);
+        builder.setIcon((Drawable) null);
+        builder.setCancelable(true);
+        builder.setMessage(String.valueOf(getString(R.string.confirm_download_app)) + gVar.w() + getString(R.string.question_mark));
+        builder.setPositiveButton(R.string.alert_yes_button, new x(this, gVar, i));
+        builder.setNegativeButton(R.string.alert_no_button, new y(this));
+        this.Q = builder.create();
+        this.Q.show();
+    }
+
+    public void b(g gVar, int i) {
+        if (UtilHelper.b()) {
+            cb.a(this, "frs_dl_app", "frs_recommend_app", 1, "app_name", gVar.y());
+            new com.baidu.tieba.account.ax("frs_recommend_app", "frs_dl", gVar.y()).start();
+            b.a().a(gVar.y(), gVar.z(), gVar.w(), i);
+            return;
+        }
+        showToast(R.string.neterror);
+    }
+
+    public void a(g gVar) {
+        if (!com.baidu.tieba.util.bs.c(gVar.z())) {
+            UtilHelper.a(this, b.a().a(gVar.z()));
+        }
+    }
+
+    private void G() {
+        this.p.a(this.A.b(), this.A);
+        this.E.removeMessages(1);
+        if (this.j == 1 && this.G.equals("frs_page") && this.A.g().f() == 0) {
+            this.F = System.nanoTime() / 1000000000;
+            if (this.A.g().g() > 0) {
+                this.E.sendMessageDelayed(this.E.obtainMessage(1), 1000L);
             }
         }
     }
 
-    public void h() {
+    public void i() {
         String A = TiebaApplication.A();
         if (A == null || A.length() <= 0) {
             LoginActivity.a((Activity) this, getString(R.string.login_to_use), true, 11021);
-        } else if (!this.w.h()) {
-            this.w.a(true);
-            this.w.a(this.N);
-            this.w.b(String.valueOf(this.w.b().isLike()));
+        } else if (!this.A.h()) {
+            this.A.a(true);
+            this.A.a(this.T);
+            this.A.b(String.valueOf(this.A.b().isLike()));
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void i() {
+    public void H() {
+        UtilHelper.c(this, String.valueOf(com.baidu.tieba.data.i.a) + "mo/q/fudaiindex?fid=" + this.A.b().getId());
+    }
+
+    public void j() {
         String A = TiebaApplication.A();
         if (A == null || A.length() <= 0) {
             LoginActivity.a((Activity) this, getString(R.string.login_to_use), true, 11002);
             return;
         }
-        this.x.a("from_frs");
-        this.x.a(this.w.b().getName(), this.w.b().getId());
+        this.B.a("from_frs");
+        this.B.a(this.A.b().getName(), this.A.b().getId());
     }
 
-    protected void j() {
+    protected void k() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(getString(R.string.attention_cancel_info));
         builder.setTitle(getString(R.string.alerm_title));
-        builder.setPositiveButton(getString(R.string.attention_cancel), new n(this));
-        builder.setNegativeButton(getString(R.string.cancel), new o(this));
+        builder.setPositiveButton(getString(R.string.attention_cancel), new z(this));
+        builder.setNegativeButton(getString(R.string.cancel), new aa(this));
         builder.create().show();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void k() {
+    public void l() {
         String A = TiebaApplication.A();
         if (A == null || A.length() <= 0) {
             LoginActivity.a((Activity) this, getString(R.string.login_to_use), true, 11014);
             return;
         }
-        if (this.C.equals("normal_page")) {
-            this.n.v();
-        } else if (this.C.equals("frs_page")) {
-            this.n.x();
+        if (this.G.equals("normal_page")) {
+            this.p.v();
+        } else if (this.G.equals("frs_page")) {
+            this.p.x();
         }
-        this.z.a(this.w.b().getName(), this.w.b().getId());
+        this.D.a(this.A.b().getName(), this.A.b().getId());
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.c
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (view == this.n.f().f()) {
+        if (view == this.p.f().f()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                if (TiebaApplication.h().al() != 1) {
-                    by.a(this, "frs_night_mode", "frsclick", 1, new Object[0]);
-                    TiebaApplication.h().e(1);
+                if (TiebaApplication.g().al() != 1) {
+                    cb.a(this, "frs_night_mode", "frsclick", 1, new Object[0]);
+                    TiebaApplication.g().e(1);
                     this.mSkinType = 1;
-                    new com.baidu.tieba.account.av("eyeshield").start();
+                    new com.baidu.tieba.account.ax("eyeshield").start();
                 } else {
                     return;
                 }
-            } else if (TiebaApplication.h().al() != 0) {
-                TiebaApplication.h().e(0);
+            } else if (TiebaApplication.g().al() != 0) {
+                TiebaApplication.g().e(0);
                 this.mSkinType = 0;
             } else {
                 return;
@@ -1052,41 +1127,39 @@ public class FrsActivity extends com.baidu.tieba.j implements com.baidu.adp.widg
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void b(String str) {
-        this.F = false;
+        this.J = false;
         if (str != null) {
-            if (TiebaApplication.h().g(str)) {
+            if (TiebaApplication.g().g(str)) {
                 FrsImageActivity.a(this, str, null, 0);
                 g();
                 return;
             }
-            if (this.n.g().isMenuShowing()) {
-                this.n.g().toggle(true);
+            if (this.p.g().isMenuShowing()) {
+                this.p.g().toggle(true);
             }
-            this.u = false;
-            this.n.f().a(R.id.show_all);
-            this.f = str;
-            z();
+            this.w = false;
+            this.p.f().a(R.id.show_all);
+            this.g = str;
+            C();
         }
     }
 
     @Override // com.baidu.tieba.voice.af
-    public VoiceManager d_() {
-        if (this.c == null) {
-            this.c = VoiceManager.c();
+    public VoiceManager h() {
+        if (this.d == null) {
+            this.d = VoiceManager.c();
         }
-        return this.c;
+        return this.d;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.view.cz
-    /* renamed from: l */
+    @Override // com.baidu.tieba.view.df
+    /* renamed from: m */
     public BdListView c() {
-        if (this.n == null) {
+        if (this.p == null) {
             return null;
         }
-        return this.n.D();
+        return this.p.D();
     }
 
     @Override // com.baidu.tieba.voice.af
@@ -1094,59 +1167,109 @@ public class FrsActivity extends com.baidu.tieba.j implements com.baidu.adp.widg
         return null;
     }
 
-    private void E() {
-        this.c = d_();
-        this.c.g();
+    private void I() {
+        this.d = h();
+        this.d.g();
     }
 
-    @Override // com.baidu.tieba.view.cz
+    @Override // com.baidu.tieba.view.df
     public int a() {
-        if (this.n == null) {
+        if (this.p == null) {
             return 0;
         }
-        return this.n.J();
+        return this.p.K();
     }
 
-    @Override // com.baidu.tieba.view.cz
-    public com.baidu.adp.lib.d.b<TbImageView> G() {
-        return this.I;
+    @Override // com.baidu.tieba.view.df
+    public com.baidu.adp.lib.d.b<TbImageView> g_() {
+        return this.M;
     }
 
     @Override // com.baidu.tbadk.widget.a
     public void a(com.baidu.tbadk.widget.b bVar) {
         if (bVar != null) {
-            this.af.remove(bVar);
+            this.al.remove(bVar);
         }
     }
 
-    public void m() {
-        while (this.af.size() > 0) {
-            com.baidu.tbadk.widget.b remove = this.af.remove(0);
+    public void n() {
+        while (this.al.size() > 0) {
+            com.baidu.tbadk.widget.b remove = this.al.remove(0);
             if (remove != null) {
                 remove.invalidate();
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(com.baidu.tieba.im.message.q qVar) {
-        if (qVar != null) {
-            if (!(qVar instanceof com.baidu.tieba.im.message.t)) {
-                com.baidu.adp.lib.g.e.a("transform error");
+    public void a(com.baidu.tieba.im.message.s sVar) {
+        if (sVar != null) {
+            if (!(sVar instanceof com.baidu.tieba.im.message.v)) {
+                com.baidu.adp.lib.util.f.b("transform error");
                 return;
             }
-            com.baidu.tieba.im.message.t tVar = (com.baidu.tieba.im.message.t) qVar;
-            int c = tVar.c();
-            int a2 = tVar.a();
-            int b = tVar.b();
-            int d = tVar.d();
-            if (this.D != null) {
-                this.D.a(c);
-                this.D.c(a2);
-                this.D.b(b);
-                this.D.d(d);
-                this.n.a(this.D);
+            com.baidu.tieba.im.message.v vVar = (com.baidu.tieba.im.message.v) sVar;
+            int c = vVar.c();
+            int a2 = vVar.a();
+            int b2 = vVar.b();
+            int d = vVar.d();
+            if (this.H != null) {
+                this.H.a(c);
+                this.H.c(a2);
+                this.H.b(b2);
+                this.H.d(d);
+                this.p.a(this.H);
             }
+        }
+    }
+
+    public void b(com.baidu.tieba.im.message.s sVar) {
+        List<com.baidu.tieba.d.a> a2;
+        ak n;
+        HashMap<Integer, com.baidu.tieba.data.az> d;
+        if (this.A != null && this.p != null && (sVar instanceof com.baidu.tieba.d.b) && (a2 = ((com.baidu.tieba.d.b) sVar).a()) != null && (n = this.p.n()) != null && (d = n.d()) != null && d.size() > 0) {
+            for (com.baidu.tieba.d.a aVar : a2) {
+                if (aVar != null) {
+                    Iterator<Map.Entry<Integer, com.baidu.tieba.data.az>> it = d.entrySet().iterator();
+                    while (true) {
+                        if (it.hasNext()) {
+                            Map.Entry<Integer, com.baidu.tieba.data.az> next = it.next();
+                            int intValue = next.getKey().intValue();
+                            com.baidu.tieba.data.az value = next.getValue();
+                            if (value != null && (value instanceof g) && ((g) value).y().equals(aVar.a())) {
+                                if (n.getItem(intValue) instanceof g) {
+                                    g gVar = (g) n.getItem(intValue);
+                                    int f = aVar.f();
+                                    if (f == 3 || f == 0) {
+                                        gVar.d(2);
+                                    } else if (f == 2 || f == 4) {
+                                        if (!com.baidu.tieba.util.bs.c(aVar.n())) {
+                                            showToast(aVar.n());
+                                        }
+                                        gVar.d(0);
+                                    } else if (f == 1) {
+                                        gVar.d(1);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            this.p.r();
+        }
+    }
+
+    private void J() {
+        HashMap<Integer, com.baidu.tieba.data.az> d;
+        if ((this.p != null || this.p.n() != null) && (d = this.p.n().d()) != null) {
+            ArrayList<g> arrayList = new ArrayList<>();
+            for (Map.Entry<Integer, com.baidu.tieba.data.az> entry : d.entrySet()) {
+                com.baidu.tieba.data.az value = entry.getValue();
+                if (value != null && (value instanceof g)) {
+                    arrayList.add((g) value);
+                }
+            }
+            b.a().a(arrayList);
         }
     }
 }

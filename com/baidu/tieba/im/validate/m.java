@@ -1,22 +1,18 @@
 package com.baidu.tieba.im.validate;
-
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class m extends BdAsyncTask<Void, Void, Void> {
-    final /* synthetic */ LinkedList a;
+public class m extends com.baidu.tieba.im.c<Boolean> {
+    private final /* synthetic */ ValidateItemData a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(LinkedList linkedList) {
-        this.a = linkedList;
+    public m(ValidateItemData validateItemData) {
+        this.a = validateItemData;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void a(Void... voidArr) {
-        com.baidu.tieba.im.db.l.a().a(this.a);
-        return null;
+    @Override // com.baidu.tieba.im.c
+    /* renamed from: a */
+    public Boolean b() {
+        return Boolean.valueOf(com.baidu.tieba.im.db.c.a().a(this.a));
     }
 }

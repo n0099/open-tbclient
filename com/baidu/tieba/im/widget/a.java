@@ -19,9 +19,9 @@ public class a {
     public static synchronized void a(Activity activity, QueryPrizeRes.PrizeInfo prizeInfo) {
         synchronized (a.class) {
             if (prizeInfo == null) {
-                com.baidu.adp.lib.g.e.d("no PriceInfo");
+                com.baidu.adp.lib.util.f.e("no PriceInfo");
             } else {
-                com.baidu.adp.lib.g.e.d("name:" + prizeInfo.getName() + " link:" + prizeInfo.getLink() + " type:" + prizeInfo.getType() + " subtype:" + prizeInfo.getSubType() + " text:" + prizeInfo.getAbstract());
+                com.baidu.adp.lib.util.f.e("name:" + prizeInfo.getName() + " link:" + prizeInfo.getLink() + " type:" + prizeInfo.getType() + " subtype:" + prizeInfo.getSubType() + " text:" + prizeInfo.getAbstract());
                 b = prizeInfo;
                 if (a != null) {
                     a.c();
@@ -43,7 +43,7 @@ public class a {
     }
 
     private static boolean a(Activity activity) {
-        View inflate = LayoutInflater.from(TiebaApplication.h()).inflate(R.layout.egg_breaker_tip_center_view, (ViewGroup) null);
+        View inflate = LayoutInflater.from(TiebaApplication.g().b()).inflate(R.layout.egg_breaker_tip_center_view, (ViewGroup) null);
         BDImageView bDImageView = (BDImageView) inflate.findViewById(R.id.egg_breaker_tip_img);
         TextView textView = (TextView) inflate.findViewById(R.id.egg_breaker_tip_sfc);
         TextView textView2 = (TextView) inflate.findViewById(R.id.egg_breaker_tip_main_tip);
@@ -54,18 +54,18 @@ public class a {
             bDImageView.setImageResource(R.drawable.bg_egg_breaker_sfc);
             textView.setText(b.getAbstract());
             textView2.setVisibility(8);
-            textView3.setText(TiebaApplication.h().getString(R.string.egg_breaker_tip));
+            textView3.setText(TiebaApplication.g().b().getString(R.string.egg_breaker_tip));
             c();
         } else if (type == 1) {
             bDImageView.setImageResource(R.drawable.bg_egg_breaker_virtual);
             textView2.setText(a(b.getName()));
-            textView3.setText(TiebaApplication.h().getString(R.string.egg_breaker_tip));
+            textView3.setText(TiebaApplication.g().b().getString(R.string.egg_breaker_tip));
             a(activity, type);
         } else {
             bDImageView.setImageResource(R.drawable.bg_egg_breaker_virtual);
             if (type == 3) {
-                textView2.setText(a(TiebaApplication.h().getString(R.string.egg_breaker_tip_tdou_name)));
-                textView3.setText(TiebaApplication.h().getString(R.string.egg_breaker_tip));
+                textView2.setText(a(TiebaApplication.g().b().getString(R.string.egg_breaker_tip_tdou_name)));
+                textView3.setText(TiebaApplication.g().b().getString(R.string.egg_breaker_tip));
                 c();
             } else {
                 switch (subType) {
@@ -75,23 +75,23 @@ public class a {
                         c();
                         break;
                     case 1:
-                        textView2.setText(a(TiebaApplication.h().getString(R.string.egg_breaker_tip_emotion_name)));
-                        textView3.setText(TiebaApplication.h().getString(R.string.egg_breaker_tip_emotion_tip_down));
+                        textView2.setText(a(TiebaApplication.g().b().getString(R.string.egg_breaker_tip_emotion_name)));
+                        textView3.setText(TiebaApplication.g().b().getString(R.string.egg_breaker_tip_emotion_tip_down));
                         a(activity, b.getType());
                         break;
                     case 2:
-                        textView2.setText(a(TiebaApplication.h().getString(R.string.egg_breaker_tip_badge_name)));
+                        textView2.setText(a(TiebaApplication.g().b().getString(R.string.egg_breaker_tip_badge_name)));
                         textView3.setVisibility(8);
                         c();
                         break;
                     case 3:
-                        textView2.setText(a(TiebaApplication.h().getString(R.string.egg_breaker_tip_retroactive_name)));
-                        textView3.setText(TiebaApplication.h().getString(R.string.egg_breaker_tip_retroactive_tip_down));
+                        textView2.setText(a(TiebaApplication.g().b().getString(R.string.egg_breaker_tip_retroactive_name)));
+                        textView3.setText(TiebaApplication.g().b().getString(R.string.egg_breaker_tip_retroactive_tip_down));
                         c();
                         break;
                     case 4:
-                        textView2.setText(a(TiebaApplication.h().getString(R.string.egg_breaker_tip_magic_egg_name)));
-                        textView3.setText(TiebaApplication.h().getString(R.string.egg_breaker_tip_magic_egg_tip_down));
+                        textView2.setText(a(TiebaApplication.g().b().getString(R.string.egg_breaker_tip_magic_egg_name)));
+                        textView3.setText(TiebaApplication.g().b().getString(R.string.egg_breaker_tip_magic_egg_tip_down));
                         c();
                         break;
                     default:

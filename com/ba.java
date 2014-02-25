@@ -1,32 +1,31 @@
 package com;
 
-import com.baidu.cloudsdk.common.http.AsyncHttpClient;
-import org.apache.http.Header;
-import org.apache.http.HeaderElement;
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpResponseInterceptor;
-import org.apache.http.protocol.HttpContext;
+import com.baidu.cloudsdk.BaiduException;
+import com.baidu.cloudsdk.DefaultBaiduListener;
+import com.baidu.cloudsdk.social.share.uiwithlayout.ShareMediaItem;
 /* loaded from: classes.dex */
-public class ba implements HttpResponseInterceptor {
-    final /* synthetic */ AsyncHttpClient a;
+class ba extends DefaultBaiduListener {
+    final /* synthetic */ ShareMediaItem a;
+    final /* synthetic */ az b;
 
-    public ba(AsyncHttpClient asyncHttpClient) {
-        this.a = asyncHttpClient;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ba(az azVar, ShareMediaItem shareMediaItem) {
+        this.b = azVar;
+        this.a = shareMediaItem;
     }
 
-    public void process(HttpResponse httpResponse, HttpContext httpContext) {
-        Header contentEncoding;
-        HttpEntity entity = httpResponse.getEntity();
-        if (entity == null || (contentEncoding = entity.getContentEncoding()) == null) {
-            return;
-        }
-        HeaderElement[] elements = contentEncoding.getElements();
-        for (HeaderElement headerElement : elements) {
-            if (headerElement.getName().equalsIgnoreCase("gzip")) {
-                httpResponse.setEntity(new AsyncHttpClient.a(httpResponse.getEntity()));
-                return;
-            }
-        }
+    @Override // com.baidu.cloudsdk.DefaultBaiduListener, com.baidu.cloudsdk.IBaiduListener
+    public void onCancel() {
+        this.b.b.a(this.a, false);
+    }
+
+    @Override // com.baidu.cloudsdk.DefaultBaiduListener, com.baidu.cloudsdk.IBaiduListener
+    public void onComplete() {
+        this.b.b.a(this.a, true);
+    }
+
+    @Override // com.baidu.cloudsdk.DefaultBaiduListener, com.baidu.cloudsdk.IBaiduListener
+    public void onError(BaiduException baiduException) {
+        this.b.b.a(this.a, false);
     }
 }

@@ -1,6 +1,7 @@
 package com.baidu.android.systemmonitor.devicestatistic.a;
 
 import android.database.Cursor;
+import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public class a extends f {
     public int a;
@@ -50,6 +51,6 @@ public class a extends f {
 
     @Override // com.baidu.android.systemmonitor.devicestatistic.a.f
     public String toString() {
-        return "StoreInfomation :startStamp = " + this.n + "  phoneContactsNum =" + this.a + " simContactsNum = " + this.b + " smsNum = " + this.c + "\r\n smsInfo =" + this.d + "\r\n calllogNum = " + this.e + " calllogInfo = " + this.f + "\r\n sdcardFreeAll = " + this.g + " phoneFreeAll =" + this.h + " phonePhotoNum =" + this.i + " sdcardPhotoNum =" + this.j + " phoneMp3Num = " + this.k + " sdcardMp3Num =" + this.l + " sdcardTvNum =" + this.m;
+        return "StoreInfomation :startStamp = " + this.n + "  phoneContactsNum =" + this.a + " simContactsNum = " + this.b + " smsNum = " + this.c + IOUtils.LINE_SEPARATOR_WINDOWS + " smsInfo =" + this.d + IOUtils.LINE_SEPARATOR_WINDOWS + " calllogNum = " + this.e + " calllogInfo = " + this.f + IOUtils.LINE_SEPARATOR_WINDOWS + " sdcardFreeAll = " + this.g + " phoneFreeAll =" + this.h + " phonePhotoNum =" + this.i + " sdcardPhotoNum =" + this.j + " phoneMp3Num = " + this.k + " sdcardMp3Num =" + this.l + " sdcardTvNum =" + this.m;
     }
 }

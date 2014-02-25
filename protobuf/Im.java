@@ -1,5 +1,8 @@
 package protobuf;
 
+import android.support.v4.view.GravityCompat;
+import android.support.v4.view.accessibility.AccessibilityEventCompat;
+import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.location.BDLocation;
 import com.google.protobuf.ByteString;
@@ -18,7 +21,7 @@ import java.util.List;
 public final class Im {
 
     /* loaded from: classes.dex */
-    public final class Error extends GeneratedMessageLite implements d {
+    public final class Error extends GeneratedMessageLite implements f {
         public static final int ERRORNO_FIELD_NUMBER = 1;
         public static final int USERMSG_FIELD_NUMBER = 2;
         private static final long serialVersionUID = 0;
@@ -27,8 +30,13 @@ public final class Im {
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
         private Object usermsg_;
-        public static Parser<Error> PARSER = new b();
+        public static Parser<Error> PARSER = new d();
         private static final Error a = new Error(true);
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ Error(GeneratedMessageLite.Builder builder, Error error) {
+            this(builder);
+        }
 
         private Error(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -59,38 +67,41 @@ public final class Im {
             while (!z) {
                 try {
                     try {
-                        try {
-                            int readTag = codedInputStream.readTag();
-                            switch (readTag) {
-                                case 0:
+                        int readTag = codedInputStream.readTag();
+                        switch (readTag) {
+                            case 0:
+                                z = true;
+                                break;
+                            case 8:
+                                this.bitField0_ |= 1;
+                                this.errorno_ = codedInputStream.readInt32();
+                                break;
+                            case GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
+                                this.bitField0_ |= 2;
+                                this.usermsg_ = codedInputStream.readBytes();
+                                break;
+                            default:
+                                if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
-                                case 8:
-                                    this.bitField0_ |= 1;
-                                    this.errorno_ = codedInputStream.readInt32();
+                                } else {
                                     break;
-                                case GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
-                                    this.bitField0_ |= 2;
-                                    this.usermsg_ = codedInputStream.readBytes();
-                                    break;
-                                default:
-                                    if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
-                                        z = true;
-                                        break;
-                                    } else {
-                                        break;
-                                    }
-                            }
-                        } catch (IOException e) {
-                            throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
+                                }
                         }
-                    } catch (InvalidProtocolBufferException e2) {
-                        throw e2.setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
                 } finally {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ Error(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, Error error) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -222,32 +233,32 @@ public final class Im {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static c newBuilder() {
-            return c.f();
+        public static e newBuilder() {
+            return e.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public c newBuilderForType() {
+        public e newBuilderForType() {
             return newBuilder();
         }
 
-        public static c newBuilder(Error error) {
+        public static e newBuilder(Error error) {
             return newBuilder().mergeFrom(error);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public c toBuilder() {
+        public e toBuilder() {
             return newBuilder(this);
         }
     }
 
     /* loaded from: classes.dex */
-    public final class UserPermission extends GeneratedMessageLite implements ak {
+    public final class UserPermission extends GeneratedMessageLite implements am {
         public static final int ISGROUPMANAGER_FIELD_NUMBER = 2;
         public static final int ISGROUPOWNER_FIELD_NUMBER = 1;
-        public static Parser<UserPermission> PARSER = new ai();
+        public static Parser<UserPermission> PARSER = new ak();
         private static final UserPermission a = new UserPermission(true);
         private static final long serialVersionUID = 0;
         private int bitField0_;
@@ -255,6 +266,11 @@ public final class Im {
         private int isGroupOwner_;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ UserPermission(GeneratedMessageLite.Builder builder, UserPermission userPermission) {
+            this(builder);
+        }
 
         private UserPermission(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -285,38 +301,41 @@ public final class Im {
             while (!z) {
                 try {
                     try {
-                        try {
-                            int readTag = codedInputStream.readTag();
-                            switch (readTag) {
-                                case 0:
+                        int readTag = codedInputStream.readTag();
+                        switch (readTag) {
+                            case 0:
+                                z = true;
+                                break;
+                            case 8:
+                                this.bitField0_ |= 1;
+                                this.isGroupOwner_ = codedInputStream.readInt32();
+                                break;
+                            case 16:
+                                this.bitField0_ |= 2;
+                                this.isGroupManager_ = codedInputStream.readInt32();
+                                break;
+                            default:
+                                if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
-                                case 8:
-                                    this.bitField0_ |= 1;
-                                    this.isGroupOwner_ = codedInputStream.readInt32();
+                                } else {
                                     break;
-                                case 16:
-                                    this.bitField0_ |= 2;
-                                    this.isGroupManager_ = codedInputStream.readInt32();
-                                    break;
-                                default:
-                                    if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
-                                        z = true;
-                                        break;
-                                    } else {
-                                        break;
-                                    }
-                            }
-                        } catch (IOException e) {
-                            throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
+                                }
                         }
-                    } catch (InvalidProtocolBufferException e2) {
-                        throw e2.setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
                 } finally {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ UserPermission(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, UserPermission userPermission) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -429,29 +448,29 @@ public final class Im {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static aj newBuilder() {
-            return aj.f();
+        public static al newBuilder() {
+            return al.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public aj newBuilderForType() {
+        public al newBuilderForType() {
             return newBuilder();
         }
 
-        public static aj newBuilder(UserPermission userPermission) {
+        public static al newBuilder(UserPermission userPermission) {
             return newBuilder().mergeFrom(userPermission);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public aj toBuilder() {
+        public al toBuilder() {
             return newBuilder(this);
         }
     }
 
     /* loaded from: classes.dex */
-    public final class GroupPermission extends GeneratedMessageLite implements p {
+    public final class GroupPermission extends GeneratedMessageLite implements r {
         public static final int CANCREATENORMALNUM_FIELD_NUMBER = 8;
         public static final int CANCREATENORMAL_FIELD_NUMBER = 2;
         public static final int CANCREATEOFFICIALNUM_FIELD_NUMBER = 9;
@@ -462,7 +481,7 @@ public final class Im {
         public static final int CREATEOFFICIALTIP_FIELD_NUMBER = 6;
         public static final int CREATEPERSONALTIP_FIELD_NUMBER = 7;
         public static final int ISFORUMMANAGER_FIELD_NUMBER = 1;
-        public static Parser<GroupPermission> PARSER = new n();
+        public static Parser<GroupPermission> PARSER = new p();
         private static final GroupPermission a = new GroupPermission(true);
         private static final long serialVersionUID = 0;
         private int bitField0_;
@@ -478,6 +497,11 @@ public final class Im {
         private int isForumManager_;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ GroupPermission(GeneratedMessageLite.Builder builder, GroupPermission groupPermission) {
+            this(builder);
+        }
 
         private GroupPermission(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -508,70 +532,73 @@ public final class Im {
             while (!z) {
                 try {
                     try {
-                        try {
-                            int readTag = codedInputStream.readTag();
-                            switch (readTag) {
-                                case 0:
+                        int readTag = codedInputStream.readTag();
+                        switch (readTag) {
+                            case 0:
+                                z = true;
+                                break;
+                            case 8:
+                                this.bitField0_ |= 1;
+                                this.isForumManager_ = codedInputStream.readInt32();
+                                break;
+                            case 16:
+                                this.bitField0_ |= 2;
+                                this.canCreateNormal_ = codedInputStream.readInt32();
+                                break;
+                            case GroupInfo.ISHIDEPOSITION_FIELD_NUMBER /* 24 */:
+                                this.bitField0_ |= 4;
+                                this.canCreateOfficial_ = codedInputStream.readInt32();
+                                break;
+                            case 32:
+                                this.bitField0_ |= 8;
+                                this.canCreatePersonal_ = codedInputStream.readInt32();
+                                break;
+                            case 42:
+                                this.bitField0_ |= 16;
+                                this.createNormalTip_ = codedInputStream.readBytes();
+                                break;
+                            case 50:
+                                this.bitField0_ |= 32;
+                                this.createOfficialTip_ = codedInputStream.readBytes();
+                                break;
+                            case 58:
+                                this.bitField0_ |= 64;
+                                this.createPersonalTip_ = codedInputStream.readBytes();
+                                break;
+                            case AccessibilityNodeInfoCompat.ACTION_ACCESSIBILITY_FOCUS /* 64 */:
+                                this.bitField0_ |= 128;
+                                this.canCreateNormalNum_ = codedInputStream.readInt32();
+                                break;
+                            case 72:
+                                this.bitField0_ |= 256;
+                                this.canCreateOfficialNum_ = codedInputStream.readInt32();
+                                break;
+                            case com.baidu.loginshare.e.i /* 80 */:
+                                this.bitField0_ |= 512;
+                                this.canCreatePersonalNum_ = codedInputStream.readInt32();
+                                break;
+                            default:
+                                if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
-                                case 8:
-                                    this.bitField0_ |= 1;
-                                    this.isForumManager_ = codedInputStream.readInt32();
+                                } else {
                                     break;
-                                case 16:
-                                    this.bitField0_ |= 2;
-                                    this.canCreateNormal_ = codedInputStream.readInt32();
-                                    break;
-                                case GroupInfo.ISHIDEPOSITION_FIELD_NUMBER /* 24 */:
-                                    this.bitField0_ |= 4;
-                                    this.canCreateOfficial_ = codedInputStream.readInt32();
-                                    break;
-                                case GroupInfo.ISNEWLYCREATE_FIELD_NUMBER /* 32 */:
-                                    this.bitField0_ |= 8;
-                                    this.canCreatePersonal_ = codedInputStream.readInt32();
-                                    break;
-                                case 42:
-                                    this.bitField0_ |= 16;
-                                    this.createNormalTip_ = codedInputStream.readBytes();
-                                    break;
-                                case 50:
-                                    this.bitField0_ |= 32;
-                                    this.createOfficialTip_ = codedInputStream.readBytes();
-                                    break;
-                                case 58:
-                                    this.bitField0_ |= 64;
-                                    this.createPersonalTip_ = codedInputStream.readBytes();
-                                    break;
-                                case 64:
-                                    this.bitField0_ |= 128;
-                                    this.canCreateNormalNum_ = codedInputStream.readInt32();
-                                    break;
-                                case 72:
-                                    this.bitField0_ |= 256;
-                                    this.canCreateOfficialNum_ = codedInputStream.readInt32();
-                                    break;
-                                case com.baidu.loginshare.e.i /* 80 */:
-                                    this.bitField0_ |= 512;
-                                    this.canCreatePersonalNum_ = codedInputStream.readInt32();
-                                    break;
-                                default:
-                                    if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
-                                        z = true;
-                                        break;
-                                    } else {
-                                        break;
-                                    }
-                            }
-                        } catch (IOException e) {
-                            throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
+                                }
                         }
-                    } catch (InvalidProtocolBufferException e2) {
-                        throw e2.setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
                 } finally {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ GroupPermission(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, GroupPermission groupPermission) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -861,29 +888,29 @@ public final class Im {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static o newBuilder() {
-            return o.f();
+        public static q newBuilder() {
+            return q.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public o newBuilderForType() {
+        public q newBuilderForType() {
             return newBuilder();
         }
 
-        public static o newBuilder(GroupPermission groupPermission) {
+        public static q newBuilder(GroupPermission groupPermission) {
             return newBuilder().mergeFrom(groupPermission);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public o toBuilder() {
+        public q toBuilder() {
             return newBuilder(this);
         }
     }
 
     /* loaded from: classes.dex */
-    public final class TshowInfo extends GeneratedMessageLite implements ae {
+    public final class TshowInfo extends GeneratedMessageLite implements ag {
         public static final int ICON_FIELD_NUMBER = 1;
         public static final int NAME_FIELD_NUMBER = 2;
         public static final int URL_FIELD_NUMBER = 3;
@@ -894,8 +921,13 @@ public final class Im {
         private int memoizedSerializedSize;
         private Object name_;
         private Object url_;
-        public static Parser<TshowInfo> PARSER = new ac();
+        public static Parser<TshowInfo> PARSER = new ae();
         private static final TshowInfo a = new TshowInfo(true);
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ TshowInfo(GeneratedMessageLite.Builder builder, TshowInfo tshowInfo) {
+            this(builder);
+        }
 
         private TshowInfo(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -926,42 +958,45 @@ public final class Im {
             while (!z) {
                 try {
                     try {
-                        try {
-                            int readTag = codedInputStream.readTag();
-                            switch (readTag) {
-                                case 0:
+                        int readTag = codedInputStream.readTag();
+                        switch (readTag) {
+                            case 0:
+                                z = true;
+                                break;
+                            case 10:
+                                this.bitField0_ |= 1;
+                                this.icon_ = codedInputStream.readBytes();
+                                break;
+                            case GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
+                                this.bitField0_ |= 2;
+                                this.name_ = codedInputStream.readBytes();
+                                break;
+                            case GroupInfo.NICKNAME_FIELD_NUMBER /* 26 */:
+                                this.bitField0_ |= 4;
+                                this.url_ = codedInputStream.readBytes();
+                                break;
+                            default:
+                                if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
-                                case 10:
-                                    this.bitField0_ |= 1;
-                                    this.icon_ = codedInputStream.readBytes();
+                                } else {
                                     break;
-                                case GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
-                                    this.bitField0_ |= 2;
-                                    this.name_ = codedInputStream.readBytes();
-                                    break;
-                                case GroupInfo.NICKNAME_FIELD_NUMBER /* 26 */:
-                                    this.bitField0_ |= 4;
-                                    this.url_ = codedInputStream.readBytes();
-                                    break;
-                                default:
-                                    if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
-                                        z = true;
-                                        break;
-                                    } else {
-                                        break;
-                                    }
-                            }
-                        } catch (IOException e) {
-                            throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
+                                }
                         }
-                    } catch (InvalidProtocolBufferException e2) {
-                        throw e2.setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
                 } finally {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ TshowInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, TshowInfo tshowInfo) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -1146,29 +1181,29 @@ public final class Im {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static ad newBuilder() {
-            return ad.f();
+        public static af newBuilder() {
+            return af.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public ad newBuilderForType() {
+        public af newBuilderForType() {
             return newBuilder();
         }
 
-        public static ad newBuilder(TshowInfo tshowInfo) {
+        public static af newBuilder(TshowInfo tshowInfo) {
             return newBuilder().mergeFrom(tshowInfo);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public ad toBuilder() {
+        public af toBuilder() {
             return newBuilder(this);
         }
     }
 
     /* loaded from: classes.dex */
-    public final class UserInfo extends GeneratedMessageLite implements ah {
+    public final class UserInfo extends GeneratedMessageLite implements aj {
         public static final int INTIME_FIELD_NUMBER = 9;
         public static final int LASTREPLYTIME_FIELD_NUMBER = 11;
         public static final int LAT_FIELD_NUMBER = 8;
@@ -1201,8 +1236,13 @@ public final class Im {
         private List<TshowInfo> tshowIcon_;
         private int userId_;
         private Object userName_;
-        public static Parser<UserInfo> PARSER = new af();
+        public static Parser<UserInfo> PARSER = new ah();
         private static final UserInfo a = new UserInfo(true);
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ UserInfo(GeneratedMessageLite.Builder builder, UserInfo userInfo) {
+            this(builder);
+        }
 
         private UserInfo(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -1225,168 +1265,114 @@ public final class Im {
             return a;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r3v6, resolved type: java.util.List<protobuf.Im$TshowInfo> */
-        /* JADX WARN: Multi-variable type inference failed */
         private UserInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-            boolean z;
-            boolean z2;
-            boolean z3;
-            aj ajVar;
-            boolean z4 = false;
+            al alVar;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
             a();
-            boolean z5 = false;
-            while (!z4) {
+            boolean z = false;
+            boolean z2 = false;
+            while (!z) {
                 try {
                     try {
                         int readTag = codedInputStream.readTag();
                         switch (readTag) {
                             case 0:
-                                z3 = true;
-                                z2 = z5;
+                                z = true;
                                 break;
                             case 8:
                                 this.bitField0_ |= 1;
                                 this.userId_ = codedInputStream.readInt32();
-                                z3 = z4;
-                                z2 = z5;
                                 break;
                             case GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                                 this.bitField0_ |= 2;
                                 this.userName_ = codedInputStream.readBytes();
-                                z3 = z4;
-                                z2 = z5;
                                 break;
                             case GroupInfo.NICKNAME_FIELD_NUMBER /* 26 */:
                                 this.bitField0_ |= 4;
                                 this.nickName_ = codedInputStream.readBytes();
-                                z3 = z4;
-                                z2 = z5;
                                 break;
                             case GroupInfo.ISMEMBERGROUP_FIELD_NUMBER /* 34 */:
                                 this.bitField0_ |= 8;
                                 this.portrait_ = codedInputStream.readBytes();
-                                z3 = z4;
-                                z2 = z5;
                                 break;
                             case 40:
                                 this.bitField0_ |= 16;
                                 this.sex_ = codedInputStream.readInt32();
-                                z3 = z4;
-                                z2 = z5;
                                 break;
                             case 50:
                                 this.bitField0_ |= 32;
                                 this.position_ = codedInputStream.readBytes();
-                                z3 = z4;
-                                z2 = z5;
                                 break;
                             case 57:
                                 this.bitField0_ |= 64;
                                 this.lng_ = codedInputStream.readDouble();
-                                z3 = z4;
-                                z2 = z5;
                                 break;
                             case BDLocation.TypeCacheLocation /* 65 */:
                                 this.bitField0_ |= 128;
                                 this.lat_ = codedInputStream.readDouble();
-                                z3 = z4;
-                                z2 = z5;
                                 break;
                             case 72:
                                 this.bitField0_ |= 256;
                                 this.inTime_ = codedInputStream.readInt32();
-                                z3 = z4;
-                                z2 = z5;
                                 break;
                             case com.baidu.loginshare.e.i /* 80 */:
                                 this.bitField0_ |= 512;
                                 this.loginTime_ = codedInputStream.readInt32();
-                                z3 = z4;
-                                z2 = z5;
                                 break;
                             case 88:
                                 this.bitField0_ |= 1024;
                                 this.lastReplyTime_ = codedInputStream.readInt32();
-                                z3 = z4;
-                                z2 = z5;
                                 break;
                             case 96:
                                 this.bitField0_ |= 2048;
                                 this.sysGroupId_ = codedInputStream.readInt32();
-                                z3 = z4;
-                                z2 = z5;
                                 break;
                             case SocialAPIErrorCodes.ERROR_INVALID_SIGNATURE_ALGORITHM /* 106 */:
-                                if ((this.bitField0_ & CodedOutputStream.DEFAULT_BUFFER_SIZE) != 4096) {
-                                    ajVar = null;
+                                if ((this.bitField0_ & 4096) != 4096) {
+                                    alVar = null;
                                 } else {
-                                    ajVar = this.permission_.toBuilder();
+                                    alVar = this.permission_.toBuilder();
                                 }
                                 this.permission_ = (UserPermission) codedInputStream.readMessage(UserPermission.PARSER, extensionRegistryLite);
-                                if (ajVar != null) {
-                                    ajVar.mergeFrom(this.permission_);
-                                    this.permission_ = ajVar.buildPartial();
+                                if (alVar != null) {
+                                    alVar.mergeFrom(this.permission_);
+                                    this.permission_ = alVar.buildPartial();
                                 }
-                                this.bitField0_ |= CodedOutputStream.DEFAULT_BUFFER_SIZE;
-                                z3 = z4;
-                                z2 = z5;
+                                this.bitField0_ |= 4096;
                                 break;
                             case 114:
-                                if (!(z5 & true)) {
+                                if (!(z2 & true)) {
                                     this.tshowIcon_ = new ArrayList();
-                                    z = z5 | true;
-                                } else {
-                                    z = z5;
+                                    z2 |= true;
                                 }
-                                try {
-                                    this.tshowIcon_.add(codedInputStream.readMessage(TshowInfo.PARSER, extensionRegistryLite));
-                                    boolean z6 = z4;
-                                    z2 = z;
-                                    z3 = z6;
-                                    break;
-                                } catch (InvalidProtocolBufferException e) {
-                                    e = e;
-                                    throw e.setUnfinishedMessage(this);
-                                } catch (IOException e2) {
-                                    e = e2;
-                                    throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
-                                } catch (Throwable th) {
-                                    z5 = z;
-                                    th = th;
-                                    if (z5 & true) {
-                                        this.tshowIcon_ = Collections.unmodifiableList(this.tshowIcon_);
-                                    }
-                                    makeExtensionsImmutable();
-                                    throw th;
-                                }
+                                this.tshowIcon_.add((TshowInfo) codedInputStream.readMessage(TshowInfo.PARSER, extensionRegistryLite));
+                                break;
                             default:
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
-                                    z3 = true;
-                                    z2 = z5;
+                                    z = true;
                                     break;
                                 } else {
-                                    z3 = z4;
-                                    z2 = z5;
                                     break;
                                 }
                         }
-                        z5 = z2;
-                        z4 = z3;
-                    } catch (Throwable th2) {
-                        th = th2;
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
-                } catch (InvalidProtocolBufferException e3) {
-                    e = e3;
-                } catch (IOException e4) {
-                    e = e4;
+                } finally {
+                    if (z2 & true) {
+                        this.tshowIcon_ = Collections.unmodifiableList(this.tshowIcon_);
+                    }
+                    makeExtensionsImmutable();
                 }
             }
-            if (z5 & true) {
-                this.tshowIcon_ = Collections.unmodifiableList(this.tshowIcon_);
-            }
-            makeExtensionsImmutable();
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ UserInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, UserInfo userInfo) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -1571,7 +1557,7 @@ public final class Im {
         }
 
         public boolean hasPermission() {
-            return (this.bitField0_ & CodedOutputStream.DEFAULT_BUFFER_SIZE) == 4096;
+            return (this.bitField0_ & 4096) == 4096;
         }
 
         public UserPermission getPermission() {
@@ -1582,7 +1568,7 @@ public final class Im {
             return this.tshowIcon_;
         }
 
-        public List<? extends ae> getTshowIconOrBuilderList() {
+        public List<? extends ag> getTshowIconOrBuilderList() {
             return this.tshowIcon_;
         }
 
@@ -1594,7 +1580,7 @@ public final class Im {
             return this.tshowIcon_.get(i);
         }
 
-        public ae getTshowIconOrBuilder(int i) {
+        public ag getTshowIconOrBuilder(int i) {
             return this.tshowIcon_.get(i);
         }
 
@@ -1664,7 +1650,7 @@ public final class Im {
             if ((this.bitField0_ & 2048) == 2048) {
                 codedOutputStream.writeInt32(12, this.sysGroupId_);
             }
-            if ((this.bitField0_ & CodedOutputStream.DEFAULT_BUFFER_SIZE) == 4096) {
+            if ((this.bitField0_ & 4096) == 4096) {
                 codedOutputStream.writeMessage(13, this.permission_);
             }
             int i = 0;
@@ -1718,7 +1704,7 @@ public final class Im {
                 if ((this.bitField0_ & 2048) == 2048) {
                     computeInt32Size += CodedOutputStream.computeInt32Size(12, this.sysGroupId_);
                 }
-                if ((this.bitField0_ & CodedOutputStream.DEFAULT_BUFFER_SIZE) == 4096) {
+                if ((this.bitField0_ & 4096) == 4096) {
                     computeInt32Size += CodedOutputStream.computeMessageSize(13, this.permission_);
                 }
                 while (true) {
@@ -1780,29 +1766,29 @@ public final class Im {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static ag newBuilder() {
-            return ag.f();
+        public static ai newBuilder() {
+            return ai.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public ag newBuilderForType() {
+        public ai newBuilderForType() {
             return newBuilder();
         }
 
-        public static ag newBuilder(UserInfo userInfo) {
+        public static ai newBuilder(UserInfo userInfo) {
             return newBuilder().mergeFrom(userInfo);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public ag toBuilder() {
+        public ai toBuilder() {
             return newBuilder(this);
         }
     }
 
     /* loaded from: classes.dex */
-    public final class MaskInfo extends GeneratedMessageLite implements s {
+    public final class MaskInfo extends GeneratedMessageLite implements u {
         public static final int MASKGIDS_FIELD_NUMBER = 2;
         public static final int MASKUIDS_FIELD_NUMBER = 4;
         public static final int REMINDMASK_FIELD_NUMBER = 3;
@@ -1817,8 +1803,13 @@ public final class Im {
         private int remindMask_;
         private int shieldStatus_;
         private long userId_;
-        public static Parser<MaskInfo> PARSER = new q();
+        public static Parser<MaskInfo> PARSER = new s();
         private static final MaskInfo a = new MaskInfo(true);
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ MaskInfo(GeneratedMessageLite.Builder builder, MaskInfo maskInfo) {
+            this(builder);
+        }
 
         private MaskInfo(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -1849,50 +1840,53 @@ public final class Im {
             while (!z) {
                 try {
                     try {
-                        try {
-                            int readTag = codedInputStream.readTag();
-                            switch (readTag) {
-                                case 0:
+                        int readTag = codedInputStream.readTag();
+                        switch (readTag) {
+                            case 0:
+                                z = true;
+                                break;
+                            case 8:
+                                this.bitField0_ |= 1;
+                                this.userId_ = codedInputStream.readInt64();
+                                break;
+                            case GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
+                                this.bitField0_ |= 2;
+                                this.maskGids_ = codedInputStream.readBytes();
+                                break;
+                            case GroupInfo.ISHIDEPOSITION_FIELD_NUMBER /* 24 */:
+                                this.bitField0_ |= 4;
+                                this.remindMask_ = codedInputStream.readInt32();
+                                break;
+                            case GroupInfo.ISMEMBERGROUP_FIELD_NUMBER /* 34 */:
+                                this.bitField0_ |= 8;
+                                this.maskUids_ = codedInputStream.readBytes();
+                                break;
+                            case 40:
+                                this.bitField0_ |= 16;
+                                this.shieldStatus_ = codedInputStream.readInt32();
+                                break;
+                            default:
+                                if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
-                                case 8:
-                                    this.bitField0_ |= 1;
-                                    this.userId_ = codedInputStream.readInt64();
+                                } else {
                                     break;
-                                case GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
-                                    this.bitField0_ |= 2;
-                                    this.maskGids_ = codedInputStream.readBytes();
-                                    break;
-                                case GroupInfo.ISHIDEPOSITION_FIELD_NUMBER /* 24 */:
-                                    this.bitField0_ |= 4;
-                                    this.remindMask_ = codedInputStream.readInt32();
-                                    break;
-                                case GroupInfo.ISMEMBERGROUP_FIELD_NUMBER /* 34 */:
-                                    this.bitField0_ |= 8;
-                                    this.maskUids_ = codedInputStream.readBytes();
-                                    break;
-                                case 40:
-                                    this.bitField0_ |= 16;
-                                    this.shieldStatus_ = codedInputStream.readInt32();
-                                    break;
-                                default:
-                                    if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
-                                        z = true;
-                                        break;
-                                    } else {
-                                        break;
-                                    }
-                            }
-                        } catch (IOException e) {
-                            throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
+                                }
                         }
-                    } catch (InvalidProtocolBufferException e2) {
-                        throw e2.setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
                 } finally {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ MaskInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, MaskInfo maskInfo) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -2088,29 +2082,29 @@ public final class Im {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static r newBuilder() {
-            return r.f();
+        public static t newBuilder() {
+            return t.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public r newBuilderForType() {
+        public t newBuilderForType() {
             return newBuilder();
         }
 
-        public static r newBuilder(MaskInfo maskInfo) {
+        public static t newBuilder(MaskInfo maskInfo) {
             return newBuilder().mergeFrom(maskInfo);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public r toBuilder() {
+        public t toBuilder() {
             return newBuilder(this);
         }
     }
 
     /* loaded from: classes.dex */
-    public final class GroupInfo extends GeneratedMessageLite implements j {
+    public final class GroupInfo extends GeneratedMessageLite implements l {
         public static final int ACTIVEDAY_FIELD_NUMBER = 27;
         public static final int ALBUM_FIELD_NUMBER = 11;
         public static final int AUTHORID_FIELD_NUMBER = 14;
@@ -2184,8 +2178,13 @@ public final class Im {
         private Object portrait_;
         private Object position_;
         private int status_;
-        public static Parser<GroupInfo> PARSER = new h();
+        public static Parser<GroupInfo> PARSER = new j();
         private static final GroupInfo a = new GroupInfo(true);
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ GroupInfo(GeneratedMessageLite.Builder builder, GroupInfo groupInfo) {
+            this(builder);
+        }
 
         private GroupInfo(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -2216,166 +2215,169 @@ public final class Im {
             while (!z) {
                 try {
                     try {
-                        try {
-                            int readTag = codedInputStream.readTag();
-                            switch (readTag) {
-                                case 0:
+                        int readTag = codedInputStream.readTag();
+                        switch (readTag) {
+                            case 0:
+                                z = true;
+                                break;
+                            case 8:
+                                this.bitField0_ |= 1;
+                                this.groupId_ = codedInputStream.readInt32();
+                                break;
+                            case 16:
+                                this.bitField0_ |= 2;
+                                this.forumId_ = codedInputStream.readInt32();
+                                break;
+                            case NICKNAME_FIELD_NUMBER /* 26 */:
+                                this.bitField0_ |= 4;
+                                this.name_ = codedInputStream.readBytes();
+                                break;
+                            case ISMEMBERGROUP_FIELD_NUMBER /* 34 */:
+                                this.bitField0_ |= 8;
+                                this.intro_ = codedInputStream.readBytes();
+                                break;
+                            case 42:
+                                this.bitField0_ |= 16;
+                                this.portrait_ = codedInputStream.readBytes();
+                                break;
+                            case 50:
+                                this.bitField0_ |= 32;
+                                this.position_ = codedInputStream.readBytes();
+                                break;
+                            case 58:
+                                this.bitField0_ |= 64;
+                                this.business_ = codedInputStream.readBytes();
+                                break;
+                            case BDLocation.TypeCacheLocation /* 65 */:
+                                this.bitField0_ |= 128;
+                                this.lng_ = codedInputStream.readDouble();
+                                break;
+                            case 73:
+                                this.bitField0_ |= 256;
+                                this.lat_ = codedInputStream.readDouble();
+                                break;
+                            case 82:
+                                this.bitField0_ |= 512;
+                                this.notice_ = codedInputStream.readBytes();
+                                break;
+                            case 90:
+                                this.bitField0_ |= 1024;
+                                this.album_ = codedInputStream.readBytes();
+                                break;
+                            case 96:
+                                this.bitField0_ |= 2048;
+                                this.status_ = codedInputStream.readInt32();
+                                break;
+                            case SocialAPIErrorCodes.ERROR_INVALID_SIGNATURE /* 104 */:
+                                this.bitField0_ |= 4096;
+                                this.flag_ = codedInputStream.readInt32();
+                                break;
+                            case SocialAPIErrorCodes.ERROR_EXPIRED_SESSION_KEY /* 112 */:
+                                this.bitField0_ |= 8192;
+                                this.authorId_ = codedInputStream.readInt32();
+                                break;
+                            case SocialAPIErrorCodes.ERROR_SESSION_EXPIRED /* 122 */:
+                                this.bitField0_ |= 16384;
+                                this.authorName_ = codedInputStream.readBytes();
+                                break;
+                            case 130:
+                                this.bitField0_ |= 32768;
+                                this.authorPortrait_ = codedInputStream.readBytes();
+                                break;
+                            case 136:
+                                this.bitField0_ |= AccessibilityEventCompat.TYPE_VIEW_ACCESSIBILITY_FOCUS_CLEARED;
+                                this.createTime_ = codedInputStream.readInt32();
+                                break;
+                            case 144:
+                                this.bitField0_ |= AccessibilityEventCompat.TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY;
+                                this.maxMemberNum_ = codedInputStream.readInt32();
+                                break;
+                            case SocialAPIErrorCodes.ERROR_BIND_API_NOT_BIND_TO_CURRENT_USER /* 152 */:
+                                this.bitField0_ |= AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START;
+                                this.memberNum_ = codedInputStream.readInt32();
+                                break;
+                            case 160:
+                                this.bitField0_ |= AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
+                                this.groupType_ = codedInputStream.readInt32();
+                                break;
+                            case 168:
+                                this.bitField0_ |= AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START;
+                                this.lastMsgId_ = codedInputStream.readInt64();
+                                break;
+                            case 176:
+                                this.bitField0_ |= AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_END;
+                                this.grade_ = codedInputStream.readInt32();
+                                break;
+                            case 184:
+                                this.bitField0_ |= 4194304;
+                                this.distance_ = codedInputStream.readInt32();
+                                break;
+                            case 192:
+                                this.bitField0_ |= GravityCompat.RELATIVE_LAYOUT_DIRECTION;
+                                this.isHidePosition_ = codedInputStream.readInt32();
+                                break;
+                            case 202:
+                                this.bitField0_ |= 16777216;
+                                this.forumName_ = codedInputStream.readBytes();
+                                break;
+                            case 210:
+                                this.bitField0_ |= 33554432;
+                                this.nickName_ = codedInputStream.readBytes();
+                                break;
+                            case 216:
+                                this.bitField0_ |= 67108864;
+                                this.activeDay_ = codedInputStream.readInt32();
+                                break;
+                            case 224:
+                                this.bitField0_ |= 134217728;
+                                this.isGroupManager_ = codedInputStream.readInt32();
+                                break;
+                            case 232:
+                                this.bitField0_ |= 268435456;
+                                this.authorIsMeizhi_ = codedInputStream.readInt32();
+                                break;
+                            case 240:
+                                this.bitField0_ |= 536870912;
+                                this.lastMsgTime_ = codedInputStream.readInt32();
+                                break;
+                            case 250:
+                                this.bitField0_ |= 1073741824;
+                                this.forumShowName_ = codedInputStream.readBytes();
+                                break;
+                            case 256:
+                                this.bitField0_ |= Integer.MIN_VALUE;
+                                this.isNewlyCreate_ = codedInputStream.readInt32();
+                                break;
+                            case 264:
+                                this.bitField1_ |= 1;
+                                this.isRecentlyReply_ = codedInputStream.readInt32();
+                                break;
+                            case 272:
+                                this.bitField1_ |= 2;
+                                this.isMemberGroup_ = codedInputStream.readInt32();
+                                break;
+                            default:
+                                if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
-                                case 8:
-                                    this.bitField0_ |= 1;
-                                    this.groupId_ = codedInputStream.readInt32();
+                                } else {
                                     break;
-                                case 16:
-                                    this.bitField0_ |= 2;
-                                    this.forumId_ = codedInputStream.readInt32();
-                                    break;
-                                case NICKNAME_FIELD_NUMBER /* 26 */:
-                                    this.bitField0_ |= 4;
-                                    this.name_ = codedInputStream.readBytes();
-                                    break;
-                                case ISMEMBERGROUP_FIELD_NUMBER /* 34 */:
-                                    this.bitField0_ |= 8;
-                                    this.intro_ = codedInputStream.readBytes();
-                                    break;
-                                case 42:
-                                    this.bitField0_ |= 16;
-                                    this.portrait_ = codedInputStream.readBytes();
-                                    break;
-                                case 50:
-                                    this.bitField0_ |= 32;
-                                    this.position_ = codedInputStream.readBytes();
-                                    break;
-                                case 58:
-                                    this.bitField0_ |= 64;
-                                    this.business_ = codedInputStream.readBytes();
-                                    break;
-                                case BDLocation.TypeCacheLocation /* 65 */:
-                                    this.bitField0_ |= 128;
-                                    this.lng_ = codedInputStream.readDouble();
-                                    break;
-                                case 73:
-                                    this.bitField0_ |= 256;
-                                    this.lat_ = codedInputStream.readDouble();
-                                    break;
-                                case 82:
-                                    this.bitField0_ |= 512;
-                                    this.notice_ = codedInputStream.readBytes();
-                                    break;
-                                case 90:
-                                    this.bitField0_ |= 1024;
-                                    this.album_ = codedInputStream.readBytes();
-                                    break;
-                                case 96:
-                                    this.bitField0_ |= 2048;
-                                    this.status_ = codedInputStream.readInt32();
-                                    break;
-                                case SocialAPIErrorCodes.ERROR_INVALID_SIGNATURE /* 104 */:
-                                    this.bitField0_ |= CodedOutputStream.DEFAULT_BUFFER_SIZE;
-                                    this.flag_ = codedInputStream.readInt32();
-                                    break;
-                                case SocialAPIErrorCodes.ERROR_EXPIRED_SESSION_KEY /* 112 */:
-                                    this.bitField0_ |= 8192;
-                                    this.authorId_ = codedInputStream.readInt32();
-                                    break;
-                                case SocialAPIErrorCodes.ERROR_SESSION_EXPIRED /* 122 */:
-                                    this.bitField0_ |= 16384;
-                                    this.authorName_ = codedInputStream.readBytes();
-                                    break;
-                                case 130:
-                                    this.bitField0_ |= 32768;
-                                    this.authorPortrait_ = codedInputStream.readBytes();
-                                    break;
-                                case 136:
-                                    this.bitField0_ |= 65536;
-                                    this.createTime_ = codedInputStream.readInt32();
-                                    break;
-                                case 144:
-                                    this.bitField0_ |= 131072;
-                                    this.maxMemberNum_ = codedInputStream.readInt32();
-                                    break;
-                                case SocialAPIErrorCodes.ERROR_BIND_API_NOT_BIND_TO_CURRENT_USER /* 152 */:
-                                    this.bitField0_ |= 262144;
-                                    this.memberNum_ = codedInputStream.readInt32();
-                                    break;
-                                case 160:
-                                    this.bitField0_ |= 524288;
-                                    this.groupType_ = codedInputStream.readInt32();
-                                    break;
-                                case 168:
-                                    this.bitField0_ |= 1048576;
-                                    this.lastMsgId_ = codedInputStream.readInt64();
-                                    break;
-                                case 176:
-                                    this.bitField0_ |= 2097152;
-                                    this.grade_ = codedInputStream.readInt32();
-                                    break;
-                                case 184:
-                                    this.bitField0_ |= 4194304;
-                                    this.distance_ = codedInputStream.readInt32();
-                                    break;
-                                case 192:
-                                    this.bitField0_ |= 8388608;
-                                    this.isHidePosition_ = codedInputStream.readInt32();
-                                    break;
-                                case 202:
-                                    this.bitField0_ |= 16777216;
-                                    this.forumName_ = codedInputStream.readBytes();
-                                    break;
-                                case 210:
-                                    this.bitField0_ |= 33554432;
-                                    this.nickName_ = codedInputStream.readBytes();
-                                    break;
-                                case 216:
-                                    this.bitField0_ |= 67108864;
-                                    this.activeDay_ = codedInputStream.readInt32();
-                                    break;
-                                case 224:
-                                    this.bitField0_ |= 134217728;
-                                    this.isGroupManager_ = codedInputStream.readInt32();
-                                    break;
-                                case 232:
-                                    this.bitField0_ |= 268435456;
-                                    this.authorIsMeizhi_ = codedInputStream.readInt32();
-                                    break;
-                                case 240:
-                                    this.bitField0_ |= 536870912;
-                                    this.lastMsgTime_ = codedInputStream.readInt32();
-                                    break;
-                                case 250:
-                                    this.bitField0_ |= 1073741824;
-                                    this.forumShowName_ = codedInputStream.readBytes();
-                                    break;
-                                case 256:
-                                    this.bitField0_ |= Integer.MIN_VALUE;
-                                    this.isNewlyCreate_ = codedInputStream.readInt32();
-                                    break;
-                                case 264:
-                                    this.bitField1_ |= 1;
-                                    this.isRecentlyReply_ = codedInputStream.readInt32();
-                                    break;
-                                case 272:
-                                    this.bitField1_ |= 2;
-                                    this.isMemberGroup_ = codedInputStream.readInt32();
-                                    break;
-                                default:
-                                    if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
-                                        z = true;
-                                        break;
-                                    } else {
-                                        break;
-                                    }
-                            }
-                        } catch (IOException e) {
-                            throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
+                                }
                         }
-                    } catch (InvalidProtocolBufferException e2) {
-                        throw e2.setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
                 } finally {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ GroupInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, GroupInfo groupInfo) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -2617,7 +2619,7 @@ public final class Im {
         }
 
         public boolean hasFlag() {
-            return (this.bitField0_ & CodedOutputStream.DEFAULT_BUFFER_SIZE) == 4096;
+            return (this.bitField0_ & 4096) == 4096;
         }
 
         public int getFlag() {
@@ -2687,7 +2689,7 @@ public final class Im {
         }
 
         public boolean hasCreateTime() {
-            return (this.bitField0_ & 65536) == 65536;
+            return (this.bitField0_ & AccessibilityEventCompat.TYPE_VIEW_ACCESSIBILITY_FOCUS_CLEARED) == 65536;
         }
 
         public int getCreateTime() {
@@ -2695,7 +2697,7 @@ public final class Im {
         }
 
         public boolean hasMaxMemberNum() {
-            return (this.bitField0_ & 131072) == 131072;
+            return (this.bitField0_ & AccessibilityEventCompat.TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY) == 131072;
         }
 
         public int getMaxMemberNum() {
@@ -2703,7 +2705,7 @@ public final class Im {
         }
 
         public boolean hasMemberNum() {
-            return (this.bitField0_ & 262144) == 262144;
+            return (this.bitField0_ & AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START) == 262144;
         }
 
         public int getMemberNum() {
@@ -2711,7 +2713,7 @@ public final class Im {
         }
 
         public boolean hasGroupType() {
-            return (this.bitField0_ & 524288) == 524288;
+            return (this.bitField0_ & AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END) == 524288;
         }
 
         public int getGroupType() {
@@ -2719,7 +2721,7 @@ public final class Im {
         }
 
         public boolean hasLastMsgId() {
-            return (this.bitField0_ & 1048576) == 1048576;
+            return (this.bitField0_ & AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START) == 1048576;
         }
 
         public long getLastMsgId() {
@@ -2727,7 +2729,7 @@ public final class Im {
         }
 
         public boolean hasGrade() {
-            return (this.bitField0_ & 2097152) == 2097152;
+            return (this.bitField0_ & AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_END) == 2097152;
         }
 
         public int getGrade() {
@@ -2743,7 +2745,7 @@ public final class Im {
         }
 
         public boolean hasIsHidePosition() {
-            return (this.bitField0_ & 8388608) == 8388608;
+            return (this.bitField0_ & GravityCompat.RELATIVE_LAYOUT_DIRECTION) == 8388608;
         }
 
         public int getIsHidePosition() {
@@ -2973,7 +2975,7 @@ public final class Im {
             if ((this.bitField0_ & 2048) == 2048) {
                 codedOutputStream.writeInt32(12, this.status_);
             }
-            if ((this.bitField0_ & CodedOutputStream.DEFAULT_BUFFER_SIZE) == 4096) {
+            if ((this.bitField0_ & 4096) == 4096) {
                 codedOutputStream.writeInt32(13, this.flag_);
             }
             if ((this.bitField0_ & 8192) == 8192) {
@@ -2985,28 +2987,28 @@ public final class Im {
             if ((this.bitField0_ & 32768) == 32768) {
                 codedOutputStream.writeBytes(16, getAuthorPortraitBytes());
             }
-            if ((this.bitField0_ & 65536) == 65536) {
+            if ((this.bitField0_ & AccessibilityEventCompat.TYPE_VIEW_ACCESSIBILITY_FOCUS_CLEARED) == 65536) {
                 codedOutputStream.writeInt32(17, this.createTime_);
             }
-            if ((this.bitField0_ & 131072) == 131072) {
+            if ((this.bitField0_ & AccessibilityEventCompat.TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY) == 131072) {
                 codedOutputStream.writeInt32(18, this.maxMemberNum_);
             }
-            if ((this.bitField0_ & 262144) == 262144) {
+            if ((this.bitField0_ & AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START) == 262144) {
                 codedOutputStream.writeInt32(19, this.memberNum_);
             }
-            if ((this.bitField0_ & 524288) == 524288) {
+            if ((this.bitField0_ & AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END) == 524288) {
                 codedOutputStream.writeInt32(20, this.groupType_);
             }
-            if ((this.bitField0_ & 1048576) == 1048576) {
+            if ((this.bitField0_ & AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START) == 1048576) {
                 codedOutputStream.writeInt64(21, this.lastMsgId_);
             }
-            if ((this.bitField0_ & 2097152) == 2097152) {
+            if ((this.bitField0_ & AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_END) == 2097152) {
                 codedOutputStream.writeInt32(22, this.grade_);
             }
             if ((this.bitField0_ & 4194304) == 4194304) {
                 codedOutputStream.writeInt32(23, this.distance_);
             }
-            if ((this.bitField0_ & 8388608) == 8388608) {
+            if ((this.bitField0_ & GravityCompat.RELATIVE_LAYOUT_DIRECTION) == 8388608) {
                 codedOutputStream.writeInt32(24, this.isHidePosition_);
             }
             if ((this.bitField0_ & 16777216) == 16777216) {
@@ -3079,7 +3081,7 @@ public final class Im {
                 if ((this.bitField0_ & 2048) == 2048) {
                     i += CodedOutputStream.computeInt32Size(12, this.status_);
                 }
-                if ((this.bitField0_ & CodedOutputStream.DEFAULT_BUFFER_SIZE) == 4096) {
+                if ((this.bitField0_ & 4096) == 4096) {
                     i += CodedOutputStream.computeInt32Size(13, this.flag_);
                 }
                 if ((this.bitField0_ & 8192) == 8192) {
@@ -3091,28 +3093,28 @@ public final class Im {
                 if ((this.bitField0_ & 32768) == 32768) {
                     i += CodedOutputStream.computeBytesSize(16, getAuthorPortraitBytes());
                 }
-                if ((this.bitField0_ & 65536) == 65536) {
+                if ((this.bitField0_ & AccessibilityEventCompat.TYPE_VIEW_ACCESSIBILITY_FOCUS_CLEARED) == 65536) {
                     i += CodedOutputStream.computeInt32Size(17, this.createTime_);
                 }
-                if ((this.bitField0_ & 131072) == 131072) {
+                if ((this.bitField0_ & AccessibilityEventCompat.TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY) == 131072) {
                     i += CodedOutputStream.computeInt32Size(18, this.maxMemberNum_);
                 }
-                if ((this.bitField0_ & 262144) == 262144) {
+                if ((this.bitField0_ & AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START) == 262144) {
                     i += CodedOutputStream.computeInt32Size(19, this.memberNum_);
                 }
-                if ((this.bitField0_ & 524288) == 524288) {
+                if ((this.bitField0_ & AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END) == 524288) {
                     i += CodedOutputStream.computeInt32Size(20, this.groupType_);
                 }
-                if ((this.bitField0_ & 1048576) == 1048576) {
+                if ((this.bitField0_ & AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START) == 1048576) {
                     i += CodedOutputStream.computeInt64Size(21, this.lastMsgId_);
                 }
-                if ((this.bitField0_ & 2097152) == 2097152) {
+                if ((this.bitField0_ & AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_END) == 2097152) {
                     i += CodedOutputStream.computeInt32Size(22, this.grade_);
                 }
                 if ((this.bitField0_ & 4194304) == 4194304) {
                     i += CodedOutputStream.computeInt32Size(23, this.distance_);
                 }
-                if ((this.bitField0_ & 8388608) == 8388608) {
+                if ((this.bitField0_ & GravityCompat.RELATIVE_LAYOUT_DIRECTION) == 8388608) {
                     i += CodedOutputStream.computeInt32Size(24, this.isHidePosition_);
                 }
                 if ((this.bitField0_ & 16777216) == 16777216) {
@@ -3196,31 +3198,29 @@ public final class Im {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static i newBuilder() {
-            i h;
-            h = i.h();
-            return h;
+        public static k newBuilder() {
+            return k.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public i newBuilderForType() {
+        public k newBuilderForType() {
             return newBuilder();
         }
 
-        public static i newBuilder(GroupInfo groupInfo) {
+        public static k newBuilder(GroupInfo groupInfo) {
             return newBuilder().mergeFrom(groupInfo);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public i toBuilder() {
+        public k toBuilder() {
             return newBuilder(this);
         }
     }
 
     /* loaded from: classes.dex */
-    public final class GradeInfo extends GeneratedMessageLite implements g {
+    public final class GradeInfo extends GeneratedMessageLite implements i {
         public static final int GRADE_FIELD_NUMBER = 1;
         public static final int INTRO_FIELD_NUMBER = 2;
         public static final int MAXMEMBERNUM_FIELD_NUMBER = 4;
@@ -3233,8 +3233,13 @@ public final class Im {
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
         private int thresholdDay_;
-        public static Parser<GradeInfo> PARSER = new e();
+        public static Parser<GradeInfo> PARSER = new g();
         private static final GradeInfo a = new GradeInfo(true);
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ GradeInfo(GeneratedMessageLite.Builder builder, GradeInfo gradeInfo) {
+            this(builder);
+        }
 
         private GradeInfo(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -3265,46 +3270,49 @@ public final class Im {
             while (!z) {
                 try {
                     try {
-                        try {
-                            int readTag = codedInputStream.readTag();
-                            switch (readTag) {
-                                case 0:
+                        int readTag = codedInputStream.readTag();
+                        switch (readTag) {
+                            case 0:
+                                z = true;
+                                break;
+                            case 8:
+                                this.bitField0_ |= 1;
+                                this.grade_ = codedInputStream.readInt32();
+                                break;
+                            case GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
+                                this.bitField0_ |= 2;
+                                this.intro_ = codedInputStream.readBytes();
+                                break;
+                            case GroupInfo.ISHIDEPOSITION_FIELD_NUMBER /* 24 */:
+                                this.bitField0_ |= 4;
+                                this.thresholdDay_ = codedInputStream.readInt32();
+                                break;
+                            case 32:
+                                this.bitField0_ |= 8;
+                                this.maxMemberNum_ = codedInputStream.readInt32();
+                                break;
+                            default:
+                                if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
-                                case 8:
-                                    this.bitField0_ |= 1;
-                                    this.grade_ = codedInputStream.readInt32();
+                                } else {
                                     break;
-                                case GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
-                                    this.bitField0_ |= 2;
-                                    this.intro_ = codedInputStream.readBytes();
-                                    break;
-                                case GroupInfo.ISHIDEPOSITION_FIELD_NUMBER /* 24 */:
-                                    this.bitField0_ |= 4;
-                                    this.thresholdDay_ = codedInputStream.readInt32();
-                                    break;
-                                case GroupInfo.ISNEWLYCREATE_FIELD_NUMBER /* 32 */:
-                                    this.bitField0_ |= 8;
-                                    this.maxMemberNum_ = codedInputStream.readInt32();
-                                    break;
-                                default:
-                                    if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
-                                        z = true;
-                                        break;
-                                    } else {
-                                        break;
-                                    }
-                            }
-                        } catch (IOException e) {
-                            throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
+                                }
                         }
-                    } catch (InvalidProtocolBufferException e2) {
-                        throw e2.setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
                 } finally {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ GradeInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, GradeInfo gradeInfo) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -3466,29 +3474,29 @@ public final class Im {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static f newBuilder() {
-            return f.f();
+        public static h newBuilder() {
+            return h.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public f newBuilderForType() {
+        public h newBuilderForType() {
             return newBuilder();
         }
 
-        public static f newBuilder(GradeInfo gradeInfo) {
+        public static h newBuilder(GradeInfo gradeInfo) {
             return newBuilder().mergeFrom(gradeInfo);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public f toBuilder() {
+        public h toBuilder() {
             return newBuilder(this);
         }
     }
 
     /* loaded from: classes.dex */
-    public final class MsgInfo extends GeneratedMessageLite implements v {
+    public final class MsgInfo extends GeneratedMessageLite implements x {
         public static final int CONTENT_FIELD_NUMBER = 5;
         public static final int CREATETIME_FIELD_NUMBER = 8;
         public static final int DURATION_FIELD_NUMBER = 7;
@@ -3517,8 +3525,13 @@ public final class Im {
         private UserInfo toUserInfo_;
         private long userId_;
         private UserInfo userInfo_;
-        public static Parser<MsgInfo> PARSER = new t();
+        public static Parser<MsgInfo> PARSER = new v();
         private static final MsgInfo a = new MsgInfo(true);
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ MsgInfo(GeneratedMessageLite.Builder builder, MsgInfo msgInfo) {
+            this(builder);
+        }
 
         private MsgInfo(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -3542,12 +3555,11 @@ public final class Im {
         }
 
         private MsgInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-            boolean z;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
             a();
-            boolean z2 = false;
-            while (!z2) {
+            boolean z = false;
+            while (!z) {
                 try {
                     try {
                         int readTag = codedInputStream.readTag();
@@ -3558,83 +3570,69 @@ public final class Im {
                             case 8:
                                 this.bitField0_ |= 1;
                                 this.msgId_ = codedInputStream.readInt64();
-                                z = z2;
                                 break;
                             case 16:
                                 this.bitField0_ |= 2;
                                 this.groupId_ = codedInputStream.readInt32();
-                                z = z2;
                                 break;
                             case GroupInfo.ISHIDEPOSITION_FIELD_NUMBER /* 24 */:
                                 this.bitField0_ |= 4;
                                 this.msgType_ = codedInputStream.readInt32();
-                                z = z2;
                                 break;
-                            case GroupInfo.ISNEWLYCREATE_FIELD_NUMBER /* 32 */:
+                            case 32:
                                 this.bitField0_ |= 8;
                                 this.userId_ = codedInputStream.readInt64();
-                                z = z2;
                                 break;
                             case 42:
                                 this.bitField0_ |= 16;
                                 this.content_ = codedInputStream.readBytes();
-                                z = z2;
                                 break;
                             case 48:
                                 this.bitField0_ |= 32;
                                 this.status_ = codedInputStream.readInt32();
-                                z = z2;
                                 break;
                             case 56:
                                 this.bitField0_ |= 64;
                                 this.duration_ = codedInputStream.readInt32();
-                                z = z2;
                                 break;
-                            case 64:
+                            case AccessibilityNodeInfoCompat.ACTION_ACCESSIBILITY_FOCUS /* 64 */:
                                 this.bitField0_ |= 128;
                                 this.createTime_ = codedInputStream.readInt32();
-                                z = z2;
                                 break;
                             case 72:
                                 this.bitField0_ |= 256;
                                 this.recordId_ = codedInputStream.readInt64();
-                                z = z2;
                                 break;
                             case 82:
-                                ag builder = (this.bitField0_ & 512) == 512 ? this.userInfo_.toBuilder() : null;
+                                ai builder = (this.bitField0_ & 512) == 512 ? this.userInfo_.toBuilder() : null;
                                 this.userInfo_ = (UserInfo) codedInputStream.readMessage(UserInfo.PARSER, extensionRegistryLite);
                                 if (builder != null) {
                                     builder.mergeFrom(this.userInfo_);
                                     this.userInfo_ = builder.buildPartial();
                                 }
                                 this.bitField0_ |= 512;
-                                z = z2;
                                 break;
                             case 88:
                                 this.bitField0_ |= 1024;
                                 this.toUid_ = codedInputStream.readInt64();
-                                z = z2;
                                 break;
                             case 98:
-                                ag builder2 = (this.bitField0_ & 2048) == 2048 ? this.toUserInfo_.toBuilder() : null;
+                                ai builder2 = (this.bitField0_ & 2048) == 2048 ? this.toUserInfo_.toBuilder() : null;
                                 this.toUserInfo_ = (UserInfo) codedInputStream.readMessage(UserInfo.PARSER, extensionRegistryLite);
                                 if (builder2 != null) {
                                     builder2.mergeFrom(this.toUserInfo_);
                                     this.toUserInfo_ = builder2.buildPartial();
                                 }
                                 this.bitField0_ |= 2048;
-                                z = z2;
                                 break;
                             default:
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
                                 } else {
-                                    z = z2;
                                     break;
                                 }
                         }
-                        z2 = z;
                     } catch (InvalidProtocolBufferException e) {
                         throw e.setUnfinishedMessage(this);
                     } catch (IOException e2) {
@@ -3644,6 +3642,11 @@ public final class Im {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ MsgInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, MsgInfo msgInfo) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -3925,32 +3928,33 @@ public final class Im {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static u newBuilder() {
-            return u.f();
+        public static w newBuilder() {
+            return w.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public u newBuilderForType() {
+        public w newBuilderForType() {
             return newBuilder();
         }
 
-        public static u newBuilder(MsgInfo msgInfo) {
+        public static w newBuilder(MsgInfo msgInfo) {
             return newBuilder().mergeFrom(msgInfo);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public u toBuilder() {
+        public w toBuilder() {
             return newBuilder(this);
         }
     }
 
     /* loaded from: classes.dex */
-    public final class PusherMsgInfo extends GeneratedMessageLite implements ab {
+    public final class PusherMsgInfo extends GeneratedMessageLite implements ad {
         public static final int GROUPID_FIELD_NUMBER = 1;
         public static final int MSGID_FIELD_NUMBER = 2;
         public static final int PUSHTIME_FIELD_NUMBER = 3;
+        public static final int TYPE_FIELD_NUMBER = 4;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private int groupId_;
@@ -3958,8 +3962,14 @@ public final class Im {
         private int memoizedSerializedSize;
         private long msgId_;
         private long pushTime_;
-        public static Parser<PusherMsgInfo> PARSER = new z();
+        private int type_;
+        public static Parser<PusherMsgInfo> PARSER = new ab();
         private static final PusherMsgInfo a = new PusherMsgInfo(true);
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ PusherMsgInfo(GeneratedMessageLite.Builder builder, PusherMsgInfo pusherMsgInfo) {
+            this(builder);
+        }
 
         private PusherMsgInfo(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -3990,42 +4000,49 @@ public final class Im {
             while (!z) {
                 try {
                     try {
-                        try {
-                            int readTag = codedInputStream.readTag();
-                            switch (readTag) {
-                                case 0:
+                        int readTag = codedInputStream.readTag();
+                        switch (readTag) {
+                            case 0:
+                                z = true;
+                                break;
+                            case 8:
+                                this.bitField0_ |= 1;
+                                this.groupId_ = codedInputStream.readInt32();
+                                break;
+                            case 16:
+                                this.bitField0_ |= 2;
+                                this.msgId_ = codedInputStream.readInt64();
+                                break;
+                            case GroupInfo.ISHIDEPOSITION_FIELD_NUMBER /* 24 */:
+                                this.bitField0_ |= 4;
+                                this.pushTime_ = codedInputStream.readInt64();
+                                break;
+                            case 32:
+                                this.bitField0_ |= 8;
+                                this.type_ = codedInputStream.readInt32();
+                                break;
+                            default:
+                                if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
-                                case 8:
-                                    this.bitField0_ |= 1;
-                                    this.groupId_ = codedInputStream.readInt32();
+                                } else {
                                     break;
-                                case 16:
-                                    this.bitField0_ |= 2;
-                                    this.msgId_ = codedInputStream.readInt64();
-                                    break;
-                                case GroupInfo.ISHIDEPOSITION_FIELD_NUMBER /* 24 */:
-                                    this.bitField0_ |= 4;
-                                    this.pushTime_ = codedInputStream.readInt64();
-                                    break;
-                                default:
-                                    if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
-                                        z = true;
-                                        break;
-                                    } else {
-                                        break;
-                                    }
-                            }
-                        } catch (IOException e) {
-                            throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
+                                }
                         }
-                    } catch (InvalidProtocolBufferException e2) {
-                        throw e2.setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
                 } finally {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ PusherMsgInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, PusherMsgInfo pusherMsgInfo) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -4061,10 +4078,19 @@ public final class Im {
             return this.pushTime_;
         }
 
+        public boolean hasType() {
+            return (this.bitField0_ & 8) == 8;
+        }
+
+        public int getType() {
+            return this.type_;
+        }
+
         private void a() {
             this.groupId_ = 0;
             this.msgId_ = 0L;
             this.pushTime_ = 0L;
+            this.type_ = 0;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -4089,6 +4115,9 @@ public final class Im {
             if ((this.bitField0_ & 4) == 4) {
                 codedOutputStream.writeInt64(3, this.pushTime_);
             }
+            if ((this.bitField0_ & 8) == 8) {
+                codedOutputStream.writeInt32(4, this.type_);
+            }
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -4101,6 +4130,9 @@ public final class Im {
                 }
                 if ((this.bitField0_ & 4) == 4) {
                     i += CodedOutputStream.computeInt64Size(3, this.pushTime_);
+                }
+                if ((this.bitField0_ & 8) == 8) {
+                    i += CodedOutputStream.computeInt32Size(4, this.type_);
                 }
                 this.memoizedSerializedSize = i;
             }
@@ -4153,32 +4185,32 @@ public final class Im {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static aa newBuilder() {
-            return aa.f();
+        public static ac newBuilder() {
+            return ac.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public aa newBuilderForType() {
+        public ac newBuilderForType() {
             return newBuilder();
         }
 
-        public static aa newBuilder(PusherMsgInfo pusherMsgInfo) {
+        public static ac newBuilder(PusherMsgInfo pusherMsgInfo) {
             return newBuilder().mergeFrom(pusherMsgInfo);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public aa toBuilder() {
+        public ac toBuilder() {
             return newBuilder(this);
         }
     }
 
     /* loaded from: classes.dex */
-    public final class GroupLastId extends GeneratedMessageLite implements m {
+    public final class GroupLastId extends GeneratedMessageLite implements o {
         public static final int GROUPID_FIELD_NUMBER = 1;
         public static final int LASTMSGID_FIELD_NUMBER = 2;
-        public static Parser<GroupLastId> PARSER = new k();
+        public static Parser<GroupLastId> PARSER = new m();
         private static final GroupLastId a = new GroupLastId(true);
         private static final long serialVersionUID = 0;
         private int bitField0_;
@@ -4186,6 +4218,11 @@ public final class Im {
         private long lastMsgId_;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ GroupLastId(GeneratedMessageLite.Builder builder, GroupLastId groupLastId) {
+            this(builder);
+        }
 
         private GroupLastId(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -4216,38 +4253,41 @@ public final class Im {
             while (!z) {
                 try {
                     try {
-                        try {
-                            int readTag = codedInputStream.readTag();
-                            switch (readTag) {
-                                case 0:
+                        int readTag = codedInputStream.readTag();
+                        switch (readTag) {
+                            case 0:
+                                z = true;
+                                break;
+                            case 8:
+                                this.bitField0_ |= 1;
+                                this.groupId_ = codedInputStream.readInt32();
+                                break;
+                            case 16:
+                                this.bitField0_ |= 2;
+                                this.lastMsgId_ = codedInputStream.readInt64();
+                                break;
+                            default:
+                                if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
-                                case 8:
-                                    this.bitField0_ |= 1;
-                                    this.groupId_ = codedInputStream.readInt32();
+                                } else {
                                     break;
-                                case 16:
-                                    this.bitField0_ |= 2;
-                                    this.lastMsgId_ = codedInputStream.readInt64();
-                                    break;
-                                default:
-                                    if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
-                                        z = true;
-                                        break;
-                                    } else {
-                                        break;
-                                    }
-                            }
-                        } catch (IOException e) {
-                            throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
+                                }
                         }
-                    } catch (InvalidProtocolBufferException e2) {
-                        throw e2.setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
                 } finally {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ GroupLastId(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, GroupLastId groupLastId) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -4360,29 +4400,29 @@ public final class Im {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static l newBuilder() {
-            return l.f();
+        public static n newBuilder() {
+            return n.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public l newBuilderForType() {
+        public n newBuilderForType() {
             return newBuilder();
         }
 
-        public static l newBuilder(GroupLastId groupLastId) {
+        public static n newBuilder(GroupLastId groupLastId) {
             return newBuilder().mergeFrom(groupLastId);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public l toBuilder() {
+        public n toBuilder() {
             return newBuilder(this);
         }
     }
 
     /* loaded from: classes.dex */
-    public final class Photo extends GeneratedMessageLite implements y {
+    public final class Photo extends GeneratedMessageLite implements aa {
         public static final int BIGURL_FIELD_NUMBER = 2;
         public static final int PICID_FIELD_NUMBER = 3;
         public static final int SMALLURL_FIELD_NUMBER = 1;
@@ -4393,8 +4433,13 @@ public final class Im {
         private int memoizedSerializedSize;
         private Object picId_;
         private Object smallurl_;
-        public static Parser<Photo> PARSER = new w();
+        public static Parser<Photo> PARSER = new y();
         private static final Photo a = new Photo(true);
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ Photo(GeneratedMessageLite.Builder builder, Photo photo) {
+            this(builder);
+        }
 
         private Photo(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -4425,42 +4470,45 @@ public final class Im {
             while (!z) {
                 try {
                     try {
-                        try {
-                            int readTag = codedInputStream.readTag();
-                            switch (readTag) {
-                                case 0:
+                        int readTag = codedInputStream.readTag();
+                        switch (readTag) {
+                            case 0:
+                                z = true;
+                                break;
+                            case 10:
+                                this.bitField0_ |= 1;
+                                this.smallurl_ = codedInputStream.readBytes();
+                                break;
+                            case GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
+                                this.bitField0_ |= 2;
+                                this.bigurl_ = codedInputStream.readBytes();
+                                break;
+                            case GroupInfo.NICKNAME_FIELD_NUMBER /* 26 */:
+                                this.bitField0_ |= 4;
+                                this.picId_ = codedInputStream.readBytes();
+                                break;
+                            default:
+                                if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
-                                case 10:
-                                    this.bitField0_ |= 1;
-                                    this.smallurl_ = codedInputStream.readBytes();
+                                } else {
                                     break;
-                                case GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
-                                    this.bitField0_ |= 2;
-                                    this.bigurl_ = codedInputStream.readBytes();
-                                    break;
-                                case GroupInfo.NICKNAME_FIELD_NUMBER /* 26 */:
-                                    this.bitField0_ |= 4;
-                                    this.picId_ = codedInputStream.readBytes();
-                                    break;
-                                default:
-                                    if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
-                                        z = true;
-                                        break;
-                                    } else {
-                                        break;
-                                    }
-                            }
-                        } catch (IOException e) {
-                            throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
+                                }
                         }
-                    } catch (InvalidProtocolBufferException e2) {
-                        throw e2.setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
                 } finally {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ Photo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, Photo photo) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -4645,23 +4693,278 @@ public final class Im {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static x newBuilder() {
-            return x.f();
+        public static z newBuilder() {
+            return z.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public x newBuilderForType() {
+        public z newBuilderForType() {
             return newBuilder();
         }
 
-        public static x newBuilder(Photo photo) {
+        public static z newBuilder(Photo photo) {
             return newBuilder().mergeFrom(photo);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public x toBuilder() {
+        public z toBuilder() {
+            return newBuilder(this);
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public final class ActivityInfo extends GeneratedMessageLite implements c {
+        public static final int ACTIVITYID_FIELD_NUMBER = 1;
+        public static final int ACTIVITYTITLE_FIELD_NUMBER = 2;
+        public static final int ISEND_FIELD_NUMBER = 3;
+        public static Parser<ActivityInfo> PARSER = new a();
+        private static final ActivityInfo a = new ActivityInfo(true);
+        private static final long serialVersionUID = 0;
+        private int activityId_;
+        private Object activityTitle_;
+        private int bitField0_;
+        private int isEnd_;
+        private byte memoizedIsInitialized;
+        private int memoizedSerializedSize;
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ ActivityInfo(GeneratedMessageLite.Builder builder, ActivityInfo activityInfo) {
+            this(builder);
+        }
+
+        private ActivityInfo(GeneratedMessageLite.Builder builder) {
+            super(builder);
+            this.memoizedIsInitialized = (byte) -1;
+            this.memoizedSerializedSize = -1;
+        }
+
+        private ActivityInfo(boolean z) {
+            this.memoizedIsInitialized = (byte) -1;
+            this.memoizedSerializedSize = -1;
+        }
+
+        public static ActivityInfo getDefaultInstance() {
+            return a;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLiteOrBuilder
+        public ActivityInfo getDefaultInstanceForType() {
+            return a;
+        }
+
+        private ActivityInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
+            this.memoizedIsInitialized = (byte) -1;
+            this.memoizedSerializedSize = -1;
+            a();
+            boolean z = false;
+            while (!z) {
+                try {
+                    try {
+                        int readTag = codedInputStream.readTag();
+                        switch (readTag) {
+                            case 0:
+                                z = true;
+                                break;
+                            case 8:
+                                this.bitField0_ |= 1;
+                                this.activityId_ = codedInputStream.readInt32();
+                                break;
+                            case GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
+                                this.bitField0_ |= 2;
+                                this.activityTitle_ = codedInputStream.readBytes();
+                                break;
+                            case GroupInfo.ISHIDEPOSITION_FIELD_NUMBER /* 24 */:
+                                this.bitField0_ |= 4;
+                                this.isEnd_ = codedInputStream.readInt32();
+                                break;
+                            default:
+                                if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
+                                    z = true;
+                                    break;
+                                } else {
+                                    break;
+                                }
+                        }
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
+                    }
+                } finally {
+                    makeExtensionsImmutable();
+                }
+            }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ ActivityInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, ActivityInfo activityInfo) {
+            this(codedInputStream, extensionRegistryLite);
+        }
+
+        static {
+            a.a();
+        }
+
+        @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
+        public Parser<ActivityInfo> getParserForType() {
+            return PARSER;
+        }
+
+        public boolean hasActivityId() {
+            return (this.bitField0_ & 1) == 1;
+        }
+
+        public int getActivityId() {
+            return this.activityId_;
+        }
+
+        public boolean hasActivityTitle() {
+            return (this.bitField0_ & 2) == 2;
+        }
+
+        public String getActivityTitle() {
+            Object obj = this.activityTitle_;
+            if (obj instanceof String) {
+                return (String) obj;
+            }
+            ByteString byteString = (ByteString) obj;
+            String stringUtf8 = byteString.toStringUtf8();
+            if (byteString.isValidUtf8()) {
+                this.activityTitle_ = stringUtf8;
+            }
+            return stringUtf8;
+        }
+
+        public ByteString getActivityTitleBytes() {
+            Object obj = this.activityTitle_;
+            if (obj instanceof String) {
+                ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
+                this.activityTitle_ = copyFromUtf8;
+                return copyFromUtf8;
+            }
+            return (ByteString) obj;
+        }
+
+        public boolean hasIsEnd() {
+            return (this.bitField0_ & 4) == 4;
+        }
+
+        public int getIsEnd() {
+            return this.isEnd_;
+        }
+
+        private void a() {
+            this.activityId_ = 0;
+            this.activityTitle_ = "";
+            this.isEnd_ = 0;
+        }
+
+        @Override // com.google.protobuf.MessageLiteOrBuilder
+        public final boolean isInitialized() {
+            byte b = this.memoizedIsInitialized;
+            if (b != -1) {
+                return b == 1;
+            }
+            this.memoizedIsInitialized = (byte) 1;
+            return true;
+        }
+
+        @Override // com.google.protobuf.MessageLite
+        public void writeTo(CodedOutputStream codedOutputStream) {
+            getSerializedSize();
+            if ((this.bitField0_ & 1) == 1) {
+                codedOutputStream.writeInt32(1, this.activityId_);
+            }
+            if ((this.bitField0_ & 2) == 2) {
+                codedOutputStream.writeBytes(2, getActivityTitleBytes());
+            }
+            if ((this.bitField0_ & 4) == 4) {
+                codedOutputStream.writeInt32(3, this.isEnd_);
+            }
+        }
+
+        @Override // com.google.protobuf.MessageLite
+        public int getSerializedSize() {
+            int i = this.memoizedSerializedSize;
+            if (i == -1) {
+                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt32Size(1, this.activityId_) : 0;
+                if ((this.bitField0_ & 2) == 2) {
+                    i += CodedOutputStream.computeBytesSize(2, getActivityTitleBytes());
+                }
+                if ((this.bitField0_ & 4) == 4) {
+                    i += CodedOutputStream.computeInt32Size(3, this.isEnd_);
+                }
+                this.memoizedSerializedSize = i;
+            }
+            return i;
+        }
+
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.google.protobuf.GeneratedMessageLite
+        public Object writeReplace() {
+            return super.writeReplace();
+        }
+
+        public static ActivityInfo parseFrom(ByteString byteString) {
+            return PARSER.parseFrom(byteString);
+        }
+
+        public static ActivityInfo parseFrom(ByteString byteString, ExtensionRegistryLite extensionRegistryLite) {
+            return PARSER.parseFrom(byteString, extensionRegistryLite);
+        }
+
+        public static ActivityInfo parseFrom(byte[] bArr) {
+            return PARSER.parseFrom(bArr);
+        }
+
+        public static ActivityInfo parseFrom(byte[] bArr, ExtensionRegistryLite extensionRegistryLite) {
+            return PARSER.parseFrom(bArr, extensionRegistryLite);
+        }
+
+        public static ActivityInfo parseFrom(InputStream inputStream) {
+            return PARSER.parseFrom(inputStream);
+        }
+
+        public static ActivityInfo parseFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) {
+            return PARSER.parseFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static ActivityInfo parseDelimitedFrom(InputStream inputStream) {
+            return PARSER.parseDelimitedFrom(inputStream);
+        }
+
+        public static ActivityInfo parseDelimitedFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) {
+            return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static ActivityInfo parseFrom(CodedInputStream codedInputStream) {
+            return PARSER.parseFrom(codedInputStream);
+        }
+
+        public static ActivityInfo parseFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
+            return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
+        }
+
+        public static b newBuilder() {
+            return b.f();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLite
+        public b newBuilderForType() {
+            return newBuilder();
+        }
+
+        public static b newBuilder(ActivityInfo activityInfo) {
+            return newBuilder().mergeFrom(activityInfo);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLite
+        public b toBuilder() {
             return newBuilder(this);
         }
     }

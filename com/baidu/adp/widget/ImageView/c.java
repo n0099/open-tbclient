@@ -1,38 +1,30 @@
 package com.baidu.adp.widget.ImageView;
 
-import android.widget.ImageView;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Rect;
+import android.graphics.drawable.BitmapDrawable;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-/* synthetic */ class c {
-    static final /* synthetic */ int[] a = new int[ImageView.ScaleType.values().length];
+public class c extends BitmapDrawable {
+    final /* synthetic */ b a;
 
-    static {
-        try {
-            a[ImageView.ScaleType.FIT_XY.ordinal()] = 1;
-        } catch (NoSuchFieldError e) {
-        }
-        try {
-            a[ImageView.ScaleType.FIT_START.ordinal()] = 2;
-        } catch (NoSuchFieldError e2) {
-        }
-        try {
-            a[ImageView.ScaleType.FIT_CENTER.ordinal()] = 3;
-        } catch (NoSuchFieldError e3) {
-        }
-        try {
-            a[ImageView.ScaleType.FIT_END.ordinal()] = 4;
-        } catch (NoSuchFieldError e4) {
-        }
-        try {
-            a[ImageView.ScaleType.CENTER.ordinal()] = 5;
-        } catch (NoSuchFieldError e5) {
-        }
-        try {
-            a[ImageView.ScaleType.CENTER_CROP.ordinal()] = 6;
-        } catch (NoSuchFieldError e6) {
-        }
-        try {
-            a[ImageView.ScaleType.CENTER_INSIDE.ordinal()] = 7;
-        } catch (NoSuchFieldError e7) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c(b bVar, Bitmap bitmap) {
+        super(bitmap);
+        this.a = bVar;
+    }
+
+    @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
+    public void draw(Canvas canvas) {
+        Bitmap bitmap;
+        Bitmap bitmap2;
+        Bitmap bitmap3;
+        bitmap = this.a.d;
+        if (bitmap != null && (bitmap2 = getBitmap()) != null && !bitmap2.isRecycled()) {
+            bitmap3 = this.a.d;
+            canvas.drawBitmap(bitmap3, (Rect) null, getBounds(), getPaint());
         }
     }
 }

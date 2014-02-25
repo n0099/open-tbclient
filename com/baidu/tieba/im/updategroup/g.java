@@ -11,7 +11,8 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bs;
+import com.baidu.tieba.im.util.p;
+import com.baidu.tieba.util.bq;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -48,7 +49,7 @@ public abstract class g extends com.baidu.adp.a.e implements a {
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public View e_() {
+    public View d_() {
         return this.f;
     }
 
@@ -109,7 +110,7 @@ public abstract class g extends com.baidu.adp.a.e implements a {
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public String f_() {
+    public String e_() {
         return this.j;
     }
 
@@ -135,23 +136,23 @@ public abstract class g extends com.baidu.adp.a.e implements a {
 
     @Override // com.baidu.tieba.im.updategroup.a
     public boolean l() {
-        return com.baidu.tieba.im.d.h.b(this.c) || this.c.length() >= 3;
+        return p.b(this.c) || this.c.length() >= 3;
     }
 
     protected void m() {
-        if (TiebaApplication.h().al() == 1) {
+        if (TiebaApplication.g().al() == 1) {
             if (this.m) {
-                bs.e((View) this.f, (int) R.drawable.navi_done_text_bg_1);
+                bq.e((View) this.f, (int) R.drawable.navi_done_text_bg_1);
                 this.f.setTextColor(this.h.getResources().getColorStateList(R.color.navi_done_text_1));
                 return;
             }
-            bs.e((View) this.f, (int) R.drawable.btn_titlebar_finish_d_1);
+            bq.e((View) this.f, (int) R.drawable.btn_titlebar_finish_d_1);
             this.f.setTextColor(this.h.getResources().getColor(R.color.navi_done_text_d_1));
         } else if (this.m) {
-            bs.e((View) this.f, (int) R.drawable.navi_done_text_bg);
+            bq.e((View) this.f, (int) R.drawable.navi_done_text_bg);
             this.f.setTextColor(this.h.getResources().getColorStateList(R.color.navi_done_text));
         } else {
-            bs.e((View) this.f, (int) R.drawable.btn_titlebar_finish_d);
+            bq.e((View) this.f, (int) R.drawable.btn_titlebar_finish_d);
             this.f.setTextColor(this.h.getResources().getColor(R.color.navi_done_text_d));
         }
     }
@@ -172,8 +173,8 @@ public abstract class g extends com.baidu.adp.a.e implements a {
         this.h.getLayoutMode().a(i == 1);
         this.h.getLayoutMode().a(this.e);
         this.d.c(i);
-        bs.b(this.e, i);
-        bs.h(this.f, i);
+        bq.b(this.e, i);
+        bq.h(this.f, i);
         m();
         if (i == 1) {
             this.c.setHintTextColor(this.h.getResources().getColor(R.color.create_group_input_hintcolor_1));
@@ -202,6 +203,6 @@ public abstract class g extends com.baidu.adp.a.e implements a {
 
     @Override // com.baidu.tieba.im.updategroup.a
     public void a() {
-        new AlertDialog.Builder(this.h).setTitle(R.string.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(R.string.group_update_alert_save).setPositiveButton(R.string.group_update_canel, new j(this)).setNegativeButton(R.string.group_update_done, new i(this)).create().show();
+        new AlertDialog.Builder(this.h).setTitle(R.string.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(R.string.group_update_alert_save).setPositiveButton(R.string.group_update_canel, new i(this)).setNegativeButton(R.string.group_update_done, new j(this)).create().show();
     }
 }

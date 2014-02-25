@@ -10,9 +10,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.tieba.util.bq;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class CreateBarSuccessActivity extends com.baidu.tieba.j {
+public class CreateBarSuccessActivity extends com.baidu.tieba.f {
     private String d = null;
     private ImageView e = null;
     private TextView f = null;
@@ -29,7 +30,7 @@ public class CreateBarSuccessActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.create_bar_success_activity);
@@ -54,15 +55,15 @@ public class CreateBarSuccessActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j
+    @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
+        String string;
         super.onChangeSkinType(i);
-        com.baidu.tieba.util.bs.a(this.e, i);
-        com.baidu.tieba.util.bs.a(this.a, i);
-        com.baidu.tieba.util.bs.d(this.b, i);
-        String string = getString(R.string.create_bar_info1);
-        int length = string.length();
-        String str = string + this.d + getString(R.string.create_bar_info2);
+        bq.a(this.e, i);
+        bq.a(this.a, i);
+        bq.d(this.b, i);
+        int length = getString(R.string.create_bar_info1).length();
+        String str = String.valueOf(string) + this.d + getString(R.string.create_bar_info2);
         SpannableString spannableString = new SpannableString(str);
         if (i == 1) {
             spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.skin_1_common_color)), 0, length, 33);

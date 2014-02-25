@@ -1,49 +1,68 @@
 package com.baidu.tieba.im.db;
 
-import cn.jingling.lib.file.Shared;
-import com.baidu.tieba.im.SingleRunnable;
-import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.baidu.tieba.im.validate.ValidateItemData;
-import java.util.LinkedList;
-import java.util.List;
+import android.text.TextUtils;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.im.data.AddGroupInfoData;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.ad;
+import com.baidu.tieba.im.message.az;
+import com.baidu.tieba.im.message.bm;
+import com.baidu.tieba.im.message.cp;
+import com.baidu.tieba.im.message.s;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o extends SingleRunnable<Boolean> {
-    final /* synthetic */ ValidateItemData a;
-    final /* synthetic */ l b;
+public class o implements com.baidu.tieba.im.messageCenter.g {
+    final /* synthetic */ l a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public o(l lVar, ValidateItemData validateItemData) {
-        this.b = lVar;
-        this.a = validateItemData;
+    private o(l lVar) {
+        this.a = lVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.SingleRunnable
-    /* renamed from: a */
-    public Boolean b() {
-        int i;
-        int i2 = 0;
-        List<ValidateItemData> a = com.baidu.tieba.im.validate.l.a(this.b.a(0L, Shared.INFINITY, 0, "apply_join_group"));
-        int size = a.size();
-        LinkedList<GroupNewsPojo> linkedList = new LinkedList<>();
-        int i3 = 0;
-        while (i2 < size) {
-            ValidateItemData validateItemData = a.get(i2);
-            if (validateItemData.getGroupId().equals(this.a.getGroupId()) && validateItemData.getUserId().equals(this.a.getUserId()) && this.a.isPass()) {
-                validateItemData.setPass(true);
-                if (this.a.isShown()) {
-                    validateItemData.setShown(true);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ o(l lVar, o oVar) {
+        this(lVar);
+    }
+
+    @Override // com.baidu.tieba.im.messageCenter.g
+    public void a(s sVar) {
+        s o;
+        String[] split;
+        if (sVar != null) {
+            if (sVar.w() == 103112) {
+                if (sVar instanceof cp) {
+                    cp cpVar = (cp) sVar;
+                    if (!cpVar.l() && (o = cpVar.o()) != null && (o instanceof az)) {
+                        String c = ((az) o).c();
+                        if (!TextUtils.isEmpty(c) && (split = c.split(",")) != null && split.length != 0) {
+                            String id = TiebaApplication.E().getID();
+                            if (!TextUtils.isEmpty(id)) {
+                                for (String str : split) {
+                                    if (id.equals(str)) {
+                                        this.a.a(cpVar.a());
+                                        com.baidu.tieba.im.j.a(new p(this, cpVar), null);
+                                        l.a().a(cpVar.a());
+                                        return;
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
-                linkedList.add(validateItemData.toGroupNewsPojo());
-                i = i3 + 1;
-            } else {
-                i = i3;
+            } else if (sVar.w() == 103101 && (sVar instanceof bm)) {
+                bm bmVar = (bm) sVar;
+                if (!bmVar.l()) {
+                    ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
+                    ad adVar = (ad) bmVar.o();
+                    imMessageCenterPojo.setGroup_name(adVar.c());
+                    imMessageCenterPojo.setGroup_type(adVar.i());
+                    AddGroupInfoData a = bmVar.a();
+                    if (a != null) {
+                        imMessageCenterPojo.setGroup_head(a.getPortrait());
+                        imMessageCenterPojo.setGid(String.valueOf(a.getGroupId()));
+                        com.baidu.tieba.im.util.d.a(imMessageCenterPojo);
+                    }
+                }
             }
-            i2++;
-            i3 = i;
         }
-        com.baidu.adp.lib.g.e.d("affectCount:" + i3);
-        return this.b.a(linkedList);
     }
 }

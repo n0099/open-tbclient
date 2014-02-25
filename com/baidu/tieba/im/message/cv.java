@@ -1,44 +1,20 @@
 package com.baidu.tieba.im.message;
+
+import java.util.LinkedList;
+import protobuf.UpdateChatroomTopic.UpdateChatroomTopicRes;
 /* loaded from: classes.dex */
-public class cv extends q {
-    private boolean a;
-    private String b;
-    private String c;
-    private boolean d;
-
+public class cv extends da implements com.baidu.tieba.im.coder.f {
     public cv() {
-        super.e(-118);
+        e(106103);
     }
 
-    public boolean a() {
-        return this.a;
-    }
-
-    public void a(boolean z) {
-        this.a = z;
-    }
-
-    public String b() {
-        return this.b;
-    }
-
-    public void a(String str) {
-        this.b = str;
-    }
-
-    public String c() {
-        return this.c;
-    }
-
-    public void b(String str) {
-        this.c = str;
-    }
-
-    public boolean d() {
-        return this.d;
-    }
-
-    public void b(boolean z) {
-        this.d = z;
+    @Override // com.baidu.tieba.im.coder.f
+    public void a(LinkedList<s> linkedList, byte[] bArr, int i) {
+        UpdateChatroomTopicRes.UpdateChatroomTopicResIdl parseFrom = UpdateChatroomTopicRes.UpdateChatroomTopicResIdl.parseFrom(bArr);
+        g(parseFrom.getError().getErrorno());
+        c(parseFrom.getError().getUsermsg());
+        linkedList.add(this);
+        if (l()) {
+        }
     }
 }

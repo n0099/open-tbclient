@@ -6,8 +6,10 @@ import android.view.LayoutInflater;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.data.InviteMsgData;
-import com.baidu.tieba.im.db.ae;
+import com.baidu.tieba.im.db.h;
+import com.baidu.tieba.im.groupInfo.v;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -37,10 +39,8 @@ public final class Invite2GroupView extends LinearLayout {
         this.d = (Button) findViewById(R.id.invite_btn);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.LinearLayout, android.view.ViewGroup
-    public LinearLayout.LayoutParams generateDefaultLayoutParams() {
+    protected LinearLayout.LayoutParams generateDefaultLayoutParams() {
         return new LinearLayout.LayoutParams(-1, -2);
     }
 
@@ -59,6 +59,14 @@ public final class Invite2GroupView extends LinearLayout {
         this.b.setTag(this.e.getPortrait());
         this.c.setText(this.e.getNotice());
         setOnClickListener(new b(this));
-        ae.a().a(new c(this));
+        if (h.a().d().a(String.valueOf(this.e.getGroupId())) != null) {
+            if (String.valueOf(this.e.getGroupId()).equals(this.d.getTag())) {
+                this.d.setText(R.string.i_want_talk);
+                this.d.setOnClickListener(new c(this));
+                return;
+            }
+            return;
+        }
+        v.a(TiebaApplication.A(), String.valueOf(this.e.getGroupId()), 60000L, new d(this));
     }
 }

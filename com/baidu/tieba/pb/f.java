@@ -13,13 +13,21 @@ class f implements Animation.AnimationListener {
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
+        ImageActivity imageActivity;
+        ImageActivity imageActivity2;
         boolean z;
+        ImageActivity imageActivity3;
+        ImageActivity imageActivity4;
         NavigationBar navigationBar;
-        this.a.a.r = true;
-        z = this.a.a.s;
+        imageActivity = this.a.a;
+        imageActivity.r = true;
+        imageActivity2 = this.a.a;
+        z = imageActivity2.s;
         if (z) {
-            this.a.a.s = false;
-            navigationBar = this.a.a.l;
+            imageActivity3 = this.a.a;
+            imageActivity3.s = false;
+            imageActivity4 = this.a.a;
+            navigationBar = imageActivity4.l;
             navigationBar.setVisibility(8);
         }
     }

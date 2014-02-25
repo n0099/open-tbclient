@@ -1,61 +1,69 @@
 package com.baidu.tieba.im.message;
 
+import com.baidu.tieba.im.data.GroupInfoData;
+import com.baidu.tieba.im.data.GroupPermData;
+import java.util.ArrayList;
 import java.util.LinkedList;
-import protobuf.QueryGroupCount.QueryGroupCountRes;
+import java.util.List;
+import protobuf.Im;
+import protobuf.QueryGroupsByUid.QueryGroupsByUidRes;
 /* loaded from: classes.dex */
-public class cc extends cr implements com.baidu.tieba.im.coder.f {
-    private int a;
-    private int b;
-    private String c;
-    private String d;
+public class cc extends da implements com.baidu.tieba.im.coder.f {
+    private List<GroupInfoData> a;
+    private GroupPermData b;
 
     public cc() {
-        e(103011);
+        super(103003);
     }
 
-    public String a() {
-        return this.c;
-    }
-
-    public void a(String str) {
-        this.c = str;
-    }
-
-    public String b() {
-        return this.d;
-    }
-
-    public void b(String str) {
-        this.d = str;
-    }
-
-    public int c() {
+    public List<GroupInfoData> a() {
         return this.a;
     }
 
-    public void a(int i) {
-        this.a = i;
+    public void a(List<GroupInfoData> list) {
+        this.a = list;
     }
 
-    public int d() {
-        return this.b;
-    }
-
-    public void b(int i) {
-        this.b = i;
+    public void a(GroupPermData groupPermData) {
+        this.b = groupPermData;
     }
 
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<q> linkedList, byte[] bArr, int i) {
-        QueryGroupCountRes.QueryGroupCountResIdl parseFrom = QueryGroupCountRes.QueryGroupCountResIdl.parseFrom(bArr);
+    public void a(LinkedList<s> linkedList, byte[] bArr, int i) {
+        QueryGroupsByUidRes.QueryGroupsByUidResIdl parseFrom = QueryGroupsByUidRes.QueryGroupsByUidResIdl.parseFrom(bArr);
         g(parseFrom.getError().getErrorno());
         c(parseFrom.getError().getUsermsg());
         linkedList.add(this);
-        if (!k()) {
-            b(parseFrom.getData().getLocalGroupCount());
-            a(parseFrom.getData().getUserGroupCount());
-            b(parseFrom.getData().getBanner().getPicUrl());
-            a(parseFrom.getData().getBanner().getLink());
+        if (!l()) {
+            a(new ArrayList());
+            int groupsCount = parseFrom.getData().getGroupsCount();
+            for (int i2 = 0; i2 < groupsCount; i2++) {
+                Im.GroupInfo groups = parseFrom.getData().getGroups(i2);
+                GroupInfoData groupInfoData = new GroupInfoData();
+                groupInfoData.setGroupId(groups.getGroupId());
+                groupInfoData.setAuthorId(groups.getAuthorId());
+                groupInfoData.setAuthorName(groups.getAuthorName());
+                groupInfoData.setForumId(groups.getForumId());
+                groupInfoData.setGrade(groups.getGrade());
+                groupInfoData.setIntro(groups.getIntro());
+                groupInfoData.setName(groups.getName());
+                groupInfoData.setIsGroupManager(groups.getIsGroupManager());
+                groupInfoData.setMaxMemberNum(groups.getMaxMemberNum());
+                groupInfoData.setMemberNum(groups.getMemberNum());
+                groupInfoData.setPortrait(groups.getPortrait());
+                groupInfoData.setMemGroup(groups.getIsMemberGroup() == 1);
+                a().add(groupInfoData);
+            }
+            Im.GroupPermission groupPerm = parseFrom.getData().getGroupPerm();
+            GroupPermData groupPermData = new GroupPermData();
+            groupPermData.setCanCreateNormal(groupPerm.getCanCreateNormal());
+            groupPermData.setCanCreateOfficial(groupPerm.getCanCreateOfficial());
+            groupPermData.setCanCreatePersonal(groupPerm.getCanCreatePersonal());
+            groupPermData.setCreateNormalTip(groupPerm.getCreateNormalTip());
+            groupPermData.setCreateOfficialTip(groupPerm.getCreateOfficialTip());
+            groupPermData.setCreatePersonalTip(groupPerm.getCreatePersonalTip());
+            groupPermData.setIsManager(groupPerm.getIsForumManager());
+            a(groupPermData);
         }
     }
 }

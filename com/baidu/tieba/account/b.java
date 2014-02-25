@@ -1,11 +1,11 @@
 package com.baidu.tieba.account;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.util.DatabaseService;
-import java.util.ArrayList;
+import android.app.Activity;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b extends BdAsyncTask<Object, Object, Object> {
+public class b implements az {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,28 +13,41 @@ public class b extends BdAsyncTask<Object, Object, Object> {
         this.a = aVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Object a(Object... objArr) {
-        this.a.e = DatabaseService.l();
-        return null;
+    @Override // com.baidu.tieba.account.az
+    public void a(String str) {
+        k kVar;
+        k kVar2;
+        kVar = this.a.d;
+        if (kVar != null) {
+            kVar2 = this.a.d;
+            kVar2.a(str);
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Object obj) {
-        ArrayList arrayList;
-        ArrayList arrayList2;
-        super.a((b) obj);
-        this.a.f = 0;
-        arrayList = this.a.e;
-        if (arrayList != null) {
-            arrayList2 = this.a.e;
-            if (arrayList2.size() > 0) {
-                this.a.b();
-                return;
-            }
+    @Override // com.baidu.tieba.account.az
+    public void a(AccountData accountData) {
+        k kVar;
+        k kVar2;
+        kVar = this.a.d;
+        if (kVar != null) {
+            kVar2 = this.a.d;
+            kVar2.a();
         }
-        this.a.c();
+    }
+
+    @Override // com.baidu.tieba.account.az
+    public void a(String str, String str2) {
+        boolean z;
+        Activity activity;
+        z = this.a.e;
+        if (!z) {
+            activity = this.a.b;
+            TiebaApplication.a((AccountData) null, activity);
+        } else {
+            this.a.b("logout_by_share");
+        }
+        c cVar = new c(this, str);
+        cVar.setPriority(3);
+        cVar.execute(new Object[0]);
     }
 }

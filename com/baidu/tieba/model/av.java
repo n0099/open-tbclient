@@ -1,30 +1,74 @@
 package com.baidu.tieba.model;
+
+import com.baidu.tieba.data.MarkData;
 /* loaded from: classes.dex */
 public class av extends com.baidu.adp.a.d {
-    private aw a = null;
-    private String b = null;
+    private MarkData b;
+    private boolean a = false;
+    private aw c = null;
+    private ax d = null;
 
-    public boolean a(String str) {
-        this.b = str;
-        return LoadData();
+    public av() {
+        this.b = null;
+        this.b = new MarkData();
+    }
+
+    public boolean a() {
+        return this.a;
+    }
+
+    public MarkData b() {
+        return this.b;
+    }
+
+    public void a(ax axVar) {
+        this.d = axVar;
+    }
+
+    public void a(MarkData markData) {
+        this.b = markData;
+    }
+
+    public void a(boolean z) {
+        this.a = z;
+    }
+
+    public String c() {
+        if (this.b != null) {
+            return this.b.getPostId();
+        }
+        return null;
+    }
+
+    public void d() {
+        if (this.c != null) {
+            this.c.cancel();
+        }
+        this.c = new aw(this, true);
+        this.c.setPriority(3);
+        this.c.execute(new Boolean[0]);
+    }
+
+    public void e() {
+        if (this.c != null) {
+            this.c.cancel();
+        }
+        this.c = new aw(this, false);
+        this.c.setPriority(3);
+        this.c.execute(new Boolean[0]);
     }
 
     @Override // com.baidu.adp.a.d
     protected boolean LoadData() {
-        if (this.a != null) {
-            this.a.cancel();
-        }
-        this.a = new aw(this, this.b);
-        this.a.execute(new Object[0]);
-        return true;
+        return false;
     }
 
     @Override // com.baidu.adp.a.d
     public boolean cancelLoadData() {
-        if (this.a != null) {
-            this.a.cancel();
-            return true;
+        if (this.c != null) {
+            this.c.cancel();
+            return false;
         }
-        return true;
+        return false;
     }
 }

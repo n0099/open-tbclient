@@ -1,121 +1,42 @@
 package com.baidu.tieba.faceshop;
 
 import android.os.Handler;
-import android.view.View;
 import android.widget.AbsListView;
-import android.widget.AdapterView;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.view.NavigationBar;
-import com.baidu.tieba.view.NoNetworkView;
-import com.baidu.tieba.view.br;
-import com.baidu.tieba.view.cm;
-import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aq {
-    private com.baidu.tieba.j b;
-    private LinearLayout c;
-    private NavigationBar d;
-    private NoNetworkView e;
-    private BdListView f;
-    private cm g;
-    private TextView h;
-    private ak i;
-    private Handler j;
-    private com.baidu.tieba.util.i k;
-    private Runnable l = new ar(this);
-    AbsListView.OnScrollListener a = new as(this);
+public class aq implements AbsListView.OnScrollListener {
+    final /* synthetic */ ao a;
 
-    public aq(com.baidu.tieba.j jVar) {
-        this.b = jVar;
-        jVar.setContentView(R.layout.face_purchase_records_layout);
-        this.c = (LinearLayout) jVar.findViewById(R.id.purchase_record);
-        this.d = (NavigationBar) this.c.findViewById(R.id.view_navigation_bar);
-        this.d.a(jVar.getResources().getString(R.string.purchase_record));
-        this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.e = (NoNetworkView) this.c.findViewById(R.id.view_no_network);
-        this.h = (TextView) this.c.findViewById(R.id.empty);
-        this.f = (BdListView) this.c.findViewById(R.id.purchase_record_list);
-        this.g = new cm(jVar);
-        this.f.setPullRefresh(this.g);
-        this.f.setOnScrollListener(this.a);
-        this.j = new Handler();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public aq(ao aoVar) {
+        this.a = aoVar;
     }
 
-    public void a(FacePurchaseRecordsData facePurchaseRecordsData) {
-        if (this.i == null) {
-            this.i = new ak(this.b);
-            this.f.setAdapter((ListAdapter) this.i);
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        Handler handler;
+        Handler handler2;
+        Handler handler3;
+        Runnable runnable;
+        Handler handler4;
+        Runnable runnable2;
+        handler = this.a.j;
+        if (handler != null) {
+            handler4 = this.a.j;
+            runnable2 = this.a.l;
+            handler4.removeCallbacks(runnable2);
         }
-        this.k = this.i.a();
-        this.i.a(facePurchaseRecordsData);
-        if (facePurchaseRecordsData == null || facePurchaseRecordsData.packList == null || facePurchaseRecordsData.packList.size() == 0) {
-            c();
-        }
-        d();
-        b();
-    }
-
-    public ak a() {
-        return this.i;
-    }
-
-    public void b() {
-        this.f.a();
-    }
-
-    public void c() {
-        if (this.f != null) {
-            this.f.setEmptyView(this.h);
+        if (i == 0) {
+            handler2 = this.a.j;
+            if (handler2 != null) {
+                handler3 = this.a.j;
+                runnable = this.a.l;
+                handler3.postDelayed(runnable, 300L);
+            }
         }
     }
 
-    public void a(AdapterView.OnItemClickListener onItemClickListener) {
-        this.f.setOnItemClickListener(onItemClickListener);
-    }
-
-    public void a(com.baidu.adp.widget.ListView.b bVar) {
-        this.g.a(bVar);
-    }
-
-    public void d() {
-        if (this.j != null) {
-            this.j.removeCallbacks(this.l);
-            this.j.postDelayed(this.l, 300L);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void f() {
-        com.baidu.tieba.util.an.a(this.f, this.i.a(), 0, -1);
-    }
-
-    private void g() {
-        if (this.k != null) {
-            this.k.a();
-            this.k.d();
-        }
-    }
-
-    public void e() {
-        g();
-    }
-
-    public void a(br brVar) {
-        this.e.a(brVar);
-    }
-
-    public void b(br brVar) {
-        this.e.b(brVar);
-    }
-
-    public void a(int i) {
-        this.b.getLayoutMode().a(i == 1);
-        this.b.getLayoutMode().a((View) this.c);
-        this.d.c(i);
-        this.e.a(i);
-        this.g.a(i);
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 }

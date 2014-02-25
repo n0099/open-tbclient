@@ -17,15 +17,15 @@ public class c implements View.OnTouchListener {
     public boolean onTouch(View view, MotionEvent motionEvent) {
         EditText editText;
         if (motionEvent.getAction() == 1) {
-            editText = this.a.E;
+            editText = this.a.G;
             editText.setCursorVisible(true);
-            this.a.Q();
+            this.a.S();
         } else if (motionEvent.getAction() == 0) {
-            this.a.X();
-            if (this.a.d.getVisibility() == 0) {
-                this.a.R();
-                this.a.U();
+            this.a.Z();
+            if (this.a.e.getVisibility() == 0) {
+                this.a.T();
                 this.a.W();
+                this.a.Y();
                 return true;
             }
         }

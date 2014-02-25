@@ -7,7 +7,7 @@ public class BdStatCommonSwitchData implements Serializable {
     private static final long serialVersionUID = 7678228379262149818L;
     private boolean is_open = false;
     private boolean is_only_wifi = true;
-    private boolean is_exact = true;
+    private boolean is_exact = false;
 
     public boolean isIs_open() {
         return this.is_open;
@@ -40,7 +40,7 @@ public class BdStatCommonSwitchData implements Serializable {
                 setIs_only_wifi(jSONObject.optInt("is_only_wifi", 0) != 0);
                 setIs_open(jSONObject.optInt("is_open", 0) != 0);
             } catch (Exception e) {
-                com.baidu.adp.lib.g.e.a(getClass(), "parserJson", e);
+                com.baidu.adp.lib.util.f.a(getClass(), "parserJson", e);
             }
         }
     }

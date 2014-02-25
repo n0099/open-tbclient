@@ -1,21 +1,18 @@
 package com.baidu.tieba.view;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.widget.share.ShareJsBridge;
 /* loaded from: classes.dex */
 public class BaseWebView extends WebView {
     private WebViewClient a;
-    private d b;
+    private e b;
     private Context c;
-    private d d;
-    private f e;
-    private e f;
+    private e d;
+    private g e;
+    private f f;
 
     public BaseWebView(Context context) {
         super(context);
@@ -52,66 +49,23 @@ public class BaseWebView extends WebView {
 
     public void a() {
         getSettings().setJavaScriptEnabled(true);
-        addJavascriptInterface(new ShareJsBridge(this.c), "ShareJsBridge");
         getSettings().setCacheMode(2);
         UtilHelper.a(getSettings());
-        this.a = new MyWebViewClient();
+        this.a = new d(this);
         setWebViewClient(this.a);
         setOnLongClickListener(new b(this));
     }
 
-    /* loaded from: classes.dex */
-    public class MyWebViewClient extends WebViewClient {
-        public MyWebViewClient() {
-        }
-
-        @Override // android.webkit.WebViewClient
-        public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-            super.onPageStarted(webView, str, bitmap);
-            if (BaseWebView.this.e != null) {
-                BaseWebView.this.e.c(webView, str);
-            }
-            Log.d("BaseWebView", "@onPageStarted = " + str);
-        }
-
-        @Override // android.webkit.WebViewClient
-        public void onLoadResource(WebView webView, String str) {
-            super.onLoadResource(webView, str);
-        }
-
-        @Override // android.webkit.WebViewClient
-        public void onPageFinished(WebView webView, String str) {
-            super.onPageFinished(webView, str);
-            if (BaseWebView.this.f != null) {
-                BaseWebView.this.f.b(webView, str);
-            }
-            Log.d("BaseWebView", "@onPageFinished = " + str);
-        }
-
-        @Override // android.webkit.WebViewClient
-        public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            if (BaseWebView.this.b != null) {
-                return BaseWebView.this.b.a(webView, str);
-            }
-            return super.shouldOverrideUrlLoading(webView, str);
-        }
-
-        @Override // android.webkit.WebViewClient
-        public void onReceivedError(WebView webView, int i, String str, String str2) {
-            super.onReceivedError(webView, i, str, str2);
-        }
+    public void setOnLoadUrlListener(e eVar) {
+        this.b = eVar;
     }
 
-    public void setOnLoadUrlListener(d dVar) {
-        this.b = dVar;
+    public void setOnPageStartedListener(g gVar) {
+        this.e = gVar;
     }
 
-    public void setOnPageStartedListener(f fVar) {
-        this.e = fVar;
-    }
-
-    public void setOnPageFinishedListener(e eVar) {
-        this.f = eVar;
+    public void setOnPageFinishedListener(f fVar) {
+        this.f = fVar;
     }
 
     private void b() {

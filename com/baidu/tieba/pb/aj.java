@@ -1,32 +1,24 @@
 package com.baidu.tieba.pb;
 
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import com.baidu.tieba.view.ImagePbImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.view.View;
 /* loaded from: classes.dex */
-public class aj {
-    TextView a;
-    TextView b;
-    TextView c;
-    LinearLayout d;
-    TextView e;
-    ProgressBar f;
-    LinearLayout g;
-    ImagePbImageView h;
-    TextView i;
-    TextView j;
-    TextView k;
-    LinearLayout l;
-    final /* synthetic */ ag m;
-
-    private aj(ag agVar) {
-        this.m = agVar;
-    }
+class aj implements View.OnClickListener {
+    final /* synthetic */ ah a;
+    private final /* synthetic */ String b;
+    private final /* synthetic */ String c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ aj(ag agVar, ah ahVar) {
-        this(agVar);
+    public aj(ah ahVar, String str, String str2) {
+        this.a = ahVar;
+        this.b = str;
+        this.c = str2;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        context = this.a.c;
+        com.baidu.tieba.person.cm.a(context, this.b, this.c);
     }
 }

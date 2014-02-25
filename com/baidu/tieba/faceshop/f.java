@@ -17,7 +17,7 @@ public class f extends BdAsyncTask<String, Integer, List<e>> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ f(EmotionManageActivity emotionManageActivity, a aVar) {
+    public /* synthetic */ f(EmotionManageActivity emotionManageActivity, f fVar) {
         this(emotionManageActivity);
     }
 

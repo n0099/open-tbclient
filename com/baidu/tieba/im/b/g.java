@@ -1,44 +1,30 @@
 package com.baidu.tieba.im.b;
 
-import android.os.Handler;
-import android.os.Message;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g extends Handler {
-    private g() {
-    }
+public class g implements com.baidu.tieba.im.net.c {
+    final /* synthetic */ a a;
+    private final /* synthetic */ String b;
+    private final /* synthetic */ int c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ g(b bVar) {
-        this();
+    public g(a aVar, String str, int i) {
+        this.a = aVar;
+        this.b = str;
+        this.c = i;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        Handler handler;
-        Handler handler2;
-        Handler handler3;
-        Handler handler4;
-        int i;
-        super.handleMessage(message);
-        switch (message.what) {
-            case 2:
-                handler = a.c().p;
-                handler.removeMessages(2);
-                a.c().i();
-                return;
-            case 3:
-                handler2 = a.c().p;
-                handler2.removeMessages(3);
-                a.c().i();
-                handler3 = a.c().p;
-                handler4 = a.c().p;
-                Message obtainMessage = handler4.obtainMessage(3);
-                i = a.c().e;
-                handler3.sendMessageDelayed(obtainMessage, i);
-                return;
-            default:
-                return;
+    @Override // com.baidu.tieba.im.net.c
+    public void a() {
+        List list;
+        this.a.r = 0;
+        this.a.s = com.baidu.tieba.im.net.b.a().d();
+        list = this.a.s;
+        if (list == null) {
+            this.a.p = false;
+        } else {
+            this.a.a(this.b, this.c);
         }
     }
 }

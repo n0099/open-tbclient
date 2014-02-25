@@ -9,10 +9,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tieba.util.bs;
+import com.baidu.tieba.util.bq;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class NoNetworkMoreActivity extends j {
+public class NoNetworkMoreActivity extends f {
     private View a;
     private ImageView b;
     private ImageView c;
@@ -21,7 +21,7 @@ public class NoNetworkMoreActivity extends j {
     private TextView f;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.no_network_more_view);
@@ -57,11 +57,11 @@ public class NoNetworkMoreActivity extends j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j
+    @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
-        bs.a(this.b, i);
-        bs.a(this.c, i);
-        bs.d(this.a, i);
-        bs.e(this.d, i);
+        bq.a(this.b, i);
+        bq.a(this.c, i);
+        bq.d(this.a, i);
+        bq.e(this.d, i);
     }
 }

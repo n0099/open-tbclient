@@ -1,77 +1,74 @@
 package com.baidu.tieba.more;
 
-import android.text.TextUtils;
-import com.baidu.tieba.im.message.bd;
-import com.baidu.tieba.im.message.bq;
-import com.baidu.tieba.im.message.co;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class am implements com.baidu.tieba.im.messageCenter.g {
-    final /* synthetic */ SecretSettingActivity a;
+public class am extends com.baidu.adp.a.e {
+    private NavigationBar a;
+    private ViewGroup c;
+    private ImageView d;
+    private SettingTextSwitchView e;
+    private SettingTextTipView f;
+    private SecretSettingActivity g;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public am(SecretSettingActivity secretSettingActivity) {
-        this.a = secretSettingActivity;
+        super(secretSettingActivity);
+        this.a = null;
+        this.g = secretSettingActivity;
+        secretSettingActivity.setContentView(R.layout.secret_setting_activity);
     }
 
-    @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.q qVar) {
-        an anVar;
-        an anVar2;
-        an anVar3;
-        an anVar4;
-        anVar = this.a.b;
-        anVar.g();
-        if (qVar.w() == 104103) {
-            if (!(qVar instanceof bq)) {
-                this.a.showToast(R.string.neterror);
-                return;
-            }
-            bq bqVar = (bq) qVar;
-            com.baidu.tieba.im.message.q n = bqVar.n();
-            if (!(n instanceof com.baidu.tieba.im.message.ah)) {
-                this.a.showToast(R.string.neterror);
-            } else if (((com.baidu.tieba.im.message.ah) n).b() == 8) {
-                if (bqVar.k()) {
-                    if (bqVar.l() > 0) {
-                        if (!TextUtils.isEmpty(bqVar.m())) {
-                            this.a.showToast(bqVar.m());
-                            return;
-                        }
-                        return;
-                    }
-                    this.a.showToast(R.string.neterror);
-                    return;
-                }
-                boolean z = bqVar.a() != 0;
-                anVar4 = this.a.b;
-                anVar4.i().setSelected(z);
-            }
-        } else if (qVar.w() == 104102) {
-            if (!(qVar instanceof co)) {
-                this.a.showToast(R.string.neterror);
-                return;
-            }
-            co coVar = (co) qVar;
-            com.baidu.tieba.im.message.q n2 = coVar.n();
-            if (!(n2 instanceof bd)) {
-                this.a.showToast(R.string.neterror);
-            } else if (((bd) n2).b() == 8) {
-                if (!coVar.k()) {
-                    anVar2 = this.a.b;
-                    Object tag = anVar2.i().getTag();
-                    if (tag != null && (tag instanceof Boolean)) {
-                        anVar3 = this.a.b;
-                        anVar3.i().setSelected(((Boolean) tag).booleanValue());
-                    }
-                } else if (coVar.l() > 0) {
-                    if (!TextUtils.isEmpty(coVar.m())) {
-                        this.a.showToast(coVar.m());
-                    }
-                } else {
-                    this.a.showToast(R.string.neterror);
-                }
-            }
-        }
+    public void a(SecretSettingActivity secretSettingActivity) {
+        b(secretSettingActivity);
+    }
+
+    public void a(int i) {
+        this.g.getLayoutMode().a(i == 1);
+        this.g.getLayoutMode().a((View) this.c);
+        this.a.c(i);
+        this.f.a(i);
+    }
+
+    void b(SecretSettingActivity secretSettingActivity) {
+        this.c = (RelativeLayout) secretSettingActivity.findViewById(R.id.parent);
+        this.a = (NavigationBar) secretSettingActivity.findViewById(R.id.view_navigation_bar);
+        this.a.a(secretSettingActivity.getString(R.string.secretSetting_title));
+        this.d = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, secretSettingActivity);
+        this.e = (SettingTextSwitchView) secretSettingActivity.findViewById(R.id.only_send_me);
+        this.e.setSwitchStateChangeListener(this.g);
+        this.f = (SettingTextTipView) secretSettingActivity.findViewById(R.id.black_address_list);
+        this.f.setOnClickListener(this.g);
+    }
+
+    public void a() {
+        this.g.showLoadingDialog(this.g.getString(R.string.loading));
+    }
+
+    public void e() {
+        this.f.d();
+    }
+
+    public void f() {
+        this.g.showLoadingDialog(this.g.getString(R.string.saving));
+    }
+
+    public void g() {
+        this.g.closeLoadingDialog();
+    }
+
+    public ImageView h() {
+        return this.d;
+    }
+
+    public SettingTextSwitchView i() {
+        return this.e;
+    }
+
+    public SettingTextTipView j() {
+        return this.f;
     }
 }

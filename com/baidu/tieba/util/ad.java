@@ -1,1201 +1,1087 @@
 package com.baidu.tieba.util;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.Environment;
-import android.os.StatFs;
+import android.content.Context;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.switchs.SwitchKey;
 import com.slidingmenu.lib.R;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
 /* loaded from: classes.dex */
-public class ad {
-    public static final File a = Environment.getExternalStorageDirectory();
-    private static final File b = TiebaApplication.h().getCacheDir();
+public class ad implements com.baidu.tbadk.imageManager.b {
+    public static final ArrayList<Integer> a;
+    public static final HashMap<String, Integer> b;
+    private static final HashMap<String, Integer> c = new HashMap<>();
+    private static final HashMap<String, String> d;
 
-    public static boolean a() {
-        return Environment.getExternalStorageState().equals("mounted");
+    static {
+        c.put("video_icon", Integer.valueOf((int) R.drawable.ico_link_video));
+        c.put("10th_001", Integer.valueOf((int) R.drawable.f10th_001));
+        c.put("10th_002", Integer.valueOf((int) R.drawable.f10th_002));
+        c.put("10th_003", Integer.valueOf((int) R.drawable.f10th_003));
+        c.put("10th_004", Integer.valueOf((int) R.drawable.f10th_004));
+        c.put("10th_005", Integer.valueOf((int) R.drawable.f10th_005));
+        c.put("10th_006", Integer.valueOf((int) R.drawable.f10th_006));
+        c.put("10th_007", Integer.valueOf((int) R.drawable.f10th_007));
+        c.put("10th_008", Integer.valueOf((int) R.drawable.f10th_008));
+        c.put("10th_009", Integer.valueOf((int) R.drawable.f10th_009));
+        c.put("10th_010", Integer.valueOf((int) R.drawable.f10th_010));
+        c.put("10th_011", Integer.valueOf((int) R.drawable.f10th_011));
+        c.put("10th_012", Integer.valueOf((int) R.drawable.f10th_012));
+        c.put("B_0001", Integer.valueOf((int) R.drawable.b_0001));
+        c.put("B_0002", Integer.valueOf((int) R.drawable.b_0002));
+        c.put("B_0003", Integer.valueOf((int) R.drawable.b_0003));
+        c.put("B_0004", Integer.valueOf((int) R.drawable.b_0004));
+        c.put("B_0005", Integer.valueOf((int) R.drawable.b_0005));
+        c.put("B_0006", Integer.valueOf((int) R.drawable.b_0006));
+        c.put("B_0007", Integer.valueOf((int) R.drawable.b_0007));
+        c.put("B_0008", Integer.valueOf((int) R.drawable.b_0008));
+        c.put("B_0009", Integer.valueOf((int) R.drawable.b_0009));
+        c.put("B_0010", Integer.valueOf((int) R.drawable.b_0010));
+        c.put("B_0011", Integer.valueOf((int) R.drawable.b_0011));
+        c.put("B_0012", Integer.valueOf((int) R.drawable.b_0012));
+        c.put("B_0013", Integer.valueOf((int) R.drawable.b_0013));
+        c.put("B_0014", Integer.valueOf((int) R.drawable.b_0014));
+        c.put("B_0015", Integer.valueOf((int) R.drawable.b_0015));
+        c.put("B_0016", Integer.valueOf((int) R.drawable.b_0016));
+        c.put("B_0017", Integer.valueOf((int) R.drawable.b_0017));
+        c.put("B_0018", Integer.valueOf((int) R.drawable.b_0018));
+        c.put("B_0019", Integer.valueOf((int) R.drawable.b_0019));
+        c.put("B_0020", Integer.valueOf((int) R.drawable.b_0020));
+        c.put("B_0021", Integer.valueOf((int) R.drawable.b_0021));
+        c.put("B_0022", Integer.valueOf((int) R.drawable.b_0022));
+        c.put("B_0023", Integer.valueOf((int) R.drawable.b_0023));
+        c.put("B_0024", Integer.valueOf((int) R.drawable.b_0024));
+        c.put("B_0025", Integer.valueOf((int) R.drawable.b_0025));
+        c.put("B_0026", Integer.valueOf((int) R.drawable.b_0026));
+        c.put("B_0027", Integer.valueOf((int) R.drawable.b_0027));
+        c.put("B_0028", Integer.valueOf((int) R.drawable.b_0028));
+        c.put("B_0029", Integer.valueOf((int) R.drawable.b_0029));
+        c.put("B_0030", Integer.valueOf((int) R.drawable.b_0030));
+        c.put("B_0031", Integer.valueOf((int) R.drawable.b_0031));
+        c.put("B_0032", Integer.valueOf((int) R.drawable.b_0032));
+        c.put("B_0033", Integer.valueOf((int) R.drawable.b_0033));
+        c.put("B_0034", Integer.valueOf((int) R.drawable.b_0034));
+        c.put("B_0035", Integer.valueOf((int) R.drawable.b_0035));
+        c.put("B_0036", Integer.valueOf((int) R.drawable.b_0036));
+        c.put("B_0037", Integer.valueOf((int) R.drawable.b_0037));
+        c.put("B_0038", Integer.valueOf((int) R.drawable.b_0038));
+        c.put("B_0039", Integer.valueOf((int) R.drawable.b_0039));
+        c.put("B_0040", Integer.valueOf((int) R.drawable.b_0040));
+        c.put("B_0041", Integer.valueOf((int) R.drawable.b_0041));
+        c.put("B_0042", Integer.valueOf((int) R.drawable.b_0042));
+        c.put("B_0043", Integer.valueOf((int) R.drawable.b_0043));
+        c.put("B_0044", Integer.valueOf((int) R.drawable.b_0044));
+        c.put("B_0045", Integer.valueOf((int) R.drawable.b_0045));
+        c.put("B_0046", Integer.valueOf((int) R.drawable.b_0046));
+        c.put("B_0047", Integer.valueOf((int) R.drawable.b_0047));
+        c.put("B_0048", Integer.valueOf((int) R.drawable.b_0048));
+        c.put("B_0049", Integer.valueOf((int) R.drawable.b_0049));
+        c.put("B_0050", Integer.valueOf((int) R.drawable.b_0050));
+        c.put("B_0051", Integer.valueOf((int) R.drawable.b_0051));
+        c.put("B_0052", Integer.valueOf((int) R.drawable.b_0052));
+        c.put("B_0053", Integer.valueOf((int) R.drawable.b_0053));
+        c.put("B_0054", Integer.valueOf((int) R.drawable.b_0054));
+        c.put("B_0055", Integer.valueOf((int) R.drawable.b_0055));
+        c.put("B_0056", Integer.valueOf((int) R.drawable.b_0056));
+        c.put("B_0057", Integer.valueOf((int) R.drawable.b_0057));
+        c.put("B_0058", Integer.valueOf((int) R.drawable.b_0058));
+        c.put("B_0059", Integer.valueOf((int) R.drawable.b_0059));
+        c.put("B_0060", Integer.valueOf((int) R.drawable.b_0060));
+        c.put("B_0061", Integer.valueOf((int) R.drawable.b_0061));
+        c.put("B_0062", Integer.valueOf((int) R.drawable.b_0062));
+        c.put("B_0063", Integer.valueOf((int) R.drawable.b_0063));
+        c.put("i_f01", Integer.valueOf((int) R.drawable.image_emoticon));
+        c.put("i_f02", Integer.valueOf((int) R.drawable.image_emoticon2));
+        c.put("i_f03", Integer.valueOf((int) R.drawable.image_emoticon3));
+        c.put("i_f04", Integer.valueOf((int) R.drawable.image_emoticon4));
+        c.put("i_f05", Integer.valueOf((int) R.drawable.image_emoticon5));
+        c.put("i_f06", Integer.valueOf((int) R.drawable.image_emoticon6));
+        c.put("i_f07", Integer.valueOf((int) R.drawable.image_emoticon7));
+        c.put("i_f08", Integer.valueOf((int) R.drawable.image_emoticon8));
+        c.put("i_f09", Integer.valueOf((int) R.drawable.image_emoticon9));
+        c.put("i_f10", Integer.valueOf((int) R.drawable.image_emoticon10));
+        c.put("i_f11", Integer.valueOf((int) R.drawable.image_emoticon11));
+        c.put("i_f12", Integer.valueOf((int) R.drawable.image_emoticon12));
+        c.put("i_f13", Integer.valueOf((int) R.drawable.image_emoticon13));
+        c.put("i_f14", Integer.valueOf((int) R.drawable.image_emoticon14));
+        c.put("i_f15", Integer.valueOf((int) R.drawable.image_emoticon15));
+        c.put("i_f16", Integer.valueOf((int) R.drawable.image_emoticon16));
+        c.put("i_f17", Integer.valueOf((int) R.drawable.image_emoticon17));
+        c.put("i_f18", Integer.valueOf((int) R.drawable.image_emoticon18));
+        c.put("i_f19", Integer.valueOf((int) R.drawable.image_emoticon19));
+        c.put("i_f20", Integer.valueOf((int) R.drawable.image_emoticon20));
+        c.put("i_f21", Integer.valueOf((int) R.drawable.image_emoticon21));
+        c.put("i_f22", Integer.valueOf((int) R.drawable.image_emoticon34));
+        c.put("i_f23", Integer.valueOf((int) R.drawable.image_emoticon35));
+        c.put("i_f24", Integer.valueOf((int) R.drawable.image_emoticon36));
+        c.put("i_f25", Integer.valueOf((int) R.drawable.image_emoticon37));
+        c.put("i_f26", Integer.valueOf((int) R.drawable.image_emoticon22));
+        c.put("i_f27", Integer.valueOf((int) R.drawable.image_emoticon23));
+        c.put("i_f28", Integer.valueOf((int) R.drawable.image_emoticon24));
+        c.put("i_f29", Integer.valueOf((int) R.drawable.image_emoticon25));
+        c.put("i_f30", Integer.valueOf((int) R.drawable.image_emoticon26));
+        c.put("i_f31", Integer.valueOf((int) R.drawable.image_emoticon27));
+        c.put("i_f32", Integer.valueOf((int) R.drawable.image_emoticon28));
+        c.put("i_f33", Integer.valueOf((int) R.drawable.image_emoticon29));
+        c.put("i_f34", Integer.valueOf((int) R.drawable.image_emoticon30));
+        c.put("i_f35", Integer.valueOf((int) R.drawable.image_emoticon31));
+        c.put("i_f36", Integer.valueOf((int) R.drawable.image_emoticon32));
+        c.put("i_f37", Integer.valueOf((int) R.drawable.image_emoticon33));
+        c.put("i_f38", Integer.valueOf((int) R.drawable.image_emoticon38));
+        c.put("i_f39", Integer.valueOf((int) R.drawable.image_emoticon39));
+        c.put("i_f40", Integer.valueOf((int) R.drawable.image_emoticon40));
+        c.put("i_f41", Integer.valueOf((int) R.drawable.image_emoticon41));
+        c.put("i_f42", Integer.valueOf((int) R.drawable.image_emoticon42));
+        c.put("i_f43", Integer.valueOf((int) R.drawable.image_emoticon43));
+        c.put("i_f44", Integer.valueOf((int) R.drawable.image_emoticon44));
+        c.put("i_f45", Integer.valueOf((int) R.drawable.image_emoticon45));
+        c.put("i_f46", Integer.valueOf((int) R.drawable.image_emoticon46));
+        c.put("i_f47", Integer.valueOf((int) R.drawable.image_emoticon47));
+        c.put("i_f48", Integer.valueOf((int) R.drawable.image_emoticon48));
+        c.put("i_f49", Integer.valueOf((int) R.drawable.image_emoticon49));
+        c.put("i_f50", Integer.valueOf((int) R.drawable.image_emoticon50));
+        c.put("t_0001", Integer.valueOf((int) R.drawable.t_0001));
+        c.put("t_0002", Integer.valueOf((int) R.drawable.t_0002));
+        c.put("t_0003", Integer.valueOf((int) R.drawable.t_0003));
+        c.put("t_0004", Integer.valueOf((int) R.drawable.t_0004));
+        c.put("t_0005", Integer.valueOf((int) R.drawable.t_0005));
+        c.put("t_0006", Integer.valueOf((int) R.drawable.t_0006));
+        c.put("t_0007", Integer.valueOf((int) R.drawable.t_0007));
+        c.put("t_0008", Integer.valueOf((int) R.drawable.t_0008));
+        c.put("t_0009", Integer.valueOf((int) R.drawable.t_0009));
+        c.put("t_0010", Integer.valueOf((int) R.drawable.t_0010));
+        c.put("t_0011", Integer.valueOf((int) R.drawable.t_0011));
+        c.put("t_0012", Integer.valueOf((int) R.drawable.t_0012));
+        c.put("t_0013", Integer.valueOf((int) R.drawable.t_0013));
+        c.put("t_0014", Integer.valueOf((int) R.drawable.t_0014));
+        c.put("t_0015", Integer.valueOf((int) R.drawable.t_0015));
+        c.put("t_0016", Integer.valueOf((int) R.drawable.t_0016));
+        c.put("t_0017", Integer.valueOf((int) R.drawable.t_0017));
+        c.put("t_0018", Integer.valueOf((int) R.drawable.t_0018));
+        c.put("t_0019", Integer.valueOf((int) R.drawable.t_0019));
+        c.put("t_0020", Integer.valueOf((int) R.drawable.t_0020));
+        c.put("t_0021", Integer.valueOf((int) R.drawable.t_0021));
+        c.put("t_0022", Integer.valueOf((int) R.drawable.t_0022));
+        c.put("t_0023", Integer.valueOf((int) R.drawable.t_0023));
+        c.put("t_0024", Integer.valueOf((int) R.drawable.t_0024));
+        c.put("t_0025", Integer.valueOf((int) R.drawable.t_0025));
+        c.put("t_0026", Integer.valueOf((int) R.drawable.t_0026));
+        c.put("t_0027", Integer.valueOf((int) R.drawable.t_0027));
+        c.put("t_0028", Integer.valueOf((int) R.drawable.t_0028));
+        c.put("t_0029", Integer.valueOf((int) R.drawable.t_0029));
+        c.put("t_0030", Integer.valueOf((int) R.drawable.t_0030));
+        c.put("t_0031", Integer.valueOf((int) R.drawable.t_0031));
+        c.put("t_0032", Integer.valueOf((int) R.drawable.t_0032));
+        c.put("t_0033", Integer.valueOf((int) R.drawable.t_0033));
+        c.put("t_0034", Integer.valueOf((int) R.drawable.t_0034));
+        c.put("t_0035", Integer.valueOf((int) R.drawable.t_0035));
+        c.put("t_0036", Integer.valueOf((int) R.drawable.t_0036));
+        c.put("t_0037", Integer.valueOf((int) R.drawable.t_0037));
+        c.put("t_0038", Integer.valueOf((int) R.drawable.t_0038));
+        c.put("t_0039", Integer.valueOf((int) R.drawable.t_0039));
+        c.put("t_0040", Integer.valueOf((int) R.drawable.t_0040));
+        c.put("image_emoticon", Integer.valueOf((int) R.drawable.image_emoticon));
+        c.put("image_emoticon2", Integer.valueOf((int) R.drawable.image_emoticon2));
+        c.put("image_emoticon3", Integer.valueOf((int) R.drawable.image_emoticon3));
+        c.put("image_emoticon4", Integer.valueOf((int) R.drawable.image_emoticon4));
+        c.put("image_emoticon5", Integer.valueOf((int) R.drawable.image_emoticon5));
+        c.put("image_emoticon6", Integer.valueOf((int) R.drawable.image_emoticon6));
+        c.put("image_emoticon7", Integer.valueOf((int) R.drawable.image_emoticon7));
+        c.put("image_emoticon8", Integer.valueOf((int) R.drawable.image_emoticon8));
+        c.put("image_emoticon9", Integer.valueOf((int) R.drawable.image_emoticon9));
+        c.put("image_emoticon10", Integer.valueOf((int) R.drawable.image_emoticon10));
+        c.put("image_emoticon11", Integer.valueOf((int) R.drawable.image_emoticon11));
+        c.put("image_emoticon12", Integer.valueOf((int) R.drawable.image_emoticon12));
+        c.put("image_emoticon13", Integer.valueOf((int) R.drawable.image_emoticon13));
+        c.put("image_emoticon14", Integer.valueOf((int) R.drawable.image_emoticon14));
+        c.put("image_emoticon15", Integer.valueOf((int) R.drawable.image_emoticon15));
+        c.put("image_emoticon16", Integer.valueOf((int) R.drawable.image_emoticon16));
+        c.put("image_emoticon17", Integer.valueOf((int) R.drawable.image_emoticon17));
+        c.put("image_emoticon18", Integer.valueOf((int) R.drawable.image_emoticon18));
+        c.put("image_emoticon19", Integer.valueOf((int) R.drawable.image_emoticon19));
+        c.put("image_emoticon20", Integer.valueOf((int) R.drawable.image_emoticon20));
+        c.put("image_emoticon21", Integer.valueOf((int) R.drawable.image_emoticon21));
+        c.put("image_emoticon22", Integer.valueOf((int) R.drawable.image_emoticon22));
+        c.put("image_emoticon23", Integer.valueOf((int) R.drawable.image_emoticon23));
+        c.put("image_emoticon24", Integer.valueOf((int) R.drawable.image_emoticon24));
+        c.put("image_emoticon25", Integer.valueOf((int) R.drawable.image_emoticon25));
+        c.put("image_emoticon26", Integer.valueOf((int) R.drawable.image_emoticon26));
+        c.put("image_emoticon27", Integer.valueOf((int) R.drawable.image_emoticon27));
+        c.put("image_emoticon28", Integer.valueOf((int) R.drawable.image_emoticon28));
+        c.put("image_emoticon29", Integer.valueOf((int) R.drawable.image_emoticon29));
+        c.put("image_emoticon30", Integer.valueOf((int) R.drawable.image_emoticon30));
+        c.put("image_emoticon31", Integer.valueOf((int) R.drawable.image_emoticon31));
+        c.put("image_emoticon32", Integer.valueOf((int) R.drawable.image_emoticon32));
+        c.put("image_emoticon33", Integer.valueOf((int) R.drawable.image_emoticon33));
+        c.put("image_emoticon34", Integer.valueOf((int) R.drawable.image_emoticon34));
+        c.put("image_emoticon35", Integer.valueOf((int) R.drawable.image_emoticon35));
+        c.put("image_emoticon36", Integer.valueOf((int) R.drawable.image_emoticon36));
+        c.put("image_emoticon37", Integer.valueOf((int) R.drawable.image_emoticon37));
+        c.put("image_emoticon38", Integer.valueOf((int) R.drawable.image_emoticon38));
+        c.put("image_emoticon39", Integer.valueOf((int) R.drawable.image_emoticon39));
+        c.put("image_emoticon40", Integer.valueOf((int) R.drawable.image_emoticon40));
+        c.put("image_emoticon41", Integer.valueOf((int) R.drawable.image_emoticon41));
+        c.put("image_emoticon42", Integer.valueOf((int) R.drawable.image_emoticon42));
+        c.put("image_emoticon43", Integer.valueOf((int) R.drawable.image_emoticon43));
+        c.put("image_emoticon44", Integer.valueOf((int) R.drawable.image_emoticon44));
+        c.put("image_emoticon45", Integer.valueOf((int) R.drawable.image_emoticon45));
+        c.put("image_emoticon46", Integer.valueOf((int) R.drawable.image_emoticon46));
+        c.put("image_emoticon47", Integer.valueOf((int) R.drawable.image_emoticon47));
+        c.put("image_emoticon48", Integer.valueOf((int) R.drawable.image_emoticon48));
+        c.put("image_emoticon49", Integer.valueOf((int) R.drawable.image_emoticon49));
+        c.put("image_emoticon50", Integer.valueOf((int) R.drawable.image_emoticon50));
+        c.put("ali_001", Integer.valueOf((int) R.drawable.ali_001));
+        c.put("ali_002", Integer.valueOf((int) R.drawable.ali_002));
+        c.put("ali_003", Integer.valueOf((int) R.drawable.ali_003));
+        c.put("ali_004", Integer.valueOf((int) R.drawable.ali_004));
+        c.put("ali_005", Integer.valueOf((int) R.drawable.ali_005));
+        c.put("ali_006", Integer.valueOf((int) R.drawable.ali_006));
+        c.put("ali_007", Integer.valueOf((int) R.drawable.ali_007));
+        c.put("ali_008", Integer.valueOf((int) R.drawable.ali_008));
+        c.put("ali_009", Integer.valueOf((int) R.drawable.ali_009));
+        c.put("ali_010", Integer.valueOf((int) R.drawable.ali_010));
+        c.put("ali_011", Integer.valueOf((int) R.drawable.ali_011));
+        c.put("ali_012", Integer.valueOf((int) R.drawable.ali_012));
+        c.put("ali_013", Integer.valueOf((int) R.drawable.ali_013));
+        c.put("ali_014", Integer.valueOf((int) R.drawable.ali_014));
+        c.put("ali_015", Integer.valueOf((int) R.drawable.ali_015));
+        c.put("ali_016", Integer.valueOf((int) R.drawable.ali_016));
+        c.put("ali_017", Integer.valueOf((int) R.drawable.ali_017));
+        c.put("ali_018", Integer.valueOf((int) R.drawable.ali_018));
+        c.put("ali_019", Integer.valueOf((int) R.drawable.ali_019));
+        c.put("ali_020", Integer.valueOf((int) R.drawable.ali_020));
+        c.put("ali_021", Integer.valueOf((int) R.drawable.ali_021));
+        c.put("ali_022", Integer.valueOf((int) R.drawable.ali_022));
+        c.put("ali_023", Integer.valueOf((int) R.drawable.ali_023));
+        c.put("ali_024", Integer.valueOf((int) R.drawable.ali_024));
+        c.put("ali_025", Integer.valueOf((int) R.drawable.ali_025));
+        c.put("ali_026", Integer.valueOf((int) R.drawable.ali_026));
+        c.put("ali_027", Integer.valueOf((int) R.drawable.ali_027));
+        c.put("ali_028", Integer.valueOf((int) R.drawable.ali_028));
+        c.put("ali_029", Integer.valueOf((int) R.drawable.ali_029));
+        c.put("ali_030", Integer.valueOf((int) R.drawable.ali_030));
+        c.put("ali_031", Integer.valueOf((int) R.drawable.ali_031));
+        c.put("ali_032", Integer.valueOf((int) R.drawable.ali_032));
+        c.put("ali_033", Integer.valueOf((int) R.drawable.ali_033));
+        c.put("ali_034", Integer.valueOf((int) R.drawable.ali_034));
+        c.put("ali_035", Integer.valueOf((int) R.drawable.ali_035));
+        c.put("ali_036", Integer.valueOf((int) R.drawable.ali_036));
+        c.put("ali_037", Integer.valueOf((int) R.drawable.ali_037));
+        c.put("ali_038", Integer.valueOf((int) R.drawable.ali_038));
+        c.put("ali_039", Integer.valueOf((int) R.drawable.ali_039));
+        c.put("ali_040", Integer.valueOf((int) R.drawable.ali_040));
+        c.put("ali_041", Integer.valueOf((int) R.drawable.ali_041));
+        c.put("ali_042", Integer.valueOf((int) R.drawable.ali_042));
+        c.put("ali_043", Integer.valueOf((int) R.drawable.ali_043));
+        c.put("ali_044", Integer.valueOf((int) R.drawable.ali_044));
+        c.put("ali_045", Integer.valueOf((int) R.drawable.ali_045));
+        c.put("ali_046", Integer.valueOf((int) R.drawable.ali_046));
+        c.put("ali_047", Integer.valueOf((int) R.drawable.ali_047));
+        c.put("ali_048", Integer.valueOf((int) R.drawable.ali_048));
+        c.put("ali_049", Integer.valueOf((int) R.drawable.ali_049));
+        c.put("ali_050", Integer.valueOf((int) R.drawable.ali_050));
+        c.put("ali_051", Integer.valueOf((int) R.drawable.ali_051));
+        c.put("ali_052", Integer.valueOf((int) R.drawable.ali_052));
+        c.put("ali_053", Integer.valueOf((int) R.drawable.ali_053));
+        c.put("ali_054", Integer.valueOf((int) R.drawable.ali_054));
+        c.put("ali_055", Integer.valueOf((int) R.drawable.ali_055));
+        c.put("ali_056", Integer.valueOf((int) R.drawable.ali_056));
+        c.put("ali_057", Integer.valueOf((int) R.drawable.ali_057));
+        c.put("ali_058", Integer.valueOf((int) R.drawable.ali_058));
+        c.put("ali_059", Integer.valueOf((int) R.drawable.ali_059));
+        c.put("ali_060", Integer.valueOf((int) R.drawable.ali_060));
+        c.put("ali_061", Integer.valueOf((int) R.drawable.ali_061));
+        c.put("ali_062", Integer.valueOf((int) R.drawable.ali_062));
+        c.put("ali_063", Integer.valueOf((int) R.drawable.ali_063));
+        c.put("ali_064", Integer.valueOf((int) R.drawable.ali_064));
+        c.put("ali_065", Integer.valueOf((int) R.drawable.ali_065));
+        c.put("ali_066", Integer.valueOf((int) R.drawable.ali_066));
+        c.put("ali_067", Integer.valueOf((int) R.drawable.ali_067));
+        c.put("ali_068", Integer.valueOf((int) R.drawable.ali_068));
+        c.put("ali_069", Integer.valueOf((int) R.drawable.ali_069));
+        c.put("ali_070", Integer.valueOf((int) R.drawable.ali_070));
+        c.put("b01", Integer.valueOf((int) R.drawable.b01));
+        c.put("b02", Integer.valueOf((int) R.drawable.b02));
+        c.put("b03", Integer.valueOf((int) R.drawable.b03));
+        c.put("b04", Integer.valueOf((int) R.drawable.b04));
+        c.put("b05", Integer.valueOf((int) R.drawable.b05));
+        c.put("b06", Integer.valueOf((int) R.drawable.b06));
+        c.put("b07", Integer.valueOf((int) R.drawable.b07));
+        c.put("b08", Integer.valueOf((int) R.drawable.b08));
+        c.put("b09", Integer.valueOf((int) R.drawable.b09));
+        c.put("b10", Integer.valueOf((int) R.drawable.b10));
+        c.put("b11", Integer.valueOf((int) R.drawable.b11));
+        c.put("b12", Integer.valueOf((int) R.drawable.b12));
+        c.put("b13", Integer.valueOf((int) R.drawable.b13));
+        c.put("b14", Integer.valueOf((int) R.drawable.b14));
+        c.put("b15", Integer.valueOf((int) R.drawable.b15));
+        c.put("b16", Integer.valueOf((int) R.drawable.b16));
+        c.put("b17", Integer.valueOf((int) R.drawable.b17));
+        c.put("b18", Integer.valueOf((int) R.drawable.b18));
+        c.put("b19", Integer.valueOf((int) R.drawable.b19));
+        c.put("b20", Integer.valueOf((int) R.drawable.b20));
+        c.put("b21", Integer.valueOf((int) R.drawable.b21));
+        c.put("b22", Integer.valueOf((int) R.drawable.b22));
+        c.put("b23", Integer.valueOf((int) R.drawable.b23));
+        c.put("b24", Integer.valueOf((int) R.drawable.b24));
+        c.put("b25", Integer.valueOf((int) R.drawable.b25));
+        c.put("b26", Integer.valueOf((int) R.drawable.b26));
+        c.put("b27", Integer.valueOf((int) R.drawable.b27));
+        c.put("b28", Integer.valueOf((int) R.drawable.b28));
+        c.put("b29", Integer.valueOf((int) R.drawable.b29));
+        c.put("b30", Integer.valueOf((int) R.drawable.b30));
+        c.put("b31", Integer.valueOf((int) R.drawable.b31));
+        c.put("b32", Integer.valueOf((int) R.drawable.b32));
+        c.put("b33", Integer.valueOf((int) R.drawable.b33));
+        c.put("b34", Integer.valueOf((int) R.drawable.b34));
+        c.put("b35", Integer.valueOf((int) R.drawable.b35));
+        c.put("b36", Integer.valueOf((int) R.drawable.b36));
+        c.put("b37", Integer.valueOf((int) R.drawable.b37));
+        c.put("b38", Integer.valueOf((int) R.drawable.b38));
+        c.put("b39", Integer.valueOf((int) R.drawable.b39));
+        c.put("b40", Integer.valueOf((int) R.drawable.b40));
+        c.put("b41", Integer.valueOf((int) R.drawable.b41));
+        c.put("b42", Integer.valueOf((int) R.drawable.b42));
+        c.put("b43", Integer.valueOf((int) R.drawable.b43));
+        c.put("b44", Integer.valueOf((int) R.drawable.b44));
+        c.put("b45", Integer.valueOf((int) R.drawable.b45));
+        c.put("b46", Integer.valueOf((int) R.drawable.b46));
+        c.put("b47", Integer.valueOf((int) R.drawable.b47));
+        c.put("b48", Integer.valueOf((int) R.drawable.b48));
+        c.put("b49", Integer.valueOf((int) R.drawable.b49));
+        c.put("b50", Integer.valueOf((int) R.drawable.b50));
+        c.put("b51", Integer.valueOf((int) R.drawable.b51));
+        c.put("b52", Integer.valueOf((int) R.drawable.b52));
+        c.put("b53", Integer.valueOf((int) R.drawable.b53));
+        c.put("b54", Integer.valueOf((int) R.drawable.b54));
+        c.put("b55", Integer.valueOf((int) R.drawable.b55));
+        c.put("b56", Integer.valueOf((int) R.drawable.b56));
+        c.put("b57", Integer.valueOf((int) R.drawable.b57));
+        c.put("b58", Integer.valueOf((int) R.drawable.b58));
+        c.put("b59", Integer.valueOf((int) R.drawable.b59));
+        c.put("b60", Integer.valueOf((int) R.drawable.b60));
+        c.put("b61", Integer.valueOf((int) R.drawable.b61));
+        c.put("b62", Integer.valueOf((int) R.drawable.b62));
+        c.put("yz_001", Integer.valueOf((int) R.drawable.yz_001));
+        c.put("yz_002", Integer.valueOf((int) R.drawable.yz_002));
+        c.put("yz_003", Integer.valueOf((int) R.drawable.yz_003));
+        c.put("yz_004", Integer.valueOf((int) R.drawable.yz_004));
+        c.put("yz_005", Integer.valueOf((int) R.drawable.yz_005));
+        c.put("yz_006", Integer.valueOf((int) R.drawable.yz_006));
+        c.put("yz_007", Integer.valueOf((int) R.drawable.yz_007));
+        c.put("yz_008", Integer.valueOf((int) R.drawable.yz_008));
+        c.put("yz_009", Integer.valueOf((int) R.drawable.yz_009));
+        c.put("yz_010", Integer.valueOf((int) R.drawable.yz_010));
+        c.put("yz_011", Integer.valueOf((int) R.drawable.yz_011));
+        c.put("yz_012", Integer.valueOf((int) R.drawable.yz_012));
+        c.put("yz_013", Integer.valueOf((int) R.drawable.yz_013));
+        c.put("yz_014", Integer.valueOf((int) R.drawable.yz_014));
+        c.put("yz_015", Integer.valueOf((int) R.drawable.yz_015));
+        c.put("yz_016", Integer.valueOf((int) R.drawable.yz_016));
+        c.put("yz_017", Integer.valueOf((int) R.drawable.yz_017));
+        c.put("yz_018", Integer.valueOf((int) R.drawable.yz_018));
+        c.put("yz_019", Integer.valueOf((int) R.drawable.yz_019));
+        c.put("yz_020", Integer.valueOf((int) R.drawable.yz_020));
+        c.put("yz_021", Integer.valueOf((int) R.drawable.yz_021));
+        c.put("yz_022", Integer.valueOf((int) R.drawable.yz_022));
+        c.put("yz_023", Integer.valueOf((int) R.drawable.yz_023));
+        c.put("yz_024", Integer.valueOf((int) R.drawable.yz_024));
+        c.put("yz_025", Integer.valueOf((int) R.drawable.yz_025));
+        c.put("yz_026", Integer.valueOf((int) R.drawable.yz_026));
+        c.put("yz_027", Integer.valueOf((int) R.drawable.yz_027));
+        c.put("yz_028", Integer.valueOf((int) R.drawable.yz_028));
+        c.put("yz_029", Integer.valueOf((int) R.drawable.yz_029));
+        c.put("yz_030", Integer.valueOf((int) R.drawable.yz_030));
+        c.put("yz_031", Integer.valueOf((int) R.drawable.yz_031));
+        c.put("yz_032", Integer.valueOf((int) R.drawable.yz_032));
+        c.put("yz_033", Integer.valueOf((int) R.drawable.yz_033));
+        c.put("yz_034", Integer.valueOf((int) R.drawable.yz_034));
+        c.put("yz_035", Integer.valueOf((int) R.drawable.yz_035));
+        c.put("yz_036", Integer.valueOf((int) R.drawable.yz_036));
+        c.put("yz_037", Integer.valueOf((int) R.drawable.yz_037));
+        c.put("yz_038", Integer.valueOf((int) R.drawable.yz_038));
+        c.put("yz_039", Integer.valueOf((int) R.drawable.yz_039));
+        c.put("yz_040", Integer.valueOf((int) R.drawable.yz_040));
+        c.put("yz_041", Integer.valueOf((int) R.drawable.yz_041));
+        c.put("yz_042", Integer.valueOf((int) R.drawable.yz_042));
+        c.put("yz_043", Integer.valueOf((int) R.drawable.yz_043));
+        c.put("yz_044", Integer.valueOf((int) R.drawable.yz_044));
+        c.put("yz_045", Integer.valueOf((int) R.drawable.yz_045));
+        c.put("yz_046", Integer.valueOf((int) R.drawable.yz_046));
+        c.put("she_001", Integer.valueOf((int) R.drawable.she_001));
+        c.put("she_002", Integer.valueOf((int) R.drawable.she_002));
+        c.put("she_003", Integer.valueOf((int) R.drawable.she_003));
+        c.put("she_004", Integer.valueOf((int) R.drawable.she_004));
+        c.put("she_005", Integer.valueOf((int) R.drawable.she_005));
+        c.put("she_006", Integer.valueOf((int) R.drawable.she_006));
+        c.put("she_007", Integer.valueOf((int) R.drawable.she_007));
+        c.put("she_008", Integer.valueOf((int) R.drawable.she_008));
+        c.put("she_009", Integer.valueOf((int) R.drawable.she_009));
+        c.put("she_010", Integer.valueOf((int) R.drawable.she_010));
+        c.put("she_011", Integer.valueOf((int) R.drawable.she_011));
+        c.put("she_012", Integer.valueOf((int) R.drawable.she_012));
+        c.put("she_013", Integer.valueOf((int) R.drawable.she_013));
+        c.put("she_014", Integer.valueOf((int) R.drawable.she_014));
+        a = new ArrayList<>();
+        a.add(Integer.valueOf((int) R.drawable.write_face_01));
+        a.add(Integer.valueOf((int) R.drawable.write_face_02));
+        a.add(Integer.valueOf((int) R.drawable.write_face_03));
+        a.add(Integer.valueOf((int) R.drawable.write_face_04));
+        a.add(Integer.valueOf((int) R.drawable.write_face_05));
+        a.add(Integer.valueOf((int) R.drawable.write_face_06));
+        a.add(Integer.valueOf((int) R.drawable.write_face_07));
+        a.add(Integer.valueOf((int) R.drawable.write_face_08));
+        a.add(Integer.valueOf((int) R.drawable.write_face_09));
+        a.add(Integer.valueOf((int) R.drawable.write_face_10));
+        a.add(Integer.valueOf((int) R.drawable.write_face_11));
+        a.add(Integer.valueOf((int) R.drawable.write_face_12));
+        a.add(Integer.valueOf((int) R.drawable.write_face_13));
+        a.add(Integer.valueOf((int) R.drawable.write_face_14));
+        a.add(Integer.valueOf((int) R.drawable.write_face_15));
+        a.add(Integer.valueOf((int) R.drawable.write_face_16));
+        a.add(Integer.valueOf((int) R.drawable.write_face_17));
+        a.add(Integer.valueOf((int) R.drawable.write_face_18));
+        a.add(Integer.valueOf((int) R.drawable.write_face_19));
+        a.add(Integer.valueOf((int) R.drawable.write_face_20));
+        a.add(Integer.valueOf((int) R.drawable.write_face_21));
+        a.add(Integer.valueOf((int) R.drawable.write_face_22));
+        a.add(Integer.valueOf((int) R.drawable.write_face_23));
+        a.add(Integer.valueOf((int) R.drawable.write_face_24));
+        a.add(Integer.valueOf((int) R.drawable.write_face_25));
+        a.add(Integer.valueOf((int) R.drawable.write_face_26));
+        a.add(Integer.valueOf((int) R.drawable.write_face_27));
+        a.add(Integer.valueOf((int) R.drawable.write_face_28));
+        a.add(Integer.valueOf((int) R.drawable.write_face_29));
+        a.add(Integer.valueOf((int) R.drawable.write_face_30));
+        a.add(Integer.valueOf((int) R.drawable.write_face_31));
+        a.add(Integer.valueOf((int) R.drawable.write_face_32));
+        a.add(Integer.valueOf((int) R.drawable.write_face_33));
+        a.add(Integer.valueOf((int) R.drawable.write_face_34));
+        a.add(Integer.valueOf((int) R.drawable.write_face_35));
+        a.add(Integer.valueOf((int) R.drawable.write_face_36));
+        a.add(Integer.valueOf((int) R.drawable.write_face_37));
+        a.add(Integer.valueOf((int) R.drawable.write_face_38));
+        a.add(Integer.valueOf((int) R.drawable.write_face_39));
+        a.add(Integer.valueOf((int) R.drawable.write_face_40));
+        a.add(Integer.valueOf((int) R.drawable.write_face_41));
+        a.add(Integer.valueOf((int) R.drawable.write_face_42));
+        a.add(Integer.valueOf((int) R.drawable.write_face_43));
+        a.add(Integer.valueOf((int) R.drawable.write_face_44));
+        a.add(Integer.valueOf((int) R.drawable.write_face_45));
+        a.add(Integer.valueOf((int) R.drawable.write_face_46));
+        a.add(Integer.valueOf((int) R.drawable.write_face_47));
+        a.add(Integer.valueOf((int) R.drawable.write_face_48));
+        a.add(Integer.valueOf((int) R.drawable.write_face_49));
+        a.add(Integer.valueOf((int) R.drawable.write_face_50));
+        a.add(Integer.valueOf((int) R.drawable.e_ali_047));
+        a.add(Integer.valueOf((int) R.drawable.e_ali_050));
+        a.add(Integer.valueOf((int) R.drawable.e_ali_051));
+        a.add(Integer.valueOf((int) R.drawable.e_ali_052));
+        a.add(Integer.valueOf((int) R.drawable.e_ali_053));
+        a.add(Integer.valueOf((int) R.drawable.e_ali_054));
+        a.add(Integer.valueOf((int) R.drawable.e_ali_055));
+        a.add(Integer.valueOf((int) R.drawable.e_ali_056));
+        a.add(Integer.valueOf((int) R.drawable.e_ali_059));
+        a.add(Integer.valueOf((int) R.drawable.e_ali_060));
+        a.add(Integer.valueOf((int) R.drawable.e_ali_061));
+        a.add(Integer.valueOf((int) R.drawable.e_ali_062));
+        a.add(Integer.valueOf((int) R.drawable.e_ali_063));
+        a.add(Integer.valueOf((int) R.drawable.e_ali_064));
+        a.add(Integer.valueOf((int) R.drawable.e_ali_065));
+        a.add(Integer.valueOf((int) R.drawable.e_ali_066));
+        a.add(Integer.valueOf((int) R.drawable.e_ali_067));
+        a.add(Integer.valueOf((int) R.drawable.e_ali_068));
+        a.add(Integer.valueOf((int) R.drawable.e_ali_069));
+        a.add(Integer.valueOf((int) R.drawable.e_ali_070));
+        a.add(Integer.valueOf((int) R.drawable.e_yz_001));
+        a.add(Integer.valueOf((int) R.drawable.e_yz_002));
+        a.add(Integer.valueOf((int) R.drawable.e_yz_003));
+        a.add(Integer.valueOf((int) R.drawable.e_yz_004));
+        a.add(Integer.valueOf((int) R.drawable.e_yz_005));
+        a.add(Integer.valueOf((int) R.drawable.e_yz_006));
+        a.add(Integer.valueOf((int) R.drawable.e_yz_007));
+        a.add(Integer.valueOf((int) R.drawable.e_yz_008));
+        a.add(Integer.valueOf((int) R.drawable.e_b01));
+        a.add(Integer.valueOf((int) R.drawable.e_b02));
+        a.add(Integer.valueOf((int) R.drawable.e_b03));
+        a.add(Integer.valueOf((int) R.drawable.e_b04));
+        a.add(Integer.valueOf((int) R.drawable.e_b05));
+        a.add(Integer.valueOf((int) R.drawable.e_b06));
+        a.add(Integer.valueOf((int) R.drawable.e_b07));
+        a.add(Integer.valueOf((int) R.drawable.e_b08));
+        a.add(Integer.valueOf((int) R.drawable.e_b09));
+        a.add(Integer.valueOf((int) R.drawable.e_b10));
+        a.add(Integer.valueOf((int) R.drawable.e_b11));
+        a.add(Integer.valueOf((int) R.drawable.e_b12));
+        a.add(Integer.valueOf((int) R.drawable.e_b13));
+        a.add(Integer.valueOf((int) R.drawable.e_b14));
+        a.add(Integer.valueOf((int) R.drawable.e_b15));
+        a.add(Integer.valueOf((int) R.drawable.e_b16));
+        a.add(Integer.valueOf((int) R.drawable.e_b17));
+        a.add(Integer.valueOf((int) R.drawable.e_b18));
+        a.add(Integer.valueOf((int) R.drawable.e_b19));
+        a.add(Integer.valueOf((int) R.drawable.e_b20));
+        a.add(Integer.valueOf((int) R.drawable.f10th_001));
+        a.add(Integer.valueOf((int) R.drawable.f10th_002));
+        a.add(Integer.valueOf((int) R.drawable.f10th_003));
+        a.add(Integer.valueOf((int) R.drawable.f10th_004));
+        a.add(Integer.valueOf((int) R.drawable.f10th_005));
+        a.add(Integer.valueOf((int) R.drawable.f10th_006));
+        a.add(Integer.valueOf((int) R.drawable.f10th_007));
+        a.add(Integer.valueOf((int) R.drawable.f10th_008));
+        a.add(Integer.valueOf((int) R.drawable.f10th_009));
+        a.add(Integer.valueOf((int) R.drawable.f10th_010));
+        a.add(Integer.valueOf((int) R.drawable.f10th_011));
+        a.add(Integer.valueOf((int) R.drawable.f10th_012));
+        b = new HashMap<>();
+        b.put("#(呵呵)", a.get(0));
+        b.put("#(哈哈)", a.get(1));
+        b.put("#(吐舌)", a.get(2));
+        b.put("#(啊)", a.get(3));
+        b.put("#(酷)", a.get(4));
+        b.put("#(怒)", a.get(5));
+        b.put("#(开心)", a.get(6));
+        b.put("#(汗)", a.get(7));
+        b.put("#(泪)", a.get(8));
+        b.put("#(黑线)", a.get(9));
+        b.put("#(鄙视)", a.get(10));
+        b.put("#(不高兴)", a.get(11));
+        b.put("#(真棒)", a.get(12));
+        b.put("#(钱)", a.get(13));
+        b.put("#(疑问)", a.get(14));
+        b.put("#(阴险)", a.get(15));
+        b.put("#(吐)", a.get(16));
+        b.put("#(咦)", a.get(17));
+        b.put("#(委屈)", a.get(18));
+        b.put("#(花心)", a.get(19));
+        b.put("#(呼~)", a.get(20));
+        b.put("#(笑眼)", a.get(21));
+        b.put("#(冷)", a.get(22));
+        b.put("#(太开心)", a.get(23));
+        b.put("#(滑稽)", a.get(24));
+        b.put("#(勉强)", a.get(25));
+        b.put("#(狂汗)", a.get(26));
+        b.put("#(乖)", a.get(27));
+        b.put("#(睡觉)", a.get(28));
+        b.put("#(惊哭)", a.get(29));
+        b.put("#(升起)", a.get(30));
+        b.put("#(惊讶)", a.get(31));
+        b.put("#(喷)", a.get(32));
+        b.put("#(爱心)", a.get(33));
+        b.put("#(心碎)", a.get(34));
+        b.put("#(玫瑰)", a.get(35));
+        b.put("#(礼物)", a.get(36));
+        b.put("#(彩虹)", a.get(37));
+        b.put("#(星星月亮)", a.get(38));
+        b.put("#(太阳)", a.get(39));
+        b.put("#(钱币)", a.get(40));
+        b.put("#(灯泡)", a.get(41));
+        b.put("#(茶杯)", a.get(42));
+        b.put("#(蛋糕)", a.get(43));
+        b.put("#(音乐)", a.get(44));
+        b.put("#(haha)", a.get(45));
+        b.put("#(胜利)", a.get(46));
+        b.put("#(大拇指)", a.get(47));
+        b.put("#(弱)", a.get(48));
+        b.put("#(OK)", a.get(49));
+        b.put("#(哭着跑)", a.get(50));
+        b.put("#(惆怅~)", a.get(51));
+        b.put("#(摸头)", a.get(52));
+        b.put("#(蹭)", a.get(53));
+        b.put("#(打滚)", a.get(54));
+        b.put("#(叩拜)", a.get(55));
+        b.put("#(摸)", a.get(56));
+        b.put("#(数钱)", a.get(57));
+        b.put("#(加1)", a.get(58));
+        b.put("#(压力)", a.get(59));
+        b.put("#(表逼我)", a.get(60));
+        b.put("#(人呢)", a.get(61));
+        b.put("#(摇晃)", a.get(62));
+        b.put("#(打地鼠)", a.get(63));
+        b.put("#(这个屌)", a.get(64));
+        b.put("#(恐慌)", a.get(65));
+        b.put("#(晕乎乎)", a.get(66));
+        b.put("#(浮云)", a.get(67));
+        b.put("#(给力)", a.get(68));
+        b.put("#(杯具了)", a.get(69));
+        b.put("#(焦糖舞)", a.get(70));
+        b.put("#(翻滚)", a.get(71));
+        b.put("#(拍屁股做鬼脸)", a.get(72));
+        b.put("#(不)", a.get(73));
+        b.put("#(河蟹掉啦)", a.get(74));
+        b.put("#(哦耶)", a.get(75));
+        b.put("#(我倒)", a.get(76));
+        b.put("#(投降)", a.get(77));
+        b.put("#(微笑)", a.get(78));
+        b.put("#(帅哥)", a.get(79));
+        b.put("#(美女)", a.get(80));
+        b.put("#(老大)", a.get(81));
+        b.put("#(哈哈哈)", a.get(82));
+        b.put("#(奸笑)", a.get(83));
+        b.put("#(傻乐)", a.get(84));
+        b.put("#(飞吻)", a.get(85));
+        b.put("#(害羞)", a.get(86));
+        b.put("#(花痴)", a.get(87));
+        b.put("#(憧憬)", a.get(88));
+        b.put("#(你牛)", a.get(89));
+        b.put("#(鼓掌)", a.get(90));
+        b.put("#(可爱)", a.get(91));
+        b.put("#(太委屈)", a.get(92));
+        b.put("#(大哭)", a.get(93));
+        b.put("#(泪奔)", a.get(94));
+        b.put("#(寻死)", a.get(95));
+        b.put("#(非常惊讶)", a.get(96));
+        b.put("#(表示疑问)", a.get(97));
+        b.put("#(蹦蹦跳跳)", a.get(98));
+        b.put("#(晃悠)", a.get(99));
+        b.put("#(摇摇摆摆)", a.get(100));
+        b.put("#(大撒花)", a.get(SocialAPIErrorCodes.ERROR_INVALID_CLIENT_ID));
+        b.put("#(高高兴兴)", a.get(SocialAPIErrorCodes.ERROR_INVALID_SESSION_KEY));
+        b.put("#(弹吉他)", a.get(103));
+        b.put("#(魔法棒)", a.get(SocialAPIErrorCodes.ERROR_INVALID_SIGNATURE));
+        b.put("#(扛大旗)", a.get(SocialAPIErrorCodes.ERROR_MANY_PARAMETER));
+        b.put("#(点蜡烛)", a.get(SocialAPIErrorCodes.ERROR_INVALID_SIGNATURE_ALGORITHM));
+        b.put("#(大秧歌)", a.get(SocialAPIErrorCodes.ERROR_INVALID_TIMESTAMP));
+        b.put("#(贴吧十周年)", a.get(108));
+        b.put("#(十周年)", a.get(109));
+        d = new HashMap<>();
+        d.put("B_0001", "HI");
+        d.put("B_0002", "KISS");
+        d.put("B_0003", "不说");
+        d.put("B_0004", "不要");
+        d.put("B_0005", "扯花");
+        d.put("B_0006", "大心");
+        d.put("B_0007", "顶");
+        d.put("B_0008", "大惊");
+        d.put("B_0009", "飞吻");
+        d.put("B_0010", "鬼脸");
+        d.put("B_0011", "害羞");
+        d.put("B_0012", "口水");
+        d.put("B_0013", "狂哭");
+        d.put("B_0014", "来");
+        d.put("B_0015", "泪眼");
+        d.put("B_0016", "流泪");
+        d.put("B_0017", "生气");
+        d.put("B_0018", "吐舌");
+        d.put("B_0019", "喜欢");
+        d.put("B_0020", "旋转");
+        d.put("B_0021", "再见");
+        d.put("B_0022", "抓狂");
+        d.put("B_0023", "汗");
+        d.put("B_0024", "鄙视");
+        d.put("B_0025", "拜");
+        d.put("B_0026", "吐血");
+        d.put("B_0027", "嘘");
+        d.put("B_0028", "打人");
+        d.put("B_0029", "蹦跳");
+        d.put("B_0030", "变脸");
+        d.put("B_0031", "扯肉");
+        d.put("B_0032", "吃To");
+        d.put("B_0033", "吃花");
+        d.put("B_0034", "吹泡泡糖");
+        d.put("B_0035", "大变身");
+        d.put("B_0036", "飞天舞");
+        d.put("B_0037", "回眸");
+        d.put("B_0038", "可怜");
+        d.put("B_0039", "猛抽");
+        d.put("B_0040", "泡泡");
+        d.put("B_0041", "苹果");
+        d.put("B_0042", "亲");
+        d.put("B_0043", "耍赖");
+        d.put("B_0044", "骚舞");
+        d.put("B_0045", "烧香");
+        d.put("B_0046", "睡");
+        d.put("B_0047", "套娃娃");
+        d.put("B_0048", "捅捅");
+        d.put("B_0049", "舞倒");
+        d.put("B_0050", "西红柿");
+        d.put("B_0051", "爱慕");
+        d.put("B_0052", "摇");
+        d.put("B_0053", "摇摆");
+        d.put("B_0054", "杂耍");
+        d.put("B_0055", "招财");
+        d.put("B_0056", "被殴");
+        d.put("B_0057", "被球闷");
+        d.put("B_0058", "大惊");
+        d.put("B_0059", "理想");
+        d.put("B_0060", "殴打");
+        d.put("B_0061", "呕吐");
+        d.put("B_0062", "碎");
+        d.put("B_0063", "吐痰");
+        d.put("i_f01", "呵呵");
+        d.put("i_f02", "哈哈");
+        d.put("i_f03", "吐舌");
+        d.put("i_f04", "啊?");
+        d.put("i_f05", "酷");
+        d.put("i_f06", "怒");
+        d.put("i_f07", "开心");
+        d.put("i_f08", "汗");
+        d.put("i_f09", "泪");
+        d.put("i_f10", "黑线");
+        d.put("i_f11", "鄙视");
+        d.put("i_f12", "不高兴");
+        d.put("i_f13", "真棒");
+        d.put("i_f14", "钱");
+        d.put("i_f15", "疑问");
+        d.put("i_f16", "阴险");
+        d.put("i_f17", "吐");
+        d.put("i_f18", "咦?");
+        d.put("i_f19", "委屈");
+        d.put("i_f20", "花心");
+        d.put("i_f21", "呼~");
+        d.put("i_f22", "笑眼");
+        d.put("i_f23", "冷");
+        d.put("i_f24", "太开心");
+        d.put("i_f25", "滑稽");
+        d.put("i_f26", "勉强");
+        d.put("i_f27", "狂汗");
+        d.put("i_f28", "乖");
+        d.put("i_f29", "睡觉");
+        d.put("i_f30", "惊哭");
+        d.put("i_f31", "升起");
+        d.put("i_f32", "惊讶");
+        d.put("i_f33", "喷");
+        d.put("i_f34", "爱心");
+        d.put("i_f35", "心碎");
+        d.put("i_f36", "玫瑰");
+        d.put("i_f37", "礼物");
+        d.put("i_f38", "彩虹");
+        d.put("i_f39", "星星月亮");
+        d.put("i_f40", "太阳");
+        d.put("i_f41", "钱币");
+        d.put("i_f42", "灯泡");
+        d.put("i_f43", "茶杯");
+        d.put("i_f44", "蛋糕");
+        d.put("i_f45", "音乐");
+        d.put("i_f46", "haha");
+        d.put("i_f47", "胜利");
+        d.put("i_f48", "大拇指");
+        d.put("i_f49", "弱");
+        d.put("i_f50", "OK");
+        d.put("t_0001", "Kiss");
+        d.put("t_0002", "Love");
+        d.put("t_0003", "Yeah");
+        d.put("t_0004", "啊!");
+        d.put("t_0005", "背扭");
+        d.put("t_0006", "顶");
+        d.put("t_0007", "抖胸");
+        d.put("t_0008", "88");
+        d.put("t_0009", "汗");
+        d.put("t_0010", "瞌睡");
+        d.put("t_0011", "鲁拉");
+        d.put("t_0012", "拍砖");
+        d.put("t_0013", "揉脸");
+        d.put("t_0014", "生日快乐");
+        d.put("t_0015", "摊手");
+        d.put("t_0016", "睡觉");
+        d.put("t_0017", "瘫坐");
+        d.put("t_0018", "无聊");
+        d.put("t_0019", "星星闪");
+        d.put("t_0020", "旋转");
+        d.put("t_0021", "也不行");
+        d.put("t_0022", "郁闷");
+        d.put("t_0023", "正Music");
+        d.put("t_0024", "抓墙");
+        d.put("t_0025", "撞墙至死");
+        d.put("t_0026", "歪头");
+        d.put("t_0027", "戳眼");
+        d.put("t_0028", "飘过");
+        d.put("t_0029", "互相拍砖");
+        d.put("t_0030", "砍死你");
+        d.put("t_0031", "扔桌子");
+        d.put("t_0032", "少林寺");
+        d.put("t_0033", "什么?");
+        d.put("t_0034", "转头");
+        d.put("t_0035", "我爱牛奶");
+        d.put("t_0036", "我踢");
+        d.put("t_0037", "摇晃");
+        d.put("t_0038", "晕厥");
+        d.put("t_0039", "在笼子里");
+        d.put("t_0040", "震荡");
+        d.put("image_emoticon", "呵呵");
+        d.put("image_emoticon2", "哈哈");
+        d.put("image_emoticon3", "吐舌");
+        d.put("image_emoticon4", "啊?");
+        d.put("image_emoticon5", "酷");
+        d.put("image_emoticon6", "怒");
+        d.put("image_emoticon7", "开心");
+        d.put("image_emoticon8", "汗");
+        d.put("image_emoticon9", "泪");
+        d.put("image_emoticon10", "黑线");
+        d.put("image_emoticon11", "鄙视");
+        d.put("image_emoticon12", "不高兴");
+        d.put("image_emoticon13", "真棒");
+        d.put("image_emoticon14", "钱");
+        d.put("image_emoticon15", "疑问");
+        d.put("image_emoticon16", "阴险");
+        d.put("image_emoticon17", "吐");
+        d.put("image_emoticon18", "咦?");
+        d.put("image_emoticon19", "委屈");
+        d.put("image_emoticon20", "花心");
+        d.put("image_emoticon21", "呼~");
+        d.put("image_emoticon22", "笑眼");
+        d.put("image_emoticon23", "冷");
+        d.put("image_emoticon24", "太开心");
+        d.put("image_emoticon25", "滑稽");
+        d.put("image_emoticon26", "勉强");
+        d.put("image_emoticon27", "狂汗");
+        d.put("image_emoticon28", "乖");
+        d.put("image_emoticon29", "睡觉");
+        d.put("image_emoticon30", "惊哭");
+        d.put("image_emoticon31", "升起");
+        d.put("image_emoticon32", "惊讶");
+        d.put("image_emoticon33", "喷");
+        d.put("image_emoticon34", "爱心");
+        d.put("image_emoticon35", "心碎");
+        d.put("image_emoticon36", "玫瑰");
+        d.put("image_emoticon37", "礼物");
+        d.put("image_emoticon38", "彩虹");
+        d.put("image_emoticon39", "星星月亮");
+        d.put("image_emoticon40", "太阳");
+        d.put("image_emoticon41", "钱币");
+        d.put("image_emoticon42", "灯泡");
+        d.put("image_emoticon43", "茶杯");
+        d.put("image_emoticon44", "蛋糕");
+        d.put("image_emoticon45", "音乐");
+        d.put("image_emoticon46", "haha");
+        d.put("image_emoticon47", "胜利");
+        d.put("image_emoticon48", "大拇指");
+        d.put("image_emoticon49", "弱");
+        d.put("image_emoticon50", "OK");
+        d.put("ali_001", "赖皮");
+        d.put("ali_002", "感动");
+        d.put("ali_003", "十分惊讶");
+        d.put("ali_004", "怒气");
+        d.put("ali_005", "哭泣");
+        d.put("ali_006", "吃惊");
+        d.put("ali_007", "嘲弄");
+        d.put("ali_008", "飘过");
+        d.put("ali_009", "转圈哭");
+        d.put("ali_010", "神经病");
+        d.put("ali_011", "揪耳朵");
+        d.put("ali_012", "惊汗");
+        d.put("ali_013", "隐身");
+        d.put("ali_014", "不要");
+        d.put("ali_015", "遁");
+        d.put("ali_016", "不公平");
+        d.put("ali_017", "爬来了");
+        d.put("ali_018", "蛋花哭");
+        d.put("ali_019", "温暖");
+        d.put("ali_020", "点头");
+        d.put("ali_021", "撒钱");
+        d.put("ali_022", "献花");
+        d.put("ali_023", "寒");
+        d.put("ali_024", "傻笑");
+        d.put("ali_025", "扭扭");
+        d.put("ali_026", "疯");
+        d.put("ali_027", "抓狂");
+        d.put("ali_028", "抓");
+        d.put("ali_029", "蜷");
+        d.put("ali_030", "挠墙");
+        d.put("ali_031", "狂笑");
+        d.put("ali_032", "抱枕");
+        d.put("ali_033", "吼叫");
+        d.put("ali_034", "嚷");
+        d.put("ali_035", "唠叨");
+        d.put("ali_036", "捏脸");
+        d.put("ali_037", "爆笑");
+        d.put("ali_038", "郁闷");
+        d.put("ali_039", "潜水");
+        d.put("ali_040", "十分开心");
+        d.put("ali_041", "冷笑话");
+        d.put("ali_042", "顶");
+        d.put("ali_043", "潜");
+        d.put("ali_044", "画圈圈");
+        d.put("ali_045", "玩电脑");
+        d.put("ali_046", "狂吐");
+        d.put("ali_047", "哭着跑");
+        d.put("ali_048", "阿狸侠");
+        d.put("ali_049", "冷死了");
+        d.put("ali_050", "惆怅~");
+        d.put("ali_051", "摸头");
+        d.put("ali_052", "蹭");
+        d.put("ali_053", "打滚");
+        d.put("ali_054", "叩拜");
+        d.put("ali_055", "摸");
+        d.put("ali_056", "数钱");
+        d.put("ali_057", "拖走");
+        d.put("ali_058", "热");
+        d.put("ali_059", "加1");
+        d.put("ali_060", "压力");
+        d.put("ali_061", "表逼我");
+        d.put("ali_062", "人呢");
+        d.put("ali_063", "摇晃");
+        d.put("ali_064", "打地鼠");
+        d.put("ali_065", "这个屌");
+        d.put("ali_066", "恐慌");
+        d.put("ali_067", "晕乎乎");
+        d.put("ali_068", "浮云");
+        d.put("ali_069", "给力");
+        d.put("ali_070", "杯具了");
+        d.put("b01", "微笑");
+        d.put("b02", "帅哥");
+        d.put("b03", "美女");
+        d.put("b04", "老大");
+        d.put("b05", "哈哈哈");
+        d.put("b06", "奸笑");
+        d.put("b07", "傻乐");
+        d.put("b08", "飞吻");
+        d.put("b09", "害羞");
+        d.put("b10", "花痴");
+        d.put("b11", "憧憬");
+        d.put("b12", "你牛");
+        d.put("b13", "鼓掌");
+        d.put("b14", "可爱");
+        d.put("b15", "太委屈");
+        d.put("b16", "大哭");
+        d.put("b17", "泪奔");
+        d.put("b18", "寻死");
+        d.put("b19", "非常惊讶");
+        d.put("b20", "表示疑问");
+        d.put("b21", "鄙视你");
+        d.put("b22", "大骂");
+        d.put("b23", "狂怒");
+        d.put("b24", "囧");
+        d.put("b25", "晕");
+        d.put("b26", "呕吐");
+        d.put("b27", "财迷");
+        d.put("b28", "睡了");
+        d.put("b29", "思考");
+        d.put("b30", "真汗");
+        d.put("b31", "无语");
+        d.put("b32", "拜");
+        d.put("b33", "鞠躬");
+        d.put("b34", "累了");
+        d.put("b35", "病了");
+        d.put("b36", "墙角");
+        d.put("b37", "超人");
+        d.put("b38", "戳");
+        d.put("b39", "跳舞");
+        d.put("b40", "鬼脸");
+        d.put("b41", "无聊");
+        d.put("b42", "撞墙");
+        d.put("b43", "顶起");
+        d.put("b44", "HI");
+        d.put("b45", "饭");
+        d.put("b46", "生日蛋糕");
+        d.put("b47", "精美礼物");
+        d.put("b48", "心");
+        d.put("b49", "我心碎");
+        d.put("b50", "玫瑰花");
+        d.put("b51", "炸弹");
+        d.put("b52", "集体舞");
+        d.put("b53", "打人");
+        d.put("b54", "拍拍");
+        d.put("b55", "亲亲");
+        d.put("b56", "握手");
+        d.put("b57", "安慰");
+        d.put("b58", "石头");
+        d.put("b59", "剪子");
+        d.put("b60", "布");
+        d.put("b61", "恭喜啦");
+        d.put("b62", "啵啵");
+        d.put("yz_001", "焦糖舞");
+        d.put("yz_002", "翻滚");
+        d.put("yz_003", "拍屁股做鬼脸");
+        d.put("yz_004", "不");
+        d.put("yz_005", "河蟹掉啦");
+        d.put("yz_006", "哦耶");
+        d.put("yz_007", "我倒");
+        d.put("yz_008", "投降");
+        d.put("yz_009", "听音乐");
+        d.put("yz_010", "被砸");
+        d.put("yz_011", "吐舌头");
+        d.put("yz_012", "太好啦");
+        d.put("yz_013", "财源滚滚");
+        d.put("yz_014", "人去哪了");
+        d.put("yz_015", "挥手帕");
+        d.put("yz_016", "偷笑");
+        d.put("yz_017", "卷被");
+        d.put("yz_018", "看楼上");
+        d.put("yz_019", "我抽");
+        d.put("yz_020", "有木有");
+        d.put("yz_021", "哭");
+        d.put("yz_022", "欢呼");
+        d.put("yz_023", "傻兮兮");
+        d.put("yz_024", "扇扇子");
+        d.put("yz_025", "拍手");
+        d.put("yz_026", "紧张");
+        d.put("yz_027", "洗澡");
+        d.put("yz_028", "耶");
+        d.put("yz_029", "吃西瓜");
+        d.put("yz_030", "纳尼");
+        d.put("yz_031", "没有钱");
+        d.put("yz_032", "拿玩偶");
+        d.put("yz_033", "来看看");
+        d.put("yz_034", "哇哇叫");
+        d.put("yz_035", "招财猫");
+        d.put("yz_036", "放屁");
+        d.put("yz_037", "隆重介绍");
+        d.put("yz_038", "求你了");
+        d.put("yz_039", "撞玻璃");
+        d.put("yz_040", "眺望");
+        d.put("yz_041", "撒花");
+        d.put("yz_042", "玩铃铛");
+        d.put("yz_043", "思考者");
+        d.put("yz_044", "抽风");
+        d.put("yz_045", "吃苹果");
+        d.put("yz_046", "光棍");
+        d.put("she_001", "蛇年");
+        d.put("she_002", "红包拿来");
+        d.put("she_003", "美人鱼");
+        d.put("she_004", "恭喜发财");
+        d.put("she_005", "回家过年");
+        d.put("she_006", "点灯笼");
+        d.put("she_007", "招财兔");
+        d.put("she_008", "喜庆鼓");
+        d.put("she_009", "扭一扭");
+        d.put("she_010", "又长一岁");
+        d.put("she_011", "年年有鱼");
+        d.put("she_012", "求红包");
+        d.put("she_013", "压岁钱");
+        d.put("she_014", "拜年");
+        d.put("10th_001", "蹦蹦跳跳");
+        d.put("10th_002", "晃悠");
+        d.put("10th_003", "摇摇摆摆");
+        d.put("10th_004", "大撒花");
+        d.put("10th_005", "高高兴兴");
+        d.put("10th_006", "弹吉他");
+        d.put("10th_007", "魔法棒");
+        d.put("10th_008", "扛大旗");
+        d.put("10th_009", "点蜡烛");
+        d.put("10th_010", "大秧歌");
+        d.put("10th_011", "贴吧十周年");
+        d.put("10th_012", "十周年");
     }
 
-    public static String b() {
-        String externalStorageState = Environment.getExternalStorageState();
-        if (externalStorageState.equals("removed")) {
-            return TiebaApplication.h().getString(R.string.error_no_sdcard);
-        }
-        if (externalStorageState.equals("unmounted") || externalStorageState.equals("unmountable")) {
-            return TiebaApplication.h().getString(R.string.error_sd_unmount);
-        }
-        if (externalStorageState.equals("shared")) {
-            return TiebaApplication.h().getString(R.string.error_sd_shared);
-        }
-        return TiebaApplication.h().getString(R.string.error_sd_error);
-    }
-
-    public static boolean a(String str) {
-        if (a()) {
-            File file = new File(str);
-            if (!file.exists()) {
-                try {
-                    return file.mkdirs();
-                } catch (Exception e) {
-                    by.a(e, "FileHelper.CheckTempDir " + str);
-                    return false;
-                }
-            }
-            return true;
-        }
-        return false;
-    }
-
-    public static boolean c() {
-        return a(a + "/tieba/");
-    }
-
-    public static boolean b(String str) {
-        if (a()) {
-            try {
-                return new File(new StringBuilder().append(a).append("/").append("tieba").append("/").append(str).toString()).exists();
-            } catch (Exception e) {
-                com.baidu.adp.lib.g.e.b("FileHelper", "CheckFile", "error = " + e.getMessage());
-                by.a(e, "FileHelper.CheckFile " + str);
-                return false;
-            }
-        }
-        return false;
-    }
-
-    public static long a(String str, String str2) {
-        if (a()) {
-            try {
-                if (new File(a + "/tieba/" + str + "/" + str2).exists()) {
-                    return com.baidu.tieba.data.h.f();
-                }
-                return -1L;
-            } catch (Exception e) {
-                com.baidu.adp.lib.g.e.b("FileHelper", "CheckFile", "error = " + e.getMessage());
-                by.a(e, "FileHelper.checkImageFileSize " + str + "/" + str2);
-                return -1L;
-            }
-        }
-        return -1L;
-    }
-
-    public static String c(String str) {
-        if (str == null) {
-            return null;
-        }
-        return a + "/tieba/" + str;
-    }
-
-    public static File d(String str) {
-        if (c()) {
-            File file = new File(a + "/tieba/" + str);
-            try {
-                if (file.exists()) {
-                    return file;
-                }
-                return null;
-            } catch (SecurityException e) {
-                com.baidu.adp.lib.g.e.b("FileHelper", "GetFile", "error = " + e.getMessage());
-                by.a(e, "FileHelper.GetFile" + str);
-                return null;
-            }
-        }
-        return null;
-    }
-
-    public static File e(String str) {
-        if (!c()) {
-            return null;
-        }
-        return new File(a + "/tieba/" + str);
-    }
-
-    public static File f(String str) {
-        if (c()) {
-            File file = new File(a + "/tieba/" + str);
-            try {
-                if (!file.exists() || file.delete()) {
-                    if (file.createNewFile()) {
-                        return file;
-                    }
-                    return null;
-                }
-                return null;
-            } catch (Exception e) {
-                com.baidu.adp.lib.g.e.b("FileHelper", "CreateFile", "error = " + e.getMessage());
-                by.a(e, "FileHelper.CreateFile " + str);
-                return null;
-            }
-        }
-        return null;
-    }
-
-    public static File g(String str) {
-        if (c()) {
-            File file = new File(a + "/tieba/" + str);
-            try {
-                if (file.exists()) {
-                    return file;
-                }
-                if (file.createNewFile()) {
-                    return file;
-                }
-                return null;
-            } catch (Exception e) {
-                com.baidu.adp.lib.g.e.b("FileHelper", "CreateFileIfNotFound", "error = " + e.getMessage());
-                by.a(e, "FileHelper.CreateFileIfNotFound " + str);
-                return null;
-            }
-        }
-        return null;
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [409=4, 410=4, 412=4, 413=4, 414=4] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x0179 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:62:0x012d A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r2v4, types: [java.lang.StringBuilder] */
-    /* JADX WARN: Type inference failed for: r2v5 */
-    /* JADX WARN: Type inference failed for: r2v8, types: [java.io.InputStream] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean b(String str, String str2) {
-        FileInputStream fileInputStream;
-        IOException e;
-        boolean z;
-        FileNotFoundException e2;
-        String str3;
-        FileInputStream fileInputStream2 = null;
-        String str4 = str != null ? a + "/tieba/" + str + "/" : a + "/tieba/";
-        ?? sb = new StringBuilder();
-        try {
-            try {
-                fileInputStream = new FileInputStream(new File(sb.append(str4).append(str2).toString()));
-                try {
-                    byte[] bArr = new byte[7];
-                    z = fileInputStream.read(bArr, 0, 6) == 6 ? com.baidu.adp.lib.g.g.a(bArr) : false;
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (FileNotFoundException e3) {
-                            e2 = e3;
-                            e2.printStackTrace();
-                            by.a(e2, "FileHelper.isGif " + str + "/" + str2);
-                            if (fileInputStream != null) {
-                                try {
-                                    fileInputStream.close();
-                                } catch (Exception e4) {
-                                    e = e4;
-                                    e.printStackTrace();
-                                    str3 = "FileHelper.isGif " + str + "/" + str2;
-                                    by.a(e, str3);
-                                    return z;
-                                }
-                            }
-                            return z;
-                        } catch (IOException e5) {
-                            e = e5;
-                            e.printStackTrace();
-                            by.a(e, "FileHelper.isGif " + str + "/" + str2);
-                            if (fileInputStream != null) {
-                                try {
-                                    fileInputStream.close();
-                                } catch (Exception e6) {
-                                    e = e6;
-                                    e.printStackTrace();
-                                    str3 = "FileHelper.isGif " + str + "/" + str2;
-                                    by.a(e, str3);
-                                    return z;
-                                }
-                            }
-                            return z;
-                        }
-                    } else {
-                        fileInputStream2 = fileInputStream;
-                    }
-                    if (fileInputStream2 != null) {
-                        try {
-                            fileInputStream2.close();
-                        } catch (Exception e7) {
-                            e = e7;
-                            e.printStackTrace();
-                            str3 = "FileHelper.isGif " + str + "/" + str2;
-                            by.a(e, str3);
-                            return z;
-                        }
-                    }
-                } catch (FileNotFoundException e8) {
-                    e2 = e8;
-                    z = false;
-                } catch (IOException e9) {
-                    e = e9;
-                    z = false;
-                }
-            } catch (Throwable th) {
-                th = th;
-                if (sb != 0) {
-                    try {
-                        sb.close();
-                    } catch (Exception e10) {
-                        e10.printStackTrace();
-                        by.a(e10, "FileHelper.isGif " + str + "/" + str2);
-                    }
-                }
-                throw th;
-            }
-        } catch (FileNotFoundException e11) {
-            fileInputStream = null;
-            e2 = e11;
-            z = false;
-        } catch (IOException e12) {
-            fileInputStream = null;
-            e = e12;
-            z = false;
-        } catch (Throwable th2) {
-            th = th2;
-            sb = 0;
-            if (sb != 0) {
-            }
-            throw th;
-        }
-        return z;
-    }
-
-    public static String a(String str, String str2, Bitmap bitmap, int i) {
-        String str3;
-        if (bitmap == null) {
-            return null;
-        }
-        if (str != null) {
-            str3 = a + "/tieba/" + str + "/";
+    @Override // com.baidu.tbadk.imageManager.b
+    public int a(String str) {
+        Integer num = c.get(str);
+        if ("video_icon".equals(str)) {
+            return Integer.valueOf(TiebaApplication.g().al() == 1 ? R.drawable.ico_link_video_1 : R.drawable.ico_link_video).intValue();
+        } else if (num != null) {
+            return num.intValue();
         } else {
-            str3 = a + "/tieba/";
-        }
-        if (!a(str3) || bitmap == null) {
-            return null;
-        }
-        File file = new File(str3 + str2);
-        try {
-            if ((!file.exists() || file.delete()) && file.createNewFile()) {
-                FileOutputStream fileOutputStream = new FileOutputStream(file);
-                bitmap.compress(Bitmap.CompressFormat.JPEG, i, fileOutputStream);
-                fileOutputStream.flush();
-                fileOutputStream.close();
-                return file.getPath();
-            }
-            return null;
-        } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b("FileHelper", "SaveFile", e.getMessage());
-            by.a(e, "FileHelper.SaveFile1 " + str + "/" + str2);
-            return null;
+            return 0;
         }
     }
 
-    public static String a(String str, String str2, String str3, String str4) {
-        String str5;
-        String str6;
-        if (str != null) {
-            str5 = a + "/tieba/" + str + "/";
-        } else {
-            str5 = a + "/tieba/";
+    @Override // com.baidu.tbadk.imageManager.b
+    public int b(String str) {
+        Integer num = b.get(str);
+        if (num != null) {
+            return num.intValue();
         }
-        if (str3 != null) {
-            str6 = a + "/tieba/" + str3 + "/";
-        } else {
-            str6 = a + "/tieba/";
-        }
-        if (a(str5) && a(str6)) {
-            File file = new File(str5 + str2);
-            File file2 = new File(str6 + str4);
-            if (!file.renameTo(file2)) {
-                by.a("renameTo err", "FileHelper.renameTo");
-                return null;
-            }
-            return file2.getAbsolutePath();
-        }
+        return 0;
+    }
+
+    @Override // com.baidu.tbadk.imageManager.b
+    public String c(String str) {
+        return d.get(str);
+    }
+
+    @Override // com.baidu.tbadk.imageManager.b
+    public com.baidu.tbadk.imageManager.c a(Context context, String str) {
         return null;
-    }
-
-    public static Bitmap c(String str, String str2) {
-        String str3;
-        if (str != null) {
-            str3 = a + "/tieba/" + str + "/";
-        } else {
-            str3 = a + "/tieba/";
-        }
-        try {
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inPreferredConfig = com.baidu.tieba.data.h.m;
-            return BitmapFactory.decodeFile(str3 + str2, options);
-        } catch (OutOfMemoryError e) {
-            by.a(e.getMessage(), "FileHelper.getImage " + str + "/" + str2);
-            System.gc();
-            try {
-                return BitmapFactory.decodeFile(str3 + str2);
-            } catch (OutOfMemoryError e2) {
-                by.a(e.getMessage(), "FileHelper.getImage " + str + "/" + str2);
-                return null;
-            }
-        }
-    }
-
-    public static String a(String str, byte[] bArr) {
-        return a((String) null, str, bArr);
-    }
-
-    public static String a(String str, byte[] bArr, int i) {
-        return a() ? a((String) null, a(str, i, false), bArr) : a(i, str, bArr);
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [586=5, 587=5, 589=5, 590=5, 592=5] */
-    /* JADX WARN: Removed duplicated region for block: B:65:0x0158 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String a(String str, String str2, byte[] bArr) {
-        FileOutputStream fileOutputStream;
-        String str3 = str != null ? a + "/tieba/" + str + "/" : a + "/tieba/";
-        if (!a(str3) || bArr == null || str2 == null) {
-            return null;
-        }
-        File file = new File(str3 + str2);
-        String parent = file.getParent();
-        if (!com.baidu.adp.lib.g.m.a(parent)) {
-            File file2 = new File(parent);
-            if (!file2.exists()) {
-                file2.mkdirs();
-            }
-        }
-        FileOutputStream fileOutputStream2 = null;
-        try {
-            if (file.exists() && !file.delete()) {
-                if (0 != 0) {
-                    try {
-                        fileOutputStream2.close();
-                    } catch (Throwable th) {
-                        com.baidu.adp.lib.g.e.b("FileHelper", "SaveFile", "error = " + th.getMessage());
-                        by.a(th.getMessage(), "FileHelper.SaveFile2 " + str + "/" + str2);
-                    }
-                }
-                return null;
-            } else if (!file.createNewFile()) {
-                if (0 != 0) {
-                    try {
-                        fileOutputStream2.close();
-                    } catch (Throwable th2) {
-                        com.baidu.adp.lib.g.e.b("FileHelper", "SaveFile", "error = " + th2.getMessage());
-                        by.a(th2.getMessage(), "FileHelper.SaveFile2 " + str + "/" + str2);
-                    }
-                }
-                return null;
-            } else {
-                fileOutputStream = new FileOutputStream(file);
-                try {
-                    try {
-                        fileOutputStream.write(bArr, 0, bArr.length);
-                        fileOutputStream.flush();
-                        fileOutputStream.close();
-                        FileOutputStream fileOutputStream3 = null;
-                        String path = file.getPath();
-                        if (0 != 0) {
-                            try {
-                                fileOutputStream3.close();
-                                return path;
-                            } catch (Throwable th3) {
-                                com.baidu.adp.lib.g.e.b("FileHelper", "SaveFile", "error = " + th3.getMessage());
-                                by.a(th3.getMessage(), "FileHelper.SaveFile2 " + str + "/" + str2);
-                                return path;
-                            }
-                        }
-                        return path;
-                    } catch (IOException e) {
-                        e = e;
-                        com.baidu.adp.lib.g.e.b("FileHelper", "SaveFile", "error = " + e.getMessage());
-                        by.a(e, "FileHelper.SaveFile2 " + str + "/" + str2);
-                        if (fileOutputStream != null) {
-                            try {
-                                fileOutputStream.close();
-                            } catch (Throwable th4) {
-                                com.baidu.adp.lib.g.e.b("FileHelper", "SaveFile", "error = " + th4.getMessage());
-                                by.a(th4.getMessage(), "FileHelper.SaveFile2 " + str + "/" + str2);
-                            }
-                        }
-                        return null;
-                    }
-                } catch (Throwable th5) {
-                    th = th5;
-                    if (fileOutputStream != null) {
-                        try {
-                            fileOutputStream.close();
-                        } catch (Throwable th6) {
-                            com.baidu.adp.lib.g.e.b("FileHelper", "SaveFile", "error = " + th6.getMessage());
-                            by.a(th6.getMessage(), "FileHelper.SaveFile2 " + str + "/" + str2);
-                        }
-                    }
-                    throw th;
-                }
-            }
-        } catch (IOException e2) {
-            e = e2;
-            fileOutputStream = null;
-        } catch (Throwable th7) {
-            th = th7;
-            fileOutputStream = null;
-            if (fileOutputStream != null) {
-            }
-            throw th;
-        }
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [646=4] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:41:0x0112 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r2v10, types: [java.io.OutputStream] */
-    /* JADX WARN: Type inference failed for: r2v15 */
-    /* JADX WARN: Type inference failed for: r2v16 */
-    /* JADX WARN: Type inference failed for: r2v17 */
-    /* JADX WARN: Type inference failed for: r2v7 */
-    /* JADX WARN: Type inference failed for: r2v8 */
-    public static String a(String str, String str2, InputStream inputStream) {
-        FileOutputStream fileOutputStream;
-        String str3 = str != null ? a + "/tieba/" + str + "/" : a + "/tieba/";
-        if (!a(str3) || inputStream == null || str2 == null) {
-            return null;
-        }
-        File file = new File(str3 + str2);
-        String parent = file.getParent();
-        boolean a2 = com.baidu.adp.lib.g.m.a(parent);
-        ?? r2 = a2;
-        if (!a2) {
-            File file2 = new File(parent);
-            boolean exists = file2.exists();
-            r2 = file2;
-            if (!exists) {
-                file2.mkdirs();
-                r2 = file2;
-            }
-        }
-        try {
-            try {
-                if (file.exists() && !file.delete()) {
-                    p.a((OutputStream) null);
-                    return null;
-                } else if (!file.createNewFile()) {
-                    p.a((OutputStream) null);
-                    return null;
-                } else {
-                    fileOutputStream = new FileOutputStream(file);
-                    try {
-                        byte[] bArr = new byte[1024];
-                        while (true) {
-                            int read = inputStream.read(bArr);
-                            if (read == -1) {
-                                fileOutputStream.flush();
-                                String path = file.getPath();
-                                p.a((OutputStream) fileOutputStream);
-                                return path;
-                            }
-                            fileOutputStream.write(bArr, 0, read);
-                        }
-                    } catch (IOException e) {
-                        e = e;
-                        com.baidu.adp.lib.g.e.b("FileHelper", "SaveFile", "error = " + e.getMessage());
-                        by.a(e, "FileHelper.saveFile " + str + "/" + str2);
-                        p.a((OutputStream) fileOutputStream);
-                        return null;
-                    }
-                }
-            } catch (Throwable th) {
-                th = th;
-                p.a((OutputStream) r2);
-                throw th;
-            }
-        } catch (IOException e2) {
-            e = e2;
-            fileOutputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
-            r2 = 0;
-            p.a((OutputStream) r2);
-            throw th;
-        }
-    }
-
-    public static byte[] d(String str, String str2) {
-        String str3;
-        if (!c() || str2 == null) {
-            return null;
-        }
-        if (str != null) {
-            str3 = a + "/tieba/" + str + "/";
-        } else {
-            str3 = a + "/tieba/";
-        }
-        File file = new File(str3 + str2);
-        try {
-            if (file.exists()) {
-                FileInputStream fileInputStream = new FileInputStream(file);
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
-                byte[] bArr = new byte[1024];
-                while (true) {
-                    int read = fileInputStream.read(bArr, 0, 1024);
-                    if (read == -1) {
-                        break;
-                    }
-                    byteArrayOutputStream.write(bArr, 0, read);
-                }
-                if (fileInputStream != null) {
-                    fileInputStream.close();
-                }
-                return byteArrayOutputStream.toByteArray();
-            }
-            return null;
-        } catch (IOException e) {
-            com.baidu.adp.lib.g.e.b("FileHelper", "GetFileData", "error = " + e.getMessage());
-            by.a(e, "FileHelper.GetFileData " + str + "/" + str2);
-            return null;
-        }
-    }
-
-    private static String b(String str, boolean z) {
-        return (z && str.startsWith(a.toString())) ? str : a + "/tieba/" + str;
-    }
-
-    /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
-        jadx.core.utils.exceptions.JadxRuntimeException: Found unreachable blocks
-        	at jadx.core.dex.visitors.blocks.DominatorTree.sortBlocks(DominatorTree.java:35)
-        	at jadx.core.dex.visitors.blocks.DominatorTree.compute(DominatorTree.java:25)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.computeDominators(BlockProcessor.java:202)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
-        */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [732=4, 733=4, 735=4, 736=4, 737=4, 740=4, 741=4, 743=4, 744=4, 745=4] */
-    public static boolean a(java.lang.String r8, java.lang.String r9, boolean r10) {
-        /*
-            r7 = 0
-            r2 = 0
-            r0 = 0
-            r1 = 0
-            java.lang.String r3 = b(r8, r10)
-            java.lang.String r4 = b(r9, r10)
-            java.io.File r5 = new java.io.File     // Catch: java.lang.Throwable -> L230
-            r5.<init>(r3)     // Catch: java.lang.Throwable -> L230
-            java.io.File r6 = new java.io.File     // Catch: java.lang.Throwable -> L230
-            r6.<init>(r4)     // Catch: java.lang.Throwable -> L230
-            boolean r3 = r5.exists()     // Catch: java.lang.Throwable -> L230
-            if (r3 != 0) goto L27
-            if (r2 == 0) goto L21
-            r0.close()     // Catch: java.lang.Throwable -> L191
-        L21:
-            if (r2 == 0) goto L26
-            r1.close()     // Catch: java.lang.Throwable -> L1c3
-        L26:
-            return r7
-        L27:
-            java.io.FileInputStream r3 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> L230
-            r3.<init>(r5)     // Catch: java.lang.Throwable -> L230
-            java.io.FileOutputStream r1 = new java.io.FileOutputStream     // Catch: java.lang.Throwable -> L234
-            r1.<init>(r6)     // Catch: java.lang.Throwable -> L234
-            r0 = 1024(0x400, float:1.435E-42)
-            byte[] r0 = new byte[r0]     // Catch: java.lang.Throwable -> L40
-        L35:
-            int r4 = r3.read(r0)     // Catch: java.lang.Throwable -> L40
-            if (r4 <= 0) goto Lae
-            r5 = 0
-            r1.write(r0, r5, r4)     // Catch: java.lang.Throwable -> L40
-            goto L35
-        L40:
-            r0 = move-exception
-            r2 = r3
-        L42:
-            java.lang.String r3 = "FileHelper"
-            java.lang.String r4 = "CopyFile"
-            java.lang.String r5 = r0.toString()     // Catch: java.lang.Throwable -> L22d
-            com.baidu.adp.lib.g.e.b(r3, r4, r5)     // Catch: java.lang.Throwable -> L22d
-            java.lang.String r0 = r0.getMessage()     // Catch: java.lang.Throwable -> L22d
-            java.lang.StringBuilder r3 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L22d
-            r3.<init>()     // Catch: java.lang.Throwable -> L22d
-            java.lang.String r4 = "FileHelper.CopyFile "
-            java.lang.StringBuilder r3 = r3.append(r4)     // Catch: java.lang.Throwable -> L22d
-            java.lang.StringBuilder r3 = r3.append(r8)     // Catch: java.lang.Throwable -> L22d
-            java.lang.String r4 = " to "
-            java.lang.StringBuilder r3 = r3.append(r4)     // Catch: java.lang.Throwable -> L22d
-            java.lang.StringBuilder r3 = r3.append(r9)     // Catch: java.lang.Throwable -> L22d
-            java.lang.String r3 = r3.toString()     // Catch: java.lang.Throwable -> L22d
-            com.baidu.tieba.util.by.a(r0, r3)     // Catch: java.lang.Throwable -> L22d
-            if (r2 == 0) goto L76
-            r2.close()     // Catch: java.lang.Throwable -> L15f
-        L76:
-            if (r1 == 0) goto L26
-            r1.close()     // Catch: java.lang.Throwable -> L7c
-            goto L26
-        L7c:
-            r0 = move-exception
-            java.lang.String r1 = "FileHelper"
-            java.lang.String r2 = "CopyFile"
-            java.lang.String r3 = r0.toString()
-            com.baidu.adp.lib.g.e.b(r1, r2, r3)
-            java.lang.String r0 = r0.getMessage()
-            java.lang.StringBuilder r1 = new java.lang.StringBuilder
-            r1.<init>()
-            java.lang.String r2 = "FileHelper.CopyFile "
-            java.lang.StringBuilder r1 = r1.append(r2)
-            java.lang.StringBuilder r1 = r1.append(r8)
-            java.lang.String r2 = " to "
-            java.lang.StringBuilder r1 = r1.append(r2)
-            java.lang.StringBuilder r1 = r1.append(r9)
-            java.lang.String r1 = r1.toString()
-        La9:
-            com.baidu.tieba.util.by.a(r0, r1)
-            goto L26
-        Lae:
-            r3.close()     // Catch: java.lang.Throwable -> L40
-            r0 = 0
-            r1.close()     // Catch: java.lang.Throwable -> L239
-            r1 = 0
-            if (r2 == 0) goto Lbb
-            r0.close()     // Catch: java.lang.Throwable -> L1f2
-        Lbb:
-            if (r2 == 0) goto L26
-            r1.close()     // Catch: java.lang.Throwable -> Lc2
-            goto L26
-        Lc2:
-            r0 = move-exception
-            java.lang.String r1 = "FileHelper"
-            java.lang.String r2 = "CopyFile"
-            java.lang.String r3 = r0.toString()
-            com.baidu.adp.lib.g.e.b(r1, r2, r3)
-            java.lang.String r0 = r0.getMessage()
-            java.lang.StringBuilder r1 = new java.lang.StringBuilder
-            r1.<init>()
-            java.lang.String r2 = "FileHelper.CopyFile "
-            java.lang.StringBuilder r1 = r1.append(r2)
-            java.lang.StringBuilder r1 = r1.append(r8)
-            java.lang.String r2 = " to "
-            java.lang.StringBuilder r1 = r1.append(r2)
-            java.lang.StringBuilder r1 = r1.append(r9)
-            java.lang.String r1 = r1.toString()
-            goto La9
-        Lf0:
-            r0 = move-exception
-            r1 = r2
-        Lf2:
-            if (r2 == 0) goto Lf7
-            r2.close()     // Catch: java.lang.Throwable -> Lfd
-        Lf7:
-            if (r1 == 0) goto Lfc
-            r1.close()     // Catch: java.lang.Throwable -> L12e
-        Lfc:
-            throw r0
-        Lfd:
-            r2 = move-exception
-            java.lang.String r3 = "FileHelper"
-            java.lang.String r4 = "CopyFile"
-            java.lang.String r5 = r2.toString()
-            com.baidu.adp.lib.g.e.b(r3, r4, r5)
-            java.lang.String r2 = r2.getMessage()
-            java.lang.StringBuilder r3 = new java.lang.StringBuilder
-            r3.<init>()
-            java.lang.String r4 = "FileHelper.CopyFile "
-            java.lang.StringBuilder r3 = r3.append(r4)
-            java.lang.StringBuilder r3 = r3.append(r8)
-            java.lang.String r4 = " to "
-            java.lang.StringBuilder r3 = r3.append(r4)
-            java.lang.StringBuilder r3 = r3.append(r9)
-            java.lang.String r3 = r3.toString()
-            com.baidu.tieba.util.by.a(r2, r3)
-            goto Lf7
-        L12e:
-            r1 = move-exception
-            java.lang.String r2 = "FileHelper"
-            java.lang.String r3 = "CopyFile"
-            java.lang.String r4 = r1.toString()
-            com.baidu.adp.lib.g.e.b(r2, r3, r4)
-            java.lang.String r1 = r1.getMessage()
-            java.lang.StringBuilder r2 = new java.lang.StringBuilder
-            r2.<init>()
-            java.lang.String r3 = "FileHelper.CopyFile "
-            java.lang.StringBuilder r2 = r2.append(r3)
-            java.lang.StringBuilder r2 = r2.append(r8)
-            java.lang.String r3 = " to "
-            java.lang.StringBuilder r2 = r2.append(r3)
-            java.lang.StringBuilder r2 = r2.append(r9)
-            java.lang.String r2 = r2.toString()
-            com.baidu.tieba.util.by.a(r1, r2)
-            goto Lfc
-        L15f:
-            r0 = move-exception
-            java.lang.String r2 = "FileHelper"
-            java.lang.String r3 = "CopyFile"
-            java.lang.String r4 = r0.toString()
-            com.baidu.adp.lib.g.e.b(r2, r3, r4)
-            java.lang.String r0 = r0.getMessage()
-            java.lang.StringBuilder r2 = new java.lang.StringBuilder
-            r2.<init>()
-            java.lang.String r3 = "FileHelper.CopyFile "
-            java.lang.StringBuilder r2 = r2.append(r3)
-            java.lang.StringBuilder r2 = r2.append(r8)
-            java.lang.String r3 = " to "
-            java.lang.StringBuilder r2 = r2.append(r3)
-            java.lang.StringBuilder r2 = r2.append(r9)
-            java.lang.String r2 = r2.toString()
-            com.baidu.tieba.util.by.a(r0, r2)
-            goto L76
-        L191:
-            r0 = move-exception
-            java.lang.String r3 = "FileHelper"
-            java.lang.String r4 = "CopyFile"
-            java.lang.String r5 = r0.toString()
-            com.baidu.adp.lib.g.e.b(r3, r4, r5)
-            java.lang.String r0 = r0.getMessage()
-            java.lang.StringBuilder r3 = new java.lang.StringBuilder
-            r3.<init>()
-            java.lang.String r4 = "FileHelper.CopyFile "
-            java.lang.StringBuilder r3 = r3.append(r4)
-            java.lang.StringBuilder r3 = r3.append(r8)
-            java.lang.String r4 = " to "
-            java.lang.StringBuilder r3 = r3.append(r4)
-            java.lang.StringBuilder r3 = r3.append(r9)
-            java.lang.String r3 = r3.toString()
-            com.baidu.tieba.util.by.a(r0, r3)
-            goto L21
-        L1c3:
-            r0 = move-exception
-            java.lang.String r1 = "FileHelper"
-            java.lang.String r2 = "CopyFile"
-            java.lang.String r3 = r0.toString()
-            com.baidu.adp.lib.g.e.b(r1, r2, r3)
-            java.lang.String r0 = r0.getMessage()
-            java.lang.StringBuilder r1 = new java.lang.StringBuilder
-            r1.<init>()
-            java.lang.String r2 = "FileHelper.CopyFile "
-            java.lang.StringBuilder r1 = r1.append(r2)
-            java.lang.StringBuilder r1 = r1.append(r8)
-            java.lang.String r2 = " to "
-            java.lang.StringBuilder r1 = r1.append(r2)
-            java.lang.StringBuilder r1 = r1.append(r9)
-            java.lang.String r1 = r1.toString()
-            goto La9
-        L1f2:
-            r0 = move-exception
-            java.lang.String r3 = "FileHelper"
-            java.lang.String r4 = "CopyFile"
-            java.lang.String r5 = r0.toString()
-            com.baidu.adp.lib.g.e.b(r3, r4, r5)
-            java.lang.String r0 = r0.getMessage()
-            java.lang.StringBuilder r3 = new java.lang.StringBuilder
-            r3.<init>()
-            java.lang.String r4 = "FileHelper.CopyFile "
-            java.lang.StringBuilder r3 = r3.append(r4)
-            java.lang.StringBuilder r3 = r3.append(r8)
-            java.lang.String r4 = " to "
-            java.lang.StringBuilder r3 = r3.append(r4)
-            java.lang.StringBuilder r3 = r3.append(r9)
-            java.lang.String r3 = r3.toString()
-            com.baidu.tieba.util.by.a(r0, r3)
-            goto Lbb
-        L224:
-            r0 = move-exception
-            r1 = r2
-            r2 = r3
-            goto Lf2
-        L229:
-            r0 = move-exception
-            r2 = r3
-            goto Lf2
-        L22d:
-            r0 = move-exception
-            goto Lf2
-        L230:
-            r0 = move-exception
-            r1 = r2
-            goto L42
-        L234:
-            r0 = move-exception
-            r1 = r2
-            r2 = r3
-            goto L42
-        L239:
-            r0 = move-exception
-            goto L42
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.util.ad.a(java.lang.String, java.lang.String, boolean):boolean");
-    }
-
-    public static boolean e(String str, String str2) {
-        return a(str, str2, false);
-    }
-
-    public static InputStream h(String str) {
-        return a(d(str));
-    }
-
-    public static InputStream i(String str) {
-        File file = new File(str);
-        try {
-            try {
-                return a(file.exists() ? file : null);
-            } catch (SecurityException e) {
-                com.baidu.adp.lib.g.e.b("FileHelper", "GetFile", "error = " + e.getMessage());
-                by.a(e, "FileHelper.GetStreamFromTmpFile " + str);
-                return a((File) null);
-            }
-        } catch (Throwable th) {
-            return a(file);
-        }
-    }
-
-    public static InputStream a(File file) {
-        if (file != null) {
-            try {
-                return new FileInputStream(file);
-            } catch (Throwable th) {
-                com.baidu.adp.lib.g.e.b("FileHelper", "GetStreamFromFile", "error = " + th.getMessage());
-                by.a(th.getMessage(), "FileHelper.GetStreamFromFile");
-                return null;
-            }
-        }
-        return null;
-    }
-
-    public static boolean j(String str) {
-        if (c()) {
-            File file = new File(a + "/tieba/" + str);
-            try {
-                if (file.exists()) {
-                    return file.delete();
-                }
-                return false;
-            } catch (Throwable th) {
-                com.baidu.adp.lib.g.e.b("FileHelper", "DelFile", "error = " + th.getMessage());
-                by.a(th.getMessage(), "FileHelper.DelFile " + str);
-                return false;
-            }
-        }
-        return false;
-    }
-
-    public static String d() {
-        return a + "/tieba/";
-    }
-
-    public static boolean f(String str, String str2) {
-        File file = new File(str);
-        File file2 = new File(str2);
-        String parent = file2.getParent();
-        if (!com.baidu.adp.lib.g.m.a(parent)) {
-            File file3 = new File(parent);
-            if (!file3.exists()) {
-                file3.mkdirs();
-            }
-        }
-        if (file.exists()) {
-            return file.renameTo(file2);
-        }
-        return false;
-    }
-
-    public static long e() {
-        String absolutePath;
-        if (a()) {
-            absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
-        } else {
-            absolutePath = Environment.getRootDirectory().getAbsolutePath();
-        }
-        if (absolutePath == null) {
-            return 0L;
-        }
-        StatFs statFs = new StatFs(absolutePath);
-        return statFs.getBlockSize() * statFs.getAvailableBlocks();
-    }
-
-    public static String a(int i, String str) {
-        return a(i, str, false);
-    }
-
-    private static String a(int i, String str, boolean z) {
-        if (b == null) {
-            return null;
-        }
-        File[] listFiles = b.listFiles();
-        String a2 = a(i);
-        for (int i2 = 0; i2 < listFiles.length; i2++) {
-            if (listFiles[i2] != null && listFiles[i2].getName().startsWith(a2)) {
-                if (listFiles[i2].getName().endsWith(str)) {
-                    return listFiles[i2].getAbsolutePath();
-                }
-                if (z) {
-                    listFiles[i2].delete();
-                }
-            }
-        }
-        return null;
-    }
-
-    public static String a(int i) {
-        switch (i) {
-            case 1:
-                return SwitchKey.VOICE;
-            case 2:
-                return "emotion";
-            default:
-                return "";
-        }
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [972=4, 973=4, 975=4, 976=4, 978=4] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:44:0x011a */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:46:0x011d */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:55:0x0016 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x009a A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r2v15, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r2v9, types: [java.lang.String] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String a(int i, String str, byte[] bArr) {
-        FileOutputStream fileOutputStream;
-        String str2;
-        File createTempFile;
-        if (str == null || bArr == null || bArr.length == 0) {
-            return null;
-        }
-        String a2 = a(i, str, true);
-        if (a2 == null) {
-            FileOutputStream fileOutputStream2 = null;
-            try {
-                try {
-                    createTempFile = File.createTempFile(a(i), str, b);
-                } catch (Throwable th) {
-                    th = th;
-                    if (fileOutputStream2 != null) {
-                        try {
-                            fileOutputStream2.close();
-                        } catch (Throwable th2) {
-                            com.baidu.adp.lib.g.e.b("FileHelper", "SaveFile", "error = " + th2.getMessage());
-                            by.a(th2.getMessage(), "FileHelper.SaveFile ");
-                        }
-                    }
-                    throw th;
-                }
-            } catch (IOException e) {
-                e = e;
-                fileOutputStream = null;
-            } catch (Throwable th3) {
-                th = th3;
-                fileOutputStream2 = null;
-                if (fileOutputStream2 != null) {
-                }
-                throw th;
-            }
-            if (createTempFile == null) {
-                if (0 != 0) {
-                    try {
-                        fileOutputStream2.close();
-                    } catch (Throwable th4) {
-                        com.baidu.adp.lib.g.e.b("FileHelper", "SaveFile", "error = " + th4.getMessage());
-                        by.a(th4.getMessage(), "FileHelper.SaveFile ");
-                    }
-                }
-                return null;
-            }
-            fileOutputStream = new FileOutputStream(createTempFile);
-            try {
-                fileOutputStream.write(bArr, 0, bArr.length);
-                fileOutputStream.flush();
-                fileOutputStream.close();
-                fileOutputStream2 = null;
-                fileOutputStream2 = null;
-                str2 = createTempFile.getPath();
-                if (0 != 0) {
-                    try {
-                        fileOutputStream2.close();
-                    } catch (Throwable th5) {
-                        com.baidu.adp.lib.g.e.b("FileHelper", "SaveFile", "error = " + th5.getMessage());
-                        by.a(th5.getMessage(), "FileHelper.SaveFile ");
-                        fileOutputStream2 = "FileHelper.SaveFile ";
-                    }
-                }
-            } catch (IOException e2) {
-                e = e2;
-                com.baidu.adp.lib.g.e.b("FileHelper", "SaveFile", "error = " + e.getMessage());
-                by.a(e, "FileHelper.SaveFile ");
-                FileOutputStream fileOutputStream3 = fileOutputStream;
-                if (fileOutputStream != null) {
-                    try {
-                        fileOutputStream.close();
-                        fileOutputStream3 = fileOutputStream;
-                    } catch (Throwable th6) {
-                        com.baidu.adp.lib.g.e.b("FileHelper", "SaveFile", "error = " + th6.getMessage());
-                        by.a(th6.getMessage(), "FileHelper.SaveFile ");
-                        fileOutputStream3 = "FileHelper.SaveFile ";
-                    }
-                }
-                str2 = null;
-                fileOutputStream2 = fileOutputStream3;
-                return str2;
-            }
-            return str2;
-        }
-        return a2;
-    }
-
-    public static String a(String str, int i) {
-        if (str == null) {
-            return null;
-        }
-        if (a()) {
-            if (b(a(str, i, false))) {
-                return a(str, i, true);
-            }
-            return null;
-        }
-        return a(1, str);
-    }
-
-    public static String a(String str, int i, boolean z) {
-        if (!a()) {
-            return null;
-        }
-        StringBuilder sb = new StringBuilder();
-        if (z) {
-            sb.append(d());
-        }
-        sb.append(a(i));
-        sb.append(File.separator);
-        sb.append(str);
-        return sb.toString();
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:39:0x0031 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static long b(File file) {
-        FileInputStream fileInputStream;
-        String str;
-        long j = 0;
-        FileInputStream fileInputStream2 = null;
-        try {
-            try {
-                if (!file.exists()) {
-                    fileInputStream = null;
-                } else {
-                    fileInputStream = new FileInputStream(file);
-                    try {
-                        j = fileInputStream.available();
-                    } catch (Exception e) {
-                        e = e;
-                        by.a(e, "FileHelper.getFileSize");
-                        if (fileInputStream != null) {
-                            try {
-                                fileInputStream.close();
-                            } catch (Exception e2) {
-                                e = e2;
-                                str = "FileHelper.getFileSize";
-                                by.a(e, str);
-                                return j;
-                            }
-                        }
-                        return j;
-                    }
-                }
-                if (fileInputStream != null) {
-                    try {
-                        fileInputStream.close();
-                    } catch (Exception e3) {
-                        e = e3;
-                        str = "FileHelper.getFileSize";
-                        by.a(e, str);
-                        return j;
-                    }
-                }
-            } catch (Throwable th) {
-                th = th;
-                if (0 != 0) {
-                    try {
-                        fileInputStream2.close();
-                    } catch (Exception e4) {
-                        by.a(e4, "FileHelper.getFileSize");
-                    }
-                }
-                throw th;
-            }
-        } catch (Exception e5) {
-            e = e5;
-            fileInputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
-            if (0 != 0) {
-            }
-            throw th;
-        }
-        return j;
-    }
-
-    public static boolean c(File file) {
-        try {
-            return file.delete();
-        } catch (Exception e) {
-            by.a(e, "FileHelper.deleteFile");
-            return false;
-        }
-    }
-
-    public static long a(String str, boolean z) {
-        return a(new File(str), z);
-    }
-
-    public static long a(File file, boolean z) {
-        long length;
-        long j = 0;
-        File[] listFiles = file.listFiles();
-        for (int i = 0; i < listFiles.length; i++) {
-            if (listFiles[i].isDirectory() && !z) {
-                length = a(listFiles[i], false);
-            } else {
-                length = listFiles[i].length();
-            }
-            j += length;
-        }
-        return j;
-    }
-
-    public static void k(String str) {
-        try {
-            File file = new File(str);
-            if (!file.exists()) {
-                file.mkdir();
-            }
-        } catch (Exception e) {
-            by.a(e, "FileHelper.makeRootDirectory " + str);
-        }
-    }
-
-    public static long g(String str, String str2) {
-        if (a()) {
-            try {
-                File file = new File(a + "/tieba/" + str + "/" + str2);
-                if (file.exists()) {
-                    return file.length();
-                }
-                return -1L;
-            } catch (Exception e) {
-                com.baidu.adp.lib.g.e.b("FileHelper", "CheckFile", "error = " + e.getMessage());
-                by.a(e, "FileHelper.checkFileSize " + str + "/" + str2);
-                return -1L;
-            }
-        }
-        return -1L;
     }
 }

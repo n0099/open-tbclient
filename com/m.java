@@ -1,26 +1,23 @@
 package com;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import com.baidu.cloudsdk.social.share.uiwithlayout.ShareDialog;
+import com.baidu.cloudsdk.common.util.PositionManager;
 /* loaded from: classes.dex */
-public class m implements TextWatcher {
-    final /* synthetic */ ShareDialog a;
+public class m implements Runnable {
+    final /* synthetic */ PositionManager a;
 
-    public m(ShareDialog shareDialog) {
-        this.a = shareDialog;
+    public m(PositionManager positionManager) {
+        this.a = positionManager;
     }
 
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        this.a.a(this.a.mMaxLength - editable.length());
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    @Override // java.lang.Runnable
+    public void run() {
+        PositionManager.a aVar;
+        PositionManager.a aVar2;
+        aVar = this.a.c;
+        if (aVar.isCancelled()) {
+            return;
+        }
+        aVar2 = this.a.c;
+        aVar2.cancel(true);
     }
 }

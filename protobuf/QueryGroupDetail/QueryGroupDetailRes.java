@@ -1,5 +1,6 @@
 package protobuf.QueryGroupDetail;
 
+import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.CodedOutputStream;
@@ -13,13 +14,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import protobuf.Im;
-import protobuf.ah;
-import protobuf.y;
+import protobuf.aa;
+import protobuf.aj;
 /* loaded from: classes.dex */
 public final class QueryGroupDetailRes {
 
     /* loaded from: classes.dex */
-    public final class DataRes extends GeneratedMessageLite implements k {
+    public final class DataRes extends GeneratedMessageLite implements i {
+        public static final int ACTIVITY_FIELD_NUMBER = 12;
         public static final int ALREADYCREATENUM_FIELD_NUMBER = 10;
         public static final int CANCREATEMEMBER_FIELD_NUMBER = 9;
         public static final int CANJOINGROUPNUM_FIELD_NUMBER = 5;
@@ -32,6 +34,7 @@ public final class QueryGroupDetailRes {
         public static final int MEMBER_FIELD_NUMBER = 3;
         public static final int PHOTO_FIELD_NUMBER = 2;
         private static final long serialVersionUID = 0;
+        private List<Im.ActivityInfo> activity_;
         private int alreadyCreateNum_;
         private int bitField0_;
         private int canCreateMember_;
@@ -46,8 +49,13 @@ public final class QueryGroupDetailRes {
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
         private List<Im.Photo> photo_;
-        public static Parser<DataRes> PARSER = new i();
+        public static Parser<DataRes> PARSER = new g();
         private static final DataRes a = new DataRes(true);
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ DataRes(GeneratedMessageLite.Builder builder, DataRes dataRes) {
+            this(builder);
+        }
 
         private DataRes(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -70,185 +78,120 @@ public final class QueryGroupDetailRes {
             return a;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r3v3, resolved type: java.util.List<protobuf.Im$UserInfo> */
-        /* JADX DEBUG: Multi-variable search result rejected for r3v7, resolved type: java.util.List<protobuf.Im$Photo> */
-        /* JADX WARN: Multi-variable type inference failed */
         private DataRes(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-            boolean z;
-            boolean z2;
-            boolean z3;
-            boolean z4;
-            protobuf.i iVar;
-            boolean z5 = false;
+            protobuf.k kVar;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
             a();
-            boolean z6 = false;
-            while (!z5) {
+            boolean z = false;
+            boolean z2 = false;
+            while (!z2) {
                 try {
                     try {
-                        int readTag = codedInputStream.readTag();
-                        switch (readTag) {
-                            case 0:
-                                z = true;
-                                z2 = z6;
-                                continue;
-                                z6 = z2;
-                                z5 = z;
-                            case 10:
-                                if ((this.bitField0_ & 1) != 1) {
-                                    iVar = null;
-                                } else {
-                                    iVar = this.group_.toBuilder();
-                                }
-                                this.group_ = (Im.GroupInfo) codedInputStream.readMessage(Im.GroupInfo.PARSER, extensionRegistryLite);
-                                if (iVar != null) {
-                                    iVar.mergeFrom(this.group_);
-                                    this.group_ = iVar.buildPartial();
-                                }
-                                this.bitField0_ |= 1;
-                                z = z5;
-                                z2 = z6;
-                                continue;
-                                z6 = z2;
-                                z5 = z;
-                            case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
-                                if (!(z6 & true)) {
-                                    this.photo_ = new ArrayList();
-                                    z4 = z6 | true;
-                                } else {
-                                    z4 = z6;
-                                }
-                                try {
-                                    this.photo_.add(codedInputStream.readMessage(Im.Photo.PARSER, extensionRegistryLite));
-                                    boolean z7 = z5;
-                                    z2 = z4;
-                                    z = z7;
-                                    continue;
-                                    z6 = z2;
-                                    z5 = z;
-                                } catch (InvalidProtocolBufferException e) {
-                                    e = e;
-                                    throw e.setUnfinishedMessage(this);
-                                } catch (IOException e2) {
-                                    e = e2;
-                                    throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
-                                } catch (Throwable th) {
-                                    z6 = z4;
-                                    th = th;
-                                    if (z6 & true) {
-                                        this.photo_ = Collections.unmodifiableList(this.photo_);
+                        try {
+                            int readTag = codedInputStream.readTag();
+                            switch (readTag) {
+                                case 0:
+                                    z2 = true;
+                                    break;
+                                case 10:
+                                    if ((this.bitField0_ & 1) != 1) {
+                                        kVar = null;
+                                    } else {
+                                        kVar = this.group_.toBuilder();
                                     }
-                                    if (z6 & true) {
-                                        this.member_ = Collections.unmodifiableList(this.member_);
+                                    this.group_ = (Im.GroupInfo) codedInputStream.readMessage(Im.GroupInfo.PARSER, extensionRegistryLite);
+                                    if (kVar != null) {
+                                        kVar.mergeFrom(this.group_);
+                                        this.group_ = kVar.buildPartial();
                                     }
-                                    makeExtensionsImmutable();
-                                    throw th;
-                                }
-                            case Im.GroupInfo.NICKNAME_FIELD_NUMBER /* 26 */:
-                                if (!(z6 & true)) {
-                                    this.member_ = new ArrayList();
-                                    z3 = z6 | true;
-                                } else {
-                                    z3 = z6;
-                                }
-                                this.member_.add(codedInputStream.readMessage(Im.UserInfo.PARSER, extensionRegistryLite));
-                                boolean z8 = z5;
-                                z2 = z3;
-                                z = z8;
-                                continue;
-                                z6 = z2;
-                                z5 = z;
-                            case Im.GroupInfo.ISNEWLYCREATE_FIELD_NUMBER /* 32 */:
-                                this.bitField0_ |= 2;
-                                this.joinGroupNum_ = codedInputStream.readInt32();
-                                z = z5;
-                                z2 = z6;
-                                continue;
-                                z6 = z2;
-                                z5 = z;
-                            case 40:
-                                this.bitField0_ |= 4;
-                                this.canJoinGroupNum_ = codedInputStream.readInt32();
-                                z = z5;
-                                z2 = z6;
-                                continue;
-                                z6 = z2;
-                                z5 = z;
-                            case 48:
-                                this.bitField0_ |= 8;
-                                this.isJoin_ = codedInputStream.readInt32();
-                                z = z5;
-                                z2 = z6;
-                                continue;
-                                z6 = z2;
-                                z5 = z;
-                            case 56:
-                                this.bitField0_ |= 16;
-                                this.isGroupManager_ = codedInputStream.readInt32();
-                                z = z5;
-                                z2 = z6;
-                                continue;
-                                z6 = z2;
-                                z5 = z;
-                            case 64:
-                                this.bitField0_ |= 32;
-                                this.hideRecommendGroup_ = codedInputStream.readInt32();
-                                z = z5;
-                                z2 = z6;
-                                continue;
-                                z6 = z2;
-                                z5 = z;
-                            case 72:
-                                this.bitField0_ |= 64;
-                                this.canCreateMember_ = codedInputStream.readInt32();
-                                z = z5;
-                                z2 = z6;
-                                continue;
-                                z6 = z2;
-                                z5 = z;
-                            case com.baidu.loginshare.e.i /* 80 */:
-                                this.bitField0_ |= 128;
-                                this.alreadyCreateNum_ = codedInputStream.readInt32();
-                                z = z5;
-                                z2 = z6;
-                                continue;
-                                z6 = z2;
-                                z5 = z;
-                            case 88:
-                                this.bitField0_ |= 256;
-                                this.leftCreateNum_ = codedInputStream.readInt32();
-                                break;
-                            default:
-                                if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
-                                    z = true;
-                                    z2 = z6;
-                                    continue;
-                                    z6 = z2;
-                                    z5 = z;
-                                }
-                                break;
+                                    this.bitField0_ |= 1;
+                                    break;
+                                case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
+                                    if (!(z & true)) {
+                                        this.photo_ = new ArrayList();
+                                        z |= true;
+                                    }
+                                    this.photo_.add((Im.Photo) codedInputStream.readMessage(Im.Photo.PARSER, extensionRegistryLite));
+                                    break;
+                                case Im.GroupInfo.NICKNAME_FIELD_NUMBER /* 26 */:
+                                    if (!(z & true)) {
+                                        this.member_ = new ArrayList();
+                                        z |= true;
+                                    }
+                                    this.member_.add((Im.UserInfo) codedInputStream.readMessage(Im.UserInfo.PARSER, extensionRegistryLite));
+                                    break;
+                                case 32:
+                                    this.bitField0_ |= 2;
+                                    this.joinGroupNum_ = codedInputStream.readInt32();
+                                    break;
+                                case 40:
+                                    this.bitField0_ |= 4;
+                                    this.canJoinGroupNum_ = codedInputStream.readInt32();
+                                    break;
+                                case 48:
+                                    this.bitField0_ |= 8;
+                                    this.isJoin_ = codedInputStream.readInt32();
+                                    break;
+                                case 56:
+                                    this.bitField0_ |= 16;
+                                    this.isGroupManager_ = codedInputStream.readInt32();
+                                    break;
+                                case AccessibilityNodeInfoCompat.ACTION_ACCESSIBILITY_FOCUS /* 64 */:
+                                    this.bitField0_ |= 32;
+                                    this.hideRecommendGroup_ = codedInputStream.readInt32();
+                                    break;
+                                case 72:
+                                    this.bitField0_ |= 64;
+                                    this.canCreateMember_ = codedInputStream.readInt32();
+                                    break;
+                                case com.baidu.loginshare.e.i /* 80 */:
+                                    this.bitField0_ |= 128;
+                                    this.alreadyCreateNum_ = codedInputStream.readInt32();
+                                    break;
+                                case 88:
+                                    this.bitField0_ |= 256;
+                                    this.leftCreateNum_ = codedInputStream.readInt32();
+                                    break;
+                                case 98:
+                                    if (!(z & true)) {
+                                        this.activity_ = new ArrayList();
+                                        z |= true;
+                                    }
+                                    this.activity_.add((Im.ActivityInfo) codedInputStream.readMessage(Im.ActivityInfo.PARSER, extensionRegistryLite));
+                                    break;
+                                default:
+                                    if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
+                                        z2 = true;
+                                        break;
+                                    } else {
+                                        break;
+                                    }
+                            }
+                        } catch (IOException e) {
+                            throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
                         }
-                        z = z5;
-                        z2 = z6;
-                        z6 = z2;
-                        z5 = z;
-                    } catch (Throwable th2) {
-                        th = th2;
+                    } catch (InvalidProtocolBufferException e2) {
+                        throw e2.setUnfinishedMessage(this);
                     }
-                } catch (InvalidProtocolBufferException e3) {
-                    e = e3;
-                } catch (IOException e4) {
-                    e = e4;
+                } finally {
+                    if (z & true) {
+                        this.photo_ = Collections.unmodifiableList(this.photo_);
+                    }
+                    if (z & true) {
+                        this.member_ = Collections.unmodifiableList(this.member_);
+                    }
+                    if (z & true) {
+                        this.activity_ = Collections.unmodifiableList(this.activity_);
+                    }
+                    makeExtensionsImmutable();
                 }
             }
-            if (z6 & true) {
-                this.photo_ = Collections.unmodifiableList(this.photo_);
-            }
-            if (z6 & true) {
-                this.member_ = Collections.unmodifiableList(this.member_);
-            }
-            makeExtensionsImmutable();
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ DataRes(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, DataRes dataRes) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -272,7 +215,7 @@ public final class QueryGroupDetailRes {
             return this.photo_;
         }
 
-        public List<? extends y> getPhotoOrBuilderList() {
+        public List<? extends aa> getPhotoOrBuilderList() {
             return this.photo_;
         }
 
@@ -284,7 +227,7 @@ public final class QueryGroupDetailRes {
             return this.photo_.get(i);
         }
 
-        public y getPhotoOrBuilder(int i) {
+        public aa getPhotoOrBuilder(int i) {
             return this.photo_.get(i);
         }
 
@@ -292,7 +235,7 @@ public final class QueryGroupDetailRes {
             return this.member_;
         }
 
-        public List<? extends ah> getMemberOrBuilderList() {
+        public List<? extends aj> getMemberOrBuilderList() {
             return this.member_;
         }
 
@@ -304,7 +247,7 @@ public final class QueryGroupDetailRes {
             return this.member_.get(i);
         }
 
-        public ah getMemberOrBuilder(int i) {
+        public aj getMemberOrBuilder(int i) {
             return this.member_.get(i);
         }
 
@@ -372,6 +315,26 @@ public final class QueryGroupDetailRes {
             return this.leftCreateNum_;
         }
 
+        public List<Im.ActivityInfo> getActivityList() {
+            return this.activity_;
+        }
+
+        public List<? extends protobuf.c> getActivityOrBuilderList() {
+            return this.activity_;
+        }
+
+        public int getActivityCount() {
+            return this.activity_.size();
+        }
+
+        public Im.ActivityInfo getActivity(int i) {
+            return this.activity_.get(i);
+        }
+
+        public protobuf.c getActivityOrBuilder(int i) {
+            return this.activity_.get(i);
+        }
+
         private void a() {
             this.group_ = Im.GroupInfo.getDefaultInstance();
             this.photo_ = Collections.emptyList();
@@ -384,6 +347,7 @@ public final class QueryGroupDetailRes {
             this.canCreateMember_ = 0;
             this.alreadyCreateNum_ = 0;
             this.leftCreateNum_ = 0;
+            this.activity_ = Collections.emptyList();
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -432,6 +396,9 @@ public final class QueryGroupDetailRes {
             if ((this.bitField0_ & 256) == 256) {
                 codedOutputStream.writeInt32(11, this.leftCreateNum_);
             }
+            for (int i3 = 0; i3 < this.activity_.size(); i3++) {
+                codedOutputStream.writeMessage(12, this.activity_.get(i3));
+            }
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -468,6 +435,9 @@ public final class QueryGroupDetailRes {
                 }
                 if ((this.bitField0_ & 256) == 256) {
                     i += CodedOutputStream.computeInt32Size(11, this.leftCreateNum_);
+                }
+                for (int i4 = 0; i4 < this.activity_.size(); i4++) {
+                    i += CodedOutputStream.computeMessageSize(12, this.activity_.get(i4));
                 }
                 this.memoizedSerializedSize = i;
             }
@@ -520,32 +490,32 @@ public final class QueryGroupDetailRes {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static j newBuilder() {
-            return j.f();
+        public static h newBuilder() {
+            return h.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public j newBuilderForType() {
+        public h newBuilderForType() {
             return newBuilder();
         }
 
-        public static j newBuilder(DataRes dataRes) {
+        public static h newBuilder(DataRes dataRes) {
             return newBuilder().mergeFrom(dataRes);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public j toBuilder() {
+        public h toBuilder() {
             return newBuilder(this);
         }
     }
 
     /* loaded from: classes.dex */
-    public final class QueryGroupDetailResIdl extends GeneratedMessageLite implements n {
+    public final class QueryGroupDetailResIdl extends GeneratedMessageLite implements l {
         public static final int DATA_FIELD_NUMBER = 2;
         public static final int ERROR_FIELD_NUMBER = 1;
-        public static Parser<QueryGroupDetailResIdl> PARSER = new l();
+        public static Parser<QueryGroupDetailResIdl> PARSER = new j();
         private static final QueryGroupDetailResIdl a = new QueryGroupDetailResIdl(true);
         private static final long serialVersionUID = 0;
         private int bitField0_;
@@ -553,6 +523,11 @@ public final class QueryGroupDetailRes {
         private Im.Error error_;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ QueryGroupDetailResIdl(GeneratedMessageLite.Builder builder, QueryGroupDetailResIdl queryGroupDetailResIdl) {
+            this(builder);
+        }
 
         private QueryGroupDetailResIdl(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -576,12 +551,11 @@ public final class QueryGroupDetailRes {
         }
 
         private QueryGroupDetailResIdl(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-            boolean z;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
             a();
-            boolean z2 = false;
-            while (!z2) {
+            boolean z = false;
+            while (!z) {
                 try {
                     try {
                         int readTag = codedInputStream.readTag();
@@ -590,35 +564,31 @@ public final class QueryGroupDetailRes {
                                 z = true;
                                 break;
                             case 10:
-                                protobuf.c builder = (this.bitField0_ & 1) == 1 ? this.error_.toBuilder() : null;
+                                protobuf.e builder = (this.bitField0_ & 1) == 1 ? this.error_.toBuilder() : null;
                                 this.error_ = (Im.Error) codedInputStream.readMessage(Im.Error.PARSER, extensionRegistryLite);
                                 if (builder != null) {
                                     builder.mergeFrom(this.error_);
                                     this.error_ = builder.buildPartial();
                                 }
                                 this.bitField0_ |= 1;
-                                z = z2;
                                 break;
                             case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
-                                j builder2 = (this.bitField0_ & 2) == 2 ? this.data_.toBuilder() : null;
+                                h builder2 = (this.bitField0_ & 2) == 2 ? this.data_.toBuilder() : null;
                                 this.data_ = (DataRes) codedInputStream.readMessage(DataRes.PARSER, extensionRegistryLite);
                                 if (builder2 != null) {
                                     builder2.mergeFrom(this.data_);
                                     this.data_ = builder2.buildPartial();
                                 }
                                 this.bitField0_ |= 2;
-                                z = z2;
                                 break;
                             default:
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
                                 } else {
-                                    z = z2;
                                     break;
                                 }
                         }
-                        z2 = z;
                     } catch (InvalidProtocolBufferException e) {
                         throw e.setUnfinishedMessage(this);
                     } catch (IOException e2) {
@@ -628,6 +598,11 @@ public final class QueryGroupDetailRes {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ QueryGroupDetailResIdl(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, QueryGroupDetailResIdl queryGroupDetailResIdl) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -740,23 +715,23 @@ public final class QueryGroupDetailRes {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static m newBuilder() {
-            return m.f();
+        public static k newBuilder() {
+            return k.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public m newBuilderForType() {
+        public k newBuilderForType() {
             return newBuilder();
         }
 
-        public static m newBuilder(QueryGroupDetailResIdl queryGroupDetailResIdl) {
+        public static k newBuilder(QueryGroupDetailResIdl queryGroupDetailResIdl) {
             return newBuilder().mergeFrom(queryGroupDetailResIdl);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public m toBuilder() {
+        public k toBuilder() {
             return newBuilder(this);
         }
     }

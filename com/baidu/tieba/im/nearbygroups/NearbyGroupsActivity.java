@@ -11,37 +11,37 @@ import com.baidu.tieba.im.creategroup.CreateGroupStepActivity;
 import com.baidu.tieba.im.data.GroupPermData;
 import com.baidu.tieba.im.data.NearbyGroupsData;
 import com.baidu.tieba.im.groupInfo.GroupInfoActivity;
-import com.baidu.tieba.im.message.bx;
-import com.baidu.tieba.im.message.cp;
-import com.baidu.tieba.im.message.cq;
-import com.baidu.tieba.im.message.q;
-import com.baidu.tieba.im.model.af;
+import com.baidu.tieba.im.message.cg;
+import com.baidu.tieba.im.message.cy;
+import com.baidu.tieba.im.message.cz;
+import com.baidu.tieba.im.message.s;
+import com.baidu.tieba.im.model.ak;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.ca;
+import com.baidu.tieba.util.cd;
 import com.slidingmenu.lib.R;
 import java.util.Date;
 /* loaded from: classes.dex */
-public class NearbyGroupsActivity extends com.baidu.tieba.j implements com.baidu.tieba.im.messageCenter.g {
+public class NearbyGroupsActivity extends com.baidu.tieba.f implements com.baidu.tieba.im.messageCenter.g {
     private k b = null;
-    private af c = null;
-    private com.baidu.adp.lib.g.c d = null;
-    private com.baidu.adp.widget.ListView.b e = new d(this);
-    com.baidu.adp.lib.c.d a = new e(this);
+    private ak c = null;
+    private com.baidu.adp.lib.util.d d = null;
+    private com.baidu.adp.widget.ListView.b e = new b(this);
+    com.baidu.adp.lib.c.d a = new c(this);
 
     public static void a(Activity activity) {
         activity.startActivity(new Intent(activity, NearbyGroupsActivity.class));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.b = new k(this);
         this.b.a(this.e);
-        this.b.a(new b(this));
-        this.b.a(new c(this));
-        this.d = new com.baidu.adp.lib.g.c(this);
-        this.c = new af();
+        this.b.a(new d(this));
+        this.b.a(new e(this));
+        this.d = new com.baidu.adp.lib.util.d(this);
+        this.c = new ak();
         com.baidu.tieba.im.messageCenter.e.a().a(103009, this);
         com.baidu.tieba.im.messageCenter.e.a().a(103008, this);
         com.baidu.tieba.im.messageCenter.e.a().a(-115, this);
@@ -50,7 +50,7 @@ public class NearbyGroupsActivity extends com.baidu.tieba.j implements com.baidu
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, android.app.Activity
     public void onResume() {
         super.onResume();
     }
@@ -60,7 +60,7 @@ public class NearbyGroupsActivity extends com.baidu.tieba.j implements com.baidu
             return true;
         }
         try {
-            return ca.a(ca.a(), new Date(j)) >= 1;
+            return cd.a(cd.a(), new Date(j)) >= 1;
         } catch (Exception e) {
             return true;
         }
@@ -77,7 +77,7 @@ public class NearbyGroupsActivity extends com.baidu.tieba.j implements com.baidu
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j
+    @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.b.a(i);
@@ -112,70 +112,40 @@ public class NearbyGroupsActivity extends com.baidu.tieba.j implements com.baidu
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         this.c.i();
         com.baidu.tieba.im.messageCenter.e.a().a(this);
     }
 
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [325=4] */
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(q qVar) {
-        if (qVar != null) {
-            if (qVar.w() == 103105) {
-                if (qVar instanceof cp) {
-                    cp cpVar = (cp) qVar;
-                    if (!cpVar.k() || cpVar.l() == 2230110) {
-                        this.c.d();
-                    }
+    public void a(s sVar) {
+        if (sVar == null) {
+            return;
+        }
+        if (sVar.w() == 103105) {
+            if (sVar instanceof cy) {
+                cy cyVar = (cy) sVar;
+                if (!cyVar.l() || cyVar.m() == 2230110) {
+                    this.c.d();
                 }
-            } else if (qVar.w() == 103009 || qVar.w() == -115) {
-                this.c.a(false);
-                if (!(qVar instanceof bx)) {
-                    this.b.h();
-                    return;
-                }
-                if (qVar.w() == -115) {
-                    if (UtilHelper.b()) {
-                        if (a(TiebaApplication.h().bc())) {
-                            this.c.h();
-                            return;
-                        }
-                        this.c.g();
-                    }
-                } else {
-                    TiebaApplication.h().d(System.currentTimeMillis());
-                }
-                bx bxVar = (bx) qVar;
-                if (bxVar.k() && bxVar.l() > 0) {
-                    showToast(bxVar.m());
-                } else {
-                    NearbyGroupsData a = bxVar.a();
-                    if (a != null) {
-                        this.c.b(a.getHasMore());
-                        this.c.a(a.getGeo());
-                    } else {
-                        a = new NearbyGroupsData();
-                    }
-                    this.b.a(a);
-                    if (a != null && a.size() > 0) {
-                        this.b.a();
-                    }
-                }
-                this.b.h();
-            } else if (qVar.w() == 103008 && (qVar instanceof cq)) {
+            }
+        } else if (sVar.w() != 103009 && sVar.w() != -115) {
+            if (sVar.w() == 103008 && (sVar instanceof cz)) {
                 try {
-                    cq cqVar = (cq) qVar;
-                    if (cqVar.k() && cqVar.l() > 0) {
-                        showToast(cqVar.m());
+                    cz czVar = (cz) sVar;
+                    if (czVar.l() && czVar.m() > 0) {
+                        showToast(czVar.n());
                         return;
                     }
-                    GroupPermData a2 = cqVar.a();
-                    if (a2 != null) {
-                        if (a2.isCreatePersonal()) {
-                            CreateGroupStepActivity.a(this, 2, 0, 1011, a2.getCanCreateNormalNum(), a2.getCanCreateOfficialNum(), a2.getCanCreatePersonalNum());
-                        } else if (!TextUtils.isEmpty(a2.getCreatePersonalTip())) {
-                            showToast(a2.getCreatePersonalTip());
+                    GroupPermData a = czVar.a();
+                    if (a != null) {
+                        if (a.isCreatePersonal()) {
+                            CreateGroupStepActivity.a(this, 2, 0, 1011, a.getCanCreateNormalNum(), a.getCanCreateOfficialNum(), a.getCanCreatePersonalNum());
+                        } else if (!TextUtils.isEmpty(a.getCreatePersonalTip())) {
+                            showToast(a.getCreatePersonalTip());
                         }
                     }
                 } catch (Exception e) {
@@ -183,6 +153,38 @@ public class NearbyGroupsActivity extends com.baidu.tieba.j implements com.baidu
                     hideProgressBar();
                 }
             }
+        } else {
+            this.c.a(false);
+            if (!(sVar instanceof cg)) {
+                this.b.h();
+                return;
+            }
+            if (sVar.w() != -115) {
+                TiebaApplication.g().d(System.currentTimeMillis());
+            } else if (UtilHelper.b()) {
+                if (a(TiebaApplication.g().aZ())) {
+                    this.c.h();
+                    return;
+                }
+                this.c.g();
+            }
+            cg cgVar = (cg) sVar;
+            if (!cgVar.l() || cgVar.m() <= 0) {
+                NearbyGroupsData a2 = cgVar.a();
+                if (a2 != null) {
+                    this.c.b(a2.getHasMore());
+                    this.c.a(a2.getGeo());
+                } else {
+                    a2 = new NearbyGroupsData();
+                }
+                this.b.a(a2);
+                if (a2 != null && a2.size() > 0) {
+                    this.b.a();
+                }
+            } else {
+                showToast(cgVar.n());
+            }
+            this.b.h();
         }
     }
 }

@@ -1,49 +1,23 @@
 package com.baidu.tieba.editortool;
 
-import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.tieba.data.emotions.WritableEmotionGroup;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.ViewGroup;
+import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-public class h implements AdapterView.OnItemClickListener {
-    final /* synthetic */ int a;
-    final /* synthetic */ EmotionTabContentView b;
+class h implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ g a;
+    private final /* synthetic */ ViewGroup b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(EmotionTabContentView emotionTabContentView, int i) {
-        this.b = emotionTabContentView;
-        this.a = i;
+    public h(g gVar, ViewGroup viewGroup) {
+        this.a = gVar;
+        this.b = viewGroup;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        t tVar;
-        WritableEmotionGroup writableEmotionGroup;
-        WritableEmotionGroup writableEmotionGroup2;
-        WritableEmotionGroup writableEmotionGroup3;
-        WritableEmotionGroup writableEmotionGroup4;
-        WritableEmotionGroup writableEmotionGroup5;
-        WritableEmotionGroup writableEmotionGroup6;
-        t tVar2;
-        adapterView.setSelection(-1);
-        int i2 = this.a + i;
-        tVar = this.b.p;
-        if (tVar != null) {
-            q qVar = new q();
-            writableEmotionGroup = this.b.b;
-            qVar.a(writableEmotionGroup.a(i2));
-            writableEmotionGroup2 = this.b.b;
-            qVar.a(writableEmotionGroup2.c());
-            writableEmotionGroup3 = this.b.b;
-            qVar.b(writableEmotionGroup3.f());
-            writableEmotionGroup4 = this.b.b;
-            qVar.c(writableEmotionGroup4.e());
-            writableEmotionGroup5 = this.b.b;
-            qVar.a(writableEmotionGroup5.g());
-            writableEmotionGroup6 = this.b.b;
-            qVar.b(writableEmotionGroup6.h());
-            tVar2 = this.b.p;
-            tVar2.a(20, qVar);
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        TbImageView tbImageView = (TbImageView) this.b.findViewWithTag(str);
+        if (tbImageView != null && bVar != null) {
+            tbImageView.invalidate();
         }
     }
 }

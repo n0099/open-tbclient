@@ -14,9 +14,10 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.tieba.util.bq;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class CreateBarActivity extends com.baidu.tieba.j {
+public class CreateBarActivity extends com.baidu.tieba.f {
     private TextView e = null;
     private TextView f = null;
     private EditText g = null;
@@ -50,7 +51,7 @@ public class CreateBarActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.create_bar_activity);
@@ -67,7 +68,7 @@ public class CreateBarActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         if (this.o != null) {
@@ -141,16 +142,16 @@ public class CreateBarActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j
+    @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        com.baidu.tieba.util.bs.e(this.c, i);
-        com.baidu.tieba.util.bs.a(this.j, i);
-        com.baidu.tieba.util.bs.a(this.a, i);
-        com.baidu.tieba.util.bs.d(this.b, i);
-        com.baidu.tieba.util.bs.a(this.d, i);
-        com.baidu.tieba.util.bs.b(this.f, i);
-        String str = this.u + getString(R.string.bar_not_create);
+        bq.e(this.c, i);
+        bq.a(this.j, i);
+        bq.a(this.a, i);
+        bq.d(this.b, i);
+        bq.a(this.d, i);
+        bq.b(this.f, i);
+        String str = String.valueOf(this.u) + getString(R.string.bar_not_create);
         SpannableString spannableString = new SpannableString(str);
         spannableString.setSpan(new ForegroundColorSpan(Color.rgb(229, 4, 0)), 0, this.u.length(), 33);
         if (i == 1) {

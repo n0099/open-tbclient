@@ -283,7 +283,7 @@ public final class CodedInputStream {
                     }
                     i2 += 7;
                 } else {
-                    while (i2 < DEFAULT_RECURSION_LIMIT) {
+                    while (i2 < 64) {
                         int read2 = inputStream.read();
                         if (read2 == -1) {
                             throw InvalidProtocolBufferException.truncatedMessage();
@@ -301,7 +301,7 @@ public final class CodedInputStream {
 
     public long readRawVarint64() {
         long j = 0;
-        for (int i = 0; i < DEFAULT_RECURSION_LIMIT; i += 7) {
+        for (int i = 0; i < 64; i += 7) {
             byte readRawByte = readRawByte();
             j |= (readRawByte & Byte.MAX_VALUE) << i;
             if ((readRawByte & 128) == 0) {
@@ -331,7 +331,7 @@ public final class CodedInputStream {
 
     private CodedInputStream(byte[] bArr, int i, int i2) {
         this.currentLimit = Shared.INFINITY;
-        this.recursionLimit = DEFAULT_RECURSION_LIMIT;
+        this.recursionLimit = 64;
         this.sizeLimit = DEFAULT_SIZE_LIMIT;
         this.buffer = bArr;
         this.bufferSize = i + i2;
@@ -342,7 +342,7 @@ public final class CodedInputStream {
 
     private CodedInputStream(InputStream inputStream) {
         this.currentLimit = Shared.INFINITY;
-        this.recursionLimit = DEFAULT_RECURSION_LIMIT;
+        this.recursionLimit = 64;
         this.sizeLimit = DEFAULT_SIZE_LIMIT;
         this.buffer = new byte[4096];
         this.bufferSize = 0;

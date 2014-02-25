@@ -1,20 +1,18 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
-import android.view.ViewGroup;
+import com.baidu.tieba.data.UserData;
+import java.util.LinkedList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class cl implements com.baidu.tbadk.imageManager.c {
-    final /* synthetic */ View a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public cl(View view) {
-        this.a = view;
-    }
-
-    @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
-        if (dVar != null && this.a != null && (this.a instanceof ViewGroup)) {
-            com.baidu.tieba.util.ce.a((ViewGroup) this.a, false, (com.baidu.tieba.util.cg) new cm(this, str, dVar));
+public class cl implements com.baidu.adp.framework.task.a<com.baidu.tieba.a.c> {
+    @Override // com.baidu.adp.framework.task.a
+    public com.baidu.adp.framework.message.b<com.baidu.tieba.a.c> a(com.baidu.adp.framework.message.a<com.baidu.tieba.a.c> aVar) {
+        UserData a;
+        if (aVar != null && aVar.a() != null && (a = aVar.a().a()) != null) {
+            LinkedList linkedList = new LinkedList();
+            linkedList.add(String.valueOf(a.getUserId()));
+            com.baidu.tieba.im.j.a(new cm(this, linkedList), new cn(this, aVar));
         }
+        return null;
     }
 }

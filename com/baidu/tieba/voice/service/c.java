@@ -21,22 +21,23 @@ class c implements Runnable {
         Runnable runnable;
         int i3;
         handler = this.a.mHandler;
-        if (handler != null) {
-            gVar = this.a.mPlayer;
-            int e = gVar.e();
-            i = this.a.mCurBeginSecond;
-            int i4 = e + i;
-            i2 = this.a.mElapsedTime;
-            if (i4 != i2) {
-                this.a.mElapsedTime = i4;
-                Intent intent = new Intent("com.baidu.playElapsedTime");
-                i3 = this.a.mElapsedTime;
-                intent.putExtra("com.baidu.msg.playElapsedTime", i3);
-                this.a.sendBroadcast(intent);
-            }
-            handler2 = this.a.mHandler;
-            runnable = this.a.mPlayTimeThread;
-            handler2.postDelayed(runnable, 100L);
+        if (handler == null) {
+            return;
         }
+        gVar = this.a.mPlayer;
+        int e = gVar.e();
+        i = this.a.mCurBeginSecond;
+        int i4 = e + i;
+        i2 = this.a.mElapsedTime;
+        if (i4 != i2) {
+            this.a.mElapsedTime = i4;
+            Intent intent = new Intent("com.baidu.playElapsedTime");
+            i3 = this.a.mElapsedTime;
+            intent.putExtra("com.baidu.msg.playElapsedTime", i3);
+            this.a.sendBroadcast(intent);
+        }
+        handler2 = this.a.mHandler;
+        runnable = this.a.mPlayTimeThread;
+        handler2.postDelayed(runnable, 100L);
     }
 }

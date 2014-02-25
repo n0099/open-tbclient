@@ -1,11 +1,8 @@
 package com.baidu.tieba.flist;
 
-import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.tieba.util.by;
-import java.util.ArrayList;
+import com.baidu.tieba.flist.ForumListModel;
 /* loaded from: classes.dex */
-class i implements AdapterView.OnItemClickListener {
+class i implements com.baidu.adp.widget.ListView.b {
     final /* synthetic */ ForumListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,13 +10,54 @@ class i implements AdapterView.OnItemClickListener {
         this.a = forumListActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        by.a(this.a, "forumlist_catalog", "catalogclick", 1, new Object[0]);
-        this.a.c.t.dismiss();
-        this.a.t = i;
-        this.a.c.d();
-        ArrayList<com.baidu.tieba.square.z> arrayList = this.a.c.x.a().e;
-        this.a.a(arrayList.get(i).b, arrayList.get(i).c, arrayList.get(i).a);
+    @Override // com.baidu.adp.widget.ListView.b
+    public void a(boolean z) {
+        r rVar;
+        r rVar2;
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        ForumListModel.RequestParams requestParams;
+        ForumListModel.RequestParams requestParams2;
+        t tVar;
+        ForumListModel.RequestParams requestParams3;
+        t tVar2;
+        rVar = this.a.D;
+        if (!rVar.c()) {
+            rVar2 = this.a.E;
+            if (!rVar2.c()) {
+                z2 = this.a.x;
+                if (z2) {
+                    requestParams = this.a.A;
+                    requestParams.recommend_type = 0;
+                    requestParams2 = this.a.A;
+                    requestParams2.rn = 200;
+                    tVar = this.a.G;
+                    requestParams3 = this.a.A;
+                    tVar.a(requestParams3);
+                    tVar2 = this.a.G;
+                    tVar2.LoadData();
+                    this.a.x = false;
+                } else if (this.a.c.d.getCurrentItem() == 0) {
+                    z4 = this.a.B;
+                    if (z4) {
+                        this.a.n = 50;
+                    } else {
+                        this.a.n = 200;
+                    }
+                    com.baidu.adp.lib.util.f.e("ForumListActivity", "pull down", "left refresh");
+                    new q(this.a, null).execute(new Void[0]);
+                } else if (this.a.c.d.getCurrentItem() == 1) {
+                    z3 = this.a.C;
+                    if (z3) {
+                        this.a.o = 50;
+                    } else {
+                        this.a.o = 200;
+                    }
+                    com.baidu.adp.lib.util.f.e("ForumListActivity", "pull down", "right refresh");
+                    new p(this.a, null).execute(new Void[0]);
+                }
+            }
+        }
     }
 }

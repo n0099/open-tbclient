@@ -1,26 +1,26 @@
 package com.baidu.tieba.im.messageCenter;
 
-import com.baidu.tieba.im.SingleRunnable;
-import com.baidu.tieba.im.message.cr;
+import com.baidu.tieba.im.message.da;
+import com.baidu.tieba.im.message.s;
 /* loaded from: classes.dex */
-public abstract class d extends SingleRunnable<cr> {
-    private com.baidu.tieba.im.message.q a = null;
+public abstract class d extends com.baidu.tieba.im.c<da> {
+    private s a = null;
 
-    public abstract cr a(com.baidu.tieba.im.message.q qVar);
+    public abstract da a(s sVar);
 
-    public com.baidu.tieba.im.message.q a() {
+    public s a() {
         return this.a;
     }
 
-    public void b(com.baidu.tieba.im.message.q qVar) {
-        this.a = qVar;
+    public void b(s sVar) {
+        this.a = sVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.SingleRunnable
+    @Override // com.baidu.tieba.im.c
     /* renamed from: c */
-    public cr b() {
-        cr a = a(a());
+    public da b() {
+        da a = a(a());
         if (a != null) {
             a.a(this.a);
         }

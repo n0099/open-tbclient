@@ -1,28 +1,31 @@
 package com.baidu.tieba.view;
-
-import android.os.Handler;
-import android.os.Message;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bc extends Handler {
-    final /* synthetic */ ImagePbImageView a;
+public class bc implements Runnable {
+    final /* synthetic */ HaloView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bc(ImagePbImageView imagePbImageView) {
-        this.a = imagePbImageView;
+    public bc(HaloView haloView) {
+        this.a = haloView;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    @Override // java.lang.Runnable
+    public void run() {
+        boolean z;
+        boolean z2;
         int i;
-        Handler handler;
-        Handler handler2;
-        super.handleMessage(message);
-        ImagePbImageView.a(this.a);
-        i = this.a.n;
-        if (i >= 0) {
-            handler = this.a.o;
-            handler2 = this.a.o;
-            handler.sendMessageDelayed(handler2.obtainMessage(1), 20L);
+        z = this.a.f;
+        if (!z) {
+            z2 = this.a.d;
+            if (!z2) {
+                HaloView haloView = this.a;
+                HaloView haloView2 = this.a;
+                i = haloView2.e;
+                int i2 = i + 1;
+                haloView2.e = i2;
+                haloView.e = i2 % 4;
+            }
+            this.a.postDelayed(this, 800L);
             this.a.invalidate();
         }
     }

@@ -1,9 +1,9 @@
 package com.baidu.tieba.flist;
 
 import com.baidu.adp.widget.ListView.BdListView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.util.ap;
 /* loaded from: classes.dex */
-public class ad implements com.baidu.adp.widget.ListView.b {
+class ad implements Runnable {
     final /* synthetic */ ForumRankActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,14 +11,12 @@ public class ad implements com.baidu.adp.widget.ListView.b {
         this.a = forumRankActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.b
-    public void a(boolean z) {
-        ai aiVar;
+    @Override // java.lang.Runnable
+    public void run() {
         BdListView bdListView;
-        aiVar = this.a.b;
-        if (!aiVar.LoadData()) {
-            bdListView = this.a.a;
-            bdListView.a();
-        }
+        com.baidu.tieba.util.i iVar;
+        bdListView = this.a.a;
+        iVar = this.a.f;
+        ap.a(bdListView, iVar, 0, -1);
     }
 }

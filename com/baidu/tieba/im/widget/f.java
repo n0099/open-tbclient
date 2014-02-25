@@ -13,9 +13,9 @@ public class f implements com.baidu.tbadk.gif.b {
     public void a() {
         h hVar;
         h hVar2;
-        hVar = this.a.d;
+        hVar = this.a.e;
         if (hVar != null) {
-            hVar2 = this.a.d;
+            hVar2 = this.a.e;
             hVar2.a();
         }
     }

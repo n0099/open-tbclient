@@ -1,9 +1,8 @@
 package com.baidu.tieba.im.mygroup;
 
-import com.baidu.tieba.im.c.l;
-import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
+import com.baidu.tieba.im.message.s;
 /* loaded from: classes.dex */
-class c implements l {
+class c implements com.baidu.tieba.im.messageCenter.g {
     final /* synthetic */ MyGroupFragment a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,8 +10,8 @@ class c implements l {
         this.a = myGroupFragment;
     }
 
-    @Override // com.baidu.tieba.im.c.l
-    public void a(GroupNewsPojo groupNewsPojo) {
-        this.a.b = true;
+    @Override // com.baidu.tieba.im.messageCenter.g
+    public void a(s sVar) {
+        this.a.c = true;
     }
 }

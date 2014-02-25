@@ -1,22 +1,33 @@
 package com.baidu.tieba.im.friend;
 
-import android.widget.AbsListView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.ImageView;
+import com.baidu.tieba.util.cj;
 /* loaded from: classes.dex */
-public class w implements AbsListView.OnScrollListener {
-    final /* synthetic */ t a;
+class w implements cj {
+    final /* synthetic */ v a;
+    private final /* synthetic */ String b;
+    private final /* synthetic */ com.baidu.adp.widget.ImageView.b c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(t tVar) {
-        this.a = tVar;
+    public w(v vVar, String str, com.baidu.adp.widget.ImageView.b bVar) {
+        this.a = vVar;
+        this.b = str;
+        this.c = bVar;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        this.a.e();
+    @Override // com.baidu.tieba.util.cj
+    public boolean a(View view) {
+        if ((view instanceof ImageView) && view.getTag() != null) {
+            Object tag = view.getTag();
+            if (tag instanceof com.baidu.tieba.im.data.d) {
+                ImageView imageView = (ImageView) view;
+                com.baidu.tieba.im.data.d dVar = (com.baidu.tieba.im.data.d) tag;
+                if (this.b != null && this.b.equals(dVar.c())) {
+                    this.c.a(imageView);
+                }
+            }
+        }
+        return false;
     }
 }

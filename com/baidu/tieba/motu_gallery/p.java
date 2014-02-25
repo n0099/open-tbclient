@@ -1,25 +1,20 @@
 package com.baidu.tieba.motu_gallery;
 
-import android.graphics.Bitmap;
-import android.os.Handler;
-import android.os.Message;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class p extends Handler {
+public class p implements View.OnClickListener {
     final /* synthetic */ JigsawAlbumListActivity a;
+    private final /* synthetic */ x b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(JigsawAlbumListActivity jigsawAlbumListActivity) {
+    public p(JigsawAlbumListActivity jigsawAlbumListActivity, x xVar) {
         this.a = jigsawAlbumListActivity;
+        this.b = xVar;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        switch (message.what) {
-            case 0:
-                this.a.a(message.arg1, (Bitmap) message.obj);
-                return;
-            default:
-                return;
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.a.a(this.b.getUri());
     }
 }

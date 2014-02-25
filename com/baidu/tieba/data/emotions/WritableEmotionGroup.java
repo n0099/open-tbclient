@@ -1,8 +1,8 @@
 package com.baidu.tieba.data.emotions;
 /* loaded from: classes.dex */
 public abstract class WritableEmotionGroup {
-    private com.baidu.adp.widget.ImageView.d a;
-    private com.baidu.adp.widget.ImageView.d b;
+    private com.baidu.adp.widget.ImageView.b a;
+    private com.baidu.adp.widget.ImageView.b b;
     private int c;
     private int d;
 
@@ -10,16 +10,26 @@ public abstract class WritableEmotionGroup {
     public enum EmotionGroupType {
         LOCAL,
         BIG_EMOTION,
-        PROMOTION
+        PROMOTION;
+
+        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
+        /* renamed from: values  reason: to resolve conflict with enum method */
+        public static EmotionGroupType[] valuesCustom() {
+            EmotionGroupType[] valuesCustom = values();
+            int length = valuesCustom.length;
+            EmotionGroupType[] emotionGroupTypeArr = new EmotionGroupType[length];
+            System.arraycopy(valuesCustom, 0, emotionGroupTypeArr, 0, length);
+            return emotionGroupTypeArr;
+        }
     }
 
     public abstract String a(int i);
 
     public abstract boolean a(String str);
 
-    public abstract com.baidu.adp.widget.ImageView.d b(String str);
+    public abstract com.baidu.adp.widget.ImageView.b b(String str);
 
-    public abstract com.baidu.adp.widget.ImageView.d c(String str);
+    public abstract com.baidu.adp.widget.ImageView.b c(String str);
 
     public abstract EmotionGroupType c();
 
@@ -33,26 +43,26 @@ public abstract class WritableEmotionGroup {
 
     public abstract int h();
 
-    public com.baidu.adp.widget.ImageView.d i() {
+    public com.baidu.adp.widget.ImageView.b i() {
         return this.a;
     }
 
-    public void a(com.baidu.adp.widget.ImageView.d dVar) {
-        if (dVar != null) {
-            dVar.h();
+    public void a(com.baidu.adp.widget.ImageView.b bVar) {
+        if (bVar != null) {
+            bVar.h();
         }
-        this.a = dVar;
+        this.a = bVar;
     }
 
-    public com.baidu.adp.widget.ImageView.d a() {
+    public com.baidu.adp.widget.ImageView.b a() {
         return this.b;
     }
 
-    public void b(com.baidu.adp.widget.ImageView.d dVar) {
-        if (dVar != null) {
-            dVar.h();
+    public void b(com.baidu.adp.widget.ImageView.b bVar) {
+        if (bVar != null) {
+            bVar.h();
         }
-        this.b = dVar;
+        this.b = bVar;
     }
 
     public int j() {

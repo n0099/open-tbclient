@@ -16,8 +16,8 @@ public class ProgressCountDownView extends FrameLayout {
     private ProgressBar c;
     private String d;
     private String e;
-    private com.baidu.tieba.util.bv f;
-    private bx g;
+    private com.baidu.tieba.util.bt f;
+    private ce g;
     private long h;
     private long i;
     private boolean j;
@@ -45,13 +45,13 @@ public class ProgressCountDownView extends FrameLayout {
     }
 
     public void setFinalText(String str) {
-        this.d = str + "： ";
+        this.d = String.valueOf(str) + "： ";
     }
 
     public void a(long j, long j2, long j3) {
         this.h = j;
         this.i = j3;
-        this.f = new bw(this, j, j2);
+        this.f = new cd(this, j, j2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -73,18 +73,22 @@ public class ProgressCountDownView extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(long j) {
-        this.e = this.d + c(j);
+        this.e = String.valueOf(this.d) + c(j);
         this.b.setText(this.e);
     }
 
     private String c(long j) {
         long j2;
         long j3;
-        String str = (j / 60000 < 10 ? "" + SocialConstants.FALSE : "") + String.valueOf(j2) + "'";
-        if ((j % 60000) / 1000 < 10) {
-            str = str + SocialConstants.FALSE;
+        String str = "";
+        if (j / 60000 < 10) {
+            str = String.valueOf("") + SocialConstants.FALSE;
         }
-        return str + String.valueOf(j3) + "\"";
+        String str2 = String.valueOf(str) + String.valueOf(j2) + "'";
+        if ((j % 60000) / 1000 < 10) {
+            str2 = String.valueOf(str2) + SocialConstants.FALSE;
+        }
+        return String.valueOf(str2) + String.valueOf(j3) + "\"";
     }
 
     public void a() {
@@ -99,7 +103,7 @@ public class ProgressCountDownView extends FrameLayout {
         }
     }
 
-    public void setOnFinishlistener(bx bxVar) {
-        this.g = bxVar;
+    public void setOnFinishlistener(ce ceVar) {
+        this.g = ceVar;
     }
 }

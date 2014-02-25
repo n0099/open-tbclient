@@ -14,7 +14,6 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import com.baidu.android.nebula.util.BDLocationManager;
-import com.google.protobuf.CodedOutputStream;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -29,6 +28,7 @@ import java.util.HashMap;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public final class d {
     private static final HashMap a = new HashMap();
@@ -90,7 +90,7 @@ public final class d {
         boolean z = false;
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(file);
-            byte[] bArr = new byte[CodedOutputStream.DEFAULT_BUFFER_SIZE];
+            byte[] bArr = new byte[4096];
             while (true) {
                 int read = inputStream.read(bArr);
                 if (read < 0) {
@@ -404,7 +404,7 @@ public final class d {
         try {
             Matcher matcher = Pattern.compile("\\w+\\s+\\w+\\s+([^\\s]+)\\s+\\(([^\\s@]+(?:@[^\\s.]+)?)[^)]*\\)\\s+\\((?:[^(]*\\([^)]*\\))?[^)]*\\)\\s+([^\\s]+)\\s+(?:PREEMPT\\s+)?(.+)").matcher(b("/proc/version"));
             if (matcher.matches() && matcher.groupCount() >= 4) {
-                return matcher.group(1) + "\n" + matcher.group(2) + " " + matcher.group(3) + "\n" + matcher.group(4);
+                return matcher.group(1) + IOUtils.LINE_SEPARATOR_UNIX + matcher.group(2) + " " + matcher.group(3) + IOUtils.LINE_SEPARATOR_UNIX + matcher.group(4);
             }
             return "Unavailable";
         } catch (IOException e) {

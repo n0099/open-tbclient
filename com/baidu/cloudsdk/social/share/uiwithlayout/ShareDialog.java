@@ -18,7 +18,12 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.aq;
 import com.au;
+import com.av;
+import com.aw;
+import com.ax;
+import com.ay;
 import com.baidu.cloudsdk.IBaiduListener;
 import com.baidu.cloudsdk.assets.DrawableUtils;
 import com.baidu.cloudsdk.common.imgloader.ImageManager;
@@ -29,17 +34,11 @@ import com.baidu.cloudsdk.social.share.ShareContent;
 import com.baidu.cloudsdk.social.share.SocialShare;
 import com.baidu.cloudsdk.social.share.SocialShareConfig;
 import com.baidu.location.LocationClientOption;
-import com.i;
-import com.m;
-import com.n;
-import com.r;
-import com.s;
-import com.t;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
-public class ShareDialog extends Dialog implements View.OnClickListener, t {
+public class ShareDialog extends Dialog implements View.OnClickListener, ay.a {
     protected static final int MAX_LENGTH_FOR_QZONE = 80;
     private static final String a = ShareDialog.class.getSimpleName();
     private IBaiduListener b;
@@ -71,9 +70,9 @@ public class ShareDialog extends Dialog implements View.OnClickListener, t {
             this.l = this.o.getRequestedOrientation();
             this.o.setRequestedOrientation(1);
         }
-        setContentView(i.a(context, "bdsocialshare_sharedialoglayout"));
-        this.p = (LinearLayout) findViewById(i.d(context, "sharedialog_rootlayout"));
-        this.p.setBackgroundColor(Color.parseColor(i.d(context)));
+        setContentView(aq.a(context, "bdsocialshare_sharedialoglayout"));
+        this.p = (LinearLayout) findViewById(aq.d(context, "sharedialog_rootlayout"));
+        this.p.setBackgroundColor(Color.parseColor(aq.d(context)));
         this.b = iBaiduListener;
         this.j = mediaType;
         this.k = shareContent;
@@ -91,29 +90,29 @@ public class ShareDialog extends Dialog implements View.OnClickListener, t {
         if (i <= 10) {
             this.i.setTextColor(-65536);
         } else {
-            this.i.setTextColor(Color.parseColor(i.h(getContext())));
+            this.i.setTextColor(Color.parseColor(aq.h(getContext())));
         }
     }
 
     private void a(Context context) {
-        this.d = i.d(context, "sharedialog_button_cancel");
-        this.c = i.d(context, "sharedialog_button_share");
-        ((RelativeLayout) findViewById(i.d(context, "sharedialog_titlebar"))).setBackgroundResource(i.b(context, "bdsocialshare_titlebar_bg"));
-        int b = i.b(context, "bdsocialshare_sharedialog_button");
+        this.d = aq.d(context, "sharedialog_button_cancel");
+        this.c = aq.d(context, "sharedialog_button_share");
+        ((RelativeLayout) findViewById(aq.d(context, "sharedialog_titlebar"))).setBackgroundResource(aq.b(context, "bdsocialshare_titlebar_bg"));
+        int b = aq.b(context, "bdsocialshare_sharedialog_button");
         Button button = (Button) findViewById(this.d);
         button.setText(this.e.getString("cancel"));
-        button.setTextColor(Color.parseColor(i.e(context)));
+        button.setTextColor(Color.parseColor(aq.e(context)));
         button.setBackgroundResource(b);
         Button button2 = (Button) findViewById(this.c);
         button2.setText(this.e.getString("share"));
-        button2.setTextColor(Color.parseColor(i.e(context)));
+        button2.setTextColor(Color.parseColor(aq.e(context)));
         button2.setBackgroundResource(b);
         button.setOnClickListener(this);
         button.setFocusable(true);
         button.setFocusableInTouchMode(true);
         button2.setOnClickListener(this);
-        TextView textView = (TextView) findViewById(i.d(context, "sharedialog_textview_title"));
-        textView.setTextColor(Color.parseColor(i.f(context)));
+        TextView textView = (TextView) findViewById(aq.d(context, "sharedialog_textview_title"));
+        textView.setTextColor(Color.parseColor(aq.f(context)));
         textView.setText(this.e.getString("sharecontent"));
     }
 
@@ -126,9 +125,9 @@ public class ShareDialog extends Dialog implements View.OnClickListener, t {
     }
 
     private void b() {
-        View inflate = getWindow().getLayoutInflater().inflate(i.a(getContext(), "bdsocialshare_sharedialogtoastlayout"), (ViewGroup) null);
-        inflate.setBackgroundResource(i.b(getContext(), "bdsocialshare_tip_words"));
-        ((TextView) inflate.findViewById(i.d(getContext(), "sharedialog_toasttext"))).setText(this.e.getString("qzone_limit_tip"));
+        View inflate = getWindow().getLayoutInflater().inflate(aq.a(getContext(), "bdsocialshare_sharedialogtoastlayout"), (ViewGroup) null);
+        inflate.setBackgroundResource(aq.b(getContext(), "bdsocialshare_tip_words"));
+        ((TextView) inflate.findViewById(aq.d(getContext(), "sharedialog_toasttext"))).setText(this.e.getString("qzone_limit_tip"));
         Toast toast = new Toast(getContext());
         toast.setGravity(53, DrawableUtils.fix720px(getContext(), 66), DrawableUtils.fix720px(getContext(), 456));
         toast.setView(inflate);
@@ -137,12 +136,12 @@ public class ShareDialog extends Dialog implements View.OnClickListener, t {
     }
 
     private void b(Context context) {
-        ((RelativeLayout) findViewById(i.d(context, "sharedialog_contentlayout"))).setBackgroundResource(i.b(context, "bdsocialshare_editor_bg"));
-        RelativeLayout relativeLayout = (RelativeLayout) findViewById(i.d(context, "sharedialog_imagepreview"));
+        ((RelativeLayout) findViewById(aq.d(context, "sharedialog_contentlayout"))).setBackgroundResource(aq.b(context, "bdsocialshare_editor_bg"));
+        RelativeLayout relativeLayout = (RelativeLayout) findViewById(aq.d(context, "sharedialog_imagepreview"));
         if (this.k.getImageData() == null && this.k.getImageUri() == null) {
             relativeLayout.setVisibility(8);
         } else {
-            this.g = (CheckImageView) findViewById(i.d(context, "sharedialog_checkimage"));
+            this.g = (CheckImageView) findViewById(aq.d(context, "sharedialog_checkimage"));
             this.g.setClickable(true);
             if (this.k.getImageUri() != null) {
                 ImageManager.getInstance().loadImage(context, this.k.getImageUri(), new au(this, relativeLayout));
@@ -151,23 +150,23 @@ public class ShareDialog extends Dialog implements View.OnClickListener, t {
                 this.g.setChecked(true);
             }
         }
-        this.m = (EditText) findViewById(i.d(context, "sharedialog_edittext_content"));
-        this.m.setTextColor(Color.parseColor(i.g(context)));
+        this.m = (EditText) findViewById(aq.d(context, "sharedialog_edittext_content"));
+        this.m.setTextColor(Color.parseColor(aq.g(context)));
         this.m.setText(this.k.getContent());
         this.m.setBackgroundDrawable(null);
-        this.m.addTextChangedListener(new m(this));
+        this.m.addTextChangedListener(new av(this));
         if (this.m.length() > 0) {
             this.m.setSelection(this.m.length());
         }
-        this.m.setOnTouchListener(new r(this, new GestureDetector(new n(this))));
+        this.m.setOnTouchListener(new ax(this, new GestureDetector(new aw(this))));
         if (this.e.getInt("content_editable") != 0) {
             this.m.setEnabled(true);
         }
-        this.i = (TextView) findViewById(i.d(context, "sharedialog_textcounter"));
-        this.i.setBackgroundResource(i.b(context, "bdsocialshare_sharedialog_counter_bg"));
+        this.i = (TextView) findViewById(aq.d(context, "sharedialog_textcounter"));
+        this.i.setBackgroundResource(aq.b(context, "bdsocialshare_sharedialog_counter_bg"));
         a(this.mMaxLength - this.m.length());
-        this.h = (LocationPreview) findViewById(i.d(context, "sharedialog_locationpreview"));
-        this.h.setBackgroundResource(i.b(context, "bdsocialshare_sharedialog_locationpreview_bg"));
+        this.h = (LocationPreview) findViewById(aq.d(context, "sharedialog_locationpreview"));
+        this.h.setBackgroundResource(aq.b(context, "bdsocialshare_sharedialog_locationpreview_bg"));
         if (this.e.getInt("location_enable") == 1) {
             this.h.setVisibility(0);
         } else {
@@ -191,10 +190,10 @@ public class ShareDialog extends Dialog implements View.OnClickListener, t {
     }
 
     private void c(Context context) {
-        ListView listView = (ListView) findViewById(i.d(context, "sharedialog_medialistview"));
+        ListView listView = (ListView) findViewById(aq.d(context, "sharedialog_medialistview"));
         listView.setCacheColorHint(0);
-        listView.setBackgroundResource(i.b(context, "bdsocialshare_frame_bg"));
-        listView.setDivider(context.getApplicationContext().getResources().getDrawable(i.b(context, "bdsocialshare_list_divider")));
+        listView.setBackgroundResource(aq.b(context, "bdsocialshare_frame_bg"));
+        listView.setDivider(context.getApplicationContext().getResources().getDrawable(aq.b(context, "bdsocialshare_list_divider")));
         SessionManager sessionManager = SessionManager.getInstance(context);
         List<MediaType> supportedMediaTypes = this.e.getSupportedMediaTypes();
         this.f = new ArrayList();
@@ -215,7 +214,7 @@ public class ShareDialog extends Dialog implements View.OnClickListener, t {
                 this.f.add(create);
             }
         }
-        listView.setAdapter((ListAdapter) new s(context, this.f, this));
+        listView.setAdapter((ListAdapter) new ay(context, this.f, this));
         c();
     }
 
@@ -283,7 +282,7 @@ public class ShareDialog extends Dialog implements View.OnClickListener, t {
         return this.k;
     }
 
-    @Override // com.t
+    @Override // com.ay.a
     public void onCheckStatusChanged(boolean z, MediaType mediaType) {
         c();
         if (z && mediaType == MediaType.QZONE) {
@@ -313,7 +312,7 @@ public class ShareDialog extends Dialog implements View.OnClickListener, t {
     @Override // android.app.Dialog
     public void onStart() {
         super.onStart();
-        int e = i.e(getContext(), "bdsocialshare_sharedialog_animation");
+        int e = aq.e(getContext(), "bdsocialshare_sharedialog_animation");
         if (e != 0) {
             getWindow().setWindowAnimations(e);
         }

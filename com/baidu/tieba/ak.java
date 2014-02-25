@@ -1,16 +1,21 @@
 package com.baidu.tieba;
 /* loaded from: classes.dex */
-class ak implements Runnable {
-    final /* synthetic */ LogoActivity a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(LogoActivity logoActivity) {
-        this.a = logoActivity;
+class ak extends Thread {
+    private ak() {
     }
 
-    @Override // java.lang.Runnable
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ak(ak akVar) {
+        this();
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        this.a.releaseResouce();
-        this.a.a(this.a.getBaseContext());
+        super.run();
+        com.baidu.tieba.util.ba baVar = new com.baidu.tieba.util.ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/m/register");
+        baVar.c(false);
+        baVar.a("channel_id", TiebaApplication.g().aY());
+        baVar.a("channel_uid", TiebaApplication.g().aX());
+        baVar.m();
     }
 }

@@ -2,9 +2,8 @@ package com.baidu.tieba.recommend;
 
 import android.view.View;
 import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class a implements View.OnClickListener {
+class a implements View.OnClickListener {
     final /* synthetic */ DailyClassicalActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,7 +17,7 @@ public class a implements View.OnClickListener {
             case R.id.back /* 2131099658 */:
                 this.a.finish();
                 return;
-            case R.id.tag_webview_item /* 2131100071 */:
+            case R.id.tag_webview_item /* 2131100136 */:
                 this.a.a();
                 return;
             default:

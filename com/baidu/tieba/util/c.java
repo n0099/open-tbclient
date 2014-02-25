@@ -5,9 +5,9 @@ import android.content.DialogInterface;
 import com.baidu.tieba.account.appeal.AppealActivity;
 import com.baidu.tieba.data.AntiData;
 /* loaded from: classes.dex */
-final class c implements DialogInterface.OnClickListener {
-    final /* synthetic */ Context a;
-    final /* synthetic */ AntiData b;
+class c implements DialogInterface.OnClickListener {
+    private final /* synthetic */ Context a;
+    private final /* synthetic */ AntiData b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(Context context, AntiData antiData) {

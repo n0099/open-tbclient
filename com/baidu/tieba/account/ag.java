@@ -1,8 +1,8 @@
 package com.baidu.tieba.account;
 
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import com.baidu.adp.lib.util.BdUtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ag implements View.OnClickListener {
@@ -17,15 +17,16 @@ public class ag implements View.OnClickListener {
     public void onClick(View view) {
         EditText editText;
         EditText editText2;
-        this.a.o();
+        EditText editText3;
         LoginActivity loginActivity = this.a;
-        InputMethodManager inputMethodManager = this.a.b;
         editText = this.a.o;
-        loginActivity.HidenSoftKeyPad(inputMethodManager, editText);
+        BdUtilHelper.a(loginActivity, editText);
         LoginActivity loginActivity2 = this.a;
-        InputMethodManager inputMethodManager2 = this.a.b;
         editText2 = this.a.p;
-        loginActivity2.HidenSoftKeyPad(inputMethodManager2, editText2);
-        SapiFastRegActivity.a(this.a, 22002);
+        BdUtilHelper.a(loginActivity2, editText2);
+        LoginActivity loginActivity3 = this.a;
+        editText3 = this.a.q;
+        BdUtilHelper.a(loginActivity3, editText3);
+        this.a.finish();
     }
 }

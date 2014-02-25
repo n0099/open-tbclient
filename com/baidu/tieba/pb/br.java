@@ -1,8 +1,11 @@
 package com.baidu.tieba.pb;
 
-import com.baidu.tbadk.gif.GifView;
+import android.content.DialogInterface;
+import com.baidu.tieba.FileDownloader;
+import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class br implements com.baidu.adp.lib.d.c<GifView> {
+public class br implements DialogInterface.OnClickListener {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,32 +13,12 @@ class br implements com.baidu.adp.lib.d.c<GifView> {
         this.a = newPbActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    /* renamed from: b */
-    public GifView a() {
-        com.baidu.adp.lib.g.e.e("NewPbActivity", "GifViewPool", "makeObject");
-        return new GifView(this.a);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    public void a(GifView gifView) {
-        com.baidu.adp.lib.g.e.e("NewPbActivity", "GifViewPool", "destroyObject");
-        gifView.e();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    public GifView b(GifView gifView) {
-        com.baidu.adp.lib.g.e.e("NewPbActivity", "GifViewPool", "activateObject");
-        return gifView;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    public GifView c(GifView gifView) {
-        com.baidu.adp.lib.g.e.e("NewPbActivity", "GifViewPool", "passivateObject");
-        return gifView;
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        if (!com.baidu.tieba.util.af.a()) {
+            this.a.showToast(com.baidu.tieba.util.af.b());
+        } else {
+            FileDownloader.a(this.a, "http://bcscdn.baidu.com/videoandroid/baiduvideo_4099e.apk", null, this.a.getString(R.string.download_baidu_video));
+        }
     }
 }

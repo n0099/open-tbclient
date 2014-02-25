@@ -31,12 +31,12 @@ class i implements g {
         try {
             this.b.close();
         } catch (Exception e) {
-            com.baidu.adp.lib.g.e.a(e.getMessage());
+            com.baidu.adp.lib.util.f.b(e.getMessage());
         }
         try {
             this.c.close();
         } catch (Exception e2) {
-            com.baidu.adp.lib.g.e.a(e2.getMessage());
+            com.baidu.adp.lib.util.f.b(e2.getMessage());
         }
         if (this.a != null) {
             this.a.close();

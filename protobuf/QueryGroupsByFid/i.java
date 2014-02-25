@@ -1,15 +1,6 @@
 package protobuf.QueryGroupsByFid;
 
-import com.google.protobuf.AbstractParser;
-import com.google.protobuf.CodedInputStream;
-import com.google.protobuf.ExtensionRegistryLite;
-import protobuf.QueryGroupsByFid.QueryGroupsByFidRes;
+import com.google.protobuf.MessageLiteOrBuilder;
 /* loaded from: classes.dex */
-final class i extends AbstractParser<QueryGroupsByFidRes.DataRes> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.protobuf.Parser
-    /* renamed from: a */
-    public QueryGroupsByFidRes.DataRes parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-        return new QueryGroupsByFidRes.DataRes(codedInputStream, extensionRegistryLite);
-    }
+public interface i extends MessageLiteOrBuilder {
 }

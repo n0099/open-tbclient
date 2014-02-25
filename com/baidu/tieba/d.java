@@ -21,62 +21,64 @@ public class d {
     private int r;
     private int s;
     private int t;
-    private StringBuffer u = new StringBuffer();
+    private int u;
+    private int v;
+    private StringBuffer w = new StringBuffer();
 
     public String toString() {
-        return "BDLayoutInfo [TAG=" + this.u.toString() + "]";
+        return "BDLayoutInfo [TAG=" + this.w.toString() + "]";
     }
 
     public void a(String str) {
-        this.u.append(str).append(" || ");
+        this.w.append(str).append(" || ");
     }
 
     public int a() {
-        return this.o;
+        return this.q;
     }
 
     public void a(int i) {
-        this.o = i;
+        this.q = i;
     }
 
     public int b() {
-        return this.p;
+        return this.r;
     }
 
     public void b(int i) {
-        this.p = i;
+        this.r = i;
     }
 
     public int c() {
-        return this.m;
+        return this.o;
     }
 
     public void c(int i) {
-        this.m = i;
+        this.o = i;
     }
 
     public int d() {
-        return this.n;
+        return this.p;
     }
 
     public void d(int i) {
-        this.n = i;
+        this.p = i;
     }
 
     public int e() {
-        return this.k;
+        return this.m;
     }
 
     public void e(int i) {
-        this.k = i;
+        this.m = i;
     }
 
     public int f() {
-        return this.l;
+        return this.n;
     }
 
     public void f(int i) {
-        this.l = i;
+        this.n = i;
     }
 
     public String g() {
@@ -84,19 +86,19 @@ public class d {
     }
 
     public int h() {
-        return this.q;
+        return this.s;
     }
 
     public void g(int i) {
-        this.q = i;
+        this.s = i;
     }
 
     public int i() {
-        return this.r;
+        return this.t;
     }
 
     public void h(int i) {
-        this.r = i;
+        this.t = i;
     }
 
     public void b(String str) {
@@ -128,66 +130,82 @@ public class d {
     }
 
     public int m() {
-        return this.e;
-    }
-
-    public void k(int i) {
-        this.e = i;
-    }
-
-    public int n() {
-        return this.f;
-    }
-
-    public void l(int i) {
-        this.f = i;
-    }
-
-    public int o() {
-        return this.h;
-    }
-
-    public int p() {
         return this.g;
     }
 
-    public void m(int i) {
+    public void k(int i) {
         this.g = i;
     }
 
-    public void n(int i) {
+    public int n() {
+        return this.h;
+    }
+
+    public void l(int i) {
         this.h = i;
+    }
+
+    public int o() {
+        return this.e;
+    }
+
+    public void m(int i) {
+        this.e = i;
+    }
+
+    public int p() {
+        return this.f;
+    }
+
+    public void n(int i) {
+        this.f = i;
     }
 
     public int q() {
         return this.j;
     }
 
-    public void o(int i) {
-        this.j = i;
-    }
-
     public int r() {
         return this.i;
     }
 
-    public void p(int i) {
+    public void o(int i) {
         this.i = i;
     }
 
+    public void p(int i) {
+        this.j = i;
+    }
+
     public int s() {
-        return this.s;
+        return this.l;
     }
 
     public void q(int i) {
-        this.s = i;
+        this.l = i;
     }
 
     public int t() {
-        return this.t;
+        return this.k;
     }
 
     public void r(int i) {
-        this.t = i;
+        this.k = i;
+    }
+
+    public int u() {
+        return this.u;
+    }
+
+    public void s(int i) {
+        this.u = i;
+    }
+
+    public int v() {
+        return this.v;
+    }
+
+    public void t(int i) {
+        this.v = i;
     }
 }

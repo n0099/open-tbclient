@@ -1,8 +1,6 @@
 package com.baidu.tieba.pb;
-
-import android.graphics.Bitmap;
 /* loaded from: classes.dex */
-class bd extends com.baidu.adp.a.g {
+class bd implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,18 +8,9 @@ class bd extends com.baidu.adp.a.g {
         this.a = newPbActivity;
     }
 
-    @Override // com.baidu.adp.a.g
-    public void a(Object obj) {
-        cr crVar;
-        com.baidu.tieba.model.bs bsVar;
-        if (obj instanceof Bitmap) {
-            Bitmap bitmap = (Bitmap) obj;
-            if (obj != null) {
-                crVar = this.a.A;
-                crVar.a(bitmap);
-                bsVar = this.a.w;
-                bsVar.a(true);
-            }
-        }
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        this.a.a(bVar, str, z);
+        this.a.b(bVar, str, z);
     }
 }

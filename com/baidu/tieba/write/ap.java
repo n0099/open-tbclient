@@ -1,82 +1,32 @@
 package com.baidu.tieba.write;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.view.View;
-import java.util.Date;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.EditText;
+import com.baidu.tieba.editortool.EditorToolComponetContainer;
 /* loaded from: classes.dex */
-public class ap implements View.OnClickListener {
-    final /* synthetic */ WriteImageActivity a;
+class ap implements Runnable {
+    final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(WriteImageActivity writeImageActivity) {
-        this.a = writeImageActivity;
+    public ap(WriteActivity writeActivity) {
+        this.a = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean z;
-        int i;
-        boolean z2;
-        Bitmap bitmap;
-        Bitmap bitmap2;
-        boolean b;
-        boolean z3;
-        Bitmap bitmap3;
-        Bitmap bitmap4;
-        boolean b2;
-        z = this.a.x;
-        if (!z) {
-            i = this.a.y;
-            if (i == 12003) {
-                Intent intent = new Intent();
-                intent.putExtra("delete", true);
-                this.a.setResult(-1, intent);
-            } else {
-                Intent intent2 = new Intent();
-                z2 = this.a.w;
-                if (z2) {
-                    bitmap = this.a.o;
-                    if (bitmap != null) {
-                        bitmap2 = this.a.o;
-                        if (!bitmap2.isRecycled()) {
-                            String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                            b = this.a.b(str);
-                            if (b) {
-                                intent2.putExtra("change", true);
-                                intent2.putExtra("file_name", str);
-                            } else {
-                                intent2.putExtra("change", false);
-                            }
-                        }
-                    }
-                    intent2.putExtra("change", false);
-                } else {
-                    intent2.setData(this.a.getIntent().getData());
-                    this.a.setResult(-1, intent2);
-                }
-                this.a.setResult(-1, intent2);
-            }
-            this.a.finish();
+    @Override // java.lang.Runnable
+    public void run() {
+        EditText editText;
+        EditorToolComponetContainer editorToolComponetContainer;
+        EditText editText2;
+        EditorToolComponetContainer editorToolComponetContainer2;
+        EditText editText3;
+        editText = this.a.g;
+        if (editText.getVisibility() == 0) {
+            editorToolComponetContainer2 = this.a.B;
+            editText3 = this.a.g;
+            editorToolComponetContainer2.c(editText3);
             return;
         }
-        Intent intent3 = new Intent();
-        z3 = this.a.w;
-        if (z3) {
-            bitmap3 = this.a.o;
-            if (bitmap3 != null) {
-                bitmap4 = this.a.o;
-                if (!bitmap4.isRecycled()) {
-                    String str2 = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                    b2 = this.a.b(str2);
-                    if (b2) {
-                        intent3.putExtra("filename", str2);
-                    }
-                }
-            }
-        }
-        this.a.setResult(-1, intent3);
-        this.a.finish();
+        editorToolComponetContainer = this.a.B;
+        editText2 = this.a.j;
+        editorToolComponetContainer.c(editText2);
     }
 }

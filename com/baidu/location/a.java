@@ -99,7 +99,7 @@ public class a {
 
         public void a(String str) {
             if (this.f58do.f53void) {
-                m44if(str);
+                m45if(str);
             }
         }
 
@@ -117,13 +117,13 @@ public class a {
                 a(27, "locStr", str);
             }
             if (this.f58do.f52try != null && !this.f58do.f52try.equals("gcj02")) {
-                double m233do = j.m233do(str, "x\":\"", "\"");
-                double m233do2 = j.m233do(str, "y\":\"", "\"");
-                j.a(a.f54if, "decode..." + m233do + ":" + m233do2);
-                if (m233do != Double.MIN_VALUE && m233do2 != Double.MIN_VALUE) {
-                    double[] m2if = Jni.m2if(m233do, m233do2, this.f58do.f52try);
-                    str = j.a(j.a(str, "x\":\"", "\"", m2if[0]), "y\":\"", "\"", m2if[1]);
-                    j.a(a.f54if, "decode2 ..." + m2if[0] + ":" + m2if[1]);
+                double m234do = j.m234do(str, "x\":\"", "\"");
+                double m234do2 = j.m234do(str, "y\":\"", "\"");
+                j.a(a.f54if, "decode..." + m234do + ":" + m234do2);
+                if (m234do != Double.MIN_VALUE && m234do2 != Double.MIN_VALUE) {
+                    double[] m3if = Jni.m3if(m234do, m234do2, this.f58do.f52try);
+                    str = j.a(j.a(str, "x\":\"", "\"", m3if[0]), "y\":\"", "\"", m3if[1]);
+                    j.a(a.f54if, "decode2 ..." + m3if[0] + ":" + m3if[1]);
                     j.a(a.f54if, "decode3 ..." + str);
                 }
                 if (this.f58do.f45else) {
@@ -139,9 +139,9 @@ public class a {
                                 double parseDouble = Double.parseDouble(jSONObject5.getString("x"));
                                 double parseDouble2 = Double.parseDouble(jSONObject5.getString("y"));
                                 if (parseDouble != Double.MIN_VALUE && parseDouble2 != Double.MIN_VALUE) {
-                                    double[] m2if2 = Jni.m2if(parseDouble, parseDouble2, this.f58do.f52try);
-                                    jSONObject5.put("x", String.valueOf(m2if2[0]));
-                                    jSONObject5.put("y", String.valueOf(m2if2[1]));
+                                    double[] m3if2 = Jni.m3if(parseDouble, parseDouble2, this.f58do.f52try);
+                                    jSONObject5.put("x", String.valueOf(m3if2[0]));
+                                    jSONObject5.put("y", String.valueOf(m3if2[1]));
                                     jSONArray.put(i2, jSONObject5);
                                     i2++;
                                 }
@@ -160,7 +160,7 @@ public class a {
         }
 
         /* renamed from: if  reason: not valid java name */
-        public void m43if() {
+        public void m44if() {
             if (this.f58do.f53void) {
                 if (j.b) {
                     a(54);
@@ -171,7 +171,7 @@ public class a {
         }
 
         /* renamed from: if  reason: not valid java name */
-        public void m44if(String str) {
+        public void m45if(String str) {
             if (str == null) {
                 return;
             }
@@ -181,12 +181,12 @@ public class a {
             }
             a(27, "locStr", str);
             if (this.f58do.f52try != null && !this.f58do.f52try.equals("gcj02")) {
-                double m233do = j.m233do(str, "x\":\"", "\"");
-                double m233do2 = j.m233do(str, "y\":\"", "\"");
-                if (m233do != Double.MIN_VALUE && m233do2 != Double.MIN_VALUE) {
-                    double[] m2if = Jni.m2if(m233do, m233do2, this.f58do.f52try);
-                    if (m2if[0] > 0.0d || m2if[1] > 0.0d) {
-                        str = j.a(j.a(str, "x\":\"", "\"", m2if[0]), "y\":\"", "\"", m2if[1]);
+                double m234do = j.m234do(str, "x\":\"", "\"");
+                double m234do2 = j.m234do(str, "y\":\"", "\"");
+                if (m234do != Double.MIN_VALUE && m234do2 != Double.MIN_VALUE) {
+                    double[] m3if = Jni.m3if(m234do, m234do2, this.f58do.f52try);
+                    if (m3if[0] > 0.0d || m3if[1] > 0.0d) {
+                        str = j.a(j.a(str, "x\":\"", "\"", m3if[0]), "y\":\"", "\"", m3if[1]);
                     }
                 }
             }
@@ -246,14 +246,14 @@ public class a {
     }
 
     /* renamed from: do  reason: not valid java name */
-    private void m31do() {
-        m32int();
+    private void m32do() {
+        m33int();
         a();
-        m42new();
+        m43new();
     }
 
     /* renamed from: int  reason: not valid java name */
-    private void m32int() {
+    private void m33int() {
         Iterator it = this.f55do.iterator();
         boolean z = false;
         boolean z2 = false;
@@ -293,7 +293,7 @@ public class a {
         Iterator it = this.f55do.iterator();
         while (it.hasNext()) {
             C0001a c0001a = (C0001a) it.next();
-            c0001a.m44if(str);
+            c0001a.m45if(str);
             if (c0001a.f60if > 4) {
                 arrayList.add(c0001a);
             }
@@ -337,14 +337,14 @@ public class a {
             j.a(f54if, "not found the client messener...");
             return;
         }
-        a.m44if(str);
+        a.m45if(str);
         if (a.f60if > 4) {
             this.f55do.remove(a);
         }
     }
 
     /* renamed from: byte  reason: not valid java name */
-    public String m34byte() {
+    public String m35byte() {
         StringBuffer stringBuffer = new StringBuffer(256);
         C0001a c0001a = (C0001a) this.f55do.get(0);
         if (c0001a.f58do.f51new != null) {
@@ -363,7 +363,7 @@ public class a {
     }
 
     /* renamed from: do  reason: not valid java name */
-    public int m35do(Message message) {
+    public int m36do(Message message) {
         C0001a a;
         if (message == null || message.replyTo == null || (a = a(message.replyTo)) == null || a.f58do == null) {
             return 1;
@@ -372,12 +372,12 @@ public class a {
     }
 
     /* renamed from: for  reason: not valid java name */
-    public boolean m36for() {
+    public boolean m37for() {
         return this.f56for;
     }
 
     /* renamed from: for  reason: not valid java name */
-    public boolean m37for(Message message) {
+    public boolean m38for(Message message) {
         boolean z = true;
         C0001a a = a(message.replyTo);
         if (a == null) {
@@ -410,12 +410,12 @@ public class a {
         a.f58do.f50long = message.getData().getInt("timeOut", a.f58do.f50long);
         a.f58do.f53void = message.getData().getBoolean("location_change_notify", a.f58do.f53void);
         a.f58do.f47goto = message.getData().getInt("priority", a.f58do.f47goto);
-        m31do();
+        m32do();
         return z;
     }
 
     /* renamed from: if  reason: not valid java name */
-    public void m38if() {
+    public void m39if() {
         Iterator it = this.f55do.iterator();
         while (it.hasNext()) {
             ((C0001a) it.next()).a();
@@ -423,17 +423,17 @@ public class a {
     }
 
     /* renamed from: if  reason: not valid java name */
-    public void m39if(Message message) {
+    public void m40if(Message message) {
         C0001a a = a(message.replyTo);
         if (a != null) {
             j.a(f54if, a.f61int + " unregistered");
             this.f55do.remove(a);
         }
-        m31do();
+        m32do();
     }
 
     /* renamed from: if  reason: not valid java name */
-    public void m40if(String str) {
+    public void m41if(String str) {
         Iterator it = this.f55do.iterator();
         while (it.hasNext()) {
             ((C0001a) it.next()).a(str);
@@ -441,20 +441,20 @@ public class a {
     }
 
     /* renamed from: int  reason: not valid java name */
-    public void m41int(Message message) {
+    public void m42int(Message message) {
         if (message == null || message.replyTo == null) {
             j.a(f54if, "invalid regist client");
             return;
         }
         a(new C0001a(message));
-        m31do();
+        m32do();
     }
 
     /* renamed from: new  reason: not valid java name */
-    public void m42new() {
+    public void m43new() {
         Iterator it = this.f55do.iterator();
         while (it.hasNext()) {
-            ((C0001a) it.next()).m43if();
+            ((C0001a) it.next()).m44if();
         }
     }
 }

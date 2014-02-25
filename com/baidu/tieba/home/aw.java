@@ -1,117 +1,105 @@
 package com.baidu.tieba.home;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.R;
-import java.util.ArrayList;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.data.SignData;
+import com.baidu.tieba.util.ba;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aw extends BaseAdapter {
-    private com.baidu.tieba.j a;
-    private ArrayList<String> b;
-    private String c;
-    private boolean d = true;
+public class aw extends BdAsyncTask<Object, Integer, SignData> {
+    final /* synthetic */ au a;
+    private volatile ba b;
 
-    public aw(com.baidu.tieba.j jVar, ArrayList<String> arrayList) {
-        this.a = jVar;
-        this.b = arrayList;
-        this.c = this.a.getText(R.string.forum).toString();
+    private aw(au auVar) {
+        this.a = auVar;
+        this.b = null;
     }
 
-    public void a(ArrayList<String> arrayList) {
-        this.b = arrayList;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ aw(au auVar, aw awVar) {
+        this(auVar);
     }
 
-    public void a(boolean z) {
-        this.d = z;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void b() {
     }
 
-    public void a(int i) {
-        this.b.remove(i);
-        this.b.add(0, this.b.get(i));
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        if (this.b == null) {
-            return 0;
-        }
-        return this.b.size();
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        int count = getCount();
-        if (count <= 0 || i >= count) {
-            return null;
-        }
-        return this.b.get(i);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        Exception exc;
-        View view2;
-        ay ayVar;
-        View view3;
-        Object item;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public SignData a(Object... objArr) {
+        SignData signData;
+        Exception e;
+        String str;
+        String str2;
+        String str3;
+        String str4;
         try {
-            if (view == null) {
-                view3 = LayoutInflater.from(this.a).inflate(R.layout.home_dialog_search_item, (ViewGroup) null);
-                try {
-                    ayVar = new ay(this);
-                    ayVar.a = (TextView) view3.findViewById(R.id.home_lv_search_forum);
-                    view3.setTag(ayVar);
-                } catch (Exception e) {
-                    view2 = view3;
-                    exc = e;
-                    com.baidu.adp.lib.g.e.b(getClass().getName(), "", "SearchAdapter.getView error = " + exc.getMessage());
-                    a(view2);
-                    return view2;
-                }
-            } else {
-                ayVar = (ay) view.getTag();
-                view3 = view;
+            this.b = new ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/c/forum/sign");
+            ba baVar = this.b;
+            str = this.a.a;
+            baVar.a("kw", str);
+            ba baVar2 = this.b;
+            str2 = this.a.b;
+            baVar2.a("fid", str2);
+            this.b.e(true);
+            String m = this.b.m();
+            if (!this.b.e() || !this.b.d()) {
+                return null;
             }
-            item = getItem(i);
-        } catch (Exception e2) {
-            exc = e2;
-            view2 = view;
+            signData = new SignData();
+            try {
+                signData.parserJson(m);
+                str3 = this.a.b;
+                signData.setForumId(str3);
+                str4 = this.a.a;
+                signData.setForumName(str4);
+                return signData;
+            } catch (Exception e2) {
+                e = e2;
+                com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.getMessage());
+                return signData;
+            }
+        } catch (Exception e3) {
+            signData = null;
+            e = e3;
         }
-        if (item == null) {
-            return view3;
-        }
-        com.baidu.tieba.util.bs.b(ayVar.a, TiebaApplication.h().al());
-        String str = (String) item;
-        if (this.d) {
-            ayVar.a.setText(str.concat(this.c));
-        } else {
-            ayVar.a.setText(str);
-        }
-        view2 = view3;
-        a(view2);
-        return view2;
     }
 
-    private void a(View view) {
-        int al = TiebaApplication.h().al();
-        this.a.getLayoutMode().a(al == 1);
-        this.a.getLayoutMode().a(view);
-        View findViewById = view.findViewById(R.id.parent);
-        if (al == 1) {
-            if (findViewById != null) {
-                findViewById.setBackgroundResource(R.drawable.common_list_item_bg_selector_1);
-            }
-        } else if (findViewById != null) {
-            findViewById.setBackgroundResource(R.drawable.common_list_item_bg_selector);
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        av avVar;
+        String str;
+        if (this.b != null) {
+            this.b.k();
         }
+        this.a.c = null;
+        super.cancel(true);
+        avVar = this.a.d;
+        str = this.a.b;
+        avVar.a(str, null);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(SignData signData) {
+        av avVar;
+        av avVar2;
+        String str;
+        String str2;
+        this.a.c = null;
+        if (signData != null || this.b == null) {
+            avVar = this.a.d;
+            avVar.a(signData);
+            return;
+        }
+        this.a.mErrorCode = this.b.f();
+        this.a.mErrorString = this.b.j();
+        avVar2 = this.a.d;
+        str = this.a.b;
+        str2 = this.a.mErrorString;
+        avVar2.a(str, str2);
     }
 }

@@ -2,8 +2,9 @@ package com.baidu.tieba.im.messageCenter;
 
 import android.util.SparseArray;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.message.cr;
-import com.baidu.tieba.util.by;
+import com.baidu.tieba.im.message.da;
+import com.baidu.tieba.im.message.s;
+import com.baidu.tieba.util.cb;
 import com.slidingmenu.lib.R;
 import java.lang.ref.WeakReference;
 import java.util.Iterator;
@@ -14,9 +15,9 @@ public class e {
     private static e a = null;
     private SparseArray<Class<? extends d>> b;
     private SparseArray<Class<? extends a>> c;
-    private SparseArray<Class<? extends cr>> d;
+    private SparseArray<Class<? extends da>> d;
     private SparseArray<LinkedList<WeakReference<g>>> e;
-    private com.baidu.tieba.im.a<cr> f;
+    private com.baidu.tieba.im.a<da> f;
     private i g;
 
     public void a(boolean z) {
@@ -47,23 +48,23 @@ public class e {
         return a;
     }
 
-    public void a(com.baidu.tieba.im.message.q qVar, int i, int i2, boolean z) {
-        this.g.a(qVar, true, i, false, i2, z);
+    public void a(s sVar, int i, int i2, boolean z) {
+        this.g.a(sVar, true, i, false, i2, z);
     }
 
-    public void a(com.baidu.tieba.im.message.q qVar) {
-        if (qVar != null) {
-            Class<? extends d> cls = this.b.get(qVar.w());
+    public void a(s sVar) {
+        if (sVar != null) {
+            Class<? extends d> cls = this.b.get(sVar.w());
             if (cls == null) {
-                this.g.a(qVar, true, 0, false, 0, true);
+                this.g.a(sVar, true, 0, false, 0, true);
                 return;
             }
             try {
                 d newInstance = cls.newInstance();
-                newInstance.b(qVar);
-                com.baidu.tieba.im.m.a(newInstance, this.f);
+                newInstance.b(sVar);
+                com.baidu.tieba.im.j.a(newInstance, this.f);
             } catch (Exception e) {
-                a(qVar, com.baidu.tieba.im.k.v, TiebaApplication.h().getString(R.string.error_unkown));
+                a(sVar, com.baidu.tieba.im.h.v, TiebaApplication.g().b().getString(R.string.error_unkown));
             }
         }
     }
@@ -76,8 +77,8 @@ public class e {
         this.g.a(aVar);
     }
 
-    public void b(com.baidu.tieba.im.message.q qVar) {
-        this.g.b(qVar);
+    public void b(s sVar) {
+        this.g.b(sVar);
     }
 
     public void a(int i, Class<? extends d> cls) {
@@ -90,7 +91,7 @@ public class e {
             try {
                 return cls.newInstance();
             } catch (Exception e) {
-                com.baidu.adp.lib.g.e.a(e.getMessage());
+                com.baidu.adp.lib.util.f.b(e.getMessage());
             }
         }
         return null;
@@ -100,7 +101,7 @@ public class e {
         this.c.put(i, cls);
     }
 
-    public void c(int i, Class<? extends cr> cls) {
+    public void c(int i, Class<? extends da> cls) {
         this.d.put(i, cls);
     }
 
@@ -122,69 +123,68 @@ public class e {
                 LinkedList<WeakReference<g>> valueAt = this.e.valueAt(i);
                 Iterator<WeakReference<g>> it = valueAt.iterator();
                 while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    WeakReference<g> next = it.next();
-                    g gVar2 = next.get();
-                    if (gVar2 != null && gVar2.equals(gVar)) {
-                        valueAt.remove(next);
-                        break;
+                    if (it.hasNext()) {
+                        WeakReference<g> next = it.next();
+                        g gVar2 = next.get();
+                        if (gVar2 != null && gVar2.equals(gVar)) {
+                            valueAt.remove(next);
+                            break;
+                        }
                     }
                 }
             }
         }
     }
 
-    private cr b(com.baidu.tieba.im.message.q qVar, int i, String str) {
-        if (qVar == null) {
+    private da b(s sVar, int i, String str) {
+        if (sVar == null) {
             return null;
         }
-        cr crVar = new cr(qVar.w());
-        crVar.a(qVar);
-        crVar.g(i);
-        crVar.c(str);
-        return crVar;
+        da daVar = new da(sVar.w());
+        daVar.a(sVar);
+        daVar.g(i);
+        daVar.c(str);
+        return daVar;
     }
 
-    public boolean c(com.baidu.tieba.im.message.q qVar) {
-        return this.g.a(qVar);
+    public boolean c(s sVar) {
+        return this.g.a(sVar);
     }
 
     public boolean b(int i) {
         return this.g.a(i);
     }
 
-    public void d(com.baidu.tieba.im.message.q qVar) {
+    public void d(s sVar) {
         LinkedList linkedList = new LinkedList();
-        linkedList.add(qVar);
+        linkedList.add(sVar);
         a(linkedList);
     }
 
-    public void e(com.baidu.tieba.im.message.q qVar) {
+    public void e(s sVar) {
         LinkedList linkedList = new LinkedList();
-        linkedList.add(qVar);
+        linkedList.add(sVar);
         a(linkedList);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(List<com.baidu.tieba.im.message.q> list) {
+    public void a(List<s> list) {
         if (list != null) {
-            for (com.baidu.tieba.im.message.q qVar : list) {
-                if (qVar != null) {
-                    if (qVar instanceof cr) {
-                        cr crVar = (cr) qVar;
-                        if (crVar.l() != 0) {
-                            by.a("dispatchMessage", crVar.w(), crVar.v(), crVar.m(), crVar.l());
+            for (s sVar : list) {
+                if (sVar != null) {
+                    if (sVar instanceof da) {
+                        da daVar = (da) sVar;
+                        if (daVar.m() != 0) {
+                            cb.a("dispatchMessage", daVar.w(), daVar.v(), daVar.n(), daVar.m());
                         }
                     }
-                    LinkedList<WeakReference<g>> linkedList = this.e.get(qVar.w());
+                    LinkedList<WeakReference<g>> linkedList = this.e.get(sVar.w());
                     if (linkedList != null && !linkedList.isEmpty()) {
                         Iterator<WeakReference<g>> it = linkedList.iterator();
                         while (it.hasNext()) {
                             g gVar = it.next().get();
                             if (gVar != null) {
-                                gVar.a(qVar);
+                                gVar.a(sVar);
                             }
                         }
                     }
@@ -194,25 +194,25 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(com.baidu.tieba.im.message.q qVar, int i, String str) {
-        cr b;
-        if (qVar != null) {
-            Class<? extends cr> cls = this.d.get(qVar.w());
+    public void a(s sVar, int i, String str) {
+        da b;
+        if (sVar != null) {
+            Class<? extends da> cls = this.d.get(sVar.w());
             if (cls == null) {
-                b = b(qVar, i, str);
+                b = b(sVar, i, str);
             } else {
                 try {
                     b = cls.newInstance();
-                    b.e(qVar.w());
+                    b.e(sVar.w());
                     b.g(i);
                     b.c(str);
-                    b.a(qVar);
+                    b.a(sVar);
                     if (i > 0) {
-                        by.a(TiebaApplication.h().getApplicationContext(), "send_msg_fail_time", "send_fail", 1, new Object[0]);
+                        cb.a(TiebaApplication.g().b().getApplicationContext(), "send_msg_fail_time", "send_fail", 1, new Object[0]);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
-                    b = b(qVar, com.baidu.tieba.im.k.v, TiebaApplication.h().getString(R.string.error_unkown));
+                    b = b(sVar, com.baidu.tieba.im.h.v, TiebaApplication.g().b().getString(R.string.error_unkown));
                 }
             }
             e(b);

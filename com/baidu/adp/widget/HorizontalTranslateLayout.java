@@ -3,6 +3,7 @@ package com.baidu.adp.widget;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.support.v4.view.MotionEventCompat;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
@@ -12,7 +13,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class HorizontalTranslateLayout extends FrameLayout {
     static final /* synthetic */ boolean a;
-    private i A;
+    private h A;
     private int b;
     private int c;
     private float d;
@@ -30,14 +31,14 @@ public class HorizontalTranslateLayout extends FrameLayout {
     private int p;
     private int q;
     private boolean r;
-    private final g s;
-    private final h t;
-    private final o u;
-    private j v;
-    private m w;
-    private final List<l> x;
-    private k y;
-    private n z;
+    private final f s;
+    private final g t;
+    private final n u;
+    private i v;
+    private l w;
+    private final List<k> x;
+    private j y;
+    private m z;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
@@ -45,18 +46,21 @@ public class HorizontalTranslateLayout extends FrameLayout {
         left,
         right,
         horizontal,
-        none
+        none;
+
+        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
+        /* renamed from: values  reason: to resolve conflict with enum method */
+        public static TrackDirection[] valuesCustom() {
+            TrackDirection[] valuesCustom = values();
+            int length = valuesCustom.length;
+            TrackDirection[] trackDirectionArr = new TrackDirection[length];
+            System.arraycopy(valuesCustom, 0, trackDirectionArr, 0, length);
+            return trackDirectionArr;
+        }
     }
 
     static {
         a = !HorizontalTranslateLayout.class.desiredAssertionStatus();
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ int a(HorizontalTranslateLayout horizontalTranslateLayout, int i) {
-        int i2 = horizontalTranslateLayout.f - i;
-        horizontalTranslateLayout.f = i2;
-        return i2;
     }
 
     @Override // android.view.View
@@ -105,24 +109,24 @@ public class HorizontalTranslateLayout extends FrameLayout {
         return this.k;
     }
 
-    public void setLeftAnimationListener(j jVar) {
-        this.v = jVar;
+    public void setLeftAnimationListener(i iVar) {
+        this.v = iVar;
     }
 
-    public void setRightAnimationListener(m mVar) {
-        this.w = mVar;
+    public void setRightAnimationListener(l lVar) {
+        this.w = lVar;
     }
 
-    public void setLeftTrackListener(k kVar) {
-        this.y = kVar;
+    public void setLeftTrackListener(j jVar) {
+        this.y = jVar;
     }
 
-    public void setRightTrackListener(n nVar) {
-        this.z = nVar;
+    public void setRightTrackListener(m mVar) {
+        this.z = mVar;
     }
 
-    public void setHorizontalTrackListener(i iVar) {
-        this.A = iVar;
+    public void setHorizontalTrackListener(h hVar) {
+        this.A = hVar;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -144,7 +148,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
         if (this.j == TrackDirection.none) {
             return false;
         }
-        int action = motionEvent.getAction() & 255;
+        int action = motionEvent.getAction() & MotionEventCompat.ACTION_MASK;
         int x = (int) motionEvent.getX();
         int y = (int) motionEvent.getY();
         if (this.k == 10004) {
@@ -179,7 +183,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         int x = (int) motionEvent.getX();
         int y = (int) motionEvent.getY();
-        int action = motionEvent.getAction() & 255;
+        int action = motionEvent.getAction() & MotionEventCompat.ACTION_MASK;
         if (this.k == 10004) {
             switch (action) {
                 case 1:
@@ -189,7 +193,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                     if (this.u.b) {
                         Log.d("HorizontalTranslateLayout", "@onTouchEvent tracking");
                         this.u.a();
-                        o.a(this.u);
+                        n.a(this.u);
                         return true;
                     }
                     return true;
@@ -232,7 +236,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
             case 3:
                 if (this.u.b) {
                     this.u.a();
-                    o.a(this.u);
+                    n.a(this.u);
                     return true;
                 }
                 return true;

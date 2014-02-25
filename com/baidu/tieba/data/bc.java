@@ -3,45 +3,30 @@ package com.baidu.tieba.data;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class bc {
-    private String a = null;
-    private String d = null;
-    private String b = null;
-    private int c = 0;
-    private bg e = new bg();
+    private int a = 0;
+    private int b = 0;
+    private String c = "";
 
-    public String a() {
-        return this.d;
-    }
-
-    public bg b() {
-        return this.e;
-    }
-
-    public String c() {
-        return this.b;
-    }
-
-    public String d() {
+    public int a() {
         return this.a;
     }
 
-    public int e() {
+    public int b() {
+        return this.b;
+    }
+
+    public String c() {
         return this.c;
     }
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.a = jSONObject.optString("tid");
-                this.b = jSONObject.optString("title");
-                this.c = jSONObject.optInt("reply_amount", 0);
-                JSONObject optJSONObject = jSONObject.optJSONObject("user");
-                if (optJSONObject != null) {
-                    this.d = optJSONObject.optString("name_show");
-                }
-                this.e.a(jSONObject.optJSONObject("photo"));
+                this.a = jSONObject.optInt("is_lpost", 0);
+                this.b = jSONObject.optInt("topic_type", 0);
+                this.c = jSONObject.optString("link", "");
             } catch (Exception e) {
-                com.baidu.adp.lib.g.e.b("HotspotData", "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
             }
         }
     }

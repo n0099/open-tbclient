@@ -8,6 +8,7 @@ import android.content.IntentFilter;
 import android.media.MediaPlayer;
 import android.os.Handler;
 import android.os.IBinder;
+import android.support.v4.content.LocalBroadcastManager;
 import com.baidu.location.LocationClientOption;
 import java.io.File;
 import java.lang.reflect.Method;
@@ -99,13 +100,13 @@ public class MediaService extends Service implements MediaPlayer.OnErrorListener
         intentFilter.addAction("com.baidu.isStoped");
         intentFilter.addAction("com.baidu.playElapsedTime");
         intentFilter.addAction("com.baidu.recognize");
-        android.support.v4.content.f.a(context).a(broadcastReceiver, intentFilter);
+        LocalBroadcastManager.getInstance(context).registerReceiver(broadcastReceiver, intentFilter);
     }
 
     public static void unregisterReceiver(Context context, BroadcastReceiver broadcastReceiver) {
         if (context != null && broadcastReceiver != null) {
             try {
-                android.support.v4.content.f.a(context).a(broadcastReceiver);
+                LocalBroadcastManager.getInstance(context).unregisterReceiver(broadcastReceiver);
             } catch (Exception e) {
             }
         }
@@ -287,7 +288,7 @@ public class MediaService extends Service implements MediaPlayer.OnErrorListener
         }
         boolean z = false;
         File file = new File(stringExtra);
-        this.mFilePath = stringExtra + File.separator + stringExtra2;
+        this.mFilePath = String.valueOf(stringExtra) + File.separator + stringExtra2;
         if (file.exists()) {
             if (file.isDirectory() && file.canRead() && file.canWrite()) {
                 z = this.mRecorder.a(this.mFilePath);
@@ -355,7 +356,7 @@ public class MediaService extends Service implements MediaPlayer.OnErrorListener
 
     @Override // android.content.ContextWrapper, android.content.Context
     public void sendBroadcast(Intent intent) {
-        android.support.v4.content.f.a(this).a(intent);
+        LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
     }
 
     @Override // android.media.MediaPlayer.OnPreparedListener

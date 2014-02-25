@@ -1,32 +1,39 @@
 package com.baidu.tieba.im.messageCenter.a;
 
-import com.baidu.tieba.im.message.cr;
-import java.util.List;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.im.message.aq;
+import com.baidu.tieba.im.message.cd;
+import com.baidu.tieba.im.message.da;
 /* loaded from: classes.dex */
-public class l {
-    public static void a(com.baidu.adp.lib.cache.s<byte[]> sVar, String str, com.baidu.tieba.im.coder.d dVar) {
-        if (str != null && sVar != null && dVar != null && dVar.c == 0 && dVar.d > 0) {
-            sVar.a(str, dVar.b);
+public class l extends com.baidu.tieba.im.messageCenter.d {
+    @Override // com.baidu.tieba.im.messageCenter.d
+    public da a(com.baidu.tieba.im.message.s sVar) {
+        if (sVar == null || !(sVar instanceof aq)) {
+            return a(-116, sVar);
         }
+        int w = ((aq) sVar).w();
+        String str = "";
+        if (TiebaApplication.E() != null) {
+            str = TiebaApplication.E().getID();
+        }
+        byte[] a = com.baidu.tieba.c.a.a().f().a("p_hot_groups_info" + str);
+        if (a != null) {
+            da a2 = n.a(103012, a);
+            if (a2 == null) {
+                return a(w, sVar);
+            }
+            a2.e(w);
+            a2.a(sVar);
+            return a2;
+        }
+        return a(w, sVar);
     }
 
-    public static cr a(int i, byte[] bArr) {
-        if (bArr == null) {
-            return null;
-        }
-        try {
-            List<com.baidu.tieba.im.message.q> a = com.baidu.tieba.im.coder.c.a().a(i, bArr, 0, bArr.length);
-            if (a == null || a.isEmpty()) {
-                return null;
-            }
-            com.baidu.tieba.im.message.q qVar = a.get(0);
-            if (qVar instanceof cr) {
-                return (cr) qVar;
-            }
-            return null;
-        } catch (Throwable th) {
-            th.printStackTrace();
-            return null;
-        }
+    private cd a(int i, com.baidu.tieba.im.message.s sVar) {
+        cd cdVar = new cd();
+        cdVar.e(i);
+        cdVar.a(sVar);
+        cdVar.g(-18);
+        return cdVar;
     }
 }

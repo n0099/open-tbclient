@@ -1,9 +1,9 @@
 package com.baidu.tieba.im.friend;
 
-import com.slidingmenu.lib.R;
-import java.util.ArrayList;
+import com.baidu.tieba.view.ci;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class l extends com.baidu.adp.a.g {
+public class l implements ci {
     final /* synthetic */ InviteFriendListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,38 +11,21 @@ class l extends com.baidu.adp.a.g {
         this.a = inviteFriendListActivity;
     }
 
-    @Override // com.baidu.adp.a.g
-    public void a(Object obj) {
-        t tVar;
-        t tVar2;
+    @Override // com.baidu.tieba.view.ci
+    public void a(String str) {
         com.baidu.tieba.im.model.h hVar;
-        com.baidu.tieba.im.model.h hVar2;
-        com.baidu.tieba.im.model.h hVar3;
-        tVar = this.a.a;
-        tVar.m();
-        this.a.closeLoadingDialog();
-        if (obj == null) {
+        if (str == null || str.trim().equals("")) {
             hVar = this.a.b;
-            if (hVar.getErrorCode() != 0) {
-                hVar2 = this.a.b;
-                if (hVar2.getErrorString() != null) {
-                    InviteFriendListActivity inviteFriendListActivity = this.a;
-                    hVar3 = this.a.b;
-                    inviteFriendListActivity.showToast(hVar3.getErrorString());
-                    return;
-                }
-                return;
-            }
-            return;
+            hVar.a(str);
+            this.a.a();
         }
-        com.baidu.tieba.im.data.e eVar = (com.baidu.tieba.im.data.e) obj;
-        ArrayList<com.baidu.tieba.im.data.d> a = eVar == null ? null : eVar.a();
-        if (eVar != null && eVar.b() && (a == null || a.size() <= 0)) {
-            this.a.showToast(this.a.getString(R.string.invite_friend_no_data_now));
-        }
-        if (eVar != null) {
-            tVar2 = this.a.a;
-            tVar2.a(eVar);
-        }
+    }
+
+    @Override // com.baidu.tieba.view.ci
+    public void b(String str) {
+        com.baidu.tieba.im.model.h hVar;
+        hVar = this.a.b;
+        hVar.a(str);
+        this.a.a();
     }
 }

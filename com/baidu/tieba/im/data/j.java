@@ -3,7 +3,7 @@ package com.baidu.tieba.im.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 /* loaded from: classes.dex */
-final class j implements Parcelable.Creator<RandChatRoomData> {
+class j implements Parcelable.Creator<RandChatRoomData> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */

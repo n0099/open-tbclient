@@ -1,21 +1,32 @@
 package com.baidu.tieba.im.messageCenter.a;
 
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.message.bx;
+import com.baidu.tieba.im.message.da;
+import java.util.List;
 /* loaded from: classes.dex */
-public class n extends com.baidu.tieba.im.messageCenter.a {
-    @Override // com.baidu.tieba.im.messageCenter.a
-    public com.baidu.tieba.im.message.q a(com.baidu.tieba.im.message.q qVar, com.baidu.tieba.im.coder.d dVar) {
-        if (qVar != null && (qVar instanceof bx)) {
-            bx bxVar = (bx) qVar;
-            if (!bxVar.k() && (bxVar.a() == null || bxVar.a().getOffset() == 0)) {
-                String str = "";
-                if (TiebaApplication.E() != null) {
-                    str = TiebaApplication.E().getID();
-                }
-                l.a(com.baidu.tieba.b.a.a().r(), "p_nearby_group_info" + str, dVar);
-            }
+public class n {
+    public static void a(com.baidu.adp.lib.cache.s<byte[]> sVar, String str, com.baidu.tieba.im.coder.d dVar) {
+        if (str != null && sVar != null && dVar != null && dVar.c == 0 && dVar.d > 0) {
+            sVar.a(str, dVar.b);
         }
-        return null;
+    }
+
+    public static da a(int i, byte[] bArr) {
+        if (bArr == null) {
+            return null;
+        }
+        try {
+            List<com.baidu.tieba.im.message.s> a = com.baidu.tieba.im.coder.c.a().a(i, bArr, 0, bArr.length);
+            if (a == null || a.isEmpty()) {
+                return null;
+            }
+            com.baidu.tieba.im.message.s sVar = a.get(0);
+            if (sVar instanceof da) {
+                return (da) sVar;
+            }
+            return null;
+        } catch (Throwable th) {
+            th.printStackTrace();
+            return null;
+        }
     }
 }

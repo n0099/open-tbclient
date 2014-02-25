@@ -13,6 +13,6 @@ public class c {
         this.a = i;
         this.b = str;
         this.c = i2;
-        this.d = Uri.parse(String.valueOf(MediaStore.Images.Media.EXTERNAL_CONTENT_URI) + "/" + String.valueOf(this.c));
+        this.d = Uri.parse(String.valueOf(String.valueOf(MediaStore.Images.Media.EXTERNAL_CONTENT_URI)) + "/" + String.valueOf(this.c));
     }
 }

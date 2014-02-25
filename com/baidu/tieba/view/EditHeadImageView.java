@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class EditHeadImageView extends u {
+public class EditHeadImageView extends w {
     private Paint b;
     private Paint c;
     private int d;
@@ -62,13 +62,13 @@ public class EditHeadImageView extends u {
         CompatibleUtile.getInstance().noneViewGpu(this);
     }
 
-    @Override // com.baidu.tieba.view.u, android.widget.ImageView
+    @Override // com.baidu.tieba.view.w, android.widget.ImageView
     public void setImageBitmap(Bitmap bitmap) {
         super.setImageBitmap(bitmap);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.view.u, android.view.View
+    @Override // com.baidu.tieba.view.w, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         this.d = (int) (((i4 - i2) - (i3 - i)) * this.f);
@@ -77,7 +77,7 @@ public class EditHeadImageView extends u {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.view.u, android.widget.ImageView, android.view.View
+    @Override // com.baidu.tieba.view.w, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
         canvas.drawColor(this.g);
         super.onDraw(canvas);
@@ -99,7 +99,7 @@ public class EditHeadImageView extends u {
                 }
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b(getClass().getName(), "getVisableBitmap", e.toString());
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "getVisableBitmap", e.toString());
         }
         return bitmap;
     }

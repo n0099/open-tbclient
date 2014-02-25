@@ -10,10 +10,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.adp.lib.g.g;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.data.GroupInfoData;
-import com.baidu.tieba.util.bs;
+import com.baidu.tieba.util.bq;
 import com.baidu.tieba.util.i;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
@@ -33,7 +33,17 @@ public class HotGroupAdapter extends BaseAdapter {
     public enum BOTTOM_TYPE {
         LINE,
         HAVE_MORE,
-        NO_MORE
+        NO_MORE;
+
+        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
+        /* renamed from: values  reason: to resolve conflict with enum method */
+        public static BOTTOM_TYPE[] valuesCustom() {
+            BOTTOM_TYPE[] valuesCustom = values();
+            int length = valuesCustom.length;
+            BOTTOM_TYPE[] bottom_typeArr = new BOTTOM_TYPE[length];
+            System.arraycopy(valuesCustom, 0, bottom_typeArr, 0, length);
+            return bottom_typeArr;
+        }
     }
 
     public HotGroupAdapter(HotGroupActivity hotGroupActivity) {
@@ -139,7 +149,7 @@ public class HotGroupAdapter extends BaseAdapter {
         aVar.h.setDefaultResource(R.drawable.avatar_poto_defaul140);
         aVar.h.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
         aVar.h.setDrawBorder(true);
-        aVar.h.setRadius(g.a((Context) this.a, 5.0f));
+        aVar.h.setRadius(BdUtilHelper.a((Context) this.a, 5.0f));
         if (getItemViewType(i) == 1) {
             aVar.a.setVisibility(0);
             aVar.g.setVisibility(8);
@@ -165,21 +175,21 @@ public class HotGroupAdapter extends BaseAdapter {
                     aVar.h.setTag(portrait);
                 }
                 aVar.i.setText(item.getName());
-                aVar.j.setText(item.getMemberNum() + "/" + item.getMaxMemberNum());
+                aVar.j.setText(String.valueOf(item.getMemberNum()) + "/" + item.getMaxMemberNum());
                 if (TextUtils.isEmpty(item.getForumShowName())) {
                     aVar.k.setText(item.getIntro());
                 } else {
-                    aVar.k.setText(item.getForumShowName() + item.getIntro());
+                    aVar.k.setText(String.valueOf(item.getForumShowName()) + item.getIntro());
                 }
                 a(aVar.o, item.getGrade());
             }
-            this.a.a().a(TiebaApplication.h().al() == 1);
+            this.a.a().a(TiebaApplication.g().al() == 1);
             this.a.a().a(view);
             if (item != null && item.isMemGroup()) {
-                bs.a(aVar.i, R.color.im_group_vip_text, 1);
-                bs.d(aVar.l, (int) R.drawable.icon_vip_grade_big_small_s);
-                bs.d(aVar.m, (int) R.drawable.icon_vip_grade_big_small_s);
-                bs.d(aVar.n, (int) R.drawable.icon_vip_grade_big_small_s);
+                bq.a(aVar.i, R.color.im_group_vip_text, 1);
+                bq.d(aVar.l, (int) R.drawable.icon_vip_grade_big_small_s);
+                bq.d(aVar.m, (int) R.drawable.icon_vip_grade_big_small_s);
+                bq.d(aVar.n, (int) R.drawable.icon_vip_grade_big_small_s);
             }
         }
         return view;

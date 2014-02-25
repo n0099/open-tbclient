@@ -14,15 +14,20 @@ import protobuf.Im;
 public final class DelGroupReq {
 
     /* loaded from: classes.dex */
-    public final class DataReq extends GeneratedMessageLite implements d {
+    public final class DataReq extends GeneratedMessageLite implements c {
         public static final int GROUPID_FIELD_NUMBER = 1;
-        public static Parser<DataReq> PARSER = new b();
+        public static Parser<DataReq> PARSER = new a();
         private static final DataReq a = new DataReq(true);
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private int groupId_;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ DataReq(GeneratedMessageLite.Builder builder, DataReq dataReq) {
+            this(builder);
+        }
 
         private DataReq(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -79,6 +84,11 @@ public final class DelGroupReq {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ DataReq(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, DataReq dataReq) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -176,37 +186,42 @@ public final class DelGroupReq {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static c newBuilder() {
-            return c.f();
+        public static b newBuilder() {
+            return b.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public c newBuilderForType() {
+        public b newBuilderForType() {
             return newBuilder();
         }
 
-        public static c newBuilder(DataReq dataReq) {
+        public static b newBuilder(DataReq dataReq) {
             return newBuilder().mergeFrom(dataReq);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public c toBuilder() {
+        public b toBuilder() {
             return newBuilder(this);
         }
     }
 
     /* loaded from: classes.dex */
-    public final class DelGroupReqIdl extends GeneratedMessageLite implements g {
+    public final class DelGroupReqIdl extends GeneratedMessageLite implements f {
         public static final int DATA_FIELD_NUMBER = 2;
-        public static Parser<DelGroupReqIdl> PARSER = new e();
+        public static Parser<DelGroupReqIdl> PARSER = new d();
         private static final DelGroupReqIdl a = new DelGroupReqIdl(true);
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private DataReq data_;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ DelGroupReqIdl(GeneratedMessageLite.Builder builder, DelGroupReqIdl delGroupReqIdl) {
+            this(builder);
+        }
 
         private DelGroupReqIdl(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -230,13 +245,12 @@ public final class DelGroupReq {
         }
 
         private DelGroupReqIdl(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-            c cVar;
-            boolean z;
+            b bVar;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
             a();
-            boolean z2 = false;
-            while (!z2) {
+            boolean z = false;
+            while (!z) {
                 try {
                     try {
                         int readTag = codedInputStream.readTag();
@@ -246,28 +260,25 @@ public final class DelGroupReq {
                                 break;
                             case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                                 if ((this.bitField0_ & 1) != 1) {
-                                    cVar = null;
+                                    bVar = null;
                                 } else {
-                                    cVar = this.data_.toBuilder();
+                                    bVar = this.data_.toBuilder();
                                 }
                                 this.data_ = (DataReq) codedInputStream.readMessage(DataReq.PARSER, extensionRegistryLite);
-                                if (cVar != null) {
-                                    cVar.mergeFrom(this.data_);
-                                    this.data_ = cVar.buildPartial();
+                                if (bVar != null) {
+                                    bVar.mergeFrom(this.data_);
+                                    this.data_ = bVar.buildPartial();
                                 }
                                 this.bitField0_ |= 1;
-                                z = z2;
                                 break;
                             default:
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
                                 } else {
-                                    z = z2;
                                     break;
                                 }
                         }
-                        z2 = z;
                     } catch (InvalidProtocolBufferException e) {
                         throw e.setUnfinishedMessage(this);
                     } catch (IOException e2) {
@@ -277,6 +288,11 @@ public final class DelGroupReq {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ DelGroupReqIdl(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, DelGroupReqIdl delGroupReqIdl) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -374,23 +390,23 @@ public final class DelGroupReq {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static f newBuilder() {
-            return f.f();
+        public static e newBuilder() {
+            return e.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public f newBuilderForType() {
+        public e newBuilderForType() {
             return newBuilder();
         }
 
-        public static f newBuilder(DelGroupReqIdl delGroupReqIdl) {
+        public static e newBuilder(DelGroupReqIdl delGroupReqIdl) {
             return newBuilder().mergeFrom(delGroupReqIdl);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public f toBuilder() {
+        public e toBuilder() {
             return newBuilder(this);
         }
     }

@@ -13,27 +13,69 @@ import android.util.SparseArray;
 import android.view.animation.AlphaAnimation;
 import android.widget.ImageView;
 import com.baidu.adp.g;
-import com.baidu.adp.lib.e.f;
+import com.baidu.adp.lib.e.h;
 import java.lang.ref.SoftReference;
 /* loaded from: classes.dex */
 public class BDImageView extends ImageView {
+    private static /* synthetic */ int[] r;
     protected int a;
     private int b;
     private Paint c;
     private ImageView.ScaleType d;
     private Matrix e;
     private Matrix f;
-    private SparseArray<SoftReference<d>> g;
+    private SparseArray<SoftReference<b>> g;
     private String h;
     private int i;
     private boolean j;
     private boolean k;
-    private f l;
+    private h l;
     private Rect m;
     private boolean n;
     private ColorFilter o;
     private boolean p;
     private boolean q;
+
+    static /* synthetic */ int[] c() {
+        int[] iArr = r;
+        if (iArr == null) {
+            iArr = new int[ImageView.ScaleType.values().length];
+            try {
+                iArr[ImageView.ScaleType.CENTER.ordinal()] = 1;
+            } catch (NoSuchFieldError e) {
+            }
+            try {
+                iArr[ImageView.ScaleType.CENTER_CROP.ordinal()] = 2;
+            } catch (NoSuchFieldError e2) {
+            }
+            try {
+                iArr[ImageView.ScaleType.CENTER_INSIDE.ordinal()] = 3;
+            } catch (NoSuchFieldError e3) {
+            }
+            try {
+                iArr[ImageView.ScaleType.FIT_CENTER.ordinal()] = 4;
+            } catch (NoSuchFieldError e4) {
+            }
+            try {
+                iArr[ImageView.ScaleType.FIT_END.ordinal()] = 5;
+            } catch (NoSuchFieldError e5) {
+            }
+            try {
+                iArr[ImageView.ScaleType.FIT_START.ordinal()] = 6;
+            } catch (NoSuchFieldError e6) {
+            }
+            try {
+                iArr[ImageView.ScaleType.FIT_XY.ordinal()] = 7;
+            } catch (NoSuchFieldError e7) {
+            }
+            try {
+                iArr[ImageView.ScaleType.MATRIX.ordinal()] = 8;
+            } catch (NoSuchFieldError e8) {
+            }
+            r = iArr;
+        }
+        return iArr;
+    }
 
     public int getRealWidth() {
         return getWidth();
@@ -159,66 +201,66 @@ public class BDImageView extends ImageView {
         return this.m;
     }
 
-    protected Matrix a(d dVar) {
-        return this.d != null ? a(dVar, this.d) : a(dVar, getScaleType());
+    protected Matrix a(b bVar) {
+        return this.d != null ? a(bVar, this.d) : a(bVar, getScaleType());
     }
 
-    protected Matrix b(d dVar) {
-        return a(dVar, getScaleType());
+    protected Matrix b(b bVar) {
+        return a(bVar, getScaleType());
     }
 
-    protected Matrix a(d dVar, ImageView.ScaleType scaleType) {
-        if (dVar == null) {
+    protected Matrix a(b bVar, ImageView.ScaleType scaleType) {
+        if (bVar == null) {
             return null;
         }
         int paddingLeft = getPaddingLeft();
         int paddingRight = getPaddingRight();
         int paddingTop = getPaddingTop();
         int paddingBottom = getPaddingBottom();
-        int d = dVar.d();
-        int c = dVar.c();
+        int d = bVar.d();
+        int c = bVar.c();
         int realHeight = (getRealHeight() - paddingTop) - paddingBottom;
         int realWidth = (getRealWidth() - paddingLeft) - paddingRight;
         float f = 0.0f;
         float f2 = 0.0f;
         float f3 = realWidth / c;
         float f4 = realHeight / d;
-        switch (b.a[scaleType.ordinal()]) {
-            case 2:
-                f4 = Math.min(f3, f4);
-                f3 = f4;
-                break;
-            case 3:
-                f4 = Math.min(f3, f4);
-                f = (realWidth - (c * f4)) / 2.0f;
-                f2 = (realHeight - (d * f4)) / 2.0f;
-                f3 = f4;
-                break;
-            case 4:
-                f4 = Math.min(f3, f4);
-                f = realWidth - (c * f4);
-                f2 = realHeight - (d * f4);
-                f3 = f4;
-                break;
-            case 5:
+        switch (c()[scaleType.ordinal()]) {
+            case 1:
                 f3 = 1.0f;
                 f4 = 1.0f;
                 f = (realWidth - c) / 2.0f;
                 f2 = (realHeight - d) / 2.0f;
                 break;
-            case 6:
+            case 2:
                 f3 = Math.max(f3, f4);
                 f4 = Math.max(f3, f4);
                 f = (realWidth - (c * f3)) / 2.0f;
                 f2 = (realHeight - (d * f4)) / 2.0f;
                 break;
-            case 7:
+            case 3:
                 f4 = Math.min(f3, f4);
                 if (f4 > 1.0f) {
                     f4 = 1.0f;
                 }
                 f = (realWidth - (c * f4)) / 2.0f;
                 f2 = (realHeight - (d * f4)) / 2.0f;
+                f3 = f4;
+                break;
+            case 4:
+                f4 = Math.min(f3, f4);
+                f = (realWidth - (c * f4)) / 2.0f;
+                f2 = (realHeight - (d * f4)) / 2.0f;
+                f3 = f4;
+                break;
+            case 5:
+                f4 = Math.min(f3, f4);
+                f = realWidth - (c * f4);
+                f2 = realHeight - (d * f4);
+                f3 = f4;
+                break;
+            case 6:
+                f4 = Math.min(f3, f4);
                 f3 = f4;
                 break;
         }
@@ -257,12 +299,12 @@ public class BDImageView extends ImageView {
         invalidate();
     }
 
-    protected d getImage() {
+    protected b getImage() {
         if (this.h != null) {
             try {
                 Object a = com.baidu.adp.lib.e.c.a().a(this.h, this.i, null, getContext(), null, 1);
-                if (a != null && (a instanceof d)) {
-                    return (d) a;
+                if (a != null && (a instanceof b)) {
+                    return (b) a;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -275,31 +317,31 @@ public class BDImageView extends ImageView {
         a(str, i, this.l);
     }
 
-    public void a(String str, int i, f fVar) {
+    public void a(String str, int i, h hVar) {
         this.h = str;
         if (this.h != null) {
             this.i = i;
-            this.l = fVar;
+            this.l = hVar;
             try {
-                com.baidu.adp.lib.e.c.a().a(this.h, this.i, new a(this), getContext(), fVar);
+                com.baidu.adp.lib.e.c.a().a(this.h, this.i, new a(this), getContext(), hVar);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private d getDefaultBdImage() {
-        SoftReference<d> softReference;
-        d dVar;
+    private b getDefaultBdImage() {
+        SoftReference<b> softReference;
+        b bVar;
         if (this.g == null) {
             this.g = new SparseArray<>();
         }
-        if (this.g.indexOfKey(this.b) <= -1 || (softReference = this.g.get(this.b)) == null || (dVar = softReference.get()) == null) {
-            d dVar2 = new d(com.baidu.adp.lib.g.a.a().a(this.b), false, null);
-            this.g.put(this.b, new SoftReference<>(dVar2));
-            return dVar2;
+        if (this.g.indexOfKey(this.b) <= -1 || (softReference = this.g.get(this.b)) == null || (bVar = softReference.get()) == null) {
+            b bVar2 = new b(com.baidu.adp.lib.util.b.a().a(this.b), false, null);
+            this.g.put(this.b, new SoftReference<>(bVar2));
+            return bVar2;
         }
-        return dVar;
+        return bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -308,7 +350,7 @@ public class BDImageView extends ImageView {
         Matrix matrix;
         super.onDraw(canvas);
         if (!this.q) {
-            d image = getImage();
+            b image = getImage();
             if (image != null) {
                 if (!this.k) {
                     this.k = true;

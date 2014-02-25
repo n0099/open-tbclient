@@ -4,38 +4,38 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j extends com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.d> {
-    final /* synthetic */ l a;
-    final /* synthetic */ i b;
+public class j extends com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.b> {
+    final /* synthetic */ i a;
+    private final /* synthetic */ l b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(i iVar, l lVar) {
-        this.b = iVar;
-        this.a = lVar;
+        this.a = iVar;
+        this.b = lVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.e.b
-    public void a(String str, com.baidu.adp.lib.e.f fVar) {
-        super.a(str, fVar);
-        this.a.c();
+    public void a(String str, com.baidu.adp.lib.e.h hVar) {
+        super.a(str, hVar);
+        this.b.c();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.e.b
-    public void c(String str, com.baidu.adp.lib.e.f fVar) {
+    public void c(String str, com.baidu.adp.lib.e.h hVar) {
         LinkedList linkedList;
         LinkedList linkedList2;
         LinkedList linkedList3;
-        super.c(str, fVar);
-        linkedList = this.b.k;
-        linkedList.remove(this.a);
-        linkedList2 = this.b.l;
+        super.c(str, hVar);
+        linkedList = this.a.k;
+        linkedList.remove(this.b);
+        linkedList2 = this.a.l;
         if (linkedList2.size() > 0) {
-            linkedList3 = this.b.l;
+            linkedList3 = this.a.l;
             k kVar = (k) linkedList3.remove(0);
             if (kVar != null) {
-                this.b.a(kVar.a, kVar.c, kVar.b, kVar.d, false, kVar.e, kVar.f, kVar.g, true);
+                this.a.a(kVar.a, kVar.c, kVar.b, kVar.d, false, kVar.e, kVar.f, kVar.g, true);
             }
         }
     }
@@ -43,34 +43,34 @@ public class j extends com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.d> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.e.b
-    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, com.baidu.adp.lib.e.f fVar) {
+    public void a(com.baidu.adp.widget.ImageView.b bVar, String str, com.baidu.adp.lib.e.h hVar) {
         LinkedList linkedList;
         LinkedList linkedList2;
         LinkedList linkedList3;
-        super.a((j) dVar, str, fVar);
-        linkedList = this.b.k;
-        linkedList.remove(this.a);
-        if (!this.a.o && !this.a.a() && this.a.b != null) {
-            Iterator<com.baidu.tbadk.imageManager.c> it = this.a.b.iterator();
+        super.a((j) bVar, str, hVar);
+        linkedList = this.a.k;
+        linkedList.remove(this.b);
+        if (!this.b.o && !this.b.a() && this.b.b != null) {
+            Iterator<com.baidu.tbadk.imageManager.d> it = this.b.b.iterator();
             while (it.hasNext()) {
-                com.baidu.tbadk.imageManager.c next = it.next();
-                if (next != null && this.a != null) {
-                    if (dVar != null && this.a.i == null) {
-                        by.a("", -1008, "resource of onLoaded() is not null but task.img is null", dVar.j());
+                com.baidu.tbadk.imageManager.d next = it.next();
+                if (next != null && this.b != null) {
+                    if (bVar != null && this.b.i == null) {
+                        cb.a("", -1008, "resource of onLoaded() is not null but task.img is null", bVar.j());
                     }
-                    next.a(this.a.i == null ? dVar : this.a.i, this.a.b(), this.a.f);
+                    next.a(this.b.i == null ? bVar : this.b.i, this.b.b(), this.b.f);
                 }
             }
-            this.a.a(true);
+            this.b.a(true);
         }
-        linkedList2 = this.b.l;
+        linkedList2 = this.a.l;
         if (linkedList2.size() > 0) {
-            linkedList3 = this.b.l;
+            linkedList3 = this.a.l;
             k kVar = (k) linkedList3.remove(0);
-            this.b.a(kVar.a, kVar.c, kVar.b, kVar.d, false, kVar.e, kVar.f, kVar.g, true);
+            this.a.a(kVar.a, kVar.c, kVar.b, kVar.d, false, kVar.e, kVar.f, kVar.g, true);
         }
-        if (!this.a.f) {
-            new br(this.a).execute(new String[0]);
+        if (!this.b.f) {
+            new bp(this.b).execute(new String[0]);
         }
     }
 
@@ -78,14 +78,14 @@ public class j extends com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.d> {
     @Override // com.baidu.adp.lib.e.b
     public void a(Object... objArr) {
         super.a(objArr);
-        if ((this.a.o || this.a.i != null) && !this.a.a()) {
-            this.a.o = false;
-            if (this.a.b != null) {
-                Iterator<com.baidu.tbadk.imageManager.c> it = this.a.b.iterator();
+        if ((this.b.o || this.b.i != null) && !this.b.a()) {
+            this.b.o = false;
+            if (this.b.b != null) {
+                Iterator<com.baidu.tbadk.imageManager.d> it = this.b.b.iterator();
                 while (it.hasNext()) {
-                    it.next().a(this.a.i, this.a.b(), this.a.f);
+                    it.next().a(this.b.i, this.b.b(), this.b.f);
                 }
-                this.a.a(true);
+                this.b.a(true);
             }
         }
     }

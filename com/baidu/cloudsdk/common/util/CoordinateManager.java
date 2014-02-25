@@ -7,8 +7,8 @@ import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.util.Log;
-import com.bi;
-import com.bj;
+import com.k;
+import com.l;
 /* loaded from: classes.dex */
 public class CoordinateManager {
     private static final String a = CoordinateManager.class.getSimpleName();
@@ -21,7 +21,7 @@ public class CoordinateManager {
     public class a extends AsyncTask {
         private String b;
         private Location c;
-        private LocationListener d = new bj(this);
+        private LocationListener d = new l(this);
 
         public a(String str) {
             this.b = str;
@@ -149,7 +149,7 @@ public class CoordinateManager {
                     }
                     this.d = new a(str);
                     this.d.execute(new Void[0]);
-                    this.e.postDelayed(new bi(this), 3000L);
+                    this.e.postDelayed(new k(this), 3000L);
                 }
                 return location2;
             }
@@ -168,7 +168,7 @@ public class CoordinateManager {
             }
             this.d = new a(str);
             this.d.execute(new Void[0]);
-            this.e.postDelayed(new bi(this), 3000L);
+            this.e.postDelayed(new k(this), 3000L);
         }
         return location2;
     }

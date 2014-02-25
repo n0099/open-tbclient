@@ -1,25 +1,18 @@
 package com.baidu.tieba.pb;
-
-import android.view.MotionEvent;
-import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class co implements View.OnTouchListener {
-    final /* synthetic */ com.baidu.tieba.editortool.t a;
-    final /* synthetic */ PbEditorToolView b;
+public class co implements com.baidu.tieba.editortool.z {
+    final /* synthetic */ PbEditorToolView a;
+    private final /* synthetic */ com.baidu.tieba.editortool.z b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public co(PbEditorToolView pbEditorToolView, com.baidu.tieba.editortool.t tVar) {
-        this.b = pbEditorToolView;
-        this.a = tVar;
+    public co(PbEditorToolView pbEditorToolView, com.baidu.tieba.editortool.z zVar) {
+        this.a = pbEditorToolView;
+        this.b = zVar;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 1) {
-            this.b.c.requestFocus();
-            this.a.a(12, null);
-        }
-        return false;
+    @Override // com.baidu.tieba.editortool.z
+    public void a(int i, Object obj) {
+        this.b.a(i, obj);
     }
 }

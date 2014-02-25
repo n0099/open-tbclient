@@ -1,10 +1,9 @@
 package com.baidu.tieba.pb;
 
-import android.view.View;
-import com.baidu.tieba.person.PersonInfoActivity;
-import com.baidu.tieba.view.HeadImageView;
+import android.os.Handler;
+import android.widget.AbsListView;
 /* loaded from: classes.dex */
-class ap implements View.OnClickListener {
+class ap implements AbsListView.OnScrollListener {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,16 +11,19 @@ class ap implements View.OnClickListener {
         this.a = newPbActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        String str;
-        if (view instanceof HeadImageView) {
-            str = ((HeadImageView) view).getUserId();
-        } else {
-            str = (String) view.getTag();
-        }
-        if (str != null) {
-            PersonInfoActivity.a(this.a, str, (String) null);
-        }
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        Handler handler;
+        Handler handler2;
+        Handler handler3;
+        handler = this.a.v;
+        handler.removeMessages(1);
+        handler2 = this.a.v;
+        handler3 = this.a.v;
+        handler2.sendMessageDelayed(handler3.obtainMessage(1), 300L);
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 }

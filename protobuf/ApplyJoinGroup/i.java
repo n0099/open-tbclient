@@ -1,15 +1,6 @@
 package protobuf.ApplyJoinGroup;
 
-import com.google.protobuf.AbstractParser;
-import com.google.protobuf.CodedInputStream;
-import com.google.protobuf.ExtensionRegistryLite;
-import protobuf.ApplyJoinGroup.ApplyJoinGroupRes;
+import com.google.protobuf.MessageLiteOrBuilder;
 /* loaded from: classes.dex */
-final class i extends AbstractParser<ApplyJoinGroupRes.ApplyJoinGroupResIdl> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.protobuf.Parser
-    /* renamed from: a */
-    public ApplyJoinGroupRes.ApplyJoinGroupResIdl parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-        return new ApplyJoinGroupRes.ApplyJoinGroupResIdl(codedInputStream, extensionRegistryLite);
-    }
+public interface i extends MessageLiteOrBuilder {
 }

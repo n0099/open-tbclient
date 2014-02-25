@@ -1,10 +1,11 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tieba.im.message.ci;
+import com.baidu.tieba.im.message.av;
+import com.baidu.tieba.im.message.cr;
 /* loaded from: classes.dex */
 public class am extends com.baidu.adp.a.d {
-    private com.baidu.tieba.im.message.ap a = null;
-    private ci b = null;
+    private av a = null;
+    private cr b = null;
     private int c;
     private String d;
     private String e;
@@ -21,12 +22,12 @@ public class am extends com.baidu.adp.a.d {
         this.e = str;
     }
 
-    private com.baidu.tieba.im.message.ap c() {
-        com.baidu.tieba.im.message.ap apVar = new com.baidu.tieba.im.message.ap();
-        apVar.a(this.d);
-        apVar.b(this.e);
-        apVar.a(this.c);
-        return apVar;
+    private av c() {
+        av avVar = new av();
+        avVar.a(this.d);
+        avVar.b(this.e);
+        avVar.a(this.c);
+        return avVar;
     }
 
     public void a() {

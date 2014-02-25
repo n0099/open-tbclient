@@ -1,6 +1,4 @@
 package com.google.zxing.common.reedsolomon;
-
-import com.google.protobuf.CodedOutputStream;
 /* loaded from: classes.dex */
 public final class GenericGF {
     private static final int INITIALIZATION_THRESHOLD = 0;
@@ -12,7 +10,7 @@ public final class GenericGF {
     private final int primitive;
     private final int size;
     private GenericGFPoly zero;
-    public static final GenericGF AZTEC_DATA_12 = new GenericGF(4201, CodedOutputStream.DEFAULT_BUFFER_SIZE, 1);
+    public static final GenericGF AZTEC_DATA_12 = new GenericGF(4201, 4096, 1);
     public static final GenericGF AZTEC_DATA_10 = new GenericGF(1033, 1024, 1);
     public static final GenericGF AZTEC_DATA_6 = new GenericGF(67, 64, 1);
     public static final GenericGF AZTEC_PARAM = new GenericGF(19, 16, 1);

@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public class TripleTbImageView extends ViewGroup {
@@ -32,7 +33,7 @@ public class TripleTbImageView extends ViewGroup {
         addView(this.b);
         addView(this.c);
         addView(this.d);
-        this.f = com.baidu.adp.lib.g.g.a(context, 6.0f);
+        this.f = BdUtilHelper.a(context, 6.0f);
         if (g == null) {
             g = new com.baidu.tieba.util.i(context);
         }
@@ -71,34 +72,34 @@ public class TripleTbImageView extends ViewGroup {
         if (length == 1) {
             String str = (String) objArr[0];
             this.b.setTag(str);
-            g.b(str, new x(this, str));
+            g.b(str, new ab(this, str));
             this.c.setTag(null);
             this.d.setTag(null);
         } else if (length == 2) {
             String str2 = (String) objArr[0];
             this.b.setTag(str2);
-            g.b(str2, new y(this, str2));
+            g.b(str2, new ac(this, str2));
             String str3 = (String) objArr[1];
-            g.b(str3, new z(this, str3));
+            g.b(str3, new ad(this, str3));
             this.d.setTag(null);
         } else if (length == 3) {
             String str4 = (String) objArr[0];
             this.b.setTag(str4);
-            g.b(str4, new aa(this, str4));
+            g.b(str4, new ae(this, str4));
             String str5 = (String) objArr[1];
-            g.b(str5, new ab(this, str5));
+            g.b(str5, new af(this, str5));
             String str6 = (String) objArr[2];
-            g.b(str6, new ac(this, str6));
+            g.b(str6, new ag(this, str6));
         }
         requestLayout();
         invalidate();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(TbImageView tbImageView, com.baidu.adp.widget.ImageView.d dVar) {
-        if (this.e != null && dVar != null && tbImageView != null) {
+    public void a(TbImageView tbImageView, com.baidu.adp.widget.ImageView.b bVar) {
+        if (this.e != null && bVar != null && tbImageView != null) {
             int length = (int) (h / this.e.length);
-            if (dVar.c() < length * 0.3f || dVar.d() < length * a[this.e.length - 1] * 0.3f) {
+            if (bVar.c() < length * 0.3f || bVar.d() < length * a[this.e.length - 1] * 0.3f) {
                 tbImageView.setScaleType(ImageView.ScaleType.FIT_START);
             } else {
                 tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);

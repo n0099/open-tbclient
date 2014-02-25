@@ -1,11 +1,7 @@
 package com.baidu.tieba.pb;
-
-import android.content.DialogInterface;
-import android.util.SparseArray;
-import android.view.View;
-import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bo implements View.OnLongClickListener {
+public class bo implements Runnable {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,42 +9,18 @@ class bo implements View.OnLongClickListener {
         this.a = newPbActivity;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
-        SparseArray sparseArray;
-        com.baidu.tieba.model.bg bgVar;
-        boolean z;
-        cr crVar;
-        DialogInterface.OnClickListener onClickListener;
-        com.baidu.tieba.model.bm bmVar;
-        try {
-            sparseArray = (SparseArray) view.getTag();
-        } catch (ClassCastException e) {
-            e.printStackTrace();
-            sparseArray = null;
+    @Override // java.lang.Runnable
+    public void run() {
+        cu cuVar;
+        cu cuVar2;
+        cu cuVar3;
+        cuVar = this.a.C;
+        if (!cuVar.z()) {
+            cuVar3 = this.a.C;
+            cuVar3.b(false);
+            return;
         }
-        if (sparseArray != null) {
-            this.a.b = (com.baidu.tieba.data.as) sparseArray.get(R.id.tag_clip_board);
-            if (this.a.b != null) {
-                bgVar = this.a.v;
-                if (bgVar.a() && this.a.b.d() != null) {
-                    String d = this.a.b.d();
-                    bmVar = this.a.u;
-                    if (d.equals(bmVar.k())) {
-                        z = true;
-                        boolean booleanValue = ((Boolean) sparseArray.get(R.id.tag_is_subpb)).booleanValue();
-                        crVar = this.a.A;
-                        onClickListener = this.a.ac;
-                        crVar.a(onClickListener, z, booleanValue);
-                    }
-                }
-                z = false;
-                boolean booleanValue2 = ((Boolean) sparseArray.get(R.id.tag_is_subpb)).booleanValue();
-                crVar = this.a.A;
-                onClickListener = this.a.ac;
-                crVar.a(onClickListener, z, booleanValue2);
-            }
-        }
-        return true;
+        cuVar2 = this.a.C;
+        cuVar2.b(true);
     }
 }

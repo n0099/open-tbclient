@@ -4,8 +4,8 @@ import android.content.Context;
 import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class l implements com.baidu.adp.lib.d.c<TextView> {
-    final /* synthetic */ Context a;
+public class l implements com.baidu.adp.lib.d.c<TextView> {
+    private final /* synthetic */ Context a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(Context context) {
@@ -16,7 +16,7 @@ public final class l implements com.baidu.adp.lib.d.c<TextView> {
     @Override // com.baidu.adp.lib.d.c
     /* renamed from: b */
     public TextView a() {
-        com.baidu.adp.lib.g.e.d("pool make TextView");
+        com.baidu.adp.lib.util.f.e("pool make TextView");
         return new com.baidu.tbadk.widget.c(this.a);
     }
 

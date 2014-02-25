@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
@@ -56,9 +57,11 @@ public class ae extends BaseAdapter {
             agVar.a = (TbImageView) view.findViewById(R.id.image);
             view.setTag(agVar);
         }
+        ag agVar2 = (ag) view.getTag();
         view.setLayoutParams(new AbsListView.LayoutParams(measuredWidth, measuredWidth));
         String obj = getItem(i).toString();
-        ((ag) view.getTag()).a.setTag(obj);
+        agVar2.a.setTag(obj);
+        agVar2.a.setBackgroundResource(TiebaApplication.g().al() == 1 ? R.drawable.btn_choose_face_selector_1 : R.drawable.btn_choose_face_selector);
         this.c.b(obj, new af(this, viewGroup));
         if (i == getCount() - 1) {
             viewGroup.invalidate();

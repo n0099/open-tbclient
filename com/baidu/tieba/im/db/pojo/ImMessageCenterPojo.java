@@ -1,5 +1,11 @@
 package com.baidu.tieba.im.db.pojo;
 
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.f;
+import com.baidu.gson.Gson;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.UserData;
+import com.baidu.tieba.im.util.l;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class ImMessageCenterPojo implements Serializable {
@@ -155,5 +161,55 @@ public class ImMessageCenterPojo implements Serializable {
 
     public String toString() {
         return "ImMessageCenterPojo [gid=" + this.gid + ", group_name=" + this.group_name + ", group_head=" + this.group_head + ", group_type=" + this.group_type + ", group_ext=" + this.group_ext + ", is_hidden=" + this.is_hidden + ", unread_count=" + this.unread_count + ", last_rid=" + this.last_rid + ", pulled_msgId=" + this.pulled_msgId + ", last_content_time=" + this.last_content_time + ", last_user_name=" + this.last_user_name + ", last_content=" + this.last_content + ", type=" + this.type + ", ext=" + this.ext + ", orderCol=" + this.orderCol + ", is_delete=" + this.is_delete + "]";
+    }
+
+    public static ImMessageCenterPojo fromCommonMsg(CommonMsgPojo commonMsgPojo) {
+        if (commonMsgPojo == null) {
+            f.e("see init cmpojo is null");
+            return null;
+        }
+        String A = TiebaApplication.A();
+        if (TextUtils.isEmpty(A)) {
+            f.e("see init not login:");
+            return null;
+        }
+        f.e("see init private cmpojo:" + commonMsgPojo);
+        String gid = commonMsgPojo.getGid();
+        if (TextUtils.isEmpty(gid)) {
+            f.b("see init private uid  is null uid:" + gid);
+            return null;
+        }
+        ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
+        imMessageCenterPojo.setGid(gid);
+        UserData userData = (UserData) new Gson().fromJson(commonMsgPojo.getUser_info(), (Class<Object>) UserData.class);
+        if (userData == null) {
+            f.e("see init private userinfo:" + commonMsgPojo.getUser_info());
+            return null;
+        }
+        String toUid = commonMsgPojo.getToUid();
+        if (!TextUtils.isEmpty(toUid) && toUid.equals(gid) && A.equals(gid)) {
+            f.b("see init private : send msg to self");
+            return null;
+        }
+        String uid = commonMsgPojo.getUid();
+        if (A.equals(uid)) {
+            UserData userData2 = (UserData) new Gson().fromJson(commonMsgPojo.getToUser_info(), (Class<Object>) UserData.class);
+            if (userData2 != null) {
+                imMessageCenterPojo.setGroup_name(userData2.getUserName());
+                imMessageCenterPojo.setGroup_head(userData2.getPortrait());
+            }
+        } else {
+            imMessageCenterPojo.setGroup_name(userData.getUserName());
+            imMessageCenterPojo.setGroup_head(userData.getPortrait());
+        }
+        imMessageCenterPojo.setGroup_type(6);
+        if (A.equals(uid)) {
+            imMessageCenterPojo.setLast_content(l.h(commonMsgPojo.toChatMessage()));
+        } else {
+            imMessageCenterPojo.setLast_content(String.valueOf(userData.getUserName()) + ":" + l.h(commonMsgPojo.toChatMessage()));
+        }
+        imMessageCenterPojo.setLast_content_time(commonMsgPojo.getCreate_time() * 1000);
+        f.e("see convert " + imMessageCenterPojo + "ori:" + commonMsgPojo);
+        return imMessageCenterPojo;
     }
 }

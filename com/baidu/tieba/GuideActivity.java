@@ -5,115 +5,150 @@ import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Parcelable;
 import android.support.v4.view.ViewPager;
-import android.support.v4.view.bq;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import com.baidu.mobstat.StatService;
+import com.baidu.tieba.view.BaseViewPager;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class GuideActivity extends j {
-    private static String d = "from_page";
-    private FrameLayout e;
-    private ViewPager f;
-    private LinearLayout g;
-    private Button h;
-    private FrameLayout i;
-    private ImageView j;
-    private List<View> k;
-    private boolean l;
-    private af b = null;
-    private String c = null;
-    private Handler m = new aa(this);
-    public View.OnClickListener a = new ab(this);
+public class GuideActivity extends f {
+    private static String l = "from_page";
+    private ArrayList<View> g;
+    private z h;
+    private BaseViewPager i;
+    private List<Bitmap> k;
+    private y d = null;
+    private String e = null;
+    private int[] f = {R.drawable.image_bootpage01, R.drawable.image_bootpage02};
+    private Button j = null;
+    private boolean m = true;
+    private com.baidu.tieba.view.a n = new t(this);
+    public View.OnClickListener a = new u(this);
+    public View.OnClickListener b = new v(this);
+    public View.OnClickListener c = new w(this);
+    private final ViewPager.OnPageChangeListener o = new x(this);
 
     public static void a(Activity activity, String str) {
         Intent intent = new Intent(activity, GuideActivity.class);
-        intent.putExtra(d, str);
+        intent.putExtra(l, str);
         activity.startActivity(intent);
     }
 
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.guide_activity);
-        this.l = false;
-        a();
-        if (bundle != null) {
-            this.c = bundle.getString(d);
-        } else {
-            this.c = getIntent().getStringExtra(d);
+        this.h = new z(this, null);
+        this.i = (BaseViewPager) findViewById(R.id.guide_pager);
+        this.i.setAdapter(this.h);
+        this.i.setOnScrollOutListener(this.n);
+        this.i.setOnPageChangeListener(this.o);
+        this.k = new ArrayList();
+        this.g = new ArrayList<>();
+        for (int i = 0; i < this.f.length; i++) {
+            Bitmap b = com.baidu.tieba.util.n.b(this, this.f[i]);
+            ImageView imageView = new ImageView(this);
+            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            imageView.setBackgroundColor(-1);
+            imageView.setOnClickListener(this.c);
+            imageView.setImageBitmap(b);
+            this.k.add(b);
+            this.g.add(i, imageView);
         }
-        if (this.c != null && this.c.equals("from_logo_page")) {
-            this.b = new af(this, null);
-            this.b.setSelfExecute(true);
-            this.b.execute(new String[0]);
+        View inflate = LayoutInflater.from(this).inflate(R.layout.guide_view_last, (ViewGroup) null);
+        this.j = (Button) inflate.findViewById(R.id.last_page_btn);
+        this.j.setOnClickListener(this.a);
+        this.g.add(inflate);
+        if (bundle != null) {
+            this.e = bundle.getString(l);
+        } else {
+            this.e = getIntent().getStringExtra(l);
+        }
+        if (TiebaApplication.g().s()) {
+            try {
+                StatService.setAppChannel(com.baidu.tieba.data.i.l());
+            } catch (Exception e) {
+                com.baidu.adp.lib.util.f.b(getClass().getName(), "onCreate", e.getMessage());
+            }
+        }
+        if (this.e.equals("from_logo_page")) {
+            this.d = new y(this, null);
+            this.d.setSelfExecute(true);
+            this.d.execute(new String[0]);
             return;
         }
-        this.b = null;
+        this.d = null;
     }
 
-    private void a() {
-        this.e = (FrameLayout) findViewById(R.id.fl_guide_bottom);
-        this.f = (ViewPager) findViewById(R.id.guide_viewPager);
-        this.g = (LinearLayout) findViewById(R.id.ll_guide_point_icon);
-        this.h = (Button) findViewById(R.id.btn_guide_enter);
-        this.i = (FrameLayout) findViewById(R.id.fl_guide_top);
-        this.j = (ImageView) findViewById(R.id.iv_guide_horse);
-        this.k = new ArrayList();
-        LayoutInflater layoutInflater = getLayoutInflater();
-        View inflate = layoutInflater.inflate(R.layout.guide_viewpager_view1, (ViewGroup) null);
-        View inflate2 = layoutInflater.inflate(R.layout.guide_viewpager_view2, (ViewGroup) null);
-        this.k.add(inflate);
-        this.k.add(inflate2);
-        this.f.setAdapter(new GuideViewPagerAdapter(this.k));
-        this.f.setOnPageChangeListener(new GuideOnPageChangeListener());
-        this.h.setVisibility(8);
-        this.h.setOnClickListener(this.a);
-    }
-
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.m.removeMessages(1);
-        this.m.removeMessages(2);
-        if (this.b != null) {
-            this.b.cancel(true);
-            this.b = null;
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 >= this.f.length) {
+                break;
+            }
+            View view = this.g.get(i2);
+            if (view != null) {
+                view.setBackgroundDrawable(null);
+                if (view instanceof ImageView) {
+                    ((ImageView) view).setImageBitmap(null);
+                }
+            }
+            Bitmap bitmap = this.k.get(i2);
+            if (bitmap != null && !bitmap.isRecycled()) {
+                bitmap.recycle();
+            }
+            i = i2 + 1;
+        }
+        if (this.d != null) {
+            this.d.cancel(true);
+            this.d = null;
         }
     }
 
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.m.postDelayed(new ac(this), 200L);
+        if (TiebaApplication.g().s()) {
+            try {
+                StatService.onResume(this);
+            } catch (Exception e) {
+                com.baidu.adp.lib.util.f.b(getClass().getName(), "onResume", e.getMessage());
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, android.app.Activity
     public void onPause() {
         super.onPause();
-        b();
+        if (TiebaApplication.g().s()) {
+            try {
+                StatService.onPause(this);
+            } catch (Exception e) {
+                com.baidu.adp.lib.util.f.b(getClass().getName(), "onPause", e.getMessage());
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.j, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tieba.f, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         switch (i) {
             case 4:
-                if (!this.c.equals("from_about_page")) {
-                    b();
+                if (!this.e.equals("from_about_page")) {
+                    a();
                 }
                 closeActivity();
                 return true;
@@ -122,33 +157,31 @@ public class GuideActivity extends j {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b() {
-        String A = TiebaApplication.A();
-        boolean aF = TiebaApplication.h().aF();
-        if (A != null && A.length() > 0 && !aF) {
-            MainTabActivity.a(this, 1);
-        } else {
-            MainTabActivity.c(1);
-            MainTabActivity.a(this, 2);
-            if (aF) {
-                TiebaApplication.h().aG();
+    public void a() {
+        if (this.m) {
+            boolean aE = TiebaApplication.g().aE();
+            com.baidu.tieba.mention.v.a().l();
+            com.baidu.tieba.mention.v.a().j();
+            if (!aE) {
+                MainTabActivity.a(this, 1);
+            } else {
+                MainTabActivity.d(2);
+                MainTabActivity.a(this, 2);
+                if (aE) {
+                    TiebaApplication.g().aF();
+                }
             }
-            if ((A == null || A.length() <= 0) && TiebaApplication.n() && f.a((Activity) this)) {
-                TiebaApplication.h().aw();
-                f.a(this, 0, 1, false);
-            }
+            finish();
+            this.m = false;
         }
-        finish();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void c() {
+    public void b() {
         Intent intent = new Intent();
         intent.addCategory("android.intent.category.LAUNCHER");
         intent.setAction("android.intent.action.MAIN");
         intent.setFlags(270532608);
-        intent.setComponent(new ComponentName(getPackageName(), getPackageName() + ".LogoActivity"));
+        intent.setComponent(new ComponentName(getPackageName(), String.valueOf(getPackageName()) + ".LogoActivity"));
         Intent intent2 = new Intent("com.android.launcher.action.INSTALL_SHORTCUT");
         intent2.putExtra("duplicate", false);
         intent2.putExtra("android.intent.extra.shortcut.NAME", getString(R.string.app_name));
@@ -157,8 +190,7 @@ public class GuideActivity extends j {
         sendBroadcast(intent2);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean d() {
+    public boolean c() {
         String str;
         try {
             ContentResolver contentResolver = getContentResolver();
@@ -174,117 +206,8 @@ public class GuideActivity extends j {
                 }
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.g.e.a(getClass().getName(), "checkShortCut", e.toString());
+            com.baidu.adp.lib.util.f.a(getClass().getName(), "checkShortCut", e.toString());
         }
         return false;
-    }
-
-    /* loaded from: classes.dex */
-    public class GuideViewPagerAdapter extends android.support.v4.view.ae {
-        public List<View> a;
-
-        public GuideViewPagerAdapter(List<View> list) {
-            this.a = list;
-        }
-
-        @Override // android.support.v4.view.ae
-        public void destroyItem(View view, int i, Object obj) {
-            ((ViewPager) view).removeView(this.a.get(i));
-        }
-
-        @Override // android.support.v4.view.ae
-        public void finishUpdate(View view) {
-        }
-
-        @Override // android.support.v4.view.ae
-        public int getCount() {
-            return this.a.size();
-        }
-
-        @Override // android.support.v4.view.ae
-        public Object instantiateItem(View view, int i) {
-            ((ViewPager) view).addView(this.a.get(i), 0);
-            return this.a.get(i);
-        }
-
-        @Override // android.support.v4.view.ae
-        public boolean isViewFromObject(View view, Object obj) {
-            return view == obj;
-        }
-
-        @Override // android.support.v4.view.ae
-        public void restoreState(Parcelable parcelable, ClassLoader classLoader) {
-        }
-
-        @Override // android.support.v4.view.ae
-        public Parcelable saveState() {
-            return null;
-        }
-
-        @Override // android.support.v4.view.ae
-        public void startUpdate(View view) {
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public class GuideOnPageChangeListener implements bq {
-        public GuideOnPageChangeListener() {
-        }
-
-        @Override // android.support.v4.view.bq
-        public void a_(int i) {
-            switch (i) {
-                case 0:
-                    GuideActivity.this.h.setVisibility(8);
-                    GuideActivity.this.a(0);
-                    return;
-                case 1:
-                    GuideActivity.this.h.setVisibility(0);
-                    GuideActivity.this.a(1);
-                    return;
-                default:
-                    return;
-            }
-        }
-
-        @Override // android.support.v4.view.bq
-        public void a(int i, float f, int i2) {
-        }
-
-        @Override // android.support.v4.view.bq
-        public void b(int i) {
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i) {
-        int childCount = this.g.getChildCount();
-        for (int i2 = 0; i2 < childCount; i2++) {
-            ImageView imageView = (ImageView) this.g.getChildAt(i2);
-            if (i2 == i % 2) {
-                imageView.setImageResource(R.drawable.dot_guide_s);
-            } else {
-                imageView.setImageResource(R.drawable.dot_guide_n);
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void e() {
-        this.m.postDelayed(new ad(this), 2000L);
-        this.j.startAnimation(AnimationUtils.loadAnimation(this, R.anim.guide_horse_set));
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void f() {
-        this.m.postDelayed(new ae(this), 1000L);
-        this.i.startAnimation(AnimationUtils.loadAnimation(this, R.anim.guide_horse_view_trans));
-        g();
-        a(0);
-        this.f.setCurrentItem(0);
-    }
-
-    private void g() {
-        this.e.startAnimation(AnimationUtils.loadAnimation(this, R.anim.guide_viewpager_alpha));
     }
 }

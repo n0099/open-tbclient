@@ -1,36 +1,38 @@
 package com.baidu.tieba.view;
 
+import android.content.Context;
 import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.tieba.im.data.UserData;
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.Button;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
-public class az implements com.baidu.tieba.util.cg {
-    final /* synthetic */ UserData a;
-    final /* synthetic */ HorizontalPanelView b;
+class az implements View.OnClickListener {
+    final /* synthetic */ GroupBannerView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public az(HorizontalPanelView horizontalPanelView, UserData userData) {
-        this.b = horizontalPanelView;
-        this.a = userData;
+    public az(GroupBannerView groupBannerView) {
+        this.a = groupBannerView;
     }
 
-    @Override // com.baidu.tieba.util.cg
-    public boolean a(View view) {
-        List list;
-        LinearLayout linearLayout;
-        if (view != null && (view instanceof HeadImageView)) {
-            HeadImageView headImageView = (HeadImageView) view;
-            if (headImageView.getUserId() != null && headImageView.getUserId().equals(String.valueOf(this.a.getUserId()))) {
-                list = this.b.g;
-                list.remove(headImageView);
-                linearLayout = this.b.d;
-                linearLayout.removeView(headImageView);
-                return false;
-            }
-            return false;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Button button;
+        Context context;
+        String str;
+        Context context2;
+        button = this.a.b;
+        if (view == button) {
+            context2 = this.a.c;
+            com.baidu.tieba.ai.a(context2, "group_tab_banner_close");
+            this.a.e = true;
+            this.a.setVisibility(8);
+            TiebaApplication.g().f(System.currentTimeMillis());
+            return;
         }
-        return false;
+        context = this.a.c;
+        com.baidu.tieba.ai.a(context, "group_tab_banner_click");
+        Context context3 = this.a.getContext();
+        str = this.a.g;
+        UtilHelper.a(context3, str, null, null);
     }
 }

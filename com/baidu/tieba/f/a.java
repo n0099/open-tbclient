@@ -1,30 +1,32 @@
 package com.baidu.tieba.f;
 
-import com.baidu.adp.lib.a.d;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.switchs.SwitchKey;
-import com.slidingmenu.lib.R;
+import android.content.Context;
+import android.content.Intent;
+import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class a {
-    private static boolean a(String str) {
-        String[] stringArray = TiebaApplication.h().getResources().getStringArray(R.array.voice_black_frs_list);
-        String string = TiebaApplication.h().getResources().getString(R.string.forum);
-        int length = stringArray.length;
-        for (int i = 0; i < length; i++) {
-            if (stringArray[i].equals(str) || str.equals(stringArray[i] + string)) {
-                return true;
-            }
+    private Context a;
+    private Intent b;
+
+    public a(Context context) {
+        this.a = null;
+        this.b = null;
+        if (context == null) {
+            throw new InvalidParameterException("ActivitySwitch context null");
         }
-        return false;
+        this.a = context;
+        this.b = new Intent();
     }
 
-    public static boolean a(String str, Boolean bool) {
-        if (d.a().b(SwitchKey.VOICE) == 0) {
-            if ((str == null || !a(str)) && bool != null) {
-                return bool.booleanValue();
-            }
-            return false;
-        }
-        return false;
+    public Context c() {
+        return this.a;
+    }
+
+    public Intent d() {
+        return this.b;
+    }
+
+    public void e() {
+        this.a.startActivity(this.b);
     }
 }

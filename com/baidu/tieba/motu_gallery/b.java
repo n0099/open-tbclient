@@ -77,7 +77,7 @@ public class b {
             } else {
                 a = a(a2, i2, i);
             }
-            int b = v.b(context, uri, z);
+            int b = w.b(context, uri, z);
             if (b != 0) {
                 Matrix matrix = new Matrix();
                 matrix.setRotate(b);

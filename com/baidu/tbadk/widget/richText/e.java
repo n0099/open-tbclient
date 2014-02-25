@@ -11,6 +11,7 @@ public class e {
     public String h;
     public String i;
     public boolean j;
+    public boolean k = true;
 
     public String toString() {
         return "TbRichTextEmotionInfo{mStatic='" + this.a + "', mDynamic='" + this.b + "', mC='" + this.c + "', mType=" + this.d + ", mGroupId='" + this.e + "', mWidth=" + this.f + ", mHeight=" + this.g + ", mPacketName='" + this.h + "', mIcon='" + this.i + "', mFailed=" + this.j + '}';

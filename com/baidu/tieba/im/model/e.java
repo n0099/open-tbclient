@@ -7,7 +7,7 @@ import com.baidu.sapi2.shell.SapiErrorCode;
 import com.baidu.tieba.im.chat.LocalViewSize;
 import com.baidu.tieba.im.data.MemberData;
 import com.baidu.tieba.im.data.PhotoUrlData;
-import com.baidu.tieba.im.message.br;
+import com.baidu.tieba.im.message.ca;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -18,9 +18,9 @@ public class e extends com.baidu.adp.a.d {
     private int c;
     private long d;
     private String e;
-    private br f;
-    private com.baidu.tieba.im.message.ai g;
-    private com.baidu.tieba.im.message.ai h;
+    private ca f;
+    private com.baidu.tieba.im.message.ao g;
+    private com.baidu.tieba.im.message.ao h;
     private PhotoUrlData i;
     private boolean j;
 
@@ -74,31 +74,31 @@ public class e extends com.baidu.adp.a.d {
         this.e = bundle.getString("default_invite_msg");
     }
 
-    private com.baidu.tieba.im.message.ai c(long j, int i) {
-        com.baidu.tieba.im.message.ai aiVar = new com.baidu.tieba.im.message.ai();
-        aiVar.a(j);
+    private com.baidu.tieba.im.message.ao c(long j, int i) {
+        com.baidu.tieba.im.message.ao aoVar = new com.baidu.tieba.im.message.ao();
+        aoVar.a(j);
         LocalViewSize.ImageSize c = LocalViewSize.a().c();
         LocalViewSize.ImageSize d = LocalViewSize.a().d();
-        aiVar.c(d.height);
-        aiVar.d(d.width);
-        aiVar.a(c.height);
-        aiVar.b(c.width);
+        aoVar.c(d.height);
+        aoVar.d(d.width);
+        aoVar.a(c.height);
+        aoVar.b(c.width);
         if (i == 4) {
-            aiVar.a("forumgroup_recommend");
+            aoVar.a("forumgroup_recommend");
         } else if (i == 5) {
-            aiVar.a("forumgroup_hot");
+            aoVar.a("forumgroup_hot");
         } else if (i == 6) {
-            aiVar.a("forumgroup_official");
+            aoVar.a("forumgroup_official");
         } else if (i == 3) {
-            aiVar.a("grouptalk");
+            aoVar.a("grouptalk");
         } else if (i == 1) {
-            aiVar.a("usergroup");
+            aoVar.a("usergroup");
         } else if (i == 7) {
-            aiVar.a("invitetalk");
+            aoVar.a("invitetalk");
         } else {
-            aiVar.a("");
+            aoVar.a("");
         }
-        return aiVar;
+        return aoVar;
     }
 
     public void a(long j, int i) {
@@ -123,21 +123,21 @@ public class e extends com.baidu.adp.a.d {
         bundle.putString("default_invite_msg", this.e);
     }
 
-    public void a(br brVar) {
+    public void a(ca caVar) {
         this.i = null;
-        this.f = brVar;
+        this.f = caVar;
     }
 
-    public br g() {
+    public ca g() {
         return this.f;
     }
 
     public ArrayList<String> h() {
-        if (this.f == null || this.f.c() == null || this.f.c().size() <= 0) {
+        if (this.f == null || this.f.d() == null || this.f.d().size() <= 0) {
             return null;
         }
         ArrayList<String> arrayList = new ArrayList<>();
-        for (PhotoUrlData photoUrlData : this.f.c()) {
+        for (PhotoUrlData photoUrlData : this.f.d()) {
             if (photoUrlData != null) {
                 arrayList.add(photoUrlData.getBigurl());
             }
@@ -156,21 +156,21 @@ public class e extends com.baidu.adp.a.d {
             return null;
         }
         this.i = photoUrlData;
-        if (this.f == null || this.f.c() == null || this.f.c().size() <= 0) {
+        if (this.f == null || this.f.d() == null || this.f.d().size() <= 0) {
             return "";
         }
-        int size = this.f.c().size();
-        List<PhotoUrlData> c = this.f.c();
+        int size = this.f.d().size();
+        List<PhotoUrlData> d = this.f.d();
         int i = 1;
         while (i < size) {
-            if (c.get(i) == null) {
+            if (d.get(i) == null) {
                 str = str2;
-            } else if (c.get(i).getPicId().equals(picId)) {
+            } else if (d.get(i).getPicId().equals(picId)) {
                 str = str2;
             } else {
-                str = str2 + c.get(i).getPicId();
+                str = String.valueOf(str2) + d.get(i).getPicId();
                 if (i != size - 1) {
-                    str = str + ",";
+                    str = String.valueOf(str) + ",";
                 }
             }
             i++;
@@ -188,25 +188,25 @@ public class e extends com.baidu.adp.a.d {
             return null;
         }
         this.i = photoUrlData;
-        if (this.f == null || this.f.c() == null || this.f.c().size() <= 0) {
+        if (this.f == null || this.f.d() == null || this.f.d().size() <= 0) {
             return picId;
         }
-        List<PhotoUrlData> c = this.f.c();
-        int size = c.size();
+        List<PhotoUrlData> d = this.f.d();
+        int size = d.size();
         String str = "";
         for (int i = 1; i < size; i++) {
-            if (c.get(i) != null) {
-                str = str + c.get(i).getPicId() + ",";
+            if (d.get(i) != null) {
+                str = String.valueOf(str) + d.get(i).getPicId() + ",";
             }
         }
-        return str + picId;
+        return String.valueOf(str) + picId;
     }
 
     public void i() {
-        if (this.f != null && this.f.c() != null && this.f.c().size() > 0 && this.i != null) {
-            for (PhotoUrlData photoUrlData : this.f.c()) {
+        if (this.f != null && this.f.d() != null && this.f.d().size() > 0 && this.i != null) {
+            for (PhotoUrlData photoUrlData : this.f.d()) {
                 if (photoUrlData != null && photoUrlData.getPicId().equals(this.i.getPicId())) {
-                    this.f.c().remove(photoUrlData);
+                    this.f.d().remove(photoUrlData);
                     return;
                 }
             }
@@ -215,44 +215,44 @@ public class e extends com.baidu.adp.a.d {
 
     public void j() {
         if (this.f != null && this.i != null) {
-            if (this.f.c() == null) {
+            if (this.f.d() == null) {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(this.i);
                 this.f.b(arrayList);
                 return;
             }
-            if (this.f.c().size() > 0 && this.f.c().get(0) != null && TextUtils.isEmpty(this.f.c().get(0).getPicId())) {
-                this.f.c().remove(0);
+            if (this.f.d().size() > 0 && this.f.d().get(0) != null && TextUtils.isEmpty(this.f.d().get(0).getPicId())) {
+                this.f.d().remove(0);
             }
             PhotoUrlData photoUrlData = new PhotoUrlData();
             photoUrlData.setBigurl(this.i.getBigurl());
             photoUrlData.setPicId(this.i.getPicId());
             photoUrlData.setSmallurl(this.i.getSmallurl());
-            this.f.c().add(photoUrlData);
+            this.f.d().add(photoUrlData);
         }
     }
 
     public void k() {
-        if (this.f != null && this.f.c() != null && this.f.c().size() > 0 && this.i != null) {
-            Iterator<PhotoUrlData> it = this.f.c().iterator();
+        if (this.f != null && this.f.d() != null && this.f.d().size() > 0 && this.i != null) {
+            Iterator<PhotoUrlData> it = this.f.d().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 PhotoUrlData next = it.next();
                 if (next != null && next.getPicId().equals(this.i.getPicId())) {
-                    this.f.c().remove(next);
+                    this.f.d().remove(next);
                     break;
                 }
             }
-            if (this.f.c().size() > 0 && this.f.c().get(0) != null && TextUtils.isEmpty(this.f.c().get(0).getPicId())) {
-                this.f.c().remove(0);
+            if (this.f.d().size() > 0 && this.f.d().get(0) != null && TextUtils.isEmpty(this.f.d().get(0).getPicId())) {
+                this.f.d().remove(0);
             }
             PhotoUrlData photoUrlData = new PhotoUrlData();
             photoUrlData.setBigurl(this.i.getBigurl());
             photoUrlData.setPicId(this.i.getPicId());
             photoUrlData.setSmallurl(this.i.getSmallurl());
-            this.f.c().add(0, photoUrlData);
+            this.f.d().add(0, photoUrlData);
         }
     }
 
@@ -263,10 +263,10 @@ public class e extends com.baidu.adp.a.d {
     }
 
     public boolean a(String str) {
-        if (str != null && this.f != null && this.f.b() != null && this.f.b().size() > 0) {
-            for (MemberData memberData : this.f.b()) {
+        if (str != null && this.f != null && this.f.c() != null && this.f.c().size() > 0) {
+            for (MemberData memberData : this.f.c()) {
                 if (str.equals(String.valueOf(memberData.getUserId()))) {
-                    this.f.b().remove(memberData);
+                    this.f.c().remove(memberData);
                     return true;
                 }
             }
@@ -274,11 +274,11 @@ public class e extends com.baidu.adp.a.d {
         return false;
     }
 
-    public com.baidu.tieba.im.message.q l() {
+    public com.baidu.tieba.im.message.s l() {
         return this.h;
     }
 
-    public com.baidu.tieba.im.message.q m() {
+    public com.baidu.tieba.im.message.s m() {
         return this.g;
     }
 

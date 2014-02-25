@@ -4,25 +4,25 @@ import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements DialogInterface.OnClickListener {
-    final /* synthetic */ t a;
-    final /* synthetic */ EditorToolComponetContainer b;
+    final /* synthetic */ EditorToolComponetContainer a;
+    private final /* synthetic */ z b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b(EditorToolComponetContainer editorToolComponetContainer, t tVar) {
-        this.b = editorToolComponetContainer;
-        this.a = tVar;
+    public b(EditorToolComponetContainer editorToolComponetContainer, z zVar) {
+        this.a = editorToolComponetContainer;
+        this.b = zVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         boolean z;
-        z = this.b.j;
+        z = this.a.m;
         if (z) {
-            this.b.b.setmImagetype(2);
-            this.a.a(23, null);
+            this.a.b.setmImagetype(2);
+            this.b.a(23, null);
             return;
         }
-        this.b.b.setmImagetype(1);
-        this.a.a(22, null);
+        this.a.b.setmImagetype(1);
+        this.b.a(22, null);
     }
 }

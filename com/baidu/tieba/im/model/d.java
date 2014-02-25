@@ -4,8 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tieba.im.data.GroupPermData;
-import com.baidu.tieba.im.message.bf;
+import com.baidu.tieba.im.message.bl;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
@@ -19,7 +20,7 @@ public class d extends com.baidu.adp.a.d {
     private int g;
     private int h;
     private GroupPermData i;
-    private Map<String, Boolean> j = new HashMap();
+    private final Map<String, Boolean> j = new HashMap();
 
     public void a(String str) {
         this.j.put(str, true);
@@ -63,8 +64,8 @@ public class d extends com.baidu.adp.a.d {
     }
 
     public void a(Activity activity) {
-        this.g = com.baidu.adp.lib.g.g.a((Context) activity, 70.0f);
-        this.h = com.baidu.adp.lib.g.g.a((Context) activity, 70.0f);
+        this.g = BdUtilHelper.a((Context) activity, 70.0f);
+        this.h = BdUtilHelper.a((Context) activity, 70.0f);
     }
 
     public int g() {
@@ -136,15 +137,15 @@ public class d extends com.baidu.adp.a.d {
         this.i = (GroupPermData) bundle.getSerializable("group_perm");
     }
 
-    private com.baidu.tieba.im.message.ag c(String str, int i, int i2, int i3, int i4, int i5) {
-        com.baidu.tieba.im.message.ag agVar = new com.baidu.tieba.im.message.ag();
-        agVar.a(str);
-        agVar.b(String.valueOf(i));
-        agVar.c(String.valueOf(i2));
-        agVar.d(String.valueOf(i3));
-        agVar.a(i4);
-        agVar.b(i5);
-        return agVar;
+    private com.baidu.tieba.im.message.al c(String str, int i, int i2, int i3, int i4, int i5) {
+        com.baidu.tieba.im.message.al alVar = new com.baidu.tieba.im.message.al();
+        alVar.a(str);
+        alVar.b(String.valueOf(i));
+        alVar.c(String.valueOf(i2));
+        alVar.d(String.valueOf(i3));
+        alVar.a(i4);
+        alVar.b(i5);
+        return alVar;
     }
 
     public void a(String str, int i, int i2, int i3, int i4, int i5) {
@@ -161,21 +162,21 @@ public class d extends com.baidu.adp.a.d {
     }
 
     public void b(String str, int i, int i2, int i3, int i4, int i5) {
-        com.baidu.tieba.im.message.ag c = c(str, i, i2, i3, i4, i5);
+        com.baidu.tieba.im.message.al c = c(str, i, i2, i3, i4, i5);
         c.e(-201);
         com.baidu.tieba.im.messageCenter.e.a().a(c);
     }
 
-    private bf d(String str) {
+    private bl d(String str) {
         long j = 0;
         try {
             j = Long.parseLong(str);
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
-        bf bfVar = new bf();
-        bfVar.a(j);
-        return bfVar;
+        bl blVar = new bl();
+        blVar.a(j);
+        return blVar;
     }
 
     public void c(String str) {

@@ -1,21 +1,25 @@
 package com.baidu.tieba.im.message;
 
 import com.google.protobuf.MessageLite;
-import protobuf.QueryGroupGrade.QueryGroupGradeReq;
+import protobuf.DelGroup.DelGroupReq;
 /* loaded from: classes.dex */
-public class aj extends q implements com.baidu.tieba.im.coder.g {
-    private long a;
+public class aj extends s implements com.baidu.tieba.im.coder.g {
+    private int a;
 
     public aj() {
-        e(103006);
+        e(103104);
     }
 
-    public void a(long j) {
-        this.a = j;
+    public int b() {
+        return this.a;
+    }
+
+    public void a(int i) {
+        this.a = i;
     }
 
     @Override // com.baidu.tieba.im.coder.g
     public MessageLite a() {
-        return QueryGroupGradeReq.QueryGroupGradeReqIdl.newBuilder().a(QueryGroupGradeReq.DataReq.newBuilder().a((int) this.a).build()).build();
+        return DelGroupReq.DelGroupReqIdl.newBuilder().a(DelGroupReq.DataReq.newBuilder().a(b()).build()).build();
     }
 }

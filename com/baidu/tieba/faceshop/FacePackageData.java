@@ -1,12 +1,12 @@
 package com.baidu.tieba.faceshop;
 
 import com.baidu.gson.annotations.SerializedName;
-import com.baidu.tieba.util.bu;
+import com.baidu.tieba.util.bs;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class FacePackageData extends com.baidu.tieba.util.as implements Serializable {
+public class FacePackageData extends com.baidu.tieba.util.au implements Serializable {
     private static final long serialVersionUID = 0;
     @SerializedName("banner_url")
     public String bannerUrl;
@@ -16,8 +16,12 @@ public class FacePackageData extends com.baidu.tieba.util.as implements Serializ
     public int canDownload;
     @SerializedName("cover_url")
     public String coverUrl;
+    @SerializedName("face_dynamic_list")
+    public ArrayList<String> faceDynamicList;
     @SerializedName("face_list")
     public ArrayList<String> faceList;
+    @SerializedName("face_name_list")
+    public ArrayList<String> faceNameList;
     @SerializedName("icon_url")
     public String iconUrl;
     @SerializedName("new_icon")
@@ -38,20 +42,25 @@ public class FacePackageData extends com.baidu.tieba.util.as implements Serializ
     public int sizeHeight;
     @SerializedName("size_width")
     public int sizeWidth;
+    @SerializedName("tag_url")
+    public String tagUrl;
     public int downloaded = 0;
     public int downloading = 0;
     public long downloadTotal = 0;
     public long downloadNow = 0;
     public String orderId = "";
 
-    @Override // com.baidu.tieba.util.as, com.baidu.tieba.util.au
+    @Override // com.baidu.tieba.util.au, com.baidu.tieba.util.aw
     public LinkedList<String> getImageUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
-        if (!bu.c(this.bannerUrl)) {
+        if (!bs.c(this.bannerUrl)) {
             linkedList.add(this.bannerUrl);
         }
-        if (!bu.c(this.newIcon)) {
+        if (!bs.c(this.newIcon)) {
             linkedList.add(this.newIcon);
+        }
+        if (!bs.c(this.tagUrl)) {
+            linkedList.add(this.tagUrl);
         }
         return linkedList;
     }

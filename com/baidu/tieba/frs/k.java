@@ -1,12 +1,13 @@
 package com.baidu.tieba.frs;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.view.View;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.frsgroup.FrsGroupActivity;
-import com.baidu.tieba.mention.MentionActivity;
+import com.baidu.tieba.account.LoginActivity;
+import com.baidu.tieba.more.AccountActivity;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.by;
+import com.baidu.tieba.util.cb;
 import com.baidu.tieba.view.FrsHeaderView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -20,266 +21,244 @@ class k implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        bk bkVar;
-        bk bkVar2;
-        bk bkVar3;
-        bk bkVar4;
-        bk bkVar5;
-        bk bkVar6;
-        com.baidu.tieba.model.ak akVar;
-        bk bkVar7;
-        bk bkVar8;
-        bk bkVar9;
+        br brVar;
+        br brVar2;
+        br brVar3;
+        br brVar4;
+        br brVar5;
+        br brVar6;
+        br brVar7;
+        br brVar8;
+        br brVar9;
+        br brVar10;
         boolean z;
-        bk bkVar10;
+        br brVar11;
         String str;
         String str2;
-        bk bkVar11;
-        bk bkVar12;
-        com.baidu.tieba.model.ak akVar2;
-        com.baidu.tieba.model.ak akVar3;
-        com.baidu.tieba.model.ak akVar4;
-        com.baidu.tieba.model.ak akVar5;
-        com.baidu.tieba.model.ak akVar6;
-        com.baidu.tieba.model.ak akVar7;
-        com.baidu.tieba.model.ak akVar8;
+        br brVar12;
+        br brVar13;
+        com.baidu.tieba.model.z zVar;
+        com.baidu.tieba.model.z zVar2;
+        com.baidu.tieba.model.z zVar3;
+        com.baidu.tieba.model.z zVar4;
+        com.baidu.tieba.model.z zVar5;
+        com.baidu.tieba.model.z zVar6;
+        com.baidu.tieba.model.z zVar7;
         String str3;
-        bk bkVar13;
+        br brVar14;
         boolean z2;
-        bk bkVar14;
-        bk bkVar15;
-        bk bkVar16;
-        bk bkVar17;
+        br brVar15;
+        br brVar16;
+        br brVar17;
+        br brVar18;
         boolean z3;
-        bk bkVar18;
-        com.baidu.tieba.model.ak akVar9;
+        br brVar19;
+        com.baidu.tieba.model.z zVar8;
         String str4;
-        com.baidu.tieba.model.ak akVar10;
-        com.baidu.tieba.model.ak akVar11;
+        com.baidu.tieba.model.z zVar9;
+        com.baidu.tieba.model.z zVar10;
         String str5;
         String str6;
-        bk bkVar19;
-        bk bkVar20;
-        bk bkVar21;
-        bk bkVar22;
+        br brVar20;
+        br brVar21;
+        br brVar22;
+        br brVar23;
         String str7;
-        bk bkVar23;
-        bk bkVar24;
-        bk bkVar25;
-        UtilHelper.NetworkStateInfo g = UtilHelper.g(this.a);
-        bkVar = this.a.n;
-        if (view != bkVar.c()) {
-            bkVar2 = this.a.n;
-            if (view == bkVar2.a()) {
-                bkVar8 = this.a.n;
-                bkVar8.d(0);
+        br brVar24;
+        br brVar25;
+        br brVar26;
+        UtilHelper.NetworkStateInfo h = UtilHelper.h(this.a);
+        brVar = this.a.p;
+        if (view != brVar.c()) {
+            brVar2 = this.a.p;
+            if (view == brVar2.a()) {
+                brVar8 = this.a.p;
+                brVar8.d(0);
             } else {
-                bkVar3 = this.a.n;
-                if (view != bkVar3.b()) {
-                    bkVar4 = this.a.n;
-                    if (view != bkVar4.d()) {
-                        bkVar5 = this.a.n;
-                        FrsHeaderView o = bkVar5.o();
-                        bkVar6 = this.a.n;
-                        com.baidu.tieba.view.ao p = bkVar6.p();
+                brVar3 = this.a.p;
+                if (view != brVar3.b()) {
+                    brVar4 = this.a.p;
+                    if (view != brVar4.d()) {
+                        brVar5 = this.a.p;
+                        FrsHeaderView o = brVar5.o();
+                        brVar6 = this.a.p;
+                        com.baidu.tieba.view.ar p = brVar6.p();
                         if ((o != null && o.b(view)) || (p != null && p.b(view))) {
-                            com.baidu.tieba.ao.a(this.a.getParent(), "forum_fortune_click");
-                            FrsActivity frsActivity = this.a;
-                            StringBuilder append = new StringBuilder().append(com.baidu.tieba.data.h.a).append("/mo/q/fudaiindex").append("?fid=");
-                            akVar = this.a.w;
-                            UtilHelper.c(frsActivity, append.append(akVar.b().getId()).toString());
+                            com.baidu.tieba.ai.a(this.a.getParent(), "forum_fortune_click");
+                            if (!TiebaApplication.B()) {
+                                LoginActivity.a((Activity) this.a, (String) null, true, 18004);
+                            } else {
+                                this.a.H();
+                            }
                         }
                     } else {
-                        by.a(this.a, "frs_more", "frsclick", 1, new Object[0]);
-                        bkVar7 = this.a.n;
-                        bkVar7.a(true);
+                        cb.a(this.a, "frs_more", "frsclick", 1, new Object[0]);
+                        brVar7 = this.a.p;
+                        brVar7.a(true);
                     }
                 } else {
                     this.a.closeActivity();
                 }
             }
         } else {
-            by.a(this.a, "frs_post_thread", "frsclick", 1, new Object[0]);
+            cb.a(this.a, "frs_post_thread", "frsclick", 1, new Object[0]);
             this.a.b(0);
         }
-        switch (view.getId()) {
-            case R.id.show_image /* 2131099933 */:
-                this.a.F = false;
-                by.a(this.a, "frs_image", "frsclick", 1, new Object[0]);
-                TiebaApplication h = TiebaApplication.h();
-                akVar8 = this.a.w;
-                h.h(akVar8.b().getName());
-                FrsActivity frsActivity2 = this.a;
-                str3 = this.a.f;
-                FrsImageActivity.a(frsActivity2, str3, null, 0);
-                this.a.g();
-                return;
-            case R.id.frs_bt_create /* 2131100321 */:
-                this.a.y();
-                return;
-            case R.id.refresh_layout /* 2131100322 */:
-                by.a(this.a, "frs_refresh", "frsclick", 1, new Object[0]);
-                bkVar21 = this.a.n;
-                bkVar21.I();
-                return;
-            case R.id.btn_love /* 2131100338 */:
-                bkVar25 = this.a.n;
-                if (!bkVar25.m() && g != UtilHelper.NetworkStateInfo.UNAVAIL) {
-                    this.a.i();
+        int id = view.getId();
+        if (id == R.id.frs_bt_create) {
+            this.a.B();
+        } else if (id == R.id.btn_love) {
+            brVar26 = this.a.p;
+            if (!brVar26.m() && h != UtilHelper.NetworkStateInfo.UNAVAIL) {
+                this.a.j();
+            }
+        } else if (id == R.id.btn_sign) {
+            brVar24 = this.a.p;
+            if (!brVar24.m() && h != UtilHelper.NetworkStateInfo.UNAVAIL) {
+                brVar25 = this.a.p;
+                if (!brVar25.z()) {
+                    this.a.l();
+                }
+            }
+        } else if (id == R.id.add_fan) {
+            brVar23 = this.a.p;
+            if (!brVar23.m() && h != UtilHelper.NetworkStateInfo.UNAVAIL) {
+                com.baidu.tieba.model.o a = com.baidu.tieba.model.o.a();
+                str7 = this.a.g;
+                a.b(str7);
+                this.a.i();
+            }
+        } else if (id == R.id.refresh_layout) {
+            cb.a(this.a, "frs_refresh", "frsclick", 1, new Object[0]);
+            brVar22 = this.a.p;
+            brVar22.J();
+        } else if (id == R.id.message_layout) {
+            String A = TiebaApplication.A();
+            if (A != null && A.length() > 0) {
+                cb.a(this.a, "frs_message", "frsclick", 1, new Object[0]);
+                com.baidu.tieba.mention.c.a((Activity) this.a, 18002);
+            }
+        } else if (id == R.id.like_forum_name) {
+            cb.a(this.a, "frs_likeforum", "frsclick", 1, new Object[0]);
+            String str8 = (String) view.getTag();
+            str6 = this.a.g;
+            if (str8.equals(str6)) {
+                this.a.J = false;
+                brVar20 = this.a.p;
+                if (brVar20.g().isMenuShowing()) {
+                    brVar21 = this.a.p;
+                    brVar21.g().toggle(true);
                     return;
                 }
                 return;
-            case R.id.btn_love_content /* 2131100340 */:
-                bkVar9 = this.a.n;
-                if (!bkVar9.m()) {
-                    z = this.a.J;
-                    if (!z) {
-                        bkVar10 = this.a.n;
-                        if (bkVar10 != null) {
-                            str = this.a.C;
-                            if (str.equals("normal_page")) {
-                                bkVar12 = this.a.n;
-                                bkVar12.a(view);
-                                return;
-                            }
-                            str2 = this.a.C;
-                            if (str2.equals("frs_page")) {
-                                bkVar11 = this.a.n;
-                                bkVar11.b(view);
-                                return;
-                            }
+            }
+            this.a.b(str8);
+        } else if (id == R.id.add_to_window_layout) {
+            FrsActivity frsActivity = this.a;
+            str5 = this.a.g;
+            frsActivity.a(str5);
+        } else if (id == R.id.manage_mode) {
+            String str9 = "";
+            zVar8 = this.a.A;
+            if (zVar8 != null) {
+                zVar9 = this.a.A;
+                if (zVar9.b() != null) {
+                    zVar10 = this.a.A;
+                    str9 = zVar10.b().getId();
+                }
+            }
+            StringBuilder sb = new StringBuilder("http://tieba.baidu.com/mo/q/bawuindex?fn=");
+            str4 = this.a.g;
+            String sb2 = sb.append(str4).append("&fid=").append(str9).toString();
+            com.baidu.tieba.ai.a(this.a.getParent(), "forum_management_click");
+            UtilHelper.c(this.a, sb2);
+        } else if (id == R.id.show_all) {
+            this.a.J = false;
+            brVar17 = this.a.p;
+            if (brVar17.g().isMenuShowing()) {
+                brVar19 = this.a.p;
+                brVar19.g().toggle(true);
+            }
+            brVar18 = this.a.p;
+            brVar18.f().a(R.id.show_all);
+            z3 = this.a.w;
+            if (z3) {
+                this.a.w = false;
+                this.a.C();
+            }
+        } else if (id == R.id.show_good) {
+            this.a.J = false;
+            cb.a(this.a, "frs_good", "frsclick", 1, new Object[0]);
+            brVar14 = this.a.p;
+            if (brVar14.g().isMenuShowing()) {
+                brVar16 = this.a.p;
+                brVar16.g().toggle(true);
+            }
+            z2 = this.a.w;
+            if (!z2) {
+                this.a.w = true;
+                brVar15 = this.a.p;
+                brVar15.f().a(R.id.show_good);
+                this.a.C();
+            }
+        } else if (id == R.id.show_image) {
+            this.a.J = false;
+            cb.a(this.a, "frs_image", "frsclick", 1, new Object[0]);
+            TiebaApplication g = TiebaApplication.g();
+            zVar7 = this.a.A;
+            g.h(zVar7.b().getName());
+            FrsActivity frsActivity2 = this.a;
+            str3 = this.a.g;
+            FrsImageActivity.a(frsActivity2, str3, null, 0);
+            this.a.g();
+        } else if (id == R.id.frs_header_groups) {
+            zVar = this.a.A;
+            if (zVar != null) {
+                zVar2 = this.a.A;
+                if (zVar2.b() != null) {
+                    zVar3 = this.a.A;
+                    if (!com.baidu.adp.lib.util.h.b(zVar3.b().getId())) {
+                        zVar4 = this.a.A;
+                        if (zVar4.k() != null) {
+                            cb.a(this.a, "im_e_glist_from_frs", "click", 1, new Object[0]);
+                            FrsActivity frsActivity3 = this.a;
+                            zVar5 = this.a.A;
+                            String id2 = zVar5.b().getId();
+                            zVar6 = this.a.A;
+                            this.a.sendMessage(new com.baidu.adp.framework.message.a(2001001, new com.baidu.tieba.a.a(frsActivity3, id2, zVar6.k().b() != 1)));
+                        }
+                    }
+                }
+            }
+        } else if (id == R.id.btn_love_content) {
+            brVar10 = this.a.p;
+            if (!brVar10.m()) {
+                z = this.a.N;
+                if (!z) {
+                    brVar11 = this.a.p;
+                    if (brVar11 != null) {
+                        str = this.a.G;
+                        if (str.equals("normal_page")) {
+                            brVar13 = this.a.p;
+                            brVar13.a(view);
                             return;
                         }
-                        return;
-                    }
-                    return;
-                }
-                return;
-            case R.id.btn_sign /* 2131100346 */:
-                bkVar23 = this.a.n;
-                if (!bkVar23.m() && g != UtilHelper.NetworkStateInfo.UNAVAIL) {
-                    bkVar24 = this.a.n;
-                    if (!bkVar24.z()) {
-                        this.a.k();
-                        return;
-                    }
-                    return;
-                }
-                return;
-            case R.id.frs_header_groups /* 2131100355 */:
-                akVar2 = this.a.w;
-                if (akVar2 != null) {
-                    akVar3 = this.a.w;
-                    if (akVar3.b() != null) {
-                        akVar4 = this.a.w;
-                        if (!com.baidu.adp.lib.g.f.b(akVar4.b().getId())) {
-                            akVar5 = this.a.w;
-                            if (akVar5.k() != null) {
-                                by.a(this.a, "im_e_glist_from_frs", "click", 1, new Object[0]);
-                                FrsActivity frsActivity3 = this.a;
-                                akVar6 = this.a.w;
-                                String id = akVar6.b().getId();
-                                akVar7 = this.a.w;
-                                FrsGroupActivity.a(frsActivity3, id, akVar7.k().b() != 1);
-                                return;
-                            }
-                            return;
+                        str2 = this.a.G;
+                        if (str2.equals("frs_page")) {
+                            brVar12 = this.a.p;
+                            brVar12.b(view);
                         }
-                        return;
-                    }
-                    return;
-                }
-                return;
-            case R.id.show_all /* 2131100386 */:
-                this.a.F = false;
-                bkVar16 = this.a.n;
-                if (bkVar16.g().isMenuShowing()) {
-                    bkVar18 = this.a.n;
-                    bkVar18.g().toggle(true);
-                }
-                bkVar17 = this.a.n;
-                bkVar17.f().a(R.id.show_all);
-                z3 = this.a.u;
-                if (z3) {
-                    this.a.u = false;
-                    this.a.z();
-                    return;
-                }
-                return;
-            case R.id.show_good /* 2131100388 */:
-                this.a.F = false;
-                by.a(this.a, "frs_good", "frsclick", 1, new Object[0]);
-                bkVar13 = this.a.n;
-                if (bkVar13.g().isMenuShowing()) {
-                    bkVar15 = this.a.n;
-                    bkVar15.g().toggle(true);
-                }
-                z2 = this.a.u;
-                if (!z2) {
-                    this.a.u = true;
-                    bkVar14 = this.a.n;
-                    bkVar14.f().a(R.id.show_good);
-                    this.a.z();
-                    return;
-                }
-                return;
-            case R.id.manage_mode /* 2131100392 */:
-                String str8 = "";
-                akVar9 = this.a.w;
-                if (akVar9 != null) {
-                    akVar10 = this.a.w;
-                    if (akVar10.b() != null) {
-                        akVar11 = this.a.w;
-                        str8 = akVar11.b().getId();
                     }
                 }
-                StringBuilder append2 = new StringBuilder().append("http://tieba.baidu.com/mo/q/bawuindex?fn=");
-                str4 = this.a.f;
-                String sb = append2.append(str4).append("&fid=").append(str8).toString();
-                com.baidu.tieba.ao.a(this.a.getParent(), "forum_management_click");
-                UtilHelper.c(this.a, sb);
-                return;
-            case R.id.add_to_window_layout /* 2131100399 */:
-                FrsActivity frsActivity4 = this.a;
-                str5 = this.a.f;
-                frsActivity4.a(str5);
-                return;
-            case R.id.message_layout /* 2131100403 */:
-                String A = TiebaApplication.A();
-                if (A != null && A.length() > 0) {
-                    by.a(this.a, "frs_message", "frsclick", 1, new Object[0]);
-                    MentionActivity.a((Activity) this.a, 18002);
-                    return;
-                }
-                return;
-            case R.id.like_forum_name /* 2131100408 */:
-                by.a(this.a, "frs_likeforum", "frsclick", 1, new Object[0]);
-                String str9 = (String) view.getTag();
-                str6 = this.a.f;
-                if (str9.equals(str6)) {
-                    this.a.F = false;
-                    bkVar19 = this.a.n;
-                    if (bkVar19.g().isMenuShowing()) {
-                        bkVar20 = this.a.n;
-                        bkVar20.g().toggle(true);
-                        return;
-                    }
-                    return;
-                }
-                this.a.b(str9);
-                return;
-            case R.id.add_fan /* 2131100421 */:
-                bkVar22 = this.a.n;
-                if (!bkVar22.m() && g != UtilHelper.NetworkStateInfo.UNAVAIL) {
-                    com.baidu.tieba.model.z a = com.baidu.tieba.model.z.a();
-                    str7 = this.a.f;
-                    a.b(str7);
-                    this.a.h();
-                    return;
-                }
-                return;
-            default:
-                return;
+            }
+        } else if (id == R.id.account_manager_layout) {
+            AccountActivity.a(this.a);
+        } else if (id == R.id.frs_new_guide) {
+            SharedPreferences.Editor edit = this.a.getSharedPreferences("settings", 0).edit();
+            edit.putBoolean(FrsActivity.a, true);
+            edit.commit();
+            brVar9 = this.a.p;
+            brVar9.I();
         }
     }
 }

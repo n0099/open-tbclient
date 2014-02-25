@@ -57,8 +57,6 @@ public class SubPbLoadPreviousView extends LinearLayout {
     }
 
     public void a(int i) {
-        if (i == 1) {
-        }
     }
 
     public void c() {

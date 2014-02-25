@@ -14,7 +14,7 @@ import protobuf.Im;
 public final class CommitInviteMsgRes {
 
     /* loaded from: classes.dex */
-    public final class DataRes extends GeneratedMessageLite implements n {
+    public final class DataRes extends GeneratedMessageLite implements l {
         public static final int GROUPID_FIELD_NUMBER = 2;
         public static final int MSGID_FIELD_NUMBER = 1;
         public static final int RECORDID_FIELD_NUMBER = 3;
@@ -25,8 +25,13 @@ public final class CommitInviteMsgRes {
         private int memoizedSerializedSize;
         private long msgId_;
         private long recordId_;
-        public static Parser<DataRes> PARSER = new l();
+        public static Parser<DataRes> PARSER = new j();
         private static final DataRes a = new DataRes(true);
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ DataRes(GeneratedMessageLite.Builder builder, DataRes dataRes) {
+            this(builder);
+        }
 
         private DataRes(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -57,42 +62,45 @@ public final class CommitInviteMsgRes {
             while (!z) {
                 try {
                     try {
-                        try {
-                            int readTag = codedInputStream.readTag();
-                            switch (readTag) {
-                                case 0:
+                        int readTag = codedInputStream.readTag();
+                        switch (readTag) {
+                            case 0:
+                                z = true;
+                                break;
+                            case 8:
+                                this.bitField0_ |= 1;
+                                this.msgId_ = codedInputStream.readInt64();
+                                break;
+                            case 16:
+                                this.bitField0_ |= 2;
+                                this.groupId_ = codedInputStream.readInt32();
+                                break;
+                            case Im.GroupInfo.ISHIDEPOSITION_FIELD_NUMBER /* 24 */:
+                                this.bitField0_ |= 4;
+                                this.recordId_ = codedInputStream.readInt64();
+                                break;
+                            default:
+                                if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
-                                case 8:
-                                    this.bitField0_ |= 1;
-                                    this.msgId_ = codedInputStream.readInt64();
+                                } else {
                                     break;
-                                case 16:
-                                    this.bitField0_ |= 2;
-                                    this.groupId_ = codedInputStream.readInt32();
-                                    break;
-                                case Im.GroupInfo.ISHIDEPOSITION_FIELD_NUMBER /* 24 */:
-                                    this.bitField0_ |= 4;
-                                    this.recordId_ = codedInputStream.readInt64();
-                                    break;
-                                default:
-                                    if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
-                                        z = true;
-                                        break;
-                                    } else {
-                                        break;
-                                    }
-                            }
-                        } catch (IOException e) {
-                            throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
+                                }
                         }
-                    } catch (InvalidProtocolBufferException e2) {
-                        throw e2.setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
                 } finally {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ DataRes(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, DataRes dataRes) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -220,32 +228,32 @@ public final class CommitInviteMsgRes {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static m newBuilder() {
-            return m.f();
+        public static k newBuilder() {
+            return k.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public m newBuilderForType() {
+        public k newBuilderForType() {
             return newBuilder();
         }
 
-        public static m newBuilder(DataRes dataRes) {
+        public static k newBuilder(DataRes dataRes) {
             return newBuilder().mergeFrom(dataRes);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public m toBuilder() {
+        public k toBuilder() {
             return newBuilder(this);
         }
     }
 
     /* loaded from: classes.dex */
-    public final class CommitInviteMsgResIdl extends GeneratedMessageLite implements k {
+    public final class CommitInviteMsgResIdl extends GeneratedMessageLite implements i {
         public static final int DATA_FIELD_NUMBER = 2;
         public static final int ERROR_FIELD_NUMBER = 1;
-        public static Parser<CommitInviteMsgResIdl> PARSER = new i();
+        public static Parser<CommitInviteMsgResIdl> PARSER = new g();
         private static final CommitInviteMsgResIdl a = new CommitInviteMsgResIdl(true);
         private static final long serialVersionUID = 0;
         private int bitField0_;
@@ -253,6 +261,11 @@ public final class CommitInviteMsgRes {
         private Im.Error error_;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ CommitInviteMsgResIdl(GeneratedMessageLite.Builder builder, CommitInviteMsgResIdl commitInviteMsgResIdl) {
+            this(builder);
+        }
 
         private CommitInviteMsgResIdl(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -276,12 +289,11 @@ public final class CommitInviteMsgRes {
         }
 
         private CommitInviteMsgResIdl(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-            boolean z;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
             a();
-            boolean z2 = false;
-            while (!z2) {
+            boolean z = false;
+            while (!z) {
                 try {
                     try {
                         int readTag = codedInputStream.readTag();
@@ -290,35 +302,31 @@ public final class CommitInviteMsgRes {
                                 z = true;
                                 break;
                             case 10:
-                                protobuf.c builder = (this.bitField0_ & 1) == 1 ? this.error_.toBuilder() : null;
+                                protobuf.e builder = (this.bitField0_ & 1) == 1 ? this.error_.toBuilder() : null;
                                 this.error_ = (Im.Error) codedInputStream.readMessage(Im.Error.PARSER, extensionRegistryLite);
                                 if (builder != null) {
                                     builder.mergeFrom(this.error_);
                                     this.error_ = builder.buildPartial();
                                 }
                                 this.bitField0_ |= 1;
-                                z = z2;
                                 break;
                             case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
-                                m builder2 = (this.bitField0_ & 2) == 2 ? this.data_.toBuilder() : null;
+                                k builder2 = (this.bitField0_ & 2) == 2 ? this.data_.toBuilder() : null;
                                 this.data_ = (DataRes) codedInputStream.readMessage(DataRes.PARSER, extensionRegistryLite);
                                 if (builder2 != null) {
                                     builder2.mergeFrom(this.data_);
                                     this.data_ = builder2.buildPartial();
                                 }
                                 this.bitField0_ |= 2;
-                                z = z2;
                                 break;
                             default:
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
                                 } else {
-                                    z = z2;
                                     break;
                                 }
                         }
-                        z2 = z;
                     } catch (InvalidProtocolBufferException e) {
                         throw e.setUnfinishedMessage(this);
                     } catch (IOException e2) {
@@ -328,6 +336,11 @@ public final class CommitInviteMsgRes {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ CommitInviteMsgResIdl(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, CommitInviteMsgResIdl commitInviteMsgResIdl) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -440,23 +453,23 @@ public final class CommitInviteMsgRes {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static j newBuilder() {
-            return j.f();
+        public static h newBuilder() {
+            return h.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public j newBuilderForType() {
+        public h newBuilderForType() {
             return newBuilder();
         }
 
-        public static j newBuilder(CommitInviteMsgResIdl commitInviteMsgResIdl) {
+        public static h newBuilder(CommitInviteMsgResIdl commitInviteMsgResIdl) {
             return newBuilder().mergeFrom(commitInviteMsgResIdl);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public j toBuilder() {
+        public h toBuilder() {
             return newBuilder(this);
         }
     }

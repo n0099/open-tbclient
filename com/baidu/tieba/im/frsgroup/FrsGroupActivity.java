@@ -1,163 +1,161 @@
 package com.baidu.tieba.im.frsgroup;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.RadioGroup;
-import com.baidu.tieba.BaseFragmentActivity;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.im.creategroup.CreateGroupMainActivity;
 import com.baidu.tieba.im.creategroup.CreateGroupStepActivity;
 import com.baidu.tieba.im.data.GroupPermData;
-import com.baidu.tieba.util.by;
+import com.baidu.tieba.util.cb;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class FrsGroupActivity extends BaseFragmentActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener {
-    private g b;
-    private com.baidu.tieba.im.model.d c;
-    private com.baidu.tieba.im.messageCenter.g d = new a(this);
+public class FrsGroupActivity extends com.baidu.tieba.k implements View.OnClickListener, RadioGroup.OnCheckedChangeListener {
+    private i d;
+    private com.baidu.tieba.im.model.d e;
+    private final com.baidu.tieba.im.messageCenter.g f = new b(this);
 
-    public static void a(Context context, String str, boolean z) {
-        Intent intent = new Intent(context, FrsGroupActivity.class);
-        intent.putExtra("forum_id", str);
-        intent.putExtra("show_recommend", z);
-        context.startActivity(intent);
+    static {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2001001, new a());
+        customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        com.baidu.adp.framework.c.a().a(customMessageTask);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.BaseFragmentActivity, android.support.v4.app.n, android.app.Activity
+    @Override // com.baidu.tieba.k, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         a(bundle, (Intent) null);
-        e();
+        g();
         a(bundle);
         a(false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.n, android.app.Activity
+    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        if (this.b != null) {
-            this.b.c();
-            this.b = null;
+        if (this.d != null) {
+            this.d.c();
+            this.d = null;
         }
         a((Bundle) null, intent);
         a(intent != null ? intent.getExtras() : null);
-        a(TiebaApplication.h().al());
+        b(TiebaApplication.g().al());
         a(true);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.BaseFragmentActivity, android.support.v4.app.n, android.app.Activity
+    @Override // com.baidu.tieba.k, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.BaseFragmentActivity, android.support.v4.app.n, android.app.Activity
+    @Override // com.baidu.tieba.k, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.c.d(this.d);
+        this.e.d(this.f);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.n, android.app.Activity
+    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
-        this.c.b(bundle);
+        this.e.b(bundle);
     }
 
     private void a(Bundle bundle) {
-        this.b = new g(this);
-        this.b.f();
-        this.b.c(this.c.a());
-        this.b.a(this.c.a());
+        this.d = new i(this);
+        this.d.f();
+        this.d.c(this.e.a());
+        this.d.a(this.e.a());
         if (bundle != null) {
-            this.b.b(this.c.g());
+            this.d.b(this.e.g());
         }
-        this.b.a(f());
-        this.b.e();
+        this.d.a(h());
+        this.d.e();
     }
 
-    public com.baidu.tieba.im.model.d c() {
-        return this.c;
+    public com.baidu.tieba.im.model.d e() {
+        return this.e;
     }
 
-    public g d() {
-        return this.b;
+    public i f() {
+        return this.d;
     }
 
     public void a(Bundle bundle, Intent intent) {
-        this.c = new com.baidu.tieba.im.model.d();
+        this.e = new com.baidu.tieba.im.model.d();
         if (bundle == null) {
-            com.baidu.tieba.im.model.d dVar = this.c;
+            com.baidu.tieba.im.model.d dVar = this.e;
             if (intent == null) {
                 intent = getIntent();
             }
             dVar.a(intent);
         } else {
-            this.c.a(bundle);
+            this.e.a(bundle);
         }
-        this.c.a(this);
+        this.e.a(this);
     }
 
-    protected void e() {
-        this.c.c(this.d);
+    protected void g() {
+        this.e.c(this.f);
     }
 
-    @Override // com.baidu.tieba.BaseFragmentActivity
-    protected void a(int i) {
-        this.b.c(i);
+    @Override // com.baidu.tieba.k
+    protected void b(int i) {
+        this.d.c(i);
     }
 
     private void a(boolean z) {
-        Fragment a = getSupportFragmentManager().a(this.b.a()[f()]);
-        if (z || a == null) {
-            getSupportFragmentManager().a().a(R.id.fragment, this.b.g()[f()], this.b.a()[f()]).a();
+        Fragment findFragmentByTag = getSupportFragmentManager().findFragmentByTag(this.d.a()[h()]);
+        if (z || findFragmentByTag == null) {
+            getSupportFragmentManager().beginTransaction().add(R.id.fragment, this.d.g()[h()], this.d.a()[h()]).commit();
         } else {
-            getSupportFragmentManager().a().c(this.b.g()[f()]).a();
+            getSupportFragmentManager().beginTransaction().show(this.d.g()[h()]).commit();
         }
     }
 
-    private void h() {
-        if (getSupportFragmentManager().a(this.b.a()[f()]) != null) {
-            getSupportFragmentManager().a().b(this.b.g()[f()]).a();
+    private void j() {
+        if (getSupportFragmentManager().findFragmentByTag(this.d.a()[h()]) != null) {
+            getSupportFragmentManager().beginTransaction().hide(this.d.g()[h()]).commit();
         }
     }
 
-    public int f() {
-        return this.c.g() - 1;
+    public int h() {
+        return this.e.g() - 1;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.b.h()) {
+        if (view == this.d.h()) {
+            k();
+        } else if (view == this.d.i()) {
+            cb.a(this, "create_g_in_frsgroup", "click", 1, new Object[0]);
             i();
-        } else if (view == this.b.i()) {
-            by.a(this, "create_g_in_frsgroup", "click", 1, new Object[0]);
-            g();
         }
     }
 
-    private void i() {
+    private void k() {
         finish();
     }
 
-    private void j() {
-        this.b.d(true);
-        this.c.c(this.c.m());
+    private void l() {
+        this.d.d(true);
+        this.e.c(this.e.m());
     }
 
-    public void g() {
+    public void i() {
         if (TextUtils.isEmpty(TiebaApplication.A())) {
             LoginActivity.a((Activity) this, "", true, 0);
         } else {
-            j();
+            l();
         }
     }
 
@@ -168,11 +166,11 @@ public class FrsGroupActivity extends BaseFragmentActivity implements View.OnCli
                 a(groupPermData.getCreateNormalTip());
                 return;
             } else {
-                CreateGroupStepActivity.a(this, 3, b(this.c.m()), 1013, groupPermData.getCanCreateNormalNum(), groupPermData.getCanCreateOfficialNum(), groupPermData.getCanCreatePersonalNum());
+                CreateGroupStepActivity.a(this, 3, b(this.e.m()), 1013, groupPermData.getCanCreateNormalNum(), groupPermData.getCanCreateOfficialNum(), groupPermData.getCanCreatePersonalNum());
                 return;
             }
         }
-        CreateGroupMainActivity.a(this, groupPermData.isCreateOfficial(), groupPermData.isCreateNormal(), groupPermData.getCreateOfficialTip(), groupPermData.getCreateNormalTip(), b(this.c.m()), groupPermData.getCanCreateNormalNum(), groupPermData.getCanCreateOfficialNum(), groupPermData.getCanCreatePersonalNum());
+        CreateGroupMainActivity.a(this, groupPermData.isCreateOfficial(), groupPermData.isCreateNormal(), groupPermData.getCreateOfficialTip(), groupPermData.getCreateNormalTip(), b(this.e.m()), groupPermData.getCanCreateNormalNum(), groupPermData.getCanCreateOfficialNum(), groupPermData.getCanCreatePersonalNum());
     }
 
     private int b(String str) {
@@ -186,28 +184,24 @@ public class FrsGroupActivity extends BaseFragmentActivity implements View.OnCli
 
     @Override // android.widget.RadioGroup.OnCheckedChangeListener
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
-        h();
-        switch (i) {
-            case R.id.radio_recommend /* 2131100549 */:
-                this.c.a(1);
-                break;
-            case R.id.radio_hot /* 2131100551 */:
-                this.c.a(2);
-                break;
-            case R.id.radio_official /* 2131100553 */:
-                this.c.a(3);
-                break;
+        j();
+        if (i == R.id.radio_recommend) {
+            this.e.a(1);
+        } else if (i == R.id.radio_hot) {
+            this.e.a(2);
+        } else if (i == R.id.radio_official) {
+            this.e.a(3);
         }
-        this.b.a(f());
+        this.d.a(h());
         a(false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.n, android.app.Activity
+    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == 0) {
-            j();
+            l();
         }
     }
 }

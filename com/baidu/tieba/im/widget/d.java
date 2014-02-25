@@ -5,8 +5,8 @@ import com.baidu.tieba.faceshop.FacePackageDetailActivity;
 import protobuf.QueryPrize.QueryPrizeRes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class d implements com.baidu.tieba.view.dialog.c {
-    final /* synthetic */ Activity a;
+public class d implements com.baidu.tieba.view.dialog.c {
+    private final /* synthetic */ Activity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(Activity activity) {

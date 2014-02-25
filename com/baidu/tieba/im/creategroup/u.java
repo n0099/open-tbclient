@@ -11,8 +11,8 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.more.SettingTextSwitchView;
-import com.baidu.tieba.util.ag;
-import com.baidu.tieba.util.bs;
+import com.baidu.tieba.util.ai;
+import com.baidu.tieba.util.bq;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -37,7 +37,7 @@ public class u extends com.baidu.adp.a.e {
     private String s;
     private boolean t;
     private t u;
-    private ag v;
+    private ai v;
     private String w;
     private String x;
     private DialogInterface.OnClickListener y;
@@ -156,7 +156,7 @@ public class u extends com.baidu.adp.a.e {
     }
 
     private void s() {
-        this.v = new ag(this.e);
+        this.v = new ai(this.e);
         a();
     }
 
@@ -253,13 +253,13 @@ public class u extends com.baidu.adp.a.e {
     }
 
     public void r() {
-        new AlertDialog.Builder(this.e).setTitle(R.string.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(R.string.group_update_alert_save).setPositiveButton(R.string.group_update_canel, new w(this)).setNegativeButton(R.string.group_update_done, new v(this)).create().show();
+        new AlertDialog.Builder(this.e).setTitle(R.string.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(R.string.group_update_alert_save).setPositiveButton(R.string.group_update_canel, new v(this)).setNegativeButton(R.string.group_update_done, new w(this)).create().show();
     }
 
     public void a(int i) {
         this.e.getLayoutMode().a(i == 1);
         this.e.getLayoutMode().a(this.d);
-        bs.b(this.d, i);
+        bq.b(this.d, i);
         this.c.c(i);
         if (i == 1) {
             this.d.setBackgroundResource(R.color.group_info_bg_1);

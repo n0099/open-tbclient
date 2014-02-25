@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tieba.util.by;
+import com.baidu.tieba.util.cb;
 import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
 class ax implements SlidingMenu.OnOpenedListener {
@@ -13,6 +13,6 @@ class ax implements SlidingMenu.OnOpenedListener {
 
     @Override // com.slidingmenu.lib.SlidingMenu.OnOpenedListener
     public void onOpened() {
-        by.a(this.a, "frs_total_more", "frsclick", 1, new Object[0]);
+        cb.a(this.a, "frs_total_more", "frsclick", 1, new Object[0]);
     }
 }

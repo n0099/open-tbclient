@@ -1,25 +1,40 @@
 package com.baidu.tieba.account;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.app.Activity;
+import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
-import com.baidu.tieba.util.DatabaseService;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class f extends BdAsyncTask<Void, Void, Void> {
-    final /* synthetic */ AccountData a;
-    final /* synthetic */ e b;
+public class f implements at {
+    final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(e eVar, AccountData accountData) {
-        this.b = eVar;
-        this.a = accountData;
+    public f(a aVar) {
+        this.a = aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void a(Void... voidArr) {
-        DatabaseService.a(this.a);
-        DatabaseService.b(this.a);
-        return null;
+    @Override // com.baidu.tieba.account.at
+    public void a(AccountData accountData) {
+        boolean z;
+        Activity activity;
+        k kVar;
+        k kVar2;
+        z = this.a.e;
+        if (z) {
+            this.a.b("login_after_shareout_by_up");
+        }
+        activity = this.a.b;
+        TiebaApplication.a(accountData, activity);
+        new g(this, accountData).execute(new Void[0]);
+        kVar = this.a.d;
+        if (kVar != null) {
+            kVar2 = this.a.d;
+            kVar2.a();
+        }
+    }
+
+    @Override // com.baidu.tieba.account.at
+    public void a(String str) {
+        this.a.b();
     }
 }

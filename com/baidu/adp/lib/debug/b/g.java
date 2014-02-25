@@ -16,21 +16,31 @@ class g implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
+        c cVar;
+        c cVar2;
         Context context;
+        c cVar3;
         Context context2;
+        c cVar4;
         Context context3;
+        c cVar5;
         Dialog dialog;
         if (i == -2) {
-            dialog = this.a.a.l;
+            cVar5 = this.a.a;
+            dialog = cVar5.l;
             dialog.dismiss();
             return;
         }
-        this.a.a.d();
-        context = this.a.a.k;
+        cVar = this.a.a;
+        cVar.d();
+        cVar2 = this.a.a;
+        context = cVar2.k;
         ((Activity) context).finish();
-        context2 = this.a.a.k;
+        cVar3 = this.a.a;
+        context2 = cVar3.k;
         Context baseContext = ((Activity) context2).getBaseContext();
-        context3 = this.a.a.k;
+        cVar4 = this.a.a;
+        context3 = cVar4.k;
         Toast.makeText(baseContext, ((Activity) context3).getText(com.baidu.adp.f.debug_close), 1).show();
     }
 }

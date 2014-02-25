@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.text.SimpleDateFormat;
+import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public final class b {
     private static final SimpleDateFormat a = new SimpleDateFormat("MM-dd HH:mm:ss.SSS");
@@ -52,7 +53,7 @@ public final class b {
         StringWriter stringWriter = new StringWriter();
         PrintWriter printWriter = new PrintWriter(stringWriter);
         th.printStackTrace(printWriter);
-        b(str, str2 + "\n" + stringWriter.toString());
+        b(str, str2 + IOUtils.LINE_SEPARATOR_UNIX + stringWriter.toString());
         printWriter.close();
         try {
             stringWriter.close();

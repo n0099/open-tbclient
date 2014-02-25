@@ -1,19 +1,31 @@
 package com.baidu.tieba.faceshop;
-
-import com.baidu.tieba.view.br;
 /* loaded from: classes.dex */
-class av implements br {
+class av extends com.baidu.adp.a.g {
     final /* synthetic */ FaceShopActivity a;
+    private final /* synthetic */ int b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public av(FaceShopActivity faceShopActivity) {
+    public av(FaceShopActivity faceShopActivity, int i) {
         this.a = faceShopActivity;
+        this.b = i;
     }
 
-    @Override // com.baidu.tieba.view.br
-    public void a(boolean z) {
-        if (z) {
-            this.a.a(true);
+    @Override // com.baidu.adp.a.g
+    public void a(Object obj) {
+        if (obj != null && (obj instanceof FaceBuyQueryData)) {
+            FaceBuyQueryData faceBuyQueryData = (FaceBuyQueryData) obj;
+            if (faceBuyQueryData.errno == 0 && faceBuyQueryData.usermsg != null) {
+                if (faceBuyQueryData.buyResult.status == 2) {
+                    this.a.a(this.b);
+                    return;
+                } else {
+                    this.a.a();
+                    return;
+                }
+            }
+            this.a.a();
+            return;
         }
+        this.a.a();
     }
 }

@@ -1,31 +1,19 @@
 package com;
 
-import com.baidu.cloudsdk.BaiduException;
-import com.baidu.cloudsdk.DefaultBaiduListener;
-import com.baidu.cloudsdk.social.share.uiwithlayout.ShareMediaItem;
+import android.content.DialogInterface;
+import com.baidu.cloudsdk.social.share.handler.CloudBatchShareHandler;
 /* loaded from: classes.dex */
-class z extends DefaultBaiduListener {
-    final /* synthetic */ ShareMediaItem a;
-    final /* synthetic */ w b;
+public class z implements DialogInterface.OnDismissListener {
+    final /* synthetic */ CloudBatchShareHandler a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public z(w wVar, ShareMediaItem shareMediaItem) {
-        this.b = wVar;
-        this.a = shareMediaItem;
+    public z(CloudBatchShareHandler cloudBatchShareHandler) {
+        this.a = cloudBatchShareHandler;
     }
 
-    @Override // com.baidu.cloudsdk.DefaultBaiduListener, com.baidu.cloudsdk.IBaiduListener
-    public void onCancel() {
-        this.b.b.a(this.a, false);
-    }
-
-    @Override // com.baidu.cloudsdk.DefaultBaiduListener, com.baidu.cloudsdk.IBaiduListener
-    public void onComplete() {
-        this.b.b.a(this.a, true);
-    }
-
-    @Override // com.baidu.cloudsdk.DefaultBaiduListener, com.baidu.cloudsdk.IBaiduListener
-    public void onError(BaiduException baiduException) {
-        this.b.b.a(this.a, false);
+    @Override // android.content.DialogInterface.OnDismissListener
+    public void onDismiss(DialogInterface dialogInterface) {
+        if (this.a.mShareDialog != null) {
+            this.a.mShareDialog = null;
+        }
     }
 }

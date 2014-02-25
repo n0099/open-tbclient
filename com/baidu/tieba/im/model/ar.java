@@ -3,11 +3,11 @@ package com.baidu.tieba.im.model;
 import android.app.Activity;
 import android.content.Intent;
 import android.util.Pair;
+import com.baidu.tieba.data.UserData;
 import com.baidu.tieba.im.data.RandChatRoomData;
-import com.baidu.tieba.im.data.UserData;
-import com.baidu.tieba.im.message.as;
-import com.baidu.tieba.im.message.aw;
-import com.baidu.tieba.im.message.bh;
+import com.baidu.tieba.im.message.ay;
+import com.baidu.tieba.im.message.bc;
+import com.baidu.tieba.im.message.bn;
 import com.baidu.tieba.im.randchat.WaitingTipView;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
@@ -102,8 +102,8 @@ public class ar extends com.baidu.adp.a.d {
         this.i = this.c.b();
     }
 
-    private as a(int i, int i2, int i3) {
-        return new as(i, i2, i3);
+    private ay a(int i, int i2, int i3) {
+        return new ay(i, i2, i3);
     }
 
     public void a(int i, boolean z, int i2) {
@@ -124,12 +124,12 @@ public class ar extends com.baidu.adp.a.d {
         com.baidu.tieba.im.messageCenter.e.a().a(gVar);
     }
 
-    private aw a(int i, String str, String str2) {
-        aw awVar = new aw();
-        awVar.a(i);
-        awVar.a(str);
-        awVar.b(str2);
-        return awVar;
+    private bc a(int i, String str, String str2) {
+        bc bcVar = new bc();
+        bcVar.a(i);
+        bcVar.a(str);
+        bcVar.b(str2);
+        return bcVar;
     }
 
     public void a(String str) {
@@ -160,22 +160,22 @@ public class ar extends com.baidu.adp.a.d {
         com.baidu.tieba.im.messageCenter.e.a().a(a(i, this.h, this.i));
     }
 
-    private com.baidu.tieba.im.message.ab c(int i) {
-        com.baidu.tieba.im.message.ab abVar = new com.baidu.tieba.im.message.ab();
-        abVar.a(i);
-        return abVar;
+    private com.baidu.tieba.im.message.ae c(int i) {
+        com.baidu.tieba.im.message.ae aeVar = new com.baidu.tieba.im.message.ae();
+        aeVar.a(i);
+        return aeVar;
     }
 
     public void b(int i) {
         com.baidu.tieba.im.messageCenter.e.a().a(c(i));
     }
 
-    public List<UserData> a(bh bhVar) {
-        if (bhVar == null || bhVar.a() == null) {
+    public List<UserData> a(bn bnVar) {
+        if (bnVar == null || bnVar.a() == null) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        for (Im.UserInfo userInfo : bhVar.a()) {
+        for (Im.UserInfo userInfo : bnVar.a()) {
             UserData userData = new UserData();
             userData.setInTime(userInfo.getInTime());
             userData.setLastReplyTime(userInfo.getLastReplyTime());
@@ -185,7 +185,7 @@ public class ar extends com.baidu.adp.a.d {
             userData.setPortrait(userInfo.getPortrait());
             userData.setPosition(userInfo.getPosition());
             userData.setSex(userInfo.getSex());
-            userData.setUserId(userInfo.getUserId());
+            userData.setUserIdLong(userInfo.getUserId());
             userData.setUserName(userInfo.getUserName());
             arrayList.add(userData);
         }

@@ -1,22 +1,22 @@
 package com.baidu.tieba.im;
-
-import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class e implements View.OnClickListener {
-    final /* synthetic */ NetWorkDebugActivity a;
+public class e implements Runnable {
+    final /* synthetic */ d a;
+    private final /* synthetic */ a b;
+    private final /* synthetic */ Object c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(NetWorkDebugActivity netWorkDebugActivity) {
-        this.a = netWorkDebugActivity;
+    public e(d dVar, a aVar, Object obj) {
+        this.a = dVar;
+        this.b = aVar;
+        this.c = obj;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        NetWorkDebugActivity.a("begin send-----------");
-        com.baidu.tieba.im.message.g gVar = new com.baidu.tieba.im.message.g();
-        gVar.a("123456");
-        com.baidu.tieba.im.messageCenter.e.a().a(gVar);
-        NetWorkDebugActivity.a("end send-----------");
-        NetWorkDebugActivity.a("wait callback call-----------");
+    @Override // java.lang.Runnable
+    public void run() {
+        if (this.b != null) {
+            this.b.a(this.c);
+        }
     }
 }

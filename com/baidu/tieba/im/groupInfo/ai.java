@@ -1,25 +1,24 @@
 package com.baidu.tieba.im.groupInfo;
 
-import com.baidu.tieba.im.message.cr;
+import com.baidu.tieba.im.message.da;
 import java.util.LinkedList;
-import protobuf.DelGroupMsgs.DelGroupMsgsRes;
+import protobuf.AddGroupUsers.AddGroupUsersRes;
 /* loaded from: classes.dex */
-public class ai extends cr implements com.baidu.tieba.im.coder.f {
-    private long a;
+public class ai extends da implements com.baidu.tieba.im.coder.f {
+    private int a;
 
-    public void a(long j) {
-        this.a = j;
+    public ai() {
+        e(103111);
     }
 
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<com.baidu.tieba.im.message.q> linkedList, byte[] bArr, int i) {
-        DelGroupMsgsRes.DelGroupMsgsResIdl parseFrom = DelGroupMsgsRes.DelGroupMsgsResIdl.parseFrom(bArr);
+    public void a(LinkedList<com.baidu.tieba.im.message.s> linkedList, byte[] bArr, int i) {
+        AddGroupUsersRes.AddGroupUsersResIdl parseFrom = AddGroupUsersRes.AddGroupUsersResIdl.parseFrom(bArr);
         g(parseFrom.getError().getErrorno());
         c(parseFrom.getError().getUsermsg());
-        e(i);
         linkedList.add(this);
-        if (!k()) {
-            a(parseFrom.getData().getGroupId());
+        if (!l()) {
+            this.a = parseFrom.getData().getGroupId();
         }
     }
 }

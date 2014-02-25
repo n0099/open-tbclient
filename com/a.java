@@ -23,7 +23,7 @@ public class a implements ClientConnectionManagerFactory {
         try {
             KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
             keyStore.load(null, null);
-            socketFactory = new be(keyStore);
+            socketFactory = new f(keyStore);
             socketFactory.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
         } catch (Exception e) {
             socketFactory = SSLSocketFactory.getSocketFactory();

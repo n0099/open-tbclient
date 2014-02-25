@@ -1,29 +1,28 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tieba.data.MaskData;
 import java.util.LinkedList;
-import protobuf.GetMaskInfo.GetMaskInfoRes;
+import protobuf.DelGroup.DelGroupRes;
 /* loaded from: classes.dex */
-public class bv extends cr implements com.baidu.tieba.im.coder.f {
-    private MaskData a;
+public class bv extends da implements com.baidu.tieba.im.coder.f {
+    private long a;
 
-    public void a(MaskData maskData) {
-        this.a = maskData;
+    public long a() {
+        return this.a;
+    }
+
+    public void a(long j) {
+        this.a = j;
     }
 
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<q> linkedList, byte[] bArr, int i) {
-        GetMaskInfoRes.GetMaskInfoResIdl parseFrom = GetMaskInfoRes.GetMaskInfoResIdl.parseFrom(bArr);
-        e(i);
+    public void a(LinkedList<s> linkedList, byte[] bArr, int i) {
+        DelGroupRes.DelGroupResIdl parseFrom = DelGroupRes.DelGroupResIdl.parseFrom(bArr);
         g(parseFrom.getError().getErrorno());
         c(parseFrom.getError().getUsermsg());
+        e(i);
         linkedList.add(this);
-        if (!k()) {
-            GetMaskInfoRes.DataRes data = parseFrom.getData();
-            MaskData maskData = new MaskData();
-            maskData.setIsMask(data.getIsMask());
-            maskData.setList(maskData.getList());
-            a(maskData);
+        if (!l()) {
+            a(parseFrom.getData().getGroupId());
         }
     }
 }

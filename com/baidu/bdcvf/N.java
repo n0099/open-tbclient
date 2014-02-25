@@ -4,6 +4,6 @@ public class N {
     public static native void a(Object obj, Object obj2);
 
     static {
-        System.loadLibrary("bdcvf");
+        System.loadLibrary("BDcvf_V1_0_5");
     }
 }

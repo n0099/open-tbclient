@@ -1,88 +1,113 @@
 package com.baidu.tieba.model;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class az extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ag> {
-    final /* synthetic */ ax a;
-    private volatile com.baidu.tieba.util.ax b;
+public class az {
+    private int b = 0;
+    private boolean c = false;
+    private String d = null;
+    private boolean e = false;
+    private int f = 0;
+    private ArrayList<ba> a = new ArrayList<>();
 
-    private az(ax axVar) {
-        this.a = axVar;
-        this.b = null;
+    public void a(String str) {
+        this.d = str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public com.baidu.tieba.data.ag a(Object... objArr) {
-        String str;
-        String str2;
-        String str3;
-        String str4;
-        String str5;
+    public String a() {
+        return this.d;
+    }
+
+    public int b() {
+        return this.f;
+    }
+
+    public void a(int i) {
+        this.f = i;
+    }
+
+    public boolean c() {
+        return this.e;
+    }
+
+    public ArrayList<ba> d() {
+        return this.a;
+    }
+
+    public void e() {
+        this.a.clear();
+        this.b = 0;
+        this.c = false;
+    }
+
+    public int f() {
+        return this.b;
+    }
+
+    public boolean g() {
+        return this.c;
+    }
+
+    public void b(String str) {
         try {
-            this.b = new com.baidu.tieba.util.ax(com.baidu.tieba.data.h.a + "c/c/forum/like");
-            StringBuilder append = new StringBuilder().append("mForumName:");
-            str = this.a.a;
-            StringBuilder append2 = append.append(str).append(" mForumid:");
-            str2 = this.a.b;
-            com.baidu.adp.lib.g.e.e("LikeModel", "doInBackground", append2.append(str2).toString());
-            com.baidu.tieba.util.ax axVar = this.b;
-            str3 = this.a.a;
-            axVar.a("kw", str3);
-            com.baidu.tieba.util.ax axVar2 = this.b;
-            str4 = this.a.b;
-            axVar2.a("fid", str4);
-            com.baidu.tieba.util.ax axVar3 = this.b;
-            str5 = this.a.d;
-            axVar3.a("st_type", str5);
-            this.b.e(true);
-            String m = this.b.m();
-            com.baidu.adp.lib.g.e.e("LikeModel", "doInBackground", "data:" + m);
-            if (this.b.d() && m != null) {
-                com.baidu.tieba.data.ag agVar = new com.baidu.tieba.data.ag();
-                agVar.a(m);
-                return agVar;
-            }
+            a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b(getClass().getName(), "doInBackground", e.getMessage());
-        }
-        return null;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(com.baidu.tieba.data.ag agVar) {
-        com.baidu.adp.a.g gVar;
-        com.baidu.adp.a.g gVar2;
-        String str;
-        this.a.c = null;
-        if (agVar == null && this.b != null) {
-            this.a.mErrorCode = this.b.f();
-            this.a.mErrorString = this.b.j();
-            str = this.a.mErrorString;
-            com.baidu.adp.lib.g.e.e("LikeModel", "onPostExecute", str);
-        }
-        gVar = this.a.mLoadDataCallBack;
-        if (gVar != null) {
-            gVar2 = this.a.mLoadDataCallBack;
-            gVar2.a(agVar);
+            com.baidu.adp.lib.util.f.b("MyPostModel", "parserJson", "error = " + e.getMessage());
         }
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        com.baidu.adp.a.g gVar;
-        if (this.b != null) {
-            this.b.k();
-            this.b = null;
+    public void a(JSONObject jSONObject) {
+        try {
+            if (this.d != null) {
+                this.e = jSONObject.optInt("hide_post", 0) == 0;
+            }
+            ba baVar = null;
+            int size = this.a.size();
+            if (size > 0) {
+                baVar = this.a.get(size - 1);
+            }
+            JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                int i = 0;
+                ba baVar2 = baVar;
+                while (i < optJSONArray.length()) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    ba baVar3 = new ba(this);
+                    baVar3.b = optJSONObject.optString("time_shaft");
+                    baVar3.a = optJSONObject.optInt("type", 0);
+                    baVar3.c = optJSONObject.optString("title");
+                    baVar3.d = optJSONObject.optString("reply_num");
+                    baVar3.e = optJSONObject.optString("reply_time");
+                    baVar3.f = optJSONObject.optString("fname");
+                    baVar3.g = optJSONObject.optString("tid");
+                    baVar3.h = optJSONObject.optString("pid");
+                    baVar3.i = optJSONObject.optInt("is_floor", 0) == 1;
+                    if (baVar2 != null && baVar3.b.equals(baVar2.b)) {
+                        this.a.add(baVar3);
+                    } else {
+                        ba baVar4 = new ba(this);
+                        baVar4.b = baVar3.b;
+                        baVar4.a = 0;
+                        this.a.add(baVar4);
+                        this.a.add(baVar3);
+                    }
+                    i++;
+                    baVar2 = baVar3;
+                }
+                JSONObject jSONObject2 = jSONObject.getJSONObject("page");
+                int optInt = jSONObject2.optInt("current_page", 0);
+                if (optInt > this.b) {
+                    this.b = optInt;
+                    this.c = jSONObject2.optInt("has_more", 0) == 1;
+                    return;
+                }
+                return;
+            }
+            this.c = false;
+        } catch (Exception e) {
+            com.baidu.adp.lib.util.f.b("MyPostModel", "parserJson", "error = " + e.getMessage());
         }
-        this.a.c = null;
-        super.cancel(true);
-        gVar = this.a.mLoadDataCallBack;
-        gVar.a(null);
     }
 }

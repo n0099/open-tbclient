@@ -20,13 +20,13 @@ public interface a {
 
     View d();
 
+    View d_();
+
     View e();
 
-    View e_();
+    String e_();
 
     void f();
-
-    String f_();
 
     void g();
 

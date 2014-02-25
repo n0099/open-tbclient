@@ -1,62 +1,25 @@
 package com.baidu.tieba.account;
 
-import android.app.Activity;
-import com.baidu.tieba.MainTabActivity;
-import com.baidu.tieba.TiebaApplication;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.data.AccountData;
-import java.util.ArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.util.DatabaseService;
 /* loaded from: classes.dex */
-public class i implements be {
-    final /* synthetic */ a a;
+class i extends BdAsyncTask<Void, Void, Void> {
+    final /* synthetic */ h a;
+    private final /* synthetic */ AccountData b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(a aVar) {
-        this.a = aVar;
+    public i(h hVar, AccountData accountData) {
+        this.a = hVar;
+        this.b = accountData;
     }
 
-    @Override // com.baidu.tieba.account.be
-    public void a(String str) {
-    }
-
-    @Override // com.baidu.tieba.account.be
-    public void a(AccountData accountData) {
-        Activity activity;
-        Activity activity2;
-        Activity activity3;
-        int i;
-        activity = this.a.b;
-        TiebaApplication.a(accountData, activity);
-        activity2 = this.a.b;
-        if (activity2 != null) {
-            activity3 = this.a.b;
-            i = this.a.c;
-            MainTabActivity.c(activity3, i);
-        }
-        new j(this, accountData).execute(new Void[0]);
-    }
-
-    @Override // com.baidu.tieba.account.be
-    public void a(String str, String str2) {
-        AccountData c;
-        int i;
-        ArrayList arrayList;
-        as asVar;
-        c = this.a.c(str);
-        if (c == null || com.baidu.tieba.util.bu.c(c.getPassword())) {
-            i = this.a.f;
-            arrayList = this.a.e;
-            if (i < arrayList.size()) {
-                this.a.b();
-                return;
-            } else {
-                this.a.c();
-                return;
-            }
-        }
-        String account = c.getAccount();
-        String password = c.getPassword();
-        asVar = this.a.i;
-        ar.a(account, password, asVar);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Void a(Void... voidArr) {
+        DatabaseService.i();
+        DatabaseService.b(this.b);
+        return null;
     }
 }

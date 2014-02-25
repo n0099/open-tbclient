@@ -1,37 +1,106 @@
 package com.baidu.tieba.util;
 
-import android.os.Handler;
-import android.os.SystemClock;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
-public abstract class bv {
-    private long a;
-    private final long b;
-    private long c;
-    private Handler d = new bw(this);
+public class bv {
+    private static bv a = null;
+    private boolean b = false;
+    private boolean c = false;
+    private int d = 600;
+    private String e = String.valueOf(45);
 
-    public abstract void a();
-
-    public abstract void a(long j);
-
-    public bv(long j, long j2) {
-        this.a = j;
-        this.b = j2;
-    }
-
-    public final void b() {
-        this.d.removeMessages(1);
-    }
-
-    public final synchronized bv c() {
-        bv bvVar;
-        if (this.a <= 0) {
-            a();
-            bvVar = this;
-        } else {
-            this.c = SystemClock.elapsedRealtime() + this.a;
-            this.d.sendMessage(this.d.obtainMessage(1));
-            bvVar = this;
+    public static bv a() {
+        if (a == null) {
+            synchronized (bv.class) {
+                a = new bv();
+            }
         }
-        return bvVar;
+        return a;
+    }
+
+    public bv() {
+        j();
+        i();
+    }
+
+    private void i() {
+        f();
+        g();
+        h();
+    }
+
+    public void a(boolean z) {
+        this.c = z;
+    }
+
+    public boolean b() {
+        return this.c;
+    }
+
+    public void b(boolean z) {
+        this.b = z;
+        i();
+    }
+
+    private void j() {
+        this.b = UtilHelper.h(TiebaApplication.g().b().getApplicationContext()) == UtilHelper.NetworkStateInfo.WIFI;
+    }
+
+    public boolean c() {
+        return this.b;
+    }
+
+    public String d() {
+        return this.e;
+    }
+
+    public int e() {
+        h();
+        return this.d;
+    }
+
+    public void f() {
+        boolean z = true;
+        if (com.baidu.tieba.h.a.a().g() != 0 ? com.baidu.tieba.h.a.a().g() != 1 : !this.b) {
+            z = false;
+        }
+        a(z);
+    }
+
+    public void g() {
+        String valueOf = String.valueOf(45);
+        if (com.baidu.tieba.h.a.a().g() == 0) {
+            if (c()) {
+                valueOf = String.valueOf(80);
+            }
+        } else if (com.baidu.tieba.h.a.a().g() == 1) {
+            valueOf = String.valueOf(80);
+        }
+        this.e = valueOf;
+    }
+
+    public void h() {
+        int i = 900;
+        switch (com.baidu.tieba.h.a.a().e()) {
+            case 0:
+                if (!c()) {
+                    i = 600;
+                    break;
+                }
+                break;
+            case 1:
+                break;
+            case 2:
+                i = 750;
+                break;
+            case 3:
+                i = 600;
+                break;
+            default:
+                i = 750;
+                break;
+        }
+        this.d = i;
     }
 }

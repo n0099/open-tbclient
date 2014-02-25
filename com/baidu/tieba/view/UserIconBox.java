@@ -5,14 +5,14 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
+import com.baidu.tbadk.data.IconData;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.data.IconData;
 import java.util.List;
 /* loaded from: classes.dex */
 public class UserIconBox extends LinearLayout {
-    com.baidu.tbadk.imageManager.c a;
+    com.baidu.tbadk.imageManager.d a;
     private com.baidu.adp.lib.d.b<TbImageView> b;
-    private cy c;
+    private de c;
     private Context d;
     private com.baidu.tieba.util.i e;
     private LinearLayout.LayoutParams f;
@@ -23,7 +23,7 @@ public class UserIconBox extends LinearLayout {
         this.b = null;
         this.c = null;
         this.g = null;
-        this.a = new cw(this);
+        this.a = new db(this);
         a(context);
     }
 
@@ -32,7 +32,7 @@ public class UserIconBox extends LinearLayout {
         this.b = null;
         this.c = null;
         this.g = null;
-        this.a = new cw(this);
+        this.a = new db(this);
         a(context);
     }
 
@@ -41,15 +41,15 @@ public class UserIconBox extends LinearLayout {
         setOrientation(0);
         setGravity(16);
         this.e = new com.baidu.tieba.util.i(this.d);
-        if (this.d instanceof cz) {
-            cz czVar = (cz) this.d;
-            this.b = czVar.G();
-            if (czVar.c() != null && this.c == null) {
-                this.c = new cy(czVar.a());
-                czVar.c().setRecyclerListener(this.c);
+        if (this.d instanceof df) {
+            df dfVar = (df) this.d;
+            this.b = dfVar.g_();
+            if (dfVar.c() != null && this.c == null) {
+                this.c = new de(dfVar.a());
+                dfVar.c().setRecyclerListener(this.c);
             }
         }
-        setOnHierarchyChangeListener(new cv(this));
+        setOnHierarchyChangeListener(new dc(this));
     }
 
     private LinearLayout.LayoutParams a(int i, int i2, int i3) {
@@ -106,6 +106,6 @@ public class UserIconBox extends LinearLayout {
     }
 
     public static com.baidu.adp.lib.d.b<TbImageView> a(Context context, int i) {
-        return new com.baidu.adp.lib.d.b<>(new cx(context), i, 0);
+        return new com.baidu.adp.lib.d.b<>(new dd(context), i, 0);
     }
 }

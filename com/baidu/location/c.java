@@ -129,24 +129,24 @@ public class c {
         }
 
         /* renamed from: do  reason: not valid java name */
-        public boolean m112do() {
+        public boolean m113do() {
             return System.currentTimeMillis() - this.f105byte < c.f98void;
         }
 
         /* renamed from: for  reason: not valid java name */
-        public boolean m113for() {
+        public boolean m114for() {
             return this.f107for > -1 && this.f111try > 0;
         }
 
         /* renamed from: if  reason: not valid java name */
-        public String m114if() {
+        public String m115if() {
             StringBuffer stringBuffer = new StringBuffer(64);
             stringBuffer.append(String.format("cell=%d|%d|%d|%d:%d", Integer.valueOf(this.f106do), Integer.valueOf(this.f108if), Integer.valueOf(this.f107for), Integer.valueOf(this.f111try), Integer.valueOf(this.f109int)));
             return stringBuffer.toString();
         }
 
         /* renamed from: int  reason: not valid java name */
-        public String m115int() {
+        public String m116int() {
             String str;
             String str2;
             try {
@@ -308,7 +308,7 @@ public class c {
         }
         if (!f94char) {
             f92byte = this.f104try.getDeviceId();
-            f94char = m105if();
+            f94char = m106if();
         }
         j.a(f.v, "set cell info..");
         a aVar = new a();
@@ -378,11 +378,11 @@ public class c {
                 }
             }
         }
-        if (aVar.m113for()) {
+        if (aVar.m114for()) {
             if (this.a == null || !this.a.a(aVar)) {
                 this.a = aVar;
                 this.f99do.obtainMessage(31).sendToTarget();
-                if (!aVar.m113for()) {
+                if (!aVar.m114for()) {
                     if (this.f103new != null) {
                         this.f103new.clear();
                         return;
@@ -409,7 +409,7 @@ public class c {
     }
 
     /* renamed from: if  reason: not valid java name */
-    private boolean m105if() {
+    private boolean m106if() {
         if (f92byte == null || f92byte.length() < 10) {
             return false;
         }
@@ -427,7 +427,7 @@ public class c {
     }
 
     public a a() {
-        if ((this.a == null || !this.a.m112do() || !this.a.m113for()) && this.f104try != null) {
+        if ((this.a == null || !this.a.m113do() || !this.a.m114for()) && this.f104try != null) {
             try {
                 a(this.f104try.getCellLocation());
             } catch (Exception e) {
@@ -437,7 +437,7 @@ public class c {
     }
 
     /* renamed from: byte  reason: not valid java name */
-    public void m107byte() {
+    public void m108byte() {
         if (this.b) {
             if (this.f102int != null && this.f104try != null) {
                 this.f104try.listen(this.f102int, 0);
@@ -452,7 +452,7 @@ public class c {
     }
 
     /* renamed from: do  reason: not valid java name */
-    public void m108do() {
+    public void m109do() {
         if (this.b) {
             return;
         }
@@ -469,7 +469,7 @@ public class c {
         } catch (Exception e) {
         }
         try {
-            f96goto = j.a.m242if(this.f101if);
+            f96goto = j.a.m243if(this.f101if);
             j.a(f.v, "CUID:" + f96goto);
         } catch (Exception e2) {
             f96goto = null;
@@ -481,14 +481,14 @@ public class c {
             j.a(f.v, "CUID:" + j.f);
         } catch (Exception e3) {
         }
-        f94char = m105if();
-        j.m240if(f.v, "i:" + f92byte);
+        f94char = m106if();
+        j.m241if(f.v, "i:" + f92byte);
         j.a(f.v, "cell manager start...");
         this.b = true;
     }
 
     /* renamed from: for  reason: not valid java name */
-    public String m109for() {
+    public String m110for() {
         if (this.f104try == null) {
             this.f104try = (TelephonyManager) this.f101if.getSystemService("phone");
         }
@@ -500,12 +500,12 @@ public class c {
     }
 
     /* renamed from: int  reason: not valid java name */
-    public String m110int() {
+    public String m111int() {
         return f92byte;
     }
 
     /* renamed from: new  reason: not valid java name */
-    public int m111new() {
+    public int m112new() {
         return this.f104try.getNetworkType();
     }
 }

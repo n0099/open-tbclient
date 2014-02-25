@@ -1,22 +1,21 @@
 package com.baidu.tieba.square;
+
+import com.baidu.tieba.view.by;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ao implements Runnable {
-    final /* synthetic */ SquareActivity a;
+public class ao implements by {
+    final /* synthetic */ am a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(SquareActivity squareActivity) {
-        this.a = squareActivity;
+    public ao(am amVar) {
+        this.a = amVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        bz bzVar;
-        try {
-            bzVar = this.a.b;
-            bzVar.a();
-        } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b("SquareActivity", "mLoadImageRunnable.run", "error = " + e.getMessage());
+    @Override // com.baidu.tieba.view.by
+    public void a(boolean z) {
+        if (!z) {
+            return;
         }
+        this.a.a(true);
     }
 }

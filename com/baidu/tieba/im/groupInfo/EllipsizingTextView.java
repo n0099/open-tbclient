@@ -88,9 +88,9 @@ public class EllipsizingTextView extends TextView {
         super.onDraw(canvas);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:17:0x0083  */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0090  */
-    /* JADX WARN: Removed duplicated region for block: B:30:0x00b2 A[ORIG_RETURN, RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:12:0x0060  */
+    /* JADX WARN: Removed duplicated region for block: B:17:0x006d  */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x007b A[ORIG_RETURN, RETURN] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -102,7 +102,7 @@ public class EllipsizingTextView extends TextView {
             Layout a = a(str);
             if (a.getLineCount() > maxLines) {
                 String trim = this.e.substring(0, a.getLineEnd(maxLines - 1)).trim();
-                while (a(trim + "...").getLineCount() > maxLines) {
+                while (a(String.valueOf(trim) + "...").getLineCount() > maxLines) {
                     if (trim.length() > "...".length()) {
                         trim = trim.substring(0, trim.length() - "...".length());
                     }
@@ -112,7 +112,7 @@ public class EllipsizingTextView extends TextView {
                     }
                     trim = trim.substring(0, lastIndexOf);
                 }
-                str = trim + "...";
+                str = String.valueOf(trim) + "...";
                 z = true;
                 if (!str.equals(getText())) {
                     this.d = true;

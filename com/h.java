@@ -1,40 +1,113 @@
 package com;
 
-import android.text.TextUtils;
-import com.baidu.cloudsdk.IBaiduListener;
-import com.baidu.cloudsdk.common.http.JsonHttpResponseHandler;
-import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.cloudsdk.social.share.ShareContent;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import com.baidu.cloudsdk.common.imgloader.AsyncImageLoader;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes.dex */
-class h extends JsonHttpResponseHandler {
-    final /* synthetic */ ShareContent a;
-    final /* synthetic */ IBaiduListener b;
-    final /* synthetic */ ao c;
+public class h implements i {
+    private String a;
+    private i b;
+    private int c;
+    private int d;
+    private Map e = new HashMap();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public h(ao aoVar, ShareContent shareContent, IBaiduListener iBaiduListener) {
-        this.c = aoVar;
-        this.a = shareContent;
-        this.b = iBaiduListener;
+    public h(String str, int i, int i2, i iVar) {
+        this.a = str;
+        this.c = i;
+        this.d = i2;
+        this.b = iVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
-    public void onFailure(Throwable th, String str) {
-        this.c.a(this.a, this.b);
+    public h a(int i) {
+        this.d = i;
+        return this;
     }
 
-    @Override // com.baidu.cloudsdk.common.http.JsonHttpResponseHandler
-    protected void onSuccess(JSONObject jSONObject) {
-        try {
-            String string = jSONObject.getString(SocialConstants.PARAM_URL);
-            if (!TextUtils.isEmpty(string)) {
-                this.a.setLinkUrl(string);
-            }
-        } catch (JSONException e) {
+    public h a(String str) {
+        this.a = str;
+        return this;
+    }
+
+    @Override // com.i
+    public void a(String str, Bitmap bitmap) {
+        FileOutputStream fileOutputStream;
+        File file = new File(c(str));
+        File parentFile = file.getParentFile();
+        if (parentFile != null && !parentFile.exists()) {
+            parentFile.mkdirs();
         }
-        this.c.a(this.a, this.b);
+        FileOutputStream fileOutputStream2 = null;
+        try {
+            fileOutputStream = new FileOutputStream(file);
+        } catch (Exception e) {
+            fileOutputStream = null;
+        } catch (Throwable th) {
+            th = th;
+        }
+        try {
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream);
+            fileOutputStream.flush();
+            this.e.put(str, 1);
+            if (fileOutputStream != null) {
+                try {
+                    fileOutputStream.close();
+                } catch (IOException e2) {
+                }
+            }
+        } catch (Exception e3) {
+            if (fileOutputStream != null) {
+                try {
+                    fileOutputStream.close();
+                } catch (IOException e4) {
+                }
+            }
+        } catch (Throwable th2) {
+            fileOutputStream2 = fileOutputStream;
+            th = th2;
+            if (fileOutputStream2 != null) {
+                try {
+                    fileOutputStream2.close();
+                } catch (IOException e5) {
+                }
+            }
+            throw th;
+        }
+    }
+
+    public Bitmap b(String str) {
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(c(str), options);
+        options.inSampleSize = AsyncImageLoader.computeSampleSize(options, -1, this.d);
+        options.inJustDecodeBounds = false;
+        Bitmap decodeFile = BitmapFactory.decodeFile(c(str), options);
+        if (decodeFile != null) {
+            Integer num = (Integer) this.e.get(str);
+            if (num == null) {
+                num = 0;
+            }
+            if (num.intValue() + 1 < this.c || this.b == null) {
+                this.e.put(str, Integer.valueOf(num.intValue() + 1));
+                return decodeFile;
+            }
+            this.b.a(str, decodeFile);
+            this.e.remove(str);
+            return decodeFile;
+        }
+        return null;
+    }
+
+    public h b(int i) {
+        this.c = i;
+        return this;
+    }
+
+    public String c(String str) {
+        return this.a + "/" + str + ".png";
     }
 }

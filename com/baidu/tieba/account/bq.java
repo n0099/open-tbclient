@@ -1,64 +1,47 @@
 package com.baidu.tieba.account;
 
-import android.graphics.Bitmap;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.os.Handler;
+import com.baidu.sapi2.SapiAccount;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.sapi2.shell.listener.AuthorizationListener;
+import com.baidu.tieba.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bq extends BdAsyncTask<String, Integer, Bitmap> {
-    final /* synthetic */ Register2Activity a;
-    private com.baidu.tieba.util.ax b = null;
-    private String c;
+public class bq implements AuthorizationListener {
+    final /* synthetic */ SapiFastRegActivity a;
 
-    public bq(Register2Activity register2Activity, String str) {
-        this.a = register2Activity;
-        this.c = null;
-        this.c = str;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bq(SapiFastRegActivity sapiFastRegActivity) {
+        this.a = sapiFastRegActivity;
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        ProgressBar progressBar;
-        this.a.N = null;
-        progressBar = this.a.E;
-        progressBar.setVisibility(8);
-        if (this.b != null) {
-            this.b.k();
+    @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
+    public void onSuccess() {
+        Handler handler;
+        az azVar;
+        SapiAccount session = SapiAccountManager.getInstance().getSession();
+        if (!com.baidu.tieba.util.bs.c(session.username)) {
+            this.a.b = "login_user";
+            String str = session.username;
+            String str2 = session.bduss;
+            String str3 = session.ptoken;
+            azVar = this.a.d;
+            ay.a(str, str2, str3, azVar, true);
+            return;
         }
-        super.cancel(true);
+        AccountData accountData = new AccountData();
+        accountData.setAccount(session.username);
+        accountData.setID(session.uid);
+        accountData.setBDUSS(String.valueOf(session.bduss) + "|" + session.ptoken);
+        accountData.setPortrait(session.portrait);
+        this.a.b = "regist_user";
+        handler = this.a.c;
+        handler.post(new br(this, accountData));
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void b() {
-        ImageView imageView;
-        ProgressBar progressBar;
-        imageView = this.a.F;
-        imageView.setImageBitmap(null);
-        progressBar = this.a.E;
-        progressBar.setVisibility(0);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Bitmap a(String... strArr) {
-        this.b = new com.baidu.tieba.util.ax(this.c);
-        return com.baidu.tieba.util.n.a(this.b.l());
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Bitmap bitmap) {
-        ProgressBar progressBar;
-        ImageView imageView;
-        super.a((bq) bitmap);
-        this.a.N = null;
-        progressBar = this.a.E;
-        progressBar.setVisibility(8);
-        imageView = this.a.F;
-        imageView.setImageBitmap(bitmap);
+    @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
+    public void onFailed(int i, String str) {
+        com.baidu.adp.lib.util.f.e("simon", "onFailed", str);
+        this.a.finish();
     }
 }

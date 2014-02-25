@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bu;
+import com.baidu.tieba.util.bs;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 import java.util.Date;
@@ -63,6 +63,8 @@ public class f extends com.baidu.adp.a.c<UpdatesItemData> {
             String groupHeadUrl = this.m.getGroupHeadUrl();
             if (!TextUtils.isEmpty(groupHeadUrl)) {
                 this.d.setTag(groupHeadUrl);
+            } else {
+                this.d.setTag(null);
             }
             this.d.setClickable(false);
             if (!TextUtils.isEmpty(this.m.getTitle())) {
@@ -72,18 +74,22 @@ public class f extends com.baidu.adp.a.c<UpdatesItemData> {
             }
             Date date = new Date();
             date.setTime(this.m.getTime());
-            this.h.setText(bu.d(date));
+            this.h.setText(bs.d(date));
             if (!TextUtils.isEmpty(this.m.getContent())) {
                 this.f.setText(this.m.getContent());
+            } else {
+                this.f.setText("");
             }
             if (!TextUtils.isEmpty(this.m.getGroupName())) {
                 this.e.setText(this.m.getGroupName());
+            } else {
+                this.e.setText("");
             }
             int paddingLeft = this.j.getPaddingLeft();
             int paddingTop = this.j.getPaddingTop();
             int paddingRight = this.j.getPaddingRight();
             int paddingBottom = this.j.getPaddingBottom();
-            boolean z = TiebaApplication.h().al() == 1;
+            boolean z = TiebaApplication.g().al() == 1;
             this.l.getLayoutMode().a(z);
             this.l.getLayoutMode().a(this.a);
             this.i.setSelected(this.m.isSelected());

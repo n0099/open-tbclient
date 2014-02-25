@@ -1,23 +1,21 @@
 package com.baidu.tieba.frs;
 
-import com.slidingmenu.lib.SlidingMenu;
+import android.widget.ImageView;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-class au implements SlidingMenu.OnClosedListener {
-    final /* synthetic */ FrsImageActivity a;
+class au {
+    TextView a;
+    ImageView b;
+    ImageView c;
+    ImageView d;
+    final /* synthetic */ at e;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public au(FrsImageActivity frsImageActivity) {
-        this.a = frsImageActivity;
+    private au(at atVar) {
+        this.e = atVar;
     }
 
-    @Override // com.slidingmenu.lib.SlidingMenu.OnClosedListener
-    public void onClosed() {
-        boolean z;
-        z = this.a.o;
-        if (z) {
-            this.a.o = false;
-            this.a.q = null;
-            this.a.c(1);
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ au(at atVar, au auVar) {
+        this(atVar);
     }
 }

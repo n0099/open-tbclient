@@ -1,22 +1,20 @@
 package com.baidu.tieba.im.chat;
 
-import android.content.Context;
-import com.baidu.tieba.im.data.UserData;
+import com.baidu.tieba.TiebaApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class cd implements com.baidu.tieba.im.a<Void> {
-    final /* synthetic */ Context a;
-    final /* synthetic */ UserData b;
+public class cd extends com.baidu.tieba.im.c<Boolean> {
+    final /* synthetic */ MsglistActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cd(Context context, UserData userData) {
-        this.a = context;
-        this.b = userData;
+    public cd(MsglistActivity msglistActivity) {
+        this.a = msglistActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Void r4) {
-        PersonalChatActivity.a(this.a, this.b, true);
+    @Override // com.baidu.tieba.im.c
+    /* renamed from: a */
+    public Boolean b() {
+        return Boolean.valueOf(com.baidu.tieba.im.groupInfo.v.b(TiebaApplication.A(), String.valueOf(this.a.e.a().getGroupId())));
     }
 }

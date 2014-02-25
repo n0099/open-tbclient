@@ -1,5 +1,6 @@
 package com.baidu.tieba.voice;
 
+import android.app.Application;
 import android.os.Build;
 import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
@@ -8,8 +9,8 @@ public class ak {
     private static final String[] b = {"meizu"};
 
     public static String a(int i) {
-        TiebaApplication h = TiebaApplication.h();
-        return h == null ? "" : h.getString(i);
+        Application b2 = TiebaApplication.g().b();
+        return b2 == null ? "" : b2.getString(i);
     }
 
     public static final boolean a() {

@@ -6,6 +6,7 @@ import android.content.Context;
 import android.hardware.Camera;
 import android.os.Build;
 import android.provider.Settings;
+import android.support.v4.view.MotionEventCompat;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -97,7 +98,7 @@ public class CompatibleUtile {
     }
 
     public static int getActionMask() {
-        return 255;
+        return MotionEventCompat.ACTION_MASK;
     }
 
     public int getActionPointerUp() {

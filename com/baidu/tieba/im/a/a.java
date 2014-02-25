@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.a;
 
-import com.baidu.tieba.im.message.y;
+import com.baidu.tieba.im.message.ab;
 import com.baidu.tieba.im.messageCenter.e;
 import com.baidu.tieba.im.messageCenter.g;
 import com.baidu.tieba.util.UtilHelper;
@@ -26,14 +26,14 @@ public class a {
                 com.baidu.adp.lib.c.a.a().a(true, this.b);
                 return;
             } else if (this.h != null) {
-                this.h.G();
+                this.h.c();
                 return;
             } else {
                 return;
             }
         }
         this.c = true;
-        e.a().a(new y());
+        e.a().a(new ab());
     }
 
     public void b() {

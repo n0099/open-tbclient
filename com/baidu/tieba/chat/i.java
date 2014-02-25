@@ -1,39 +1,40 @@
 package com.baidu.tieba.chat;
 
-import com.baidu.tieba.data.chat.RecentChatFriendData;
-import com.baidu.tieba.im.SingleRunnable;
+import android.os.Handler;
+import android.widget.AbsListView;
+import com.baidu.adp.widget.ListView.BdListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class i extends SingleRunnable<Void> {
-    final /* synthetic */ RecentChatFriendData a;
-    final /* synthetic */ h b;
+public class i implements AbsListView.OnScrollListener {
+    final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(h hVar, RecentChatFriendData recentChatFriendData) {
-        this.b = hVar;
-        this.a = recentChatFriendData;
+    public i(a aVar) {
+        this.a = aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.SingleRunnable
-    /* renamed from: a */
-    public Void b() {
-        if (this.a != null) {
-            this.a.setUnReadCount(0);
-            com.baidu.adp.lib.g.e.d("updates before updates:" + this.a.getUnReadCount() + "ownerName" + this.a.getOwnerName() + " fid" + this.a.getFriendId() + " uid" + this.a.getOwnerId());
-            if (this.a.getOwnerName().equals("2")) {
-                com.baidu.tieba.im.db.l.a().a("apply_join_group");
-                com.baidu.tieba.im.c.a.h().b(this.a);
-            } else if (this.a.getOwnerName().equals("3")) {
-                com.baidu.tieba.im.c.a.h().c(this.a);
-                com.baidu.adp.lib.g.e.d("updates data.getOwnerName():" + this.a.getOwnerName());
-                com.baidu.tieba.im.db.l.a().a("group_intro_change");
-                com.baidu.tieba.im.db.l.a().a("group_name_change");
-                com.baidu.tieba.im.db.l.a().a("group_notice_change");
-                com.baidu.tieba.im.db.l.a().a("group_level_up");
-                com.baidu.tieba.im.db.l.a().a("dismiss_group");
-                com.baidu.tieba.im.db.l.a().a("kick_out");
-            }
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        Handler handler;
+        Runnable runnable;
+        Handler handler2;
+        Runnable runnable2;
+        BdListView bdListView;
+        BdListView bdListView2;
+        handler = this.a.f;
+        runnable = this.a.g;
+        handler.removeCallbacks(runnable);
+        handler2 = this.a.f;
+        runnable2 = this.a.g;
+        handler2.postDelayed(runnable2, 300L);
+        bdListView = this.a.j;
+        if (bdListView.getAdapter() != null) {
+            bdListView2 = this.a.j;
+            bdListView2.getAdapter().getCount();
         }
-        return null;
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
     }
 }

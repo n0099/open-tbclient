@@ -100,7 +100,7 @@ public class PushConstants {
 
     public static String rsaEncrypt(String str) {
         try {
-            return a.a(a(str.getBytes(), b, a), "utf-8");
+            return a.a(a(str.getBytes(), b, 1024), "utf-8");
         } catch (UnsupportedEncodingException e) {
             return null;
         } catch (Exception e2) {

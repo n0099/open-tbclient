@@ -1,25 +1,24 @@
 package com.baidu.tieba.home;
 
-import android.app.Activity;
 import android.view.View;
-import com.baidu.tieba.account.LoginActivity;
+import android.widget.FrameLayout;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class p implements View.OnClickListener {
-    final /* synthetic */ Activity a;
-    final /* synthetic */ int b;
-    final /* synthetic */ String c;
-    final /* synthetic */ o d;
+public class p implements View.OnClickListener {
+    final /* synthetic */ n a;
+    private final /* synthetic */ FrameLayout b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(o oVar, Activity activity, int i, String str) {
-        this.d = oVar;
-        this.a = activity;
-        this.b = i;
-        this.c = str;
+    public p(n nVar, FrameLayout frameLayout) {
+        this.a = nVar;
+        this.b = frameLayout;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        LoginActivity.a(this.a, this.b, this.c, 11003);
+        View view2;
+        FrameLayout frameLayout = this.b;
+        view2 = this.a.r;
+        frameLayout.removeView(view2);
     }
 }

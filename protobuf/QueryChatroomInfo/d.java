@@ -1,6 +1,15 @@
 package protobuf.QueryChatroomInfo;
 
-import com.google.protobuf.MessageLiteOrBuilder;
+import com.google.protobuf.AbstractParser;
+import com.google.protobuf.CodedInputStream;
+import com.google.protobuf.ExtensionRegistryLite;
+import protobuf.QueryChatroomInfo.QueryChatroomInfoReq;
 /* loaded from: classes.dex */
-public interface d extends MessageLiteOrBuilder {
+class d extends AbstractParser<QueryChatroomInfoReq.QueryChatroomInfoReqIdl> {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.google.protobuf.Parser
+    /* renamed from: a */
+    public QueryChatroomInfoReq.QueryChatroomInfoReqIdl parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
+        return new QueryChatroomInfoReq.QueryChatroomInfoReqIdl(codedInputStream, extensionRegistryLite, null);
+    }
 }

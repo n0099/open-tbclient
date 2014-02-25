@@ -1,39 +1,29 @@
 package com.baidu.tieba.chat;
 
-import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.tieba.data.chat.RecentChatFriendData;
+import com.baidu.tieba.im.message.bv;
+import com.baidu.tieba.im.message.s;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j implements AdapterView.OnItemLongClickListener {
-    final /* synthetic */ ChatListFragment a;
+public class j implements com.baidu.tieba.im.messageCenter.g {
+    final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(ChatListFragment chatListFragment) {
-        this.a = chatListFragment;
+    public j(a aVar) {
+        this.a = aVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-        a aVar;
-        a aVar2;
-        RecentChatFriendData recentChatFriendData;
-        if (i >= 0) {
-            aVar = this.a.Y;
-            long itemId = aVar.getItemId(i);
-            if (itemId != -1 && itemId != -2) {
-                ChatListFragment chatListFragment = this.a;
-                aVar2 = this.a.Y;
-                chatListFragment.g = (RecentChatFriendData) aVar2.getItem(i);
-                ChatListFragment chatListFragment2 = this.a;
-                recentChatFriendData = this.a.g;
-                chatListFragment2.a(recentChatFriendData);
-                if (this.a.a != null) {
-                    this.a.a.show();
-                }
+    @Override // com.baidu.tieba.im.messageCenter.g
+    public void a(s sVar) {
+        if (sVar != null && sVar.w() == 103104 && (sVar instanceof bv)) {
+            bv bvVar = (bv) sVar;
+            if (bvVar.m() > 0) {
+                this.a.a(bvVar.n());
+            } else if (bvVar.m() < 0) {
+                this.a.a(R.string.neterror);
+            } else {
+                this.a.b(new StringBuilder(String.valueOf(bvVar.a())).toString());
             }
-            return true;
         }
-        return false;
     }
 }

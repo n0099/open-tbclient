@@ -7,8 +7,10 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.os.Handler;
+import android.support.v4.view.MotionEventCompat;
 import android.util.AttributeSet;
 import android.widget.ImageView;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 import java.lang.ref.SoftReference;
@@ -23,19 +25,12 @@ public class ImagePbImageView extends ImageView {
     private boolean g;
     private boolean h;
     private Bitmap i;
-    private com.baidu.adp.widget.ImageView.d j;
-    private SoftReference<com.baidu.adp.widget.ImageView.d> k;
-    private com.baidu.adp.widget.ImageView.d l;
-    private SoftReference<com.baidu.adp.widget.ImageView.d> m;
+    private com.baidu.adp.widget.ImageView.b j;
+    private SoftReference<com.baidu.adp.widget.ImageView.b> k;
+    private com.baidu.adp.widget.ImageView.b l;
+    private SoftReference<com.baidu.adp.widget.ImageView.b> m;
     private int n;
     private Handler o;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ int a(ImagePbImageView imagePbImageView) {
-        int i = imagePbImageView.n;
-        imagePbImageView.n = i - 1;
-        return i;
-    }
 
     public void setScale(int i) {
         this.b = i;
@@ -83,7 +78,7 @@ public class ImagePbImageView extends ImageView {
         this.l = null;
         this.m = null;
         this.n = -1;
-        this.o = new bc(this);
+        this.o = new bi(this);
         c();
     }
 
@@ -103,7 +98,7 @@ public class ImagePbImageView extends ImageView {
         this.l = null;
         this.m = null;
         this.n = -1;
-        this.o = new bc(this);
+        this.o = new bi(this);
         c();
     }
 
@@ -123,7 +118,7 @@ public class ImagePbImageView extends ImageView {
         this.l = null;
         this.m = null;
         this.n = -1;
-        this.o = new bc(this);
+        this.o = new bi(this);
         c();
     }
 
@@ -133,36 +128,36 @@ public class ImagePbImageView extends ImageView {
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
-        com.baidu.adp.widget.ImageView.d dVar;
+        com.baidu.adp.widget.ImageView.b bVar;
         super.onDraw(canvas);
-        com.baidu.adp.widget.ImageView.d c = com.baidu.tbadk.imageManager.d.a().c(((String) getTag()) + "_big");
+        com.baidu.adp.widget.ImageView.b c = com.baidu.tbadk.imageManager.e.a().c(String.valueOf((String) getTag()) + "_big");
         if (c == null) {
             this.g = false;
-            if (TiebaApplication.h().al() == 1) {
+            if (TiebaApplication.g().al() == 1) {
                 if (this.m == null) {
-                    this.l = new com.baidu.adp.widget.ImageView.d(com.baidu.tieba.util.n.a((int) R.drawable.image_default_1), false, null);
+                    this.l = new com.baidu.adp.widget.ImageView.b(com.baidu.tieba.util.n.a((int) R.drawable.image_default_1), false, null);
                     this.m = new SoftReference<>(this.l);
                 }
-                dVar = this.m.get();
+                bVar = this.m.get();
             } else {
                 if (this.k == null) {
-                    this.j = new com.baidu.adp.widget.ImageView.d(com.baidu.tieba.util.n.a((int) R.drawable.image_default), false, null);
+                    this.j = new com.baidu.adp.widget.ImageView.b(com.baidu.tieba.util.n.a((int) R.drawable.image_default), false, null);
                     this.k = new SoftReference<>(this.j);
                 }
-                dVar = this.k.get();
+                bVar = this.k.get();
             }
         } else {
             this.g = true;
-            dVar = c;
+            bVar = c;
         }
-        if (dVar != null) {
-            this.d.setAlpha(255);
+        if (bVar != null) {
+            this.d.setAlpha(MotionEventCompat.ACTION_MASK);
             if (this.n >= 0) {
-                this.d.setAlpha(255 - ((this.n * 255) / 10));
+                this.d.setAlpha(255 - ((this.n * MotionEventCompat.ACTION_MASK) / 10));
             }
-            int a = com.baidu.adp.lib.g.g.a(getContext(), 8.0f);
-            int c2 = dVar.c();
-            int d = dVar.d();
+            int a = BdUtilHelper.a(getContext(), 8.0f);
+            int c2 = bVar.c();
+            int d = bVar.d();
             int width = getWidth() - a;
             int height = getHeight();
             this.c.reset();
@@ -178,8 +173,8 @@ public class ImagePbImageView extends ImageView {
                 f2 = (height - d) >> 1;
             }
             this.c.postTranslate(f, f2);
-            dVar.a(canvas, this.c, this.d);
-            if (this.g && TiebaApplication.h().al() == 1) {
+            bVar.a(canvas, this.c, this.d);
+            if (this.g && TiebaApplication.g().al() == 1) {
                 this.f.set(f, f2, c2 + f, d + f2);
                 canvas.drawRect(this.f, this.e);
             }

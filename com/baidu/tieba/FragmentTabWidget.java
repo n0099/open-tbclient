@@ -7,7 +7,7 @@ import android.widget.LinearLayout;
 /* loaded from: classes.dex */
 public class FragmentTabWidget extends LinearLayout {
     private int a;
-    private y b;
+    private r b;
 
     public FragmentTabWidget(Context context) {
         super(context);
@@ -33,14 +33,14 @@ public class FragmentTabWidget extends LinearLayout {
     public void addView(View view) {
         a(view);
         super.addView(view);
-        view.setOnClickListener(new z(this, getChildCount() - 1));
+        view.setOnClickListener(new s(this, getChildCount() - 1, null));
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view, int i) {
         a(view);
         super.addView(view, i);
-        view.setOnClickListener(new z(this, getChildCount() - 1));
+        view.setOnClickListener(new s(this, getChildCount() - 1, null));
     }
 
     private void a(View view) {
@@ -52,8 +52,8 @@ public class FragmentTabWidget extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void setTabSelectionListener(y yVar) {
-        this.b = yVar;
+    public void setTabSelectionListener(r rVar) {
+        this.b = rVar;
     }
 
     public void a() {

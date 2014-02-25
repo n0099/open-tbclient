@@ -1,18 +1,14 @@
 package com.baidu.tieba.frs;
-
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 /* loaded from: classes.dex */
-class af {
-    FrameLayout a;
-    LinearLayout b;
-    TextView c;
-    ProgressBar d;
-    final /* synthetic */ ad e;
+class af implements com.baidu.adp.widget.ListView.t {
+    final /* synthetic */ FrsActivity a;
 
-    private af(ad adVar) {
-        this.e = adVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public af(FrsActivity frsActivity) {
+        this.a = frsActivity;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.t
+    public void b() {
     }
 }

@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.searchGroup;
 
 import android.view.View;
+import com.baidu.adp.lib.util.BdUtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements View.OnFocusChangeListener {
@@ -16,7 +17,7 @@ public class h implements View.OnFocusChangeListener {
         SearchGroupActivity searchGroupActivity;
         if (!z) {
             searchGroupActivity = this.a.b;
-            com.baidu.adp.lib.g.g.a(searchGroupActivity, view);
+            BdUtilHelper.a(searchGroupActivity, view);
         }
     }
 }

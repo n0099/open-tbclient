@@ -1,126 +1,32 @@
 package com.baidu.tieba.write;
 
-import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.ProgressBar;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.MetaData;
-import java.util.HashMap;
-import java.util.Iterator;
+import android.os.Handler;
+import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i extends BdAsyncTask<String, Integer, com.baidu.tieba.data.ay> {
+public class i implements AbsListView.OnScrollListener {
     final /* synthetic */ AtListActivity a;
-    private com.baidu.tieba.util.ax b;
-    private String c;
-
-    private i(AtListActivity atListActivity) {
-        this.a = atListActivity;
-        this.b = null;
-        this.c = null;
-    }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ i(AtListActivity atListActivity, a aVar) {
-        this(atListActivity);
+    public i(AtListActivity atListActivity) {
+        this.a = atListActivity;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void b() {
-        ProgressBar progressBar;
-        progressBar = this.a.k;
-        progressBar.setVisibility(0);
-        super.b();
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        Handler handler;
+        Runnable runnable;
+        Handler handler2;
+        Runnable runnable2;
+        handler = this.a.h;
+        runnable = this.a.y;
+        handler.removeCallbacks(runnable);
+        handler2 = this.a.h;
+        runnable2 = this.a.y;
+        handler2.postDelayed(runnable2, 300L);
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        ProgressBar progressBar;
-        this.a.f = null;
-        this.c = null;
-        progressBar = this.a.k;
-        progressBar.setVisibility(8);
-        super.cancel(true);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public com.baidu.tieba.data.ay a(String... strArr) {
-        com.baidu.tieba.model.d dVar;
-        this.c = strArr[0];
-        this.b = new com.baidu.tieba.util.ax();
-        if (this.c == null || this.c.length() <= 0) {
-            return null;
-        }
-        this.b.a(com.baidu.tieba.data.h.a + "c/u/follow/sug");
-        this.b.a(SapiAccountManager.SESSION_UID, TiebaApplication.A());
-        this.b.a("q", this.c);
-        String m = this.b.m();
-        if (this.b.d()) {
-            com.baidu.tieba.data.ay ayVar = new com.baidu.tieba.data.ay();
-            dVar = this.a.h;
-            com.baidu.tieba.data.x a = dVar.a();
-            if (a != null) {
-                ayVar.a(m, a.b());
-            } else {
-                ayVar.a(m, (HashMap<String, String>) null);
-            }
-            if (AtListActivity.a != null && AtListActivity.a.size() > 0) {
-                Iterator<MetaData> it = ayVar.a().iterator();
-                while (it.hasNext()) {
-                    MetaData next = it.next();
-                    Iterator<MetaData> it2 = AtListActivity.a.iterator();
-                    while (true) {
-                        if (it2.hasNext()) {
-                            MetaData next2 = it2.next();
-                            if (next.getName().equals(next2.getName())) {
-                                next.setId(next2.getId());
-                                next.setName_show(next2.getName_show());
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
-            return ayVar;
-        }
-        return null;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(com.baidu.tieba.data.ay ayVar) {
-        ProgressBar progressBar;
-        EditText editText;
-        com.baidu.tieba.model.d dVar;
-        k kVar;
-        k kVar2;
-        ListView listView;
-        progressBar = this.a.k;
-        progressBar.setVisibility(8);
-        if (this.b.d() && this.c != null) {
-            editText = this.a.b;
-            if (editText.getText().toString().equals(this.c)) {
-                if (!ayVar.a().isEmpty()) {
-                    this.a.a(false);
-                }
-                dVar = this.a.h;
-                dVar.a(ayVar);
-                kVar = this.a.i;
-                kVar.a(ayVar.a());
-                kVar2 = this.a.i;
-                kVar2.notifyDataSetInvalidated();
-                listView = this.a.d;
-                listView.setSelection(0);
-                super.a((i) ayVar);
-            }
-        }
-        this.a.showToast(this.b.j());
-        super.a((i) ayVar);
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
     }
 }

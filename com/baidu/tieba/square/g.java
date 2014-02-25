@@ -7,5 +7,5 @@ public class g {
     public HeadImageView a;
     public TextView b;
     public BestStringsFitTextView c;
-    public z d;
+    public ab d;
 }

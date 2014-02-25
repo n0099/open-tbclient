@@ -8,6 +8,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Build;
+import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.text.format.Formatter;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -46,7 +47,7 @@ public final class c {
                 aVar.i = 1;
             } else if (Build.VERSION.SDK_INT < 8) {
                 aVar.i = 2;
-            } else if ((b2.applicationInfo.flags & 262144) != 0) {
+            } else if ((b2.applicationInfo.flags & AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START) != 0) {
                 aVar.i = 3;
             } else {
                 aVar.i = 2;
@@ -177,7 +178,7 @@ public final class c {
                     aVar.i = 1;
                 } else if (Build.VERSION.SDK_INT < 8) {
                     aVar.i = 2;
-                } else if ((packageInfo.applicationInfo.flags & 262144) != 0) {
+                } else if ((packageInfo.applicationInfo.flags & AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START) != 0) {
                     aVar.i = 3;
                 } else {
                     aVar.i = 2;
@@ -215,7 +216,7 @@ public final class c {
         aVar.b = b2.versionName;
         aVar.f = b2.versionCode;
         if (applicationInfo != null) {
-            aVar.h = (Build.VERSION.SDK_INT >= 8 ? applicationInfo.flags & 262144 : 1) != 0;
+            aVar.h = (Build.VERSION.SDK_INT >= 8 ? applicationInfo.flags & AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START : 1) != 0;
         } else {
             aVar.h = false;
         }

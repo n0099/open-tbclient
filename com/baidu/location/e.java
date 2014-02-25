@@ -73,7 +73,7 @@ public class e {
             if (context == null || e.this.f121if == null) {
                 return;
             }
-            e.this.m120goto();
+            e.this.m121goto();
         }
     }
 
@@ -87,7 +87,7 @@ public class e {
             if (context == null || e.this.f121if == null) {
                 return;
             }
-            e.this.m122if();
+            e.this.m123if();
             e.this.f121if.obtainMessage(41).sendToTarget();
             j.a(e.f114try, "wifi manager receive new wifi...");
         }
@@ -113,12 +113,12 @@ public class e {
             this.f126do = list;
             this.f127for = System.currentTimeMillis();
             a();
-            j.m240if(e.f114try, m135for());
+            j.m241if(e.f114try, m136for());
         }
 
         private void a() {
             boolean z;
-            if (m140new() < 1) {
+            if (m141new() < 1) {
                 return;
             }
             boolean z2 = true;
@@ -142,11 +142,11 @@ public class e {
         public String a(int i) {
             int i2;
             boolean z;
-            if (m140new() < 1) {
+            if (m141new() < 1) {
                 return null;
             }
             StringBuffer stringBuffer = new StringBuffer(512);
-            String m125char = e.this.m125char();
+            String m126char = e.this.m126char();
             int size = this.f126do.size();
             if (size <= i) {
                 i = size;
@@ -169,7 +169,7 @@ public class e {
                     }
                     stringBuffer.append(String.format(";%d;", Integer.valueOf(i6)));
                     i2 = i5 + 1;
-                    i4 = (m125char == null || !m125char.equals(replace)) ? i4 : i2;
+                    i4 = (m126char == null || !m126char.equals(replace)) ? i4 : i2;
                     z = false;
                 } else {
                     stringBuffer.append("|");
@@ -181,7 +181,7 @@ public class e {
                     }
                     stringBuffer.append(String.format(";%d;", Integer.valueOf(i7)));
                     int i8 = i5 + 1;
-                    if (m125char == null || !m125char.equals(replace2)) {
+                    if (m126char == null || !m126char.equals(replace2)) {
                         boolean z3 = z2;
                         i2 = i8;
                         z = z3;
@@ -199,7 +199,7 @@ public class e {
             if (z2) {
                 return null;
             }
-            j.a(e.f114try, m125char + i4);
+            j.a(e.f114try, m126char + i4);
             stringBuffer.append("&wf_n=" + i4);
             stringBuffer.append("&wf_st=");
             stringBuffer.append(this.f128if);
@@ -262,7 +262,7 @@ public class e {
         }
 
         /* renamed from: byte  reason: not valid java name */
-        public String m131byte() {
+        public String m132byte() {
             try {
                 return a(j.F);
             } catch (Exception e) {
@@ -271,11 +271,11 @@ public class e {
         }
 
         /* renamed from: case  reason: not valid java name */
-        public String m132case() {
+        public String m133case() {
             boolean z;
             StringBuffer stringBuffer = new StringBuffer(512);
             stringBuffer.append("wifi info:");
-            if (m140new() < 1) {
+            if (m141new() < 1) {
                 return stringBuffer.toString();
             }
             int size = this.f126do.size();
@@ -305,12 +305,12 @@ public class e {
         }
 
         /* renamed from: do  reason: not valid java name */
-        public boolean m133do() {
+        public boolean m134do() {
             return System.currentTimeMillis() - this.f127for < 3000;
         }
 
         /* renamed from: do  reason: not valid java name */
-        public boolean m134do(c cVar) {
+        public boolean m135do(c cVar) {
             if (this.f126do == null || cVar == null || cVar.f126do == null) {
                 return false;
             }
@@ -328,7 +328,7 @@ public class e {
         }
 
         /* renamed from: for  reason: not valid java name */
-        public String m135for() {
+        public String m136for() {
             StringBuilder sb = new StringBuilder();
             sb.append("wifi=");
             if (this.f126do == null) {
@@ -343,9 +343,9 @@ public class e {
         }
 
         /* renamed from: if  reason: not valid java name */
-        public String m136if(int i) {
+        public String m137if(int i) {
             int i2 = 0;
-            if (i == 0 || m140new() < 1) {
+            if (i == 0 || m141new() < 1) {
                 return null;
             }
             StringBuffer stringBuffer = new StringBuffer(256);
@@ -373,12 +373,12 @@ public class e {
         }
 
         /* renamed from: if  reason: not valid java name */
-        public boolean m137if() {
+        public boolean m138if() {
             return System.currentTimeMillis() - this.f128if < 3000;
         }
 
         /* renamed from: if  reason: not valid java name */
-        public boolean m138if(c cVar) {
+        public boolean m139if(c cVar) {
             if (this.f126do == null || cVar == null || cVar.f126do == null) {
                 return false;
             }
@@ -392,12 +392,12 @@ public class e {
         }
 
         /* renamed from: int  reason: not valid java name */
-        public boolean m139int() {
+        public boolean m140int() {
             return System.currentTimeMillis() - this.f127for < 5000;
         }
 
         /* renamed from: new  reason: not valid java name */
-        public int m140new() {
+        public int m141new() {
             if (this.f126do == null) {
                 return 0;
             }
@@ -405,7 +405,7 @@ public class e {
         }
 
         /* renamed from: try  reason: not valid java name */
-        public String m141try() {
+        public String m142try() {
             try {
                 return a(15);
             } catch (Exception e) {
@@ -440,7 +440,7 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: goto  reason: not valid java name */
-    public void m120goto() {
+    public void m121goto() {
         NetworkInfo.State state;
         NetworkInfo.State state2 = NetworkInfo.State.UNKNOWN;
         try {
@@ -460,14 +460,14 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: if  reason: not valid java name */
-    public void m122if() {
+    public void m123if() {
         if (this.f125void == null) {
             return;
         }
         try {
             c cVar = new c(this.f125void.getScanResults(), this.b);
             this.b = 0L;
-            if (this.f115case == null || !cVar.m138if(this.f115case)) {
+            if (this.f115case == null || !cVar.m139if(this.f115case)) {
                 this.f115case = cVar;
             }
         } catch (Exception e) {
@@ -480,12 +480,12 @@ public class e {
             return false;
         }
         this.f123long = currentTimeMillis;
-        return m129new();
+        return m130new();
     }
 
     /* renamed from: byte  reason: not valid java name */
-    public c m123byte() {
-        if ((this.f115case == null || !this.f115case.m139int()) && this.f125void != null) {
+    public c m124byte() {
+        if ((this.f115case == null || !this.f115case.m140int()) && this.f125void != null) {
             try {
                 return new c(this.f125void.getScanResults(), 0L);
             } catch (Exception e) {
@@ -496,7 +496,7 @@ public class e {
     }
 
     /* renamed from: case  reason: not valid java name */
-    public void m124case() {
+    public void m125case() {
         if (this.c == null) {
             this.c = new a();
         }
@@ -507,14 +507,14 @@ public class e {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
             this.f120goto.registerReceiver(this.c, intentFilter);
-            m120goto();
+            m121goto();
             this.f118else = true;
         } catch (Exception e) {
         }
     }
 
     /* renamed from: char  reason: not valid java name */
-    public String m125char() {
+    public String m126char() {
         WifiInfo connectionInfo = this.f125void.getConnectionInfo();
         if (connectionInfo == null) {
             return null;
@@ -531,7 +531,7 @@ public class e {
     }
 
     /* renamed from: else  reason: not valid java name */
-    public void m126else() {
+    public void m127else() {
         if (this.f122int) {
             try {
                 this.f120goto.unregisterReceiver(this.f116char);
@@ -549,7 +549,7 @@ public class e {
     }
 
     /* renamed from: for  reason: not valid java name */
-    public void m127for() {
+    public void m128for() {
         if (!this.f117do && j.f205try && j.J) {
             this.f121if.postDelayed(new d(), j.h);
             this.f117do = true;
@@ -557,8 +557,8 @@ public class e {
     }
 
     /* renamed from: int  reason: not valid java name */
-    public c m128int() {
-        if ((this.f115case == null || !this.f115case.m133do()) && this.f125void != null) {
+    public c m129int() {
+        if ((this.f115case == null || !this.f115case.m134do()) && this.f125void != null) {
             try {
                 return new c(this.f125void.getScanResults(), 0L);
             } catch (Exception e) {
@@ -569,7 +569,7 @@ public class e {
     }
 
     /* renamed from: new  reason: not valid java name */
-    public boolean m129new() {
+    public boolean m130new() {
         if (this.f125void == null) {
             return false;
         }
@@ -601,7 +601,7 @@ public class e {
     }
 
     /* renamed from: try  reason: not valid java name */
-    public void m130try() {
+    public void m131try() {
         if (this.f122int) {
             return;
         }
@@ -615,7 +615,7 @@ public class e {
                 intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
                 this.f120goto.registerReceiver(this.c, intentFilter);
                 this.f118else = true;
-                m120goto();
+                m121goto();
             }
         } catch (Exception e) {
         }

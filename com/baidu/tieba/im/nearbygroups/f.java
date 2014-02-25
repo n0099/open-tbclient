@@ -3,11 +3,11 @@ package com.baidu.tieba.im.nearbygroups;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import com.baidu.adp.widget.u;
+import com.baidu.adp.widget.s;
 import com.baidu.tieba.im.data.NearbyGroupsData;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public class f extends u {
+public class f extends s {
     private NearbyGroupsActivity a;
     private com.baidu.tieba.util.i d;
     private a f;
@@ -144,12 +144,12 @@ public class f extends u {
         return view;
     }
 
-    @Override // com.baidu.adp.widget.u
+    @Override // com.baidu.adp.widget.s
     public int b() {
         return 4;
     }
 
-    @Override // com.baidu.adp.widget.u
+    @Override // com.baidu.adp.widget.s
     public View c() {
         if (this.f == null) {
             this.f = g.a(this.a, 4);
@@ -157,7 +157,7 @@ public class f extends u {
         return this.f.a();
     }
 
-    @Override // com.baidu.adp.widget.u
+    @Override // com.baidu.adp.widget.s
     public void a(View view, AdapterView adapterView, int i) {
         if (this.f != null) {
             this.f.a(i, getItem(i));

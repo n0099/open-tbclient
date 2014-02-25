@@ -9,6 +9,7 @@ import java.net.SocketTimeoutException;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
+import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public class an extends Thread {
     private static long f = 0;
@@ -21,7 +22,7 @@ public class an extends Thread {
     private int h;
     private boolean i;
     private int j;
-    private ap k;
+    private ao k;
     private j l;
 
     public an(Handler handler, g gVar, am amVar, String str) {
@@ -37,7 +38,7 @@ public class an extends Thread {
         this.k = null;
         this.h = 1;
         if (h()) {
-            com.baidu.adp.lib.g.e.d("created");
+            com.baidu.adp.lib.util.f.e("created");
         }
     }
 
@@ -47,6 +48,7 @@ public class an extends Thread {
         this.a.sendMessage(obtainMessage);
     }
 
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [215=8] */
     private boolean d() {
         String str;
         int i;
@@ -96,10 +98,10 @@ public class an extends Thread {
                     i2 = i7 + 2;
                 } else if (i6 == 126) {
                     i2 = i7 + 4;
-                } else if (i6 == 127) {
-                    i2 = i7 + 10;
-                } else {
+                } else if (i6 != 127) {
                     throw new Exception("BdLogic error");
+                } else {
+                    i2 = i7 + 10;
                 }
                 if (this.d.position() >= i2) {
                     if (i6 == 126) {
@@ -108,22 +110,21 @@ public class an extends Thread {
                             throw new WebSocketException("invalid data frame length (not using minimal length encoding)");
                         }
                         i3 = 4;
-                    } else if (i6 == 127) {
-                        if ((this.d.get(2) & 128) != 0) {
-                            throw new WebSocketException("invalid data frame length (> 2^63)");
-                        }
+                    } else if (i6 != 127) {
+                        j = i6;
+                    } else if ((this.d.get(2) & 128) != 0) {
+                        throw new WebSocketException("invalid data frame length (> 2^63)");
+                    } else {
                         j = ((this.d.get(2) & 255) << 56) | ((this.d.get(3) & 255) << 48) | ((this.d.get(4) & 255) << 40) | ((this.d.get(5) & 255) << 32) | ((this.d.get(6) & 255) << 24) | ((this.d.get(7) & 255) << 16) | ((this.d.get(8) & 255) << 8) | (this.d.get(9) & 255);
                         if (j < 65536) {
                             throw new WebSocketException("invalid data frame length (not using minimal length encoding)");
                         }
                         i3 = 10;
-                    } else {
-                        j = i6;
                     }
                     if (j > this.c.b()) {
                         throw new WebSocketException("frame payload too large");
                     }
-                    this.k = new ap();
+                    this.k = new ao(null);
                     this.k.a = i5;
                     this.k.b = z;
                     this.k.c = i4;
@@ -155,38 +156,7 @@ public class an extends Thread {
             this.d.position(this.k.f);
             this.d.limit(position);
             this.d.compact();
-            if (this.k.a > 7) {
-                if (this.k.a == 8) {
-                    int i10 = 1005;
-                    if (this.k.e >= 2) {
-                        i10 = ((bArr[0] & 255) * 256) + (bArr[1] & 255);
-                        if (i10 < 1000 || ((i10 >= 1000 && i10 <= 2999 && i10 != 1000 && i10 != 1001 && i10 != 1002 && i10 != 1003 && i10 != 1007 && i10 != 1008 && i10 != 1009 && i10 != 1010 && i10 != 1011) || i10 >= 5000)) {
-                            throw new WebSocketException("invalid close code " + i10);
-                        }
-                        if (this.k.e > 2) {
-                            byte[] bArr2 = new byte[this.k.e - 2];
-                            System.arraycopy(bArr, 2, bArr2, 0, this.k.e - 2);
-                            j jVar = new j();
-                            jVar.a(bArr2);
-                            if (!jVar.b()) {
-                                throw new WebSocketException("invalid close reasons (not UTF-8)");
-                            }
-                            str = new String(bArr2, "UTF-8");
-                            i = i10;
-                            a(i, str);
-                        }
-                    }
-                    str = null;
-                    i = i10;
-                    a(i, str);
-                } else if (this.k.a == 9) {
-                    a(bArr);
-                } else if (this.k.a == 10) {
-                    b(bArr);
-                } else {
-                    throw new Exception("BdLogic error");
-                }
-            } else {
+            if (this.k.a <= 7) {
                 if (!this.i) {
                     this.i = true;
                     this.j = this.k.a;
@@ -213,14 +183,43 @@ public class an extends Thread {
                         } else {
                             a(new String(this.e.toByteArray(), "UTF-8"));
                         }
-                    } else if (this.j == 2) {
-                        d(this.e.toByteArray());
-                    } else {
+                    } else if (this.j != 2) {
                         throw new Exception("BdLogic error");
+                    } else {
+                        d(this.e.toByteArray());
                     }
                     this.i = false;
                     this.e.reset();
                 }
+            } else if (this.k.a == 8) {
+                int i10 = 1005;
+                if (this.k.e >= 2) {
+                    i10 = ((bArr[0] & 255) * 256) + (bArr[1] & 255);
+                    if (i10 < 1000 || (!(i10 < 1000 || i10 > 2999 || i10 == 1000 || i10 == 1001 || i10 == 1002 || i10 == 1003 || i10 == 1007 || i10 == 1008 || i10 == 1009 || i10 == 1010 || i10 == 1011) || i10 >= 5000)) {
+                        throw new WebSocketException("invalid close code " + i10);
+                    }
+                    if (this.k.e > 2) {
+                        byte[] bArr2 = new byte[this.k.e - 2];
+                        System.arraycopy(bArr, 2, bArr2, 0, this.k.e - 2);
+                        j jVar = new j();
+                        jVar.a(bArr2);
+                        if (!jVar.b()) {
+                            throw new WebSocketException("invalid close reasons (not UTF-8)");
+                        }
+                        str = new String(bArr2, "UTF-8");
+                        i = i10;
+                        a(i, str);
+                    }
+                }
+                str = null;
+                i = i10;
+                a(i, str);
+            } else if (this.k.a == 9) {
+                a(bArr);
+            } else if (this.k.a != 10) {
+                throw new Exception("BdLogic error");
+            } else {
+                b(bArr);
             }
             this.k = null;
             return this.d.position() > 0;
@@ -302,13 +301,13 @@ public class an extends Thread {
     private Map<String, String> e(byte[] bArr) {
         String str = new String(bArr, "UTF-8");
         HashMap hashMap = new HashMap();
-        String[] split = str.split("\r\n");
+        String[] split = str.split(IOUtils.LINE_SEPARATOR_WINDOWS);
         for (String str2 : split) {
             if (str2.length() > 0) {
                 String[] split2 = str2.split(": ");
                 if (split2.length == 2) {
                     hashMap.put(split2[0], split2[1]);
-                    com.baidu.adp.lib.g.e.b(String.format("'%s'='%s'", split2[0], split2[1]));
+                    com.baidu.adp.lib.util.f.c(String.format("'%s'='%s'", split2[0], split2[1]));
                 }
             }
         }
@@ -340,7 +339,7 @@ public class an extends Thread {
         this.d.get(bArr, 0, i8);
         String str = new String(bArr, "UTF-8");
         if (h()) {
-            com.baidu.adp.lib.g.e.b(String.format("Status: %d (%s)", Integer.valueOf(i4), str));
+            com.baidu.adp.lib.util.f.c(String.format("Status: %d (%s)", Integer.valueOf(i4), str));
         }
         return new Pair<>(Integer.valueOf(i4), str);
     }
@@ -362,18 +361,18 @@ public class an extends Thread {
         try {
             this.b.a();
         } catch (Exception e) {
-            com.baidu.adp.lib.g.e.a("error:" + e.getMessage());
+            com.baidu.adp.lib.util.f.b("error:" + e.getMessage());
         }
         if (h()) {
-            com.baidu.adp.lib.g.e.d("quit");
+            com.baidu.adp.lib.util.f.e("quit");
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [735=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [735=6] */
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         if (h()) {
-            com.baidu.adp.lib.g.e.d("running");
+            com.baidu.adp.lib.util.f.e("running");
         }
         try {
             this.d.clear();
@@ -390,45 +389,45 @@ public class an extends Thread {
                         } while (g());
                     } else if (a < 0) {
                         if (h()) {
-                            com.baidu.adp.lib.g.e.d("run() : ConnectionLost");
+                            com.baidu.adp.lib.util.f.e("run() : ConnectionLost");
                         }
                         a(new w(new SocketException("len < 0")));
                         this.g = true;
                     }
                 } catch (SocketTimeoutException e) {
-                    if (!((ConnectivityManager) com.baidu.adp.a.b.a().getSystemService("connectivity")).getActiveNetworkInfo().isAvailable()) {
+                    if (!((ConnectivityManager) com.baidu.adp.a.b.a().b().getSystemService("connectivity")).getActiveNetworkInfo().isAvailable()) {
                         this.g = true;
                         a(new w(new SocketException("not net")));
                         return;
                     }
                 }
             } while (!this.g);
-        } catch (WebSocketException e2) {
+        } catch (SocketException e2) {
             if (h()) {
-                com.baidu.adp.lib.g.e.d("run() : WebSocketException (" + e2.toString() + ")");
+                com.baidu.adp.lib.util.f.e("run() : SocketException (" + e2.toString() + ")");
             }
-            a(new ae(e2));
-        } catch (Exception e3) {
+            a(new w(e2));
+        } catch (WebSocketException e3) {
             if (h()) {
-                com.baidu.adp.lib.g.e.d("run() : Exception (" + e3.toString() + ")");
-                com.baidu.adp.lib.g.e.c("----WebSocketReader.handleMessage error. e:" + e3.getMessage());
+                com.baidu.adp.lib.util.f.e("run() : WebSocketException (" + e3.toString() + ")");
             }
-            a(new y(e3));
-        } catch (SocketException e4) {
+            a(new ae(e3));
+        } catch (Exception e4) {
             if (h()) {
-                com.baidu.adp.lib.g.e.d("run() : SocketException (" + e4.toString() + ")");
+                com.baidu.adp.lib.util.f.e("run() : Exception (" + e4.toString() + ")");
+                com.baidu.adp.lib.util.f.d("----WebSocketReader.handleMessage error. e:" + e4.getMessage());
             }
-            a(new w(e4));
+            a(new y(e4));
         } finally {
             this.g = true;
         }
         if (h()) {
-            com.baidu.adp.lib.g.e.d("quit");
+            com.baidu.adp.lib.util.f.e("quit");
         }
     }
 
     private boolean h() {
-        return com.baidu.adp.a.b.a().b();
+        return com.baidu.adp.a.b.a().d();
     }
 
     public void b() {

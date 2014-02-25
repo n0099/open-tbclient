@@ -1,51 +1,26 @@
 package com.baidu.tieba.square;
 
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import android.content.Context;
+import android.view.View;
+import com.baidu.tieba.util.UtilHelper;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ad {
-    private String a = null;
-    private String b = null;
-    private String c = "";
-    private ArrayList<ad> d = null;
+public class ad implements View.OnClickListener {
+    final /* synthetic */ ac a;
 
-    public String a() {
-        return this.a;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ad(ac acVar) {
+        this.a = acVar;
     }
 
-    public String b() {
-        return this.b;
-    }
-
-    public String c() {
-        return this.c;
-    }
-
-    public void a(String str) {
-        this.c = str;
-    }
-
-    public ArrayList<ad> d() {
-        return this.d;
-    }
-
-    public void a(JSONArray jSONArray) {
-        if (jSONArray != null) {
-            try {
-                if (jSONArray.length() != 0) {
-                    this.d = new ArrayList<>();
-                    for (int i = 0; i < jSONArray.length(); i++) {
-                        ad adVar = new ad();
-                        JSONObject jSONObject = jSONArray.getJSONObject(i);
-                        adVar.a = jSONObject.optString("title", "");
-                        adVar.b = jSONObject.optString("link", "");
-                        this.d.add(adVar);
-                    }
-                }
-            } catch (Exception e) {
-                com.baidu.adp.lib.g.e.b(getClass().getName(), "parseForumListRecommendData", e.toString());
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        af afVar = view.getTag() instanceof af ? (af) view.getTag() : null;
+        String a = am.a("forum_list_recommend", afVar.c());
+        if (afVar != null) {
+            context = this.a.b;
+            UtilHelper.a(context, afVar.b(), null, a);
         }
     }
 }

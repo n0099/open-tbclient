@@ -1,23 +1,25 @@
 package com.baidu.tieba.util;
 
-import com.baidu.tieba.util.UtilHelper;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.TimerTask;
 /* loaded from: classes.dex */
-public /* synthetic */ class be {
-    static final /* synthetic */ int[] a = new int[UtilHelper.NetworkStateInfo.values().length];
+class be extends TimerTask {
+    final /* synthetic */ NetWorkCoreByBdHttp a;
 
-    static {
+    private be(NetWorkCoreByBdHttp netWorkCoreByBdHttp) {
+        this.a = netWorkCoreByBdHttp;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ be(NetWorkCoreByBdHttp netWorkCoreByBdHttp, be beVar) {
+        this(netWorkCoreByBdHttp);
+    }
+
+    @Override // java.util.TimerTask, java.lang.Runnable
+    public void run() {
         try {
-            a[UtilHelper.NetworkStateInfo.WIFI.ordinal()] = 1;
-        } catch (NoSuchFieldError e) {
-        }
-        try {
-            a[UtilHelper.NetworkStateInfo.TwoG.ordinal()] = 2;
-        } catch (NoSuchFieldError e2) {
-        }
-        try {
-            a[UtilHelper.NetworkStateInfo.ThreeG.ordinal()] = 3;
-        } catch (NoSuchFieldError e3) {
+            this.a.s();
+        } catch (Exception e) {
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "initNetWorkCore", e.getMessage());
         }
     }
 }

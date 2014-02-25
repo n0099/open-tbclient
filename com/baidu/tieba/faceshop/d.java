@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tieba.util.bs;
+import com.baidu.tieba.util.bq;
 import com.slidingmenu.lib.R;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -19,7 +19,7 @@ public class d extends BaseAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ d(EmotionManageActivity emotionManageActivity, a aVar) {
+    public /* synthetic */ d(EmotionManageActivity emotionManageActivity, d dVar) {
         this(emotionManageActivity);
     }
 
@@ -80,15 +80,15 @@ public class d extends BaseAdapter {
         if (bitmap != null) {
             gVar.b.setImageBitmap(bitmap);
         } else {
-            bs.d(gVar.b, (int) R.drawable.pic_image_h_not);
+            bq.d(gVar.b, (int) R.drawable.pic_image_h_not);
         }
         z = this.a.p;
         if (z) {
             list3 = this.a.a;
             if (((e) list3.get(i)).c) {
-                bs.d(gVar.a, (int) R.drawable.btn_expression_choose_s);
+                bq.d(gVar.a, (int) R.drawable.btn_expression_choose_s);
             } else {
-                bs.d(gVar.a, (int) R.drawable.btn_expression_choose_n);
+                bq.d(gVar.a, (int) R.drawable.btn_expression_choose_n);
             }
             gVar.a.setVisibility(0);
         } else {

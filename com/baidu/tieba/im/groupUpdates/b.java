@@ -15,12 +15,12 @@ public class b implements com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
     public void a(LinkedList<GroupNewsPojo> linkedList) {
-        n nVar;
-        n nVar2;
-        nVar = this.a.b;
-        nVar.a(m.a(linkedList));
-        nVar2 = this.a.b;
-        nVar2.a(false);
+        q qVar;
+        q qVar2;
+        qVar = this.a.b;
+        qVar.a(m.a(linkedList));
+        qVar2 = this.a.b;
+        qVar2.a(false);
         this.a.e();
     }
 }

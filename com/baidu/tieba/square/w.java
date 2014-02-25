@@ -1,33 +1,65 @@
 package com.baidu.tieba.square;
 
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.view.ViewPager;
-import android.view.MotionEvent;
-import android.view.View;
+import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w implements View.OnTouchListener {
-    final /* synthetic */ CarouselRecommendView a;
+public class w extends Handler {
+    final /* synthetic */ v a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(CarouselRecommendView carouselRecommendView) {
-        this.a = carouselRecommendView;
+    public w(v vVar) {
+        this.a = vVar;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
         ViewPager viewPager;
+        ViewPager viewPager2;
+        y yVar;
+        ArrayList arrayList;
+        y yVar2;
+        ViewPager viewPager3;
+        ViewPager viewPager4;
+        ViewPager viewPager5;
+        ViewPager viewPager6;
+        ViewPager viewPager7;
+        y yVar3;
+        ViewPager viewPager8;
         viewPager = this.a.c;
-        if (view == viewPager) {
-            if (motionEvent.getAction() == 0) {
-                this.a.b();
-                return false;
-            } else if (motionEvent.getAction() == 1) {
-                this.a.a();
-                return false;
-            } else {
-                return false;
+        int currentItem = viewPager.getCurrentItem();
+        if (message.what == 0) {
+            viewPager2 = this.a.c;
+            if (viewPager2 != null) {
+                yVar = this.a.e;
+                if (yVar != null) {
+                    arrayList = this.a.m;
+                    if (arrayList.size() > 1) {
+                        if (currentItem < 1) {
+                            viewPager7 = this.a.c;
+                            yVar3 = this.a.e;
+                            viewPager7.setCurrentItem(yVar3.getCount() - 2, false);
+                            viewPager8 = this.a.c;
+                            viewPager8.invalidate();
+                            return;
+                        }
+                        yVar2 = this.a.e;
+                        if (currentItem > yVar2.getCount() - 2) {
+                            viewPager5 = this.a.c;
+                            viewPager5.setCurrentItem(1, false);
+                            viewPager6 = this.a.c;
+                            viewPager6.invalidate();
+                            return;
+                        }
+                        viewPager3 = this.a.c;
+                        viewPager3.setCurrentItem(currentItem + 1);
+                        viewPager4 = this.a.c;
+                        viewPager4.invalidate();
+                    }
+                }
             }
         }
-        return false;
     }
 }

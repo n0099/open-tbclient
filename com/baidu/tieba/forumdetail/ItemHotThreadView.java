@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.forumdetail.ForumDetailData;
-import com.baidu.tieba.util.bu;
+import com.baidu.tieba.util.bs;
 import com.slidingmenu.lib.R;
 import java.util.HashMap;
 /* loaded from: classes.dex */
@@ -83,7 +83,7 @@ public class ItemHotThreadView extends LinearLayout {
                 sb.append(threadInfo.abstracts[i].text);
             }
         }
-        if (!bu.c(sb.toString().trim())) {
+        if (!bs.c(sb.toString().trim())) {
             lVar.b.setText(sb.toString());
             lVar.b.setVisibility(0);
         } else {
@@ -91,7 +91,7 @@ public class ItemHotThreadView extends LinearLayout {
         }
         lVar.d.setText(String.valueOf(threadInfo.viewNum));
         lVar.e.setText(String.valueOf(threadInfo.replyNum));
-        if (TiebaApplication.h().al() == 1) {
+        if (TiebaApplication.g().al() == 1) {
             lVar.a.setTextColor(this.a.getResources().getColor(R.color.forum_detail_htitem_title_color_1));
             lVar.b.setTextColor(this.a.getResources().getColor(R.color.forum_detail_htitem_txt_color_1));
             lVar.c.setTextColor(this.a.getResources().getColor(R.color.forum_detail_ht_lbl_1));
@@ -115,9 +115,9 @@ public class ItemHotThreadView extends LinearLayout {
         view.setOnClickListener(new k(this, String.valueOf(threadInfo.id)));
     }
 
-    public void a(com.baidu.tieba.j jVar, int i) {
-        jVar.getLayoutMode().a(i == 1);
-        jVar.getLayoutMode().a((View) this);
+    public void a(com.baidu.tieba.f fVar, int i) {
+        fVar.getLayoutMode().a(i == 1);
+        fVar.getLayoutMode().a((View) this);
         a();
     }
 }

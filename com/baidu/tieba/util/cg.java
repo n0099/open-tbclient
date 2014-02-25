@@ -1,7 +1,10 @@
 package com.baidu.tieba.util;
 
-import android.view.View;
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-public interface cg {
-    boolean a(View view);
+class cg implements DialogInterface.OnClickListener {
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        dialogInterface.cancel();
+    }
 }

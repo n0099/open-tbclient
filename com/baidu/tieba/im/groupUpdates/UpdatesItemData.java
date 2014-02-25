@@ -2,16 +2,17 @@ package com.baidu.tieba.im.groupUpdates;
 
 import com.baidu.gson.Gson;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.baidu.tieba.util.as;
+import com.baidu.tieba.util.au;
 import java.io.Serializable;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class UpdatesItemData extends as implements Serializable {
+public class UpdatesItemData extends au implements Serializable {
     private static final long serialVersionUID = -6859992224160576142L;
     private String authorId;
     private String authorName;
     private String content;
     private String eventLink;
+    private String groupActivityId;
     private String groupHeadUrl;
     private String groupId;
     private String groupName;
@@ -107,14 +108,14 @@ public class UpdatesItemData extends as implements Serializable {
         this.notice_id = str;
     }
 
-    @Override // com.baidu.tieba.util.as, com.baidu.tieba.util.au
+    @Override // com.baidu.tieba.util.au, com.baidu.tieba.util.aw
     public LinkedList<String> getImageUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(getGroupHeadUrl());
         return linkedList;
     }
 
-    @Override // com.baidu.tieba.util.as, com.baidu.tieba.util.au
+    @Override // com.baidu.tieba.util.au, com.baidu.tieba.util.aw
     public LinkedList<String> getPhotoUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(getGroupHeadUrl());
@@ -151,5 +152,13 @@ public class UpdatesItemData extends as implements Serializable {
 
     public void setEventLink(String str) {
         this.eventLink = str;
+    }
+
+    public String getGroupActivityId() {
+        return this.groupActivityId;
+    }
+
+    public void setGroupActivityId(String str) {
+        this.groupActivityId = str;
     }
 }

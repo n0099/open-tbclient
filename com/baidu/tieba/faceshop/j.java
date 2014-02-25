@@ -2,12 +2,12 @@ package com.baidu.tieba.faceshop;
 /* loaded from: classes.dex */
 public class j extends com.baidu.adp.a.d {
     private int c = 3;
-    private m a = null;
-    private l b = null;
+    private l a = null;
+    private k b = null;
 
     public void a(String str) {
         if (this.a == null) {
-            this.a = new m(this);
+            this.a = new l(this, null);
             this.a.setPriority(3);
             this.a.execute(str);
         }
@@ -15,7 +15,7 @@ public class j extends com.baidu.adp.a.d {
 
     public void b(String str) {
         if (this.b == null) {
-            this.b = new l(this);
+            this.b = new k(this, null);
             this.b.setPriority(3);
             this.b.execute(str);
         }

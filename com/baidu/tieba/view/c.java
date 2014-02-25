@@ -5,7 +5,7 @@ import android.webkit.WebView;
 import com.baidu.tieba.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c implements d {
+public class c implements e {
     final /* synthetic */ BaseWebView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ public class c implements d {
         this.a = baseWebView;
     }
 
-    @Override // com.baidu.tieba.view.d
+    @Override // com.baidu.tieba.view.e
     public boolean a(WebView webView, String str) {
         Context context;
         if (str != null) {
@@ -21,7 +21,7 @@ public class c implements d {
                 context = this.a.c;
                 UtilHelper.e(context, str);
             } catch (Exception e) {
-                com.baidu.adp.lib.g.e.a(getClass().getName(), "shouldOverrideUrlLoading", e.toString());
+                com.baidu.adp.lib.util.f.a(getClass().getName(), "shouldOverrideUrlLoading", e.toString());
             }
         }
         return true;

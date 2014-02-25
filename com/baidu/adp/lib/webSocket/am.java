@@ -1,4 +1,6 @@
 package com.baidu.adp.lib.webSocket;
+
+import android.support.v4.view.accessibility.AccessibilityEventCompat;
 /* loaded from: classes.dex */
 public class am {
     private int a;
@@ -13,8 +15,8 @@ public class am {
 
     public am() {
         this.i = null;
-        this.a = 131072;
-        this.b = 131072;
+        this.a = AccessibilityEventCompat.TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY;
+        this.b = AccessibilityEventCompat.TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY;
         this.c = false;
         this.d = true;
         this.e = 30000;

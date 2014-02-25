@@ -12,7 +12,7 @@ public class q extends Thread {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ q(o oVar, p pVar) {
+    public /* synthetic */ q(o oVar, q qVar) {
         this(oVar);
     }
 
@@ -37,40 +37,43 @@ public class q extends Thread {
             i = this.a.i;
             oVar.d = fVar.a(str, i, this.a.e, false);
             z = this.a.q;
-            if (z) {
-                this.a.b(new v());
-            } else if (!this.a.d.b()) {
-                this.a.b(new x());
-            } else {
-                try {
-                    this.a.c();
-                    this.a.b();
-                    StringBuilder sb = new StringBuilder();
-                    str2 = this.a.h;
-                    StringBuilder append = sb.append(str2).append(":");
-                    i2 = this.a.i;
-                    u uVar = new u(append.append(i2).toString());
-                    str3 = this.a.j;
-                    uVar.b = str3;
-                    str4 = this.a.k;
-                    uVar.c = str4;
-                    strArr = this.a.l;
-                    uVar.e = strArr;
-                    list = this.a.m;
-                    uVar.f = list;
-                    this.a.c.a((Object) uVar);
-                    z2 = this.a.q;
-                    if (z2) {
+            if (!z) {
+                if (this.a.d.b()) {
+                    try {
+                        this.a.c();
+                        this.a.b();
+                        str2 = this.a.h;
+                        StringBuilder append = new StringBuilder(String.valueOf(str2)).append(":");
+                        i2 = this.a.i;
+                        u uVar = new u(append.append(i2).toString());
+                        str3 = this.a.j;
+                        uVar.b = str3;
+                        str4 = this.a.k;
+                        uVar.c = str4;
+                        strArr = this.a.l;
+                        uVar.e = strArr;
+                        list = this.a.m;
+                        uVar.f = list;
+                        this.a.c.a((Object) uVar);
+                        z2 = this.a.q;
+                        if (!z2) {
+                            return;
+                        }
                         this.a.b(new v());
+                        return;
+                    } catch (Throwable th) {
+                        k = this.a.k();
+                        if (k) {
+                            com.baidu.adp.lib.util.f.d("----WebSocketConnector error. e:" + th.getMessage());
+                        }
+                        this.a.b(new y(new Exception(th)));
+                        return;
                     }
-                } catch (Throwable th) {
-                    k = this.a.k();
-                    if (k) {
-                        com.baidu.adp.lib.g.e.c("----WebSocketConnector error. e:" + th.getMessage());
-                    }
-                    this.a.b(new y(new Exception(th)));
                 }
+                this.a.b(new x());
+                return;
             }
+            this.a.b(new v());
         } catch (Throwable th2) {
             this.a.b(new x());
         }

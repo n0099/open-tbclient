@@ -1,34 +1,28 @@
 package com.baidu.tieba.write;
 
-import android.view.View;
-import android.widget.ProgressBar;
+import android.text.Editable;
+import android.text.TextWatcher;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class at implements View.OnClickListener {
-    final /* synthetic */ String a;
-    final /* synthetic */ int b;
-    final /* synthetic */ WriteImageActivity c;
+public class at implements TextWatcher {
+    final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public at(WriteImageActivity writeImageActivity, String str, int i) {
-        this.c = writeImageActivity;
-        this.a = str;
-        this.b = i;
+    public at(WriteActivity writeActivity) {
+        this.a = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ProgressBar progressBar;
-        String str;
-        progressBar = this.c.f;
-        if (progressBar.getVisibility() != 0) {
-            String str2 = this.a;
-            str = this.c.u;
-            if (!str2.equals(str)) {
-                this.c.a(this.a);
-                this.c.c(this.a);
-                this.c.r = this.b;
-            }
-        }
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        this.a.t();
+    }
+
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        this.a.d = true;
     }
 }

@@ -1,149 +1,133 @@
 package com.baidu.tieba.account;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.EditText;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.data.RegistData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bm implements TextWatcher {
+public class bm extends BdAsyncTask<String, Integer, com.baidu.tieba.model.at> {
     final /* synthetic */ Register2Activity a;
+    private com.baidu.tieba.util.ba b;
+
+    private bm(Register2Activity register2Activity) {
+        this.a = register2Activity;
+        this.b = null;
+    }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bm(Register2Activity register2Activity) {
-        this.a = register2Activity;
+    public /* synthetic */ bm(Register2Activity register2Activity, bm bmVar) {
+        this(register2Activity);
     }
 
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        ProgressBar progressBar;
+        if (this.b != null) {
+            this.b.k();
+        }
+        this.a.O = null;
+        progressBar = this.a.D;
+        progressBar.setVisibility(8);
+        this.a.l();
+        super.cancel(true);
     }
 
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public com.baidu.tieba.model.at a(String... strArr) {
+        RegistData m;
+        com.baidu.tieba.model.at atVar = new com.baidu.tieba.model.at();
+        try {
+            m = this.a.m();
+            this.b = new com.baidu.tieba.util.ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/s/regreal");
+            this.b.a("un", m.getName());
+            this.b.a("phonenum", m.getPhone());
+            this.b.a("passwd", m.getPsw());
+            if (m.getVcode() != null) {
+                this.b.a("vcode", m.getVcode());
+            }
+            if (m.getVcodeMd5() != null) {
+                this.b.a("vcode_md5", m.getVcodeMd5());
+            }
+            String m2 = this.b.m();
+            if ((this.b.e() && (this.b.f() == 0 || this.b.f() == 36)) || this.b.f() == 5) {
+                com.baidu.tieba.model.at atVar2 = new com.baidu.tieba.model.at();
+                atVar2.a(m2);
+                return atVar2;
+            }
+            return atVar;
+        } catch (Exception e) {
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.getMessage());
+            return null;
+        }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x006b, code lost:
-        if (r5 != r0.getEditableText()) goto L22;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x0083, code lost:
-        if (r5 != r0.getEditableText()) goto L26;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x009b, code lost:
-        if (r5 != r0.getEditableText()) goto L30;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0061  */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0079  */
-    /* JADX WARN: Removed duplicated region for block: B:26:0x0091  */
-    /* JADX WARN: Removed duplicated region for block: B:30:0x00a9  */
-    /* JADX WARN: Removed duplicated region for block: B:36:? A[RETURN, SYNTHETIC] */
-    @Override // android.text.TextWatcher
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void afterTextChanged(Editable editable) {
-        EditText editText;
-        EditText editText2;
-        RelativeLayout relativeLayout;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(com.baidu.tieba.model.at atVar) {
+        ProgressBar progressBar;
+        RegistData m;
         int i;
         int i2;
         int i3;
-        int i4;
-        int i5;
-        int i6;
-        int i7;
-        int i8;
-        EditText editText3;
-        EditText editText4;
-        EditText editText5;
-        EditText editText6;
-        EditText editText7;
-        EditText editText8;
-        boolean z;
-        RelativeLayout relativeLayout2;
-        EditText editText9;
-        RelativeLayout relativeLayout3;
-        editText = this.a.v;
-        if (editable == editText.getEditableText()) {
+        super.a((bm) atVar);
+        this.a.O = null;
+        progressBar = this.a.D;
+        progressBar.setVisibility(8);
+        this.a.l();
+        this.a.P = atVar;
+        if (!this.b.e()) {
+            this.a.K = -1;
+            this.a.L = this.b.j();
+            this.a.k();
+        } else if (this.b.f() == 36) {
+            this.a.a(atVar.c());
+            Register2Activity register2Activity = this.a;
+            i3 = Register2Activity.d;
+            register2Activity.K = i3;
+            this.a.L = this.b.j();
+            this.a.k();
+        } else if (this.b.f() == 5) {
+            Register2Activity register2Activity2 = this.a;
+            i2 = Register2Activity.g;
+            register2Activity2.K = i2;
+            this.a.a(true);
+        } else if (this.b.f() == 0) {
+            m = this.a.m();
+            Register2Activity register2Activity3 = this.a;
+            i = Register2Activity.c;
+            ActivationActivity.a(register2Activity3, m, i);
             this.a.a(false);
+        } else {
+            this.a.K = this.b.f();
+            this.a.L = this.b.j();
+            this.a.k();
         }
-        editText2 = this.a.t;
-        if (editText2.length() > 0) {
-            editText7 = this.a.u;
-            if (editText7.length() >= 6) {
-                editText8 = this.a.v;
-                if (editText8.length() > 0) {
-                    z = this.a.I;
-                    if (z) {
-                        editText9 = this.a.w;
-                        if (editText9.length() <= 0) {
-                            relativeLayout3 = this.a.x;
-                            relativeLayout3.setEnabled(false);
-                            i = this.a.K;
-                            i2 = Register2Activity.d;
-                            if (i == i2) {
-                                editText6 = this.a.t;
-                            }
-                            i3 = this.a.K;
-                            i4 = Register2Activity.e;
-                            if (i3 == i4) {
-                                editText5 = this.a.u;
-                            }
-                            i5 = this.a.K;
-                            i6 = Register2Activity.f;
-                            if (i5 == i6) {
-                                editText4 = this.a.v;
-                            }
-                            i7 = this.a.K;
-                            i8 = Register2Activity.g;
-                            if (i7 == i8) {
-                                editText3 = this.a.w;
-                                if (editable != editText3.getEditableText()) {
-                                    return;
-                                }
-                                this.a.K = -1;
-                                this.a.k();
-                                return;
-                            }
-                            return;
-                        }
-                    }
-                    relativeLayout2 = this.a.x;
-                    relativeLayout2.setEnabled(true);
-                    i = this.a.K;
-                    i2 = Register2Activity.d;
-                    if (i == i2) {
-                    }
-                    i3 = this.a.K;
-                    i4 = Register2Activity.e;
-                    if (i3 == i4) {
-                    }
-                    i5 = this.a.K;
-                    i6 = Register2Activity.f;
-                    if (i5 == i6) {
-                    }
-                    i7 = this.a.K;
-                    i8 = Register2Activity.g;
-                    if (i7 == i8) {
-                    }
-                }
-            }
-        }
-        relativeLayout = this.a.x;
-        relativeLayout.setEnabled(false);
-        i = this.a.K;
-        i2 = Register2Activity.d;
-        if (i == i2) {
-        }
-        i3 = this.a.K;
-        i4 = Register2Activity.e;
-        if (i3 == i4) {
-        }
-        i5 = this.a.K;
-        i6 = Register2Activity.f;
-        if (i5 == i6) {
-        }
-        i7 = this.a.K;
-        i8 = Register2Activity.g;
-        if (i7 == i8) {
-        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void b() {
+        ProgressBar progressBar;
+        LinearLayout linearLayout;
+        TextView textView;
+        TextView textView2;
+        progressBar = this.a.D;
+        progressBar.setVisibility(0);
+        this.a.i();
+        this.a.K = -1;
+        this.a.L = null;
+        this.a.k();
+        linearLayout = this.a.z;
+        linearLayout.setVisibility(8);
+        textView = this.a.s;
+        textView.setVisibility(4);
+        textView2 = this.a.s;
+        textView2.setText((CharSequence) null);
+        super.b();
     }
 }

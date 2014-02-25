@@ -31,7 +31,7 @@ public class e {
                 }
             }
         } catch (JSONException e) {
-            com.baidu.adp.lib.g.e.b("InviteFriendListData", "parserJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.util.f.b("InviteFriendListData", "parserJson", "error = " + e.getMessage());
         }
     }
 

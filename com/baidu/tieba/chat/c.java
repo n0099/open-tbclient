@@ -1,35 +1,20 @@
 package com.baidu.tieba.chat;
-
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import com.baidu.tieba.view.HeadImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class c {
-    ViewGroup a;
-    HeadImageView b;
-    TextView c;
-    TextView d;
-    TextView e;
-    TextView f;
-    ViewGroup g;
-    TextView h;
-    ProgressBar i;
-    ImageView j;
-    final /* synthetic */ a k;
+public class c implements Runnable {
+    final /* synthetic */ a a;
 
-    private c(a aVar) {
-        this.k = aVar;
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.h = null;
-        this.i = null;
-        this.j = null;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public c(a aVar) {
+        this.a = aVar;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        try {
+            this.a.f();
+        } catch (Exception e) {
+            com.baidu.adp.lib.util.f.b("ChatListFragment", "mLoadImageRunnable.run", "error = " + e.getMessage());
+        }
     }
 }

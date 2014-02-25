@@ -1,11 +1,12 @@
 package com.baidu.tieba.recommend;
 
+import android.app.Activity;
 import android.content.Context;
-import com.baidu.tieba.chat.ChatListActivity;
+import com.baidu.tieba.account.LoginActivity;
+import com.baidu.tieba.chat.ImMessageCenterActivity;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.im.chat.PersonalChatActivity;
 import com.baidu.tieba.pb.NewPbActivity;
-import com.baidu.tieba.person.PersonInfoActivity;
+import com.baidu.tieba.person.cm;
 import com.baidu.tieba.util.UtilHelper;
 import java.net.URLDecoder;
 /* loaded from: classes.dex */
@@ -20,11 +21,11 @@ public class WebviewHelper {
                     return true;
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.g.e.b(WebviewHelper.class.getName(), "jumpTiebaNative", e.getMessage());
+                com.baidu.adp.lib.util.f.b(WebviewHelper.class.getName(), "jumpTiebaNative", e.getMessage());
             }
         }
-        if (str != null && str.contains("jump=finish_this_page") && (context instanceof com.baidu.tieba.j)) {
-            ((com.baidu.tieba.j) context).finish();
+        if (str != null && str.contains("jump=finish_this_page") && (context instanceof com.baidu.tieba.f)) {
+            ((com.baidu.tieba.f) context).finish();
             return true;
         }
         if (str != null && str.contains("jump_tieba_native=1")) {
@@ -32,7 +33,7 @@ public class WebviewHelper {
                 DailyClassicalActivity.a(context);
                 return true;
             } else if (str.contains("jump_personalCenter=1") && str.contains("userid=") && str.contains("un=")) {
-                PersonInfoActivity.a(context, getMatchStringFromURL(str, "userid="), getMatchStringFromURL(str, "un="));
+                cm.a(context, getMatchStringFromURL(str, "userid="), getMatchStringFromURL(str, "un="));
                 return true;
             } else if (str.contains("jump_chat=1")) {
                 String matchStringFromURL = getMatchStringFromURL(str, "userid=");
@@ -40,12 +41,12 @@ public class WebviewHelper {
                 String matchStringFromURL3 = getMatchStringFromURL(str, "portrait=");
                 if (matchStringFromURL != null && matchStringFromURL.length() > 0) {
                     try {
-                        PersonalChatActivity.a(context, Long.parseLong(matchStringFromURL), matchStringFromURL2, matchStringFromURL3, 0, null);
+                        com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001002, new com.baidu.tieba.a.c(context, Long.parseLong(matchStringFromURL), matchStringFromURL2, matchStringFromURL3, 0)));
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
                 } else {
-                    ChatListActivity.a(context);
+                    ImMessageCenterActivity.a(context);
                 }
                 return true;
             } else if (str.contains("kz=")) {
@@ -59,6 +60,9 @@ public class WebviewHelper {
                 if (matchStringFromURL5 != null && matchStringFromURL5.length() >= 0) {
                     FrsActivity.a(context, matchStringFromURL5, "allthread");
                 }
+                return true;
+            } else if (str.contains("jumptologin=1") && (context instanceof Activity)) {
+                LoginActivity.a((Activity) context, "", true, 0);
                 return true;
             }
         }

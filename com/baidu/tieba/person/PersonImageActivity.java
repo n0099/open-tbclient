@@ -8,14 +8,15 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ProgressBar;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.view.MultiImageView;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class PersonImageActivity extends com.baidu.tieba.j {
+public class PersonImageActivity extends com.baidu.tieba.f {
     private ProgressBar a = null;
-    private bk b = null;
+    private cl b = null;
     private MultiImageView c = null;
     private View.OnClickListener d = null;
     private View.OnLongClickListener e = null;
@@ -33,10 +34,10 @@ public class PersonImageActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        TiebaApplication.h().a((com.baidu.tieba.j) this);
+        TiebaApplication.g().a((com.baidu.tieba.f) this);
         setContentView(R.layout.person_image_activity);
         a(bundle);
         a();
@@ -50,39 +51,39 @@ public class PersonImageActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j
+    @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1) {
-            this.c.setBackgroundColor(com.baidu.tieba.util.bs.d(i));
+            this.c.setBackgroundColor(com.baidu.tieba.util.bq.d(i));
         } else {
             this.c.setBackgroundColor(-16777216);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, android.app.Activity
     public void onPause() {
         super.onPause();
         this.c.b();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, android.app.Activity
     public void onResume() {
         super.onResume();
         this.c.a();
     }
 
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a
     public void releaseResouce() {
         this.c.c();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
-        TiebaApplication.h().b((com.baidu.tieba.j) this);
+        TiebaApplication.g().b((com.baidu.tieba.f) this);
         this.c.c();
         if (this.b != null) {
             this.b.cancel();
@@ -94,7 +95,7 @@ public class PersonImageActivity extends com.baidu.tieba.j {
         super.onDestroy();
     }
 
-    @Override // com.baidu.tieba.j, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tieba.f, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
             finish();
@@ -104,29 +105,30 @@ public class PersonImageActivity extends com.baidu.tieba.j {
     }
 
     private void a() {
-        this.d = new bg(this);
-        this.e = new bh(this);
-        this.f = new bi(this);
-        this.g = new bj(this);
+        this.d = new ch(this);
+        this.e = new ci(this);
+        this.f = new cj(this);
+        this.g = new ck(this);
         this.a = (ProgressBar) findViewById(R.id.progress);
         this.c = (MultiImageView) findViewById(R.id.viewpager);
-        this.c.setPageMargin(com.baidu.adp.lib.g.g.a((Context) this, 8.0f));
-        this.c.a(2, com.baidu.tieba.data.h.i() * com.baidu.tieba.data.h.i());
+        this.c.setPageMargin(BdUtilHelper.a((Context) this, 8.0f));
+        this.c.a(2, com.baidu.tieba.data.i.t() * com.baidu.tieba.data.i.t());
         this.c.setItemOnclickListener(this.d);
         this.c.setItemOnLongClickListener(this.e);
         this.c.a(0, false);
         this.c.setOnScrollOutListener(this.g);
         this.c.setHasNext(false);
         this.c.setNextTitle("mNextTitle");
+        this.c.setHeadImage(true);
     }
 
     private void a(Bundle bundle) {
         if (bundle != null) {
-            com.baidu.adp.lib.g.e.d(" have savedInstanceState");
+            com.baidu.adp.lib.util.f.e(" have savedInstanceState");
             this.h = bundle.getString("curImgUrl");
             return;
         }
-        com.baidu.adp.lib.g.e.d(" not have savedInstanceState");
+        com.baidu.adp.lib.util.f.e(" not have savedInstanceState");
         Intent intent = getIntent();
         if (intent != null) {
             this.h = intent.getStringExtra("curImgUrl");

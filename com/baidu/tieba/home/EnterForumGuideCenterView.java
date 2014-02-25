@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.bq;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class EnterForumGuideCenterView extends RelativeLayout {
@@ -58,7 +59,7 @@ public class EnterForumGuideCenterView extends RelativeLayout {
         return this.c;
     }
 
-    private boolean c(int i) {
+    private boolean b(int i) {
         if (i == getSkinType()) {
             return false;
         }
@@ -67,8 +68,8 @@ public class EnterForumGuideCenterView extends RelativeLayout {
     }
 
     public void a(int i) {
-        if (c(i)) {
-            com.baidu.tieba.util.bs.a(this, i);
+        if (b(i)) {
+            bq.a(this, i);
             if (i == 1) {
                 this.a.setBackgroundResource(R.drawable.pic_go_ba_1);
                 this.b.setTextColor(-8815226);
@@ -79,16 +80,8 @@ public class EnterForumGuideCenterView extends RelativeLayout {
         }
     }
 
-    public void b(int i) {
-        if (i == 0) {
-            setVisibility(0);
-        } else {
-            setVisibility(8);
-        }
-    }
-
     public void a() {
-        a(TiebaApplication.h().al());
+        a(TiebaApplication.g().al());
     }
 
     public void b() {

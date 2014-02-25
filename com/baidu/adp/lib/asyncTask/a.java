@@ -1,7 +1,7 @@
 package com.baidu.adp.lib.asyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class a extends f<Params, Result> {
+public class a extends e<Params, Result> {
     final /* synthetic */ BdAsyncTask a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

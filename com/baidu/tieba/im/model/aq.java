@@ -26,7 +26,7 @@ public class aq extends BdAsyncTask<Object, Integer, String> {
             return this.d.a(this.b);
         } catch (Exception e) {
             str = ap.a;
-            com.baidu.adp.lib.g.e.b(str, "doInBackground", "errro: " + e.getMessage());
+            com.baidu.adp.lib.util.f.b(str, "doInBackground", "errro: " + e.getMessage());
             return null;
         }
     }

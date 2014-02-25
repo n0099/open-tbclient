@@ -74,9 +74,11 @@ public final class SapiAccountManager {
 
     public void login(Intent intent) {
         b();
+        if (intent == null) {
+            throw new IllegalArgumentException("Intent can't be null");
+        }
         intent.setFlags(268435456);
         b.context.startActivity(intent);
-        com.baidu.sapi2.utils.a.a.a().a("openloginact", 0L, 0L);
     }
 
     public void logout() {

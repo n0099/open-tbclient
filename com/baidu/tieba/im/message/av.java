@@ -1,14 +1,15 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tieba.im.messageCenter.IDuplicateProcess;
 import com.google.protobuf.MessageLite;
-import protobuf.SearchGroup.SearchGroupReq;
+import protobuf.QueryGroupLocation.QueryGroupLocationReq;
 /* loaded from: classes.dex */
-public class av extends q implements com.baidu.tieba.im.coder.g, IDuplicateProcess {
+public class av extends s implements com.baidu.tieba.im.coder.g {
     private int a;
+    private String b;
+    private String c;
 
     public av() {
-        e(103007);
+        e(103010);
     }
 
     public int b() {
@@ -19,18 +20,24 @@ public class av extends q implements com.baidu.tieba.im.coder.g, IDuplicateProce
         this.a = i;
     }
 
-    @Override // com.baidu.tieba.im.messageCenter.IDuplicateProcess
-    public IDuplicateProcess.RemoveState h() {
-        return IDuplicateProcess.RemoveState.REMOVE_ME;
+    public String c() {
+        return this.b;
     }
 
-    @Override // com.baidu.tieba.im.messageCenter.IDuplicateProcess
-    public boolean a(q qVar) {
-        return true;
+    public void a(String str) {
+        this.b = str;
+    }
+
+    public String d() {
+        return this.c;
+    }
+
+    public void b(String str) {
+        this.c = str;
     }
 
     @Override // com.baidu.tieba.im.coder.g
     public MessageLite a() {
-        return SearchGroupReq.SearchGroupReqIdl.newBuilder().a(SearchGroupReq.DataReq.newBuilder().a(b()).build()).build();
+        return QueryGroupLocationReq.QueryGroupLocationReqIdl.newBuilder().a(QueryGroupLocationReq.DataReq.newBuilder().a(b()).b(Double.parseDouble(d())).a(Double.parseDouble(c())).build()).build();
     }
 }

@@ -16,13 +16,6 @@ public class u {
     private s h = null;
     private int i = 800;
 
-    /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.ListView.BdListView.a():void] */
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void a(u uVar) {
-        uVar.c();
-    }
-
     public u(BdListView bdListView, d dVar) {
         this.c = null;
         this.f = null;
@@ -168,6 +161,13 @@ public class u {
                     return;
             }
         }
+    }
+
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.ListView.BdListView.a():void] */
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(u uVar) {
+        uVar.c();
     }
 
     /* JADX INFO: Access modifiers changed from: private */

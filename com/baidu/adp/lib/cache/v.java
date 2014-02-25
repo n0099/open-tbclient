@@ -44,6 +44,11 @@ public class v<T> implements u<T> {
         com.baidu.adp.lib.f.d.a().a(new w(this, str, t, j));
     }
 
+    @Override // com.baidu.adp.lib.cache.s
+    public void d(String str) {
+        com.baidu.adp.lib.f.d.a().a(new x(this, str));
+    }
+
     @Override // com.baidu.adp.lib.cache.u
     public String a() {
         return this.b;

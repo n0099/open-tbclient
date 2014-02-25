@@ -4,7 +4,7 @@ import android.content.DialogInterface;
 import com.baidu.tieba.im.data.PhotoUrlData;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class j implements x {
+class j implements y {
     final /* synthetic */ GroupInfoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ class j implements x {
         this.a = groupInfoActivity;
     }
 
-    @Override // com.baidu.tieba.im.groupInfo.x
+    @Override // com.baidu.tieba.im.groupInfo.y
     public void a(DialogInterface dialogInterface, int i, Object obj, int i2) {
         m mVar;
         if (i == 0) {
@@ -33,7 +33,7 @@ class j implements x {
             }
         } else if (i == 2) {
             mVar = this.a.f;
-            mVar.v();
+            mVar.w();
         }
     }
 }

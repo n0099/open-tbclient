@@ -1,29 +1,21 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
-import com.baidu.tieba.view.HeadImageView;
+import java.util.LinkedList;
 /* loaded from: classes.dex */
-class cm implements com.baidu.tieba.util.cg {
-    final /* synthetic */ String a;
-    final /* synthetic */ com.baidu.adp.widget.ImageView.d b;
-    final /* synthetic */ cl c;
+class cm extends com.baidu.tieba.im.c<Void> {
+    final /* synthetic */ cl a;
+    private final /* synthetic */ LinkedList c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cm(cl clVar, String str, com.baidu.adp.widget.ImageView.d dVar) {
-        this.c = clVar;
-        this.a = str;
-        this.b = dVar;
+    public cm(cl clVar, LinkedList linkedList) {
+        this.a = clVar;
+        this.c = linkedList;
     }
 
-    @Override // com.baidu.tieba.util.cg
-    public boolean a(View view) {
-        if ((view instanceof HeadImageView) && this.a.equals(view.getTag())) {
-            view.setTag(null);
-            HeadImageView headImageView = (HeadImageView) view;
-            headImageView.a();
-            this.b.a(headImageView);
-            return false;
-        }
-        return false;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.c
+    /* renamed from: a */
+    public Void b() {
+        return com.baidu.tieba.im.db.q.a().a(this.c);
     }
 }

@@ -1,180 +1,112 @@
 package com.baidu.tieba.im.chat;
 
-import android.content.Context;
+import android.content.Intent;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.adp.widget.ImageView.BDImageView2;
-import com.baidu.tbadk.gif.GifView;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.im.data.MsgCacheData;
-import com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView;
-import com.baidu.tieba.im.widget.invite2GroupView.Invite2GroupView;
+import com.baidu.tieba.view.MultiImageView;
+import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
-import java.util.Calendar;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bk extends com.baidu.adp.a.c<com.baidu.tieba.im.message.b> {
-    protected com.baidu.adp.lib.b.a c;
-    protected com.baidu.adp.lib.b.b d;
-    protected com.baidu.tieba.util.i e;
-    protected int f;
-    protected long g;
-    protected Long h;
-    protected TextView i;
-    protected TbRichTextView j;
-    protected BDImageView2 k;
-    protected ChatVoiceView l;
-    protected GifView m;
-    protected Invite2GroupView n;
-    private long o;
-    private Calendar p;
+public class bk implements View.OnClickListener {
+    final /* synthetic */ MsgImageActivity a;
 
-    public bk(Context context, int i) {
-        super(context, i);
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = 0;
-        this.g = 0L;
-        this.h = null;
-        this.o = 0L;
-        this.p = null;
-        this.b = context;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bk(MsgImageActivity msgImageActivity) {
+        this.a = msgImageActivity;
     }
 
-    public void a(com.baidu.adp.lib.b.a aVar) {
-        this.c = aVar;
-    }
-
-    public void a(com.baidu.adp.lib.b.b bVar) {
-        this.d = bVar;
-    }
-
-    public void a(com.baidu.tieba.util.i iVar) {
-        this.e = iVar;
-    }
-
-    public void b(int i) {
-        this.f = i;
-    }
-
-    public void a(long j) {
-        this.g = j;
-    }
-
-    public void b(long j) {
-        this.o = j;
-    }
-
-    public void c(long j) {
-        this.p = Calendar.getInstance();
-        this.p.setTimeInMillis(1000 * j);
-    }
-
-    private boolean d(long j) {
-        if (j < 1000) {
-            return false;
-        }
-        return this.o == 0 || j - this.o >= 180;
-    }
-
-    private String e(long j) {
-        if (j < 1000) {
-            return "";
-        }
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(1000 * j);
-        if (this.p != null && this.p.get(1) == calendar.get(1) && this.p.get(6) == calendar.get(6)) {
-            return com.baidu.tieba.util.bu.b(calendar.getTime());
-        }
-        return com.baidu.tieba.util.bu.a(calendar.getTime());
-    }
-
-    public void a(View view, com.baidu.tieba.im.message.b bVar) {
-    }
-
-    public void b(View view, com.baidu.tieba.im.message.b bVar) {
-        com.baidu.adp.lib.g.e.e("simon", "setData", bVar.toString());
-        if (bVar != null) {
-            this.h = Long.valueOf(bVar.l());
-        } else {
-            com.baidu.adp.lib.g.e.a("data is null");
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void e() {
-        this.i = (TextView) a(R.id.tex_msgitem_time);
-        this.j = (TbRichTextView) a(R.id.tex_msgitem_text);
-        this.j.setLinkTextColor(-14845754);
-        this.k = (BDImageView2) a(R.id.img_msgitem_image);
-        this.k.setDefaultResource(R.drawable.image_h_not);
-        this.n = (Invite2GroupView) a(R.id.lay_msgitem_invite_view);
-        this.l = (ChatVoiceView) a(R.id.lay_msgitem_voice);
-        this.l.setClickable(true);
-        this.l.setOnClickListener(this.l);
-        this.l.setLongClickable(true);
-        this.l.setOnLongClickListener(new bl(this));
-        this.k.setClickable(true);
-        this.k.setOnClickListener(new bm(this));
-        this.k.setLongClickable(true);
-        this.k.setOnLongClickListener(new bn(this));
-        this.j.setLongClickable(true);
-        this.j.setOnLongClickListener(new bo(this));
-        this.m = (GifView) a(R.id.emotion_msgitem_image);
-        this.m.setOnClickListener(new bp(this));
-        this.m.setLongClickable(true);
-        this.m.setOnLongClickListener(new bq(this));
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void c(int i) {
-        this.k.setVisibility(i);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void a(com.baidu.tieba.im.message.b bVar) {
-        boolean z = bVar.o() != null && bVar.o().getIs_show_time() == 1;
-        boolean d = d(bVar.p());
-        if (z || d) {
-            this.i.setVisibility(0);
-            this.i.setText(e(bVar.p()));
-        } else {
-            this.i.setVisibility(8);
-        }
-        if (!z && d) {
-            MsgCacheData o = bVar.o();
-            if (o == null) {
-                MsgCacheData msgCacheData = new MsgCacheData();
-                msgCacheData.setIs_show_time(1);
-                bVar.a(msgCacheData);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ImageView imageView;
+        FrameLayout frameLayout;
+        boolean z;
+        NavigationBar navigationBar;
+        MultiImageView multiImageView;
+        AlphaAnimation alphaAnimation;
+        AlphaAnimation alphaAnimation2;
+        AlphaAnimation alphaAnimation3;
+        NavigationBar navigationBar2;
+        AlphaAnimation alphaAnimation4;
+        NavigationBar navigationBar3;
+        MultiImageView multiImageView2;
+        NavigationBar navigationBar4;
+        MultiImageView multiImageView3;
+        MultiImageView multiImageView4;
+        bp bpVar;
+        TextView textView;
+        ProgressBar progressBar;
+        NavigationBar navigationBar5;
+        int i;
+        imageView = this.a.f;
+        if (view != imageView) {
+            frameLayout = this.a.g;
+            if (view == frameLayout) {
+                navigationBar4 = this.a.i;
+                if (navigationBar4.getVisibility() != 8) {
+                    try {
+                        multiImageView3 = this.a.j;
+                        byte[] currentImageData = multiImageView3.getCurrentImageData();
+                        if (currentImageData != null) {
+                            multiImageView4 = this.a.j;
+                            String currentImageUrl = multiImageView4.getCurrentImageUrl();
+                            this.a.d = new bp(this.a, currentImageUrl, currentImageData);
+                            bpVar = this.a.d;
+                            bpVar.execute(new String[0]);
+                            textView = this.a.e;
+                            textView.setVisibility(4);
+                            progressBar = this.a.a;
+                            progressBar.setVisibility(0);
+                        } else {
+                            this.a.showToast(this.a.getString(R.string.no_data));
+                        }
+                        return;
+                    } catch (Exception e) {
+                        return;
+                    }
+                }
                 return;
             }
-            o.setIs_show_time(1);
+            z = this.a.o;
+            if (z) {
+                navigationBar = this.a.i;
+                if (navigationBar.getVisibility() != 0) {
+                    navigationBar3 = this.a.i;
+                    navigationBar3.setVisibility(0);
+                    multiImageView2 = this.a.j;
+                    multiImageView2.d();
+                    this.a.n = new AlphaAnimation(0.0f, 1.0f);
+                } else {
+                    this.a.n = new AlphaAnimation(1.0f, 0.0f);
+                    this.a.p = true;
+                    multiImageView = this.a.j;
+                    multiImageView.e();
+                }
+                alphaAnimation = this.a.n;
+                alphaAnimation.setDuration(300L);
+                alphaAnimation2 = this.a.n;
+                alphaAnimation2.setFillAfter(true);
+                alphaAnimation3 = this.a.n;
+                alphaAnimation3.setAnimationListener(new bl(this));
+                this.a.o = false;
+                navigationBar2 = this.a.i;
+                alphaAnimation4 = this.a.n;
+                navigationBar2.startAnimation(alphaAnimation4);
+                return;
+            }
+            return;
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void a(com.baidu.tieba.im.message.b bVar, String str) {
-        ci.a(this.b, this.j, bVar, str);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void a(View view, com.baidu.tieba.im.message.b bVar, String str) {
-        ci.a(this.b, view, this.k, bVar, this.g, str);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void b(com.baidu.tieba.im.message.b bVar, String str) {
-        ci.a(this.b, this.l, bVar, str);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void a(com.baidu.tieba.im.message.b bVar, boolean z) {
-        ci.a(this.b, this.m, bVar, this.e, z);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void b(View view, com.baidu.tieba.im.message.b bVar, String str) {
-        ci.a(this.b, view, this.n, bVar, str);
+        navigationBar5 = this.a.i;
+        if (navigationBar5.getVisibility() != 8) {
+            Intent intent = new Intent();
+            i = this.a.c;
+            intent.putExtra("index", i);
+            this.a.setResult(-1, intent);
+            this.a.finish();
+        }
     }
 }

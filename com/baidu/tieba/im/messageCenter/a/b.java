@@ -3,30 +3,30 @@ package com.baidu.tieba.im.messageCenter.a;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.chat.personaltalk.PersonalSettingItemData;
 import com.baidu.tieba.im.groupInfo.GroupSettingItemData;
-import com.baidu.tieba.im.message.cr;
-import com.baidu.tieba.im.message.cs;
+import com.baidu.tieba.im.message.da;
+import com.baidu.tieba.im.message.db;
 /* loaded from: classes.dex */
 public class b extends com.baidu.tieba.im.messageCenter.d {
     @Override // com.baidu.tieba.im.messageCenter.d
-    public cr a(com.baidu.tieba.im.message.q qVar) {
-        if (qVar == null || !(qVar instanceof cs)) {
-            com.baidu.adp.lib.g.e.a("message error");
+    public da a(com.baidu.tieba.im.message.s sVar) {
+        if (sVar == null || !(sVar instanceof db)) {
+            com.baidu.adp.lib.util.f.b("message error");
         } else {
-            cs csVar = (cs) qVar;
+            db dbVar = (db) sVar;
             String str = "";
             if (TiebaApplication.E() != null) {
                 str = TiebaApplication.E().getID();
             }
-            if (csVar.c() == 0) {
-                GroupSettingItemData a = com.baidu.tieba.im.groupInfo.u.a(str, csVar.a());
+            if (dbVar.c() == 0) {
+                GroupSettingItemData a = com.baidu.tieba.im.groupInfo.v.a(str, dbVar.a());
                 if (a != null) {
-                    a.setDraft(csVar.b());
-                    com.baidu.tieba.im.groupInfo.u.a(a);
+                    a.setDraft(dbVar.b());
+                    com.baidu.tieba.im.groupInfo.v.a(a);
                 }
             } else {
-                PersonalSettingItemData a2 = com.baidu.tieba.im.chat.personaltalk.a.a(str, csVar.a());
+                PersonalSettingItemData a2 = com.baidu.tieba.im.chat.personaltalk.a.a(str, dbVar.a());
                 if (a2 != null) {
-                    a2.setDraft(csVar.b());
+                    a2.setDraft(dbVar.b());
                     com.baidu.tieba.im.chat.personaltalk.a.a(a2);
                 }
             }

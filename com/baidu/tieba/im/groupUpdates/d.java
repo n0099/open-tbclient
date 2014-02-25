@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.groupUpdates;
 
-import com.baidu.tieba.util.an;
+import com.baidu.tieba.util.ap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements Runnable {
@@ -13,8 +13,8 @@ public class d implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        n nVar;
-        nVar = this.a.b;
-        an.a(nVar.i(), this.a.a(), 0, -1);
+        q qVar;
+        qVar = this.a.b;
+        ap.a(qVar.i(), this.a.a(), 0, -1);
     }
 }

@@ -5,6 +5,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public class b extends Thread {
     private static final String a = b.class.getSimpleName();
@@ -37,7 +38,7 @@ public class b extends Thread {
                     DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
                     dataOutputStream.writeBytes("export LD_LIBRARY_PATH=/vendor/lib:/system/lib\n");
                     dataOutputStream.flush();
-                    dataOutputStream.write(("pm uninstall " + str + "\n").getBytes("utf-8"));
+                    dataOutputStream.write(("pm uninstall " + str + IOUtils.LINE_SEPARATOR_UNIX).getBytes("utf-8"));
                     dataOutputStream.flush();
                     dataOutputStream.writeBytes("exit\n");
                     dataOutputStream.flush();

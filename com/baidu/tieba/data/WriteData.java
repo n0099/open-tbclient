@@ -1,19 +1,19 @@
 package com.baidu.tieba.data;
 
-import android.net.Uri;
+import com.baidu.tieba.img.ImageFileInfo;
+import com.baidu.tieba.img.WriteImagesInfo;
+import java.io.File;
 import java.io.Serializable;
-import java.util.List;
+import java.util.LinkedList;
+import org.apache.commons.io.IOUtils;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class WriteData implements Serializable {
     public static final int NEW = 0;
     public static final int REPLY = 1;
     public static final int REPLY_FLOOR = 2;
     public static final String THREAD_TYPE_LBS = "7";
-    private static final long serialVersionUID = 3754223209695592335L;
     private boolean isAd;
-    private InfoData mBitmapId;
-    private List<InfoData> mBitmapIds;
-    private List<Uri> mBitmapUris;
     private String mContent;
     private int mDuringTime;
     private String mFloor;
@@ -21,7 +21,6 @@ public class WriteData implements Serializable {
     private String mForumId;
     private String mForumName;
     private boolean mHaveDraft;
-    private int mPicType;
     private String mThreadId;
     private String mTitle;
     private int mType;
@@ -29,10 +28,9 @@ public class WriteData implements Serializable {
     private String mVcodeMD5;
     private String mVcodeUrl;
     private String mVoiceMd5;
+    private WriteImagesInfo writeImagesInfo;
 
     public WriteData() {
-        this.mBitmapUris = null;
-        this.mBitmapIds = null;
         this.mType = 0;
         this.mForumId = null;
         this.mForumName = null;
@@ -44,19 +42,59 @@ public class WriteData implements Serializable {
         this.mVcode = null;
         this.mVcodeMD5 = null;
         this.mVcodeUrl = null;
-        this.mBitmapId = null;
         this.mVoiceMd5 = null;
         this.mHaveDraft = false;
-        this.mPicType = 0;
         setIsAd(false);
     }
 
     public WriteData(int i) {
-        this.mBitmapUris = null;
-        this.mBitmapIds = null;
         this.mType = i;
         this.mTitle = null;
         this.mContent = null;
+    }
+
+    public boolean hasContentToSave() {
+        if (com.baidu.adp.lib.util.h.b(this.mContent) && com.baidu.adp.lib.util.h.b(this.mTitle)) {
+            return this.writeImagesInfo != null && this.writeImagesInfo.size() > 0;
+        }
+        return true;
+    }
+
+    public String toDraftString() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("mType", this.mType);
+            jSONObject.put("mTitle", this.mTitle);
+            jSONObject.put("mContent", this.mContent);
+            jSONObject.put("mThreadId", this.mThreadId);
+            if (this.writeImagesInfo != null) {
+                jSONObject.put("writeImagesInfo", this.writeImagesInfo.toJson());
+            }
+        } catch (Exception e) {
+        }
+        return jSONObject.toString();
+    }
+
+    public static WriteData fromDraftString(String str) {
+        if (com.baidu.adp.lib.util.h.b(str)) {
+            return null;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            WriteData writeData = new WriteData();
+            writeData.mType = jSONObject.optInt("mType");
+            writeData.mTitle = jSONObject.optString("mTitle", null);
+            writeData.mContent = jSONObject.optString("mContent", null);
+            writeData.mThreadId = jSONObject.optString("mThreadId", null);
+            JSONObject optJSONObject = jSONObject.optJSONObject("writeImagesInfo");
+            if (optJSONObject != null) {
+                writeData.writeImagesInfo = new WriteImagesInfo();
+                writeData.writeImagesInfo.parseJson(optJSONObject);
+            }
+            return writeData;
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     public int getType() {
@@ -131,14 +169,6 @@ public class WriteData implements Serializable {
         return this.mVcode;
     }
 
-    public void setBitmapId(InfoData infoData) {
-        this.mBitmapId = infoData;
-    }
-
-    public InfoData getBitmapId() {
-        return this.mBitmapId;
-    }
-
     public void setVcodeMD5(String str) {
         this.mVcodeMD5 = str;
     }
@@ -161,14 +191,6 @@ public class WriteData implements Serializable {
 
     public boolean getHaveDraft() {
         return this.mHaveDraft;
-    }
-
-    public void setPicType(int i) {
-        this.mPicType = i;
-    }
-
-    public int getPicType() {
-        return this.mPicType;
     }
 
     public boolean getIsAd() {
@@ -195,19 +217,67 @@ public class WriteData implements Serializable {
         return this.mDuringTime;
     }
 
-    public List<Uri> getBitmapUris() {
-        return this.mBitmapUris;
+    public WriteImagesInfo getWriteImagesInfo() {
+        return this.writeImagesInfo;
     }
 
-    public void setBitmapUris(List<Uri> list) {
-        this.mBitmapUris = list;
+    public void setWriteImagesInfo(WriteImagesInfo writeImagesInfo) {
+        this.writeImagesInfo = writeImagesInfo;
     }
 
-    public List<InfoData> getBitmapIds() {
-        return this.mBitmapIds;
+    public boolean isSubFloor() {
+        return this.mType == 2;
     }
 
-    public void setBitmapIds(List<InfoData> list) {
-        this.mBitmapIds = list;
+    public boolean isHasImages() {
+        return (isSubFloor() || this.writeImagesInfo == null || this.writeImagesInfo.size() <= 0) ? false : true;
+    }
+
+    public void deleteUploadedTempImages() {
+        if (isHasImages()) {
+            LinkedList<ImageFileInfo> chosedFiles = this.writeImagesInfo.getChosedFiles();
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 < chosedFiles.size()) {
+                    ImageFileInfo imageFileInfo = chosedFiles.get(i2);
+                    if (imageFileInfo.isTempFile() && imageFileInfo.isAlreadyUploadedToServer() && !com.baidu.adp.lib.util.h.b(imageFileInfo.getFilePath())) {
+                        File file = new File(imageFileInfo.getFilePath());
+                        if (file.exists()) {
+                            file.delete();
+                        }
+                    }
+                    if (imageFileInfo.isAlreadyUploadedToServer()) {
+                        chosedFiles.remove(i2);
+                        i2--;
+                    }
+                    i = i2 + 1;
+                } else {
+                    return;
+                }
+            }
+        }
+    }
+
+    public String getImagesCodeForPost() {
+        if (!isHasImages()) {
+            return "";
+        }
+        StringBuilder sb = new StringBuilder(this.writeImagesInfo.size() * 50);
+        LinkedList<ImageFileInfo> chosedFiles = this.writeImagesInfo.getChosedFiles();
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < chosedFiles.size()) {
+                ImageFileInfo imageFileInfo = chosedFiles.get(i2);
+                if (imageFileInfo.isAlreadyUploadedToServer()) {
+                    sb.append(IOUtils.LINE_SEPARATOR_UNIX);
+                    sb.append(imageFileInfo.getServerImageCode());
+                }
+                i = i2 + 1;
+            } else {
+                return sb.toString();
+            }
+        }
     }
 }

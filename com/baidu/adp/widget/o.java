@@ -1,201 +1,269 @@
 package com.baidu.adp.widget;
 
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
+import android.os.SystemClock;
 import android.util.Log;
-import android.view.VelocityTracker;
-import com.baidu.adp.widget.HorizontalTranslateLayout;
+import com.baidu.location.LocationClientOption;
 /* loaded from: classes.dex */
-public class o {
-    VelocityTracker a;
-    boolean b;
-    final int c;
-    final int d;
-    final /* synthetic */ HorizontalTranslateLayout e;
+public class o implements aj {
+    final /* synthetic */ IndicatorView a;
+    private final int b;
+    private long c;
+    private long d;
+    private int e;
+    private float f;
+    private boolean g;
+    private final p h = new p(this, null);
 
-    public boolean a(int i) {
-        HorizontalTranslateLayout.TrackDirection trackDirection;
-        i iVar;
-        i iVar2;
+    public o(IndicatorView indicatorView) {
+        this.a = indicatorView;
+        this.b = (int) ((indicatorView.getResources().getDisplayMetrics().density * 1.0f) + 0.5f);
+    }
+
+    @Override // com.baidu.adp.widget.aj
+    public void a(int i, int i2) {
+        Drawable drawable;
+        Drawable drawable2;
+        int i3;
+        Drawable drawable3;
+        Drawable drawable4;
+        drawable = this.a.f;
+        if (drawable != null) {
+            drawable2 = this.a.g;
+            if (drawable2 != null) {
+                i3 = this.a.c;
+                if (i3 != 0) {
+                    this.a.setWillNotDraw(false);
+                    int a = a(i);
+                    int b = b(i2);
+                    Log.d("IndicatorView$IndicatorView", "@onMeasure width=" + a);
+                    Log.d("IndicatorView$IndicatorView", "@onMeasure height=" + b);
+                    this.a.setMeasuredDimension(a, b);
+                    StringBuilder sb = new StringBuilder("drawable bound = ");
+                    drawable3 = this.a.f;
+                    Log.d("IndicatorView$IndicatorView", sb.append(drawable3.getBounds().toShortString()).toString());
+                    StringBuilder sb2 = new StringBuilder("selector bound = ");
+                    drawable4 = this.a.g;
+                    Log.d("IndicatorView$IndicatorView", sb2.append(drawable4.getBounds().toShortString()).toString());
+                    return;
+                }
+            }
+        }
+        this.a.setWillNotDraw(true);
+        this.a.setMeasuredDimension(0, 0);
+        Log.d("IndicatorView$IndicatorView", "will not draw.");
+    }
+
+    private int a(int i) {
         int i2;
         int i3;
+        Drawable drawable;
+        Drawable drawable2;
         int i4;
+        Drawable drawable3;
+        Drawable drawable4;
+        Drawable drawable5;
+        Drawable drawable6;
+        Drawable drawable7;
+        Drawable drawable8;
         int i5;
-        int[] iArr = f.a;
-        trackDirection = this.e.j;
-        switch (iArr[trackDirection.ordinal()]) {
-            case 1:
-                i4 = this.e.k;
-                if (i4 != 10004) {
-                    i5 = this.e.k;
-                    if (i5 != 10000) {
-                        return false;
-                    }
-                }
-                break;
-            case 2:
-                i2 = this.e.k;
-                if (i2 != 10004) {
-                    i3 = this.e.k;
-                    if (i3 != 10001) {
-                        return false;
-                    }
-                }
-                break;
-            case 3:
-                iVar = this.e.A;
-                if (iVar != null) {
-                    iVar2 = this.e.A;
-                    iVar2.a(i);
-                    break;
-                }
-                break;
+        int i6;
+        int i7;
+        Drawable drawable9;
+        Drawable drawable10;
+        Drawable drawable11;
+        Drawable drawable12;
+        Drawable drawable13;
+        Drawable drawable14;
+        Drawable drawable15;
+        Drawable drawable16;
+        Drawable drawable17;
+        Drawable drawable18;
+        int i8 = i & (-1073741824);
+        int i9 = 1073741823 & i;
+        Log.d("IndicatorView$IndicatorView", "@measureWidth size=" + i9);
+        i2 = this.a.b;
+        i3 = this.a.c;
+        int i10 = i2 * (i3 - 1);
+        drawable = this.a.f;
+        int intrinsicWidth = drawable.getIntrinsicWidth();
+        drawable2 = this.a.g;
+        int max = Math.max(intrinsicWidth, drawable2.getIntrinsicWidth());
+        i4 = this.a.c;
+        int i11 = i10 + (max * i4);
+        StringBuilder sb = new StringBuilder("drawable intrinsic width = ");
+        drawable3 = this.a.f;
+        com.baidu.adp.lib.util.f.e("IndicatorView$IndicatorView", "@measureWidth", sb.append(drawable3.getIntrinsicWidth()).toString());
+        StringBuilder sb2 = new StringBuilder("selector intrinsic width = ");
+        drawable4 = this.a.g;
+        com.baidu.adp.lib.util.f.e("IndicatorView$IndicatorView", "@measureWidth", sb2.append(drawable4.getIntrinsicWidth()).toString());
+        switch (i8) {
+            case Integer.MIN_VALUE:
+                int min = Math.min(i9, i11);
+                drawable13 = this.a.f;
+                drawable14 = this.a.f;
+                int intrinsicWidth2 = drawable14.getIntrinsicWidth();
+                drawable15 = this.a.f;
+                drawable13.setBounds(0, 0, intrinsicWidth2, drawable15.getBounds().height());
+                drawable16 = this.a.g;
+                drawable17 = this.a.g;
+                int intrinsicWidth3 = drawable17.getIntrinsicWidth();
+                drawable18 = this.a.g;
+                drawable16.setBounds(0, 0, intrinsicWidth3, drawable18.getBounds().height());
+                return min;
+            case 0:
+                drawable5 = this.a.f;
+                drawable6 = this.a.f;
+                drawable5.setBounds(0, 0, drawable6.getIntrinsicWidth(), 0);
+                drawable7 = this.a.g;
+                drawable8 = this.a.g;
+                drawable7.setBounds(0, 0, drawable8.getIntrinsicWidth(), 0);
+                return i11;
+            case 1073741824:
+                i5 = this.a.b;
+                i6 = this.a.c;
+                i7 = this.a.c;
+                int i12 = (int) ((i9 - (i5 * (i6 - 1))) / i7);
+                drawable9 = this.a.g;
+                drawable10 = this.a.g;
+                drawable9.setBounds(0, 0, i12, drawable10.getBounds().height());
+                drawable11 = this.a.f;
+                drawable12 = this.a.f;
+                drawable11.setBounds(0, 0, i12, drawable12.getBounds().height());
+                return i9;
+            default:
+                return i9;
         }
-        this.a = VelocityTracker.obtain();
-        this.b = true;
-        return true;
+    }
+
+    private int b(int i) {
+        Drawable drawable;
+        Drawable drawable2;
+        Drawable drawable3;
+        Drawable drawable4;
+        Drawable drawable5;
+        Drawable drawable6;
+        Drawable drawable7;
+        Drawable drawable8;
+        Drawable drawable9;
+        Drawable drawable10;
+        Drawable drawable11;
+        Drawable drawable12;
+        Drawable drawable13;
+        Drawable drawable14;
+        int i2 = i & (-1073741824);
+        int i3 = 1073741823 & i;
+        drawable = this.a.f;
+        int intrinsicHeight = drawable.getIntrinsicHeight();
+        drawable2 = this.a.g;
+        int max = Math.max(intrinsicHeight, drawable2.getIntrinsicHeight());
+        switch (i2) {
+            case Integer.MIN_VALUE:
+                int min = Math.min(i3, max);
+                Log.d("IndicatorView$IndicatorView", "min size = " + min);
+                drawable11 = this.a.f;
+                drawable12 = this.a.f;
+                drawable11.setBounds(0, 0, drawable12.getBounds().width(), min);
+                drawable13 = this.a.g;
+                drawable14 = this.a.g;
+                drawable13.setBounds(0, 0, drawable14.getBounds().width(), min);
+                return min;
+            case 0:
+                drawable3 = this.a.f;
+                drawable4 = this.a.f;
+                drawable3.setBounds(0, 0, drawable4.getBounds().width(), max);
+                drawable5 = this.a.g;
+                drawable6 = this.a.g;
+                drawable5.setBounds(0, 0, drawable6.getBounds().width(), max);
+                return max;
+            case 1073741824:
+                drawable7 = this.a.f;
+                drawable8 = this.a.f;
+                drawable7.setBounds(0, 0, drawable8.getBounds().width(), i3);
+                drawable9 = this.a.g;
+                drawable10 = this.a.g;
+                drawable9.setBounds(0, 0, drawable10.getBounds().width(), i3);
+                return i3;
+            default:
+                return i3;
+        }
+    }
+
+    /* JADX WARN: Incorrect condition in loop: B:17:0x0013 */
+    @Override // com.baidu.adp.widget.aj
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void a(Canvas canvas) {
+        int i;
+        Drawable drawable;
+        int i2;
+        float f;
+        Drawable drawable2;
+        Drawable drawable3;
+        Drawable drawable4;
+        int i3;
+        Log.d("IndicatorView$IndicatorView", "draw");
+        int save = canvas.save();
+        for (int i4 = 0; i4 < i; i4++) {
+            if (i4 != 0) {
+                drawable4 = this.a.f;
+                int width = drawable4.getBounds().width();
+                i3 = this.a.b;
+                canvas.translate(width + i3, 0.0f);
+            }
+            drawable3 = this.a.f;
+            drawable3.draw(canvas);
+        }
+        canvas.restoreToCount(save);
+        int save2 = canvas.save();
+        drawable = this.a.g;
+        int width2 = drawable.getBounds().width();
+        i2 = this.a.b;
+        f = this.a.d;
+        canvas.translate((width2 + i2) * f, 0.0f);
+        drawable2 = this.a.g;
+        drawable2.draw(canvas);
+        canvas.restoreToCount(save2);
     }
 
     public void a() {
-        this.b = false;
-    }
-
-    public void b(int i) {
-        int i2;
-        HorizontalTranslateLayout.TrackDirection trackDirection;
         float f;
         float f2;
         float f3;
         float f4;
-        if (this.b) {
-            i2 = this.e.f;
-            int i3 = i2 - i;
-            int[] iArr = f.a;
-            trackDirection = this.e.j;
-            switch (iArr[trackDirection.ordinal()]) {
-                case 1:
-                    Log.d("HorizontalTranslateLayout", "@move left");
-                    f4 = this.e.d;
-                    if (i3 > f4 - this.e.getMeasuredWidth() && i3 < 0) {
-                        HorizontalTranslateLayout.a(this.e, i);
-                        this.e.invalidate();
-                        return;
-                    }
-                    return;
-                case 2:
-                    Log.d("HorizontalTranslateLayout", "@move right");
-                    f3 = this.e.e;
-                    if (i3 < this.e.getMeasuredWidth() - f3 && i3 > 0) {
-                        HorizontalTranslateLayout.a(this.e, i);
-                        this.e.invalidate();
-                        return;
-                    }
-                    return;
-                case 3:
-                    Log.d("HorizontalTranslateLayout", "@move horizontal");
-                    f = this.e.d;
-                    if (i3 >= f - this.e.getMeasuredWidth()) {
-                        f2 = this.e.e;
-                        if (i3 <= this.e.getMeasuredWidth() - f2) {
-                            HorizontalTranslateLayout.a(this.e, i);
-                            this.e.invalidate();
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                default:
-                    return;
+        long uptimeMillis = SystemClock.uptimeMillis();
+        this.f = ((((float) (uptimeMillis - this.c)) / 1000.0f) * this.e) + this.f;
+        this.c = uptimeMillis;
+        this.d = this.c + 16;
+        if (this.e < 0) {
+            float f5 = this.f;
+            f3 = this.a.e;
+            if (f5 < f3) {
+                IndicatorView indicatorView = this.a;
+                f4 = this.a.e;
+                indicatorView.d = f4;
+                this.g = false;
+            } else {
+                this.a.d = this.f;
+                this.h.removeMessages(LocationClientOption.MIN_SCAN_SPAN);
+                this.h.sendEmptyMessageAtTime(LocationClientOption.MIN_SCAN_SPAN, this.d);
             }
-        }
-    }
-
-    public void b() {
-        float max;
-        HorizontalTranslateLayout.TrackDirection trackDirection;
-        this.a.computeCurrentVelocity(this.c);
-        float xVelocity = this.a.getXVelocity();
-        Log.d("HorizontalTranslateLayout", "@fling x " + xVelocity);
-        if (xVelocity < 0.0f) {
-            max = Math.min(xVelocity, -this.d);
         } else {
-            max = Math.max(xVelocity, this.d);
-        }
-        int[] iArr = f.a;
-        trackDirection = this.e.j;
-        switch (iArr[trackDirection.ordinal()]) {
-            case 1:
-                b(max);
-                break;
-            case 2:
-                c(max);
-                break;
-            case 3:
-                a(max);
-                break;
-        }
-        this.a.recycle();
-        this.a = null;
-    }
-
-    private void a(float f) {
-        int i;
-        float f2;
-        h hVar;
-        h hVar2;
-        float f3;
-        h hVar3;
-        h hVar4;
-        Log.d("HorizontalTranslateLayout", "@horizontalFling");
-        i = this.e.f;
-        if (i <= 0) {
-            f3 = this.e.d;
-            if (i >= f3 - this.e.getMeasuredWidth()) {
-                if (f < 0.0f) {
-                    hVar4 = this.e.t;
-                    hVar4.c(f);
-                    return;
-                }
-                hVar3 = this.e.t;
-                hVar3.a(f);
-                return;
+            float f6 = this.f;
+            f = this.a.e;
+            if (f6 > f) {
+                IndicatorView indicatorView2 = this.a;
+                f2 = this.a.e;
+                indicatorView2.d = f2;
+                this.g = false;
+            } else {
+                this.a.d = this.f;
+                this.h.removeMessages(LocationClientOption.MIN_SCAN_SPAN);
+                this.h.sendEmptyMessageAtTime(LocationClientOption.MIN_SCAN_SPAN, this.d);
             }
         }
-        if (i >= 0) {
-            f2 = this.e.e;
-            if (i <= this.e.getMeasuredWidth() - f2) {
-                if (f < 0.0f) {
-                    hVar2 = this.e.t;
-                    hVar2.b(f);
-                    return;
-                }
-                hVar = this.e.t;
-                hVar.d(f);
-            }
-        }
-    }
-
-    private void b(float f) {
-        h hVar;
-        h hVar2;
-        Log.d("HorizontalTranslateLayout", "@leftFling");
-        if (f < 0.0f) {
-            hVar2 = this.e.t;
-            hVar2.c(f);
-            return;
-        }
-        hVar = this.e.t;
-        hVar.a(f);
-    }
-
-    private void c(float f) {
-        h hVar;
-        h hVar2;
-        Log.d("HorizontalTranslateLayout", "@rightFling");
-        if (f < 0.0f) {
-            hVar2 = this.e.t;
-            hVar2.b(f);
-            return;
-        }
-        hVar = this.e.t;
-        hVar.d(f);
+        this.a.invalidate();
     }
 }

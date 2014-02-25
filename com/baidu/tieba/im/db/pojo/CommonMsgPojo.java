@@ -1,15 +1,15 @@
 package com.baidu.tieba.im.db.pojo;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.g.e;
+import com.baidu.adp.lib.util.f;
 import com.baidu.gson.Gson;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.UserData;
 import com.baidu.tieba.im.chat.q;
-import com.baidu.tieba.im.d.d;
 import com.baidu.tieba.im.data.MsgLocalData;
 import com.baidu.tieba.im.message.b;
 import com.baidu.tieba.im.message.g;
+import com.baidu.tieba.im.util.l;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class CommonMsgPojo implements Serializable {
@@ -80,7 +80,7 @@ public class CommonMsgPojo implements Serializable {
             }
             this.mid = bVar.l();
             if (bVar.g() != null) {
-                this.uid = bVar.g().getId();
+                this.uid = bVar.g().getUserId();
             }
             this.toUid = String.valueOf(bVar.c());
             this.user_info_data = bVar.g();
@@ -130,15 +130,15 @@ public class CommonMsgPojo implements Serializable {
         this.rid = j;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0047  */
-    /* JADX WARN: Removed duplicated region for block: B:19:0x005e  */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x00a8  */
-    /* JADX WARN: Removed duplicated region for block: B:27:0x00b9  */
+    /* JADX WARN: Removed duplicated region for block: B:15:0x0044  */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x005b  */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x00a5  */
+    /* JADX WARN: Removed duplicated region for block: B:26:0x00b6  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public g toChatMessage() {
-        Exception exc;
+        Exception e;
         long j;
         long j2;
         UserData g;
@@ -147,15 +147,11 @@ public class CommonMsgPojo implements Serializable {
         long j4 = 0;
         g gVar = new g();
         try {
-            long parseLong = (this.uid == null || this.uid.length() <= 0) ? 0L : Long.parseLong(this.uid);
+            j = (this.uid == null || this.uid.length() <= 0) ? 0L : Long.parseLong(this.uid);
             try {
-                long j5 = parseLong;
-                j2 = (this.toUid == null || this.toUid.length() <= 0) ? 0L : Long.parseLong(this.toUid);
-                j = j5;
-            } catch (Exception e) {
-                j = parseLong;
-                exc = e;
-                exc.printStackTrace();
+            } catch (Exception e2) {
+                e = e2;
+                e.printStackTrace();
                 j2 = 0;
                 gVar.b(this.gid);
                 gVar.d(this.mid);
@@ -181,53 +177,83 @@ public class CommonMsgPojo implements Serializable {
                 h = gVar.h();
                 if (h != null) {
                 }
-                d.f(gVar);
+                l.g(gVar);
                 return gVar;
             }
-        } catch (Exception e2) {
-            exc = e2;
+        } catch (Exception e3) {
+            e = e3;
             j = 0;
         }
+        if (this.toUid != null && this.toUid.length() > 0) {
+            j2 = Long.parseLong(this.toUid);
+            gVar.b(this.gid);
+            gVar.d(this.mid);
+            gVar.e(j);
+            gVar.b(j2);
+            gVar.c(this.rid);
+            if (this.user_info_data == null) {
+                this.user_info_data = (UserData) this.gson.fromJson(this.user_info, (Class<Object>) UserData.class);
+            }
+            gVar.a(this.user_info_data);
+            if (this.to_user_info_data == null) {
+                this.to_user_info_data = (UserData) this.gson.fromJson(this.to_user_info, (Class<Object>) UserData.class);
+            }
+            gVar.b(this.to_user_info_data);
+            gVar.b((UserData) this.gson.fromJson(this.to_user_info, (Class<Object>) UserData.class));
+            gVar.f(this.create_time);
+            gVar.b((int) ((short) this.msg_type));
+            MsgLocalData msgLocalData2 = new MsgLocalData();
+            msgLocalData2.setStatus(Short.valueOf((short) this.msg_status));
+            gVar.a(msgLocalData2);
+            gVar.a(this.content);
+            g = gVar.g();
+            if (g != null) {
+                try {
+                    j3 = Long.parseLong(g.getUserId());
+                } catch (Exception e4) {
+                    f.b("error" + e4.getMessage());
+                    j3 = 0;
+                }
+                gVar.e(j3);
+            }
+            h = gVar.h();
+            if (h != null) {
+                try {
+                    j4 = Long.parseLong(h.getUserId());
+                } catch (Exception e5) {
+                    f.b("error" + e5.getMessage());
+                }
+                gVar.b(j4);
+            }
+            l.g(gVar);
+            return gVar;
+        }
+        j2 = 0;
         gVar.b(this.gid);
         gVar.d(this.mid);
         gVar.e(j);
         gVar.b(j2);
         gVar.c(this.rid);
         if (this.user_info_data == null) {
-            this.user_info_data = (UserData) this.gson.fromJson(this.user_info, (Class<Object>) UserData.class);
         }
         gVar.a(this.user_info_data);
         if (this.to_user_info_data == null) {
-            this.to_user_info_data = (UserData) this.gson.fromJson(this.to_user_info, (Class<Object>) UserData.class);
         }
         gVar.b(this.to_user_info_data);
         gVar.b((UserData) this.gson.fromJson(this.to_user_info, (Class<Object>) UserData.class));
         gVar.f(this.create_time);
         gVar.b((int) ((short) this.msg_type));
-        MsgLocalData msgLocalData2 = new MsgLocalData();
-        msgLocalData2.setStatus(Short.valueOf((short) this.msg_status));
-        gVar.a(msgLocalData2);
+        MsgLocalData msgLocalData22 = new MsgLocalData();
+        msgLocalData22.setStatus(Short.valueOf((short) this.msg_status));
+        gVar.a(msgLocalData22);
         gVar.a(this.content);
         g = gVar.g();
         if (g != null) {
-            try {
-                j3 = Long.parseLong(g.getId());
-            } catch (Exception e3) {
-                e.a("error" + e3.getMessage());
-                j3 = 0;
-            }
-            gVar.e(j3);
         }
         h = gVar.h();
         if (h != null) {
-            try {
-                j4 = Long.parseLong(h.getId());
-            } catch (Exception e4) {
-                e.a("error" + e4.getMessage());
-            }
-            gVar.b(j4);
         }
-        d.f(gVar);
+        l.g(gVar);
         return gVar;
     }
 

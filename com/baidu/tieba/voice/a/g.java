@@ -1,27 +1,28 @@
 package com.baidu.tieba.voice.a;
 
-import com.baidu.tieba.data.h;
-import com.baidu.tieba.util.ad;
-import com.baidu.tieba.util.ax;
+import com.baidu.adp.lib.e.h;
+import com.baidu.adp.lib.e.i;
+import com.baidu.tieba.util.af;
+import com.baidu.tieba.util.ba;
 import com.baidu.tieba.voice.ak;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class g implements com.baidu.adp.lib.e.g {
-    private ax a = null;
-    private com.baidu.adp.lib.e.f b;
+public class g implements i {
+    private ba a = null;
+    private h b;
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.g
+    @Override // com.baidu.adp.lib.e.i
     /* renamed from: b */
-    public d a(String str, com.baidu.adp.lib.e.f fVar) {
+    public d a(String str, h hVar) {
         return null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.g
+    @Override // com.baidu.adp.lib.e.i
     /* renamed from: c */
     public d a(String str, com.baidu.adp.lib.e.e eVar) {
-        String a = ad.a(str, 1);
+        String a = af.a(str, 1);
         if (a == null) {
             return null;
         }
@@ -32,16 +33,16 @@ public class g implements com.baidu.adp.lib.e.g {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.g
+    @Override // com.baidu.adp.lib.e.i
     /* renamed from: d */
     public d b(String str, com.baidu.adp.lib.e.e eVar) {
-        this.b = eVar.d();
+        this.b = eVar.e();
         String str2 = null;
         if (this.b != null) {
             str2 = (String) this.b.a("from");
         }
         d dVar = new d();
-        this.a = new ax(h.a + "c/p/voice?voice_md5=" + str + "&play_from=" + str2);
+        this.a = new ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/p/voice?voice_md5=" + str + "&play_from=" + str2);
         if (this.b != null) {
             this.b.a("network", this.a);
         }
@@ -57,7 +58,7 @@ public class g implements com.baidu.adp.lib.e.g {
         } else {
             int a = e.a(str, l);
             if (a == 0) {
-                dVar.b = ad.a(str, 1);
+                dVar.b = af.a(str, 1);
                 dVar.a = str;
             } else {
                 dVar.c = a;

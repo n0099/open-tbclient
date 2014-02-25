@@ -1,22 +1,25 @@
 package com.baidu.tieba.view;
 
-import android.view.View;
-import android.widget.AdapterView;
+import android.view.animation.Animation;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bd implements AdapterView.OnItemClickListener {
-    final /* synthetic */ com.baidu.tieba.pb.ag a;
-    final /* synthetic */ ImagePbPagerAdapter b;
+public class bd implements Animation.AnimationListener {
+    final /* synthetic */ HorizontalPanelView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bd(ImagePbPagerAdapter imagePbPagerAdapter, com.baidu.tieba.pb.ag agVar) {
-        this.b = imagePbPagerAdapter;
-        this.a = agVar;
+    public bd(HorizontalPanelView horizontalPanelView) {
+        this.a = horizontalPanelView;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (this.a != null && this.a.b() && j == this.a.getCount() - 1) {
-            this.b.a(this.a.d(), this.a.e().c(), 10, this.a);
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
     }
 }

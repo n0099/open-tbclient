@@ -2,23 +2,24 @@ package com.baidu.tieba.person;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
-import com.baidu.tieba.BaseFragmentActivity;
 /* loaded from: classes.dex */
-public class SinglePersonInfoActivity extends BaseFragmentActivity {
-    private PersonInfoActivity b;
+public class SinglePersonInfoActivity extends com.baidu.tieba.k {
+    private cm d;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.BaseFragmentActivity, android.support.v4.app.n, android.app.Activity
+    @Override // com.baidu.tieba.k, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         Bundle a = a(bundle);
-        android.support.v4.app.t supportFragmentManager = getSupportFragmentManager();
-        this.b = new PersonInfoActivity();
-        this.b.g(a);
-        android.support.v4.app.ae a2 = supportFragmentManager.a();
-        a2.a(16908290, this.b);
-        a2.b();
+        FragmentManager supportFragmentManager = getSupportFragmentManager();
+        this.d = new cm();
+        this.d.setArguments(a);
+        FragmentTransaction beginTransaction = supportFragmentManager.beginTransaction();
+        beginTransaction.add(16908290, this.d);
+        beginTransaction.commitAllowingStateLoss();
     }
 
     private Bundle a(Bundle bundle) {
@@ -34,19 +35,19 @@ public class SinglePersonInfoActivity extends BaseFragmentActivity {
         return bundle2;
     }
 
-    @Override // com.baidu.tieba.BaseFragmentActivity
-    protected void a(int i) {
+    @Override // com.baidu.tieba.k
+    protected void b(int i) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.n, android.app.Activity
+    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
-        if (this.b != null) {
-            this.b.a(i, i2, intent);
+        if (this.d != null) {
+            this.d.onActivityResult(i, i2, intent);
         }
     }
 
-    @Override // com.baidu.tieba.BaseFragmentActivity, android.support.v4.app.n, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tieba.k, android.support.v4.app.FragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         return super.onKeyDown(i, keyEvent);
     }

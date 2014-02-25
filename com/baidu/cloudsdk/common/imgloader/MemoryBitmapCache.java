@@ -1,12 +1,12 @@
 package com.baidu.cloudsdk.common.imgloader;
 
 import android.graphics.Bitmap;
-import com.bh;
+import com.i;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class MemoryBitmapCache implements bh {
+public class MemoryBitmapCache implements i {
     private int a;
     private IEvictPolicy b;
     private Map c;
@@ -159,7 +159,7 @@ public class MemoryBitmapCache implements bh {
         }
     }
 
-    @Override // com.bh
+    @Override // com.i
     public synchronized void a(String str, Bitmap bitmap) {
         if (!c(str)) {
             if (this.c.size() >= this.a) {

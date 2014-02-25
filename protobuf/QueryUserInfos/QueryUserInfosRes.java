@@ -1,5 +1,6 @@
 package protobuf.QueryUserInfos;
 
+import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.CodedInputStream;
@@ -18,7 +19,7 @@ import protobuf.Im;
 public final class QueryUserInfosRes {
 
     /* loaded from: classes.dex */
-    public final class IconInfo extends GeneratedMessageLite implements n {
+    public final class IconInfo extends GeneratedMessageLite implements l {
         public static final int ICONURL_FIELD_NUMBER = 3;
         public static final int NAME_FIELD_NUMBER = 1;
         public static final int WEIGHT_FIELD_NUMBER = 2;
@@ -29,8 +30,13 @@ public final class QueryUserInfosRes {
         private int memoizedSerializedSize;
         private Object name_;
         private int weight_;
-        public static Parser<IconInfo> PARSER = new l();
+        public static Parser<IconInfo> PARSER = new j();
         private static final IconInfo a = new IconInfo(true);
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ IconInfo(GeneratedMessageLite.Builder builder, IconInfo iconInfo) {
+            this(builder);
+        }
 
         private IconInfo(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -61,42 +67,45 @@ public final class QueryUserInfosRes {
             while (!z) {
                 try {
                     try {
-                        try {
-                            int readTag = codedInputStream.readTag();
-                            switch (readTag) {
-                                case 0:
+                        int readTag = codedInputStream.readTag();
+                        switch (readTag) {
+                            case 0:
+                                z = true;
+                                break;
+                            case 10:
+                                this.bitField0_ |= 1;
+                                this.name_ = codedInputStream.readBytes();
+                                break;
+                            case 16:
+                                this.bitField0_ |= 2;
+                                this.weight_ = codedInputStream.readInt32();
+                                break;
+                            case Im.GroupInfo.NICKNAME_FIELD_NUMBER /* 26 */:
+                                this.bitField0_ |= 4;
+                                this.iconUrl_ = codedInputStream.readBytes();
+                                break;
+                            default:
+                                if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
-                                case 10:
-                                    this.bitField0_ |= 1;
-                                    this.name_ = codedInputStream.readBytes();
+                                } else {
                                     break;
-                                case 16:
-                                    this.bitField0_ |= 2;
-                                    this.weight_ = codedInputStream.readInt32();
-                                    break;
-                                case Im.GroupInfo.NICKNAME_FIELD_NUMBER /* 26 */:
-                                    this.bitField0_ |= 4;
-                                    this.iconUrl_ = codedInputStream.readBytes();
-                                    break;
-                                default:
-                                    if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
-                                        z = true;
-                                        break;
-                                    } else {
-                                        break;
-                                    }
-                            }
-                        } catch (IOException e) {
-                            throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
+                                }
                         }
-                    } catch (InvalidProtocolBufferException e2) {
-                        throw e2.setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
                 } finally {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ IconInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, IconInfo iconInfo) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -262,29 +271,29 @@ public final class QueryUserInfosRes {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static m newBuilder() {
-            return m.f();
+        public static k newBuilder() {
+            return k.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public m newBuilderForType() {
+        public k newBuilderForType() {
             return newBuilder();
         }
 
-        public static m newBuilder(IconInfo iconInfo) {
+        public static k newBuilder(IconInfo iconInfo) {
             return newBuilder().mergeFrom(iconInfo);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public m toBuilder() {
+        public k toBuilder() {
             return newBuilder(this);
         }
     }
 
     /* loaded from: classes.dex */
-    public final class DataRes extends GeneratedMessageLite implements k {
+    public final class DataRes extends GeneratedMessageLite implements i {
         public static final int HASCONCERNED_FIELD_NUMBER = 8;
         public static final int ICONINFO_FIELD_NUMBER = 15;
         public static final int ID_FIELD_NUMBER = 1;
@@ -319,8 +328,13 @@ public final class QueryUserInfosRes {
         private int sex_;
         private int superboy_;
         private int userType_;
-        public static Parser<DataRes> PARSER = new i();
+        public static Parser<DataRes> PARSER = new g();
         private static final DataRes a = new DataRes(true);
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ DataRes(GeneratedMessageLite.Builder builder, DataRes dataRes) {
+            this(builder);
+        }
 
         private DataRes(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -343,99 +357,95 @@ public final class QueryUserInfosRes {
             return a;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r3v3, resolved type: java.util.List<protobuf.QueryUserInfos.QueryUserInfosRes$IconInfo> */
-        /* JADX WARN: Multi-variable type inference failed */
         private DataRes(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-            boolean z = false;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
             a();
+            boolean z = false;
             boolean z2 = false;
             while (!z) {
                 try {
                     try {
-                        try {
-                            int readTag = codedInputStream.readTag();
-                            switch (readTag) {
-                                case 0:
+                        int readTag = codedInputStream.readTag();
+                        switch (readTag) {
+                            case 0:
+                                z = true;
+                                break;
+                            case 8:
+                                this.bitField0_ |= 1;
+                                this.id_ = codedInputStream.readInt64();
+                                break;
+                            case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
+                                this.bitField0_ |= 2;
+                                this.name_ = codedInputStream.readBytes();
+                                break;
+                            case Im.GroupInfo.NICKNAME_FIELD_NUMBER /* 26 */:
+                                this.bitField0_ |= 4;
+                                this.nameShow_ = codedInputStream.readBytes();
+                                break;
+                            case Im.GroupInfo.ISMEMBERGROUP_FIELD_NUMBER /* 34 */:
+                                this.bitField0_ |= 8;
+                                this.portrait_ = codedInputStream.readBytes();
+                                break;
+                            case 42:
+                                this.bitField0_ |= 16;
+                                this.portraith_ = codedInputStream.readBytes();
+                                break;
+                            case 50:
+                                this.bitField0_ |= 32;
+                                this.intro_ = codedInputStream.readBytes();
+                                break;
+                            case 56:
+                                this.bitField0_ |= 64;
+                                this.sex_ = codedInputStream.readInt32();
+                                break;
+                            case AccessibilityNodeInfoCompat.ACTION_ACCESSIBILITY_FOCUS /* 64 */:
+                                this.bitField0_ |= 128;
+                                this.hasConcerned_ = codedInputStream.readInt32();
+                                break;
+                            case 72:
+                                this.bitField0_ |= 256;
+                                this.isBlacklist_ = codedInputStream.readInt32();
+                                break;
+                            case com.baidu.loginshare.e.i /* 80 */:
+                                this.bitField0_ |= 512;
+                                this.meizhiLevel_ = codedInputStream.readInt32();
+                                break;
+                            case 88:
+                                this.bitField0_ |= 1024;
+                                this.userType_ = codedInputStream.readInt32();
+                                break;
+                            case 96:
+                                this.bitField0_ |= 2048;
+                                this.isCoreuser_ = codedInputStream.readInt32();
+                                break;
+                            case SocialAPIErrorCodes.ERROR_INVALID_SIGNATURE /* 104 */:
+                                this.bitField0_ |= 4096;
+                                this.superboy_ = codedInputStream.readInt32();
+                                break;
+                            case SocialAPIErrorCodes.ERROR_EXPIRED_SESSION_KEY /* 112 */:
+                                this.bitField0_ |= 8192;
+                                this.isInterestman_ = codedInputStream.readInt32();
+                                break;
+                            case SocialAPIErrorCodes.ERROR_SESSION_EXPIRED /* 122 */:
+                                if (!(z2 & true)) {
+                                    this.iconInfo_ = new ArrayList();
+                                    z2 |= true;
+                                }
+                                this.iconInfo_.add((IconInfo) codedInputStream.readMessage(IconInfo.PARSER, extensionRegistryLite));
+                                break;
+                            default:
+                                if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
-                                case 8:
-                                    this.bitField0_ |= 1;
-                                    this.id_ = codedInputStream.readInt64();
+                                } else {
                                     break;
-                                case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
-                                    this.bitField0_ |= 2;
-                                    this.name_ = codedInputStream.readBytes();
-                                    break;
-                                case Im.GroupInfo.NICKNAME_FIELD_NUMBER /* 26 */:
-                                    this.bitField0_ |= 4;
-                                    this.nameShow_ = codedInputStream.readBytes();
-                                    break;
-                                case Im.GroupInfo.ISMEMBERGROUP_FIELD_NUMBER /* 34 */:
-                                    this.bitField0_ |= 8;
-                                    this.portrait_ = codedInputStream.readBytes();
-                                    break;
-                                case 42:
-                                    this.bitField0_ |= 16;
-                                    this.portraith_ = codedInputStream.readBytes();
-                                    break;
-                                case 50:
-                                    this.bitField0_ |= 32;
-                                    this.intro_ = codedInputStream.readBytes();
-                                    break;
-                                case 56:
-                                    this.bitField0_ |= 64;
-                                    this.sex_ = codedInputStream.readInt32();
-                                    break;
-                                case 64:
-                                    this.bitField0_ |= 128;
-                                    this.hasConcerned_ = codedInputStream.readInt32();
-                                    break;
-                                case 72:
-                                    this.bitField0_ |= 256;
-                                    this.isBlacklist_ = codedInputStream.readInt32();
-                                    break;
-                                case com.baidu.loginshare.e.i /* 80 */:
-                                    this.bitField0_ |= 512;
-                                    this.meizhiLevel_ = codedInputStream.readInt32();
-                                    break;
-                                case 88:
-                                    this.bitField0_ |= 1024;
-                                    this.userType_ = codedInputStream.readInt32();
-                                    break;
-                                case 96:
-                                    this.bitField0_ |= 2048;
-                                    this.isCoreuser_ = codedInputStream.readInt32();
-                                    break;
-                                case SocialAPIErrorCodes.ERROR_INVALID_SIGNATURE /* 104 */:
-                                    this.bitField0_ |= CodedOutputStream.DEFAULT_BUFFER_SIZE;
-                                    this.superboy_ = codedInputStream.readInt32();
-                                    break;
-                                case SocialAPIErrorCodes.ERROR_EXPIRED_SESSION_KEY /* 112 */:
-                                    this.bitField0_ |= 8192;
-                                    this.isInterestman_ = codedInputStream.readInt32();
-                                    break;
-                                case SocialAPIErrorCodes.ERROR_SESSION_EXPIRED /* 122 */:
-                                    if (!(z2 & true)) {
-                                        this.iconInfo_ = new ArrayList();
-                                        z2 |= true;
-                                    }
-                                    this.iconInfo_.add(codedInputStream.readMessage(IconInfo.PARSER, extensionRegistryLite));
-                                    break;
-                                default:
-                                    if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
-                                        z = true;
-                                        break;
-                                    } else {
-                                        break;
-                                    }
-                            }
-                        } catch (IOException e) {
-                            throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
+                                }
                         }
-                    } catch (InvalidProtocolBufferException e2) {
-                        throw e2.setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (IOException e2) {
+                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
                 } finally {
                     if (z2 & true) {
@@ -444,6 +454,11 @@ public final class QueryUserInfosRes {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ DataRes(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, DataRes dataRes) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -647,7 +662,7 @@ public final class QueryUserInfosRes {
         }
 
         public boolean hasSuperboy() {
-            return (this.bitField0_ & CodedOutputStream.DEFAULT_BUFFER_SIZE) == 4096;
+            return (this.bitField0_ & 4096) == 4096;
         }
 
         public int getSuperboy() {
@@ -666,7 +681,7 @@ public final class QueryUserInfosRes {
             return this.iconInfo_;
         }
 
-        public List<? extends n> getIconInfoOrBuilderList() {
+        public List<? extends l> getIconInfoOrBuilderList() {
             return this.iconInfo_;
         }
 
@@ -678,7 +693,7 @@ public final class QueryUserInfosRes {
             return this.iconInfo_.get(i);
         }
 
-        public n getIconInfoOrBuilder(int i) {
+        public l getIconInfoOrBuilder(int i) {
             return this.iconInfo_.get(i);
         }
 
@@ -749,7 +764,7 @@ public final class QueryUserInfosRes {
             if ((this.bitField0_ & 2048) == 2048) {
                 codedOutputStream.writeInt32(12, this.isCoreuser_);
             }
-            if ((this.bitField0_ & CodedOutputStream.DEFAULT_BUFFER_SIZE) == 4096) {
+            if ((this.bitField0_ & 4096) == 4096) {
                 codedOutputStream.writeInt32(13, this.superboy_);
             }
             if ((this.bitField0_ & 8192) == 8192) {
@@ -806,7 +821,7 @@ public final class QueryUserInfosRes {
                 if ((this.bitField0_ & 2048) == 2048) {
                     computeInt64Size += CodedOutputStream.computeInt32Size(12, this.isCoreuser_);
                 }
-                if ((this.bitField0_ & CodedOutputStream.DEFAULT_BUFFER_SIZE) == 4096) {
+                if ((this.bitField0_ & 4096) == 4096) {
                     computeInt64Size += CodedOutputStream.computeInt32Size(13, this.superboy_);
                 }
                 if ((this.bitField0_ & 8192) == 8192) {
@@ -871,32 +886,32 @@ public final class QueryUserInfosRes {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static j newBuilder() {
-            return j.f();
+        public static h newBuilder() {
+            return h.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public j newBuilderForType() {
+        public h newBuilderForType() {
             return newBuilder();
         }
 
-        public static j newBuilder(DataRes dataRes) {
+        public static h newBuilder(DataRes dataRes) {
             return newBuilder().mergeFrom(dataRes);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public j toBuilder() {
+        public h toBuilder() {
             return newBuilder(this);
         }
     }
 
     /* loaded from: classes.dex */
-    public final class QueryUserInfosResIdl extends GeneratedMessageLite implements q {
+    public final class QueryUserInfosResIdl extends GeneratedMessageLite implements o {
         public static final int DATA_FIELD_NUMBER = 2;
         public static final int ERROR_FIELD_NUMBER = 1;
-        public static Parser<QueryUserInfosResIdl> PARSER = new o();
+        public static Parser<QueryUserInfosResIdl> PARSER = new m();
         private static final QueryUserInfosResIdl a = new QueryUserInfosResIdl(true);
         private static final long serialVersionUID = 0;
         private int bitField0_;
@@ -904,6 +919,11 @@ public final class QueryUserInfosRes {
         private Im.Error error_;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ QueryUserInfosResIdl(GeneratedMessageLite.Builder builder, QueryUserInfosResIdl queryUserInfosResIdl) {
+            this(builder);
+        }
 
         private QueryUserInfosResIdl(GeneratedMessageLite.Builder builder) {
             super(builder);
@@ -927,12 +947,11 @@ public final class QueryUserInfosRes {
         }
 
         private QueryUserInfosResIdl(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
-            boolean z;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
             a();
-            boolean z2 = false;
-            while (!z2) {
+            boolean z = false;
+            while (!z) {
                 try {
                     try {
                         int readTag = codedInputStream.readTag();
@@ -941,35 +960,31 @@ public final class QueryUserInfosRes {
                                 z = true;
                                 break;
                             case 10:
-                                protobuf.c builder = (this.bitField0_ & 1) == 1 ? this.error_.toBuilder() : null;
+                                protobuf.e builder = (this.bitField0_ & 1) == 1 ? this.error_.toBuilder() : null;
                                 this.error_ = (Im.Error) codedInputStream.readMessage(Im.Error.PARSER, extensionRegistryLite);
                                 if (builder != null) {
                                     builder.mergeFrom(this.error_);
                                     this.error_ = builder.buildPartial();
                                 }
                                 this.bitField0_ |= 1;
-                                z = z2;
                                 break;
                             case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
-                                j builder2 = (this.bitField0_ & 2) == 2 ? this.data_.toBuilder() : null;
+                                h builder2 = (this.bitField0_ & 2) == 2 ? this.data_.toBuilder() : null;
                                 this.data_ = (DataRes) codedInputStream.readMessage(DataRes.PARSER, extensionRegistryLite);
                                 if (builder2 != null) {
                                     builder2.mergeFrom(this.data_);
                                     this.data_ = builder2.buildPartial();
                                 }
                                 this.bitField0_ |= 2;
-                                z = z2;
                                 break;
                             default:
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
                                     break;
                                 } else {
-                                    z = z2;
                                     break;
                                 }
                         }
-                        z2 = z;
                     } catch (InvalidProtocolBufferException e) {
                         throw e.setUnfinishedMessage(this);
                     } catch (IOException e2) {
@@ -979,6 +994,11 @@ public final class QueryUserInfosRes {
                     makeExtensionsImmutable();
                 }
             }
+        }
+
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public /* synthetic */ QueryUserInfosResIdl(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, QueryUserInfosResIdl queryUserInfosResIdl) {
+            this(codedInputStream, extensionRegistryLite);
         }
 
         static {
@@ -1091,23 +1111,23 @@ public final class QueryUserInfosRes {
             return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
         }
 
-        public static p newBuilder() {
-            return p.f();
+        public static n newBuilder() {
+            return n.f();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public p newBuilderForType() {
+        public n newBuilderForType() {
             return newBuilder();
         }
 
-        public static p newBuilder(QueryUserInfosResIdl queryUserInfosResIdl) {
+        public static n newBuilder(QueryUserInfosResIdl queryUserInfosResIdl) {
             return newBuilder().mergeFrom(queryUserInfosResIdl);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public p toBuilder() {
+        public n toBuilder() {
             return newBuilder(this);
         }
     }

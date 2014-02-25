@@ -1,29 +1,33 @@
 package com.baidu.tieba.square;
 
-import android.content.Context;
+import android.support.v4.view.ViewPager;
+import android.view.MotionEvent;
 import android.view.View;
-import com.baidu.tieba.square.CarouselRecommendView;
-import com.baidu.tieba.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements View.OnClickListener {
-    final /* synthetic */ au a;
-    final /* synthetic */ int b;
-    final /* synthetic */ CarouselRecommendView.CarouselRecommendPagerAdapter c;
+public class x implements View.OnTouchListener {
+    final /* synthetic */ v a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(CarouselRecommendView.CarouselRecommendPagerAdapter carouselRecommendPagerAdapter, au auVar, int i) {
-        this.c = carouselRecommendPagerAdapter;
-        this.a = auVar;
-        this.b = i;
+    public x(v vVar) {
+        this.a = vVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        String b = this.a.b();
-        String a = SquareActivity.a("carousel_recommend", String.valueOf(this.b));
-        context = this.c.f;
-        UtilHelper.a(context, b, null, a);
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        ViewPager viewPager;
+        viewPager = this.a.c;
+        if (view == viewPager) {
+            if (motionEvent.getAction() == 0) {
+                this.a.b();
+                return false;
+            } else if (motionEvent.getAction() == 1) {
+                this.a.a();
+                return false;
+            } else {
+                return false;
+            }
+        }
+        return false;
     }
 }

@@ -1,24 +1,18 @@
 package com.baidu.tieba.chat;
-
-import com.baidu.tieba.util.UtilHelper;
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements com.baidu.adp.widget.ListView.b {
-    final /* synthetic */ ChatListFragment a;
+class m implements com.baidu.tieba.im.a<Void> {
+    final /* synthetic */ l a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(ChatListFragment chatListFragment) {
-        this.a = chatListFragment;
+    public m(l lVar) {
+        this.a = lVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.b
-    public void a(boolean z) {
-        if (!z) {
-            this.a.a(1, 3);
-        }
-        if (!UtilHelper.b()) {
-            this.a.c(R.string.neterror);
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(Void r2) {
+        a aVar;
+        aVar = this.a.a;
+        aVar.g();
     }
 }

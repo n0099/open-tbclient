@@ -1,27 +1,30 @@
 package com.baidu.tieba.square;
 
 import android.view.View;
-import com.baidu.tieba.flist.ForumListActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ImageView;
+import com.baidu.tieba.util.cj;
+import com.baidu.tieba.view.HeadImageView;
 /* loaded from: classes.dex */
-public class f implements View.OnClickListener {
-    final /* synthetic */ c a;
+class f implements cj {
+    final /* synthetic */ e a;
+    private final /* synthetic */ String b;
+    private final /* synthetic */ com.baidu.adp.widget.ImageView.b c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(c cVar) {
-        this.a = cVar;
+    public f(e eVar, String str, com.baidu.adp.widget.ImageView.b bVar) {
+        this.a = eVar;
+        this.b = str;
+        this.c = bVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        z zVar;
-        Object tag = view.getTag();
-        if ((tag instanceof g) && (zVar = ((g) tag).d) != null) {
-            if (zVar.a == null) {
-                BarFolderFirstDirActivity.a(this.a.b(), (String) null);
-            } else {
-                ForumListActivity.a(this.a.b(), zVar.b, zVar.a, zVar.c);
-            }
+    @Override // com.baidu.tieba.util.cj
+    public boolean a(View view) {
+        if ((view instanceof ImageView) && this.b != null && this.b.equals(view.getTag())) {
+            HeadImageView headImageView = (HeadImageView) view;
+            headImageView.setImageBitmap(this.c.h());
+            headImageView.invalidate();
+            return false;
         }
+        return false;
     }
 }

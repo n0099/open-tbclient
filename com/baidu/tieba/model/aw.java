@@ -1,62 +1,99 @@
 package com.baidu.tieba.model;
 
-import android.graphics.Bitmap;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.android.pushservice.PushConstants;
+import com.baidu.tieba.data.MarkData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aw extends BdAsyncTask<Object, Integer, Bitmap> {
+public class aw extends BdAsyncTask<Boolean, Integer, Boolean> {
     final /* synthetic */ av a;
-    private String b;
+    private com.baidu.tieba.util.ba b = null;
+    private boolean c;
+    private com.baidu.tieba.data.ay d;
 
-    public aw(av avVar, String str) {
+    public aw(av avVar, boolean z) {
         this.a = avVar;
-        this.b = null;
-        this.b = str;
+        this.c = true;
+        this.d = null;
+        this.c = z;
+        this.d = new com.baidu.tieba.data.ay();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void b() {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public Bitmap a(Object... objArr) {
-        if (this.b != null && !this.b.equals("tieba_resized_image")) {
-            com.baidu.tieba.util.ad.e("photos/" + this.b, "tieba_resized_image");
+    public Boolean a(Boolean... boolArr) {
+        MarkData markData;
+        MarkData markData2;
+        MarkData markData3;
+        if (this.c) {
+            this.b = new com.baidu.tieba.util.ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/c/post/addstore");
+            g gVar = new g();
+            markData3 = this.a.b;
+            gVar.a(markData3);
+            this.b.a("data", gVar.a(0, 1));
+        } else {
+            this.b = new com.baidu.tieba.util.ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/c/post/rmstore");
+            com.baidu.tieba.util.ba baVar = this.b;
+            markData = this.a.b;
+            baVar.a(PushConstants.EXTRA_USER_ID, markData.getAccount());
+            com.baidu.tieba.util.ba baVar2 = this.b;
+            markData2 = this.a.b;
+            baVar2.a("tid", markData2.getId());
         }
-        return com.baidu.tieba.util.n.a(com.baidu.tieba.util.n.b(com.baidu.tieba.util.ad.c(null, "tieba_resized_image")), 5.0f);
+        this.d.a(this.b.m());
+        boolean z = this.d.a() == 0;
+        if (this.b.d() && z) {
+            return true;
+        }
+        return false;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        com.baidu.adp.a.g gVar;
-        com.baidu.adp.a.g gVar2;
-        this.a.a = null;
-        gVar = this.a.mLoadDataCallBack;
-        if (gVar != null) {
-            gVar2 = this.a.mLoadDataCallBack;
-            gVar2.a(null);
-        }
         super.cancel(true);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void c() {
-        super.c();
+        if (this.b != null) {
+            this.b.k();
+        }
+        this.a.c = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Bitmap bitmap) {
-        com.baidu.adp.a.g gVar;
-        com.baidu.adp.a.g gVar2;
-        super.a((aw) bitmap);
-        this.a.a = null;
-        com.baidu.adp.lib.g.e.a(getClass().getName(), "onPostExecute", "is Null?" + String.valueOf(bitmap == null));
-        gVar = this.a.mLoadDataCallBack;
-        if (gVar != null) {
-            gVar2 = this.a.mLoadDataCallBack;
-            gVar2.a(bitmap);
+    public void a(Boolean bool) {
+        ax axVar;
+        ax axVar2;
+        ax axVar3;
+        ax axVar4;
+        ax axVar5;
+        try {
+            if (bool.booleanValue()) {
+                axVar4 = this.a.d;
+                if (axVar4 != null) {
+                    axVar5 = this.a.d;
+                    axVar5.a(true, this.c, null);
+                }
+            } else {
+                axVar = this.a.d;
+                if (axVar != null) {
+                    if (this.b == null || this.b.d()) {
+                        axVar2 = this.a.d;
+                        axVar2.a(false, this.c, this.d.b());
+                    } else {
+                        axVar3 = this.a.d;
+                        axVar3.a(false, this.c, this.b.j());
+                    }
+                }
+            }
+            this.a.c = null;
+        } catch (Throwable th) {
+            com.baidu.adp.lib.util.f.b(th.toString());
         }
     }
 }

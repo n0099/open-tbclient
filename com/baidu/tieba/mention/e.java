@@ -1,22 +1,20 @@
 package com.baidu.tieba.mention;
+
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements com.baidu.tieba.im.messageCenter.g {
-    final /* synthetic */ MentionActivity a;
-
-    private e(MentionActivity mentionActivity) {
-        this.a = mentionActivity;
-    }
+public class e implements View.OnClickListener {
+    final /* synthetic */ c a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ e(MentionActivity mentionActivity, b bVar) {
-        this(mentionActivity);
+    public e(c cVar) {
+        this.a = cVar;
     }
 
-    @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.q qVar) {
-        if (qVar != null && qVar.w() == -124) {
-            this.a.a(qVar);
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tieba.k kVar;
+        kVar = this.a.s;
+        kVar.finish();
     }
 }

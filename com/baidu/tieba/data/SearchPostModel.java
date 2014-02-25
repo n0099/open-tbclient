@@ -6,7 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class SearchPostModel implements Serializable {
-    private ArrayList<aw> datas;
+    private ArrayList<au> datas;
     private int totalCount = 0;
     private int currentPage = 0;
     private int totalPage = 0;
@@ -18,7 +18,7 @@ public class SearchPostModel implements Serializable {
         this.datas = new ArrayList<>();
     }
 
-    public ArrayList<aw> getData() {
+    public ArrayList<au> getData() {
         return this.datas;
     }
 
@@ -46,7 +46,7 @@ public class SearchPostModel implements Serializable {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.adp.lib.g.e.b("SearchPostModel", "parserJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.util.f.b("SearchPostModel", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -58,9 +58,9 @@ public class SearchPostModel implements Serializable {
                 this.datas.clear();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
-                    aw awVar = new aw();
-                    awVar.a(optJSONObject2);
-                    this.datas.add(awVar);
+                    au auVar = new au();
+                    auVar.a(optJSONObject2);
+                    this.datas.add(auVar);
                 }
                 this.totalCount = optJSONObject.optInt("total_count");
                 this.totalPage = optJSONObject.optInt("total_page");
@@ -68,7 +68,7 @@ public class SearchPostModel implements Serializable {
                 this.hasPre = optJSONObject.optInt("has_prev") != 0;
                 this.currentPage = optJSONObject.optInt("current_page");
             } catch (Exception e) {
-                com.baidu.adp.lib.g.e.b("SearchPostModel", "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.util.f.b("SearchPostModel", "parserJson", "error = " + e.getMessage());
             }
         }
     }

@@ -1,20 +1,21 @@
 package com.baidu.tieba.im.chat;
-
-import com.baidu.tieba.TiebaApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ah implements com.baidu.tieba.im.widget.h {
-    final /* synthetic */ ag a;
+public class ah implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ q a;
+    private final /* synthetic */ com.baidu.tieba.im.message.w b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(ag agVar) {
-        this.a = agVar;
+    public ah(q qVar, com.baidu.tieba.im.message.w wVar) {
+        this.a = qVar;
+        this.b = wVar;
     }
 
-    @Override // com.baidu.tieba.im.widget.h
-    public void a() {
-        TiebaApplication.h().y(false);
-        com.baidu.tieba.im.message.aq aqVar = new com.baidu.tieba.im.message.aq();
-        aqVar.a(com.baidu.adp.lib.f.b.a(GroupChatActivity.b, 0));
-        com.baidu.tieba.im.messageCenter.e.a().a(aqVar);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(Boolean bool) {
+        this.b.g(System.currentTimeMillis());
+        com.baidu.tieba.im.messageCenter.e.a().a(this.b);
+        com.baidu.adp.lib.util.f.e("SHANG sendMessage to queue");
     }
 }

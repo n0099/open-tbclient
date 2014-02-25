@@ -1,27 +1,23 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
+import com.baidu.location.LocationClientOption;
+import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ com.baidu.tieba.im.data.c a;
-    final /* synthetic */ String b;
-    final /* synthetic */ CommonMsgPojo c;
-    final /* synthetic */ int d;
-    final /* synthetic */ q e;
+public class aa extends com.baidu.tieba.im.c<LinkedList<String>> {
+    final /* synthetic */ q a;
+    private final /* synthetic */ String c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(q qVar, com.baidu.tieba.im.data.c cVar, String str, CommonMsgPojo commonMsgPojo, int i) {
-        this.e = qVar;
-        this.a = cVar;
-        this.b = str;
-        this.c = commonMsgPojo;
-        this.d = i;
+    public aa(q qVar, String str) {
+        this.a = qVar;
+        this.c = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Boolean bool) {
-        this.e.a(this.a, this.b, this.c, this.d);
+    @Override // com.baidu.tieba.im.c
+    /* renamed from: a */
+    public LinkedList<String> b() {
+        return com.baidu.tieba.im.db.b.a().a(this.c, 2, (String) null, LocationClientOption.MIN_SCAN_SPAN);
     }
 }

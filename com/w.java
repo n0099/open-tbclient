@@ -1,51 +1,28 @@
 package com;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.widget.CompoundButton;
-import android.widget.ImageView;
-import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.cloudsdk.IBaiduListener;
+import com.baidu.cloudsdk.social.core.MediaType;
 import com.baidu.cloudsdk.social.oauth.SocialOAuthActivity;
-import com.baidu.cloudsdk.social.share.SocialShare;
-import com.baidu.cloudsdk.social.share.uiwithlayout.ShareMediaItem;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w implements CompoundButton.OnCheckedChangeListener {
-    final /* synthetic */ v a;
-    final /* synthetic */ s b;
+public class w {
+    private SocialOAuthActivity a;
+    private String b;
+    private IBaiduListener c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public w(s sVar, v vVar) {
-        this.b = sVar;
-        this.a = vVar;
+    public w(SocialOAuthActivity socialOAuthActivity, String str, IBaiduListener iBaiduListener) {
+        this.a = socialOAuthActivity;
+        this.b = str;
+        this.c = iBaiduListener;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        ImageView imageView;
-        t tVar;
-        ShareMediaItem shareMediaItem = (ShareMediaItem) compoundButton.getTag();
-        if (shareMediaItem != null) {
-            if (shareMediaItem.isAuthorized()) {
-                if (shareMediaItem.isChecked() != z) {
-                    shareMediaItem.setChecked(z);
-                    tVar = this.b.a;
-                    tVar.onCheckStatusChanged(z, shareMediaItem.getMediaType());
-                }
-                int c = shareMediaItem.isChecked() ? i.c(this.b.getContext(), "bdsocialshare_" + shareMediaItem.getMediaType().toString()) : i.c(this.b.getContext(), "bdsocialshare_" + shareMediaItem.getMediaType().toString() + "_gray");
-                imageView = this.a.b;
-                imageView.setImageResource(c);
-            } else if (shareMediaItem.isAuthorized() || !z) {
-            } else {
-                Bundle bundle = new Bundle();
-                bundle.putString(SocialConstants.PARAM_CLIENT_ID, SocialShare.getInstance(this.b.getContext()).getClientId());
-                bundle.putString(SocialConstants.PARAM_MEDIA_TYPE, shareMediaItem.getMediaType().toString());
-                Intent intent = new Intent(this.b.getContext(), SocialOAuthActivity.class);
-                intent.addFlags(268435456);
-                intent.putExtras(bundle);
-                SocialOAuthActivity.setListener(new z(this, shareMediaItem));
-                this.b.getContext().getApplicationContext().startActivity(intent);
-            }
+    public v a(String str) {
+        switch (MediaType.fromString(str)) {
+            case SINAWEIBO:
+                return new s(this.a, this.b, this.c);
+            case QZONE:
+                return new r(this.a, this.b, this.c);
+            default:
+                return new v(this.a, this.b, str, this.c);
         }
     }
 }

@@ -25,10 +25,10 @@ public class e extends WritableEmotionGroup {
         Bitmap a = d.a(this.a, "panel.png");
         Bitmap a2 = d.a(this.a, "panel_momo.png");
         if (a != null) {
-            a(new com.baidu.adp.widget.ImageView.d(a, false));
+            a(new com.baidu.adp.widget.ImageView.b(a, false));
         }
         if (a2 != null) {
-            b(new com.baidu.adp.widget.ImageView.d(a2, false));
+            b(new com.baidu.adp.widget.ImageView.b(a2, false));
         }
         this.e.clear();
         for (EmotionData emotionData : j.a().b(this.a)) {
@@ -55,16 +55,16 @@ public class e extends WritableEmotionGroup {
     }
 
     @Override // com.baidu.tieba.data.emotions.WritableEmotionGroup
-    public com.baidu.adp.widget.ImageView.d b(String str) {
+    public com.baidu.adp.widget.ImageView.b b(String str) {
         Bitmap a = d.a(this.a, d.a(str, false));
         if (a == null) {
             return null;
         }
-        return new com.baidu.adp.widget.ImageView.d(a, false, str);
+        return new com.baidu.adp.widget.ImageView.b(a, false, str);
     }
 
     @Override // com.baidu.tieba.data.emotions.WritableEmotionGroup
-    public com.baidu.adp.widget.ImageView.d c(String str) {
+    public com.baidu.adp.widget.ImageView.b c(String str) {
         return d.b(this.a, d.a(str, true));
     }
 

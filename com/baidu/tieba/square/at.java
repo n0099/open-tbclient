@@ -1,43 +1,22 @@
 package com.baidu.tieba.square;
 
-import java.util.ArrayList;
-import org.json.JSONArray;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class at extends com.baidu.tieba.data.a {
-    private ArrayList<as> a = new ArrayList<>();
-    private String b;
+public class at {
+    public int a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
 
-    public at() {
-        this.b = null;
-        this.b = "";
-    }
-
-    public ArrayList<as> d() {
-        return this.a;
-    }
-
-    public void a(ArrayList<as> arrayList) {
-        this.a = arrayList;
-        a((String) null);
-    }
-
-    public String e() {
-        return this.b;
-    }
-
-    @Override // com.baidu.tieba.data.a
-    protected void a(JSONObject jSONObject) {
-        ArrayList<as> arrayList = new ArrayList<>();
-        JSONArray optJSONArray = jSONObject.optJSONArray("forum_browse");
-        this.b = jSONObject.optString("forum_browse_title");
-        if (optJSONArray != null) {
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                as asVar = new as();
-                asVar.a(optJSONArray.getJSONObject(i));
-                arrayList.add(asVar);
-            }
-        }
-        a(arrayList);
+    public void a(JSONObject jSONObject) {
+        this.b = jSONObject.optString("title");
+        this.c = jSONObject.optString("sub_title");
+        this.d = jSONObject.optString("link");
+        this.f = jSONObject.optString("is_all", SocialConstants.FALSE);
+        this.e = jSONObject.optString("pic_url", null);
+        this.e = this.e != null ? String.valueOf(this.e) + "?v=2" : null;
     }
 }

@@ -2,21 +2,21 @@ package com.baidu.tieba.forumdetail;
 
 import com.baidu.tieba.view.HeadImageView;
 /* loaded from: classes.dex */
-class n implements com.baidu.tbadk.imageManager.c {
-    final /* synthetic */ HeadImageView a;
-    final /* synthetic */ ItemInfoView b;
+class n implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ ItemInfoView a;
+    private final /* synthetic */ HeadImageView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(ItemInfoView itemInfoView, HeadImageView headImageView) {
-        this.b = itemInfoView;
-        this.a = headImageView;
+        this.a = itemInfoView;
+        this.b = headImageView;
     }
 
-    @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
-        if (dVar != null) {
-            this.a.setImageBitmap(dVar.h());
-            this.a.invalidate();
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        if (bVar != null) {
+            this.b.setImageBitmap(bVar.h());
+            this.b.invalidate();
         }
     }
 }

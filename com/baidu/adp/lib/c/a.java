@@ -29,7 +29,7 @@ public class a {
     private ArrayList<SoftReference<d>> n = null;
     private Context o = null;
     private Handler p = null;
-    private final LocationListener q = new c(this);
+    private final LocationListener q = new b(this);
 
     private a() {
     }
@@ -61,15 +61,19 @@ public class a {
         c();
     }
 
+    public void a(boolean z) {
+        this.e = z;
+    }
+
     private void b() {
-        this.p = new Handler(new b(this));
+        this.p = new Handler(new c(this));
     }
 
     private void c() {
         try {
             this.k = (LocationManager) this.o.getSystemService("location");
         } catch (Exception e) {
-            com.baidu.adp.lib.g.e.a(e.getMessage());
+            com.baidu.adp.lib.util.f.b(e.getMessage());
         }
         try {
             if (this.e) {
@@ -86,8 +90,20 @@ public class a {
                 this.f.setLocOption(locationClientOption);
             }
         } catch (Exception e2) {
-            com.baidu.adp.lib.g.e.a(e2.getMessage());
+            com.baidu.adp.lib.util.f.b(e2.getMessage());
         }
+    }
+
+    public Address b(boolean z) {
+        if (System.currentTimeMillis() - this.a > d) {
+            this.l = null;
+        }
+        if (this.l != null && !z) {
+            return this.l;
+        }
+        this.l = null;
+        e();
+        return null;
     }
 
     public Address a(boolean z, d dVar) {
@@ -101,15 +117,16 @@ public class a {
         if (dVar != null) {
             int i = 0;
             while (true) {
-                if (i >= this.n.size()) {
-                    z2 = false;
-                    break;
-                }
-                d dVar2 = this.n.get(i).get();
-                if (dVar2 == null || !dVar2.equals(dVar)) {
-                    i++;
+                if (i < this.n.size()) {
+                    d dVar2 = this.n.get(i).get();
+                    if (dVar2 == null || !dVar2.equals(dVar)) {
+                        i++;
+                    } else {
+                        z2 = true;
+                        break;
+                    }
                 } else {
-                    z2 = true;
+                    z2 = false;
                     break;
                 }
             }
@@ -124,7 +141,6 @@ public class a {
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void d() {
         if (this.p.hasMessages(0)) {
             this.p.removeMessages(0);
@@ -133,7 +149,7 @@ public class a {
             try {
                 this.k.removeUpdates(this.q);
             } catch (Exception e) {
-                com.baidu.adp.lib.g.e.a("error : " + e.getMessage());
+                com.baidu.adp.lib.util.f.b("error : " + e.getMessage());
             }
         }
         if (this.f != null && this.f.isStarted()) {
@@ -189,7 +205,6 @@ public class a {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, String str, Address address) {
         int i2 = 0;
         if (this.p.hasMessages(0)) {

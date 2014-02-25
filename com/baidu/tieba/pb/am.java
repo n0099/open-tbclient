@@ -1,27 +1,23 @@
 package com.baidu.tieba.pb;
 
 import android.view.View;
+import com.baidu.tieba.util.TbWebViewActivity;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class am implements Runnable {
-    final /* synthetic */ com.baidu.tieba.data.ax a;
-    final /* synthetic */ View b;
-    final /* synthetic */ al c;
+class am implements View.OnClickListener {
+    final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public am(al alVar, com.baidu.tieba.data.ax axVar, View view) {
-        this.c = alVar;
-        this.a = axVar;
-        this.b = view;
+    public am(NewPbActivity newPbActivity) {
+        this.a = newPbActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        cr crVar;
-        com.baidu.tieba.model.bm bmVar;
-        crVar = this.c.a.A;
-        com.baidu.tieba.data.ax axVar = this.a;
-        View view = this.b;
-        bmVar = this.c.a.u;
-        crVar.a(false, axVar, true, null, null, view, bmVar.l().l());
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        String str;
+        NewPbActivity newPbActivity = this.a;
+        String string = this.a.getString(R.string.user_icon_intro);
+        str = NewPbActivity.c;
+        TbWebViewActivity.b(newPbActivity, string, String.valueOf(str) + "?st_type=pb_user_icon");
     }
 }

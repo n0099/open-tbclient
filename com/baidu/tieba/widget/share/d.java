@@ -1,109 +1,261 @@
 package com.baidu.tieba.widget.share;
 
+import android.app.AlertDialog;
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
-import com.baidu.cloudsdk.IBaiduListener;
-import com.baidu.cloudsdk.social.core.MediaType;
-import com.baidu.cloudsdk.social.core.SessionManager;
-import com.baidu.cloudsdk.social.core.SocialConfig;
-import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
-import com.baidu.cloudsdk.social.oauth.SocialOAuthActivity;
-import com.baidu.cloudsdk.social.share.ShareContent;
-import com.baidu.cloudsdk.social.share.SocialShare;
-import com.baidu.tieba.util.bu;
+import android.graphics.drawable.Drawable;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationManager;
+import android.util.SparseArray;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.util.bs;
+import com.baidu.tieba.util.cb;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class d {
-    private SocialShare a;
+public class d implements View.OnClickListener {
+    private LayoutInflater a;
     private Context b;
-    private String c;
-    private g d;
+    private View c;
+    private TextView d;
+    private View e;
+    private TextView f;
+    private TextView g;
+    private TextView h;
+    private TextView i;
+    private TextView j;
+    private TextView k;
+    private Button l;
+    private LinearLayout m;
+    private AlertDialog n;
+    private SparseArray<String> q;
+    private SparseArray<f> o = new SparseArray<>(7);
+    private boolean p = false;
+    private a r = new e(this);
 
-    public d(Context context, a aVar) {
+    public d(Context context) {
         this.b = context;
-        this.a = SocialShare.getInstance(context);
-        this.c = SocialConfig.getInstance(context).getClientId(MediaType.BAIDU);
-        this.d = new g(aVar);
+        this.a = (LayoutInflater) context.getSystemService("layout_inflater");
+        this.c = this.a.inflate(R.layout.share_dialog_content, (ViewGroup) null);
+        this.d = (TextView) this.c.findViewById(R.id.share_dialog_title);
+        this.e = this.c.findViewById(R.id.share_dialog_content);
+        this.l = (Button) this.c.findViewById(R.id.btnShareCancel);
+        this.l.setOnClickListener(this);
+        this.f = (TextView) this.c.findViewById(R.id.iconWeixinTimeline);
+        this.f.setOnClickListener(this);
+        this.g = (TextView) this.c.findViewById(R.id.iconWeixin);
+        this.g.setOnClickListener(this);
+        this.h = (TextView) this.c.findViewById(R.id.iconQZone);
+        this.h.setOnClickListener(this);
+        this.i = (TextView) this.c.findViewById(R.id.iconQQWeibo);
+        this.i.setOnClickListener(this);
+        this.j = (TextView) this.c.findViewById(R.id.iconSinaWeibo);
+        this.j.setOnClickListener(this);
+        this.k = (TextView) this.c.findViewById(R.id.iconRenren);
+        this.k.setOnClickListener(this);
+        this.m = (LinearLayout) this.c.findViewById(R.id.customViewBox);
     }
 
-    public void a(ShareContent shareContent) {
-        a(a(shareContent, "weixin"), MediaType.WEIXIN_FRIEND.toString(), false);
+    public void a(a aVar) {
+        if (aVar != null) {
+            this.r = aVar;
+        }
     }
 
-    public void b(ShareContent shareContent) {
-        shareContent.setTitle(shareContent.getContent());
-        a(a(shareContent, "weixin_timeline"), MediaType.WEIXIN_TIMELINE.toString(), false);
+    public void a(SparseArray<String> sparseArray) {
+        this.q = sparseArray;
     }
 
-    public void c(ShareContent shareContent) {
-        shareContent.setContent(a(shareContent.getContent(), 70));
-        a(a(shareContent, "qzone"), MediaType.QZONE.toString(), true);
+    public void a(f fVar, boolean z) {
+        Location c;
+        if (z && (c = c()) != null) {
+            fVar.e = c;
+        }
+        this.o.put(1, fVar);
     }
 
-    public void d(ShareContent shareContent) {
-        shareContent.setContent(a(shareContent.getContent(), SocialAPIErrorCodes.ERROR_MISS_ACCESS_TOKEN));
-        a(a(shareContent, "tencent_weibo"), MediaType.QQWEIBO.toString(), true);
+    public void a(int i, f fVar, boolean z) {
+        Location c;
+        if (z && (c = c()) != null) {
+            fVar.e = c;
+        }
+        this.o.put(i, fVar);
     }
 
-    public void e(ShareContent shareContent) {
-        shareContent.setContent(a(shareContent.getContent(), SocialAPIErrorCodes.ERROR_MISS_ACCESS_TOKEN));
-        a(a(shareContent, "sina_weibo"), MediaType.SINAWEIBO.toString(), true);
+    private Location c() {
+        LocationManager locationManager = (LocationManager) this.b.getSystemService("location");
+        Criteria criteria = new Criteria();
+        criteria.setAccuracy(1);
+        criteria.setAltitudeRequired(false);
+        criteria.setBearingRequired(false);
+        criteria.setCostAllowed(true);
+        criteria.setPowerRequirement(1);
+        try {
+            return locationManager.getLastKnownLocation(locationManager.getBestProvider(criteria, false));
+        } catch (Exception e) {
+            return null;
+        }
     }
 
-    public void f(ShareContent shareContent) {
-        shareContent.setContent(a(shareContent.getContent(), 140));
-        a(a(shareContent, "renren"), MediaType.RENREN.toString(), true);
+    public void a(View view, View.OnClickListener onClickListener) {
+        if (view != null) {
+            this.m.addView(view);
+            if (onClickListener != null) {
+                view.setOnClickListener(onClickListener);
+            }
+            this.m.setVisibility(0);
+        }
     }
 
-    public void a(ShareContent shareContent, String str, boolean z) {
-        SessionManager.Session session = SessionManager.getInstance(this.b).get(str);
-        if (z && (session == null || session.isExpired())) {
-            Bundle bundle = new Bundle();
-            bundle.putString(SocialConstants.PARAM_CLIENT_ID, this.c);
-            bundle.putString(SocialConstants.PARAM_MEDIA_TYPE, str);
-            Intent intent = new Intent(this.b, SocialOAuthActivity.class);
-            intent.putExtras(bundle);
-            this.d.a(true);
-            this.d.a(new e(this, shareContent, str));
-            SocialOAuthActivity.setListener(this.d);
-            this.b.startActivity(intent);
+    public void a() {
+        if (!UtilHelper.b()) {
+            BdUtilHelper.a(this.b, (int) R.string.share_on_no_network);
             return;
         }
-        this.d.a(false);
-        this.a.share(shareContent, str, (IBaiduListener) this.d, true);
+        this.n = new AlertDialog.Builder(this.b).create();
+        this.n.setCanceledOnTouchOutside(true);
+        this.n.show();
+        Window window = this.n.getWindow();
+        window.setWindowAnimations(R.style.share_dialog_style);
+        window.setGravity(80);
+        window.setLayout(-1, -2);
+        a(this.r);
+        window.setContentView(this.c);
+        d();
     }
 
-    private String a(String str, int i) {
-        String string = this.b.getString(R.string.share_tail);
-        int min = Math.min(i - string.length(), str.length());
-        if (min < str.length()) {
-            return str.substring(0, min - 1) + ("..." + string);
+    public void b() {
+        if (this.n != null) {
+            this.p = false;
+            this.n.dismiss();
         }
-        return str + string;
     }
 
-    private ShareContent a(ShareContent shareContent, String str) {
-        if (shareContent.getImageUri() == null && shareContent.getImageData() == null) {
-            String str2 = "http://tb1.bdstatic.com/tb/r/image/2013-10-11/6e28217cc80f804e61251d35ba4c5fbd.jpg";
-            if (str.startsWith("weixin")) {
-                str2 = "http://tb1.bdstatic.com/tb/r/image/2013-10-16/2392e7325ec8c6d2f02c9a39509e4438.png";
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        b();
+        if (this.o.size() != 0) {
+            if (view.getId() == R.id.btnShareCancel || !this.p) {
+                this.p = true;
+                g gVar = new g(this.b, this.r);
+                int id = view.getId();
+                if (id == R.id.btnShareCancel) {
+                    a("share_cancel");
+                    this.r.b();
+                } else if (id == R.id.iconWeixin) {
+                    a("share_to_weixin");
+                    b(3);
+                    f a = a(3);
+                    if (a != null) {
+                        gVar.a(a);
+                    }
+                } else if (id == R.id.iconWeixinTimeline) {
+                    a("share_to_pyq");
+                    b(2);
+                    f a2 = a(2);
+                    if (a2 != null) {
+                        gVar.b(a2);
+                    }
+                } else if (id == R.id.iconQZone) {
+                    a("share_to_qzone");
+                    b(4);
+                    f a3 = a(4);
+                    if (a3 != null) {
+                        gVar.c(a3);
+                    }
+                } else if (id == R.id.iconQQWeibo) {
+                    a("share_to_qweibo");
+                    b(5);
+                    f a4 = a(5);
+                    if (a4 != null) {
+                        gVar.d(a4);
+                    }
+                } else if (id == R.id.iconSinaWeibo) {
+                    a("share_to_sweibo");
+                    b(6);
+                    f a5 = a(6);
+                    if (a5 != null) {
+                        gVar.e(a5);
+                    }
+                } else if (id == R.id.iconRenren) {
+                    a("share_to_renren");
+                    b(7);
+                    f a6 = a(7);
+                    if (a6 != null) {
+                        gVar.f(a6);
+                    }
+                }
             }
-            shareContent.setImageUri(Uri.parse(str2));
         }
-        if (shareContent.getImageUri() != null) {
-            shareContent.setImageUri(Uri.parse(a(shareContent.getImageUri().toString(), "sfc=" + str)));
-        }
-        shareContent.setLinkUrl(a(bu.c(shareContent.getLinkUrl()) ? "http://tieba.baidu.com" : shareContent.getLinkUrl(), "sfc=" + str));
-        return shareContent;
     }
 
-    private String a(String str, String str2) {
-        if (bu.c(Uri.parse(str).getQuery())) {
-            str = str + "?";
+    private f a(int i) {
+        f fVar = this.o.get(i);
+        if (fVar == null) {
+            return this.o.get(1);
         }
-        return str + "&" + str2;
+        return fVar;
+    }
+
+    private void b(int i) {
+        if (i <= 7 && i > 0) {
+            this.p = true;
+            if (this.q != null) {
+                String str = this.q.get(i);
+                if (!bs.c(str)) {
+                    a(str);
+                }
+            }
+        }
+    }
+
+    private void a(String str) {
+        cb.a(this.b, str, "click", 1, new Object[0]);
+    }
+
+    private void d() {
+        a(this.f, R.drawable.icon_unite_share_friend, R.color.share_to, R.drawable.icon_unite_share_friend_1, R.color.share_to_1);
+        a(this.g, R.drawable.icon_unite_share_weixin, R.color.share_to, R.drawable.icon_unite_share_weixin_1, R.color.share_to_1);
+        a(this.h, R.drawable.icon_unite_share_qqzon, R.color.share_to, R.drawable.icon_unite_share_qqzon_1, R.color.share_to_1);
+        a(this.i, R.drawable.icon_unite_share_tencent, R.color.share_to, R.drawable.icon_unite_share_tencent_1, R.color.share_to_1);
+        a(this.j, R.drawable.icon_unite_share_sina, R.color.share_to, R.drawable.icon_unite_share_sina_1, R.color.share_to_1);
+        a(this.k, R.drawable.icon_unite_share_renren, R.color.share_to, R.drawable.icon_unite_share_renren_1, R.color.share_to_1);
+        int paddingLeft = this.d.getPaddingLeft();
+        if (TiebaApplication.g().al() == 1) {
+            this.e.setBackgroundResource(R.drawable.bg_unite_popup_share_down_1);
+            this.d.setBackgroundResource(R.drawable.bg_unite_popup_share_up_1);
+            this.d.setTextColor(this.b.getResources().getColor(R.color.share_to_1));
+            this.l.setBackgroundResource(R.drawable.btn_w_square_1);
+            this.l.setTextColor(this.b.getResources().getColor(R.color.share_to_1));
+        } else {
+            this.e.setBackgroundResource(R.drawable.bg_unite_popup_share_down);
+            this.d.setBackgroundResource(R.drawable.bg_unite_popup_share_up);
+            this.d.setTextColor(this.b.getResources().getColor(R.color.share_to));
+            this.l.setBackgroundResource(R.drawable.btn_w_square);
+            this.l.setTextColor(this.b.getResources().getColor(R.color.share_to));
+        }
+        this.d.setPadding(paddingLeft, 0, 0, 0);
+    }
+
+    private void a(TextView textView, int i, int i2, int i3, int i4) {
+        int al = TiebaApplication.g().al();
+        if (al != 1) {
+            i3 = i;
+        }
+        if (al != 1) {
+            i4 = i2;
+        }
+        Drawable drawable = this.b.getResources().getDrawable(i3);
+        drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+        textView.setCompoundDrawables(null, drawable, null, null);
+        textView.setTextColor(this.b.getResources().getColor(i4));
     }
 }

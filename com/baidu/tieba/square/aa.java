@@ -1,143 +1,122 @@
 package com.baidu.tieba.square;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.tieba.BaseFragmentActivity;
-import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.R;
+import android.os.Handler;
+import android.support.v4.view.ViewPager;
+import com.baidu.adp.widget.IndicatorView;
 import java.util.ArrayList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa extends BaseAdapter {
-    private Context b;
-    private ArrayList<ad> c = null;
-    View.OnClickListener a = new ab(this);
+public class aa implements ViewPager.OnPageChangeListener {
+    final /* synthetic */ v a;
 
-    public aa(Context context) {
-        this.b = null;
-        this.b = context;
+    private aa(v vVar) {
+        this.a = vVar;
     }
 
-    public void a(ad adVar) {
-        if (adVar != null) {
-            this.c = a(adVar.d());
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ aa(v vVar, aa aaVar) {
+        this(vVar);
     }
 
-    private ArrayList<ad> a(ArrayList<ad> arrayList) {
-        if (arrayList != null) {
-            int size = (arrayList.size() / 2) * 2;
-            int i = size <= 4 ? size : 4;
-            if (i > 0) {
-                return new ArrayList<>(arrayList.subList(0, i));
-            }
-            return null;
-        }
-        return null;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        if (this.c == null) {
-            return 0;
-        }
-        return Math.round(this.c.size() / 2) + 1;
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        return null;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return 0L;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        return 2;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        return i == getCount() + (-1) ? 1 : 0;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        int itemViewType = getItemViewType(i);
-        if (view == null) {
-            view = a(i, itemViewType);
-        }
-        ac acVar = (ac) view.getTag();
-        int al = TiebaApplication.h().al();
-        int count = getCount();
-        BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) this.b;
-        baseFragmentActivity.a().a(al == 1);
-        baseFragmentActivity.a().a(view);
-        if (count > 2) {
-            if (i == 0) {
-                if (al == 1) {
-                    acVar.d.setBackgroundResource(R.drawable.bg_hot_up_1);
-                } else {
-                    acVar.d.setBackgroundResource(R.drawable.bg_hot_up);
-                }
-            } else if (i == count - 2) {
-                if (al == 1) {
-                    acVar.d.setBackgroundResource(R.drawable.bg_hot_down_1);
-                } else {
-                    acVar.d.setBackgroundResource(R.drawable.bg_hot_down);
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrolled(int i, float f, int i2) {
+        IndicatorView indicatorView;
+        y yVar;
+        ArrayList arrayList;
+        y yVar2;
+        IndicatorView indicatorView2;
+        IndicatorView indicatorView3;
+        IndicatorView indicatorView4;
+        indicatorView = this.a.d;
+        if (indicatorView != null) {
+            yVar = this.a.e;
+            if (yVar != null) {
+                arrayList = this.a.m;
+                if (arrayList.size() > 1) {
+                    yVar2 = this.a.e;
+                    int count = yVar2.getCount();
+                    if (i == 0) {
+                        indicatorView4 = this.a.d;
+                        indicatorView4.setPosition((count - 3) + f);
+                    } else if (i == count - 1) {
+                        indicatorView3 = this.a.d;
+                        indicatorView3.setPosition(f);
+                    } else {
+                        indicatorView2 = this.a.d;
+                        indicatorView2.setPosition((i - 1) + f);
+                    }
                 }
             }
-        } else if (count == 2 && i == 0) {
-            if (al == 1) {
-                acVar.d.setBackgroundResource(R.drawable.bg_hot_1);
-            } else {
-                acVar.d.setBackgroundResource(R.drawable.bg_hot);
-            }
         }
-        if (i >= 0 && this.c != null) {
-            if (i * 2 < this.c.size()) {
-                ad adVar = this.c.get(i * 2);
-                acVar.a.setText(adVar.a());
-                adVar.a(String.valueOf(i) + "_first");
-                acVar.a.setTag(adVar);
-            }
-            if ((i * 2) + 1 < this.c.size()) {
-                ad adVar2 = this.c.get((i * 2) + 1);
-                acVar.b.setText(adVar2.a());
-                adVar2.a(String.valueOf(i) + "_second");
-                acVar.b.setTag(adVar2);
-            }
-        }
-        return view;
     }
 
-    private View a(int i, int i2) {
-        if (i2 == 0) {
-            View inflate = LayoutInflater.from(this.b).inflate(R.layout.forum_list_recommend_item, (ViewGroup) null);
-            ac acVar = new ac(this, null);
-            acVar.d = (LinearLayout) inflate.findViewById(R.id.container);
-            acVar.a = (TextView) inflate.findViewById(R.id.forum_list_title_1);
-            acVar.b = (TextView) inflate.findViewById(R.id.forum_list_title_2);
-            acVar.c = inflate.findViewById(R.id.forum_list_title_divider);
-            acVar.a.setClickable(true);
-            acVar.b.setClickable(true);
-            acVar.a.setOnClickListener(this.a);
-            acVar.b.setOnClickListener(this.a);
-            inflate.setTag(acVar);
-            return inflate;
-        } else if (i2 == 1) {
-            com.baidu.tieba.view.aa aaVar = new com.baidu.tieba.view.aa(this.b);
-            aaVar.setHeightPx(this.b.getResources().getDimensionPixelSize(R.dimen.square_forum_list_paddingBottom));
-            return aaVar;
-        } else {
-            return null;
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageSelected(int i) {
+    }
+
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrollStateChanged(int i) {
+        ViewPager viewPager;
+        y yVar;
+        ViewPager viewPager2;
+        ArrayList arrayList;
+        ViewPager viewPager3;
+        ViewPager viewPager4;
+        y yVar2;
+        Handler handler;
+        Handler handler2;
+        int i2;
+        ViewPager viewPager5;
+        ViewPager viewPager6;
+        Handler handler3;
+        Handler handler4;
+        int i3;
+        ViewPager viewPager7;
+        y yVar3;
+        ViewPager viewPager8;
+        viewPager = this.a.c;
+        if (viewPager != null) {
+            yVar = this.a.e;
+            if (yVar != null) {
+                if (i == 0) {
+                    arrayList = this.a.m;
+                    if (arrayList.size() > 1) {
+                        viewPager4 = this.a.c;
+                        int currentItem = viewPager4.getCurrentItem();
+                        if (currentItem < 1) {
+                            viewPager7 = this.a.c;
+                            yVar3 = this.a.e;
+                            viewPager7.setCurrentItem(yVar3.getCount() - 2, false);
+                            viewPager8 = this.a.c;
+                            viewPager8.invalidate();
+                        } else {
+                            yVar2 = this.a.e;
+                            if (currentItem > yVar2.getCount() - 2) {
+                                viewPager5 = this.a.c;
+                                viewPager5.setCurrentItem(1, false);
+                                viewPager6 = this.a.c;
+                                viewPager6.invalidate();
+                                handler3 = this.a.n;
+                                handler3.removeMessages(0);
+                                handler4 = this.a.n;
+                                i3 = v.l;
+                                handler4.sendEmptyMessageDelayed(0, i3);
+                            } else {
+                                handler = this.a.n;
+                                handler.removeMessages(0);
+                                handler2 = this.a.n;
+                                i2 = v.l;
+                                handler2.sendEmptyMessageDelayed(0, i2);
+                            }
+                        }
+                    }
+                    viewPager3 = this.a.c;
+                    viewPager3.requestDisallowInterceptTouchEvent(false);
+                } else if (i == 1) {
+                    viewPager2 = this.a.c;
+                    viewPager2.requestDisallowInterceptTouchEvent(true);
+                }
+            }
         }
     }
 }

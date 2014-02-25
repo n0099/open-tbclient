@@ -5,7 +5,6 @@ import android.os.Environment;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import com.baidu.account.AccountProxy;
 import com.baidu.android.common.logging.Log;
 import com.baidu.android.common.security.AESUtil;
 import com.baidu.android.common.security.Base64;
@@ -16,6 +15,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.UUID;
+import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public final class DeviceId {
     private static final String AES_KEY = "30212102dicudiab";
@@ -114,12 +114,12 @@ public final class DeviceId {
         boolean z = !iMEIInfo.CAN_READ_AND_WRITE_SYSTEM_SETTINGS ? true : DEBUG;
         String androidId = getAndroidId(context);
         if (z) {
-            return Util.toMd5((AccountProxy.BAIDUACCOUNT_TYPE + androidId).getBytes(), true);
+            return Util.toMd5(("com.baidu" + androidId).getBytes(), true);
         }
         String str2 = null;
         String string = Settings.System.getString(context.getContentResolver(), KEY_DEVICE_ID);
         if (TextUtils.isEmpty(string)) {
-            str2 = Util.toMd5((AccountProxy.BAIDUACCOUNT_TYPE + str + androidId).getBytes(), true);
+            str2 = Util.toMd5(("com.baidu" + str + androidId).getBytes(), true);
             string = Settings.System.getString(context.getContentResolver(), str2);
             if (!TextUtils.isEmpty(string)) {
                 Settings.System.putString(context.getContentResolver(), KEY_DEVICE_ID, string);
@@ -156,7 +156,7 @@ public final class DeviceId {
                     break;
                 }
                 sb.append(readLine);
-                sb.append("\r\n");
+                sb.append(IOUtils.LINE_SEPARATOR_WINDOWS);
             }
             bufferedReader.close();
             Object[] split = new String(AESUtil.decrypt(AES_KEY, AES_KEY, Base64.decode(sb.toString().getBytes()))).split("=");

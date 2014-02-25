@@ -1,21 +1,17 @@
 package com.baidu.tieba.person;
 
-import com.baidu.tieba.BaseFragmentActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.AbsListView;
 /* loaded from: classes.dex */
-public class bl implements com.baidu.adp.widget.ScrollView.n {
-    final /* synthetic */ PersonInfoActivity a;
+class bl implements AbsListView.RecyclerListener {
+    final /* synthetic */ bj a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bl(PersonInfoActivity personInfoActivity) {
-        this.a = personInfoActivity;
+    public bl(bj bjVar) {
+        this.a = bjVar;
     }
 
-    @Override // com.baidu.adp.widget.ScrollView.n
-    public void a() {
-        BaseFragmentActivity baseFragmentActivity;
-        baseFragmentActivity = this.a.g;
-        com.baidu.tieba.util.by.a(baseFragmentActivity, "person_info_pull", "infopull", 1, new Object[0]);
-        this.a.a();
+    @Override // android.widget.AbsListView.RecyclerListener
+    public void onMovedToScrapHeap(View view) {
     }
 }

@@ -1,23 +1,24 @@
 package com.baidu.tieba.editortool;
 
-import android.view.View;
-import com.baidu.adp.widget.ImageView.BDImageView;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.util.af;
+import java.io.File;
 /* loaded from: classes.dex */
-class k implements com.baidu.tbadk.imageManager.c {
-    final /* synthetic */ j a;
+class k extends BdAsyncTask<Void, Integer, Void> {
+    final /* synthetic */ g a;
+    private final /* synthetic */ String b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(j jVar) {
-        this.a = jVar;
+    public k(g gVar, String str) {
+        this.a = gVar;
+        this.b = str;
     }
 
-    @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
-        View findViewWithTag = this.a.a.findViewWithTag(str);
-        if (findViewWithTag != null && (findViewWithTag instanceof BDImageView) && dVar != null) {
-            BDImageView bDImageView = (BDImageView) findViewWithTag;
-            dVar.a(bDImageView);
-            bDImageView.setTag(null);
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Void a(Void... voidArr) {
+        af.c(new File(this.b));
+        return null;
     }
 }

@@ -1,39 +1,55 @@
 package com.baidu.tieba.write;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
-import android.os.Handler;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import com.baidu.tieba.data.WriteData;
-import com.baidu.tieba.util.DatabaseService;
 import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak implements DialogInterface.OnClickListener {
-    final /* synthetic */ WriteActivity a;
+class ak implements View.OnClickListener {
+    final /* synthetic */ VcodeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(WriteActivity writeActivity) {
-        this.a = writeActivity;
+    public ak(VcodeActivity vcodeActivity) {
+        this.a = vcodeActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        WriteData writeData;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        InputMethodManager inputMethodManager;
         EditText editText;
-        WriteData writeData2;
-        EditText editText2;
-        WriteData writeData3;
-        Handler handler;
+        DialogInterface.OnCancelListener onCancelListener;
+        ProgressDialog progressDialog;
+        ao aoVar;
+        WriteData writeData;
+        ao aoVar2;
+        ao aoVar3;
+        ao aoVar4;
+        VcodeActivity vcodeActivity = this.a;
+        inputMethodManager = this.a.i;
+        editText = this.a.e;
+        vcodeActivity.HidenSoftKeyPad(inputMethodManager, editText);
+        VcodeActivity vcodeActivity2 = this.a;
+        VcodeActivity vcodeActivity3 = this.a;
+        String string = this.a.getString(R.string.sending);
+        onCancelListener = this.a.j;
+        vcodeActivity2.mWaitingDialog = ProgressDialog.show(vcodeActivity3, "", string, true, false, onCancelListener);
+        progressDialog = this.a.mWaitingDialog;
+        progressDialog.setCanceledOnTouchOutside(false);
+        aoVar = this.a.g;
+        if (aoVar != null) {
+            aoVar4 = this.a.g;
+            aoVar4.cancel();
+        }
+        VcodeActivity vcodeActivity4 = this.a;
+        VcodeActivity vcodeActivity5 = this.a;
         writeData = this.a.b;
-        editText = this.a.f;
-        writeData.setTitle(editText.getText().toString());
-        writeData2 = this.a.b;
-        editText2 = this.a.h;
-        writeData2.setContent(editText2.getText().toString());
-        writeData3 = this.a.b;
-        DatabaseService.b(writeData3);
-        this.a.showToast(R.string.draft_save_success);
-        handler = this.a.r;
-        handler.postDelayed(new al(this), 1000L);
+        vcodeActivity4.g = new ao(vcodeActivity5, writeData);
+        aoVar2 = this.a.g;
+        aoVar2.setPriority(3);
+        aoVar3 = this.a.g;
+        aoVar3.execute(0);
     }
 }

@@ -1,10 +1,14 @@
 package com.baidu.tieba.mention;
 
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.view.View;
+import com.baidu.tieba.data.AntiData;
+import com.baidu.tieba.data.am;
+import com.baidu.tieba.data.aq;
+import com.baidu.tieba.model.bn;
+import com.baidu.tieba.write.WriteActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements com.baidu.tbadk.imageManager.c {
+public class x implements View.OnClickListener {
     final /* synthetic */ PostActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,19 +16,31 @@ public class x implements com.baidu.tbadk.imageManager.c {
         this.a = postActivity;
     }
 
-    @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.d dVar, String str, boolean z) {
-        LinearLayout linearLayout;
-        LinearLayout linearLayout2;
-        linearLayout = this.a.a;
-        ImageView imageView = (ImageView) linearLayout.findViewWithTag(str);
-        while (imageView != null) {
-            imageView.setTag(null);
-            if (imageView != null && dVar != null) {
-                dVar.a(imageView);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        bn bnVar;
+        bn bnVar2;
+        bn bnVar3;
+        bn bnVar4;
+        bnVar = this.a.l;
+        if (bnVar != null) {
+            bnVar2 = this.a.l;
+            if (bnVar2.a() != null) {
+                bnVar3 = this.a.l;
+                am a = bnVar3.a();
+                aq aqVar = a.e().get(0);
+                if (aqVar != null) {
+                    PostActivity postActivity = this.a;
+                    String id = a.c().getId();
+                    String name = a.c().getName();
+                    String a2 = a.d().a();
+                    String d = aqVar.d();
+                    int e = aqVar.e();
+                    AntiData g = a.g();
+                    bnVar4 = this.a.l;
+                    WriteActivity.a(postActivity, id, name, a2, d, e, null, g, bnVar4.a().k());
+                }
             }
-            linearLayout2 = this.a.a;
-            imageView = (ImageView) linearLayout2.findViewWithTag(str);
         }
     }
 }

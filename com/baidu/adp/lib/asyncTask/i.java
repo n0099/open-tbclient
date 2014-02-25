@@ -1,29 +1,42 @@
 package com.baidu.adp.lib.asyncTask;
 
 import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Process;
 /* loaded from: classes.dex */
-public class i extends Handler {
-    final /* synthetic */ g a;
+class i extends j {
+    final /* synthetic */ f a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i(g gVar, Looper looper) {
-        super(looper);
-        this.a = gVar;
+    public i(f fVar, l lVar) {
+        super(lVar);
+        this.a = fVar;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        super.handleMessage(message);
-        if (message.what == 1) {
-            if (message.obj != null && (message.obj instanceof k)) {
-                this.a.d((k) message.obj);
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [116=4] */
+    @Override // java.lang.Runnable
+    public void run() {
+        Handler handler;
+        Handler handler2;
+        try {
+            try {
+                if (e() == 3) {
+                    Process.setThreadPriority(-1);
+                } else if (e() == 2) {
+                    Process.setThreadPriority(0);
+                } else {
+                    Process.setThreadPriority(10);
+                }
+            } catch (Exception e) {
+                com.baidu.adp.lib.util.f.b(e.getMessage());
             }
-        } else if (message.what == 2 && message.obj != null && (message.obj instanceof k)) {
-            this.a.b((k) message.obj);
+            b();
+        } finally {
+            if (!k()) {
+                handler = this.a.i;
+                handler2 = this.a.i;
+                handler.sendMessageDelayed(handler2.obtainMessage(2, this), 1L);
+            }
         }
     }
 }

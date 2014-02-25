@@ -2,11 +2,11 @@ package com.baidu.tieba.square;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aq implements com.baidu.adp.widget.ListView.b {
-    final /* synthetic */ SquareActivity a;
+    final /* synthetic */ am a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aq(SquareActivity squareActivity) {
-        this.a = squareActivity;
+    public aq(am amVar) {
+        this.a = amVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.b

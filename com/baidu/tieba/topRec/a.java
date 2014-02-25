@@ -1,6 +1,6 @@
 package com.baidu.tieba.topRec;
 /* loaded from: classes.dex */
-class a implements o {
+class a implements n {
     final /* synthetic */ TopRecActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,7 +8,7 @@ class a implements o {
         this.a = topRecActivity;
     }
 
-    @Override // com.baidu.tieba.topRec.o
+    @Override // com.baidu.tieba.topRec.n
     public void a(Boolean bool, TRForumListData tRForumListData, int i, String str) {
         h hVar;
         h hVar2;

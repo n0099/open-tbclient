@@ -1,28 +1,33 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import com.compatible.smartbarutil.SmartBarUtils;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
-public class FragmentTabHost extends LinearLayout implements y {
+public class FragmentTabHost extends LinearLayout implements r {
     private Context a;
     private LayoutInflater b;
     private FrameLayout c;
     private FragmentTabWidget d;
     private int e;
-    private v f;
-    private android.support.v4.app.t g;
-    private List<v> h;
-    private ArrayList<v> i;
-    private u j;
+    private p f;
+    private FragmentManager g;
+    private List<p> h;
+    private ArrayList<p> i;
+    private o j;
+    private boolean k;
 
     public FragmentTabHost(Context context) {
         super(context);
@@ -52,30 +57,38 @@ public class FragmentTabHost extends LinearLayout implements y {
         this.c = (FrameLayout) findViewById(R.id.content);
         this.d = (FragmentTabWidget) findViewById(R.id.tabcontainer);
         this.d.setTabSelectionListener(this);
+        this.k = TiebaApplication.g().bu();
+        if (this.k) {
+            this.d.setVisibility(8);
+        } else {
+            this.d.setVisibility(0);
+        }
     }
 
-    public void setup(android.support.v4.app.t tVar) {
+    public void setup(FragmentManager fragmentManager) {
         b();
-        this.g = tVar;
+        this.g = fragmentManager;
     }
 
-    public void a(v vVar) {
-        a(vVar, -1);
+    public void a(p pVar) {
+        a(pVar, -1);
     }
 
-    public void a(v vVar, int i) {
-        if (vVar.a == null) {
+    public void a(p pVar, int i) {
+        if (pVar.b == null) {
             throw new IllegalArgumentException("you must create the tab indicator.");
         }
-        if (vVar.b == null) {
+        if (pVar.c == null) {
             throw new IllegalArgumentException("you must create the tab content");
         }
-        if (!this.h.contains(vVar)) {
-            this.d.addView(vVar.a, i);
+        if (!this.h.contains(pVar)) {
+            if (!this.k) {
+                this.d.addView(pVar.b, i);
+            }
             if (i == -1) {
-                this.h.add(vVar);
+                this.h.add(pVar);
             } else {
-                this.h.add(i, vVar);
+                this.h.add(i, pVar);
             }
             if (this.e != -1 && i <= this.e) {
                 this.e++;
@@ -83,38 +96,64 @@ public class FragmentTabHost extends LinearLayout implements y {
         }
     }
 
-    public void setTabChangeListener(u uVar) {
-        this.j = uVar;
+    public void setTabChangeListener(o oVar) {
+        this.j = oVar;
     }
 
     public void setCurrentTab(int i) {
         if (i >= 0 && i < this.h.size() && i != this.e) {
-            android.support.v4.app.ae a = this.g.a();
+            FragmentTransaction beginTransaction = this.g.beginTransaction();
             if (this.e != -1) {
-                v vVar = this.h.get(this.e);
-                if (vVar.b.q() != null) {
-                    vVar.b.q().clearFocus();
+                p pVar = this.h.get(this.e);
+                if (pVar.c.getView() != null) {
+                    pVar.c.getView().clearFocus();
                 }
-                a.b(vVar.b);
+                beginTransaction.hide(pVar.c);
             }
-            v vVar2 = this.h.get(i);
-            if (this.i.contains(vVar2)) {
-                a.c(vVar2.b);
+            p pVar2 = this.h.get(i);
+            if (this.i.contains(pVar2)) {
+                beginTransaction.show(pVar2.c);
             } else {
-                a.a(this.c.getId(), vVar2.b);
-                this.i.add(vVar2);
+                beginTransaction.add(this.c.getId(), pVar2.c);
+                this.i.add(pVar2);
             }
-            a.b();
+            beginTransaction.commitAllowingStateLoss();
+            this.g.executePendingTransactions();
             this.d.setCurrentTab(i);
             if (this.j != null) {
                 this.j.a(i, this.e);
             }
             this.e = i;
-            this.f = vVar2;
+            this.f = pVar2;
+            if (this.k) {
+                SmartBarUtils.invalidateOptionsMenu((Activity) getContext());
+            }
         }
     }
 
-    @Override // com.baidu.tieba.y
+    public void setCurrentTabByType(int i) {
+        int i2;
+        int size = this.h.size();
+        int i3 = 0;
+        while (true) {
+            if (i3 >= size) {
+                i2 = -1;
+                break;
+            } else if (i == this.h.get(i3).a) {
+                i2 = i3;
+                break;
+            } else {
+                i3++;
+            }
+        }
+        if (i2 != -1) {
+            setCurrentTab(i2);
+        } else if (this.e == -1) {
+            setCurrentTab(0);
+        }
+    }
+
+    @Override // com.baidu.tieba.r
     public void a(int i, boolean z) {
         setCurrentTab(i);
     }
@@ -127,50 +166,64 @@ public class FragmentTabHost extends LinearLayout implements y {
         return this.e;
     }
 
+    public int getCurrentTabType() {
+        if (this.e < 0 || this.e >= this.h.size()) {
+            return -1;
+        }
+        return this.h.get(this.e).a;
+    }
+
     public Fragment getCurrentFragment() {
         if (this.f != null) {
-            return this.f.b;
+            return this.f.c;
         }
         return null;
     }
 
-    public v a(int i) {
-        if (i < 0 || i >= this.h.size()) {
-            return null;
+    public p a(int i) {
+        for (p pVar : this.h) {
+            if (i == pVar.a) {
+                return pVar;
+            }
         }
-        return this.h.get(i);
+        return null;
     }
 
     public boolean b(int i) {
-        if (i < 0 || i >= this.h.size()) {
-            return false;
+        for (p pVar : this.h) {
+            if (i == pVar.a) {
+                return this.i.contains(pVar);
+            }
         }
-        return this.i.contains(this.h.get(i));
+        return false;
     }
 
     public void a() {
-        android.support.v4.app.ae a = this.g.a();
-        Iterator<v> it = this.i.iterator();
+        FragmentTransaction beginTransaction = this.g.beginTransaction();
+        Iterator<p> it = this.i.iterator();
         while (it.hasNext()) {
-            a.a(it.next().b);
+            beginTransaction.remove(it.next().c);
         }
-        a.b();
+        beginTransaction.commitAllowingStateLoss();
+        this.g.executePendingTransactions();
         this.i.clear();
         this.h.clear();
         this.f = null;
         this.e = -1;
-        this.d.a();
+        if (!this.k) {
+            this.d.a();
+        }
     }
 
     public void c(int i) {
         if (i == 1) {
-            for (v vVar : this.h) {
-                vVar.a.a(i);
+            for (p pVar : this.h) {
+                pVar.b.a(i);
             }
             return;
         }
-        for (v vVar2 : this.h) {
-            vVar2.a.a(i);
+        for (p pVar2 : this.h) {
+            pVar2.b.a(i);
         }
     }
 }

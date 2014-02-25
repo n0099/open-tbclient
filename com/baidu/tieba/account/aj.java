@@ -1,10 +1,11 @@
 package com.baidu.tieba.account;
 
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.view.KeyEvent;
+import android.view.View;
+import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aj implements TextWatcher {
+public class aj implements TextView.OnEditorActionListener {
     final /* synthetic */ LoginActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,34 +13,18 @@ public class aj implements TextWatcher {
         this.a = loginActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        boolean z;
-        z = this.a.m;
-        if (z) {
-            this.a.k();
-        }
-        this.a.n = true;
-        this.a.n();
-        this.a.o();
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        String str;
-        String str2;
-        this.a.d();
-        str = this.a.f;
-        if (!com.baidu.tieba.util.bu.c(str)) {
-            String obj = editable.toString();
-            str2 = this.a.f;
-            if (obj.equals(str2)) {
-                this.a.j();
+    @Override // android.widget.TextView.OnEditorActionListener
+    public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+        View view;
+        View view2;
+        view = this.a.B;
+        if (view.getVisibility() != 8 || i != 4) {
+            view2 = this.a.B;
+            if (view2.getVisibility() != 0 || i != 6) {
+                return false;
             }
         }
+        this.a.g();
+        return true;
     }
 }

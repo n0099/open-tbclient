@@ -1,25 +1,27 @@
 package com.baidu.tieba.flist;
 
-import android.widget.PopupWindow;
-import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.util.au;
+import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class ab implements PopupWindow.OnDismissListener {
-    final /* synthetic */ y a;
+class ab extends au {
+    final /* synthetic */ ForumRankActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(y yVar) {
-        this.a = yVar;
+    public ab(ForumRankActivity forumRankActivity) {
+        this.a = forumRankActivity;
     }
 
-    @Override // android.widget.PopupWindow.OnDismissListener
-    public void onDismiss() {
-        this.a.B = false;
-        if (TiebaApplication.h().al() == 1) {
-            this.a.z.setImageResource(R.drawable.btn_allsproutpop_down_1);
-        } else {
-            this.a.z.setImageResource(R.drawable.btn_allsproutpop_down);
+    @Override // com.baidu.tieba.util.au, com.baidu.tieba.util.aw
+    public LinkedList<String> getImageUrl() {
+        String str;
+        String str2;
+        str = this.a.m;
+        if (str == null) {
+            return null;
         }
+        LinkedList<String> linkedList = new LinkedList<>();
+        str2 = this.a.m;
+        linkedList.add(str2);
+        return linkedList;
     }
 }

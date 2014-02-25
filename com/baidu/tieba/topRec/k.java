@@ -17,14 +17,14 @@ public class k implements Runnable {
     public void run() {
         BdListView bdListView;
         BdListView bdListView2;
-        p pVar;
+        o oVar;
         bdListView = this.a.c;
         if (bdListView.getChildCount() >= 3) {
             bdListView2 = this.a.c;
             View findViewById = bdListView2.getChildAt(2).findViewById(R.id.like);
             if (findViewById != null) {
-                pVar = this.a.q;
-                pVar.a(findViewById);
+                oVar = this.a.q;
+                oVar.a(findViewById);
             }
         }
     }

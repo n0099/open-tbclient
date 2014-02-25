@@ -1,29 +1,30 @@
 package com.baidu.tieba.view;
-
-import android.app.Activity;
-import android.view.View;
-import com.baidu.tieba.square.SquareSearchActivity;
-import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cd implements View.OnClickListener {
-    final /* synthetic */ SearchBoxView a;
+public class cd extends com.baidu.tieba.util.bt {
+    final /* synthetic */ ProgressCountDownView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cd(SearchBoxView searchBoxView) {
-        this.a = searchBoxView;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cd(ProgressCountDownView progressCountDownView, long j, long j2) {
+        super(j, j2);
+        this.a = progressCountDownView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Activity activity;
-        String str;
-        Activity activity2;
-        if (view.getId() == R.id.search_bg_layout) {
-            activity = this.a.a;
-            str = this.a.b;
-            com.baidu.tieba.util.by.a(activity, str, "click", 1, new Object[0]);
-            activity2 = this.a.a;
-            SquareSearchActivity.a(activity2, "");
+    @Override // com.baidu.tieba.util.bt
+    public void a(long j) {
+        this.a.a(j);
+        this.a.b(j);
+    }
+
+    @Override // com.baidu.tieba.util.bt
+    public void a() {
+        ce ceVar;
+        ce ceVar2;
+        ceVar = this.a.g;
+        if (ceVar != null) {
+            ceVar2 = this.a.g;
+            ceVar2.a();
         }
     }
 }

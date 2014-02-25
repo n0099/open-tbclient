@@ -8,7 +8,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import com.i;
+import com.aq;
 /* loaded from: classes.dex */
 public class CheckImageView extends ImageView {
     private boolean a;
@@ -17,7 +17,7 @@ public class CheckImageView extends ImageView {
 
     public CheckImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet, 0);
-        this.b = BitmapFactory.decodeResource(context.getApplicationContext().getResources(), i.c(context, "bdsocialshare_selected"));
+        this.b = BitmapFactory.decodeResource(context.getApplicationContext().getResources(), aq.c(context, "bdsocialshare_selected"));
     }
 
     private Rect a(Canvas canvas) {
@@ -44,7 +44,7 @@ public class CheckImageView extends ImageView {
         }
         if (this.a) {
             if (this.b == null || this.b.isRecycled()) {
-                this.b = BitmapFactory.decodeResource(getContext().getApplicationContext().getResources(), i.c(getContext(), "bdsocialshare_selected"));
+                this.b = BitmapFactory.decodeResource(getContext().getApplicationContext().getResources(), aq.c(getContext(), "bdsocialshare_selected"));
             }
             canvas.drawBitmap(this.b, this.c.right - this.b.getWidth(), this.c.bottom - this.b.getHeight(), (Paint) null);
         }

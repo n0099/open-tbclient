@@ -7,6 +7,7 @@ import android.graphics.RectF;
 import android.graphics.Typeface;
 import android.os.Handler;
 import android.view.View;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -34,20 +35,6 @@ public class a extends View {
     private c u;
     private Handler v;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ int a(a aVar) {
-        int i = aVar.s;
-        aVar.s = i + 1;
-        return i;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ int d(a aVar) {
-        int i = aVar.t;
-        aVar.t = i + 1;
-        return i;
-    }
-
     public a(Context context) {
         super(context);
         this.v = new b(this);
@@ -56,17 +43,17 @@ public class a extends View {
 
     private void a(Context context) {
         this.a = context;
-        this.d = com.baidu.tieba.im.d.c.a(context, R.dimen.loading_circle_radius);
-        this.e = com.baidu.tieba.im.d.c.a(context, R.dimen.loading_circle_stroke);
-        this.f = com.baidu.tieba.im.d.c.a(context, R.dimen.loading_small_light_circle_radius);
-        this.g = com.baidu.tieba.im.d.c.a(context, R.dimen.loading_small_normal_circle_radius);
-        this.h = com.baidu.tieba.im.d.c.a(context, R.dimen.loading_circle_distance);
+        this.d = BdUtilHelper.c(context, R.dimen.loading_circle_radius);
+        this.e = BdUtilHelper.c(context, R.dimen.loading_circle_stroke);
+        this.f = BdUtilHelper.c(context, R.dimen.loading_small_light_circle_radius);
+        this.g = BdUtilHelper.c(context, R.dimen.loading_small_normal_circle_radius);
+        this.h = BdUtilHelper.c(context, R.dimen.loading_circle_distance);
         this.i = this.a.getResources().getColor(R.color.loading_circle_color);
         this.j = this.a.getResources().getColor(R.color.loading_stroke_color);
         this.k = this.a.getResources().getColor(R.color.loading_circle_common_color);
         this.l = this.a.getResources().getColor(R.color.loading_circle_light_color);
         this.m = this.a.getResources().getColor(R.color.white);
-        this.n = com.baidu.tieba.im.d.c.a(context, R.dimen.fontsize40);
+        this.n = BdUtilHelper.c(context, R.dimen.fontsize40);
         this.o = new String[]{this.a.getString(R.string.loading_view_ready), "3", "2", SocialConstants.TRUE};
         this.p = new Paint();
         this.p.setAntiAlias(true);

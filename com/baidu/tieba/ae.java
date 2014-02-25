@@ -1,20 +1,28 @@
 package com.baidu.tieba;
 
 import android.os.Handler;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.util.DatabaseService;
 /* loaded from: classes.dex */
-public class ae implements Runnable {
-    final /* synthetic */ GuideActivity a;
+class ae extends Thread {
+    final /* synthetic */ LogoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(GuideActivity guideActivity) {
-        this.a = guideActivity;
+    public ae(LogoActivity logoActivity) {
+        this.a = logoActivity;
     }
 
-    @Override // java.lang.Runnable
+    @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         Handler handler;
-        handler = this.a.m;
-        handler.sendEmptyMessage(2);
+        Handler handler2;
+        super.run();
+        try {
+            DatabaseService.t();
+            this.a.a(this.a.getCacheDir());
+        } catch (Exception e) {
+        }
+        handler = this.a.j;
+        handler2 = this.a.j;
+        handler.sendMessage(handler2.obtainMessage());
     }
 }

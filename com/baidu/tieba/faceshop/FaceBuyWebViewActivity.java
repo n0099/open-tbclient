@@ -10,17 +10,16 @@ import android.view.KeyEvent;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 import android.webkit.WebView;
-import com.baidu.loginshare.Token;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.bq;
 import com.baidu.tieba.util.bs;
-import com.baidu.tieba.util.bu;
 import com.baidu.tieba.view.BaseWebView;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
-public class FaceBuyWebViewActivity extends com.baidu.tieba.j implements com.baidu.tieba.view.d, com.baidu.tieba.view.e, com.baidu.tieba.view.f {
+public class FaceBuyWebViewActivity extends com.baidu.tieba.f implements com.baidu.tieba.view.e, com.baidu.tieba.view.f, com.baidu.tieba.view.g {
     private static final Pattern h = Pattern.compile("[?|&]order_id=(\\w+)&+");
     private BaseWebView a;
     private NavigationBar b;
@@ -30,7 +29,7 @@ public class FaceBuyWebViewActivity extends com.baidu.tieba.j implements com.bai
     private int f;
     private AlertDialog g;
     private Handler i = new Handler();
-    private Runnable j = new n(this);
+    private Runnable j = new m(this);
 
     public static void a(Activity activity, String str, String str2, String str3, int i, int i2) {
         Intent intent = new Intent(activity, FaceBuyWebViewActivity.class);
@@ -42,7 +41,7 @@ public class FaceBuyWebViewActivity extends com.baidu.tieba.j implements com.bai
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         b();
@@ -54,7 +53,7 @@ public class FaceBuyWebViewActivity extends com.baidu.tieba.j implements com.bai
         setContentView(R.layout.face_buy_webview_activity);
         this.a = (BaseWebView) findViewById(R.id.webview);
         this.b = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.b.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new o(this));
+        this.b.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new n(this));
         this.b.a("");
         this.a.setOnLoadUrlListener(this);
         this.a.setOnPageFinishedListener(this);
@@ -88,39 +87,39 @@ public class FaceBuyWebViewActivity extends com.baidu.tieba.j implements com.bai
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, android.app.Activity
     public void onResume() {
         super.onResume();
         this.a.resumeTimers();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, android.app.Activity
     public void onPause() {
         super.onPause();
         this.a.pauseTimers();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         this.i.removeCallbacks(this.j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j
+    @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (this.b != null) {
             this.b.c(i);
         }
         if (this.a != null) {
-            bs.a(this.a, i);
+            bq.a(this.a, i);
         }
     }
 
-    @Override // com.baidu.tieba.j, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tieba.f, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
             c();
@@ -131,12 +130,12 @@ public class FaceBuyWebViewActivity extends com.baidu.tieba.j implements com.bai
 
     public void a() {
         try {
-            Token a = com.baidu.tieba.account.a.a(TiebaApplication.D());
+            com.baidu.tieba.account.o a = com.baidu.tieba.account.a.a(TiebaApplication.D());
             CookieSyncManager.createInstance(this);
             CookieManager cookieManager = CookieManager.getInstance();
             cookieManager.setAcceptCookie(true);
-            cookieManager.setCookie("baidu.com", "BDUSS=" + a.mBduss + "; domain=.baidu.com;");
-            cookieManager.setCookie("baidu.com", "PTOKEN=" + a.mPtoken + "; domain=.baidu.com;");
+            cookieManager.setCookie("baidu.com", "BDUSS=" + a.a + "; domain=.baidu.com;");
+            cookieManager.setCookie("baidu.com", "PTOKEN=" + a.b + "; domain=.baidu.com;");
             CookieSyncManager.getInstance().sync();
         } catch (Exception e) {
             e.printStackTrace();
@@ -151,17 +150,17 @@ public class FaceBuyWebViewActivity extends com.baidu.tieba.j implements com.bai
             builder.setIcon((Drawable) null);
             builder.setCancelable(false);
             builder.setMessage(R.string.quit_buy_confirm);
-            builder.setPositiveButton(R.string.alert_yes_button, new p(this));
-            builder.setNegativeButton(R.string.alert_no_button, new q(this));
+            builder.setPositiveButton(R.string.alert_yes_button, new o(this));
+            builder.setNegativeButton(R.string.alert_no_button, new p(this));
             this.g = builder.create();
         }
         this.g.show();
     }
 
-    @Override // com.baidu.tieba.view.d
+    @Override // com.baidu.tieba.view.e
     public boolean a(WebView webView, String str) {
         if (str != null) {
-            if (bu.c(str) || bu.c(this.d)) {
+            if (bs.c(str) || bs.c(this.d)) {
                 return false;
             }
             if (str.toLowerCase().contains(this.d.toLowerCase())) {
@@ -176,7 +175,7 @@ public class FaceBuyWebViewActivity extends com.baidu.tieba.j implements com.bai
                         closeActivity();
                         return true;
                     } catch (Exception e) {
-                        com.baidu.adp.lib.g.e.b(getClass().getName(), "shouldOverrideUrlLoading", e.toString());
+                        com.baidu.adp.lib.util.f.b(getClass().getName(), "shouldOverrideUrlLoading", e.toString());
                     }
                 }
             }
@@ -184,12 +183,12 @@ public class FaceBuyWebViewActivity extends com.baidu.tieba.j implements com.bai
         return false;
     }
 
-    @Override // com.baidu.tieba.view.e
+    @Override // com.baidu.tieba.view.f
     public void b(WebView webView, String str) {
         hideProgressBar();
     }
 
-    @Override // com.baidu.tieba.view.f
+    @Override // com.baidu.tieba.view.g
     public void c(WebView webView, String str) {
         showProgressBar();
     }

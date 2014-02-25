@@ -1,6 +1,9 @@
 package com.baidu.tieba.pb;
+
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bt implements cl {
+public class bt implements DialogInterface.OnClickListener {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,16 +11,8 @@ class bt implements cl {
         this.a = newPbActivity;
     }
 
-    @Override // com.baidu.tieba.pb.cl
-    public void a(String str) {
-        cr crVar;
-        cr crVar2;
-        if (!com.baidu.tieba.util.bu.c(str)) {
-            crVar = this.a.A;
-            if (com.baidu.tieba.util.bu.c(crVar.J())) {
-                crVar2 = this.a.A;
-                crVar2.d(str);
-            }
-        }
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        dialogInterface.dismiss();
     }
 }

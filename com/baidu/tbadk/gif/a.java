@@ -20,25 +20,28 @@ public class a extends Handler {
         WeakReference weakReference;
         WeakReference weakReference2;
         int i;
-        boolean z;
         int i2;
+        boolean z;
+        int i3;
         Bitmap bitmap;
         b bVar;
         b bVar2;
-        int i3;
+        int i4;
         boolean z2;
         weakReference = this.a.b;
         if (weakReference != null) {
             weakReference2 = this.a.b;
             c cVar = (c) weakReference2.get();
             if (cVar != null && message.what == 1) {
-                GifView.a(this.a, 1);
-                i = this.a.d;
-                if (i >= cVar.e()) {
-                    z2 = this.a.u;
+                GifView gifView = this.a;
+                i = gifView.d;
+                gifView.d = i + 1;
+                i2 = this.a.d;
+                if (i2 >= cVar.d()) {
+                    z2 = this.a.x;
                     if (z2) {
                         this.a.setVisibility(4);
-                        this.a.u = false;
+                        this.a.x = false;
                         z = true;
                     } else {
                         z = false;
@@ -47,15 +50,15 @@ public class a extends Handler {
                 } else {
                     z = false;
                 }
-                i2 = this.a.d;
-                cVar.a(i2);
+                i3 = this.a.d;
+                cVar.a(i3);
                 bitmap = this.a.c;
                 cVar.a(bitmap, null);
                 this.a.invalidate();
                 removeMessages(1);
                 if (!z) {
-                    i3 = this.a.d;
-                    sendEmptyMessageDelayed(1, cVar.b(i3));
+                    i4 = this.a.d;
+                    sendEmptyMessageDelayed(1, cVar.b(i4));
                     return;
                 }
                 bVar = this.a.e;

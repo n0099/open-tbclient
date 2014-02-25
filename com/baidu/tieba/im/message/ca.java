@@ -1,111 +1,209 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.IconData;
-import com.baidu.tieba.data.UserData;
-import com.baidu.tieba.im.data.GroupIdTypeData;
+import com.baidu.tieba.im.data.GroupActivityData;
+import com.baidu.tieba.im.data.GroupData;
+import com.baidu.tieba.im.data.MemberData;
+import com.baidu.tieba.im.data.PhotoUrlData;
 import java.util.LinkedList;
 import java.util.List;
-import protobuf.GetGroupMsg.GetGroupMsgRes;
 import protobuf.Im;
+import protobuf.QueryGroupDetail.QueryGroupDetailRes;
 /* loaded from: classes.dex */
-public class ca extends cr implements com.baidu.tieba.im.coder.f {
-    private List<com.baidu.tieba.im.data.c> a;
-    private int b;
+public class ca extends da implements com.baidu.tieba.im.coder.f {
+    private QueryGroupDetailRes.QueryGroupDetailResIdl a = null;
+    private GroupData b;
+    private List<MemberData> c;
+    private List<PhotoUrlData> d;
+    private int e;
+    private int f;
+    private boolean g;
+    private boolean h;
+    private boolean i;
+    private boolean j;
+    private boolean k;
+    private GroupActivityData l;
 
     public ca() {
-        super(202003);
+        e(103004);
     }
 
-    public List<com.baidu.tieba.im.data.c> a() {
-        return this.a;
+    public GroupActivityData a() {
+        return this.l;
     }
 
-    public void a(List<com.baidu.tieba.im.data.c> list) {
-        this.a = list;
+    public void a(GroupActivityData groupActivityData) {
+        this.l = groupActivityData;
     }
 
-    public int b() {
+    public GroupData b() {
         return this.b;
     }
 
+    public void a(GroupData groupData) {
+        this.b = groupData;
+    }
+
+    public List<MemberData> c() {
+        return this.c;
+    }
+
+    public void a(List<MemberData> list) {
+        this.c = list;
+    }
+
+    public List<PhotoUrlData> d() {
+        return this.d;
+    }
+
+    public void b(List<PhotoUrlData> list) {
+        this.d = list;
+    }
+
+    public int e() {
+        return this.e;
+    }
+
+    public void a(int i) {
+        this.e = i;
+    }
+
+    public int f() {
+        return this.f;
+    }
+
+    public void b(int i) {
+        this.f = i;
+    }
+
+    public boolean g() {
+        return this.g;
+    }
+
+    public void a(boolean z) {
+        this.g = z;
+    }
+
+    public boolean h() {
+        return this.h;
+    }
+
+    public void b(boolean z) {
+        this.h = z;
+    }
+
+    public boolean i() {
+        return this.i;
+    }
+
+    public void c(boolean z) {
+        this.i = z;
+    }
+
+    public boolean j() {
+        return this.j;
+    }
+
+    public void d(boolean z) {
+        this.j = z;
+    }
+
+    public boolean k() {
+        return this.k;
+    }
+
+    public void e(boolean z) {
+        this.k = z;
+    }
+
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<q> linkedList, byte[] bArr, int i) {
-        int size;
-        GetGroupMsgRes.GetGroupMsgResIdl parseFrom = GetGroupMsgRes.GetGroupMsgResIdl.parseFrom(bArr);
-        g(parseFrom.getError().getErrorno());
-        c(parseFrom.getError().getUsermsg());
+    public void a(LinkedList<s> linkedList, byte[] bArr, int i) {
+        Im.ActivityInfo activityInfo;
+        this.a = QueryGroupDetailRes.QueryGroupDetailResIdl.parseFrom(bArr);
+        g(this.a.getError().getErrorno());
+        c(this.a.getError().getUsermsg());
         linkedList.add(this);
-        if (!k()) {
-            this.b = parseFrom.getData().getAllowEggs();
-            a(new LinkedList());
-            int groupMsgCount = parseFrom.getData().getGroupMsgCount();
-            for (int i2 = 0; i2 < groupMsgCount; i2++) {
-                com.baidu.tieba.im.data.c cVar = new com.baidu.tieba.im.data.c(-100);
-                linkedList.add(cVar);
-                a().add(cVar);
-                com.baidu.tieba.im.data.f fVar = new com.baidu.tieba.im.data.f();
-                fVar.a(new LinkedList());
-                cVar.a(fVar);
-                GetGroupMsgRes.GroupMsg groupMsg = parseFrom.getData().getGroupMsg(i2);
-                Im.GroupInfo groupInfo = groupMsg.getGroupInfo();
-                GroupIdTypeData groupIdTypeData = new GroupIdTypeData();
-                cVar.a(groupIdTypeData);
-                groupIdTypeData.setGroupId(groupInfo.getGroupId());
-                groupIdTypeData.setGroupType(groupInfo.getGroupType());
-                List<Im.MsgInfo> msgListList = groupMsg.getMsgListList();
-                if (msgListList != null && (size = msgListList.size()) > 0) {
-                    com.baidu.adp.lib.g.e.c("----transform list size:" + size);
-                    for (int i3 = 0; i3 < size; i3++) {
-                        try {
-                            Im.MsgInfo msgInfo = msgListList.get(i3);
-                            g gVar = new g();
-                            long b = com.baidu.tieba.im.chat.ba.b(msgInfo.getMsgId());
-                            gVar.d(b);
-                            gVar.b(String.valueOf(msgInfo.getGroupId()));
-                            gVar.b(msgInfo.getMsgType());
-                            com.baidu.adp.lib.g.e.d("msgType:" + gVar.i());
-                            long userId = msgInfo.getUserId();
-                            gVar.e(userId);
-                            if (TiebaApplication.B() && String.valueOf(userId).equals(TiebaApplication.A())) {
-                                gVar.c(msgInfo.getRecordId());
-                            } else {
-                                gVar.c(b);
-                            }
-                            UserData userData = new UserData();
-                            gVar.a(userData);
-                            Im.UserInfo userInfo = msgInfo.getUserInfo();
-                            List<Im.TshowInfo> tshowIconList = userInfo.getTshowIconList();
-                            if (tshowIconList != null) {
-                                LinkedList<IconData> linkedList2 = new LinkedList<>();
-                                for (int i4 = 0; i4 < tshowIconList.size(); i4++) {
-                                    Im.TshowInfo tshowInfo = tshowIconList.get(i4);
-                                    linkedList2.add(new IconData(tshowInfo.getIcon(), tshowInfo.getName(), tshowInfo.getUrl()));
-                                }
-                                userData.setTShowInfo(linkedList2);
-                            }
-                            gVar.g().setId(String.valueOf(userInfo.getUserId()));
-                            gVar.g().setName(userInfo.getUserName());
-                            gVar.g().setPortrait(userInfo.getPortrait());
-                            gVar.g().setSex(userInfo.getSex());
-                            gVar.b(new UserData());
-                            Im.UserInfo toUserInfo = msgInfo.getToUserInfo();
-                            gVar.h().setId(String.valueOf(toUserInfo.getUserId()));
-                            gVar.h().setName(toUserInfo.getUserName());
-                            gVar.h().setPortrait(toUserInfo.getPortrait());
-                            gVar.h().setSex(toUserInfo.getSex());
-                            gVar.b(msgInfo.getToUid());
-                            gVar.a(msgInfo.getContent());
-                            gVar.f(msgInfo.getCreateTime());
-                            fVar.a().add(gVar);
-                            com.baidu.tieba.im.d.d.f(gVar);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            com.baidu.adp.lib.g.e.c("----transform error!");
-                        }
-                    }
-                }
+        if (!l()) {
+            b(this.a.getData().getCanJoinGroupNum());
+            b(this.a.getData().getIsGroupManager() != 0);
+            c(this.a.getData().getHideRecommendGroup() != 0);
+            a(this.a.getData().getIsJoin() != 0);
+            a(this.a.getData().getJoinGroupNum());
+            d(this.a.getData().getGroup().getIsMemberGroup() == 1);
+            e(this.a.getData().getCanCreateMember() == 1);
+            Im.GroupInfo group = this.a.getData().getGroup();
+            GroupData groupData = new GroupData();
+            a(group, groupData);
+            a(groupData);
+            List<Im.UserInfo> memberList = this.a.getData().getMemberList();
+            LinkedList linkedList2 = new LinkedList();
+            for (Im.UserInfo userInfo : memberList) {
+                MemberData memberData = new MemberData();
+                a(userInfo, memberData);
+                linkedList2.add(memberData);
             }
+            a(linkedList2);
+            List<Im.Photo> photoList = this.a.getData().getPhotoList();
+            LinkedList linkedList3 = new LinkedList();
+            for (Im.Photo photo : photoList) {
+                PhotoUrlData photoUrlData = new PhotoUrlData();
+                a(photo, photoUrlData);
+                linkedList3.add(photoUrlData);
+            }
+            b(linkedList3);
+            List<Im.ActivityInfo> activityList = this.a.getData().getActivityList();
+            if (activityList != null && activityList.size() > 0 && (activityInfo = activityList.get(0)) != null) {
+                GroupActivityData groupActivityData = new GroupActivityData();
+                a(groupActivityData);
+                groupActivityData.setActivityId(activityInfo.getActivityId());
+                groupActivityData.setIsEnd(activityInfo.getIsEnd());
+                groupActivityData.setgActivityTitle(activityInfo.getActivityTitle());
+            }
+        }
+    }
+
+    public static void a(Im.GroupInfo groupInfo, GroupData groupData) {
+        if (groupData != null && groupInfo != null) {
+            groupData.setAlbum(groupInfo.getAlbum());
+            groupData.setAuthorId(groupInfo.getAuthorId());
+            groupData.setAuthorName(groupInfo.getAuthorName());
+            groupData.setAuthorPortrait(groupInfo.getAuthorPortrait());
+            groupData.setCreateTime(groupInfo.getCreateTime());
+            groupData.setFlag(groupInfo.getFlag());
+            groupData.setForumId(groupInfo.getForumId());
+            groupData.setForumName(groupInfo.getForumName());
+            groupData.setGrade(groupInfo.getGrade());
+            groupData.setGroupId(groupInfo.getGroupId());
+            groupData.setGroupType(groupInfo.getGroupType());
+            groupData.setIntro(groupInfo.getIntro());
+            groupData.setIsHidePosition(groupInfo.getIsHidePosition());
+            groupData.setLat(String.valueOf(groupInfo.getLat()));
+            groupData.setLng(String.valueOf(groupInfo.getLng()));
+            groupData.setMaxMemberNum(groupInfo.getMaxMemberNum());
+            groupData.setMemberNum(groupInfo.getMemberNum());
+            groupData.setName(groupInfo.getName());
+            groupData.setNickName(groupInfo.getNickName());
+            groupData.setNotice(groupInfo.getNotice());
+            groupData.setPortrait(groupInfo.getPortrait());
+            groupData.setPosition(groupInfo.getPosition());
+            groupData.setBusiness(groupInfo.getBusiness());
+            groupData.setStatus(groupInfo.getStatus());
+            groupData.setMeizhi(groupInfo.getAuthorIsMeizhi() != 0);
+        }
+    }
+
+    public static void a(Im.Photo photo, PhotoUrlData photoUrlData) {
+        if (photo != null && photoUrlData != null) {
+            photoUrlData.setBigurl(photo.getBigurl());
+            photoUrlData.setPicId(photo.getPicId());
+            photoUrlData.setSmallurl(photo.getSmallurl());
+        }
+    }
+
+    public static void a(Im.UserInfo userInfo, MemberData memberData) {
+        if (userInfo != null && memberData != null) {
+            memberData.setPortrait(userInfo.getPortrait());
+            memberData.setUserId(userInfo.getUserId());
+            memberData.setUserName(userInfo.getUserName());
         }
     }
 }

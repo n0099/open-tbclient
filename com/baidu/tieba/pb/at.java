@@ -1,9 +1,6 @@
 package com.baidu.tieba.pb;
-
-import android.os.Handler;
-import android.widget.AbsListView;
 /* loaded from: classes.dex */
-class at implements AbsListView.OnScrollListener {
+class at implements cc {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,19 +8,29 @@ class at implements AbsListView.OnScrollListener {
         this.a = newPbActivity;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        Handler handler;
-        Handler handler2;
-        Handler handler3;
-        handler = this.a.t;
-        handler.removeMessages(1);
-        handler2 = this.a.t;
-        handler3 = this.a.t;
-        handler2.sendMessageDelayed(handler3.obtainMessage(1), 300L);
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    @Override // com.baidu.tieba.pb.cc
+    public void a(boolean z) {
+        com.baidu.tieba.model.bb bbVar;
+        com.baidu.tieba.model.bb bbVar2;
+        com.baidu.tieba.model.bb bbVar3;
+        com.baidu.tieba.model.bb bbVar4;
+        com.baidu.tieba.model.bb bbVar5;
+        com.baidu.tieba.model.bb bbVar6;
+        if (z) {
+            bbVar6 = this.a.w;
+            bbVar6.b(true);
+            return;
+        }
+        bbVar = this.a.w;
+        int d = bbVar.n().d();
+        bbVar2 = this.a.w;
+        if (d < bbVar2.n().a()) {
+            bbVar4 = this.a.w;
+            bbVar5 = this.a.w;
+            bbVar4.c(bbVar5.n().d() + 1);
+            return;
+        }
+        bbVar3 = this.a.w;
+        bbVar3.a(true);
     }
 }

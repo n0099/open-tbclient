@@ -1,39 +1,68 @@
 package com.baidu.tieba.im.message;
 
+import com.baidu.tieba.im.data.GroupInfoData;
+import java.util.ArrayList;
 import java.util.LinkedList;
-import protobuf.QueryPrize.QueryPrizeRes;
+import java.util.List;
+import protobuf.Im;
+import protobuf.QueryHotGroups.QueryHotGroupsRes;
 /* loaded from: classes.dex */
-public class cd extends cr implements com.baidu.tieba.im.coder.f {
-    private int a;
-    private String b;
-    private QueryPrizeRes.PrizeInfo c;
+public class cd extends da implements com.baidu.tieba.im.coder.f {
+    private List<GroupInfoData> a;
+    private boolean b;
 
     public cd() {
-        e(103013);
+        super.e(103012);
     }
 
-    @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<q> linkedList, byte[] bArr, int i) {
-        QueryPrizeRes.QueryPrizeResIdl parseFrom = QueryPrizeRes.QueryPrizeResIdl.parseFrom(bArr);
-        g(parseFrom.getError().getErrorno());
-        c(parseFrom.getError().getUsermsg());
-        linkedList.add(this);
-        if (!k()) {
-            this.a = parseFrom.getData().getMsgInOneDay();
-            this.b = parseFrom.getData().getNoSendMsgTip();
-            this.c = parseFrom.getData().getPrize();
-        }
-    }
-
-    public int a() {
+    public List<GroupInfoData> a() {
         return this.a;
     }
 
-    public String b() {
+    public void a(List<GroupInfoData> list) {
+        this.a = list;
+    }
+
+    public boolean b() {
         return this.b;
     }
 
-    public QueryPrizeRes.PrizeInfo c() {
-        return this.c;
+    public void a(boolean z) {
+        this.b = z;
+    }
+
+    @Override // com.baidu.tieba.im.coder.f
+    public void a(LinkedList<s> linkedList, byte[] bArr, int i) {
+        QueryHotGroupsRes.QueryHotGroupsResIdl parseFrom = QueryHotGroupsRes.QueryHotGroupsResIdl.parseFrom(bArr);
+        g(parseFrom.getError().getErrorno());
+        c(parseFrom.getError().getUsermsg());
+        linkedList.add(this);
+        if (!l()) {
+            a(new ArrayList());
+            int groupsCount = parseFrom.getData().getGroupsCount();
+            for (int i2 = 0; i2 < groupsCount; i2++) {
+                GroupInfoData groupInfoData = new GroupInfoData();
+                a().add(groupInfoData);
+                Im.GroupInfo groups = parseFrom.getData().getGroups(i2);
+                groupInfoData.setGroupId(groups.getGroupId());
+                groupInfoData.setForumId(groups.getForumId());
+                groupInfoData.setForumName(groups.getForumName());
+                groupInfoData.setName(groups.getName());
+                groupInfoData.setIntro(groups.getIntro());
+                groupInfoData.setPortrait(groups.getPortrait());
+                groupInfoData.setMaxMemberNum(groups.getMaxMemberNum());
+                groupInfoData.setMemberNum(groups.getMemberNum());
+                groupInfoData.setAuthorId(groups.getAuthorId());
+                groupInfoData.setAuthorName(groups.getAuthorName());
+                groupInfoData.setGrade(groups.getGrade());
+                groupInfoData.setForumShowName(groups.getForumShowName());
+                groupInfoData.setMemGroup(groups.getIsMemberGroup() == 1);
+            }
+            if (parseFrom.getData().getHasMore() == 1) {
+                a(true);
+            } else {
+                a(false);
+            }
+        }
     }
 }

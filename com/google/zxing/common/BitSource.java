@@ -1,4 +1,6 @@
 package com.google.zxing.common;
+
+import android.support.v4.view.MotionEventCompat;
 /* loaded from: classes.dex */
 public final class BitSource {
     private int bitOffset;
@@ -27,7 +29,7 @@ public final class BitSource {
             int i4 = 8 - this.bitOffset;
             int i5 = i < i4 ? i : i4;
             int i6 = i4 - i5;
-            int i7 = (((255 >> (8 - i5)) << i6) & this.bytes[this.byteOffset]) >> i6;
+            int i7 = (((MotionEventCompat.ACTION_MASK >> (8 - i5)) << i6) & this.bytes[this.byteOffset]) >> i6;
             int i8 = i - i5;
             this.bitOffset = i5 + this.bitOffset;
             if (this.bitOffset == 8) {
@@ -48,7 +50,7 @@ public final class BitSource {
             }
             if (i3 > 0) {
                 int i9 = 8 - i3;
-                int i10 = (i2 << i3) | ((((255 >> i9) << i9) & this.bytes[this.byteOffset]) >> i9);
+                int i10 = (i2 << i3) | ((((MotionEventCompat.ACTION_MASK >> i9) << i9) & this.bytes[this.byteOffset]) >> i9);
                 this.bitOffset = i3 + this.bitOffset;
                 return i10;
             }

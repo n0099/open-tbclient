@@ -1,22 +1,37 @@
 package com.baidu.tieba.widget.share;
 
-import com.baidu.cloudsdk.social.share.ShareContent;
+import android.content.Context;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements f {
-    final /* synthetic */ ShareContent a;
-    final /* synthetic */ String b;
-    final /* synthetic */ d c;
+public class e implements a {
+    final /* synthetic */ d a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(d dVar, ShareContent shareContent, String str) {
-        this.c = dVar;
-        this.a = shareContent;
-        this.b = str;
+    public e(d dVar) {
+        this.a = dVar;
     }
 
-    @Override // com.baidu.tieba.widget.share.f
+    @Override // com.baidu.tieba.widget.share.a
     public void a() {
-        this.c.a(this.a, this.b, false);
+        Context context;
+        context = this.a.b;
+        BdUtilHelper.a(context, (int) R.string.auth_account_success);
+    }
+
+    @Override // com.baidu.tieba.widget.share.a
+    public void b() {
+    }
+
+    @Override // com.baidu.tieba.widget.share.a
+    public void c() {
+        Context context;
+        context = this.a.b;
+        BdUtilHelper.a(context, (int) R.string.share_success);
+    }
+
+    @Override // com.baidu.tieba.widget.share.a
+    public void d() {
     }
 }

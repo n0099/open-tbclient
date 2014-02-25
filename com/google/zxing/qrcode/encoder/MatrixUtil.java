@@ -5,6 +5,7 @@ import com.google.zxing.WriterException;
 import com.google.zxing.common.BitArray;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import com.google.zxing.qrcode.decoder.Version;
+import org.apache.commons.io.IOUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class MatrixUtil {
@@ -132,7 +133,7 @@ public final class MatrixUtil {
             height = i2 + i6;
         }
         if (i7 != bitArray.getSize()) {
-            throw new WriterException("Not all bits consumed: " + i7 + '/' + bitArray.getSize());
+            throw new WriterException("Not all bits consumed: " + i7 + IOUtils.DIR_SEPARATOR_UNIX + bitArray.getSize());
         }
     }
 

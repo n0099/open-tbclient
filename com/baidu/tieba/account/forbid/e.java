@@ -49,7 +49,7 @@ public class e extends BaseAdapter {
             gVar = (g) view.getTag();
         }
         gVar.c = i;
-        boolean z = TiebaApplication.h().al() == 1;
+        boolean z = TiebaApplication.g().al() == 1;
         gVar.a.setText(this.a[i]);
         if (gVar.c == this.b) {
             gVar.b.setImageDrawable(viewGroup.getResources().getDrawable(z ? R.drawable.icon_found_information_choose_1 : R.drawable.icon_found_information_choose));

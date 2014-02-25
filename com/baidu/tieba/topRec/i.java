@@ -29,16 +29,14 @@ public class i implements Animation.AnimationListener {
         i = this.a.k;
         if (i < 100) {
             textView5 = this.a.m;
-            StringBuilder sb = new StringBuilder();
             topRecActivity2 = this.a.j;
-            StringBuilder append = sb.append(topRecActivity2.getString(R.string.done)).append("(");
+            StringBuilder append = new StringBuilder(String.valueOf(topRecActivity2.getString(R.string.done))).append("(");
             i2 = this.a.k;
             textView5.setText(append.append(i2).append(")").toString());
         } else {
             textView = this.a.m;
-            StringBuilder sb2 = new StringBuilder();
             topRecActivity = this.a.j;
-            textView.setText(sb2.append(topRecActivity.getString(R.string.done)).append("(99+)").toString());
+            textView.setText(String.valueOf(topRecActivity.getString(R.string.done)) + "(99+)");
         }
         textView2 = this.a.m;
         textView2.invalidate();

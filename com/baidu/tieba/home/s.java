@@ -1,17 +1,25 @@
 package com.baidu.tieba.home;
 
+import android.app.Activity;
 import android.view.View;
+import com.baidu.tieba.account.LoginActivity;
 /* loaded from: classes.dex */
 class s implements View.OnClickListener {
-    final /* synthetic */ ForumTopicActivity a;
+    final /* synthetic */ r a;
+    private final /* synthetic */ Activity b;
+    private final /* synthetic */ int c;
+    private final /* synthetic */ String d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(ForumTopicActivity forumTopicActivity) {
-        this.a = forumTopicActivity;
+    public s(r rVar, Activity activity, int i, String str) {
+        this.a = rVar;
+        this.b = activity;
+        this.c = i;
+        this.d = str;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.finish();
+        LoginActivity.a(this.b, this.c, this.d, 11003);
     }
 }

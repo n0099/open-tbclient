@@ -1,8 +1,8 @@
 package com.baidu.tieba.im.searchGroup;
 
 import com.baidu.tieba.im.data.BaseGroupData;
-import com.baidu.tieba.im.message.ck;
-import com.baidu.tieba.im.message.q;
+import com.baidu.tieba.im.message.ct;
+import com.baidu.tieba.im.message.s;
 import java.util.List;
 /* loaded from: classes.dex */
 class a implements com.baidu.tieba.im.messageCenter.g {
@@ -14,26 +14,29 @@ class a implements com.baidu.tieba.im.messageCenter.g {
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(q qVar) {
+    public void a(s sVar) {
         b bVar;
         bVar = this.a.a;
         bVar.a(false);
-        if (qVar == null || qVar.w() != 103007) {
-            this.a.a();
-        } else if (!(qVar instanceof ck)) {
-            this.a.a();
-        } else {
-            ck ckVar = (ck) qVar;
-            if (ckVar.k()) {
-                this.a.a(ckVar.m(), ckVar.l());
+        if (sVar != null && sVar.w() == 103007) {
+            if (sVar instanceof ct) {
+                ct ctVar = (ct) sVar;
+                if (!ctVar.l()) {
+                    List<BaseGroupData> a = ctVar.a();
+                    if (a == null || a.size() <= 0) {
+                        this.a.a();
+                        return;
+                    } else {
+                        this.a.a(a.get(0));
+                        return;
+                    }
+                }
+                this.a.a(ctVar.n(), ctVar.m());
                 return;
             }
-            List<BaseGroupData> a = ckVar.a();
-            if (a == null || a.size() <= 0) {
-                this.a.a();
-            } else {
-                this.a.a(a.get(0));
-            }
+            this.a.a();
+            return;
         }
+        this.a.a();
     }
 }

@@ -4,7 +4,7 @@ import com.baidu.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class FacePurchasePackageData extends com.baidu.tieba.util.as implements Serializable {
+public class FacePurchasePackageData extends com.baidu.tieba.util.au implements Serializable {
     private static final long serialVersionUID = 0;
     @SerializedName("cover_url")
     public String coverUrl;
@@ -21,7 +21,7 @@ public class FacePurchasePackageData extends com.baidu.tieba.util.as implements 
     @SerializedName("puy_time")
     public long puyTime;
 
-    @Override // com.baidu.tieba.util.as, com.baidu.tieba.util.au
+    @Override // com.baidu.tieba.util.au, com.baidu.tieba.util.aw
     public LinkedList<String> getImageUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         if (this.coverUrl != null) {

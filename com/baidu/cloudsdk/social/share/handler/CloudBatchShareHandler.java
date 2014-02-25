@@ -17,7 +17,7 @@ import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.cloudsdk.social.share.ShareContent;
 import com.baidu.cloudsdk.social.share.SocialShareConfig;
 import com.baidu.cloudsdk.social.share.uiwithlayout.ShareDialog;
-import com.bv;
+import com.z;
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -127,7 +127,7 @@ public class CloudBatchShareHandler implements ISocialShareHandler {
         if (z) {
             this.mShareDialog = new ShareDialog(this.mContext, shareContent, iBaiduListener);
             this.mShareDialog.show();
-            this.mShareDialog.setOnDismissListener(new bv(this));
+            this.mShareDialog.setOnDismissListener(new z(this));
             return;
         }
         Map all = SessionManager.getInstance(this.mContext).getAll();

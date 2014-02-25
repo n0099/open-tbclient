@@ -1,29 +1,31 @@
 package com;
 
 import android.location.Location;
-import android.util.Log;
-import com.baidu.cloudsdk.common.util.PositionManager;
-import com.baidu.cloudsdk.social.share.uiwithlayout.LocationPreview;
+import android.location.LocationListener;
+import android.os.Bundle;
+import com.baidu.cloudsdk.common.util.CoordinateManager;
 /* loaded from: classes.dex */
-class l implements PositionManager.IPositionManagerListener {
-    final /* synthetic */ k a;
+public class l implements LocationListener {
+    final /* synthetic */ CoordinateManager.a a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public l(k kVar) {
-        this.a = kVar;
+    public l(CoordinateManager.a aVar) {
+        this.a = aVar;
     }
 
-    @Override // com.baidu.cloudsdk.common.util.PositionManager.IPositionManagerListener
-    public void onComplete(Location location) {
-        this.a.a.g = location;
-        this.a.a.a(location);
+    @Override // android.location.LocationListener
+    public void onLocationChanged(Location location) {
+        CoordinateManager.this.c = this.a.c = location;
     }
 
-    @Override // com.baidu.cloudsdk.common.util.PositionManager.IPositionManagerListener
-    public void onFailed() {
-        String str;
-        str = LocationPreview.a;
-        Log.e(str, "request location failed");
-        this.a.a.b();
+    @Override // android.location.LocationListener
+    public void onProviderDisabled(String str) {
+    }
+
+    @Override // android.location.LocationListener
+    public void onProviderEnabled(String str) {
+    }
+
+    @Override // android.location.LocationListener
+    public void onStatusChanged(String str, int i, Bundle bundle) {
     }
 }

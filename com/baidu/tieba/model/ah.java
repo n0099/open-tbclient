@@ -1,11 +1,28 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
-public class ah {
-    public boolean a;
-    public String b;
-    final /* synthetic */ ad c;
+class ah extends com.baidu.tieba.im.c<Void> {
+    final /* synthetic */ ag a;
+    private final /* synthetic */ boolean c;
+    private final /* synthetic */ String d;
 
-    public ah(ad adVar) {
-        this.c = adVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ah(ag agVar, boolean z, String str) {
+        this.a = agVar;
+        this.c = z;
+        this.d = str;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.c
+    /* renamed from: a */
+    public Void b() {
+        String str;
+        if (this.c) {
+            str = com.baidu.tieba.im.db.k.b(this.d);
+        } else {
+            str = this.d;
+        }
+        com.baidu.tieba.im.db.k.a().a(str, true);
+        return null;
     }
 }

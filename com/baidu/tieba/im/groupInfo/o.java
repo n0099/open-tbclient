@@ -1,10 +1,9 @@
 package com.baidu.tieba.im.groupInfo;
 
-import android.view.View;
-import com.baidu.location.LocationClientOption;
+import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o implements View.OnClickListener {
+public class o implements c {
     final /* synthetic */ m a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,10 +11,16 @@ public class o implements View.OnClickListener {
         this.a = mVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        EllipsizingTextView ellipsizingTextView;
-        ellipsizingTextView = this.a.h;
-        ellipsizingTextView.setMaxLines(LocationClientOption.MIN_SCAN_SPAN);
+    @Override // com.baidu.tieba.im.groupInfo.c
+    public void a(boolean z) {
+        TextView textView;
+        TextView textView2;
+        if (z) {
+            textView2 = this.a.ac;
+            textView2.setVisibility(0);
+            return;
+        }
+        textView = this.a.ac;
+        textView.setVisibility(8);
     }
 }

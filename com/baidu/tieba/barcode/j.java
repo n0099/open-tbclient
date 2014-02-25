@@ -5,8 +5,9 @@ import android.graphics.Bitmap;
 import android.text.TextUtils;
 import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.util.ad;
-import com.baidu.tieba.util.by;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.tieba.util.af;
+import com.baidu.tieba.util.cb;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends BdAsyncTask<Object, Integer, Bitmap> {
@@ -17,7 +18,7 @@ public class j extends BdAsyncTask<Object, Integer, Bitmap> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ j(CaptureActivity captureActivity, a aVar) {
+    public /* synthetic */ j(CaptureActivity captureActivity, j jVar) {
         this(captureActivity);
     }
 
@@ -29,21 +30,21 @@ public class j extends BdAsyncTask<Object, Integer, Bitmap> {
         Bitmap c;
         Bitmap bitmap = null;
         try {
-            c = ad.c(null, "tieba_resized_image");
+            c = af.c(null, "tieba_resized_image");
         } catch (Exception e) {
             e = e;
         }
         try {
             if (isCancelled() && c != null && !c.isRecycled()) {
                 c.recycle();
-            } else if (c == null || com.baidu.tieba.util.n.b(c, com.baidu.adp.lib.g.g.a((Context) this.a, 63.5f)) != null) {
+            } else if (c == null || com.baidu.tieba.util.n.b(c, BdUtilHelper.a((Context) this.a, 63.5f)) != null) {
                 bitmap = c;
             }
         } catch (Exception e2) {
             bitmap = c;
             e = e2;
             e.printStackTrace();
-            com.baidu.adp.lib.g.e.b(getClass().getName(), "GetImageTask", e.toString());
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "GetImageTask", e.toString());
             return bitmap;
         }
         return bitmap;
@@ -86,7 +87,7 @@ public class j extends BdAsyncTask<Object, Integer, Bitmap> {
                 if (TextUtils.isEmpty(a) && !bitmap.isRecycled()) {
                     bitmap.recycle();
                 }
-                by.a(this.a, "2d_code_scan_local", "onclick", 1, new Object[0]);
+                cb.a(this.a, "2d_code_scan_local", "onclick", 1, new Object[0]);
                 this.a.a(a);
             }
             progressBar = this.a.k;

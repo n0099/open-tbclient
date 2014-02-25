@@ -1,9 +1,7 @@
 package com.baidu.tieba.im.frsgroup;
-
-import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements DialogInterface.OnClickListener {
+public class x implements ac {
     final /* synthetic */ MembersActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +9,10 @@ public class x implements DialogInterface.OnClickListener {
         this.a = membersActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
+    @Override // com.baidu.tieba.im.frsgroup.ac
+    public void a(int i) {
+        ae aeVar;
+        aeVar = this.a.b;
+        aeVar.b(i);
     }
 }

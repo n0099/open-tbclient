@@ -1,28 +1,21 @@
 package com.baidu.tieba.person;
 
-import android.app.Activity;
-import android.view.View;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.account.LoginActivity;
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-public class bz implements View.OnClickListener {
-    final /* synthetic */ PersonListActivity a;
+class bz implements DialogInterface.OnClickListener {
+    final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bz(PersonListActivity personListActivity) {
-        this.a = personListActivity;
+    public bz(PersonChangeActivity personChangeActivity) {
+        this.a = personChangeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.a = ((Integer) view.getTag()).intValue();
-        String A = TiebaApplication.A();
-        if (A != null && A.length() > 0) {
-            this.a.c();
-        } else {
-            LoginActivity.a((Activity) this.a, this.a.getString(R.string.login_to_chat), true, 11028);
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        if (i == 0) {
+            com.baidu.tieba.write.bz.a(this.a);
+        } else if (i == 1) {
+            com.baidu.tieba.write.bz.d(this.a);
         }
     }
 }

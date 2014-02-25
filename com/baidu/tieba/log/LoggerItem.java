@@ -8,6 +8,7 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tieba.TiebaApplication;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public class LoggerItem extends LinkedHashMap<String, String> {
     private static String a = "yyyy-MM-dd kk:mm:ss";
@@ -27,9 +28,9 @@ public class LoggerItem extends LinkedHashMap<String, String> {
 
     public void initBaseData() {
         String A = TiebaApplication.A();
-        String j = com.baidu.tieba.data.h.j();
+        String u = com.baidu.tieba.data.i.u();
         String charSequence = DateFormat.format(a, System.currentTimeMillis()).toString();
-        String a2 = com.baidu.tieba.im.i.a();
+        String a2 = com.baidu.tieba.im.f.a();
         String str = Build.MODEL;
         String b = g.b();
         put("logtype", TextUtils.isEmpty(this.mType) ? "" : this.mType);
@@ -38,7 +39,7 @@ public class LoggerItem extends LinkedHashMap<String, String> {
         put("model", TextUtils.isEmpty(str) ? "" : str);
         put("network", TextUtils.isEmpty(b) ? "" : b);
         put(SapiAccountManager.SESSION_UID, TextUtils.isEmpty(A) ? "" : A);
-        put("version", TextUtils.isEmpty(j) ? "" : j);
+        put("version", TextUtils.isEmpty(u) ? "" : u);
     }
 
     public synchronized String mergeString(String str) {
@@ -60,13 +61,13 @@ public class LoggerItem extends LinkedHashMap<String, String> {
                 break;
             }
             String str2 = (String) it.next();
-            sb.append((i2 > 0 ? "\t" : "") + str2 + "=" + ((String) get(str2)));
+            sb.append(String.valueOf(i2 > 0 ? "\t" : "") + str2 + "=" + ((String) get(str2)));
             i = i2 + 1;
         }
-        if (TextUtils.isEmpty(str)) {
-            sb.append("\n");
+        if (!TextUtils.isEmpty(str)) {
+            sb.append(String.valueOf(sb.length() > 0 ? "\t" : "") + str);
         } else {
-            sb.append((sb.length() > 0 ? "\t" : "") + str);
+            sb.append(IOUtils.LINE_SEPARATOR_UNIX);
         }
         return sb.toString();
     }

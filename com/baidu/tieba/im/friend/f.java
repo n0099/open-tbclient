@@ -7,7 +7,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.an;
+import com.baidu.tieba.util.ap;
 import com.baidu.tieba.view.NavigationBar;
 import com.baidu.tieba.view.NoNetworkView;
 import com.slidingmenu.lib.R;
@@ -23,7 +23,7 @@ public class f extends com.baidu.adp.a.e {
     private c h;
     private TextView i;
     private ProgressBar j;
-    private com.baidu.tbadk.imageManager.c k;
+    private com.baidu.tbadk.imageManager.d k;
 
     public f(IMBlackListActivity iMBlackListActivity) {
         super(iMBlackListActivity);
@@ -83,14 +83,14 @@ public class f extends com.baidu.adp.a.e {
     }
 
     private void i() {
-        int al = TiebaApplication.h().al();
+        int al = TiebaApplication.g().al();
         this.a.getLayoutMode().a(al == 1);
         this.a.getLayoutMode().a(this.e);
         this.d.c(al);
     }
 
     public void f() {
-        an.a(this.g, this.h.a(), null, this.k, null, 0, 1);
+        ap.a(this.g, this.h.a(), null, this.k, null, 0, 1);
     }
 
     public void g() {

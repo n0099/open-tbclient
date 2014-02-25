@@ -11,10 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.editortool.EditorToolComponetContainer;
 import com.baidu.tieba.voice.VoiceManager;
 import com.slidingmenu.lib.R;
+import java.util.ArrayList;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class PbEditor extends LinearLayout {
@@ -22,7 +22,7 @@ public class PbEditor extends LinearLayout {
     protected Context a;
     protected PbEditorToolView b;
     protected EditorToolComponetContainer c;
-    protected com.baidu.tieba.editortool.t d;
+    protected com.baidu.tieba.editortool.z d;
     protected boolean e;
     private boolean g;
 
@@ -56,8 +56,8 @@ public class PbEditor extends LinearLayout {
 
     public boolean c() {
         Editable text = this.b.getEditText().getText();
-        if ((text == null || text.length() <= 0) && !this.c.p()) {
-            return this.c.q();
+        if ((text == null || text.length() <= 0) && !this.c.q()) {
+            return this.c.r();
         }
         return true;
     }
@@ -66,8 +66,8 @@ public class PbEditor extends LinearLayout {
         return this.b.getEditText();
     }
 
-    public void a(String str) {
-        this.b.a(str);
+    public void a(ArrayList<String> arrayList) {
+        this.b.a(arrayList);
     }
 
     public String getContent() {
@@ -85,18 +85,18 @@ public class PbEditor extends LinearLayout {
 
     public void e() {
         this.c.k();
-        this.b.i();
+        this.b.k();
     }
 
     public void f() {
         this.c.k();
-        this.b.i();
+        this.b.k();
     }
 
     public void g() {
         if (this.c.j() && !this.g) {
             this.g = true;
-            com.baidu.tieba.editortool.x.a(this, this.a, new cf(this));
+            com.baidu.tieba.editortool.ac.a(this, this.a, new ci(this));
             return;
         }
         e();
@@ -113,7 +113,7 @@ public class PbEditor extends LinearLayout {
     }
 
     public boolean j() {
-        return this.c.u();
+        return this.c.v();
     }
 
     public void a(View view) {
@@ -131,7 +131,7 @@ public class PbEditor extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(int i, com.baidu.tieba.editortool.z zVar) {
+    public void a(int i, com.baidu.tieba.editortool.ae aeVar) {
         this.b.getEditText().requestFocus();
         this.c.b(this.b.getEditText());
         a(i);
@@ -139,13 +139,13 @@ public class PbEditor extends LinearLayout {
 
     protected void a(int i) {
         if (i == 5) {
-            this.c.n();
-        } else if (i == 8) {
             this.c.o();
+        } else if (i == 23 || i == 22) {
+            this.c.p();
         } else if (i == 2) {
+            this.c.n();
+        } else if (i == 38) {
             this.c.m();
-        } else if (i == 36) {
-            this.c.l();
         }
     }
 
@@ -156,37 +156,37 @@ public class PbEditor extends LinearLayout {
             return;
         }
         this.e = false;
-        if (this.c.u()) {
+        if (this.c.v()) {
             this.c.b(this.b.getEditText());
         }
-        new Handler().postDelayed(new cg(this, i), 200L);
+        new Handler().postDelayed(new cj(this, i), 200L);
     }
 
-    public void setOnActionListener(com.baidu.tieba.editortool.t tVar) {
-        if (tVar != null) {
-            this.d = tVar;
-            this.b.setOnActionListener(new ci(this, tVar));
-            this.c.setOnActionListener(new cj(this, tVar));
+    public void setOnActionListener(com.baidu.tieba.editortool.z zVar) {
+        if (zVar != null) {
+            this.d = zVar;
+            this.b.setOnActionListener(new cl(this, zVar));
+            this.c.setOnActionListener(new cm(this, zVar));
         }
     }
 
     public void c(int i) {
         this.b.a(i);
         this.c.a(i);
-        if (this.a instanceof com.baidu.tieba.j) {
-            ((com.baidu.tieba.j) this.a).getLayoutMode().a(i == 1);
-            ((com.baidu.tieba.j) this.a).getLayoutMode().a((View) this.b);
-            ((com.baidu.tieba.j) this.a).getLayoutMode().a((View) this.c);
-        } else if (this.a instanceof BaseFragmentActivity) {
-            ((BaseFragmentActivity) this.a).a().a(i == 1);
-            ((BaseFragmentActivity) this.a).a().a((View) this.b);
-            ((BaseFragmentActivity) this.a).a().a((View) this.c);
+        if (this.a instanceof com.baidu.tieba.f) {
+            ((com.baidu.tieba.f) this.a).getLayoutMode().a(i == 1);
+            ((com.baidu.tieba.f) this.a).getLayoutMode().a((View) this.b);
+            ((com.baidu.tieba.f) this.a).getLayoutMode().a((View) this.c);
+        } else if (this.a instanceof com.baidu.tieba.k) {
+            ((com.baidu.tieba.k) this.a).a().a(i == 1);
+            ((com.baidu.tieba.k) this.a).a().a((View) this.b);
+            ((com.baidu.tieba.k) this.a).a().a((View) this.c);
         }
     }
 
     public void l() {
         this.b.b();
-        this.c.r();
+        this.c.s();
     }
 
     public void m() {
@@ -200,7 +200,7 @@ public class PbEditor extends LinearLayout {
         if (this.d != null) {
             this.d.a(34, null);
         }
-        this.b.i();
+        this.b.k();
         this.c.k();
         b(getEditText());
         setVisibility(8);
@@ -227,15 +227,11 @@ public class PbEditor extends LinearLayout {
     }
 
     public void r() {
-        this.c.s();
+        this.c.t();
     }
 
     public VoiceManager.VoiceModel getAudioData() {
         return this.c.getAudioData();
-    }
-
-    public boolean s() {
-        return this.c.v();
     }
 
     public void a(Bitmap bitmap) {

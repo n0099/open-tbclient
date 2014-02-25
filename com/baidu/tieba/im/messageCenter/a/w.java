@@ -1,22 +1,24 @@
 package com.baidu.tieba.im.messageCenter.a;
 
-import android.text.TextUtils;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.AccountData;
+import com.baidu.tieba.im.message.bb;
 import com.baidu.tieba.im.message.ct;
-import com.baidu.tieba.util.DatabaseService;
+import com.baidu.tieba.im.message.da;
 /* loaded from: classes.dex */
-public class w extends com.baidu.tieba.im.messageCenter.a {
-    @Override // com.baidu.tieba.im.messageCenter.a
-    public com.baidu.tieba.im.message.q a(com.baidu.tieba.im.message.q qVar, com.baidu.tieba.im.coder.d dVar) {
-        if (qVar instanceof ct) {
-            ct ctVar = (ct) qVar;
-            AccountData E = TiebaApplication.E();
-            if (E != null && !TextUtils.isEmpty(ctVar.a())) {
-                DatabaseService.c(E.getAccount(), ctVar.a());
-                E.setPortrait(ctVar.a());
-            }
+public class w extends com.baidu.tieba.im.messageCenter.d {
+    @Override // com.baidu.tieba.im.messageCenter.d
+    public da a(com.baidu.tieba.im.message.s sVar) {
+        if (sVar == null || !(sVar instanceof bb)) {
+            return null;
         }
-        return null;
+        long b = ((bb) sVar).b();
+        ct ctVar = new ct();
+        ctVar.e(-204);
+        ctVar.a(sVar);
+        ctVar.g(0);
+        ctVar.a(b);
+        String sb = new StringBuilder(String.valueOf(b)).toString();
+        com.baidu.adp.lib.cache.s<String> h = com.baidu.tieba.c.a.a().h();
+        h.a(sb, h.a(sb));
+        return ctVar;
     }
 }

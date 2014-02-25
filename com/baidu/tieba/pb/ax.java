@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb;
 /* loaded from: classes.dex */
-class ax extends com.baidu.adp.a.g {
+class ax implements com.baidu.adp.widget.ListView.t {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,41 +8,7 @@ class ax extends com.baidu.adp.a.g {
         this.a = newPbActivity;
     }
 
-    @Override // com.baidu.adp.a.g
-    public void a(Object obj) {
-        cr crVar;
-        com.baidu.tieba.model.ad adVar;
-        com.baidu.tieba.model.ad adVar2;
-        com.baidu.tieba.model.ad adVar3;
-        com.baidu.tieba.model.bm bmVar;
-        if (obj != null) {
-            adVar2 = this.a.z;
-            switch (adVar2.getLoadDataMode()) {
-                case 0:
-                    bmVar = this.a.u;
-                    bmVar.v();
-                    this.a.a((com.baidu.tieba.model.af) obj);
-                    return;
-                case 1:
-                    this.a.a((com.baidu.tieba.model.ah) obj);
-                    return;
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                    NewPbActivity newPbActivity = this.a;
-                    adVar3 = this.a.z;
-                    newPbActivity.a(adVar3.getLoadDataMode(), (com.baidu.tieba.model.aj) obj);
-                    return;
-                case 6:
-                    this.a.a((com.baidu.tieba.model.aj) obj);
-                    return;
-                default:
-                    return;
-            }
-        }
-        crVar = this.a.A;
-        adVar = this.a.z;
-        crVar.a(adVar.getLoadDataMode(), false, (String) null, false);
+    @Override // com.baidu.adp.widget.ListView.t
+    public void b() {
     }
 }

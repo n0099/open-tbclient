@@ -6,30 +6,31 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.bs;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class AccountActivity extends com.baidu.tieba.j {
-    private NavigationBar d;
+public class AccountActivity extends com.baidu.tieba.f {
+    private NavigationBar e;
     private ArrayList<AccountData> a = null;
     private p b = null;
     private ListView c = null;
-    private TextView e = null;
-    private View.OnClickListener f = null;
-    private m g = null;
-    private j h = null;
+    private RelativeLayout d = null;
+    private TextView f = null;
+    private View.OnClickListener g = null;
+    private m h = null;
+    private j i = null;
 
     public static void a(Activity activity) {
         activity.startActivity(new Intent(activity, AccountActivity.class));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.account_activity);
@@ -38,39 +39,34 @@ public class AccountActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j
+    @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.d.c(i);
-        bs.a((View) this.c, i);
+        this.e.c(i);
+        getLayoutMode().a(i == 1);
+        getLayoutMode().a((View) this.d);
         this.b.notifyDataSetChanged();
-        if (i == 1) {
-            this.c.setDivider(getResources().getDrawable(R.drawable.list_divider_1));
-            this.c.setSelector(R.drawable.list_selector_1);
-            return;
-        }
-        this.c.setDivider(getResources().getDrawable(R.drawable.list_divider));
-        this.c.setSelector(R.drawable.list_selector);
     }
 
     private void a() {
-        this.a = DatabaseService.l();
+        this.a = DatabaseService.j();
     }
 
     private void b() {
-        this.f = new f(this);
-        this.d = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.d.a(getString(R.string.account_manager));
-        this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.e = this.d.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.edit));
-        this.e.setOnClickListener(new h(this));
-        this.b = new p(this, this.f);
+        this.d = (RelativeLayout) findViewById(R.id.account_container);
+        this.g = new f(this);
+        this.e = (NavigationBar) findViewById(R.id.view_navigation_bar);
+        this.e.a(getString(R.string.account_manager));
+        this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.edit));
+        this.f.setOnClickListener(new h(this));
+        this.b = new p(this, this.g);
         this.b.a(this.a);
         this.c = (ListView) findViewById(R.id.list);
         this.c.setAdapter((ListAdapter) this.b);

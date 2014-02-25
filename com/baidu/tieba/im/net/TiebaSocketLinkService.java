@@ -5,38 +5,35 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
-import com.baidu.adp.lib.webSocket.m;
 import com.baidu.adp.lib.webSocket.r;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.i;
-import com.baidu.tieba.im.j;
-import com.baidu.tieba.util.by;
+import com.baidu.tieba.util.cb;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class TiebaSocketLinkService extends Service {
     private static a b;
-    private static b a = new b();
-    private static final Handler c = new d(Looper.getMainLooper());
-    private static r d = new e();
+    private static l a = new l();
+    private static final Handler c = new n(Looper.getMainLooper());
+    private static r d = new o();
 
     public static void a(a aVar) {
         b = aVar;
     }
 
-    private boolean c(String str) {
+    private boolean d(String str) {
         com.baidu.tieba.im.messageCenter.e.a().a(false);
-        by.b(str, "TiebaSocketLinkService:begin open", null);
-        com.baidu.adp.lib.g.e.d("启动连接");
+        cb.b(str, "TiebaSocketLinkService:begin open", null);
+        com.baidu.adp.lib.util.f.e("启动连接");
         c.removeMessages(1);
-        f.a().c();
-        c.sendEmptyMessageDelayed(1, f.a().d());
+        p.a().c();
+        c.sendEmptyMessageDelayed(1, p.a().d());
         try {
-            return m.a().b();
+            return com.baidu.adp.lib.webSocket.m.a().b();
         } catch (Throwable th) {
             th.printStackTrace();
-            com.baidu.adp.lib.g.e.a(th.getMessage());
+            com.baidu.adp.lib.util.f.b(th.getMessage());
             return false;
         }
     }
@@ -44,39 +41,54 @@ public class TiebaSocketLinkService extends Service {
     public static void a() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("Content-Type", "application/octet-stream"));
-        arrayList.add(new BasicNameValuePair(SocialConstants.PARAM_CUID, i.a()));
-        m.a().a(j.a, "im_version=2.1", null, arrayList);
-        m.a().a(d);
+        arrayList.add(new BasicNameValuePair(SocialConstants.PARAM_CUID, com.baidu.tieba.im.f.a()));
+        String c2 = b.a().c();
+        if (c2 != null) {
+            com.baidu.tieba.im.g.a = c2;
+        } else {
+            com.baidu.tieba.im.g.a = "ws://im.tieba.baidu.com:8000";
+        }
+        com.baidu.adp.lib.webSocket.m.a().a(com.baidu.tieba.im.g.a, "im_version=2.1", null, arrayList);
+        com.baidu.adp.lib.webSocket.m.a().a(d);
     }
 
     public static void a(String str) {
-        by.a("TiebaSocketLinkService", 0, 0, "close():" + str, 0);
+        com.baidu.tieba.im.g.a = str;
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(new BasicNameValuePair("Content-Type", "application/octet-stream"));
+        arrayList.add(new BasicNameValuePair(SocialConstants.PARAM_CUID, com.baidu.tieba.im.f.a()));
+        com.baidu.adp.lib.webSocket.m.a().a(com.baidu.tieba.im.g.a, "im_version=2.1", null, arrayList);
+        com.baidu.adp.lib.webSocket.m.a().a(d);
+    }
+
+    public static void b(String str) {
+        cb.a("TiebaSocketLinkService", 0, 0, "close():" + str, 0);
         a(1, str);
     }
 
     public static void a(int i, String str) {
         if (!b()) {
-            by.a(str, "TiebaSocketLinkService:close", (String) null, i, (String) null);
-            by.a("TiebaSocketLinkService", 0, 0, "close():" + str, i);
-            com.baidu.adp.lib.g.e.d("关闭连接");
+            cb.a(str, "TiebaSocketLinkService:close", (String) null, i, (String) null);
+            cb.a("TiebaSocketLinkService", 0, 0, "close():" + str, i);
+            com.baidu.adp.lib.util.f.e("关闭连接");
             c.removeMessages(1);
-            m.a().a(i);
+            com.baidu.adp.lib.webSocket.m.a().a(i);
         }
     }
 
     public static boolean a(com.baidu.adp.lib.webSocket.d dVar) {
-        if (dVar != null && m.a().e() && m.a().d()) {
-            return m.a().a(dVar);
+        if (dVar != null && com.baidu.adp.lib.webSocket.m.a().d() && com.baidu.adp.lib.webSocket.m.a().c()) {
+            return com.baidu.adp.lib.webSocket.m.a().a(dVar);
         }
         return false;
     }
 
     public static boolean b() {
-        return (m.a().e() || m.a().f()) ? false : true;
+        return (com.baidu.adp.lib.webSocket.m.a().d() || com.baidu.adp.lib.webSocket.m.a().e()) ? false : true;
     }
 
     public static boolean c() {
-        return m.a().e();
+        return com.baidu.adp.lib.webSocket.m.a().d();
     }
 
     @Override // android.app.Service
@@ -85,10 +97,10 @@ public class TiebaSocketLinkService extends Service {
     }
 
     public static void a(boolean z, String str) {
-        Intent intent = new Intent(TiebaApplication.h(), TiebaSocketLinkService.class);
+        Intent intent = new Intent(TiebaApplication.g().b(), TiebaSocketLinkService.class);
         intent.putExtra("reopen", z);
         intent.putExtra("reason", str);
-        com.baidu.adp.lib.f.c.a(TiebaApplication.h(), intent);
+        com.baidu.adp.lib.f.c.a(TiebaApplication.g().b(), intent);
     }
 
     @Override // android.app.Service
@@ -100,13 +112,13 @@ public class TiebaSocketLinkService extends Service {
                 stringExtra = "--";
             }
             if (intent.getBooleanExtra("reopen", false)) {
-                com.baidu.adp.lib.g.e.d("进行重连" + stringExtra);
-                a(stringExtra);
-                c(stringExtra);
-            } else if (!m.a().e() && !m.a().f()) {
-                com.baidu.adp.lib.g.e.d("进行连接" + stringExtra);
-                a(stringExtra);
-                c(stringExtra);
+                com.baidu.adp.lib.util.f.e("进行重连" + stringExtra);
+                b(stringExtra);
+                d(stringExtra);
+            } else if (!com.baidu.adp.lib.webSocket.m.a().d() && !com.baidu.adp.lib.webSocket.m.a().e()) {
+                com.baidu.adp.lib.util.f.e("进行连接" + stringExtra);
+                b(stringExtra);
+                d(stringExtra);
             }
         }
     }
@@ -114,10 +126,10 @@ public class TiebaSocketLinkService extends Service {
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        a("service onDestroy");
+        b("service onDestroy");
     }
 
-    public static void b(String str) {
+    public static void c(String str) {
         if (a != null) {
             a.b(str);
         }

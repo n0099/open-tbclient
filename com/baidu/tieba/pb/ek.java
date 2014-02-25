@@ -1,28 +1,25 @@
 package com.baidu.tieba.pb;
+
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ek implements com.baidu.tieba.editortool.t {
-    final /* synthetic */ com.baidu.tieba.editortool.t a;
-    final /* synthetic */ eb b;
+public class ek implements Runnable {
+    final /* synthetic */ ed a;
+    private final /* synthetic */ int b;
+    private final /* synthetic */ View c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ek(eb ebVar, com.baidu.tieba.editortool.t tVar) {
-        this.b = ebVar;
-        this.a = tVar;
+    public ek(ed edVar, int i, View view) {
+        this.a = edVar;
+        this.b = i;
+        this.c = view;
     }
 
-    @Override // com.baidu.tieba.editortool.t
-    public void a(int i, Object obj) {
-        if (i == 0) {
-            this.a.a(26, obj);
-        } else if (i == 10) {
-            this.a.a(27, obj);
-        } else if (i == 34) {
-            this.b.q.setEnabled(true);
-        } else if (i == 33) {
-            this.b.q.setEnabled(false);
-        } else {
-            this.a.a(i, obj);
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        int[] iArr = new int[2];
+        this.a.L.getLocationInWindow(iArr);
+        this.a.c.setSelectionFromTop(this.b + 1, iArr[1] - this.c.getHeight());
+        this.a.c.invalidate();
     }
 }

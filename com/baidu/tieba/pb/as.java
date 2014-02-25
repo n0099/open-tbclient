@@ -1,9 +1,6 @@
 package com.baidu.tieba.pb;
-
-import android.os.Handler;
-import android.widget.AbsListView;
 /* loaded from: classes.dex */
-class as implements AbsListView.OnScrollListener {
+class as extends com.baidu.adp.a.g {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,35 +8,41 @@ class as implements AbsListView.OnScrollListener {
         this.a = newPbActivity;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        Handler handler;
-        cr crVar;
-        Handler handler2;
-        Handler handler3;
-        Handler handler4;
-        Handler handler5;
-        handler = this.a.t;
-        if (handler != null) {
-            handler5 = this.a.t;
-            handler5.removeMessages(0);
-        }
-        this.a.L = i;
-        if (i == 0) {
-            handler2 = this.a.t;
-            if (handler2 != null) {
-                handler3 = this.a.t;
-                handler4 = this.a.t;
-                handler3.sendMessageDelayed(handler4.obtainMessage(0), 300L);
+    @Override // com.baidu.adp.a.g
+    public void a(Object obj) {
+        cu cuVar;
+        com.baidu.tieba.model.s sVar;
+        com.baidu.tieba.model.s sVar2;
+        com.baidu.tieba.model.s sVar3;
+        com.baidu.tieba.model.bb bbVar;
+        if (obj != null) {
+            sVar2 = this.a.B;
+            switch (sVar2.getLoadDataMode()) {
+                case 0:
+                    bbVar = this.a.w;
+                    bbVar.w();
+                    this.a.a((com.baidu.tieba.model.u) obj);
+                    return;
+                case 1:
+                    this.a.a((com.baidu.tieba.model.w) obj);
+                    return;
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                    NewPbActivity newPbActivity = this.a;
+                    sVar3 = this.a.B;
+                    newPbActivity.a(sVar3.getLoadDataMode(), (com.baidu.tieba.model.y) obj);
+                    return;
+                case 6:
+                    this.a.a((com.baidu.tieba.model.y) obj);
+                    return;
+                default:
+                    return;
             }
         }
-        if (i == 2 || i == 1) {
-            crVar = this.a.A;
-            crVar.Z();
-        }
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        cuVar = this.a.C;
+        sVar = this.a.B;
+        cuVar.a(sVar.getLoadDataMode(), false, (String) null, false);
     }
 }

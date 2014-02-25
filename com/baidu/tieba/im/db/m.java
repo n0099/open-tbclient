@@ -1,22 +1,24 @@
 package com.baidu.tieba.im.db;
 
-import com.baidu.tieba.im.SingleRunnable;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import java.util.Iterator;
+import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m extends SingleRunnable<Integer> {
-    final /* synthetic */ String a;
-    final /* synthetic */ l b;
+public class m implements e {
+    final /* synthetic */ l a;
+    private final /* synthetic */ Set b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(l lVar, String str) {
-        this.b = lVar;
-        this.a = str;
+    public m(l lVar, Set set) {
+        this.a = lVar;
+        this.b = set;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.SingleRunnable
-    /* renamed from: a */
-    public Integer b() {
-        return Integer.valueOf(this.b.b(this.a));
+    @Override // com.baidu.tieba.im.db.e
+    public void a(Iterator<ImMessageCenterPojo> it) {
+        while (it.hasNext()) {
+            this.b.add(it.next().getGid());
+        }
     }
 }

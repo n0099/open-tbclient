@@ -3,6 +3,7 @@ package com.baidu.android.nebula.a;
 import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.Map;
+import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public class d {
     private int a;
@@ -23,7 +24,7 @@ public class d {
         if (str == null) {
             return;
         }
-        String[] split = str.split("\r\n");
+        String[] split = str.split(IOUtils.LINE_SEPARATOR_WINDOWS);
         if (split.length >= 2) {
             String[] split2 = split[0].split(" ");
             if (split2.length >= 2) {
@@ -75,7 +76,7 @@ public class d {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         for (Map.Entry entry : this.b.entrySet()) {
-            sb.append(((String) entry.getKey()) + " : " + ((String) entry.getValue()) + "\n");
+            sb.append(((String) entry.getKey()) + " : " + ((String) entry.getValue()) + IOUtils.LINE_SEPARATOR_UNIX);
         }
         if (this.d != null) {
             sb.append(new String(this.d));

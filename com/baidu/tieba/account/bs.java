@@ -1,8 +1,9 @@
 package com.baidu.tieba.account;
 
-import com.baidu.sapi2.SapiWebView;
+import com.baidu.tieba.data.AccountData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bs implements SapiWebView.OnFinishCallback {
+public class bs implements ad {
     final /* synthetic */ SapiFastRegActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,8 +11,14 @@ class bs implements SapiWebView.OnFinishCallback {
         this.a = sapiFastRegActivity;
     }
 
-    @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
-    public void onFinish() {
-        this.a.finish();
+    @Override // com.baidu.tieba.account.ad
+    public void a(AccountData accountData) {
+        az azVar;
+        o a = a.a(accountData.getBDUSS());
+        String account = accountData.getAccount();
+        String str = a.a;
+        String str2 = a.b;
+        azVar = this.a.d;
+        ay.a(account, str, str2, azVar, true);
     }
 }

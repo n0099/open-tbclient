@@ -1,24 +1,35 @@
 package com.baidu.tieba.im.friend;
 
 import android.view.View;
-import android.widget.TextView;
+import com.baidu.tieba.util.cj;
 import com.baidu.tieba.view.HeadImageView;
-import com.baidu.tieba.view.TbCheckBox;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class r {
-    public View a;
-    public HeadImageView b;
-    public TextView c;
-    public TbCheckBox d;
-    final /* synthetic */ o e;
-
-    private r(o oVar) {
-        this.e = oVar;
-    }
+class r implements cj {
+    final /* synthetic */ q a;
+    private final /* synthetic */ String b;
+    private final /* synthetic */ com.baidu.adp.widget.ImageView.b c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ r(o oVar, p pVar) {
-        this(oVar);
+    public r(q qVar, String str, com.baidu.adp.widget.ImageView.b bVar) {
+        this.a = qVar;
+        this.b = str;
+        this.c = bVar;
+    }
+
+    @Override // com.baidu.tieba.util.cj
+    public boolean a(View view) {
+        if (view instanceof HeadImageView) {
+            HeadImageView headImageView = (HeadImageView) view;
+            if (this.b.equals(headImageView.getTag())) {
+                if (this.c != null) {
+                    headImageView.setImageBitmap(this.c.h());
+                } else {
+                    headImageView.setImageBitmap(com.baidu.tieba.util.n.a((int) R.drawable.photo));
+                }
+                headImageView.invalidate();
+            }
+        }
+        return false;
     }
 }

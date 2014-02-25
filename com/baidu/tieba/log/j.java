@@ -1,7 +1,7 @@
 package com.baidu.tieba.log;
 
 import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.util.q;
+import com.baidu.tieba.util.s;
 /* loaded from: classes.dex */
 public class j {
     private static LoggerItem a = new LoggerItem(h.c);
@@ -13,7 +13,7 @@ public class j {
                 loggerItem = null;
             } else {
                 a.clear();
-                a.put("client_ip", g.b(q.a()));
+                a.put("client_ip", g.b(s.a()));
                 a.put(SocialConstants.PARAM_URL, g.b(str));
                 a.put("downloadTime", g.b(str2));
                 a.put("dataSize", g.b(str3));

@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.validate;
 
 import android.view.View;
-import android.widget.Button;
+import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements View.OnClickListener {
@@ -15,11 +15,11 @@ public class h implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         ValidateActivity validateActivity;
-        Button button;
+        TextView textView;
         ValidateItemData validateItemData;
         validateActivity = this.a.i;
-        button = this.a.h;
+        textView = this.a.h;
         validateItemData = this.a.j;
-        validateActivity.a(button, 100, 0, 0L, validateItemData);
+        validateActivity.a(textView, 100, 0, 0L, validateItemData);
     }
 }

@@ -1,4 +1,6 @@
 package com.google.zxing;
+
+import android.support.v4.view.MotionEventCompat;
 /* loaded from: classes.dex */
 public final class RGBLuminanceSource extends LuminanceSource {
     private final int dataHeight;
@@ -18,9 +20,9 @@ public final class RGBLuminanceSource extends LuminanceSource {
             int i4 = i3 * i;
             for (int i5 = 0; i5 < i; i5++) {
                 int i6 = iArr[i4 + i5];
-                int i7 = (i6 >> 16) & 255;
-                int i8 = (i6 >> 8) & 255;
-                int i9 = i6 & 255;
+                int i7 = (i6 >> 16) & MotionEventCompat.ACTION_MASK;
+                int i8 = (i6 >> 8) & MotionEventCompat.ACTION_MASK;
+                int i9 = i6 & MotionEventCompat.ACTION_MASK;
                 if (i7 == i8 && i8 == i9) {
                     this.luminances[i4 + i5] = (byte) i7;
                 } else {

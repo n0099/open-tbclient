@@ -14,7 +14,7 @@ class s {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ s(h hVar, i iVar) {
+    public /* synthetic */ s(h hVar, s sVar) {
         this(hVar);
     }
 }

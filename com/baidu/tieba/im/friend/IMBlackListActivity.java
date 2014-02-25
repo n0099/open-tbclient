@@ -6,12 +6,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import com.baidu.tieba.im.message.bd;
-import com.baidu.tieba.im.message.bq;
-import com.baidu.tieba.im.message.co;
+import com.baidu.tieba.im.message.bj;
+import com.baidu.tieba.im.message.bz;
+import com.baidu.tieba.im.message.cx;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class IMBlackListActivity extends com.baidu.tieba.j implements com.baidu.tieba.im.messageCenter.g {
+public class IMBlackListActivity extends com.baidu.tieba.f implements com.baidu.tieba.im.messageCenter.g {
     private com.baidu.tieba.im.model.b a;
     private f b;
     private com.baidu.tieba.im.data.a c;
@@ -35,7 +35,7 @@ public class IMBlackListActivity extends com.baidu.tieba.j implements com.baidu.
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         com.baidu.tieba.im.messageCenter.e.a().a(104103, this);
@@ -51,20 +51,20 @@ public class IMBlackListActivity extends com.baidu.tieba.j implements com.baidu.
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         com.baidu.tieba.im.messageCenter.e.a().a(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, android.app.Activity
     public void onResume() {
         super.onResume();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
+    @Override // com.baidu.tieba.f, android.app.Activity
     public void onStop() {
         super.onStop();
         if (this.a != null) {
@@ -73,27 +73,27 @@ public class IMBlackListActivity extends com.baidu.tieba.j implements com.baidu.
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j
+    @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.q qVar) {
-        co coVar;
-        com.baidu.tieba.im.message.q n;
+    public void a(com.baidu.tieba.im.message.s sVar) {
+        cx cxVar;
+        com.baidu.tieba.im.message.s o;
         this.b.e();
         closeLoadingDialog();
-        if (qVar != null) {
-            if (qVar.w() == 104103 && (qVar instanceof bq)) {
-                bq bqVar = (bq) qVar;
-                if (bqVar.k()) {
-                    showToast(bqVar.m());
+        if (sVar != null) {
+            if (sVar.w() == 104103 && (sVar instanceof bz)) {
+                bz bzVar = (bz) sVar;
+                if (bzVar.l()) {
+                    showToast(bzVar.n());
                 } else {
-                    this.b.a(bqVar.b());
+                    this.b.a(bzVar.b());
                 }
-            } else if (qVar.w() == 104102 && (qVar instanceof co) && (n = (coVar = (co) qVar).n()) != null && (n instanceof bd) && ((bd) n).b() == 10) {
-                if (coVar.k()) {
-                    showToast(coVar.m());
+            } else if (sVar.w() == 104102 && (sVar instanceof cx) && (o = (cxVar = (cx) sVar).o()) != null && (o instanceof bj) && ((bj) o).b() == 10) {
+                if (cxVar.l()) {
+                    showToast(cxVar.n());
                     return;
                 }
                 showToast(getString(R.string.black_list_remove_success));

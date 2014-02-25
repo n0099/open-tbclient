@@ -1,19 +1,13 @@
 package com.baidu.tieba;
-
-import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aw implements View.OnClickListener {
-    final /* synthetic */ au a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public aw(au auVar) {
-        this.a = auVar;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ax axVar;
-        axVar = this.a.h;
-        axVar.a();
+public class aw extends com.baidu.tieba.im.c<Integer> {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.c
+    /* renamed from: a */
+    public Integer b() {
+        com.baidu.tieba.im.chat.q.a = com.baidu.tieba.im.db.q.a().b();
+        com.baidu.tieba.im.db.a.a().b();
+        return 0;
     }
 }

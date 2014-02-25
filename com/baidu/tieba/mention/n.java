@@ -1,41 +1,33 @@
 package com.baidu.tieba.mention;
 
-import android.os.Handler;
-import android.widget.AbsListView;
+import android.widget.ImageView;
 import com.baidu.adp.widget.ListView.BdListView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n implements AbsListView.OnScrollListener {
-    final /* synthetic */ j a;
+class n implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ m a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(j jVar) {
-        this.a = jVar;
+    public n(m mVar) {
+        this.a = mVar;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        Handler handler;
-        Runnable runnable;
-        Handler handler2;
-        Runnable runnable2;
+    @Override // com.baidu.tbadk.imageManager.d
+    public void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        l lVar;
         BdListView bdListView;
+        l lVar2;
         BdListView bdListView2;
-        handler = this.a.p;
-        runnable = this.a.q;
-        handler.removeCallbacks(runnable);
-        handler2 = this.a.p;
-        runnable2 = this.a.q;
-        handler2.postDelayed(runnable2, 300L);
-        bdListView = this.a.e;
-        if (bdListView.getAdapter() != null) {
-            bdListView2 = this.a.e;
-            if (i2 < bdListView2.getAdapter().getCount()) {
+        lVar = this.a.a;
+        bdListView = lVar.e;
+        ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
+        while (imageView != null) {
+            imageView.setTag(null);
+            if (imageView != null && bVar != null) {
+                bVar.a(imageView);
             }
+            lVar2 = this.a.a;
+            bdListView2 = lVar2.e;
+            imageView = (ImageView) bdListView2.findViewWithTag(str);
         }
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
     }
 }

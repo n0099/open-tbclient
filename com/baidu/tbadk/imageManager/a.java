@@ -1,13 +1,7 @@
 package com.baidu.tbadk.imageManager;
 
-import android.content.Context;
+import android.text.style.ImageSpan;
 /* loaded from: classes.dex */
 public interface a {
-    int a(String str);
-
-    b a(Context context, String str);
-
-    int b(String str);
-
-    String c(String str);
+    ImageSpan a(String str);
 }

@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.widget.ImageView;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class a extends ImageView {
@@ -30,8 +31,8 @@ public class a extends ImageView {
     @Override // android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        this.c = (i3 - i) - com.baidu.adp.lib.g.g.a(getContext(), 5.0f);
-        this.d = (i4 - i2) - com.baidu.adp.lib.g.g.a(getContext(), 5.0f);
+        this.c = (i3 - i) - BdUtilHelper.a(getContext(), 5.0f);
+        this.d = (i4 - i2) - BdUtilHelper.a(getContext(), 5.0f);
     }
 
     private Bitmap getSelectIcon() {

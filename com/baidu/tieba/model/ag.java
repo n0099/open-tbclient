@@ -1,69 +1,97 @@
 package com.baidu.tieba.model;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.chat.ImMessageCenterShowItemData;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes.dex */
-public class ag extends BdAsyncTask<String, Integer, String> {
-    final /* synthetic */ ad a;
-    private com.baidu.tieba.util.ax b;
-    private String c;
-    private String d;
-    private String e;
-    private String f;
-    private String g;
+public class ag extends com.baidu.adp.a.d {
+    private final List<ImMessageCenterShowItemData> a = new LinkedList();
+    private final List<ImMessageCenterShowItemData> b = new LinkedList();
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public String a(String... strArr) {
-        this.b = new com.baidu.tieba.util.ax(strArr[0]);
-        this.b.a("day", this.g);
-        this.b.a("un", this.f);
-        this.b.a("fid", this.c);
-        this.b.a("word", this.d);
-        this.b.a("z", this.e);
-        this.b.a("ntn", "banid");
-        this.b.e(true);
-        this.b.m();
-        if (this.b.d()) {
-            return null;
-        }
-        return this.b.j();
+    @Override // com.baidu.adp.a.d
+    protected boolean LoadData() {
+        return false;
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        com.baidu.adp.a.g gVar;
+    @Override // com.baidu.adp.a.d
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    public void a(ImMessageCenterShowItemData imMessageCenterShowItemData, com.baidu.tieba.im.a<Void> aVar) {
+        if (imMessageCenterShowItemData != null && imMessageCenterShowItemData.getOwnerName() != null) {
+            if (imMessageCenterShowItemData.getOwnerName().equals(String.valueOf(2))) {
+                com.baidu.tieba.sharedPref.b.a().b("is_show_validate", false);
+                a(TiebaApplication.A(), String.valueOf(2), aVar, false);
+            } else if (imMessageCenterShowItemData.getOwnerName().equals(String.valueOf(3))) {
+                com.baidu.tieba.sharedPref.b.a().b("is_show_updates", false);
+                a(TiebaApplication.A(), String.valueOf(3), aVar, false);
+            } else if (imMessageCenterShowItemData.getOwnerName().equals(String.valueOf(1))) {
+                a(TiebaApplication.A(), imMessageCenterShowItemData.getFriendId(), aVar, false);
+            } else if (imMessageCenterShowItemData.getOwnerName().equals(String.valueOf(4))) {
+                a(TiebaApplication.A(), imMessageCenterShowItemData.getFriendId(), aVar, true);
+            }
+        }
+    }
+
+    private void a(String str, String str2, com.baidu.tieba.im.a<Void> aVar, boolean z) {
+        ImMessageCenterPojo a = com.baidu.tieba.im.db.h.a().d().a(str2);
+        if (a != null) {
+            a.setIs_hidden(1);
+        }
+        com.baidu.tieba.im.j.a(new ah(this, z, str2), new ai(this, str2, aVar));
+    }
+
+    public List<ImMessageCenterShowItemData> a() {
+        return this.a;
+    }
+
+    public void b() {
+        this.a.clear();
+        this.b.clear();
+    }
+
+    public static void a(String str) {
+        com.baidu.tieba.im.c.a.f().b(false, null);
+    }
+
+    public void a(com.baidu.tieba.im.a<Void> aVar) {
+        com.baidu.tieba.im.c.a.f().b(false, new aj(this, aVar));
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public synchronized void c() {
+        this.a.clear();
         if (this.b != null) {
-            this.b.k();
+            this.a.addAll(this.b);
         }
-        this.a.b = null;
-        super.cancel(true);
-        gVar = this.a.mLoadDataCallBack;
-        gVar.a(null);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(String str) {
-        com.baidu.adp.a.g gVar;
-        com.baidu.adp.a.g gVar2;
-        super.a((ag) str);
-        this.a.b = null;
-        if (this.b == null) {
-            gVar2 = this.a.mLoadDataCallBack;
-            gVar2.a(null);
-            return;
+        if (com.baidu.tieba.im.c.a.f().m()) {
+            ImMessageCenterShowItemData j = com.baidu.tieba.im.c.a.f().j();
+            if (j != null) {
+                this.a.add(j);
+            } else {
+                com.baidu.tieba.im.c.a.e();
+                ImMessageCenterShowItemData j2 = com.baidu.tieba.im.c.a.f().j();
+                if (j2 != null) {
+                    this.a.add(j2);
+                }
+            }
         }
-        ah ahVar = new ah(this.a);
-        if (str == null) {
-            ahVar.a = true;
-        } else {
-            ahVar.a = false;
-            ahVar.b = str;
+        if (com.baidu.tieba.im.c.a.f().n()) {
+            ImMessageCenterShowItemData l = com.baidu.tieba.im.c.a.f().l();
+            if (l != null) {
+                this.a.add(l);
+            } else {
+                com.baidu.tieba.im.c.a.a((String) null, false);
+                ImMessageCenterShowItemData l2 = com.baidu.tieba.im.c.a.f().l();
+                if (l2 != null) {
+                    this.a.add(l2);
+                }
+            }
         }
-        gVar = this.a.mLoadDataCallBack;
-        gVar.a(ahVar);
+        Collections.sort(this.a, new ak(this));
     }
 }

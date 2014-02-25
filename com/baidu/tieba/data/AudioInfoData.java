@@ -16,7 +16,7 @@ public class AudioInfoData extends b implements Serializable {
             try {
                 parserJson(new JSONObject(str));
             } catch (Exception e) {
-                com.baidu.adp.lib.g.e.b("InfoData", "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.util.f.b("InfoData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
@@ -36,7 +36,7 @@ public class AudioInfoData extends b implements Serializable {
                     this.voiceId = optJSONObject2.optString("voice_md5", null);
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.g.e.b("InfoData", "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.util.f.b("InfoData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

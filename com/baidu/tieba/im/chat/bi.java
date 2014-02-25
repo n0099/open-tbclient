@@ -1,35 +1,21 @@
 package com.baidu.tieba.im.chat;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.text.method.LinkMovementMethod;
-import android.widget.TextView;
-import com.slidingmenu.lib.R;
+import android.view.View;
 /* loaded from: classes.dex */
-public class bi extends com.baidu.adp.a.c<com.baidu.tieba.im.message.b> {
-    private TextView c;
+class bi implements View.OnClickListener {
+    final /* synthetic */ MsgActivityView a;
+    private final /* synthetic */ String b;
+    private final /* synthetic */ String c;
 
-    public bi(Context context) {
-        super(context, R.layout.msg_msgmid_view);
-        this.c = null;
-        e();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bi(MsgActivityView msgActivityView, String str, String str2) {
+        this.a = msgActivityView;
+        this.b = str;
+        this.c = str2;
     }
 
-    private void e() {
-        this.c = (TextView) a(R.id.tex_msgcontent);
-        this.c.setMovementMethod(LinkMovementMethod.getInstance());
-    }
-
-    public void a(com.baidu.tieba.im.message.b bVar) {
-        if (bVar == null) {
-            this.c.setText("");
-            return;
-        }
-        String g = com.baidu.tieba.im.d.d.g(bVar);
-        if (!TextUtils.isEmpty(g)) {
-            this.c.setText(g);
-        } else {
-            this.c.setText("");
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tieba.person.cm.a(this.a.b(), this.b, this.c);
     }
 }

@@ -37,6 +37,10 @@ public class b extends BaseAdapter implements View.OnFocusChangeListener, View.O
     private static void a() {
         if (b == null) {
             Properties properties = SwitchDebugService.a;
+            if (properties == null) {
+                com.baidu.adp.lib.util.f.c("File of config is null!");
+                return;
+            }
             synchronized (b.class) {
                 if (b == null) {
                     b = new Vector<>();
@@ -124,7 +128,6 @@ public class b extends BaseAdapter implements View.OnFocusChangeListener, View.O
         }
     }
 
-    /* JADX WARN: Type inference failed for: r0v0, types: [android.widget.Adapter] */
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         Object item = adapterView.getAdapter().getItem(i);
@@ -151,7 +154,7 @@ public class b extends BaseAdapter implements View.OnFocusChangeListener, View.O
                     cls.getMethod(d, String.class).invoke(cls, charSequence);
                     z = true;
                 } catch (Exception e) {
-                    com.baidu.adp.lib.g.e.a(e.getMessage());
+                    com.baidu.adp.lib.util.f.b(e.getMessage());
                     z = false;
                 }
                 if (z) {

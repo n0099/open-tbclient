@@ -1,25 +1,17 @@
 package com.baidu.tieba.pb;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-public class eh implements Runnable {
-    final /* synthetic */ int a;
-    final /* synthetic */ View b;
-    final /* synthetic */ eb c;
+class eh implements DialogInterface.OnClickListener {
+    final /* synthetic */ ee a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public eh(eb ebVar, int i, View view) {
-        this.c = ebVar;
-        this.a = i;
-        this.b = view;
+    public eh(ee eeVar) {
+        this.a = eeVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        int[] iArr = new int[2];
-        this.c.L.getLocationInWindow(iArr);
-        this.c.c.setSelectionFromTop(this.a + 1, iArr[1] - this.b.getHeight());
-        this.c.c.invalidate();
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        dialogInterface.dismiss();
     }
 }

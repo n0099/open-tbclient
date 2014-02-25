@@ -1,50 +1,51 @@
 package com.baidu.tieba.faceshop;
-
-import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class s extends com.baidu.tieba.m {
-    final /* synthetic */ FacePackageDetailActivity b;
+public class s extends com.baidu.adp.a.g {
+    final /* synthetic */ FacePackageDetailActivity a;
+    private final /* synthetic */ com.baidu.tieba.d.a b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s(FacePackageDetailActivity facePackageDetailActivity) {
-        super(facePackageDetailActivity);
-        this.b = facePackageDetailActivity;
+    public s(FacePackageDetailActivity facePackageDetailActivity, com.baidu.tieba.d.a aVar) {
+        this.a = facePackageDetailActivity;
+        this.b = aVar;
     }
 
-    @Override // com.baidu.tieba.m
-    public void a(Object... objArr) {
-        z zVar;
-        z zVar2;
-        w wVar;
-        this.b.hideProgressBar();
-        Object obj = objArr[0];
-        Boolean bool = (Boolean) objArr[1];
-        if (obj != null && (obj instanceof FacePackageDetailData)) {
-            zVar = this.b.b;
-            if (zVar != null) {
-                FacePackageDetailData facePackageDetailData = (FacePackageDetailData) obj;
-                if (facePackageDetailData.errno == 0 && facePackageDetailData.usermsg != null) {
-                    zVar2 = this.b.b;
-                    wVar = this.b.a;
-                    zVar2.a(wVar);
-                    if (!bool.booleanValue()) {
-                        this.b.e = true;
-                        return;
-                    } else {
-                        this.b.showProgressBar();
+    @Override // com.baidu.adp.a.g
+    public void a(Object obj) {
+        v vVar;
+        v vVar2;
+        v vVar3;
+        v vVar4;
+        v vVar5;
+        if (obj != null && (obj instanceof FacePackageDownloadData)) {
+            FacePackageDownloadData facePackageDownloadData = (FacePackageDownloadData) obj;
+            if (facePackageDownloadData.errno == 0 && facePackageDownloadData.usermsg != null) {
+                String str = facePackageDownloadData.packUrl;
+                vVar = this.a.a;
+                vVar.a(str);
+                vVar2 = this.a.a;
+                if (vVar2.a() != null) {
+                    vVar3 = this.a.a;
+                    if (vVar3.a().facePackage != null) {
+                        FacePackageDetailActivity facePackageDetailActivity = this.a;
+                        vVar4 = this.a.a;
+                        String e = vVar4.e();
+                        vVar5 = this.a.a;
+                        facePackageDetailActivity.a(e, vVar5.a().facePackage.pname, str);
                         return;
                     }
-                } else if (facePackageDetailData.usermsg != null) {
-                    this.b.showToast(facePackageDetailData.usermsg);
-                    return;
-                } else {
-                    this.b.showToast(R.string.neterror);
                     return;
                 }
+                return;
+            } else if (facePackageDownloadData.usermsg != null) {
+                this.a.showToast(facePackageDownloadData.usermsg);
+                return;
+            } else {
+                com.baidu.tieba.d.d.a().a(this.b);
+                return;
             }
-            return;
         }
-        this.b.showToast(R.string.neterror);
+        com.baidu.tieba.d.d.a().a(this.b);
     }
 }

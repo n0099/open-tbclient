@@ -1,50 +1,83 @@
 package com.baidu.tieba.more;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.view.View;
+import android.widget.RelativeLayout;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.chat.RecentChatFriendData;
-import com.baidu.tieba.im.net.TiebaSocketLinkService;
-import com.baidu.tieba.model.MoreModel;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.util.bq;
+import com.baidu.tieba.view.NavigationBar;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class ay extends BdAsyncTask<String, Integer, String> {
-    final /* synthetic */ av a;
+public class ay extends com.baidu.adp.a.e {
+    private SystemHelpSettingActivity a;
+    private RelativeLayout c;
+    private SettingTextSwitchView d;
+    private SettingTextSwitchView e;
+    private SettingTextTipView f;
+    private SettingTextTipView g;
+    private NavigationBar h;
 
-    private ay(av avVar) {
-        this.a = avVar;
+    public ay(SystemHelpSettingActivity systemHelpSettingActivity) {
+        super(systemHelpSettingActivity);
+        this.a = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.g = null;
+        this.a = systemHelpSettingActivity;
+        this.a.setContentView(R.layout.system_help_activity);
+        this.h = (NavigationBar) this.a.findViewById(R.id.view_navigation_bar);
+        this.h.a(this.a.getString(R.string.systemhelpsetting));
+        this.h.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.d = (SettingTextSwitchView) this.a.findViewById(R.id.sv_shared_location);
+        this.d.setSwitchStateChangeListener(this.a);
+        this.e = (SettingTextSwitchView) this.a.findViewById(R.id.sv_earphone);
+        this.f = (SettingTextTipView) this.a.findViewById(R.id.clear_cache);
+        this.f.e();
+        this.f.setOnClickListener(this.a);
+        this.g = (SettingTextTipView) this.a.findViewById(R.id.clear_im);
+        this.g.e();
+        this.g.setOnClickListener(this.a);
+        this.e.setSwitchStateChangeListener(this.a);
+        this.c = (RelativeLayout) this.a.findViewById(R.id.parent);
+        if (TiebaApplication.B()) {
+            this.g.setVisibility(0);
+        } else {
+            this.g.setVisibility(8);
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(String str) {
-        com.baidu.adp.a.g gVar;
-        com.baidu.adp.a.g gVar2;
-        super.a((ay) str);
-        this.a.b = null;
-        gVar = this.a.mLoadDataCallBack;
-        if (gVar != null) {
-            gVar2 = this.a.mLoadDataCallBack;
-            gVar2.a(MoreModel.TaskType.DO_CLEAR);
-        }
-        com.baidu.tieba.im.db.ae.a().c();
-        com.baidu.tieba.im.c.a.h().f();
-        com.baidu.tieba.im.c.a.h().b((RecentChatFriendData) null);
-        com.baidu.tieba.im.c.a.h().c((RecentChatFriendData) null);
-        com.baidu.tieba.im.c.a.h().b(false, (com.baidu.tieba.im.a<Void>) null);
-        TiebaSocketLinkService.a(true, "clear cache");
+    public BdSwitchView a() {
+        return this.d.getSwitchView();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public String a(String... strArr) {
-        String A = TiebaApplication.A();
-        if (!TextUtils.isEmpty(A)) {
-            com.baidu.tieba.im.db.s.a(A);
-            return null;
+    public BdSwitchView e() {
+        return this.e.getSwitchView();
+    }
+
+    public SettingTextTipView f() {
+        return this.f;
+    }
+
+    public SettingTextTipView g() {
+        return this.g;
+    }
+
+    public void a(int i) {
+        this.h.c(i);
+        this.e.a(i);
+        this.d.a(i);
+        if (i == 1) {
+            bq.e(this.e, (int) R.drawable.more_all_1);
+            bq.e(this.f, (int) R.drawable.more_all_1);
+        } else {
+            bq.e(this.e, (int) R.drawable.more_all);
+            bq.e(this.f, (int) R.drawable.more_all);
         }
-        return null;
+        this.f.a(i);
+        this.g.a(i);
+        this.a.getLayoutMode().a(i == 1);
+        this.a.getLayoutMode().a((View) this.c);
     }
 }
