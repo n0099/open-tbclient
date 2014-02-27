@@ -65,26 +65,26 @@ public final class ViewfinderView extends View {
         this.q = resources.getDimensionPixelSize(R.dimen.bar_code_tip_text);
     }
 
-    public void setCameraManager(com.baidu.tieba.barcode.a.e eVar) {
+    public final void setCameraManager(com.baidu.tieba.barcode.a.e eVar) {
         this.b = eVar;
         this.r.removeMessages(1);
         this.r.sendMessage(this.r.obtainMessage(1));
     }
 
-    public void a() {
+    public final void a() {
         this.p = 0;
         this.v = true;
         this.r.removeMessages(1);
     }
 
-    public void b() {
+    public final void b() {
         this.v = false;
         this.r.removeMessages(1);
         this.r.sendMessage(this.r.obtainMessage(1));
     }
 
     @Override // android.view.View
-    public void onDraw(Canvas canvas) {
+    public final void onDraw(Canvas canvas) {
         Rect e;
         if (this.b != null && (e = this.b.e()) != null) {
             int width = canvas.getWidth();
@@ -151,7 +151,7 @@ public final class ViewfinderView extends View {
         }
     }
 
-    public void c() {
+    public final void c() {
         Bitmap bitmap = this.d;
         this.d = null;
         if (bitmap != null) {
@@ -160,7 +160,7 @@ public final class ViewfinderView extends View {
         invalidate();
     }
 
-    public void a(ResultPoint resultPoint) {
+    public final void a(ResultPoint resultPoint) {
         List<ResultPoint> list = this.k;
         synchronized (list) {
             list.add(resultPoint);
@@ -171,11 +171,11 @@ public final class ViewfinderView extends View {
         }
     }
 
-    public void d() {
+    public final void d() {
         this.r.removeMessages(1);
     }
 
-    public void e() {
+    public final void e() {
         if (this.m != null && !this.m.isRecycled()) {
             this.m.recycle();
             this.m = null;

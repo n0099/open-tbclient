@@ -36,15 +36,15 @@ public abstract class d {
 
     public abstract void a(boolean z);
 
+    public abstract ArrayList<String> b();
+
     public abstract void b(String str);
 
     public abstract void b(boolean z);
 
-    public abstract ArrayList<String> c();
+    public abstract String c();
 
-    public abstract String d();
-
-    public abstract boolean e();
+    public abstract boolean d();
 
     public d(Context context, Handler handler, String str) {
         this.p = 0L;
@@ -53,52 +53,52 @@ public abstract class d {
         this.j = handler;
         this.k = str;
         this.p = System.currentTimeMillis();
-        com.baidu.adp.lib.util.c.f(this.k);
+        com.baidu.adp.lib.util.b.d(this.k);
         if (TextUtils.isEmpty(g)) {
-            g = b();
+            g = e();
         }
         this.h = new StringBuffer();
     }
 
-    public void c(boolean z) {
+    public final void c(boolean z) {
         this.f = z;
         if (z && this.b) {
             b(true);
         }
     }
 
-    public String g() {
+    public final String f() {
         return this.l;
     }
 
-    public long h() {
+    public final long g() {
         return this.n;
     }
 
-    public void a(long j) {
+    public final void a(long j) {
         this.n = j;
     }
 
-    public boolean i() {
+    public final boolean h() {
         return this.m;
     }
 
-    public void d(boolean z) {
+    public final void d(boolean z) {
         this.m = z;
     }
 
-    public boolean j() {
+    public final boolean i() {
         return this.a;
     }
 
-    public void a(p pVar) {
+    public final void a(p pVar) {
         if (pVar != null) {
             try {
                 this.h.append(pVar.toString());
                 this.h.append(IOUtils.LINE_SEPARATOR_WINDOWS);
                 this.i++;
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.a(getClass(), "add", e);
+                com.baidu.adp.lib.util.e.a(getClass(), "add", e);
             }
         }
         if (System.currentTimeMillis() - this.p > 60000) {
@@ -109,11 +109,11 @@ public abstract class d {
         this.p = System.currentTimeMillis();
     }
 
-    public boolean k() {
+    public final boolean j() {
         return this.i > 0 && (this.c || this.i >= 10);
     }
 
-    public void a(BdStatFirstSwitchData bdStatFirstSwitchData) {
+    public final void a(BdStatFirstSwitchData bdStatFirstSwitchData) {
         if (bdStatFirstSwitchData != null) {
             this.o = bdStatFirstSwitchData;
             BdStatCommonSwitchData common = this.o.getCommon();
@@ -125,7 +125,7 @@ public abstract class d {
         }
     }
 
-    public boolean c(String str) {
+    public final boolean c(String str) {
         if (TextUtils.isEmpty(str) || this.o == null || this.o.getChildren() == null) {
             return true;
         }
@@ -143,7 +143,7 @@ public abstract class d {
         return arrayList;
     }
 
-    public ArrayList<String> l() {
+    public final ArrayList<String> k() {
         if (this.h != null && this.h.length() > 0) {
             ArrayList<String> arrayList = new ArrayList<>();
             String[] split = this.h.toString().split(IOUtils.LINE_SEPARATOR_WINDOWS);
@@ -158,12 +158,12 @@ public abstract class d {
         return null;
     }
 
-    public void m() {
+    public final void l() {
         this.h = new StringBuffer(this.h.length());
         this.i = 0;
     }
 
-    private String b() {
+    private String e() {
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
         if (this.q == null) {
             return null;
@@ -187,7 +187,7 @@ public abstract class d {
                             }
                             return a;
                         } catch (UnsupportedEncodingException e) {
-                            com.baidu.adp.lib.util.f.a(getClass(), "getProcessName", e);
+                            com.baidu.adp.lib.util.e.a(getClass(), "getProcessName", e);
                             return str;
                         }
                     }

@@ -10,7 +10,7 @@ import com.baidu.tieba.view.BaseViewPager;
 import com.slidingmenu.lib.R;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class ac implements ViewPager.OnPageChangeListener {
+public final class ac implements ViewPager.OnPageChangeListener {
     final /* synthetic */ ImagePbActivity a;
 
     public ac(ImagePbActivity imagePbActivity) {
@@ -18,15 +18,15 @@ public class ac implements ViewPager.OnPageChangeListener {
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrollStateChanged(int i) {
+    public final void onPageScrollStateChanged(int i) {
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrolled(int i, float f, int i2) {
+    public final void onPageScrolled(int i, float f, int i2) {
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageSelected(int i) {
+    public final void onPageSelected(int i) {
         int i2;
         ImageView imageView;
         ImageView imageView2;
@@ -79,7 +79,7 @@ public class ac implements ViewPager.OnPageChangeListener {
                     linearLayout2 = this.a.r;
                     linearLayout2.setVisibility(8);
                     baseViewPager2 = this.a.y;
-                    com.baidu.tieba.util.bq.a(baseViewPager2, TiebaApplication.g().al());
+                    com.baidu.tieba.util.bq.a(baseViewPager2, TiebaApplication.g().ae());
                     return;
                 }
                 baseViewPager = this.a.y;
@@ -106,7 +106,7 @@ public class ac implements ViewPager.OnPageChangeListener {
                             i5 = this.a.J;
                             imagePbActivity2.L = h.get(i5).d();
                             i6 = this.a.J;
-                            if (h.get(i6).i().equals(TiebaApplication.A())) {
+                            if (h.get(i6).i().equals(TiebaApplication.v())) {
                                 imageView3 = this.a.d;
                                 imageView3.setVisibility(0);
                                 imageView4 = this.a.d;

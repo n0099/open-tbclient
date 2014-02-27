@@ -6,7 +6,7 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class z {
+public final class z {
     BdListView a;
     TextView b;
     ProgressBar c;

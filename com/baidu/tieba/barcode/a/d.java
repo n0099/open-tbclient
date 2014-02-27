@@ -3,7 +3,7 @@ package com.baidu.tieba.barcode.a;
 import android.hardware.Camera;
 import java.util.Comparator;
 /* loaded from: classes.dex */
-class d implements Comparator<Camera.Size> {
+final class d implements Comparator<Camera.Size> {
     final /* synthetic */ c a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,18 +11,16 @@ class d implements Comparator<Camera.Size> {
         this.a = cVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
     @Override // java.util.Comparator
-    /* renamed from: a */
-    public int compare(Camera.Size size, Camera.Size size2) {
-        int i = size.height * size.width;
-        int i2 = size2.height * size2.width;
+    public final /* bridge */ /* synthetic */ int compare(Camera.Size size, Camera.Size size2) {
+        Camera.Size size3 = size;
+        Camera.Size size4 = size2;
+        int i = size3.height * size3.width;
+        int i2 = size4.height * size4.width;
         if (i2 < i) {
             return -1;
         }
-        if (i2 > i) {
-            return 1;
-        }
-        return 0;
+        return i2 > i ? 1 : 0;
     }
 }

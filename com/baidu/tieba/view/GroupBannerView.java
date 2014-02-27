@@ -49,7 +49,7 @@ public class GroupBannerView extends RelativeLayout {
         a(context);
     }
 
-    public void a(Context context) {
+    private void a(Context context) {
         this.c = context;
         ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.group_bannerview, this);
         this.b = (Button) findViewById(R.id.btn_close);
@@ -57,7 +57,7 @@ public class GroupBannerView extends RelativeLayout {
         setOnClickListener(this.a);
     }
 
-    public void a(String str, String str2) {
+    public final void a(String str, String str2) {
         this.g = str2;
         if (this.e) {
             setVisibility(8);
@@ -76,7 +76,7 @@ public class GroupBannerView extends RelativeLayout {
         if (this.d == null) {
             this.d = new com.baidu.tieba.util.i(this.c);
             this.d.a(720, 100);
-            this.d.d(true);
+            this.d.a(true);
         }
         this.d.b(str, new ba(this));
     }

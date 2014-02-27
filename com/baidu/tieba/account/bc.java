@@ -3,7 +3,7 @@ package com.baidu.tieba.account;
 import android.view.View;
 import android.widget.Button;
 /* loaded from: classes.dex */
-class bc implements View.OnClickListener {
+final class bc implements View.OnClickListener {
     final /* synthetic */ ReLoginShareActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ class bc implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         Button button;
         Button button2;
         String str;
@@ -22,13 +22,13 @@ class bc implements View.OnClickListener {
             if (view != button2) {
                 return;
             }
-            this.a.d();
+            this.a.a();
             return;
         }
         this.a.j = true;
         m a = m.a();
         str = this.a.f;
         a.b(str);
-        this.a.c();
+        ReLoginShareActivity.c(this.a);
     }
 }

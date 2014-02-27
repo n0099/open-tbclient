@@ -1,12 +1,14 @@
 package com.baidu.tieba.write;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.view.View;
-import java.util.Date;
+import android.widget.CompoundButton;
+import android.widget.HorizontalScrollView;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.TextView;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bo implements View.OnClickListener {
+public final class bo implements CompoundButton.OnCheckedChangeListener {
     final /* synthetic */ WriteImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,69 +16,36 @@ public class bo implements View.OnClickListener {
         this.a = writeImageActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean z;
-        int i;
-        boolean z2;
-        Bitmap bitmap;
-        Bitmap bitmap2;
-        boolean b;
-        boolean z3;
-        Bitmap bitmap3;
-        Bitmap bitmap4;
-        boolean b2;
-        z = this.a.y;
-        if (!z) {
-            i = this.a.z;
-            if (i == 12003) {
-                Intent intent = new Intent();
-                intent.putExtra("delete", true);
-                this.a.setResult(-1, intent);
-            } else {
-                Intent intent2 = new Intent();
-                z2 = this.a.x;
-                if (z2) {
-                    bitmap = this.a.p;
-                    if (bitmap != null) {
-                        bitmap2 = this.a.p;
-                        if (!bitmap2.isRecycled()) {
-                            String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                            b = this.a.b(str);
-                            if (b) {
-                                intent2.putExtra("change", true);
-                                intent2.putExtra("file_name", str);
-                            } else {
-                                intent2.putExtra("change", false);
-                            }
-                        }
-                    }
-                    intent2.putExtra("change", false);
-                } else {
-                    intent2.setData(this.a.getIntent().getData());
-                    this.a.setResult(-1, intent2);
-                }
-                this.a.setResult(-1, intent2);
+    @Override // android.widget.CompoundButton.OnCheckedChangeListener
+    public final void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+        RadioButton radioButton;
+        RadioButton radioButton2;
+        HorizontalScrollView horizontalScrollView;
+        LinearLayout linearLayout;
+        TextView textView;
+        HorizontalScrollView horizontalScrollView2;
+        LinearLayout linearLayout2;
+        TextView textView2;
+        if (z) {
+            radioButton = this.a.j;
+            if (compoundButton == radioButton) {
+                horizontalScrollView2 = this.a.f;
+                horizontalScrollView2.setVisibility(0);
+                linearLayout2 = this.a.l;
+                linearLayout2.setVisibility(8);
+                textView2 = this.a.n;
+                textView2.setText(this.a.getString(R.string.beautify));
+                return;
             }
-            this.a.finish();
-            return;
-        }
-        Intent intent3 = new Intent();
-        z3 = this.a.x;
-        if (z3) {
-            bitmap3 = this.a.p;
-            if (bitmap3 != null) {
-                bitmap4 = this.a.p;
-                if (!bitmap4.isRecycled()) {
-                    String str2 = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                    b2 = this.a.b(str2);
-                    if (b2) {
-                        intent3.putExtra("filename", str2);
-                    }
-                }
+            radioButton2 = this.a.k;
+            if (compoundButton == radioButton2) {
+                horizontalScrollView = this.a.f;
+                horizontalScrollView.setVisibility(8);
+                linearLayout = this.a.l;
+                linearLayout.setVisibility(0);
+                textView = this.a.n;
+                textView.setText(this.a.getString(R.string.rotate));
             }
         }
-        this.a.setResult(-1, intent3);
-        this.a.finish();
     }
 }

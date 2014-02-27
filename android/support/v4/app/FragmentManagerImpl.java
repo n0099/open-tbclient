@@ -114,17 +114,17 @@ public final class FragmentManagerImpl extends FragmentManager {
     }
 
     @Override // android.support.v4.app.FragmentManager
-    public FragmentTransaction beginTransaction() {
+    public final FragmentTransaction beginTransaction() {
         return new BackStackRecord(this);
     }
 
     @Override // android.support.v4.app.FragmentManager
-    public boolean executePendingTransactions() {
+    public final boolean executePendingTransactions() {
         return execPendingActions();
     }
 
     @Override // android.support.v4.app.FragmentManager
-    public void popBackStack() {
+    public final void popBackStack() {
         enqueueAction(new Runnable() { // from class: android.support.v4.app.FragmentManagerImpl.2
             @Override // java.lang.Runnable
             public void run() {
@@ -134,14 +134,14 @@ public final class FragmentManagerImpl extends FragmentManager {
     }
 
     @Override // android.support.v4.app.FragmentManager
-    public boolean popBackStackImmediate() {
+    public final boolean popBackStackImmediate() {
         checkStateLoss();
         executePendingTransactions();
         return popBackStackState(this.mActivity.mHandler, null, -1, 0);
     }
 
     @Override // android.support.v4.app.FragmentManager
-    public void popBackStack(final String str, final int i) {
+    public final void popBackStack(final String str, final int i) {
         enqueueAction(new Runnable() { // from class: android.support.v4.app.FragmentManagerImpl.3
             @Override // java.lang.Runnable
             public void run() {
@@ -151,14 +151,14 @@ public final class FragmentManagerImpl extends FragmentManager {
     }
 
     @Override // android.support.v4.app.FragmentManager
-    public boolean popBackStackImmediate(String str, int i) {
+    public final boolean popBackStackImmediate(String str, int i) {
         checkStateLoss();
         executePendingTransactions();
         return popBackStackState(this.mActivity.mHandler, str, -1, i);
     }
 
     @Override // android.support.v4.app.FragmentManager
-    public void popBackStack(final int i, final int i2) {
+    public final void popBackStack(final int i, final int i2) {
         if (i < 0) {
             throw new IllegalArgumentException("Bad id: " + i);
         }
@@ -171,7 +171,7 @@ public final class FragmentManagerImpl extends FragmentManager {
     }
 
     @Override // android.support.v4.app.FragmentManager
-    public boolean popBackStackImmediate(int i, int i2) {
+    public final boolean popBackStackImmediate(int i, int i2) {
         checkStateLoss();
         executePendingTransactions();
         if (i < 0) {
@@ -181,7 +181,7 @@ public final class FragmentManagerImpl extends FragmentManager {
     }
 
     @Override // android.support.v4.app.FragmentManager
-    public int getBackStackEntryCount() {
+    public final int getBackStackEntryCount() {
         if (this.mBackStack != null) {
             return this.mBackStack.size();
         }
@@ -189,12 +189,12 @@ public final class FragmentManagerImpl extends FragmentManager {
     }
 
     @Override // android.support.v4.app.FragmentManager
-    public FragmentManager.BackStackEntry getBackStackEntryAt(int i) {
+    public final FragmentManager.BackStackEntry getBackStackEntryAt(int i) {
         return this.mBackStack.get(i);
     }
 
     @Override // android.support.v4.app.FragmentManager
-    public void addOnBackStackChangedListener(FragmentManager.OnBackStackChangedListener onBackStackChangedListener) {
+    public final void addOnBackStackChangedListener(FragmentManager.OnBackStackChangedListener onBackStackChangedListener) {
         if (this.mBackStackChangeListeners == null) {
             this.mBackStackChangeListeners = new ArrayList<>();
         }
@@ -202,14 +202,14 @@ public final class FragmentManagerImpl extends FragmentManager {
     }
 
     @Override // android.support.v4.app.FragmentManager
-    public void removeOnBackStackChangedListener(FragmentManager.OnBackStackChangedListener onBackStackChangedListener) {
+    public final void removeOnBackStackChangedListener(FragmentManager.OnBackStackChangedListener onBackStackChangedListener) {
         if (this.mBackStackChangeListeners != null) {
             this.mBackStackChangeListeners.remove(onBackStackChangedListener);
         }
     }
 
     @Override // android.support.v4.app.FragmentManager
-    public void putFragment(Bundle bundle, String str, Fragment fragment) {
+    public final void putFragment(Bundle bundle, String str, Fragment fragment) {
         if (fragment.mIndex < 0) {
             throwException(new IllegalStateException("Fragment " + fragment + " is not currently in the FragmentManager"));
         }
@@ -217,7 +217,7 @@ public final class FragmentManagerImpl extends FragmentManager {
     }
 
     @Override // android.support.v4.app.FragmentManager
-    public Fragment getFragment(Bundle bundle, String str) {
+    public final Fragment getFragment(Bundle bundle, String str) {
         int i = bundle.getInt(str, -1);
         if (i == -1) {
             return null;
@@ -234,7 +234,7 @@ public final class FragmentManagerImpl extends FragmentManager {
     }
 
     @Override // android.support.v4.app.FragmentManager
-    public Fragment.SavedState saveFragmentInstanceState(Fragment fragment) {
+    public final Fragment.SavedState saveFragmentInstanceState(Fragment fragment) {
         Bundle saveFragmentBasicState;
         if (fragment.mIndex < 0) {
             throwException(new IllegalStateException("Fragment " + fragment + " is not currently in the FragmentManager"));
@@ -245,7 +245,7 @@ public final class FragmentManagerImpl extends FragmentManager {
         return new Fragment.SavedState(saveFragmentBasicState);
     }
 
-    public String toString() {
+    public final String toString() {
         StringBuilder sb = new StringBuilder(128);
         sb.append("FragmentManager{");
         sb.append(Integer.toHexString(System.identityHashCode(this)));
@@ -260,7 +260,7 @@ public final class FragmentManagerImpl extends FragmentManager {
     }
 
     @Override // android.support.v4.app.FragmentManager
-    public void dump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+    public final void dump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
         int size;
         int size2;
         int size3;
@@ -406,7 +406,7 @@ public final class FragmentManagerImpl extends FragmentManager {
         return alphaAnimation;
     }
 
-    Animation loadAnimation(Fragment fragment, int i, boolean z, int i2) {
+    final Animation loadAnimation(Fragment fragment, int i, boolean z, int i2) {
         int transitToStyleIndex;
         Animation loadAnimation;
         Animation onCreateAnimation = fragment.onCreateAnimation(i, z, fragment.mNextAnim);
@@ -440,7 +440,7 @@ public final class FragmentManagerImpl extends FragmentManager {
         return onCreateAnimation;
     }
 
-    public void performPendingDeferredStart(Fragment fragment) {
+    public final void performPendingDeferredStart(Fragment fragment) {
         if (fragment.mDeferStart) {
             if (this.mExecutingActions) {
                 this.mHavePendingDeferredStart = true;
@@ -451,14 +451,14 @@ public final class FragmentManagerImpl extends FragmentManager {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:114:0x024d  */
-    /* JADX WARN: Removed duplicated region for block: B:129:0x028b  */
-    /* JADX WARN: Removed duplicated region for block: B:134:0x02ac  */
-    /* JADX WARN: Removed duplicated region for block: B:140:0x02ce  */
+    /* JADX WARN: Removed duplicated region for block: B:114:0x0235  */
+    /* JADX WARN: Removed duplicated region for block: B:129:0x026f  */
+    /* JADX WARN: Removed duplicated region for block: B:134:0x028c  */
+    /* JADX WARN: Removed duplicated region for block: B:140:0x02aa  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    void moveToState(final Fragment fragment, int i, int i2, int i3, boolean z) {
+    final void moveToState(final Fragment fragment, int i, int i2, int i3, boolean z) {
         ViewGroup viewGroup;
         if ((!fragment.mAdded || fragment.mDetached) && i > 1) {
             i = 1;
@@ -590,7 +590,7 @@ public final class FragmentManagerImpl extends FragmentManager {
         } else if (fragment.mState > i) {
             switch (fragment.mState) {
                 case 1:
-                    if (i < 1) {
+                    if (i <= 0) {
                         if (this.mDestroyed && fragment.mAnimatingAway != null) {
                             View view = fragment.mAnimatingAway;
                             fragment.mAnimatingAway = null;
@@ -664,7 +664,7 @@ public final class FragmentManagerImpl extends FragmentManager {
                         fragment.mView = null;
                         fragment.mInnerView = null;
                     }
-                    if (i < 1) {
+                    if (i <= 0) {
                     }
                     break;
                 case 3:
@@ -676,7 +676,7 @@ public final class FragmentManagerImpl extends FragmentManager {
                     }
                     if (i < 2) {
                     }
-                    if (i < 1) {
+                    if (i <= 0) {
                     }
                     break;
                 case 4:
@@ -690,7 +690,7 @@ public final class FragmentManagerImpl extends FragmentManager {
                     }
                     if (i < 2) {
                     }
-                    if (i < 1) {
+                    if (i <= 0) {
                     }
                     break;
                 case 5:
@@ -707,7 +707,7 @@ public final class FragmentManagerImpl extends FragmentManager {
                     }
                     if (i < 2) {
                     }
-                    if (i < 1) {
+                    if (i <= 0) {
                     }
                     break;
             }
@@ -716,16 +716,16 @@ public final class FragmentManagerImpl extends FragmentManager {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void moveToState(Fragment fragment) {
+    public final void moveToState(Fragment fragment) {
         moveToState(fragment, this.mCurState, 0, 0, HONEYCOMB);
     }
 
-    void moveToState(int i, boolean z) {
+    final void moveToState(int i, boolean z) {
         moveToState(i, 0, 0, z);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void moveToState(int i, int i2, int i3, boolean z) {
+    public final void moveToState(int i, int i2, int i3, boolean z) {
         if (this.mActivity == null && i != 0) {
             throw new IllegalStateException("No activity");
         }
@@ -757,7 +757,7 @@ public final class FragmentManagerImpl extends FragmentManager {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void startPendingDeferredFragments() {
+    public final void startPendingDeferredFragments() {
         if (this.mActive != null) {
             int i = 0;
             while (true) {
@@ -775,7 +775,7 @@ public final class FragmentManagerImpl extends FragmentManager {
         }
     }
 
-    void makeActive(Fragment fragment) {
+    final void makeActive(Fragment fragment) {
         if (fragment.mIndex < 0) {
             if (this.mAvailIndices == null || this.mAvailIndices.size() <= 0) {
                 if (this.mActive == null) {
@@ -793,7 +793,7 @@ public final class FragmentManagerImpl extends FragmentManager {
         }
     }
 
-    void makeInactive(Fragment fragment) {
+    final void makeInactive(Fragment fragment) {
         if (fragment.mIndex >= 0) {
             if (DEBUG) {
                 Log.v(TAG, "Freeing fragment index " + fragment);
@@ -808,7 +808,7 @@ public final class FragmentManagerImpl extends FragmentManager {
         }
     }
 
-    public void addFragment(Fragment fragment, boolean z) {
+    public final void addFragment(Fragment fragment, boolean z) {
         if (this.mAdded == null) {
             this.mAdded = new ArrayList<>();
         }
@@ -832,7 +832,7 @@ public final class FragmentManagerImpl extends FragmentManager {
         }
     }
 
-    public void removeFragment(Fragment fragment, int i, int i2) {
+    public final void removeFragment(Fragment fragment, int i, int i2) {
         if (DEBUG) {
             Log.v(TAG, "remove: " + fragment + " nesting=" + fragment.mBackStackNesting);
         }
@@ -850,7 +850,7 @@ public final class FragmentManagerImpl extends FragmentManager {
         }
     }
 
-    public void hideFragment(Fragment fragment, int i, int i2) {
+    public final void hideFragment(Fragment fragment, int i, int i2) {
         if (DEBUG) {
             Log.v(TAG, "hide: " + fragment);
         }
@@ -870,7 +870,7 @@ public final class FragmentManagerImpl extends FragmentManager {
         }
     }
 
-    public void showFragment(Fragment fragment, int i, int i2) {
+    public final void showFragment(Fragment fragment, int i, int i2) {
         if (DEBUG) {
             Log.v(TAG, "show: " + fragment);
         }
@@ -890,7 +890,7 @@ public final class FragmentManagerImpl extends FragmentManager {
         }
     }
 
-    public void detachFragment(Fragment fragment, int i, int i2) {
+    public final void detachFragment(Fragment fragment, int i, int i2) {
         if (DEBUG) {
             Log.v(TAG, "detach: " + fragment);
         }
@@ -912,7 +912,7 @@ public final class FragmentManagerImpl extends FragmentManager {
         }
     }
 
-    public void attachFragment(Fragment fragment, int i, int i2) {
+    public final void attachFragment(Fragment fragment, int i, int i2) {
         if (DEBUG) {
             Log.v(TAG, "attach: " + fragment);
         }
@@ -939,7 +939,7 @@ public final class FragmentManagerImpl extends FragmentManager {
     }
 
     @Override // android.support.v4.app.FragmentManager
-    public Fragment findFragmentById(int i) {
+    public final Fragment findFragmentById(int i) {
         if (this.mAdded != null) {
             for (int size = this.mAdded.size() - 1; size >= 0; size--) {
                 Fragment fragment = this.mAdded.get(size);
@@ -960,7 +960,7 @@ public final class FragmentManagerImpl extends FragmentManager {
     }
 
     @Override // android.support.v4.app.FragmentManager
-    public Fragment findFragmentByTag(String str) {
+    public final Fragment findFragmentByTag(String str) {
         if (this.mAdded != null && str != null) {
             for (int size = this.mAdded.size() - 1; size >= 0; size--) {
                 Fragment fragment = this.mAdded.get(size);
@@ -980,7 +980,7 @@ public final class FragmentManagerImpl extends FragmentManager {
         return null;
     }
 
-    public Fragment findFragmentByWho(String str) {
+    public final Fragment findFragmentByWho(String str) {
         Fragment findFragmentByWho;
         if (this.mActive != null && str != null) {
             for (int size = this.mActive.size() - 1; size >= 0; size--) {
@@ -1002,7 +1002,7 @@ public final class FragmentManagerImpl extends FragmentManager {
         }
     }
 
-    public void enqueueAction(Runnable runnable, boolean z) {
+    public final void enqueueAction(Runnable runnable, boolean z) {
         if (!z) {
             checkStateLoss();
         }
@@ -1021,7 +1021,7 @@ public final class FragmentManagerImpl extends FragmentManager {
         }
     }
 
-    public int allocBackStackIndex(BackStackRecord backStackRecord) {
+    public final int allocBackStackIndex(BackStackRecord backStackRecord) {
         int size;
         synchronized (this) {
             if (this.mAvailBackStackIndices == null || this.mAvailBackStackIndices.size() <= 0) {
@@ -1044,7 +1044,7 @@ public final class FragmentManagerImpl extends FragmentManager {
         return size;
     }
 
-    public void setBackStackIndex(int i, BackStackRecord backStackRecord) {
+    public final void setBackStackIndex(int i, BackStackRecord backStackRecord) {
         synchronized (this) {
             if (this.mBackStackIndices == null) {
                 this.mBackStackIndices = new ArrayList<>();
@@ -1075,7 +1075,7 @@ public final class FragmentManagerImpl extends FragmentManager {
         }
     }
 
-    public void freeBackStackIndex(int i) {
+    public final void freeBackStackIndex(int i) {
         synchronized (this) {
             this.mBackStackIndices.set(i, null);
             if (this.mAvailBackStackIndices == null) {
@@ -1103,7 +1103,7 @@ public final class FragmentManagerImpl extends FragmentManager {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean execPendingActions() {
+    public final boolean execPendingActions() {
         if (this.mExecutingActions) {
             throw new IllegalStateException("Recursive entry to executePendingTransactions");
         }
@@ -1143,7 +1143,7 @@ public final class FragmentManagerImpl extends FragmentManager {
         return z;
     }
 
-    void reportBackStackChanged() {
+    final void reportBackStackChanged() {
         if (this.mBackStackChangeListeners != null) {
             int i = 0;
             while (true) {
@@ -1159,7 +1159,7 @@ public final class FragmentManagerImpl extends FragmentManager {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void addBackStackState(BackStackRecord backStackRecord) {
+    public final void addBackStackState(BackStackRecord backStackRecord) {
         if (this.mBackStack == null) {
             this.mBackStack = new ArrayList<>();
         }
@@ -1167,7 +1167,7 @@ public final class FragmentManagerImpl extends FragmentManager {
         reportBackStackChanged();
     }
 
-    boolean popBackStackState(Handler handler, String str, int i, int i2) {
+    final boolean popBackStackState(Handler handler, String str, int i, int i2) {
         if (this.mBackStack == null) {
             return HONEYCOMB;
         }
@@ -1177,7 +1177,6 @@ public final class FragmentManagerImpl extends FragmentManager {
                 return HONEYCOMB;
             }
             this.mBackStack.remove(size).popFromBackStack(true);
-            reportBackStackChanged();
         } else {
             int i3 = -1;
             if (str != null || i >= 0) {
@@ -1220,13 +1219,13 @@ public final class FragmentManagerImpl extends FragmentManager {
                 ((BackStackRecord) arrayList.get(i4)).popFromBackStack(i4 == size4);
                 i4++;
             }
-            reportBackStackChanged();
         }
+        reportBackStackChanged();
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ArrayList<Fragment> retainNonConfig() {
+    public final ArrayList<Fragment> retainNonConfig() {
         ArrayList<Fragment> arrayList = null;
         if (this.mActive != null) {
             int i = 0;
@@ -1253,7 +1252,7 @@ public final class FragmentManagerImpl extends FragmentManager {
         return arrayList;
     }
 
-    void saveFragmentViewState(Fragment fragment) {
+    final void saveFragmentViewState(Fragment fragment) {
         if (fragment.mInnerView != null) {
             if (this.mStateArray == null) {
                 this.mStateArray = new SparseArray<>();
@@ -1268,7 +1267,7 @@ public final class FragmentManagerImpl extends FragmentManager {
         }
     }
 
-    Bundle saveFragmentBasicState(Fragment fragment) {
+    final Bundle saveFragmentBasicState(Fragment fragment) {
         Bundle bundle;
         if (this.mStateBundle == null) {
             this.mStateBundle = new Bundle();
@@ -1299,7 +1298,7 @@ public final class FragmentManagerImpl extends FragmentManager {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Parcelable saveAllState() {
+    public final Parcelable saveAllState() {
         int[] iArr;
         int size;
         int size2;
@@ -1389,7 +1388,7 @@ public final class FragmentManagerImpl extends FragmentManager {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void restoreAllState(Parcelable parcelable, ArrayList<Fragment> arrayList) {
+    public final void restoreAllState(Parcelable parcelable, ArrayList<Fragment> arrayList) {
         if (parcelable != null) {
             FragmentManagerState fragmentManagerState = (FragmentManagerState) parcelable;
             if (fragmentManagerState.mActive != null) {
@@ -1488,7 +1487,7 @@ public final class FragmentManagerImpl extends FragmentManager {
         }
     }
 
-    public void attachActivity(FragmentActivity fragmentActivity, FragmentContainer fragmentContainer, Fragment fragment) {
+    public final void attachActivity(FragmentActivity fragmentActivity, FragmentContainer fragmentContainer, Fragment fragment) {
         if (this.mActivity != null) {
             throw new IllegalStateException("Already attached");
         }
@@ -1497,48 +1496,48 @@ public final class FragmentManagerImpl extends FragmentManager {
         this.mParent = fragment;
     }
 
-    public void noteStateNotSaved() {
+    public final void noteStateNotSaved() {
         this.mStateSaved = HONEYCOMB;
     }
 
-    public void dispatchCreate() {
+    public final void dispatchCreate() {
         this.mStateSaved = HONEYCOMB;
         moveToState(1, HONEYCOMB);
     }
 
-    public void dispatchActivityCreated() {
+    public final void dispatchActivityCreated() {
         this.mStateSaved = HONEYCOMB;
         moveToState(2, HONEYCOMB);
     }
 
-    public void dispatchStart() {
+    public final void dispatchStart() {
         this.mStateSaved = HONEYCOMB;
         moveToState(4, HONEYCOMB);
     }
 
-    public void dispatchResume() {
+    public final void dispatchResume() {
         this.mStateSaved = HONEYCOMB;
         moveToState(5, HONEYCOMB);
     }
 
-    public void dispatchPause() {
+    public final void dispatchPause() {
         moveToState(4, HONEYCOMB);
     }
 
-    public void dispatchStop() {
+    public final void dispatchStop() {
         this.mStateSaved = true;
         moveToState(3, HONEYCOMB);
     }
 
-    public void dispatchReallyStop() {
+    public final void dispatchReallyStop() {
         moveToState(2, HONEYCOMB);
     }
 
-    public void dispatchDestroyView() {
+    public final void dispatchDestroyView() {
         moveToState(1, HONEYCOMB);
     }
 
-    public void dispatchDestroy() {
+    public final void dispatchDestroy() {
         this.mDestroyed = true;
         execPendingActions();
         moveToState(0, HONEYCOMB);
@@ -1547,7 +1546,7 @@ public final class FragmentManagerImpl extends FragmentManager {
         this.mParent = null;
     }
 
-    public void dispatchConfigurationChanged(Configuration configuration) {
+    public final void dispatchConfigurationChanged(Configuration configuration) {
         if (this.mAdded != null) {
             int i = 0;
             while (true) {
@@ -1565,7 +1564,7 @@ public final class FragmentManagerImpl extends FragmentManager {
         }
     }
 
-    public void dispatchLowMemory() {
+    public final void dispatchLowMemory() {
         if (this.mAdded != null) {
             int i = 0;
             while (true) {
@@ -1583,7 +1582,7 @@ public final class FragmentManagerImpl extends FragmentManager {
         }
     }
 
-    public boolean dispatchCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
+    public final boolean dispatchCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
         boolean z;
         ArrayList<Fragment> arrayList = null;
         if (this.mAdded != null) {
@@ -1616,7 +1615,7 @@ public final class FragmentManagerImpl extends FragmentManager {
         return z;
     }
 
-    public boolean dispatchPrepareOptionsMenu(Menu menu) {
+    public final boolean dispatchPrepareOptionsMenu(Menu menu) {
         if (this.mAdded != null) {
             boolean z = false;
             for (int i = 0; i < this.mAdded.size(); i++) {
@@ -1630,7 +1629,7 @@ public final class FragmentManagerImpl extends FragmentManager {
         return HONEYCOMB;
     }
 
-    public boolean dispatchOptionsItemSelected(MenuItem menuItem) {
+    public final boolean dispatchOptionsItemSelected(MenuItem menuItem) {
         if (this.mAdded != null) {
             for (int i = 0; i < this.mAdded.size(); i++) {
                 Fragment fragment = this.mAdded.get(i);
@@ -1643,7 +1642,7 @@ public final class FragmentManagerImpl extends FragmentManager {
         return HONEYCOMB;
     }
 
-    public boolean dispatchContextItemSelected(MenuItem menuItem) {
+    public final boolean dispatchContextItemSelected(MenuItem menuItem) {
         if (this.mAdded != null) {
             for (int i = 0; i < this.mAdded.size(); i++) {
                 Fragment fragment = this.mAdded.get(i);
@@ -1656,7 +1655,7 @@ public final class FragmentManagerImpl extends FragmentManager {
         return HONEYCOMB;
     }
 
-    public void dispatchOptionsMenuClosed(Menu menu) {
+    public final void dispatchOptionsMenuClosed(Menu menu) {
         if (this.mAdded != null) {
             int i = 0;
             while (true) {

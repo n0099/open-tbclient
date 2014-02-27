@@ -4,7 +4,7 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.model.ag;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b implements com.baidu.tieba.im.a<Void> {
+public final class b implements com.baidu.tieba.im.a<Void> {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,9 +12,9 @@ public class b implements com.baidu.tieba.im.a<Void> {
         this.a = aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // com.baidu.tieba.im.a
-    public void a(Void r3) {
+    public final /* synthetic */ void a(Void r3) {
         BdListView bdListView;
         n nVar;
         n nVar2;

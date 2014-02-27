@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import com.baidu.tieba.util.bq;
 import com.baidu.tieba.util.cb;
 /* loaded from: classes.dex */
 public class CreateGroupMainActivity extends com.baidu.tieba.f {
@@ -47,16 +48,20 @@ public class CreateGroupMainActivity extends com.baidu.tieba.f {
     @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.a.a(i);
+        e eVar = this.a;
+        eVar.h.getLayoutMode().a(i == 1);
+        eVar.h.getLayoutMode().a(eVar.c);
+        bq.a(eVar.c, i);
+        eVar.a.b(i);
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.a.e()) {
+        if (view == this.a.d) {
             CreateGroupStepActivity.a(this, 3, this.a.a(), 1013, this.b, this.c, this.d);
             cb.a(this, "create_g_common", "click", 1, new Object[0]);
-        } else if (view == this.a.f()) {
+        } else if (view == this.a.e) {
             CreateGroupStepActivity.a(this, 4, this.a.a(), 1013, this.b, this.c, this.d);
             cb.a(this, "create_g_official", "click", 1, new Object[0]);
         }

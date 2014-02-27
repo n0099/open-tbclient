@@ -27,46 +27,41 @@ public abstract class c<M extends e, T extends com.baidu.adp.framework.task.b, R
         this.a = cVar;
     }
 
-    public void a(T t) {
+    public final void a(T t) {
         if (t != null) {
             this.c.put(t.i(), t);
         }
     }
 
-    public T b(int i) {
+    public final T b(int i) {
         return this.c.get(i);
     }
 
     private void a() {
-        if (d()) {
+        if (this.g) {
             throw new IllegalStateException("MessageListener locked");
         }
     }
 
-    public void a(int i, com.baidu.adp.framework.c.c<N> cVar) {
+    public final void a(int i, com.baidu.adp.framework.c.c<N> cVar) {
         a();
         BdUtilHelper.b();
         if (cVar != null) {
-            if ((i == 0 && cVar.b() == 0) || (i != 0 && cVar.b() != 0)) {
+            if (cVar.b() == 0) {
                 throw new InvalidParameterException("registerListener cmd error");
             }
-            if (i == 0) {
-                i = cVar.b();
-            }
-            LinkedList<com.baidu.adp.framework.c.c<N>> linkedList = this.e.get(i);
+            int b = cVar.b();
+            LinkedList<com.baidu.adp.framework.c.c<N>> linkedList = this.e.get(b);
             if (linkedList == null) {
                 linkedList = new LinkedList<>();
-                this.e.put(i, linkedList);
+                this.e.put(b, linkedList);
             }
             FrameHelper.a(linkedList, cVar);
-            N n = this.d.get(i);
-            if (n != null) {
-                cVar.a((com.baidu.adp.framework.c.c<N>) n);
-            }
+            this.d.get(b);
         }
     }
 
-    public void c(int i) {
+    public final void c(int i) {
         a();
         BdUtilHelper.b();
         if (i != 0) {
@@ -83,33 +78,34 @@ public abstract class c<M extends e, T extends com.baidu.adp.framework.task.b, R
         }
     }
 
-    public boolean c(M m, T t) {
+    public final boolean c(M m, T t) {
         BdUtilHelper.b();
         if (m == null) {
             return false;
         }
-        int d = m.d();
-        if (t == null) {
-            t = b(d);
-        }
-        if (t != null) {
-            M b = b(m, t);
+        T b = b(m.d());
+        if (b != null) {
+            M b2 = b(m, b);
             if (this.b != null) {
-                if (t.j() == null) {
-                    t.b(this.b.h());
+                if (b.j() == null) {
+                    b.b(this.b.h());
                 }
-                if (t.k() == 0) {
-                    t.a(this.b.g());
+                if (b.k() == 0) {
+                    b.a(this.b.g());
                 }
             }
-            a((c<M, T, R, N>) b, (M) t);
+            a((c<M, T, R, N>) b2, (M) b);
             return true;
         }
-        com.baidu.adp.lib.util.f.b("task not register");
+        com.baidu.adp.lib.util.e.b("task not register");
         return false;
     }
 
-    public void a(N n) {
+    /* JADX WARN: Removed duplicated region for block: B:12:0x002f A[Catch: Exception -> 0x003f, all -> 0x004a, Merged into TryCatch #1 {all -> 0x004a, Exception -> 0x003f, blocks: (B:9:0x0025, B:10:0x0029, B:12:0x002f, B:15:0x0036, B:19:0x0040), top: B:24:0x0025 }, TRY_LEAVE] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void a(N n) {
         BdUtilHelper.b();
         if (n != null) {
             int b = n.b();
@@ -118,36 +114,24 @@ public abstract class c<M extends e, T extends com.baidu.adp.framework.task.b, R
             }
             LinkedList<com.baidu.adp.framework.c.c<N>> linkedList = this.e.get(b);
             this.f = false;
-            b();
+            this.g = true;
             try {
                 Iterator<com.baidu.adp.framework.c.c<N>> it = linkedList.iterator();
                 while (it.hasNext() && !this.f) {
-                    com.baidu.adp.framework.c.c<N> next = it.next();
-                    if (next != null) {
-                        try {
-                            next.a((com.baidu.adp.framework.c.c<N>) n);
-                        } catch (Exception e) {
-                            com.baidu.adp.lib.util.f.b(e.getMessage());
+                    if (it.next() == null) {
+                    }
+                    while (it.hasNext()) {
+                        if (it.next() == null) {
+                        }
+                        while (it.hasNext()) {
                         }
                     }
                 }
-            } catch (Exception e2) {
-                com.baidu.adp.lib.util.f.b(e2.getMessage());
+            } catch (Exception e) {
+                com.baidu.adp.lib.util.e.b(e.getMessage());
             } finally {
-                c();
+                this.g = false;
             }
         }
-    }
-
-    private void b() {
-        this.g = true;
-    }
-
-    private void c() {
-        this.g = false;
-    }
-
-    private boolean d() {
-        return this.g;
     }
 }

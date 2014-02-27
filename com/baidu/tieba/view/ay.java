@@ -5,7 +5,7 @@ import android.os.Message;
 import android.widget.ImageView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class ay extends Handler {
+final class ay extends Handler {
     final /* synthetic */ GoOnAnimView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ class ay extends Handler {
     }
 
     @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    public final void handleMessage(Message message) {
         int i;
         int i2;
         ImageView imageView;

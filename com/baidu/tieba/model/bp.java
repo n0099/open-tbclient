@@ -10,12 +10,7 @@ import com.baidu.tieba.person.cx;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class bp extends com.baidu.adp.a.d implements com.baidu.tieba.im.messageCenter.g {
-    private long c;
-    private long d;
-    private long e;
-    private long f;
-    private long g;
+public final class bp extends com.baidu.adp.a.d implements com.baidu.tieba.im.messageCenter.g {
     private String h;
     private PersonPostListData l;
     private AntiData o;
@@ -31,205 +26,194 @@ public class bp extends com.baidu.adp.a.d implements com.baidu.tieba.im.messageC
     private UserData k = null;
     private boolean i = false;
     private boolean j = false;
+    private long c = 0;
+    private long d = 0;
+    private long e = 0;
+    private long f = 0;
+    private long g = 0;
 
-    public PersonPostListData a() {
+    public final PersonPostListData a() {
         return this.l;
     }
 
-    public boolean b() {
+    public final boolean b() {
         return this.n;
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.n = z;
-    }
-
-    private int n() {
-        List<PersonPostListData.PostList> list;
-        if (this.l != null && (list = this.l.post_list) != null) {
-            if (list.size() % 20 > 0) {
-                return (list.size() / 20) + 2;
-            }
-            return (list.size() / 20) + 1;
-        }
-        return 1;
     }
 
     public bp(Context context) {
         this.s = null;
         this.s = context;
-        a(0L);
-        d(0L);
-        e(0L);
-        b(0L);
-        c(0L);
         this.p = new com.baidu.tieba.util.i(context);
-        com.baidu.tieba.im.messageCenter.e.a().a(-118, this);
+        com.baidu.tieba.im.messageCenter.d.a().a(-118, this);
     }
 
-    public void a(cx cxVar) {
+    public final void a(cx cxVar) {
         this.t = cxVar;
     }
 
-    public AntiData c() {
+    public final AntiData c() {
         return this.o;
     }
 
-    public void a(AntiData antiData) {
+    public final void a(AntiData antiData) {
         this.o = antiData;
     }
 
-    public String d() {
+    public final String d() {
         return this.b;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.b = str;
     }
 
-    public void b(boolean z) {
+    public final void b(boolean z) {
         this.a = z;
     }
 
-    public boolean e() {
+    public final boolean e() {
         return this.a;
     }
 
-    public void a(UserData userData) {
+    public final void a(UserData userData) {
         this.k = userData;
     }
 
-    public UserData f() {
+    public final UserData f() {
         return this.k;
     }
 
-    public void a(PersonChangeData personChangeData) {
-        f().setSex(personChangeData.getSex());
-        f().setUserName(personChangeData.getName());
-        f().setIntro(personChangeData.getIntro());
+    public final void a(PersonChangeData personChangeData) {
+        this.k.setSex(personChangeData.getSex());
+        this.k.setUserName(personChangeData.getName());
+        this.k.setIntro(personChangeData.getIntro());
     }
 
-    public void a(boolean z, boolean z2, int i) {
+    public final void a(boolean z, boolean z2, int i) {
+        bp bpVar;
+        List<PersonPostListData.PostList> list;
+        int size;
+        bp bpVar2;
         if (this.q == null) {
             if (i == 1) {
-                this.m = 1;
+                bpVar = this;
+            } else if (this.l != null && (list = this.l.post_list) != null) {
+                if (list.size() % 20 > 0) {
+                    size = (list.size() / 20) + 2;
+                    bpVar2 = this;
+                } else {
+                    size = (list.size() / 20) + 1;
+                    bpVar2 = this;
+                }
+                bpVar2.m = size;
+                this.q = new bq(this, (byte) 0);
+                this.q.setPriority(3);
+                this.q.execute(Boolean.valueOf(z), true);
             } else {
-                this.m = n();
+                bpVar = this;
             }
-            this.q = new bq(this, null);
+            bpVar2 = bpVar;
+            size = 1;
+            bpVar2.m = size;
+            this.q = new bq(this, (byte) 0);
             this.q.setPriority(3);
-            this.q.execute(Boolean.valueOf(z), Boolean.valueOf(z2));
+            this.q.execute(Boolean.valueOf(z), true);
         }
     }
 
-    public void g() {
-        if (f() != null && this.r != null) {
-            this.r.a(f().getHave_attention() != 1, f().getPortrait(), f().getUserId());
+    public final void g() {
+        if (this.k != null && this.r != null) {
+            this.r.a(this.k.getHave_attention() != 1, this.k.getPortrait(), this.k.getUserId());
         }
     }
 
-    public void b(String str) {
+    public final void b(String str) {
         try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
-        }
-    }
-
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.k = new UserData();
-                this.k.parserJson(jSONObject.optJSONObject("user"));
-                this.o = new AntiData();
-                this.o.parserJson(jSONObject.optJSONObject("anti_stat"));
-            } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
+            JSONObject jSONObject = new JSONObject(str);
+            if (jSONObject != null) {
+                try {
+                    this.k = new UserData();
+                    this.k.parserJson(jSONObject.optJSONObject("user"));
+                    this.o = new AntiData();
+                    this.o.parserJson(jSONObject.optJSONObject("anti_stat"));
+                } catch (Exception e) {
+                    com.baidu.adp.lib.util.e.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
+                }
             }
+        } catch (Exception e2) {
+            com.baidu.adp.lib.util.e.b(getClass().getName(), "parserJson", "error = " + e2.getMessage());
         }
     }
 
-    public com.baidu.tieba.util.i h() {
+    public final com.baidu.tieba.util.i h() {
         return this.p;
     }
 
-    public void c(String str) {
+    public final void c(String str) {
         this.h = str;
     }
 
-    public String i() {
+    public final String i() {
         return this.h;
     }
 
-    public void a(long j) {
+    public final void a(long j) {
         this.c = j;
     }
 
-    public long j() {
+    public final long j() {
         return this.c;
     }
 
-    public void b(long j) {
-        this.f = j;
-    }
-
-    public void c(long j) {
-        this.g = j;
-    }
-
-    public void d(long j) {
-        this.d = j;
-    }
-
-    public void e(long j) {
-        this.e = j;
-    }
-
-    public void c(boolean z) {
+    public final void c(boolean z) {
         this.i = z;
     }
 
-    public boolean k() {
+    public final boolean k() {
         return this.i;
     }
 
-    public void d(boolean z) {
+    public final void d(boolean z) {
         this.j = z;
     }
 
-    public boolean l() {
+    public final boolean l() {
         return this.j;
     }
 
     @Override // com.baidu.adp.a.d
-    protected boolean LoadData() {
+    protected final boolean LoadData() {
         return false;
     }
 
     @Override // com.baidu.adp.a.d
-    public boolean cancelLoadData() {
+    public final boolean cancelLoadData() {
         return false;
     }
 
-    public void m() {
-        com.baidu.tieba.im.messageCenter.e.a().a(this);
+    public final void m() {
+        com.baidu.tieba.im.messageCenter.d.a().a(this);
         if (this.q != null) {
             this.q.cancel();
         }
         if (this.p != null) {
-            this.p.d();
+            this.p.c();
         }
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.s sVar) {
+    public final void a(com.baidu.tieba.im.message.s sVar) {
         if (sVar != null) {
             switch (sVar.w()) {
                 case -118:
-                    if ((sVar instanceof de) && f() != null) {
+                    if ((sVar instanceof de) && this.k != null) {
                         de deVar = (de) sVar;
-                        if (f().getUserId() != null && f().getUserId().equals(deVar.c())) {
-                            f().setHave_attention(deVar.d() ? 1 : 0);
+                        if (this.k.getUserId() != null && this.k.getUserId().equals(deVar.c())) {
+                            this.k.setHave_attention(deVar.d() ? 0 : 1);
                             this.mLoadDataMode = 3;
                             setErrorString(deVar.b());
                             if (this.mLoadDataCallBack != null) {

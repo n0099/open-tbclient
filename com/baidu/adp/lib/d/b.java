@@ -1,10 +1,10 @@
 package com.baidu.adp.lib.d;
 
-import com.baidu.adp.lib.util.f;
+import com.baidu.adp.lib.util.e;
 import java.security.InvalidParameterException;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class b<T> {
+public final class b<T> {
     private int a;
     private int b;
     private LinkedList<T> c;
@@ -15,12 +15,12 @@ public class b<T> {
         this.b = 0;
         this.c = null;
         this.d = null;
-        if (cVar == null || i <= 0 || i2 > i) {
+        if (cVar == null || i <= 0 || i < 0) {
             throw new InvalidParameterException("invalid params");
         }
         this.d = cVar;
         this.a = i;
-        this.b = i2;
+        this.b = 0;
         this.c = new LinkedList<>();
         a(this.b);
     }
@@ -32,7 +32,7 @@ public class b<T> {
                 try {
                     t = this.d.b(this.d.a());
                 } catch (Exception e) {
-                    f.b(e.getMessage());
+                    e.b(e.getMessage());
                     t = null;
                 }
                 if (t != null) {
@@ -42,7 +42,7 @@ public class b<T> {
         }
     }
 
-    public T a() {
+    public final T a() {
         T t = null;
         synchronized (this) {
             try {
@@ -53,20 +53,20 @@ public class b<T> {
                 }
                 a(this.b - this.c.size());
             } catch (Exception e) {
-                f.b(e.getMessage());
+                e.b(e.getMessage());
             }
         }
         return t;
     }
 
-    public void a(T t) {
+    public final void a(T t) {
         T t2;
         synchronized (this) {
             if (this.c.size() < this.a) {
                 try {
                     t2 = this.d.c(t);
                 } catch (Exception e) {
-                    f.b(e.getMessage());
+                    e.b(e.getMessage());
                     t2 = null;
                 }
                 if (t2 != null) {
@@ -78,7 +78,7 @@ public class b<T> {
         }
     }
 
-    public void b() {
+    public final void b() {
         synchronized (this) {
             this.c.clear();
         }

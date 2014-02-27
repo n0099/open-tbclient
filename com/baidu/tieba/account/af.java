@@ -8,35 +8,24 @@ import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.util.DatabaseService;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class af extends BdAsyncTask<String, Integer, com.baidu.tieba.data.e> {
+public final class af extends BdAsyncTask<String, Integer, com.baidu.tieba.data.e> {
     final /* synthetic */ y a;
     private com.baidu.tieba.util.ba b = null;
     private String c;
     private String d;
 
-    public af(y yVar, String str, String str2) {
-        this.a = yVar;
-        this.c = null;
-        this.d = null;
-        this.c = str;
-        this.d = str2;
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        ProgressBar progressBar;
-        Button button;
-        this.a.l = null;
-        progressBar = this.a.q;
-        progressBar.setVisibility(8);
-        button = this.a.o;
-        button.setEnabled(true);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(com.baidu.tieba.data.e eVar) {
+    public final /* synthetic */ com.baidu.tieba.data.e a(String... strArr) {
+        return d();
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ void a(com.baidu.tieba.data.e eVar) {
         ProgressBar progressBar;
         Button button;
         AccountData accountData;
@@ -44,18 +33,16 @@ public class af extends BdAsyncTask<String, Integer, com.baidu.tieba.data.e> {
         ad adVar;
         ad adVar2;
         AccountData accountData2;
-        super.a((af) eVar);
+        com.baidu.tieba.data.e eVar2 = eVar;
+        super.a((af) eVar2);
         this.a.l = null;
         progressBar = this.a.q;
         progressBar.setVisibility(8);
         button = this.a.o;
         button.setEnabled(true);
-        if (eVar == null) {
-            this.a.b(this.b.j());
-        } else if (eVar.a().getUserName() == null) {
-            this.a.b(this.b.j());
-            this.a.a(eVar.b());
-        } else {
+        if (eVar2 == null) {
+            this.a.b(this.b.i());
+        } else if (eVar2.a().getUserName() != null) {
             this.a.e();
             accountData = this.a.t;
             fVar = this.a.j;
@@ -66,12 +53,34 @@ public class af extends BdAsyncTask<String, Integer, com.baidu.tieba.data.e> {
                 accountData2 = this.a.t;
                 adVar2.a(accountData2);
             }
+        } else {
+            this.a.b(this.b.i());
+            this.a.a(eVar2.b());
         }
+    }
+
+    public af(y yVar, String str, String str2) {
+        this.a = yVar;
+        this.c = null;
+        this.d = null;
+        this.c = str;
+        this.d = str2;
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final void cancel() {
+        ProgressBar progressBar;
+        Button button;
+        this.a.l = null;
+        progressBar = this.a.q;
+        progressBar.setVisibility(8);
+        button = this.a.o;
+        button.setEnabled(true);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void b() {
+    public final void b() {
         ProgressBar progressBar;
         Button button;
         progressBar = this.a.q;
@@ -87,8 +96,6 @@ public class af extends BdAsyncTask<String, Integer, com.baidu.tieba.data.e> {
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:30:0x0001 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0090 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:? */
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v11 */
     /* JADX WARN: Type inference failed for: r0v12 */
@@ -103,12 +110,11 @@ public class af extends BdAsyncTask<String, Integer, com.baidu.tieba.data.e> {
     /* JADX WARN: Type inference failed for: r0v28 */
     /* JADX WARN: Type inference failed for: r0v3, types: [com.baidu.tieba.data.e] */
     /* JADX WARN: Type inference failed for: r1v14, types: [com.baidu.tieba.data.AccountData] */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public com.baidu.tieba.data.e a(String... strArr) {
+    private com.baidu.tieba.data.e d() {
         String str;
         Exception e;
         AccountData accountData;
-        String m;
+        String l;
         AccountData accountData2;
         AccountData accountData3;
         AccountData accountData4;
@@ -125,17 +131,17 @@ public class af extends BdAsyncTask<String, Integer, com.baidu.tieba.data.e> {
             accountData = this.a.t;
             baVar.a("BDUSS", accountData.getBDUSS());
             this.b.c(false);
-            m = this.b.m();
+            l = this.b.l();
         } catch (Exception e2) {
             str = str2;
             e = e2;
         }
-        if (this.b.e()) {
-            str = this.b.f();
+        if (this.b.d()) {
+            str = this.b.e();
             try {
                 if (str == 0) {
                     com.baidu.tieba.data.e eVar = new com.baidu.tieba.data.e();
-                    eVar.a(m);
+                    eVar.a(l);
                     String userName = eVar.a().getUserName();
                     String bduss = eVar.a().getBDUSS();
                     str = eVar;
@@ -159,17 +165,17 @@ public class af extends BdAsyncTask<String, Integer, com.baidu.tieba.data.e> {
                             str2 = r1;
                         }
                     }
-                } else if (this.b.f() == 36) {
+                } else if (this.b.e() == 36) {
                     com.baidu.tieba.data.e eVar2 = new com.baidu.tieba.data.e();
-                    eVar2.a(m);
+                    eVar2.a(l);
                     str = eVar2;
-                } else if (this.b.f() == 1) {
+                } else if (this.b.e() == 1) {
                     this.a.e();
                     str = 0;
                 }
             } catch (Exception e3) {
                 e = e3;
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.getMessage());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "doInBackground", e.getMessage());
                 return str;
             }
             return str;

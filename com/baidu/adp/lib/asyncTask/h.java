@@ -5,7 +5,7 @@ import android.os.Looper;
 import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h extends Handler {
+public final class h extends Handler {
     final /* synthetic */ f a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,15 +16,15 @@ public class h extends Handler {
     }
 
     @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    public final void handleMessage(Message message) {
         super.handleMessage(message);
         if (message.what == 1) {
             if (message.obj == null || !(message.obj instanceof j)) {
                 return;
             }
-            this.a.d((j) message.obj);
+            this.a.c((j) message.obj);
         } else if (message.what == 2 && message.obj != null && (message.obj instanceof j)) {
-            this.a.b((j) message.obj);
+            this.a.a((j) message.obj);
         }
     }
 }

@@ -58,7 +58,7 @@ class a implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.forum_name /* 2131101413 */:
+            case R.id.forum_name /* 2131101342 */:
                 FrsActivity.a(view.getContext(), (String) view.getTag(), "");
                 return;
             default:
@@ -70,30 +70,30 @@ class a implements View.OnClickListener {
         }
     }
 
-    public void a(c cVar) {
+    public final void a(c cVar) {
         this.l = cVar;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x00bb */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x0049 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x000a */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x0049 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:41:0x00e7 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:44:0x004a */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:45:0x000a */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:52:0x004a */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:12:0x004b A[ORIG_RETURN, RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:24:0x0084  */
-    /* JADX WARN: Type inference failed for: r0v15, types: [boolean] */
-    /* JADX WARN: Type inference failed for: r0v20 */
-    /* JADX WARN: Type inference failed for: r0v22 */
+    /* JADX WARN: Removed duplicated region for block: B:12:0x004c A[ORIG_RETURN, RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x0088  */
+    /* JADX WARN: Type inference failed for: r0v21, types: [boolean] */
+    /* JADX WARN: Type inference failed for: r0v24 */
     /* JADX WARN: Type inference failed for: r0v26 */
-    /* JADX WARN: Type inference failed for: r0v27 */
     /* JADX WARN: Type inference failed for: r0v28 */
+    /* JADX WARN: Type inference failed for: r0v32 */
     /* JADX WARN: Type inference failed for: r0v33 */
-    /* JADX WARN: Type inference failed for: r0v4 */
+    /* JADX WARN: Type inference failed for: r0v34 */
+    /* JADX WARN: Type inference failed for: r0v39 */
     /* JADX WARN: Type inference failed for: r0v5 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(Object obj, String str) {
+    public final void a(Object obj, String str) {
         String str2;
         String str3;
         String str4;
@@ -103,78 +103,93 @@ class a implements View.OnClickListener {
         try {
             str2 = obj instanceof PersonPostReplyModel.Post;
         } catch (Exception e) {
-            str2 = str6;
-            str3 = str6;
-            str4 = str6;
+            str2 = null;
+            str3 = null;
+            str4 = null;
         }
         try {
             try {
                 try {
                 } catch (Exception e2) {
-                    str5 = str4;
-                    str4 = str3;
-                    str3 = str2;
                     str2 = 0;
+                    str3 = null;
+                    str5 = str3;
+                    str3 = null;
+                    String str7 = str2;
+                    str2 = str6;
+                    str6 = str4;
+                    str4 = str7;
                     if (str2 != 0) {
                     }
                 }
             } catch (Exception e3) {
+                str5 = str3;
+                str3 = null;
+                String str72 = str2;
                 str2 = str6;
-                str5 = str4;
-                str4 = str3;
-                str3 = str2;
-                str2 = 0;
+                str6 = str4;
+                str4 = str72;
                 if (str2 != 0) {
                 }
             }
         } catch (Exception e4) {
+            str2 = null;
+            str5 = str3;
+            str3 = null;
+            String str722 = str2;
             str2 = str6;
-            str3 = str6;
-            str5 = str4;
-            str4 = str3;
-            str3 = str2;
-            str2 = 0;
+            str6 = str4;
+            str4 = str722;
             if (str2 != 0) {
             }
         }
         if (str2 != 0) {
             PersonPostReplyModel.Post post = (PersonPostReplyModel.Post) obj;
-            String str7 = post.user_name;
+            String str8 = post.user_name;
             strArr[0] = String.valueOf(post.thread_id);
             strArr[1] = String.valueOf(post.content[0].post_id);
             strArr[2] = String.valueOf(post.content[0].post_type);
             String a = bs.a(post.create_time * 1000);
-            String str8 = post.forum_name;
-            str6 = String.valueOf(post.reply_num);
-            str5 = str7;
-            str4 = a;
-            str3 = str8;
+            String str9 = post.forum_name;
+            str5 = a;
+            str3 = String.valueOf(post.reply_num);
+            str6 = str8;
+            str4 = str9;
             str2 = 1;
         } else if (obj instanceof PersonPostThreadModel.PostList) {
             PersonPostThreadModel.PostList postList = (PersonPostThreadModel.PostList) obj;
-            String str9 = postList.user_name;
+            String str10 = postList.user_name;
             strArr[0] = String.valueOf(postList.thread_id);
             strArr[1] = String.valueOf(postList.post_id);
             String a2 = bs.a(postList.create_time * 1000);
-            String str10 = postList.forum_name;
-            str6 = String.valueOf(postList.reply_num);
-            str5 = str9;
-            str4 = a2;
-            str3 = str10;
+            String str11 = postList.forum_name;
+            str5 = a2;
+            str3 = String.valueOf(postList.reply_num);
+            str6 = str10;
+            str4 = str11;
             str2 = 1;
         } else {
             str2 = 0;
             str3 = null;
             str4 = null;
             str5 = null;
+            str6 = null;
             if (str2 != 0) {
-                this.c.setText(str5);
-                this.d.setText(str4);
-                this.e.setText(str3);
-                this.e.setTag(str3);
-                this.f.setText(str6);
+                this.c.setText(str6);
+                this.d.setText(str5);
+                this.e.setText(str4);
+                this.e.setTag(str4);
+                this.f.setText(str3);
                 this.e.setOnClickListener(this);
-                b(str);
+                if (k != null && !k.equals(str)) {
+                    j = null;
+                }
+                if (j != null) {
+                    this.b.setImageBitmap(j.h());
+                    k = str;
+                } else {
+                    this.m.c(str, new b(this, str));
+                }
                 if (this.g != null) {
                     this.g.setTag(strArr);
                 }
@@ -187,25 +202,13 @@ class a implements View.OnClickListener {
         }
     }
 
-    private void b(String str) {
-        if (k != null && !k.equals(str)) {
-            j = null;
-        }
-        if (j != null) {
-            this.b.setImageBitmap(j.h());
-            k = str;
-            return;
-        }
-        this.m.c(str, new b(this, str));
-    }
-
     public void a(int i) {
         bq.c(this.e, i);
         bq.c(this.d, i);
-        if (TiebaApplication.g().al() == 1) {
-            a(this.h, R.drawable.bg_list_top_1);
-            a(this.g, R.drawable.bg_list_border_1);
-            a(this.i, R.drawable.bg_list_bottom_1);
+        if (TiebaApplication.g().ae() == 1) {
+            a(this.h, (int) R.drawable.bg_list_top_1);
+            a(this.g, (int) R.drawable.bg_list_border_1);
+            a(this.i, (int) R.drawable.bg_list_bottom_1);
             BitmapDrawable bitmapDrawable = (BitmapDrawable) this.e.getResources().getDrawable(R.drawable.person_post_ba_n_1);
             bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
             this.e.setCompoundDrawables(bitmapDrawable, null, null, null);
@@ -215,9 +218,9 @@ class a implements View.OnClickListener {
             this.f.setTextColor(this.f.getResources().getColor(R.color.home_reply_num_txt_1));
             return;
         }
-        a(this.h, R.drawable.bg_list_top);
-        a(this.g, R.drawable.bg_list_border);
-        a(this.i, R.drawable.bg_list_bottom);
+        a(this.h, (int) R.drawable.bg_list_top);
+        a(this.g, (int) R.drawable.bg_list_border);
+        a(this.i, (int) R.drawable.bg_list_bottom);
         BitmapDrawable bitmapDrawable2 = (BitmapDrawable) this.e.getResources().getDrawable(R.drawable.person_post_ba_n);
         bitmapDrawable2.setBounds(0, 0, bitmapDrawable2.getIntrinsicWidth(), bitmapDrawable2.getIntrinsicHeight());
         this.e.setCompoundDrawables(bitmapDrawable2, null, null, null);
@@ -227,7 +230,7 @@ class a implements View.OnClickListener {
         this.f.setTextColor(this.f.getResources().getColor(R.color.home_reply_num_txt));
     }
 
-    private void a(View view, int i) {
+    private static void a(View view, int i) {
         int paddingLeft = view.getPaddingLeft();
         int paddingTop = view.getPaddingTop();
         int paddingRight = view.getPaddingRight();

@@ -14,7 +14,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
-public class ba {
+public final class ba {
     private an a = null;
     private an b = null;
     private boolean c = false;
@@ -28,8 +28,9 @@ public class ba {
     private bl k = null;
     private int l = 0;
 
-    private void q() {
-        this.a = bf.a().a(this.j);
+    private void r() {
+        bf.a();
+        this.a = bf.a(this.j);
         this.b = null;
         this.c = false;
         this.e = true;
@@ -40,82 +41,85 @@ public class ba {
     }
 
     public ba() {
-        q();
+        r();
     }
 
-    public void a(boolean z) {
-        this.d = z;
+    public final void a(boolean z) {
+        this.d = false;
     }
 
-    public void b(boolean z) {
-        this.a.c(z);
+    public final void b(boolean z) {
+        this.a.c(false);
     }
 
-    public void c(boolean z) {
+    public final void c(boolean z) {
         this.e = z;
     }
 
-    public String a() {
+    public final String a() {
         return this.h;
     }
 
     public ba(String str) {
-        q();
+        r();
         this.a.b(str);
     }
 
     public ba(Context context, String str) {
-        q();
+        r();
         this.a.a(context);
         this.a.b(str);
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.a.b(str);
     }
 
-    public void a(Context context) {
+    public final void a(Context context) {
         this.a.a(context);
     }
 
-    public Context b() {
+    private Context s() {
         return this.a.l();
     }
 
-    public void a(ArrayList<BasicNameValuePair> arrayList) {
+    public final void a(ArrayList<BasicNameValuePair> arrayList) {
         this.a.a(arrayList);
     }
 
-    public void a(String str, String str2) {
+    public final void a(String str, String str2) {
         this.a.a(str, str2);
     }
 
-    public void a(BasicNameValuePair basicNameValuePair) {
+    public final void a(BasicNameValuePair basicNameValuePair) {
         this.a.a(basicNameValuePair);
     }
 
-    public void a(String str, byte[] bArr) {
+    public final void a(String str, byte[] bArr) {
         this.a.a(str, bArr);
     }
 
-    public void d(boolean z) {
+    public final void d(boolean z) {
         this.a.d(z);
     }
 
-    private void r() {
-        String D = TiebaApplication.D();
-        if (D != null && this.d) {
-            this.a.a("BDUSS", D);
+    private void t() {
+        String x = TiebaApplication.x();
+        if (x != null && this.d) {
+            this.a.a("BDUSS", x);
         }
     }
 
-    private void s() {
-        String D = TiebaApplication.D();
-        BasicNameValuePair basicNameValuePair = new BasicNameValuePair("BDUSS", D);
-        BasicNameValuePair basicNameValuePair2 = new BasicNameValuePair("tbs", TiebaApplication.g().J());
-        com.baidu.adp.lib.util.f.a("NetWork", "modSessionData", "== BDUSS:" + D);
-        com.baidu.adp.lib.util.f.a("NetWork", "modSessionData", "== TBS:" + TiebaApplication.g().J());
-        if (D != null) {
+    private void u() {
+        String x = TiebaApplication.x();
+        BasicNameValuePair basicNameValuePair = new BasicNameValuePair("BDUSS", x);
+        TiebaApplication.g();
+        BasicNameValuePair basicNameValuePair2 = new BasicNameValuePair("tbs", TiebaApplication.D());
+        com.baidu.adp.lib.util.e.a("NetWork", "modSessionData", "== BDUSS:" + x);
+        StringBuilder sb = new StringBuilder("== TBS:");
+        TiebaApplication.g();
+        com.baidu.adp.lib.util.e.a("NetWork", "modSessionData", sb.append(TiebaApplication.D()).toString());
+        if (x != null) {
             ArrayList<BasicNameValuePair> m = this.a.m();
             int size = m.size();
             for (int i = 0; i < size; i++) {
@@ -129,53 +133,59 @@ public class ba {
         }
     }
 
-    public int c() {
+    public final int b() {
         return this.a.n();
     }
 
-    private void t() {
+    private void v() {
         this.a.a("_client_type", "2");
-        if (!TiebaApplication.g().bh()) {
+        if (!TiebaApplication.g().aZ()) {
             this.a.a("apid", "sw");
         }
         this.a.a("_client_version", com.baidu.tieba.data.i.u());
-        if (TiebaApplication.g().p() != null) {
-            this.a.a("_phone_imei", TiebaApplication.g().p());
+        if (TiebaApplication.g().k() != null) {
+            this.a.a("_phone_imei", TiebaApplication.g().k());
         }
-        String K = TiebaApplication.K();
-        if (K != null) {
-            this.a.a("_client_id", K);
+        String E = TiebaApplication.E();
+        if (E != null) {
+            this.a.a("_client_id", E);
         }
-        String y = TiebaApplication.y();
-        if (y != null && y.length() > 0) {
-            this.a.a("from", y);
+        String t = TiebaApplication.t();
+        if (t != null && t.length() > 0) {
+            this.a.a("from", t);
         }
         String o = this.a.o();
         if (o != null) {
             if ("3".equalsIgnoreCase(o)) {
-                if (TiebaApplication.g().aQ() == 1) {
-                    com.baidu.adp.lib.network.e.a().a("ka=open");
+                if (TiebaApplication.g().aI() == 1) {
+                    com.baidu.adp.lib.network.e.a();
+                    com.baidu.adp.lib.network.b.b = "ka=open";
                 } else {
-                    com.baidu.adp.lib.network.e.a().a("");
+                    com.baidu.adp.lib.network.e.a();
+                    com.baidu.adp.lib.network.b.b = "";
                 }
-            } else if (TiebaApplication.g().aR() == 1) {
-                com.baidu.adp.lib.network.e.a().a("ka=open");
+            } else if (TiebaApplication.g().aJ() == 1) {
+                com.baidu.adp.lib.network.e.a();
+                com.baidu.adp.lib.network.b.b = "ka=open";
             } else {
-                com.baidu.adp.lib.network.e.a().a("");
+                com.baidu.adp.lib.network.e.a();
+                com.baidu.adp.lib.network.b.b = "";
             }
         }
         if (this.c) {
-            this.a.a("tbs", TiebaApplication.g().J());
+            an anVar = this.a;
+            TiebaApplication.g();
+            anVar.a("tbs", TiebaApplication.D());
         }
-        String o2 = TiebaApplication.g().o();
-        if (o2 != null) {
-            this.a.a(SocialConstants.PARAM_CUID, o2);
+        String j = TiebaApplication.g().j();
+        if (j != null) {
+            this.a.a(SocialConstants.PARAM_CUID, j);
         }
         this.a.a("timestamp", Long.toString(System.currentTimeMillis()));
         this.a.a("model", Build.MODEL);
     }
 
-    private void u() {
+    private void w() {
         if (this.k == null) {
             this.k = bk.a();
         }
@@ -193,35 +203,35 @@ public class ba {
         this.a.a("stErrorNums", String.valueOf(this.l));
     }
 
-    public boolean d() {
+    public final boolean c() {
         return this.a.p();
     }
 
-    public boolean e() {
+    public final boolean d() {
         return this.a.q();
     }
 
-    public int f() {
+    public final int e() {
         return this.a.k();
     }
 
-    public int g() {
+    public final int f() {
         return this.a.A();
     }
 
-    public String h() {
+    public final String g() {
         return this.a.B();
     }
 
-    public String i() {
+    public final String h() {
         return this.a.o();
     }
 
-    public String j() {
+    public final String i() {
         return this.a.r();
     }
 
-    public void k() {
+    public final void j() {
         if (this.a != null) {
             this.a.s();
         }
@@ -230,11 +240,11 @@ public class ba {
         }
     }
 
-    public com.baidu.tieba.model.at a(String str, String str2, boolean z) {
+    private com.baidu.tieba.model.at a(String str, String str2, boolean z) {
         String u;
         try {
-            com.baidu.adp.lib.util.f.a(getClass().toString(), "login", "=== need auto login");
-            TiebaApplication.a((AccountData) null, b());
+            com.baidu.adp.lib.util.e.a(getClass().toString(), "login", "=== need auto login");
+            TiebaApplication.a((AccountData) null, s());
             StringBuilder sb = new StringBuilder(32);
             sb.append(com.baidu.tieba.data.i.a);
             sb.append("c/s/login");
@@ -242,10 +252,11 @@ public class ba {
             arrayList.add(new BasicNameValuePair("un", str));
             arrayList.add(new BasicNameValuePair("passwd", str2));
             arrayList.add(new BasicNameValuePair("isphone", SocialConstants.FALSE));
-            arrayList.add(new BasicNameValuePair("channel_id", TiebaApplication.g().aY()));
-            arrayList.add(new BasicNameValuePair("channel_uid", TiebaApplication.g().aX()));
+            arrayList.add(new BasicNameValuePair("channel_id", TiebaApplication.g().aQ()));
+            arrayList.add(new BasicNameValuePair("channel_uid", TiebaApplication.g().aP()));
             if (this.b == null) {
-                this.b = bf.a().a(new bj());
+                bf.a();
+                this.b = bf.a(new bj());
             } else {
                 this.b.s();
             }
@@ -255,7 +266,7 @@ public class ba {
             this.b.a(this.a.l());
             u = this.b.u();
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().toString(), "login", e.getMessage());
+            com.baidu.adp.lib.util.e.b(getClass().toString(), "login", e.getMessage());
         }
         if (this.b.p() && u != null) {
             com.baidu.tieba.model.at atVar = new com.baidu.tieba.model.at();
@@ -280,7 +291,7 @@ public class ba {
                 accountData.setTbs(atVar.b().getTbs());
             }
             DatabaseService.a(accountData);
-            TiebaApplication.a(accountData, b());
+            TiebaApplication.a(accountData, s());
             return atVar;
         }
         if (this.b.q()) {
@@ -288,13 +299,11 @@ public class ba {
                 case 1:
                 case 2:
                 case 5:
-                    if (z) {
-                        Message obtainMessage = TiebaApplication.g().c.obtainMessage(1);
-                        Bundle bundle = new Bundle();
-                        bundle.putString("account", str);
-                        obtainMessage.setData(bundle);
-                        TiebaApplication.g().c.sendMessage(obtainMessage);
-                    }
+                    Message obtainMessage = TiebaApplication.g().c.obtainMessage(1);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("account", str);
+                    obtainMessage.setData(bundle);
+                    TiebaApplication.g().c.sendMessage(obtainMessage);
                     this.b.v();
                     break;
             }
@@ -303,70 +312,66 @@ public class ba {
         return null;
     }
 
-    public byte[] l() {
+    public final byte[] k() {
         if (!this.f) {
-            t();
+            v();
         }
         return this.a.w();
-    }
-
-    private void v() {
-        StringBuffer stringBuffer = new StringBuffer(1024);
-        ArrayList<BasicNameValuePair> m = this.a.m();
-        for (int i = 0; m != null && i < m.size(); i++) {
-            BasicNameValuePair basicNameValuePair = m.get(i);
-            if (basicNameValuePair != null) {
-                String name = basicNameValuePair.getName();
-                String value = basicNameValuePair.getValue();
-                stringBuffer.append(String.valueOf(name) + "=");
-                stringBuffer.append(value);
-            }
-        }
-        stringBuffer.append("tiebaclient!!!");
-        this.a.a("sign", com.baidu.adp.lib.util.h.a(stringBuffer.toString()));
     }
 
     private String a(int i) {
         String y;
         switch (i) {
             case 1:
-                t();
-                u();
+                v();
+                w();
                 y = this.a.x();
                 break;
             case 2:
-                r();
                 t();
-                u();
+                v();
+                w();
                 y = this.a.u();
                 break;
             case 3:
-                r();
                 t();
                 v();
+                StringBuffer stringBuffer = new StringBuffer(1024);
+                ArrayList<BasicNameValuePair> m = this.a.m();
+                for (int i2 = 0; m != null && i2 < m.size(); i2++) {
+                    BasicNameValuePair basicNameValuePair = m.get(i2);
+                    if (basicNameValuePair != null) {
+                        String name = basicNameValuePair.getName();
+                        String value = basicNameValuePair.getValue();
+                        stringBuffer.append(String.valueOf(name) + "=");
+                        stringBuffer.append(value);
+                    }
+                }
+                stringBuffer.append("tiebaclient!!!");
+                this.a.a("sign", com.baidu.adp.lib.util.g.a(stringBuffer.toString()));
                 y = this.a.y();
                 break;
             default:
                 return null;
         }
-        if (y == null && bf.a == 1) {
+        if (y == null && bf.a == 1 && this.a.A() != 404) {
             if (!this.a.t()) {
                 this.a = new NetWorkCore(this.j);
                 switch (i) {
                     case 1:
-                        t();
-                        u();
+                        v();
+                        w();
                         y = this.a.x();
                         break;
                     case 2:
-                        r();
                         t();
-                        u();
+                        v();
+                        w();
                         y = this.a.u();
                         break;
                     case 3:
-                        r();
                         t();
+                        v();
                         y = this.a.y();
                         break;
                     default:
@@ -376,60 +381,64 @@ public class ba {
                     bf.b();
                 }
             } else {
-                com.baidu.adp.lib.util.f.e("手动取消网络请求");
+                com.baidu.adp.lib.util.e.e("手动取消网络请求");
             }
         }
         if (!this.a.q()) {
             bk.a(this.k);
             bk.b(this.l);
             return y;
-        } else if (!this.a.p() && this.a.k() == 1 && this.e) {
-            this.a.v();
-            AccountData E = TiebaApplication.E();
-            if (E == null) {
-                E = DatabaseService.l();
-            }
-            if (E == null) {
-                TiebaApplication.g().c.sendMessage(TiebaApplication.g().c.obtainMessage(1));
-                return null;
-            } else if (a(E.getAccount(), E.getPassword(), true) == null) {
-                if (this.b != null) {
-                    this.a.c(this.b.r());
-                }
-                return null;
-            } else {
-                return b(i);
-            }
+        } else if (this.a.p()) {
+            return y;
         } else {
+            if (this.a.k() == 1 && this.e) {
+                this.a.v();
+                AccountData y2 = TiebaApplication.y();
+                if (y2 == null) {
+                    y2 = DatabaseService.l();
+                }
+                if (y2 == null) {
+                    TiebaApplication.g().c.sendMessage(TiebaApplication.g().c.obtainMessage(1));
+                    return null;
+                } else if (a(y2.getAccount(), y2.getPassword(), true) == null) {
+                    if (this.b != null) {
+                        this.a.c(this.b.r());
+                        return null;
+                    }
+                    return null;
+                } else {
+                    u();
+                    switch (i) {
+                        case 1:
+                            y = this.a.x();
+                            break;
+                        case 2:
+                            y = this.a.u();
+                            break;
+                        case 3:
+                            y = this.a.y();
+                            break;
+                        default:
+                            y = null;
+                            break;
+                    }
+                }
+            }
             return y;
         }
     }
 
-    private String b(int i) {
-        s();
-        switch (i) {
-            case 1:
-                return this.a.x();
-            case 2:
-                return this.a.u();
-            case 3:
-                return this.a.y();
-            default:
-                return null;
-        }
-    }
-
-    public String m() {
+    public final String l() {
         return a(2);
     }
 
-    public String n() {
+    public final String m() {
         return a(3);
     }
 
-    public String b(String str) {
+    public final String b(String str) {
         byte[] bArr;
-        com.baidu.adp.lib.util.f.e("NetWork", "uploadImage", "upload image");
+        com.baidu.adp.lib.util.e.e("NetWork", "uploadImage", "upload image");
         try {
             InputStream h = af.h(str);
             byte[] bArr2 = new byte[5120];
@@ -449,40 +458,54 @@ public class ba {
             return null;
         }
         a("pic", bArr);
-        return n();
+        return m();
     }
 
-    public boolean o() {
+    public final boolean n() {
         return this.a.z();
     }
 
-    public boolean a(String str, Handler handler, int i) {
+    public final boolean a(String str, Handler handler, int i) {
         return a(str, handler, i, 5, 100);
     }
 
-    public boolean a(String str, Handler handler, int i, int i2, int i3) {
-        r();
+    public final boolean a(String str, Handler handler, int i, int i2, int i3) {
+        t();
         return this.a.a(str, handler, i, i2, i3);
     }
 
-    public void e(boolean z) {
-        this.c = z;
+    public final void e(boolean z) {
+        this.c = true;
     }
 
-    public void f(boolean z) {
+    public final void f(boolean z) {
         this.f = z;
         this.a.a(z);
     }
 
-    public boolean p() {
+    public final boolean o() {
         return this.a.a();
     }
 
-    public void a(String str, int i) {
+    public final void a(String str, int i) {
         this.g = str;
         this.a.a(str);
         this.a.b(true);
         this.a.a(i);
         this.i = true;
+    }
+
+    public final long p() {
+        if (this.a != null) {
+            return this.a.c();
+        }
+        return 0L;
+    }
+
+    public final long q() {
+        if (this.a != null) {
+            return this.a.g();
+        }
+        return 0L;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba;
 import android.view.View;
 import com.baidu.tieba.view.BaseViewPager;
 /* loaded from: classes.dex */
-class w implements View.OnClickListener {
+final class w implements View.OnClickListener {
     final /* synthetic */ GuideActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ class w implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         BaseViewPager baseViewPager;
         int[] iArr;
         BaseViewPager baseViewPager2;

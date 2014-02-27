@@ -5,10 +5,9 @@ import android.widget.AdapterView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.pb.NewPbActivity;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.cb;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ag implements AdapterView.OnItemClickListener {
+public final class ag implements AdapterView.OnItemClickListener {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,17 +16,17 @@ public class ag implements AdapterView.OnItemClickListener {
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        br brVar;
-        br brVar2;
+    public final void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        bs bsVar;
+        bs bsVar2;
         boolean z;
         String str;
         int i2;
         int i3;
         int i4;
         if (i >= 0) {
-            brVar = this.a.p;
-            long itemId = brVar.n().getItemId(i);
+            bsVar = this.a.p;
+            long itemId = bsVar.m().getItemId(i);
             if (itemId == -1) {
                 i3 = this.a.j;
                 if (i3 > 1) {
@@ -35,34 +34,34 @@ public class ag implements AdapterView.OnItemClickListener {
                     i4 = frsActivity.j;
                     frsActivity.j = i4 - 1;
                     this.a.f = 2;
-                    this.a.D();
+                    this.a.o();
                 }
             } else if (itemId != -2) {
-                brVar2 = this.a.p;
-                com.baidu.tieba.data.az azVar = (com.baidu.tieba.data.az) brVar2.n().getItem(i);
+                bsVar2 = this.a.p;
+                com.baidu.tieba.data.az azVar = (com.baidu.tieba.data.az) bsVar2.m().getItem(i);
                 if (azVar != null) {
                     if (azVar instanceof g) {
                         g gVar = (g) azVar;
-                        int A = gVar.A();
-                        if (A == 0) {
+                        int x = gVar.x();
+                        if (x == 0) {
                             this.a.a(gVar, i);
                             return;
-                        } else if (A == 2) {
+                        } else if (x == 2) {
                             this.a.a(gVar);
                             return;
                         } else {
                             return;
                         }
                     }
-                    com.baidu.tieba.util.bo at = TiebaApplication.g().at();
-                    if (at != null && !at.b(azVar.a())) {
-                        at.a(azVar.a());
+                    com.baidu.tieba.util.bo am = TiebaApplication.g().am();
+                    if (am != null && !am.b(azVar.a())) {
+                        am.a(azVar.a());
                     }
-                    String l = azVar.l();
-                    if (l == null || l.equals("")) {
+                    String j2 = azVar.j();
+                    if (j2 == null || j2.equals("")) {
                         z = false;
                     } else {
-                        new Thread(new ah(this, l)).start();
+                        new Thread(new ah(this, j2)).start();
                         z = true;
                     }
                     String b = azVar.b();
@@ -78,12 +77,12 @@ public class ag implements AdapterView.OnItemClickListener {
                     NewPbActivity.a(frsActivity2, azVar, str, null, 18003, true, false, z);
                 }
             } else {
-                cb.a(this.a, "frs_nextpage", "frsclick", 1, new Object[0]);
+                com.baidu.tieba.util.cb.a(this.a, "frs_nextpage", "frsclick", 1, new Object[0]);
                 FrsActivity frsActivity3 = this.a;
                 i2 = frsActivity3.j;
                 frsActivity3.j = i2 + 1;
                 this.a.f = 1;
-                this.a.D();
+                this.a.o();
             }
         }
     }

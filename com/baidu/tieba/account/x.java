@@ -1,6 +1,6 @@
 package com.baidu.tieba.account;
 /* loaded from: classes.dex */
-public class x extends Thread {
+public final class x extends Thread {
     private String a;
     private String b;
     private String c;
@@ -15,12 +15,12 @@ public class x extends Thread {
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
+    public final void run() {
         super.run();
         com.baidu.tieba.util.ba baVar = new com.baidu.tieba.util.ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/s/pv");
         baVar.a("obj", this.a);
         baVar.a("obj_tp", this.b);
         baVar.a("group_id", this.c);
-        baVar.m();
+        baVar.l();
     }
 }

@@ -6,9 +6,8 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b implements TextWatcher {
+final class b implements TextWatcher {
     final /* synthetic */ CreateBarActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,11 +16,11 @@ public class b implements TextWatcher {
     }
 
     @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    public final void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 
     @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    public final void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:12:0x0069  */
@@ -30,7 +29,7 @@ public class b implements TextWatcher {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void afterTextChanged(Editable editable) {
+    public final void afterTextChanged(Editable editable) {
         EditText editText;
         RelativeLayout relativeLayout;
         TextView textView;

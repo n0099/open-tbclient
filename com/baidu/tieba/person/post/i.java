@@ -7,19 +7,35 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tieba.util.ba;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
-public class i extends BdAsyncTask<Void, Void, PersonPostThreadModel> {
+public final class i extends BdAsyncTask<Void, Void, PersonPostThreadModel> {
     private WeakReference<h> a;
     private boolean b;
     private ba c;
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ PersonPostThreadModel a(Void... voidArr) {
+        return d();
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ void a(PersonPostThreadModel personPostThreadModel) {
+        PersonPostThreadModel personPostThreadModel2 = personPostThreadModel;
+        h hVar = this.a.get();
+        if (hVar != null) {
+            hVar.a(personPostThreadModel2, this.b);
+        }
+    }
 
     public i(h hVar, boolean z) {
         this.a = new WeakReference<>(hVar);
         this.b = z;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public PersonPostThreadModel a(Void... voidArr) {
+    private PersonPostThreadModel d() {
         String str;
         int i;
         PersonPostThreadModel personPostThreadModel;
@@ -33,37 +49,27 @@ public class i extends BdAsyncTask<Void, Void, PersonPostThreadModel> {
         this.c.a("rn", String.valueOf(20));
         this.c.a("is_thread", String.valueOf(1));
         this.c.a("need_content", String.valueOf(1));
-        String m = this.c.m();
-        com.baidu.adp.lib.util.f.e("PersonPostThreadModel", "doInBackground", m);
+        String l = this.c.l();
+        com.baidu.adp.lib.util.e.e("PersonPostThreadModel", "doInBackground", l);
         try {
-            personPostThreadModel = (PersonPostThreadModel) new GsonBuilder().create().fromJson(m, (Class<Object>) PersonPostThreadModel.class);
+            personPostThreadModel = (PersonPostThreadModel) new GsonBuilder().create().fromJson(l, (Class<Object>) PersonPostThreadModel.class);
         } catch (JsonParseException e) {
-            com.baidu.adp.lib.util.f.e("PersonPostThreadModel", "doInBackground", e.getMessage());
+            com.baidu.adp.lib.util.e.e("PersonPostThreadModel", "doInBackground", e.getMessage());
             personPostThreadModel = null;
         }
         if (personPostThreadModel == null) {
             personPostThreadModel = new PersonPostThreadModel();
         }
-        personPostThreadModel.setErrorCode(this.c.f());
-        personPostThreadModel.setErrorString(this.c.j());
+        personPostThreadModel.setErrorCode(this.c.e());
+        personPostThreadModel.setErrorString(this.c.i());
         return personPostThreadModel;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(PersonPostThreadModel personPostThreadModel) {
-        h hVar = this.a.get();
-        if (hVar != null) {
-            hVar.a(personPostThreadModel, this.b);
-        }
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
+    public final void cancel() {
         super.cancel();
         if (this.c != null) {
-            this.c.k();
+            this.c.j();
         }
         PersonPostThreadModel.sFetchThreadAsyncTask = null;
     }

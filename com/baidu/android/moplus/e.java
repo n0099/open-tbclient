@@ -34,11 +34,9 @@ public final class e {
                 if (property != null && property.length() > 0) {
                     a = property;
                 }
-                if (fileInputStream != null) {
-                    try {
-                        fileInputStream.close();
-                    } catch (IOException e) {
-                    }
+                try {
+                    fileInputStream.close();
+                } catch (IOException e) {
                 }
             } catch (Exception e2) {
                 if (fileInputStream != null) {

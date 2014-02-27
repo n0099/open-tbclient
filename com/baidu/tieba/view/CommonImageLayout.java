@@ -11,9 +11,9 @@ import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class CommonImageLayout extends ViewGroup {
     private static com.baidu.tieba.util.i j;
-    public cp b;
-    public cp c;
-    public cp d;
+    public co b;
+    public co c;
+    public co d;
     private com.baidu.tieba.data.ah[] k;
     private int l;
     private boolean m;
@@ -53,9 +53,9 @@ public class CommonImageLayout extends ViewGroup {
         this.p = "other";
         this.o = context;
         b();
-        this.b = new cp(context);
-        this.c = new cp(context);
-        this.d = new cp(context);
+        this.b = new co(context);
+        this.c = new co(context);
+        this.d = new co(context);
         this.b.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.c.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.d.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -200,7 +200,7 @@ public class CommonImageLayout extends ViewGroup {
             switch (this.k.length) {
                 case 1:
                     if (this.m) {
-                        int i6 = (int) (e[0] + 0.5f);
+                        float[] fArr = e;
                         this.b.layout(0, 0, i4, i5 - i3);
                     } else {
                         this.b.layout(this.l, 0, ((int) (e[4] + 0.5f)) + this.l, i5 - i3);
@@ -210,29 +210,29 @@ public class CommonImageLayout extends ViewGroup {
                     return;
                 case 2:
                     if (this.m) {
-                        int i7 = (int) (e[1] + 0.5f);
-                        this.b.layout(this.l, 0, this.l + i7, i5 - i3);
-                        this.c.layout(i7 + this.l + h, 0, (i4 - this.l) - i2, i5 - i3);
+                        int i6 = (int) (e[1] + 0.5f);
+                        this.b.layout(this.l, 0, this.l + i6, i5 - i3);
+                        this.c.layout(i6 + this.l + h, 0, (i4 - this.l) - i2, i5 - i3);
                     } else {
-                        int i8 = (int) (e[4] + 0.5f);
-                        this.b.layout(this.l, 0, this.l + i8, i5 - i3);
-                        this.c.layout(this.l + i8 + g, 0, (i8 * 2) + this.l + g, i5 - i3);
+                        int i7 = (int) (e[4] + 0.5f);
+                        this.b.layout(this.l, 0, this.l + i7, i5 - i3);
+                        this.c.layout(this.l + i7 + g, 0, (i7 * 2) + this.l + g, i5 - i3);
                     }
                     this.d.layout(0, 0, 0, 0);
                     return;
                 case 3:
                     if (this.m) {
-                        int i9 = (int) (e[2] + 0.5f);
-                        int i10 = (int) (e[3] + 0.5f);
-                        this.b.layout(0, 0, i9, i5 - i3);
-                        this.c.layout(g + i9, 0, i4, i10);
-                        this.d.layout(i9 + g, i10 + g, i4, i5 - i3);
+                        int i8 = (int) (e[2] + 0.5f);
+                        int i9 = (int) (e[3] + 0.5f);
+                        this.b.layout(0, 0, i8, i5 - i3);
+                        this.c.layout(g + i8, 0, i4, i9);
+                        this.d.layout(i8 + g, i9 + g, i4, i5 - i3);
                         return;
                     }
-                    int i11 = (int) (e[4] + 0.5f);
-                    this.b.layout(this.l, 0, this.l + i11, i5 - i3);
-                    this.c.layout(this.l + i11 + g, 0, (i11 * 2) + this.l + g, i5 - i3);
-                    this.d.layout((i11 * 2) + this.l + (g * 2), 0, (i4 - this.l) - i2, i5 - i3);
+                    int i10 = (int) (e[4] + 0.5f);
+                    this.b.layout(this.l, 0, this.l + i10, i5 - i3);
+                    this.c.layout(this.l + i10 + g, 0, (i10 * 2) + this.l + g, i5 - i3);
+                    this.d.layout((i10 * 2) + this.l + (g * 2), 0, (i4 - this.l) - i2, i5 - i3);
                     return;
                 default:
                     return;
@@ -291,14 +291,14 @@ public class CommonImageLayout extends ViewGroup {
     public void setFromCDN(boolean z) {
         this.n = z;
         if (j != null) {
-            j.d(this.n);
+            j.a(this.n);
         }
     }
 
     public void setImageFrom(String str) {
         this.p = str;
         if (j != null) {
-            j.f(str);
+            j.b(str);
         }
     }
 
@@ -308,15 +308,15 @@ public class CommonImageLayout extends ViewGroup {
         a();
     }
 
-    public void a() {
+    public final void a() {
         if (this.b != null) {
-            this.b.f();
+            this.b.d();
         }
         if (this.c != null) {
-            this.c.f();
+            this.c.d();
         }
         if (this.d != null) {
-            this.d.f();
+            this.d.d();
         }
     }
 }

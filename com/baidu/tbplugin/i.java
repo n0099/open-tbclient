@@ -1,16 +1,12 @@
 package com.baidu.tbplugin;
 
-import android.content.Context;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.io.FileUtils;
 /* loaded from: classes.dex */
-public class i implements e {
-    public i(Context context) {
-    }
-
+public final class i implements e {
     @Override // com.baidu.tbplugin.e
-    public List<Class<?>> a(int i) {
+    public final List<Class<?>> a(int i) {
         switch (i) {
             case 1:
                 return j.c;
@@ -18,21 +14,17 @@ public class i implements e {
             default:
                 return null;
             case 3:
-                return a();
+                ArrayList arrayList = new ArrayList(j.c.size());
+                for (Class<?> cls : j.c) {
+                    if (a(cls)) {
+                        arrayList.add(cls);
+                    }
+                }
+                return arrayList;
         }
     }
 
-    public List<Class<?>> a() {
-        ArrayList arrayList = new ArrayList(j.c.size());
-        for (Class<?> cls : j.c) {
-            if (a(cls)) {
-                arrayList.add(cls);
-            }
-        }
-        return arrayList;
-    }
-
-    private boolean a(Class<?> cls) {
+    private static boolean a(Class<?> cls) {
         boolean z;
         com.baidu.tbplugin.a.c cVar = (com.baidu.tbplugin.a.c) f.a(cls, com.baidu.tbplugin.a.c.class);
         if (cVar == null || cVar.a().equals("")) {

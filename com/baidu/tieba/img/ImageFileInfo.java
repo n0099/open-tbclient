@@ -115,7 +115,7 @@ public class ImageFileInfo implements Serializable {
             jSONObject.put("hasAddPostQualityAction", this.hasAddPostQualityAction);
             return jSONObject;
         } catch (JSONException e) {
-            com.baidu.adp.lib.util.f.b(e.getMessage());
+            com.baidu.adp.lib.util.e.b(e.getMessage());
             return null;
         }
     }
@@ -222,7 +222,7 @@ public class ImageFileInfo implements Serializable {
     }
 
     public boolean isAlreadyUploadedToServer() {
-        return !com.baidu.adp.lib.util.h.b(this.serverImageCode);
+        return !com.baidu.adp.lib.util.g.b(this.serverImageCode);
     }
 
     public Bitmap getOrginalBitmap() {

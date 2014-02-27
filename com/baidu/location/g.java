@@ -123,7 +123,7 @@ public class g {
         f158char = true;
         new Thread() { // from class: com.baidu.location.g.4
             @Override // java.lang.Thread, java.lang.Runnable
-            public void run() {
+            public final void run() {
                 Long valueOf;
                 boolean z2 = true;
                 try {
@@ -212,7 +212,7 @@ public class g {
         }
         new Thread() { // from class: com.baidu.location.g.1
             @Override // java.lang.Thread, java.lang.Runnable
-            public void run() {
+            public final void run() {
                 HttpPost httpPost;
                 HttpResponse execute;
                 int statusCode;
@@ -285,8 +285,9 @@ public class g {
                     randomAccessFile.seek(FileUtils.ONE_KB);
                     j.s = randomAccessFile.readDouble();
                     j.f194byte = randomAccessFile.readDouble();
-                    j.e = randomAccessFile.readBoolean();
-                    if (j.e) {
+                    boolean readBoolean = randomAccessFile.readBoolean();
+                    j.e = readBoolean;
+                    if (readBoolean) {
                         j.o = new byte[625];
                         randomAccessFile.read(j.o, 0, 625);
                     }
@@ -335,8 +336,9 @@ public class g {
 
     /* renamed from: do  reason: not valid java name */
     public static int m197do(Context context) {
-        f167try = m206if(context);
-        return f167try;
+        int m206if = m206if(context);
+        f167try = m206if;
+        return m206if;
     }
 
     /* JADX WARN: Type inference failed for: r0v7, types: [com.baidu.location.g$3] */
@@ -376,11 +378,11 @@ public class g {
                 j.a(f166new, "upload data size:" + i2);
             } while (i2 < c);
         }
-        if (e != null && e.size() >= 1) {
+        if (e != null && e.size() > 0) {
             j.a(f166new, "Beging upload data...");
             new Thread() { // from class: com.baidu.location.g.3
                 @Override // java.lang.Thread, java.lang.Runnable
-                public void run() {
+                public final void run() {
                     try {
                         HttpPost httpPost = new HttpPost(j.m235do());
                         ArrayList arrayList = new ArrayList();
@@ -652,9 +654,11 @@ public class g {
                             if (split5[4] != null && !split5[4].equals("")) {
                                 int parseInt2 = Integer.parseInt(split5[4]);
                                 if (parseInt2 > 0) {
-                                    j.B = parseInt2;
-                                    j.z = j.B * 1000 * 60;
-                                    j.q = j.z >> 2;
+                                    long j2 = parseInt2;
+                                    j.B = j2;
+                                    long j3 = j2 * 1000 * 60;
+                                    j.z = j3;
+                                    j.q = j3 >> 2;
                                 } else {
                                     j.M = false;
                                 }
@@ -693,7 +697,7 @@ public class g {
         }
         new Thread() { // from class: com.baidu.location.g.2
             @Override // java.lang.Thread, java.lang.Runnable
-            public void run() {
+            public final void run() {
                 HttpPost httpPost;
                 HttpResponse execute;
                 int statusCode;

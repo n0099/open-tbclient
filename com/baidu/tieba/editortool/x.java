@@ -1,24 +1,60 @@
 package com.baidu.tieba.editortool;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.data.emotions.WritableEmotionGroup;
 /* loaded from: classes.dex */
-public class x implements View.OnClickListener {
-    final /* synthetic */ EmotionTabWidgetView a;
+public final class x {
+    private String a;
+    private String b;
+    private String c;
+    private WritableEmotionGroup.EmotionGroupType d;
+    private int e;
+    private int f;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public x(EmotionTabWidgetView emotionTabWidgetView) {
-        this.a = emotionTabWidgetView;
+    public final String a() {
+        return this.a;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        z zVar;
-        z zVar2;
-        zVar = this.a.d;
-        if (zVar != null) {
-            zVar2 = this.a.d;
-            zVar2.a(21, null);
-        }
+    public final void a(String str) {
+        this.a = str;
+    }
+
+    public final WritableEmotionGroup.EmotionGroupType b() {
+        return this.d;
+    }
+
+    public final void a(WritableEmotionGroup.EmotionGroupType emotionGroupType) {
+        this.d = emotionGroupType;
+    }
+
+    public final String c() {
+        return this.b;
+    }
+
+    public final void b(String str) {
+        this.b = str;
+    }
+
+    public final String d() {
+        return this.c;
+    }
+
+    public final void c(String str) {
+        this.c = str;
+    }
+
+    public final int e() {
+        return this.e;
+    }
+
+    public final void a(int i) {
+        this.e = i;
+    }
+
+    public final int f() {
+        return this.f;
+    }
+
+    public final void b(int i) {
+        this.f = i;
     }
 }

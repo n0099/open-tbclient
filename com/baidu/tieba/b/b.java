@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.RandomAccessFile;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b {
+public final class b {
     final /* synthetic */ a a;
     private String b;
     private String c;
@@ -27,7 +27,7 @@ public class b {
         this.g = str3;
     }
 
-    public com.baidu.tieba.data.g a() {
+    public final com.baidu.tieba.data.g a() {
         com.baidu.tieba.data.g gVar = new com.baidu.tieba.data.g();
         long b = this.d.b();
         long j = b % 30720 == 0 ? b / 30720 : (b / 30720) + 1;
@@ -61,15 +61,15 @@ public class b {
                         boolean z = false;
                         if (this.f) {
                             z = true;
-                        } else if (this.e.n() == null || !this.e.d()) {
+                        } else if (this.e.m() == null || !this.e.c()) {
                             this.d.a(i);
                             DatabaseService.a(this.d);
                             randomAccessFile.close();
                             z = true;
                         }
                         if (z) {
-                            gVar.a(this.e.f());
-                            gVar.a(this.e.j());
+                            gVar.a(this.e.e());
+                            gVar.a(this.e.i());
                             gVar.a(this.d);
                             gVar.a(false);
                             return gVar;

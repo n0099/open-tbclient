@@ -150,8 +150,9 @@ public class b {
                 try {
                     c cVar = new c(b.this.s, b.this.g, b.this.f74try, b.this.m);
                     if (cVar.m91if()) {
-                        j.f206void = cVar.c();
-                        if (j.f206void > 0) {
+                        int c = cVar.c();
+                        j.f206void = c;
+                        if (c > 0) {
                             String unused = b.p = String.format("&ll=%.5f|%.5f&s=%.1f&d=%.1f&ll_r=%d&ll_n=%d&ll_h=%.2f&nmea=%.1f|%.1f&ll_t=%d&g_tp=%d", Double.valueOf(cVar.d()), Double.valueOf(cVar.l()), Double.valueOf(cVar.m85case()), Double.valueOf(cVar.j()), 0, Integer.valueOf(cVar.m90goto()), Double.valueOf(cVar.m95try()), Double.valueOf(cVar.a()), Double.valueOf(cVar.b()), Long.valueOf(currentTimeMillis / 1000), Integer.valueOf(j.f206void));
                         }
                     } else {
@@ -393,7 +394,6 @@ public class b {
         public int a(boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
             int i;
             double[] a2;
-            int i2;
             if (this.f) {
                 if (z && this.r) {
                     this.f81do = 1;
@@ -424,14 +424,9 @@ public class b {
                 }
                 if (z4 && this.f87void) {
                     this.f81do = 4;
-                    int i3 = 0;
-                    Iterator it = this.e.iterator();
-                    while (true) {
-                        i2 = i3;
-                        if (!it.hasNext()) {
-                            break;
-                        }
-                        i3 = ((a) it.next()).m97do() >= j.f202int ? i2 + 1 : i2;
+                    int i2 = 0;
+                    for (a aVar : this.e) {
+                        i2 = aVar.m97do() >= j.f202int ? i2 + 1 : i2;
                     }
                     if (i2 >= j.f201if) {
                         return 1;
@@ -445,57 +440,57 @@ public class b {
                     ArrayList arrayList = new ArrayList();
                     ArrayList arrayList2 = new ArrayList();
                     ArrayList arrayList3 = new ArrayList();
-                    for (int i4 = 0; i4 < 10; i4++) {
+                    for (int i3 = 0; i3 < 10; i3++) {
                         arrayList.add(new ArrayList());
                     }
-                    int i5 = 0;
-                    Iterator it2 = this.e.iterator();
+                    int i4 = 0;
+                    Iterator it = this.e.iterator();
                     while (true) {
-                        i = i5;
-                        if (!it2.hasNext()) {
+                        i = i4;
+                        if (!it.hasNext()) {
                             break;
                         }
-                        a aVar = (a) it2.next();
-                        if (aVar.m97do() >= 10 && aVar.m99if() >= 1) {
-                            ((List) arrayList.get((aVar.m97do() - 10) / 5)).add(aVar);
+                        a aVar2 = (a) it.next();
+                        if (aVar2.m97do() >= 10 && aVar2.m99if() > 0) {
+                            ((List) arrayList.get((aVar2.m97do() - 10) / 5)).add(aVar2);
                             i++;
                         }
-                        i5 = i;
+                        i4 = i;
                     }
                     if (i < 4) {
                         return 4;
                     }
-                    int i6 = 0;
+                    int i5 = 0;
                     while (true) {
-                        int i7 = i6;
-                        if (i7 >= arrayList.size()) {
+                        int i6 = i5;
+                        if (i6 >= arrayList.size()) {
                             break;
                         }
-                        if (((List) arrayList.get(i7)).size() != 0 && (a2 = a((List) arrayList.get(i7))) != null) {
+                        if (((List) arrayList.get(i6)).size() != 0 && (a2 = a((List) arrayList.get(i6))) != null) {
                             arrayList2.add(a2);
-                            arrayList3.add(Integer.valueOf(i7));
+                            arrayList3.add(Integer.valueOf(i6));
                         }
-                        i6 = i7 + 1;
+                        i5 = i6 + 1;
                     }
-                    if (arrayList2 == null || arrayList2.size() <= 0) {
+                    if (arrayList2.size() <= 0) {
                         return 4;
                     }
                     double[] dArr = (double[]) arrayList2.get(0);
                     dArr[0] = dArr[0] * ((Integer) arrayList3.get(0)).intValue();
                     dArr[1] = dArr[1] * ((Integer) arrayList3.get(0)).intValue();
                     if (arrayList2.size() > 1) {
-                        int i8 = 1;
+                        int i7 = 1;
                         while (true) {
-                            int i9 = i8;
-                            if (i9 >= arrayList2.size()) {
+                            int i8 = i7;
+                            if (i8 >= arrayList2.size()) {
                                 break;
                             }
-                            double[] dArr2 = (double[]) arrayList2.get(i9);
-                            dArr2[0] = dArr2[0] * ((Integer) arrayList3.get(i9)).intValue();
-                            dArr2[1] = dArr2[1] * ((Integer) arrayList3.get(i9)).intValue();
+                            double[] dArr2 = (double[]) arrayList2.get(i8);
+                            dArr2[0] = dArr2[0] * ((Integer) arrayList3.get(i8)).intValue();
+                            dArr2[1] = dArr2[1] * ((Integer) arrayList3.get(i8)).intValue();
                             dArr[0] = (dArr[0] + dArr2[0]) / 2.0d;
                             dArr[1] = (dArr[1] + dArr2[1]) / 2.0d;
-                            i8 = i9 + 1;
+                            i7 = i8 + 1;
                         }
                     }
                     double[] a3 = a(dArr[0], dArr[1]);
@@ -848,7 +843,7 @@ public class b {
                     } else if (i == 0 || i == readInt + 1) {
                         return null;
                     } else {
-                        long j = 12 + 0 + ((i - 1) * 1024);
+                        long j = 12 + ((i - 1) * 1024);
                         randomAccessFile.seek(j);
                         int readInt2 = randomAccessFile.readInt();
                         byte[] bArr = new byte[readInt2];
@@ -1115,7 +1110,7 @@ public class b {
                     return null;
                 }
                 j.a("baidu_location_service", "GPS readline2...");
-                long j2 = 0 + ((readInt2 - 1) * 1024) + 12;
+                long j2 = ((readInt2 - 1) * 1024) + 12 + 0;
                 randomAccessFile.seek(j2);
                 int readInt4 = randomAccessFile.readInt();
                 byte[] bArr = new byte[readInt4];
@@ -1147,13 +1142,7 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: if  reason: not valid java name */
     public static boolean m69if(int i2, int i3, int i4) {
-        if (i2 < 0 || i2 > j.l) {
-            return false;
-        }
-        if (i3 < 0 || i3 > i2 + 1) {
-            return false;
-        }
-        return i4 >= 1 && i4 <= i2 + 1 && i4 <= j.l;
+        return i2 >= 0 && i2 <= j.l && i3 >= 0 && i3 <= i2 + 1 && i4 > 0 && i4 <= i2 + 1 && i4 <= j.l;
     }
 
     public static String k() {

@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.CommitPusherCount.CommitPusherCountReq;
 /* loaded from: classes.dex */
 public final class e extends GeneratedMessageLite.Builder<CommitPusherCountReq.DataReq, e> implements f {
@@ -13,19 +14,25 @@ public final class e extends GeneratedMessageLite.Builder<CommitPusherCountReq.D
     private long d;
     private long e;
 
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return CommitPusherCountReq.DataReq.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return CommitPusherCountReq.DataReq.getDefaultInstance();
+    }
+
     private e() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static e h() {
+    public static /* synthetic */ e c() {
         return new e();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: d */
     public e clear() {
         super.clear();
         this.b = 0L;
@@ -40,20 +47,14 @@ public final class e extends GeneratedMessageLite.Builder<CommitPusherCountReq.D
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
+    /* renamed from: e */
     public e clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public CommitPusherCountReq.DataReq getDefaultInstanceForType() {
-        return CommitPusherCountReq.DataReq.getDefaultInstance();
+        return new e().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: d */
-    public CommitPusherCountReq.DataReq build() {
+    /* renamed from: a */
+    public final CommitPusherCountReq.DataReq build() {
         CommitPusherCountReq.DataReq buildPartial = buildPartial();
         if (!buildPartial.isInitialized()) {
             throw newUninitializedMessageException(buildPartial);
@@ -62,8 +63,8 @@ public final class e extends GeneratedMessageLite.Builder<CommitPusherCountReq.D
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public CommitPusherCountReq.DataReq buildPartial() {
+    /* renamed from: b */
+    public final CommitPusherCountReq.DataReq buildPartial() {
         CommitPusherCountReq.DataReq dataReq = new CommitPusherCountReq.DataReq(this, (CommitPusherCountReq.DataReq) null);
         int i = this.a;
         int i2 = (i & 1) != 1 ? 0 : 1;
@@ -86,7 +87,7 @@ public final class e extends GeneratedMessageLite.Builder<CommitPusherCountReq.D
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public e mergeFrom(CommitPusherCountReq.DataReq dataReq) {
+    public final e mergeFrom(CommitPusherCountReq.DataReq dataReq) {
         if (dataReq != CommitPusherCountReq.DataReq.getDefaultInstance()) {
             if (dataReq.hasPusherCount()) {
                 a(dataReq.getPusherCount());
@@ -98,7 +99,9 @@ public final class e extends GeneratedMessageLite.Builder<CommitPusherCountReq.D
                 c(dataReq.getDownFlowSize());
             }
             if (dataReq.hasEnterForeCount()) {
-                d(dataReq.getEnterForeCount());
+                long enterForeCount = dataReq.getEnterForeCount();
+                this.a |= 8;
+                this.e = enterForeCount;
             }
         }
         return this;
@@ -147,27 +150,21 @@ public final class e extends GeneratedMessageLite.Builder<CommitPusherCountReq.D
         }
     }
 
-    public e a(long j) {
+    public final e a(long j) {
         this.a |= 1;
         this.b = j;
         return this;
     }
 
-    public e b(long j) {
+    public final e b(long j) {
         this.a |= 2;
         this.c = j;
         return this;
     }
 
-    public e c(long j) {
+    public final e c(long j) {
         this.a |= 4;
         this.d = j;
-        return this;
-    }
-
-    public e d(long j) {
-        this.a |= 8;
-        this.e = j;
         return this;
     }
 }

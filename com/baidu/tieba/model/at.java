@@ -6,35 +6,36 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class at {
-    private ArrayList<String> c;
-    private int d = 0;
+public final class at {
     private UserData a = new UserData();
     private AntiData b = new AntiData();
+    private ArrayList<String> c;
+    private int d;
 
     public at() {
         this.c = null;
+        this.d = 0;
         this.c = new ArrayList<>();
-        a(0);
+        this.d = 0;
     }
 
-    public UserData a() {
+    public final UserData a() {
         return this.a;
     }
 
-    public AntiData b() {
+    public final AntiData b() {
         return this.b;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("LoginData", "parserJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.util.e.b("LoginData", "parserJson", "error = " + e.getMessage());
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    private void a(JSONObject jSONObject) {
         try {
             this.a.parserJson(jSONObject.optJSONObject("user"));
             this.b.parserJson(jSONObject.optJSONObject("anti"));
@@ -44,21 +45,17 @@ public class at {
                     this.c.add(optJSONArray.optString(i, null));
                 }
             }
-            a(jSONObject.optInt("retrytime"));
+            this.d = jSONObject.optInt("retrytime");
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("LoginData", "parserJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.util.e.b("LoginData", "parserJson", "error = " + e.getMessage());
         }
     }
 
-    public ArrayList<String> c() {
+    public final ArrayList<String> c() {
         return this.c;
     }
 
-    public void a(int i) {
-        this.d = i;
-    }
-
-    public int d() {
+    public final int d() {
         return this.d;
     }
 }

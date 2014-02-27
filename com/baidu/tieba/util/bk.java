@@ -3,12 +3,12 @@ package com.baidu.tieba.util;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes.dex */
-public class bk {
+public final class bk {
     private static ArrayList<bl> b = new ArrayList<>();
     public static AtomicInteger a = new AtomicInteger(0);
 
     public static int a(int i) {
-        return a.getAndSet(i);
+        return a.getAndSet(0);
     }
 
     public static int b(int i) {

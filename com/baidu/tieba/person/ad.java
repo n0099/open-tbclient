@@ -3,7 +3,6 @@ package com.baidu.tieba.person;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ProgressBar;
@@ -15,10 +14,10 @@ import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class ad {
+public final class ad {
     EditMarkActivity a;
     private BdListView c;
-    private com.baidu.tieba.view.ct d;
+    private com.baidu.tieba.view.cs d;
     private LinearLayout e;
     private af f;
     private TextView g;
@@ -45,7 +44,7 @@ public class ad {
         this.f = new af(editMarkActivity);
         this.f.d(false);
         this.f.b();
-        this.d = new com.baidu.tieba.view.ct(editMarkActivity);
+        this.d = new com.baidu.tieba.view.cs(editMarkActivity);
         this.d.a(editMarkActivity);
         this.c = (BdListView) editMarkActivity.findViewById(R.id.list);
         this.c.setAdapter((ListAdapter) this.f);
@@ -61,33 +60,25 @@ public class ad {
         this.f.a(editMarkActivity);
     }
 
-    public TextView a() {
+    public final TextView a() {
         return this.g;
     }
 
-    public void a(DialogInterface.OnClickListener onClickListener) {
-        this.b = onClickListener;
-    }
-
-    public void b() {
+    public final void b() {
         if (!this.f.c()) {
             this.f.e(true);
             this.g.setText(R.string.done);
-            com.baidu.tieba.util.bq.h(this.g, TiebaApplication.g().al());
+            com.baidu.tieba.util.bq.h(this.g, TiebaApplication.g().ae());
             this.f.notifyDataSetChanged();
             return;
         }
         this.f.e(false);
         this.g.setText(R.string.edit);
-        com.baidu.tieba.util.bq.j(this.g, TiebaApplication.g().al());
+        com.baidu.tieba.util.bq.i(this.g, TiebaApplication.g().ae());
         this.f.notifyDataSetChanged();
     }
 
-    public int c() {
-        return R.id.home_lv_markitem_delete;
-    }
-
-    public void a(int i) {
+    public final void a(int i) {
         if (i == 0) {
             this.i.setVisibility(0);
         }
@@ -95,18 +86,14 @@ public class ad {
         this.f.notifyDataSetChanged();
     }
 
-    public void d() {
-        this.i.setVisibility(0);
-    }
-
-    public void e() {
+    public final void c() {
         this.i.setVisibility(8);
     }
 
-    public void a(String str, com.baidu.tieba.model.g gVar, boolean z) {
+    public final void a(String str, com.baidu.tieba.model.g gVar, boolean z) {
         this.f.b(true);
         if (str != null) {
-            a(str);
+            this.a.showToast(str);
         }
         if (gVar != null) {
             if (gVar.h() == 0 && !z) {
@@ -135,23 +122,15 @@ public class ad {
         }
         this.f.b(false);
         this.i.setVisibility(8);
-        if (z && !k()) {
-            d();
+        if (z && !this.k) {
+            this.i.setVisibility(0);
         }
-        if (k()) {
-            a(false);
+        if (this.k) {
+            this.k = false;
         }
     }
 
-    public void a(String str) {
-        this.a.showToast(str);
-    }
-
-    public void f() {
-        this.a.showLoadingDialog(this.a.getString(R.string.syncing));
-    }
-
-    public void a(boolean z, String str, boolean z2) {
+    public final void a(boolean z, String str, boolean z2) {
         this.a.closeLoadingDialog();
         if (z) {
             this.f.b();
@@ -160,16 +139,27 @@ public class ad {
             this.a.showToast(str);
         }
         if (z2) {
-            l();
+            if (this.j == null) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this.a);
+                builder.setTitle(this.a.getString(R.string.sync_mark_fail));
+                builder.setMessage(this.a.getString(R.string.sync_mark_fail_con));
+                if (this.b != null) {
+                    builder.setPositiveButton(this.a.getString(R.string.retry_rightnow), this.b);
+                }
+                builder.setNegativeButton(this.a.getString(R.string.confirm), new ae(this));
+                this.j = builder.create();
+                this.j.setCanceledOnTouchOutside(true);
+            }
+            this.j.show();
         }
         this.f.notifyDataSetChanged();
     }
 
-    public void g() {
+    public final void d() {
         this.i.setVisibility(0);
     }
 
-    public void a(boolean z, String str, ArrayList<MarkData> arrayList) {
+    public final void a(boolean z, String str, ArrayList<MarkData> arrayList) {
         if (z) {
             this.a.showToast(this.a.getString(R.string.del_mark_success));
             this.f.a(arrayList);
@@ -189,7 +179,7 @@ public class ad {
         this.i.setVisibility(8);
     }
 
-    public void a(ArrayList<MarkData> arrayList) {
+    public final void a(ArrayList<MarkData> arrayList) {
         if (arrayList != null) {
             this.f.a(arrayList);
             this.f.b();
@@ -197,35 +187,20 @@ public class ad {
         }
     }
 
-    private void l() {
-        if (this.j == null) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this.a);
-            builder.setTitle(this.a.getString(R.string.sync_mark_fail));
-            builder.setMessage(this.a.getString(R.string.sync_mark_fail_con));
-            if (this.b != null) {
-                builder.setPositiveButton(this.a.getString(R.string.retry_rightnow), this.b);
-            }
-            builder.setNegativeButton(this.a.getString(R.string.confirm), new ae(this));
-            this.j = builder.create();
-            this.j.setCanceledOnTouchOutside(true);
-        }
-        this.j.show();
-    }
-
-    public void b(int i) {
-        this.l.c(i);
-        this.a.getLayoutMode().a((View) this.h);
+    public final void b(int i) {
+        this.l.b(i);
+        this.a.getLayoutMode().a(this.h);
         if (this.d != null) {
             this.d.a(i);
         }
     }
 
-    public void h() {
+    public final void e() {
         this.f.b();
         this.f.notifyDataSetChanged();
     }
 
-    public void i() {
+    public final void f() {
         if (this.j != null) {
             this.j.dismiss();
             this.j = null;
@@ -236,17 +211,13 @@ public class ad {
         this.f.a();
     }
 
-    public void j() {
+    public final void g() {
         if (this.c != null) {
             this.c.a();
         }
     }
 
-    public boolean k() {
-        return this.k;
-    }
-
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.k = z;
     }
 }

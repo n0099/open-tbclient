@@ -1,7 +1,6 @@
 package com.baidu.tieba.person;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class co implements e {
+final class co implements e {
     final /* synthetic */ cm a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,7 +9,7 @@ public class co implements e {
     }
 
     @Override // com.baidu.tieba.person.e
-    public void a() {
+    public final void a() {
         if (!this.a.a()) {
             this.a.a(true);
             this.a.e();

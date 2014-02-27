@@ -1,22 +1,22 @@
 package com.baidu.tieba.square;
 /* loaded from: classes.dex */
-public class av {
+public final class av {
     protected String a = null;
     protected String b = null;
 
-    public String a() {
+    public final String a() {
         return this.a;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.a = str;
     }
 
-    public String b() {
+    public final String b() {
         return this.b;
     }
 
-    public void b(String str) {
+    public final void b(String str) {
         this.b = str;
     }
 }

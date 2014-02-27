@@ -2,7 +2,7 @@ package com.baidu.tieba.account.forbid;
 
 import android.widget.RadioGroup;
 /* loaded from: classes.dex */
-class c implements RadioGroup.OnCheckedChangeListener {
+final class c implements RadioGroup.OnCheckedChangeListener {
     final /* synthetic */ ForbidActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,10 +11,10 @@ class c implements RadioGroup.OnCheckedChangeListener {
     }
 
     @Override // android.widget.RadioGroup.OnCheckedChangeListener
-    public void onCheckedChanged(RadioGroup radioGroup, int i) {
+    public final void onCheckedChanged(RadioGroup radioGroup, int i) {
         RadioGroup radioGroup2;
         ForbidActivity forbidActivity = this.a;
         radioGroup2 = this.a.b;
-        forbidActivity.a(radioGroup2.getCheckedRadioButtonId());
+        ForbidActivity.a(forbidActivity, radioGroup2.getCheckedRadioButtonId());
     }
 }

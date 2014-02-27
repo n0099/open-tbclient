@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
-public class e {
+public final class e {
     private static e a;
     private Context b;
 
@@ -22,62 +22,61 @@ public class e {
         return eVar;
     }
 
-    public void a(Context context, boolean z) {
+    public final void a(Context context, boolean z) {
         this.b = context;
-        b.a = z;
+        b.a = false;
         if (Integer.parseInt(Build.VERSION.SDK) < 8) {
             System.setProperty("http.keepAlive", "false");
         }
     }
 
-    public void a(String str) {
-        b.b = str;
-    }
-
-    public void b(String str) {
-        b.c = str;
-    }
-
-    public void c(String str) {
-        b.d = str;
-    }
-
-    public f a(String str, boolean z, int i, int i2, int i3, d dVar, a aVar, LinkedList<BasicNameValuePair> linkedList) {
+    /* JADX WARN: Removed duplicated region for block: B:9:0x0041  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static f a(String str, boolean z, int i, int i2, int i3, d dVar, a aVar, LinkedList<BasicNameValuePair> linkedList) {
+        int i4;
+        f fVar;
         f a2 = b.a(str, z, i, i3, dVar, aVar, linkedList);
         if (a2 != null && a2.a == 206) {
             int length = a2.d.length;
             int length2 = a2.d.length;
             ArrayList arrayList = new ArrayList();
             arrayList.add(a2.d);
-            a2.d = b.a(str, length, length2, arrayList, i, i2, i3, dVar, aVar, linkedList);
-            a2.a = 200;
-        } else if (a2 != null && a2.a == 413) {
-            a2.d = b.a(str, 0L, i.d(), new ArrayList(), i, i2, i3, dVar, aVar, linkedList);
-            a2.a = a2.d != null ? 200 : a2.a;
+            a2.d = b.a(str, length, length2, arrayList, i, 100, i3, dVar, aVar, linkedList);
+            i4 = 200;
+            fVar = a2;
+        } else {
+            if (a2 != null && a2.a == 413) {
+                a2.d = b.a(str, 0L, i.a() ? 500000 : 200000, new ArrayList(), i, 100, i3, dVar, aVar, linkedList);
+                if (a2.d != null) {
+                    i4 = 200;
+                    fVar = a2;
+                } else {
+                    i4 = a2.a;
+                    fVar = a2;
+                }
+            }
+            if (dVar != null) {
+                dVar.a(a2);
+            }
+            return a2;
         }
+        fVar.a = i4;
         if (dVar != null) {
-            dVar.a(a2);
         }
         return a2;
     }
 
-    public f a(String str, byte[] bArr, int i, int i2, d dVar, a aVar, LinkedList<BasicNameValuePair> linkedList) {
-        return b.a(false, str, bArr, i, i2, dVar, aVar, linkedList);
+    public static f a(String str, byte[] bArr, boolean z, int i, int i2, d dVar, a aVar, LinkedList<BasicNameValuePair> linkedList) {
+        return b.a(z, str, bArr, i, i2, null, aVar, linkedList);
     }
 
-    public f a(String str, byte[] bArr, boolean z, int i, int i2, d dVar, a aVar, LinkedList<BasicNameValuePair> linkedList) {
-        return b.a(z, str, bArr, i, i2, dVar, aVar, linkedList);
+    public static f a(String str, boolean z, ArrayList<BasicNameValuePair> arrayList, HashMap<String, byte[]> hashMap, int i, int i2, d dVar, a aVar, LinkedList<BasicNameValuePair> linkedList) {
+        return b.a(str, z, arrayList, hashMap, i, i2, (d) null, aVar, (h) null, linkedList);
     }
 
-    public f a(String str, boolean z, ArrayList<BasicNameValuePair> arrayList, HashMap<String, byte[]> hashMap, int i, int i2, d dVar, a aVar, h hVar, LinkedList<BasicNameValuePair> linkedList) {
-        return b.a(str, z, arrayList, hashMap, i, i2, dVar, aVar, (h) null, linkedList);
-    }
-
-    public boolean a(String str, String str2, boolean z, int i, int i2, int i3, d dVar, a aVar, LinkedList<BasicNameValuePair> linkedList) {
-        return b.a(str, str2, z, i, i2, i3, dVar, aVar, linkedList);
-    }
-
-    public Context b() {
+    public final Context b() {
         return this.b;
     }
 

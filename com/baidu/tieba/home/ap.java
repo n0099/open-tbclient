@@ -4,7 +4,7 @@ import android.widget.ProgressBar;
 import android.widget.Scroller;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ap implements Runnable {
+public final class ap implements Runnable {
     final /* synthetic */ ao a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ public class ap implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         Scroller scroller;
         ProgressBar progressBar;
         ProgressBar progressBar2;

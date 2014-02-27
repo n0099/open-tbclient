@@ -2,9 +2,8 @@ package com.baidu.tieba.person;
 
 import android.view.View;
 import com.baidu.tieba.data.ForumData;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements View.OnClickListener {
+final class g implements View.OnClickListener {
     final /* synthetic */ EditBarActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +12,7 @@ public class g implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         int i;
         int i2;
         l lVar;
@@ -37,7 +36,7 @@ public class g implements View.OnClickListener {
                     kVar4 = this.a.n;
                     kVar4.cancel();
                 }
-                this.a.n = new k(this.a, null);
+                this.a.n = new k(this.a, (byte) 0);
                 kVar2 = this.a.n;
                 kVar2.setPriority(2);
                 kVar3 = this.a.n;

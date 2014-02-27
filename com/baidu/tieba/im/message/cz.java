@@ -12,16 +12,12 @@ public class cz extends da implements com.baidu.tieba.im.coder.f {
         super(103008);
     }
 
-    public GroupPermData a() {
+    public final GroupPermData a() {
         return this.a;
     }
 
-    public void a(GroupPermData groupPermData) {
-        this.a = groupPermData;
-    }
-
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<s> linkedList, byte[] bArr, int i) {
+    public final void a(LinkedList<s> linkedList, byte[] bArr, int i) {
         QueryUserPermissionRes.QueryUserPermissionResIdl parseFrom = QueryUserPermissionRes.QueryUserPermissionResIdl.parseFrom(bArr);
         g(parseFrom.getError().getErrorno());
         c(parseFrom.getError().getUsermsg());
@@ -39,7 +35,7 @@ public class cz extends da implements com.baidu.tieba.im.coder.f {
             groupPermData.setCanCreateNormalNum(groupPerm.getCanCreateNormalNum());
             groupPermData.setCanCreateOfficialNum(groupPerm.getCanCreateOfficialNum());
             groupPermData.setCanCreatePersonalNum(groupPerm.getCanCreatePersonalNum());
-            a(groupPermData);
+            this.a = groupPermData;
         }
     }
 }

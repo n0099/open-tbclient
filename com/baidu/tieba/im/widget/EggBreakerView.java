@@ -50,7 +50,7 @@ public class EggBreakerView extends GifView {
         }
     }
 
-    public void h() {
+    public final void d() {
         postDelayed(new g(this), 30L);
         if (this.b == null) {
             this.b = (RotateAnimation) AnimationUtils.loadAnimation(getContext(), R.anim.wobble);
@@ -60,8 +60,8 @@ public class EggBreakerView extends GifView {
         }
     }
 
-    public void i() {
-        d();
+    public final void e() {
+        b();
         clearAnimation();
     }
 

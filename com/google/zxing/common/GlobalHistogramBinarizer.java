@@ -38,15 +38,14 @@ public class GlobalHistogramBinarizer extends Binarizer {
         int estimateBlackPoint = estimateBlackPoint(iArr);
         int i5 = row[0] & 255;
         int i6 = row[1] & 255;
-        int i7 = i5;
         while (i2 < width - 1) {
-            int i8 = row[i2 + 1] & 255;
-            if (((((i6 << 2) - i7) - i8) >> 1) < estimateBlackPoint) {
+            int i7 = row[i2 + 1] & 255;
+            if (((((i6 << 2) - i5) - i7) >> 1) < estimateBlackPoint) {
                 bitArray.set(i2);
             }
             i2++;
-            i7 = i6;
-            i6 = i8;
+            i5 = i6;
+            i6 = i7;
         }
         return bitArray;
     }
@@ -104,58 +103,57 @@ public class GlobalHistogramBinarizer extends Binarizer {
         int i;
         int i2;
         int i3;
-        int i4 = 0;
         int length = iArr.length;
+        int i4 = 0;
         int i5 = 0;
         int i6 = 0;
-        int i7 = 0;
-        for (int i8 = 0; i8 < length; i8++) {
-            if (iArr[i8] > i5) {
-                i5 = iArr[i8];
-                i6 = i8;
+        for (int i7 = 0; i7 < length; i7++) {
+            if (iArr[i7] > i4) {
+                i4 = iArr[i7];
+                i5 = i7;
             }
-            if (iArr[i8] > i7) {
-                i7 = iArr[i8];
+            if (iArr[i7] > i6) {
+                i6 = iArr[i7];
             }
         }
+        int i8 = 0;
         int i9 = 0;
         int i10 = 0;
-        while (i4 < length) {
-            int i11 = i4 - i6;
-            int i12 = i11 * iArr[i4] * i11;
-            if (i12 > i9) {
-                i3 = i4;
+        while (i8 < length) {
+            int i11 = i8 - i5;
+            int i12 = i11 * iArr[i8] * i11;
+            if (i12 > i10) {
+                i9 = i8;
             } else {
-                i12 = i9;
-                i3 = i10;
+                i12 = i10;
             }
-            i4++;
-            i10 = i3;
-            i9 = i12;
+            i8++;
+            i10 = i12;
         }
-        if (i6 > i10) {
-            i = i10;
-            i10 = i6;
+        if (i5 > i9) {
+            i = i5;
+            i2 = i9;
         } else {
-            i = i6;
+            i = i9;
+            i2 = i5;
         }
-        if (i10 - i <= (length >> 4)) {
+        if (i - i2 <= (length >> 4)) {
             throw NotFoundException.getNotFoundInstance();
         }
-        int i13 = i10 - 1;
+        int i13 = i - 1;
         int i14 = -1;
-        int i15 = i10 - 1;
-        while (i15 > i) {
-            int i16 = i15 - i;
-            int i17 = i16 * i16 * (i10 - i15) * (i7 - iArr[i15]);
+        int i15 = i - 1;
+        while (i15 > i2) {
+            int i16 = i15 - i2;
+            int i17 = i16 * i16 * (i - i15) * (i6 - iArr[i15]);
             if (i17 > i14) {
-                i2 = i15;
+                i3 = i15;
             } else {
                 i17 = i14;
-                i2 = i13;
+                i3 = i13;
             }
             i15--;
-            i13 = i2;
+            i13 = i3;
             i14 = i17;
         }
         return i13 << 3;

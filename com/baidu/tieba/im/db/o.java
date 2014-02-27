@@ -11,7 +11,7 @@ import com.baidu.tieba.im.message.cp;
 import com.baidu.tieba.im.message.s;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o implements com.baidu.tieba.im.messageCenter.g {
+public final class o implements com.baidu.tieba.im.messageCenter.g {
     final /* synthetic */ l a;
 
     private o(l lVar) {
@@ -19,12 +19,12 @@ public class o implements com.baidu.tieba.im.messageCenter.g {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ o(l lVar, o oVar) {
+    public /* synthetic */ o(l lVar, byte b) {
         this(lVar);
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(s sVar) {
+    public final void a(s sVar) {
         s o;
         String[] split;
         if (sVar != null) {
@@ -34,12 +34,12 @@ public class o implements com.baidu.tieba.im.messageCenter.g {
                     if (!cpVar.l() && (o = cpVar.o()) != null && (o instanceof az)) {
                         String c = ((az) o).c();
                         if (!TextUtils.isEmpty(c) && (split = c.split(",")) != null && split.length != 0) {
-                            String id = TiebaApplication.E().getID();
+                            String id = TiebaApplication.y().getID();
                             if (!TextUtils.isEmpty(id)) {
                                 for (String str : split) {
                                     if (id.equals(str)) {
                                         this.a.a(cpVar.a());
-                                        com.baidu.tieba.im.j.a(new p(this, cpVar), null);
+                                        com.baidu.tieba.im.i.a(new p(this, cpVar), null);
                                         l.a().a(cpVar.a());
                                         return;
                                     }
@@ -53,8 +53,8 @@ public class o implements com.baidu.tieba.im.messageCenter.g {
                 if (!bmVar.l()) {
                     ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
                     ad adVar = (ad) bmVar.o();
-                    imMessageCenterPojo.setGroup_name(adVar.c());
-                    imMessageCenterPojo.setGroup_type(adVar.i());
+                    imMessageCenterPojo.setGroup_name(adVar.b());
+                    imMessageCenterPojo.setGroup_type(adVar.d());
                     AddGroupInfoData a = bmVar.a();
                     if (a != null) {
                         imMessageCenterPojo.setGroup_head(a.getPortrait());

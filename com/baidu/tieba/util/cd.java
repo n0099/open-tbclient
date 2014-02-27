@@ -2,7 +2,7 @@ package com.baidu.tieba.util;
 
 import java.util.Date;
 /* loaded from: classes.dex */
-public class cd {
+public final class cd {
     public static Date a() {
         return new Date(System.currentTimeMillis());
     }

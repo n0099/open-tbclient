@@ -24,7 +24,7 @@ import java.util.Date;
 public class NearbyGroupsActivity extends com.baidu.tieba.f implements com.baidu.tieba.im.messageCenter.g {
     private k b = null;
     private ak c = null;
-    private com.baidu.adp.lib.util.d d = null;
+    private com.baidu.adp.lib.util.c d = null;
     private com.baidu.adp.widget.ListView.b e = new b(this);
     com.baidu.adp.lib.c.d a = new c(this);
 
@@ -40,13 +40,13 @@ public class NearbyGroupsActivity extends com.baidu.tieba.f implements com.baidu
         this.b.a(this.e);
         this.b.a(new d(this));
         this.b.a(new e(this));
-        this.d = new com.baidu.adp.lib.util.d(this);
+        this.d = new com.baidu.adp.lib.util.c(this);
         this.c = new ak();
-        com.baidu.tieba.im.messageCenter.e.a().a(103009, this);
-        com.baidu.tieba.im.messageCenter.e.a().a(103008, this);
-        com.baidu.tieba.im.messageCenter.e.a().a(-115, this);
-        com.baidu.tieba.im.messageCenter.e.a().a(103105, this);
-        this.b.g();
+        com.baidu.tieba.im.messageCenter.d.a().a(103009, this);
+        com.baidu.tieba.im.messageCenter.d.a().a(103008, this);
+        com.baidu.tieba.im.messageCenter.d.a().a(-115, this);
+        com.baidu.tieba.im.messageCenter.d.a().a(103105, this);
+        this.b.f();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -55,7 +55,7 @@ public class NearbyGroupsActivity extends com.baidu.tieba.f implements com.baidu
         super.onResume();
     }
 
-    private boolean a(long j) {
+    private static boolean a(long j) {
         if (j == 0) {
             return true;
         }
@@ -66,13 +66,14 @@ public class NearbyGroupsActivity extends com.baidu.tieba.f implements com.baidu
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a() {
-        if (!this.c.b()) {
-            this.b.e();
-        } else if (!this.c.a()) {
-            this.b.f();
-            this.c.e();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void c(NearbyGroupsActivity nearbyGroupsActivity) {
+        if (!nearbyGroupsActivity.c.b()) {
+            nearbyGroupsActivity.b.d();
+        } else if (nearbyGroupsActivity.c.a()) {
+        } else {
+            nearbyGroupsActivity.b.e();
+            nearbyGroupsActivity.c.e();
         }
     }
 
@@ -83,21 +84,17 @@ public class NearbyGroupsActivity extends com.baidu.tieba.f implements com.baidu
         this.b.a(i);
     }
 
-    private void b() {
-        showProgressBar();
-        this.c.a(0L);
-    }
-
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         Object tag;
         super.onClick(view);
-        if (view.getId() == this.b.i()) {
-            if (!TiebaApplication.B()) {
+        if (view.getId() == this.b.h()) {
+            if (!TiebaApplication.w()) {
                 LoginActivity.a((Activity) this, "", true, 0);
-            } else {
-                b();
+                return;
             }
+            showProgressBar();
+            this.c.a(0L);
         } else if (view.getId() == R.id.guide_setting) {
             this.d.a();
         } else if (view.getId() == R.id.list_item_content && (tag = view.getTag()) != null) {
@@ -116,12 +113,12 @@ public class NearbyGroupsActivity extends com.baidu.tieba.f implements com.baidu
     public void onDestroy() {
         super.onDestroy();
         this.c.i();
-        com.baidu.tieba.im.messageCenter.e.a().a(this);
+        com.baidu.tieba.im.messageCenter.d.a().a(this);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [325=4] */
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(s sVar) {
+    public final void a(s sVar) {
         if (sVar == null) {
             return;
         }
@@ -156,13 +153,13 @@ public class NearbyGroupsActivity extends com.baidu.tieba.f implements com.baidu
         } else {
             this.c.a(false);
             if (!(sVar instanceof cg)) {
-                this.b.h();
+                this.b.g();
                 return;
             }
             if (sVar.w() != -115) {
                 TiebaApplication.g().d(System.currentTimeMillis());
             } else if (UtilHelper.b()) {
-                if (a(TiebaApplication.g().aZ())) {
+                if (a(TiebaApplication.g().aR())) {
                     this.c.h();
                     return;
                 }
@@ -184,7 +181,7 @@ public class NearbyGroupsActivity extends com.baidu.tieba.f implements com.baidu
             } else {
                 showToast(cgVar.n());
             }
-            this.b.h();
+            this.b.g();
         }
     }
 }

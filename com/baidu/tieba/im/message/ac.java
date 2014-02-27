@@ -3,7 +3,7 @@ package com.baidu.tieba.im.message;
 import com.google.protobuf.MessageLite;
 import protobuf.QueryGroupCount.QueryGroupCountReq;
 /* loaded from: classes.dex */
-public class ac extends s implements com.baidu.tieba.im.coder.g {
+public final class ac extends s implements com.baidu.tieba.im.coder.g {
     private String a;
     private String b;
 
@@ -11,16 +11,16 @@ public class ac extends s implements com.baidu.tieba.im.coder.g {
         e(103011);
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.a = str;
     }
 
-    public void b(String str) {
+    public final void b(String str) {
         this.b = str;
     }
 
     @Override // com.baidu.tieba.im.coder.g
-    public MessageLite a() {
+    public final MessageLite a() {
         NumberFormatException e;
         double d;
         double d2 = 0.0d;

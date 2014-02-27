@@ -1,20 +1,21 @@
 package com.baidu.tieba.im.chat;
-
-import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class df implements DialogInterface.OnClickListener {
-    final /* synthetic */ cz a;
-    private final /* synthetic */ int b;
+public final class df implements com.baidu.tieba.im.a<Void> {
+    final /* synthetic */ cy a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public df(cz czVar, int i) {
-        this.a = czVar;
-        this.b = i;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.baidu.tieba.im.a
+    public final /* synthetic */ void a(Void r4) {
+        com.baidu.tieba.im.c.a.d().b(false, null);
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        dialogInterface.dismiss();
-        this.a.b(this.b);
+    private df(cy cyVar) {
+        this.a = cyVar;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ df(cy cyVar, byte b) {
+        this(cyVar);
     }
 }

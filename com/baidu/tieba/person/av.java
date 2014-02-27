@@ -3,7 +3,7 @@ package com.baidu.tieba.person;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 /* loaded from: classes.dex */
-class av {
+final class av {
     TextView a;
     ProgressBar b;
     final /* synthetic */ as c;

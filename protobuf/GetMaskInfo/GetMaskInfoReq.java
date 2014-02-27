@@ -14,14 +14,14 @@ public final class GetMaskInfoReq {
 
     /* loaded from: classes.dex */
     public final class DataReq extends GeneratedMessageLite implements c {
+        public static Parser<DataReq> PARSER = new a();
         public static final int TYPE_FIELD_NUMBER = 1;
+        private static final DataReq a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
         private int type_;
-        public static Parser<DataReq> PARSER = new a();
-        private static final DataReq a = new DataReq(true);
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ DataReq(GeneratedMessageLite.Builder builder, DataReq dataReq) {
@@ -34,7 +34,7 @@ public final class GetMaskInfoReq {
             this.memoizedSerializedSize = -1;
         }
 
-        private DataReq(boolean z) {
+        private DataReq() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -45,37 +45,39 @@ public final class GetMaskInfoReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public DataReq getDefaultInstanceForType() {
+        public final DataReq getDefaultInstanceForType() {
             return a;
         }
 
         private DataReq(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
+            boolean z = false;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
-            a();
-            boolean z = false;
+            this.type_ = 0;
             while (!z) {
                 try {
                     try {
-                        int readTag = codedInputStream.readTag();
-                        switch (readTag) {
-                            case 0:
-                                z = true;
-                                break;
-                            case 8:
-                                this.bitField0_ |= 1;
-                                this.type_ = codedInputStream.readUInt32();
-                                break;
-                            default:
-                                if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
+                        try {
+                            int readTag = codedInputStream.readTag();
+                            switch (readTag) {
+                                case 0:
                                     z = true;
                                     break;
-                                } else {
+                                case 8:
+                                    this.bitField0_ |= 1;
+                                    this.type_ = codedInputStream.readUInt32();
                                     break;
-                                }
+                                default:
+                                    if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
+                                        z = true;
+                                        break;
+                                    } else {
+                                        break;
+                                    }
+                            }
+                        } catch (InvalidProtocolBufferException e) {
+                            throw e.setUnfinishedMessage(this);
                         }
-                    } catch (InvalidProtocolBufferException e) {
-                        throw e.setUnfinishedMessage(this);
                     } catch (IOException e2) {
                         throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
@@ -91,24 +93,22 @@ public final class GetMaskInfoReq {
         }
 
         static {
-            a.a();
+            DataReq dataReq = new DataReq();
+            a = dataReq;
+            dataReq.type_ = 0;
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<DataReq> getParserForType() {
+        public final Parser<DataReq> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasType() {
+        public final boolean hasType() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public int getType() {
+        public final int getType() {
             return this.type_;
-        }
-
-        private void a() {
-            this.type_ = 0;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -122,7 +122,7 @@ public final class GetMaskInfoReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeUInt32(1, this.type_);
@@ -130,10 +130,13 @@ public final class GetMaskInfoReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeUInt32Size(1, this.type_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeUInt32Size(1, this.type_) + 0;
+                }
                 this.memoizedSerializedSize = i;
             }
             return i;
@@ -141,7 +144,7 @@ public final class GetMaskInfoReq {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -186,12 +189,12 @@ public final class GetMaskInfoReq {
         }
 
         public static b newBuilder() {
-            return b.f();
+            return b.c();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public b newBuilderForType() {
+        public final b newBuilderForType() {
             return newBuilder();
         }
 
@@ -201,7 +204,7 @@ public final class GetMaskInfoReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public b toBuilder() {
+        public final b toBuilder() {
             return newBuilder(this);
         }
     }
@@ -210,7 +213,7 @@ public final class GetMaskInfoReq {
     public final class GetMaskInfoReqIdl extends GeneratedMessageLite implements f {
         public static final int DATA_FIELD_NUMBER = 1;
         public static Parser<GetMaskInfoReqIdl> PARSER = new d();
-        private static final GetMaskInfoReqIdl a = new GetMaskInfoReqIdl(true);
+        private static final GetMaskInfoReqIdl a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private DataReq data_;
@@ -228,7 +231,7 @@ public final class GetMaskInfoReq {
             this.memoizedSerializedSize = -1;
         }
 
-        private GetMaskInfoReqIdl(boolean z) {
+        private GetMaskInfoReqIdl() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -239,7 +242,7 @@ public final class GetMaskInfoReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public GetMaskInfoReqIdl getDefaultInstanceForType() {
+        public final GetMaskInfoReqIdl getDefaultInstanceForType() {
             return a;
         }
 
@@ -247,7 +250,7 @@ public final class GetMaskInfoReq {
             b bVar;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
-            a();
+            this.data_ = DataReq.getDefaultInstance();
             boolean z = false;
             while (!z) {
                 try {
@@ -295,24 +298,22 @@ public final class GetMaskInfoReq {
         }
 
         static {
-            a.a();
+            GetMaskInfoReqIdl getMaskInfoReqIdl = new GetMaskInfoReqIdl();
+            a = getMaskInfoReqIdl;
+            getMaskInfoReqIdl.data_ = DataReq.getDefaultInstance();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<GetMaskInfoReqIdl> getParserForType() {
+        public final Parser<GetMaskInfoReqIdl> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasData() {
+        public final boolean hasData() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public DataReq getData() {
+        public final DataReq getData() {
             return this.data_;
-        }
-
-        private void a() {
-            this.data_ = DataReq.getDefaultInstance();
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -326,7 +327,7 @@ public final class GetMaskInfoReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeMessage(1, this.data_);
@@ -334,10 +335,13 @@ public final class GetMaskInfoReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeMessageSize(1, this.data_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeMessageSize(1, this.data_) + 0;
+                }
                 this.memoizedSerializedSize = i;
             }
             return i;
@@ -345,7 +349,7 @@ public final class GetMaskInfoReq {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -390,12 +394,12 @@ public final class GetMaskInfoReq {
         }
 
         public static e newBuilder() {
-            return e.f();
+            return e.b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public e newBuilderForType() {
+        public final e newBuilderForType() {
             return newBuilder();
         }
 
@@ -405,7 +409,7 @@ public final class GetMaskInfoReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public e toBuilder() {
+        public final e toBuilder() {
             return newBuilder(this);
         }
     }

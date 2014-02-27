@@ -17,20 +17,16 @@ public class cj extends da implements com.baidu.tieba.im.coder.f {
         super(202003);
     }
 
-    public List<com.baidu.tieba.im.data.c> a() {
+    public final List<com.baidu.tieba.im.data.c> a() {
         return this.a;
     }
 
-    public void a(List<com.baidu.tieba.im.data.c> list) {
-        this.a = list;
-    }
-
-    public int b() {
+    public final int b() {
         return this.b;
     }
 
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<s> linkedList, byte[] bArr, int i) {
+    public final void a(LinkedList<s> linkedList, byte[] bArr, int i) {
         int size;
         GetGroupMsgRes.GetGroupMsgResIdl parseFrom = GetGroupMsgRes.GetGroupMsgResIdl.parseFrom(bArr);
         g(parseFrom.getError().getErrorno());
@@ -38,12 +34,12 @@ public class cj extends da implements com.baidu.tieba.im.coder.f {
         linkedList.add(this);
         if (!l()) {
             this.b = parseFrom.getData().getAllowEggs();
-            a(new LinkedList());
+            this.a = new LinkedList();
             int groupMsgCount = parseFrom.getData().getGroupMsgCount();
             for (int i2 = 0; i2 < groupMsgCount; i2++) {
                 com.baidu.tieba.im.data.c cVar = new com.baidu.tieba.im.data.c(-100);
                 linkedList.add(cVar);
-                a().add(cVar);
+                this.a.add(cVar);
                 com.baidu.tieba.im.data.f fVar = new com.baidu.tieba.im.data.f();
                 fVar.a(new LinkedList());
                 cVar.a(fVar);
@@ -55,22 +51,22 @@ public class cj extends da implements com.baidu.tieba.im.coder.f {
                 groupIdTypeData.setGroupType(groupInfo.getGroupType());
                 List<Im.MsgInfo> msgListList = groupMsg.getMsgListList();
                 if (msgListList != null && (size = msgListList.size()) > 0) {
-                    com.baidu.adp.lib.util.f.d("----transform list size:" + size);
+                    com.baidu.adp.lib.util.e.d("----transform list size:" + size);
                     for (int i3 = 0; i3 < size; i3++) {
                         try {
                             Im.MsgInfo msgInfo = msgListList.get(i3);
                             g gVar = new g();
-                            long b = com.baidu.tieba.im.chat.be.b(msgInfo.getMsgId());
-                            gVar.d(b);
+                            long msgId = msgInfo.getMsgId() * 100;
+                            gVar.d(msgId);
                             gVar.b(String.valueOf(msgInfo.getGroupId()));
                             gVar.b(msgInfo.getMsgType());
-                            com.baidu.adp.lib.util.f.e("msgType:" + gVar.i());
+                            com.baidu.adp.lib.util.e.e("msgType:" + gVar.i());
                             long userId = msgInfo.getUserId();
                             gVar.e(userId);
-                            if (TiebaApplication.B() && String.valueOf(userId).equals(TiebaApplication.A())) {
+                            if (TiebaApplication.w() && String.valueOf(userId).equals(TiebaApplication.v())) {
                                 gVar.c(msgInfo.getRecordId());
                             } else {
-                                gVar.c(b);
+                                gVar.c(msgId);
                             }
                             UserData userData = new UserData();
                             gVar.a(userData);
@@ -104,10 +100,10 @@ public class cj extends da implements com.baidu.tieba.im.coder.f {
                             gVar.a(msgInfo.getContent());
                             gVar.f(msgInfo.getCreateTime());
                             fVar.a().add(gVar);
-                            com.baidu.tieba.im.util.l.g(gVar);
+                            com.baidu.tieba.im.util.l.f(gVar);
                         } catch (Exception e) {
                             e.printStackTrace();
-                            com.baidu.adp.lib.util.f.d("----transform error!");
+                            com.baidu.adp.lib.util.e.d("----transform error!");
                         }
                     }
                 }

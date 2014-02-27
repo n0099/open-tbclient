@@ -2,7 +2,7 @@ package com.baidu.tieba.pb;
 
 import android.webkit.URLUtil;
 /* loaded from: classes.dex */
-class eq implements Runnable {
+final class eq implements Runnable {
     final /* synthetic */ WebActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +11,7 @@ class eq implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         String guessUrl = URLUtil.guessUrl(this.a.c);
         if (URLUtil.isNetworkUrl(guessUrl)) {
             this.a.a.loadUrl(guessUrl);

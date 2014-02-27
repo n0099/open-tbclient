@@ -3,7 +3,6 @@ package com.baidu.tieba.im.groupInfo;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -89,6 +88,7 @@ public class PhotoWallView extends FrameLayout {
     }
 
     public void setData(List<PhotoUrlData> list) {
+        int i;
         BDImageView bDImageView;
         boolean z;
         if (this.n != null && list != null) {
@@ -96,20 +96,20 @@ public class PhotoWallView extends FrameLayout {
                 z = false;
             } else {
                 int size = this.n.size();
-                int i = 0;
                 z = false;
-                while (i < size) {
-                    if (this.n.get(i) == null || list.get(i) == null || !this.n.get(i).getPicId().equals(list.get(i).getPicId())) {
+                int i2 = 0;
+                while (i2 < size) {
+                    if (this.n.get(i2) != null && list.get(i2) != null && this.n.get(i2).getPicId().equals(list.get(i2).getPicId())) {
+                        i2++;
+                        z = true;
+                    } else {
                         z = false;
                         break;
-                    } else {
-                        i++;
-                        z = true;
                     }
                 }
             }
             if (z) {
-                com.baidu.adp.lib.util.f.e("equal");
+                com.baidu.adp.lib.util.e.e("equal");
                 return;
             }
             if (this.n == null) {
@@ -127,80 +127,89 @@ public class PhotoWallView extends FrameLayout {
         LinearLayout.LayoutParams a3 = a(2);
         if (list != null && list.size() > 0) {
             int size2 = list.size();
-            for (int i2 = 0; i2 < size2 && i2 < 8; i2++) {
-                BDImageView bDImageView2 = this.b[i2];
+            for (int i3 = 0; i3 < size2 && i3 < 8; i3++) {
+                BDImageView bDImageView2 = this.b[i3];
                 if (bDImageView2 == null) {
                     BDImageView bDImageView3 = new BDImageView(this.c);
-                    this.b[i2] = bDImageView3;
+                    this.b[i3] = bDImageView3;
                     bDImageView = bDImageView3;
                 } else {
                     bDImageView = bDImageView2;
                 }
                 bDImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                if (TiebaApplication.g().al() == 1) {
+                if (TiebaApplication.g().ae() == 1) {
                     bDImageView.setBackgroundResource(R.drawable.image_group_qzl_1);
                 } else {
                     bDImageView.setBackgroundResource(R.drawable.image_group_qzl);
                 }
-                PhotoUrlData photoUrlData2 = list.get(i2);
+                PhotoUrlData photoUrlData2 = list.get(i3);
                 if (photoUrlData2 != null) {
-                    a(bDImageView, photoUrlData2.getSmallurl());
-                    bDImageView.setOnClickListener(new ab(this, photoUrlData2, i2));
+                    String smallurl = photoUrlData2.getSmallurl();
+                    if (this.j == null) {
+                        this.j = new com.baidu.tieba.util.i(this.c);
+                    }
+                    this.j.a(true);
+                    this.j.b(smallurl, new ae(this, bDImageView));
+                    bDImageView.setOnClickListener(new ab(this, photoUrlData2, i3));
                     if (this.m) {
-                        bDImageView.setOnLongClickListener(new ac(this, photoUrlData2, i2));
+                        bDImageView.setOnLongClickListener(new ac(this, photoUrlData2, i3));
                     }
                 }
-                if (i2 < 4) {
-                    if (i2 == 0) {
+                if (i3 < 4) {
+                    if (i3 == 0) {
                         this.e.addView(bDImageView, a2);
-                    } else if (i2 == 3) {
+                    } else if (i3 == 3) {
                         this.e.addView(bDImageView, a3);
                     } else {
                         this.e.addView(bDImageView, a);
                     }
-                } else if (i2 == 4) {
+                } else if (i3 == 4) {
                     this.f.addView(bDImageView, a2);
-                } else if (i2 == 7) {
+                } else if (i3 == 7) {
                     this.f.addView(bDImageView, a3);
                 } else {
                     this.f.addView(bDImageView, a);
                 }
             }
         }
-        int size3 = (list == null || list.size() == 0) ? 0 : list.size();
+        if (list == null || list.size() == 0) {
+            i = 0;
+        } else {
+            i = list.size();
+        }
         if (this.m) {
             this.g.setVisibility(0);
-            if (size3 == 0) {
+            if (i == 0) {
                 this.h.setText(this.c.getString(R.string.group_info_photo_add));
             } else {
                 this.h.setText(this.c.getString(R.string.group_info_photo_modify));
             }
         }
-        if (size3 < 8 && this.m) {
-            BDImageView bDImageView4 = this.b[size3];
+        if (i < 8 && this.m) {
+            BDImageView bDImageView4 = this.b[i];
             if (bDImageView4 == null) {
                 bDImageView4 = new BDImageView(this.c);
-                this.b[size3] = bDImageView4;
+                this.b[i] = bDImageView4;
             }
             bDImageView4.setImageBitmap(null);
-            if (TiebaApplication.g().al() == 1) {
+            if (TiebaApplication.g().ae() == 1) {
                 bDImageView4.setBackgroundResource(R.drawable.add_group_frd_1);
             } else {
                 bDImageView4.setBackgroundResource(R.drawable.add_group_frd);
             }
-            bDImageView4.setOnClickListener(new ad(this, size3));
+            bDImageView4.setOnClickListener(new ad(this, i));
             bDImageView4.setOnLongClickListener(null);
-            if (size3 < 4) {
-                if (size3 == 0) {
+            if (i < 4) {
+                if (i == 0) {
                     this.e.addView(bDImageView4, a2);
-                } else if (size3 == 3) {
+                } else if (i == 3) {
                     this.e.addView(bDImageView4, a3);
                 } else {
                     this.e.addView(bDImageView4, a);
                 }
-            } else if (size3 == 4) {
+            } else if (i == 4) {
                 this.f.addView(bDImageView4, a2);
-            } else if (size3 == 7) {
+            } else if (i == 7) {
                 this.f.addView(bDImageView4, a3);
             } else {
                 this.f.addView(bDImageView4, a);
@@ -213,14 +222,6 @@ public class PhotoWallView extends FrameLayout {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.e.getLayoutParams();
         layoutParams.bottomMargin = 0;
         this.e.setLayoutParams(layoutParams);
-    }
-
-    private void a(BDImageView bDImageView, String str) {
-        if (this.j == null) {
-            this.j = new com.baidu.tieba.util.i(this.c);
-        }
-        this.j.d(true);
-        this.j.b(str, new ae(this, bDImageView));
     }
 
     private LinearLayout.LayoutParams a(int i) {
@@ -240,7 +241,7 @@ public class PhotoWallView extends FrameLayout {
         return layoutParams;
     }
 
-    public void a() {
+    public final void a() {
         for (int i = 0; i < 8; i++) {
             BDImageView bDImageView = this.b[i];
             if (bDImageView != null) {
@@ -262,7 +263,7 @@ public class PhotoWallView extends FrameLayout {
         this.m = z;
     }
 
-    public void a(int i, com.baidu.tieba.f fVar) {
-        fVar.getLayoutMode().a((View) this.d);
+    public final void a(com.baidu.tieba.f fVar) {
+        fVar.getLayoutMode().a(this.d);
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.more;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements View.OnClickListener {
+public final class e implements View.OnClickListener {
     final /* synthetic */ d a;
     private final /* synthetic */ ab b;
 
@@ -14,7 +14,7 @@ public class e implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         SettingTextTestNewView settingTextTestNewView;
         SettingTextTipView settingTextTipView;
         SettingTextFunctionIntroView settingTextFunctionIntroView;

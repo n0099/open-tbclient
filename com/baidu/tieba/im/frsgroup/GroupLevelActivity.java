@@ -27,8 +27,22 @@ public class GroupLevelActivity extends com.baidu.tieba.f {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         ai.b(this, "im_group_level_visit");
-        a(bundle);
-        b(bundle);
+        this.a = new com.baidu.tieba.im.model.f();
+        if (bundle == null) {
+            this.a.a(getIntent());
+        } else {
+            this.a.a(bundle);
+        }
+        com.baidu.tieba.im.model.f fVar = this.a;
+        com.baidu.tieba.im.messageCenter.g gVar = this.f;
+        com.baidu.tieba.im.messageCenter.d.a().a(103006, gVar);
+        com.baidu.tieba.im.messageCenter.d.a().a(103105, gVar);
+        this.b = new m(this);
+        this.c = new com.baidu.tieba.view.dialog.a(this);
+        this.c.a(R.string.upgrade_mem_group_if_up);
+        this.c.a(R.string.alert_yes_btn, this.d);
+        this.c.b(R.string.alert_no_button, this.e);
+        this.c.a();
         a();
     }
 
@@ -48,7 +62,7 @@ public class GroupLevelActivity extends com.baidu.tieba.f {
     public void onClick(View view) {
         if (view == this.b.a()) {
             closeActivity();
-        } else if (view == this.b.e()) {
+        } else if (view == this.b.d()) {
             ai.a(this, "im_group_level_upgrade_mem");
             this.c.b();
         }
@@ -65,25 +79,7 @@ public class GroupLevelActivity extends com.baidu.tieba.f {
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.a.b(this.f);
-    }
-
-    public void a(Bundle bundle) {
-        this.a = new com.baidu.tieba.im.model.f();
-        if (bundle == null) {
-            this.a.a(getIntent());
-        } else {
-            this.a.a(bundle);
-        }
-        this.a.a(this.f);
-    }
-
-    private void b(Bundle bundle) {
-        this.b = new m(this);
-        this.c = new com.baidu.tieba.view.dialog.a(this);
-        this.c.a(R.string.upgrade_mem_group_if_up);
-        this.c.a(R.string.alert_yes_btn, this.d);
-        this.c.b(R.string.alert_no_button, this.e);
-        this.c.a();
+        com.baidu.tieba.im.model.f fVar = this.a;
+        com.baidu.tieba.im.messageCenter.d.a().a(this.f);
     }
 }

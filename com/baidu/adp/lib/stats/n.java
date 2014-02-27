@@ -1,7 +1,7 @@
 package com.baidu.adp.lib.stats;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n {
+public final class n {
     final /* synthetic */ l a;
     private int b;
     private int c;
@@ -12,31 +12,31 @@ public class n {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ n(l lVar, n nVar) {
+    public /* synthetic */ n(l lVar, byte b) {
         this(lVar);
     }
 
-    public int a() {
+    public final int a() {
         return this.b;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.b = i;
     }
 
-    public int b() {
+    public final int b() {
         return this.c;
     }
 
-    public void b(int i) {
-        this.c = i;
+    public final void b(int i) {
+        this.c = 120000;
     }
 
-    public int c() {
+    public final int c() {
         return this.d;
     }
 
-    public void c(int i) {
+    public final void c(int i) {
         this.d = i;
     }
 }

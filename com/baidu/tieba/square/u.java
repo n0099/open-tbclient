@@ -7,7 +7,7 @@ import android.widget.BaseAdapter;
 import com.baidu.tieba.view.bg;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class u extends BaseAdapter implements bg {
+public final class u extends BaseAdapter implements bg {
     private Context a;
     private y b = null;
     private ArrayList<av> c = new ArrayList<>();
@@ -20,60 +20,60 @@ public class u extends BaseAdapter implements bg {
         this.d = new v(context);
     }
 
-    public void a(ArrayList<av> arrayList) {
+    public final void a(ArrayList<av> arrayList) {
         this.c = arrayList;
         this.d.a(arrayList);
         this.b = this.d.getPagerAdapter();
         notifyDataSetChanged();
     }
 
-    public void a() {
+    public final void a() {
         if (this.d != null) {
             this.d.a();
         }
     }
 
-    public void b() {
+    public final void b() {
         if (this.d != null) {
             this.d.b();
         }
     }
 
     @Override // android.widget.Adapter
-    public int getCount() {
+    public final int getCount() {
         return (this.c != null ? this.c.size() + 0 : 0) > 0 ? 1 : 0;
     }
 
     @Override // android.widget.Adapter
-    public Object getItem(int i) {
+    public final Object getItem(int i) {
         return Integer.valueOf(i);
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    public final long getItemId(int i) {
         return i;
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public final View getView(int i, View view, ViewGroup viewGroup) {
         return this.d;
     }
 
     @Override // com.baidu.tieba.view.bg
-    public void d() {
+    public final void d() {
         if (this.b != null) {
             this.b.d();
         }
     }
 
     @Override // com.baidu.tieba.view.bg
-    public void a(View view, int i, int i2) {
+    public final void a(View view, int i, int i2) {
         if (this.b != null) {
             this.b.a(this.d, 0, 0);
         }
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         if (this.d != null) {
             this.d.a(i);
         }

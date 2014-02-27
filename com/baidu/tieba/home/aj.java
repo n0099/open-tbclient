@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class aj {
+public final class aj {
     private int a;
     private String b;
     private int c;
@@ -12,41 +12,41 @@ public class aj {
     private q e = new q();
     private ArrayList<ak> f = new ArrayList<>();
 
-    public int a() {
+    public final int a() {
         return this.a;
     }
 
-    public String b() {
+    public final String b() {
         return this.b;
     }
 
-    public q c() {
+    public final q c() {
         return this.e;
     }
 
-    public ArrayList<ak> d() {
+    public final ArrayList<ak> d() {
         return this.f;
     }
 
-    public int e() {
+    public final int e() {
         return this.c;
     }
 
-    public String f() {
+    public final String f() {
         return this.d;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         if (str != null) {
             try {
                 a(new JSONObject(str));
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    public final void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 this.e.a(jSONObject.optJSONObject("error"));
@@ -65,7 +65,7 @@ public class aj {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }

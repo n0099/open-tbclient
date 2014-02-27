@@ -18,7 +18,7 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class ai {
+public final class ai {
     private Context a;
     private View.OnClickListener h;
     private int b = 200;
@@ -27,24 +27,24 @@ public class ai {
     private float e = 0.4f;
     private LinkedList<IconData> f = null;
     private LinkedList<IconData> g = null;
-    private ak i = new ak(this, null);
+    private ak i = new ak(this, (byte) 0);
 
     public ai(Context context) {
         this.a = context;
         this.h = new aj(this, context);
     }
 
-    public void a(int i, boolean z, float f) {
+    public final void a(int i, boolean z, float f) {
         this.b = i;
         this.c = z;
         this.e = f;
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.d = z;
     }
 
-    public void a(View view, com.baidu.tieba.data.v vVar) {
+    public final void a(View view, com.baidu.tieba.data.v vVar) {
         al alVar;
         int i;
         int i2 = 0;
@@ -52,7 +52,12 @@ public class ai {
             alVar.c.setText(String.valueOf(vVar.c()) + this.a.getResources().getString(R.string.forum_name_suffix));
             alVar.c.setTag(vVar.c());
             if (vVar.j() > 0) {
-                alVar.d.setText(b(view, vVar));
+                Drawable drawable = view.getResources().getDrawable(R.drawable.icon_elite);
+                drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+                ImageSpan imageSpan = new ImageSpan(drawable, 1);
+                SpannableString spannableString = new SpannableString("  " + ((Object) vVar.e()));
+                spannableString.setSpan(imageSpan, 0, 1, 18);
+                alVar.d.setText(spannableString);
             } else {
                 alVar.d.setText(vVar.e());
             }
@@ -87,7 +92,7 @@ public class ai {
                 VoiceManager.VoiceModel voiceModel = l.get(0);
                 alVar.j.setVoiceModel(voiceModel);
                 alVar.j.setTag(voiceModel);
-                alVar.j.c();
+                alVar.j.a();
             } else {
                 alVar.j.setVisibility(8);
             }
@@ -128,16 +133,7 @@ public class ai {
         }
     }
 
-    private SpannableString b(View view, com.baidu.tieba.data.v vVar) {
-        Drawable drawable = view.getResources().getDrawable(R.drawable.icon_elite);
-        drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-        ImageSpan imageSpan = new ImageSpan(drawable, 1);
-        SpannableString spannableString = new SpannableString("  " + ((Object) vVar.e()));
-        spannableString.setSpan(imageSpan, 0, 1, 18);
-        return spannableString;
-    }
-
-    public View a() {
+    public final View a() {
         al alVar = new al(this);
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a).inflate(R.layout.forum_feed_item, (ViewGroup) null);
         alVar.a = (LinearLayout) linearLayout.findViewById(R.id.layoutForumTop);
@@ -158,34 +154,26 @@ public class ai {
         return linearLayout;
     }
 
-    public void a(int i, View view) {
+    public final void a(int i, View view) {
         al alVar;
         if (view != null && (alVar = (al) view.getTag()) != null && alVar.m != i) {
             switch (i) {
                 case 1:
-                    b(alVar);
+                    Resources resources = this.a.getResources();
+                    alVar.a.setBackgroundResource(R.drawable.forumfeed_frs_list_item_top_bg_1);
+                    com.baidu.tieba.util.bq.e((View) alVar.c, (int) R.drawable.bg_label_1);
+                    alVar.h.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(R.drawable.icon_little_comment_s_1), (Drawable) null, (Drawable) null, (Drawable) null);
+                    alVar.b.setBackgroundResource(R.drawable.forumfeed_frs_list_item_foot_bg_1);
                     break;
                 default:
-                    a(alVar);
+                    Resources resources2 = this.a.getResources();
+                    alVar.a.setBackgroundResource(R.drawable.forumfeed_frs_list_item_top_bg);
+                    com.baidu.tieba.util.bq.e((View) alVar.c, (int) R.drawable.bg_label);
+                    alVar.h.setCompoundDrawablesWithIntrinsicBounds(resources2.getDrawable(R.drawable.icon_little_comment_s), (Drawable) null, (Drawable) null, (Drawable) null);
+                    alVar.b.setBackgroundResource(R.drawable.forumfeed_frs_list_item_foot_bg);
                     break;
             }
             alVar.m = i;
         }
-    }
-
-    private void a(al alVar) {
-        Resources resources = this.a.getResources();
-        alVar.a.setBackgroundResource(R.drawable.forumfeed_frs_list_item_top_bg);
-        com.baidu.tieba.util.bq.e((View) alVar.c, (int) R.drawable.bg_label);
-        alVar.h.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(R.drawable.icon_little_comment_s), (Drawable) null, (Drawable) null, (Drawable) null);
-        alVar.b.setBackgroundResource(R.drawable.forumfeed_frs_list_item_foot_bg);
-    }
-
-    private void b(al alVar) {
-        Resources resources = this.a.getResources();
-        alVar.a.setBackgroundResource(R.drawable.forumfeed_frs_list_item_top_bg_1);
-        com.baidu.tieba.util.bq.e((View) alVar.c, (int) R.drawable.bg_label_1);
-        alVar.h.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(R.drawable.icon_little_comment_s_1), (Drawable) null, (Drawable) null, (Drawable) null);
-        alVar.b.setBackgroundResource(R.drawable.forumfeed_frs_list_item_foot_bg_1);
     }
 }

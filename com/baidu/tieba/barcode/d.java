@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.widget.ProgressBar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements DialogInterface.OnClickListener {
+public final class d implements DialogInterface.OnClickListener {
     final /* synthetic */ CaptureActivity a;
     private final /* synthetic */ String b;
 
@@ -17,9 +17,9 @@ public class d implements DialogInterface.OnClickListener {
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
+    public final void onClick(DialogInterface dialogInterface, int i) {
         ProgressBar progressBar;
-        com.baidu.tieba.im.util.q.a((Context) this.a, this.b, false);
+        com.baidu.tieba.im.util.p.a((Context) this.a, this.b, false);
         Intent intent = new Intent();
         intent.putExtra("result", this.b);
         this.a.setResult(-1, intent);

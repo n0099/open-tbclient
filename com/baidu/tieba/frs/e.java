@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
-public class e {
+public final class e {
     final /* synthetic */ b a;
     private String b;
     private String c;
@@ -11,35 +11,35 @@ public class e {
         this.a = bVar;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.b = str;
     }
 
-    public String a() {
+    public final String a() {
         return this.b;
     }
 
-    public void b(String str) {
+    public final void b(String str) {
         this.c = str;
     }
 
-    public String b() {
+    public final String b() {
         return this.c;
     }
 
-    public void c(String str) {
+    public final void c(String str) {
         this.d = str;
     }
 
-    public String c() {
+    public final String c() {
         return this.d;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.e = i;
     }
 
-    public int d() {
+    public final int d() {
         return this.e;
     }
 }

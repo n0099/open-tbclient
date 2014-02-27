@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.QueryUserInfos.QueryUserInfosRes;
 /* loaded from: classes.dex */
 public final class k extends GeneratedMessageLite.Builder<QueryUserInfosRes.IconInfo, k> implements l {
@@ -12,19 +13,34 @@ public final class k extends GeneratedMessageLite.Builder<QueryUserInfosRes.Icon
     private Object b = "";
     private Object d = "";
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        QueryUserInfosRes.IconInfo buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return QueryUserInfosRes.IconInfo.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return QueryUserInfosRes.IconInfo.getDefaultInstance();
+    }
+
     private k() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static k h() {
+    public static /* synthetic */ k a() {
         return new k();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: b */
     public k clear() {
         super.clear();
         this.b = "";
@@ -37,29 +53,13 @@ public final class k extends GeneratedMessageLite.Builder<QueryUserInfosRes.Icon
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public k clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
     /* renamed from: c */
-    public QueryUserInfosRes.IconInfo getDefaultInstanceForType() {
-        return QueryUserInfosRes.IconInfo.getDefaultInstance();
+    public k clone() {
+        return new k().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public QueryUserInfosRes.IconInfo build() {
-        QueryUserInfosRes.IconInfo buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
     public QueryUserInfosRes.IconInfo buildPartial() {
         QueryUserInfosRes.IconInfo iconInfo = new QueryUserInfosRes.IconInfo(this, (QueryUserInfosRes.IconInfo) null);
         int i = this.a;
@@ -79,7 +79,7 @@ public final class k extends GeneratedMessageLite.Builder<QueryUserInfosRes.Icon
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public k mergeFrom(QueryUserInfosRes.IconInfo iconInfo) {
+    public final k mergeFrom(QueryUserInfosRes.IconInfo iconInfo) {
         Object obj;
         Object obj2;
         if (iconInfo != QueryUserInfosRes.IconInfo.getDefaultInstance()) {
@@ -89,7 +89,9 @@ public final class k extends GeneratedMessageLite.Builder<QueryUserInfosRes.Icon
                 this.b = obj2;
             }
             if (iconInfo.hasWeight()) {
-                a(iconInfo.getWeight());
+                int weight = iconInfo.getWeight();
+                this.a |= 2;
+                this.c = weight;
             }
             if (iconInfo.hasIconUrl()) {
                 this.a |= 4;
@@ -141,11 +143,5 @@ public final class k extends GeneratedMessageLite.Builder<QueryUserInfosRes.Icon
                 throw th;
             }
         }
-    }
-
-    public k a(int i) {
-        this.a |= 2;
-        this.c = i;
-        return this;
     }
 }

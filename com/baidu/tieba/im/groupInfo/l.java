@@ -2,7 +2,7 @@ package com.baidu.tieba.im.groupInfo;
 
 import com.baidu.tieba.im.message.ca;
 /* loaded from: classes.dex */
-class l implements com.baidu.tieba.im.a<Boolean> {
+final class l implements com.baidu.tieba.im.a<Boolean> {
     final /* synthetic */ k a;
     private final /* synthetic */ ca b;
 
@@ -12,21 +12,18 @@ class l implements com.baidu.tieba.im.a<Boolean> {
         this.b = caVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // com.baidu.tieba.im.a
-    public void a(Boolean bool) {
-        GroupInfoActivity groupInfoActivity;
+    public final /* synthetic */ void a(Boolean bool) {
         m mVar;
-        GroupInfoActivity groupInfoActivity2;
         com.baidu.tieba.im.model.e eVar;
-        if (bool == null) {
-            bool = false;
+        Boolean bool2 = bool;
+        if (bool2 == null) {
+            bool2 = false;
         }
-        groupInfoActivity = this.a.a;
-        mVar = groupInfoActivity.f;
-        mVar.a(this.b, bool.booleanValue());
-        groupInfoActivity2 = this.a.a;
-        eVar = groupInfoActivity2.g;
-        eVar.a(bool.booleanValue() ? false : true);
+        mVar = this.a.a.f;
+        mVar.a(this.b, bool2.booleanValue());
+        eVar = this.a.a.g;
+        eVar.a(bool2.booleanValue() ? false : true);
     }
 }

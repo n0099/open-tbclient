@@ -3,7 +3,7 @@ package com.baidu.tieba.forumdetail;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements View.OnClickListener {
+public final class f implements View.OnClickListener {
     final /* synthetic */ ItemFootNavView a;
     private final /* synthetic */ com.baidu.tieba.f b;
 
@@ -14,7 +14,7 @@ public class f implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         this.a.b(this.b);
     }
 }

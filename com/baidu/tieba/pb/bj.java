@@ -1,11 +1,9 @@
 package com.baidu.tieba.pb;
 
-import android.view.View;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.util.UtilHelper;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bj implements com.baidu.tieba.view.dialog.f {
+final class bj implements com.baidu.tieba.view.dialog.f {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +12,7 @@ public class bj implements com.baidu.tieba.view.dialog.f {
     }
 
     @Override // com.baidu.tieba.view.dialog.f
-    public void a(com.baidu.tieba.view.dialog.d dVar, int i, View view) {
+    public final void a(com.baidu.tieba.view.dialog.d dVar, int i) {
         String str;
         String str2;
         String str3;
@@ -34,9 +32,9 @@ public class bj implements com.baidu.tieba.view.dialog.f {
             str7 = this.a.F;
             UtilHelper.g(newPbActivity2, str7);
             bbVar2 = this.a.w;
-            String c = bbVar2.c();
+            String g = bbVar2.g();
             str8 = this.a.F;
-            new com.baidu.tieba.account.v(c, str8, SocialConstants.TRUE).start();
+            new com.baidu.tieba.account.v(g, str8, SocialConstants.TRUE).start();
             dVar.c();
         } else if (i == 1) {
             com.baidu.tieba.util.cb.a(this.a, "pb_phone_sms", "sms");
@@ -47,9 +45,9 @@ public class bj implements com.baidu.tieba.view.dialog.f {
             str4 = this.a.F;
             UtilHelper.h(newPbActivity4, str4);
             bbVar = this.a.w;
-            String c2 = bbVar.c();
+            String g2 = bbVar.g();
             str5 = this.a.F;
-            new com.baidu.tieba.account.v(c2, str5, "2").start();
+            new com.baidu.tieba.account.v(g2, str5, "2").start();
             dVar.c();
         } else if (i == 2) {
             NewPbActivity newPbActivity5 = this.a;

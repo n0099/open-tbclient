@@ -42,11 +42,18 @@ public class AppsActivity extends com.baidu.tieba.f {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.app_activity);
-        c();
-        a(bundle);
-    }
-
-    private void a(Bundle bundle) {
+        this.h = (RelativeLayout) findViewById(R.id.parent);
+        this.i = (RelativeLayout) findViewById(R.id.title);
+        this.j = (TextView) findViewById(R.id.title_text);
+        this.b = (BaseWebView) findViewById(R.id.app_webView);
+        this.b.setDownloadEnabled(true);
+        this.f = (ProgressBar) findViewById(R.id.app_progress);
+        this.e = (LinearLayout) findViewById(R.id.webview_fail_imageview);
+        this.e.setOnClickListener(new r(this));
+        this.g = (ImageView) findViewById(R.id.refresh);
+        this.g.setOnClickListener(new s(this));
+        this.c = (ImageView) findViewById(R.id.back);
+        this.c.setOnClickListener(new t(this));
         if (bundle != null) {
             this.a = bundle.getString(SocialConstants.PARAM_URL);
         } else {
@@ -54,7 +61,7 @@ public class AppsActivity extends com.baidu.tieba.f {
         }
         if (System.currentTimeMillis() - com.baidu.tieba.sharedPref.b.a().a("app_inverval", 0L) > 86400000) {
             b();
-        } else if (!d()) {
+        } else if (!c()) {
             b();
         }
     }
@@ -81,29 +88,14 @@ public class AppsActivity extends com.baidu.tieba.f {
         bq.b(this.g, i);
     }
 
-    private void c() {
-        this.h = (RelativeLayout) findViewById(R.id.parent);
-        this.i = (RelativeLayout) findViewById(R.id.title);
-        this.j = (TextView) findViewById(R.id.title_text);
-        this.b = (BaseWebView) findViewById(R.id.app_webView);
-        this.b.setDownloadEnabled(true);
-        this.f = (ProgressBar) findViewById(R.id.app_progress);
-        this.e = (LinearLayout) findViewById(R.id.webview_fail_imageview);
-        this.e.setOnClickListener(new r(this));
-        this.g = (ImageView) findViewById(R.id.refresh);
-        this.g.setOnClickListener(new s(this));
-        this.c = (ImageView) findViewById(R.id.back);
-        this.c.setOnClickListener(new t(this));
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean d() {
-        String b = DatabaseService.b(7);
-        if (b == null || b.length() <= 1) {
+    public boolean c() {
+        String a = DatabaseService.a(7);
+        if (a == null || a.length() <= 1) {
             return false;
         }
         this.f.setVisibility(8);
-        this.b.loadDataWithBaseURL(com.baidu.tieba.data.i.a, b, "text/html", "utf-8", "");
+        this.b.loadDataWithBaseURL(com.baidu.tieba.data.i.a, a, "text/html", "utf-8", "");
         return true;
     }
 }

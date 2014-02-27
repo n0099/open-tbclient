@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.Button;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bq implements View.OnClickListener {
+public final class bq implements View.OnClickListener {
     final /* synthetic */ MultiImageView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -19,7 +19,7 @@ public class bq implements View.OnClickListener {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onClick(View view) {
+    public final void onClick(View view) {
         Button button;
         Button button2;
         w currentImageView;
@@ -28,14 +28,14 @@ public class bq implements View.OnClickListener {
         if (view != button) {
             button2 = this.a.b;
             if (view == button2 && currentImageView != null) {
-                currentImageView.n();
+                currentImageView.m();
                 return;
             }
             return;
         }
         currentImageView2 = this.a.getCurrentImageView();
         if (currentImageView2 != null) {
-            currentImageView2.m();
+            currentImageView2.l();
         }
     }
 }

@@ -24,7 +24,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
-public class aa extends BaseAdapter {
+public final class aa extends BaseAdapter {
     private MembersActivity a;
     private ac b;
     private boolean c;
@@ -35,15 +35,15 @@ public class aa extends BaseAdapter {
     private List<UserData> h = new ArrayList();
     private LinkedList<IconData> i = null;
 
-    public void a(ac acVar) {
+    public final void a(ac acVar) {
         this.b = acVar;
     }
 
-    public void a(List<UserData> list) {
+    public final void a(List<UserData> list) {
         this.h.addAll(list);
     }
 
-    public void b(List<Long> list) {
+    public final void b(List<Long> list) {
         if (list != null && list.size() > 0) {
             for (Long l : list) {
                 long longValue = l.longValue();
@@ -57,15 +57,15 @@ public class aa extends BaseAdapter {
         }
     }
 
-    public void a() {
+    public final void a() {
         this.g.clear();
     }
 
-    public Set<Long> b() {
+    public final Set<Long> b() {
         return this.g;
     }
 
-    public void a(Long l) {
+    public final void a(Long l) {
         if (this.g.contains(l)) {
             this.g.remove(l);
         } else {
@@ -77,7 +77,7 @@ public class aa extends BaseAdapter {
         }
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         if (z) {
             this.h.clear();
         }
@@ -88,32 +88,32 @@ public class aa extends BaseAdapter {
     public aa(MembersActivity membersActivity) {
         this.a = membersActivity;
         this.f = new com.baidu.tieba.util.i(membersActivity);
-        this.f.d(false);
+        this.f.a(false);
         this.d = false;
     }
 
-    public void b(boolean z) {
-        this.c = z;
+    public final void b(boolean z) {
+        this.c = false;
     }
 
-    public boolean c() {
+    public final boolean c() {
         return this.c;
     }
 
-    public void c(boolean z) {
+    public final void c(boolean z) {
         this.d = z;
     }
 
-    public boolean d() {
+    public final boolean d() {
         return this.e;
     }
 
-    public void d(boolean z) {
+    public final void d(boolean z) {
         this.e = z;
     }
 
     @Override // android.widget.Adapter
-    public int getCount() {
+    public final int getCount() {
         if (this.h != null) {
             int size = (this.h.size() * 2) + 1;
             if (this.d) {
@@ -125,7 +125,7 @@ public class aa extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public Object getItem(int i) {
+    public final Object getItem(int i) {
         int itemId = (int) getItemId(i);
         if (itemId < 0 || itemId >= this.h.size()) {
             return null;
@@ -134,7 +134,7 @@ public class aa extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    public final long getItemId(int i) {
         if (this.d && i == getCount() - 1) {
             return -2L;
         }
@@ -145,7 +145,7 @@ public class aa extends BaseAdapter {
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
+    public final int getItemViewType(int i) {
         if (getItemId(i) >= 0) {
             return 0;
         }
@@ -156,12 +156,12 @@ public class aa extends BaseAdapter {
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
+    public final int getViewTypeCount() {
         return 3;
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public final View getView(int i, View view, ViewGroup viewGroup) {
         ad adVar;
         View view2;
         if (this.h != null) {
@@ -205,14 +205,15 @@ public class aa extends BaseAdapter {
             } else if (getItemViewType(i) == 2) {
                 a(view);
             } else {
-                int al = TiebaApplication.g().al();
+                int ae = TiebaApplication.g().ae();
                 UserData userData = (UserData) getItem(i);
                 adVar.e.setTag(null);
                 String portrait = userData.getPortrait();
                 if (!TextUtils.isEmpty(portrait)) {
-                    com.baidu.adp.widget.ImageView.b c = this.f.c(portrait);
-                    if (c != null) {
-                        adVar.e.setImageBitmap(c.h());
+                    com.baidu.tieba.util.i iVar = this.f;
+                    com.baidu.adp.widget.ImageView.b b = com.baidu.tbadk.imageManager.e.a().b(portrait);
+                    if (b != null) {
+                        adVar.e.setImageBitmap(b.h());
                     } else {
                         adVar.e.setTag(portrait);
                         adVar.e.setImageBitmap(com.baidu.tieba.util.n.a((int) R.drawable.photo));
@@ -222,7 +223,7 @@ public class aa extends BaseAdapter {
                 switch (userData.getSex()) {
                     case 1:
                         adVar.g.setVisibility(0);
-                        if (al == 1) {
+                        if (ae == 1) {
                             adVar.g.setImageResource(R.drawable.icon_pop_boy_1);
                             break;
                         } else {
@@ -231,7 +232,7 @@ public class aa extends BaseAdapter {
                         }
                     case 2:
                         adVar.g.setVisibility(0);
-                        if (al == 1) {
+                        if (ae == 1) {
                             adVar.g.setImageResource(R.drawable.icon_pop_girl_1);
                             break;
                         } else {
@@ -242,7 +243,21 @@ public class aa extends BaseAdapter {
                         adVar.g.setVisibility(8);
                         break;
                 }
-                adVar.h.setText(a(userData));
+                TextView textView = adVar.h;
+                long j = 0;
+                com.baidu.tieba.im.model.l a = this.a.a();
+                switch (a.a()) {
+                    case 0:
+                        j = userData.getLoginTime();
+                        break;
+                    case 1:
+                        j = userData.getLastReplyTime();
+                        break;
+                    case 2:
+                        j = userData.getInTime();
+                        break;
+                }
+                textView.setText(j <= 0 ? a.a() == 1 ? this.a.getString(R.string.members_no_speak) : "" : bs.d(new Date(j * 1000)));
                 adVar.i.setText(userData.getPosition());
                 this.i = userData.getTShowInfo();
                 if (adVar.j != null) {
@@ -264,37 +279,11 @@ public class aa extends BaseAdapter {
     }
 
     private void a(View view) {
-        this.a.getLayoutMode().a(TiebaApplication.g().al() == 1);
+        this.a.getLayoutMode().a(TiebaApplication.g().ae() == 1);
         this.a.getLayoutMode().a(view);
     }
 
-    private String a(UserData userData) {
-        long lastReplyTime;
-        com.baidu.tieba.im.model.l b = this.a.b();
-        switch (b.a()) {
-            case 0:
-                lastReplyTime = userData.getLoginTime();
-                break;
-            case 1:
-                lastReplyTime = userData.getLastReplyTime();
-                break;
-            case 2:
-                lastReplyTime = userData.getInTime();
-                break;
-            default:
-                lastReplyTime = 0;
-                break;
-        }
-        if (lastReplyTime <= 0) {
-            if (b.a() == 1) {
-                return this.a.getString(R.string.members_no_speak);
-            }
-            return "";
-        }
-        return bs.d(new Date(lastReplyTime * 1000));
-    }
-
-    public com.baidu.tieba.util.i e() {
+    public final com.baidu.tieba.util.i e() {
         return this.f;
     }
 }

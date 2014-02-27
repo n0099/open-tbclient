@@ -27,7 +27,6 @@ public final class AssetFileUtils {
                     try {
                         return new FileInputStream(new File(str));
                     } catch (FileNotFoundException e3) {
-                        return resourceAsStream;
                     }
                 }
             }

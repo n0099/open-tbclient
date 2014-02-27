@@ -5,7 +5,7 @@ import com.baidu.tieba.voice.VoiceManager;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ai implements com.baidu.tieba.voice.a.c {
+public final class ai implements com.baidu.tieba.voice.a.c {
     final /* synthetic */ VoiceManager a;
 
     private ai(VoiceManager voiceManager) {
@@ -13,12 +13,12 @@ public class ai implements com.baidu.tieba.voice.a.c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ai(VoiceManager voiceManager, ai aiVar) {
+    public /* synthetic */ ai(VoiceManager voiceManager, byte b) {
         this(voiceManager);
     }
 
     @Override // com.baidu.tieba.voice.a.c
-    public void a(String str, String str2, int i, String str3) {
+    public final void a(String str, String str2, int i, String str3) {
         VoiceManager.VoiceModel voiceModel;
         ad adVar;
         ad adVar2;
@@ -31,11 +31,11 @@ public class ai implements com.baidu.tieba.voice.a.c {
         if (voiceModel != null) {
             adVar = this.a.y;
             if (adVar != null) {
-                if (!com.baidu.adp.lib.util.m.a(str) && !com.baidu.adp.lib.util.m.a(str2)) {
+                if (!com.baidu.adp.lib.util.k.a(str) && !com.baidu.adp.lib.util.k.a(str2)) {
                     voiceModel3 = this.a.v;
                     if (voiceModel3.voiceId.equals(str2)) {
                         voiceModel4 = this.a.v;
-                        if (VoiceManager.b(voiceModel4.voice_status.intValue())) {
+                        if (VoiceManager.a(voiceModel4.voice_status.intValue())) {
                             VoiceManager voiceManager = this.a;
                             voiceModel5 = this.a.v;
                             voiceManager.a(voiceModel5, str);
@@ -45,9 +45,9 @@ public class ai implements com.baidu.tieba.voice.a.c {
                     }
                     return;
                 }
-                com.baidu.adp.lib.util.f.b("VoiceManager", "VoiceLoaderCallback::voiceLoaded", "error code:" + i + " error msg:" + str3);
+                com.baidu.adp.lib.util.e.b("VoiceManager", "VoiceLoaderCallback::voiceLoaded", "error code:" + i + " error msg:" + str3);
                 cb.b("", i, str3, str);
-                if (i <= 0 || com.baidu.adp.lib.util.m.a(str3) || (i != 2 && i != 4 && i != 3 && i != 7)) {
+                if (i <= 0 || com.baidu.adp.lib.util.k.a(str3) || (i != 2 && i != 4 && i != 3 && i != 7)) {
                     adVar2 = this.a.y;
                     adVar2.a(5, ak.a(R.string.voice_err_load_fail));
                 } else {

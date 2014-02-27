@@ -2,7 +2,7 @@ package com.baidu.adp.lib.cache;
 
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-class j implements g {
+final class j implements g {
     private final int a;
     private LinkedList<m<?>> b;
 
@@ -11,17 +11,17 @@ class j implements g {
     }
 
     @Override // com.baidu.adp.lib.cache.f
-    public int a() {
+    public final int a() {
         return this.a;
     }
 
     @Override // com.baidu.adp.lib.cache.g
-    public void c() {
+    public final void c() {
         this.b = new LinkedList<>();
     }
 
     @Override // com.baidu.adp.lib.cache.g
-    public String a(m<?> mVar) {
+    public final String a(m<?> mVar) {
         String str;
         long j;
         int i;
@@ -30,27 +30,25 @@ class j implements g {
             return mVar.a;
         }
         this.b.add(mVar);
-        if (this.b.size() > a()) {
+        if (this.b.size() > this.a) {
             long j2 = 0;
             int i2 = 0;
             int i3 = -1;
             while (i2 < this.b.size()) {
                 m<?> mVar2 = this.b.get(i2);
                 if (i3 == -1 || mVar2.e < j2) {
-                    String str3 = mVar2.a;
-                    long j3 = mVar2.e;
-                    str = str3;
-                    j = j3;
+                    str = mVar2.a;
+                    j = mVar2.e;
                     i = i2;
                 } else {
-                    str = str2;
                     j = j2;
+                    str = str2;
                     i = i3;
                 }
                 i2++;
                 i3 = i;
-                j2 = j;
                 str2 = str;
+                j2 = j;
             }
             this.b.remove(i3);
             return str2;
@@ -59,13 +57,13 @@ class j implements g {
     }
 
     @Override // com.baidu.adp.lib.cache.g
-    public void d() {
+    public final void d() {
         this.b.clear();
         this.b = null;
     }
 
     @Override // com.baidu.adp.lib.cache.f
-    public boolean b() {
+    public final boolean b() {
         return true;
     }
 }

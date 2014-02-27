@@ -12,7 +12,7 @@ public class ak extends da implements com.baidu.tieba.im.coder.f {
     }
 
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<com.baidu.tieba.im.message.s> linkedList, byte[] bArr, int i) {
+    public final void a(LinkedList<com.baidu.tieba.im.message.s> linkedList, byte[] bArr, int i) {
         ApplyJoinGroupRes.ApplyJoinGroupResIdl parseFrom = ApplyJoinGroupRes.ApplyJoinGroupResIdl.parseFrom(bArr);
         g(parseFrom.getError().getErrorno());
         c(parseFrom.getError().getUsermsg());

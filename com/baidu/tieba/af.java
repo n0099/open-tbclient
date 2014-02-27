@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 /* loaded from: classes.dex */
-class af implements o {
+final class af implements o {
     final /* synthetic */ MainTabActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,7 +9,7 @@ class af implements o {
     }
 
     @Override // com.baidu.tieba.o
-    public void a(int i, int i2) {
+    public final void a(int i) {
         q qVar;
         if (i == 4) {
             this.a.r = true;

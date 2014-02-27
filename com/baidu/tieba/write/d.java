@@ -5,7 +5,7 @@ import android.widget.ImageView;
 import com.baidu.tieba.data.MetaData;
 import com.baidu.tieba.util.cj;
 /* loaded from: classes.dex */
-class d implements cj {
+final class d implements cj {
     final /* synthetic */ c a;
     private final /* synthetic */ String b;
     private final /* synthetic */ com.baidu.adp.widget.ImageView.b c;
@@ -18,7 +18,7 @@ class d implements cj {
     }
 
     @Override // com.baidu.tieba.util.cj
-    public boolean a(View view) {
+    public final boolean a(View view) {
         if ((view instanceof ImageView) && view.getTag() != null) {
             Object tag = view.getTag();
             if (tag instanceof MetaData) {

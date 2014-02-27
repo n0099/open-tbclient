@@ -4,10 +4,11 @@ import android.os.SystemClock;
 import android.util.Log;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.sapi2.shell.SapiErrorCode;
+import java.util.Iterator;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g {
+public final class g {
     float a;
     float b;
     float c;
@@ -25,105 +26,96 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a() {
+    public final void a() {
         f fVar;
-        i iVar;
+        i unused;
         e();
         if (this.a <= this.c) {
-            iVar = this.h.v;
-            if (iVar != null) {
-                iVar.b();
-            }
+            unused = this.h.v;
             this.g = false;
             this.h.k = 10000;
             this.h.a();
             return;
         }
-        this.h.f = (int) (ag.a(this.c, this.a, false) + this.d);
+        this.h.f = (int) (ae.a(this.c, this.a, false) + this.d);
         this.h.invalidate();
         fVar = this.h.s;
         fVar.sendEmptyMessageAtTime(-100, this.f);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void b() {
+    public final void b() {
         f fVar;
-        l lVar;
+        k unused;
         e();
         if (this.a >= this.c) {
-            lVar = this.h.w;
-            if (lVar != null) {
-                lVar.b();
-            }
+            unused = this.h.w;
             this.g = false;
             this.h.k = PushConstants.ERROR_NETWORK_ERROR;
             this.h.a();
             return;
         }
-        this.h.f = (int) (ag.a(this.c, this.a, false) + this.d);
+        this.h.f = (int) (ae.a(this.c, this.a, false) + this.d);
         this.h.invalidate();
         fVar = this.h.s;
         fVar.sendEmptyMessageAtTime(SapiErrorCode.SENT_SUCCEED, this.f);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void c() {
+    public final void c() {
         f fVar;
-        List<k> list;
+        List list;
         e();
         if (this.a >= this.c) {
             list = this.h.x;
-            for (k kVar : list) {
-                if (kVar != null) {
-                    kVar.b();
-                }
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                it.next();
             }
             this.g = false;
             this.h.k = 10004;
             this.h.a();
             return;
         }
-        this.h.f = (int) (ag.a(this.c, this.a, false) + this.d);
+        this.h.f = (int) (ae.a(this.c, this.a, false) + this.d);
         this.h.invalidate();
         fVar = this.h.s;
         fVar.sendEmptyMessageAtTime(SapiErrorCode.GETTING_CERT, this.f);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void d() {
+    public final void d() {
         f fVar;
-        List<k> list;
+        List list;
         e();
         if (this.a <= this.c) {
             list = this.h.x;
-            for (k kVar : list) {
-                if (kVar != null) {
-                    kVar.b();
-                }
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                it.next();
             }
             this.g = false;
             this.h.k = 10004;
             this.h.a();
             return;
         }
-        this.h.f = (int) (ag.a(this.c, this.a, false) + this.d);
+        this.h.f = (int) (ae.a(this.c, this.a, false) + this.d);
         this.h.invalidate();
         fVar = this.h.s;
         fVar.sendEmptyMessageAtTime(SapiErrorCode.GET_CERT_FAIL, this.f);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(float f) {
-        List<k> list;
+    public final void a(float f) {
+        List list;
         int i;
         int i2;
         f fVar;
         f fVar2;
         list = this.h.x;
-        for (k kVar : list) {
-            if (kVar != null) {
-                kVar.a();
-            }
+        Iterator it = list.iterator();
+        while (it.hasNext()) {
+            it.next();
         }
         this.g = true;
         long uptimeMillis = SystemClock.uptimeMillis();
@@ -144,17 +136,16 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void b(float f) {
-        List<k> list;
+    public final void b(float f) {
+        List list;
         int i;
         int i2;
         f fVar;
         f fVar2;
         list = this.h.x;
-        for (k kVar : list) {
-            if (kVar != null) {
-                kVar.a();
-            }
+        Iterator it = list.iterator();
+        while (it.hasNext()) {
+            it.next();
         }
         this.g = true;
         long uptimeMillis = SystemClock.uptimeMillis();
@@ -175,17 +166,14 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void c(float f) {
-        i iVar;
+    public final void c(float f) {
         float f2;
         int i;
         int i2;
         f fVar;
         f fVar2;
-        iVar = this.h.v;
-        if (iVar != null) {
-            iVar.a();
-        }
+        i unused;
+        unused = this.h.v;
         this.g = true;
         long uptimeMillis = SystemClock.uptimeMillis();
         this.e = uptimeMillis;
@@ -207,17 +195,14 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void d(float f) {
-        l lVar;
+    public final void d(float f) {
         float f2;
         int i;
         int i2;
         f fVar;
         f fVar2;
-        lVar = this.h.w;
-        if (lVar != null) {
-            lVar.a();
-        }
+        k unused;
+        unused = this.h.w;
         this.g = true;
         long uptimeMillis = SystemClock.uptimeMillis();
         this.e = uptimeMillis;

@@ -31,7 +31,7 @@ public class ClickableLayout4Frame extends FrameLayout {
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
         if (motionEvent.getAction() == 1 && this.a != null) {
-            this.a.a();
+            s sVar = this.a;
         }
         return dispatchTouchEvent;
     }

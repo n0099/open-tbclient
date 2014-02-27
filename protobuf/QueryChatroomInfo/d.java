@@ -5,11 +5,9 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import protobuf.QueryChatroomInfo.QueryChatroomInfoReq;
 /* loaded from: classes.dex */
-class d extends AbstractParser<QueryChatroomInfoReq.QueryChatroomInfoReqIdl> {
-    /* JADX DEBUG: Method merged with bridge method */
+final class d extends AbstractParser<QueryChatroomInfoReq.QueryChatroomInfoReqIdl> {
     @Override // com.google.protobuf.Parser
-    /* renamed from: a */
-    public QueryChatroomInfoReq.QueryChatroomInfoReqIdl parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
+    public final /* synthetic */ Object parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
         return new QueryChatroomInfoReq.QueryChatroomInfoReqIdl(codedInputStream, extensionRegistryLite, null);
     }
 }

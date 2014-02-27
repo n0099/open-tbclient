@@ -5,7 +5,7 @@ import com.baidu.tieba.data.chat.ImMessageCenterShowItemData;
 import com.baidu.tieba.model.ag;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements DialogInterface.OnClickListener {
+public final class l implements DialogInterface.OnClickListener {
     final /* synthetic */ a a;
     private final /* synthetic */ ImMessageCenterShowItemData b;
 
@@ -16,7 +16,7 @@ public class l implements DialogInterface.OnClickListener {
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
+    public final void onClick(DialogInterface dialogInterface, int i) {
         ag agVar;
         switch (i) {
             case 0:

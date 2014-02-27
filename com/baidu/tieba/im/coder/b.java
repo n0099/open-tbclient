@@ -2,7 +2,7 @@ package com.baidu.tieba.im.coder;
 
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
-public class b {
+public final class b {
     private static byte a = Byte.MIN_VALUE;
     private static byte b = 64;
     private boolean c = false;
@@ -15,7 +15,7 @@ public class b {
     }
 
     public static byte[] a(boolean z, boolean z2, int i, int i2, byte[] bArr) {
-        ByteBuffer allocate = ByteBuffer.allocate((bArr != null ? bArr.length : 0) + a());
+        ByteBuffer allocate = ByteBuffer.allocate((bArr != null ? bArr.length : 0) + 9);
         byte b2 = z ? (byte) (a | 0) : (byte) 0;
         if (z2) {
             b2 = (byte) (b2 | b);
@@ -31,7 +31,7 @@ public class b {
     }
 
     public static b a(byte[] bArr) {
-        ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, a());
+        ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, 9);
         b bVar = new b();
         byte b2 = wrap.get();
         if ((a & b2) != 0) {
@@ -45,19 +45,19 @@ public class b {
         return bVar;
     }
 
-    public boolean b() {
+    public final boolean b() {
         return this.d;
     }
 
-    public int c() {
+    public final int c() {
         return this.e;
     }
 
-    public boolean d() {
+    public final boolean d() {
         return this.c;
     }
 
-    public int e() {
+    public final int e() {
         return this.f;
     }
 }

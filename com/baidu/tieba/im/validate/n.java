@@ -2,9 +2,8 @@ package com.baidu.tieba.im.validate;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import java.util.LinkedList;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n extends BdAsyncTask<Void, Void, Void> {
+final class n extends BdAsyncTask<Void, Void, Void> {
     private final /* synthetic */ LinkedList a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,10 +11,11 @@ public class n extends BdAsyncTask<Void, Void, Void> {
         this.a = linkedList;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void a(Void... voidArr) {
+    public final /* bridge */ /* synthetic */ Void a(Void... voidArr) {
         com.baidu.tieba.im.db.c.a().a(this.a);
         return null;
     }

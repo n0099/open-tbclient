@@ -2,7 +2,6 @@ package com.baidu.tieba.view.dialog;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +16,7 @@ import com.baidu.tieba.k;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class a {
+public final class a {
     private String b;
     private View c;
     private String d;
@@ -35,24 +34,24 @@ public class a {
     private boolean o = false;
     private boolean p = true;
 
-    public a a(String str) {
+    public final a a(String str) {
         this.d = str;
         return this;
     }
 
-    public a a(View view) {
+    public final a a(View view) {
         this.c = view;
         return this;
     }
 
-    public a a(int i) {
+    public final a a(int i) {
         if (this.l != null) {
-            this.d = this.l.getResources().getString(i);
+            this.d = this.l.getResources().getString(R.string.upgrade_mem_group_if_up);
         }
         return this;
     }
 
-    public a a(int i, c cVar) {
+    public final a a(int i, c cVar) {
         if (this.l != null) {
             this.e = this.l.getResources().getString(i);
             this.h = cVar;
@@ -60,7 +59,7 @@ public class a {
         return this;
     }
 
-    public a b(int i, c cVar) {
+    public final a b(int i, c cVar) {
         if (this.l != null) {
             this.f = this.l.getResources().getString(i);
             this.i = cVar;
@@ -68,8 +67,8 @@ public class a {
         return this;
     }
 
-    public a a(boolean z) {
-        this.p = z;
+    public final a a(boolean z) {
+        this.p = false;
         return this;
     }
 
@@ -79,13 +78,22 @@ public class a {
         this.m = (ViewGroup) this.n.inflate(R.layout.dialog_bdalert, (ViewGroup) null);
     }
 
-    public a a() {
+    public final a a() {
         boolean z;
         boolean z2;
-        boolean z3 = true;
+        boolean z3;
         if (!this.o) {
             this.o = true;
-            d();
+            int ae = TiebaApplication.g().ae();
+            if (this.l instanceof com.baidu.tieba.f) {
+                com.baidu.tieba.f fVar = (com.baidu.tieba.f) this.l;
+                fVar.getLayoutMode().a(ae == 1);
+                fVar.getLayoutMode().a(this.m);
+            } else if (this.l instanceof k) {
+                k kVar = (k) this.l;
+                kVar.a().a(ae == 1);
+                kVar.a().a(this.m);
+            }
             TextView textView = (TextView) this.m.findViewById(R.id.title);
             LinearLayout linearLayout = (LinearLayout) this.m.findViewById(R.id.content);
             TextView textView2 = (TextView) this.m.findViewById(R.id.message);
@@ -129,72 +137,48 @@ public class a {
                 if (this.j != null) {
                     button3.setOnClickListener(new b(this, this, this.j));
                 }
+                z3 = true;
             }
-            a(z, z2, z3, button, button2, button3);
+            boolean[] zArr = {z2, z, z3};
+            Button[] buttonArr = {button2, button, button3};
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < 3; i++) {
+                if (zArr[i]) {
+                    arrayList.add(buttonArr[i]);
+                    buttonArr[i].setVisibility(0);
+                } else {
+                    buttonArr[i].setVisibility(8);
+                }
+            }
+            if (arrayList.size() == 3) {
+                int i2 = 0;
+                while (i2 < 3) {
+                    a((Button) arrayList.get(i2), 70, i2 == 2 ? 0 : 10);
+                    i2++;
+                }
+            }
+            if (arrayList.size() == 2) {
+                int i3 = 0;
+                while (i3 < 2) {
+                    a((Button) arrayList.get(i3), SocialAPIErrorCodes.ERROR_MISS_ACCESS_TOKEN, i3 == 1 ? 0 : 10);
+                    i3++;
+                }
+            }
+            if (arrayList.size() == 1) {
+                a((Button) arrayList.get(0), 230, 0);
+            }
         }
         return this;
     }
 
-    private void d() {
-        int al = TiebaApplication.g().al();
-        if (this.l instanceof com.baidu.tieba.f) {
-            com.baidu.tieba.f fVar = (com.baidu.tieba.f) this.l;
-            fVar.getLayoutMode().a(al == 1);
-            fVar.getLayoutMode().a((View) this.m);
-        } else if (this.l instanceof k) {
-            k kVar = (k) this.l;
-            kVar.a().a(al == 1);
-            kVar.a().a((View) this.m);
-        }
-    }
-
-    private void a(boolean z, boolean z2, boolean z3, Button button, Button button2, Button button3) {
-        boolean[] zArr = {z2, z, z3};
-        Button[] buttonArr = {button2, button, button3};
-        ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < 3; i++) {
-            if (zArr[i]) {
-                arrayList.add(buttonArr[i]);
-                buttonArr[i].setVisibility(0);
-            } else {
-                buttonArr[i].setVisibility(8);
-            }
-        }
-        if (arrayList.size() == 3) {
-            int i2 = 0;
-            while (true) {
-                int i3 = i2;
-                if (i3 >= 3) {
-                    break;
-                }
-                a((Button) arrayList.get(i3), 70, i3 == 2 ? 0 : 10);
-                i2 = i3 + 1;
-            }
-        }
-        if (arrayList.size() == 2) {
-            int i4 = 0;
-            while (true) {
-                int i5 = i4;
-                if (i5 >= 2) {
-                    break;
-                }
-                a((Button) arrayList.get(i5), SocialAPIErrorCodes.ERROR_MISS_ACCESS_TOKEN, i5 == 1 ? 0 : 10);
-                i4 = i5 + 1;
-            }
-        }
-        if (arrayList.size() == 1) {
-            a((Button) arrayList.get(0), 230, 0);
-        }
-    }
-
     private void a(Button button, int i, int i2) {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) button.getLayoutParams();
-        layoutParams.width = a(this.l, i);
+        layoutParams.width = (int) ((this.l.getResources().getDisplayMetrics().density * i) + 0.5f);
         layoutParams.rightMargin = i2;
         button.setLayoutParams(layoutParams);
     }
 
-    public a b() {
+    public final a b() {
         if (!this.o) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
@@ -215,13 +199,9 @@ public class a {
         return this;
     }
 
-    public void c() {
+    public final void c() {
         if (this.k != null) {
             this.k.dismiss();
         }
-    }
-
-    private int a(Context context, float f) {
-        return (int) ((context.getResources().getDisplayMetrics().density * f) + 0.5f);
     }
 }

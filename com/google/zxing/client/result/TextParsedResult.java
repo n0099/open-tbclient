@@ -10,16 +10,16 @@ public final class TextParsedResult extends ParsedResult {
         this.language = str2;
     }
 
-    public String getText() {
+    public final String getText() {
         return this.text;
     }
 
-    public String getLanguage() {
+    public final String getLanguage() {
         return this.language;
     }
 
     @Override // com.google.zxing.client.result.ParsedResult
-    public String getDisplayResult() {
+    public final String getDisplayResult() {
         return this.text;
     }
 }

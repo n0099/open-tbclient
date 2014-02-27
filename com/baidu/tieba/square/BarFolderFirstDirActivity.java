@@ -34,9 +34,29 @@ public class BarFolderFirstDirActivity extends com.baidu.tieba.f {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.bar_folder_dir_activity);
-        a();
-        a(bundle);
-        b();
+        this.h = (NavigationBar) findViewById(R.id.view_navigation_bar);
+        this.h.a(getResources().getString(R.string.bar_first_dir_name));
+        this.h.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.a = (ListView) findViewById(R.id.list);
+        this.e = new c(this, new h());
+        this.a.setAdapter((ListAdapter) this.e);
+        this.d = (ProgressBar) findViewById(R.id.progress);
+        this.b = (ViewGroup) findViewById(R.id.body_container);
+        ch.b(this.b);
+        if (bundle != null) {
+            this.g = bundle.getString(c);
+        } else {
+            this.g = getIntent().getStringExtra(c);
+        }
+        this.d.setVisibility(0);
+        this.a.setEnabled(false);
+        if (this.f != null) {
+            this.f.cancel();
+        }
+        this.f = new b(this, (byte) 0);
+        this.f.setPriority(3);
+        this.f.execute("");
+        this.a.setOnItemClickListener(new a(this));
         cb.a(this, "category_1", "enter");
     }
 
@@ -45,18 +65,6 @@ public class BarFolderFirstDirActivity extends com.baidu.tieba.f {
     public void onResume() {
         super.onResume();
         this.e.notifyDataSetChanged();
-    }
-
-    protected void a() {
-        this.h = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.h.a(getResources().getString(R.string.bar_first_dir_name));
-        this.h.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.a = (ListView) findViewById(R.id.list);
-        this.e = new c(this, new h(), true);
-        this.a.setAdapter((ListAdapter) this.e);
-        this.d = (ProgressBar) findViewById(R.id.progress);
-        this.b = (ViewGroup) findViewById(R.id.body_container);
-        ch.b(this.b);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -69,28 +77,8 @@ public class BarFolderFirstDirActivity extends com.baidu.tieba.f {
         a((h) null, true);
     }
 
-    protected void b() {
-        this.a.setOnItemClickListener(new a(this));
-    }
-
-    protected void a(Bundle bundle) {
-        if (bundle != null) {
-            this.g = bundle.getString(c);
-        } else {
-            this.g = getIntent().getStringExtra(c);
-        }
-        this.d.setVisibility(0);
-        this.a.setEnabled(false);
-        if (this.f != null) {
-            this.f.cancel();
-        }
-        this.f = new b(this, null);
-        this.f.setPriority(3);
-        this.f.execute("");
-    }
-
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(h hVar, boolean z) {
+    public final void a(h hVar, boolean z) {
         this.d.setVisibility(8);
         this.a.setEnabled(true);
         this.f = null;
@@ -110,7 +98,7 @@ public class BarFolderFirstDirActivity extends com.baidu.tieba.f {
     @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.h.c(i);
+        this.h.b(i);
         if (this.a != null) {
             this.a.invalidateViews();
         }

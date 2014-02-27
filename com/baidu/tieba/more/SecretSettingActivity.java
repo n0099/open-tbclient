@@ -22,26 +22,17 @@ public class SecretSettingActivity extends com.baidu.tieba.f implements View.OnC
         super.onCreate(bundle);
         this.b = new am(this);
         this.b.a(this);
-        b();
-        a();
-        c();
-    }
-
-    private void a() {
-        this.a.a(this.c);
-    }
-
-    private void b() {
         this.a = new com.baidu.tieba.im.model.k();
-    }
-
-    private void c() {
+        com.baidu.tieba.im.model.k kVar = this.a;
+        com.baidu.tieba.im.messageCenter.g gVar = this.c;
+        com.baidu.tieba.im.messageCenter.d.a().a(104103, gVar);
+        com.baidu.tieba.im.messageCenter.d.a().a(104102, gVar);
         this.b.a();
         this.a.a(8);
     }
 
     private void a(boolean z) {
-        this.b.f();
+        this.b.e();
         this.a.a(8, z);
     }
 
@@ -49,7 +40,8 @@ public class SecretSettingActivity extends com.baidu.tieba.f implements View.OnC
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.a.b(this.c);
+        com.baidu.tieba.im.model.k kVar = this.a;
+        com.baidu.tieba.im.messageCenter.d.a().a(this.c);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -63,30 +55,26 @@ public class SecretSettingActivity extends com.baidu.tieba.f implements View.OnC
     @Override // com.baidu.tieba.f
     public void onResourceRecycle() {
         super.onResourceRecycle();
-        this.b.e();
+        this.b.d();
     }
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        this.b.h().performClick();
+        this.b.g().performClick();
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.b.h()) {
+        if (view == this.b.g()) {
             finish();
-        } else if (view == this.b.j()) {
-            d();
+        } else if (view == this.b.i()) {
+            IMBlackListActivity.a(this);
         }
     }
 
-    private void d() {
-        IMBlackListActivity.a(this);
-    }
-
     @Override // com.baidu.adp.widget.BdSwitchView.c
-    public void a(View view, BdSwitchView.SwitchState switchState) {
+    public final void a(View view, BdSwitchView.SwitchState switchState) {
         if (switchState == BdSwitchView.SwitchState.ON) {
             a(true);
         } else {

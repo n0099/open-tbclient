@@ -10,7 +10,7 @@ import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 import java.util.List;
 /* loaded from: classes.dex */
-public class q extends com.baidu.adp.a.e {
+public final class q extends com.baidu.adp.a.e {
     private View a;
     private ImageView c;
     private UpdatesActivity d;
@@ -25,13 +25,6 @@ public class q extends com.baidu.adp.a.e {
     public q(UpdatesActivity updatesActivity) {
         super(updatesActivity);
         this.d = updatesActivity;
-        a();
-        this.f = new e(this.d);
-        this.e.setAdapter((ListAdapter) this.f);
-        this.e.setOnScrollListener(this.d);
-    }
-
-    void a() {
         this.a = View.inflate(this.d, R.layout.updates_activity, null);
         this.d.setContentView(this.a);
         this.k = (NavigationBar) this.d.findViewById(R.id.view_navigation_bar);
@@ -50,10 +43,13 @@ public class q extends com.baidu.adp.a.e {
         this.j.setOnClickListener(this.d);
         a(0);
         a(false);
+        this.f = new e(this.d);
+        this.e.setAdapter((ListAdapter) this.f);
+        this.e.setOnScrollListener(this.d);
     }
 
     @Override // com.baidu.adp.a.e
-    public void c() {
+    public final void c() {
         super.c();
         if (this.f != null) {
             this.f.a();
@@ -62,36 +58,36 @@ public class q extends com.baidu.adp.a.e {
         this.d = null;
     }
 
-    public void e() {
+    public final void a() {
         this.h.setVisibility(8);
         this.c.setVisibility(8);
         this.i.setVisibility(0);
         this.j.setVisibility(0);
-        g();
+        e();
     }
 
-    public void f() {
+    public final void d() {
         this.h.setVisibility(0);
         this.c.setVisibility(0);
         this.i.setVisibility(8);
         this.j.setVisibility(8);
         a(0);
-        g();
+        e();
     }
 
-    public void g() {
+    public final void e() {
         if (this.f != null) {
             this.f.notifyDataSetChanged();
         }
     }
 
-    public void a(List<UpdatesItemData> list) {
+    public final void a(List<UpdatesItemData> list) {
         if (this.f != null) {
             this.f.a(list);
         }
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.j.setText(String.format(this.d.getString(R.string.del_count), Integer.valueOf(i)));
         if (i == 0) {
             this.j.setEnabled(false);
@@ -100,33 +96,33 @@ public class q extends com.baidu.adp.a.e {
         }
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.g.setVisibility(z ? 0 : 8);
     }
 
-    public void b(int i) {
+    public final void b(int i) {
         this.d.getLayoutMode().a(i == 1);
         this.d.getLayoutMode().a(this.a);
-        this.k.c(i);
+        this.k.b(i);
     }
 
-    public ImageView h() {
+    public final ImageView f() {
         return this.c;
     }
 
-    public BdListView i() {
+    public final BdListView g() {
         return this.e;
     }
 
-    public Button j() {
+    public final Button h() {
         return this.h;
     }
 
-    public Button k() {
+    public final Button i() {
         return this.i;
     }
 
-    public Button l() {
+    public final Button j() {
         return this.j;
     }
 }

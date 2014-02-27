@@ -9,7 +9,7 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import protobuf.Im;
 /* loaded from: classes.dex */
-public class b extends Thread {
+public final class b extends Thread {
     private Bitmap A;
     private int J;
     private short[] K;
@@ -62,20 +62,18 @@ public class b extends Thread {
         this.Q = aVar;
     }
 
-    public void a(byte[] bArr) {
+    public final void a(byte[] bArr) {
         this.R = bArr;
     }
 
-    public void a(InputStream inputStream) {
+    public final void a(InputStream inputStream) {
         this.c = inputStream;
     }
 
     private void a(String str, boolean z) {
         try {
             a(str);
-            if (z) {
-                new File(str.toString()).delete();
-            }
+            new File(str.toString()).delete();
         } catch (Exception e) {
         }
     }
@@ -126,15 +124,17 @@ public class b extends Thread {
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
+    public final void run() {
         if (this.c != null) {
-            h();
+            f();
         } else if (this.R != null) {
-            g();
+            this.c = new ByteArrayInputStream(this.R);
+            this.R = null;
+            f();
         }
     }
 
-    public void a() {
+    public final void a() {
         c cVar = this.O;
         if (!this.T) {
             while (cVar != null) {
@@ -160,112 +160,36 @@ public class b extends Thread {
         this.B = null;
     }
 
-    public int b() {
+    public final int b() {
         return this.P;
     }
 
-    public Bitmap c() {
+    public final Bitmap c() {
         return a(0);
     }
 
-    private void f() {
-        int i;
-        int[] iArr = new int[this.a * this.b];
-        if (this.G > 0) {
-            if (this.G == 3) {
-                int i2 = this.P - 2;
-                if (i2 > 0) {
-                    this.A = a(i2 - 1);
-                } else {
-                    this.A = null;
+    private Bitmap a(int i) {
+        c cVar = this.O;
+        int i2 = 0;
+        while (true) {
+            if (cVar != null) {
+                if (i2 == i) {
+                    break;
                 }
-            }
-            if (this.A != null) {
-                this.A.getPixels(iArr, 0, this.a, 0, 0, this.a, this.b);
-                if (this.G == 2) {
-                    int i3 = !this.H ? this.m : 0;
-                    for (int i4 = 0; i4 < this.y; i4++) {
-                        int i5 = ((this.w + i4) * this.a) + this.v;
-                        int i6 = this.x + i5;
-                        while (i5 < i6) {
-                            iArr[i5] = i3;
-                            i5++;
-                        }
-                    }
-                }
-            }
-        }
-        int i7 = 8;
-        int i8 = 1;
-        int i9 = 0;
-        for (int i10 = 0; i10 < this.u; i10++) {
-            if (this.p) {
-                if (i9 >= this.u) {
-                    i8++;
-                    switch (i8) {
-                        case 2:
-                            i9 = 4;
-                            break;
-                        case 3:
-                            i9 = 2;
-                            i7 = 4;
-                            break;
-                        case 4:
-                            i9 = 1;
-                            i7 = 2;
-                            break;
-                    }
-                }
-                int i11 = i9;
-                i9 += i7;
-                i = i11;
+                i2++;
+                cVar = cVar.d;
             } else {
-                i = i10;
-            }
-            int i12 = i + this.s;
-            if (i12 < this.b) {
-                int i13 = this.a * i12;
-                int i14 = i13 + this.r;
-                int i15 = this.t + i14;
-                if (this.a + i13 < i15) {
-                    i15 = this.a + i13;
-                }
-                int i16 = this.t * i10;
-                int i17 = i14;
-                while (i17 < i15) {
-                    int i18 = i16 + 1;
-                    int i19 = this.j[this.N[i16] & 255];
-                    if (i19 != 0) {
-                        iArr[i17] = i19;
-                    }
-                    i17++;
-                    i16 = i18;
-                }
+                cVar = null;
+                break;
             }
         }
-        this.z = Bitmap.createBitmap(iArr, this.a, this.b, Bitmap.Config.ARGB_4444);
-    }
-
-    public Bitmap a(int i) {
-        c b = b(i);
-        if (b == null) {
+        if (cVar == null) {
             return null;
         }
-        return b.a;
+        return cVar.a;
     }
 
-    public c b(int i) {
-        int i2 = 0;
-        for (c cVar = this.O; cVar != null; cVar = cVar.d) {
-            if (i2 == i) {
-                return cVar;
-            }
-            i2++;
-        }
-        return null;
-    }
-
-    public c d() {
+    public final c d() {
         if (!this.C) {
             this.C = true;
             return this.O;
@@ -286,18 +210,34 @@ public class b extends Thread {
         }
     }
 
-    private int g() {
-        this.c = new ByteArrayInputStream(this.R);
-        this.R = null;
-        return h();
-    }
-
-    private int h() {
-        k();
+    private int f() {
+        this.d = 0;
+        this.P = 0;
+        this.O = null;
+        this.h = null;
+        this.i = null;
         if (this.c != null) {
-            p();
-            if (!j()) {
-                n();
+            String str = "";
+            for (int i = 0; i < 6; i++) {
+                str = String.valueOf(str) + ((char) h());
+            }
+            if (str.startsWith("GIF")) {
+                this.a = l();
+                this.b = l();
+                int h = h();
+                this.e = (h & 128) != 0;
+                this.f = 2 << (h & 7);
+                this.k = h();
+                this.n = h();
+                if (this.e && !g()) {
+                    this.h = b(this.f);
+                    this.l = this.h[this.k];
+                }
+            } else {
+                this.d = 1;
+            }
+            if (!g()) {
+                j();
                 if (this.P < 0) {
                     this.d = 1;
                     this.Q.a(false, -1);
@@ -318,158 +258,11 @@ public class b extends Thread {
         return this.d;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:79:0x00df */
-    /* JADX DEBUG: Multi-variable search result rejected for r6v13, resolved type: short */
-    /* JADX WARN: Multi-variable type inference failed */
-    private void i() {
-        int i;
-        int i2;
-        int i3;
-        int i4;
-        int i5;
-        int i6;
-        int i7;
-        int i8;
-        int i9;
-        short s;
-        int i10 = this.t * this.u;
-        if (this.N == null || this.N.length < i10) {
-            this.N = new byte[i10];
-        }
-        if (this.K == null) {
-            this.K = new short[4096];
-        }
-        if (this.L == null) {
-            this.L = new byte[4096];
-        }
-        if (this.M == null) {
-            this.M = new byte[FragmentTransaction.TRANSIT_FRAGMENT_OPEN];
-        }
-        int l = l();
-        int i11 = 1 << l;
-        int i12 = i11 + 1;
-        int i13 = i11 + 2;
-        int i14 = l + 1;
-        int i15 = (1 << i14) - 1;
-        for (int i16 = 0; i16 < i11; i16++) {
-            this.K[i16] = 0;
-            this.L[i16] = (byte) i16;
-        }
-        int i17 = 0;
-        int i18 = 0;
-        int i19 = 0;
-        int i20 = 0;
-        int i21 = 0;
-        int i22 = 0;
-        int i23 = 0;
-        int i24 = -1;
-        int i25 = 0;
-        while (i21 < i10) {
-            if (i18 != 0) {
-                i = i15;
-                i2 = i19;
-                i3 = i23;
-                i4 = i14;
-                i5 = i18;
-                i6 = i20;
-                i7 = i24;
-                i8 = i13;
-            } else if (i23 < i14) {
-                if (i22 == 0) {
-                    i22 = m();
-                    if (i22 <= 0) {
-                        break;
-                    }
-                    i25 = 0;
-                }
-                i20 += (this.D[i25] & 255) << i23;
-                i23 += 8;
-                i25++;
-                i22--;
-            } else {
-                int i26 = i20 & i15;
-                i20 >>= i14;
-                i23 -= i14;
-                if (i26 > i13 || i26 == i12) {
-                    break;
-                } else if (i26 == i11) {
-                    i14 = l + 1;
-                    i15 = (1 << i14) - 1;
-                    i13 = i11 + 2;
-                    i24 = -1;
-                } else if (i24 == -1) {
-                    this.M[i18] = this.L[i26];
-                    i18++;
-                    i24 = i26;
-                    i19 = i26;
-                } else {
-                    if (i26 == i13) {
-                        i9 = i18 + 1;
-                        this.M[i18] = (byte) i19;
-                        s = i24;
-                    } else {
-                        i9 = i18;
-                        s = i26;
-                    }
-                    while (s > i11) {
-                        this.M[i9] = this.L[s];
-                        s = this.K[s];
-                        i9++;
-                    }
-                    int i27 = this.L[s] & 255;
-                    if (i13 >= 4096) {
-                        break;
-                    }
-                    int i28 = i9 + 1;
-                    this.M[i9] = (byte) i27;
-                    this.K[i13] = (short) i24;
-                    this.L[i13] = (byte) i27;
-                    i8 = i13 + 1;
-                    if ((i8 & i15) == 0 && i8 < 4096) {
-                        i14++;
-                        i15 += i8;
-                    }
-                    i6 = i20;
-                    i7 = i26;
-                    i = i15;
-                    i2 = i27;
-                    i3 = i23;
-                    i4 = i14;
-                    i5 = i28;
-                }
-            }
-            int i29 = i5 - 1;
-            this.N[i17] = this.M[i29];
-            i21++;
-            i17++;
-            i14 = i4;
-            i23 = i3;
-            i19 = i2;
-            i15 = i;
-            int i30 = i7;
-            i20 = i6;
-            i18 = i29;
-            i13 = i8;
-            i24 = i30;
-        }
-        for (int i31 = i17; i31 < i10; i31++) {
-            this.N[i31] = 0;
-        }
-    }
-
-    private boolean j() {
+    private boolean g() {
         return this.d != 0;
     }
 
-    private void k() {
-        this.d = 0;
-        this.P = 0;
-        this.O = null;
-        this.h = null;
-        this.i = null;
-    }
-
-    private int l() {
+    private int h() {
         try {
             return this.c.read();
         } catch (Exception e) {
@@ -478,8 +271,8 @@ public class b extends Thread {
         }
     }
 
-    private int m() {
-        this.E = l();
+    private int i() {
+        this.E = h();
         int i = 0;
         if (this.E > 0) {
             while (i < this.E) {
@@ -500,62 +293,375 @@ public class b extends Thread {
         return i;
     }
 
-    private int[] c(int i) {
+    private int[] b(int i) {
         int i2;
-        int i3 = i * 3;
+        int i3 = 0;
+        int i4 = i * 3;
         int[] iArr = null;
-        byte[] bArr = new byte[i3];
+        byte[] bArr = new byte[i4];
         try {
             i2 = this.c.read(bArr);
         } catch (Exception e) {
             e.printStackTrace();
             i2 = 0;
         }
-        if (i2 < i3) {
+        if (i2 < i4) {
             this.d = 1;
         } else {
             iArr = new int[256];
-            int i4 = 0;
-            for (int i5 = 0; i5 < i; i5++) {
-                int i6 = i4 + 1;
-                int i7 = i6 + 1;
-                i4 = i7 + 1;
-                iArr[i5] = ((bArr[i4] & 255) << 16) | (-16777216) | ((bArr[i6] & 255) << 8) | (bArr[i7] & 255);
+            int i5 = 0;
+            while (i5 < i) {
+                int i6 = i3 + 1;
+                int i7 = bArr[i3] & 255;
+                int i8 = i6 + 1;
+                iArr[i5] = (i7 << 16) | (-16777216) | ((bArr[i6] & 255) << 8) | (bArr[i8] & 255);
+                i5++;
+                i3 = i8 + 1;
             }
         }
         return iArr;
     }
 
-    private void n() {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:222:0x02fe */
+    /* JADX DEBUG: Multi-variable search result rejected for r6v28, resolved type: short */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:119:0x037d A[LOOP:4: B:48:0x0111->B:119:0x037d, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:186:0x011e A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:196:0x0003 A[SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private void j() {
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        int i5;
+        int i6;
+        int i7;
+        int i8;
+        int i9;
+        int i10;
+        int i11;
+        short s;
         boolean z = false;
-        while (!z && !j()) {
-            switch (l()) {
+        while (!z && !g()) {
+            switch (h()) {
                 case 0:
                     break;
                 case Im.GroupInfo.ISRECENTLYREPLY_FIELD_NUMBER /* 33 */:
-                    switch (l()) {
+                    switch (h()) {
                         case 249:
-                            o();
+                            h();
+                            int h = h();
+                            this.F = (h & 28) >> 2;
+                            if (this.F == 0) {
+                                this.F = 1;
+                            }
+                            this.H = (h & 1) != 0;
+                            this.I = l() * 10;
+                            this.J = h();
+                            h();
                             continue;
                         case MotionEventCompat.ACTION_MASK /* 255 */:
-                            m();
+                            i();
                             String str = "";
-                            for (int i = 0; i < 11; i++) {
-                                str = String.valueOf(str) + ((char) this.D[i]);
+                            for (int i12 = 0; i12 < 11; i12++) {
+                                str = String.valueOf(str) + ((char) this.D[i12]);
                             }
                             if (str.equals("NETSCAPE2.0")) {
-                                s();
+                                k();
                                 break;
                             } else {
-                                v();
+                                m();
                                 continue;
                             }
                         default:
-                            v();
+                            m();
                             continue;
                     }
                 case 44:
-                    q();
+                    this.r = l();
+                    this.s = l();
+                    this.t = l();
+                    this.u = l();
+                    int h2 = h();
+                    this.o = (h2 & 128) != 0;
+                    this.p = (h2 & 64) != 0;
+                    this.q = 2 << (h2 & 7);
+                    if (this.o) {
+                        this.i = b(this.q);
+                        this.j = this.i;
+                    } else {
+                        this.j = this.h;
+                        if (this.k == this.J) {
+                            this.l = 0;
+                        }
+                    }
+                    int i13 = 0;
+                    if (this.H) {
+                        i13 = this.j[this.J];
+                        this.j[this.J] = 0;
+                    }
+                    int i14 = i13;
+                    if (this.j == null) {
+                        this.d = 1;
+                    }
+                    if (g()) {
+                        break;
+                    } else {
+                        int i15 = this.t * this.u;
+                        if (this.N == null || this.N.length < i15) {
+                            this.N = new byte[i15];
+                        }
+                        if (this.K == null) {
+                            this.K = new short[4096];
+                        }
+                        if (this.L == null) {
+                            this.L = new byte[4096];
+                        }
+                        if (this.M == null) {
+                            this.M = new byte[FragmentTransaction.TRANSIT_FRAGMENT_OPEN];
+                        }
+                        int h3 = h();
+                        int i16 = 1 << h3;
+                        int i17 = i16 + 1;
+                        int i18 = i16 + 2;
+                        int i19 = -1;
+                        int i20 = h3 + 1;
+                        int i21 = (1 << i20) - 1;
+                        for (int i22 = 0; i22 < i16; i22++) {
+                            this.K[i22] = 0;
+                            this.L[i22] = (byte) i22;
+                        }
+                        int i23 = 0;
+                        int i24 = 0;
+                        int i25 = 0;
+                        int i26 = 0;
+                        int i27 = 0;
+                        int i28 = 0;
+                        int i29 = 0;
+                        int i30 = 0;
+                        while (i29 < i15) {
+                            if (i24 != 0) {
+                                i3 = i21;
+                                i4 = i25;
+                                i5 = i28;
+                                i6 = i20;
+                                i7 = i24;
+                                i8 = i26;
+                                i9 = i19;
+                                i10 = i18;
+                            } else if (i28 < i20) {
+                                if (i27 == 0) {
+                                    i27 = i();
+                                    if (i27 <= 0) {
+                                        for (i = i23; i < i15; i++) {
+                                            this.N[i] = 0;
+                                        }
+                                        m();
+                                        if (g()) {
+                                            break;
+                                        } else {
+                                            this.P++;
+                                            this.z = Bitmap.createBitmap(this.a, this.b, Bitmap.Config.ARGB_4444);
+                                            int[] iArr = new int[this.a * this.b];
+                                            if (this.G > 0) {
+                                                if (this.G == 3) {
+                                                    int i31 = this.P - 2;
+                                                    if (i31 > 0) {
+                                                        this.A = a(i31 - 1);
+                                                    } else {
+                                                        this.A = null;
+                                                    }
+                                                }
+                                                if (this.A != null) {
+                                                    this.A.getPixels(iArr, 0, this.a, 0, 0, this.a, this.b);
+                                                    if (this.G == 2) {
+                                                        int i32 = this.H ? 0 : this.m;
+                                                        for (int i33 = 0; i33 < this.y; i33++) {
+                                                            int i34 = ((this.w + i33) * this.a) + this.v;
+                                                            int i35 = this.x + i34;
+                                                            while (i34 < i35) {
+                                                                iArr[i34] = i32;
+                                                                i34++;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            int i36 = 1;
+                                            int i37 = 8;
+                                            int i38 = 0;
+                                            for (int i39 = 0; i39 < this.u; i39++) {
+                                                if (this.p) {
+                                                    if (i38 >= this.u) {
+                                                        i36++;
+                                                        switch (i36) {
+                                                            case 2:
+                                                                i38 = 4;
+                                                                break;
+                                                            case 3:
+                                                                i38 = 2;
+                                                                i37 = 4;
+                                                                break;
+                                                            case 4:
+                                                                i38 = 1;
+                                                                i37 = 2;
+                                                                break;
+                                                        }
+                                                    }
+                                                    int i40 = i38;
+                                                    i38 += i37;
+                                                    i2 = i40;
+                                                } else {
+                                                    i2 = i39;
+                                                }
+                                                int i41 = i2 + this.s;
+                                                if (i41 < this.b) {
+                                                    int i42 = this.a * i41;
+                                                    int i43 = i42 + this.r;
+                                                    int i44 = this.t + i43;
+                                                    if (this.a + i42 < i44) {
+                                                        i44 = this.a + i42;
+                                                    }
+                                                    int i45 = this.t * i39;
+                                                    int i46 = i43;
+                                                    while (i46 < i44) {
+                                                        int i47 = i45 + 1;
+                                                        int i48 = this.j[this.N[i45] & 255];
+                                                        if (i48 != 0) {
+                                                            iArr[i46] = i48;
+                                                        }
+                                                        i46++;
+                                                        i45 = i47;
+                                                    }
+                                                }
+                                            }
+                                            this.z = Bitmap.createBitmap(iArr, this.a, this.b, Bitmap.Config.ARGB_4444);
+                                            if (this.O == null) {
+                                                if (this.T) {
+                                                    String e = e();
+                                                    this.O = new c(String.valueOf(this.S) + File.separator + e + ".png", this.I);
+                                                    a(this.z, e);
+                                                } else {
+                                                    this.O = new c(this.z, this.I);
+                                                }
+                                                this.B = this.O;
+                                            } else {
+                                                c cVar = this.O;
+                                                while (cVar.d != null) {
+                                                    cVar = cVar.d;
+                                                }
+                                                if (this.T) {
+                                                    String e2 = e();
+                                                    cVar.d = new c(String.valueOf(this.S) + File.separator + e2 + ".png", this.I);
+                                                    a(this.z, e2);
+                                                } else {
+                                                    cVar.d = new c(this.z, this.I);
+                                                }
+                                            }
+                                            if (this.H) {
+                                                this.j[this.J] = i14;
+                                            }
+                                            this.G = this.F;
+                                            this.v = this.r;
+                                            this.w = this.s;
+                                            this.x = this.t;
+                                            this.y = this.u;
+                                            this.A = this.z;
+                                            this.m = this.l;
+                                            this.F = 0;
+                                            this.H = false;
+                                            this.I = 0;
+                                            this.i = null;
+                                            this.Q.a(true, this.P);
+                                            break;
+                                        }
+                                    } else {
+                                        i30 = 0;
+                                    }
+                                }
+                                i26 += (this.D[i30] & 255) << i28;
+                                i28 += 8;
+                                i30++;
+                                i27--;
+                            } else {
+                                int i49 = i26 & i21;
+                                i26 >>= i20;
+                                i28 -= i20;
+                                if (i49 <= i18 && i49 != i17) {
+                                    if (i49 == i16) {
+                                        i20 = h3 + 1;
+                                        i21 = (1 << i20) - 1;
+                                        i18 = i16 + 2;
+                                        i19 = -1;
+                                    } else if (i19 == -1) {
+                                        this.M[i24] = this.L[i49];
+                                        i24++;
+                                        i19 = i49;
+                                        i25 = i49;
+                                    } else {
+                                        if (i49 == i18) {
+                                            i11 = i24 + 1;
+                                            this.M[i24] = (byte) i25;
+                                            s = i19;
+                                        } else {
+                                            i11 = i24;
+                                            s = i49;
+                                        }
+                                        while (s > i16) {
+                                            this.M[i11] = this.L[s];
+                                            s = this.K[s];
+                                            i11++;
+                                        }
+                                        int i50 = this.L[s] & 255;
+                                        if (i18 < 4096) {
+                                            int i51 = i11 + 1;
+                                            this.M[i11] = (byte) i50;
+                                            this.K[i18] = (short) i19;
+                                            this.L[i18] = (byte) i50;
+                                            i10 = i18 + 1;
+                                            if ((i10 & i21) == 0 && i10 < 4096) {
+                                                i20++;
+                                                i21 += i10;
+                                            }
+                                            i8 = i26;
+                                            i9 = i49;
+                                            i3 = i21;
+                                            i4 = i50;
+                                            i5 = i28;
+                                            i6 = i20;
+                                            i7 = i51;
+                                        }
+                                    }
+                                }
+                                while (i < i15) {
+                                }
+                                m();
+                                if (g()) {
+                                }
+                            }
+                            int i52 = i7 - 1;
+                            this.N[i23] = this.M[i52];
+                            i29++;
+                            i23++;
+                            i20 = i6;
+                            i28 = i5;
+                            i25 = i4;
+                            i21 = i3;
+                            int i53 = i8;
+                            i24 = i52;
+                            i18 = i10;
+                            i19 = i9;
+                            i26 = i53;
+                        }
+                        while (i < i15) {
+                        }
+                        m();
+                        if (g()) {
+                        }
+                    }
                     break;
                 case 59:
                     z = true;
@@ -567,146 +673,28 @@ public class b extends Thread {
         }
     }
 
-    private void o() {
-        l();
-        int l = l();
-        this.F = (l & 28) >> 2;
-        if (this.F == 0) {
-            this.F = 1;
-        }
-        this.H = (l & 1) != 0;
-        this.I = t() * 10;
-        this.J = l();
-        l();
-    }
-
-    private void p() {
-        String str = "";
-        for (int i = 0; i < 6; i++) {
-            str = String.valueOf(str) + ((char) l());
-        }
-        if (!str.startsWith("GIF")) {
-            this.d = 1;
-            return;
-        }
-        r();
-        if (this.e && !j()) {
-            this.h = c(this.f);
-            this.l = this.h[this.k];
-        }
-    }
-
-    private void q() {
-        int i = 0;
-        this.r = t();
-        this.s = t();
-        this.t = t();
-        this.u = t();
-        int l = l();
-        this.o = (l & 128) != 0;
-        this.p = (l & 64) != 0;
-        this.q = 2 << (l & 7);
-        if (this.o) {
-            this.i = c(this.q);
-            this.j = this.i;
-        } else {
-            this.j = this.h;
-            if (this.k == this.J) {
-                this.l = 0;
-            }
-        }
-        if (this.H) {
-            int i2 = this.j[this.J];
-            this.j[this.J] = 0;
-            i = i2;
-        }
-        if (this.j == null) {
-            this.d = 1;
-        }
-        if (!j()) {
-            i();
-            v();
-            if (!j()) {
-                this.P++;
-                this.z = Bitmap.createBitmap(this.a, this.b, Bitmap.Config.ARGB_4444);
-                f();
-                if (this.O == null) {
-                    if (this.T) {
-                        String e = e();
-                        this.O = new c(String.valueOf(this.S) + File.separator + e + ".png", this.I);
-                        a(this.z, e);
-                    } else {
-                        this.O = new c(this.z, this.I);
-                    }
-                    this.B = this.O;
-                } else {
-                    c cVar = this.O;
-                    while (cVar.d != null) {
-                        cVar = cVar.d;
-                    }
-                    if (this.T) {
-                        String e2 = e();
-                        cVar.d = new c(String.valueOf(this.S) + File.separator + e2 + ".png", this.I);
-                        a(this.z, e2);
-                    } else {
-                        cVar.d = new c(this.z, this.I);
-                    }
-                }
-                if (this.H) {
-                    this.j[this.J] = i;
-                }
-                u();
-                this.Q.a(true, this.P);
-            }
-        }
-    }
-
-    private void r() {
-        this.a = t();
-        this.b = t();
-        int l = l();
-        this.e = (l & 128) != 0;
-        this.f = 2 << (l & 7);
-        this.k = l();
-        this.n = l();
-    }
-
-    private void s() {
+    private void k() {
         do {
-            m();
+            i();
             if (this.D[0] == 1) {
                 this.g = (this.D[1] & 255) | ((this.D[2] & 255) << 8);
             }
             if (this.E <= 0) {
                 return;
             }
-        } while (!j());
+        } while (!g());
     }
 
-    private int t() {
-        return l() | (l() << 8);
+    private int l() {
+        return h() | (h() << 8);
     }
 
-    private void u() {
-        this.G = this.F;
-        this.v = this.r;
-        this.w = this.s;
-        this.x = this.t;
-        this.y = this.u;
-        this.A = this.z;
-        this.m = this.l;
-        this.F = 0;
-        this.H = false;
-        this.I = 0;
-        this.i = null;
-    }
-
-    private void v() {
+    private void m() {
         do {
-            m();
+            i();
             if (this.E <= 0) {
                 return;
             }
-        } while (!j());
+        } while (!g());
     }
 }

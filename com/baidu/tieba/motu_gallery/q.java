@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.os.Handler;
 import android.os.Message;
 /* loaded from: classes.dex */
-public class q implements Runnable {
+public final class q implements Runnable {
     final /* synthetic */ JigsawAlbumListActivity a;
     private volatile boolean b;
     private Thread c;
@@ -18,7 +18,7 @@ public class q implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void run() {
+    public final void run() {
         int i;
         int i2;
         ViewphotoLinkedHashMap viewphotoLinkedHashMap;
@@ -60,10 +60,12 @@ public class q implements Runnable {
                             viewphotoLinkedHashMap3 = this.a.h;
                             if (!viewphotoLinkedHashMap3.get((Object) Integer.valueOf(i4)).getTag().toString().equals("bitmap")) {
                                 try {
-                                    Bitmap a = this.a.a.a(this.a, this.a.a.a(i4), this.a.d);
-                                    if (a != null) {
+                                    c a = this.a.a.a(i4);
+                                    u uVar = this.a.a;
+                                    Bitmap a2 = u.a(this.a, a, this.a.d);
+                                    if (a2 != null) {
                                         Message message = new Message();
-                                        message.obj = a;
+                                        message.obj = a2;
                                         message.arg1 = i4;
                                         message.what = 0;
                                         handler = this.a.s;
@@ -91,7 +93,7 @@ public class q implements Runnable {
         }
     }
 
-    public void a() {
+    public final void a() {
         this.b = true;
         if (this.c != null) {
             this.c.interrupt();

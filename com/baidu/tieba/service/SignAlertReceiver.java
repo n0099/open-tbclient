@@ -34,10 +34,10 @@ public class SignAlertReceiver extends BroadcastReceiver {
                     notification.defaults &= -2;
                     notification.defaults &= -3;
                 } else {
-                    if (!TiebaApplication.g().S()) {
+                    if (!TiebaApplication.g().M()) {
                         notification.defaults &= -3;
                     }
-                    if (!TiebaApplication.g().R()) {
+                    if (!TiebaApplication.g().L()) {
                         notification.defaults &= -2;
                     } else {
                         notification.audioStreamType = 5;
@@ -47,11 +47,11 @@ public class SignAlertReceiver extends BroadcastReceiver {
                 ((NotificationManager) context.getSystemService("notification")).notify(12, notification);
             } catch (Throwable th) {
                 try {
-                    if (com.baidu.adp.lib.util.f.a()) {
-                        com.baidu.adp.lib.util.f.b(th.getMessage());
+                    if (com.baidu.adp.lib.util.e.a()) {
+                        com.baidu.adp.lib.util.e.b(th.getMessage());
                     }
                 } finally {
-                    TiebaApplication.g().ad();
+                    TiebaApplication.g().X();
                 }
             }
         }

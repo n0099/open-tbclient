@@ -6,11 +6,11 @@ public abstract class f<T> implements d<T> {
     private int c = 0;
     private String d = null;
 
-    public void a(int i) {
+    public final void a(int i) {
         this.c = i;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.d = str;
     }
 
@@ -18,14 +18,11 @@ public abstract class f<T> implements d<T> {
         this.a = i;
     }
 
-    public int b() {
+    public final int b() {
         return this.a;
     }
 
-    public void a(e<?> eVar) {
+    public final void a(e<?> eVar) {
         this.b = eVar;
-    }
-
-    public void b(int i, T t) {
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.im.validate;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j implements View.OnLongClickListener {
+public final class j implements View.OnLongClickListener {
     final /* synthetic */ g a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,14 +12,14 @@ public class j implements View.OnLongClickListener {
     }
 
     @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
+    public final boolean onLongClick(View view) {
         ValidateActivity validateActivity;
         View view2;
         ValidateItemData validateItemData;
         validateActivity = this.a.i;
         view2 = this.a.c;
         validateItemData = this.a.j;
-        validateActivity.b(view2, 200, 0, 0L, validateItemData);
+        validateActivity.a(view2, 200, validateItemData);
         return true;
     }
 }

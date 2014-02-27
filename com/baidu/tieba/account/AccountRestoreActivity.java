@@ -43,7 +43,7 @@ public class AccountRestoreActivity extends com.baidu.tieba.f {
 
     public void initCookie() {
         try {
-            o a = a.a(TiebaApplication.D());
+            o a = a.a(TiebaApplication.x());
             CookieSyncManager.createInstance(this);
             CookieManager cookieManager = CookieManager.getInstance();
             cookieManager.setAcceptCookie(true);
@@ -59,7 +59,7 @@ public class AccountRestoreActivity extends com.baidu.tieba.f {
     @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.mNavigationBar.c(i);
+        this.mNavigationBar.b(i);
     }
 
     public void exit(int i) {

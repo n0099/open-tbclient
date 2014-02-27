@@ -6,9 +6,8 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.account.ax;
 import com.baidu.tieba.util.cb;
 import com.baidu.tieba.write.AtListActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements View.OnClickListener {
+final class d implements View.OnClickListener {
     final /* synthetic */ c a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,12 +16,12 @@ public class d implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         ImageView imageView;
         com.baidu.tieba.k kVar;
         com.baidu.tieba.k kVar2;
         imageView = this.a.l;
-        if (view == imageView && TiebaApplication.B()) {
+        if (view == imageView && TiebaApplication.w()) {
             kVar = this.a.s;
             cb.a(kVar, "msg_newchat_tab_c", "click", 1, new Object[0]);
             new ax("pchat", "2").start();

@@ -45,8 +45,8 @@ public class b {
         if (str.equals("000000000000000")) {
             String g = q.g(context);
             if (g != null) {
-                g = g.replaceAll(":", "");
-                str = g;
+                str = g.replaceAll(":", "");
+                g = str;
             }
             com.baidu.mobstat.a.b.a("stat", "imei=null,mac=" + g);
         }

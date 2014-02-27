@@ -4,68 +4,54 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
-import com.baidu.adp.lib.webSocket.m;
-import com.baidu.adp.lib.webSocket.r;
-import java.util.List;
-import org.apache.http.message.BasicNameValuePair;
+import com.baidu.adp.lib.webSocket.q;
 /* loaded from: classes.dex */
 public class a extends Service {
     private static d c;
     private static boolean a = false;
     private static f b = new f();
     private static final Handler d = new b();
-    private static r e = new c();
+    private static q e = new c();
 
     public static void a(d dVar) {
         c = dVar;
     }
 
-    private boolean b(String str) {
+    private static boolean e() {
         if (!a) {
-            a(com.baidu.adp.framework.e.c.a());
+            com.baidu.adp.framework.e.c a2 = com.baidu.adp.framework.e.c.a();
+            if (a2.c() == null) {
+                com.baidu.adp.lib.util.e.b("WebSocket URL is NULL");
+                throw new IllegalArgumentException("WebSocket URL is NULL");
+            }
+            com.baidu.adp.lib.webSocket.l.a().a(a2.c(), a2.d(), a2.e(), a2.f());
+            com.baidu.adp.lib.webSocket.l.a().a(e);
+            a = true;
         }
-        com.baidu.adp.lib.util.f.e("启动连接");
+        com.baidu.adp.lib.util.e.e("启动连接");
         d.removeMessages(1);
-        j.a().c();
-        d.sendEmptyMessageDelayed(1, j.a().d());
-        return m.a().b();
-    }
-
-    public static void a(com.baidu.adp.framework.e.c cVar) {
-        if (cVar.c() == null) {
-            com.baidu.adp.lib.util.f.b("WebSocket URL is NULL");
-            throw new IllegalArgumentException("WebSocket URL is NULL");
-        }
-        a(cVar.c(), cVar.d(), cVar.e(), cVar.f());
-        a = true;
-    }
-
-    public static void a(String str, String str2, String[] strArr, List<BasicNameValuePair> list) {
-        m.a().a(str, str2, strArr, list);
-        m.a().a(e);
+        j.a().b();
+        d.sendEmptyMessageDelayed(1, j.a().c());
+        return com.baidu.adp.lib.webSocket.l.a().b();
     }
 
     public static void a(String str) {
-        a(1, str);
-    }
-
-    public static void a(int i, String str) {
         if (!a()) {
-            com.baidu.adp.lib.util.f.e("关闭连接");
+            com.baidu.adp.lib.util.e.e("关闭连接");
             d.removeMessages(1);
-            m.a().a(i);
+            com.baidu.adp.lib.webSocket.l.a().a(1);
         }
     }
 
     public static boolean a(com.baidu.adp.lib.webSocket.d dVar) {
-        if (dVar != null && m.a().d() && m.a().c()) {
-            return m.a().a(dVar);
+        if (dVar != null && com.baidu.adp.lib.webSocket.l.a().d() && com.baidu.adp.lib.webSocket.l.a().c()) {
+            return com.baidu.adp.lib.webSocket.l.a().a(dVar);
         }
         return false;
     }
 
     public static boolean a() {
-        return (m.a().d() || m.a().e()) ? false : true;
+        return (com.baidu.adp.lib.webSocket.l.a().d() || com.baidu.adp.lib.webSocket.l.a().e()) ? false : true;
     }
 
     @Override // android.app.Service
@@ -89,13 +75,13 @@ public class a extends Service {
                 stringExtra = "--";
             }
             if (intent.getBooleanExtra("reopen", false)) {
-                com.baidu.adp.lib.util.f.e("进行重连" + stringExtra);
+                com.baidu.adp.lib.util.e.e("进行重连" + stringExtra);
                 a(stringExtra);
-                b(stringExtra);
-            } else if (!m.a().d() && !m.a().e()) {
-                com.baidu.adp.lib.util.f.e("进行连接" + stringExtra);
+                e();
+            } else if (!com.baidu.adp.lib.webSocket.l.a().d() && !com.baidu.adp.lib.webSocket.l.a().e()) {
+                com.baidu.adp.lib.util.e.e("进行连接" + stringExtra);
                 a(stringExtra);
-                b(stringExtra);
+                e();
             }
         }
     }

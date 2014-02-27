@@ -12,7 +12,7 @@ public abstract class a implements i {
     protected abstract Object b(String str, com.baidu.adp.lib.e.e eVar, com.baidu.tieba.util.i iVar, l lVar);
 
     @Override // com.baidu.adp.lib.e.i
-    public Object a(String str, h hVar) {
+    public final Object a(String str, h hVar) {
         if (hVar == null) {
             return null;
         }
@@ -28,7 +28,7 @@ public abstract class a implements i {
     }
 
     @Override // com.baidu.adp.lib.e.i
-    public Object a(String str, com.baidu.adp.lib.e.e eVar) {
+    public final Object a(String str, com.baidu.adp.lib.e.e eVar) {
         h e = eVar.e();
         if (e == null) {
             return null;
@@ -45,7 +45,7 @@ public abstract class a implements i {
     }
 
     @Override // com.baidu.adp.lib.e.i
-    public Object b(String str, com.baidu.adp.lib.e.e eVar) {
+    public final Object b(String str, com.baidu.adp.lib.e.e eVar) {
         h e = eVar.e();
         if (e == null) {
             return null;

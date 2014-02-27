@@ -3,19 +3,11 @@ package com.baidu.tieba.home;
 class ay {
     private int a = -1;
 
-    public void a(int i) {
+    public final void a(int i) {
         this.a = i;
     }
 
-    public int a() {
+    public final int a() {
         return this.a;
-    }
-
-    public boolean b(int i) {
-        if (i == a()) {
-            return false;
-        }
-        a(i);
-        return true;
     }
 }

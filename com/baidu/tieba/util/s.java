@@ -1,6 +1,6 @@
 package com.baidu.tieba.util;
 /* loaded from: classes.dex */
-public class s {
+public final class s {
     private static String a = null;
 
     public static void a(String str) {

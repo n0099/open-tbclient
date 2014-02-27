@@ -7,7 +7,7 @@ import com.baidu.adp.gif.c;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class a extends Handler {
+public final class a extends Handler {
     final /* synthetic */ GifView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,7 +16,7 @@ public class a extends Handler {
     }
 
     @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    public final void handleMessage(Message message) {
         WeakReference weakReference;
         WeakReference weakReference2;
         int i;

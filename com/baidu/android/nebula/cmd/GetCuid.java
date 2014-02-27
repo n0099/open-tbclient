@@ -60,21 +60,19 @@ public class GetCuid implements NoProGuard, n {
 
     @Override // com.baidu.android.nebula.cmd.n
     public void execute(com.baidu.android.nebula.a.d dVar, com.baidu.android.nebula.a.a aVar) {
-        String str;
-        String str2;
         a.a(System.currentTimeMillis());
         Map a = dVar.a();
-        if (a == null || a.size() < 1) {
+        if (a == null || a.size() <= 0) {
             a.a(-1);
             return;
         }
-        String str3 = (String) a.get("callback");
+        String str = (String) a.get("callback");
         a.d((String) a.get("mcmdf"));
-        if (str3 == null) {
+        if (str == null) {
             a.a(-1);
             return;
         }
-        String str4 = (String) a.get("secret");
+        String str2 = (String) a.get("secret");
         this.mContext = com.baidu.android.nebula.d.c.a().c();
         if (this.mContext == null) {
             a.a(-1);
@@ -84,31 +82,28 @@ public class GetCuid implements NoProGuard, n {
         if (!com.baidu.android.nebula.d.a.a(this.mContext).a(dVar.a("Referer"))) {
             this.mErrcode = 4;
         }
+        String str3 = null;
         if (this.mErrcode != 4) {
             this.mErrcode = 1;
             String cuid = CommonParam.getCUID(this.mContext);
-            if (TextUtils.equals(str4, SocialConstants.TRUE)) {
+            if (TextUtils.equals(str2, SocialConstants.TRUE)) {
                 try {
-                    str = str4;
-                    str2 = new String(Base64.encode(encryptByPublicKey(cuid.getBytes(), RSA_PUBLIC_KEY), "utf-8"));
+                    str3 = new String(Base64.encode(encryptByPublicKey(cuid.getBytes(), RSA_PUBLIC_KEY), "utf-8"));
                 } catch (Exception e) {
+                    str2 = SocialConstants.FALSE;
                     System.out.println("加密失败：" + e.getMessage());
-                    str = SocialConstants.FALSE;
-                    str2 = cuid;
+                    str3 = cuid;
                 }
             } else {
-                str = SocialConstants.FALSE;
-                str2 = cuid;
+                str2 = SocialConstants.FALSE;
+                str3 = cuid;
             }
-        } else {
-            str = str4;
-            str2 = null;
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            if (!TextUtils.isEmpty(str2)) {
-                jSONObject.put("secret", str);
-                jSONObject.put(SocialConstants.PARAM_CUID, str2);
+            if (!TextUtils.isEmpty(str3)) {
+                jSONObject.put("secret", str2);
+                jSONObject.put(SocialConstants.PARAM_CUID, str3);
                 this.mErrcode = 0;
             }
             jSONObject.put("error", this.mErrcode);
@@ -116,7 +111,7 @@ public class GetCuid implements NoProGuard, n {
         }
         aVar.a("text/javascript");
         aVar.a().put("Cache-Control", "no-cache");
-        aVar.b(str3 + " && " + str3 + "(" + jSONObject.toString() + ");");
+        aVar.b(str + " && " + str + "(" + jSONObject.toString() + ");");
         aVar.a(200);
         a.a(this.mErrcode);
     }

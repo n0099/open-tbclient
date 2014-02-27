@@ -44,27 +44,27 @@ public class SquareSearchActivity extends com.baidu.tieba.f {
     private Button m = null;
     private FrameLayout n = null;
     private ListView o = null;
-    private i p = null;
+    private f p = null;
     private ListView q = null;
-    private i r = null;
-    private ak s = null;
-    private k t = null;
+    private f r = null;
+    private ah s = null;
+    private h t = null;
     private ProgressBar u = null;
     private Button v = null;
     private View w = null;
     private TextView x = null;
     private BarSuggestModel y = null;
     private SearchPostModel z = null;
-    private ai A = null;
-    private aj B = null;
+    private af A = null;
+    private ag B = null;
     private String C = null;
     private int D = 0;
-    final View.OnClickListener b = new n(this);
+    final View.OnClickListener b = new k(this);
     private final Handler E = new Handler();
-    private final Runnable F = new aa(this);
+    private final Runnable F = new x(this);
     private boolean G = true;
 
-    public static void a(Context context, String str) {
+    public static void a(Context context) {
         context.startActivity(new Intent(context, SquareSearchActivity.class));
     }
 
@@ -72,7 +72,64 @@ public class SquareSearchActivity extends com.baidu.tieba.f {
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.home_dialog_search);
-        b();
+        this.i = (NavigationBar) findViewById(R.id.view_navigation_bar);
+        this.i.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        View a = this.i.a(R.layout.nb_item_search_dialog, (View.OnClickListener) null);
+        this.w = getLayoutInflater().inflate(R.layout.home_dialog_search_footer, (ViewGroup) null);
+        this.x = (TextView) findViewById(R.id.text_no_data);
+        this.c = (EditText) findViewById(R.id.home_et_search);
+        this.c.setOnFocusChangeListener(new z(this));
+        this.a = (ImageView) findViewById(R.id.search_bar_icon);
+        this.e = (Button) findViewById(R.id.home_bt_search_s);
+        this.e.setText(getString(R.string.enter_forum));
+        this.e.setOnClickListener(this.b);
+        this.f = (LinearLayout) findViewById(R.id.search_tap_text_layout);
+        this.g = (FrameLayout) findViewById(R.id.frame_layout);
+        this.h = (LinearLayoutDetectsSoftKeyboard) findViewById(R.id.parent);
+        this.h.setOnSoftKeyBoardShownListener(new aa(this));
+        this.c.setOnEditorActionListener(new ab(this));
+        this.d = (Button) findViewById(R.id.home_bt_search_del);
+        this.d.setOnClickListener(new ac(this));
+        this.c.addTextChangedListener(new ad(this));
+        this.j = (LinearLayout) findViewById(R.id.search_tab_bg);
+        this.k = (RadioButton) a.findViewById(R.id.search_forum_btn);
+        this.l = (RadioButton) a.findViewById(R.id.search_post_btn);
+        this.m = (Button) a.findViewById(R.id.search_in_baidu_btn);
+        this.k.setOnCheckedChangeListener(new ae(this));
+        this.l.setOnCheckedChangeListener(new l(this));
+        this.m.setOnClickListener(new m(this));
+        this.n = (FrameLayout) findViewById(R.id.home_search_list);
+        this.o = (ListView) findViewById(R.id.home_lv_search);
+        this.v = (Button) this.w.findViewById(R.id.home_bt_search_footer);
+        this.v.setOnClickListener(new n(this));
+        this.o.addFooterView(this.w, null, true);
+        this.s = new ah(this, null);
+        this.p = new f(this, null);
+        this.o.setAdapter((ListAdapter) this.p);
+        this.o.setOnItemClickListener(new q(this));
+        this.q = (ListView) findViewById(R.id.home_lv_suggest);
+        this.r = new f(this, null);
+        this.t = new h(this);
+        this.q.setAdapter((ListAdapter) this.r);
+        this.q.setOnItemClickListener(new r(this));
+        s sVar = new s(this);
+        this.q.setOnScrollListener(sVar);
+        this.o.setOnScrollListener(sVar);
+        this.u = (ProgressBar) findViewById(R.id.home_progress_search);
+        this.u.setVisibility(8);
+        this.c.setText("");
+        this.c.requestFocus();
+        c();
+        ShowSoftKeyPadDelay(this.c, SocialAPIErrorCodes.ERROR_AUTHORIZATION_CANCELED);
+        if (TiebaApplication.g().m()) {
+            this.k.setSelected(true);
+            this.k.setChecked(true);
+            a(0);
+        } else {
+            this.l.setSelected(true);
+            this.l.setChecked(true);
+            a(1);
+        }
         getWindow().setSoftInputMode(1);
     }
 
@@ -80,8 +137,8 @@ public class SquareSearchActivity extends com.baidu.tieba.f {
     protected void onResume() {
         super.onResume();
         if (this.G) {
-            com.baidu.adp.lib.util.f.e("simon", "onResume", "show keyboard");
-            this.E.post(new ab(this));
+            com.baidu.adp.lib.util.e.e("simon", "onResume", "show keyboard");
+            this.E.post(new y(this));
         }
     }
 
@@ -95,15 +152,20 @@ public class SquareSearchActivity extends com.baidu.tieba.f {
         super.onDestroy();
         this.D = 0;
         if (this.D == 0) {
-            TiebaApplication.g().b(true);
+            TiebaApplication.g().a(true);
         } else {
-            TiebaApplication.g().b(false);
+            TiebaApplication.g().a(false);
         }
-        c();
+        if (this.u != null) {
+            this.u.setVisibility(8);
+        }
+        if (this.t != null) {
+            this.t.a();
+        }
         a();
     }
 
-    public void a() {
+    public final void a() {
         this.E.removeCallbacks(this.F);
         if (this.A != null) {
             this.A.cancel();
@@ -115,77 +177,7 @@ public class SquareSearchActivity extends com.baidu.tieba.f {
         }
     }
 
-    public void b() {
-        this.i = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.i.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        View a = this.i.a(R.layout.nb_item_search_dialog, (View.OnClickListener) null);
-        this.w = getLayoutInflater().inflate(R.layout.home_dialog_search_footer, (ViewGroup) null);
-        this.x = (TextView) findViewById(R.id.text_no_data);
-        this.c = (EditText) findViewById(R.id.home_et_search);
-        this.c.setOnFocusChangeListener(new ac(this));
-        this.a = (ImageView) findViewById(R.id.search_bar_icon);
-        this.e = (Button) findViewById(R.id.home_bt_search_s);
-        this.e.setText(getString(R.string.enter_forum));
-        this.e.setOnClickListener(this.b);
-        this.f = (LinearLayout) findViewById(R.id.search_tap_text_layout);
-        this.g = (FrameLayout) findViewById(R.id.frame_layout);
-        this.h = (LinearLayoutDetectsSoftKeyboard) findViewById(R.id.parent);
-        this.h.setOnSoftKeyBoardShownListener(new ad(this));
-        this.c.setOnEditorActionListener(new ae(this));
-        this.d = (Button) findViewById(R.id.home_bt_search_del);
-        this.d.setOnClickListener(new af(this));
-        this.c.addTextChangedListener(new ag(this));
-        this.j = (LinearLayout) findViewById(R.id.search_tab_bg);
-        this.k = (RadioButton) a.findViewById(R.id.search_forum_btn);
-        this.l = (RadioButton) a.findViewById(R.id.search_post_btn);
-        this.m = (Button) a.findViewById(R.id.search_in_baidu_btn);
-        this.k.setOnCheckedChangeListener(new ah(this));
-        this.l.setOnCheckedChangeListener(new o(this));
-        this.m.setOnClickListener(new p(this));
-        this.n = (FrameLayout) findViewById(R.id.home_search_list);
-        this.o = (ListView) findViewById(R.id.home_lv_search);
-        this.v = (Button) this.w.findViewById(R.id.home_bt_search_footer);
-        this.v.setOnClickListener(new q(this));
-        this.o.addFooterView(this.w, null, true);
-        this.s = new ak(this, null);
-        this.p = new i(this, null);
-        this.o.setAdapter((ListAdapter) this.p);
-        this.o.setOnItemClickListener(new t(this));
-        this.q = (ListView) findViewById(R.id.home_lv_suggest);
-        this.r = new i(this, null);
-        this.t = new k(this);
-        this.q.setAdapter((ListAdapter) this.r);
-        this.q.setOnItemClickListener(new u(this));
-        v vVar = new v(this);
-        this.q.setOnScrollListener(vVar);
-        this.o.setOnScrollListener(vVar);
-        this.u = (ProgressBar) findViewById(R.id.home_progress_search);
-        this.u.setVisibility(8);
-        this.c.setText("");
-        this.c.requestFocus();
-        f();
-        ShowSoftKeyPadDelay(this.c, SocialAPIErrorCodes.ERROR_AUTHORIZATION_CANCELED);
-        if (TiebaApplication.g().r()) {
-            this.k.setSelected(true);
-            this.k.setChecked(true);
-            a(0);
-            return;
-        }
-        this.l.setSelected(true);
-        this.l.setChecked(true);
-        a(1);
-    }
-
-    public void c() {
-        if (this.u != null) {
-            this.u.setVisibility(8);
-        }
-        if (this.t != null) {
-            this.t.a();
-        }
-    }
-
-    public void a(int i) {
+    public final void a(int i) {
         switch (i) {
             case 0:
                 if (this.D != 0) {
@@ -194,10 +186,10 @@ public class SquareSearchActivity extends com.baidu.tieba.f {
                     this.c.setHint(R.string.search_bar);
                     a();
                     if (this.C.trim().length() > 0) {
-                        h();
+                        e();
                         return;
                     } else {
-                        f();
+                        c();
                         return;
                     }
                 }
@@ -213,7 +205,7 @@ public class SquareSearchActivity extends com.baidu.tieba.f {
                         a(1, this.C);
                         return;
                     }
-                    g();
+                    d();
                     return;
                 }
                 return;
@@ -222,35 +214,31 @@ public class SquareSearchActivity extends com.baidu.tieba.f {
         }
     }
 
-    public void d() {
+    public final void b() {
         String trim = this.c.getText().toString().trim();
         FrsActivity.a(this, trim, "tb_searchlist", 1);
         if (trim != null && trim.length() != 0) {
-            e();
+            finish();
         }
     }
 
-    public void e() {
-        finish();
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
-    public void f() {
+    public void c() {
         this.q.setVisibility(8);
         a(true, (ArrayList<String>) null);
-        com.baidu.tieba.im.j.a(new w(this), new x(this));
+        com.baidu.tieba.im.i.a(new t(this), new u(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void g() {
+    public void d() {
         this.q.setVisibility(8);
         a(false, (ArrayList<String>) null);
-        com.baidu.tieba.im.j.a(new y(this), new z(this));
+        com.baidu.tieba.im.i.a(new v(this), new w(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z, ArrayList<String> arrayList) {
-        if (arrayList == null || arrayList.size() < 1 || ((z && this.D != 0) || (!z && this.D != 1))) {
+        if (arrayList == null || arrayList.size() <= 0 || ((z && this.D != 0) || (!z && this.D != 1))) {
             this.n.setVisibility(8);
             this.x.setVisibility(0);
             this.x.setText(R.string.text_no_search_record);
@@ -266,7 +254,7 @@ public class SquareSearchActivity extends com.baidu.tieba.f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void h() {
+    public void e() {
         this.n.setVisibility(8);
         this.E.removeCallbacks(this.F);
         this.E.postDelayed(this.F, 500L);
@@ -287,63 +275,63 @@ public class SquareSearchActivity extends com.baidu.tieba.f {
                     arrayList.add(new BasicNameValuePair("rn", String.valueOf(50)));
                     arrayList.add(new BasicNameValuePair("st_type", "search_post"));
                     a();
-                    this.B = new aj(this, stringBuffer.toString(), arrayList);
+                    this.B = new ag(this, stringBuffer.toString(), arrayList);
                     this.B.setPriority(3);
                     this.B.execute(new Object[0]);
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "startSearchPost.run", "error = " + e.getMessage());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "startSearchPost.run", "error = " + e.getMessage());
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void i() {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void g(SquareSearchActivity squareSearchActivity) {
         try {
-            if (this.D == 0) {
-                if (this.y != null) {
-                    if (this.y.forum_list != null && this.y.forum_list.size() > 0) {
-                        this.n.setVisibility(0);
-                        this.o.setVisibility(8);
-                        this.q.setVisibility(0);
-                        this.q.setAdapter((ListAdapter) this.s);
-                        this.s.a(this.y.forum_list);
-                        this.s.notifyDataSetInvalidated();
+            if (squareSearchActivity.D == 0) {
+                if (squareSearchActivity.y != null) {
+                    if (squareSearchActivity.y.forum_list == null || squareSearchActivity.y.forum_list.size() <= 0) {
+                        squareSearchActivity.n.setVisibility(8);
+                        squareSearchActivity.x.setVisibility(0);
+                        squareSearchActivity.x.setText(R.string.text_no_suggest);
                     } else {
-                        this.n.setVisibility(8);
-                        this.x.setVisibility(0);
-                        this.x.setText(R.string.text_no_suggest);
+                        squareSearchActivity.n.setVisibility(0);
+                        squareSearchActivity.o.setVisibility(8);
+                        squareSearchActivity.q.setVisibility(0);
+                        squareSearchActivity.q.setAdapter((ListAdapter) squareSearchActivity.s);
+                        squareSearchActivity.s.a(squareSearchActivity.y.forum_list);
+                        squareSearchActivity.s.notifyDataSetInvalidated();
                     }
                 }
-            } else if (this.z != null) {
-                ArrayList<au> data = this.z.getData();
-                if (data != null && data.size() > 0) {
-                    this.n.setVisibility(0);
-                    this.o.setVisibility(8);
-                    this.q.setVisibility(0);
-                    this.q.setAdapter((ListAdapter) this.t);
-                    this.t.a(this.z);
-                    this.t.notifyDataSetInvalidated();
-                    if (this.z.hasPre()) {
-                        this.q.setSelection(1);
-                    }
+            } else if (squareSearchActivity.z != null) {
+                ArrayList<au> data = squareSearchActivity.z.getData();
+                if (data == null || data.size() <= 0) {
+                    squareSearchActivity.n.setVisibility(8);
+                    squareSearchActivity.x.setVisibility(0);
+                    squareSearchActivity.x.setText(R.string.text_no_suggest);
                 } else {
-                    this.n.setVisibility(8);
-                    this.x.setVisibility(0);
-                    this.x.setText(R.string.text_no_suggest);
+                    squareSearchActivity.n.setVisibility(0);
+                    squareSearchActivity.o.setVisibility(8);
+                    squareSearchActivity.q.setVisibility(0);
+                    squareSearchActivity.q.setAdapter((ListAdapter) squareSearchActivity.t);
+                    squareSearchActivity.t.a(squareSearchActivity.z);
+                    squareSearchActivity.t.notifyDataSetInvalidated();
+                    if (squareSearchActivity.z.hasPre()) {
+                        squareSearchActivity.q.setSelection(1);
+                    }
                 }
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "", "HomeActivity.refresh error = " + e.getMessage());
+            com.baidu.adp.lib.util.e.b(squareSearchActivity.getClass().getName(), "", "HomeActivity.refresh error = " + e.getMessage());
         }
     }
 
     @Override // com.baidu.tieba.f
     protected void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.i.c(i);
+        this.i.b(i);
         getLayoutMode().a(i == 1);
-        getLayoutMode().a((View) this.h);
+        getLayoutMode().a(this.h);
         bq.a(this.h, i);
         if (i == 1) {
             this.g.setBackgroundResource(R.color.square_listview_bg_1);

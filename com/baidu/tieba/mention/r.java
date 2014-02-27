@@ -3,7 +3,7 @@ package com.baidu.tieba.mention;
 import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r implements Runnable {
+public final class r implements Runnable {
     final /* synthetic */ l a;
     private final /* synthetic */ int b;
 
@@ -14,7 +14,7 @@ public class r implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         BdListView bdListView;
         bdListView = this.a.e;
         bdListView.setSelection(this.b);

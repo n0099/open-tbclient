@@ -1,9 +1,8 @@
 package com.baidu.tieba.person;
 
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bq implements View.OnFocusChangeListener {
+final class bq implements View.OnFocusChangeListener {
     final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +11,7 @@ public class bq implements View.OnFocusChangeListener {
     }
 
     @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view, boolean z) {
+    public final void onFocusChange(View view, boolean z) {
         if (!z) {
             this.a.a();
         }

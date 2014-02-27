@@ -9,7 +9,7 @@ public final class InvertedLuminanceSource extends LuminanceSource {
     }
 
     @Override // com.google.zxing.LuminanceSource
-    public byte[] getRow(int i, byte[] bArr) {
+    public final byte[] getRow(int i, byte[] bArr) {
         byte[] row = this.delegate.getRow(i, bArr);
         int width = getWidth();
         for (int i2 = 0; i2 < width; i2++) {
@@ -19,7 +19,7 @@ public final class InvertedLuminanceSource extends LuminanceSource {
     }
 
     @Override // com.google.zxing.LuminanceSource
-    public byte[] getMatrix() {
+    public final byte[] getMatrix() {
         byte[] matrix = this.delegate.getMatrix();
         int height = getHeight() * getWidth();
         byte[] bArr = new byte[height];
@@ -30,32 +30,32 @@ public final class InvertedLuminanceSource extends LuminanceSource {
     }
 
     @Override // com.google.zxing.LuminanceSource
-    public boolean isCropSupported() {
+    public final boolean isCropSupported() {
         return this.delegate.isCropSupported();
     }
 
     @Override // com.google.zxing.LuminanceSource
-    public LuminanceSource crop(int i, int i2, int i3, int i4) {
+    public final LuminanceSource crop(int i, int i2, int i3, int i4) {
         return new InvertedLuminanceSource(this.delegate.crop(i, i2, i3, i4));
     }
 
     @Override // com.google.zxing.LuminanceSource
-    public boolean isRotateSupported() {
+    public final boolean isRotateSupported() {
         return this.delegate.isRotateSupported();
     }
 
     @Override // com.google.zxing.LuminanceSource
-    public LuminanceSource invert() {
+    public final LuminanceSource invert() {
         return this.delegate;
     }
 
     @Override // com.google.zxing.LuminanceSource
-    public LuminanceSource rotateCounterClockwise() {
+    public final LuminanceSource rotateCounterClockwise() {
         return new InvertedLuminanceSource(this.delegate.rotateCounterClockwise());
     }
 
     @Override // com.google.zxing.LuminanceSource
-    public LuminanceSource rotateCounterClockwise45() {
+    public final LuminanceSource rotateCounterClockwise45() {
         return new InvertedLuminanceSource(this.delegate.rotateCounterClockwise45());
     }
 }

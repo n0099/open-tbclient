@@ -1,11 +1,11 @@
 package com.baidu.adp.lib.debug.a;
 /* loaded from: classes.dex */
-public class m extends a {
+public final class m extends a {
     private String a = "StrictMode";
     private String[] b = {"StrictMode", "policy", "violation"};
 
     @Override // com.baidu.adp.lib.debug.a.a
-    public void b() {
+    public final void b() {
         super.b();
         try {
             j.a(this.a, new n(this));

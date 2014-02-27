@@ -111,7 +111,7 @@ public class SimpleCursorAdapter extends ResourceCursorAdapter {
         if (this.mCursorToStringConverter != null) {
             return this.mCursorToStringConverter.convertToString(cursor);
         }
-        if (this.mStringConversionColumn > -1) {
+        if (this.mStringConversionColumn >= 0) {
             return cursor.getString(this.mStringConversionColumn);
         }
         return super.convertToString(cursor);

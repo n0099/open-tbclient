@@ -14,7 +14,7 @@ import com.baidu.tieba.mention.v;
 import com.baidu.tieba.util.cb;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements AdapterView.OnItemClickListener {
+public final class e implements AdapterView.OnItemClickListener {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -23,7 +23,7 @@ public class e implements AdapterView.OnItemClickListener {
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+    public final void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         n nVar;
         n nVar2;
         Activity activity;
@@ -49,7 +49,7 @@ public class e implements AdapterView.OnItemClickListener {
                     aVar3.e = i5 - 1;
                     a aVar4 = this.a;
                     i6 = this.a.e;
-                    aVar4.b(i6, 2);
+                    aVar4.a(i6, 2);
                 }
             } else if (itemId != -2) {
                 nVar2 = this.a.k;
@@ -62,9 +62,9 @@ public class e implements AdapterView.OnItemClickListener {
                         b(imMessageCenterShowItemData);
                         return;
                     } else if (ownerName.equals(SocialConstants.TRUE)) {
-                        com.baidu.tieba.im.c.a f = com.baidu.tieba.im.c.a.f();
+                        com.baidu.tieba.im.c.a d = com.baidu.tieba.im.c.a.d();
                         aVar2 = this.a.u;
-                        f.b(false, aVar2);
+                        d.b(false, aVar2);
                         activity4 = this.a.d;
                         cb.a(activity4, "chat_list_to_group", "click", 1, new Object[0]);
                         activity5 = this.a.d;
@@ -72,19 +72,19 @@ public class e implements AdapterView.OnItemClickListener {
                         return;
                     } else if (imMessageCenterShowItemData.getOwnerName().equals("2")) {
                         a(imMessageCenterShowItemData);
-                        if (v.a().u() != null) {
-                            v.a().u().d(0);
+                        if (v.a().r() != null) {
+                            v.a().r().d(0);
                         }
-                        com.baidu.tieba.im.c.a f2 = com.baidu.tieba.im.c.a.f();
+                        com.baidu.tieba.im.c.a d2 = com.baidu.tieba.im.c.a.d();
                         aVar = this.a.u;
-                        f2.b(false, aVar);
+                        d2.b(false, aVar);
                         activity3 = this.a.d;
                         ValidateActivity.a(activity3);
                         return;
                     } else if (imMessageCenterShowItemData.getOwnerName().equals("3")) {
                         a(imMessageCenterShowItemData);
-                        if (v.a().u() != null) {
-                            v.a().u().b(0);
+                        if (v.a().r() != null) {
+                            v.a().r().b(0);
                         }
                         activity2 = this.a.d;
                         UpdatesActivity.a(activity2);
@@ -94,28 +94,28 @@ public class e implements AdapterView.OnItemClickListener {
                         return;
                     }
                 }
-                com.baidu.adp.lib.util.f.e(a.class.getName(), "onItemClick", " RecentChatFriendData data is null");
+                com.baidu.adp.lib.util.e.e(a.class.getName(), "onItemClick", " RecentChatFriendData data is null");
             } else {
                 a aVar5 = this.a;
                 i2 = aVar5.e;
                 aVar5.e = i2 + 1;
                 a aVar6 = this.a;
                 i3 = this.a.e;
-                aVar6.b(i3, 1);
+                aVar6.a(i3, 1);
             }
         }
     }
 
     private void a(ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        com.baidu.tieba.im.j.a(new f(this, imMessageCenterShowItemData), null);
+        com.baidu.tieba.im.i.a(new f(this, imMessageCenterShowItemData), null);
     }
 
     private void b(ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Activity activity;
         Activity activity2;
         if (imMessageCenterShowItemData.getUnReadCount() > 0) {
-            v.a().e(v.a().p() - imMessageCenterShowItemData.getUnReadCount());
-            v.a().j();
+            v.a().e(v.a().n() - imMessageCenterShowItemData.getUnReadCount());
+            v.a().h();
             imMessageCenterShowItemData.setUnReadCount(0);
         }
         try {

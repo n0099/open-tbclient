@@ -298,13 +298,12 @@ public class a {
                 arrayList.add(c0001a);
             }
         }
-        if (arrayList == null || arrayList.size() <= 0) {
-            return;
-        }
-        Iterator it2 = arrayList.iterator();
-        while (it2.hasNext()) {
-            j.a(f54if, "remove dead object...");
-            this.f55do.remove((C0001a) it2.next());
+        if (arrayList.size() > 0) {
+            Iterator it2 = arrayList.iterator();
+            while (it2.hasNext()) {
+                j.a(f54if, "remove dead object...");
+                this.f55do.remove((C0001a) it2.next());
+            }
         }
     }
 
@@ -318,13 +317,12 @@ public class a {
                 arrayList.add(c0001a);
             }
         }
-        if (arrayList == null || arrayList.size() <= 0) {
-            return;
-        }
-        Iterator it2 = arrayList.iterator();
-        while (it2.hasNext()) {
-            j.a(f54if, "remove dead object...");
-            this.f55do.remove((C0001a) it2.next());
+        if (arrayList.size() > 0) {
+            Iterator it2 = arrayList.iterator();
+            while (it2.hasNext()) {
+                j.a(f54if, "remove dead object...");
+                this.f55do.remove((C0001a) it2.next());
+            }
         }
     }
 

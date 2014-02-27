@@ -3,7 +3,7 @@ package com.baidu.tieba.pb;
 import android.os.Handler;
 import android.widget.AbsListView;
 /* loaded from: classes.dex */
-class ao implements AbsListView.OnScrollListener {
+final class ao implements AbsListView.OnScrollListener {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ class ao implements AbsListView.OnScrollListener {
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
+    public final void onScrollStateChanged(AbsListView absListView, int i) {
         Handler handler;
         cu cuVar;
         Handler handler2;
@@ -35,11 +35,11 @@ class ao implements AbsListView.OnScrollListener {
         }
         if (i == 2 || i == 1) {
             cuVar = this.a.C;
-            cuVar.Y();
+            cuVar.R();
         }
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    public final void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 }

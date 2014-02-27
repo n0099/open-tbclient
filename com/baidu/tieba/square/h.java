@@ -4,20 +4,15 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class h extends com.baidu.tieba.data.a {
+public final class h extends com.baidu.tieba.data.a {
     private ArrayList<ab> a = new ArrayList<>();
 
-    public ArrayList<ab> d() {
+    public final ArrayList<ab> d() {
         return this.a;
     }
 
-    public void a(ArrayList<ab> arrayList) {
-        this.a = arrayList;
-        a((String) null);
-    }
-
     @Override // com.baidu.tieba.data.a
-    protected void a(JSONObject jSONObject) {
+    protected final void a(JSONObject jSONObject) {
         ArrayList<ab> arrayList = new ArrayList<>();
         JSONArray optJSONArray = jSONObject.optJSONArray("forum_dir");
         if (optJSONArray != null) {
@@ -27,6 +22,7 @@ public class h extends com.baidu.tieba.data.a {
                 arrayList.add(abVar);
             }
         }
-        a(arrayList);
+        this.a = arrayList;
+        a((String) null);
     }
 }

@@ -1,21 +1,20 @@
 package com.baidu.tieba.album;
 
-import android.database.ContentObserver;
-import android.os.Handler;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s extends ContentObserver {
+public final class s extends BroadcastReceiver {
     final /* synthetic */ q a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s(q qVar, Handler handler) {
-        super(handler);
+    public s(q qVar) {
         this.a = qVar;
     }
 
-    @Override // android.database.ContentObserver
-    public void onChange(boolean z) {
-        this.a.a(false);
+    @Override // android.content.BroadcastReceiver
+    public final void onReceive(Context context, Intent intent) {
+        q.a(this.a, intent);
     }
 }

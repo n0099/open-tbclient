@@ -19,7 +19,7 @@ import com.baidu.tieba.im.message.s;
 import com.baidu.tieba.util.cb;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class j implements com.baidu.tieba.im.messageCenter.g {
+public final class j implements com.baidu.tieba.im.messageCenter.g {
     private static j a = null;
     private ArrayList<com.baidu.tieba.im.chat.receiveChatMsgHandler.d> b = new ArrayList<>();
     private String c;
@@ -35,15 +35,8 @@ public class j implements com.baidu.tieba.im.messageCenter.g {
         return jVar;
     }
 
-    public void b() {
-        f();
-    }
-
-    private j() {
-    }
-
-    private void f() {
-        com.baidu.tieba.im.messageCenter.e.a().a(202006, this);
+    public final void b() {
+        com.baidu.tieba.im.messageCenter.d.a().a(202006, this);
         this.b.add(new SystemMsgReceivedHandler());
         this.b.add(new PersonalGroupReceivedHandler());
         this.b.add(new GroupMsgReceivedHandler());
@@ -54,13 +47,31 @@ public class j implements com.baidu.tieba.im.messageCenter.g {
         this.b.add(new SnapGroupMsgReceivedHandler());
     }
 
+    private j() {
+    }
+
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(s sVar) {
+    public final void a(s sVar) {
         if (sVar != null) {
-            com.baidu.adp.lib.util.f.e("cmd:" + sVar.w());
+            com.baidu.adp.lib.util.e.e("cmd:" + sVar.w());
             switch (sVar.w()) {
                 case 202006:
-                    a((o) sVar);
+                    o oVar = (o) sVar;
+                    if (oVar != null) {
+                        com.baidu.adp.lib.util.e.e("cmd: " + oVar.w() + "groupId: " + oVar.d());
+                        if (oVar.a() == 3) {
+                            TiebaApplication.g();
+                            TiebaApplication.be();
+                            return;
+                        }
+                        String valueOf = String.valueOf(oVar.d());
+                        cb.a(202006, 0, "server push new", "PushNotifyManager-push_notify", "succ", 0, "", 0L, 0, "gid:" + valueOf);
+                        if (!TextUtils.isEmpty(valueOf)) {
+                            com.baidu.tieba.im.b.a.c().a(oVar.d(), oVar.c(), oVar.b());
+                            return;
+                        }
+                        return;
+                    }
                     return;
                 default:
                     return;
@@ -68,36 +79,21 @@ public class j implements com.baidu.tieba.im.messageCenter.g {
         }
     }
 
-    private void a(o oVar) {
-        if (oVar != null) {
-            com.baidu.adp.lib.util.f.e("cmd: " + oVar.w() + "groupId: " + oVar.d());
-            if (oVar.a() == 3) {
-                TiebaApplication.g().bm();
-                return;
-            }
-            String valueOf = String.valueOf(oVar.d());
-            cb.a(202006, 0, "server push new", "PushNotifyManager-push_notify", "succ", 0, "", 0L, 0, "gid:" + valueOf);
-            if (!TextUtils.isEmpty(valueOf)) {
-                com.baidu.tieba.im.b.a.c().a(oVar.d(), oVar.c(), oVar.b());
-            }
-        }
-    }
-
-    public void c() {
+    public static void c() {
         com.baidu.tieba.im.b.a.c().i();
     }
 
-    public void a(CommonMsgPojo commonMsgPojo) {
+    public final void a(CommonMsgPojo commonMsgPojo) {
         boolean z = true;
         if (commonMsgPojo != null) {
             com.baidu.tieba.im.message.g chatMessage = commonMsgPojo.toChatMessage();
             if (chatMessage != null) {
-                SystemMsgData j = com.baidu.tieba.im.util.l.j(chatMessage);
-                if (j != null && !j.getIsSelf()) {
+                SystemMsgData i = com.baidu.tieba.im.util.l.i(chatMessage);
+                if (i != null && !i.getIsSelf()) {
                     z = false;
                 }
-                if (TiebaApplication.B()) {
-                    if (chatMessage.g().getUserId().equals(TiebaApplication.A()) && chatMessage.i() != 11) {
+                if (TiebaApplication.w()) {
+                    if (chatMessage.g().getUserId().equals(TiebaApplication.v()) && chatMessage.i() != 11) {
                         z = false;
                     }
                 }
@@ -105,10 +101,10 @@ public class j implements com.baidu.tieba.im.messageCenter.g {
             if (commonMsgPojo.getRead_flag() == 0) {
                 z = false;
             }
-            if (!TiebaApplication.g().Y() && !commonMsgPojo.isPrivate()) {
+            if (!TiebaApplication.g().S() && !commonMsgPojo.isPrivate()) {
                 z = false;
             }
-            if (!TiebaApplication.g().X() && commonMsgPojo.isPrivate()) {
+            if (!TiebaApplication.g().R() && commonMsgPojo.isPrivate()) {
                 z = false;
             }
             String gid = commonMsgPojo.getGid();
@@ -119,33 +115,33 @@ public class j implements com.baidu.tieba.im.messageCenter.g {
             } else if (!TextUtils.isEmpty(gid) && SnapGroupChatActivity.l && gid.equals(SnapGroupChatActivity.m)) {
                 z = false;
             }
-            i e = a.f().e(gid);
-            if (e != null) {
-                boolean isAcceptNotify = e.isAcceptNotify();
+            i c = a.d().c(gid);
+            if (c != null) {
+                boolean isAcceptNotify = c.isAcceptNotify();
                 if (z && !isAcceptNotify) {
                     z = false;
                 }
-                a.f().b(z, new k(this));
+                a.d().b(z, new k(this));
                 return;
             }
-            com.baidu.tieba.im.chat.personaltalk.a.a(TiebaApplication.A(), commonMsgPojo.getGid(), new l(this, z));
+            com.baidu.tieba.im.chat.personaltalk.a.a(TiebaApplication.v(), commonMsgPojo.getGid(), new l(this, z));
         }
     }
 
-    public void a(boolean z) {
-        a.f().b(z, new n(this));
+    public final void a(boolean z) {
+        a.d().b(z, new n(this));
     }
 
-    public void d() {
-        com.baidu.tieba.im.messageCenter.e.a().d(new com.baidu.tieba.im.message.j());
-        com.baidu.adp.lib.util.f.e("dispatch group chat ");
+    public static void d() {
+        com.baidu.tieba.im.messageCenter.d.a().d(new com.baidu.tieba.im.message.j());
+        com.baidu.adp.lib.util.e.e("dispatch group chat ");
     }
 
-    public String e() {
+    public final String e() {
         return this.c;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.c = str;
     }
 }

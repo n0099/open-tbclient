@@ -2,7 +2,7 @@ package com.baidu.tieba.faceshop;
 
 import com.baidu.tieba.view.by;
 /* loaded from: classes.dex */
-class ai implements by {
+final class ai implements by {
     final /* synthetic */ FacePurchaseRecordsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +11,7 @@ class ai implements by {
     }
 
     @Override // com.baidu.tieba.view.by
-    public void a(boolean z) {
+    public final void a(boolean z) {
         if (z) {
             this.a.a(true);
         }

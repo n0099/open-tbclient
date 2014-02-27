@@ -12,7 +12,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class af implements View.OnClickListener {
+public final class af implements View.OnClickListener {
     final /* synthetic */ ae a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -21,7 +21,7 @@ public class af implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         TextView textView;
         com.baidu.tieba.data.x xVar;
         com.baidu.tieba.data.x xVar2;
@@ -73,7 +73,7 @@ public class af implements View.OnClickListener {
                             NewPbActivity.a(context3, group, (String) null, "frs_banner");
                             return;
                         } catch (Exception e) {
-                            com.baidu.adp.lib.util.f.b(getClass().getName(), "onClick", e.toString());
+                            com.baidu.adp.lib.util.e.b(getClass().getName(), "onClick", e.toString());
                             return;
                         }
                     }

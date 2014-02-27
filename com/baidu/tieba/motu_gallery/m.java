@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.os.Handler;
 import android.os.Message;
 /* loaded from: classes.dex */
-class m extends Handler {
+final class m extends Handler {
     final /* synthetic */ JigsawAlbumListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,10 +13,10 @@ class m extends Handler {
     }
 
     @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    public final void handleMessage(Message message) {
         switch (message.what) {
             case 0:
-                this.a.a(message.arg1, (Bitmap) message.obj);
+                JigsawAlbumListActivity.a(this.a, message.arg1, (Bitmap) message.obj);
                 return;
             default:
                 return;

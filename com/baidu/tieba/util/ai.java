@@ -1,6 +1,6 @@
 package com.baidu.tieba.util;
 /* loaded from: classes.dex */
-public class ai {
+public final class ai {
     private com.baidu.tieba.im.model.am c;
     private al d;
     private double a = 0.0d;
@@ -13,15 +13,15 @@ public class ai {
         this.d = null;
         this.c = new com.baidu.tieba.im.model.am();
         this.d = alVar;
-        com.baidu.tieba.im.messageCenter.e.a().a(103010, this.f);
+        com.baidu.tieba.im.messageCenter.d.a().a(103010, this.f);
     }
 
-    public void a() {
+    public final void a() {
         com.baidu.adp.lib.c.a.a().a(true, this.e);
     }
 
-    public void b() {
+    public final void b() {
         this.c.b();
-        com.baidu.tieba.im.messageCenter.e.a().a(this.f);
+        com.baidu.tieba.im.messageCenter.d.a().a(this.f);
     }
 }

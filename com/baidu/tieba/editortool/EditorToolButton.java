@@ -56,7 +56,7 @@ public class EditorToolButton extends ImageView {
         return onCreateDrawableState;
     }
 
-    public void a() {
+    public final void a() {
         if (!this.f) {
             setVisibility(0);
         }
@@ -66,11 +66,11 @@ public class EditorToolButton extends ImageView {
         return this.a;
     }
 
-    public void b() {
+    public final void b() {
         setVisibility(8);
     }
 
-    public void c() {
+    public final void c() {
         setEnabled(true);
     }
 
@@ -81,28 +81,28 @@ public class EditorToolButton extends ImageView {
         }
     }
 
-    public void d() {
+    public final void d() {
         setEnabled(false);
     }
 
-    public void a(TextView textView) {
+    public final void a(TextView textView) {
         this.a = textView;
     }
 
-    public void e() {
+    public final void e() {
         if (this.a != null) {
             this.a.setVisibility(0);
         }
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         if (this.a != null) {
             this.a.setVisibility(0);
             this.a.setText(str);
         }
     }
 
-    public void f() {
+    public final void f() {
         if (this.a != null) {
             this.a.setVisibility(8);
         }
@@ -116,21 +116,21 @@ public class EditorToolButton extends ImageView {
         }
     }
 
-    public boolean g() {
+    public final boolean g() {
         return this.d;
     }
 
     public void setHardDisabled(boolean z) {
         this.e = z;
-        d();
+        setEnabled(false);
     }
 
     public void setHardInvisible(boolean z) {
         this.f = z;
-        b();
+        setVisibility(8);
     }
 
-    public void h() {
+    public final void h() {
         this.c = true;
         refreshDrawableState();
     }
@@ -140,7 +140,7 @@ public class EditorToolButton extends ImageView {
         return this.c;
     }
 
-    public void i() {
+    public final void i() {
         this.c = false;
         refreshDrawableState();
     }

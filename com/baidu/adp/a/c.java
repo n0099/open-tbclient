@@ -15,11 +15,11 @@ public class c<T> extends e {
         this.a.setTag(this);
     }
 
-    public View a() {
+    public final View a() {
         return this.a;
     }
 
-    public View a(int i) {
+    public final View a(int i) {
         return this.a.findViewById(i);
     }
 }

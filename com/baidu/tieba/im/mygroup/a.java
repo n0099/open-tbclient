@@ -19,34 +19,34 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class a extends BaseAdapter {
+public final class a extends BaseAdapter {
     private MyGroupFragment a;
     private com.baidu.tieba.util.i b;
     private List<GroupInfoData> c = new ArrayList();
 
-    public void a(List<GroupInfoData> list) {
+    public final void a(List<GroupInfoData> list) {
         this.c = list;
     }
 
-    public com.baidu.tieba.util.i a() {
+    public final com.baidu.tieba.util.i a() {
         return this.b;
     }
 
     public a(MyGroupFragment myGroupFragment) {
         this.a = myGroupFragment;
         this.b = new com.baidu.tieba.util.i(myGroupFragment.getActivity());
-        this.b.d(true);
+        this.b.a(true);
     }
 
     @Override // android.widget.Adapter
-    public int getCount() {
+    public final int getCount() {
         return this.c.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: a */
-    public GroupInfoData getItem(int i) {
+    public final GroupInfoData getItem(int i) {
         int itemId = (int) getItemId(i);
         if (itemId < 0 || itemId >= this.c.size()) {
             return null;
@@ -55,12 +55,12 @@ public class a extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    public final long getItemId(int i) {
         return i;
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public final View getView(int i, View view, ViewGroup viewGroup) {
         b bVar;
         if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
             view = LayoutInflater.from(this.a.getActivity()).inflate(R.layout.im_group_list_item, viewGroup, false);
@@ -108,7 +108,7 @@ public class a extends BaseAdapter {
             }
             a(bVar.l, groupInfoData.getGrade());
         }
-        ((k) this.a.getActivity()).a().a(TiebaApplication.g().al() == 1);
+        ((k) this.a.getActivity()).a().a(TiebaApplication.g().ae() == 1);
         ((k) this.a.getActivity()).a().a(view);
         if (groupInfoData != null && groupInfoData.isMemGroup()) {
             bq.a(bVar.d, R.color.im_group_vip_text, 1);
@@ -119,7 +119,7 @@ public class a extends BaseAdapter {
         return view;
     }
 
-    private void a(ImageView[] imageViewArr, int i) {
+    private static void a(ImageView[] imageViewArr, int i) {
         int i2 = i < 0 ? 0 : i;
         if (i2 > 3) {
             i2 = 3;

@@ -5,22 +5,39 @@ import com.slidingmenu.lib.R;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ag extends BdAsyncTask<String, Integer, String> {
+public final class ag extends BdAsyncTask<String, Integer, String> {
     final /* synthetic */ ImagePbActivity a;
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ String a(String... strArr) {
+        return d();
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ void a(String str) {
+        String str2 = str;
+        super.a((ag) str2);
+        if (str2 != null) {
+            this.a.showToast(str2);
+        }
+        this.a.x = null;
+    }
 
     private ag(ImagePbActivity imagePbActivity) {
         this.a = imagePbActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ag(ImagePbActivity imagePbActivity, ag agVar) {
+    public /* synthetic */ ag(ImagePbActivity imagePbActivity, byte b) {
         this(imagePbActivity);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public String a(String... strArr) {
+    private String d() {
         com.baidu.tieba.data.ab abVar;
         com.baidu.tieba.data.ab abVar2;
         com.baidu.tieba.data.ab abVar3;
@@ -73,24 +90,13 @@ public class ag extends BdAsyncTask<String, Integer, String> {
             }
             return null;
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("SaveImageAsyncTask", "doInBackground", "error" + e.getMessage());
+            com.baidu.adp.lib.util.e.b("SaveImageAsyncTask", "doInBackground", "error" + e.getMessage());
             return this.a.getString(R.string.save_error);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(String str) {
-        super.a((ag) str);
-        if (str != null) {
-            this.a.showToast(str);
-        }
-        this.a.x = null;
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
+    public final void cancel() {
         this.a.x = null;
         super.cancel(true);
     }

@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -27,19 +28,34 @@ public final class h extends GeneratedMessageLite.Builder<QueryUserInfosRes.Data
     private Object g = "";
     private List<QueryUserInfosRes.IconInfo> p = Collections.emptyList();
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        QueryUserInfosRes.DataRes buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return QueryUserInfosRes.DataRes.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return QueryUserInfosRes.DataRes.getDefaultInstance();
+    }
+
     private h() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static h h() {
+    public static /* synthetic */ h b() {
         return new h();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public h clear() {
         super.clear();
         this.b = 0L;
@@ -76,30 +92,14 @@ public final class h extends GeneratedMessageLite.Builder<QueryUserInfosRes.Data
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public h clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public QueryUserInfosRes.DataRes getDefaultInstanceForType() {
-        return QueryUserInfosRes.DataRes.getDefaultInstance();
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public QueryUserInfosRes.DataRes build() {
-        QueryUserInfosRes.DataRes buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
+    public h clone() {
+        return new h().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public QueryUserInfosRes.DataRes buildPartial() {
+    /* renamed from: a */
+    public final QueryUserInfosRes.DataRes buildPartial() {
         QueryUserInfosRes.DataRes dataRes = new QueryUserInfosRes.DataRes(this, (QueryUserInfosRes.DataRes) null);
         int i = this.a;
         int i2 = (i & 1) != 1 ? 0 : 1;
@@ -167,7 +167,7 @@ public final class h extends GeneratedMessageLite.Builder<QueryUserInfosRes.Data
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public h mergeFrom(QueryUserInfosRes.DataRes dataRes) {
+    public final h mergeFrom(QueryUserInfosRes.DataRes dataRes) {
         List list;
         List list2;
         List<QueryUserInfosRes.IconInfo> list3;
@@ -178,7 +178,9 @@ public final class h extends GeneratedMessageLite.Builder<QueryUserInfosRes.Data
         Object obj5;
         if (dataRes != QueryUserInfosRes.DataRes.getDefaultInstance()) {
             if (dataRes.hasId()) {
-                a(dataRes.getId());
+                long id = dataRes.getId();
+                this.a |= 1;
+                this.b = id;
             }
             if (dataRes.hasName()) {
                 this.a |= 2;
@@ -206,28 +208,44 @@ public final class h extends GeneratedMessageLite.Builder<QueryUserInfosRes.Data
                 this.g = obj;
             }
             if (dataRes.hasSex()) {
-                a(dataRes.getSex());
+                int sex = dataRes.getSex();
+                this.a |= 64;
+                this.h = sex;
             }
             if (dataRes.hasHasConcerned()) {
-                b(dataRes.getHasConcerned());
+                int hasConcerned = dataRes.getHasConcerned();
+                this.a |= 128;
+                this.i = hasConcerned;
             }
             if (dataRes.hasIsBlacklist()) {
-                c(dataRes.getIsBlacklist());
+                int isBlacklist = dataRes.getIsBlacklist();
+                this.a |= 256;
+                this.j = isBlacklist;
             }
             if (dataRes.hasMeizhiLevel()) {
-                d(dataRes.getMeizhiLevel());
+                int meizhiLevel = dataRes.getMeizhiLevel();
+                this.a |= 512;
+                this.k = meizhiLevel;
             }
             if (dataRes.hasUserType()) {
-                e(dataRes.getUserType());
+                int userType = dataRes.getUserType();
+                this.a |= 1024;
+                this.l = userType;
             }
             if (dataRes.hasIsCoreuser()) {
-                f(dataRes.getIsCoreuser());
+                int isCoreuser = dataRes.getIsCoreuser();
+                this.a |= 2048;
+                this.m = isCoreuser;
             }
             if (dataRes.hasSuperboy()) {
-                g(dataRes.getSuperboy());
+                int superboy = dataRes.getSuperboy();
+                this.a |= 4096;
+                this.n = superboy;
             }
             if (dataRes.hasIsInterestman()) {
-                h(dataRes.getIsInterestman());
+                int isInterestman = dataRes.getIsInterestman();
+                this.a |= 8192;
+                this.o = isInterestman;
             }
             list = dataRes.iconInfo_;
             if (!list.isEmpty()) {
@@ -236,7 +254,10 @@ public final class h extends GeneratedMessageLite.Builder<QueryUserInfosRes.Data
                     this.p = list3;
                     this.a &= -16385;
                 } else {
-                    i();
+                    if ((this.a & 16384) != 16384) {
+                        this.p = new ArrayList(this.p);
+                        this.a |= 16384;
+                    }
                     List<QueryUserInfosRes.IconInfo> list4 = this.p;
                     list2 = dataRes.iconInfo_;
                     list4.addAll(list2);
@@ -286,67 +307,6 @@ public final class h extends GeneratedMessageLite.Builder<QueryUserInfosRes.Data
                 }
                 throw th;
             }
-        }
-    }
-
-    public h a(long j) {
-        this.a |= 1;
-        this.b = j;
-        return this;
-    }
-
-    public h a(int i) {
-        this.a |= 64;
-        this.h = i;
-        return this;
-    }
-
-    public h b(int i) {
-        this.a |= 128;
-        this.i = i;
-        return this;
-    }
-
-    public h c(int i) {
-        this.a |= 256;
-        this.j = i;
-        return this;
-    }
-
-    public h d(int i) {
-        this.a |= 512;
-        this.k = i;
-        return this;
-    }
-
-    public h e(int i) {
-        this.a |= 1024;
-        this.l = i;
-        return this;
-    }
-
-    public h f(int i) {
-        this.a |= 2048;
-        this.m = i;
-        return this;
-    }
-
-    public h g(int i) {
-        this.a |= 4096;
-        this.n = i;
-        return this;
-    }
-
-    public h h(int i) {
-        this.a |= 8192;
-        this.o = i;
-        return this;
-    }
-
-    private void i() {
-        if ((this.a & 16384) != 16384) {
-            this.p = new ArrayList(this.p);
-            this.a |= 16384;
         }
     }
 }

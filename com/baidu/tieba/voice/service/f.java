@@ -1,6 +1,6 @@
 package com.baidu.tieba.voice.service;
 /* loaded from: classes.dex */
-class f implements Runnable {
+final class f implements Runnable {
     final /* synthetic */ MyAudioRecorder a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,7 +9,7 @@ class f implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
-        this.a.i();
+    public final void run() {
+        MyAudioRecorder.a(this.a);
     }
 }

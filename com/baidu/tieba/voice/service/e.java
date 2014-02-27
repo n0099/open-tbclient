@@ -3,7 +3,7 @@ package com.baidu.tieba.voice.service;
 import android.media.MediaPlayer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements MediaPlayer.OnCompletionListener {
+public final class e implements MediaPlayer.OnCompletionListener {
     final /* synthetic */ MediaService a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ public class e implements MediaPlayer.OnCompletionListener {
     }
 
     @Override // android.media.MediaPlayer.OnCompletionListener
-    public void onCompletion(MediaPlayer mediaPlayer) {
+    public final void onCompletion(MediaPlayer mediaPlayer) {
         g gVar;
         Voice voice;
         g gVar2;

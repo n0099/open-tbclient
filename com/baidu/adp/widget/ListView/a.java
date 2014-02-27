@@ -42,30 +42,30 @@ public class a extends d {
 
     @Override // com.baidu.adp.widget.ListView.d
     public View a() {
-        Context h = h();
-        return a(h.getString(com.baidu.adp.f.adp_pull_to_refresh), h.getString(com.baidu.adp.f.adp_release_to_refresh), h.getString(com.baidu.adp.f.adp_loading));
+        Context g = g();
+        return a(g.getString(com.baidu.adp.f.adp_pull_to_refresh), g.getString(com.baidu.adp.f.adp_release_to_refresh), g.getString(com.baidu.adp.f.adp_loading));
     }
 
     public View a(String str, String str2, String str3) {
-        Context h = h();
+        Context g = g();
         if (str == null) {
-            str = h.getString(com.baidu.adp.f.adp_pull_to_refresh);
+            str = g.getString(com.baidu.adp.f.adp_pull_to_refresh);
         }
         this.i = str;
         if (str2 == null) {
-            str2 = h.getString(com.baidu.adp.f.adp_release_to_refresh);
+            str2 = g.getString(com.baidu.adp.f.adp_release_to_refresh);
         }
         this.j = str2;
         if (str3 == null) {
-            str3 = h.getString(com.baidu.adp.f.adp_loading);
+            str3 = g.getString(com.baidu.adp.f.adp_loading);
         }
         this.k = str3;
-        this.a = LayoutInflater.from(h()).inflate(com.baidu.adp.e.pull_view, (ViewGroup) null);
+        this.a = LayoutInflater.from(g()).inflate(com.baidu.adp.e.pull_view, (ViewGroup) null);
         this.b = (ImageView) this.a.findViewById(com.baidu.adp.d.pull_arrow);
         this.c = (ProgressBar) this.a.findViewById(com.baidu.adp.d.pull_progress);
         this.d = (TextView) this.a.findViewById(com.baidu.adp.d.pull_text);
         this.e = (TextView) this.a.findViewById(com.baidu.adp.d.pull_time);
-        a(g());
+        a(k());
         this.f = new RotateAnimation(0.0f, -180.0f, 1, 0.5f, 1, 0.5f);
         this.f.setInterpolator(new LinearInterpolator());
         this.f.setDuration(250L);
@@ -77,18 +77,18 @@ public class a extends d {
         return this.a;
     }
 
-    public View b() {
+    public final View b() {
         if (this.a == null) {
             this.a = a();
         }
         return this.a;
     }
 
-    public TextView c() {
+    public final TextView c() {
         return this.e;
     }
 
-    public TextView d() {
+    public final TextView d() {
         return this.d;
     }
 
@@ -104,7 +104,7 @@ public class a extends d {
     }
 
     @Override // com.baidu.adp.widget.ListView.d
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.c.setVisibility(4);
         this.d.setVisibility(0);
         this.e.setVisibility(0);
@@ -126,18 +126,18 @@ public class a extends d {
     }
 
     @Override // com.baidu.adp.widget.ListView.d
-    public void b(boolean z) {
+    public final void b(boolean z) {
         this.c.setVisibility(4);
         this.b.clearAnimation();
         this.b.setImageResource(com.baidu.adp.c.pull_icon);
         this.d.setText(this.i);
         this.e.setVisibility(0);
         if (z) {
-            a(g());
+            a(k());
         }
     }
 
-    public static String g() {
+    private static String k() {
         String format;
         synchronized (l) {
             format = l.format(new Date());
@@ -145,18 +145,18 @@ public class a extends d {
         return format;
     }
 
-    public void a(String str) {
-        this.e.setText(String.valueOf(h().getString(com.baidu.adp.f.adp_pull_view_date_tip)) + str);
+    private void a(String str) {
+        this.e.setText(String.valueOf(g().getString(com.baidu.adp.f.adp_pull_view_date_tip)) + str);
     }
 
     @Override // com.baidu.adp.widget.ListView.d
-    public void c(boolean z) {
+    public final void c(boolean z) {
         if (this.h != null) {
             this.h.a(z);
         }
     }
 
-    public void a(b bVar) {
+    public final void a(b bVar) {
         this.h = bVar;
     }
 }

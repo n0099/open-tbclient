@@ -23,15 +23,15 @@ public final class Im {
     /* loaded from: classes.dex */
     public final class Error extends GeneratedMessageLite implements f {
         public static final int ERRORNO_FIELD_NUMBER = 1;
+        public static Parser<Error> PARSER = new d();
         public static final int USERMSG_FIELD_NUMBER = 2;
+        private static final Error a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private int errorno_;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
         private Object usermsg_;
-        public static Parser<Error> PARSER = new d();
-        private static final Error a = new Error(true);
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ Error(GeneratedMessageLite.Builder builder, Error error) {
@@ -44,7 +44,7 @@ public final class Im {
             this.memoizedSerializedSize = -1;
         }
 
-        private Error(boolean z) {
+        private Error() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -55,7 +55,7 @@ public final class Im {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public Error getDefaultInstanceForType() {
+        public final Error getDefaultInstanceForType() {
             return a;
         }
 
@@ -105,27 +105,29 @@ public final class Im {
         }
 
         static {
-            a.a();
+            Error error = new Error();
+            a = error;
+            error.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<Error> getParserForType() {
+        public final Parser<Error> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasErrorno() {
+        public final boolean hasErrorno() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public int getErrorno() {
+        public final int getErrorno() {
             return this.errorno_;
         }
 
-        public boolean hasUsermsg() {
+        public final boolean hasUsermsg() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public String getUsermsg() {
+        public final String getUsermsg() {
             Object obj = this.usermsg_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -138,7 +140,7 @@ public final class Im {
             return stringUtf8;
         }
 
-        public ByteString getUsermsgBytes() {
+        public final ByteString getUsermsgBytes() {
             Object obj = this.usermsg_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -164,7 +166,7 @@ public final class Im {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeInt32(1, this.errorno_);
@@ -175,10 +177,13 @@ public final class Im {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt32Size(1, this.errorno_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeInt32Size(1, this.errorno_) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeBytesSize(2, getUsermsgBytes());
                 }
@@ -189,7 +194,7 @@ public final class Im {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -234,12 +239,12 @@ public final class Im {
         }
 
         public static e newBuilder() {
-            return e.f();
+            return e.b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public e newBuilderForType() {
+        public final e newBuilderForType() {
             return newBuilder();
         }
 
@@ -249,7 +254,7 @@ public final class Im {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public e toBuilder() {
+        public final e toBuilder() {
             return newBuilder(this);
         }
     }
@@ -259,7 +264,7 @@ public final class Im {
         public static final int ISGROUPMANAGER_FIELD_NUMBER = 2;
         public static final int ISGROUPOWNER_FIELD_NUMBER = 1;
         public static Parser<UserPermission> PARSER = new ak();
-        private static final UserPermission a = new UserPermission(true);
+        private static final UserPermission a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private int isGroupManager_;
@@ -278,7 +283,7 @@ public final class Im {
             this.memoizedSerializedSize = -1;
         }
 
-        private UserPermission(boolean z) {
+        private UserPermission() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -289,7 +294,7 @@ public final class Im {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public UserPermission getDefaultInstanceForType() {
+        public final UserPermission getDefaultInstanceForType() {
             return a;
         }
 
@@ -339,27 +344,29 @@ public final class Im {
         }
 
         static {
-            a.a();
+            UserPermission userPermission = new UserPermission();
+            a = userPermission;
+            userPermission.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<UserPermission> getParserForType() {
+        public final Parser<UserPermission> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasIsGroupOwner() {
+        public final boolean hasIsGroupOwner() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public int getIsGroupOwner() {
+        public final int getIsGroupOwner() {
             return this.isGroupOwner_;
         }
 
-        public boolean hasIsGroupManager() {
+        public final boolean hasIsGroupManager() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public int getIsGroupManager() {
+        public final int getIsGroupManager() {
             return this.isGroupManager_;
         }
 
@@ -379,7 +386,7 @@ public final class Im {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeInt32(1, this.isGroupOwner_);
@@ -390,10 +397,13 @@ public final class Im {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt32Size(1, this.isGroupOwner_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeInt32Size(1, this.isGroupOwner_) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeInt32Size(2, this.isGroupManager_);
                 }
@@ -404,7 +414,7 @@ public final class Im {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -449,12 +459,12 @@ public final class Im {
         }
 
         public static al newBuilder() {
-            return al.f();
+            return al.b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public al newBuilderForType() {
+        public final al newBuilderForType() {
             return newBuilder();
         }
 
@@ -464,7 +474,7 @@ public final class Im {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public al toBuilder() {
+        public final al toBuilder() {
             return newBuilder(this);
         }
     }
@@ -482,7 +492,7 @@ public final class Im {
         public static final int CREATEPERSONALTIP_FIELD_NUMBER = 7;
         public static final int ISFORUMMANAGER_FIELD_NUMBER = 1;
         public static Parser<GroupPermission> PARSER = new p();
-        private static final GroupPermission a = new GroupPermission(true);
+        private static final GroupPermission a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private int canCreateNormalNum_;
@@ -509,7 +519,7 @@ public final class Im {
             this.memoizedSerializedSize = -1;
         }
 
-        private GroupPermission(boolean z) {
+        private GroupPermission() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -520,7 +530,7 @@ public final class Im {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public GroupPermission getDefaultInstanceForType() {
+        public final GroupPermission getDefaultInstanceForType() {
             return a;
         }
 
@@ -602,51 +612,53 @@ public final class Im {
         }
 
         static {
-            a.a();
+            GroupPermission groupPermission = new GroupPermission();
+            a = groupPermission;
+            groupPermission.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<GroupPermission> getParserForType() {
+        public final Parser<GroupPermission> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasIsForumManager() {
+        public final boolean hasIsForumManager() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public int getIsForumManager() {
+        public final int getIsForumManager() {
             return this.isForumManager_;
         }
 
-        public boolean hasCanCreateNormal() {
+        public final boolean hasCanCreateNormal() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public int getCanCreateNormal() {
+        public final int getCanCreateNormal() {
             return this.canCreateNormal_;
         }
 
-        public boolean hasCanCreateOfficial() {
+        public final boolean hasCanCreateOfficial() {
             return (this.bitField0_ & 4) == 4;
         }
 
-        public int getCanCreateOfficial() {
+        public final int getCanCreateOfficial() {
             return this.canCreateOfficial_;
         }
 
-        public boolean hasCanCreatePersonal() {
+        public final boolean hasCanCreatePersonal() {
             return (this.bitField0_ & 8) == 8;
         }
 
-        public int getCanCreatePersonal() {
+        public final int getCanCreatePersonal() {
             return this.canCreatePersonal_;
         }
 
-        public boolean hasCreateNormalTip() {
+        public final boolean hasCreateNormalTip() {
             return (this.bitField0_ & 16) == 16;
         }
 
-        public String getCreateNormalTip() {
+        public final String getCreateNormalTip() {
             Object obj = this.createNormalTip_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -659,7 +671,7 @@ public final class Im {
             return stringUtf8;
         }
 
-        public ByteString getCreateNormalTipBytes() {
+        public final ByteString getCreateNormalTipBytes() {
             Object obj = this.createNormalTip_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -669,11 +681,11 @@ public final class Im {
             return (ByteString) obj;
         }
 
-        public boolean hasCreateOfficialTip() {
+        public final boolean hasCreateOfficialTip() {
             return (this.bitField0_ & 32) == 32;
         }
 
-        public String getCreateOfficialTip() {
+        public final String getCreateOfficialTip() {
             Object obj = this.createOfficialTip_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -686,7 +698,7 @@ public final class Im {
             return stringUtf8;
         }
 
-        public ByteString getCreateOfficialTipBytes() {
+        public final ByteString getCreateOfficialTipBytes() {
             Object obj = this.createOfficialTip_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -696,11 +708,11 @@ public final class Im {
             return (ByteString) obj;
         }
 
-        public boolean hasCreatePersonalTip() {
+        public final boolean hasCreatePersonalTip() {
             return (this.bitField0_ & 64) == 64;
         }
 
-        public String getCreatePersonalTip() {
+        public final String getCreatePersonalTip() {
             Object obj = this.createPersonalTip_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -713,7 +725,7 @@ public final class Im {
             return stringUtf8;
         }
 
-        public ByteString getCreatePersonalTipBytes() {
+        public final ByteString getCreatePersonalTipBytes() {
             Object obj = this.createPersonalTip_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -723,27 +735,27 @@ public final class Im {
             return (ByteString) obj;
         }
 
-        public boolean hasCanCreateNormalNum() {
+        public final boolean hasCanCreateNormalNum() {
             return (this.bitField0_ & 128) == 128;
         }
 
-        public int getCanCreateNormalNum() {
+        public final int getCanCreateNormalNum() {
             return this.canCreateNormalNum_;
         }
 
-        public boolean hasCanCreateOfficialNum() {
+        public final boolean hasCanCreateOfficialNum() {
             return (this.bitField0_ & 256) == 256;
         }
 
-        public int getCanCreateOfficialNum() {
+        public final int getCanCreateOfficialNum() {
             return this.canCreateOfficialNum_;
         }
 
-        public boolean hasCanCreatePersonalNum() {
+        public final boolean hasCanCreatePersonalNum() {
             return (this.bitField0_ & 512) == 512;
         }
 
-        public int getCanCreatePersonalNum() {
+        public final int getCanCreatePersonalNum() {
             return this.canCreatePersonalNum_;
         }
 
@@ -771,7 +783,7 @@ public final class Im {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeInt32(1, this.isForumManager_);
@@ -806,10 +818,13 @@ public final class Im {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt32Size(1, this.isForumManager_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeInt32Size(1, this.isForumManager_) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeInt32Size(2, this.canCreateNormal_);
                 }
@@ -844,7 +859,7 @@ public final class Im {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -889,12 +904,12 @@ public final class Im {
         }
 
         public static q newBuilder() {
-            return q.f();
+            return q.b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public q newBuilderForType() {
+        public final q newBuilderForType() {
             return newBuilder();
         }
 
@@ -904,7 +919,7 @@ public final class Im {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public q toBuilder() {
+        public final q toBuilder() {
             return newBuilder(this);
         }
     }
@@ -913,7 +928,9 @@ public final class Im {
     public final class TshowInfo extends GeneratedMessageLite implements ag {
         public static final int ICON_FIELD_NUMBER = 1;
         public static final int NAME_FIELD_NUMBER = 2;
+        public static Parser<TshowInfo> PARSER = new ae();
         public static final int URL_FIELD_NUMBER = 3;
+        private static final TshowInfo a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private Object icon_;
@@ -921,8 +938,6 @@ public final class Im {
         private int memoizedSerializedSize;
         private Object name_;
         private Object url_;
-        public static Parser<TshowInfo> PARSER = new ae();
-        private static final TshowInfo a = new TshowInfo(true);
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ TshowInfo(GeneratedMessageLite.Builder builder, TshowInfo tshowInfo) {
@@ -935,7 +950,7 @@ public final class Im {
             this.memoizedSerializedSize = -1;
         }
 
-        private TshowInfo(boolean z) {
+        private TshowInfo() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -946,7 +961,7 @@ public final class Im {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public TshowInfo getDefaultInstanceForType() {
+        public final TshowInfo getDefaultInstanceForType() {
             return a;
         }
 
@@ -1000,19 +1015,21 @@ public final class Im {
         }
 
         static {
-            a.a();
+            TshowInfo tshowInfo = new TshowInfo();
+            a = tshowInfo;
+            tshowInfo.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<TshowInfo> getParserForType() {
+        public final Parser<TshowInfo> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasIcon() {
+        public final boolean hasIcon() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public String getIcon() {
+        public final String getIcon() {
             Object obj = this.icon_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -1025,7 +1042,7 @@ public final class Im {
             return stringUtf8;
         }
 
-        public ByteString getIconBytes() {
+        public final ByteString getIconBytes() {
             Object obj = this.icon_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -1035,11 +1052,11 @@ public final class Im {
             return (ByteString) obj;
         }
 
-        public boolean hasName() {
+        public final boolean hasName() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public String getName() {
+        public final String getName() {
             Object obj = this.name_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -1052,7 +1069,7 @@ public final class Im {
             return stringUtf8;
         }
 
-        public ByteString getNameBytes() {
+        public final ByteString getNameBytes() {
             Object obj = this.name_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -1062,11 +1079,11 @@ public final class Im {
             return (ByteString) obj;
         }
 
-        public boolean hasUrl() {
+        public final boolean hasUrl() {
             return (this.bitField0_ & 4) == 4;
         }
 
-        public String getUrl() {
+        public final String getUrl() {
             Object obj = this.url_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -1079,7 +1096,7 @@ public final class Im {
             return stringUtf8;
         }
 
-        public ByteString getUrlBytes() {
+        public final ByteString getUrlBytes() {
             Object obj = this.url_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -1106,7 +1123,7 @@ public final class Im {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeBytes(1, getIconBytes());
@@ -1120,10 +1137,13 @@ public final class Im {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getIconBytes()) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeBytesSize(1, getIconBytes()) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeBytesSize(2, getNameBytes());
                 }
@@ -1137,7 +1157,7 @@ public final class Im {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -1182,12 +1202,12 @@ public final class Im {
         }
 
         public static af newBuilder() {
-            return af.f();
+            return af.a();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public af newBuilderForType() {
+        public final af newBuilderForType() {
             return newBuilder();
         }
 
@@ -1197,7 +1217,7 @@ public final class Im {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public af toBuilder() {
+        public final af toBuilder() {
             return newBuilder(this);
         }
     }
@@ -1210,6 +1230,7 @@ public final class Im {
         public static final int LNG_FIELD_NUMBER = 7;
         public static final int LOGINTIME_FIELD_NUMBER = 10;
         public static final int NICKNAME_FIELD_NUMBER = 3;
+        public static Parser<UserInfo> PARSER = new ah();
         public static final int PERMISSION_FIELD_NUMBER = 13;
         public static final int PORTRAIT_FIELD_NUMBER = 4;
         public static final int POSITION_FIELD_NUMBER = 6;
@@ -1218,6 +1239,7 @@ public final class Im {
         public static final int TSHOWICON_FIELD_NUMBER = 14;
         public static final int USERID_FIELD_NUMBER = 1;
         public static final int USERNAME_FIELD_NUMBER = 2;
+        private static final UserInfo a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private int inTime_;
@@ -1236,8 +1258,6 @@ public final class Im {
         private List<TshowInfo> tshowIcon_;
         private int userId_;
         private Object userName_;
-        public static Parser<UserInfo> PARSER = new ah();
-        private static final UserInfo a = new UserInfo(true);
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ UserInfo(GeneratedMessageLite.Builder builder, UserInfo userInfo) {
@@ -1250,7 +1270,7 @@ public final class Im {
             this.memoizedSerializedSize = -1;
         }
 
-        private UserInfo(boolean z) {
+        private UserInfo() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -1261,7 +1281,7 @@ public final class Im {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public UserInfo getDefaultInstanceForType() {
+        public final UserInfo getDefaultInstanceForType() {
             return a;
         }
 
@@ -1376,27 +1396,29 @@ public final class Im {
         }
 
         static {
-            a.a();
+            UserInfo userInfo = new UserInfo();
+            a = userInfo;
+            userInfo.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<UserInfo> getParserForType() {
+        public final Parser<UserInfo> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasUserId() {
+        public final boolean hasUserId() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public int getUserId() {
+        public final int getUserId() {
             return this.userId_;
         }
 
-        public boolean hasUserName() {
+        public final boolean hasUserName() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public String getUserName() {
+        public final String getUserName() {
             Object obj = this.userName_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -1409,7 +1431,7 @@ public final class Im {
             return stringUtf8;
         }
 
-        public ByteString getUserNameBytes() {
+        public final ByteString getUserNameBytes() {
             Object obj = this.userName_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -1419,11 +1441,11 @@ public final class Im {
             return (ByteString) obj;
         }
 
-        public boolean hasNickName() {
+        public final boolean hasNickName() {
             return (this.bitField0_ & 4) == 4;
         }
 
-        public String getNickName() {
+        public final String getNickName() {
             Object obj = this.nickName_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -1436,7 +1458,7 @@ public final class Im {
             return stringUtf8;
         }
 
-        public ByteString getNickNameBytes() {
+        public final ByteString getNickNameBytes() {
             Object obj = this.nickName_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -1446,11 +1468,11 @@ public final class Im {
             return (ByteString) obj;
         }
 
-        public boolean hasPortrait() {
+        public final boolean hasPortrait() {
             return (this.bitField0_ & 8) == 8;
         }
 
-        public String getPortrait() {
+        public final String getPortrait() {
             Object obj = this.portrait_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -1463,7 +1485,7 @@ public final class Im {
             return stringUtf8;
         }
 
-        public ByteString getPortraitBytes() {
+        public final ByteString getPortraitBytes() {
             Object obj = this.portrait_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -1473,19 +1495,19 @@ public final class Im {
             return (ByteString) obj;
         }
 
-        public boolean hasSex() {
+        public final boolean hasSex() {
             return (this.bitField0_ & 16) == 16;
         }
 
-        public int getSex() {
+        public final int getSex() {
             return this.sex_;
         }
 
-        public boolean hasPosition() {
+        public final boolean hasPosition() {
             return (this.bitField0_ & 32) == 32;
         }
 
-        public String getPosition() {
+        public final String getPosition() {
             Object obj = this.position_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -1498,7 +1520,7 @@ public final class Im {
             return stringUtf8;
         }
 
-        public ByteString getPositionBytes() {
+        public final ByteString getPositionBytes() {
             Object obj = this.position_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -1508,79 +1530,79 @@ public final class Im {
             return (ByteString) obj;
         }
 
-        public boolean hasLng() {
+        public final boolean hasLng() {
             return (this.bitField0_ & 64) == 64;
         }
 
-        public double getLng() {
+        public final double getLng() {
             return this.lng_;
         }
 
-        public boolean hasLat() {
+        public final boolean hasLat() {
             return (this.bitField0_ & 128) == 128;
         }
 
-        public double getLat() {
+        public final double getLat() {
             return this.lat_;
         }
 
-        public boolean hasInTime() {
+        public final boolean hasInTime() {
             return (this.bitField0_ & 256) == 256;
         }
 
-        public int getInTime() {
+        public final int getInTime() {
             return this.inTime_;
         }
 
-        public boolean hasLoginTime() {
+        public final boolean hasLoginTime() {
             return (this.bitField0_ & 512) == 512;
         }
 
-        public int getLoginTime() {
+        public final int getLoginTime() {
             return this.loginTime_;
         }
 
-        public boolean hasLastReplyTime() {
+        public final boolean hasLastReplyTime() {
             return (this.bitField0_ & 1024) == 1024;
         }
 
-        public int getLastReplyTime() {
+        public final int getLastReplyTime() {
             return this.lastReplyTime_;
         }
 
-        public boolean hasSysGroupId() {
+        public final boolean hasSysGroupId() {
             return (this.bitField0_ & 2048) == 2048;
         }
 
-        public int getSysGroupId() {
+        public final int getSysGroupId() {
             return this.sysGroupId_;
         }
 
-        public boolean hasPermission() {
+        public final boolean hasPermission() {
             return (this.bitField0_ & 4096) == 4096;
         }
 
-        public UserPermission getPermission() {
+        public final UserPermission getPermission() {
             return this.permission_;
         }
 
-        public List<TshowInfo> getTshowIconList() {
+        public final List<TshowInfo> getTshowIconList() {
             return this.tshowIcon_;
         }
 
-        public List<? extends ag> getTshowIconOrBuilderList() {
+        public final List<? extends ag> getTshowIconOrBuilderList() {
             return this.tshowIcon_;
         }
 
-        public int getTshowIconCount() {
+        public final int getTshowIconCount() {
             return this.tshowIcon_.size();
         }
 
-        public TshowInfo getTshowIcon(int i) {
+        public final TshowInfo getTshowIcon(int i) {
             return this.tshowIcon_.get(i);
         }
 
-        public ag getTshowIconOrBuilder(int i) {
+        public final ag getTshowIconOrBuilder(int i) {
             return this.tshowIcon_.get(i);
         }
 
@@ -1612,7 +1634,7 @@ public final class Im {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeInt32(1, this.userId_);
@@ -1666,7 +1688,7 @@ public final class Im {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = 0;
             int i2 = this.memoizedSerializedSize;
             if (i2 == -1) {
@@ -1722,7 +1744,7 @@ public final class Im {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -1767,12 +1789,12 @@ public final class Im {
         }
 
         public static ai newBuilder() {
-            return ai.f();
+            return ai.b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public ai newBuilderForType() {
+        public final ai newBuilderForType() {
             return newBuilder();
         }
 
@@ -1782,7 +1804,7 @@ public final class Im {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public ai toBuilder() {
+        public final ai toBuilder() {
             return newBuilder(this);
         }
     }
@@ -1791,9 +1813,11 @@ public final class Im {
     public final class MaskInfo extends GeneratedMessageLite implements u {
         public static final int MASKGIDS_FIELD_NUMBER = 2;
         public static final int MASKUIDS_FIELD_NUMBER = 4;
+        public static Parser<MaskInfo> PARSER = new s();
         public static final int REMINDMASK_FIELD_NUMBER = 3;
         public static final int SHIELDSTATUS_FIELD_NUMBER = 5;
         public static final int USERID_FIELD_NUMBER = 1;
+        private static final MaskInfo a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private Object maskGids_;
@@ -1803,8 +1827,6 @@ public final class Im {
         private int remindMask_;
         private int shieldStatus_;
         private long userId_;
-        public static Parser<MaskInfo> PARSER = new s();
-        private static final MaskInfo a = new MaskInfo(true);
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ MaskInfo(GeneratedMessageLite.Builder builder, MaskInfo maskInfo) {
@@ -1817,7 +1839,7 @@ public final class Im {
             this.memoizedSerializedSize = -1;
         }
 
-        private MaskInfo(boolean z) {
+        private MaskInfo() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -1828,7 +1850,7 @@ public final class Im {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public MaskInfo getDefaultInstanceForType() {
+        public final MaskInfo getDefaultInstanceForType() {
             return a;
         }
 
@@ -1890,27 +1912,29 @@ public final class Im {
         }
 
         static {
-            a.a();
+            MaskInfo maskInfo = new MaskInfo();
+            a = maskInfo;
+            maskInfo.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<MaskInfo> getParserForType() {
+        public final Parser<MaskInfo> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasUserId() {
+        public final boolean hasUserId() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public long getUserId() {
+        public final long getUserId() {
             return this.userId_;
         }
 
-        public boolean hasMaskGids() {
+        public final boolean hasMaskGids() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public String getMaskGids() {
+        public final String getMaskGids() {
             Object obj = this.maskGids_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -1923,7 +1947,7 @@ public final class Im {
             return stringUtf8;
         }
 
-        public ByteString getMaskGidsBytes() {
+        public final ByteString getMaskGidsBytes() {
             Object obj = this.maskGids_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -1933,19 +1957,19 @@ public final class Im {
             return (ByteString) obj;
         }
 
-        public boolean hasRemindMask() {
+        public final boolean hasRemindMask() {
             return (this.bitField0_ & 4) == 4;
         }
 
-        public int getRemindMask() {
+        public final int getRemindMask() {
             return this.remindMask_;
         }
 
-        public boolean hasMaskUids() {
+        public final boolean hasMaskUids() {
             return (this.bitField0_ & 8) == 8;
         }
 
-        public String getMaskUids() {
+        public final String getMaskUids() {
             Object obj = this.maskUids_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -1958,7 +1982,7 @@ public final class Im {
             return stringUtf8;
         }
 
-        public ByteString getMaskUidsBytes() {
+        public final ByteString getMaskUidsBytes() {
             Object obj = this.maskUids_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -1968,11 +1992,11 @@ public final class Im {
             return (ByteString) obj;
         }
 
-        public boolean hasShieldStatus() {
+        public final boolean hasShieldStatus() {
             return (this.bitField0_ & 16) == 16;
         }
 
-        public int getShieldStatus() {
+        public final int getShieldStatus() {
             return this.shieldStatus_;
         }
 
@@ -1995,7 +2019,7 @@ public final class Im {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeInt64(1, this.userId_);
@@ -2015,10 +2039,13 @@ public final class Im {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt64Size(1, this.userId_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeInt64Size(1, this.userId_) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeBytesSize(2, getMaskGidsBytes());
                 }
@@ -2038,7 +2065,7 @@ public final class Im {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -2083,12 +2110,12 @@ public final class Im {
         }
 
         public static t newBuilder() {
-            return t.f();
+            return t.b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public t newBuilderForType() {
+        public final t newBuilderForType() {
             return newBuilder();
         }
 
@@ -2098,7 +2125,7 @@ public final class Im {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public t toBuilder() {
+        public final t toBuilder() {
             return newBuilder(this);
         }
     }
@@ -2136,9 +2163,11 @@ public final class Im {
         public static final int NAME_FIELD_NUMBER = 3;
         public static final int NICKNAME_FIELD_NUMBER = 26;
         public static final int NOTICE_FIELD_NUMBER = 10;
+        public static Parser<GroupInfo> PARSER = new j();
         public static final int PORTRAIT_FIELD_NUMBER = 5;
         public static final int POSITION_FIELD_NUMBER = 6;
         public static final int STATUS_FIELD_NUMBER = 12;
+        private static final GroupInfo a;
         private static final long serialVersionUID = 0;
         private int activeDay_;
         private Object album_;
@@ -2178,8 +2207,6 @@ public final class Im {
         private Object portrait_;
         private Object position_;
         private int status_;
-        public static Parser<GroupInfo> PARSER = new j();
-        private static final GroupInfo a = new GroupInfo(true);
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ GroupInfo(GeneratedMessageLite.Builder builder, GroupInfo groupInfo) {
@@ -2192,7 +2219,7 @@ public final class Im {
             this.memoizedSerializedSize = -1;
         }
 
-        private GroupInfo(boolean z) {
+        private GroupInfo() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -2203,7 +2230,7 @@ public final class Im {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public GroupInfo getDefaultInstanceForType() {
+        public final GroupInfo getDefaultInstanceForType() {
             return a;
         }
 
@@ -2381,35 +2408,37 @@ public final class Im {
         }
 
         static {
-            a.a();
+            GroupInfo groupInfo = new GroupInfo();
+            a = groupInfo;
+            groupInfo.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<GroupInfo> getParserForType() {
+        public final Parser<GroupInfo> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasGroupId() {
+        public final boolean hasGroupId() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public int getGroupId() {
+        public final int getGroupId() {
             return this.groupId_;
         }
 
-        public boolean hasForumId() {
+        public final boolean hasForumId() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public int getForumId() {
+        public final int getForumId() {
             return this.forumId_;
         }
 
-        public boolean hasName() {
+        public final boolean hasName() {
             return (this.bitField0_ & 4) == 4;
         }
 
-        public String getName() {
+        public final String getName() {
             Object obj = this.name_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -2422,7 +2451,7 @@ public final class Im {
             return stringUtf8;
         }
 
-        public ByteString getNameBytes() {
+        public final ByteString getNameBytes() {
             Object obj = this.name_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -2432,11 +2461,11 @@ public final class Im {
             return (ByteString) obj;
         }
 
-        public boolean hasIntro() {
+        public final boolean hasIntro() {
             return (this.bitField0_ & 8) == 8;
         }
 
-        public String getIntro() {
+        public final String getIntro() {
             Object obj = this.intro_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -2449,7 +2478,7 @@ public final class Im {
             return stringUtf8;
         }
 
-        public ByteString getIntroBytes() {
+        public final ByteString getIntroBytes() {
             Object obj = this.intro_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -2459,11 +2488,11 @@ public final class Im {
             return (ByteString) obj;
         }
 
-        public boolean hasPortrait() {
+        public final boolean hasPortrait() {
             return (this.bitField0_ & 16) == 16;
         }
 
-        public String getPortrait() {
+        public final String getPortrait() {
             Object obj = this.portrait_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -2476,7 +2505,7 @@ public final class Im {
             return stringUtf8;
         }
 
-        public ByteString getPortraitBytes() {
+        public final ByteString getPortraitBytes() {
             Object obj = this.portrait_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -2486,11 +2515,11 @@ public final class Im {
             return (ByteString) obj;
         }
 
-        public boolean hasPosition() {
+        public final boolean hasPosition() {
             return (this.bitField0_ & 32) == 32;
         }
 
-        public String getPosition() {
+        public final String getPosition() {
             Object obj = this.position_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -2503,7 +2532,7 @@ public final class Im {
             return stringUtf8;
         }
 
-        public ByteString getPositionBytes() {
+        public final ByteString getPositionBytes() {
             Object obj = this.position_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -2513,11 +2542,11 @@ public final class Im {
             return (ByteString) obj;
         }
 
-        public boolean hasBusiness() {
+        public final boolean hasBusiness() {
             return (this.bitField0_ & 64) == 64;
         }
 
-        public String getBusiness() {
+        public final String getBusiness() {
             Object obj = this.business_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -2530,7 +2559,7 @@ public final class Im {
             return stringUtf8;
         }
 
-        public ByteString getBusinessBytes() {
+        public final ByteString getBusinessBytes() {
             Object obj = this.business_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -2540,27 +2569,27 @@ public final class Im {
             return (ByteString) obj;
         }
 
-        public boolean hasLng() {
+        public final boolean hasLng() {
             return (this.bitField0_ & 128) == 128;
         }
 
-        public double getLng() {
+        public final double getLng() {
             return this.lng_;
         }
 
-        public boolean hasLat() {
+        public final boolean hasLat() {
             return (this.bitField0_ & 256) == 256;
         }
 
-        public double getLat() {
+        public final double getLat() {
             return this.lat_;
         }
 
-        public boolean hasNotice() {
+        public final boolean hasNotice() {
             return (this.bitField0_ & 512) == 512;
         }
 
-        public String getNotice() {
+        public final String getNotice() {
             Object obj = this.notice_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -2573,7 +2602,7 @@ public final class Im {
             return stringUtf8;
         }
 
-        public ByteString getNoticeBytes() {
+        public final ByteString getNoticeBytes() {
             Object obj = this.notice_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -2583,11 +2612,11 @@ public final class Im {
             return (ByteString) obj;
         }
 
-        public boolean hasAlbum() {
+        public final boolean hasAlbum() {
             return (this.bitField0_ & 1024) == 1024;
         }
 
-        public String getAlbum() {
+        public final String getAlbum() {
             Object obj = this.album_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -2600,7 +2629,7 @@ public final class Im {
             return stringUtf8;
         }
 
-        public ByteString getAlbumBytes() {
+        public final ByteString getAlbumBytes() {
             Object obj = this.album_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -2610,35 +2639,35 @@ public final class Im {
             return (ByteString) obj;
         }
 
-        public boolean hasStatus() {
+        public final boolean hasStatus() {
             return (this.bitField0_ & 2048) == 2048;
         }
 
-        public int getStatus() {
+        public final int getStatus() {
             return this.status_;
         }
 
-        public boolean hasFlag() {
+        public final boolean hasFlag() {
             return (this.bitField0_ & 4096) == 4096;
         }
 
-        public int getFlag() {
+        public final int getFlag() {
             return this.flag_;
         }
 
-        public boolean hasAuthorId() {
+        public final boolean hasAuthorId() {
             return (this.bitField0_ & 8192) == 8192;
         }
 
-        public int getAuthorId() {
+        public final int getAuthorId() {
             return this.authorId_;
         }
 
-        public boolean hasAuthorName() {
+        public final boolean hasAuthorName() {
             return (this.bitField0_ & 16384) == 16384;
         }
 
-        public String getAuthorName() {
+        public final String getAuthorName() {
             Object obj = this.authorName_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -2651,7 +2680,7 @@ public final class Im {
             return stringUtf8;
         }
 
-        public ByteString getAuthorNameBytes() {
+        public final ByteString getAuthorNameBytes() {
             Object obj = this.authorName_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -2661,11 +2690,11 @@ public final class Im {
             return (ByteString) obj;
         }
 
-        public boolean hasAuthorPortrait() {
+        public final boolean hasAuthorPortrait() {
             return (this.bitField0_ & 32768) == 32768;
         }
 
-        public String getAuthorPortrait() {
+        public final String getAuthorPortrait() {
             Object obj = this.authorPortrait_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -2678,7 +2707,7 @@ public final class Im {
             return stringUtf8;
         }
 
-        public ByteString getAuthorPortraitBytes() {
+        public final ByteString getAuthorPortraitBytes() {
             Object obj = this.authorPortrait_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -2688,75 +2717,75 @@ public final class Im {
             return (ByteString) obj;
         }
 
-        public boolean hasCreateTime() {
+        public final boolean hasCreateTime() {
             return (this.bitField0_ & AccessibilityEventCompat.TYPE_VIEW_ACCESSIBILITY_FOCUS_CLEARED) == 65536;
         }
 
-        public int getCreateTime() {
+        public final int getCreateTime() {
             return this.createTime_;
         }
 
-        public boolean hasMaxMemberNum() {
+        public final boolean hasMaxMemberNum() {
             return (this.bitField0_ & AccessibilityEventCompat.TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY) == 131072;
         }
 
-        public int getMaxMemberNum() {
+        public final int getMaxMemberNum() {
             return this.maxMemberNum_;
         }
 
-        public boolean hasMemberNum() {
+        public final boolean hasMemberNum() {
             return (this.bitField0_ & AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START) == 262144;
         }
 
-        public int getMemberNum() {
+        public final int getMemberNum() {
             return this.memberNum_;
         }
 
-        public boolean hasGroupType() {
+        public final boolean hasGroupType() {
             return (this.bitField0_ & AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END) == 524288;
         }
 
-        public int getGroupType() {
+        public final int getGroupType() {
             return this.groupType_;
         }
 
-        public boolean hasLastMsgId() {
+        public final boolean hasLastMsgId() {
             return (this.bitField0_ & AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START) == 1048576;
         }
 
-        public long getLastMsgId() {
+        public final long getLastMsgId() {
             return this.lastMsgId_;
         }
 
-        public boolean hasGrade() {
+        public final boolean hasGrade() {
             return (this.bitField0_ & AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_END) == 2097152;
         }
 
-        public int getGrade() {
+        public final int getGrade() {
             return this.grade_;
         }
 
-        public boolean hasDistance() {
+        public final boolean hasDistance() {
             return (this.bitField0_ & 4194304) == 4194304;
         }
 
-        public int getDistance() {
+        public final int getDistance() {
             return this.distance_;
         }
 
-        public boolean hasIsHidePosition() {
+        public final boolean hasIsHidePosition() {
             return (this.bitField0_ & GravityCompat.RELATIVE_LAYOUT_DIRECTION) == 8388608;
         }
 
-        public int getIsHidePosition() {
+        public final int getIsHidePosition() {
             return this.isHidePosition_;
         }
 
-        public boolean hasForumName() {
+        public final boolean hasForumName() {
             return (this.bitField0_ & 16777216) == 16777216;
         }
 
-        public String getForumName() {
+        public final String getForumName() {
             Object obj = this.forumName_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -2769,7 +2798,7 @@ public final class Im {
             return stringUtf8;
         }
 
-        public ByteString getForumNameBytes() {
+        public final ByteString getForumNameBytes() {
             Object obj = this.forumName_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -2779,11 +2808,11 @@ public final class Im {
             return (ByteString) obj;
         }
 
-        public boolean hasNickName() {
+        public final boolean hasNickName() {
             return (this.bitField0_ & 33554432) == 33554432;
         }
 
-        public String getNickName() {
+        public final String getNickName() {
             Object obj = this.nickName_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -2796,7 +2825,7 @@ public final class Im {
             return stringUtf8;
         }
 
-        public ByteString getNickNameBytes() {
+        public final ByteString getNickNameBytes() {
             Object obj = this.nickName_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -2806,43 +2835,43 @@ public final class Im {
             return (ByteString) obj;
         }
 
-        public boolean hasActiveDay() {
+        public final boolean hasActiveDay() {
             return (this.bitField0_ & 67108864) == 67108864;
         }
 
-        public int getActiveDay() {
+        public final int getActiveDay() {
             return this.activeDay_;
         }
 
-        public boolean hasIsGroupManager() {
+        public final boolean hasIsGroupManager() {
             return (this.bitField0_ & 134217728) == 134217728;
         }
 
-        public int getIsGroupManager() {
+        public final int getIsGroupManager() {
             return this.isGroupManager_;
         }
 
-        public boolean hasAuthorIsMeizhi() {
+        public final boolean hasAuthorIsMeizhi() {
             return (this.bitField0_ & 268435456) == 268435456;
         }
 
-        public int getAuthorIsMeizhi() {
+        public final int getAuthorIsMeizhi() {
             return this.authorIsMeizhi_;
         }
 
-        public boolean hasLastMsgTime() {
+        public final boolean hasLastMsgTime() {
             return (this.bitField0_ & 536870912) == 536870912;
         }
 
-        public int getLastMsgTime() {
+        public final int getLastMsgTime() {
             return this.lastMsgTime_;
         }
 
-        public boolean hasForumShowName() {
+        public final boolean hasForumShowName() {
             return (this.bitField0_ & 1073741824) == 1073741824;
         }
 
-        public String getForumShowName() {
+        public final String getForumShowName() {
             Object obj = this.forumShowName_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -2855,7 +2884,7 @@ public final class Im {
             return stringUtf8;
         }
 
-        public ByteString getForumShowNameBytes() {
+        public final ByteString getForumShowNameBytes() {
             Object obj = this.forumShowName_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -2865,27 +2894,27 @@ public final class Im {
             return (ByteString) obj;
         }
 
-        public boolean hasIsNewlyCreate() {
+        public final boolean hasIsNewlyCreate() {
             return (this.bitField0_ & Integer.MIN_VALUE) == Integer.MIN_VALUE;
         }
 
-        public int getIsNewlyCreate() {
+        public final int getIsNewlyCreate() {
             return this.isNewlyCreate_;
         }
 
-        public boolean hasIsRecentlyReply() {
+        public final boolean hasIsRecentlyReply() {
             return (this.bitField1_ & 1) == 1;
         }
 
-        public int getIsRecentlyReply() {
+        public final int getIsRecentlyReply() {
             return this.isRecentlyReply_;
         }
 
-        public boolean hasIsMemberGroup() {
+        public final boolean hasIsMemberGroup() {
             return (this.bitField1_ & 2) == 2;
         }
 
-        public int getIsMemberGroup() {
+        public final int getIsMemberGroup() {
             return this.isMemberGroup_;
         }
 
@@ -2937,7 +2966,7 @@ public final class Im {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeInt32(1, this.groupId_);
@@ -3044,10 +3073,13 @@ public final class Im {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt32Size(1, this.groupId_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeInt32Size(1, this.groupId_) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeInt32Size(2, this.forumId_);
                 }
@@ -3154,7 +3186,7 @@ public final class Im {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -3199,12 +3231,12 @@ public final class Im {
         }
 
         public static k newBuilder() {
-            return k.f();
+            return k.c();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public k newBuilderForType() {
+        public final k newBuilderForType() {
             return newBuilder();
         }
 
@@ -3214,7 +3246,7 @@ public final class Im {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public k toBuilder() {
+        public final k toBuilder() {
             return newBuilder(this);
         }
     }
@@ -3224,7 +3256,9 @@ public final class Im {
         public static final int GRADE_FIELD_NUMBER = 1;
         public static final int INTRO_FIELD_NUMBER = 2;
         public static final int MAXMEMBERNUM_FIELD_NUMBER = 4;
+        public static Parser<GradeInfo> PARSER = new g();
         public static final int THRESHOLDDAY_FIELD_NUMBER = 3;
+        private static final GradeInfo a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private int grade_;
@@ -3233,8 +3267,6 @@ public final class Im {
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
         private int thresholdDay_;
-        public static Parser<GradeInfo> PARSER = new g();
-        private static final GradeInfo a = new GradeInfo(true);
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ GradeInfo(GeneratedMessageLite.Builder builder, GradeInfo gradeInfo) {
@@ -3247,7 +3279,7 @@ public final class Im {
             this.memoizedSerializedSize = -1;
         }
 
-        private GradeInfo(boolean z) {
+        private GradeInfo() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -3258,7 +3290,7 @@ public final class Im {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public GradeInfo getDefaultInstanceForType() {
+        public final GradeInfo getDefaultInstanceForType() {
             return a;
         }
 
@@ -3316,27 +3348,29 @@ public final class Im {
         }
 
         static {
-            a.a();
+            GradeInfo gradeInfo = new GradeInfo();
+            a = gradeInfo;
+            gradeInfo.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<GradeInfo> getParserForType() {
+        public final Parser<GradeInfo> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasGrade() {
+        public final boolean hasGrade() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public int getGrade() {
+        public final int getGrade() {
             return this.grade_;
         }
 
-        public boolean hasIntro() {
+        public final boolean hasIntro() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public String getIntro() {
+        public final String getIntro() {
             Object obj = this.intro_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -3349,7 +3383,7 @@ public final class Im {
             return stringUtf8;
         }
 
-        public ByteString getIntroBytes() {
+        public final ByteString getIntroBytes() {
             Object obj = this.intro_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -3359,19 +3393,19 @@ public final class Im {
             return (ByteString) obj;
         }
 
-        public boolean hasThresholdDay() {
+        public final boolean hasThresholdDay() {
             return (this.bitField0_ & 4) == 4;
         }
 
-        public int getThresholdDay() {
+        public final int getThresholdDay() {
             return this.thresholdDay_;
         }
 
-        public boolean hasMaxMemberNum() {
+        public final boolean hasMaxMemberNum() {
             return (this.bitField0_ & 8) == 8;
         }
 
-        public int getMaxMemberNum() {
+        public final int getMaxMemberNum() {
             return this.maxMemberNum_;
         }
 
@@ -3393,7 +3427,7 @@ public final class Im {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeInt32(1, this.grade_);
@@ -3410,10 +3444,13 @@ public final class Im {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt32Size(1, this.grade_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeInt32Size(1, this.grade_) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeBytesSize(2, getIntroBytes());
                 }
@@ -3430,7 +3467,7 @@ public final class Im {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -3475,12 +3512,12 @@ public final class Im {
         }
 
         public static h newBuilder() {
-            return h.f();
+            return h.a();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public h newBuilderForType() {
+        public final h newBuilderForType() {
             return newBuilder();
         }
 
@@ -3490,7 +3527,7 @@ public final class Im {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public h toBuilder() {
+        public final h toBuilder() {
             return newBuilder(this);
         }
     }
@@ -3503,12 +3540,14 @@ public final class Im {
         public static final int GROUPID_FIELD_NUMBER = 2;
         public static final int MSGID_FIELD_NUMBER = 1;
         public static final int MSGTYPE_FIELD_NUMBER = 3;
+        public static Parser<MsgInfo> PARSER = new v();
         public static final int RECORDID_FIELD_NUMBER = 9;
         public static final int STATUS_FIELD_NUMBER = 6;
         public static final int TOUID_FIELD_NUMBER = 11;
         public static final int TOUSERINFO_FIELD_NUMBER = 12;
         public static final int USERID_FIELD_NUMBER = 4;
         public static final int USERINFO_FIELD_NUMBER = 10;
+        private static final MsgInfo a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private Object content_;
@@ -3525,8 +3564,6 @@ public final class Im {
         private UserInfo toUserInfo_;
         private long userId_;
         private UserInfo userInfo_;
-        public static Parser<MsgInfo> PARSER = new v();
-        private static final MsgInfo a = new MsgInfo(true);
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ MsgInfo(GeneratedMessageLite.Builder builder, MsgInfo msgInfo) {
@@ -3539,7 +3576,7 @@ public final class Im {
             this.memoizedSerializedSize = -1;
         }
 
-        private MsgInfo(boolean z) {
+        private MsgInfo() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -3550,7 +3587,7 @@ public final class Im {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public MsgInfo getDefaultInstanceForType() {
+        public final MsgInfo getDefaultInstanceForType() {
             return a;
         }
 
@@ -3650,51 +3687,53 @@ public final class Im {
         }
 
         static {
-            a.a();
+            MsgInfo msgInfo = new MsgInfo();
+            a = msgInfo;
+            msgInfo.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<MsgInfo> getParserForType() {
+        public final Parser<MsgInfo> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasMsgId() {
+        public final boolean hasMsgId() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public long getMsgId() {
+        public final long getMsgId() {
             return this.msgId_;
         }
 
-        public boolean hasGroupId() {
+        public final boolean hasGroupId() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public int getGroupId() {
+        public final int getGroupId() {
             return this.groupId_;
         }
 
-        public boolean hasMsgType() {
+        public final boolean hasMsgType() {
             return (this.bitField0_ & 4) == 4;
         }
 
-        public int getMsgType() {
+        public final int getMsgType() {
             return this.msgType_;
         }
 
-        public boolean hasUserId() {
+        public final boolean hasUserId() {
             return (this.bitField0_ & 8) == 8;
         }
 
-        public long getUserId() {
+        public final long getUserId() {
             return this.userId_;
         }
 
-        public boolean hasContent() {
+        public final boolean hasContent() {
             return (this.bitField0_ & 16) == 16;
         }
 
-        public String getContent() {
+        public final String getContent() {
             Object obj = this.content_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -3707,7 +3746,7 @@ public final class Im {
             return stringUtf8;
         }
 
-        public ByteString getContentBytes() {
+        public final ByteString getContentBytes() {
             Object obj = this.content_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -3717,59 +3756,59 @@ public final class Im {
             return (ByteString) obj;
         }
 
-        public boolean hasStatus() {
+        public final boolean hasStatus() {
             return (this.bitField0_ & 32) == 32;
         }
 
-        public int getStatus() {
+        public final int getStatus() {
             return this.status_;
         }
 
-        public boolean hasDuration() {
+        public final boolean hasDuration() {
             return (this.bitField0_ & 64) == 64;
         }
 
-        public int getDuration() {
+        public final int getDuration() {
             return this.duration_;
         }
 
-        public boolean hasCreateTime() {
+        public final boolean hasCreateTime() {
             return (this.bitField0_ & 128) == 128;
         }
 
-        public int getCreateTime() {
+        public final int getCreateTime() {
             return this.createTime_;
         }
 
-        public boolean hasRecordId() {
+        public final boolean hasRecordId() {
             return (this.bitField0_ & 256) == 256;
         }
 
-        public long getRecordId() {
+        public final long getRecordId() {
             return this.recordId_;
         }
 
-        public boolean hasUserInfo() {
+        public final boolean hasUserInfo() {
             return (this.bitField0_ & 512) == 512;
         }
 
-        public UserInfo getUserInfo() {
+        public final UserInfo getUserInfo() {
             return this.userInfo_;
         }
 
-        public boolean hasToUid() {
+        public final boolean hasToUid() {
             return (this.bitField0_ & 1024) == 1024;
         }
 
-        public long getToUid() {
+        public final long getToUid() {
             return this.toUid_;
         }
 
-        public boolean hasToUserInfo() {
+        public final boolean hasToUserInfo() {
             return (this.bitField0_ & 2048) == 2048;
         }
 
-        public UserInfo getToUserInfo() {
+        public final UserInfo getToUserInfo() {
             return this.toUserInfo_;
         }
 
@@ -3799,7 +3838,7 @@ public final class Im {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeInt64(1, this.msgId_);
@@ -3840,10 +3879,13 @@ public final class Im {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt64Size(1, this.msgId_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeInt64Size(1, this.msgId_) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeInt32Size(2, this.groupId_);
                 }
@@ -3884,7 +3926,7 @@ public final class Im {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -3929,12 +3971,12 @@ public final class Im {
         }
 
         public static w newBuilder() {
-            return w.f();
+            return w.a();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public w newBuilderForType() {
+        public final w newBuilderForType() {
             return newBuilder();
         }
 
@@ -3944,7 +3986,7 @@ public final class Im {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public w toBuilder() {
+        public final w toBuilder() {
             return newBuilder(this);
         }
     }
@@ -3953,8 +3995,10 @@ public final class Im {
     public final class PusherMsgInfo extends GeneratedMessageLite implements ad {
         public static final int GROUPID_FIELD_NUMBER = 1;
         public static final int MSGID_FIELD_NUMBER = 2;
+        public static Parser<PusherMsgInfo> PARSER = new ab();
         public static final int PUSHTIME_FIELD_NUMBER = 3;
         public static final int TYPE_FIELD_NUMBER = 4;
+        private static final PusherMsgInfo a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private int groupId_;
@@ -3963,8 +4007,6 @@ public final class Im {
         private long msgId_;
         private long pushTime_;
         private int type_;
-        public static Parser<PusherMsgInfo> PARSER = new ab();
-        private static final PusherMsgInfo a = new PusherMsgInfo(true);
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ PusherMsgInfo(GeneratedMessageLite.Builder builder, PusherMsgInfo pusherMsgInfo) {
@@ -3977,7 +4019,7 @@ public final class Im {
             this.memoizedSerializedSize = -1;
         }
 
-        private PusherMsgInfo(boolean z) {
+        private PusherMsgInfo() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -3988,7 +4030,7 @@ public final class Im {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public PusherMsgInfo getDefaultInstanceForType() {
+        public final PusherMsgInfo getDefaultInstanceForType() {
             return a;
         }
 
@@ -4046,43 +4088,45 @@ public final class Im {
         }
 
         static {
-            a.a();
+            PusherMsgInfo pusherMsgInfo = new PusherMsgInfo();
+            a = pusherMsgInfo;
+            pusherMsgInfo.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<PusherMsgInfo> getParserForType() {
+        public final Parser<PusherMsgInfo> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasGroupId() {
+        public final boolean hasGroupId() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public int getGroupId() {
+        public final int getGroupId() {
             return this.groupId_;
         }
 
-        public boolean hasMsgId() {
+        public final boolean hasMsgId() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public long getMsgId() {
+        public final long getMsgId() {
             return this.msgId_;
         }
 
-        public boolean hasPushTime() {
+        public final boolean hasPushTime() {
             return (this.bitField0_ & 4) == 4;
         }
 
-        public long getPushTime() {
+        public final long getPushTime() {
             return this.pushTime_;
         }
 
-        public boolean hasType() {
+        public final boolean hasType() {
             return (this.bitField0_ & 8) == 8;
         }
 
-        public int getType() {
+        public final int getType() {
             return this.type_;
         }
 
@@ -4104,7 +4148,7 @@ public final class Im {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeInt32(1, this.groupId_);
@@ -4121,10 +4165,13 @@ public final class Im {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt32Size(1, this.groupId_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeInt32Size(1, this.groupId_) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeInt64Size(2, this.msgId_);
                 }
@@ -4141,7 +4188,7 @@ public final class Im {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -4186,12 +4233,12 @@ public final class Im {
         }
 
         public static ac newBuilder() {
-            return ac.f();
+            return ac.b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public ac newBuilderForType() {
+        public final ac newBuilderForType() {
             return newBuilder();
         }
 
@@ -4201,7 +4248,7 @@ public final class Im {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public ac toBuilder() {
+        public final ac toBuilder() {
             return newBuilder(this);
         }
     }
@@ -4211,7 +4258,7 @@ public final class Im {
         public static final int GROUPID_FIELD_NUMBER = 1;
         public static final int LASTMSGID_FIELD_NUMBER = 2;
         public static Parser<GroupLastId> PARSER = new m();
-        private static final GroupLastId a = new GroupLastId(true);
+        private static final GroupLastId a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private int groupId_;
@@ -4230,7 +4277,7 @@ public final class Im {
             this.memoizedSerializedSize = -1;
         }
 
-        private GroupLastId(boolean z) {
+        private GroupLastId() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -4241,7 +4288,7 @@ public final class Im {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public GroupLastId getDefaultInstanceForType() {
+        public final GroupLastId getDefaultInstanceForType() {
             return a;
         }
 
@@ -4291,27 +4338,29 @@ public final class Im {
         }
 
         static {
-            a.a();
+            GroupLastId groupLastId = new GroupLastId();
+            a = groupLastId;
+            groupLastId.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<GroupLastId> getParserForType() {
+        public final Parser<GroupLastId> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasGroupId() {
+        public final boolean hasGroupId() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public int getGroupId() {
+        public final int getGroupId() {
             return this.groupId_;
         }
 
-        public boolean hasLastMsgId() {
+        public final boolean hasLastMsgId() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public long getLastMsgId() {
+        public final long getLastMsgId() {
             return this.lastMsgId_;
         }
 
@@ -4331,7 +4380,7 @@ public final class Im {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeInt32(1, this.groupId_);
@@ -4342,10 +4391,13 @@ public final class Im {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt32Size(1, this.groupId_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeInt32Size(1, this.groupId_) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeInt64Size(2, this.lastMsgId_);
                 }
@@ -4356,7 +4408,7 @@ public final class Im {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -4401,12 +4453,12 @@ public final class Im {
         }
 
         public static n newBuilder() {
-            return n.f();
+            return n.b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public n newBuilderForType() {
+        public final n newBuilderForType() {
             return newBuilder();
         }
 
@@ -4416,7 +4468,7 @@ public final class Im {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public n toBuilder() {
+        public final n toBuilder() {
             return newBuilder(this);
         }
     }
@@ -4424,8 +4476,10 @@ public final class Im {
     /* loaded from: classes.dex */
     public final class Photo extends GeneratedMessageLite implements aa {
         public static final int BIGURL_FIELD_NUMBER = 2;
+        public static Parser<Photo> PARSER = new y();
         public static final int PICID_FIELD_NUMBER = 3;
         public static final int SMALLURL_FIELD_NUMBER = 1;
+        private static final Photo a;
         private static final long serialVersionUID = 0;
         private Object bigurl_;
         private int bitField0_;
@@ -4433,8 +4487,6 @@ public final class Im {
         private int memoizedSerializedSize;
         private Object picId_;
         private Object smallurl_;
-        public static Parser<Photo> PARSER = new y();
-        private static final Photo a = new Photo(true);
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ Photo(GeneratedMessageLite.Builder builder, Photo photo) {
@@ -4447,7 +4499,7 @@ public final class Im {
             this.memoizedSerializedSize = -1;
         }
 
-        private Photo(boolean z) {
+        private Photo() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -4458,7 +4510,7 @@ public final class Im {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public Photo getDefaultInstanceForType() {
+        public final Photo getDefaultInstanceForType() {
             return a;
         }
 
@@ -4512,19 +4564,21 @@ public final class Im {
         }
 
         static {
-            a.a();
+            Photo photo = new Photo();
+            a = photo;
+            photo.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<Photo> getParserForType() {
+        public final Parser<Photo> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasSmallurl() {
+        public final boolean hasSmallurl() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public String getSmallurl() {
+        public final String getSmallurl() {
             Object obj = this.smallurl_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -4537,7 +4591,7 @@ public final class Im {
             return stringUtf8;
         }
 
-        public ByteString getSmallurlBytes() {
+        public final ByteString getSmallurlBytes() {
             Object obj = this.smallurl_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -4547,11 +4601,11 @@ public final class Im {
             return (ByteString) obj;
         }
 
-        public boolean hasBigurl() {
+        public final boolean hasBigurl() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public String getBigurl() {
+        public final String getBigurl() {
             Object obj = this.bigurl_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -4564,7 +4618,7 @@ public final class Im {
             return stringUtf8;
         }
 
-        public ByteString getBigurlBytes() {
+        public final ByteString getBigurlBytes() {
             Object obj = this.bigurl_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -4574,11 +4628,11 @@ public final class Im {
             return (ByteString) obj;
         }
 
-        public boolean hasPicId() {
+        public final boolean hasPicId() {
             return (this.bitField0_ & 4) == 4;
         }
 
-        public String getPicId() {
+        public final String getPicId() {
             Object obj = this.picId_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -4591,7 +4645,7 @@ public final class Im {
             return stringUtf8;
         }
 
-        public ByteString getPicIdBytes() {
+        public final ByteString getPicIdBytes() {
             Object obj = this.picId_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -4618,7 +4672,7 @@ public final class Im {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeBytes(1, getSmallurlBytes());
@@ -4632,10 +4686,13 @@ public final class Im {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getSmallurlBytes()) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeBytesSize(1, getSmallurlBytes()) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeBytesSize(2, getBigurlBytes());
                 }
@@ -4649,7 +4706,7 @@ public final class Im {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -4694,12 +4751,12 @@ public final class Im {
         }
 
         public static z newBuilder() {
-            return z.f();
+            return z.a();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public z newBuilderForType() {
+        public final z newBuilderForType() {
             return newBuilder();
         }
 
@@ -4709,7 +4766,7 @@ public final class Im {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public z toBuilder() {
+        public final z toBuilder() {
             return newBuilder(this);
         }
     }
@@ -4720,7 +4777,7 @@ public final class Im {
         public static final int ACTIVITYTITLE_FIELD_NUMBER = 2;
         public static final int ISEND_FIELD_NUMBER = 3;
         public static Parser<ActivityInfo> PARSER = new a();
-        private static final ActivityInfo a = new ActivityInfo(true);
+        private static final ActivityInfo a;
         private static final long serialVersionUID = 0;
         private int activityId_;
         private Object activityTitle_;
@@ -4740,7 +4797,7 @@ public final class Im {
             this.memoizedSerializedSize = -1;
         }
 
-        private ActivityInfo(boolean z) {
+        private ActivityInfo() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -4751,7 +4808,7 @@ public final class Im {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public ActivityInfo getDefaultInstanceForType() {
+        public final ActivityInfo getDefaultInstanceForType() {
             return a;
         }
 
@@ -4805,27 +4862,29 @@ public final class Im {
         }
 
         static {
-            a.a();
+            ActivityInfo activityInfo = new ActivityInfo();
+            a = activityInfo;
+            activityInfo.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<ActivityInfo> getParserForType() {
+        public final Parser<ActivityInfo> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasActivityId() {
+        public final boolean hasActivityId() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public int getActivityId() {
+        public final int getActivityId() {
             return this.activityId_;
         }
 
-        public boolean hasActivityTitle() {
+        public final boolean hasActivityTitle() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public String getActivityTitle() {
+        public final String getActivityTitle() {
             Object obj = this.activityTitle_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -4838,7 +4897,7 @@ public final class Im {
             return stringUtf8;
         }
 
-        public ByteString getActivityTitleBytes() {
+        public final ByteString getActivityTitleBytes() {
             Object obj = this.activityTitle_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -4848,11 +4907,11 @@ public final class Im {
             return (ByteString) obj;
         }
 
-        public boolean hasIsEnd() {
+        public final boolean hasIsEnd() {
             return (this.bitField0_ & 4) == 4;
         }
 
-        public int getIsEnd() {
+        public final int getIsEnd() {
             return this.isEnd_;
         }
 
@@ -4873,7 +4932,7 @@ public final class Im {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeInt32(1, this.activityId_);
@@ -4887,10 +4946,13 @@ public final class Im {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt32Size(1, this.activityId_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeInt32Size(1, this.activityId_) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeBytesSize(2, getActivityTitleBytes());
                 }
@@ -4904,7 +4966,7 @@ public final class Im {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -4949,12 +5011,12 @@ public final class Im {
         }
 
         public static b newBuilder() {
-            return b.f();
+            return b.a();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public b newBuilderForType() {
+        public final b newBuilderForType() {
             return newBuilder();
         }
 
@@ -4964,7 +5026,7 @@ public final class Im {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public b toBuilder() {
+        public final b toBuilder() {
             return newBuilder(this);
         }
     }

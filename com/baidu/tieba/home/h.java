@@ -1,6 +1,6 @@
 package com.baidu.tieba.home;
 /* loaded from: classes.dex */
-class h implements Runnable {
+final class h implements Runnable {
     final /* synthetic */ g a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,11 +9,9 @@ class h implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
-        f fVar;
+    public final void run() {
         n nVar;
-        fVar = this.a.a;
-        nVar = fVar.b;
-        nVar.e();
+        nVar = this.a.a.b;
+        nVar.a();
     }
 }

@@ -6,7 +6,7 @@ import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class u {
+public final class u {
     private int a;
     private String b;
     private String c;
@@ -24,69 +24,69 @@ public class u {
     private q o = new q();
     private int p;
 
-    public String a() {
+    public final String a() {
         return this.b;
     }
 
-    public String b() {
+    public final String b() {
         return this.c;
     }
 
-    public String c() {
+    public final String c() {
         return this.d;
     }
 
-    public String d() {
+    public final String d() {
         return this.e;
     }
 
-    public String e() {
+    public final String e() {
         return this.f;
     }
 
-    public String f() {
+    public final String f() {
         return this.g;
     }
 
-    public int g() {
+    public final int g() {
         return this.h;
     }
 
-    public String h() {
+    public final String h() {
         return this.i;
     }
 
-    public int i() {
+    public final int i() {
         return this.j;
     }
 
-    public ArrayList<v> j() {
+    public final ArrayList<v> j() {
         return this.k;
     }
 
-    public q k() {
+    public final q k() {
         return this.o;
     }
 
-    public ArrayList<v> l() {
+    public final ArrayList<v> l() {
         return this.l;
     }
 
-    public ArrayList<v> m() {
+    public final ArrayList<v> m() {
         return this.m;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         if (str != null) {
             try {
                 a(new JSONObject(str));
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }
 
-    public void a(aj ajVar) {
+    public final void a(aj ajVar) {
         ArrayList<ak> d = ajVar.d();
         int size = d.size();
         for (int i = 0; i < size; i++) {
@@ -119,7 +119,7 @@ public class u {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    public final void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 this.o.a(jSONObject.optJSONObject("error"));
@@ -158,7 +158,7 @@ public class u {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }

@@ -11,7 +11,7 @@ import com.baidu.tieba.im.message.s;
 import com.baidu.tieba.im.messageCenter.g;
 import java.util.List;
 /* loaded from: classes.dex */
-class b implements g {
+final class b implements g {
     final /* synthetic */ HotGroupFragment a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -20,7 +20,7 @@ class b implements g {
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(s sVar) {
+    public final void a(s sVar) {
         HotGroupActivity hotGroupActivity;
         BdListView bdListView;
         c cVar;
@@ -52,7 +52,7 @@ class b implements g {
                     if (sVar instanceof cy) {
                         cy cyVar = (cy) sVar;
                         if (!cyVar.l() || cyVar.m() == 2230110) {
-                            this.a.d();
+                            this.a.c();
                             return;
                         }
                     }
@@ -75,7 +75,7 @@ class b implements g {
                             aq aqVar = (aq) cdVar.o();
                             List<GroupInfoData> a = cdVar.a();
                             if (a != null) {
-                                if (aqVar.f()) {
+                                if (aqVar.b()) {
                                     hotGroupAdapter12 = this.a.f;
                                     hotGroupAdapter12.b();
                                 }
@@ -85,7 +85,7 @@ class b implements g {
                                 if (cVar6.a()) {
                                     hotGroupAdapter11 = this.a.f;
                                     hotGroupAdapter11.a(HotGroupAdapter.BOTTOM_TYPE.HAVE_MORE);
-                                } else if (!aqVar.f()) {
+                                } else if (!aqVar.b()) {
                                     hotGroupAdapter5 = this.a.f;
                                     hotGroupAdapter5.a(HotGroupAdapter.BOTTOM_TYPE.NO_MORE);
                                 } else if (a.size() == 0) {

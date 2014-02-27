@@ -4,25 +4,32 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.AddGroup.AddGroupReq;
 /* loaded from: classes.dex */
 public final class b extends GeneratedMessageLite.Builder<AddGroupReq.AddGroupReqIdl, b> implements c {
     private int a;
     private AddGroupReq.DataReq b = AddGroupReq.DataReq.getDefaultInstance();
 
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return AddGroupReq.AddGroupReqIdl.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return AddGroupReq.AddGroupReqIdl.getDefaultInstance();
+    }
+
     private b() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static b h() {
+    public static /* synthetic */ b b() {
         return new b();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public b clear() {
         super.clear();
         this.b = AddGroupReq.DataReq.getDefaultInstance();
@@ -31,20 +38,14 @@ public final class b extends GeneratedMessageLite.Builder<AddGroupReq.AddGroupRe
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
+    /* renamed from: d */
     public b clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public AddGroupReq.AddGroupReqIdl getDefaultInstanceForType() {
-        return AddGroupReq.AddGroupReqIdl.getDefaultInstance();
+        return new b().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: d */
-    public AddGroupReq.AddGroupReqIdl build() {
+    /* renamed from: a */
+    public final AddGroupReq.AddGroupReqIdl build() {
         AddGroupReq.AddGroupReqIdl buildPartial = buildPartial();
         if (!buildPartial.isInitialized()) {
             throw newUninitializedMessageException(buildPartial);
@@ -64,9 +65,15 @@ public final class b extends GeneratedMessageLite.Builder<AddGroupReq.AddGroupRe
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public b mergeFrom(AddGroupReq.AddGroupReqIdl addGroupReqIdl) {
+    public final b mergeFrom(AddGroupReq.AddGroupReqIdl addGroupReqIdl) {
         if (addGroupReqIdl != AddGroupReq.AddGroupReqIdl.getDefaultInstance() && addGroupReqIdl.hasData()) {
-            b(addGroupReqIdl.getData());
+            AddGroupReq.DataReq data = addGroupReqIdl.getData();
+            if ((this.a & 1) != 1 || this.b == AddGroupReq.DataReq.getDefaultInstance()) {
+                this.b = data;
+            } else {
+                this.b = AddGroupReq.DataReq.newBuilder(this.b).mergeFrom(data).buildPartial();
+            }
+            this.a |= 1;
         }
         return this;
     }
@@ -114,21 +121,11 @@ public final class b extends GeneratedMessageLite.Builder<AddGroupReq.AddGroupRe
         }
     }
 
-    public b a(AddGroupReq.DataReq dataReq) {
+    public final b a(AddGroupReq.DataReq dataReq) {
         if (dataReq != null) {
             this.b = dataReq;
             this.a |= 1;
         }
-        return this;
-    }
-
-    public b b(AddGroupReq.DataReq dataReq) {
-        if ((this.a & 1) == 1 && this.b != AddGroupReq.DataReq.getDefaultInstance()) {
-            this.b = AddGroupReq.DataReq.newBuilder(this.b).mergeFrom(dataReq).buildPartial();
-        } else {
-            this.b = dataReq;
-        }
-        this.a |= 1;
         return this;
     }
 }

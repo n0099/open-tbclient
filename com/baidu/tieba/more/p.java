@@ -14,7 +14,7 @@ import com.baidu.tieba.util.bq;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class p extends BaseAdapter {
+public final class p extends BaseAdapter {
     private com.baidu.tieba.f a;
     private View.OnClickListener d;
     private ArrayList<AccountData> c = null;
@@ -25,12 +25,12 @@ public class p extends BaseAdapter {
         this.d = onClickListener;
     }
 
-    public void a(ArrayList<AccountData> arrayList) {
+    public final void a(ArrayList<AccountData> arrayList) {
         this.c = arrayList;
     }
 
     @Override // android.widget.Adapter
-    public int getCount() {
+    public final int getCount() {
         int i = 0;
         if (this.c != null) {
             i = this.c.size();
@@ -39,7 +39,7 @@ public class p extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public Object getItem(int i) {
+    public final Object getItem(int i) {
         if (this.c == null || i < 0 || i >= this.c.size()) {
             return null;
         }
@@ -47,7 +47,7 @@ public class p extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    public final long getItemId(int i) {
         if (getItem(i) != null) {
             return i;
         }
@@ -62,7 +62,7 @@ public class p extends BaseAdapter {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public final View getView(int i, View view, ViewGroup viewGroup) {
         q qVar;
         View view2;
         try {
@@ -72,7 +72,7 @@ public class p extends BaseAdapter {
                         LayoutInflater from = LayoutInflater.from(this.a);
                         if (getItemViewType(i) == 0) {
                             view2 = from.inflate(R.layout.account_item, (ViewGroup) null);
-                            qVar = new q(this, null);
+                            qVar = new q(this, (byte) 0);
                             qVar.a = (TextView) view2.findViewById(R.id.account);
                             qVar.c = (ImageView) view2.findViewById(R.id.active);
                             qVar.d = (Button) view2.findViewById(R.id.delete);
@@ -81,7 +81,7 @@ public class p extends BaseAdapter {
                             view2.setTag(qVar);
                         } else {
                             view2 = from.inflate(R.layout.account_add_item, (ViewGroup) null);
-                            qVar = new q(this, null);
+                            qVar = new q(this, (byte) 0);
                             qVar.b = (TextView) view2.findViewById(R.id.add_text);
                             view2.setTag(qVar);
                         }
@@ -90,7 +90,7 @@ public class p extends BaseAdapter {
                         view2 = view;
                     }
                     if (getItemViewType(i) == 0) {
-                        if (TiebaApplication.g().al() == 1) {
+                        if (TiebaApplication.g().ae() == 1) {
                             qVar.a.setTextColor(bq.a(1));
                         } else {
                             qVar.a.setTextColor(-12895429);
@@ -114,53 +114,53 @@ public class p extends BaseAdapter {
                             qVar.e.setVisibility(0);
                         }
                     } else {
-                        if (TiebaApplication.g().al() == 1) {
+                        if (TiebaApplication.g().ae() == 1) {
                             qVar.b.setTextColor(bq.a(1));
                         } else {
                             qVar.b.setTextColor(-12895429);
                         }
                         qVar.e.setVisibility(8);
                     }
-                    this.a.getLayoutMode().a(TiebaApplication.g().al() == 1);
+                    this.a.getLayoutMode().a(TiebaApplication.g().ae() == 1);
                     this.a.getLayoutMode().a(view2);
                     return view2;
                 } catch (Throwable th) {
                     th = th;
-                    this.a.getLayoutMode().a(TiebaApplication.g().al() == 1);
+                    this.a.getLayoutMode().a(TiebaApplication.g().ae() == 1);
                     this.a.getLayoutMode().a(view);
                     throw th;
                 }
             } catch (Exception e) {
                 e = e;
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "getView", e.getMessage());
-                this.a.getLayoutMode().a(TiebaApplication.g().al() != 1);
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "getView", e.getMessage());
+                this.a.getLayoutMode().a(TiebaApplication.g().ae() != 1);
                 this.a.getLayoutMode().a(view);
                 return view;
             }
         } catch (Exception e2) {
             e = e2;
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "getView", e.getMessage());
-            this.a.getLayoutMode().a(TiebaApplication.g().al() != 1);
+            com.baidu.adp.lib.util.e.b(getClass().getName(), "getView", e.getMessage());
+            this.a.getLayoutMode().a(TiebaApplication.g().ae() != 1);
             this.a.getLayoutMode().a(view);
             return view;
         } catch (Throwable th2) {
             th = th2;
-            this.a.getLayoutMode().a(TiebaApplication.g().al() == 1);
+            this.a.getLayoutMode().a(TiebaApplication.g().ae() == 1);
             this.a.getLayoutMode().a(view);
             throw th;
         }
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.b = z;
     }
 
-    public boolean a() {
+    public final boolean a() {
         return this.b;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
+    public final int getItemViewType(int i) {
         if (getItemId(i) >= 0) {
             return 0;
         }
@@ -168,7 +168,7 @@ public class p extends BaseAdapter {
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
+    public final int getViewTypeCount() {
         return 2;
     }
 }

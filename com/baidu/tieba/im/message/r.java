@@ -3,7 +3,7 @@ package com.baidu.tieba.im.message;
 import com.baidu.sapi2.shell.SapiErrorCode;
 import java.util.List;
 /* loaded from: classes.dex */
-public class r extends da {
+public final class r extends da {
     private String a;
     private List<b> c;
     private boolean d;
@@ -14,43 +14,43 @@ public class r extends da {
         e(SapiErrorCode.GET_CERT_FAIL);
     }
 
-    public String a() {
+    public final String a() {
         return this.a;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.a = str;
     }
 
-    public List<b> b() {
+    public final List<b> b() {
         return this.c;
     }
 
-    public void a(List<b> list) {
+    public final void a(List<b> list) {
         this.c = list;
     }
 
-    public boolean c() {
+    public final boolean c() {
         return this.d;
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.d = z;
     }
 
-    public long d() {
+    public final long d() {
         return this.b;
     }
 
-    public void a(long j) {
+    public final void a(long j) {
         this.b = j;
     }
 
-    public int e() {
+    public final int e() {
         return this.e;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.e = i;
     }
 }

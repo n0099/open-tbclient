@@ -1,6 +1,6 @@
 package com.baidu.tieba.faceshop;
 /* loaded from: classes.dex */
-class u extends com.baidu.adp.a.g {
+final class u extends com.baidu.adp.a.g {
     final /* synthetic */ FacePackageDetailActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,21 +9,21 @@ class u extends com.baidu.adp.a.g {
     }
 
     @Override // com.baidu.adp.a.g
-    public void a(Object obj) {
+    public final void a(Object obj) {
         if (obj != null && (obj instanceof FaceBuyQueryData)) {
             FaceBuyQueryData faceBuyQueryData = (FaceBuyQueryData) obj;
             if (faceBuyQueryData.errno == 0 && faceBuyQueryData.usermsg != null) {
                 if (faceBuyQueryData.buyResult.status == 2) {
-                    this.a.c();
+                    this.a.b();
                     return;
                 } else {
-                    this.a.d();
+                    this.a.c();
                     return;
                 }
             }
-            this.a.d();
+            this.a.c();
             return;
         }
-        this.a.d();
+        this.a.c();
     }
 }

@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -15,19 +16,34 @@ public final class h extends GeneratedMessageLite.Builder<GetMaskInfoRes.DataRes
     private Object c = "";
     private List<GetMaskInfoRes.UserInfo> d = Collections.emptyList();
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        GetMaskInfoRes.DataRes buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return GetMaskInfoRes.DataRes.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return GetMaskInfoRes.DataRes.getDefaultInstance();
+    }
+
     private h() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static h h() {
+    public static /* synthetic */ h b() {
         return new h();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public h clear() {
         super.clear();
         this.b = 0;
@@ -40,30 +56,14 @@ public final class h extends GeneratedMessageLite.Builder<GetMaskInfoRes.DataRes
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public h clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public GetMaskInfoRes.DataRes getDefaultInstanceForType() {
-        return GetMaskInfoRes.DataRes.getDefaultInstance();
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public GetMaskInfoRes.DataRes build() {
-        GetMaskInfoRes.DataRes buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
+    public h clone() {
+        return new h().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public GetMaskInfoRes.DataRes buildPartial() {
+    /* renamed from: a */
+    public final GetMaskInfoRes.DataRes buildPartial() {
         GetMaskInfoRes.DataRes dataRes = new GetMaskInfoRes.DataRes(this, (GetMaskInfoRes.DataRes) null);
         int i = this.a;
         int i2 = (i & 1) != 1 ? 0 : 1;
@@ -83,14 +83,16 @@ public final class h extends GeneratedMessageLite.Builder<GetMaskInfoRes.DataRes
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public h mergeFrom(GetMaskInfoRes.DataRes dataRes) {
+    public final h mergeFrom(GetMaskInfoRes.DataRes dataRes) {
         List list;
         List list2;
         List<GetMaskInfoRes.UserInfo> list3;
         Object obj;
         if (dataRes != GetMaskInfoRes.DataRes.getDefaultInstance()) {
             if (dataRes.hasIsMask()) {
-                a(dataRes.getIsMask());
+                int isMask = dataRes.getIsMask();
+                this.a |= 1;
+                this.b = isMask;
             }
             if (dataRes.hasList()) {
                 this.a |= 2;
@@ -104,7 +106,10 @@ public final class h extends GeneratedMessageLite.Builder<GetMaskInfoRes.DataRes
                     this.d = list3;
                     this.a &= -5;
                 } else {
-                    i();
+                    if ((this.a & 4) != 4) {
+                        this.d = new ArrayList(this.d);
+                        this.a |= 4;
+                    }
                     List<GetMaskInfoRes.UserInfo> list4 = this.d;
                     list2 = dataRes.users_;
                     list4.addAll(list2);
@@ -154,19 +159,6 @@ public final class h extends GeneratedMessageLite.Builder<GetMaskInfoRes.DataRes
                 }
                 throw th;
             }
-        }
-    }
-
-    public h a(int i) {
-        this.a |= 1;
-        this.b = i;
-        return this;
-    }
-
-    private void i() {
-        if ((this.a & 4) != 4) {
-            this.d = new ArrayList(this.d);
-            this.a |= 4;
         }
     }
 }

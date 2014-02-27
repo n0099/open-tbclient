@@ -13,17 +13,16 @@ import com.baidu.adp.widget.ListView.q;
 import com.baidu.adp.widget.ListView.r;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.groupInfo.GroupInfoActivity;
-import com.baidu.tieba.im.messageCenter.e;
 import com.baidu.tieba.im.messageCenter.g;
 import com.baidu.tieba.j;
 import com.baidu.tieba.util.ap;
 import com.baidu.tieba.util.cb;
-import com.baidu.tieba.view.ct;
+import com.baidu.tieba.view.cs;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class HotGroupFragment extends j implements com.baidu.adp.widget.ListView.b, q, r {
     private BdListView b;
-    private ct c;
+    private cs c;
     private HotGroupActivity d;
     private View e;
     private HotGroupAdapter f;
@@ -43,7 +42,7 @@ public class HotGroupFragment extends j implements com.baidu.adp.widget.ListView
         View inflate = layoutInflater.inflate(R.layout.hot_group_fragment, (ViewGroup) null);
         this.b = (BdListView) inflate.findViewById(R.id.hot_group_list);
         this.b.a(this, 300L);
-        this.c = new ct(this.d);
+        this.c = new cs(this.d);
         this.c.a(this);
         this.f = new HotGroupAdapter(this.d);
         this.b.setAdapter((ListAdapter) this.f);
@@ -57,7 +56,7 @@ public class HotGroupFragment extends j implements com.baidu.adp.widget.ListView
     @Override // android.support.v4.app.Fragment
     public void onViewCreated(View view, Bundle bundle) {
         super.onViewCreated(view, bundle);
-        d();
+        c();
     }
 
     @Override // com.baidu.tieba.j, android.widget.AdapterView.OnItemClickListener
@@ -70,7 +69,7 @@ public class HotGroupFragment extends j implements com.baidu.adp.widget.ListView
     }
 
     @Override // com.baidu.tieba.j
-    public void c(int i) {
+    public final void c(int i) {
         super.c(i);
         this.d.a().a(this.e);
         this.c.a(i);
@@ -79,23 +78,19 @@ public class HotGroupFragment extends j implements com.baidu.adp.widget.ListView
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        e.a().a(103012, this.h);
-        e.a().a(-116, this.h);
-        e.a().a(103105, this.h);
+        com.baidu.tieba.im.messageCenter.d.a().a(103012, this.h);
+        com.baidu.tieba.im.messageCenter.d.a().a(-116, this.h);
+        com.baidu.tieba.im.messageCenter.d.a().a(103105, this.h);
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
     public void onDestroyView() {
-        e.a().a(this.h);
+        com.baidu.tieba.im.messageCenter.d.a().a(this.h);
         super.onDestroyView();
     }
 
     @Override // com.baidu.adp.widget.ListView.r
-    public void a() {
-        c();
-    }
-
-    private void c() {
+    public final void b() {
         if (this.g.a()) {
             this.g.a(this.f.getCount());
             this.g.d(false);
@@ -103,7 +98,7 @@ public class HotGroupFragment extends j implements com.baidu.adp.widget.ListView
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void d() {
+    public void c() {
         if (this.g == null) {
             this.g = new c();
         }
@@ -119,12 +114,12 @@ public class HotGroupFragment extends j implements com.baidu.adp.widget.ListView
     }
 
     @Override // com.baidu.adp.widget.ListView.q
-    public void a(int i, int i2) {
+    public final void a() {
         e();
     }
 
     @Override // com.baidu.adp.widget.ListView.b
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.g.a(0);
         if (this.g.b()) {
             this.g.d(true);

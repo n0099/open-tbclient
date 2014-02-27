@@ -5,11 +5,9 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import protobuf.QueryGroupGrade.QueryGroupGradeReq;
 /* loaded from: classes.dex */
-class d extends AbstractParser<QueryGroupGradeReq.QueryGroupGradeReqIdl> {
-    /* JADX DEBUG: Method merged with bridge method */
+final class d extends AbstractParser<QueryGroupGradeReq.QueryGroupGradeReqIdl> {
     @Override // com.google.protobuf.Parser
-    /* renamed from: a */
-    public QueryGroupGradeReq.QueryGroupGradeReqIdl parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
+    public final /* synthetic */ Object parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
         return new QueryGroupGradeReq.QueryGroupGradeReqIdl(codedInputStream, extensionRegistryLite, null);
     }
 }

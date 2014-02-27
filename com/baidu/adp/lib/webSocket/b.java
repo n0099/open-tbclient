@@ -4,7 +4,7 @@ import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 /* loaded from: classes.dex */
-public class b extends FilterOutputStream {
+public final class b extends FilterOutputStream {
     private boolean a;
     private int b;
     private byte[] c;
@@ -18,7 +18,7 @@ public class b extends FilterOutputStream {
 
     public b(OutputStream outputStream, int i) {
         super(outputStream);
-        byte[] c;
+        byte[] b;
         this.f = (i & 8) != 0;
         this.a = (i & 1) != 0;
         this.d = this.a ? 3 : 4;
@@ -28,14 +28,13 @@ public class b extends FilterOutputStream {
         this.h = false;
         this.g = new byte[4];
         this.i = i;
-        c = a.c(i);
-        this.j = c;
+        b = a.b(i);
+        this.j = b;
     }
 
     @Override // java.io.FilterOutputStream, java.io.OutputStream
-    public void write(int i) {
+    public final void write(int i) {
         int b;
-        byte[] b2;
         if (this.h) {
             this.out.write(i);
         } else if (this.a) {
@@ -44,9 +43,7 @@ public class b extends FilterOutputStream {
             this.b = i2 + 1;
             bArr[i2] = (byte) i;
             if (this.b >= this.d) {
-                OutputStream outputStream = this.out;
-                b2 = a.b(this.g, this.c, this.d, this.i);
-                outputStream.write(b2);
+                this.out.write(a.a(this.c, 0, this.d, this.g, 0, this.i));
                 this.e += 4;
                 if (this.f && this.e >= 76) {
                     this.out.write(10);
@@ -70,7 +67,7 @@ public class b extends FilterOutputStream {
     }
 
     @Override // java.io.FilterOutputStream, java.io.OutputStream
-    public void write(byte[] bArr, int i, int i2) {
+    public final void write(byte[] bArr, int i, int i2) {
         if (this.h) {
             this.out.write(bArr, i, i2);
             return;
@@ -80,23 +77,16 @@ public class b extends FilterOutputStream {
         }
     }
 
-    public void a() {
-        byte[] b;
+    @Override // java.io.FilterOutputStream, java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
+    public final void close() {
         if (this.b > 0) {
             if (this.a) {
-                OutputStream outputStream = this.out;
-                b = a.b(this.g, this.c, this.b, this.i);
-                outputStream.write(b);
+                this.out.write(a.a(this.c, 0, this.b, this.g, 0, this.i));
                 this.b = 0;
-                return;
+            } else {
+                throw new IOException("Base64 input not properly padded.");
             }
-            throw new IOException("Base64 input not properly padded.");
         }
-    }
-
-    @Override // java.io.FilterOutputStream, java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
-    public void close() {
-        a();
         super.close();
         this.c = null;
         this.out = null;

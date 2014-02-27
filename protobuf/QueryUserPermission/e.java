@@ -4,25 +4,32 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.QueryUserPermission.QueryUserPermissionReq;
 /* loaded from: classes.dex */
 public final class e extends GeneratedMessageLite.Builder<QueryUserPermissionReq.QueryUserPermissionReqIdl, e> implements f {
     private int a;
     private QueryUserPermissionReq.DataReq b = QueryUserPermissionReq.DataReq.getDefaultInstance();
 
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return QueryUserPermissionReq.QueryUserPermissionReqIdl.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return QueryUserPermissionReq.QueryUserPermissionReqIdl.getDefaultInstance();
+    }
+
     private e() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static e h() {
+    public static /* synthetic */ e b() {
         return new e();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public e clear() {
         super.clear();
         this.b = QueryUserPermissionReq.DataReq.getDefaultInstance();
@@ -31,20 +38,14 @@ public final class e extends GeneratedMessageLite.Builder<QueryUserPermissionReq
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
+    /* renamed from: d */
     public e clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public QueryUserPermissionReq.QueryUserPermissionReqIdl getDefaultInstanceForType() {
-        return QueryUserPermissionReq.QueryUserPermissionReqIdl.getDefaultInstance();
+        return new e().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: d */
-    public QueryUserPermissionReq.QueryUserPermissionReqIdl build() {
+    /* renamed from: a */
+    public final QueryUserPermissionReq.QueryUserPermissionReqIdl build() {
         QueryUserPermissionReq.QueryUserPermissionReqIdl buildPartial = buildPartial();
         if (!buildPartial.isInitialized()) {
             throw newUninitializedMessageException(buildPartial);
@@ -64,9 +65,15 @@ public final class e extends GeneratedMessageLite.Builder<QueryUserPermissionReq
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public e mergeFrom(QueryUserPermissionReq.QueryUserPermissionReqIdl queryUserPermissionReqIdl) {
+    public final e mergeFrom(QueryUserPermissionReq.QueryUserPermissionReqIdl queryUserPermissionReqIdl) {
         if (queryUserPermissionReqIdl != QueryUserPermissionReq.QueryUserPermissionReqIdl.getDefaultInstance() && queryUserPermissionReqIdl.hasData()) {
-            b(queryUserPermissionReqIdl.getData());
+            QueryUserPermissionReq.DataReq data = queryUserPermissionReqIdl.getData();
+            if ((this.a & 1) != 1 || this.b == QueryUserPermissionReq.DataReq.getDefaultInstance()) {
+                this.b = data;
+            } else {
+                this.b = QueryUserPermissionReq.DataReq.newBuilder(this.b).mergeFrom(data).buildPartial();
+            }
+            this.a |= 1;
         }
         return this;
     }
@@ -114,21 +121,11 @@ public final class e extends GeneratedMessageLite.Builder<QueryUserPermissionReq
         }
     }
 
-    public e a(QueryUserPermissionReq.DataReq dataReq) {
+    public final e a(QueryUserPermissionReq.DataReq dataReq) {
         if (dataReq != null) {
             this.b = dataReq;
             this.a |= 1;
         }
-        return this;
-    }
-
-    public e b(QueryUserPermissionReq.DataReq dataReq) {
-        if ((this.a & 1) == 1 && this.b != QueryUserPermissionReq.DataReq.getDefaultInstance()) {
-            this.b = QueryUserPermissionReq.DataReq.newBuilder(this.b).mergeFrom(dataReq).buildPartial();
-        } else {
-            this.b = dataReq;
-        }
-        this.a |= 1;
         return this;
     }
 }

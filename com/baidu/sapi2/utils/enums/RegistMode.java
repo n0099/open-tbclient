@@ -29,7 +29,7 @@ public enum RegistMode {
         this.a = str;
     }
 
-    public String getStrValue() {
+    public final String getStrValue() {
         return this.a;
     }
 }

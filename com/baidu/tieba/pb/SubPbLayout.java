@@ -28,6 +28,11 @@ public class SubPbLayout extends ViewGroup {
     private View h;
     private ViewGroup.MarginLayoutParams i;
 
+    @Override // android.view.ViewGroup
+    protected /* synthetic */ ViewGroup.LayoutParams generateDefaultLayoutParams() {
+        return a();
+    }
+
     public SubPbLayout(Context context) {
         this(context, null);
     }
@@ -57,7 +62,7 @@ public class SubPbLayout extends ViewGroup {
         this.d = cfVar;
     }
 
-    public void a(com.baidu.tieba.data.aq aqVar, View view) {
+    public final void a(com.baidu.tieba.data.aq aqVar, View view) {
         this.e = aqVar;
         requestLayout();
         this.f = view;
@@ -81,11 +86,11 @@ public class SubPbLayout extends ViewGroup {
             boolean z = false;
             View childAt = getChildAt(i5);
             if (childAt == null || childAt.equals(this.h)) {
-                com.baidu.adp.lib.util.f.e("SubPbLayout", "onMeasure", "Item View Created for position: " + i5);
-                View b = this.d.b();
-                this.g.offer(new dz(i5, b, null));
+                com.baidu.adp.lib.util.e.e("SubPbLayout", "onMeasure", "Item View Created for position: " + i5);
+                View c = this.d.c();
+                this.g.offer(new dz(i5, c, (byte) 0));
                 z = true;
-                view = b;
+                view = c;
             } else {
                 view = childAt;
             }
@@ -120,16 +125,30 @@ public class SubPbLayout extends ViewGroup {
             i6 += view.getMeasuredHeight();
         }
         if (a != null && this.e.j() > a.size()) {
-            a(getContext(), (TextView) this.h.findViewById(R.id.sub_pb_more_text), this.e.j() - a.size());
+            TextView textView = (TextView) this.h.findViewById(R.id.sub_pb_more_text);
+            Context context = getContext();
+            int j = this.e.j() - a.size();
+            String string = TiebaApplication.g().b().getString(R.string.sub_pb_load_more);
+            String valueOf = String.valueOf(j);
+            int indexOf = string.indexOf("%d");
+            SpannableString spannableString = new SpannableString(string.replace("%d", valueOf));
+            if (TiebaApplication.g().ae() == 1) {
+                spannableString.setSpan(new ForegroundColorSpan(context.getResources().getColor(R.color.sub_pb_more_text_1)), indexOf, valueOf.length() + indexOf, 33);
+                textView.setTextColor(context.getResources().getColor(R.color.sub_pb_more_text_1));
+            } else {
+                spannableString.setSpan(new ForegroundColorSpan(context.getResources().getColor(R.color.sub_pb_more_text)), indexOf, valueOf.length() + indexOf, 33);
+                textView.setTextColor(context.getResources().getColor(R.color.sub_pb_more_text));
+            }
+            textView.setText(spannableString);
             View view2 = this.h;
-            if (TiebaApplication.g().al() == 1) {
+            if (TiebaApplication.g().ae() == 1) {
                 i3 = R.drawable.bg_floor_new_foot_1;
             } else {
                 i3 = R.drawable.bg_floor_new_foot;
             }
             view2.setBackgroundResource(i3);
             ImageView imageView = (ImageView) this.h.findViewById(R.id.image);
-            if (TiebaApplication.g().al() == 1) {
+            if (TiebaApplication.g().ae() == 1) {
                 imageView.setBackgroundResource(R.drawable.icon_downward_1);
             } else {
                 imageView.setBackgroundResource(R.drawable.icon_downward);
@@ -158,7 +177,7 @@ public class SubPbLayout extends ViewGroup {
             for (int i6 = 0; i6 < size; i6++) {
                 dz poll = this.g.poll();
                 if (poll.b.getParent() == null) {
-                    com.baidu.adp.lib.util.f.e("SubPbLayout", "onLayout", "add to position: " + poll.a);
+                    com.baidu.adp.lib.util.e.e("SubPbLayout", "onLayout", "add to position: " + poll.a);
                     addViewInLayout(poll.b, poll.a, this.i, true);
                 }
             }
@@ -169,18 +188,18 @@ public class SubPbLayout extends ViewGroup {
             int i8 = paddingTop;
             while (i7 < size2) {
                 View childAt = getChildAt(i7);
-                if (childAt == null) {
-                    i5 = i8;
-                } else {
+                if (childAt != null) {
                     ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) childAt.getLayoutParams();
                     if (marginLayoutParams == null) {
-                        marginLayoutParams = generateDefaultLayoutParams();
+                        marginLayoutParams = a();
                     }
                     int i9 = i8 + marginLayoutParams.topMargin;
                     int measuredWidth = marginLayoutParams.leftMargin + paddingLeft + childAt.getMeasuredWidth();
                     int measuredHeight = childAt.getMeasuredHeight() + i9;
                     childAt.layout(marginLayoutParams.leftMargin + paddingLeft, i9, measuredWidth, measuredHeight);
                     i5 = marginLayoutParams.bottomMargin + measuredHeight;
+                } else {
+                    i5 = i8;
                 }
                 i7++;
                 i8 = i5;
@@ -191,21 +210,6 @@ public class SubPbLayout extends ViewGroup {
                 this.h.layout(marginLayoutParams2.leftMargin + paddingLeft, i10, marginLayoutParams2.leftMargin + paddingLeft + this.h.getMeasuredWidth(), this.h.getMeasuredHeight() + i10);
             }
         }
-    }
-
-    public static void a(Context context, TextView textView, int i) {
-        String string = TiebaApplication.g().b().getString(R.string.sub_pb_load_more);
-        String valueOf = String.valueOf(i);
-        int indexOf = string.indexOf("%d");
-        SpannableString spannableString = new SpannableString(string.replace("%d", valueOf));
-        if (TiebaApplication.g().al() == 1) {
-            spannableString.setSpan(new ForegroundColorSpan(context.getResources().getColor(R.color.sub_pb_more_text_1)), indexOf, valueOf.length() + indexOf, 33);
-            textView.setTextColor(context.getResources().getColor(R.color.sub_pb_more_text_1));
-        } else {
-            spannableString.setSpan(new ForegroundColorSpan(context.getResources().getColor(R.color.sub_pb_more_text)), indexOf, valueOf.length() + indexOf, 33);
-            textView.setTextColor(context.getResources().getColor(R.color.sub_pb_more_text));
-        }
-        textView.setText(spannableString);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -225,11 +229,7 @@ public class SubPbLayout extends ViewGroup {
         return new ViewGroup.MarginLayoutParams(getContext(), attributeSet);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.view.ViewGroup
-    /* renamed from: a */
-    public ViewGroup.MarginLayoutParams generateDefaultLayoutParams() {
+    private static ViewGroup.MarginLayoutParams a() {
         return new ViewGroup.MarginLayoutParams(-2, -2);
     }
 }

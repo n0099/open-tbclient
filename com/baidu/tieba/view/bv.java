@@ -5,7 +5,7 @@ import android.view.View;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bv implements View.OnClickListener {
+public final class bv implements View.OnClickListener {
     final /* synthetic */ NavigationBar a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ public class bv implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         boolean z;
         Activity activity;
         Activity activity2;
@@ -26,7 +26,7 @@ public class bv implements View.OnClickListener {
                 activity2.finish();
             } else if (id == R.id.navigationBarHome) {
                 activity = this.a.f;
-                com.baidu.tieba.mainentrance.f.a(activity);
+                com.baidu.tieba.mainentrance.d.a(activity);
             }
         }
     }

@@ -8,14 +8,14 @@ import android.widget.ImageView;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class a extends ImageView {
+public final class a extends ImageView {
     private static int a = -1;
     private boolean b;
     private int c;
     private int d;
     private boolean e;
 
-    public void setIsSelected(boolean z) {
+    public final void setIsSelected(boolean z) {
         this.b = z;
         invalidate();
     }
@@ -29,7 +29,7 @@ public class a extends ImageView {
     }
 
     @Override // android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    protected final void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         this.c = (i3 - i) - BdUtilHelper.a(getContext(), 5.0f);
         this.d = (i4 - i2) - BdUtilHelper.a(getContext(), 5.0f);
@@ -52,7 +52,7 @@ public class a extends ImageView {
     }
 
     @Override // android.widget.ImageView
-    public void setImageBitmap(Bitmap bitmap) {
+    public final void setImageBitmap(Bitmap bitmap) {
         super.setImageBitmap(bitmap);
         if (bitmap != null) {
             this.e = true;
@@ -62,7 +62,7 @@ public class a extends ImageView {
     }
 
     @Override // android.widget.ImageView, android.view.View
-    protected void onDraw(Canvas canvas) {
+    protected final void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         Bitmap selectIcon = getSelectIcon();
         if (selectIcon != null && this.e) {

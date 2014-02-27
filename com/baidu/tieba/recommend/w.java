@@ -1,11 +1,10 @@
 package com.baidu.tieba.recommend;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
-public class w extends com.baidu.adp.a.d {
+public final class w extends com.baidu.adp.a.d {
     public static String a = "st_type";
     private y b;
     private x d;
@@ -14,23 +13,20 @@ public class w extends com.baidu.adp.a.d {
     private String g = null;
     private com.baidu.tieba.data.p c = new com.baidu.tieba.data.p();
 
-    public w(Context context) {
-    }
-
-    public void a(Intent intent) {
+    public final void a(Intent intent) {
         this.g = intent.getStringExtra(a);
     }
 
-    public void a(Bundle bundle) {
+    public final void a(Bundle bundle) {
         this.g = bundle.getString(a);
     }
 
     @Override // com.baidu.adp.a.d
-    protected boolean LoadData() {
+    protected final boolean LoadData() {
         return true;
     }
 
-    public void a() {
+    public final void a() {
         if (this.d != null) {
             this.d.cancel(true);
             this.d = null;
@@ -40,7 +36,7 @@ public class w extends com.baidu.adp.a.d {
     }
 
     @Override // com.baidu.adp.a.d
-    public boolean cancelLoadData() {
+    public final boolean cancelLoadData() {
         if (this.d != null) {
             this.d.cancel(true);
             this.d = null;
@@ -52,7 +48,7 @@ public class w extends com.baidu.adp.a.d {
         return true;
     }
 
-    public void b() {
+    public final void b() {
         if (this.e != null) {
             this.e.cancel(true);
             this.e = null;
@@ -61,15 +57,15 @@ public class w extends com.baidu.adp.a.d {
         this.e.execute(new String[0]);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(String str) {
-        com.baidu.adp.lib.cache.s<String> bf = TiebaApplication.g().bf();
-        if (bf != null) {
-            bf.a("dailyrecommend", str, 2592000000L);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(w wVar, String str) {
+        com.baidu.adp.lib.cache.s<String> aX = TiebaApplication.g().aX();
+        if (aX != null) {
+            aX.a("dailyrecommend", str, 2592000000L);
         }
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         if (this.d != null) {
             this.d.cancel(true);
             this.d = null;
@@ -78,7 +74,7 @@ public class w extends com.baidu.adp.a.d {
         this.d.execute(new String[0]);
     }
 
-    public void a(y yVar) {
+    public final void a(y yVar) {
         this.b = yVar;
     }
 }

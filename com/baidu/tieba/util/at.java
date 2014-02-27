@@ -5,7 +5,7 @@ import android.widget.ListView;
 import com.baidu.tbadk.gif.GifView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class at implements com.baidu.tbadk.imageManager.d {
+public final class at implements com.baidu.tbadk.imageManager.d {
     private final /* synthetic */ ListView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,11 +14,11 @@ public class at implements com.baidu.tbadk.imageManager.d {
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        com.baidu.adp.lib.util.f.e("LoadImageHelper", "imageLoaded", "callback:" + str);
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        com.baidu.adp.lib.util.e.e("LoadImageHelper", "imageLoaded", "callback:" + str);
         View findViewWithTag = this.a.findViewWithTag(str);
         while (findViewWithTag != null) {
-            com.baidu.adp.lib.util.f.e("LoadImageHelper", "imageLoaded", "gif set");
+            com.baidu.adp.lib.util.e.e("LoadImageHelper", "imageLoaded", "gif set");
             GifView gifView = (GifView) findViewWithTag;
             com.baidu.tbadk.widget.richText.e tbRichTextEmotionINfo = gifView.getTbRichTextEmotionINfo();
             if (bVar == null) {

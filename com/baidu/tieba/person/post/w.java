@@ -2,6 +2,7 @@ package com.baidu.tieba.person.post;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,24 +13,24 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.view.PbListView;
-import com.baidu.tieba.view.ct;
+import com.baidu.tieba.view.cs;
 import com.slidingmenu.lib.R;
 import java.util.Timer;
 /* loaded from: classes.dex */
-public class w extends com.baidu.tieba.j implements AbsListView.OnScrollListener, u {
+public final class w extends com.baidu.tieba.j implements AbsListView.OnScrollListener, u {
     private z b;
     private t c;
     private boolean d;
     private String e;
     private PbListView f;
     private View g;
-    private ct h;
+    private cs h;
     private int i;
     private boolean j = false;
     private boolean k = true;
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+    public final View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.person_thread_fragment, viewGroup, false);
         this.b = new z(inflate);
         this.b.b.setText(getArguments().getString("key_empty_view_text"));
@@ -37,11 +38,14 @@ public class w extends com.baidu.tieba.j implements AbsListView.OnScrollListener
     }
 
     @Override // android.support.v4.app.Fragment
-    public void onViewCreated(View view, Bundle bundle) {
+    public final void onViewCreated(View view, Bundle bundle) {
         this.e = getArguments().getString("key_uid");
-        this.c = new t(getActivity(), this.e, getArguments().getString("key_portrait_url"));
+        FragmentActivity activity = getActivity();
+        String str = this.e;
+        getArguments().getString("key_portrait_url");
+        this.c = new t(activity, str);
         this.b.a.setAdapter((ListAdapter) this.c);
-        this.h = new ct(getActivity());
+        this.h = new cs(getActivity());
         this.h.a(new x(this));
         this.b.a.setPullRefresh(this.h);
         this.c.a(this);
@@ -52,40 +56,25 @@ public class w extends com.baidu.tieba.j implements AbsListView.OnScrollListener
     }
 
     @Override // com.baidu.tieba.j
-    public void c(int i) {
+    public final void c(int i) {
         super.c(i);
         if (isAdded()) {
             TextView textView = (TextView) this.g.findViewById(R.id.pb_more_text);
-            if (TiebaApplication.g().al() == 1) {
+            if (TiebaApplication.g().ae() == 1) {
                 textView.setTextColor(getResources().getColor(R.color.person_post_header_uname_1));
             } else {
                 textView.setTextColor(getResources().getColor(R.color.person_post_header_uname));
             }
             if (this.f != null) {
-                this.f.d(i);
+                this.f.c(i);
             }
             this.h.a(i);
         }
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onResume() {
+    public final void onResume() {
         super.onResume();
-        a();
-        if (this.c != null) {
-            this.c.notifyDataSetChanged();
-        }
-    }
-
-    @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onDestroy() {
-        if (this.c != null) {
-            this.c.a();
-        }
-        super.onDestroy();
-    }
-
-    public void a() {
         if (!this.d) {
             this.b.a.setEmptyView(this.b.c);
             if (this.c != null) {
@@ -93,15 +82,36 @@ public class w extends com.baidu.tieba.j implements AbsListView.OnScrollListener
             }
             this.d = true;
         }
+        if (this.c != null) {
+            this.c.notifyDataSetChanged();
+        }
+    }
+
+    @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
+    public final void onDestroy() {
+        if (this.c != null) {
+            this.c.a();
+        }
+        super.onDestroy();
     }
 
     @Override // com.baidu.tieba.person.post.u
-    public void a(PersonPostThreadModel personPostThreadModel, boolean z) {
+    public final void a(PersonPostThreadModel personPostThreadModel, boolean z) {
+        boolean z2;
         if (isAdded()) {
             this.b.a.setEmptyView(null);
             this.b.c.setVisibility(8);
-            if (a(personPostThreadModel)) {
-                if (TiebaApplication.g().al() == 1) {
+            if (personPostThreadModel == null || personPostThreadModel.hide_post == 0 || getActivity() == null) {
+                z2 = true;
+            } else {
+                this.c = null;
+                BdUtilHelper.b((Context) getActivity(), (int) R.string.his_post_not_available);
+                new Timer().schedule(new y(this), 2000L);
+                this.g.setVisibility(4);
+                z2 = false;
+            }
+            if (z2) {
+                if (TiebaApplication.g().ae() == 1) {
                     this.b.b.setTextColor(getResources().getColor(R.color.person_post_header_uname_1));
                 } else {
                     this.b.b.setTextColor(getResources().getColor(R.color.person_post_header_uname));
@@ -136,23 +146,12 @@ public class w extends com.baidu.tieba.j implements AbsListView.OnScrollListener
         }
     }
 
-    private boolean a(PersonPostThreadModel personPostThreadModel) {
-        if (personPostThreadModel == null || personPostThreadModel.hide_post == 0 || getActivity() == null) {
-            return true;
-        }
-        this.c = null;
-        BdUtilHelper.b((Context) getActivity(), (int) R.string.his_post_not_available);
-        new Timer().schedule(new y(this), 2000L);
-        this.g.setVisibility(4);
-        return false;
+    @Override // com.baidu.tieba.j, android.widget.AbsListView.OnScrollListener
+    public final void onScrollStateChanged(AbsListView absListView, int i) {
     }
 
     @Override // com.baidu.tieba.j, android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-    }
-
-    @Override // com.baidu.tieba.j, android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    public final void onScroll(AbsListView absListView, int i, int i2, int i3) {
         if (this.j && i3 > 2 && this.i != i3 && i + i2 == i3) {
             this.i = i3;
             this.c.a(false);

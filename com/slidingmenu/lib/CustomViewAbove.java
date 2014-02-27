@@ -315,12 +315,12 @@ public class CustomViewAbove extends ViewGroup {
         this.mScrolling = true;
         int behindWidth = getBehindWidth();
         int i7 = behindWidth / 2;
-        float distanceInfluenceForSnapDuration = (i7 * distanceInfluenceForSnapDuration(Math.min(1.0f, (Math.abs(i5) * 1.0f) / behindWidth))) + i7;
+        float distanceInfluenceForSnapDuration = (distanceInfluenceForSnapDuration(Math.min(1.0f, (Math.abs(i5) * 1.0f) / behindWidth)) * i7) + i7;
         int abs = Math.abs(i3);
         if (abs > 0) {
-            i4 = Math.round(1000.0f * Math.abs(distanceInfluenceForSnapDuration / abs)) * 4;
+            i4 = Math.round(Math.abs(distanceInfluenceForSnapDuration / abs) * 1000.0f) * 4;
         } else {
-            int abs2 = (int) (((Math.abs(i5) / behindWidth) + 1.0f) * 100.0f);
+            Math.abs(i5);
             i4 = MAX_SETTLE_DURATION;
         }
         this.mScroller.startScroll(scrollX, scrollY, i5, i6, Math.min(i4, (int) MAX_SETTLE_DURATION));
@@ -759,6 +759,12 @@ public class CustomViewAbove extends ViewGroup {
         }
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0048, code lost:
+        if (r6 != 2) goto L19;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public boolean arrowScroll(int i) {
         boolean pageLeft;
         View findFocus = findFocus();
@@ -771,21 +777,19 @@ public class CustomViewAbove extends ViewGroup {
                 pageLeft = findNextFocus.requestFocus();
             } else {
                 if (i == 66) {
-                    if (findFocus != null && findNextFocus.getLeft() <= findFocus.getLeft()) {
-                        pageLeft = pageRight();
-                    } else {
+                    if (findFocus == null || findNextFocus.getLeft() > findFocus.getLeft()) {
                         pageLeft = findNextFocus.requestFocus();
                     }
+                    pageLeft = pageRight();
                 }
                 pageLeft = false;
             }
         } else if (i == 17 || i == 1) {
             pageLeft = pageLeft();
         } else {
-            if (i == 66 || i == 2) {
-                pageLeft = pageRight();
+            if (i != 66) {
             }
-            pageLeft = false;
+            pageLeft = pageRight();
         }
         if (pageLeft) {
             playSoundEffect(SoundEffectConstants.getContantForFocusDirection(i));
@@ -802,7 +806,7 @@ public class CustomViewAbove extends ViewGroup {
     }
 
     boolean pageRight() {
-        if (this.mCurItem < 1) {
+        if (this.mCurItem <= 0) {
             setCurrentItem(this.mCurItem + 1, true);
             return true;
         }

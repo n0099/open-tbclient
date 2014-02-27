@@ -12,44 +12,48 @@ public class p extends com.baidu.adp.a.d {
     protected String b = null;
     private int g = 0;
 
-    public boolean a() {
+    public final boolean a() {
         return this.c;
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.c = z;
     }
 
-    public boolean b() {
+    public final boolean b() {
         return this.g == 0;
     }
 
-    public boolean c() {
-        ArrayList<com.baidu.tieba.data.v> b;
-        return (this.d == null || (b = this.d.b()) == null || b.size() < 300) ? false : true;
-    }
-
-    public boolean d() {
-        return this.d != null && (this.d.d() || a());
-    }
-
-    public boolean e() {
+    public final boolean c() {
         ArrayList<com.baidu.tieba.data.v> b;
         return (this.d == null || (b = this.d.b()) == null || b.size() <= 0) ? false : true;
     }
 
-    public boolean f() {
-        return !c() && d();
+    public final boolean d() {
+        ArrayList<com.baidu.tieba.data.v> b;
+        if (!((this.d == null || (b = this.d.b()) == null || b.size() < 300) ? false : true)) {
+            if (this.d != null && (this.d.c() || this.c)) {
+                return true;
+            }
+        }
+        return false;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
+        int i2;
+        ArrayList<com.baidu.tieba.data.v> b;
         this.f = i;
         this.e = new q(this);
-        this.e.execute(Integer.valueOf((i != 2 || a()) ? 1 : k()));
+        if (i != 2 || this.c) {
+            i2 = 1;
+        } else {
+            i2 = (this.d == null || (b = this.d.b()) == null) ? 1 : (b.size() / 20) + 1;
+        }
+        this.e.execute(Integer.valueOf(i2));
         this.g = 1;
     }
 
-    public void g() {
+    public final void e() {
         if (this.e == null) {
             this.e = new q(this);
         }
@@ -57,13 +61,13 @@ public class p extends com.baidu.adp.a.d {
         this.g = 1;
     }
 
-    public com.baidu.tieba.data.u h() {
-        String A = TiebaApplication.A();
-        if (A == null) {
+    public final com.baidu.tieba.data.u f() {
+        String v = TiebaApplication.v();
+        if (v == null) {
             return null;
         }
         com.baidu.adp.lib.cache.s<String> g = com.baidu.tieba.c.a.a().g();
-        String a = g != null ? g.a("home_forumfeed_" + A) : null;
+        String a = g != null ? g.a("home_forumfeed_" + v) : null;
         if (a != null) {
             com.baidu.tieba.data.u uVar = new com.baidu.tieba.data.u();
             uVar.a(a);
@@ -73,16 +77,8 @@ public class p extends com.baidu.adp.a.d {
         return null;
     }
 
-    public int i() {
+    public final int g() {
         return this.f;
-    }
-
-    private int k() {
-        ArrayList<com.baidu.tieba.data.v> b;
-        if (this.d == null || (b = this.d.b()) == null) {
-            return 1;
-        }
-        return (b.size() / 20) + 1;
     }
 
     @Override // com.baidu.adp.a.d
@@ -105,7 +101,7 @@ public class p extends com.baidu.adp.a.d {
         this.b = str;
     }
 
-    public com.baidu.tieba.data.u j() {
+    public final com.baidu.tieba.data.u h() {
         return this.d;
     }
 

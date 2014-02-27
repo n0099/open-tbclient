@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.security.MessageDigest;
 import java.util.Random;
 /* loaded from: classes.dex */
-public class o {
+public final class o {
     private static Random a = new Random();
 
     public static String a() {
@@ -37,9 +37,9 @@ public class o {
                     return "WIFI";
                 }
                 if (type == 0) {
-                    int c = com.baidu.adp.lib.network.i.c();
+                    int b = com.baidu.adp.lib.network.i.b();
                     StringBuilder sb = new StringBuilder();
-                    switch (c) {
+                    switch (b) {
                         case 1:
                             sb.append('M');
                             break;
@@ -116,7 +116,7 @@ public class o {
     }
 
     public static FileOutputStream a(String str, boolean z) {
-        return a(new File(str), z);
+        return a(new File(str), true);
     }
 
     public static FileOutputStream a(File file, boolean z) {
@@ -127,13 +127,13 @@ public class o {
             try {
                 file.createNewFile();
             } catch (IOException e) {
-                com.baidu.adp.lib.util.f.a("BdStatsHelper", "getFileOutputStream", e);
+                com.baidu.adp.lib.util.e.a("BdStatsHelper", "getFileOutputStream", e);
             }
         }
         try {
             return new FileOutputStream(file, z);
         } catch (FileNotFoundException e2) {
-            com.baidu.adp.lib.util.f.a("BdStatsHelper", "getFileOutputStream", e2);
+            com.baidu.adp.lib.util.e.a("BdStatsHelper", "getFileOutputStream", e2);
             return null;
         }
     }
@@ -155,7 +155,7 @@ public class o {
             }
             return new String(cArr2);
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.a("BdStatsHelper", "getMD5", e);
+            com.baidu.adp.lib.util.e.a("BdStatsHelper", "getMD5", e);
             return null;
         }
     }

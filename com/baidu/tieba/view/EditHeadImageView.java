@@ -24,7 +24,7 @@ public class EditHeadImageView extends w {
         this.e = 0;
         this.f = 0.42857143f;
         this.g = 0;
-        r();
+        q();
     }
 
     public EditHeadImageView(Context context, AttributeSet attributeSet) {
@@ -35,7 +35,7 @@ public class EditHeadImageView extends w {
         this.e = 0;
         this.f = 0.42857143f;
         this.g = 0;
-        r();
+        q();
     }
 
     public EditHeadImageView(Context context) {
@@ -46,10 +46,10 @@ public class EditHeadImageView extends w {
         this.e = 0;
         this.f = 0.42857143f;
         this.g = 0;
-        r();
+        q();
     }
 
-    private void r() {
+    private void q() {
         this.b = new Paint();
         this.b.setColor(-16777216);
         this.b.setAlpha(153);
@@ -73,7 +73,7 @@ public class EditHeadImageView extends w {
         super.onLayout(z, i, i2, i3, i4);
         this.d = (int) (((i4 - i2) - (i3 - i)) * this.f);
         this.e = (int) (((i4 - i2) - (i3 - i)) * (1.0f - this.f));
-        a(0, this.d, 0, this.e);
+        a(this.d, this.e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -87,7 +87,7 @@ public class EditHeadImageView extends w {
         canvas.drawRect(0.0f, this.d, getWidth() - 1, getHeight() - this.e, this.c);
     }
 
-    public Bitmap a(int i) {
+    public final Bitmap a(int i) {
         Bitmap bitmap = null;
         try {
             Bitmap visableBitmap = getVisableBitmap();
@@ -99,7 +99,7 @@ public class EditHeadImageView extends w {
                 }
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "getVisableBitmap", e.toString());
+            com.baidu.adp.lib.util.e.b(getClass().getName(), "getVisableBitmap", e.toString());
         }
         return bitmap;
     }

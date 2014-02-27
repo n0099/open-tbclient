@@ -3,18 +3,18 @@ package com.baidu.tieba.editortool;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c implements View.OnClickListener {
+public final class c implements View.OnClickListener {
     final /* synthetic */ EditorToolComponetContainer a;
-    private final /* synthetic */ z b;
+    private final /* synthetic */ aa b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(EditorToolComponetContainer editorToolComponetContainer, z zVar) {
+    public c(EditorToolComponetContainer editorToolComponetContainer, aa aaVar) {
         this.a = editorToolComponetContainer;
-        this.b = zVar;
+        this.b = aaVar;
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         if (view == this.a.b.getmFace()) {
             this.b.a(2, null);
         } else if (view == this.a.b.getmImage() || view == this.a.b.getmIVImage()) {

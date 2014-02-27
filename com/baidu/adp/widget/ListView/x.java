@@ -1,6 +1,6 @@
 package com.baidu.adp.widget.ListView;
 /* loaded from: classes.dex */
-class x implements Runnable {
+final class x implements Runnable {
     final /* synthetic */ w a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,7 +9,7 @@ class x implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         if (this.a.a != null) {
             y.a(this.a.a);
         }

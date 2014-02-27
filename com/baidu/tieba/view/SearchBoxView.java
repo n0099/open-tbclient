@@ -2,7 +2,6 @@ package com.baidu.tieba.view;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,7 +19,7 @@ public class SearchBoxView extends RelativeLayout {
     private View.OnClickListener f;
     private View.OnClickListener g;
 
-    public void a(int i, int i2, Intent intent) {
+    public static void a() {
     }
 
     public SearchBoxView(Context context) {
@@ -70,16 +69,16 @@ public class SearchBoxView extends RelativeLayout {
         this.b = str;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         if (this.a instanceof com.baidu.tieba.f) {
             com.baidu.tieba.f fVar = (com.baidu.tieba.f) this.a;
             fVar.getLayoutMode().a(i == 1);
-            fVar.getLayoutMode().a((View) this);
+            fVar.getLayoutMode().a(this);
         }
         if (this.a instanceof com.baidu.tieba.k) {
             com.baidu.tieba.k kVar = (com.baidu.tieba.k) this.a;
             kVar.a().a(i == 1);
-            kVar.a().a((View) this);
+            kVar.a().a(this);
         }
         if (i == 1) {
             this.d.setHintTextColor(getResources().getColor(R.color.widget_searchbox_text_1));

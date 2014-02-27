@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.TextView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class p extends a {
+final class p extends a {
     public ReplyLinearLayout g;
     public TextView h;
 

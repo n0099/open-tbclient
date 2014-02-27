@@ -6,7 +6,7 @@ import com.baidu.tieba.im.groupInfo.v;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-class k implements com.baidu.tieba.im.db.e {
+final class k implements com.baidu.tieba.im.db.e {
     final /* synthetic */ i a;
     private final /* synthetic */ LinkedList b;
     private final /* synthetic */ LinkedList c;
@@ -19,7 +19,7 @@ class k implements com.baidu.tieba.im.db.e {
     }
 
     @Override // com.baidu.tieba.im.db.e
-    public void a(Iterator<ImMessageCenterPojo> it) {
+    public final void a(Iterator<ImMessageCenterPojo> it) {
         boolean z;
         while (it.hasNext()) {
             ImMessageCenterPojo next = it.next();
@@ -33,13 +33,13 @@ class k implements com.baidu.tieba.im.db.e {
                         }
                         String str = (String) it2.next();
                         if (next.getGid() != null && next.getGid().equals(str)) {
-                            v.d(TiebaApplication.A(), str, true);
+                            v.d(TiebaApplication.v(), str, true);
                             z = false;
                             break;
                         }
                     }
                     if (z) {
-                        v.d(TiebaApplication.A(), next.getGid(), false);
+                        v.d(TiebaApplication.v(), next.getGid(), false);
                         next.setIs_delete(1);
                         this.c.add(next);
                     }

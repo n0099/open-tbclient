@@ -4,7 +4,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.view.View;
 /* loaded from: classes.dex */
-class bo implements View.OnClickListener {
+final class bo implements View.OnClickListener {
     final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ class bo implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         com.baidu.tieba.model.bo boVar;
         int i;
         boolean z;

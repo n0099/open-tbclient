@@ -2,7 +2,7 @@ package com.baidu.tieba.util;
 
 import android.database.sqlite.SQLiteDatabase;
 /* loaded from: classes.dex */
-public class z {
+public final class z {
     private int a;
     private boolean b = false;
     private aa e = null;
@@ -18,23 +18,41 @@ public class z {
         try {
             sQLiteDatabase.execSQL(str);
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "ExecSQL", str);
+            com.baidu.adp.lib.util.e.b(getClass().getName(), "ExecSQL", str);
         }
     }
 
-    public SQLiteDatabase a() {
+    public final SQLiteDatabase a() {
         SQLiteDatabase sQLiteDatabase = null;
         if (af.c()) {
             this.b = af.b(this.c);
             sQLiteDatabase = SQLiteDatabase.openOrCreateDatabase(this.d, (SQLiteDatabase.CursorFactory) null);
             if (sQLiteDatabase != null) {
                 if (!this.b) {
-                    a(sQLiteDatabase);
+                    if (sQLiteDatabase != null) {
+                        a(sQLiteDatabase, "CREATE TABLE if not exists pb_photo(key varchar(50) Primary Key,image blob,date Integer,stamp Integer)");
+                        a(sQLiteDatabase, "CREATE INDEX if not exists pb_photo_index ON pb_photo(date)");
+                        a(sQLiteDatabase, "CREATE TABLE if not exists friend_photo(key varchar(50) Primary Key,image blob,date Integer,stamp Integer)");
+                        a(sQLiteDatabase, "CREATE INDEX if not exists friend_photo_index ON friend_photo(date)");
+                        a(sQLiteDatabase);
+                    }
+                    b();
                     sQLiteDatabase.setVersion(this.a);
                 } else {
                     int version = sQLiteDatabase.getVersion();
                     if (version != this.a) {
-                        a(sQLiteDatabase, version, this.a);
+                        int i = this.a;
+                        if (version <= 9) {
+                            a(sQLiteDatabase);
+                        }
+                        if (version < 11) {
+                            a(sQLiteDatabase, "ALTER TABLE pb_photo ADD stamp Integer");
+                            a(sQLiteDatabase, "ALTER TABLE friend_photo ADD stamp Integer");
+                            if (version > 9) {
+                                a(sQLiteDatabase, "ALTER TABLE user_icon ADD stamp Integer");
+                            }
+                        }
+                        b();
                         sQLiteDatabase.setVersion(this.a);
                     }
                 }
@@ -44,31 +62,6 @@ public class z {
     }
 
     private void a(SQLiteDatabase sQLiteDatabase) {
-        if (sQLiteDatabase != null) {
-            a(sQLiteDatabase, "CREATE TABLE if not exists pb_photo(key varchar(50) Primary Key,image blob,date Integer,stamp Integer)");
-            a(sQLiteDatabase, "CREATE INDEX if not exists pb_photo_index ON pb_photo(date)");
-            a(sQLiteDatabase, "CREATE TABLE if not exists friend_photo(key varchar(50) Primary Key,image blob,date Integer,stamp Integer)");
-            a(sQLiteDatabase, "CREATE INDEX if not exists friend_photo_index ON friend_photo(date)");
-            b(sQLiteDatabase);
-        }
-        b();
-    }
-
-    private void a(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        if (i <= 9) {
-            b(sQLiteDatabase);
-        }
-        if (i < 11) {
-            a(sQLiteDatabase, "ALTER TABLE pb_photo ADD stamp Integer");
-            a(sQLiteDatabase, "ALTER TABLE friend_photo ADD stamp Integer");
-            if (i > 9) {
-                a(sQLiteDatabase, "ALTER TABLE user_icon ADD stamp Integer");
-            }
-        }
-        b();
-    }
-
-    private void b(SQLiteDatabase sQLiteDatabase) {
         a(sQLiteDatabase, "CREATE TABLE if not exists user_icon(key varchar(50) Primary Key,image blob,date Integer,stamp Integer)");
         a(sQLiteDatabase, "CREATE INDEX if not exists user_icon_index ON user_icon(date)");
     }
@@ -78,12 +71,12 @@ public class z {
             try {
                 this.e.a();
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "onCreateDatabase", e.getMessage());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "onCreateDatabase", e.getMessage());
             }
         }
     }
 
-    public void a(aa aaVar) {
+    public final void a(aa aaVar) {
         this.e = aaVar;
     }
 }

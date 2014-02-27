@@ -373,7 +373,7 @@ public class MediaService extends Service implements MediaPlayer.OnErrorListener
         intent.putExtra("com.baidu.msg.durationTime", voiceTotalTime);
         intent.putExtra("com.baidu.msg.durationTime2", voiceTotalTimeByMediaPlayer);
         if (this.mSeekTime > 0) {
-            int i = (int) this.mSeekTime;
+            long j2 = this.mSeekTime;
         }
         this.mSeekTime = 0L;
         sendBroadcast(intent);

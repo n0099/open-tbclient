@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.tieba.data.UserData;
 /* loaded from: classes.dex */
-public class c extends com.baidu.tieba.f.a {
+public final class c extends com.baidu.tieba.f.a {
     private UserData a;
 
     public c(Context context, long j, String str, String str2, int i) {
@@ -19,7 +19,7 @@ public class c extends com.baidu.tieba.f.a {
         d.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
     }
 
-    public UserData a() {
+    public final UserData a() {
         return this.a;
     }
 }

@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 /* loaded from: classes.dex */
-class j extends BroadcastReceiver {
+final class j extends BroadcastReceiver {
     final /* synthetic */ g a;
 
     private j(g gVar) {
@@ -12,12 +12,12 @@ class j extends BroadcastReceiver {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ j(g gVar, j jVar) {
+    public /* synthetic */ j(g gVar, byte b) {
         this(gVar);
     }
 
     @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
+    public final void onReceive(Context context, Intent intent) {
         g.a(this.a);
     }
 }

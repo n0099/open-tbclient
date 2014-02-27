@@ -3,7 +3,7 @@ package com.baidu.tieba.pb;
 import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class a {
+public final class a {
     private ArrayList<String> a;
     private String d;
     private String e;
@@ -35,13 +35,13 @@ public class a {
         }
     }
 
-    public void a() {
+    public final void a() {
         if (!this.g && !this.k) {
             a(this.d, this.f, 10, 0);
         }
     }
 
-    public void b() {
+    public final void b() {
         if (!this.k) {
             if (!this.g) {
                 a();
@@ -53,7 +53,7 @@ public class a {
 
     private void a(String str, String str2, int i, int i2) {
         if (this.h != null) {
-            if (str2 == null || !str2.equals(this.h.e())) {
+            if (str2 == null || !str2.equals(this.h.d())) {
                 this.h.cancel();
             } else {
                 return;
@@ -64,30 +64,30 @@ public class a {
         this.h.execute(new Object[0]);
     }
 
-    public void a(c cVar) {
+    public final void a(c cVar) {
         this.l = cVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public String a(com.baidu.tieba.data.aa aaVar) {
-        if (aaVar.j() != null && aaVar.j().length() > 0) {
-            return aaVar.j();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ String a(a aVar, com.baidu.tieba.data.aa aaVar) {
+        if (aaVar.j() == null || aaVar.j().length() <= 0) {
+            StringBuilder sb = new StringBuilder((int) SocialAPIErrorCodes.ERROR_AUTHORIZATION_CANCELED);
+            if (aaVar.g() * aaVar.f() > com.baidu.tieba.data.i.t() * com.baidu.tieba.data.i.t()) {
+                double sqrt = Math.sqrt((com.baidu.tieba.data.i.t() * com.baidu.tieba.data.i.t()) / (aaVar.g() * aaVar.f()));
+                sb.append("width=");
+                sb.append(String.valueOf((int) (aaVar.f() * sqrt)));
+                sb.append("&height=");
+                sb.append(String.valueOf((int) (sqrt * aaVar.g())));
+            } else {
+                sb.append("width=");
+                sb.append(String.valueOf(aaVar.f()));
+                sb.append("&height=");
+                sb.append(String.valueOf(aaVar.g()));
+            }
+            sb.append("&src=");
+            sb.append(com.baidu.tieba.util.bs.d(aaVar.b()));
+            return sb.toString();
         }
-        StringBuilder sb = new StringBuilder((int) SocialAPIErrorCodes.ERROR_AUTHORIZATION_CANCELED);
-        if (aaVar.g() * aaVar.f() > com.baidu.tieba.data.i.t() * com.baidu.tieba.data.i.t()) {
-            double sqrt = Math.sqrt((com.baidu.tieba.data.i.t() * com.baidu.tieba.data.i.t()) / (aaVar.g() * aaVar.f()));
-            sb.append("width=");
-            sb.append(String.valueOf((int) (aaVar.f() * sqrt)));
-            sb.append("&height=");
-            sb.append(String.valueOf((int) (sqrt * aaVar.g())));
-        } else {
-            sb.append("width=");
-            sb.append(String.valueOf(aaVar.f()));
-            sb.append("&height=");
-            sb.append(String.valueOf(aaVar.g()));
-        }
-        sb.append("&src=");
-        sb.append(com.baidu.tieba.util.bs.d(aaVar.b()));
-        return sb.toString();
+        return aaVar.j();
     }
 }

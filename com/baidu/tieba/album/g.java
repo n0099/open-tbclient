@@ -11,23 +11,16 @@ import java.util.ArrayList;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g extends BdAsyncTask<Object, Integer, List<ImageFileInfo>> {
+public final class g extends BdAsyncTask<Object, Integer, List<ImageFileInfo>> {
     final /* synthetic */ e a;
-    private ak b;
-    private String c;
+    private final al b;
+    private final String c;
     private String d;
 
-    public g(e eVar, String str, ak akVar) {
-        this.a = eVar;
-        this.b = akVar;
-        this.c = str;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public List<ImageFileInfo> a(Object... objArr) {
+    public final /* synthetic */ List<ImageFileInfo> a(Object... objArr) {
         Context context;
         Context context2;
         String str = this.c;
@@ -41,22 +34,29 @@ public class g extends BdAsyncTask<Object, Integer, List<ImageFileInfo>> {
         return a;
     }
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a() {
-        super.a();
+    public final /* bridge */ /* synthetic */ void a(List<ImageFileInfo> list) {
+        List<ImageFileInfo> list2 = list;
+        super.a((g) list2);
         if (this.b != null) {
-            this.b.a();
+            this.b.a(list2, this.d);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    public g(e eVar, String str, al alVar) {
+        this.a = eVar;
+        this.b = alVar;
+        this.c = str;
+    }
+
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(List<ImageFileInfo> list) {
-        super.a((g) list);
+    public final void a() {
+        super.a();
         if (this.b != null) {
-            this.b.a(list, this.d);
+            al alVar = this.b;
         }
     }
 
@@ -77,7 +77,7 @@ public class g extends BdAsyncTask<Object, Integer, List<ImageFileInfo>> {
                 } catch (Exception e) {
                     e = e;
                     str2 = this.a.a;
-                    com.baidu.adp.lib.util.f.b(str2, "getAlbumData", "error = " + e.getMessage());
+                    com.baidu.adp.lib.util.e.b(str2, "getAlbumData", "error = " + e.getMessage());
                     com.baidu.adp.lib.f.a.a(cursor);
                     return arrayList;
                 }

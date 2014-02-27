@@ -1,16 +1,17 @@
 package com.baidu.adp.lib.guide;
 
 import android.view.View;
+import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class g {
+public final class g {
     private boolean b;
     private h d;
     private List<b> c = new ArrayList();
     private Configuration a = new Configuration();
 
-    public g a(int i) {
+    public final g a(int i) {
         if (this.b) {
             throw new BuildException("Already created. rebuild a new one.");
         }
@@ -21,7 +22,7 @@ public class g {
         return this;
     }
 
-    public g a(View view) {
+    public final g a(View view) {
         if (this.b) {
             throw new BuildException("Already created. rebuild a new one.");
         }
@@ -32,34 +33,31 @@ public class g {
         return this;
     }
 
-    public g b(int i) {
+    public final g b(int i) {
         if (this.b) {
             throw new BuildException("Already created. rebuild a new one.");
         }
-        if (i <= 0) {
-            throw new BuildException("Illegal view id.");
-        }
-        this.a.d = i;
+        this.a.d = R.id.love;
         return this;
     }
 
-    public g a(boolean z) {
+    public final g a(boolean z) {
         if (this.b) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.a.f = z;
+        this.a.f = false;
         return this;
     }
 
-    public g b(boolean z) {
+    public final g b(boolean z) {
         if (this.b) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.a.g = z;
+        this.a.g = true;
         return this;
     }
 
-    public g a(b bVar) {
+    public final g a(b bVar) {
         if (this.b) {
             throw new BuildException("Already created, rebuild a new one.");
         }
@@ -67,7 +65,7 @@ public class g {
         return this;
     }
 
-    public d a() {
+    public final d a() {
         d dVar = new d();
         dVar.a((b[]) this.c.toArray(new b[this.c.size()]));
         dVar.a(this.a);

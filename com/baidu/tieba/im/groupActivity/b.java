@@ -3,7 +3,7 @@ package com.baidu.tieba.im.groupActivity;
 import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b implements DialogInterface.OnClickListener {
+public final class b implements DialogInterface.OnClickListener {
     final /* synthetic */ CreateGroupActivityActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ public class b implements DialogInterface.OnClickListener {
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
+    public final void onClick(DialogInterface dialogInterface, int i) {
         dialogInterface.dismiss();
     }
 }

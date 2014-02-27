@@ -38,7 +38,7 @@ public class TiebaMessageService extends Service {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (!TiebaApplication.g().Z()) {
+        if (!TiebaApplication.g().T()) {
             stopSelf();
             return;
         }
@@ -60,59 +60,61 @@ public class TiebaMessageService extends Service {
         return super.onUnbind(intent);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(TiebaMessageService tiebaMessageService, int i) {
         try {
-            if (TiebaApplication.A() != null && TiebaApplication.F() != null) {
-                if (i == 1 || i == 3) {
-                    if (this.a != null) {
-                        this.a.cancel();
-                    }
-                    this.a = new m(this, i);
-                    this.a.execute(new String[0]);
-                } else if (i == 2) {
-                    if (this.b != null) {
-                        this.b.cancel();
-                    }
-                    if (this.a != null) {
-                        this.a.cancel();
-                    }
-                    this.b = new m(this, i);
-                    this.b.execute(new String[0]);
+            if (TiebaApplication.v() == null || TiebaApplication.z() == null) {
+                return;
+            }
+            if (i == 1 || i == 3) {
+                if (tiebaMessageService.a != null) {
+                    tiebaMessageService.a.cancel();
                 }
+                tiebaMessageService.a = new m(tiebaMessageService, i);
+                tiebaMessageService.a.execute(new String[0]);
+            } else if (i == 2) {
+                if (tiebaMessageService.b != null) {
+                    tiebaMessageService.b.cancel();
+                }
+                if (tiebaMessageService.a != null) {
+                    tiebaMessageService.a.cancel();
+                }
+                tiebaMessageService.b = new m(tiebaMessageService, i);
+                tiebaMessageService.b.execute(new String[0]);
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "getMsg", e.getMessage());
+            com.baidu.adp.lib.util.e.b(tiebaMessageService.getClass().getName(), "getMsg", e.getMessage());
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(int i) {
-        if (this.c != null && this.c.a() >= 0 && this.c.b() >= 0 && this.c.c() >= 0 && this.c.d() >= 0 && this.c.e() >= 0) {
-            if (!TiebaApplication.g().W()) {
-                this.c.a(0);
-            }
-            if (!TiebaApplication.g().V()) {
-                this.c.b(0);
-            }
-            if (!TiebaApplication.g().U()) {
-                this.c.c(0);
-            }
-            if (!TiebaApplication.g().X()) {
-                this.c.d(0);
-            }
-            Intent intent = new Intent(com.baidu.tieba.data.i.e());
-            intent.putExtra("relay", this.c.a());
-            intent.putExtra("at_me", this.c.b());
-            intent.putExtra("fans", this.c.c());
-            intent.putExtra("pletter", this.c.d());
-            if (i == 1) {
-                intent.putExtra("new_bookmark", v.a().r());
-            } else if (i == 2) {
-                intent.putExtra("new_bookmark", this.c.e());
-            }
-            sendBroadcast(intent);
-            com.baidu.adp.lib.util.f.a(getClass().getName(), "broadcastMsg", "sendBroadcast: " + String.format("%d %d %d %d", Integer.valueOf(this.c.a()), Integer.valueOf(this.c.b()), Integer.valueOf(this.c.c()), Integer.valueOf(this.c.e())));
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void c(TiebaMessageService tiebaMessageService, int i) {
+        if (tiebaMessageService.c == null || tiebaMessageService.c.a() < 0 || tiebaMessageService.c.b() < 0 || tiebaMessageService.c.c() < 0 || tiebaMessageService.c.d() < 0 || tiebaMessageService.c.e() < 0) {
+            return;
         }
+        if (!TiebaApplication.g().Q()) {
+            tiebaMessageService.c.a(0);
+        }
+        if (!TiebaApplication.g().P()) {
+            tiebaMessageService.c.b(0);
+        }
+        if (!TiebaApplication.g().O()) {
+            tiebaMessageService.c.c(0);
+        }
+        if (!TiebaApplication.g().R()) {
+            tiebaMessageService.c.d(0);
+        }
+        Intent intent = new Intent(com.baidu.tieba.data.i.e());
+        intent.putExtra("relay", tiebaMessageService.c.a());
+        intent.putExtra("at_me", tiebaMessageService.c.b());
+        intent.putExtra("fans", tiebaMessageService.c.c());
+        intent.putExtra("pletter", tiebaMessageService.c.d());
+        if (i == 1) {
+            intent.putExtra("new_bookmark", v.a().p());
+        } else if (i == 2) {
+            intent.putExtra("new_bookmark", tiebaMessageService.c.e());
+        }
+        tiebaMessageService.sendBroadcast(intent);
+        com.baidu.adp.lib.util.e.a(tiebaMessageService.getClass().getName(), "broadcastMsg", "sendBroadcast: " + String.format("%d %d %d %d", Integer.valueOf(tiebaMessageService.c.a()), Integer.valueOf(tiebaMessageService.c.b()), Integer.valueOf(tiebaMessageService.c.c()), Integer.valueOf(tiebaMessageService.c.e())));
     }
 }

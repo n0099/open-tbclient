@@ -10,7 +10,7 @@ public final class LazilyParsedNumber extends Number {
     }
 
     @Override // java.lang.Number
-    public int intValue() {
+    public final int intValue() {
         try {
             return Integer.parseInt(this.value);
         } catch (NumberFormatException e) {
@@ -23,7 +23,7 @@ public final class LazilyParsedNumber extends Number {
     }
 
     @Override // java.lang.Number
-    public long longValue() {
+    public final long longValue() {
         try {
             return Long.parseLong(this.value);
         } catch (NumberFormatException e) {
@@ -32,16 +32,16 @@ public final class LazilyParsedNumber extends Number {
     }
 
     @Override // java.lang.Number
-    public float floatValue() {
+    public final float floatValue() {
         return Float.parseFloat(this.value);
     }
 
     @Override // java.lang.Number
-    public double doubleValue() {
+    public final double doubleValue() {
         return Double.parseDouble(this.value);
     }
 
-    public String toString() {
+    public final String toString() {
         return this.value;
     }
 

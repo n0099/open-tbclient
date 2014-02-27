@@ -3,7 +3,7 @@ package com.baidu.tbadk.widget.richText;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o implements View.OnClickListener {
+public final class o implements View.OnClickListener {
     final /* synthetic */ TbRichTextView a;
     private final /* synthetic */ c b;
 
@@ -14,7 +14,7 @@ public class o implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         q qVar;
         q qVar2;
         qVar = this.a.C;

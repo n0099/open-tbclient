@@ -10,7 +10,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.view.HeadImageShaderView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class MsgrightView extends bs {
+public class MsgrightView extends br {
     private static final String p = MsgrightView.class.getName();
     protected TextView o;
     private ProgressBar q;
@@ -19,17 +19,17 @@ public class MsgrightView extends bs {
 
     public MsgrightView(Context context) {
         super(context, R.layout.msg_msgright_view);
-        e();
+        d();
         this.o = (TextView) a(R.id.img_msgitem_progressbar);
         this.q = (ProgressBar) a(R.id.progress);
         this.r = (ImageButton) a(R.id.btn_msgitem_resend);
         this.s = (HeadImageShaderView) a(R.id.img_msgitem_photo);
         this.s.setAutoChangeStyle(false);
-        this.s.setOnClickListener(new ci(this));
+        this.s.setOnClickListener(new ch(this));
     }
 
-    @Override // com.baidu.tieba.im.chat.bs
-    public void a(View view, com.baidu.tieba.im.message.b bVar) {
+    @Override // com.baidu.tieba.im.chat.br
+    public final void b(com.baidu.tieba.im.message.b bVar) {
         if (bVar.n() != null && bVar.n().getStatus() != null && (bVar.n().getStatus().shortValue() == 3 || bVar.n().getStatus().shortValue() == 2)) {
             if (this.o.getVisibility() != 8) {
                 this.o.setVisibility(8);
@@ -47,10 +47,10 @@ public class MsgrightView extends bs {
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.bs
-    public void b(View view, com.baidu.tieba.im.message.b bVar) {
+    @Override // com.baidu.tieba.im.chat.br
+    public final void a(View view, com.baidu.tieba.im.message.b bVar) {
         String str = null;
-        super.b(view, bVar);
+        super.a(view, bVar);
         if (bVar == null) {
             this.i.setVisibility(8);
             this.q.setVisibility(8);
@@ -64,14 +64,14 @@ public class MsgrightView extends bs {
             return;
         }
         try {
-            b(bVar);
+            c(bVar);
             if (bVar.g() != null) {
                 this.s.setUserId(bVar.g().getUserId());
-                if (TiebaApplication.B()) {
-                    str = com.baidu.tieba.im.f.b();
+                if (TiebaApplication.w()) {
+                    str = com.baidu.tieba.im.e.c();
                 }
             }
-            this.e.c(str, new cj(this));
+            this.e.c(str, new ci(this));
             this.q.setVisibility(8);
             this.r.setVisibility(8);
             if (bVar.n() != null && bVar.n().getStatus() != null) {
@@ -88,7 +88,7 @@ public class MsgrightView extends bs {
                 }
             }
             if (this.r.getVisibility() == 0) {
-                this.r.setOnClickListener(new ck(this));
+                this.r.setOnClickListener(new cj(this));
             }
             this.j.setVisibility(8);
             c(8);
@@ -113,7 +113,7 @@ public class MsgrightView extends bs {
                     return;
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("MsgrightView", "setData", "error = " + e.getMessage());
+            com.baidu.adp.lib.util.e.b("MsgrightView", "setData", "error = " + e.getMessage());
         }
     }
 }

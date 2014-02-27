@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 /* loaded from: classes.dex */
-class ag implements com.baidu.tieba.im.messageCenter.g {
+final class ag implements com.baidu.tieba.im.messageCenter.g {
     final /* synthetic */ MainTabActivity a;
 
     private ag(MainTabActivity mainTabActivity) {
@@ -8,12 +8,12 @@ class ag implements com.baidu.tieba.im.messageCenter.g {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ag(MainTabActivity mainTabActivity, ag agVar) {
+    public /* synthetic */ ag(MainTabActivity mainTabActivity, byte b) {
         this(mainTabActivity);
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.s sVar) {
+    public final void a(com.baidu.tieba.im.message.s sVar) {
         if (sVar != null && sVar.w() == -124) {
             MainTabActivity.a(this.a, sVar);
         }

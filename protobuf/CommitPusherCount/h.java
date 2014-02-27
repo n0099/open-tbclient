@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.CommitPusherCount.CommitPusherCountRes;
 import protobuf.Im;
 /* loaded from: classes.dex */
@@ -12,19 +13,34 @@ public final class h extends GeneratedMessageLite.Builder<CommitPusherCountRes.C
     private Im.Error b = Im.Error.getDefaultInstance();
     private CommitPusherCountRes.DataRes c = CommitPusherCountRes.DataRes.getDefaultInstance();
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        CommitPusherCountRes.CommitPusherCountResIdl buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return CommitPusherCountRes.CommitPusherCountResIdl.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return CommitPusherCountRes.CommitPusherCountResIdl.getDefaultInstance();
+    }
+
     private h() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static h h() {
+    public static /* synthetic */ h a() {
         return new h();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: b */
     public h clear() {
         super.clear();
         this.b = Im.Error.getDefaultInstance();
@@ -35,29 +51,13 @@ public final class h extends GeneratedMessageLite.Builder<CommitPusherCountRes.C
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public h clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
     /* renamed from: c */
-    public CommitPusherCountRes.CommitPusherCountResIdl getDefaultInstanceForType() {
-        return CommitPusherCountRes.CommitPusherCountResIdl.getDefaultInstance();
+    public h clone() {
+        return new h().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public CommitPusherCountRes.CommitPusherCountResIdl build() {
-        CommitPusherCountRes.CommitPusherCountResIdl buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
     public CommitPusherCountRes.CommitPusherCountResIdl buildPartial() {
         CommitPusherCountRes.CommitPusherCountResIdl commitPusherCountResIdl = new CommitPusherCountRes.CommitPusherCountResIdl(this, (CommitPusherCountRes.CommitPusherCountResIdl) null);
         int i = this.a;
@@ -73,13 +73,25 @@ public final class h extends GeneratedMessageLite.Builder<CommitPusherCountRes.C
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public h mergeFrom(CommitPusherCountRes.CommitPusherCountResIdl commitPusherCountResIdl) {
+    public final h mergeFrom(CommitPusherCountRes.CommitPusherCountResIdl commitPusherCountResIdl) {
         if (commitPusherCountResIdl != CommitPusherCountRes.CommitPusherCountResIdl.getDefaultInstance()) {
             if (commitPusherCountResIdl.hasError()) {
-                a(commitPusherCountResIdl.getError());
+                Im.Error error = commitPusherCountResIdl.getError();
+                if ((this.a & 1) != 1 || this.b == Im.Error.getDefaultInstance()) {
+                    this.b = error;
+                } else {
+                    this.b = Im.Error.newBuilder(this.b).mergeFrom(error).buildPartial();
+                }
+                this.a |= 1;
             }
             if (commitPusherCountResIdl.hasData()) {
-                a(commitPusherCountResIdl.getData());
+                CommitPusherCountRes.DataRes data = commitPusherCountResIdl.getData();
+                if ((this.a & 2) != 2 || this.c == CommitPusherCountRes.DataRes.getDefaultInstance()) {
+                    this.c = data;
+                } else {
+                    this.c = CommitPusherCountRes.DataRes.newBuilder(this.c).mergeFrom(data).buildPartial();
+                }
+                this.a |= 2;
             }
         }
         return this;
@@ -126,25 +138,5 @@ public final class h extends GeneratedMessageLite.Builder<CommitPusherCountRes.C
                 throw th;
             }
         }
-    }
-
-    public h a(Im.Error error) {
-        if ((this.a & 1) == 1 && this.b != Im.Error.getDefaultInstance()) {
-            this.b = Im.Error.newBuilder(this.b).mergeFrom(error).buildPartial();
-        } else {
-            this.b = error;
-        }
-        this.a |= 1;
-        return this;
-    }
-
-    public h a(CommitPusherCountRes.DataRes dataRes) {
-        if ((this.a & 2) == 2 && this.c != CommitPusherCountRes.DataRes.getDefaultInstance()) {
-            this.c = CommitPusherCountRes.DataRes.newBuilder(this.c).mergeFrom(dataRes).buildPartial();
-        } else {
-            this.c = dataRes;
-        }
-        this.a |= 2;
-        return this;
     }
 }

@@ -7,9 +7,8 @@ import android.widget.EditText;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tieba.editortool.EmotionTabHost;
 import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p implements View.OnTouchListener {
+final class p implements View.OnTouchListener {
     final /* synthetic */ ImagePbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,7 +17,7 @@ public class p implements View.OnTouchListener {
     }
 
     @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
+    public final boolean onTouch(View view, MotionEvent motionEvent) {
         EmotionTabHost emotionTabHost;
         EditText editText;
         EmotionTabHost emotionTabHost2;

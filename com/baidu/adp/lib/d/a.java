@@ -48,14 +48,14 @@ public class a<K, V> {
         if (put != null) {
             a(false, k, put, v);
         }
-        b(this.c);
+        c(this.c);
         return put;
     }
 
-    public synchronized boolean a(int i) {
+    public final synchronized boolean a(int i) {
         int i2 = this.b - i;
         if (i2 > this.c * 0.6d) {
-            b(i2);
+            c(i2);
         }
         return true;
     }
@@ -66,7 +66,7 @@ public class a<K, V> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void b(int i) {
+    private void c(int i) {
         K key;
         V value;
         while (true) {
@@ -121,29 +121,25 @@ public class a<K, V> {
     }
 
     public final void a() {
-        b(-1);
-    }
-
-    public final void b() {
-        a();
+        c(-1);
         this.d = 0;
         this.e = 0;
         this.f = 0;
         this.g = 0;
     }
 
-    public final synchronized int c() {
+    public final synchronized int b() {
         return this.b;
     }
 
-    public final synchronized int d() {
+    public final synchronized int c() {
         return this.c;
     }
 
-    public final void c(int i) {
+    public final void b(int i) {
         synchronized (this) {
             this.c = i;
-            b(i);
+            c(i);
         }
     }
 }

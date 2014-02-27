@@ -6,7 +6,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-class j {
+final class j {
     FrameLayout a;
     TbImageView b;
     ImageView c;
@@ -19,7 +19,7 @@ class j {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ j(g gVar, j jVar) {
+    public /* synthetic */ j(g gVar, byte b) {
         this(gVar);
     }
 }

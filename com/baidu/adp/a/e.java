@@ -14,43 +14,39 @@ public class e {
         this.b = context;
     }
 
-    public Context b() {
+    public final Context b() {
         return this.b;
     }
 
     public void c() {
     }
 
-    public void a(InputMethodManager inputMethodManager) {
+    public final void a(InputMethodManager inputMethodManager) {
         this.a = inputMethodManager;
     }
 
-    public InputMethodManager f_() {
-        if (this.a == null) {
-            this.a = (InputMethodManager) this.b.getSystemService("input_method");
-        }
-        return this.a;
-    }
-
-    public void a(View view) {
+    public final void a(View view) {
         try {
             if (this.a != null && view != null) {
                 this.a.hideSoftInputFromWindow(view.getWindowToken(), 2);
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "HidenSoftKeyPad", "error = " + e.getMessage());
+            com.baidu.adp.lib.util.e.b(getClass().getName(), "HidenSoftKeyPad", "error = " + e.getMessage());
         }
     }
 
-    public void b(View view) {
+    public final void b(View view) {
         try {
-            f_().showSoftInput(view, 0);
+            if (this.a == null) {
+                this.a = (InputMethodManager) this.b.getSystemService("input_method");
+            }
+            this.a.showSoftInput(view, 0);
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "ShowSoftKeyPad", "error = " + e.getMessage());
+            com.baidu.adp.lib.util.e.b(getClass().getName(), "ShowSoftKeyPad", "error = " + e.getMessage());
         }
     }
 
-    public void a(View view, int i) {
-        new Handler().postDelayed(new f(this, view), i);
+    public final void a(View view, int i) {
+        new Handler().postDelayed(new f(this, view), 100L);
     }
 }

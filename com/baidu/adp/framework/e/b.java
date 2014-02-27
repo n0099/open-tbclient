@@ -22,7 +22,7 @@ public class b extends d {
         this.b = 5;
     }
 
-    public e b() {
+    public final e b() {
         return this.d;
     }
 }

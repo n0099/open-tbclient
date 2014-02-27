@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-class af implements com.baidu.tbadk.imageManager.d {
+final class af implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ ae a;
     private final /* synthetic */ ViewGroup b;
 
@@ -15,7 +15,7 @@ class af implements com.baidu.tbadk.imageManager.d {
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
         View findViewWithTag = this.b.findViewWithTag(str);
         if (bVar != null && findViewWithTag != null && (findViewWithTag instanceof TbImageView)) {
             TbImageView tbImageView = (TbImageView) findViewWithTag;

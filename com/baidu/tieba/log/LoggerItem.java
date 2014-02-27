@@ -27,18 +27,18 @@ public class LoggerItem extends LinkedHashMap<String, String> {
     }
 
     public void initBaseData() {
-        String A = TiebaApplication.A();
+        String v = TiebaApplication.v();
         String u = com.baidu.tieba.data.i.u();
         String charSequence = DateFormat.format(a, System.currentTimeMillis()).toString();
-        String a2 = com.baidu.tieba.im.f.a();
+        String b = com.baidu.tieba.im.e.b();
         String str = Build.MODEL;
-        String b = g.b();
+        String b2 = g.b();
         put("logtype", TextUtils.isEmpty(this.mType) ? "" : this.mType);
         put("time", TextUtils.isEmpty(charSequence) ? "" : charSequence);
-        put(SocialConstants.PARAM_CUID, TextUtils.isEmpty(a2) ? "" : a2);
+        put(SocialConstants.PARAM_CUID, TextUtils.isEmpty(b) ? "" : b);
         put("model", TextUtils.isEmpty(str) ? "" : str);
-        put("network", TextUtils.isEmpty(b) ? "" : b);
-        put(SapiAccountManager.SESSION_UID, TextUtils.isEmpty(A) ? "" : A);
+        put("network", TextUtils.isEmpty(b2) ? "" : b2);
+        put(SapiAccountManager.SESSION_UID, TextUtils.isEmpty(v) ? "" : v);
         put("version", TextUtils.isEmpty(u) ? "" : u);
     }
 

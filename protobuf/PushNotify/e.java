@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -14,19 +15,34 @@ public final class e extends GeneratedMessageLite.Builder<PushNotifyRes.PushNoti
     private long b;
     private List<PushNotifyRes.PusherMsg> c = Collections.emptyList();
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        PushNotifyRes.PushNotifyResIdl buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return PushNotifyRes.PushNotifyResIdl.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return PushNotifyRes.PushNotifyResIdl.getDefaultInstance();
+    }
+
     private e() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static e h() {
+    public static /* synthetic */ e a() {
         return new e();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: b */
     public e clear() {
         super.clear();
         this.b = 0L;
@@ -37,29 +53,13 @@ public final class e extends GeneratedMessageLite.Builder<PushNotifyRes.PushNoti
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public e clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
     /* renamed from: c */
-    public PushNotifyRes.PushNotifyResIdl getDefaultInstanceForType() {
-        return PushNotifyRes.PushNotifyResIdl.getDefaultInstance();
+    public e clone() {
+        return new e().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public PushNotifyRes.PushNotifyResIdl build() {
-        PushNotifyRes.PushNotifyResIdl buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
     public PushNotifyRes.PushNotifyResIdl buildPartial() {
         PushNotifyRes.PushNotifyResIdl pushNotifyResIdl = new PushNotifyRes.PushNotifyResIdl(this, (PushNotifyRes.PushNotifyResIdl) null);
         int i = (this.a & 1) != 1 ? 0 : 1;
@@ -75,13 +75,15 @@ public final class e extends GeneratedMessageLite.Builder<PushNotifyRes.PushNoti
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public e mergeFrom(PushNotifyRes.PushNotifyResIdl pushNotifyResIdl) {
+    public final e mergeFrom(PushNotifyRes.PushNotifyResIdl pushNotifyResIdl) {
         List list;
         List list2;
         List<PushNotifyRes.PusherMsg> list3;
         if (pushNotifyResIdl != PushNotifyRes.PushNotifyResIdl.getDefaultInstance()) {
             if (pushNotifyResIdl.hasPushTime()) {
-                a(pushNotifyResIdl.getPushTime());
+                long pushTime = pushNotifyResIdl.getPushTime();
+                this.a |= 1;
+                this.b = pushTime;
             }
             list = pushNotifyResIdl.multiMsg_;
             if (!list.isEmpty()) {
@@ -90,7 +92,10 @@ public final class e extends GeneratedMessageLite.Builder<PushNotifyRes.PushNoti
                     this.c = list3;
                     this.a &= -3;
                 } else {
-                    i();
+                    if ((this.a & 2) != 2) {
+                        this.c = new ArrayList(this.c);
+                        this.a |= 2;
+                    }
                     List<PushNotifyRes.PusherMsg> list4 = this.c;
                     list2 = pushNotifyResIdl.multiMsg_;
                     list4.addAll(list2);
@@ -140,19 +145,6 @@ public final class e extends GeneratedMessageLite.Builder<PushNotifyRes.PushNoti
                 }
                 throw th;
             }
-        }
-    }
-
-    public e a(long j) {
-        this.a |= 1;
-        this.b = j;
-        return this;
-    }
-
-    private void i() {
-        if ((this.a & 2) != 2) {
-            this.c = new ArrayList(this.c);
-            this.a |= 2;
         }
     }
 }

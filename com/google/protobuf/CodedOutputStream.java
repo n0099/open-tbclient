@@ -53,133 +53,133 @@ public final class CodedOutputStream {
         return new CodedOutputStream(bArr, i, i2);
     }
 
-    public void writeDouble(int i, double d) {
+    public final void writeDouble(int i, double d) {
         writeTag(i, 1);
         writeDoubleNoTag(d);
     }
 
-    public void writeFloat(int i, float f) {
+    public final void writeFloat(int i, float f) {
         writeTag(i, 5);
         writeFloatNoTag(f);
     }
 
-    public void writeUInt64(int i, long j) {
+    public final void writeUInt64(int i, long j) {
         writeTag(i, 0);
-        writeUInt64NoTag(j);
+        writeRawVarint64(j);
     }
 
-    public void writeInt64(int i, long j) {
+    public final void writeInt64(int i, long j) {
         writeTag(i, 0);
-        writeInt64NoTag(j);
+        writeRawVarint64(j);
     }
 
-    public void writeInt32(int i, int i2) {
+    public final void writeInt32(int i, int i2) {
         writeTag(i, 0);
         writeInt32NoTag(i2);
     }
 
-    public void writeFixed64(int i, long j) {
+    public final void writeFixed64(int i, long j) {
         writeTag(i, 1);
-        writeFixed64NoTag(j);
+        writeRawLittleEndian64(j);
     }
 
-    public void writeFixed32(int i, int i2) {
+    public final void writeFixed32(int i, int i2) {
         writeTag(i, 5);
-        writeFixed32NoTag(i2);
+        writeRawLittleEndian32(i2);
     }
 
-    public void writeBool(int i, boolean z) {
+    public final void writeBool(int i, boolean z) {
         writeTag(i, 0);
         writeBoolNoTag(z);
     }
 
-    public void writeString(int i, String str) {
+    public final void writeString(int i, String str) {
         writeTag(i, 2);
         writeStringNoTag(str);
     }
 
-    public void writeGroup(int i, MessageLite messageLite) {
+    public final void writeGroup(int i, MessageLite messageLite) {
         writeTag(i, 3);
-        writeGroupNoTag(messageLite);
+        messageLite.writeTo(this);
         writeTag(i, 4);
     }
 
     @Deprecated
-    public void writeUnknownGroup(int i, MessageLite messageLite) {
+    public final void writeUnknownGroup(int i, MessageLite messageLite) {
         writeGroup(i, messageLite);
     }
 
-    public void writeMessage(int i, MessageLite messageLite) {
+    public final void writeMessage(int i, MessageLite messageLite) {
         writeTag(i, 2);
         writeMessageNoTag(messageLite);
     }
 
-    public void writeBytes(int i, ByteString byteString) {
+    public final void writeBytes(int i, ByteString byteString) {
         writeTag(i, 2);
         writeBytesNoTag(byteString);
     }
 
-    public void writeUInt32(int i, int i2) {
+    public final void writeUInt32(int i, int i2) {
         writeTag(i, 0);
-        writeUInt32NoTag(i2);
+        writeRawVarint32(i2);
     }
 
-    public void writeEnum(int i, int i2) {
+    public final void writeEnum(int i, int i2) {
         writeTag(i, 0);
-        writeEnumNoTag(i2);
+        writeInt32NoTag(i2);
     }
 
-    public void writeSFixed32(int i, int i2) {
+    public final void writeSFixed32(int i, int i2) {
         writeTag(i, 5);
-        writeSFixed32NoTag(i2);
+        writeRawLittleEndian32(i2);
     }
 
-    public void writeSFixed64(int i, long j) {
+    public final void writeSFixed64(int i, long j) {
         writeTag(i, 1);
-        writeSFixed64NoTag(j);
+        writeRawLittleEndian64(j);
     }
 
-    public void writeSInt32(int i, int i2) {
+    public final void writeSInt32(int i, int i2) {
         writeTag(i, 0);
         writeSInt32NoTag(i2);
     }
 
-    public void writeSInt64(int i, long j) {
+    public final void writeSInt64(int i, long j) {
         writeTag(i, 0);
         writeSInt64NoTag(j);
     }
 
-    public void writeMessageSetExtension(int i, MessageLite messageLite) {
+    public final void writeMessageSetExtension(int i, MessageLite messageLite) {
         writeTag(1, 3);
         writeUInt32(2, i);
         writeMessage(3, messageLite);
         writeTag(1, 4);
     }
 
-    public void writeRawMessageSetExtension(int i, ByteString byteString) {
+    public final void writeRawMessageSetExtension(int i, ByteString byteString) {
         writeTag(1, 3);
         writeUInt32(2, i);
         writeBytes(3, byteString);
         writeTag(1, 4);
     }
 
-    public void writeDoubleNoTag(double d) {
+    public final void writeDoubleNoTag(double d) {
         writeRawLittleEndian64(Double.doubleToRawLongBits(d));
     }
 
-    public void writeFloatNoTag(float f) {
+    public final void writeFloatNoTag(float f) {
         writeRawLittleEndian32(Float.floatToRawIntBits(f));
     }
 
-    public void writeUInt64NoTag(long j) {
+    public final void writeUInt64NoTag(long j) {
         writeRawVarint64(j);
     }
 
-    public void writeInt64NoTag(long j) {
+    public final void writeInt64NoTag(long j) {
         writeRawVarint64(j);
     }
 
-    public void writeInt32NoTag(int i) {
+    public final void writeInt32NoTag(int i) {
         if (i >= 0) {
             writeRawVarint32(i);
         } else {
@@ -187,64 +187,64 @@ public final class CodedOutputStream {
         }
     }
 
-    public void writeFixed64NoTag(long j) {
+    public final void writeFixed64NoTag(long j) {
         writeRawLittleEndian64(j);
     }
 
-    public void writeFixed32NoTag(int i) {
+    public final void writeFixed32NoTag(int i) {
         writeRawLittleEndian32(i);
     }
 
-    public void writeBoolNoTag(boolean z) {
-        writeRawByte(z ? 1 : 0);
+    public final void writeBoolNoTag(boolean z) {
+        writeRawByte((byte) (z ? 1 : 0));
     }
 
-    public void writeStringNoTag(String str) {
+    public final void writeStringNoTag(String str) {
         byte[] bytes = str.getBytes("UTF-8");
         writeRawVarint32(bytes.length);
         writeRawBytes(bytes);
     }
 
-    public void writeGroupNoTag(MessageLite messageLite) {
+    public final void writeGroupNoTag(MessageLite messageLite) {
         messageLite.writeTo(this);
     }
 
     @Deprecated
-    public void writeUnknownGroupNoTag(MessageLite messageLite) {
-        writeGroupNoTag(messageLite);
+    public final void writeUnknownGroupNoTag(MessageLite messageLite) {
+        messageLite.writeTo(this);
     }
 
-    public void writeMessageNoTag(MessageLite messageLite) {
+    public final void writeMessageNoTag(MessageLite messageLite) {
         writeRawVarint32(messageLite.getSerializedSize());
         messageLite.writeTo(this);
     }
 
-    public void writeBytesNoTag(ByteString byteString) {
+    public final void writeBytesNoTag(ByteString byteString) {
         writeRawVarint32(byteString.size());
         writeRawBytes(byteString);
     }
 
-    public void writeUInt32NoTag(int i) {
+    public final void writeUInt32NoTag(int i) {
         writeRawVarint32(i);
     }
 
-    public void writeEnumNoTag(int i) {
+    public final void writeEnumNoTag(int i) {
         writeInt32NoTag(i);
     }
 
-    public void writeSFixed32NoTag(int i) {
+    public final void writeSFixed32NoTag(int i) {
         writeRawLittleEndian32(i);
     }
 
-    public void writeSFixed64NoTag(long j) {
+    public final void writeSFixed64NoTag(long j) {
         writeRawLittleEndian64(j);
     }
 
-    public void writeSInt32NoTag(int i) {
+    public final void writeSInt32NoTag(int i) {
         writeRawVarint32(encodeZigZag32(i));
     }
 
-    public void writeSInt64NoTag(long j) {
+    public final void writeSInt64NoTag(long j) {
         writeRawVarint64(encodeZigZag64(j));
     }
 
@@ -440,20 +440,20 @@ public final class CodedOutputStream {
         this.position = 0;
     }
 
-    public void flush() {
+    public final void flush() {
         if (this.output != null) {
             refreshBuffer();
         }
     }
 
-    public int spaceLeft() {
+    public final int spaceLeft() {
         if (this.output == null) {
             return this.limit - this.position;
         }
         throw new UnsupportedOperationException("spaceLeft() can only be called on CodedOutputStreams that are writing to a flat array.");
     }
 
-    public void checkNoSpaceLeft() {
+    public final void checkNoSpaceLeft() {
         if (spaceLeft() != 0) {
             throw new IllegalStateException("Did not write as much data as expected.");
         }
@@ -468,7 +468,7 @@ public final class CodedOutputStream {
         }
     }
 
-    public void writeRawByte(byte b) {
+    public final void writeRawByte(byte b) {
         if (this.position == this.limit) {
             refreshBuffer();
         }
@@ -478,19 +478,19 @@ public final class CodedOutputStream {
         bArr[i] = b;
     }
 
-    public void writeRawByte(int i) {
+    public final void writeRawByte(int i) {
         writeRawByte((byte) i);
     }
 
-    public void writeRawBytes(ByteString byteString) {
+    public final void writeRawBytes(ByteString byteString) {
         writeRawBytes(byteString, 0, byteString.size());
     }
 
-    public void writeRawBytes(byte[] bArr) {
+    public final void writeRawBytes(byte[] bArr) {
         writeRawBytes(bArr, 0, bArr.length);
     }
 
-    public void writeRawBytes(byte[] bArr, int i, int i2) {
+    public final void writeRawBytes(byte[] bArr, int i, int i2) {
         if (this.limit - this.position >= i2) {
             System.arraycopy(bArr, i, this.buffer, this.position, i2);
             this.position += i2;
@@ -510,7 +510,7 @@ public final class CodedOutputStream {
         this.output.write(bArr, i4, i5);
     }
 
-    public void writeRawBytes(ByteString byteString, int i, int i2) {
+    public final void writeRawBytes(ByteString byteString, int i, int i2) {
         if (this.limit - this.position >= i2) {
             byteString.copyTo(this.buffer, i, this.position, i2);
             this.position += i2;
@@ -542,7 +542,7 @@ public final class CodedOutputStream {
         }
     }
 
-    public void writeTag(int i, int i2) {
+    public final void writeTag(int i, int i2) {
         writeRawVarint32(WireFormat.makeTag(i, i2));
     }
 
@@ -550,12 +550,12 @@ public final class CodedOutputStream {
         return computeRawVarint32Size(WireFormat.makeTag(i, 0));
     }
 
-    public void writeRawVarint32(int i) {
+    public final void writeRawVarint32(int i) {
         while ((i & (-128)) != 0) {
-            writeRawByte((i & 127) | 128);
+            writeRawByte((byte) ((i & 127) | 128));
             i >>>= 7;
         }
-        writeRawByte(i);
+        writeRawByte((byte) i);
     }
 
     public static int computeRawVarint32Size(int i) {
@@ -571,12 +571,12 @@ public final class CodedOutputStream {
         return ((-268435456) & i) == 0 ? 4 : 5;
     }
 
-    public void writeRawVarint64(long j) {
+    public final void writeRawVarint64(long j) {
         while (((-128) & j) != 0) {
-            writeRawByte((((int) j) & 127) | 128);
+            writeRawByte((byte) ((((int) j) & 127) | 128));
             j >>>= 7;
         }
-        writeRawByte((int) j);
+        writeRawByte((byte) j);
     }
 
     public static int computeRawVarint64Size(long j) {
@@ -607,22 +607,22 @@ public final class CodedOutputStream {
         return (Long.MIN_VALUE & j) == 0 ? 9 : 10;
     }
 
-    public void writeRawLittleEndian32(int i) {
-        writeRawByte(i & MotionEventCompat.ACTION_MASK);
-        writeRawByte((i >> 8) & MotionEventCompat.ACTION_MASK);
-        writeRawByte((i >> 16) & MotionEventCompat.ACTION_MASK);
-        writeRawByte((i >> 24) & MotionEventCompat.ACTION_MASK);
+    public final void writeRawLittleEndian32(int i) {
+        writeRawByte((byte) (i & MotionEventCompat.ACTION_MASK));
+        writeRawByte((byte) ((i >> 8) & MotionEventCompat.ACTION_MASK));
+        writeRawByte((byte) ((i >> 16) & MotionEventCompat.ACTION_MASK));
+        writeRawByte((byte) ((i >> 24) & MotionEventCompat.ACTION_MASK));
     }
 
-    public void writeRawLittleEndian64(long j) {
-        writeRawByte(((int) j) & MotionEventCompat.ACTION_MASK);
-        writeRawByte(((int) (j >> 8)) & MotionEventCompat.ACTION_MASK);
-        writeRawByte(((int) (j >> 16)) & MotionEventCompat.ACTION_MASK);
-        writeRawByte(((int) (j >> 24)) & MotionEventCompat.ACTION_MASK);
-        writeRawByte(((int) (j >> 32)) & MotionEventCompat.ACTION_MASK);
-        writeRawByte(((int) (j >> 40)) & MotionEventCompat.ACTION_MASK);
-        writeRawByte(((int) (j >> 48)) & MotionEventCompat.ACTION_MASK);
-        writeRawByte(((int) (j >> 56)) & MotionEventCompat.ACTION_MASK);
+    public final void writeRawLittleEndian64(long j) {
+        writeRawByte((byte) (((int) j) & MotionEventCompat.ACTION_MASK));
+        writeRawByte((byte) (((int) (j >> 8)) & MotionEventCompat.ACTION_MASK));
+        writeRawByte((byte) (((int) (j >> 16)) & MotionEventCompat.ACTION_MASK));
+        writeRawByte((byte) (((int) (j >> 24)) & MotionEventCompat.ACTION_MASK));
+        writeRawByte((byte) (((int) (j >> 32)) & MotionEventCompat.ACTION_MASK));
+        writeRawByte((byte) (((int) (j >> 40)) & MotionEventCompat.ACTION_MASK));
+        writeRawByte((byte) (((int) (j >> 48)) & MotionEventCompat.ACTION_MASK));
+        writeRawByte((byte) (((int) (j >> 56)) & MotionEventCompat.ACTION_MASK));
     }
 
     public static int encodeZigZag32(int i) {

@@ -1,7 +1,6 @@
 package com.baidu.tieba.person;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cq implements cx {
+final class cq implements cx {
     final /* synthetic */ cm a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,7 +9,7 @@ public class cq implements cx {
     }
 
     @Override // com.baidu.tieba.person.cx
-    public void a() {
+    public final void a() {
         this.a.a(false);
     }
 }

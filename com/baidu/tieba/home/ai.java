@@ -7,9 +7,8 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.view.HeadImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ai {
+final class ai {
     public HeadImageView a;
     public LinearLayout b;
     public TextView c;

@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.UpdateMaskInfo.UpdateMaskInfoReq;
 /* loaded from: classes.dex */
 public final class b extends GeneratedMessageLite.Builder<UpdateMaskInfoReq.DataReq, b> implements c {
@@ -12,19 +13,25 @@ public final class b extends GeneratedMessageLite.Builder<UpdateMaskInfoReq.Data
     private int c;
     private Object d = "";
 
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return UpdateMaskInfoReq.DataReq.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return UpdateMaskInfoReq.DataReq.getDefaultInstance();
+    }
+
     private b() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static b h() {
+    public static /* synthetic */ b c() {
         return new b();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: d */
     public b clear() {
         super.clear();
         this.b = 0;
@@ -37,20 +44,14 @@ public final class b extends GeneratedMessageLite.Builder<UpdateMaskInfoReq.Data
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
+    /* renamed from: e */
     public b clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public UpdateMaskInfoReq.DataReq getDefaultInstanceForType() {
-        return UpdateMaskInfoReq.DataReq.getDefaultInstance();
+        return new b().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: d */
-    public UpdateMaskInfoReq.DataReq build() {
+    /* renamed from: a */
+    public final UpdateMaskInfoReq.DataReq build() {
         UpdateMaskInfoReq.DataReq buildPartial = buildPartial();
         if (!buildPartial.isInitialized()) {
             throw newUninitializedMessageException(buildPartial);
@@ -59,8 +60,8 @@ public final class b extends GeneratedMessageLite.Builder<UpdateMaskInfoReq.Data
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public UpdateMaskInfoReq.DataReq buildPartial() {
+    /* renamed from: b */
+    public final UpdateMaskInfoReq.DataReq buildPartial() {
         UpdateMaskInfoReq.DataReq dataReq = new UpdateMaskInfoReq.DataReq(this, (UpdateMaskInfoReq.DataReq) null);
         int i = this.a;
         int i2 = (i & 1) != 1 ? 0 : 1;
@@ -79,7 +80,7 @@ public final class b extends GeneratedMessageLite.Builder<UpdateMaskInfoReq.Data
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public b mergeFrom(UpdateMaskInfoReq.DataReq dataReq) {
+    public final b mergeFrom(UpdateMaskInfoReq.DataReq dataReq) {
         Object obj;
         if (dataReq != UpdateMaskInfoReq.DataReq.getDefaultInstance()) {
             if (dataReq.hasType()) {
@@ -140,19 +141,19 @@ public final class b extends GeneratedMessageLite.Builder<UpdateMaskInfoReq.Data
         }
     }
 
-    public b a(int i) {
+    public final b a(int i) {
         this.a |= 1;
         this.b = i;
         return this;
     }
 
-    public b b(int i) {
+    public final b b(int i) {
         this.a |= 2;
         this.c = i;
         return this;
     }
 
-    public b a(String str) {
+    public final b a(String str) {
         if (str != null) {
             this.a |= 4;
             this.d = str;

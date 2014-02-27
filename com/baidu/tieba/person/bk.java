@@ -1,7 +1,7 @@
 package com.baidu.tieba.person;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bk implements Runnable {
+public final class bk implements Runnable {
     final /* synthetic */ bj a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,11 +10,11 @@ public class bk implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         boolean z;
         z = this.a.j;
         if (z) {
-            this.a.f();
+            this.a.d();
         }
     }
 }

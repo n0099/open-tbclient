@@ -17,7 +17,7 @@ public class BDImageView2 extends ImageView {
     private String e;
     private int f;
 
-    static /* synthetic */ int[] b() {
+    private static /* synthetic */ int[] c() {
         int[] iArr = g;
         if (iArr == null) {
             iArr = new int[ImageView.ScaleType.values().length];
@@ -66,7 +66,7 @@ public class BDImageView2 extends ImageView {
         this.d = null;
         this.e = null;
         this.f = 0;
-        c();
+        b();
     }
 
     public BDImageView2(Context context, AttributeSet attributeSet) {
@@ -77,7 +77,7 @@ public class BDImageView2 extends ImageView {
         this.d = null;
         this.e = null;
         this.f = 0;
-        c();
+        b();
     }
 
     public BDImageView2(Context context, AttributeSet attributeSet, int i) {
@@ -88,7 +88,7 @@ public class BDImageView2 extends ImageView {
         this.d = null;
         this.e = null;
         this.f = 0;
-        c();
+        b();
     }
 
     @Override // android.view.View
@@ -96,7 +96,7 @@ public class BDImageView2 extends ImageView {
         super.setTag(obj);
     }
 
-    private void c() {
+    private void b() {
         this.b = new Paint();
     }
 
@@ -119,7 +119,7 @@ public class BDImageView2 extends ImageView {
         this.a = i;
     }
 
-    public void a() {
+    public final void a() {
         setDefaultResource(0);
         this.e = null;
         setTag(null);
@@ -145,7 +145,7 @@ public class BDImageView2 extends ImageView {
         int width = (getWidth() - paddingLeft) - paddingRight;
         float f4 = width / c;
         float f5 = height / d;
-        switch (b()[scaleType.ordinal()]) {
+        switch (c()[scaleType.ordinal()]) {
             case 1:
                 f3 = (width - c) / 2;
                 f = (height - d) / 2;
@@ -230,7 +230,7 @@ public class BDImageView2 extends ImageView {
             }
             matrix = this.d;
         } else {
-            image = new b(com.baidu.adp.lib.util.b.a().a(this.a), false, null);
+            image = new b(com.baidu.adp.lib.util.a.a().a(this.a), false, null);
             if (this.c == null) {
                 this.c = a(image);
             }

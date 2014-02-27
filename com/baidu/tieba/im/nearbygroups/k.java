@@ -10,20 +10,20 @@ import com.baidu.tieba.util.ap;
 import com.baidu.tieba.util.bq;
 import com.baidu.tieba.view.NavigationBar;
 import com.baidu.tieba.view.NoNetworkView;
-import com.baidu.tieba.view.ct;
-import com.baidu.tieba.view.cv;
+import com.baidu.tieba.view.cs;
+import com.baidu.tieba.view.cu;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class k extends com.baidu.adp.a.e {
+public final class k extends com.baidu.adp.a.e {
     private NavigationBar a;
     private NearbyGroupsActivity c;
     private View d;
     private TextView e;
     private f f;
     private PinnedHeaderListView g;
-    private ct h;
+    private cs h;
     private NoNetworkView i;
-    private cv j;
+    private cu j;
 
     public k(NearbyGroupsActivity nearbyGroupsActivity) {
         super(nearbyGroupsActivity);
@@ -37,12 +37,8 @@ public class k extends com.baidu.adp.a.e {
         this.i = null;
         this.j = null;
         this.c = nearbyGroupsActivity;
-        k();
-    }
-
-    private void k() {
         this.f = new f(this.c);
-        this.j = new cv(this.c);
+        this.j = new cu(this.c);
         this.c.setContentView(R.layout.nearby_group_activity);
         this.d = this.c.findViewById(R.id.parent);
         this.g = (PinnedHeaderListView) this.c.findViewById(R.id.nearby_list);
@@ -51,69 +47,69 @@ public class k extends com.baidu.adp.a.e {
         this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.e = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.c);
         this.i = (NoNetworkView) this.c.findViewById(R.id.view_no_network);
-        this.h = new ct(this.c);
+        this.h = new cs(this.c);
         this.g.setPullRefresh(this.h);
         this.g.setAdapter((ListAdapter) this.f);
         this.g.setNextPage(this.j);
         this.g.a(new l(this), 300L);
     }
 
-    public void a() {
+    public final void a() {
         ap.a(this.g, this.f.e(), 0, -1);
     }
 
-    public void e() {
+    public final void d() {
         this.j.f();
     }
 
-    public void f() {
+    public final void e() {
         this.j.e();
     }
 
-    public void a(r rVar) {
+    public final void a(r rVar) {
         this.g.setOnSrollToBottomListener(rVar);
     }
 
-    public void a(View.OnClickListener onClickListener) {
+    public final void a(View.OnClickListener onClickListener) {
         this.j.a(onClickListener);
     }
 
-    public void a(com.baidu.adp.widget.ListView.b bVar) {
+    public final void a(com.baidu.adp.widget.ListView.b bVar) {
         this.h.a(bVar);
     }
 
-    public void g() {
+    public final void f() {
         this.g.b();
     }
 
-    public void h() {
+    public final void g() {
         this.g.a();
     }
 
-    public int i() {
+    public final int h() {
         return this.e.getId();
     }
 
-    public void a(boolean z) {
-        this.f.a(z);
-        l();
+    public final void a(boolean z) {
+        this.f.a(false);
+        j();
     }
 
-    public void b(boolean z) {
+    public final void b(boolean z) {
         this.f.b(z);
-        l();
+        j();
     }
 
-    public NearbyGroupsData j() {
+    public final NearbyGroupsData i() {
         return this.f.d();
     }
 
-    public void a(NearbyGroupsData nearbyGroupsData) {
+    public final void a(NearbyGroupsData nearbyGroupsData) {
         this.f.a(nearbyGroupsData);
-        l();
+        j();
     }
 
-    private void l() {
+    private void j() {
         NearbyGroupsData d = this.f.d();
         if (d == null || d.size() == 0) {
             this.j.c();
@@ -122,11 +118,11 @@ public class k extends com.baidu.adp.a.e {
         }
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.c.getLayoutMode().a(i == 1);
         bq.a(this.d, i);
         this.h.a(i);
-        this.a.c(i);
+        this.a.b(i);
         this.i.a(i);
         this.j.a(i);
         this.c.getLayoutMode().a(this.d);

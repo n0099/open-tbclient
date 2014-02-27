@@ -15,14 +15,14 @@ public class bz extends da implements com.baidu.tieba.im.coder.f {
     }
 
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<s> linkedList, byte[] bArr, int i) {
+    public final void a(LinkedList<s> linkedList, byte[] bArr, int i) {
         GetMaskInfoRes.GetMaskInfoResIdl parseFrom = GetMaskInfoRes.GetMaskInfoResIdl.parseFrom(bArr);
         g(parseFrom.getError().getErrorno());
         c(parseFrom.getError().getUsermsg());
         linkedList.add(this);
         if (!l()) {
-            a(parseFrom.getData().getIsMask());
-            a(parseFrom.getData().getList());
+            this.a = parseFrom.getData().getIsMask();
+            this.b = parseFrom.getData().getList();
             List<GetMaskInfoRes.UserInfo> usersList = parseFrom.getData().getUsersList();
             int size = usersList != null ? usersList.size() : 0;
             this.c = new ArrayList<>();
@@ -36,19 +36,11 @@ public class bz extends da implements com.baidu.tieba.im.coder.f {
         }
     }
 
-    public int a() {
+    public final int a() {
         return this.a;
     }
 
-    public void a(int i) {
-        this.a = i;
-    }
-
-    public void a(String str) {
-        this.b = str;
-    }
-
-    public ArrayList<com.baidu.tieba.im.data.a> b() {
+    public final ArrayList<com.baidu.tieba.im.data.a> b() {
         return this.c;
     }
 }

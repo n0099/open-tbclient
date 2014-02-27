@@ -5,7 +5,7 @@ import android.graphics.PointF;
 import android.view.MotionEvent;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
-public class av extends BaseViewPager {
+public final class av extends BaseViewPager {
     private PointF a;
     private w b;
     private w c;
@@ -14,11 +14,11 @@ public class av extends BaseViewPager {
         super(context);
     }
 
-    public void setCurrentView(w wVar) {
+    public final void setCurrentView(w wVar) {
         this.b = wVar;
     }
 
-    public w getCurrentView() {
+    public final w getCurrentView() {
         return this.b;
     }
 
@@ -36,7 +36,7 @@ public class av extends BaseViewPager {
     }
 
     @Override // com.baidu.tieba.view.BaseViewPager, android.support.v4.view.ViewPager, android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
+    public final boolean onTouchEvent(MotionEvent motionEvent) {
         if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
             super.onTouchEvent(motionEvent);
             if (this.b != null) {
@@ -50,14 +50,14 @@ public class av extends BaseViewPager {
         if (this.b.b()) {
             return super.onTouchEvent(motionEvent);
         }
-        if (a != null && this.b.h() && a[0] < 0.0f) {
-            com.baidu.adp.lib.util.f.a(getClass().getName(), "onTouchEvent", "right");
+        if (a != null && this.b.g() && a[0] < 0.0f) {
+            com.baidu.adp.lib.util.e.a(getClass().getName(), "onTouchEvent", "right");
             return super.onTouchEvent(motionEvent);
-        } else if (a != null && this.b.i() && a[0] > 0.0f) {
-            com.baidu.adp.lib.util.f.a(getClass().getName(), "onTouchEvent", "left");
+        } else if (a != null && this.b.h() && a[0] > 0.0f) {
+            com.baidu.adp.lib.util.e.a(getClass().getName(), "onTouchEvent", "left");
             return super.onTouchEvent(motionEvent);
         } else if (a == null) {
-            if (this.b.i() || this.b.h()) {
+            if (this.b.h() || this.b.g()) {
                 return super.onTouchEvent(motionEvent);
             }
             return false;
@@ -67,7 +67,7 @@ public class av extends BaseViewPager {
     }
 
     @Override // android.support.v4.view.ViewPager, android.view.ViewGroup
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+    public final boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
             super.onInterceptTouchEvent(motionEvent);
         }
@@ -78,14 +78,14 @@ public class av extends BaseViewPager {
         if (this.b.b()) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (a != null && this.b.h() && a[0] < 0.0f) {
+        if (a != null && this.b.g() && a[0] < 0.0f) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (a != null && this.b.i() && a[0] > 0.0f) {
+        if (a != null && this.b.h() && a[0] > 0.0f) {
             return super.onInterceptTouchEvent(motionEvent);
         }
         if (a == null) {
-            if (this.b.i() || this.b.h()) {
+            if (this.b.h() || this.b.g()) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
             return false;
@@ -93,11 +93,11 @@ public class av extends BaseViewPager {
         return false;
     }
 
-    public void setSelectedView(w wVar) {
+    public final void setSelectedView(w wVar) {
         this.c = wVar;
     }
 
-    public w getSelectedView() {
+    public final w getSelectedView() {
         return this.c;
     }
 }

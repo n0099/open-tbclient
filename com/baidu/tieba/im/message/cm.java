@@ -13,7 +13,7 @@ public class cm extends da implements com.baidu.tieba.im.coder.f {
     }
 
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<s> linkedList, byte[] bArr, int i) {
+    public final void a(LinkedList<s> linkedList, byte[] bArr, int i) {
         QueryPrizeRes.QueryPrizeResIdl parseFrom = QueryPrizeRes.QueryPrizeResIdl.parseFrom(bArr);
         g(parseFrom.getError().getErrorno());
         c(parseFrom.getError().getUsermsg());
@@ -25,15 +25,15 @@ public class cm extends da implements com.baidu.tieba.im.coder.f {
         }
     }
 
-    public int a() {
+    public final int a() {
         return this.a;
     }
 
-    public String b() {
+    public final String b() {
         return this.b;
     }
 
-    public QueryPrizeRes.PrizeInfo c() {
+    public final QueryPrizeRes.PrizeInfo c() {
         return this.c;
     }
 }

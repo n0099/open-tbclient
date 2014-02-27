@@ -8,9 +8,15 @@ import com.baidu.sapi2.d;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 /* loaded from: classes.dex */
 public final class a {
+    private static SapiConfiguration a;
+    private static d b;
     private static final a c = new a();
-    private static SapiConfiguration a = SapiAccountManager.getInstance().getSapiConfiguration();
-    private static d b = d.a(a.context);
+
+    static {
+        SapiConfiguration sapiConfiguration = SapiAccountManager.getInstance().getSapiConfiguration();
+        a = sapiConfiguration;
+        b = d.a(sapiConfiguration.context);
+    }
 
     public static a a() {
         return c;
@@ -19,7 +25,7 @@ public final class a {
     private a() {
     }
 
-    public void a(SapiAccount sapiAccount) {
+    public final void a(SapiAccount sapiAccount) {
         if (sapiAccount == null) {
             throw new IllegalArgumentException("Account can't be null");
         }
@@ -37,7 +43,7 @@ public final class a {
         }
     }
 
-    public void b() {
+    public final void b() {
         SapiAccount b2 = b.b();
         if (b2 != null && !TextUtils.isEmpty(b2.uid)) {
             b.c(b2);

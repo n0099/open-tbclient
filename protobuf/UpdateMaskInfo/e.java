@@ -4,25 +4,32 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.UpdateMaskInfo.UpdateMaskInfoReq;
 /* loaded from: classes.dex */
 public final class e extends GeneratedMessageLite.Builder<UpdateMaskInfoReq.UpdateMaskInfoReqIdl, e> implements f {
     private int a;
     private UpdateMaskInfoReq.DataReq b = UpdateMaskInfoReq.DataReq.getDefaultInstance();
 
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return UpdateMaskInfoReq.UpdateMaskInfoReqIdl.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return UpdateMaskInfoReq.UpdateMaskInfoReqIdl.getDefaultInstance();
+    }
+
     private e() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static e h() {
+    public static /* synthetic */ e b() {
         return new e();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public e clear() {
         super.clear();
         this.b = UpdateMaskInfoReq.DataReq.getDefaultInstance();
@@ -31,20 +38,14 @@ public final class e extends GeneratedMessageLite.Builder<UpdateMaskInfoReq.Upda
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
+    /* renamed from: d */
     public e clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public UpdateMaskInfoReq.UpdateMaskInfoReqIdl getDefaultInstanceForType() {
-        return UpdateMaskInfoReq.UpdateMaskInfoReqIdl.getDefaultInstance();
+        return new e().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: d */
-    public UpdateMaskInfoReq.UpdateMaskInfoReqIdl build() {
+    /* renamed from: a */
+    public final UpdateMaskInfoReq.UpdateMaskInfoReqIdl build() {
         UpdateMaskInfoReq.UpdateMaskInfoReqIdl buildPartial = buildPartial();
         if (!buildPartial.isInitialized()) {
             throw newUninitializedMessageException(buildPartial);
@@ -64,9 +65,15 @@ public final class e extends GeneratedMessageLite.Builder<UpdateMaskInfoReq.Upda
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public e mergeFrom(UpdateMaskInfoReq.UpdateMaskInfoReqIdl updateMaskInfoReqIdl) {
+    public final e mergeFrom(UpdateMaskInfoReq.UpdateMaskInfoReqIdl updateMaskInfoReqIdl) {
         if (updateMaskInfoReqIdl != UpdateMaskInfoReq.UpdateMaskInfoReqIdl.getDefaultInstance() && updateMaskInfoReqIdl.hasData()) {
-            b(updateMaskInfoReqIdl.getData());
+            UpdateMaskInfoReq.DataReq data = updateMaskInfoReqIdl.getData();
+            if ((this.a & 1) != 1 || this.b == UpdateMaskInfoReq.DataReq.getDefaultInstance()) {
+                this.b = data;
+            } else {
+                this.b = UpdateMaskInfoReq.DataReq.newBuilder(this.b).mergeFrom(data).buildPartial();
+            }
+            this.a |= 1;
         }
         return this;
     }
@@ -114,21 +121,11 @@ public final class e extends GeneratedMessageLite.Builder<UpdateMaskInfoReq.Upda
         }
     }
 
-    public e a(UpdateMaskInfoReq.DataReq dataReq) {
+    public final e a(UpdateMaskInfoReq.DataReq dataReq) {
         if (dataReq != null) {
             this.b = dataReq;
             this.a |= 1;
         }
-        return this;
-    }
-
-    public e b(UpdateMaskInfoReq.DataReq dataReq) {
-        if ((this.a & 1) == 1 && this.b != UpdateMaskInfoReq.DataReq.getDefaultInstance()) {
-            this.b = UpdateMaskInfoReq.DataReq.newBuilder(this.b).mergeFrom(dataReq).buildPartial();
-        } else {
-            this.b = dataReq;
-        }
-        this.a |= 1;
         return this;
     }
 }

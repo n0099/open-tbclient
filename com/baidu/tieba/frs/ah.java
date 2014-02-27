@@ -2,7 +2,7 @@ package com.baidu.tieba.frs;
 
 import com.baidu.tieba.util.NetWorkCore;
 /* loaded from: classes.dex */
-class ah implements Runnable {
+final class ah implements Runnable {
     final /* synthetic */ ag a;
     private final /* synthetic */ String b;
 
@@ -13,7 +13,7 @@ class ah implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         NetWorkCore netWorkCore = new NetWorkCore(new com.baidu.tieba.util.bj());
         netWorkCore.b(this.b);
         netWorkCore.w();

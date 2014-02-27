@@ -31,32 +31,32 @@ public final class FileAlterationMonitor implements Runnable {
         }
     }
 
-    public long getInterval() {
+    public final long getInterval() {
         return this.interval;
     }
 
-    public synchronized void setThreadFactory(ThreadFactory threadFactory) {
+    public final synchronized void setThreadFactory(ThreadFactory threadFactory) {
         this.threadFactory = threadFactory;
     }
 
-    public void addObserver(FileAlterationObserver fileAlterationObserver) {
+    public final void addObserver(FileAlterationObserver fileAlterationObserver) {
         if (fileAlterationObserver != null) {
             this.observers.add(fileAlterationObserver);
         }
     }
 
-    public void removeObserver(FileAlterationObserver fileAlterationObserver) {
+    public final void removeObserver(FileAlterationObserver fileAlterationObserver) {
         if (fileAlterationObserver != null) {
             do {
             } while (this.observers.remove(fileAlterationObserver));
         }
     }
 
-    public Iterable<FileAlterationObserver> getObservers() {
+    public final Iterable<FileAlterationObserver> getObservers() {
         return this.observers;
     }
 
-    public synchronized void start() {
+    public final synchronized void start() {
         if (this.running) {
             throw new IllegalStateException("Monitor is already running");
         }
@@ -72,11 +72,11 @@ public final class FileAlterationMonitor implements Runnable {
         this.thread.start();
     }
 
-    public synchronized void stop() {
+    public final synchronized void stop() {
         stop(this.interval);
     }
 
-    public synchronized void stop(long j) {
+    public final synchronized void stop(long j) {
         if (!this.running) {
             throw new IllegalStateException("Monitor is not running");
         }
@@ -92,7 +92,7 @@ public final class FileAlterationMonitor implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         while (this.running) {
             for (FileAlterationObserver fileAlterationObserver : this.observers) {
                 fileAlterationObserver.checkAndNotify();

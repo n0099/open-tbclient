@@ -3,7 +3,7 @@ package com.baidu.tieba.im.groupInfo;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w extends BdAsyncTask<Void, Void, Void> {
+public final class w extends BdAsyncTask<Void, Void, Void> {
     private final /* synthetic */ String a;
     private final /* synthetic */ String b;
     private final /* synthetic */ boolean c;
@@ -15,10 +15,11 @@ public class w extends BdAsyncTask<Void, Void, Void> {
         this.c = z;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void a(Void... voidArr) {
+    public final /* synthetic */ Void a(Void... voidArr) {
         v.c(this.a, this.b, this.c);
         return null;
     }

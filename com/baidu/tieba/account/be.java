@@ -3,7 +3,7 @@ package com.baidu.tieba.account;
 import com.baidu.tieba.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class be implements ad {
+public final class be implements ad {
     final /* synthetic */ ReLoginShareActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ public class be implements ad {
     }
 
     @Override // com.baidu.tieba.account.ad
-    public void a(AccountData accountData) {
-        this.a.a(accountData);
+    public final void a(AccountData accountData) {
+        ReLoginShareActivity.a(this.a, accountData);
     }
 }

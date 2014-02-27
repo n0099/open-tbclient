@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.QueryGroupActivity.QueryGroupActivityRes;
 /* loaded from: classes.dex */
 public final class h extends GeneratedMessageLite.Builder<QueryGroupActivityRes.DataRes, h> implements i {
@@ -19,19 +20,34 @@ public final class h extends GeneratedMessageLite.Builder<QueryGroupActivityRes.
     private Object j = "";
     private Object k = "";
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        QueryGroupActivityRes.DataRes buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return QueryGroupActivityRes.DataRes.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return QueryGroupActivityRes.DataRes.getDefaultInstance();
+    }
+
     private h() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static h h() {
+    public static /* synthetic */ h b() {
         return new h();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public h clear() {
         super.clear();
         this.b = 0;
@@ -58,30 +74,14 @@ public final class h extends GeneratedMessageLite.Builder<QueryGroupActivityRes.
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public h clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public QueryGroupActivityRes.DataRes getDefaultInstanceForType() {
-        return QueryGroupActivityRes.DataRes.getDefaultInstance();
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public QueryGroupActivityRes.DataRes build() {
-        QueryGroupActivityRes.DataRes buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
+    public h clone() {
+        return new h().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public QueryGroupActivityRes.DataRes buildPartial() {
+    /* renamed from: a */
+    public final QueryGroupActivityRes.DataRes buildPartial() {
         QueryGroupActivityRes.DataRes dataRes = new QueryGroupActivityRes.DataRes(this, (QueryGroupActivityRes.DataRes) null);
         int i = this.a;
         int i2 = (i & 1) != 1 ? 0 : 1;
@@ -128,7 +128,7 @@ public final class h extends GeneratedMessageLite.Builder<QueryGroupActivityRes.
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public h mergeFrom(QueryGroupActivityRes.DataRes dataRes) {
+    public final h mergeFrom(QueryGroupActivityRes.DataRes dataRes) {
         Object obj;
         Object obj2;
         Object obj3;
@@ -136,13 +136,19 @@ public final class h extends GeneratedMessageLite.Builder<QueryGroupActivityRes.
         Object obj5;
         if (dataRes != QueryGroupActivityRes.DataRes.getDefaultInstance()) {
             if (dataRes.hasActivityId()) {
-                a(dataRes.getActivityId());
+                int activityId = dataRes.getActivityId();
+                this.a |= 1;
+                this.b = activityId;
             }
             if (dataRes.hasGroupId()) {
-                b(dataRes.getGroupId());
+                int groupId = dataRes.getGroupId();
+                this.a |= 2;
+                this.c = groupId;
             }
             if (dataRes.hasUserId()) {
-                c(dataRes.getUserId());
+                int userId = dataRes.getUserId();
+                this.a |= 4;
+                this.d = userId;
             }
             if (dataRes.hasGActivityTitle()) {
                 this.a |= 8;
@@ -150,7 +156,9 @@ public final class h extends GeneratedMessageLite.Builder<QueryGroupActivityRes.
                 this.e = obj5;
             }
             if (dataRes.hasGActivityTime()) {
-                a(dataRes.getGActivityTime());
+                long gActivityTime = dataRes.getGActivityTime();
+                this.a |= 16;
+                this.f = gActivityTime;
             }
             if (dataRes.hasGActivityContent()) {
                 this.a |= 32;
@@ -163,7 +171,9 @@ public final class h extends GeneratedMessageLite.Builder<QueryGroupActivityRes.
                 this.h = obj3;
             }
             if (dataRes.hasIsEnd()) {
-                d(dataRes.getIsEnd());
+                int isEnd = dataRes.getIsEnd();
+                this.a |= 128;
+                this.i = isEnd;
             }
             if (dataRes.hasActivityPortrait()) {
                 this.a |= 256;
@@ -220,35 +230,5 @@ public final class h extends GeneratedMessageLite.Builder<QueryGroupActivityRes.
                 throw th;
             }
         }
-    }
-
-    public h a(int i) {
-        this.a |= 1;
-        this.b = i;
-        return this;
-    }
-
-    public h b(int i) {
-        this.a |= 2;
-        this.c = i;
-        return this;
-    }
-
-    public h c(int i) {
-        this.a |= 4;
-        this.d = i;
-        return this;
-    }
-
-    public h a(long j) {
-        this.a |= 16;
-        this.f = j;
-        return this;
-    }
-
-    public h d(int i) {
-        this.a |= 128;
-        this.i = i;
-        return this;
     }
 }

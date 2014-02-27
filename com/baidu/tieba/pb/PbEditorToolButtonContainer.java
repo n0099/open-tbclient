@@ -3,7 +3,6 @@ package com.baidu.tieba.pb;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.BdUtilHelper;
@@ -20,23 +19,19 @@ public class PbEditorToolButtonContainer extends com.baidu.tieba.editortool.a {
     public PbEditorToolButtonContainer(Context context) {
         super(context);
         this.a = context;
-        e();
+        h();
     }
 
     public PbEditorToolButtonContainer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.a = context;
-        e();
+        h();
     }
 
     public PbEditorToolButtonContainer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.a = context;
-        e();
-    }
-
-    protected void d() {
-        LayoutInflater.from(this.a).inflate(R.layout.pb_editor_tool_button_container, (ViewGroup) this, true);
+        h();
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
@@ -56,17 +51,17 @@ public class PbEditorToolButtonContainer extends com.baidu.tieba.editortool.a {
         }
     }
 
-    protected void e() {
-        d();
+    private void h() {
+        LayoutInflater.from(this.a).inflate(R.layout.pb_editor_tool_button_container, (ViewGroup) this, true);
         this.c = (EditorToolButton) findViewById(R.id.tool_more);
         this.b = (EditorToolButton) findViewById(R.id.tool_audio);
     }
 
-    public void setOnActionListener(com.baidu.tieba.editortool.z zVar) {
-        if (zVar != null) {
-            View.OnClickListener a = a(zVar);
-            this.c.setOnClickListener(a);
-            this.b.setOnClickListener(a);
+    public void setOnActionListener(com.baidu.tieba.editortool.aa aaVar) {
+        if (aaVar != null) {
+            cn cnVar = new cn(this, aaVar);
+            this.c.setOnClickListener(cnVar);
+            this.b.setOnClickListener(cnVar);
         }
     }
 
@@ -90,29 +85,29 @@ public class PbEditorToolButtonContainer extends com.baidu.tieba.editortool.a {
         this.b.setHardDisabled(z);
     }
 
-    public void f() {
+    public final void d() {
         if (this.d == null) {
             this.d = a(this.b, false);
         }
         this.b.e();
     }
 
-    public void g() {
+    public final void e() {
         this.b.f();
     }
 
-    public void h() {
+    public final void f() {
         if (this.e == null) {
             this.e = a(this.c, false);
         }
         this.c.e();
     }
 
-    public void i() {
+    public final void g() {
         this.c.f();
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         if (z) {
             this.b.a();
         } else {
@@ -121,24 +116,20 @@ public class PbEditorToolButtonContainer extends com.baidu.tieba.editortool.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(EditorToolButton editorToolButton, com.baidu.tieba.editortool.z zVar) {
+    public final void a(EditorToolButton editorToolButton, com.baidu.tieba.editortool.aa aaVar) {
         if (editorToolButton == this.c) {
-            zVar.a(37, null);
+            aaVar.a(37, null);
         } else if (editorToolButton == this.b) {
-            zVar.a(4, null);
+            aaVar.a(4, null);
         }
         if (editorToolButton.g() && !editorToolButton.isFocused()) {
             c();
             editorToolButton.h();
             if (editorToolButton == this.c) {
-                zVar.a(38, null);
+                aaVar.a(38, null);
             } else if (editorToolButton == this.b) {
-                zVar.a(5, null);
+                aaVar.a(5, null);
             }
         }
-    }
-
-    protected View.OnClickListener a(com.baidu.tieba.editortool.z zVar) {
-        return new cn(this, zVar);
     }
 }

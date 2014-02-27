@@ -4,9 +4,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import com.baidu.tieba.data.ForumData;
 import com.baidu.tieba.frs.FrsActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements AdapterView.OnItemClickListener {
+final class h implements AdapterView.OnItemClickListener {
     final /* synthetic */ EditBarActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +14,7 @@ public class h implements AdapterView.OnItemClickListener {
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+    public final void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         l lVar;
         k kVar;
         l lVar2;

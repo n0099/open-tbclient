@@ -6,7 +6,7 @@ import android.widget.AdapterView;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-class h implements AdapterView.OnItemClickListener {
+final class h implements AdapterView.OnItemClickListener {
     final /* synthetic */ JigsawAlbumActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +15,7 @@ class h implements AdapterView.OnItemClickListener {
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+    public final void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         j jVar;
         u uVar;
         ArrayList arrayList;

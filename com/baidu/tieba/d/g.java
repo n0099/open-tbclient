@@ -8,7 +8,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class g {
+public final class g {
     private static g a = new g();
     private static a b = null;
     private static List<a> c = new LinkedList();
@@ -23,7 +23,7 @@ public class g {
         return a;
     }
 
-    public void a(a aVar, int i) {
+    public final void a(a aVar, int i) {
         int g = aVar.g();
         int i2 = 0;
         for (a aVar2 : c) {
@@ -36,15 +36,8 @@ public class g {
             aVar.e(TiebaApplication.g().b().getString(R.string.download_fail_over_max));
             if (aVar.m() != null) {
                 aVar.m().c(aVar);
-                return;
             }
-            return;
-        }
-        a(aVar);
-    }
-
-    public void a(a aVar) {
-        if (aVar != null) {
+        } else if (aVar != null) {
             if (!af.a()) {
                 aVar.e(TiebaApplication.g().b().getString(R.string.download_fail_no_sd));
                 aVar.a(2);
@@ -56,40 +49,33 @@ public class g {
                 }
                 return;
             }
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 < c.size()) {
-                    a aVar2 = c.get(i2);
-                    if (aVar2 == null || !aVar2.d().equals(aVar.d()) || !aVar2.a().equals(aVar.a())) {
-                        i = i2 + 1;
-                    } else {
-                        return;
-                    }
-                } else {
-                    aVar.a(1);
-                    c.add(aVar);
-                    e();
+            for (int i3 = 0; i3 < c.size(); i3++) {
+                a aVar3 = c.get(i3);
+                if (aVar3 != null && aVar3.d().equals(aVar.d()) && aVar3.a().equals(aVar.a())) {
                     return;
                 }
             }
+            aVar.a(1);
+            c.add(aVar);
+            e();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
         if (b == null && !c.isEmpty()) {
-            b = c.get(0);
-            if (b != null) {
-                com.baidu.adp.lib.util.f.e("download_file:start:" + b.d());
+            a aVar = c.get(0);
+            b = aVar;
+            if (aVar != null) {
+                com.baidu.adp.lib.util.e.e("download_file:start:" + b.d());
                 this.d = new i(this);
                 this.d.execute(b);
             }
         }
     }
 
-    public void a(String str, int i) {
-        if (b != null && b.a().equals(str) && b.g() == i) {
+    public final void a(String str, int i) {
+        if (b != null && b.a().equals(str) && b.g() == 11) {
             this.d.cancel(true);
             return;
         }
@@ -100,7 +86,7 @@ public class g {
                 break;
             }
             a next = it.next();
-            if (next.a().equals(str) && next.g() == i) {
+            if (next.a().equals(str) && next.g() == 11) {
                 next.a(4);
                 next.e((String) null);
                 if (next.m() != null) {
@@ -114,13 +100,13 @@ public class g {
         }
     }
 
-    public void a(int i) {
-        if (b != null && b.g() == i) {
+    public final void a(int i) {
+        if (b != null && b.g() == 11) {
             this.d.cancel(true);
         }
         LinkedList<a> linkedList = new LinkedList();
         for (a aVar : c) {
-            if (aVar.g() == i) {
+            if (aVar.g() == 11) {
                 aVar.a(4);
                 aVar.e((String) null);
                 if (aVar.m() != null) {
@@ -134,7 +120,7 @@ public class g {
         }
     }
 
-    public List<a> b() {
+    public static List<a> b() {
         return c;
     }
 }

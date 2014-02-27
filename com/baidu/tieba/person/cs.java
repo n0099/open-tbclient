@@ -3,7 +3,7 @@ package com.baidu.tieba.person;
 import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cs implements DialogInterface.OnClickListener {
+public final class cs implements DialogInterface.OnClickListener {
     final /* synthetic */ cm a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ public class cs implements DialogInterface.OnClickListener {
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
+    public final void onClick(DialogInterface dialogInterface, int i) {
         com.baidu.tieba.model.bp bpVar;
         com.baidu.tieba.im.model.b bVar;
         com.baidu.tieba.im.model.b bVar2;

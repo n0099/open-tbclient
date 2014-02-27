@@ -12,7 +12,7 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
-public class ae extends RelativeLayout {
+public final class ae extends RelativeLayout {
     private static ArrayList<ae> b = new ArrayList<>();
     private static final Pattern i = Pattern.compile("(/p/){1}(\\d+)");
     View.OnClickListener a;
@@ -29,10 +29,6 @@ public class ae extends RelativeLayout {
         this.f = null;
         this.g = false;
         this.a = new af(this);
-        a(context);
-    }
-
-    public void a(Context context) {
         this.d = context;
         ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.frs_bannerview, this);
         this.c = (TextView) findViewById(R.id.btn_close);
@@ -40,11 +36,11 @@ public class ae extends RelativeLayout {
         setOnClickListener(this.a);
     }
 
-    public void setBannerCloseListener(ah ahVar) {
+    public final void setBannerCloseListener(ah ahVar) {
         this.h = ahVar;
     }
 
-    public void setData(com.baidu.tieba.data.x xVar) {
+    public final void setData(com.baidu.tieba.data.x xVar) {
         this.f = xVar;
         if (this.g) {
             setVisibility(8);
@@ -56,11 +52,11 @@ public class ae extends RelativeLayout {
         }
     }
 
-    public void setImageUrl(String str) {
+    public final void setImageUrl(String str) {
         if (this.e == null) {
             this.e = new com.baidu.tieba.util.i(this.d);
             this.e.a(720, 100);
-            this.e.d(true);
+            this.e.a(true);
         }
         this.e.b(str, new ag(this));
     }
@@ -70,24 +66,25 @@ public class ae extends RelativeLayout {
         Bitmap h;
         if (bVar != null && (h = bVar.h()) != null) {
             setBackgroundDrawable(new BitmapDrawable(h));
+            setVisibility(0);
         }
     }
 
-    public void a() {
+    public final void a() {
         if (this.e != null) {
-            this.e.d();
+            this.e.c();
             this.e = null;
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    protected void onAttachedToWindow() {
+    protected final void onAttachedToWindow() {
         super.onAttachedToWindow();
         b.add(this);
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    protected void onDetachedFromWindow() {
+    protected final void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         b.remove(this);
     }

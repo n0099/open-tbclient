@@ -1,39 +1,28 @@
 package com.baidu.tieba.album;
 
-import android.text.TextUtils;
-import android.widget.TextView;
 import com.baidu.tieba.img.ImageFileInfo;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aj implements ak {
-    final /* synthetic */ ag a;
+final class aj implements z {
+    final /* synthetic */ ah a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aj(ag agVar) {
-        this.a = agVar;
+    public aj(ah ahVar) {
+        this.a = ahVar;
     }
 
-    @Override // com.baidu.tieba.album.ak
-    public void a() {
-    }
-
-    @Override // com.baidu.tieba.album.ak
-    public void a(List<ImageFileInfo> list, String str) {
+    @Override // com.baidu.tieba.album.z
+    public final void onClick(int i, ImageFileInfo imageFileInfo) {
+        p pVar;
+        List<ImageFileInfo> list;
+        p pVar2;
         AlbumActivity albumActivity;
-        TextView textView;
-        if (list == null || list.size() == 0) {
-            albumActivity = this.a.b;
-            albumActivity.d(0);
-            this.a.o = false;
-            return;
-        }
-        this.a.o = true;
-        this.a.n = list;
-        this.a.a(list);
-        if (!TextUtils.isEmpty(str)) {
-            textView = this.a.h;
-            textView.setText(str);
-        }
+        pVar = this.a.c;
+        list = this.a.n;
+        pVar.a(list);
+        pVar2 = this.a.c;
+        pVar2.a(i);
+        albumActivity = this.a.b;
+        albumActivity.d(2);
     }
 }

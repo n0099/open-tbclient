@@ -8,7 +8,7 @@ import com.baidu.location.LocationClientOption;
 import com.baidu.tieba.data.VersionData;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class s extends Handler {
+final class s extends Handler {
     final /* synthetic */ TiebaUpdateService a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,7 +17,7 @@ class s extends Handler {
     }
 
     @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    public final void handleMessage(Message message) {
         String str;
         String str2;
         boolean z;

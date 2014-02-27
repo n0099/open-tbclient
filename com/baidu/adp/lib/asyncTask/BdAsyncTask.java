@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public abstract class BdAsyncTask<Params, Progress, Result> {
     private static final f a = f.a();
-    private static d b = new d(null);
+    private static d b = new d((byte) 0);
     private static /* synthetic */ int[] p;
     private volatile BdAsyncTaskStatus e = BdAsyncTaskStatus.PENDING;
     private int f = 1;
@@ -43,7 +43,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract Result a(Params... paramsArr);
 
-    static /* synthetic */ int[] d() {
+    private static /* synthetic */ int[] d() {
         int[] iArr = p;
         if (iArr == null) {
             iArr = new int[BdAsyncTaskStatus.valuesCustom().length];
@@ -89,7 +89,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     }
 
     public static void updateInternalHandler() {
-        b = new d(null);
+        b = new d((byte) 0);
     }
 
     public static void removeAllTask(int i) {
@@ -273,14 +273,14 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void d(Result result) {
-        if (isCancelled()) {
-            b((BdAsyncTask<Params, Progress, Result>) result);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(BdAsyncTask bdAsyncTask, Object obj) {
+        if (bdAsyncTask.isCancelled()) {
+            bdAsyncTask.b((BdAsyncTask) obj);
         } else {
-            a((BdAsyncTask<Params, Progress, Result>) result);
+            bdAsyncTask.a((BdAsyncTask) obj);
         }
-        this.e = BdAsyncTaskStatus.FINISHED;
+        bdAsyncTask.e = BdAsyncTaskStatus.FINISHED;
     }
 
     public boolean isSelfExecute() {

@@ -1,9 +1,8 @@
 package com.baidu.tieba.recommend;
 
 import android.os.Handler;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements y {
+final class g implements y {
     final /* synthetic */ DailyRecommendActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,11 +11,7 @@ public class g implements y {
     }
 
     @Override // com.baidu.tieba.recommend.y
-    public void a() {
-    }
-
-    @Override // com.baidu.tieba.recommend.y
-    public void a(boolean z, String str, com.baidu.tieba.data.p pVar, int i) {
+    public final void a(boolean z, String str, com.baidu.tieba.data.p pVar, int i) {
         z zVar;
         z zVar2;
         z zVar3;
@@ -38,7 +33,7 @@ public class g implements y {
             handler2.postDelayed(runnable2, 0L);
             if (i == 0) {
                 zVar4 = this.a.c;
-                zVar4.g();
+                zVar4.f();
             }
         } else {
             zVar2 = this.a.c;

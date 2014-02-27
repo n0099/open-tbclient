@@ -72,21 +72,15 @@ public class InviteFriendCandidateList extends HorizontalScrollView {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         if (this.h == null) {
-            this.h = f();
+            this.h = e();
             this.h.setDrawBorder(false);
         }
-        this.h.setImageBitmap(com.baidu.tieba.util.n.a(e() ? R.drawable.icon_add_pop_1 : R.drawable.icon_add_pop));
+        this.h.setImageBitmap(com.baidu.tieba.util.n.a(d() ? R.drawable.icon_add_pop_1 : R.drawable.icon_add_pop));
         this.b.addView(this.h);
     }
 
-    private void c() {
-        if (d()) {
-            this.b.removeView(this.h);
-        }
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean d() {
+    public boolean c() {
         int childCount = this.b.getChildCount();
         return childCount > 0 && this.b.getChildAt(childCount + (-1)) == this.h;
     }
@@ -95,32 +89,34 @@ public class InviteFriendCandidateList extends HorizontalScrollView {
         this.f = iVar;
     }
 
-    public void a(com.baidu.tieba.im.data.d dVar) {
+    public final void a(com.baidu.tieba.im.data.d dVar) {
         if (getItemLength() < this.g) {
-            HeadImageView f = f();
-            f.setIsRound(true);
+            HeadImageView e = e();
+            e.setIsRound(true);
             if (this.f != null) {
-                com.baidu.adp.widget.ImageView.b c = this.f.c(dVar.c());
-                if (c != null) {
-                    c.a(f);
+                com.baidu.tieba.util.i iVar = this.f;
+                com.baidu.adp.widget.ImageView.b b = com.baidu.tbadk.imageManager.e.a().b(dVar.c());
+                if (b != null) {
+                    b.a(e);
                 } else {
-                    f.setTag(dVar.c());
-                    f.setImageBitmap(com.baidu.tieba.util.n.a(e() ? R.drawable.icon_add_pop_1 : R.drawable.icon_add_pop));
+                    e.setTag(dVar.c());
+                    e.setImageBitmap(com.baidu.tieba.util.n.a(d() ? R.drawable.icon_add_pop_1 : R.drawable.icon_add_pop));
                 }
             }
-            if (d()) {
-                f.setTag(dVar);
-                f.setOnClickListener(this.j);
-                this.b.addView(f, getItemLength());
+            if (c()) {
+                e.setTag(dVar);
+                e.setOnClickListener(this.j);
+                this.b.addView(e, getItemLength());
                 scrollTo(getItemLength() * (this.c + this.e), 0);
             }
-            if (getItemLength() >= this.g) {
-                c();
+            if (getItemLength() < this.g || !c()) {
+                return;
             }
+            this.b.removeView(this.h);
         }
     }
 
-    public boolean b(com.baidu.tieba.im.data.d dVar) {
+    public final boolean b(com.baidu.tieba.im.data.d dVar) {
         Object tag;
         int childCount = this.b.getChildCount();
         for (int i = 0; i < childCount; i++) {
@@ -150,21 +146,21 @@ public class InviteFriendCandidateList extends HorizontalScrollView {
         return sb.toString();
     }
 
-    private boolean e() {
-        return TiebaApplication.g().al() == 1;
+    private static boolean d() {
+        return TiebaApplication.g().ae() == 1;
     }
 
-    public void c(com.baidu.tieba.im.data.d dVar) {
+    public final void c(com.baidu.tieba.im.data.d dVar) {
         View findViewWithTag = this.b.findViewWithTag(dVar);
         if (findViewWithTag != null) {
             this.b.removeView(findViewWithTag);
-            if (!d()) {
+            if (!c()) {
                 b();
             }
         }
     }
 
-    private HeadImageView f() {
+    private HeadImageView e() {
         HeadImageView headImageView = new HeadImageView(this.a);
         headImageView.setIsRound(true);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.c, this.d);
@@ -175,6 +171,6 @@ public class InviteFriendCandidateList extends HorizontalScrollView {
     }
 
     public int getItemLength() {
-        return d() ? this.b.getChildCount() - 1 : this.b.getChildCount();
+        return c() ? this.b.getChildCount() - 1 : this.b.getChildCount();
     }
 }

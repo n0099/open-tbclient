@@ -15,7 +15,7 @@ public final class GeoParsedResult extends ParsedResult {
         this.query = str;
     }
 
-    public String getGeoURI() {
+    public final String getGeoURI() {
         StringBuilder sb = new StringBuilder();
         sb.append("geo:");
         sb.append(this.latitude);
@@ -32,24 +32,24 @@ public final class GeoParsedResult extends ParsedResult {
         return sb.toString();
     }
 
-    public double getLatitude() {
+    public final double getLatitude() {
         return this.latitude;
     }
 
-    public double getLongitude() {
+    public final double getLongitude() {
         return this.longitude;
     }
 
-    public double getAltitude() {
+    public final double getAltitude() {
         return this.altitude;
     }
 
-    public String getQuery() {
+    public final String getQuery() {
         return this.query;
     }
 
     @Override // com.google.zxing.client.result.ParsedResult
-    public String getDisplayResult() {
+    public final String getDisplayResult() {
         StringBuilder sb = new StringBuilder(20);
         sb.append(this.latitude);
         sb.append(", ");

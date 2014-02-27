@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.ApplyJoinGroup.ApplyJoinGroupReq;
 /* loaded from: classes.dex */
 public final class e extends GeneratedMessageLite.Builder<ApplyJoinGroupReq.DataReq, e> implements f {
@@ -13,19 +14,25 @@ public final class e extends GeneratedMessageLite.Builder<ApplyJoinGroupReq.Data
     private long d;
     private int e;
 
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return ApplyJoinGroupReq.DataReq.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return ApplyJoinGroupReq.DataReq.getDefaultInstance();
+    }
+
     private e() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static e h() {
+    public static /* synthetic */ e c() {
         return new e();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: d */
     public e clear() {
         super.clear();
         this.b = 0;
@@ -40,20 +47,14 @@ public final class e extends GeneratedMessageLite.Builder<ApplyJoinGroupReq.Data
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
+    /* renamed from: e */
     public e clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public ApplyJoinGroupReq.DataReq getDefaultInstanceForType() {
-        return ApplyJoinGroupReq.DataReq.getDefaultInstance();
+        return new e().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: d */
-    public ApplyJoinGroupReq.DataReq build() {
+    /* renamed from: a */
+    public final ApplyJoinGroupReq.DataReq build() {
         ApplyJoinGroupReq.DataReq buildPartial = buildPartial();
         if (!buildPartial.isInitialized()) {
             throw newUninitializedMessageException(buildPartial);
@@ -62,8 +63,8 @@ public final class e extends GeneratedMessageLite.Builder<ApplyJoinGroupReq.Data
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public ApplyJoinGroupReq.DataReq buildPartial() {
+    /* renamed from: b */
+    public final ApplyJoinGroupReq.DataReq buildPartial() {
         ApplyJoinGroupReq.DataReq dataReq = new ApplyJoinGroupReq.DataReq(this, (ApplyJoinGroupReq.DataReq) null);
         int i = this.a;
         int i2 = (i & 1) != 1 ? 0 : 1;
@@ -86,7 +87,7 @@ public final class e extends GeneratedMessageLite.Builder<ApplyJoinGroupReq.Data
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public e mergeFrom(ApplyJoinGroupReq.DataReq dataReq) {
+    public final e mergeFrom(ApplyJoinGroupReq.DataReq dataReq) {
         Object obj;
         if (dataReq != ApplyJoinGroupReq.DataReq.getDefaultInstance()) {
             if (dataReq.hasGroupId()) {
@@ -150,13 +151,13 @@ public final class e extends GeneratedMessageLite.Builder<ApplyJoinGroupReq.Data
         }
     }
 
-    public e a(int i) {
+    public final e a(int i) {
         this.a |= 1;
         this.b = i;
         return this;
     }
 
-    public e a(String str) {
+    public final e a(String str) {
         if (str != null) {
             this.a |= 2;
             this.c = str;
@@ -164,13 +165,13 @@ public final class e extends GeneratedMessageLite.Builder<ApplyJoinGroupReq.Data
         return this;
     }
 
-    public e a(long j) {
+    public final e a(long j) {
         this.a |= 4;
         this.d = j;
         return this;
     }
 
-    public e b(int i) {
+    public final e b(int i) {
         this.a |= 8;
         this.e = i;
         return this;

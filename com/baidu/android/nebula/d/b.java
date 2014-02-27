@@ -34,8 +34,6 @@ public class b implements e {
         String substring = indexOf == -1 ? a2.substring(0, a2.length()) : a2.substring(1, indexOf);
         aVar.a("text/plain");
         new h().a(substring, a, aVar);
-        if (aVar != null) {
-            bVar.a(aVar);
-        }
+        bVar.a(aVar);
     }
 }

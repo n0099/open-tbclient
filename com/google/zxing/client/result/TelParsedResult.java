@@ -12,20 +12,20 @@ public final class TelParsedResult extends ParsedResult {
         this.title = str3;
     }
 
-    public String getNumber() {
+    public final String getNumber() {
         return this.number;
     }
 
-    public String getTelURI() {
+    public final String getTelURI() {
         return this.telURI;
     }
 
-    public String getTitle() {
+    public final String getTitle() {
         return this.title;
     }
 
     @Override // com.google.zxing.client.result.ParsedResult
-    public String getDisplayResult() {
+    public final String getDisplayResult() {
         StringBuilder sb = new StringBuilder(20);
         maybeAppend(this.number, sb);
         maybeAppend(this.title, sb);

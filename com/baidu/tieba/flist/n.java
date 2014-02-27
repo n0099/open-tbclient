@@ -5,7 +5,7 @@ import com.baidu.tieba.data.ForumInfoData;
 import com.baidu.tieba.model.ar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class n extends com.baidu.adp.a.g {
+final class n extends com.baidu.adp.a.g {
     final /* synthetic */ ForumListActivity a;
     private final /* synthetic */ ForumInfoData[] b;
 
@@ -16,7 +16,7 @@ class n extends com.baidu.adp.a.g {
     }
 
     @Override // com.baidu.adp.a.g
-    public void a(Object obj) {
+    public final void a(Object obj) {
         ar arVar;
         ar arVar2;
         int i;

@@ -2,7 +2,7 @@ package com.baidu.tieba.account;
 
 import com.baidu.tieba.data.AccountData;
 /* loaded from: classes.dex */
-class bb implements az {
+final class bb implements az {
     final /* synthetic */ ba a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,14 +11,14 @@ class bb implements az {
     }
 
     @Override // com.baidu.tieba.account.az
-    public void a(String str) {
+    public final void a(String str) {
     }
 
     @Override // com.baidu.tieba.account.az
-    public void a(AccountData accountData) {
+    public final void a(AccountData accountData) {
     }
 
     @Override // com.baidu.tieba.account.az
-    public void a(String str, String str2) {
+    public final void a(String str, String str2) {
     }
 }

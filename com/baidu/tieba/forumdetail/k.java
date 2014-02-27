@@ -6,7 +6,7 @@ import com.baidu.tieba.pb.NewPbActivity;
 import com.baidu.tieba.util.cb;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k implements View.OnClickListener {
+public final class k implements View.OnClickListener {
     final /* synthetic */ ItemHotThreadView a;
     private final /* synthetic */ String b;
 
@@ -17,7 +17,7 @@ public class k implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         Context context;
         Context context2;
         context = this.a.a;

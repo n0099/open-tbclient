@@ -1,21 +1,23 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
+import android.content.Context;
+import android.widget.TextView;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class bi implements View.OnClickListener {
-    final /* synthetic */ MsgActivityView a;
-    private final /* synthetic */ String b;
-    private final /* synthetic */ String c;
+public final class bi extends com.baidu.adp.a.c<com.baidu.tieba.im.message.b> {
+    private TextView c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bi(MsgActivityView msgActivityView, String str, String str2) {
-        this.a = msgActivityView;
-        this.b = str;
-        this.c = str2;
+    public bi(Context context) {
+        super(context, R.layout.msg_msg_chat_rule_view);
+        this.c = (TextView) a(R.id.tex_msgcontent);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tieba.person.cm.a(this.a.b(), this.b, this.c);
+    public final void a(com.baidu.tieba.im.message.b bVar) {
+        String str;
+        if (bVar == null) {
+            this.c = null;
+        } else if ((bVar instanceof com.baidu.tieba.im.message.f) && (str = ((com.baidu.tieba.im.message.f) bVar).b) != null) {
+            this.c.setText(str);
+        }
     }
 }

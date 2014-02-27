@@ -3,7 +3,7 @@ package com.baidu.tieba.im.message;
 import com.google.protobuf.MessageLite;
 import protobuf.QueryGroupLocation.QueryGroupLocationReq;
 /* loaded from: classes.dex */
-public class av extends s implements com.baidu.tieba.im.coder.g {
+public final class av extends s implements com.baidu.tieba.im.coder.g {
     private int a;
     private String b;
     private String c;
@@ -12,32 +12,20 @@ public class av extends s implements com.baidu.tieba.im.coder.g {
         e(103010);
     }
 
-    public int b() {
-        return this.a;
-    }
-
-    public void a(int i) {
+    public final void a(int i) {
         this.a = i;
     }
 
-    public String c() {
-        return this.b;
-    }
-
-    public void a(String str) {
+    public final void a(String str) {
         this.b = str;
     }
 
-    public String d() {
-        return this.c;
-    }
-
-    public void b(String str) {
+    public final void b(String str) {
         this.c = str;
     }
 
     @Override // com.baidu.tieba.im.coder.g
-    public MessageLite a() {
-        return QueryGroupLocationReq.QueryGroupLocationReqIdl.newBuilder().a(QueryGroupLocationReq.DataReq.newBuilder().a(b()).b(Double.parseDouble(d())).a(Double.parseDouble(c())).build()).build();
+    public final MessageLite a() {
+        return QueryGroupLocationReq.QueryGroupLocationReqIdl.newBuilder().a(QueryGroupLocationReq.DataReq.newBuilder().a(this.a).b(Double.parseDouble(this.c)).a(Double.parseDouble(this.b)).build()).build();
     }
 }

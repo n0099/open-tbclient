@@ -6,7 +6,7 @@ import com.baidu.tieba.voice.PlayVoiceBnt;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements AbsListView.RecyclerListener {
+public final class l implements AbsListView.RecyclerListener {
     final /* synthetic */ i a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,10 +15,10 @@ public class l implements AbsListView.RecyclerListener {
     }
 
     @Override // android.widget.AbsListView.RecyclerListener
-    public void onMovedToScrapHeap(View view) {
+    public final void onMovedToScrapHeap(View view) {
         PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view.findViewById(R.id.abstract_voice);
         if (playVoiceBnt != null) {
-            playVoiceBnt.d();
+            playVoiceBnt.b();
         }
     }
 }

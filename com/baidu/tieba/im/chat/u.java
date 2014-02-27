@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.chat;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u extends com.baidu.tieba.im.c<Boolean> {
+public final class u extends com.baidu.tieba.im.b<Boolean> {
     final /* synthetic */ q a;
     private final /* synthetic */ com.baidu.tieba.im.message.w c;
     private final /* synthetic */ com.baidu.tieba.im.message.b d;
@@ -13,10 +13,9 @@ public class u extends com.baidu.tieba.im.c<Boolean> {
         this.d = bVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.c
-    /* renamed from: a */
-    public Boolean b() {
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.b
+    public final /* synthetic */ Boolean a() {
         return Boolean.valueOf(com.baidu.tieba.im.db.q.a().a(this.c.m(), this.c.c(), String.valueOf(this.d.j()), String.valueOf(this.d.l()), 2));
     }
 }

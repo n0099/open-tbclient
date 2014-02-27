@@ -1,37 +1,57 @@
 package com.baidu.tieba.im.util;
 
-import com.baidu.tieba.data.UserData;
-import java.util.ArrayList;
-import java.util.List;
-import protobuf.Im;
+import com.baidu.android.common.security.RSAUtil;
+import java.math.BigInteger;
+import java.nio.charset.Charset;
+import java.security.KeyFactory;
+import java.security.PublicKey;
+import java.security.SecureRandom;
+import java.security.spec.X509EncodedKeySpec;
+import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
 /* loaded from: classes.dex */
 public final class m {
-    public static UserData a(Im.UserInfo userInfo) {
-        if (userInfo == null) {
-            return null;
-        }
-        UserData userData = new UserData();
-        userData.setLoginTime(userInfo.getLoginTime());
-        userData.setLastReplyTime(userInfo.getLastReplyTime());
-        userData.setInTime(userInfo.getInTime());
-        userData.setLat(String.valueOf(userInfo.getLat()));
-        userData.setLng(String.valueOf(userInfo.getLng()));
-        userData.setPortrait(userInfo.getPortrait());
-        userData.setUserIdLong(userInfo.getUserId());
-        userData.setUserName(userInfo.getUserName());
-        userData.setPortrait(userInfo.getPortrait());
-        userData.setSex(userInfo.getSex());
-        return userData;
+    public static final Charset a = Charset.forName("UTF-8");
+    private static final byte[] b = {-92, 11, -56, 52, -42, -107, -13, 19};
+
+    public static PublicKey a(byte[] bArr) {
+        return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(bArr));
     }
 
-    public static List<UserData> a(List<Im.UserInfo> list) {
-        if (list == null) {
-            return null;
+    public static byte[] a(PublicKey publicKey, byte[] bArr) {
+        Cipher cipher = Cipher.getInstance(com.baidu.sapi2.shell.b.a);
+        cipher.init(1, publicKey);
+        return cipher.doFinal(bArr);
+    }
+
+    public static SecretKey a(String str) {
+        SecretKeyFactory secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+        char[] cArr = new char[str.length()];
+        for (int i = 0; i < cArr.length; i++) {
+            cArr[i] = (char) (((byte) str.charAt(i)) & 255);
         }
-        ArrayList arrayList = new ArrayList();
-        for (Im.UserInfo userInfo : list) {
-            arrayList.add(a(userInfo));
+        return secretKeyFactory.generateSecret(new PBEKeySpec(cArr, b, 5, 256));
+    }
+
+    public static byte[] a(SecretKey secretKey, byte[] bArr) {
+        Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+        cipher.init(1, secretKey);
+        return cipher.doFinal(bArr);
+    }
+
+    public static byte[] a(SecretKey secretKey, byte[] bArr, int i, int i2) {
+        Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+        cipher.init(2, secretKey);
+        return cipher.doFinal(bArr, i, i2);
+    }
+
+    public static String a(int i) {
+        String bigInteger = new BigInteger(160, new SecureRandom()).toString(36);
+        if (bigInteger.length() > 32) {
+            return bigInteger.substring(0, bigInteger.length());
         }
-        return arrayList;
+        return bigInteger;
     }
 }

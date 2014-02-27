@@ -5,27 +5,27 @@ public abstract class br extends da implements com.baidu.tieba.im.coder.f {
     private long b;
     private String c;
 
-    public long a() {
+    public final long a() {
         return this.a;
     }
 
-    public void a(long j) {
+    public final void a(long j) {
         this.a = j;
     }
 
-    public long b() {
+    public final long b() {
         return this.b;
     }
 
-    public void b(long j) {
+    public final void b(long j) {
         this.b = j;
     }
 
-    public String c() {
+    public final String c() {
         return this.c;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.c = str;
     }
 }

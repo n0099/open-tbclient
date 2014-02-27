@@ -1,10 +1,8 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import com.baidu.tieba.frs.FrsImageActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
-public class ay implements View.OnClickListener {
+final class ay implements SlidingMenu.OnOpenedListener {
     final /* synthetic */ FrsImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,15 +10,8 @@ public class ay implements View.OnClickListener {
         this.a = frsImageActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        FrsImageActivity.FooterType footerType;
-        int i;
-        footerType = this.a.g;
-        if (footerType == FrsImageActivity.FooterType.NEXT) {
-            FrsImageActivity frsImageActivity = this.a;
-            i = this.a.i;
-            frsImageActivity.c(i + 240);
-        }
+    @Override // com.slidingmenu.lib.SlidingMenu.OnOpenedListener
+    public final void onOpened() {
+        com.baidu.tieba.util.cb.a(this.a, "frs_total_more", "frsclick", 1, new Object[0]);
     }
 }

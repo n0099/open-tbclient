@@ -6,9 +6,8 @@ import com.baidu.tieba.data.ForumData;
 import com.baidu.tieba.data.SignData;
 import com.baidu.tieba.util.AntiHelper;
 import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s extends com.baidu.adp.a.g {
+final class s extends com.baidu.adp.a.g {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,22 +16,22 @@ public class s extends com.baidu.adp.a.g {
     }
 
     @Override // com.baidu.adp.a.g
-    public void a(Object obj) {
+    public final void a(Object obj) {
         boolean z;
         String str;
         String str2;
-        br brVar;
+        bs bsVar;
         com.baidu.tieba.model.bt btVar;
-        br brVar2;
+        bs bsVar2;
         com.baidu.tieba.model.bt btVar2;
         String str3;
         String str4;
-        br brVar3;
-        br brVar4;
+        bs bsVar3;
+        bs bsVar4;
         com.baidu.tieba.model.z zVar;
         String str5;
         String str6;
-        br brVar5;
+        bs bsVar5;
         com.baidu.tieba.model.z zVar2;
         com.baidu.tieba.model.z zVar3;
         com.baidu.tieba.model.z zVar4;
@@ -41,19 +40,19 @@ public class s extends com.baidu.adp.a.g {
         com.baidu.tieba.model.z zVar6;
         com.baidu.tieba.model.z zVar7;
         com.baidu.tieba.model.z zVar8;
-        br brVar6;
-        br brVar7;
-        br brVar8;
-        br brVar9;
+        bs bsVar6;
+        bs bsVar7;
+        bs bsVar8;
+        bs bsVar9;
         int i;
         com.baidu.tieba.model.z zVar9;
         com.baidu.tieba.model.z zVar10;
-        br brVar10;
+        bs bsVar10;
         com.baidu.tieba.model.z zVar11;
         com.baidu.tieba.model.z zVar12;
         com.baidu.tieba.model.z zVar13;
         com.baidu.tieba.model.z zVar14;
-        br brVar11;
+        bs bsVar11;
         String str8;
         com.baidu.tieba.model.z zVar15;
         if (obj == null || !(obj instanceof SignData)) {
@@ -68,75 +67,75 @@ public class s extends com.baidu.adp.a.g {
         }
         str = this.a.G;
         if (str.equals("normal_page")) {
-            brVar11 = this.a.p;
-            brVar11.w();
+            bsVar11 = this.a.p;
+            bsVar11.u();
         } else {
             str2 = this.a.G;
             if (str2.equals("frs_page")) {
-                brVar = this.a.p;
-                brVar.y();
+                bsVar = this.a.p;
+                bsVar.w();
             }
         }
         if (z) {
             zVar = this.a.A;
-            AntiData e = zVar.e();
+            AntiData i2 = zVar.i();
             str5 = this.a.G;
             if (str5.equals("normal_page")) {
-                brVar10 = this.a.p;
+                bsVar10 = this.a.p;
                 zVar11 = this.a.A;
-                int signed = zVar11.b().getSignData().getSigned();
+                int signed = zVar11.f().getSignData().getSigned();
                 zVar12 = this.a.A;
-                int bonusPoint = zVar12.b().getSignData().getBonusPoint();
+                int bonusPoint = zVar12.f().getSignData().getBonusPoint();
                 zVar13 = this.a.A;
-                ForumData b = zVar13.b();
+                ForumData f = zVar13.f();
                 zVar14 = this.a.A;
-                brVar10.b(signed, bonusPoint, b, zVar14);
+                bsVar10.b(signed, bonusPoint, f, zVar14);
             } else {
                 str6 = this.a.G;
                 if (str6.equals("frs_page")) {
-                    brVar5 = this.a.p;
+                    bsVar5 = this.a.p;
                     zVar2 = this.a.A;
-                    int signed2 = zVar2.b().getSignData().getSigned();
+                    int signed2 = zVar2.f().getSignData().getSigned();
                     zVar3 = this.a.A;
-                    int bonusPoint2 = zVar3.b().getSignData().getBonusPoint();
+                    int bonusPoint2 = zVar3.f().getSignData().getBonusPoint();
                     zVar4 = this.a.A;
-                    ForumData b2 = zVar4.b();
+                    ForumData f2 = zVar4.f();
                     zVar5 = this.a.A;
-                    brVar5.a(signed2, bonusPoint2, b2, zVar5);
+                    bsVar5.a(signed2, bonusPoint2, f2, zVar5);
                 }
             }
             if (obj != null && (obj instanceof SignData)) {
-                brVar9 = this.a.p;
-                if (brVar9.e()) {
+                bsVar9 = this.a.p;
+                if (bsVar9.e()) {
                     zVar10 = this.a.A;
-                    i = zVar10.b().getUser_level() + 1;
+                    i = zVar10.f().getUser_level() + 1;
                 } else {
                     i = -1;
                 }
                 TiebaApplication g = TiebaApplication.g();
                 zVar9 = this.a.A;
-                g.a(zVar9.b().getName(), ((SignData) obj).getBonusPoint(), i);
+                g.a(zVar9.f().getName(), ((SignData) obj).getBonusPoint(), i);
             }
-            if (AntiHelper.b(e) || AntiHelper.a(e) || AntiHelper.c(e)) {
+            if (AntiHelper.b(i2) || AntiHelper.a(i2) || AntiHelper.c(i2)) {
                 str7 = this.a.g;
-                e.setBlock_forum_name(str7);
+                i2.setBlock_forum_name(str7);
                 zVar6 = this.a.A;
-                e.setBlock_forum_id(zVar6.b().getId());
+                i2.setBlock_forum_id(zVar6.f().getId());
                 zVar7 = this.a.A;
-                e.setUser_name(zVar7.d().getUserName());
+                i2.setUser_name(zVar7.h().getUserName());
                 zVar8 = this.a.A;
-                e.setUser_id(zVar8.d().getUserId());
-                AntiHelper.a(this.a, e, AntiHelper.OperationType.SIGN, AntiHelper.PageType.FRS);
+                i2.setUser_id(zVar8.h().getUserId());
+                AntiHelper.a(this.a, i2, AntiHelper.OperationType.SIGN, AntiHelper.PageType.FRS);
                 return;
             }
             StringBuilder sb = new StringBuilder(100);
-            brVar6 = this.a.p;
-            if (!brVar6.A()) {
+            bsVar6 = this.a.p;
+            if (!bsVar6.y()) {
                 sb.append(this.a.getString(R.string.sign_success));
                 sb.append("!\n");
                 sb.append(String.format(this.a.getString(R.string.sign_user), Integer.valueOf(((SignData) obj).getUserSignRank())));
-                brVar8 = this.a.p;
-                brVar8.a(sb.toString());
+                bsVar8 = this.a.p;
+                bsVar8.a(sb.toString());
                 return;
             }
             sb.append(this.a.getString(R.string.sign_success));
@@ -144,26 +143,26 @@ public class s extends com.baidu.adp.a.g {
             sb.append(String.format(this.a.getString(R.string.sign_point), Integer.valueOf(((SignData) obj).getBonusPoint())));
             sb.append("!\n");
             sb.append(String.format(this.a.getString(R.string.sign_user), Integer.valueOf(((SignData) obj).getUserSignRank())));
-            brVar7 = this.a.p;
-            brVar7.a(sb.toString());
+            bsVar7 = this.a.p;
+            bsVar7.a(sb.toString());
             return;
         }
         btVar = this.a.D;
         if (btVar.getErrorCode() == 160002) {
             str3 = this.a.G;
             if (str3.equals("normal_page")) {
-                brVar4 = this.a.p;
-                brVar4.f(1);
+                bsVar4 = this.a.p;
+                bsVar4.f(1);
             } else {
                 str4 = this.a.G;
                 if (str4.equals("frs_page")) {
-                    brVar3 = this.a.p;
-                    brVar3.e(1);
+                    bsVar3 = this.a.p;
+                    bsVar3.e(1);
                 }
             }
         }
-        brVar2 = this.a.p;
+        bsVar2 = this.a.p;
         btVar2 = this.a.D;
-        brVar2.a(btVar2.getErrorString());
+        bsVar2.a(btVar2.getErrorString());
     }
 }

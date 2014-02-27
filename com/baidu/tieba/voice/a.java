@@ -2,7 +2,7 @@ package com.baidu.tieba.voice;
 
 import android.os.Handler;
 /* loaded from: classes.dex */
-public class a {
+public final class a {
     private static c b;
     private static String c;
     private static j d;

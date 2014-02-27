@@ -21,7 +21,7 @@ public final class f {
         return b;
     }
 
-    public i a(String str) {
+    public final i a(String str) {
         String str2;
         try {
             str2 = new JSONObject(str).getString("cmd");

@@ -6,17 +6,15 @@ public abstract class c<T extends f<?>> extends com.baidu.adp.framework.d {
     private int a;
     private int b;
 
-    public abstract void a(T t);
-
-    public int b() {
+    public final int b() {
         return this.a;
     }
 
-    public int c() {
+    public final int c() {
         return this.b;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.b = i;
     }
 }

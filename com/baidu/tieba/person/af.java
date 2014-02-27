@@ -16,26 +16,25 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public class af extends BaseAdapter {
+public final class af extends BaseAdapter {
     private EditMarkActivity a;
     private ArrayList<MarkData> b;
     private int c;
     private boolean d;
-    private boolean e;
     private boolean f = false;
     private ArrayList<ProgressBar> g = null;
     private View.OnClickListener h = null;
     private boolean i = false;
     private boolean j = true;
     private boolean k = true;
+    private boolean e = true;
 
     public af(EditMarkActivity editMarkActivity) {
         this.a = editMarkActivity;
-        d(true);
         b();
     }
 
-    public void a() {
+    public final void a() {
         if (this.g != null) {
             Iterator<ProgressBar> it = this.g.iterator();
             while (it.hasNext()) {
@@ -44,11 +43,11 @@ public class af extends BaseAdapter {
         }
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.j = z;
     }
 
-    public void b() {
+    public final void b() {
         this.d = false;
         if (this.b == null) {
             this.c = 0;
@@ -68,18 +67,18 @@ public class af extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public void b(boolean z) {
+    public final void b(boolean z) {
         this.i = z;
     }
 
-    public void a(ArrayList<MarkData> arrayList) {
+    public final void a(ArrayList<MarkData> arrayList) {
         this.b = arrayList;
         b();
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
-    public int getCount() {
+    public final int getCount() {
         if (this.b == null || this.b.size() == 0) {
             return this.c;
         }
@@ -89,22 +88,22 @@ public class af extends BaseAdapter {
         return this.c;
     }
 
-    public void c(boolean z) {
+    public final void c(boolean z) {
         this.k = z;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
+    public final int getViewTypeCount() {
         return 2;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
+    public final int getItemViewType(int i) {
         return (getItemId(i) >= 0 || this.d) ? 0 : 1;
     }
 
     @Override // android.widget.Adapter
-    public Object getItem(int i) {
+    public final Object getItem(int i) {
         int size;
         if (!this.d && (size = this.b.size()) > 0 && i < size) {
             return this.b.get(i);
@@ -113,7 +112,7 @@ public class af extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    public final long getItemId(int i) {
         if (this.b == null || i < this.b.size()) {
             return i;
         }
@@ -122,7 +121,7 @@ public class af extends BaseAdapter {
 
     /* JADX WARN: Not initialized variable reg: 1, insn: 0x028b: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:73:0x028a */
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public final View getView(int i, View view, ViewGroup viewGroup) {
         Exception exc;
         View view2;
         View view3;
@@ -134,7 +133,7 @@ public class af extends BaseAdapter {
                 if (getItemViewType(i) == 0) {
                     if (view == null || !(view.getTag() instanceof ah)) {
                         view4 = LayoutInflater.from(this.a).inflate(R.layout.home_mark_item, (ViewGroup) null);
-                        ahVar = new ah(this, null);
+                        ahVar = new ah(this, (byte) 0);
                         ahVar.b = (TextView) view4.findViewById(R.id.home_lv_markitem_reply);
                         ahVar.c = (LinearLayout) view4.findViewById(R.id.home_lv_markitem_content);
                         ahVar.d = (TextView) view4.findViewById(R.id.home_lv_markitem_title);
@@ -153,7 +152,7 @@ public class af extends BaseAdapter {
                     view4 = view;
                 } else if (view == null || !(view.getTag() instanceof ag)) {
                     LayoutInflater from = LayoutInflater.from(this.a);
-                    ag agVar2 = new ag(this, null);
+                    ag agVar2 = new ag(this, (byte) 0);
                     view4 = from.inflate(R.layout.page_item, (ViewGroup) null);
                     agVar2.a = (TextView) view4.findViewById(R.id.page_text);
                     agVar2.b = (ProgressBar) view4.findViewById(R.id.progress);
@@ -169,14 +168,14 @@ public class af extends BaseAdapter {
                     view4 = view;
                     agVar = (ag) view.getTag();
                 }
-                int al = TiebaApplication.g().al();
-                this.a.getLayoutMode().a(al == 1);
+                int ae = TiebaApplication.g().ae();
+                this.a.getLayoutMode().a(ae == 1);
                 this.a.getLayoutMode().a(view4);
                 if (getItemViewType(i) == 1) {
                     if (this.i) {
                         agVar.b.setVisibility(0);
                         agVar.a.setText(this.a.getString(R.string.loading));
-                        if (al == 1) {
+                        if (ae == 1) {
                             agVar.a.setTextColor(this.a.getResources().getColor(R.color.pb_more_txt_1));
                             view2 = view4;
                         } else {
@@ -186,7 +185,7 @@ public class af extends BaseAdapter {
                     } else if (!this.j) {
                         agVar.b.setVisibility(8);
                         agVar.a.setText(this.a.getString(R.string.no_more_mark));
-                        if (al == 1) {
+                        if (ae == 1) {
                             agVar.a.setTextColor(this.a.getResources().getColor(R.color.pb_list_morebutton_nomore_text_1));
                             view2 = view4;
                         } else {
@@ -196,7 +195,7 @@ public class af extends BaseAdapter {
                     } else {
                         agVar.b.setVisibility(8);
                         agVar.a.setText(this.a.getString(R.string.loading));
-                        if (al == 1) {
+                        if (ae == 1) {
                             agVar.a.setTextColor(this.a.getResources().getColor(R.color.pb_more_txt_1));
                             view2 = view4;
                         } else {
@@ -258,7 +257,7 @@ public class af extends BaseAdapter {
             } catch (Exception e) {
                 view2 = view3;
                 exc = e;
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "", "MarkAdapter.getView error = " + exc.getMessage());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "", "MarkAdapter.getView error = " + exc.getMessage());
                 return view2;
             }
         } catch (Exception e2) {
@@ -269,30 +268,30 @@ public class af extends BaseAdapter {
     }
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
-    public boolean isEnabled(int i) {
+    public final boolean isEnabled(int i) {
         if (this.d || (!this.j && getItemViewType(i) == 1)) {
             return false;
         }
         return super.isEnabled(i);
     }
 
-    public void d(boolean z) {
+    public final void d(boolean z) {
         this.e = z;
     }
 
-    public void e(boolean z) {
+    public final void e(boolean z) {
         this.f = z;
     }
 
-    public boolean c() {
+    public final boolean c() {
         return this.f;
     }
 
-    public void a(View.OnClickListener onClickListener) {
+    public final void a(View.OnClickListener onClickListener) {
         this.h = onClickListener;
     }
 
-    private void a(ah ahVar, boolean z) {
+    private static void a(ah ahVar, boolean z) {
         if (ahVar != null && ahVar.g != null && ahVar.f != null) {
             if (z) {
                 ahVar.g.setVisibility(0);

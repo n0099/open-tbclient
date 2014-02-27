@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import com.baidu.tieba.square.am;
 /* loaded from: classes.dex */
-public class r extends FragmentPagerAdapter {
+public final class r extends FragmentPagerAdapter {
     private final com.baidu.tieba.j[] a;
     private final int b;
 
@@ -16,7 +16,7 @@ public class r extends FragmentPagerAdapter {
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
-    public Fragment getItem(int i) {
+    public final Fragment getItem(int i) {
         if (i < 0 || i >= this.b) {
             return null;
         }
@@ -24,7 +24,7 @@ public class r extends FragmentPagerAdapter {
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public int getCount() {
+    public final int getCount() {
         return this.b;
     }
 }

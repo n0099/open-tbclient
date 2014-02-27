@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m extends Handler {
+public final class m extends Handler {
     final /* synthetic */ l a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,13 +13,13 @@ public class m extends Handler {
     }
 
     @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    public final void handleMessage(Message message) {
         switch (message.what) {
             case 0:
                 this.a.a();
                 return;
             case 1:
-                this.a.d();
+                l.a(this.a);
                 return;
             default:
                 return;

@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
-class ae {
+final class ae {
     TextView a;
     TextView b;
     View c;
@@ -16,7 +16,7 @@ class ae {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ae(ac acVar, ae aeVar) {
+    public /* synthetic */ ae(ac acVar, byte b) {
         this(acVar);
     }
 }

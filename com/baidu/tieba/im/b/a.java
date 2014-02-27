@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Handler;
 import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.adp.lib.webSocket.m;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.location.LocationClientOption;
 import com.baidu.tieba.TiebaApplication;
@@ -18,6 +17,7 @@ import com.baidu.tieba.im.message.s;
 import com.baidu.tieba.im.message.t;
 import com.baidu.tieba.im.message.z;
 import com.baidu.tieba.im.net.TiebaSocketLinkService;
+import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.util.ba;
 import com.baidu.tieba.util.cb;
 import com.baidu.tieba.view.NoNetworkView;
@@ -28,12 +28,12 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class a {
+public final class a {
     private static a a = null;
     private int o;
-    private boolean w;
-    private long x;
+    private boolean x;
     private long y;
+    private long z;
     private int b = 900000;
     private int c = 360000;
     private df d = null;
@@ -49,70 +49,64 @@ public class a {
     private long n = 0;
     private boolean p = false;
     private boolean q = false;
-    private int r = 0;
-    private List<String> s = null;
-    private final Handler t = new l(null);
-    private final i u = new i(this, null);
-    private final com.baidu.tieba.im.net.a v = new b(this);
-    private final com.baidu.tieba.im.a<com.baidu.tieba.im.db.d> z = new c(this);
+    private boolean r = false;
+    private int s = 0;
+    private List<String> t = null;
+    private final Handler u = new l((byte) 0);
+    private final i v = new i(this, (byte) 0);
+    private final com.baidu.tieba.im.net.a w = new b(this);
+    private final com.baidu.tieba.im.a<com.baidu.tieba.im.db.d> A = new c(this);
 
-    public boolean a() {
+    public final boolean a() {
         return this.o >= 5;
     }
 
-    public void b() {
+    public final void b() {
         this.o++;
-        if (a()) {
-            j();
+        if (!a() || this.p) {
+            return;
         }
-    }
-
-    private void j() {
-        if (!this.p) {
-            this.p = true;
-            com.baidu.tieba.im.net.f.a().a("conn:fail to : " + com.baidu.tieba.im.g.a + " time: " + System.currentTimeMillis());
-            if (!this.q) {
+        this.p = true;
+        if (this.q) {
+            this.q = false;
+            com.baidu.tieba.im.net.f.a().b(com.baidu.tieba.im.f.a);
+        }
+        com.baidu.tieba.im.net.f.a().b();
+        if (UtilHelper.b()) {
+            if (!this.r) {
                 new com.baidu.tieba.im.net.h("www.baidu.com", new e(this));
-                this.q = true;
+                this.r = true;
                 return;
             }
-            if (this.r > -1) {
-                com.baidu.tieba.im.net.f.a().c();
-            }
             a("change ip to reconnect with DNS' failed.", 0);
+            return;
         }
+        com.baidu.tieba.im.net.f.a().a(0);
+        j();
     }
 
     public void a(String str, int i) {
         if (i > 30) {
-            l();
+            j();
             return;
         }
-        int i2 = i + 1;
-        String k = k();
-        if (k == null) {
-            if (!com.baidu.tieba.im.net.b.a().f()) {
+        String str2 = (this.t == null || this.s < 0 || this.s >= this.t.size()) ? null : com.baidu.tieba.im.net.b.a().c().get(this.s);
+        if (str2 == null) {
+            if (!com.baidu.tieba.im.net.b.a().e()) {
                 com.baidu.tieba.im.net.b.a().a(new g(this, str, i));
             }
-            l();
+            j();
             return;
         }
-        String a2 = a(k);
+        String a2 = a(str2);
         if (a2 == null) {
-            l();
+            j();
         } else {
-            new com.baidu.tieba.im.net.h(a2, new h(this, k, str, i));
+            new com.baidu.tieba.im.net.h(a2, new h(this, str2, str, i));
         }
     }
 
-    private String k() {
-        if (this.s == null || this.r <= -1 || this.r >= this.s.size()) {
-            return null;
-        }
-        return com.baidu.tieba.im.net.b.a().d().get(this.r);
-    }
-
-    private String a(String str) {
+    private static String a(String str) {
         int lastIndexOf;
         if (str != null && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
             try {
@@ -124,38 +118,40 @@ public class a {
         return null;
     }
 
-    public void l() {
-        com.baidu.tieba.im.net.f.a().b();
-        this.q = false;
-        this.r = 0;
-        this.p = false;
-        com.baidu.tieba.im.messageCenter.e.a().a(true);
-        com.baidu.adp.lib.util.f.b("【打开】了上线不成功消息拦截机制");
+    public void j() {
+        k();
+        com.baidu.tieba.im.messageCenter.d.a().a(true);
+        com.baidu.adp.lib.util.e.b("【打开】了上线不成功消息拦截机制");
         NoNetworkView.a();
     }
 
-    public void m() {
-        com.baidu.adp.lib.util.f.b("【关闭】了上线不成功消息拦截机制");
-        this.o = 0;
-        this.q = false;
-        this.r = 0;
+    private void k() {
+        this.r = false;
+        this.s = 0;
         this.p = false;
-        com.baidu.tieba.im.net.b.a().a(com.baidu.tieba.im.g.a);
-        com.baidu.tieba.im.net.b.a().e();
-        com.baidu.tieba.im.net.f.a().a("conn:succ to : " + com.baidu.tieba.im.g.a + " time: " + System.currentTimeMillis());
-        com.baidu.tieba.im.messageCenter.e.a().a(false);
+        this.q = false;
+    }
+
+    public static /* synthetic */ void p(a aVar) {
+        com.baidu.adp.lib.util.e.b("【关闭】了上线不成功消息拦截机制");
+        aVar.o = 0;
+        aVar.k();
+        com.baidu.tieba.im.net.b.a().a(com.baidu.tieba.im.f.a);
+        com.baidu.tieba.im.net.b.a().d();
+        com.baidu.tieba.im.net.f.a().a(com.baidu.tieba.im.f.a);
+        com.baidu.tieba.im.messageCenter.d.a().a(false);
         NoNetworkView.a();
         TiebaSocketLinkService.c("online succ");
     }
 
-    public Map<Long, Long> a(s sVar) {
+    public static /* synthetic */ Map a(a aVar, s sVar) {
         boolean z;
         List<com.baidu.tieba.im.message.b> a2;
         if (sVar instanceof cj) {
             cj cjVar = (cj) sVar;
             StringBuilder sb = new StringBuilder(200);
             if (cjVar.l()) {
-                Iterator<GroupMidData> it = this.h.iterator();
+                Iterator<GroupMidData> it = aVar.h.iterator();
                 while (it.hasNext()) {
                     GroupMidData next = it.next();
                     sb.append(next.getGroupId());
@@ -163,10 +159,10 @@ public class a {
                     sb.append(next.getLastMsgId());
                     sb.append("|");
                 }
-                cb.a(202003, 0, this.i, "MessageSync-receive-pullmsg", "fail", cjVar.m(), cjVar.n(), System.currentTimeMillis() - this.g, 0, sb.toString());
+                cb.a(202003, 0, aVar.i, "MessageSync-receive-pullmsg", "fail", cjVar.m(), cjVar.n(), System.currentTimeMillis() - aVar.g, 0, sb.toString());
                 return null;
             } else if (cjVar.a() == null || cjVar.a().size() == 0) {
-                cb.a(202003, 0, this.i, "MessageSync-receive-pullmsg", "succ-empty", cjVar.m(), cjVar.n(), System.currentTimeMillis() - this.g, 0, "");
+                cb.a(202003, 0, aVar.i, "MessageSync-receive-pullmsg", "succ-empty", cjVar.m(), cjVar.n(), System.currentTimeMillis() - aVar.g, 0, "");
                 return null;
             } else {
                 HashMap hashMap = new HashMap();
@@ -179,7 +175,7 @@ public class a {
                         }
                     }
                 }
-                Iterator<GroupMidData> it2 = this.h.iterator();
+                Iterator<GroupMidData> it2 = aVar.h.iterator();
                 while (it2.hasNext()) {
                     GroupMidData next2 = it2.next();
                     sb.append(next2.getGroupId());
@@ -204,38 +200,33 @@ public class a {
                     }
                     sb.append("|");
                 }
-                cb.a(202003, 0, this.i, "MessageSync-receive-pullmsg", "succ", cjVar.m(), cjVar.n(), System.currentTimeMillis() - this.g, 0, sb.toString());
+                cb.a(202003, 0, aVar.i, "MessageSync-receive-pullmsg", "succ", cjVar.m(), cjVar.n(), System.currentTimeMillis() - aVar.g, 0, sb.toString());
                 return hashMap;
             }
         }
         return null;
     }
 
-    public void n() {
+    public void l() {
         if (this.f) {
             i();
             this.f = false;
         }
     }
 
-    public void a(Map<Long, Long> map) {
+    public static /* synthetic */ void a(a aVar, Map map) {
         ImMessageCenterPojo a2;
         com.baidu.tieba.im.db.d d = com.baidu.tieba.im.db.h.a().d();
-        for (Map.Entry<Long, Long> entry : map.entrySet()) {
-            if (entry.getKey() != null && entry.getValue() != null && (a2 = d.a(String.valueOf(entry.getKey().longValue()))) != null) {
-                a2.setPulled_msgId(entry.getValue().longValue());
+        for (Map.Entry entry : map.entrySet()) {
+            if (entry.getKey() != null && entry.getValue() != null && (a2 = d.a(String.valueOf(((Long) entry.getKey()).longValue()))) != null) {
+                a2.setPulled_msgId(((Long) entry.getValue()).longValue());
             }
         }
-        n();
+        aVar.l();
     }
 
-    private void o() {
-        this.t.removeMessages(3);
-        this.t.removeMessages(2);
-    }
-
-    public void a(int i, int i2, String str) {
-        b();
+    public static /* synthetic */ void a(a aVar, int i, int i2, String str) {
+        aVar.b();
         TiebaSocketLinkService.a(8, "online error = " + i2);
     }
 
@@ -250,81 +241,76 @@ public class a {
         return aVar;
     }
 
-    public void a(Context context) {
+    public final void a(Context context) {
         if (context == null) {
             throw new IllegalArgumentException("MessageSync init param illegal");
         }
-        com.baidu.tieba.im.messageCenter.e.a().a(-11, this.u);
-        com.baidu.tieba.im.messageCenter.e.a().a(this.v);
-        com.baidu.tieba.im.messageCenter.e.a().a(1003, this.u);
-        com.baidu.tieba.im.messageCenter.e.a().a(1001, this.u);
-        com.baidu.tieba.im.messageCenter.e.a().a(202003, this.u);
-        com.baidu.tieba.im.messageCenter.e.a().a(202101, this.u);
+        com.baidu.tieba.im.messageCenter.d.a().a(-11, this.v);
+        com.baidu.tieba.im.messageCenter.d.a().a(this.w);
+        com.baidu.tieba.im.messageCenter.d.a().a(1003, this.v);
+        com.baidu.tieba.im.messageCenter.d.a().a(1001, this.v);
+        com.baidu.tieba.im.messageCenter.d.a().a(202003, this.v);
+        com.baidu.tieba.im.messageCenter.d.a().a(202101, this.v);
         d();
     }
 
-    public void d() {
-        int[] aW = TiebaApplication.g().aW();
-        if (aW.length == 2) {
-            a(aW[0] * LocationClientOption.MIN_SCAN_SPAN);
-            b(aW[1] * LocationClientOption.MIN_SCAN_SPAN);
+    public final void d() {
+        int[] aO = TiebaApplication.g().aO();
+        if (aO.length == 2) {
+            int i = aO[0] * LocationClientOption.MIN_SCAN_SPAN;
+            if (i > 0) {
+                this.c = i;
+            }
+            int i2 = aO[1] * LocationClientOption.MIN_SCAN_SPAN;
+            if (i2 > 0) {
+                this.b = i2;
+            }
         }
     }
 
-    public void e() {
+    public final void e() {
         this.f = false;
-        r();
+        n();
     }
 
-    public void f() {
+    public final void f() {
         this.f = false;
-        com.baidu.adp.lib.util.f.d("----msg sync stop");
-        o();
+        com.baidu.adp.lib.util.e.d("----msg sync stop");
+        this.u.removeMessages(3);
+        this.u.removeMessages(2);
     }
 
-    public void g() {
-        com.baidu.adp.lib.util.f.d("----switchToForeground");
+    public final void g() {
+        com.baidu.adp.lib.util.e.d("----switchToForeground");
         this.e = this.c;
         if (this.k > 0) {
             i();
         }
     }
 
-    public void h() {
-        com.baidu.adp.lib.util.f.d("----switchToBackground");
+    public final void h() {
+        com.baidu.adp.lib.util.e.d("----switchToBackground");
         this.l = System.currentTimeMillis();
         c().e = c().b;
     }
 
-    public void a(int i) {
-        if (i > 0) {
-            this.c = i;
-        }
-    }
-
-    public void b(int i) {
-        if (i > 0) {
-            this.b = i;
-        }
-    }
-
-    public synchronized void p() {
+    public synchronized void m() {
         if (System.currentTimeMillis() - this.n >= 180000) {
             z zVar = new z();
             zVar.b(this.m);
-            zVar.a(m.a().g());
-            zVar.b(m.a().i());
-            zVar.a(TiebaApplication.g().aC());
-            com.baidu.tieba.im.messageCenter.e.a().a(zVar);
+            zVar.a(com.baidu.adp.lib.webSocket.l.a().g());
+            zVar.b(com.baidu.adp.lib.webSocket.l.a().i());
+            zVar.a(TiebaApplication.g().av());
+            com.baidu.tieba.im.messageCenter.d.a().a(zVar);
             this.n = System.currentTimeMillis();
             this.m = 0;
-            m.a().h();
-            m.a().f();
-            TiebaApplication.g().aD();
+            com.baidu.adp.lib.webSocket.l.a().h();
+            com.baidu.adp.lib.webSocket.l.a().f();
+            TiebaApplication.g().aw();
         }
     }
 
-    public t q() {
+    public static /* synthetic */ t j(a aVar) {
         t tVar = new t();
         tVar.a(new ArrayList());
         LocalViewSize.ImageSize d = LocalViewSize.a().d();
@@ -340,58 +326,58 @@ public class a {
         return tVar;
     }
 
-    public synchronized void a(long j, long j2, long j3) {
+    public final synchronized void a(long j, long j2, long j3) {
         this.m++;
-        a(j, j2, j3, false);
+        a(j, j2, false);
     }
 
-    public synchronized void i() {
-        a(0L, 0L, 0L, true);
+    public final synchronized void i() {
+        a(0L, 0L, true);
     }
 
-    private synchronized void a(long j, long j2, long j3, boolean z) {
-        if (TiebaApplication.B()) {
-            this.w = z;
-            this.x = j;
-            this.y = j2;
+    private synchronized void a(long j, long j2, boolean z) {
+        if (TiebaApplication.w()) {
+            this.x = z;
+            this.y = j;
+            this.z = j2;
             if (!z) {
-                this.t.removeMessages(3);
-                c().t.sendMessageDelayed(c().t.obtainMessage(3), c().e);
+                this.u.removeMessages(3);
+                c().u.sendMessageDelayed(c().u.obtainMessage(3), c().e);
             }
-            com.baidu.adp.lib.util.f.d("----begin pullMessageForNewRemind");
-            this.z.a(com.baidu.tieba.im.db.h.a().d());
+            com.baidu.adp.lib.util.e.d("----begin pullMessageForNewRemind");
+            this.A.a(com.baidu.tieba.im.db.h.a().d());
         }
     }
 
-    private synchronized void r() {
-        com.baidu.adp.lib.util.f.d("start online");
+    private synchronized void n() {
+        com.baidu.adp.lib.util.e.d("start online");
         cb.a(1001, 0, "on connect", "start online", null, 0, null);
-        this.d = s();
-        com.baidu.tieba.im.messageCenter.e.a().a(this.d, -3, 0, false);
+        this.d = o();
+        com.baidu.tieba.im.messageCenter.d.a().a(this.d, -3, 0, false);
     }
 
-    private df s() {
+    private static df o() {
         df dfVar = new df();
         dfVar.a("_client_type", "2");
         dfVar.a("_client_version", com.baidu.tieba.data.i.u());
-        if (TiebaApplication.g().p() != null) {
-            dfVar.a("_phone_imei", TiebaApplication.g().p());
+        if (TiebaApplication.g().k() != null) {
+            dfVar.a("_phone_imei", TiebaApplication.g().k());
         }
-        String K = TiebaApplication.K();
-        if (K != null) {
-            dfVar.a("_client_id", K);
+        String E = TiebaApplication.E();
+        if (E != null) {
+            dfVar.a("_client_id", E);
         }
-        String y = TiebaApplication.y();
-        if (y != null && y.length() > 0) {
-            dfVar.a("from", y);
+        String t = TiebaApplication.t();
+        if (t != null && t.length() > 0) {
+            dfVar.a("from", t);
         }
-        String i = new ba().i();
-        if (i != null) {
-            dfVar.a("net_type", i);
+        String h = new ba().h();
+        if (h != null) {
+            dfVar.a("net_type", h);
         }
-        String a2 = com.baidu.tieba.im.f.a();
-        if (a2 != null) {
-            dfVar.a(SocialConstants.PARAM_CUID, a2);
+        String b = com.baidu.tieba.im.e.b();
+        if (b != null) {
+            dfVar.a(SocialConstants.PARAM_CUID, b);
         }
         dfVar.a("timestamp", Long.toString(System.currentTimeMillis()));
         dfVar.a("model", Build.MODEL);
@@ -401,27 +387,27 @@ public class a {
         stringBuffer.append(",");
         stringBuffer.append(String.valueOf(BdUtilHelper.c(TiebaApplication.g().b())));
         dfVar.a("_phone_screen", stringBuffer.toString());
-        if (TiebaApplication.g().M() > 0) {
+        if (TiebaApplication.g().G() > 0) {
             dfVar.a("_msg_status", SocialConstants.FALSE);
         } else {
             dfVar.a("_msg_status", SocialConstants.TRUE);
         }
-        dfVar.a("_pic_quality", String.valueOf(TiebaApplication.g().af()));
+        dfVar.a("_pic_quality", String.valueOf(TiebaApplication.g().Y()));
         try {
-            if (TiebaApplication.B()) {
-                o a3 = com.baidu.tieba.account.a.a(TiebaApplication.D());
-                if (a3 != null) {
-                    dfVar.a(a3.a);
+            if (TiebaApplication.w()) {
+                o a2 = com.baidu.tieba.account.a.a(TiebaApplication.x());
+                if (a2 != null) {
+                    dfVar.a(a2.a);
                 } else {
-                    dfVar.a(TiebaApplication.D());
+                    dfVar.a(TiebaApplication.x());
                 }
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("createUpdateClientInfoMessage getaccountdata error.");
+            com.baidu.adp.lib.util.e.b("createUpdateClientInfoMessage getaccountdata error.");
         }
-        int a4 = BdUtilHelper.a(TiebaApplication.g().c(), 70.0f);
+        int a3 = BdUtilHelper.a(TiebaApplication.g().c(), 70.0f);
         dfVar.b(BdUtilHelper.a(TiebaApplication.g().c(), 70.0f));
-        dfVar.a(a4);
+        dfVar.a(a3);
         dfVar.a(com.baidu.tieba.im.coder.e.a().b());
         dfVar.a("pversion", "1.0.2");
         return dfVar;

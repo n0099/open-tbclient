@@ -15,15 +15,15 @@ public enum Domain {
         this.c = str3;
     }
 
-    public String getURL() {
+    public final String getURL() {
         return this.a;
     }
 
-    public String getWap() {
+    public final String getWap() {
         return this.b;
     }
 
-    public String getConfigUrl() {
+    public final String getConfigUrl() {
         return this.c;
     }
 }

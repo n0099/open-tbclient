@@ -1,10 +1,9 @@
 package com.baidu.tieba.write;
 
-import android.content.DialogInterface;
-import com.baidu.tieba.data.WriteData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.text.Editable;
+import android.text.TextWatcher;
 /* loaded from: classes.dex */
-public class aq implements DialogInterface.OnClickListener {
+final class aq implements TextWatcher {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,11 +11,17 @@ public class aq implements DialogInterface.OnClickListener {
         this.a = writeActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        WriteData writeData;
-        writeData = this.a.b;
-        af.a(writeData.getForumId(), (WriteData) null);
-        this.a.finish();
+    @Override // android.text.TextWatcher
+    public final void afterTextChanged(Editable editable) {
+        this.a.h();
+    }
+
+    @Override // android.text.TextWatcher
+    public final void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public final void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        this.a.d = true;
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.tieba.im.message.cw;
 import com.baidu.tieba.im.message.s;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class d implements com.baidu.tieba.im.messageCenter.g {
+public final class d implements com.baidu.tieba.im.messageCenter.g {
     final /* synthetic */ UpdateGroupActivity a;
 
     public d(UpdateGroupActivity updateGroupActivity) {
@@ -13,7 +13,7 @@ public class d implements com.baidu.tieba.im.messageCenter.g {
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(s sVar) {
+    public final void a(s sVar) {
         a aVar;
         a aVar2;
         if (sVar != null && sVar.w() == 103102) {
@@ -25,7 +25,7 @@ public class d implements com.baidu.tieba.im.messageCenter.g {
             }
             cw cwVar = (cw) sVar;
             if (cwVar.l()) {
-                this.a.a(cwVar.n(), cwVar.m());
+                UpdateGroupActivity.a(this.a, cwVar.n(), cwVar.m());
                 return;
             }
             this.a.showToast(R.string.group_update_success);

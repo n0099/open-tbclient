@@ -99,55 +99,10 @@ public class MultiImageView extends RelativeLayout {
 
     private void f() {
         this.m = UtilHelper.b(getContext());
-        g();
-        h();
-    }
-
-    private void g() {
         this.d = new bq(this);
         this.f = new br(this);
         this.h = new bs(this);
         this.j = new bt(this);
-    }
-
-    public void a() {
-        if (this.e.getCurrentView() != null) {
-            if (this.l) {
-                int childCount = this.e.getChildCount();
-                for (int i = 0; i < childCount; i++) {
-                    View childAt = this.e.getChildAt(i);
-                    if (childAt != null && (childAt instanceof cx) && ((cx) childAt).getImageView() != this.e.getCurrentView()) {
-                        ((cx) childAt).d();
-                    }
-                }
-            }
-            View findViewWithTag = this.e.findViewWithTag(String.valueOf(this.e.getCurrentItem()));
-            if (findViewWithTag != null && (findViewWithTag instanceof cx)) {
-                ((cx) findViewWithTag).a(this.o);
-            }
-            this.e.getCurrentView().e();
-        }
-    }
-
-    public void b() {
-        if (this.e.getCurrentView() != null) {
-            this.e.getCurrentView().f();
-        }
-    }
-
-    public void c() {
-        if (this.e != null) {
-            int childCount = this.e.getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                View childAt = this.e.getChildAt(i);
-                if (childAt != null && (childAt instanceof cx)) {
-                    ((cx) childAt).c();
-                }
-            }
-        }
-    }
-
-    private void h() {
         this.e = new av(getContext());
         this.e.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
         this.e.setOnPageChangeListener(this.f);
@@ -180,6 +135,43 @@ public class MultiImageView extends RelativeLayout {
         setAdapter(this.i);
     }
 
+    public final void a() {
+        if (this.e.getCurrentView() != null) {
+            if (this.l) {
+                int childCount = this.e.getChildCount();
+                for (int i = 0; i < childCount; i++) {
+                    View childAt = this.e.getChildAt(i);
+                    if (childAt != null && (childAt instanceof cw) && ((cw) childAt).getImageView() != this.e.getCurrentView()) {
+                        ((cw) childAt).b();
+                    }
+                }
+            }
+            View findViewWithTag = this.e.findViewWithTag(String.valueOf(this.e.getCurrentItem()));
+            if (findViewWithTag != null && (findViewWithTag instanceof cw)) {
+                ((cw) findViewWithTag).a(this.o);
+            }
+            this.e.getCurrentView().d();
+        }
+    }
+
+    public final void b() {
+        if (this.e.getCurrentView() != null) {
+            this.e.getCurrentView().e();
+        }
+    }
+
+    public final void c() {
+        if (this.e != null) {
+            int childCount = this.e.getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                View childAt = this.e.getChildAt(i);
+                if (childAt != null && (childAt instanceof cw)) {
+                    ((cw) childAt).a();
+                }
+            }
+        }
+    }
+
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
         this.g = onPageChangeListener;
     }
@@ -194,12 +186,12 @@ public class MultiImageView extends RelativeLayout {
 
     public void setZoomButton(w wVar) {
         if (wVar != null) {
-            if (wVar.p()) {
+            if (wVar.o()) {
                 this.a.setEnabled(true);
             } else {
                 this.a.setEnabled(false);
             }
-            if (wVar.q()) {
+            if (wVar.p()) {
                 this.b.setEnabled(true);
                 return;
             } else {
@@ -211,13 +203,13 @@ public class MultiImageView extends RelativeLayout {
         this.a.setEnabled(false);
     }
 
-    public void d() {
+    public final void d() {
         if (!this.m) {
             this.c.setVisibility(0);
         }
     }
 
-    public void e() {
+    public final void e() {
         if (!this.m) {
             this.c.setVisibility(8);
         }
@@ -237,9 +229,9 @@ public class MultiImageView extends RelativeLayout {
         this.e.setPageMargin(i);
     }
 
-    public void a(int i, int i2) {
-        this.e.setOffscreenPageLimit(i);
-        this.k = UtilHelper.a(getContext()) - ((((i * 2) + 1) * i2) * 2);
+    public final void a(int i, int i2) {
+        this.e.setOffscreenPageLimit(2);
+        this.k = UtilHelper.a(getContext()) - ((i2 * 5) * 2);
         this.k = (int) (this.k * 0.8d);
         if (this.k < 6291456) {
             this.l = true;
@@ -258,7 +250,7 @@ public class MultiImageView extends RelativeLayout {
         this.e.setAdapter(bhVar);
     }
 
-    public void a(int i, boolean z) {
+    public final void a(int i, boolean z) {
         this.e.setCurrentItem(i, z);
     }
 

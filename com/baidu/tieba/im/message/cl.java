@@ -13,49 +13,33 @@ public class cl extends da implements com.baidu.tieba.im.coder.f {
         e(103011);
     }
 
-    public String a() {
+    public final String a() {
         return this.c;
     }
 
-    public void a(String str) {
-        this.c = str;
-    }
-
-    public String b() {
+    public final String b() {
         return this.d;
     }
 
-    public void b(String str) {
-        this.d = str;
-    }
-
-    public int c() {
+    public final int c() {
         return this.a;
     }
 
-    public void a(int i) {
-        this.a = i;
-    }
-
-    public int d() {
+    public final int d() {
         return this.b;
     }
 
-    public void b(int i) {
-        this.b = i;
-    }
-
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<s> linkedList, byte[] bArr, int i) {
+    public final void a(LinkedList<s> linkedList, byte[] bArr, int i) {
         QueryGroupCountRes.QueryGroupCountResIdl parseFrom = QueryGroupCountRes.QueryGroupCountResIdl.parseFrom(bArr);
         g(parseFrom.getError().getErrorno());
         c(parseFrom.getError().getUsermsg());
         linkedList.add(this);
         if (!l()) {
-            b(parseFrom.getData().getLocalGroupCount());
-            a(parseFrom.getData().getUserGroupCount());
-            b(parseFrom.getData().getBanner().getPicUrl());
-            a(parseFrom.getData().getBanner().getLink());
+            this.b = parseFrom.getData().getLocalGroupCount();
+            this.a = parseFrom.getData().getUserGroupCount();
+            this.d = parseFrom.getData().getBanner().getPicUrl();
+            this.c = parseFrom.getData().getBanner().getLink();
         }
     }
 }

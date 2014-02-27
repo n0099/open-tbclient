@@ -7,7 +7,7 @@ import com.baidu.tieba.view.EditHeadImageView;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r implements View.OnClickListener {
+public final class r implements View.OnClickListener {
     final /* synthetic */ EditHeadActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,7 +16,7 @@ public class r implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         int i;
         EditHeadImageView editHeadImageView;
         int i2;
@@ -37,12 +37,12 @@ public class r implements View.OnClickListener {
         if (a) {
             i3 = this.a.i;
             if (i3 == 0) {
-                this.a.d();
+                EditHeadActivity.o(this.a);
                 return;
             }
             com.baidu.tieba.img.a<?> aVar = new com.baidu.tieba.img.a<>(com.baidu.tieba.util.af.c("tieba_group_image"), "head");
             LocalViewSize.a().a(aVar);
-            aVar.a((com.baidu.tieba.img.d) new s(this));
+            aVar.a(new s(this));
             aVar.a();
             this.a.showLoadingDialog(this.a.getString(R.string.uploading));
         }

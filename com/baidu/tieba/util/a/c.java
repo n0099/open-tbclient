@@ -1,6 +1,6 @@
 package com.baidu.tieba.util.a;
 /* loaded from: classes.dex */
-public class c {
+public final class c {
     public boolean a;
     public int b;
     public int c;

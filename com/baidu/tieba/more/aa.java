@@ -3,7 +3,7 @@ package com.baidu.tieba.more;
 import android.content.DialogInterface;
 import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
-class aa implements DialogInterface.OnClickListener {
+final class aa implements DialogInterface.OnClickListener {
     final /* synthetic */ v a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ class aa implements DialogInterface.OnClickListener {
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
+    public final void onClick(DialogInterface dialogInterface, int i) {
         switch (i) {
             case 0:
                 TiebaApplication.g().c(1);
@@ -24,6 +24,6 @@ class aa implements DialogInterface.OnClickListener {
                 TiebaApplication.g().c(3);
                 break;
         }
-        this.a.t();
+        this.a.o();
     }
 }

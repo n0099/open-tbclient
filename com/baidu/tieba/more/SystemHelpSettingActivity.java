@@ -22,18 +22,18 @@ public class SystemHelpSettingActivity extends com.baidu.tieba.f implements com.
         super.onCreate(bundle);
         this.a = new ay(this);
         this.b = new au(this);
-        if (TiebaApplication.g().ai()) {
-            this.a.e().a();
+        if (TiebaApplication.g().ab()) {
+            this.a.d().a();
         } else {
-            this.a.e().b();
+            this.a.d().b();
         }
-        if (TiebaApplication.g().bd()) {
+        if (TiebaApplication.g().aV()) {
             this.a.a().a();
         } else {
             this.a.a().b();
         }
-        this.a.f().setTip(getString(R.string.calc_cache_size));
-        this.a.f().b();
+        this.a.e().setTip(getString(R.string.calc_cache_size));
+        this.a.e().b();
         this.b.a(new ap(this, this));
     }
 
@@ -59,15 +59,15 @@ public class SystemHelpSettingActivity extends com.baidu.tieba.f implements com.
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.a.f()) {
+        if (view == this.a.e()) {
             if (this.b != null) {
-                if (TextUtils.isEmpty(this.a.f().getTip())) {
+                if (TextUtils.isEmpty(this.a.e().getTip())) {
                     showToast(R.string.no_cache_delete);
                 } else {
                     new AlertDialog.Builder(this).setTitle(R.string.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(R.string.alert_clear_all_cache).setPositiveButton(R.string.alert_yes_button, new aq(this)).setNegativeButton(R.string.alert_no_button, new ar(this)).create().show();
                 }
             }
-        } else if (view == this.a.g()) {
+        } else if (view == this.a.f()) {
             new AlertDialog.Builder(this).setTitle(R.string.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(R.string.alert_clear_cache).setPositiveButton(R.string.alert_yes_button, new as(this)).setNegativeButton(R.string.alert_no_button, new at(this)).create().show();
         }
     }
@@ -78,19 +78,21 @@ public class SystemHelpSettingActivity extends com.baidu.tieba.f implements com.
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.c
-    public void a(View view, BdSwitchView.SwitchState switchState) {
+    public final void a(View view, BdSwitchView.SwitchState switchState) {
         if (view != null) {
-            if (view.equals(this.a.e())) {
+            if (view.equals(this.a.d())) {
                 if (BdSwitchView.SwitchState.ON == switchState) {
-                    this.b.a(true);
-                } else {
-                    this.b.a(false);
+                    au auVar = this.b;
+                    TiebaApplication.g().r(true);
+                    return;
                 }
+                au auVar2 = this.b;
+                TiebaApplication.g().r(false);
             } else if (view.equals(this.a.a())) {
                 if (BdSwitchView.SwitchState.ON == switchState) {
-                    TiebaApplication.g().z(true);
+                    TiebaApplication.g().y(true);
                 } else {
-                    TiebaApplication.g().z(false);
+                    TiebaApplication.g().y(false);
                 }
             }
         }

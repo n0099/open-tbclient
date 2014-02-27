@@ -13,36 +13,32 @@ public abstract class b {
 
     public b(int i) {
         this.a = i;
-        a();
-    }
-
-    private void a() {
         if (!b()) {
             throw new InvalidParameterException("cmd invalid");
         }
     }
 
-    public int i() {
+    public final int i() {
         return this.a;
     }
 
-    public e j() {
+    public final e j() {
         return this.b;
     }
 
-    public void b(e eVar) {
+    public final void b(e eVar) {
         this.b = eVar;
     }
 
-    public int k() {
+    public final int k() {
         return this.c;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.c = i;
     }
 
-    public int l() {
+    public final int l() {
         return this.d;
     }
 }

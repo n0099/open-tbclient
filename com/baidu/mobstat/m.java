@@ -65,7 +65,7 @@ public class m {
         }
         this.i = true;
         if (d()) {
-            a(false);
+            this.h = false;
             b.post(new n(this));
         }
         b.post(new p(this, this.c, j, context));

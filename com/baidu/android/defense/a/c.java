@@ -5,7 +5,7 @@ public final class c {
     public String b;
     public int c;
 
-    public String toString() {
+    public final String toString() {
         return "DownloadItem: mDownloadUrl =" + this.a + " mSavePath = " + this.b + " mFileSize =" + this.c;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.im.model;
 import com.baidu.tieba.data.UserData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r extends com.baidu.tieba.im.c<Boolean> {
+public final class r extends com.baidu.tieba.im.b<Boolean> {
     final /* synthetic */ MsglistModel a;
     private final /* synthetic */ com.baidu.tieba.im.message.b c;
 
@@ -13,10 +13,9 @@ public class r extends com.baidu.tieba.im.c<Boolean> {
         this.c = bVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.c
-    /* renamed from: a */
-    public Boolean b() {
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.b
+    public final /* synthetic */ Boolean a() {
         UserData userData;
         com.baidu.tieba.im.db.q a = com.baidu.tieba.im.db.q.a();
         userData = this.a.g;

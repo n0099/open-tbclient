@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Hashtable;
 /* loaded from: classes.dex */
-public class n {
+public final class n {
     public static final Object a = new Object();
     private static volatile Hashtable<Integer, Bitmap> b = new Hashtable<>();
 
@@ -49,7 +49,7 @@ public class n {
             options.inPreferredConfig = com.baidu.tieba.data.i.m;
             return BitmapFactory.decodeResource(context.getResources(), i, options);
         } catch (Throwable th) {
-            com.baidu.adp.lib.util.f.b("BitmapHelper", "getResBitmap", "error = " + th.getMessage());
+            com.baidu.adp.lib.util.e.b("BitmapHelper", "getResBitmap", "error = " + th.getMessage());
             return null;
         }
     }
@@ -58,7 +58,7 @@ public class n {
         try {
             return BitmapFactory.decodeResource(context.getResources(), i, new BitmapFactory.Options());
         } catch (Throwable th) {
-            com.baidu.adp.lib.util.f.b("BitmapHelper", "getResBitmap", "error = " + th.getMessage());
+            com.baidu.adp.lib.util.e.b("BitmapHelper", "getResBitmap", "error = " + th.getMessage());
             return null;
         }
     }
@@ -188,7 +188,7 @@ public class n {
             r1 = move-exception
             r2 = r0
         L5d:
-            monitor-exit(r5)     // Catch: java.lang.Throwable -> L73
+            monitor-exit(r5)     // Catch: java.lang.Throwable -> L5f
             throw r1     // Catch: java.lang.Throwable -> L5f
         L5f:
             r1 = move-exception
@@ -261,7 +261,7 @@ public class n {
             r1 = move-exception
             r2 = r0
         L36:
-            monitor-exit(r3)     // Catch: java.lang.Throwable -> L49
+            monitor-exit(r3)     // Catch: java.lang.Throwable -> L38
             throw r1     // Catch: java.lang.Throwable -> L38
         L38:
             r1 = move-exception
@@ -382,7 +382,6 @@ public class n {
     /* JADX WARN: Code restructure failed: missing block: B:9:0x0054, code lost:
         if (r13 == false) goto L20;
      */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:12:0x005a -> B:13:0x005b). Please submit an issue!!! */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -406,16 +405,17 @@ public class n {
                     } catch (Throwable th) {
                         bitmap2 = createBitmap;
                         th = th;
+                        try {
+                            throw th;
+                        } catch (Throwable th2) {
+                            return bitmap2;
+                        }
                     }
-                } catch (Throwable th2) {
-                    th = th2;
+                } catch (Throwable th3) {
+                    th = th3;
                 }
             }
-            try {
-                throw th;
-            } catch (Throwable th3) {
-                return bitmap2;
-            }
+            throw th;
         } catch (Throwable th4) {
             return null;
         }
@@ -466,26 +466,18 @@ public class n {
                     } catch (Throwable th2) {
                         bitmap = decodeByteArray;
                         th = th2;
-                        while (true) {
-                            try {
-                                break;
-                            } catch (Throwable th3) {
-                                th = th3;
-                            }
+                        try {
+                            throw th;
+                        } catch (OutOfMemoryError e) {
+                            return bitmap;
                         }
-                        throw th;
                     }
-                } catch (Throwable th4) {
+                } catch (Throwable th3) {
                     bitmap = null;
-                    th = th4;
+                    th = th3;
                 }
             }
-            try {
-                break;
-                throw th;
-            } catch (OutOfMemoryError e) {
-                return bitmap;
-            }
+            throw th;
         } catch (OutOfMemoryError e2) {
             return null;
         }
@@ -585,24 +577,24 @@ public class n {
     }
 
     public static int b(int i) {
-        int al = TiebaApplication.g().al();
+        int ae = TiebaApplication.g().ae();
         if (i > 15) {
-            if (al == 1) {
+            if (ae == 1) {
                 return R.drawable.icon_grade_yellow_1;
             }
             return R.drawable.icon_grade_yellow;
         } else if (i > 9) {
-            if (al == 1) {
+            if (ae == 1) {
                 return R.drawable.icon_grade_red_1;
             }
             return R.drawable.icon_grade_red;
         } else if (i > 3) {
-            if (al == 1) {
+            if (ae == 1) {
                 return R.drawable.icon_grade_blue_1;
             }
             return R.drawable.icon_grade_blue;
         } else if (i > 0) {
-            if (al == 1) {
+            if (ae == 1) {
                 return R.drawable.icon_grade_green_1;
             }
             return R.drawable.icon_grade_green;

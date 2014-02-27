@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k extends com.baidu.tieba.im.c<l> {
+public class k extends com.baidu.tieba.im.b<l> {
     private LinkedList<s> a = null;
     private com.baidu.tieba.im.coder.d c;
     private p d;
@@ -20,7 +20,7 @@ public class k extends com.baidu.tieba.im.c<l> {
         this.d = pVar;
     }
 
-    private List<s> c() {
+    private List<s> b() {
         synchronized (k.class) {
             if (this.a == null) {
                 this.a = new LinkedList<>();
@@ -30,39 +30,25 @@ public class k extends com.baidu.tieba.im.c<l> {
         return this.a;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:30:0x001f */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:31:0x0019 */
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:12:0x0031  */
-    /* JADX WARN: Type inference failed for: r0v0 */
-    /* JADX WARN: Type inference failed for: r0v1, types: [int] */
-    /* JADX WARN: Type inference failed for: r0v13 */
-    /* JADX WARN: Type inference failed for: r0v15 */
-    /* JADX WARN: Type inference failed for: r0v17 */
-    /* JADX WARN: Type inference failed for: r4v17 */
-    @Override // com.baidu.tieba.im.c
-    /* renamed from: a */
+    /* JADX INFO: Access modifiers changed from: private */
+    /* JADX WARN: Removed duplicated region for block: B:13:0x0025  */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x005e  */
+    @Override // com.baidu.tieba.im.b
+    /* renamed from: c */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public l b() {
+    public l a() {
         CoderException coderException;
         int i;
         com.baidu.tieba.im.coder.d dVar;
         int i2;
-        boolean a;
-        ?? r0 = 0;
-        r0 = 0;
-        List<s> list = null;
-        r0 = 0;
+        List<s> list;
+        da daVar;
+        s sVar;
         l lVar = null;
-        r4 = null;
-        r4 = null;
-        r4 = null;
-        com.baidu.tieba.im.coder.d dVar2 = null;
-        r4 = null;
-        String str = null;
+        boolean z = false;
         if (this.c != null) {
             try {
                 i2 = this.c.a.e();
@@ -70,38 +56,40 @@ public class k extends com.baidu.tieba.im.c<l> {
                     int c = this.c.a.c();
                     try {
                         if (c == 1003) {
-                            list = c();
+                            dVar = null;
+                            list = b();
                         } else if (this.c.d > 0) {
-                            com.baidu.tieba.im.coder.d a2 = com.baidu.tieba.im.coder.c.a().a(this.c);
+                            com.baidu.tieba.im.coder.d a = com.baidu.tieba.im.coder.c.a().a(this.c);
                             try {
-                                list = com.baidu.tieba.im.coder.c.a().a(c, a2.b, a2.c, a2.d);
-                                dVar2 = a2;
+                                dVar = a;
+                                list = com.baidu.tieba.im.coder.c.a().a(c, a.b, a.c, a.d);
                             } catch (CoderException e) {
                                 coderException = e;
-                                dVar = a2;
+                                dVar = a;
                                 i = c;
                                 cb.a("MessageUnPackProcess", i, i2, "cont unpack", coderException.getErrorCode());
-                                cb.a(r0, i2, "cont unpack", "unpack error", str, coderException.getErrorCode(), str);
-                                com.baidu.adp.lib.util.f.b("IMException code = " + coderException.getErrorCode());
-                                list = str;
-                                dVar2 = dVar;
-                                a = a(list, i2, this.d);
-                                a(list, dVar2);
+                                cb.a(0, i2, "cont unpack", "unpack error", null, coderException.getErrorCode(), null);
+                                com.baidu.adp.lib.util.e.b("IMException code = " + coderException.getErrorCode());
+                                list = null;
+                                p pVar = this.d;
+                                if (i2 != 0) {
+                                }
+                                z = true;
+                                a(list, dVar);
                                 lVar = new l(this);
                                 lVar.a = list;
-                                if (!a) {
+                                if (!z) {
                                 }
                                 return lVar;
                             }
                         } else {
+                            dVar = null;
                             list = null;
                         }
                     } catch (CoderException e2) {
                         coderException = e2;
-                        dVar = dVar2;
+                        dVar = null;
                         i = c;
-                        r0 = list;
-                        str = dVar2;
                     }
                 } catch (CoderException e3) {
                     coderException = e3;
@@ -114,43 +102,42 @@ public class k extends com.baidu.tieba.im.c<l> {
                 dVar = null;
                 i2 = 0;
             }
-            a = a(list, i2, this.d);
-            a(list, dVar2);
+            p pVar2 = this.d;
+            if (i2 != 0) {
+                if (list == null || list.size() <= 0 || (sVar = list.get(0)) == null || !(sVar instanceof da)) {
+                    daVar = null;
+                } else {
+                    daVar = (da) sVar;
+                    if (pVar2 != null) {
+                        daVar.a(pVar2.i());
+                    }
+                }
+                if (daVar == null && pVar2 != null) {
+                    cb.a(0, 0, "server error", "ack cont responsed", null, 0, null);
+                    a(list, dVar);
+                    lVar = new l(this);
+                    lVar.a = list;
+                    if (!z) {
+                        lVar.b = this.d;
+                    }
+                }
+            }
+            z = true;
+            a(list, dVar);
             lVar = new l(this);
             lVar.a = list;
-            if (!a) {
-                lVar.b = this.d;
+            if (!z) {
             }
         }
         return lVar;
     }
 
-    private boolean a(List<s> list, int i, p pVar) {
-        da daVar;
-        s sVar;
-        if (i != 0) {
-            if (list == null || list.size() <= 0 || (sVar = list.get(0)) == null || !(sVar instanceof da)) {
-                daVar = null;
-            } else {
-                daVar = (da) sVar;
-                if (pVar != null) {
-                    daVar.a(pVar.i());
-                }
-            }
-            if (daVar == null && pVar != null) {
-                cb.a(0, 0, "server error", "ack cont responsed", null, 0, null);
-                return false;
-            }
-        }
-        return true;
-    }
-
-    private void a(List<s> list, com.baidu.tieba.im.coder.d dVar) {
+    private static void a(List<s> list, com.baidu.tieba.im.coder.d dVar) {
         if (list != null) {
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 s sVar = list.get(i);
-                a a = e.a().a(sVar.w());
+                a a = d.a().a(sVar.w());
                 if (a != null) {
                     a.a(sVar, dVar);
                 }

@@ -16,26 +16,18 @@ public class cc extends da implements com.baidu.tieba.im.coder.f {
         super(103003);
     }
 
-    public List<GroupInfoData> a() {
+    public final List<GroupInfoData> a() {
         return this.a;
     }
 
-    public void a(List<GroupInfoData> list) {
-        this.a = list;
-    }
-
-    public void a(GroupPermData groupPermData) {
-        this.b = groupPermData;
-    }
-
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<s> linkedList, byte[] bArr, int i) {
+    public final void a(LinkedList<s> linkedList, byte[] bArr, int i) {
         QueryGroupsByUidRes.QueryGroupsByUidResIdl parseFrom = QueryGroupsByUidRes.QueryGroupsByUidResIdl.parseFrom(bArr);
         g(parseFrom.getError().getErrorno());
         c(parseFrom.getError().getUsermsg());
         linkedList.add(this);
         if (!l()) {
-            a(new ArrayList());
+            this.a = new ArrayList();
             int groupsCount = parseFrom.getData().getGroupsCount();
             for (int i2 = 0; i2 < groupsCount; i2++) {
                 Im.GroupInfo groups = parseFrom.getData().getGroups(i2);
@@ -52,7 +44,7 @@ public class cc extends da implements com.baidu.tieba.im.coder.f {
                 groupInfoData.setMemberNum(groups.getMemberNum());
                 groupInfoData.setPortrait(groups.getPortrait());
                 groupInfoData.setMemGroup(groups.getIsMemberGroup() == 1);
-                a().add(groupInfoData);
+                this.a.add(groupInfoData);
             }
             Im.GroupPermission groupPerm = parseFrom.getData().getGroupPerm();
             GroupPermData groupPermData = new GroupPermData();
@@ -63,7 +55,7 @@ public class cc extends da implements com.baidu.tieba.im.coder.f {
             groupPermData.setCreateOfficialTip(groupPerm.getCreateOfficialTip());
             groupPermData.setCreatePersonalTip(groupPerm.getCreatePersonalTip());
             groupPermData.setIsManager(groupPerm.getIsForumManager());
-            a(groupPermData);
+            this.b = groupPermData;
         }
     }
 }

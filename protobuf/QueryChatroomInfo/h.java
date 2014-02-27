@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -21,19 +22,34 @@ public final class h extends GeneratedMessageLite.Builder<QueryChatroomInfoRes.D
     private Object g = "";
     private Object h = "";
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        QueryChatroomInfoRes.DataRes buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return QueryChatroomInfoRes.DataRes.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return QueryChatroomInfoRes.DataRes.getDefaultInstance();
+    }
+
     private h() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static h h() {
+    public static /* synthetic */ h b() {
         return new h();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public h clear() {
         super.clear();
         this.b = 0;
@@ -56,30 +72,14 @@ public final class h extends GeneratedMessageLite.Builder<QueryChatroomInfoRes.D
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public h clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public QueryChatroomInfoRes.DataRes getDefaultInstanceForType() {
-        return QueryChatroomInfoRes.DataRes.getDefaultInstance();
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public QueryChatroomInfoRes.DataRes build() {
-        QueryChatroomInfoRes.DataRes buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
+    public h clone() {
+        return new h().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public QueryChatroomInfoRes.DataRes buildPartial() {
+    /* renamed from: a */
+    public final QueryChatroomInfoRes.DataRes buildPartial() {
         QueryChatroomInfoRes.DataRes dataRes = new QueryChatroomInfoRes.DataRes(this, (QueryChatroomInfoRes.DataRes) null);
         int i = this.a;
         int i2 = (i & 1) != 1 ? 0 : 1;
@@ -119,7 +119,7 @@ public final class h extends GeneratedMessageLite.Builder<QueryChatroomInfoRes.D
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public h mergeFrom(QueryChatroomInfoRes.DataRes dataRes) {
+    public final h mergeFrom(QueryChatroomInfoRes.DataRes dataRes) {
         List list;
         Object obj;
         Object obj2;
@@ -127,7 +127,9 @@ public final class h extends GeneratedMessageLite.Builder<QueryChatroomInfoRes.D
         List<Im.UserInfo> list3;
         if (dataRes != QueryChatroomInfoRes.DataRes.getDefaultInstance()) {
             if (dataRes.hasUserNum()) {
-                a(dataRes.getUserNum());
+                int userNum = dataRes.getUserNum();
+                this.a |= 1;
+                this.b = userNum;
             }
             list = dataRes.userList_;
             if (!list.isEmpty()) {
@@ -136,20 +138,29 @@ public final class h extends GeneratedMessageLite.Builder<QueryChatroomInfoRes.D
                     this.c = list3;
                     this.a &= -3;
                 } else {
-                    i();
+                    if ((this.a & 2) != 2) {
+                        this.c = new ArrayList(this.c);
+                        this.a |= 2;
+                    }
                     List<Im.UserInfo> list4 = this.c;
                     list2 = dataRes.userList_;
                     list4.addAll(list2);
                 }
             }
             if (dataRes.hasMaxUserNum()) {
-                b(dataRes.getMaxUserNum());
+                int maxUserNum = dataRes.getMaxUserNum();
+                this.a |= 4;
+                this.d = maxUserNum;
             }
             if (dataRes.hasStatus()) {
-                c(dataRes.getStatus());
+                int status = dataRes.getStatus();
+                this.a |= 8;
+                this.e = status;
             }
             if (dataRes.hasLeftTime()) {
-                d(dataRes.getLeftTime());
+                int leftTime = dataRes.getLeftTime();
+                this.a |= 16;
+                this.f = leftTime;
             }
             if (dataRes.hasTitle()) {
                 this.a |= 32;
@@ -162,7 +173,9 @@ public final class h extends GeneratedMessageLite.Builder<QueryChatroomInfoRes.D
                 this.h = obj;
             }
             if (dataRes.hasLastMsgId()) {
-                a(dataRes.getLastMsgId());
+                long lastMsgId = dataRes.getLastMsgId();
+                this.a |= 128;
+                this.i = lastMsgId;
             }
         }
         return this;
@@ -209,42 +222,5 @@ public final class h extends GeneratedMessageLite.Builder<QueryChatroomInfoRes.D
                 throw th;
             }
         }
-    }
-
-    public h a(int i) {
-        this.a |= 1;
-        this.b = i;
-        return this;
-    }
-
-    private void i() {
-        if ((this.a & 2) != 2) {
-            this.c = new ArrayList(this.c);
-            this.a |= 2;
-        }
-    }
-
-    public h b(int i) {
-        this.a |= 4;
-        this.d = i;
-        return this;
-    }
-
-    public h c(int i) {
-        this.a |= 8;
-        this.e = i;
-        return this;
-    }
-
-    public h d(int i) {
-        this.a |= 16;
-        this.f = i;
-        return this;
-    }
-
-    public h a(long j) {
-        this.a |= 128;
-        this.i = j;
-        return this;
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.im.mygroup;
 
 import com.baidu.tieba.im.message.s;
 /* loaded from: classes.dex */
-class c implements com.baidu.tieba.im.messageCenter.g {
+final class c implements com.baidu.tieba.im.messageCenter.g {
     final /* synthetic */ MyGroupFragment a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +11,7 @@ class c implements com.baidu.tieba.im.messageCenter.g {
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(s sVar) {
+    public final void a(s sVar) {
         this.a.c = true;
     }
 }

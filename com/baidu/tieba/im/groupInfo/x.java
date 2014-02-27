@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.groupInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x extends com.baidu.tieba.im.c<Boolean> {
+public final class x extends com.baidu.tieba.im.b<Boolean> {
     private final /* synthetic */ String a;
     private final /* synthetic */ String c;
     private final /* synthetic */ long d;
@@ -13,10 +13,9 @@ public class x extends com.baidu.tieba.im.c<Boolean> {
         this.d = j;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.c
-    /* renamed from: a */
-    public Boolean b() {
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.b
+    public final /* synthetic */ Boolean a() {
         GroupSettingItemData a = v.a(this.a, this.c);
         if (a != null && a.isAlreadyApply()) {
             if (System.currentTimeMillis() - a.getLastApplyTimeStamp() <= this.d) {

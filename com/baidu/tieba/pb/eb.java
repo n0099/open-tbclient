@@ -3,7 +3,7 @@ package com.baidu.tieba.pb;
 import android.view.View;
 import com.baidu.tieba.view.NavigationBar;
 /* loaded from: classes.dex */
-class eb implements Runnable {
+final class eb implements Runnable {
     final /* synthetic */ ea a;
     private final /* synthetic */ int b;
     private final /* synthetic */ View c;
@@ -16,7 +16,7 @@ class eb implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         NavigationBar navigationBar;
         int[] iArr = new int[2];
         this.a.L.getLocationInWindow(iArr);

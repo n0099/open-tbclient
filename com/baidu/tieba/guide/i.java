@@ -4,7 +4,7 @@ import android.view.View;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.util.cj;
 /* loaded from: classes.dex */
-class i implements cj {
+final class i implements cj {
     final /* synthetic */ h a;
     private final /* synthetic */ String b;
 
@@ -15,7 +15,7 @@ class i implements cj {
     }
 
     @Override // com.baidu.tieba.util.cj
-    public boolean a(View view) {
+    public final boolean a(View view) {
         if (this.b.equals(view.getTag()) && (view instanceof TbImageView)) {
             ((TbImageView) view).invalidate();
             return false;

@@ -1,22 +1,17 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
-public class s extends com.baidu.adp.a.d {
+public final class s extends com.baidu.adp.a.d {
     private t a = null;
     private v b = null;
     private x c = null;
 
     @Override // com.baidu.adp.a.d
-    protected boolean LoadData() {
+    protected final boolean LoadData() {
         return false;
     }
 
     @Override // com.baidu.adp.a.d
-    public boolean cancelLoadData() {
-        a();
-        return false;
-    }
-
-    public void a() {
+    public final boolean cancelLoadData() {
         if (this.a != null) {
             this.a.cancel();
             this.a = null;
@@ -28,10 +23,12 @@ public class s extends com.baidu.adp.a.d {
         if (this.c != null) {
             this.c.cancel();
             this.c = null;
+            return false;
         }
+        return false;
     }
 
-    public void a(String str, String str2, String str3, String str4, int i, int i2, boolean z) {
+    public final void a(String str, String str2, String str3, String str4, int i, int i2, boolean z) {
         if (this.a != null) {
             this.a.cancel();
             this.a = null;
@@ -42,11 +39,11 @@ public class s extends com.baidu.adp.a.d {
         this.a.execute(new String[0]);
     }
 
-    public boolean b() {
+    public final boolean a() {
         return (this.a == null && this.b == null && this.c == null) ? false : true;
     }
 
-    public void a(String str, String str2, String str3, int i, String str4) {
+    public final void a(String str, String str2, String str3, int i, String str4) {
         String str5;
         if (this.c != null) {
             this.c.cancel();

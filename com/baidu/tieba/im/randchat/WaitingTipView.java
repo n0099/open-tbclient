@@ -73,7 +73,7 @@ public class WaitingTipView extends RelativeLayout {
         addView(inflate);
     }
 
-    public void a(HeadImageView headImageView, boolean z) {
+    public final void a(HeadImageView headImageView, boolean z) {
         int c = BdUtilHelper.c(this.a, R.dimen.head_view_circle_bg);
         int c2 = BdUtilHelper.c(this.a, R.dimen.tip_view_image_width);
         int c3 = BdUtilHelper.c(this.a, R.dimen.tip_view_image_height);

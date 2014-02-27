@@ -131,9 +131,9 @@ public class HeadImageView extends TbImageView {
             return;
         }
         if (Build.VERSION.SDK_INT < 11 && getMeasuredWidth() > BdUtilHelper.a(getContext(), 100.0f)) {
-            setImageDrawable(new com.baidu.adp.widget.u(getResources(), null, this, bitmap, this.j, null));
+            setImageDrawable(new com.baidu.adp.widget.t(getResources(), this, bitmap, this.j, null));
         } else {
-            setImageDrawable(new com.baidu.adp.widget.v(getResources(), null, this, bitmap, this.j, null));
+            setImageDrawable(new com.baidu.adp.widget.u(getResources(), null, this, bitmap, this.j, null));
         }
         this.l = true;
     }
@@ -146,9 +146,9 @@ public class HeadImageView extends TbImageView {
         }
     }
 
-    public void f() {
+    public final void d() {
         if (this.l) {
-            if (this.b != TiebaApplication.g().al()) {
+            if (this.b != TiebaApplication.g().ae()) {
                 invalidate();
             }
         }
@@ -159,19 +159,15 @@ public class HeadImageView extends TbImageView {
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if (this.l) {
-            int al = TiebaApplication.g().al();
-            if (g()) {
+            int ae = TiebaApplication.g().ae();
+            if (this.m) {
                 canvas.drawRoundRect(this.g, this.j, this.j, this.e);
-                if (this.r && al == 1) {
+                if (this.r && ae == 1) {
                     canvas.drawRoundRect(this.h, this.j, this.j, this.f);
                 }
             }
-            this.b = al;
+            this.b = ae;
         }
-    }
-
-    public boolean g() {
-        return this.m;
     }
 
     public void setDrawBorder(boolean z) {
@@ -188,8 +184,8 @@ public class HeadImageView extends TbImageView {
             this.j = this.p;
             setRadius(this.j);
         }
-        if (this.l && (drawable = getDrawable()) != null && (drawable instanceof com.baidu.adp.widget.v)) {
-            ((com.baidu.adp.widget.v) drawable).a(this.j);
+        if (this.l && (drawable = getDrawable()) != null && (drawable instanceof com.baidu.adp.widget.u)) {
+            ((com.baidu.adp.widget.u) drawable).a(this.j);
         }
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.account;
 /* loaded from: classes.dex */
-class ap {
+final class ap {
     String a;
     String b;
     String c;
@@ -15,7 +15,7 @@ class ap {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ap(LoginActivity loginActivity, ap apVar) {
+    public /* synthetic */ ap(LoginActivity loginActivity, byte b) {
         this(loginActivity);
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.pb;
 
 import android.view.View;
 /* loaded from: classes.dex */
-class bx implements Runnable {
+final class bx implements Runnable {
     final /* synthetic */ bw a;
     private final /* synthetic */ com.baidu.tieba.data.av b;
     private final /* synthetic */ View c;
@@ -15,7 +15,7 @@ class bx implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         NewPbActivity newPbActivity;
         cu cuVar;
         NewPbActivity newPbActivity2;
@@ -26,6 +26,6 @@ class bx implements Runnable {
         View view = this.c;
         newPbActivity2 = this.a.a;
         bbVar = newPbActivity2.w;
-        cuVar.a(false, avVar, true, null, null, view, bbVar.m().l());
+        cuVar.a(false, avVar, null, null, view, bbVar.q().l());
     }
 }

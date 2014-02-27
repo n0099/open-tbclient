@@ -25,27 +25,39 @@ public class BdSoundGate {
     private BdSoundGate() {
     }
 
-    public void a(int i, int i2) {
-        a().a(i, 0.0f, c.a(i2), 0.0f);
+    public static void a(int i, int i2) {
+        float f;
+        switch (i2) {
+            case 1:
+                f = 6.6f;
+                break;
+            case 2:
+                f = -7.7f;
+                break;
+            case 3:
+                f = 5.5f;
+                break;
+            default:
+                f = 0.0f;
+                break;
+        }
+        BdSoundGate a = a();
+        a.b = 1600;
+        a.a = a.getChanger(1600, 0.0f, f, 0.0f);
     }
 
-    public void a(int i, float f, float f2, float f3) {
-        this.b = i;
-        this.a = getChanger(i, f, f2, f3);
-    }
-
-    public int b() {
+    public final int b() {
         return this.b;
     }
 
-    public void c() {
+    public final void c() {
         if (this.a > 0) {
             close(this.a);
             this.a = -1;
         }
     }
 
-    public void a(short[] sArr, short[] sArr2) {
+    public final void a(short[] sArr, short[] sArr2) {
         throughMono(this.a, sArr, sArr2);
     }
 }

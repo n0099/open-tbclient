@@ -78,40 +78,6 @@ public class Register2Activity extends com.baidu.tieba.f {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.account_register2_activity);
-        h();
-        new ax("reg").start();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void g() {
-        int selectionStart = this.u.getSelectionStart();
-        if (!this.J) {
-            this.j.setText(getString(R.string.hide));
-            this.u.setTransformationMethod(new SingleLineTransformationMethod());
-            this.u.setSelection(selectionStart);
-            this.J = true;
-            return;
-        }
-        this.j.setText(getString(R.string.show));
-        this.u.setTransformationMethod(new PasswordTransformationMethod());
-        this.u.setSelection(selectionStart);
-        this.J = false;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
-    public void onDestroy() {
-        super.onDestroy();
-        if (this.O != null) {
-            this.O.cancel();
-        }
-        if (this.N != null) {
-            this.N.cancel();
-        }
-        com.baidu.adp.lib.util.f.a("Register2Activity", "onDestroy", "onDestroy");
-    }
-
-    private void h() {
         this.a = (RelativeLayout) findViewById(R.id.container);
         this.M = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.h = this.M.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.Q);
@@ -157,36 +123,63 @@ public class Register2Activity extends com.baidu.tieba.f {
         this.m.setOnClickListener(this.Q);
         this.w = (EditText) findViewById(R.id.edit_vcode);
         this.w.addTextChangedListener(this.R);
-        g();
+        f();
         ShowSoftKeyPadDelay(this.t, SocialAPIErrorCodes.ERROR_AUTHORIZATION_CANCELED);
+        new ax("reg").start();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void f() {
+        int selectionStart = this.u.getSelectionStart();
+        if (!this.J) {
+            this.j.setText(getString(R.string.hide));
+            this.u.setTransformationMethod(new SingleLineTransformationMethod());
+            this.u.setSelection(selectionStart);
+            this.J = true;
+            return;
+        }
+        this.j.setText(getString(R.string.show));
+        this.u.setTransformationMethod(new PasswordTransformationMethod());
+        this.u.setSelection(selectionStart);
+        this.J = false;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    public void onDestroy() {
+        super.onDestroy();
+        if (this.O != null) {
+            this.O.cancel();
+        }
+        if (this.N != null) {
+            this.N.cancel();
+        }
+        com.baidu.adp.lib.util.e.a("Register2Activity", "onDestroy", "onDestroy");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
+        String string;
         super.onChangeSkinType(i);
-        this.M.c(i);
+        this.M.b(i);
         com.baidu.tieba.util.bq.a(this.b, i);
         com.baidu.tieba.util.bq.c(this.a, i);
-        n();
-        k();
+        int length = getString(R.string.reg_info).length();
+        String str = String.valueOf(string) + getString(R.string.user_server_agreement);
+        int length2 = str.length();
+        SpannableString spannableString = new SpannableString(str);
+        spannableString.setSpan(new bk(this, this), length, length2, 33);
+        if (this.mSkinType == 1) {
+            spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.skin_1_common_color)), 0, length, 33);
+        }
+        this.r.setMovementMethod(LinkMovementMethod.getInstance());
+        this.r.setText(spannableString);
+        g();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void i() {
-        b(false);
-    }
-
-    private void j() {
-        this.y.setPadding(this.G, 0, this.H, 0);
-        this.z.setPadding(this.G, 0, this.H, 0);
-        this.A.setPadding(this.G, 0, this.H, 0);
-        this.B.setPadding(this.G, 0, this.H, 0);
-        this.C.setPadding(this.G, 0, this.H, 0);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void k() {
+    public void g() {
         this.s.setText(this.L);
         if (this.L != null) {
             this.s.setVisibility(0);
@@ -238,39 +231,44 @@ public class Register2Activity extends com.baidu.tieba.f {
             }
             this.C.setBackgroundResource(R.drawable.login_input_under);
         }
-        j();
+        this.y.setPadding(this.G, 0, this.H, 0);
+        this.z.setPadding(this.G, 0, this.H, 0);
+        this.A.setPadding(this.G, 0, this.H, 0);
+        this.B.setPadding(this.G, 0, this.H, 0);
+        this.C.setPadding(this.G, 0, this.H, 0);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(Register2Activity register2Activity, boolean z) {
+        register2Activity.I = z;
+        if (register2Activity.I) {
+            register2Activity.C.setVisibility(0);
+            if (register2Activity.w.length() <= 0) {
+                register2Activity.x.setEnabled(false);
+            }
+            if (register2Activity.K != f) {
+                register2Activity.B.setBackgroundResource(R.drawable.login_input_middle);
+            }
+            if (register2Activity.N != null) {
+                register2Activity.N.cancel();
+            }
+            if (register2Activity.P != null) {
+                register2Activity.N = new bl(register2Activity, register2Activity.P.b().getVcode_pic_url());
+                register2Activity.N.setPriority(3);
+                register2Activity.N.execute(new String[0]);
+            }
+        } else {
+            register2Activity.C.setVisibility(8);
+            register2Activity.w.setText((CharSequence) null);
+            if (register2Activity.K != f) {
+                register2Activity.B.setBackgroundResource(R.drawable.login_input_under);
+            }
+        }
+        register2Activity.g();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z) {
-        this.I = z;
-        if (this.I) {
-            this.C.setVisibility(0);
-            if (this.w.length() <= 0) {
-                this.x.setEnabled(false);
-            }
-            if (this.K != f) {
-                this.B.setBackgroundResource(R.drawable.login_input_middle);
-            }
-            if (this.N != null) {
-                this.N.cancel();
-            }
-            if (this.P != null) {
-                this.N = new bl(this, this.P.b().getVcode_pic_url());
-                this.N.setPriority(3);
-                this.N.execute(new String[0]);
-            }
-        } else {
-            this.C.setVisibility(8);
-            this.w.setText((CharSequence) null);
-            if (this.K != f) {
-                this.B.setBackgroundResource(R.drawable.login_input_under);
-            }
-        }
-        k();
-    }
-
-    private void b(boolean z) {
         this.t.setEnabled(z);
         this.t.setFocusable(z);
         this.t.setFocusableInTouchMode(z);
@@ -310,77 +308,56 @@ public class Register2Activity extends com.baidu.tieba.f {
         this.q.setTextColor(getResources().getColor(R.color.text_hint_color));
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void l() {
-        b(true);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public RegistData m() {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ RegistData w(Register2Activity register2Activity) {
         RegistData registData = new RegistData();
-        registData.setName(this.t.getText().toString());
-        registData.setPsw(this.u.getText().toString());
-        registData.setPhone(this.v.getText().toString());
-        if (this.I) {
-            registData.setVcode(this.w.getText().toString());
+        registData.setName(register2Activity.t.getText().toString());
+        registData.setPsw(register2Activity.u.getText().toString());
+        registData.setPhone(register2Activity.v.getText().toString());
+        if (register2Activity.I) {
+            registData.setVcode(register2Activity.w.getText().toString());
         }
-        if (this.P != null) {
-            registData.setVcodeMd5(this.P.b().getVcode_md5());
-            registData.setSmsCodeTime(this.P.d());
+        if (register2Activity.P != null) {
+            registData.setVcodeMd5(register2Activity.P.b().getVcode_md5());
+            registData.setSmsCodeTime(register2Activity.P.d());
         }
         return registData;
-    }
-
-    private void n() {
-        String string;
-        int length = getString(R.string.reg_info).length();
-        String str = String.valueOf(string) + getString(R.string.user_server_agreement);
-        int length2 = str.length();
-        SpannableString spannableString = new SpannableString(str);
-        spannableString.setSpan(new bk(this, this), length, length2, 33);
-        if (this.mSkinType == 1) {
-            spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.skin_1_common_color)), 0, length, 33);
-        }
-        this.r.setMovementMethod(LinkMovementMethod.getInstance());
-        this.r.setText(spannableString);
     }
 
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == c && i2 == -1) {
-            com.baidu.adp.lib.util.f.a("Register2Activity", "onActivityResult", "onActivityResult");
+            com.baidu.adp.lib.util.e.a("Register2Activity", "onActivityResult", "onActivityResult");
             setResult(-1);
             finish();
         }
     }
 
-    public void a() {
-        this.z.setVisibility(8);
-        this.n.clearCheck();
-        this.o.setVisibility(8);
-        this.p.setVisibility(8);
-        this.q.setVisibility(8);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(ArrayList<String> arrayList) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(Register2Activity register2Activity, ArrayList arrayList) {
         int size;
-        a();
-        if (arrayList != null && (size = arrayList.size()) > 0) {
-            this.z.setVisibility(0);
-            if (size > 0 && arrayList.get(0) != null) {
-                this.o.setText(arrayList.get(0));
-                this.o.setVisibility(0);
-            }
-            if (size > 1 && arrayList.get(1) != null) {
-                this.p.setText(arrayList.get(1));
-                this.p.setVisibility(0);
-            }
-            if (size > 2 && arrayList.get(2) != null) {
-                this.q.setText(arrayList.get(2));
-                this.q.setVisibility(0);
-            }
+        register2Activity.z.setVisibility(8);
+        register2Activity.n.clearCheck();
+        register2Activity.o.setVisibility(8);
+        register2Activity.p.setVisibility(8);
+        register2Activity.q.setVisibility(8);
+        if (arrayList == null || (size = arrayList.size()) <= 0) {
+            return;
         }
+        register2Activity.z.setVisibility(0);
+        if (size > 0 && arrayList.get(0) != null) {
+            register2Activity.o.setText((CharSequence) arrayList.get(0));
+            register2Activity.o.setVisibility(0);
+        }
+        if (size > 1 && arrayList.get(1) != null) {
+            register2Activity.p.setText((CharSequence) arrayList.get(1));
+            register2Activity.p.setVisibility(0);
+        }
+        if (size <= 2 || arrayList.get(2) == null) {
+            return;
+        }
+        register2Activity.q.setText((CharSequence) arrayList.get(2));
+        register2Activity.q.setVisibility(0);
     }
 }

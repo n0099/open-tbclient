@@ -4,10 +4,9 @@ import android.view.View;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.data.MetaData;
 import com.baidu.tieba.view.TbCheckBox;
-import com.baidu.tieba.view.cs;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.view.cr;
 /* loaded from: classes.dex */
-public class k implements r {
+final class k implements r {
     final /* synthetic */ AtListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,11 +15,11 @@ public class k implements r {
     }
 
     @Override // com.baidu.tieba.write.r
-    public void a(View view, Object obj) {
+    public final void a(Object obj) {
         BdListView bdListView;
         if (obj != null) {
-            if (obj instanceof cs) {
-                ((cs) obj).setChecked(false);
+            if (obj instanceof cr) {
+                ((cr) obj).setChecked(false);
             }
             bdListView = this.a.d;
             View findViewWithTag = bdListView.findViewWithTag(obj);

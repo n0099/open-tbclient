@@ -6,7 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m extends com.baidu.tieba.util.ao {
+public final class m extends com.baidu.tieba.util.ao {
     final /* synthetic */ k a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,7 +17,7 @@ public class m extends com.baidu.tieba.util.ao {
     }
 
     @Override // com.baidu.tieba.util.ao, android.text.style.ClickableSpan
-    public void onClick(View view) {
+    public final void onClick(View view) {
         Pattern pattern;
         String str;
         Pattern pattern2;
@@ -32,7 +32,7 @@ public class m extends com.baidu.tieba.util.ao {
                 b(group.substring(group.lastIndexOf("/") + 1));
                 return;
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "onClick", e.toString());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "onClick", e.toString());
             }
         }
         pattern2 = k.k;
@@ -44,7 +44,7 @@ public class m extends com.baidu.tieba.util.ao {
                 b(group2.substring(group2.lastIndexOf("=") + 1));
                 return;
             } catch (Exception e2) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "onClick", e2.toString());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "onClick", e2.toString());
             }
         }
         str3 = this.a.g;

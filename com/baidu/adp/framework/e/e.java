@@ -1,6 +1,6 @@
 package com.baidu.adp.framework.e;
 /* loaded from: classes.dex */
-public class e {
+public final class e {
     private int[] a;
 
     public e(int i, int i2, int i3) {
@@ -11,7 +11,7 @@ public class e {
         this.a[2] = i3;
     }
 
-    public int a() {
+    public final int a() {
         if (this.a == null || this.a.length != 1) {
             return 0;
         }

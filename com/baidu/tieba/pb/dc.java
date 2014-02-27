@@ -4,7 +4,7 @@ import android.app.Dialog;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dc implements View.OnClickListener {
+public final class dc implements View.OnClickListener {
     final /* synthetic */ cu a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ public class dc implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         Dialog dialog;
         dialog = this.a.M;
         dialog.dismiss();

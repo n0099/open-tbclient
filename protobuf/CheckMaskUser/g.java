@@ -5,11 +5,9 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import protobuf.CheckMaskUser.CheckMaskUserRes;
 /* loaded from: classes.dex */
-class g extends AbstractParser<CheckMaskUserRes.CheckMaskUserResIdl> {
-    /* JADX DEBUG: Method merged with bridge method */
+final class g extends AbstractParser<CheckMaskUserRes.CheckMaskUserResIdl> {
     @Override // com.google.protobuf.Parser
-    /* renamed from: a */
-    public CheckMaskUserRes.CheckMaskUserResIdl parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
+    public final /* synthetic */ Object parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
         return new CheckMaskUserRes.CheckMaskUserResIdl(codedInputStream, extensionRegistryLite, null);
     }
 }

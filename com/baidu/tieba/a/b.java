@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import com.baidu.tieba.im.data.GroupData;
 /* loaded from: classes.dex */
-public class b extends com.baidu.tieba.f.a {
+public final class b extends com.baidu.tieba.f.a {
     private GroupData a;
     private String b;
 
@@ -25,11 +25,11 @@ public class b extends com.baidu.tieba.f.a {
         d.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
     }
 
-    public GroupData a() {
+    public final GroupData a() {
         return this.a;
     }
 
-    public String b() {
+    public final String b() {
         return this.b;
     }
 }

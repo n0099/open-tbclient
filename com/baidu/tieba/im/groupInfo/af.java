@@ -3,7 +3,7 @@ package com.baidu.tieba.im.groupInfo;
 import com.google.protobuf.MessageLite;
 import protobuf.AddGroupUsers.AddGroupUsersReq;
 /* loaded from: classes.dex */
-public class af extends com.baidu.tieba.im.message.s implements com.baidu.tieba.im.coder.g {
+public final class af extends com.baidu.tieba.im.message.s implements com.baidu.tieba.im.coder.g {
     private int a;
     private String b;
     private String c;
@@ -17,72 +17,56 @@ public class af extends com.baidu.tieba.im.message.s implements com.baidu.tieba.
         e(103111);
     }
 
-    public long b() {
-        return this.g;
-    }
-
-    public void a(long j) {
+    public final void a(long j) {
         this.g = j;
     }
 
-    public int c() {
-        return this.h;
-    }
-
-    public void a(int i) {
+    public final void a(int i) {
         this.h = i;
     }
 
-    public int d() {
+    public final int b() {
         return this.a;
     }
 
-    public void b(int i) {
+    public final void b(int i) {
         this.a = i;
     }
 
-    public String e() {
+    public final String c() {
         return this.b;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.b = str;
     }
 
-    public String f() {
+    public final String d() {
         return this.c;
     }
 
-    public void b(String str) {
+    public final void b(String str) {
         this.c = str;
     }
 
-    public int g() {
-        return this.d;
-    }
-
-    public void c(int i) {
+    public final void c(int i) {
         this.d = i;
     }
 
-    public String h() {
+    public final String e() {
         return this.e;
     }
 
-    public void c(String str) {
+    public final void c(String str) {
         this.e = str;
     }
 
-    public int i() {
-        return this.f;
-    }
-
-    public void d(int i) {
-        this.f = i;
+    public final void d(int i) {
+        this.f = 1;
     }
 
     @Override // com.baidu.tieba.im.coder.g
-    public MessageLite a() {
-        return AddGroupUsersReq.AddGroupUsersReqIdl.newBuilder().a(AddGroupUsersReq.DataReq.newBuilder().d(i()).a(d()).a(b()).e(c()).c(g()).a(e()).build()).build();
+    public final MessageLite a() {
+        return AddGroupUsersReq.AddGroupUsersReqIdl.newBuilder().a(AddGroupUsersReq.DataReq.newBuilder().c(this.f).a(this.a).a(this.g).d(this.h).b(this.d).a(this.b).build()).build();
     }
 }

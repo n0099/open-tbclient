@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import com.baidu.tieba.img.ImageFileInfo;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class c implements View.OnClickListener {
+final class c implements View.OnClickListener {
     final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,7 +16,7 @@ class c implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         h hVar;
         h hVar2;
         int i;
@@ -53,7 +53,7 @@ class c implements View.OnClickListener {
                             if (albumActivity5.b(a)) {
                                 b bVar = this.a;
                                 imageView3 = this.a.l;
-                                bVar.a(imageView3, false);
+                                b.a(imageView3, false);
                                 albumActivity6 = this.a.b;
                                 i4 = this.a.j;
                                 albumActivity6.a(i4, false);
@@ -65,7 +65,7 @@ class c implements View.OnClickListener {
                         if (albumActivity2.a(a)) {
                             b bVar2 = this.a;
                             imageView = this.a.l;
-                            bVar2.a(imageView, true);
+                            b.a(imageView, true);
                             albumActivity3 = this.a.b;
                             i3 = this.a.j;
                             albumActivity3.a(i3, true);

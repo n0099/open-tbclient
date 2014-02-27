@@ -1,6 +1,6 @@
 package com.baidu.tieba.faceshop;
 /* loaded from: classes.dex */
-class bb {
+final class bb {
     int a;
     int b;
     final /* synthetic */ aw c;
@@ -10,7 +10,7 @@ class bb {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bb(aw awVar, bb bbVar) {
+    public /* synthetic */ bb(aw awVar, byte b) {
         this(awVar);
     }
 }

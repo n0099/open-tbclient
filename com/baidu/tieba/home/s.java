@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.view.View;
 import com.baidu.tieba.account.LoginActivity;
 /* loaded from: classes.dex */
-class s implements View.OnClickListener {
+final class s implements View.OnClickListener {
     final /* synthetic */ r a;
     private final /* synthetic */ Activity b;
     private final /* synthetic */ int c;
@@ -19,7 +19,7 @@ class s implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         LoginActivity.a(this.b, this.c, this.d, 11003);
     }
 }

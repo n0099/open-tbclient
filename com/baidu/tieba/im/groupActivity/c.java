@@ -5,7 +5,7 @@ import com.baidu.tieba.im.message.da;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c implements com.baidu.tieba.im.messageCenter.g {
+public final class c implements com.baidu.tieba.im.messageCenter.g {
     final /* synthetic */ CreateGroupActivityActivity a;
 
     private c(CreateGroupActivityActivity createGroupActivityActivity) {
@@ -13,12 +13,12 @@ public class c implements com.baidu.tieba.im.messageCenter.g {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ c(CreateGroupActivityActivity createGroupActivityActivity, c cVar) {
+    public /* synthetic */ c(CreateGroupActivityActivity createGroupActivityActivity, byte b) {
         this(createGroupActivityActivity);
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.s sVar) {
+    public final void a(com.baidu.tieba.im.message.s sVar) {
         boolean z;
         this.a.d();
         if (sVar == null) {

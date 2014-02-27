@@ -56,14 +56,10 @@ public class JigsawAlbumActivity extends com.baidu.tieba.f {
         }
     }
 
-    public boolean a() {
-        return n;
-    }
-
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        if (a()) {
+        if (n) {
             n = false;
             finish();
         }
@@ -78,7 +74,7 @@ public class JigsawAlbumActivity extends com.baidu.tieba.f {
         } catch (Exception e) {
             e.printStackTrace();
             finish();
-            y.a(R.string.oom_retry);
+            x.a(R.string.oom_retry);
         }
         this.a = (TextView) findViewById(R.id.jigsaw_selected_text);
         this.k = u.a();
@@ -99,31 +95,27 @@ public class JigsawAlbumActivity extends com.baidu.tieba.f {
     public void onResume() {
         o = true;
         this.t = false;
-        this.a.setText(this.k.e(this));
-        if (this.k.e()) {
+        this.a.setText(this.k.c(this));
+        if (this.k.f()) {
             this.u.sendMessage(this.u.obtainMessage(1));
         }
-        b();
+        this.v.removeAllViews();
+        for (Uri uri : this.k.d()) {
+            w wVar = new w(this);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams((int) getResources().getDimension(R.dimen.jigsawSelectedWidth), (int) getResources().getDimension(R.dimen.jigsawSelectedHeight));
+            layoutParams.setMargins(0, 0, 0, 0);
+            wVar.setLayoutParams(layoutParams);
+            if (wVar.a(uri)) {
+                this.v.addView(wVar);
+                wVar.setOnClickListener(new i(this, wVar));
+            }
+        }
         super.onResume();
     }
 
     @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
-        this.m.c(i);
-    }
-
-    private void b() {
-        this.v.removeAllViews();
-        for (Uri uri : this.k.c(this)) {
-            x xVar = new x(this);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams((int) getResources().getDimension(R.dimen.jigsawSelectedWidth), (int) getResources().getDimension(R.dimen.jigsawSelectedHeight));
-            layoutParams.setMargins(0, 0, 0, 0);
-            xVar.setLayoutParams(layoutParams);
-            if (xVar.a(uri)) {
-                this.v.addView(xVar);
-                xVar.setOnClickListener(new i(this, xVar));
-            }
-        }
+        this.m.b(i);
     }
 
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
@@ -132,71 +124,94 @@ public class JigsawAlbumActivity extends com.baidu.tieba.f {
         super.onDestroy();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:65:0x01ce A[LOOP:0: B:66:0x004a->B:65:0x01ce, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:73:0x0069 A[EDGE_INSN: B:73:0x0069->B:15:0x0069 ?: BREAK  , SYNTHETIC] */
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: Removed duplicated region for block: B:106:0x006b A[EDGE_INSN: B:106:0x006b->B:15:0x006b ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:98:0x0246 A[LOOP:0: B:101:0x004c->B:98:0x0246, LOOP_END] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void c() {
+    public static /* synthetic */ void e(JigsawAlbumActivity jigsawAlbumActivity) {
         int i;
-        synchronized (this.s) {
+        boolean z;
+        synchronized (jigsawAlbumActivity.s) {
             try {
-                this.e.clear();
-                this.f.clear();
-                this.d = null;
-                this.d = getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, new String[]{"_data", "_id", "title", "_display_name"}, null, null, "datetaken desc");
-                if (this.d != null && this.d.getCount() > 0) {
-                    this.d.moveToFirst();
+                jigsawAlbumActivity.e.clear();
+                jigsawAlbumActivity.f.clear();
+                jigsawAlbumActivity.d = null;
+                jigsawAlbumActivity.d = jigsawAlbumActivity.getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, new String[]{"_data", "_id", "title", "_display_name"}, null, null, "datetaken desc");
+                if (jigsawAlbumActivity.d != null && jigsawAlbumActivity.d.getCount() > 0) {
+                    jigsawAlbumActivity.d.moveToFirst();
                     int i2 = 0;
                     while (true) {
                         try {
-                            String string = this.d.getString(this.d.getColumnIndexOrThrow("_data"));
+                            String string = jigsawAlbumActivity.d.getString(jigsawAlbumActivity.d.getColumnIndexOrThrow("_data"));
                             if (string.equals("")) {
                                 i = i2;
                             } else {
-                                int i3 = this.d.getInt(this.d.getColumnIndexOrThrow("_id"));
-                                if (b(this.d.getString(this.d.getColumnIndexOrThrow("_display_name"))) < 0) {
+                                int i3 = jigsawAlbumActivity.d.getInt(jigsawAlbumActivity.d.getColumnIndexOrThrow("_id"));
+                                String string2 = jigsawAlbumActivity.d.getString(jigsawAlbumActivity.d.getColumnIndexOrThrow("_display_name"));
+                                String substring = string2.substring(string2.lastIndexOf(".") + 1);
+                                if (((substring.equalsIgnoreCase("jpg") || substring.equalsIgnoreCase("jpeg") || substring.equalsIgnoreCase("jpe")) ? (char) 0 : substring.equalsIgnoreCase("png") ? (char) 1 : substring.equalsIgnoreCase("bmp") ? (char) 2 : (char) 65535) < 0) {
                                     i = i2;
                                 } else {
-                                    String substring = string.substring(0, string.lastIndexOf("/"));
-                                    if (!a(substring)) {
-                                        if (substring != null && substring.endsWith(com.baidu.tieba.data.i.k()) && !this.f.isEmpty()) {
-                                            c remove = this.f.remove(0);
-                                            this.f.add(0, new c(0, substring, 0));
-                                            int intValue = this.g.get(String.valueOf(0)).intValue();
-                                            this.g.put(String.valueOf(0), 1);
-                                            i = this.f.size();
-                                            try {
-                                                remove.a = i;
-                                                this.f.add(remove);
-                                                this.g.put(String.valueOf(i), Integer.valueOf(intValue));
-                                                a(0, i);
-                                                this.e.add(new c(0, string, i3));
-                                            } catch (Exception e) {
-                                                e = e;
-                                                e.printStackTrace();
-                                                if (this.d.moveToNext()) {
-                                                }
-                                            }
+                                    String substring2 = string.substring(0, string.lastIndexOf("/"));
+                                    int i4 = 0;
+                                    while (true) {
+                                        if (i4 >= jigsawAlbumActivity.f.size()) {
+                                            z = false;
+                                            break;
+                                        } else if (jigsawAlbumActivity.f.get(i4).b.equals(substring2)) {
+                                            z = true;
+                                            break;
                                         } else {
-                                            i = this.f.size();
-                                            this.f.add(new c(i, substring, 0));
-                                            this.g.put(String.valueOf(i), 1);
-                                            this.e.add(new c(i, string, i3));
-                                        }
-                                    } else {
-                                        i = i2;
-                                        int i4 = 0;
-                                        while (i4 < this.f.size()) {
-                                            if (this.f.get(i4).b.equals(substring)) {
-                                                i = this.f.get(i4).a;
-                                                this.g.put(String.valueOf(i), Integer.valueOf(this.g.get(String.valueOf(i)).intValue() + 1));
-                                            }
                                             i4++;
+                                        }
+                                    }
+                                    if (z) {
+                                        i = i2;
+                                        int i5 = 0;
+                                        while (i5 < jigsawAlbumActivity.f.size()) {
+                                            if (jigsawAlbumActivity.f.get(i5).b.equals(substring2)) {
+                                                i = jigsawAlbumActivity.f.get(i5).a;
+                                                jigsawAlbumActivity.g.put(String.valueOf(i), Integer.valueOf(jigsawAlbumActivity.g.get(String.valueOf(i)).intValue() + 1));
+                                            }
+                                            i5++;
                                             i = i;
                                         }
-                                        this.e.add(new c(i, string, i3));
+                                        jigsawAlbumActivity.e.add(new c(i, string, i3));
+                                    } else if (substring2 == null || !substring2.endsWith(com.baidu.tieba.data.i.k()) || jigsawAlbumActivity.f.isEmpty()) {
+                                        i = jigsawAlbumActivity.f.size();
+                                        jigsawAlbumActivity.f.add(new c(i, substring2, 0));
+                                        jigsawAlbumActivity.g.put(String.valueOf(i), 1);
+                                        jigsawAlbumActivity.e.add(new c(i, string, i3));
+                                    } else {
+                                        c remove = jigsawAlbumActivity.f.remove(0);
+                                        jigsawAlbumActivity.f.add(0, new c(0, substring2, 0));
+                                        int intValue = jigsawAlbumActivity.g.get(String.valueOf(0)).intValue();
+                                        jigsawAlbumActivity.g.put(String.valueOf(0), 1);
+                                        i = jigsawAlbumActivity.f.size();
+                                        try {
+                                            remove.a = i;
+                                            jigsawAlbumActivity.f.add(remove);
+                                            jigsawAlbumActivity.g.put(String.valueOf(i), Integer.valueOf(intValue));
+                                            if (jigsawAlbumActivity.e != null) {
+                                                Iterator<c> it = jigsawAlbumActivity.e.iterator();
+                                                while (it.hasNext()) {
+                                                    c next = it.next();
+                                                    if (next.a == 0) {
+                                                        next.a = i;
+                                                    } else if (next.a == i) {
+                                                        next.a = 0;
+                                                    }
+                                                }
+                                            }
+                                            jigsawAlbumActivity.e.add(new c(0, string, i3));
+                                        } catch (Exception e) {
+                                            e = e;
+                                            e.printStackTrace();
+                                            if (jigsawAlbumActivity.d.moveToNext()) {
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -204,66 +219,29 @@ public class JigsawAlbumActivity extends com.baidu.tieba.f {
                             e = e2;
                             i = i2;
                         }
-                        if (this.d.moveToNext()) {
+                        if (jigsawAlbumActivity.d.moveToNext()) {
                             break;
                         }
                         i2 = i;
                     }
                 }
-                if (this.d != null) {
-                    this.d.close();
+                if (jigsawAlbumActivity.d != null) {
+                    jigsawAlbumActivity.d.close();
                 }
-                this.d = null;
+                jigsawAlbumActivity.d = null;
             } catch (Exception e3) {
                 e3.printStackTrace();
-                if (this.d != null) {
-                    this.d.close();
+                if (jigsawAlbumActivity.d != null) {
+                    jigsawAlbumActivity.d.close();
                 }
-                this.d = null;
+                jigsawAlbumActivity.d = null;
             }
         }
     }
 
-    private void a(int i, int i2) {
-        if (this.e != null) {
-            Iterator<c> it = this.e.iterator();
-            while (it.hasNext()) {
-                c next = it.next();
-                if (next.a == i) {
-                    next.a = i2;
-                } else if (next.a == i2) {
-                    next.a = i;
-                }
-            }
-        }
-    }
-
-    private boolean a(String str) {
-        for (int i = 0; i < this.f.size(); i++) {
-            if (this.f.get(i).b.equals(str)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private int b(String str) {
-        String substring = str.substring(str.lastIndexOf(".") + 1);
-        if (substring.equalsIgnoreCase("jpg") || substring.equalsIgnoreCase("jpeg") || substring.equalsIgnoreCase("jpe")) {
-            return 0;
-        }
-        if (substring.equalsIgnoreCase("png")) {
-            return 1;
-        }
-        if (substring.equalsIgnoreCase("bmp")) {
-            return 2;
-        }
-        return -1;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public String a(int i) {
-        Iterator<c> it = this.e.iterator();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ String b(JigsawAlbumActivity jigsawAlbumActivity, int i) {
+        Iterator<c> it = jigsawAlbumActivity.e.iterator();
         while (it.hasNext()) {
             c next = it.next();
             if (next.a == i) {
@@ -273,9 +251,9 @@ public class JigsawAlbumActivity extends com.baidu.tieba.f {
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public c b(int i) {
-        Iterator<c> it = this.e.iterator();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ c a(JigsawAlbumActivity jigsawAlbumActivity, int i) {
+        Iterator<c> it = jigsawAlbumActivity.e.iterator();
         while (it.hasNext()) {
             c next = it.next();
             if (next.a == i) {
@@ -286,23 +264,23 @@ public class JigsawAlbumActivity extends com.baidu.tieba.f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void d() {
+    public void a() {
         if (o) {
             o = false;
-            setResult(-1, u.a().f());
+            setResult(-1, u.a().g());
             finish();
         }
     }
 
-    public int a(float f) {
-        return (int) ((getResources().getDisplayMetrics().density * f) + 0.5f);
+    public final int a(float f) {
+        return (int) ((getResources().getDisplayMetrics().density * 70.0f) + 0.5f);
     }
 
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (10 == i && 2 == i2) {
-            d();
+            a();
         }
     }
 }

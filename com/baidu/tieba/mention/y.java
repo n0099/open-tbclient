@@ -4,9 +4,8 @@ import android.view.View;
 import com.baidu.tieba.data.aq;
 import com.baidu.tieba.model.bn;
 import com.baidu.tieba.person.cm;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y implements View.OnClickListener {
+final class y implements View.OnClickListener {
     final /* synthetic */ PostActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +14,7 @@ public class y implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         bn bnVar;
         bn bnVar2;
         bn bnVar3;

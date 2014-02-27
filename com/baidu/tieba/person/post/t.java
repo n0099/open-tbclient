@@ -12,30 +12,30 @@ import com.baidu.tieba.pb.NewPbActivity;
 import com.baidu.tieba.person.post.PersonPostThreadModel;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class t extends BaseAdapter implements c, h {
+public final class t extends BaseAdapter implements c, h {
     private PersonPostThreadModel a;
     private u b;
     private String c;
     private String d;
     private Activity e;
 
-    public t(Context context, String str, String str2) {
+    public t(Context context, String str) {
         this.e = (Activity) context;
         this.c = str;
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         PersonPostThreadModel.fetchThread(this, z, this.c);
     }
 
-    public void a() {
+    public final void a() {
         if (this.a != null) {
             this.a.cancelLoadData();
         }
     }
 
     @Override // com.baidu.tieba.person.post.h
-    public void a(PersonPostThreadModel personPostThreadModel, boolean z) {
+    public final void a(PersonPostThreadModel personPostThreadModel, boolean z) {
         if (z) {
             this.a = personPostThreadModel;
         } else if (this.a != null) {
@@ -47,12 +47,12 @@ public class t extends BaseAdapter implements c, h {
         notifyDataSetChanged();
     }
 
-    public void a(u uVar) {
+    public final void a(u uVar) {
         this.b = uVar;
     }
 
     @Override // android.widget.Adapter
-    public int getCount() {
+    public final int getCount() {
         if (this.a == null || this.a.post_list == null) {
             return 0;
         }
@@ -60,20 +60,20 @@ public class t extends BaseAdapter implements c, h {
     }
 
     @Override // android.widget.Adapter
-    public Object getItem(int i) {
+    public final Object getItem(int i) {
         return this.a.post_list.get(i);
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    public final long getItemId(int i) {
         return i;
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public final View getView(int i, View view, ViewGroup viewGroup) {
         v vVar;
         if (view == null) {
-            com.baidu.adp.lib.util.f.e("PersonThreadAdapter", "getView", "create convertView");
+            com.baidu.adp.lib.util.e.e("PersonThreadAdapter", "getView", "create convertView");
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.person_post_item_thread, viewGroup, false);
             v vVar2 = new v(view);
             view.setTag(vVar2);
@@ -124,33 +124,33 @@ public class t extends BaseAdapter implements c, h {
             vVar.h.setVisibility(8);
         }
         vVar.a(this);
-        vVar.a(TiebaApplication.g().al());
+        vVar.a(TiebaApplication.g().ae());
         return view;
     }
 
     @Override // com.baidu.tieba.person.post.c
-    public void a(View view) {
+    public final void a(View view) {
         switch (view.getId()) {
-            case R.id.portrait /* 2131099912 */:
+            case R.id.portrait /* 2131099906 */:
                 this.e.finish();
                 return;
-            case R.id.item_header /* 2131100302 */:
-            case R.id.item_content /* 2131101409 */:
+            case R.id.item_header /* 2131100295 */:
+            case R.id.item_content /* 2131101338 */:
                 String[] strArr = (String[]) view.getTag();
                 if (strArr != null) {
                     NewPbActivity.a(view.getContext(), strArr[0], strArr[1], "person_post");
-                    com.baidu.adp.lib.util.f.e("PersonThreadAdapter", "on", "start thread = " + strArr[0] + " post_id = " + strArr[1]);
+                    com.baidu.adp.lib.util.e.e("PersonThreadAdapter", "on", "start thread = " + strArr[0] + " post_id = " + strArr[1]);
                     return;
                 }
                 return;
-            case R.id.forum_name /* 2131101413 */:
+            case R.id.forum_name /* 2131101342 */:
                 String str = (String) view.getTag();
                 if (str != null) {
                     FrsActivity.a(view.getContext(), str, "");
                     return;
                 }
                 return;
-            case R.id.username /* 2131101415 */:
+            case R.id.username /* 2131101344 */:
                 this.e.finish();
                 return;
             default:

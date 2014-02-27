@@ -1,9 +1,8 @@
 package com.baidu.adp.widget.ScrollView;
 
 import com.baidu.adp.widget.ScrollView.BdPullRefreshScrollView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements i {
+final class l implements i {
     final /* synthetic */ BdPullRefreshScrollView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,13 +11,13 @@ public class l implements i {
     }
 
     @Override // com.baidu.adp.widget.ScrollView.i
-    public void a() {
+    public final void a() {
         BdPullRefreshScrollView.State state;
         BdPullRefreshScrollView.State state2;
         b bVar;
         b bVar2;
         n nVar;
-        n nVar2;
+        n unused;
         state = this.a.c;
         if (state != BdPullRefreshScrollView.State.RELEASE_TO_REFRESH) {
             state2 = this.a.c;
@@ -37,8 +36,7 @@ public class l implements i {
         bdPullRefreshScrollView2.a(state4, bVar2);
         nVar = this.a.s;
         if (nVar != null) {
-            nVar2 = this.a.s;
-            nVar2.a();
+            unused = this.a.s;
         }
     }
 }

@@ -25,19 +25,6 @@ public class FacePurchaseRecordsActivity extends com.baidu.tieba.f {
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        a(bundle);
-        a();
-        a(true);
-    }
-
-    private void a() {
-        this.a = new ao(this);
-        this.a.a(new aj(this));
-        this.a.a(this);
-        b();
-    }
-
-    private void a(Bundle bundle) {
         this.b = new am();
         if (bundle != null) {
             this.c = bundle.getString("st_type");
@@ -46,6 +33,11 @@ public class FacePurchaseRecordsActivity extends com.baidu.tieba.f {
         }
         this.b.a(this.c);
         this.b.setLoadDataCallBack(this.d);
+        this.a = new ao(this);
+        this.a.a(new aj(this));
+        this.a.a(this);
+        this.a.a(this.e);
+        a(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -58,14 +50,6 @@ public class FacePurchaseRecordsActivity extends com.baidu.tieba.f {
             return;
         }
         this.a.b();
-    }
-
-    private void b() {
-        this.a.a(this.e);
-    }
-
-    private void c() {
-        this.a.b(this.e);
     }
 
     @Override // android.app.Activity
@@ -95,9 +79,9 @@ public class FacePurchaseRecordsActivity extends com.baidu.tieba.f {
             this.b.cancelLoadData();
         }
         if (this.a != null) {
-            this.a.e();
+            this.a.d();
         }
-        c();
+        this.a.b(this.e);
         super.onDestroy();
     }
 

@@ -3,7 +3,7 @@ package com.baidu.tieba.im.messageCenter.a;
 import com.baidu.tieba.im.message.da;
 import java.util.List;
 /* loaded from: classes.dex */
-public class n {
+public final class n {
     public static void a(com.baidu.adp.lib.cache.s<byte[]> sVar, String str, com.baidu.tieba.im.coder.d dVar) {
         if (str != null && sVar != null && dVar != null && dVar.c == 0 && dVar.d > 0) {
             sVar.a(str, dVar.b);

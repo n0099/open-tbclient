@@ -4,7 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 /* loaded from: classes.dex */
-public class h extends SQLiteOpenHelper {
+public final class h extends SQLiteOpenHelper {
     private static SQLiteDatabase a;
     private static Object b = new Object();
 
@@ -13,36 +13,36 @@ public class h extends SQLiteOpenHelper {
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+    public final void onCreate(SQLiteDatabase sQLiteDatabase) {
         a(sQLiteDatabase);
     }
 
-    public boolean a(SQLiteDatabase sQLiteDatabase, String str) {
+    public final boolean a(SQLiteDatabase sQLiteDatabase, String str) {
         try {
             sQLiteDatabase.execSQL(str);
             return true;
         } catch (Throwable th) {
-            com.baidu.adp.lib.util.f.a(getClass(), str, th);
+            com.baidu.adp.lib.util.e.a(getClass(), str, th);
             return false;
         }
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        if (i < 1) {
+    public final void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        if (i <= 0) {
             a(sQLiteDatabase);
         }
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+    public final void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
     }
 
-    protected void a(SQLiteDatabase sQLiteDatabase) {
+    private void a(SQLiteDatabase sQLiteDatabase) {
         a(sQLiteDatabase, "CREATE TABLE IF NOT EXISTS cache_meta_info(nameSpace VARCHAR(128) PRIMARY KEY, tableName varchar(64), maxSize int(11) default 0, cacheType varchar(32) not null, cacheVersion int(11) default 0, lastActiveTime bigint(21) default 0)");
     }
 
-    public SQLiteDatabase a() {
+    public final SQLiteDatabase a() {
         if (a == null || !a.isOpen()) {
             synchronized (b) {
                 if (a == null) {
@@ -53,14 +53,21 @@ public class h extends SQLiteOpenHelper {
         return a;
     }
 
-    public void a(Throwable th) {
+    public final void b() {
         close();
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper, java.lang.AutoCloseable
-    public void close() {
+    public final void close() {
         synchronized (b) {
-            com.baidu.adp.lib.f.a.a(a);
+            SQLiteDatabase sQLiteDatabase = a;
+            if (sQLiteDatabase != null) {
+                try {
+                    sQLiteDatabase.close();
+                } catch (Exception e) {
+                    com.baidu.adp.lib.util.e.b("adp_util_close", "error on close android.database.SQLiteDatabase.", e.getMessage());
+                }
+            }
             a = null;
         }
     }

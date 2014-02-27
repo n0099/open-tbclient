@@ -18,24 +18,24 @@ public final class WifiParsedResult extends ParsedResult {
         this.hidden = z;
     }
 
-    public String getSsid() {
+    public final String getSsid() {
         return this.ssid;
     }
 
-    public String getNetworkEncryption() {
+    public final String getNetworkEncryption() {
         return this.networkEncryption;
     }
 
-    public String getPassword() {
+    public final String getPassword() {
         return this.password;
     }
 
-    public boolean isHidden() {
+    public final boolean isHidden() {
         return this.hidden;
     }
 
     @Override // com.google.zxing.client.result.ParsedResult
-    public String getDisplayResult() {
+    public final String getDisplayResult() {
         StringBuilder sb = new StringBuilder(80);
         maybeAppend(this.ssid, sb);
         maybeAppend(this.networkEncryption, sb);

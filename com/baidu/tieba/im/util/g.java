@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.util;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g extends com.baidu.tieba.im.c<Boolean> {
+public final class g extends com.baidu.tieba.im.b<Boolean> {
     private final /* synthetic */ String a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,13 +9,10 @@ public class g extends com.baidu.tieba.im.c<Boolean> {
         this.a = str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.c
-    /* renamed from: a */
-    public Boolean b() {
-        boolean e;
-        d.d(this.a);
-        e = d.e(this.a);
-        return Boolean.valueOf(e);
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.b
+    public final /* synthetic */ Boolean a() {
+        d.b(this.a);
+        return Boolean.valueOf(d.c(this.a));
     }
 }

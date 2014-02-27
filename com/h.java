@@ -44,38 +44,36 @@ public class h implements i {
         FileOutputStream fileOutputStream2 = null;
         try {
             fileOutputStream = new FileOutputStream(file);
-        } catch (Exception e) {
+            try {
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream);
+                fileOutputStream.flush();
+                this.e.put(str, 1);
+                try {
+                    fileOutputStream.close();
+                } catch (IOException e) {
+                }
+            } catch (Exception e2) {
+                if (fileOutputStream != null) {
+                    try {
+                        fileOutputStream.close();
+                    } catch (IOException e3) {
+                    }
+                }
+            } catch (Throwable th) {
+                fileOutputStream2 = fileOutputStream;
+                th = th;
+                if (fileOutputStream2 != null) {
+                    try {
+                        fileOutputStream2.close();
+                    } catch (IOException e4) {
+                    }
+                }
+                throw th;
+            }
+        } catch (Exception e5) {
             fileOutputStream = null;
-        } catch (Throwable th) {
-            th = th;
-        }
-        try {
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream);
-            fileOutputStream.flush();
-            this.e.put(str, 1);
-            if (fileOutputStream != null) {
-                try {
-                    fileOutputStream.close();
-                } catch (IOException e2) {
-                }
-            }
-        } catch (Exception e3) {
-            if (fileOutputStream != null) {
-                try {
-                    fileOutputStream.close();
-                } catch (IOException e4) {
-                }
-            }
         } catch (Throwable th2) {
-            fileOutputStream2 = fileOutputStream;
             th = th2;
-            if (fileOutputStream2 != null) {
-                try {
-                    fileOutputStream2.close();
-                } catch (IOException e5) {
-                }
-            }
-            throw th;
         }
     }
 

@@ -28,7 +28,7 @@ public class AddGroupActivity extends com.baidu.tieba.f {
         getIntent();
         this.a = new b(this);
         this.b = new an();
-        com.baidu.tieba.im.messageCenter.e.a().a(103007, this.c);
+        com.baidu.tieba.im.messageCenter.d.a().a(103007, this.c);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -41,15 +41,28 @@ public class AddGroupActivity extends com.baidu.tieba.f {
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.a.f()) {
+        if (view == this.a.e()) {
             finish();
-        } else if (view == this.a.e()) {
+        } else if (view == this.a.d()) {
             ai.a(this, "add_group_searchbtn_click");
             if (view.getTag() instanceof String) {
-                a((String) view.getTag());
+                String str = (String) view.getTag();
+                if (TextUtils.isEmpty(str) || !TextUtils.isDigitsOnly(str)) {
+                    showToast(R.string.please_input_groupid);
+                    return;
+                }
+                try {
+                    this.a.a(true);
+                    an anVar = this.b;
+                    an.a(Integer.parseInt(str));
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                    this.a.a(false);
+                    showToast(R.string.groupid_error);
+                }
             }
         } else if (view == this.a.a()) {
-            this.a.g();
+            this.a.f();
         }
     }
 
@@ -69,43 +82,23 @@ public class AddGroupActivity extends com.baidu.tieba.f {
         if (this.b != null) {
             this.b.cancelLoadData();
         }
-        com.baidu.tieba.im.messageCenter.e.a().a(this.c);
+        com.baidu.tieba.im.messageCenter.d.a().a(this.c);
     }
 
-    public void a(String str) {
-        if (!TextUtils.isEmpty(str) && TextUtils.isDigitsOnly(str)) {
-            try {
-                this.a.a(true);
-                this.b.a(Integer.parseInt(str));
-                return;
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
-                this.a.a(false);
-                showToast(R.string.groupid_error);
-                return;
-            }
-        }
-        showToast(R.string.please_input_groupid);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a() {
-        showToast(R.string.add_group_toast_noresult);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(BaseGroupData baseGroupData) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(AddGroupActivity addGroupActivity, BaseGroupData baseGroupData) {
         if (baseGroupData != null) {
-            GroupInfoActivity.a(this, baseGroupData.getGroupId(), 0);
+            GroupInfoActivity.a(addGroupActivity, baseGroupData.getGroupId(), 0);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str, int i) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(AddGroupActivity addGroupActivity, String str, int i) {
         if (i < 0) {
-            showToast(R.string.neterror);
-        } else if (!TextUtils.isEmpty(str)) {
-            showToast(str);
+            addGroupActivity.showToast(R.string.neterror);
+        } else if (TextUtils.isEmpty(str)) {
+        } else {
+            addGroupActivity.showToast(str);
         }
     }
 }

@@ -1,60 +1,42 @@
 package com.baidu.tieba.editortool;
 
-import com.baidu.tieba.data.emotions.WritableEmotionGroup;
+import android.view.View;
+import com.baidu.tieba.faceshop.FacePackageDetailActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w {
-    private String a;
-    private String b;
-    private String c;
-    private WritableEmotionGroup.EmotionGroupType d;
-    private int e;
-    private int f;
+public final class w implements View.OnClickListener {
+    final /* synthetic */ EmotionTabHorizonScrollView a;
+    private final String b;
 
-    public String a() {
-        return this.a;
-    }
-
-    public void a(String str) {
-        this.a = str;
-    }
-
-    public WritableEmotionGroup.EmotionGroupType b() {
-        return this.d;
-    }
-
-    public void a(WritableEmotionGroup.EmotionGroupType emotionGroupType) {
-        this.d = emotionGroupType;
-    }
-
-    public String c() {
-        return this.b;
-    }
-
-    public void b(String str) {
+    private w(EmotionTabHorizonScrollView emotionTabHorizonScrollView, String str) {
+        this.a = emotionTabHorizonScrollView;
         this.b = str;
     }
 
-    public String d() {
-        return this.c;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ w(EmotionTabHorizonScrollView emotionTabHorizonScrollView, String str, byte b) {
+        this(emotionTabHorizonScrollView, str);
     }
 
-    public void c(String str) {
-        this.c = str;
-    }
-
-    public int e() {
-        return this.e;
-    }
-
-    public void a(int i) {
-        this.e = i;
-    }
-
-    public int f() {
-        return this.f;
-    }
-
-    public void b(int i) {
-        this.f = i;
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        int i;
+        String str;
+        i = this.a.l;
+        switch (i) {
+            case 1:
+                str = "faceshop_from_write_promotion";
+                break;
+            case 2:
+                str = "faceshop_from_pchat_promotion";
+                break;
+            case 3:
+                str = "faceshop_from_gchat_promotion";
+                break;
+            default:
+                str = "";
+                break;
+        }
+        FacePackageDetailActivity.a(this.a.getContext(), this.b, false, str);
     }
 }

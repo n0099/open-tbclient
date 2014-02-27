@@ -1,51 +1,12 @@
 package com.baidu.adp.widget;
 
-import android.database.DataSetObservable;
-import android.database.DataSetObserver;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListAdapter;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
 /* loaded from: classes.dex */
-public abstract class s implements ListAdapter {
-    private final DataSetObservable a = new DataSetObservable();
+public interface s {
+    void a(ColorFilter colorFilter);
 
-    public abstract void a(View view, AdapterView adapterView, int i);
+    void draw(Canvas canvas);
 
-    public abstract int b();
-
-    public abstract View c();
-
-    @Override // android.widget.Adapter
-    public boolean hasStableIds() {
-        return true;
-    }
-
-    @Override // android.widget.Adapter
-    public void registerDataSetObserver(DataSetObserver dataSetObserver) {
-        this.a.registerObserver(dataSetObserver);
-    }
-
-    @Override // android.widget.Adapter
-    public void unregisterDataSetObserver(DataSetObserver dataSetObserver) {
-        this.a.unregisterObserver(dataSetObserver);
-    }
-
-    public void a() {
-        this.a.notifyChanged();
-    }
-
-    @Override // android.widget.ListAdapter
-    public boolean areAllItemsEnabled() {
-        return true;
-    }
-
-    @Override // android.widget.ListAdapter
-    public boolean isEnabled(int i) {
-        return true;
-    }
-
-    @Override // android.widget.Adapter
-    public boolean isEmpty() {
-        return getCount() == 0;
-    }
+    void setBounds(int i, int i2, int i3, int i4);
 }

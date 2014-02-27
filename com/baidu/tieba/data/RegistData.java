@@ -27,7 +27,7 @@ public class RegistData implements Serializable {
 
     public void setPsw(String str) {
         if (str != null) {
-            str = bs.b(str.getBytes());
+            str = bs.a(str.getBytes());
         }
         this.psw = str;
     }

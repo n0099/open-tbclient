@@ -6,7 +6,7 @@ import protobuf.PushNotify.PushNotifyRes;
 /* loaded from: classes.dex */
 public class p implements com.baidu.tieba.im.coder.f {
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<s> linkedList, byte[] bArr, int i) {
+    public final void a(LinkedList<s> linkedList, byte[] bArr, int i) {
         PushNotifyRes.PushNotifyResIdl parseFrom = PushNotifyRes.PushNotifyResIdl.parseFrom(bArr);
         int multiMsgCount = parseFrom.getMultiMsgCount();
         for (int i2 = 0; i2 < multiMsgCount; i2++) {

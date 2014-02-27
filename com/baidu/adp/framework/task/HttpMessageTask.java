@@ -4,7 +4,7 @@ import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.framework.e.e;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallelType;
 /* loaded from: classes.dex */
-public class HttpMessageTask extends b {
+public final class HttpMessageTask extends b {
     private e e;
     private Class<? extends com.baidu.adp.framework.message.c> f;
     private String g;
@@ -29,40 +29,40 @@ public class HttpMessageTask extends b {
         }
     }
 
-    public String a() {
+    public final String a() {
         return this.g;
     }
 
-    public HTTP_METHOD c() {
+    public final HTTP_METHOD c() {
         return this.h;
     }
 
-    public boolean d() {
+    public final boolean d() {
         return this.i;
     }
 
-    public boolean e() {
+    public final boolean e() {
         return this.j;
     }
 
-    public Class<? extends com.baidu.adp.framework.message.c> f() {
+    public final Class<? extends com.baidu.adp.framework.message.c> f() {
         return this.f;
     }
 
     @Override // com.baidu.adp.framework.task.b
-    public boolean b() {
+    public final boolean b() {
         return FrameHelper.b(this.a);
     }
 
-    public e g() {
+    public final e g() {
         return this.e;
     }
 
-    public void a(e eVar) {
+    public final void a(e eVar) {
         this.e = eVar;
     }
 
-    public BdAsyncTaskParallelType h() {
+    public final BdAsyncTaskParallelType h() {
         return this.k;
     }
 }

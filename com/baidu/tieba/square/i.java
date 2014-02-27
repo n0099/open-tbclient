@@ -16,7 +16,7 @@ import com.baidu.tieba.view.bg;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class i extends BaseAdapter implements bg {
+public final class i extends BaseAdapter implements bg {
     private final Context b;
     private au c;
     private com.baidu.tieba.util.i d;
@@ -30,12 +30,12 @@ public class i extends BaseAdapter implements bg {
         this.d.a(a, a);
     }
 
-    public void a(au auVar) {
+    public final void a(au auVar) {
         this.c = auVar;
     }
 
     @Override // android.widget.Adapter
-    public int getCount() {
+    public final int getCount() {
         if (this.c == null || this.c.d().size() == 0) {
             return 0;
         }
@@ -43,16 +43,45 @@ public class i extends BaseAdapter implements bg {
         if (d == null || d.size() <= 0) {
             return 1;
         }
-        return 1 + d.size();
+        return d.size() + 1;
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public final View getView(int i, View view, ViewGroup viewGroup) {
         View findViewById;
+        View view2;
         int itemViewType = getItemViewType(i);
         if (view == null) {
-            view = a(i, viewGroup, itemViewType);
-            ch.b(view);
+            LayoutInflater from = LayoutInflater.from(this.b);
+            if (itemViewType == 0) {
+                view2 = from.inflate(R.layout.bar_home_header, (ViewGroup) null);
+            } else if (itemViewType == 2) {
+                View inflate = from.inflate(R.layout.bar_home_all_dir_item, (ViewGroup) null);
+                at atVar = new at();
+                atVar.f = SocialConstants.TRUE;
+                n nVar = new n();
+                nVar.a = (HeadImageView) inflate.findViewById(R.id.portrait);
+                nVar.b = (TextView) inflate.findViewById(R.id.squre_name);
+                nVar.c = (BestStringsFitTextView) inflate.findViewById(R.id.description);
+                nVar.d = atVar;
+                inflate.setOnClickListener(this.a);
+                inflate.setTag(nVar);
+                view2 = inflate;
+            } else {
+                View inflate2 = from.inflate(R.layout.bar_home_first_dir_item, (ViewGroup) null);
+                inflate2.setOnClickListener(this.a);
+                at atVar2 = new at();
+                atVar2.f = SocialConstants.FALSE;
+                n nVar2 = new n();
+                nVar2.a = (HeadImageView) inflate2.findViewById(R.id.portrait);
+                nVar2.b = (TextView) inflate2.findViewById(R.id.squre_name);
+                nVar2.c = (BestStringsFitTextView) inflate2.findViewById(R.id.description);
+                nVar2.d = atVar2;
+                inflate2.setTag(nVar2);
+                view2 = inflate2;
+            }
+            ch.b(view2);
+            view = view2;
         }
         if (itemViewType == 0) {
             if (this.c != null) {
@@ -65,15 +94,15 @@ public class i extends BaseAdapter implements bg {
             ch.a(view);
             a(viewGroup, (n) view.getTag(), i, "normal");
         }
-        int al = TiebaApplication.g().al();
+        int ae = TiebaApplication.g().ae();
         com.baidu.tieba.k kVar = (com.baidu.tieba.k) this.b;
-        kVar.a().a(al == 1);
+        kVar.a().a(ae == 1);
         kVar.a().a(view);
         if (itemViewType == 0) {
             View findViewById2 = view.findViewById(R.id.post_recommend_line_up);
             View findViewById3 = view.findViewById(R.id.post_recommend_line_down);
             if (findViewById2 != null && findViewById3 != null) {
-                if (al == 1) {
+                if (ae == 1) {
                     findViewById2.setBackgroundColor(this.b.getResources().getColor(R.color.square_dividing_line_1));
                     findViewById3.setBackgroundColor(this.b.getResources().getColor(R.color.square_dividing_line_1));
                 } else {
@@ -82,44 +111,13 @@ public class i extends BaseAdapter implements bg {
                 }
             }
         } else if (itemViewType == 1 && (findViewById = view.findViewById(R.id.bar_folder_item_bottom_line)) != null) {
-            if (al == 1) {
+            if (ae == 1) {
                 findViewById.setBackgroundColor(this.b.getResources().getColor(R.color.square_dividing_line_1));
             } else {
                 findViewById.setBackgroundColor(this.b.getResources().getColor(R.color.square_dividing_line));
             }
         }
         return view;
-    }
-
-    private View a(int i, ViewGroup viewGroup, int i2) {
-        LayoutInflater from = LayoutInflater.from(this.b);
-        if (i2 == 0) {
-            return from.inflate(R.layout.bar_home_header, (ViewGroup) null);
-        }
-        if (i2 == 2) {
-            View inflate = from.inflate(R.layout.bar_home_all_dir_item, (ViewGroup) null);
-            at atVar = new at();
-            atVar.f = SocialConstants.TRUE;
-            n nVar = new n();
-            nVar.a = (HeadImageView) inflate.findViewById(R.id.portrait);
-            nVar.b = (TextView) inflate.findViewById(R.id.squre_name);
-            nVar.c = (BestStringsFitTextView) inflate.findViewById(R.id.description);
-            nVar.d = atVar;
-            inflate.setOnClickListener(this.a);
-            inflate.setTag(nVar);
-            return inflate;
-        }
-        View inflate2 = from.inflate(R.layout.bar_home_first_dir_item, (ViewGroup) null);
-        inflate2.setOnClickListener(this.a);
-        at atVar2 = new at();
-        atVar2.f = SocialConstants.FALSE;
-        n nVar2 = new n();
-        nVar2.a = (HeadImageView) inflate2.findViewById(R.id.portrait);
-        nVar2.b = (TextView) inflate2.findViewById(R.id.squre_name);
-        nVar2.c = (BestStringsFitTextView) inflate2.findViewById(R.id.description);
-        nVar2.d = atVar2;
-        inflate2.setTag(nVar2);
-        return inflate2;
     }
 
     private void a(ViewGroup viewGroup, n nVar, int i, String str) {
@@ -148,12 +146,12 @@ public class i extends BaseAdapter implements bg {
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
+    public final int getViewTypeCount() {
         return 3;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
+    public final int getItemViewType(int i) {
         if (i == 0) {
             return 0;
         }
@@ -164,32 +162,35 @@ public class i extends BaseAdapter implements bg {
     }
 
     @Override // android.widget.Adapter
-    public Object getItem(int i) {
+    public final Object getItem(int i) {
         return null;
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    public final long getItemId(int i) {
         return 0L;
     }
 
-    public Context a() {
+    public final Context a() {
         return this.b;
     }
 
     @Override // com.baidu.tieba.view.bg
-    public void d() {
-        this.d.d();
+    public final void d() {
+        this.d.c();
     }
 
     @Override // com.baidu.tieba.view.bg
-    public void a(View view, int i, int i2) {
+    public final void a(View view, int i, int i2) {
         while (i <= i2) {
             if (getItemViewType(i) == 1) {
                 this.d.a();
                 at atVar = this.c.d().get(i - 1);
-                if (atVar.e != null && this.d.d(atVar.e) == null) {
-                    this.d.b(atVar.e, new m(this, view));
+                if (atVar.e != null) {
+                    com.baidu.tieba.util.i iVar = this.d;
+                    if (com.baidu.tbadk.imageManager.e.a().c(atVar.e) == null) {
+                        this.d.b(atVar.e, new m(this, view));
+                    }
                 }
             }
             i++;

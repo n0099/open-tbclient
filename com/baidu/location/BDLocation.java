@@ -268,160 +268,160 @@ public final class BDLocation {
         this.e = bool.booleanValue();
     }
 
-    public String getAddrStr() {
+    public final String getAddrStr() {
         return this.mAddr.f19try;
     }
 
-    public double getAltitude() {
+    public final double getAltitude() {
         return this.f;
     }
 
-    public String getCity() {
+    public final String getCity() {
         return this.mAddr.f18new;
     }
 
-    public String getCityCode() {
+    public final String getCityCode() {
         return this.mAddr.f15for;
     }
 
-    public String getCoorType() {
+    public final String getCoorType() {
         return this.f6goto;
     }
 
-    public float getDerect() {
+    public final float getDerect() {
         return this.f2char;
     }
 
-    public String getDistrict() {
+    public final String getDistrict() {
         return this.mAddr.f17int;
     }
 
-    public double getLatitude() {
+    public final double getLatitude() {
         return this.f4else;
     }
 
-    public int getLocType() {
+    public final int getLocType() {
         return this.f7if;
     }
 
-    public double getLongitude() {
+    public final double getLongitude() {
         return this.f5for;
     }
 
-    public String getPoi() {
+    public final String getPoi() {
         return this.f0byte;
     }
 
-    public String getProvince() {
+    public final String getProvince() {
         return this.mAddr.f16if;
     }
 
-    public float getRadius() {
+    public final float getRadius() {
         return this.f9long;
     }
 
-    public int getSatelliteNumber() {
+    public final int getSatelliteNumber() {
         this.b = true;
         return this.f3do;
     }
 
-    public float getSpeed() {
+    public final float getSpeed() {
         return this.f10new;
     }
 
-    public String getStreet() {
+    public final String getStreet() {
         return this.mAddr.f13byte;
     }
 
-    public String getStreetNumber() {
+    public final String getStreetNumber() {
         return this.mAddr.f14do;
     }
 
-    public String getTime() {
+    public final String getTime() {
         return this.d;
     }
 
-    public boolean hasAddr() {
+    public final boolean hasAddr() {
         return this.f12void;
     }
 
-    public boolean hasAltitude() {
+    public final boolean hasAltitude() {
         return this.c;
     }
 
-    public boolean hasPoi() {
+    public final boolean hasPoi() {
         return this.f1case;
     }
 
-    public boolean hasRadius() {
+    public final boolean hasRadius() {
         return this.f11try;
     }
 
-    public boolean hasSateNumber() {
+    public final boolean hasSateNumber() {
         return this.b;
     }
 
-    public boolean hasSpeed() {
+    public final boolean hasSpeed() {
         return this.f8int;
     }
 
-    public boolean isCellChangeFlag() {
+    public final boolean isCellChangeFlag() {
         return this.e;
     }
 
-    public void setAddrStr(String str) {
+    public final void setAddrStr(String str) {
         this.a = str;
         this.f12void = true;
     }
 
-    public void setAltitude(double d) {
+    public final void setAltitude(double d) {
         this.f = d;
         this.c = true;
     }
 
-    public void setCoorType(String str) {
+    public final void setCoorType(String str) {
         this.f6goto = str;
     }
 
-    public void setDerect(float f) {
+    public final void setDerect(float f) {
         this.f2char = f;
     }
 
-    public void setLatitude(double d) {
+    public final void setLatitude(double d) {
         this.f4else = d;
     }
 
-    public void setLocType(int i) {
+    public final void setLocType(int i) {
         this.f7if = i;
     }
 
-    public void setLongitude(double d) {
+    public final void setLongitude(double d) {
         this.f5for = d;
     }
 
-    public void setRadius(float f) {
+    public final void setRadius(float f) {
         this.f9long = f;
         this.f11try = true;
     }
 
-    public void setSatelliteNumber(int i) {
+    public final void setSatelliteNumber(int i) {
         this.f3do = i;
     }
 
-    public void setSpeed(float f) {
+    public final void setSpeed(float f) {
         this.f10new = f;
         this.f8int = true;
     }
 
-    public void setTime(String str) {
+    public final void setTime(String str) {
         this.d = str;
     }
 
-    public String toJsonString() {
+    public final String toJsonString() {
         return null;
     }
 
-    public BDLocation toNewLocation(String str) {
+    public final BDLocation toNewLocation(String str) {
         return null;
     }
 }

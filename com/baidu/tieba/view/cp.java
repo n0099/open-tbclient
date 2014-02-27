@@ -1,29 +1,21 @@
 package com.baidu.tieba.view;
 
-import android.content.Context;
-import android.graphics.Canvas;
-import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.R;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cp extends com.baidu.tbadk.widget.b {
-    private int b;
+public final class cp implements View.OnClickListener {
+    final /* synthetic */ TbCheckBox a;
 
-    public cp(Context context) {
-        super(context);
-        this.b = -1;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cp(TbCheckBox tbCheckBox) {
+        this.a = tbCheckBox;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.widget.b, com.baidu.tbadk.widget.TbImageView, com.baidu.adp.widget.ImageView.BDImageView, android.widget.ImageView, android.view.View
-    public void onDraw(Canvas canvas) {
-        if (TiebaApplication.g().al() == 1) {
-            this.b = getResources().getColor(R.color.pb_default_image_bg_1);
-        } else {
-            this.b = getResources().getColor(R.color.pb_default_image_bg);
-        }
-        if (getImage() == null && this.b != -1) {
-            canvas.drawColor(this.b);
-        }
-        super.onDraw(canvas);
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        boolean d;
+        TbCheckBox tbCheckBox = this.a;
+        d = this.a.d();
+        tbCheckBox.setChecked(!d);
     }
 }

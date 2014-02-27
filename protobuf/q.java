@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.Im;
 /* loaded from: classes.dex */
 public final class q extends GeneratedMessageLite.Builder<Im.GroupPermission, q> implements r {
@@ -19,24 +20,34 @@ public final class q extends GeneratedMessageLite.Builder<Im.GroupPermission, q>
     private int j;
     private int k;
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        Im.GroupPermission buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return Im.GroupPermission.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return Im.GroupPermission.getDefaultInstance();
+    }
+
     private q() {
-        g();
     }
 
-    private void g() {
-    }
-
-    /* JADX DEBUG: Method not inlined, still used in: [protobuf.Im.GroupPermission.newBuilder():protobuf.q] */
-    public static /* synthetic */ q f() {
-        return h();
-    }
-
-    public static q h() {
+    public static /* synthetic */ q b() {
         return new q();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public q clear() {
         super.clear();
         this.b = 0;
@@ -63,30 +74,14 @@ public final class q extends GeneratedMessageLite.Builder<Im.GroupPermission, q>
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public q clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public Im.GroupPermission getDefaultInstanceForType() {
-        return Im.GroupPermission.getDefaultInstance();
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public Im.GroupPermission build() {
-        Im.GroupPermission buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
+    public q clone() {
+        return new q().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public Im.GroupPermission buildPartial() {
+    /* renamed from: a */
+    public final Im.GroupPermission buildPartial() {
         Im.GroupPermission groupPermission = new Im.GroupPermission(this, (Im.GroupPermission) null);
         int i = this.a;
         int i2 = (i & 1) != 1 ? 0 : 1;
@@ -133,22 +128,30 @@ public final class q extends GeneratedMessageLite.Builder<Im.GroupPermission, q>
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public q mergeFrom(Im.GroupPermission groupPermission) {
+    public final q mergeFrom(Im.GroupPermission groupPermission) {
         Object obj;
         Object obj2;
         Object obj3;
         if (groupPermission != Im.GroupPermission.getDefaultInstance()) {
             if (groupPermission.hasIsForumManager()) {
-                a(groupPermission.getIsForumManager());
+                int isForumManager = groupPermission.getIsForumManager();
+                this.a |= 1;
+                this.b = isForumManager;
             }
             if (groupPermission.hasCanCreateNormal()) {
-                b(groupPermission.getCanCreateNormal());
+                int canCreateNormal = groupPermission.getCanCreateNormal();
+                this.a |= 2;
+                this.c = canCreateNormal;
             }
             if (groupPermission.hasCanCreateOfficial()) {
-                c(groupPermission.getCanCreateOfficial());
+                int canCreateOfficial = groupPermission.getCanCreateOfficial();
+                this.a |= 4;
+                this.d = canCreateOfficial;
             }
             if (groupPermission.hasCanCreatePersonal()) {
-                d(groupPermission.getCanCreatePersonal());
+                int canCreatePersonal = groupPermission.getCanCreatePersonal();
+                this.a |= 8;
+                this.e = canCreatePersonal;
             }
             if (groupPermission.hasCreateNormalTip()) {
                 this.a |= 16;
@@ -166,13 +169,19 @@ public final class q extends GeneratedMessageLite.Builder<Im.GroupPermission, q>
                 this.h = obj;
             }
             if (groupPermission.hasCanCreateNormalNum()) {
-                e(groupPermission.getCanCreateNormalNum());
+                int canCreateNormalNum = groupPermission.getCanCreateNormalNum();
+                this.a |= 128;
+                this.i = canCreateNormalNum;
             }
             if (groupPermission.hasCanCreateOfficialNum()) {
-                f(groupPermission.getCanCreateOfficialNum());
+                int canCreateOfficialNum = groupPermission.getCanCreateOfficialNum();
+                this.a |= 256;
+                this.j = canCreateOfficialNum;
             }
             if (groupPermission.hasCanCreatePersonalNum()) {
-                g(groupPermission.getCanCreatePersonalNum());
+                int canCreatePersonalNum = groupPermission.getCanCreatePersonalNum();
+                this.a |= 512;
+                this.k = canCreatePersonalNum;
             }
         }
         return this;
@@ -219,47 +228,5 @@ public final class q extends GeneratedMessageLite.Builder<Im.GroupPermission, q>
                 throw th;
             }
         }
-    }
-
-    public q a(int i) {
-        this.a |= 1;
-        this.b = i;
-        return this;
-    }
-
-    public q b(int i) {
-        this.a |= 2;
-        this.c = i;
-        return this;
-    }
-
-    public q c(int i) {
-        this.a |= 4;
-        this.d = i;
-        return this;
-    }
-
-    public q d(int i) {
-        this.a |= 8;
-        this.e = i;
-        return this;
-    }
-
-    public q e(int i) {
-        this.a |= 128;
-        this.i = i;
-        return this;
-    }
-
-    public q f(int i) {
-        this.a |= 256;
-        this.j = i;
-        return this;
-    }
-
-    public q g(int i) {
-        this.a |= 512;
-        this.k = i;
-        return this;
     }
 }

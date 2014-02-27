@@ -9,14 +9,14 @@ import com.baidu.tieba.util.i;
 import com.baidu.tieba.util.l;
 import com.baidu.tieba.util.n;
 /* loaded from: classes.dex */
-public class e extends a {
+public final class e extends a {
     @Override // com.baidu.tieba.util.a.a
-    public Object a(String str, i iVar) {
+    public final Object a(String str, i iVar) {
         return com.baidu.tbadk.imageManager.e.a().b(str);
     }
 
     @Override // com.baidu.tieba.util.a.a
-    public Object a(String str, com.baidu.adp.lib.e.e eVar, i iVar, l lVar) {
+    public final Object a(String str, com.baidu.adp.lib.e.e eVar, i iVar, l lVar) {
         f a;
         if (lVar.g) {
             h d = com.baidu.tbadk.imageManager.e.d(str);
@@ -49,10 +49,8 @@ public class e extends a {
                     return null;
                 }
                 if (lVar.i != null) {
-                    if (bv.a().b()) {
-                    }
-                    if (lVar.i.e()) {
-                    }
+                    bv.a().b();
+                    lVar.i.e();
                     eVar.d(lVar);
                 }
                 return lVar.i;
@@ -62,7 +60,7 @@ public class e extends a {
     }
 
     @Override // com.baidu.tieba.util.a.a
-    public Object b(String str, com.baidu.adp.lib.e.e eVar, i iVar, l lVar) {
+    public final Object b(String str, com.baidu.adp.lib.e.e eVar, i iVar, l lVar) {
         h d = com.baidu.tbadk.imageManager.e.d(str);
         int i = lVar.d;
         String str2 = null;
@@ -72,7 +70,7 @@ public class e extends a {
             str2 = String.valueOf(com.baidu.tieba.data.i.z()) + d.a;
         }
         lVar.a = new ba(iVar.a, str2);
-        lVar.a.a(iVar.f(), 3);
+        lVar.a.a(iVar.e(), 3);
         if (iVar.h != null) {
             int i2 = 0;
             while (true) {
@@ -84,8 +82,8 @@ public class e extends a {
                 i2 = i3 + 1;
             }
         }
-        byte[] l = lVar.a.l();
-        if (l == null || !lVar.a.d() || lVar.n) {
+        byte[] k = lVar.a.k();
+        if (k == null || !lVar.a.c() || lVar.n) {
             return null;
         }
         String a = iVar.a(d.a);
@@ -93,11 +91,11 @@ public class e extends a {
             if (lVar.n) {
                 return null;
             }
-            lVar.e = n.a(l);
+            lVar.e = n.a(k);
             if (lVar.e == null) {
                 return null;
             }
-            lVar.h = BdUtilHelper.a(l);
+            lVar.h = BdUtilHelper.a(k);
             if (lVar.n) {
                 return null;
             }
@@ -106,14 +104,14 @@ public class e extends a {
                 i4 = com.baidu.tieba.data.i.A();
             }
             if (lVar.e.getWidth() > i4 || lVar.e.getHeight() > i4) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", "photo_too_big:" + String.valueOf(String.valueOf(lVar.e.getWidth()) + "*" + String.valueOf(lVar.e.getHeight())));
-                com.baidu.tbadk.imageManager.e.a().c(n.a(lVar.e) * 2);
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "doInBackground", "photo_too_big:" + String.valueOf(String.valueOf(lVar.e.getWidth()) + "*" + String.valueOf(lVar.e.getHeight())));
+                com.baidu.tbadk.imageManager.e.a().b(n.a(lVar.e) * 2);
                 lVar.e = n.a(lVar.e, i4);
             }
             if (lVar.n) {
                 return null;
             }
-            com.baidu.tbadk.imageManager.e.a().c(n.a(lVar.e) * 2);
+            com.baidu.tbadk.imageManager.e.a().b(n.a(lVar.e) * 2);
             lVar.e = n.a(lVar.e, 7.0f, true);
             if (lVar.n) {
                 return null;
@@ -140,7 +138,7 @@ public class e extends a {
         }
     }
 
-    public static void a(String str, com.baidu.adp.widget.ImageView.b bVar) {
+    private static void a(String str, com.baidu.adp.widget.ImageView.b bVar) {
         com.baidu.tbadk.imageManager.e.a().a(str, bVar);
     }
 }

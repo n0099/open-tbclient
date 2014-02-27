@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class HttpMessage extends e<List<Map.Entry<String, Object>>> {
+public final class HttpMessage extends e<List<Map.Entry<String, Object>>> {
     private HashMap<String, String> a;
     private HashMap<String, Object> b;
     private Comparator<Map.Entry<String, Object>> c;
@@ -31,15 +31,15 @@ public class HttpMessage extends e<List<Map.Entry<String, Object>>> {
         }
     }
 
-    public HashMap<String, String> a() {
+    public final HashMap<String, String> a() {
         return this.a;
     }
 
-    public boolean b() {
+    public final boolean b() {
         return this.d > 0;
     }
 
-    public List<Map.Entry<String, Object>> c() {
+    public final List<Map.Entry<String, Object>> c() {
         ArrayList arrayList = new ArrayList(this.b.entrySet());
         if (this.c != null) {
             Collections.sort(arrayList, this.c);
@@ -48,7 +48,7 @@ public class HttpMessage extends e<List<Map.Entry<String, Object>>> {
     }
 
     @Override // com.baidu.adp.framework.message.e
-    public boolean a(int i) {
+    public final boolean a(int i) {
         return FrameHelper.b(i);
     }
 }

@@ -27,7 +27,7 @@ public class NumCountDownView extends LinearLayout {
         a(context);
     }
 
-    public void a(Context context) {
+    private void a(Context context) {
         this.a = LayoutInflater.from(context).inflate(R.layout.num_count_down_view, this);
         this.a.setLayoutParams(new LinearLayout.LayoutParams(context.getResources().getDimensionPixelSize(R.dimen.num_count_down_width), -2));
         setOrientation(0);
@@ -42,23 +42,23 @@ public class NumCountDownView extends LinearLayout {
         this.c.setText(this.e);
     }
 
-    public void a(long j, long j2) {
-        this.f = new bz(this, j, j2);
+    public final void a(long j, long j2) {
+        this.f = new bz(this, 30000L, 1000L);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(long j) {
-        this.d = String.valueOf(String.valueOf(j / 1000)) + "\"";
-        this.b.setText(this.d);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(NumCountDownView numCountDownView, long j) {
+        numCountDownView.d = String.valueOf(String.valueOf(j / 1000)) + "\"";
+        numCountDownView.b.setText(numCountDownView.d);
     }
 
-    public void a() {
+    public final void a() {
         if (this.f != null) {
             this.f.c();
         }
     }
 
-    public void b() {
+    public final void b() {
         if (this.f != null) {
             this.f.b();
         }

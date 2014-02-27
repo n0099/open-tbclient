@@ -3,7 +3,7 @@ package com.baidu.tieba;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s implements View.OnClickListener {
+public final class s implements View.OnClickListener {
     final /* synthetic */ FragmentTabWidget a;
     private final int b;
 
@@ -13,14 +13,14 @@ public class s implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ s(FragmentTabWidget fragmentTabWidget, int i, s sVar) {
+    public /* synthetic */ s(FragmentTabWidget fragmentTabWidget, int i, byte b) {
         this(fragmentTabWidget, i);
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         r rVar;
         rVar = this.a.b;
-        rVar.a(this.b, true);
+        rVar.a(this.b);
     }
 }

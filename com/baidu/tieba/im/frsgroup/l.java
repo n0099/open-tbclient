@@ -8,7 +8,7 @@ import com.baidu.tieba.im.message.cy;
 import com.slidingmenu.lib.R;
 import java.util.List;
 /* loaded from: classes.dex */
-class l implements com.baidu.tieba.im.messageCenter.g {
+final class l implements com.baidu.tieba.im.messageCenter.g {
     final /* synthetic */ GroupLevelActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,7 +17,7 @@ class l implements com.baidu.tieba.im.messageCenter.g {
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.s sVar) {
+    public final void a(com.baidu.tieba.im.message.s sVar) {
         m mVar;
         GroupLevelInfo.LevelInfo levelInfo;
         m mVar2;
@@ -32,7 +32,7 @@ class l implements com.baidu.tieba.im.messageCenter.g {
             this.a.showToast(R.string.neterror);
             return;
         }
-        com.baidu.adp.lib.util.f.e("msg:" + sVar.w());
+        com.baidu.adp.lib.util.e.e("msg:" + sVar.w());
         if (sVar instanceof cb) {
             cb cbVar = (cb) sVar;
             if (cbVar.l()) {
@@ -63,33 +63,33 @@ class l implements com.baidu.tieba.im.messageCenter.g {
                     mVar2 = this.a.b;
                     mVar2.a(grade, a.isMemGroup());
                     mVar3 = this.a.b;
-                    mVar3.h().setText(intro);
+                    mVar3.g().setText(intro);
                     mVar4 = this.a.b;
                     mVar4.a(grade, activeDay, thresholdDay);
-                    com.baidu.adp.lib.util.f.e("isMemGroup:" + a.isMemGroup() + " ahthor:" + a.isGroupAuthor() + " canCreate:" + a.isCanCreateMember() + " leftNum:" + a.getLeftCreateMemGroup());
+                    com.baidu.adp.lib.util.e.e("isMemGroup:" + a.isMemGroup() + " ahthor:" + a.isGroupAuthor() + " canCreate:" + a.isCanCreateMember() + " leftNum:" + a.getLeftCreateMemGroup());
                     mVar5 = this.a.b;
                     mVar5.a(a.isMemGroup(), a.isGroupAuthor(), a.isCanCreateMember(), a.getLeftCreateMemGroup());
                     mVar6 = this.a.b;
-                    TextView[] f = mVar6.f();
+                    TextView[] e = mVar6.e();
                     for (int i = 1; i < levelInfos.size(); i++) {
                         int maxMemberNum = levelInfos.get(i).getMaxMemberNum();
-                        if (i <= f.length) {
-                            f[i].setText(this.a.getString(R.string.grouplevel_level_condition, new Object[]{String.valueOf(maxMemberNum)}));
+                        if (i <= e.length) {
+                            e[i].setText(this.a.getString(R.string.grouplevel_level_condition, new Object[]{String.valueOf(maxMemberNum)}));
                         }
                     }
                     mVar7 = this.a.b;
-                    TextView[] g = mVar7.g();
+                    TextView[] f = mVar7.f();
                     for (int i2 = 1; i2 < vipLevelInfos.size(); i2++) {
                         int maxMemberNum2 = vipLevelInfos.get(i2).getMaxMemberNum();
-                        if (i2 <= g.length) {
-                            g[i2].setText(this.a.getString(R.string.grouplevel_level_condition, new Object[]{String.valueOf(maxMemberNum2)}));
+                        if (i2 <= f.length) {
+                            f[i2].setText(this.a.getString(R.string.grouplevel_level_condition, new Object[]{String.valueOf(maxMemberNum2)}));
                         }
                     }
                 }
             }
         } else if (sVar instanceof cy) {
             cy cyVar = (cy) sVar;
-            com.baidu.adp.lib.util.f.e("get upgrade mem group msg:" + cyVar.w() + " err:" + String.valueOf(cyVar.m()));
+            com.baidu.adp.lib.util.e.e("get upgrade mem group msg:" + cyVar.w() + " err:" + String.valueOf(cyVar.m()));
             if (!cyVar.l()) {
                 this.a.a();
             } else if (cyVar.m() == 2230110) {

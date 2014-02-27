@@ -23,7 +23,7 @@ public class bn extends da implements com.baidu.tieba.im.coder.f {
     }
 
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<s> linkedList, byte[] bArr, int i) {
+    public final void a(LinkedList<s> linkedList, byte[] bArr, int i) {
         QueryChatroomInfoRes.QueryChatroomInfoResIdl parseFrom = QueryChatroomInfoRes.QueryChatroomInfoResIdl.parseFrom(bArr);
         g(parseFrom.getError().getErrorno());
         c(parseFrom.getError().getUsermsg());
@@ -37,11 +37,11 @@ public class bn extends da implements com.baidu.tieba.im.coder.f {
             this.e = data.getLeftTime();
             this.f = data.getTitle();
             this.g = data.getContent();
-            com.baidu.adp.lib.util.f.e(toString());
+            com.baidu.adp.lib.util.e.e(toString());
         }
     }
 
-    public List<Im.UserInfo> a() {
+    public final List<Im.UserInfo> a() {
         return this.c;
     }
 }

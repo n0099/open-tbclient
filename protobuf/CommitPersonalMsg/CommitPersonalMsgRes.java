@@ -17,8 +17,10 @@ public final class CommitPersonalMsgRes {
     public final class DataRes extends GeneratedMessageLite implements l {
         public static final int GROUPID_FIELD_NUMBER = 2;
         public static final int MSGID_FIELD_NUMBER = 1;
+        public static Parser<DataRes> PARSER = new j();
         public static final int RECORDID_FIELD_NUMBER = 3;
         public static final int TOUID_FIELD_NUMBER = 4;
+        private static final DataRes a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private int groupId_;
@@ -27,8 +29,6 @@ public final class CommitPersonalMsgRes {
         private long msgId_;
         private long recordId_;
         private long toUid_;
-        public static Parser<DataRes> PARSER = new j();
-        private static final DataRes a = new DataRes(true);
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ DataRes(GeneratedMessageLite.Builder builder, DataRes dataRes) {
@@ -41,7 +41,7 @@ public final class CommitPersonalMsgRes {
             this.memoizedSerializedSize = -1;
         }
 
-        private DataRes(boolean z) {
+        private DataRes() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -52,7 +52,7 @@ public final class CommitPersonalMsgRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public DataRes getDefaultInstanceForType() {
+        public final DataRes getDefaultInstanceForType() {
             return a;
         }
 
@@ -110,43 +110,45 @@ public final class CommitPersonalMsgRes {
         }
 
         static {
-            a.a();
+            DataRes dataRes = new DataRes();
+            a = dataRes;
+            dataRes.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<DataRes> getParserForType() {
+        public final Parser<DataRes> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasMsgId() {
+        public final boolean hasMsgId() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public long getMsgId() {
+        public final long getMsgId() {
             return this.msgId_;
         }
 
-        public boolean hasGroupId() {
+        public final boolean hasGroupId() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public int getGroupId() {
+        public final int getGroupId() {
             return this.groupId_;
         }
 
-        public boolean hasRecordId() {
+        public final boolean hasRecordId() {
             return (this.bitField0_ & 4) == 4;
         }
 
-        public long getRecordId() {
+        public final long getRecordId() {
             return this.recordId_;
         }
 
-        public boolean hasToUid() {
+        public final boolean hasToUid() {
             return (this.bitField0_ & 8) == 8;
         }
 
-        public long getToUid() {
+        public final long getToUid() {
             return this.toUid_;
         }
 
@@ -168,7 +170,7 @@ public final class CommitPersonalMsgRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeInt64(1, this.msgId_);
@@ -185,10 +187,13 @@ public final class CommitPersonalMsgRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt64Size(1, this.msgId_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeInt64Size(1, this.msgId_) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeInt32Size(2, this.groupId_);
                 }
@@ -205,7 +210,7 @@ public final class CommitPersonalMsgRes {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -250,12 +255,12 @@ public final class CommitPersonalMsgRes {
         }
 
         public static k newBuilder() {
-            return k.f();
+            return k.b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public k newBuilderForType() {
+        public final k newBuilderForType() {
             return newBuilder();
         }
 
@@ -265,7 +270,7 @@ public final class CommitPersonalMsgRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public k toBuilder() {
+        public final k toBuilder() {
             return newBuilder(this);
         }
     }
@@ -275,7 +280,7 @@ public final class CommitPersonalMsgRes {
         public static final int DATA_FIELD_NUMBER = 2;
         public static final int ERROR_FIELD_NUMBER = 1;
         public static Parser<CommitPersonalMsgResIdl> PARSER = new g();
-        private static final CommitPersonalMsgResIdl a = new CommitPersonalMsgResIdl(true);
+        private static final CommitPersonalMsgResIdl a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private DataRes data_;
@@ -294,7 +299,7 @@ public final class CommitPersonalMsgRes {
             this.memoizedSerializedSize = -1;
         }
 
-        private CommitPersonalMsgResIdl(boolean z) {
+        private CommitPersonalMsgResIdl() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -305,7 +310,7 @@ public final class CommitPersonalMsgRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public CommitPersonalMsgResIdl getDefaultInstanceForType() {
+        public final CommitPersonalMsgResIdl getDefaultInstanceForType() {
             return a;
         }
 
@@ -365,27 +370,29 @@ public final class CommitPersonalMsgRes {
         }
 
         static {
-            a.a();
+            CommitPersonalMsgResIdl commitPersonalMsgResIdl = new CommitPersonalMsgResIdl();
+            a = commitPersonalMsgResIdl;
+            commitPersonalMsgResIdl.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<CommitPersonalMsgResIdl> getParserForType() {
+        public final Parser<CommitPersonalMsgResIdl> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasError() {
+        public final boolean hasError() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public Im.Error getError() {
+        public final Im.Error getError() {
             return this.error_;
         }
 
-        public boolean hasData() {
+        public final boolean hasData() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public DataRes getData() {
+        public final DataRes getData() {
             return this.data_;
         }
 
@@ -405,7 +412,7 @@ public final class CommitPersonalMsgRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeMessage(1, this.error_);
@@ -416,10 +423,13 @@ public final class CommitPersonalMsgRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeMessageSize(1, this.error_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeMessageSize(1, this.error_) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeMessageSize(2, this.data_);
                 }
@@ -430,7 +440,7 @@ public final class CommitPersonalMsgRes {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -475,12 +485,12 @@ public final class CommitPersonalMsgRes {
         }
 
         public static h newBuilder() {
-            return h.f();
+            return h.a();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public h newBuilderForType() {
+        public final h newBuilderForType() {
             return newBuilder();
         }
 
@@ -490,7 +500,7 @@ public final class CommitPersonalMsgRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public h toBuilder() {
+        public final h toBuilder() {
             return newBuilder(this);
         }
     }

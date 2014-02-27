@@ -1,10 +1,9 @@
 package com.baidu.tieba.mainentrance;
 
-import android.view.KeyEvent;
-import android.widget.TextView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.CompoundButton;
+import android.widget.RadioButton;
 /* loaded from: classes.dex */
-public class ae implements TextView.OnEditorActionListener {
+final class ae implements CompoundButton.OnCheckedChangeListener {
     final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,21 +11,19 @@ public class ae implements TextView.OnEditorActionListener {
         this.a = squareSearchActivity;
     }
 
-    @Override // android.widget.TextView.OnEditorActionListener
-    public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-        int i2;
-        String str;
-        if (i == 2) {
-            i2 = this.a.D;
-            if (i2 == 0) {
-                this.a.d();
-                return true;
-            }
-            SquareSearchActivity squareSearchActivity = this.a;
-            str = this.a.C;
-            squareSearchActivity.a(1, str);
-            return true;
+    @Override // android.widget.CompoundButton.OnCheckedChangeListener
+    public final void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+        RadioButton radioButton;
+        RadioButton radioButton2;
+        RadioButton radioButton3;
+        if (z) {
+            this.a.a(0);
+            radioButton = this.a.l;
+            radioButton.setChecked(false);
+            radioButton2 = this.a.l;
+            radioButton2.setSelected(false);
+            radioButton3 = this.a.k;
+            radioButton3.setSelected(true);
         }
-        return false;
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.message;
 /* loaded from: classes.dex */
-public class de extends s {
+public final class de extends s {
     private boolean a;
     private String b;
     private String c;
@@ -10,35 +10,35 @@ public class de extends s {
         super.e(-118);
     }
 
-    public boolean a() {
+    public final boolean a() {
         return this.a;
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.a = z;
     }
 
-    public String b() {
+    public final String b() {
         return this.b;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.b = str;
     }
 
-    public String c() {
+    public final String c() {
         return this.c;
     }
 
-    public void b(String str) {
+    public final void b(String str) {
         this.c = str;
     }
 
-    public boolean d() {
+    public final boolean d() {
         return this.d;
     }
 
-    public void b(boolean z) {
+    public final void b(boolean z) {
         this.d = z;
     }
 }

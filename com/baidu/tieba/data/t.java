@@ -3,7 +3,7 @@ package com.baidu.tieba.data;
 import com.baidu.android.pushservice.PushConstants;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class t {
+public final class t {
     private int a = 0;
     private long b = 0;
     private String c = null;
@@ -17,47 +17,47 @@ public class t {
     private int k;
     private String l;
 
-    public int a() {
+    public final int a() {
         return this.a;
     }
 
-    public long b() {
+    public final long b() {
         return this.b;
     }
 
-    public String c() {
+    public final String c() {
         return this.c;
     }
 
-    public String d() {
+    public final String d() {
         return this.d;
     }
 
-    public String e() {
+    public final String e() {
         return this.e;
     }
 
-    public String f() {
+    public final String f() {
         return this.f;
     }
 
-    public String g() {
+    public final String g() {
         return this.g;
     }
 
-    public String h() {
+    public final String h() {
         return this.h;
     }
 
-    public MetaData i() {
+    public final MetaData i() {
         return this.i;
     }
 
-    public boolean j() {
+    public final boolean j() {
         return this.k == 1;
     }
 
-    public void a(JSONObject jSONObject) {
+    public final void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 this.a = jSONObject.optInt("type", 0);
@@ -73,7 +73,7 @@ public class t {
                 this.i.parserJson(jSONObject.optJSONObject("replyer"));
                 this.j.parserJson(jSONObject.optJSONObject("quote_user"));
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b("FeedData", "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.util.e.b("FeedData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

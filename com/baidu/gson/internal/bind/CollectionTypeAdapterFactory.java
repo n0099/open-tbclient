@@ -21,7 +21,7 @@ public final class CollectionTypeAdapterFactory implements TypeAdapterFactory {
     }
 
     @Override // com.baidu.gson.TypeAdapterFactory
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) {
+    public final <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) {
         Type type = typeToken.getType();
         Class<? super T> rawType = typeToken.getRawType();
         if (!Collection.class.isAssignableFrom(rawType)) {
@@ -37,7 +37,7 @@ public final class CollectionTypeAdapterFactory implements TypeAdapterFactory {
         private final TypeAdapter<E> elementTypeAdapter;
 
         @Override // com.baidu.gson.TypeAdapter
-        public /* bridge */ /* synthetic */ void write(JsonWriter jsonWriter, Object obj) {
+        public final /* bridge */ /* synthetic */ void write(JsonWriter jsonWriter, Object obj) {
             write(jsonWriter, (Collection) ((Collection) obj));
         }
 
@@ -48,7 +48,7 @@ public final class CollectionTypeAdapterFactory implements TypeAdapterFactory {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.gson.TypeAdapter
-        public Collection<E> read(JsonReader jsonReader) {
+        public final Collection<E> read(JsonReader jsonReader) {
             if (jsonReader.peek() == JsonToken.NULL) {
                 jsonReader.nextNull();
                 return null;
@@ -62,7 +62,7 @@ public final class CollectionTypeAdapterFactory implements TypeAdapterFactory {
             return construct;
         }
 
-        public void write(JsonWriter jsonWriter, Collection<E> collection) {
+        public final void write(JsonWriter jsonWriter, Collection<E> collection) {
             if (collection == null) {
                 jsonWriter.nullValue();
                 return;

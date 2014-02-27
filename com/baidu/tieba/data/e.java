@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class e {
+public final class e {
     private UserData a;
     private ArrayList<String> b;
 
@@ -15,23 +15,23 @@ public class e {
         this.b = new ArrayList<>(3);
     }
 
-    public UserData a() {
+    public final UserData a() {
         return this.a;
     }
 
-    public ArrayList<String> b() {
+    public final ArrayList<String> b() {
         return this.b;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
+            com.baidu.adp.lib.util.e.b(getClass().getName(), "parserJson", e.getMessage());
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    private void a(JSONObject jSONObject) {
         try {
             this.a.parserJson(jSONObject.optJSONObject("user"));
             JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
@@ -41,7 +41,7 @@ public class e {
                 }
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
+            com.baidu.adp.lib.util.e.b(getClass().getName(), "parserJson", e.getMessage());
         }
     }
 }

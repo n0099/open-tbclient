@@ -21,9 +21,11 @@ public final class UpdateClientInfoReq {
         public static final int HEIGHT_FIELD_NUMBER = 7;
         public static final int LAT_FIELD_NUMBER = 4;
         public static final int LNG_FIELD_NUMBER = 5;
+        public static Parser<DataReq> PARSER = new a();
         public static final int SECRETKEY_FIELD_NUMBER = 3;
         public static final int UNREAD_MSG_FIELD_NUMBER = 8;
         public static final int WIDTH_FIELD_NUMBER = 6;
+        private static final DataReq a;
         private static final long serialVersionUID = 0;
         private Object bduss_;
         private int bitField0_;
@@ -36,8 +38,6 @@ public final class UpdateClientInfoReq {
         private ByteString secretKey_;
         private int unreadMsg_;
         private int width_;
-        public static Parser<DataReq> PARSER = new a();
-        private static final DataReq a = new DataReq(true);
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ DataReq(GeneratedMessageLite.Builder builder, DataReq dataReq) {
@@ -50,7 +50,7 @@ public final class UpdateClientInfoReq {
             this.memoizedSerializedSize = -1;
         }
 
-        private DataReq(boolean z) {
+        private DataReq() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -61,7 +61,7 @@ public final class UpdateClientInfoReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public DataReq getDefaultInstanceForType() {
+        public final DataReq getDefaultInstanceForType() {
             return a;
         }
 
@@ -135,19 +135,21 @@ public final class UpdateClientInfoReq {
         }
 
         static {
-            a.a();
+            DataReq dataReq = new DataReq();
+            a = dataReq;
+            dataReq.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<DataReq> getParserForType() {
+        public final Parser<DataReq> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasBduss() {
+        public final boolean hasBduss() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public String getBduss() {
+        public final String getBduss() {
             Object obj = this.bduss_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -160,7 +162,7 @@ public final class UpdateClientInfoReq {
             return stringUtf8;
         }
 
-        public ByteString getBdussBytes() {
+        public final ByteString getBdussBytes() {
             Object obj = this.bduss_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -170,11 +172,11 @@ public final class UpdateClientInfoReq {
             return (ByteString) obj;
         }
 
-        public boolean hasDevice() {
+        public final boolean hasDevice() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public String getDevice() {
+        public final String getDevice() {
             Object obj = this.device_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -187,7 +189,7 @@ public final class UpdateClientInfoReq {
             return stringUtf8;
         }
 
-        public ByteString getDeviceBytes() {
+        public final ByteString getDeviceBytes() {
             Object obj = this.device_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -197,51 +199,51 @@ public final class UpdateClientInfoReq {
             return (ByteString) obj;
         }
 
-        public boolean hasSecretKey() {
+        public final boolean hasSecretKey() {
             return (this.bitField0_ & 4) == 4;
         }
 
-        public ByteString getSecretKey() {
+        public final ByteString getSecretKey() {
             return this.secretKey_;
         }
 
-        public boolean hasLat() {
+        public final boolean hasLat() {
             return (this.bitField0_ & 8) == 8;
         }
 
-        public double getLat() {
+        public final double getLat() {
             return this.lat_;
         }
 
-        public boolean hasLng() {
+        public final boolean hasLng() {
             return (this.bitField0_ & 16) == 16;
         }
 
-        public double getLng() {
+        public final double getLng() {
             return this.lng_;
         }
 
-        public boolean hasWidth() {
+        public final boolean hasWidth() {
             return (this.bitField0_ & 32) == 32;
         }
 
-        public int getWidth() {
+        public final int getWidth() {
             return this.width_;
         }
 
-        public boolean hasHeight() {
+        public final boolean hasHeight() {
             return (this.bitField0_ & 64) == 64;
         }
 
-        public int getHeight() {
+        public final int getHeight() {
             return this.height_;
         }
 
-        public boolean hasUnreadMsg() {
+        public final boolean hasUnreadMsg() {
             return (this.bitField0_ & 128) == 128;
         }
 
-        public int getUnreadMsg() {
+        public final int getUnreadMsg() {
             return this.unreadMsg_;
         }
 
@@ -267,7 +269,7 @@ public final class UpdateClientInfoReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeBytes(1, getBdussBytes());
@@ -296,10 +298,13 @@ public final class UpdateClientInfoReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getBdussBytes()) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeBytesSize(1, getBdussBytes()) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeBytesSize(2, getDeviceBytes());
                 }
@@ -328,7 +333,7 @@ public final class UpdateClientInfoReq {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -373,12 +378,12 @@ public final class UpdateClientInfoReq {
         }
 
         public static b newBuilder() {
-            return b.f();
+            return b.c();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public b newBuilderForType() {
+        public final b newBuilderForType() {
             return newBuilder();
         }
 
@@ -388,7 +393,7 @@ public final class UpdateClientInfoReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public b toBuilder() {
+        public final b toBuilder() {
             return newBuilder(this);
         }
     }
@@ -398,7 +403,7 @@ public final class UpdateClientInfoReq {
         public static final int CUID_FIELD_NUMBER = 1;
         public static final int DATA_FIELD_NUMBER = 2;
         public static Parser<UpdateClientInfoReqIdl> PARSER = new d();
-        private static final UpdateClientInfoReqIdl a = new UpdateClientInfoReqIdl(true);
+        private static final UpdateClientInfoReqIdl a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private Object cuid_;
@@ -417,7 +422,7 @@ public final class UpdateClientInfoReq {
             this.memoizedSerializedSize = -1;
         }
 
-        private UpdateClientInfoReqIdl(boolean z) {
+        private UpdateClientInfoReqIdl() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -428,7 +433,7 @@ public final class UpdateClientInfoReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public UpdateClientInfoReqIdl getDefaultInstanceForType() {
+        public final UpdateClientInfoReqIdl getDefaultInstanceForType() {
             return a;
         }
 
@@ -488,19 +493,21 @@ public final class UpdateClientInfoReq {
         }
 
         static {
-            a.a();
+            UpdateClientInfoReqIdl updateClientInfoReqIdl = new UpdateClientInfoReqIdl();
+            a = updateClientInfoReqIdl;
+            updateClientInfoReqIdl.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<UpdateClientInfoReqIdl> getParserForType() {
+        public final Parser<UpdateClientInfoReqIdl> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasCuid() {
+        public final boolean hasCuid() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public String getCuid() {
+        public final String getCuid() {
             Object obj = this.cuid_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -513,7 +520,7 @@ public final class UpdateClientInfoReq {
             return stringUtf8;
         }
 
-        public ByteString getCuidBytes() {
+        public final ByteString getCuidBytes() {
             Object obj = this.cuid_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -523,11 +530,11 @@ public final class UpdateClientInfoReq {
             return (ByteString) obj;
         }
 
-        public boolean hasData() {
+        public final boolean hasData() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public DataReq getData() {
+        public final DataReq getData() {
             return this.data_;
         }
 
@@ -547,7 +554,7 @@ public final class UpdateClientInfoReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeBytes(1, getCuidBytes());
@@ -558,10 +565,13 @@ public final class UpdateClientInfoReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getCuidBytes()) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeBytesSize(1, getCuidBytes()) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeMessageSize(2, this.data_);
                 }
@@ -572,7 +582,7 @@ public final class UpdateClientInfoReq {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -617,12 +627,12 @@ public final class UpdateClientInfoReq {
         }
 
         public static e newBuilder() {
-            return e.f();
+            return e.b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public e newBuilderForType() {
+        public final e newBuilderForType() {
             return newBuilder();
         }
 
@@ -632,7 +642,7 @@ public final class UpdateClientInfoReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public e toBuilder() {
+        public final e toBuilder() {
             return newBuilder(this);
         }
     }

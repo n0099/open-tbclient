@@ -5,7 +5,7 @@ import android.text.SpannableStringBuilder;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public class c {
+public final class c {
     private int a;
     private SpannableStringBuilder b = null;
     private g c = null;
@@ -21,18 +21,18 @@ public class c {
         this.f = new d(this);
     }
 
-    public int a() {
+    public final int a() {
         return this.a;
     }
 
-    public ArrayList<f> b() {
+    public final ArrayList<f> b() {
         if (this.d == null) {
             this.d = new ArrayList<>();
         }
         return this.d;
     }
 
-    public void a(int i, int i2) {
+    public final void a(int i, int i2) {
         if (this.d != null) {
             Iterator<f> it = this.d.iterator();
             while (it.hasNext()) {
@@ -45,7 +45,7 @@ public class c {
         }
     }
 
-    public void b(int i, int i2) {
+    public final void b(int i, int i2) {
         if (this.d != null) {
             Iterator<f> it = this.d.iterator();
             while (it.hasNext()) {
@@ -54,7 +54,7 @@ public class c {
         }
     }
 
-    public void a(CharSequence charSequence) {
+    public final void a(CharSequence charSequence) {
         if ((this.a == 1 || this.a == 768) && charSequence != null) {
             if (this.b == null) {
                 this.b = new SpannableStringBuilder("");
@@ -64,43 +64,43 @@ public class c {
         }
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         if (this.a == 32 && str != null) {
             this.b = new SpannableStringBuilder(str);
         }
     }
 
-    public g c() {
+    public final g c() {
         if (this.a != 8) {
             return null;
         }
         return this.c;
     }
 
-    public void a(g gVar) {
+    public final void a(g gVar) {
         if (this.a == 8) {
             this.c = gVar;
         }
     }
 
-    public SpannableStringBuilder d() {
+    public final SpannableStringBuilder d() {
         return this.b;
     }
 
-    public t e() {
+    public final t e() {
         if (this.a == 512 || this.a == 768) {
             return this.e;
         }
         return null;
     }
 
-    public void a(t tVar) {
+    public final void a(t tVar) {
         if (this.a == 512 || this.a == 768) {
             this.e = tVar;
         }
     }
 
-    public String toString() {
+    public final String toString() {
         if (this.a == 1) {
             if (this.b != null) {
                 return this.b.toString();
@@ -115,20 +115,20 @@ public class c {
         return "";
     }
 
-    public d f() {
+    public final d f() {
         if (this.a != 1) {
             return null;
         }
         return this.f;
     }
 
-    public void a(e eVar) {
+    public final void a(e eVar) {
         if (this.a == 17) {
             this.g = eVar;
         }
     }
 
-    public e g() {
+    public final e g() {
         return this.g;
     }
 }

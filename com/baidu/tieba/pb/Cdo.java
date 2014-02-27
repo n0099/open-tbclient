@@ -5,7 +5,7 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* renamed from: com.baidu.tieba.pb.do  reason: invalid class name */
 /* loaded from: classes.dex */
-public class Cdo implements View.OnTouchListener {
+public final class Cdo implements View.OnTouchListener {
     final /* synthetic */ cu a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ public class Cdo implements View.OnTouchListener {
     }
 
     @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
+    public final boolean onTouch(View view, MotionEvent motionEvent) {
         return motionEvent.getAction() == 0;
     }
 }

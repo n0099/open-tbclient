@@ -2,7 +2,6 @@ package com.baidu.adp.lib.network;
 
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.Proxy;
 import android.telephony.TelephonyManager;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
@@ -10,9 +9,8 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.regex.Pattern;
 /* loaded from: classes.dex */
-public class i {
+public final class i {
     public static boolean a(String str) {
         return str == null || str.trim().length() == 0;
     }
@@ -30,39 +28,7 @@ public class i {
         return false;
     }
 
-    public static boolean b(String str) {
-        if (Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.(172|200)$", 8).matcher(str).find()) {
-            return true;
-        }
-        return false;
-    }
-
-    public static boolean c(String str) {
-        return str != null && str.contains("vnd.wap.wml");
-    }
-
-    public static String d(String str) {
-        String[] split;
-        if (str == null) {
-            return "utf-8";
-        }
-        for (String str2 : str.split(";")) {
-            if (str2.contains("charset")) {
-                String[] split2 = str2.split("=");
-                if (split2.length <= 1) {
-                    return "utf-8";
-                }
-                return split2[1].trim();
-            }
-        }
-        return "utf-8";
-    }
-
-    public static boolean b() {
-        return (a() || c() == 1 || a(Proxy.getDefaultHost())) ? false : true;
-    }
-
-    public static int c() {
+    public static int b() {
         int i;
         String networkOperator = ((TelephonyManager) e.a().b().getSystemService("phone")).getNetworkOperator();
         if (a(networkOperator)) {
@@ -151,9 +117,5 @@ public class i {
             e.printStackTrace();
             return null;
         }
-    }
-
-    public static int d() {
-        return a() ? 500000 : 200000;
     }
 }

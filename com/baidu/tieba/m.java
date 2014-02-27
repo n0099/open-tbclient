@@ -8,7 +8,7 @@ import com.baidu.location.LocationClientOption;
 import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class m extends Handler {
+final class m extends Handler {
     final /* synthetic */ FileDownloader a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,7 +17,7 @@ class m extends Handler {
     }
 
     @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    public final void handleMessage(Message message) {
         Notification notification;
         Notification notification2;
         Notification notification3;

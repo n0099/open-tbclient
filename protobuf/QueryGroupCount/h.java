@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.QueryGroupCount.QueryGroupCountRes;
 /* loaded from: classes.dex */
 public final class h extends GeneratedMessageLite.Builder<QueryGroupCountRes.Banner, h> implements i {
@@ -11,19 +12,34 @@ public final class h extends GeneratedMessageLite.Builder<QueryGroupCountRes.Ban
     private Object b = "";
     private Object c = "";
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        QueryGroupCountRes.Banner buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return QueryGroupCountRes.Banner.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return QueryGroupCountRes.Banner.getDefaultInstance();
+    }
+
     private h() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static h h() {
+    public static /* synthetic */ h b() {
         return new h();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public h clear() {
         super.clear();
         this.b = "";
@@ -34,30 +50,14 @@ public final class h extends GeneratedMessageLite.Builder<QueryGroupCountRes.Ban
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public h clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public QueryGroupCountRes.Banner getDefaultInstanceForType() {
-        return QueryGroupCountRes.Banner.getDefaultInstance();
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public QueryGroupCountRes.Banner build() {
-        QueryGroupCountRes.Banner buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
+    public h clone() {
+        return new h().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public QueryGroupCountRes.Banner buildPartial() {
+    /* renamed from: a */
+    public final QueryGroupCountRes.Banner buildPartial() {
         QueryGroupCountRes.Banner banner = new QueryGroupCountRes.Banner(this, (QueryGroupCountRes.Banner) null);
         int i = this.a;
         int i2 = (i & 1) != 1 ? 0 : 1;
@@ -72,7 +72,7 @@ public final class h extends GeneratedMessageLite.Builder<QueryGroupCountRes.Ban
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public h mergeFrom(QueryGroupCountRes.Banner banner) {
+    public final h mergeFrom(QueryGroupCountRes.Banner banner) {
         Object obj;
         Object obj2;
         if (banner != QueryGroupCountRes.Banner.getDefaultInstance()) {

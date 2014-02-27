@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
-public class bc extends com.baidu.adp.a.d {
+public final class bc extends com.baidu.adp.a.d {
     private String d;
     private int f;
     private int g;
@@ -23,33 +23,33 @@ public class bc extends com.baidu.adp.a.d {
         this.h = c.getResources().getDisplayMetrics().density;
     }
 
-    public FaceShopData a() {
+    public final FaceShopData a() {
         return this.a;
     }
 
-    public boolean b() {
+    public final boolean b() {
         return this.e;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.d = str;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         if (this.b == null) {
-            this.b = new bd(this, null);
+            this.b = new bd(this, (byte) 0);
             this.b.setPriority(3);
             this.b.execute(Integer.valueOf(i));
         }
     }
 
     @Override // com.baidu.adp.a.d
-    protected boolean LoadData() {
+    protected final boolean LoadData() {
         return false;
     }
 
     @Override // com.baidu.adp.a.d
-    public boolean cancelLoadData() {
+    public final boolean cancelLoadData() {
         if (this.b != null) {
             this.b.cancel();
             return true;

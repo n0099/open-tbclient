@@ -2,7 +2,7 @@ package com.baidu.tieba.account;
 
 import com.baidu.tieba.data.AccountData;
 /* loaded from: classes.dex */
-class br implements Runnable {
+final class br implements Runnable {
     final /* synthetic */ bq a;
     private final /* synthetic */ AccountData b;
 
@@ -13,9 +13,9 @@ class br implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         SapiFastRegActivity sapiFastRegActivity;
         sapiFastRegActivity = this.a.a;
-        sapiFastRegActivity.a(this.b);
+        SapiFastRegActivity.a(sapiFastRegActivity, this.b);
     }
 }

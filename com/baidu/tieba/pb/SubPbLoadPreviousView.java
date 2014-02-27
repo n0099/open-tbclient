@@ -20,16 +20,16 @@ public class SubPbLoadPreviousView extends LinearLayout {
     public SubPbLoadPreviousView(Context context) {
         super(context);
         this.a = context;
-        e();
+        f();
     }
 
     public SubPbLoadPreviousView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.a = context;
-        e();
+        f();
     }
 
-    private void e() {
+    private void f() {
         setOrientation(0);
         setClickable(true);
         LayoutInflater.from(this.a).inflate(R.layout.sub_pb_load_previous, (ViewGroup) this, true);
@@ -44,26 +44,26 @@ public class SubPbLoadPreviousView extends LinearLayout {
         this.c.setOnClickListener(onClickListener);
     }
 
-    public void a() {
+    public final void a() {
         this.b.setText(R.string.loading);
         this.c.setVisibility(8);
         this.d.setVisibility(0);
     }
 
-    public void b() {
+    public final void b() {
         this.b.setText(R.string.view_previous_floor);
         this.c.setVisibility(0);
         this.d.setVisibility(8);
     }
 
-    public void a(int i) {
+    public static void c() {
     }
 
-    public void c() {
+    public final void d() {
         setVisibility(8);
     }
 
-    public void d() {
+    public final void e() {
         setVisibility(0);
     }
 }

@@ -6,7 +6,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.view.HeadImageView;
 /* loaded from: classes.dex */
-class dh {
+final class dh {
     HeadImageView a;
     TextView b;
     TextView c;
@@ -21,7 +21,7 @@ class dh {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ dh(dg dgVar, dh dhVar) {
+    public /* synthetic */ dh(dg dgVar, byte b) {
         this(dgVar);
     }
 }

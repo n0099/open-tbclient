@@ -25,23 +25,23 @@ public final class Version {
         this.totalCodewords = i2;
     }
 
-    public int getVersionNumber() {
+    public final int getVersionNumber() {
         return this.versionNumber;
     }
 
-    public int[] getAlignmentPatternCenters() {
+    public final int[] getAlignmentPatternCenters() {
         return this.alignmentPatternCenters;
     }
 
-    public int getTotalCodewords() {
+    public final int getTotalCodewords() {
         return this.totalCodewords;
     }
 
-    public int getDimensionForVersion() {
+    public final int getDimensionForVersion() {
         return (this.versionNumber * 4) + 17;
     }
 
-    public ECBlocks getECBlocksForLevel(ErrorCorrectionLevel errorCorrectionLevel) {
+    public final ECBlocks getECBlocksForLevel(ErrorCorrectionLevel errorCorrectionLevel) {
         return this.ecBlocks[errorCorrectionLevel.ordinal()];
     }
 
@@ -57,7 +57,7 @@ public final class Version {
     }
 
     public static Version getVersionForNumber(int i) {
-        if (i < 1 || i > 40) {
+        if (i <= 0 || i > 40) {
             throw new IllegalArgumentException();
         }
         return VERSIONS[i - 1];
@@ -85,7 +85,7 @@ public final class Version {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public BitMatrix buildFunctionPattern() {
+    public final BitMatrix buildFunctionPattern() {
         int dimensionForVersion = getDimensionForVersion();
         BitMatrix bitMatrix = new BitMatrix(dimensionForVersion);
         bitMatrix.setRegion(0, 0, 9, 9);
@@ -119,11 +119,11 @@ public final class Version {
             this.ecBlocks = ecbArr;
         }
 
-        public int getECCodewordsPerBlock() {
+        public final int getECCodewordsPerBlock() {
             return this.ecCodewordsPerBlock;
         }
 
-        public int getNumBlocks() {
+        public final int getNumBlocks() {
             int i = 0;
             for (ECB ecb : this.ecBlocks) {
                 i += ecb.getCount();
@@ -131,11 +131,11 @@ public final class Version {
             return i;
         }
 
-        public int getTotalECCodewords() {
+        public final int getTotalECCodewords() {
             return this.ecCodewordsPerBlock * getNumBlocks();
         }
 
-        public ECB[] getECBlocks() {
+        public final ECB[] getECBlocks() {
             return this.ecBlocks;
         }
     }
@@ -150,16 +150,16 @@ public final class Version {
             this.dataCodewords = i2;
         }
 
-        public int getCount() {
+        public final int getCount() {
             return this.count;
         }
 
-        public int getDataCodewords() {
+        public final int getDataCodewords() {
             return this.dataCodewords;
         }
     }
 
-    public String toString() {
+    public final String toString() {
         return String.valueOf(this.versionNumber);
     }
 

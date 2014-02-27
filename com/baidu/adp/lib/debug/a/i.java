@@ -1,7 +1,7 @@
 package com.baidu.adp.lib.debug.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements com.baidu.adp.lib.debug.a {
+public final class i implements com.baidu.adp.lib.debug.a {
     final /* synthetic */ h a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ public class i implements com.baidu.adp.lib.debug.a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(String str) {
+    public final void a(String str) {
         String[] strArr;
         String[] strArr2;
         for (int i = 0; i < strArr.length; i++) {

@@ -6,7 +6,7 @@ import com.baidu.tieba.account.AccountRestoreActivity;
 import com.baidu.tieba.util.AntiHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements DialogInterface.OnClickListener {
+public final class f implements DialogInterface.OnClickListener {
     private final /* synthetic */ Context a;
     private final /* synthetic */ AntiHelper.PageType b;
 
@@ -17,7 +17,7 @@ public class f implements DialogInterface.OnClickListener {
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
+    public final void onClick(DialogInterface dialogInterface, int i) {
         dialogInterface.dismiss();
         AccountRestoreActivity.startActivity(this.a, this.b);
     }

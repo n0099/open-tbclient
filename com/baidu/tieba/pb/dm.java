@@ -1,6 +1,8 @@
 package com.baidu.tieba.pb;
+
+import android.os.Handler;
 /* loaded from: classes.dex */
-class dm implements Runnable {
+final class dm implements Runnable {
     final /* synthetic */ dl a;
     private final /* synthetic */ com.baidu.tieba.data.av b;
     private final /* synthetic */ boolean c;
@@ -17,7 +19,7 @@ class dm implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         cu cuVar;
         dy dyVar;
         cu cuVar2;
@@ -30,14 +32,18 @@ class dm implements Runnable {
         if (dyVar != null) {
             cuVar4 = this.a.a;
             dyVar2 = cuVar4.aj;
-            dyVar2.a(this.b);
+            com.baidu.tieba.data.av avVar = this.b;
+            dyVar2.a();
         }
         if (this.c) {
             cuVar3 = this.a.a;
             edVar = cuVar3.s;
-            edVar.a(this.d, this.e);
+            String str = this.d;
+            String str2 = this.e;
+            edVar.b(str);
+            new Handler().postDelayed(new el(edVar, str2), 200L);
         }
         cuVar2 = this.a.a;
-        cuVar2.ak();
+        cuVar2.aa();
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tbadk.widget;
 
 import java.util.List;
 /* loaded from: classes.dex */
-class d {
+final class d {
     public final boolean a;
     public final List<Object> b;
     public final List<Object> c;

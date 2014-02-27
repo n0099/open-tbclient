@@ -2,29 +2,29 @@ package com.baidu.tieba.model;
 
 import com.baidu.tieba.data.WriteData;
 /* loaded from: classes.dex */
-public class bk extends com.baidu.adp.a.d {
+public final class bk extends com.baidu.adp.a.d {
     private bm a = null;
     private WriteData b = null;
     private bl c = null;
     private boolean d = false;
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.d = z;
     }
 
-    public void a(bl blVar) {
+    public final void a(bl blVar) {
         this.c = blVar;
     }
 
-    public void a(WriteData writeData) {
+    public final void a(WriteData writeData) {
         this.b = writeData;
     }
 
-    public WriteData a() {
+    public final WriteData a() {
         return this.b;
     }
 
-    public boolean b() {
+    public final boolean b() {
         if (this.b == null) {
             return false;
         }
@@ -36,12 +36,12 @@ public class bk extends com.baidu.adp.a.d {
     }
 
     @Override // com.baidu.adp.a.d
-    protected boolean LoadData() {
+    protected final boolean LoadData() {
         return false;
     }
 
     @Override // com.baidu.adp.a.d
-    public boolean cancelLoadData() {
+    public final boolean cancelLoadData() {
         return false;
     }
 }

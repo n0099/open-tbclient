@@ -7,7 +7,7 @@ import org.apache.commons.io.IOUtils;
 public final class AddressBookAUResultParser extends ResultParser {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.zxing.client.result.ResultParser
-    public AddressBookParsedResult parse(Result result) {
+    public final AddressBookParsedResult parse(Result result) {
         String massagedText = getMassagedText(result);
         if (!massagedText.contains("MEMORY") || !massagedText.contains(IOUtils.LINE_SEPARATOR_WINDOWS)) {
             return null;

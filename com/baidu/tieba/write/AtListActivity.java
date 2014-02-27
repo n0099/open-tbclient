@@ -72,8 +72,47 @@ public class AtListActivity extends com.baidu.tieba.f implements AdapterView.OnI
         super.onCreate(bundle);
         setContentView(R.layout.at_list_activity);
         this.q = new com.baidu.tieba.aj(this, (int) R.drawable.individual_center_like, (int) R.drawable.individual_center_like_1);
-        a(bundle);
-        a();
+        this.k = new com.baidu.tieba.model.c();
+        if (bundle != null) {
+            this.s = bundle.getBoolean("is_need_multiple");
+        } else {
+            this.s = getIntent().getBooleanExtra("is_need_multiple", true);
+        }
+        this.o = (RelativeLayout) findViewById(R.id.parent);
+        this.t = (NavigationBar) findViewById(R.id.view_navigation_bar);
+        this.t.a(getString(R.string.select_friend));
+        this.t.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new e(this));
+        this.n = (ProgressBar) findViewById(R.id.progress);
+        this.u = (LinearLayout) findViewById(R.id.search);
+        this.v = (LinearLayout) findViewById(R.id.search_tap_text_layout);
+        this.w = (ImageView) findViewById(R.id.at_search_logo);
+        this.b = (EditText) findViewById(R.id.at_search_edit);
+        this.b.addTextChangedListener(new f(this));
+        this.c = (Button) findViewById(R.id.at_search_del);
+        this.c.setOnClickListener(new g(this));
+        this.d = (BdListView) findViewById(R.id.list);
+        this.l = new n(this, this.s);
+        this.l.a(this);
+        this.l.a(new h(this));
+        this.d.setAdapter((ListAdapter) this.l);
+        this.d.setOnItemClickListener(this);
+        this.d.setOnScrollListener(new i(this));
+        if (!getIntent().getBooleanExtra("keyboard", false) && this.b.getParent() != null) {
+            ((View) this.b.getParent()).setFocusable(true);
+            ((View) this.b.getParent()).setFocusableInTouchMode(true);
+        }
+        this.f = (LinearLayout) this.o.findViewById(R.id.invite_candidate);
+        this.g = (Button) this.o.findViewById(R.id.button_send);
+        this.g.setOnClickListener(new j(this));
+        a(0);
+        this.e = (AtSelectFriendList) this.o.findViewById(R.id.candidate_list);
+        this.e.setMaxCount(5);
+        this.e.setImageLoader(this.l.a());
+        this.e.setItemOPerationHandler(new k(this));
+        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.invite_friend_candidate_item_height) + getResources().getDimensionPixelSize(R.dimen.invite_friend_candidate_padding_bottom) + getResources().getDimensionPixelSize(R.dimen.invite_friend_candidate_padding_top);
+        this.p = new View(this);
+        this.p.setLayoutParams(new AbsListView.LayoutParams(-1, dimensionPixelSize));
+        this.d.addFooterView(this.p);
         a((String) null);
     }
 
@@ -82,9 +121,9 @@ public class AtListActivity extends com.baidu.tieba.f implements AdapterView.OnI
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         getLayoutMode().a(i == 1);
-        getLayoutMode().a((View) this.o);
+        getLayoutMode().a(this.o);
         this.q.a(i);
-        this.t.c(i);
+        this.t.b(i);
         this.l.notifyDataSetChanged();
         if (i == 1) {
             this.u.setBackgroundResource(R.color.search_box_bg_1);
@@ -117,7 +156,7 @@ public class AtListActivity extends com.baidu.tieba.f implements AdapterView.OnI
         this.q.b();
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         if (z) {
             this.d.setVisibility(8);
             this.q.b(0);
@@ -177,55 +216,12 @@ public class AtListActivity extends com.baidu.tieba.f implements AdapterView.OnI
         this.h.removeCallbacks(this.x);
         this.h.removeCallbacks(this.y);
         if (this.l != null && this.l.a() != null) {
-            this.l.a().d();
+            this.l.a().c();
         }
         if (this.n != null) {
             this.n.setVisibility(8);
         }
         super.onDestroy();
-    }
-
-    private void a() {
-        this.o = (RelativeLayout) findViewById(R.id.parent);
-        this.t = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.t.a(getString(R.string.select_friend));
-        this.t.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new e(this));
-        this.n = (ProgressBar) findViewById(R.id.progress);
-        this.u = (LinearLayout) findViewById(R.id.search);
-        this.v = (LinearLayout) findViewById(R.id.search_tap_text_layout);
-        this.w = (ImageView) findViewById(R.id.at_search_logo);
-        this.b = (EditText) findViewById(R.id.at_search_edit);
-        this.b.addTextChangedListener(new f(this));
-        this.c = (Button) findViewById(R.id.at_search_del);
-        this.c.setOnClickListener(new g(this));
-        this.d = (BdListView) findViewById(R.id.list);
-        this.l = new n(this, this.s);
-        this.l.a(this);
-        this.l.a(new h(this));
-        this.d.setAdapter((ListAdapter) this.l);
-        this.d.setOnItemClickListener(this);
-        this.d.setOnScrollListener(new i(this));
-        if (!getIntent().getBooleanExtra("keyboard", false) && this.b.getParent() != null) {
-            ((View) this.b.getParent()).setFocusable(true);
-            ((View) this.b.getParent()).setFocusableInTouchMode(true);
-        }
-        this.f = (LinearLayout) this.o.findViewById(R.id.invite_candidate);
-        this.g = (Button) this.o.findViewById(R.id.button_send);
-        this.g.setOnClickListener(new j(this));
-        a(0);
-        this.e = (AtSelectFriendList) this.o.findViewById(R.id.candidate_list);
-        this.e.setMaxCount(5);
-        this.e.setImageLoader(this.l.a());
-        this.e.setItemOPerationHandler(new k(this));
-        b();
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [501=4] */
-    private void b() {
-        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.invite_friend_candidate_item_height) + getResources().getDimensionPixelSize(R.dimen.invite_friend_candidate_padding_bottom) + getResources().getDimensionPixelSize(R.dimen.invite_friend_candidate_padding_top);
-        this.p = new View(this);
-        this.p.setLayoutParams(new AbsListView.LayoutParams(-1, dimensionPixelSize));
-        this.d.addFooterView(this.p);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -246,17 +242,17 @@ public class AtListActivity extends com.baidu.tieba.f implements AdapterView.OnI
                 } else {
                     this.l.a((ArrayList<MetaData>) null);
                     if (this.j == null) {
-                        this.j = new m(this, null);
+                        this.j = new m(this, (byte) 0);
                         this.j.setPriority(3);
                         this.j.execute("");
                     }
                 }
             } else {
-                this.i = new l(this, null);
+                this.i = new l(this, (byte) 0);
                 this.i.setPriority(2);
                 this.i.execute(str);
                 if (this.j == null && this.k.a() == null) {
-                    this.j = new m(this, null);
+                    this.j = new m(this, (byte) 0);
                     this.j.setPriority(3);
                     this.j.execute("");
                 }
@@ -266,32 +262,23 @@ public class AtListActivity extends com.baidu.tieba.f implements AdapterView.OnI
         }
     }
 
-    private void a(Bundle bundle) {
-        this.k = new com.baidu.tieba.model.c();
-        if (bundle != null) {
-            this.s = bundle.getBoolean("is_need_multiple");
-        } else {
-            this.s = getIntent().getBooleanExtra("is_need_multiple", true);
-        }
-    }
-
-    public void a(MetaData metaData) {
+    public final void a(MetaData metaData) {
         if (metaData != null) {
             this.e.a(metaData);
             a(this.e.getItemLength());
-            c();
+            a();
         }
     }
 
-    public void b(MetaData metaData) {
+    public final void b(MetaData metaData) {
         if (metaData != null) {
             this.e.c(metaData);
             a(this.e.getItemLength());
-            c();
+            a();
         }
     }
 
-    private void c() {
+    private void a() {
         if (this.e.getItemLength() > 0) {
             this.g.setEnabled(true);
         } else {
@@ -304,7 +291,7 @@ public class AtListActivity extends com.baidu.tieba.f implements AdapterView.OnI
     }
 
     @Override // com.baidu.tieba.write.p
-    public void a(View view, MetaData metaData) {
+    public final void c(MetaData metaData) {
         if (metaData != null) {
             this.e.b(metaData);
         }

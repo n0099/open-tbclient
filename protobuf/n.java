@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.Im;
 /* loaded from: classes.dex */
 public final class n extends GeneratedMessageLite.Builder<Im.GroupLastId, n> implements o {
@@ -11,24 +12,25 @@ public final class n extends GeneratedMessageLite.Builder<Im.GroupLastId, n> imp
     private int b;
     private long c;
 
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return Im.GroupLastId.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return Im.GroupLastId.getDefaultInstance();
+    }
+
     private n() {
-        g();
     }
 
-    private void g() {
-    }
-
-    /* JADX DEBUG: Method not inlined, still used in: [protobuf.Im.GroupLastId.newBuilder():protobuf.n] */
-    public static /* synthetic */ n f() {
-        return h();
-    }
-
-    public static n h() {
+    public static /* synthetic */ n b() {
         return new n();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public n clear() {
         super.clear();
         this.b = 0;
@@ -39,20 +41,14 @@ public final class n extends GeneratedMessageLite.Builder<Im.GroupLastId, n> imp
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
+    /* renamed from: d */
     public n clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public Im.GroupLastId getDefaultInstanceForType() {
-        return Im.GroupLastId.getDefaultInstance();
+        return new n().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: d */
-    public Im.GroupLastId build() {
+    /* renamed from: a */
+    public final Im.GroupLastId build() {
         Im.GroupLastId buildPartial = buildPartial();
         if (!buildPartial.isInitialized()) {
             throw newUninitializedMessageException(buildPartial);
@@ -77,7 +73,7 @@ public final class n extends GeneratedMessageLite.Builder<Im.GroupLastId, n> imp
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public n mergeFrom(Im.GroupLastId groupLastId) {
+    public final n mergeFrom(Im.GroupLastId groupLastId) {
         if (groupLastId != Im.GroupLastId.getDefaultInstance()) {
             if (groupLastId.hasGroupId()) {
                 a(groupLastId.getGroupId());
@@ -132,13 +128,13 @@ public final class n extends GeneratedMessageLite.Builder<Im.GroupLastId, n> imp
         }
     }
 
-    public n a(int i) {
+    public final n a(int i) {
         this.a |= 1;
         this.b = i;
         return this;
     }
 
-    public n a(long j) {
+    public final n a(long j) {
         this.a |= 2;
         this.c = j;
         return this;

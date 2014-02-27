@@ -1,7 +1,7 @@
 package com.baidu.tieba.faceshop;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ap implements Runnable {
+public final class ap implements Runnable {
     final /* synthetic */ ao a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,11 +10,11 @@ public class ap implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         try {
-            this.a.f();
+            com.baidu.tieba.util.ap.a(r0.f, this.a.i.a(), 0, -1);
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "run", e.toString());
+            com.baidu.adp.lib.util.e.b(getClass().getName(), "run", e.toString());
         }
     }
 }

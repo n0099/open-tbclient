@@ -3,7 +3,7 @@ package com.baidu.tieba.im.b;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b implements com.baidu.tieba.im.net.a {
+public final class b implements com.baidu.tieba.im.net.a {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,25 +12,25 @@ public class b implements com.baidu.tieba.im.net.a {
     }
 
     @Override // com.baidu.tieba.im.net.a
-    public boolean a(int i, String str) {
+    public final boolean a(int i, String str) {
         this.a.f();
         return false;
     }
 
     @Override // com.baidu.tieba.im.net.a
-    public void a(Map<String, String> map) {
+    public final void a(Map<String, String> map) {
         this.a.e();
     }
 
     @Override // com.baidu.tieba.im.net.a
-    public void a(byte[] bArr) {
+    public final void a(byte[] bArr) {
     }
 
     @Override // com.baidu.tieba.im.net.a
-    public void a(com.baidu.adp.lib.webSocket.d dVar) {
+    public final void a(com.baidu.adp.lib.webSocket.d dVar) {
     }
 
     @Override // com.baidu.tieba.im.net.a
-    public void a(String str) {
+    public final void a(String str) {
     }
 }

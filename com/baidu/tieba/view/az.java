@@ -6,7 +6,7 @@ import android.widget.Button;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
-class az implements View.OnClickListener {
+final class az implements View.OnClickListener {
     final /* synthetic */ GroupBannerView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +15,7 @@ class az implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         Button button;
         Context context;
         String str;

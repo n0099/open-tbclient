@@ -21,7 +21,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
-public class GroupListAdapter extends BaseAdapter {
+public final class GroupListAdapter extends BaseAdapter {
     private FrsGroupActivity a;
     private BOTTOM_TYPE b;
     private boolean c;
@@ -45,12 +45,18 @@ public class GroupListAdapter extends BaseAdapter {
         }
     }
 
-    public void a(List<GroupInfoData> list) {
+    public final void a(List<GroupInfoData> list) {
         this.e.addAll(list);
-        d();
+        HashSet hashSet = new HashSet();
+        Iterator<GroupInfoData> it = this.e.iterator();
+        while (it.hasNext()) {
+            if (!hashSet.add(Integer.valueOf(it.next().getGroupId()))) {
+                it.remove();
+            }
+        }
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         if (z) {
             this.e.clear();
             this.c = false;
@@ -60,26 +66,26 @@ public class GroupListAdapter extends BaseAdapter {
         this.b = BOTTOM_TYPE.LINE;
     }
 
-    public ArrayList<GroupInfoData> a() {
+    public final ArrayList<GroupInfoData> a() {
         return this.e;
     }
 
     public GroupListAdapter(FrsGroupActivity frsGroupActivity) {
         this.a = frsGroupActivity;
         this.d = new com.baidu.tieba.util.i(frsGroupActivity);
-        this.d.d(true);
+        this.d.a(true);
     }
 
-    public void b(boolean z) {
+    public final void b(boolean z) {
         this.c = z;
     }
 
-    public void a(BOTTOM_TYPE bottom_type) {
+    public final void a(BOTTOM_TYPE bottom_type) {
         this.b = bottom_type;
     }
 
     @Override // android.widget.Adapter
-    public int getCount() {
+    public final int getCount() {
         if (this.e != null) {
             int size = this.e.size();
             if (this.c) {
@@ -91,7 +97,7 @@ public class GroupListAdapter extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public Object getItem(int i) {
+    public final Object getItem(int i) {
         int itemId = (int) getItemId(i);
         if (itemId < 0 || itemId >= this.e.size()) {
             return null;
@@ -100,7 +106,7 @@ public class GroupListAdapter extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    public final long getItemId(int i) {
         if (i == getCount() - 1 && this.c) {
             i = -2;
         }
@@ -108,17 +114,17 @@ public class GroupListAdapter extends BaseAdapter {
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
+    public final int getItemViewType(int i) {
         return getItemId(i) >= 0 ? 0 : 1;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
+    public final int getViewTypeCount() {
         return 2;
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public final View getView(int i, View view, ViewGroup viewGroup) {
         n nVar;
         if (this.e == null) {
             return LayoutInflater.from(this.a).inflate(R.layout.im_frsgroup_list_item, viewGroup, false);
@@ -185,7 +191,8 @@ public class GroupListAdapter extends BaseAdapter {
         nVar.f.setText(String.valueOf(groupInfoData.getMemberNum()) + "/" + groupInfoData.getMaxMemberNum());
         nVar.g.setText(groupInfoData.getIntro().trim());
         a(nVar.k, groupInfoData.getGrade());
-        a(view);
+        this.a.a().a(TiebaApplication.g().ae() == 1);
+        this.a.a().a(view);
         if (groupInfoData.isMemGroup()) {
             bq.a(nVar.d, R.color.im_group_vip_text, 1);
             bq.d(nVar.h, (int) R.drawable.icon_vip_grade_big_small_s);
@@ -196,16 +203,11 @@ public class GroupListAdapter extends BaseAdapter {
         return view;
     }
 
-    private void a(View view) {
-        this.a.a().a(TiebaApplication.g().al() == 1);
-        this.a.a().a(view);
-    }
-
-    private void a(ImageView[] imageViewArr, int i) {
+    private static void a(ImageView[] imageViewArr, int i) {
         int i2 = i < 0 ? 0 : i;
         int i3 = i2 > 3 ? 3 : i2;
         int i4 = 1;
-        if (i3 >= 1) {
+        if (i3 > 0) {
             while (i4 <= i3) {
                 imageViewArr[i4].setVisibility(0);
                 i4++;
@@ -217,21 +219,11 @@ public class GroupListAdapter extends BaseAdapter {
         }
     }
 
-    private void d() {
-        HashSet hashSet = new HashSet();
-        Iterator<GroupInfoData> it = this.e.iterator();
-        while (it.hasNext()) {
-            if (!hashSet.add(Integer.valueOf(it.next().getGroupId()))) {
-                it.remove();
-            }
-        }
-    }
-
-    public com.baidu.tieba.util.i b() {
+    public final com.baidu.tieba.util.i b() {
         return this.d;
     }
 
-    public boolean c() {
+    public final boolean c() {
         return this.b == BOTTOM_TYPE.HAVE_MORE;
     }
 }

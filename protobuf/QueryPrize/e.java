@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.Im;
 import protobuf.QueryPrize.QueryPrizeReq;
 /* loaded from: classes.dex */
@@ -12,19 +13,25 @@ public final class e extends GeneratedMessageLite.Builder<QueryPrizeReq.QueryPri
     private Im.Error b = Im.Error.getDefaultInstance();
     private QueryPrizeReq.DataReq c = QueryPrizeReq.DataReq.getDefaultInstance();
 
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return QueryPrizeReq.QueryPrizeReqIdl.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return QueryPrizeReq.QueryPrizeReqIdl.getDefaultInstance();
+    }
+
     private e() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static e h() {
+    public static /* synthetic */ e b() {
         return new e();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public e clear() {
         super.clear();
         this.b = Im.Error.getDefaultInstance();
@@ -35,20 +42,14 @@ public final class e extends GeneratedMessageLite.Builder<QueryPrizeReq.QueryPri
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
+    /* renamed from: d */
     public e clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public QueryPrizeReq.QueryPrizeReqIdl getDefaultInstanceForType() {
-        return QueryPrizeReq.QueryPrizeReqIdl.getDefaultInstance();
+        return new e().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: d */
-    public QueryPrizeReq.QueryPrizeReqIdl build() {
+    /* renamed from: a */
+    public final QueryPrizeReq.QueryPrizeReqIdl build() {
         QueryPrizeReq.QueryPrizeReqIdl buildPartial = buildPartial();
         if (!buildPartial.isInitialized()) {
             throw newUninitializedMessageException(buildPartial);
@@ -73,13 +74,25 @@ public final class e extends GeneratedMessageLite.Builder<QueryPrizeReq.QueryPri
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public e mergeFrom(QueryPrizeReq.QueryPrizeReqIdl queryPrizeReqIdl) {
+    public final e mergeFrom(QueryPrizeReq.QueryPrizeReqIdl queryPrizeReqIdl) {
         if (queryPrizeReqIdl != QueryPrizeReq.QueryPrizeReqIdl.getDefaultInstance()) {
             if (queryPrizeReqIdl.hasError()) {
-                a(queryPrizeReqIdl.getError());
+                Im.Error error = queryPrizeReqIdl.getError();
+                if ((this.a & 1) != 1 || this.b == Im.Error.getDefaultInstance()) {
+                    this.b = error;
+                } else {
+                    this.b = Im.Error.newBuilder(this.b).mergeFrom(error).buildPartial();
+                }
+                this.a |= 1;
             }
             if (queryPrizeReqIdl.hasData()) {
-                b(queryPrizeReqIdl.getData());
+                QueryPrizeReq.DataReq data = queryPrizeReqIdl.getData();
+                if ((this.a & 2) != 2 || this.c == QueryPrizeReq.DataReq.getDefaultInstance()) {
+                    this.c = data;
+                } else {
+                    this.c = QueryPrizeReq.DataReq.newBuilder(this.c).mergeFrom(data).buildPartial();
+                }
+                this.a |= 2;
             }
         }
         return this;
@@ -128,31 +141,11 @@ public final class e extends GeneratedMessageLite.Builder<QueryPrizeReq.QueryPri
         }
     }
 
-    public e a(Im.Error error) {
-        if ((this.a & 1) == 1 && this.b != Im.Error.getDefaultInstance()) {
-            this.b = Im.Error.newBuilder(this.b).mergeFrom(error).buildPartial();
-        } else {
-            this.b = error;
-        }
-        this.a |= 1;
-        return this;
-    }
-
-    public e a(QueryPrizeReq.DataReq dataReq) {
+    public final e a(QueryPrizeReq.DataReq dataReq) {
         if (dataReq != null) {
             this.c = dataReq;
             this.a |= 2;
         }
-        return this;
-    }
-
-    public e b(QueryPrizeReq.DataReq dataReq) {
-        if ((this.a & 2) == 2 && this.c != QueryPrizeReq.DataReq.getDefaultInstance()) {
-            this.c = QueryPrizeReq.DataReq.newBuilder(this.c).mergeFrom(dataReq).buildPartial();
-        } else {
-            this.c = dataReq;
-        }
-        this.a |= 2;
         return this;
     }
 }

@@ -10,7 +10,7 @@ import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.view.HeadImageView;
 import com.baidu.tieba.view.UserIconBox;
 /* loaded from: classes.dex */
-class ce {
+final class ce {
     public View a;
     public HeadImageView b;
     public TextView c;
@@ -33,7 +33,7 @@ class ce {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ce(cd cdVar, ce ceVar) {
+    public /* synthetic */ ce(cd cdVar, byte b) {
         this(cdVar);
     }
 }

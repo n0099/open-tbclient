@@ -10,7 +10,6 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.compatible.CompatibleUtile;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class MyPostActivity extends ActivityGroup {
@@ -28,34 +27,21 @@ public class MyPostActivity extends ActivityGroup {
     @Override // android.app.ActivityGroup, android.app.Activity
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (a()) {
-            CompatibleUtile.getInstance().openGpu(this);
-        }
         setContentView(R.layout.my_post_activity);
         this.i = getIntent().getStringExtra("user");
         this.j = getIntent().getIntExtra("user_sex", 0);
-        b();
-    }
-
-    public boolean a() {
-        return false;
-    }
-
-    void b() {
         this.b = (RelativeLayout) findViewById(R.id.my_post_activity_layout);
         this.c = (RelativeLayout) findViewById(R.id.title);
         this.f = (TextView) findViewById(R.id.title_text);
         this.h = (FrameLayout) findViewById(R.id.content);
-        if (this.i != null) {
-            if (this.j == 2) {
-                this.f.setText(R.string.her_posts);
-            } else if (this.j == 1) {
-                this.f.setText(R.string.his_posts);
-            } else {
-                this.f.setText(R.string.ta_posts);
-            }
-        } else {
+        if (this.i == null) {
             this.f.setText(R.string.my_post);
+        } else if (this.j == 2) {
+            this.f.setText(R.string.her_posts);
+        } else if (this.j == 1) {
+            this.f.setText(R.string.his_posts);
+        } else {
+            this.f.setText(R.string.ta_posts);
         }
         this.d = (ImageView) findViewById(R.id.back);
         this.d.setOnClickListener(new ap(this));
@@ -70,27 +56,24 @@ public class MyPostActivity extends ActivityGroup {
     @Override // android.app.ActivityGroup, android.app.Activity
     protected void onResume() {
         super.onResume();
-        if (TiebaApplication.g().al() != this.a) {
-            this.a = TiebaApplication.g().al();
-            a(this.a);
+        if (TiebaApplication.g().ae() != this.a) {
+            this.a = TiebaApplication.g().ae();
+            int i = this.a;
+            com.baidu.tieba.util.bq.a(this.b, i);
+            com.baidu.tieba.util.bq.d(this.c, i);
+            com.baidu.tieba.util.bq.e(this.f, i);
+            com.baidu.tieba.util.bq.a(this.d, i);
+            com.baidu.tieba.util.bq.b(this.e, i);
         }
     }
 
-    public void a(int i) {
-        com.baidu.tieba.util.bq.a(this.b, i);
-        com.baidu.tieba.util.bq.d(this.c, i);
-        com.baidu.tieba.util.bq.e(this.f, i);
-        com.baidu.tieba.util.bq.a(this.d, i);
-        com.baidu.tieba.util.bq.b(this.e, i);
-    }
-
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(String str, Intent intent) {
+    public final void a(String str, Intent intent) {
         this.h.removeAllViews();
         this.h.addView(getLocalActivityManager().startActivity(str, intent).getDecorView());
     }
 
-    public void c() {
+    public final void a() {
         String currentId = getLocalActivityManager().getCurrentId();
         Activity currentActivity = getLocalActivityManager().getCurrentActivity();
         if (currentId.equals("all")) {

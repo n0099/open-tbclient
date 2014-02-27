@@ -1,27 +1,17 @@
 package com.baidu.tieba.im.chat;
-
-import com.baidu.tieba.im.model.LocalPicModel;
-import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class db extends com.baidu.adp.a.g {
-    final /* synthetic */ cz a;
+public final class db implements com.baidu.tieba.img.b<com.baidu.tieba.im.message.b> {
+    final /* synthetic */ cy a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public db(cz czVar) {
-        this.a = czVar;
+    public db(cy cyVar) {
+        this.a = cyVar;
     }
 
-    @Override // com.baidu.adp.a.g
-    public void a(Object obj) {
-        if (obj != null && (obj instanceof LocalPicModel.ResponseData)) {
-            LocalPicModel.ResponseData responseData = (LocalPicModel.ResponseData) obj;
-            if (this.a.e != null) {
-                this.a.e.a(responseData.getSPathGen(), responseData.getBitmap(), this.a.j);
-                return;
-            }
-            return;
-        }
-        this.a.showToast(R.string.pic_parser_error);
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, java.lang.Object] */
+    @Override // com.baidu.tieba.img.b
+    public final /* bridge */ /* synthetic */ void a(int i, com.baidu.tieba.im.message.b bVar) {
+        this.a.d.a(i, bVar);
     }
 }

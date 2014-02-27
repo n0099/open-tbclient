@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -26,19 +27,34 @@ public final class ai extends GeneratedMessageLite.Builder<Im.UserInfo, ai> impl
     private Im.UserPermission n = Im.UserPermission.getDefaultInstance();
     private List<Im.TshowInfo> o = Collections.emptyList();
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        Im.UserInfo buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return Im.UserInfo.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return Im.UserInfo.getDefaultInstance();
+    }
+
     private ai() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static ai h() {
+    public static /* synthetic */ ai b() {
         return new ai();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public ai clear() {
         super.clear();
         this.b = 0;
@@ -73,30 +89,14 @@ public final class ai extends GeneratedMessageLite.Builder<Im.UserInfo, ai> impl
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public ai clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public Im.UserInfo getDefaultInstanceForType() {
-        return Im.UserInfo.getDefaultInstance();
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public Im.UserInfo build() {
-        Im.UserInfo buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
+    public ai clone() {
+        return new ai().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public Im.UserInfo buildPartial() {
+    /* renamed from: a */
+    public final Im.UserInfo buildPartial() {
         Im.UserInfo userInfo = new Im.UserInfo(this, (Im.UserInfo) null);
         int i = this.a;
         int i2 = (i & 1) != 1 ? 0 : 1;
@@ -160,7 +160,7 @@ public final class ai extends GeneratedMessageLite.Builder<Im.UserInfo, ai> impl
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public ai mergeFrom(Im.UserInfo userInfo) {
+    public final ai mergeFrom(Im.UserInfo userInfo) {
         List list;
         List list2;
         List<Im.TshowInfo> list3;
@@ -170,7 +170,9 @@ public final class ai extends GeneratedMessageLite.Builder<Im.UserInfo, ai> impl
         Object obj4;
         if (userInfo != Im.UserInfo.getDefaultInstance()) {
             if (userInfo.hasUserId()) {
-                a(userInfo.getUserId());
+                int userId = userInfo.getUserId();
+                this.a |= 1;
+                this.b = userId;
             }
             if (userInfo.hasUserName()) {
                 this.a |= 2;
@@ -188,7 +190,9 @@ public final class ai extends GeneratedMessageLite.Builder<Im.UserInfo, ai> impl
                 this.e = obj2;
             }
             if (userInfo.hasSex()) {
-                b(userInfo.getSex());
+                int sex = userInfo.getSex();
+                this.a |= 16;
+                this.f = sex;
             }
             if (userInfo.hasPosition()) {
                 this.a |= 32;
@@ -196,25 +200,43 @@ public final class ai extends GeneratedMessageLite.Builder<Im.UserInfo, ai> impl
                 this.g = obj;
             }
             if (userInfo.hasLng()) {
-                a(userInfo.getLng());
+                double lng = userInfo.getLng();
+                this.a |= 64;
+                this.h = lng;
             }
             if (userInfo.hasLat()) {
-                b(userInfo.getLat());
+                double lat = userInfo.getLat();
+                this.a |= 128;
+                this.i = lat;
             }
             if (userInfo.hasInTime()) {
-                c(userInfo.getInTime());
+                int inTime = userInfo.getInTime();
+                this.a |= 256;
+                this.j = inTime;
             }
             if (userInfo.hasLoginTime()) {
-                d(userInfo.getLoginTime());
+                int loginTime = userInfo.getLoginTime();
+                this.a |= 512;
+                this.k = loginTime;
             }
             if (userInfo.hasLastReplyTime()) {
-                e(userInfo.getLastReplyTime());
+                int lastReplyTime = userInfo.getLastReplyTime();
+                this.a |= 1024;
+                this.l = lastReplyTime;
             }
             if (userInfo.hasSysGroupId()) {
-                f(userInfo.getSysGroupId());
+                int sysGroupId = userInfo.getSysGroupId();
+                this.a |= 2048;
+                this.m = sysGroupId;
             }
             if (userInfo.hasPermission()) {
-                a(userInfo.getPermission());
+                Im.UserPermission permission = userInfo.getPermission();
+                if ((this.a & 4096) != 4096 || this.n == Im.UserPermission.getDefaultInstance()) {
+                    this.n = permission;
+                } else {
+                    this.n = Im.UserPermission.newBuilder(this.n).mergeFrom(permission).buildPartial();
+                }
+                this.a |= 4096;
             }
             list = userInfo.tshowIcon_;
             if (!list.isEmpty()) {
@@ -223,7 +245,10 @@ public final class ai extends GeneratedMessageLite.Builder<Im.UserInfo, ai> impl
                     this.o = list3;
                     this.a &= -8193;
                 } else {
-                    i();
+                    if ((this.a & 8192) != 8192) {
+                        this.o = new ArrayList(this.o);
+                        this.a |= 8192;
+                    }
                     List<Im.TshowInfo> list4 = this.o;
                     list2 = userInfo.tshowIcon_;
                     list4.addAll(list2);
@@ -273,71 +298,6 @@ public final class ai extends GeneratedMessageLite.Builder<Im.UserInfo, ai> impl
                 }
                 throw th;
             }
-        }
-    }
-
-    public ai a(int i) {
-        this.a |= 1;
-        this.b = i;
-        return this;
-    }
-
-    public ai b(int i) {
-        this.a |= 16;
-        this.f = i;
-        return this;
-    }
-
-    public ai a(double d) {
-        this.a |= 64;
-        this.h = d;
-        return this;
-    }
-
-    public ai b(double d) {
-        this.a |= 128;
-        this.i = d;
-        return this;
-    }
-
-    public ai c(int i) {
-        this.a |= 256;
-        this.j = i;
-        return this;
-    }
-
-    public ai d(int i) {
-        this.a |= 512;
-        this.k = i;
-        return this;
-    }
-
-    public ai e(int i) {
-        this.a |= 1024;
-        this.l = i;
-        return this;
-    }
-
-    public ai f(int i) {
-        this.a |= 2048;
-        this.m = i;
-        return this;
-    }
-
-    public ai a(Im.UserPermission userPermission) {
-        if ((this.a & 4096) == 4096 && this.n != Im.UserPermission.getDefaultInstance()) {
-            this.n = Im.UserPermission.newBuilder(this.n).mergeFrom(userPermission).buildPartial();
-        } else {
-            this.n = userPermission;
-        }
-        this.a |= 4096;
-        return this;
-    }
-
-    private void i() {
-        if ((this.a & 8192) != 8192) {
-            this.o = new ArrayList(this.o);
-            this.a |= 8192;
         }
     }
 }

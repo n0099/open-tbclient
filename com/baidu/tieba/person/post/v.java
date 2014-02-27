@@ -5,7 +5,7 @@ import android.widget.TextView;
 import com.baidu.tieba.util.bq;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class v extends a {
+final class v extends a {
     TextView g;
     TextView h;
     TripleTbImageView i;
@@ -19,7 +19,7 @@ class v extends a {
     }
 
     @Override // com.baidu.tieba.person.post.a
-    public void a(int i) {
+    public final void a(int i) {
         super.a(i);
         bq.c(this.g, i);
         bq.d(this.h, i);

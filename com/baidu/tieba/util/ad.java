@@ -1,20 +1,21 @@
 package com.baidu.tieba.util;
 
-import android.content.Context;
 import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
-public class ad implements com.baidu.tbadk.imageManager.b {
+public final class ad implements com.baidu.tbadk.imageManager.b {
     public static final ArrayList<Integer> a;
     public static final HashMap<String, Integer> b;
-    private static final HashMap<String, Integer> c = new HashMap<>();
+    private static final HashMap<String, Integer> c;
     private static final HashMap<String, String> d;
 
     static {
-        c.put("video_icon", Integer.valueOf((int) R.drawable.ico_link_video));
+        HashMap<String, Integer> hashMap = new HashMap<>();
+        c = hashMap;
+        hashMap.put("video_icon", Integer.valueOf((int) R.drawable.ico_link_video));
         c.put("10th_001", Integer.valueOf((int) R.drawable.f10th_001));
         c.put("10th_002", Integer.valueOf((int) R.drawable.f10th_002));
         c.put("10th_003", Integer.valueOf((int) R.drawable.f10th_003));
@@ -422,8 +423,9 @@ public class ad implements com.baidu.tbadk.imageManager.b {
         c.put("she_012", Integer.valueOf((int) R.drawable.she_012));
         c.put("she_013", Integer.valueOf((int) R.drawable.she_013));
         c.put("she_014", Integer.valueOf((int) R.drawable.she_014));
-        a = new ArrayList<>();
-        a.add(Integer.valueOf((int) R.drawable.write_face_01));
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        a = arrayList;
+        arrayList.add(Integer.valueOf((int) R.drawable.write_face_01));
         a.add(Integer.valueOf((int) R.drawable.write_face_02));
         a.add(Integer.valueOf((int) R.drawable.write_face_03));
         a.add(Integer.valueOf((int) R.drawable.write_face_04));
@@ -533,8 +535,9 @@ public class ad implements com.baidu.tbadk.imageManager.b {
         a.add(Integer.valueOf((int) R.drawable.f10th_010));
         a.add(Integer.valueOf((int) R.drawable.f10th_011));
         a.add(Integer.valueOf((int) R.drawable.f10th_012));
-        b = new HashMap<>();
-        b.put("#(呵呵)", a.get(0));
+        HashMap<String, Integer> hashMap2 = new HashMap<>();
+        b = hashMap2;
+        hashMap2.put("#(呵呵)", a.get(0));
         b.put("#(哈哈)", a.get(1));
         b.put("#(吐舌)", a.get(2));
         b.put("#(啊)", a.get(3));
@@ -644,8 +647,9 @@ public class ad implements com.baidu.tbadk.imageManager.b {
         b.put("#(大秧歌)", a.get(SocialAPIErrorCodes.ERROR_INVALID_TIMESTAMP));
         b.put("#(贴吧十周年)", a.get(108));
         b.put("#(十周年)", a.get(109));
-        d = new HashMap<>();
-        d.put("B_0001", "HI");
+        HashMap<String, String> hashMap3 = new HashMap<>();
+        d = hashMap3;
+        hashMap3.put("B_0001", "HI");
         d.put("B_0002", "KISS");
         d.put("B_0003", "不说");
         d.put("B_0004", "不要");
@@ -1055,10 +1059,10 @@ public class ad implements com.baidu.tbadk.imageManager.b {
     }
 
     @Override // com.baidu.tbadk.imageManager.b
-    public int a(String str) {
+    public final int a(String str) {
         Integer num = c.get(str);
         if ("video_icon".equals(str)) {
-            return Integer.valueOf(TiebaApplication.g().al() == 1 ? R.drawable.ico_link_video_1 : R.drawable.ico_link_video).intValue();
+            return Integer.valueOf(TiebaApplication.g().ae() == 1 ? R.drawable.ico_link_video_1 : R.drawable.ico_link_video).intValue();
         } else if (num != null) {
             return num.intValue();
         } else {
@@ -1067,7 +1071,7 @@ public class ad implements com.baidu.tbadk.imageManager.b {
     }
 
     @Override // com.baidu.tbadk.imageManager.b
-    public int b(String str) {
+    public final int b(String str) {
         Integer num = b.get(str);
         if (num != null) {
             return num.intValue();
@@ -1076,12 +1080,7 @@ public class ad implements com.baidu.tbadk.imageManager.b {
     }
 
     @Override // com.baidu.tbadk.imageManager.b
-    public String c(String str) {
+    public final String c(String str) {
         return d.get(str);
-    }
-
-    @Override // com.baidu.tbadk.imageManager.b
-    public com.baidu.tbadk.imageManager.c a(Context context, String str) {
-        return null;
     }
 }

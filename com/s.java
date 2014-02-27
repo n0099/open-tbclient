@@ -35,12 +35,10 @@ public class s extends x {
 
     @Override // com.v
     public void a() {
-        if (!SocialConfig.getInstance(this.a).getSsoMediaTypes().contains(MediaType.SINAWEIBO)) {
-            f();
-        } else if (h()) {
-        } else {
-            f();
+        if (SocialConfig.getInstance(this.a).getSsoMediaTypes().contains(MediaType.SINAWEIBO) && h()) {
+            return;
         }
+        f();
     }
 
     @Override // com.v

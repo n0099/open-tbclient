@@ -2,12 +2,12 @@ package com.baidu.adp.lib.network;
 
 import java.net.HttpURLConnection;
 /* loaded from: classes.dex */
-public class a {
+public final class a {
     private HttpURLConnection a;
     private boolean b = false;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(HttpURLConnection httpURLConnection) {
+    public final void a(HttpURLConnection httpURLConnection) {
         if (this.b) {
             if (httpURLConnection != null) {
                 try {
@@ -23,7 +23,7 @@ public class a {
         this.a = httpURLConnection;
     }
 
-    public void a() {
+    public final void a() {
         this.b = true;
         if (this.a != null) {
             try {
@@ -35,11 +35,11 @@ public class a {
         this.a = null;
     }
 
-    public void b() {
+    public final void b() {
         this.a = null;
     }
 
-    public boolean c() {
+    public final boolean c() {
         return this.b;
     }
 }

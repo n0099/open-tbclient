@@ -6,7 +6,7 @@ import android.os.Message;
 import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.data.AccountData;
 /* loaded from: classes.dex */
-class ar implements Handler.Callback {
+final class ar implements Handler.Callback {
     final /* synthetic */ TiebaApplication a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,11 +15,11 @@ class ar implements Handler.Callback {
     }
 
     @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
+    public final boolean handleMessage(Message message) {
         long j;
         switch (message.what) {
             case 1:
-                com.baidu.adp.lib.util.f.b("TiebaApplication", "handleMessage", "Do Aoto Login" + String.valueOf(message.what));
+                com.baidu.adp.lib.util.e.b("TiebaApplication", "handleMessage", "Do Aoto Login" + String.valueOf(message.what));
                 TiebaApplication.a((AccountData) null, this.a.c());
                 Intent intent = new Intent(TiebaApplication.g().b(), LoginActivity.class);
                 String string = message.getData().getString("account");
@@ -32,10 +32,10 @@ class ar implements Handler.Callback {
                 TiebaApplication.g().b().startActivity(intent);
                 break;
             case 2:
-                com.baidu.tieba.mention.v.a().j();
+                com.baidu.tieba.mention.v.a().h();
                 break;
             case 3:
-                com.baidu.tieba.mention.v.a().l();
+                com.baidu.tieba.mention.v.a().j();
                 break;
             case 4:
                 long nanoTime = System.nanoTime();
@@ -48,10 +48,10 @@ class ar implements Handler.Callback {
                 break;
             case 5:
                 if (Boolean.TRUE.equals(message.obj)) {
-                    this.a.aA();
+                    this.a.at();
                     break;
                 } else {
-                    this.a.aB();
+                    this.a.au();
                     break;
                 }
         }

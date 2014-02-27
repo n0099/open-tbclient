@@ -73,7 +73,7 @@ public class FrsWaterFallItem extends LinearLayout {
         a();
     }
 
-    public void a(int i, int i2, int i3, int i4) {
+    public final void a(int i, int i2, int i3, int i4) {
         this.g = i;
         this.h = i2;
         this.i = i3;
@@ -163,7 +163,7 @@ public class FrsWaterFallItem extends LinearLayout {
         }
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.q = i;
         if (i == 1) {
             setBackgroundResource(R.drawable.bg_frs_image_item_1);

@@ -4,9 +4,9 @@ import android.os.Handler;
 import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bb extends Handler {
+public final class bb extends Handler {
     @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    public final void handleMessage(Message message) {
         super.handleMessage(message);
         try {
             NetWorkCore netWorkCore = (NetWorkCore) message.obj;
@@ -14,7 +14,7 @@ public class bb extends Handler {
                 netWorkCore.s();
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "initNetWorkCore", e.getMessage());
+            com.baidu.adp.lib.util.e.b(getClass().getName(), "initNetWorkCore", e.getMessage());
         }
     }
 }

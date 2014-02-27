@@ -15,39 +15,39 @@ public final class FieldAttributes {
         this.field = field;
     }
 
-    public Class<?> getDeclaringClass() {
+    public final Class<?> getDeclaringClass() {
         return this.field.getDeclaringClass();
     }
 
-    public String getName() {
+    public final String getName() {
         return this.field.getName();
     }
 
-    public Type getDeclaredType() {
+    public final Type getDeclaredType() {
         return this.field.getGenericType();
     }
 
-    public Class<?> getDeclaredClass() {
+    public final Class<?> getDeclaredClass() {
         return this.field.getType();
     }
 
-    public <T extends Annotation> T getAnnotation(Class<T> cls) {
+    public final <T extends Annotation> T getAnnotation(Class<T> cls) {
         return (T) this.field.getAnnotation(cls);
     }
 
-    public Collection<Annotation> getAnnotations() {
+    public final Collection<Annotation> getAnnotations() {
         return Arrays.asList(this.field.getAnnotations());
     }
 
-    public boolean hasModifier(int i) {
+    public final boolean hasModifier(int i) {
         return (this.field.getModifiers() & i) != 0;
     }
 
-    Object get(Object obj) {
+    final Object get(Object obj) {
         return this.field.get(obj);
     }
 
-    boolean isSynthetic() {
+    final boolean isSynthetic() {
         return this.field.isSynthetic();
     }
 }

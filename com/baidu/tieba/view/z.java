@@ -5,7 +5,7 @@ import android.view.animation.Interpolator;
 import android.view.animation.Transformation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z extends Animation {
+public final class z extends Animation {
     final /* synthetic */ w a;
     private boolean b = false;
     private boolean c = false;
@@ -20,7 +20,7 @@ public class z extends Animation {
         this.a = wVar;
     }
 
-    public void a(float f, float f2) {
+    public final void a(float f, float f2) {
         Interpolator interpolator;
         if (f > 1500.0f) {
             f = 1500.0f;
@@ -45,7 +45,7 @@ public class z extends Animation {
     }
 
     @Override // android.view.animation.Animation
-    protected void applyTransformation(float f, Transformation transformation) {
+    protected final void applyTransformation(float f, Transformation transformation) {
         long j;
         int i;
         int i2;
@@ -130,7 +130,7 @@ public class z extends Animation {
     }
 
     @Override // android.view.animation.Animation
-    public boolean getTransformation(long j, Transformation transformation) {
+    public final boolean getTransformation(long j, Transformation transformation) {
         boolean z;
         if (!this.c) {
             z = this.a.l;
@@ -154,11 +154,11 @@ public class z extends Animation {
         return false;
     }
 
-    public boolean a() {
+    public final boolean a() {
         return this.b;
     }
 
-    public void b() {
+    public final void b() {
         this.c = true;
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.person.post;
 /* loaded from: classes.dex */
-class d implements k {
+final class d implements k {
     final /* synthetic */ PersonPostActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,9 +9,9 @@ class d implements k {
     }
 
     @Override // com.baidu.tieba.person.post.k
-    public void a(int i) {
-        e eVar;
-        eVar = this.a.j;
-        eVar.a(i);
+    public final void a(int i) {
+        e unused;
+        unused = this.a.j;
+        e.a();
     }
 }

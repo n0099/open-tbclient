@@ -1,6 +1,6 @@
 package com.baidu.tieba.util;
 /* loaded from: classes.dex */
-class bi {
+final class bi {
     int a;
     int b;
     int c;
@@ -11,7 +11,7 @@ class bi {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bi(bg bgVar, bi biVar) {
+    public /* synthetic */ bi(bg bgVar, byte b) {
         this(bgVar);
     }
 }

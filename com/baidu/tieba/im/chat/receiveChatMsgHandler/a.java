@@ -3,6 +3,7 @@ package com.baidu.tieba.im.chat.receiveChatMsgHandler;
 import android.text.TextUtils;
 import com.baidu.gson.Gson;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.im.c.j;
 import com.baidu.tieba.im.chat.GroupChatActivity;
 import com.baidu.tieba.im.chat.q;
 import com.baidu.tieba.im.data.MsgLocalData;
@@ -10,27 +11,14 @@ import com.baidu.tieba.im.data.SystemMsgData;
 import com.baidu.tieba.im.data.VoiceMsgData;
 import com.baidu.tieba.im.db.h;
 import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
-import com.baidu.tieba.im.j;
-import com.baidu.tieba.im.message.i;
+import com.baidu.tieba.im.i;
 import com.baidu.tieba.im.util.l;
 import com.baidu.tieba.mention.v;
 import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class a {
-    private static void b(com.baidu.tieba.im.message.b bVar) {
-        VoiceMsgData g = l.g(bVar);
-        if (g != null) {
-            if (l.d(bVar)) {
-                g.setHas_read(1);
-            } else {
-                g.setHas_read(0);
-            }
-            bVar.a("[" + new Gson().toJson(g) + "]");
-        }
-    }
-
+public final class a {
     public static void a(com.baidu.tieba.im.data.c cVar) {
         List<com.baidu.tieba.im.message.b> a;
         int i;
@@ -63,16 +51,16 @@ public class a {
             }
             CommonMsgPojo commonMsgPojo2 = (CommonMsgPojo) linkedList.getLast();
             commonMsgPojo2.checkRidAndSelf();
-            j.a(new b(valueOf, linkedList), new c(cVar, valueOf, commonMsgPojo2, i2));
+            i.a(new b(valueOf, linkedList), new c(cVar, valueOf, commonMsgPojo2, i2));
         }
     }
 
     public static boolean a(com.baidu.tieba.im.message.b bVar) {
         if (bVar.i() != 11) {
-            return (bVar.g() == null || bVar.g().getUserId() == null || !bVar.g().getUserId().equals(TiebaApplication.A())) ? false : true;
+            return (bVar.g() == null || bVar.g().getUserId() == null || !bVar.g().getUserId().equals(TiebaApplication.v())) ? false : true;
         }
-        SystemMsgData j = l.j(bVar);
-        return (j == null || j.getIsSelf()) ? false : true;
+        SystemMsgData i = l.i(bVar);
+        return (i == null || i.getIsSelf()) ? false : true;
     }
 
     public static void a(String str, com.baidu.tieba.im.message.b bVar) {
@@ -80,73 +68,89 @@ public class a {
             try {
                 switch (bVar.i()) {
                     case 3:
-                        b(bVar);
-                        break;
+                        VoiceMsgData f = l.f(bVar);
+                        if (f != null) {
+                            if (l.d(bVar)) {
+                                f.setHas_read(1);
+                            } else {
+                                f.setHas_read(0);
+                            }
+                            bVar.a("[" + new Gson().toJson(f) + "]");
+                            return;
+                        }
+                        return;
                     case 10:
-                        c(bVar);
-                        break;
+                        if (bVar != null) {
+                            String k = bVar.k();
+                            if (!TextUtils.isEmpty(k)) {
+                                String v = TiebaApplication.v();
+                                try {
+                                    JSONObject jSONObject = new JSONObject(k);
+                                    int optInt = jSONObject.optInt("replyme");
+                                    int optInt2 = jSONObject.optInt("fans");
+                                    int optInt3 = jSONObject.optInt("atme");
+                                    if (optInt < 0 || optInt2 < 0 || optInt3 < 0) {
+                                        return;
+                                    }
+                                    if (TiebaApplication.g().G() <= 0) {
+                                        optInt2 = 0;
+                                        optInt = 0;
+                                        optInt3 = 0;
+                                    }
+                                    if (!TiebaApplication.g().Q()) {
+                                        optInt = 0;
+                                    }
+                                    if (!TiebaApplication.g().P()) {
+                                        optInt3 = 0;
+                                    }
+                                    int i = TiebaApplication.g().O() ? optInt2 : 0;
+                                    if (v == null || v.length() <= 0) {
+                                        return;
+                                    }
+                                    v.a().a(optInt, optInt3, i, v.a().n(), v.a().p());
+                                    return;
+                                } catch (Exception e) {
+                                    com.baidu.adp.lib.util.e.b("ChatMsgHelper", "parseContent error ", e.getMessage());
+                                    return;
+                                }
+                            }
+                            return;
+                        }
+                        return;
                     case 11:
-                        b(str, bVar);
-                        break;
+                        if (bVar.i() == 11) {
+                            String k2 = bVar.k();
+                            String optString = new JSONObject(k2).optString("eventId");
+                            if ("105".equals(optString) || "106".equals(optString)) {
+                                com.baidu.tieba.im.message.i iVar = new com.baidu.tieba.im.message.i();
+                                iVar.a(str);
+                                com.baidu.tieba.im.messageCenter.d.a().e(iVar);
+                                return;
+                            } else if ("201".equals(optString) || "202".equals(optString) || "203".equals(optString) || "205".equals(optString)) {
+                                com.baidu.tieba.im.message.c cVar = new com.baidu.tieba.im.message.c();
+                                cVar.a(k2);
+                                com.baidu.tieba.im.messageCenter.d.a().e(cVar);
+                                return;
+                            } else {
+                                return;
+                            }
+                        }
+                        return;
+                    default:
+                        return;
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
     }
 
-    private static void b(String str, com.baidu.tieba.im.message.b bVar) {
-        if (bVar.i() == 11) {
-            String k = bVar.k();
-            String optString = new JSONObject(k).optString("eventId");
-            if ("105".equals(optString) || "106".equals(optString)) {
-                i iVar = new i();
-                iVar.a(str);
-                com.baidu.tieba.im.messageCenter.e.a().e(iVar);
-            } else if ("201".equals(optString) || "202".equals(optString) || "203".equals(optString) || "205".equals(optString)) {
-                com.baidu.tieba.im.message.c cVar = new com.baidu.tieba.im.message.c();
-                cVar.a(k);
-                com.baidu.tieba.im.messageCenter.e.a().e(cVar);
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void b(com.baidu.tieba.im.data.c cVar, String str, CommonMsgPojo commonMsgPojo, int i) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(com.baidu.tieba.im.data.c cVar, String str, CommonMsgPojo commonMsgPojo, int i) {
         h.a().a(str, i, commonMsgPojo);
-        if (!TextUtils.isEmpty(str) && !str.equals(com.baidu.tieba.im.c.j.a().e())) {
-            com.baidu.tieba.im.c.j.a().a(commonMsgPojo);
+        if (!TextUtils.isEmpty(str) && !str.equals(j.a().e()) && (cVar == null || cVar.a() == null || cVar.a().getGroupType() != 8)) {
+            j.a().a(commonMsgPojo);
         }
         q.b().a(cVar);
-    }
-
-    private static void c(com.baidu.tieba.im.message.b bVar) {
-        if (bVar != null) {
-            String k = bVar.k();
-            if (!TextUtils.isEmpty(k)) {
-                String A = TiebaApplication.A();
-                try {
-                    JSONObject jSONObject = new JSONObject(k);
-                    int optInt = jSONObject.optInt("replyme");
-                    int optInt2 = jSONObject.optInt("fans");
-                    int optInt3 = jSONObject.optInt("atme");
-                    int optInt4 = jSONObject.optInt("storethread");
-                    if (optInt >= 0 && optInt2 >= 0 && optInt3 >= 0 && optInt4 >= 0) {
-                        if (!TiebaApplication.g().W()) {
-                            optInt = 0;
-                        }
-                        if (!TiebaApplication.g().V()) {
-                            optInt3 = 0;
-                        }
-                        int i = TiebaApplication.g().U() ? optInt2 : 0;
-                        if (A != null && A.length() > 0) {
-                            v.a().a(optInt, optInt3, i, 0, optInt4);
-                        }
-                    }
-                } catch (Exception e) {
-                    com.baidu.adp.lib.util.f.b("ChatMsgHelper", "parseContent error ", e.getMessage());
-                }
-            }
-        }
     }
 }

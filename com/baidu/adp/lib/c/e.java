@@ -5,7 +5,7 @@ import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import java.util.Locale;
 /* loaded from: classes.dex */
-class e implements BDLocationListener {
+final class e implements BDLocationListener {
     final /* synthetic */ a a;
 
     private e(a aVar) {
@@ -13,12 +13,12 @@ class e implements BDLocationListener {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ e(a aVar, e eVar) {
+    public /* synthetic */ e(a aVar, byte b) {
         this(aVar);
     }
 
     @Override // com.baidu.location.BDLocationListener
-    public void onReceiveLocation(BDLocation bDLocation) {
+    public final void onReceiveLocation(BDLocation bDLocation) {
         if (bDLocation != null && bDLocation.getLocType() != 62 && bDLocation.getLocType() != 63 && bDLocation.getLocType() != 67 && bDLocation.getLocType() != 68 && bDLocation.getLocType() <= 161) {
             a.a(this.a, 0);
             a.c(this.a);
@@ -41,6 +41,6 @@ class e implements BDLocationListener {
     }
 
     @Override // com.baidu.location.BDLocationListener
-    public void onReceivePoi(BDLocation bDLocation) {
+    public final void onReceivePoi(BDLocation bDLocation) {
     }
 }

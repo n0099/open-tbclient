@@ -1,6 +1,6 @@
 package com.baidu.tieba.person;
 /* loaded from: classes.dex */
-class ab extends com.baidu.tieba.i {
+final class ab extends com.baidu.tieba.i {
     final /* synthetic */ EditMarkActivity b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +11,7 @@ class ab extends com.baidu.tieba.i {
     }
 
     @Override // com.baidu.tieba.i
-    public void a(Object... objArr) {
+    public final void a(Object... objArr) {
         boolean booleanValue;
         ad adVar;
         com.baidu.tieba.model.g gVar;
@@ -28,7 +28,7 @@ class ab extends com.baidu.tieba.i {
         try {
             if (((Integer) objArr[0]).intValue() == 0) {
                 adVar6 = this.b.b;
-                adVar6.j();
+                adVar6.g();
                 if (objArr[1] != null && (objArr[1] instanceof String)) {
                     r1 = (String) objArr[1];
                 }
@@ -40,7 +40,7 @@ class ab extends com.baidu.tieba.i {
                 editMarkActivity.d = gVar5.f();
             } else if (((Integer) objArr[0]).intValue() == 3) {
                 adVar4 = this.b.b;
-                adVar4.j();
+                adVar4.g();
                 if (objArr[1] != null && (objArr[1] instanceof String)) {
                     r1 = (String) objArr[1];
                 }
@@ -67,7 +67,7 @@ class ab extends com.baidu.tieba.i {
                 adVar.a(booleanValue, str, gVar.f());
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.e(e.getMessage());
+            com.baidu.adp.lib.util.e.e(e.getMessage());
         }
     }
 }

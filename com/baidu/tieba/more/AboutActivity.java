@@ -24,27 +24,32 @@ public class AboutActivity extends com.baidu.tieba.f {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.a = new d(this, new a(this));
-        this.a.f();
-        b();
+        this.a.e();
+        this.c = new c(this, (byte) 0);
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(com.baidu.tieba.data.i.a());
+        registerReceiver(this.c, intentFilter);
     }
 
     @Override // com.baidu.tieba.f, android.app.Activity
     public void onResume() {
         super.onResume();
         if (this.a != null) {
-            this.a.f();
+            this.a.e();
         }
     }
 
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        c();
+        if (this.c != null) {
+            unregisterReceiver(this.c);
+        }
         if (this.b != null) {
             this.b.cancelLoadData();
         }
         if (this.a != null) {
-            this.a.e();
+            this.a.d();
         }
     }
 
@@ -56,55 +61,39 @@ public class AboutActivity extends com.baidu.tieba.f {
         }
     }
 
-    public void a() {
-        if (this.b == null) {
-            this.b = new com.baidu.tieba.model.a(this, new b(this));
+    public static /* synthetic */ void b(AboutActivity aboutActivity) {
+        if (aboutActivity.b == null) {
+            aboutActivity.b = new com.baidu.tieba.model.a(aboutActivity, new b(aboutActivity));
         } else {
-            this.b.cancelLoadData();
+            aboutActivity.b.cancelLoadData();
         }
-        this.b.a();
-        if (this.a != null) {
-            this.a.a();
+        aboutActivity.b.a();
+        if (aboutActivity.a != null) {
+            aboutActivity.a.a();
         }
     }
 
-    public void a(Object obj) {
-        if (this.a != null) {
-            this.a.e();
+    public static /* synthetic */ void a(AboutActivity aboutActivity, Object obj) {
+        if (aboutActivity.a != null) {
+            aboutActivity.a.d();
         }
         bw bwVar = obj != null ? (bw) obj : null;
-        if (bwVar != null) {
-            TiebaApplication.g().a(bwVar.c());
-            TiebaApplication.g().x(false);
-            if (bwVar.c().getHas_new_ver() == 1) {
-                if (bwVar.c().getForce_update() == 1) {
-                    UpdateDialog.a(TiebaApplication.g().b(), bwVar.c(), bwVar.b());
-                } else {
-                    TiebaApplication.g().a(Long.valueOf(new Date().getTime()).longValue());
-                    UpdateDialog.a(TiebaApplication.g().b(), bwVar.c(), bwVar.b());
-                }
-            } else {
-                showToast(getResources().getString(R.string.neednot_update));
-            }
-            if (this.a != null) {
-                this.a.f();
-                return;
-            }
+        if (bwVar == null) {
+            aboutActivity.showToast(aboutActivity.getResources().getString(R.string.neterror));
             return;
         }
-        showToast(getResources().getString(R.string.neterror));
-    }
-
-    private void b() {
-        this.c = new c(this, null);
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(com.baidu.tieba.data.i.a());
-        registerReceiver(this.c, intentFilter);
-    }
-
-    private void c() {
-        if (this.c != null) {
-            unregisterReceiver(this.c);
+        TiebaApplication.g().a(bwVar.c());
+        TiebaApplication.g().w(false);
+        if (bwVar.c().getHas_new_ver() != 1) {
+            aboutActivity.showToast(aboutActivity.getResources().getString(R.string.neednot_update));
+        } else if (bwVar.c().getForce_update() == 1) {
+            UpdateDialog.a(TiebaApplication.g().b(), bwVar.c(), bwVar.b());
+        } else {
+            TiebaApplication.g().a(Long.valueOf(new Date().getTime()).longValue());
+            UpdateDialog.a(TiebaApplication.g().b(), bwVar.c(), bwVar.b());
+        }
+        if (aboutActivity.a != null) {
+            aboutActivity.a.e();
         }
     }
 }

@@ -5,11 +5,9 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import protobuf.QueryGroupsByUid.QueryGroupsByUidRes;
 /* loaded from: classes.dex */
-class g extends AbstractParser<QueryGroupsByUidRes.DataRes> {
-    /* JADX DEBUG: Method merged with bridge method */
+final class g extends AbstractParser<QueryGroupsByUidRes.DataRes> {
     @Override // com.google.protobuf.Parser
-    /* renamed from: a */
-    public QueryGroupsByUidRes.DataRes parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
+    public final /* synthetic */ Object parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
         return new QueryGroupsByUidRes.DataRes(codedInputStream, extensionRegistryLite, null);
     }
 }

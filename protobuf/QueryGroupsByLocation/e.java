@@ -4,25 +4,32 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.QueryGroupsByLocation.QueryGroupsByLocationReq;
 /* loaded from: classes.dex */
 public final class e extends GeneratedMessageLite.Builder<QueryGroupsByLocationReq.QueryGroupsByLocationReqIdl, e> implements f {
     private int a;
     private QueryGroupsByLocationReq.DataReq b = QueryGroupsByLocationReq.DataReq.getDefaultInstance();
 
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return QueryGroupsByLocationReq.QueryGroupsByLocationReqIdl.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return QueryGroupsByLocationReq.QueryGroupsByLocationReqIdl.getDefaultInstance();
+    }
+
     private e() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static e h() {
+    public static /* synthetic */ e b() {
         return new e();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public e clear() {
         super.clear();
         this.b = QueryGroupsByLocationReq.DataReq.getDefaultInstance();
@@ -31,20 +38,14 @@ public final class e extends GeneratedMessageLite.Builder<QueryGroupsByLocationR
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
+    /* renamed from: d */
     public e clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public QueryGroupsByLocationReq.QueryGroupsByLocationReqIdl getDefaultInstanceForType() {
-        return QueryGroupsByLocationReq.QueryGroupsByLocationReqIdl.getDefaultInstance();
+        return new e().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: d */
-    public QueryGroupsByLocationReq.QueryGroupsByLocationReqIdl build() {
+    /* renamed from: a */
+    public final QueryGroupsByLocationReq.QueryGroupsByLocationReqIdl build() {
         QueryGroupsByLocationReq.QueryGroupsByLocationReqIdl buildPartial = buildPartial();
         if (!buildPartial.isInitialized()) {
             throw newUninitializedMessageException(buildPartial);
@@ -64,9 +65,15 @@ public final class e extends GeneratedMessageLite.Builder<QueryGroupsByLocationR
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public e mergeFrom(QueryGroupsByLocationReq.QueryGroupsByLocationReqIdl queryGroupsByLocationReqIdl) {
+    public final e mergeFrom(QueryGroupsByLocationReq.QueryGroupsByLocationReqIdl queryGroupsByLocationReqIdl) {
         if (queryGroupsByLocationReqIdl != QueryGroupsByLocationReq.QueryGroupsByLocationReqIdl.getDefaultInstance() && queryGroupsByLocationReqIdl.hasData()) {
-            b(queryGroupsByLocationReqIdl.getData());
+            QueryGroupsByLocationReq.DataReq data = queryGroupsByLocationReqIdl.getData();
+            if ((this.a & 1) != 1 || this.b == QueryGroupsByLocationReq.DataReq.getDefaultInstance()) {
+                this.b = data;
+            } else {
+                this.b = QueryGroupsByLocationReq.DataReq.newBuilder(this.b).mergeFrom(data).buildPartial();
+            }
+            this.a |= 1;
         }
         return this;
     }
@@ -114,21 +121,11 @@ public final class e extends GeneratedMessageLite.Builder<QueryGroupsByLocationR
         }
     }
 
-    public e a(QueryGroupsByLocationReq.DataReq dataReq) {
+    public final e a(QueryGroupsByLocationReq.DataReq dataReq) {
         if (dataReq != null) {
             this.b = dataReq;
             this.a |= 1;
         }
-        return this;
-    }
-
-    public e b(QueryGroupsByLocationReq.DataReq dataReq) {
-        if ((this.a & 1) == 1 && this.b != QueryGroupsByLocationReq.DataReq.getDefaultInstance()) {
-            this.b = QueryGroupsByLocationReq.DataReq.newBuilder(this.b).mergeFrom(dataReq).buildPartial();
-        } else {
-            this.b = dataReq;
-        }
-        this.a |= 1;
         return this;
     }
 }

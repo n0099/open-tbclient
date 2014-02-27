@@ -18,7 +18,9 @@ public final class QueryGroupUserListReq {
         public static final int GROUPID_FIELD_NUMBER = 1;
         public static final int OFFSET_FIELD_NUMBER = 2;
         public static final int ORDERTYPE_FIELD_NUMBER = 4;
+        public static Parser<DataReq> PARSER = new a();
         public static final int RN_FIELD_NUMBER = 3;
+        private static final DataReq a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private int groupId_;
@@ -27,8 +29,6 @@ public final class QueryGroupUserListReq {
         private int offset_;
         private int orderType_;
         private int rn_;
-        public static Parser<DataReq> PARSER = new a();
-        private static final DataReq a = new DataReq(true);
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ DataReq(GeneratedMessageLite.Builder builder, DataReq dataReq) {
@@ -41,7 +41,7 @@ public final class QueryGroupUserListReq {
             this.memoizedSerializedSize = -1;
         }
 
-        private DataReq(boolean z) {
+        private DataReq() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -52,7 +52,7 @@ public final class QueryGroupUserListReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public DataReq getDefaultInstanceForType() {
+        public final DataReq getDefaultInstanceForType() {
             return a;
         }
 
@@ -110,43 +110,45 @@ public final class QueryGroupUserListReq {
         }
 
         static {
-            a.a();
+            DataReq dataReq = new DataReq();
+            a = dataReq;
+            dataReq.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<DataReq> getParserForType() {
+        public final Parser<DataReq> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasGroupId() {
+        public final boolean hasGroupId() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public int getGroupId() {
+        public final int getGroupId() {
             return this.groupId_;
         }
 
-        public boolean hasOffset() {
+        public final boolean hasOffset() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public int getOffset() {
+        public final int getOffset() {
             return this.offset_;
         }
 
-        public boolean hasRn() {
+        public final boolean hasRn() {
             return (this.bitField0_ & 4) == 4;
         }
 
-        public int getRn() {
+        public final int getRn() {
             return this.rn_;
         }
 
-        public boolean hasOrderType() {
+        public final boolean hasOrderType() {
             return (this.bitField0_ & 8) == 8;
         }
 
-        public int getOrderType() {
+        public final int getOrderType() {
             return this.orderType_;
         }
 
@@ -168,7 +170,7 @@ public final class QueryGroupUserListReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeInt32(1, this.groupId_);
@@ -185,10 +187,13 @@ public final class QueryGroupUserListReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt32Size(1, this.groupId_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeInt32Size(1, this.groupId_) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeInt32Size(2, this.offset_);
                 }
@@ -205,7 +210,7 @@ public final class QueryGroupUserListReq {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -250,12 +255,12 @@ public final class QueryGroupUserListReq {
         }
 
         public static b newBuilder() {
-            return b.f();
+            return b.c();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public b newBuilderForType() {
+        public final b newBuilderForType() {
             return newBuilder();
         }
 
@@ -265,7 +270,7 @@ public final class QueryGroupUserListReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public b toBuilder() {
+        public final b toBuilder() {
             return newBuilder(this);
         }
     }
@@ -274,7 +279,7 @@ public final class QueryGroupUserListReq {
     public final class QueryGroupUserListReqIdl extends GeneratedMessageLite implements f {
         public static final int DATA_FIELD_NUMBER = 1;
         public static Parser<QueryGroupUserListReqIdl> PARSER = new d();
-        private static final QueryGroupUserListReqIdl a = new QueryGroupUserListReqIdl(true);
+        private static final QueryGroupUserListReqIdl a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private DataReq data_;
@@ -292,7 +297,7 @@ public final class QueryGroupUserListReq {
             this.memoizedSerializedSize = -1;
         }
 
-        private QueryGroupUserListReqIdl(boolean z) {
+        private QueryGroupUserListReqIdl() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -303,7 +308,7 @@ public final class QueryGroupUserListReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public QueryGroupUserListReqIdl getDefaultInstanceForType() {
+        public final QueryGroupUserListReqIdl getDefaultInstanceForType() {
             return a;
         }
 
@@ -311,7 +316,7 @@ public final class QueryGroupUserListReq {
             b bVar;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
-            a();
+            this.data_ = DataReq.getDefaultInstance();
             boolean z = false;
             while (!z) {
                 try {
@@ -359,24 +364,22 @@ public final class QueryGroupUserListReq {
         }
 
         static {
-            a.a();
+            QueryGroupUserListReqIdl queryGroupUserListReqIdl = new QueryGroupUserListReqIdl();
+            a = queryGroupUserListReqIdl;
+            queryGroupUserListReqIdl.data_ = DataReq.getDefaultInstance();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<QueryGroupUserListReqIdl> getParserForType() {
+        public final Parser<QueryGroupUserListReqIdl> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasData() {
+        public final boolean hasData() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public DataReq getData() {
+        public final DataReq getData() {
             return this.data_;
-        }
-
-        private void a() {
-            this.data_ = DataReq.getDefaultInstance();
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -390,7 +393,7 @@ public final class QueryGroupUserListReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeMessage(1, this.data_);
@@ -398,10 +401,13 @@ public final class QueryGroupUserListReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeMessageSize(1, this.data_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeMessageSize(1, this.data_) + 0;
+                }
                 this.memoizedSerializedSize = i;
             }
             return i;
@@ -409,7 +415,7 @@ public final class QueryGroupUserListReq {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -454,12 +460,12 @@ public final class QueryGroupUserListReq {
         }
 
         public static e newBuilder() {
-            return e.f();
+            return e.b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public e newBuilderForType() {
+        public final e newBuilderForType() {
             return newBuilder();
         }
 
@@ -469,7 +475,7 @@ public final class QueryGroupUserListReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public e toBuilder() {
+        public final e toBuilder() {
             return newBuilder(this);
         }
     }

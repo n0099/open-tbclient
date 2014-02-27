@@ -4,7 +4,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
 /* loaded from: classes.dex */
-class l implements View.OnTouchListener {
+final class l implements View.OnTouchListener {
     final /* synthetic */ j a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ class l implements View.OnTouchListener {
     }
 
     @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
+    public final boolean onTouch(View view, MotionEvent motionEvent) {
         if (this.a.w && motionEvent.getAction() == 0) {
             ((ImageButton) view).setBackgroundDrawable(this.a.getResources().getDrawable(com.baidu.adp.c.adp_debug_switch_bk));
             this.a.m.setVisibility(8);

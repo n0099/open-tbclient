@@ -11,7 +11,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class l {
+public final class l {
     private static l a = new l();
     private ArrayList<WritableEmotionGroup> b = new ArrayList<>();
     private k c;
@@ -21,19 +21,20 @@ public class l {
         return a;
     }
 
-    public void b() {
-        com.baidu.adp.lib.f.d.a().a(new m(this));
+    public final void b() {
+        com.baidu.adp.lib.f.d.a();
+        com.baidu.adp.lib.f.d.a(new m(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public synchronized void c() {
+    public final synchronized void c() {
         ArrayList arrayList = new ArrayList();
         if (this.c == null) {
             this.c = new k();
         }
         arrayList.add(this.c);
         if (af.a()) {
-            for (MyEmotionGroupData myEmotionGroupData : j.a().c(TiebaApplication.A())) {
+            for (MyEmotionGroupData myEmotionGroupData : j.a().c(TiebaApplication.v())) {
                 EmotionGroupData a2 = j.a().a(myEmotionGroupData.groupId);
                 if (a2 != null) {
                     e eVar = new e(a2);
@@ -63,7 +64,7 @@ public class l {
     private l() {
     }
 
-    public boolean a(String str) {
+    public final boolean a(String str) {
         Iterator<WritableEmotionGroup> it = this.b.iterator();
         while (it.hasNext()) {
             if (it.next().a(str)) {
@@ -73,22 +74,18 @@ public class l {
         return false;
     }
 
-    public String a(String str, boolean z) {
+    public final String a(String str, boolean z) {
         if (this.c == null || !z || this.c.a(str)) {
             return str;
         }
         return "#@" + str;
     }
 
-    public com.baidu.adp.widget.ImageView.b b(String str) {
+    public static com.baidu.adp.widget.ImageView.b b(String str) {
         return com.baidu.tbadk.imageManager.e.a().c(str);
     }
 
-    public com.baidu.adp.widget.ImageView.b c(String str) {
-        return com.baidu.tbadk.imageManager.e.a().c(a(str, true));
-    }
-
-    public com.baidu.adp.widget.ImageView.b a(String str, String str2) {
+    public final com.baidu.adp.widget.ImageView.b a(String str, String str2) {
         com.baidu.adp.widget.ImageView.b bVar;
         Bitmap a2;
         com.baidu.adp.widget.ImageView.b c = com.baidu.tbadk.imageManager.e.a().c(str2);
@@ -114,12 +111,12 @@ public class l {
         return bVar;
     }
 
-    public com.baidu.adp.widget.ImageView.b b(String str, String str2) {
+    public final com.baidu.adp.widget.ImageView.b b(String str, String str2) {
         com.baidu.adp.widget.ImageView.b bVar;
         if (this.c == null) {
             return null;
         }
-        com.baidu.adp.widget.ImageView.b c = c(str2);
+        com.baidu.adp.widget.ImageView.b c = com.baidu.tbadk.imageManager.e.a().c(a(str2, true));
         if (c != null) {
             return c;
         }
@@ -142,24 +139,24 @@ public class l {
         return bVar;
     }
 
-    public void a(String str, com.baidu.adp.widget.ImageView.b bVar, boolean z) {
+    public final void a(String str, com.baidu.adp.widget.ImageView.b bVar, boolean z) {
         if (bVar != null) {
             if (z) {
                 if (!this.c.a(str)) {
                     str = "#@" + str;
                 }
-                com.baidu.tbadk.imageManager.e.a().b(str, bVar, true);
+                com.baidu.tbadk.imageManager.e.a().b(str, bVar);
                 return;
             }
-            com.baidu.tbadk.imageManager.e.a().b(str, bVar, false);
+            com.baidu.tbadk.imageManager.e.a().b(str, bVar);
         }
     }
 
-    public ArrayList<WritableEmotionGroup> d() {
+    public final ArrayList<WritableEmotionGroup> d() {
         return this.b;
     }
 
-    public WritableEmotionGroup d(String str) {
+    public final WritableEmotionGroup c(String str) {
         Iterator<WritableEmotionGroup> it = this.b.iterator();
         while (it.hasNext()) {
             WritableEmotionGroup next = it.next();
@@ -170,20 +167,39 @@ public class l {
         return null;
     }
 
-    public synchronized void a(List<AdsEmotionGroupData> list) {
+    public final synchronized void a(List<AdsEmotionGroupData> list) {
+        boolean z;
+        boolean z2;
         if (list != null) {
             if (!list.isEmpty()) {
                 LinkedList linkedList = new LinkedList();
-                boolean z = false;
+                boolean z3 = false;
                 for (AdsEmotionGroupData adsEmotionGroupData : list) {
                     if (!TextUtils.isEmpty(adsEmotionGroupData.getGroupId()) && !TextUtils.isEmpty(adsEmotionGroupData.getColorCoverUrl())) {
                         a aVar = new a(adsEmotionGroupData);
                         linkedList.add(aVar);
-                        z = z || aVar.a(adsEmotionGroupData, new o(this));
+                        if (!z3) {
+                            o oVar = new o(this);
+                            com.baidu.tieba.util.i iVar = new com.baidu.tieba.util.i(TiebaApplication.g().b());
+                            iVar.a(true);
+                            iVar.b(adsEmotionGroupData.getColorCoverUrl(), new b(aVar, oVar));
+                            if (aVar.b()) {
+                                oVar.a();
+                                z2 = true;
+                            } else {
+                                z2 = false;
+                            }
+                            if (!z2) {
+                                z = false;
+                                z3 = z;
+                            }
+                        }
+                        z = true;
+                        z3 = z;
                     }
                 }
                 this.d = linkedList;
-                if (z) {
+                if (z3) {
                     b();
                 }
             }

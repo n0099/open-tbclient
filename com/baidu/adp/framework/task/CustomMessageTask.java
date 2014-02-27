@@ -2,7 +2,7 @@ package com.baidu.adp.framework.task;
 
 import com.baidu.adp.framework.FrameHelper;
 /* loaded from: classes.dex */
-public class CustomMessageTask extends b {
+public final class CustomMessageTask extends b {
     private a<?> e;
     private TASK_TYPE f;
     private boolean g;
@@ -31,24 +31,24 @@ public class CustomMessageTask extends b {
         this.e = aVar;
     }
 
-    public a<?> a() {
+    public final a<?> a() {
         return this.e;
     }
 
     @Override // com.baidu.adp.framework.task.b
-    public boolean b() {
+    public final boolean b() {
         return FrameHelper.d(this.a);
     }
 
-    public TASK_TYPE c() {
+    public final TASK_TYPE c() {
         return this.f;
     }
 
-    public void a(TASK_TYPE task_type) {
+    public final void a(TASK_TYPE task_type) {
         this.f = task_type;
     }
 
-    public boolean d() {
+    public final boolean d() {
         return this.g;
     }
 }

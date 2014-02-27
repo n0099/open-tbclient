@@ -5,16 +5,16 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class e {
+public final class e {
     private ArrayList<d> b;
     private int a = 0;
     private boolean c = false;
 
-    public ArrayList<d> a() {
+    public final ArrayList<d> a() {
         return this.b;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         d a;
         try {
             JSONObject jSONObject = new JSONObject(str);
@@ -31,15 +31,15 @@ public class e {
                 }
             }
         } catch (JSONException e) {
-            com.baidu.adp.lib.util.f.b("InviteFriendListData", "parserJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.util.e.b("InviteFriendListData", "parserJson", "error = " + e.getMessage());
         }
     }
 
-    public boolean b() {
+    public final boolean b() {
         return this.c;
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.c = z;
     }
 }

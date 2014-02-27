@@ -1,7 +1,7 @@
 package com.baidu.tbadk.data;
 
 import com.baidu.adp.lib.f.b;
-import com.baidu.adp.lib.util.f;
+import com.baidu.adp.lib.util.e;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import java.io.Serializable;
 import java.util.LinkedList;
@@ -91,7 +91,7 @@ public class MetaData implements Serializable {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            f.b("MetaData", "parserJson", "error = " + e.getMessage());
+            e.b("MetaData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -124,18 +124,18 @@ public class MetaData implements Serializable {
                     }
                 }
             } catch (Exception e) {
-                f.b("MetaData", "parserJson", "error = " + e.getMessage());
+                e.b("MetaData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
     public void logPrint() {
-        f.d("MetaData", "logPrint", "id = " + this.userId);
-        f.d("MetaData", "logPrint", "type = " + String.valueOf(this.type));
-        f.d("MetaData", "logPrint", "name = " + this.userName);
-        f.d("MetaData", "logPrint", "name_show = " + this.name_show);
-        f.d("MetaData", "logPrint", "portrait = " + this.portrait);
-        f.d("MetaData", "logPrint", "portraith = " + this.portraith);
+        e.d("MetaData", "logPrint", "id = " + this.userId);
+        e.d("MetaData", "logPrint", "type = " + String.valueOf(this.type));
+        e.d("MetaData", "logPrint", "name = " + this.userName);
+        e.d("MetaData", "logPrint", "name_show = " + this.name_show);
+        e.d("MetaData", "logPrint", "portrait = " + this.portrait);
+        e.d("MetaData", "logPrint", "portraith = " + this.portraith);
     }
 
     public String toString() {

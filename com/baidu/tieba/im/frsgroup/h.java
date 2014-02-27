@@ -2,7 +2,7 @@ package com.baidu.tieba.im.frsgroup;
 
 import android.view.View;
 /* loaded from: classes.dex */
-class h implements View.OnClickListener {
+final class h implements View.OnClickListener {
     final /* synthetic */ c a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,13 +11,13 @@ class h implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         FrsGroupActivity frsGroupActivity;
         FrsGroupActivity frsGroupActivity2;
         frsGroupActivity = this.a.b;
         if (frsGroupActivity != null) {
             frsGroupActivity2 = this.a.b;
-            frsGroupActivity2.i();
+            frsGroupActivity2.g();
         }
     }
 }

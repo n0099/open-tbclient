@@ -5,7 +5,7 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements AdapterView.OnItemLongClickListener {
+public final class l implements AdapterView.OnItemLongClickListener {
     final /* synthetic */ BdListView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ public class l implements AdapterView.OnItemLongClickListener {
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
+    public final boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
         e eVar;
         e eVar2;
         AdapterView.OnItemLongClickListener onItemLongClickListener;

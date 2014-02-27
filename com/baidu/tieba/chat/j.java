@@ -5,7 +5,7 @@ import com.baidu.tieba.im.message.s;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j implements com.baidu.tieba.im.messageCenter.g {
+public final class j implements com.baidu.tieba.im.messageCenter.g {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ public class j implements com.baidu.tieba.im.messageCenter.g {
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(s sVar) {
+    public final void a(s sVar) {
         if (sVar != null && sVar.w() == 103104 && (sVar instanceof bv)) {
             bv bvVar = (bv) sVar;
             if (bvVar.m() > 0) {
@@ -22,7 +22,8 @@ public class j implements com.baidu.tieba.im.messageCenter.g {
             } else if (bvVar.m() < 0) {
                 this.a.a(R.string.neterror);
             } else {
-                this.a.b(new StringBuilder(String.valueOf(bvVar.a())).toString());
+                new StringBuilder(String.valueOf(bvVar.a())).toString();
+                this.a.b();
             }
         }
     }

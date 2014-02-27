@@ -3,37 +3,25 @@ package com.baidu.tieba.im.message;
 import com.google.protobuf.MessageLite;
 import protobuf.CommitPusherCount.CommitPusherCountReq;
 /* loaded from: classes.dex */
-public class z extends s implements com.baidu.tieba.im.coder.g {
+public final class z extends s implements com.baidu.tieba.im.coder.g {
     private int a;
     private long b;
     private long c;
     private int d;
 
-    public void a(int i) {
+    public final void a(int i) {
         this.d = i;
     }
 
-    public int b() {
-        return this.a;
-    }
-
-    public void b(int i) {
+    public final void b(int i) {
         this.a = i;
     }
 
-    public long c() {
-        return this.b;
-    }
-
-    public void a(long j) {
+    public final void a(long j) {
         this.b = j;
     }
 
-    public long d() {
-        return this.c;
-    }
-
-    public void b(long j) {
+    public final void b(long j) {
         this.c = j;
     }
 
@@ -42,7 +30,7 @@ public class z extends s implements com.baidu.tieba.im.coder.g {
     }
 
     @Override // com.baidu.tieba.im.coder.g
-    public MessageLite a() {
-        return CommitPusherCountReq.CommitPusherCountReqIdl.newBuilder().a(CommitPusherCountReq.DataReq.newBuilder().c(d()).a(b()).b(c()).build()).build();
+    public final MessageLite a() {
+        return CommitPusherCountReq.CommitPusherCountReqIdl.newBuilder().a(CommitPusherCountReq.DataReq.newBuilder().c(this.c).a(this.a).b(this.b).build()).build();
     }
 }

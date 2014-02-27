@@ -26,18 +26,22 @@ public class BarFolderSecondDirActivity extends com.baidu.tieba.a {
         this.l = getIntent().getStringExtra("menuName");
         this.m = getIntent().getStringExtra("menuType");
         this.n = getIntent().getStringExtra("menuId");
-        c();
-        e();
-        d();
-        cb.a(this, "category_2", "enter");
-    }
-
-    protected void c() {
         this.i = new q(this, new t(), this.l, this.n);
         this.e.setAdapter((ListAdapter) this.i);
         this.d.setText(this.l);
         this.h = (ProgressBar) findViewById(R.id.progress);
         this.k = (ImageView) findViewById(R.id.home);
+        this.h.setVisibility(0);
+        this.e.setEnabled(false);
+        if (this.j != null) {
+            this.j.cancel();
+        }
+        this.j = new p(this, (byte) 0);
+        this.j.setPriority(3);
+        this.j.execute("");
+        this.e.setOnItemClickListener(new o(this));
+        this.k.setOnClickListener(this);
+        cb.a(this, "category_2", "enter");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -49,39 +53,23 @@ public class BarFolderSecondDirActivity extends com.baidu.tieba.a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.a
-    public void b() {
+    public final void a() {
         if (this.j != null) {
             this.j.cancel();
         }
         a(null, true);
-        super.b();
+        super.a();
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.k) {
-            com.baidu.tieba.mainentrance.f.a(this);
+            com.baidu.tieba.mainentrance.d.a(this);
         }
-    }
-
-    protected void d() {
-        this.e.setOnItemClickListener(new o(this));
-        this.k.setOnClickListener(this);
-    }
-
-    protected void e() {
-        this.h.setVisibility(0);
-        this.e.setEnabled(false);
-        if (this.j != null) {
-            this.j.cancel();
-        }
-        this.j = new p(this, null);
-        this.j.setPriority(3);
-        this.j.execute("");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(t tVar, boolean z) {
+    public final void a(t tVar, boolean z) {
         this.h.setVisibility(8);
         this.e.setEnabled(true);
         this.j = null;

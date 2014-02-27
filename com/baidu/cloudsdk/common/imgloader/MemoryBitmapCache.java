@@ -34,31 +34,27 @@ public class MemoryBitmapCache implements i {
             a aVar;
             String str;
             boolean z;
-            String str2 = null;
             boolean z2 = true;
+            String str2 = null;
             a aVar2 = null;
             for (String str3 : map.keySet()) {
                 a aVar3 = (a) map.get(str3);
                 if (System.currentTimeMillis() - aVar3.c < this.a) {
                     if (z2 && (aVar2 == null || aVar3.b < aVar2.b)) {
-                        boolean z3 = z2;
-                        aVar = aVar3;
-                        str = str3;
-                        z = z3;
+                        str2 = str3;
+                        aVar2 = aVar3;
                     }
-                    z = z2;
-                    str = str2;
-                    aVar = aVar2;
-                } else {
-                    if (aVar2 == null || aVar3.c < aVar2.c) {
-                        aVar = aVar3;
-                        str = str3;
-                        z = false;
-                    }
-                    z = z2;
-                    str = str2;
-                    aVar = aVar2;
+                } else if (aVar2 == null || aVar3.c < aVar2.c) {
+                    aVar = aVar3;
+                    str = str3;
+                    z = false;
+                    str2 = str;
+                    aVar2 = aVar;
+                    z2 = z;
                 }
+                z = z2;
+                str = str2;
+                aVar = aVar2;
                 str2 = str;
                 aVar2 = aVar;
                 z2 = z;

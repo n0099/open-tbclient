@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class al {
+public final class al {
     private ForumData a;
     private ArrayList<com.baidu.tieba.data.ba> b;
     private ArrayList<String> c;
@@ -19,8 +19,8 @@ public class al {
     private String j = null;
     private am k = null;
     private ao l = null;
-    private com.baidu.tieba.frs.bn m = null;
-    private com.baidu.tieba.frs.bn n = null;
+    private com.baidu.tieba.frs.bo m = null;
+    private com.baidu.tieba.frs.bo n = null;
 
     public al() {
         h();
@@ -37,31 +37,31 @@ public class al {
         this.h = new com.baidu.tieba.data.aj();
     }
 
-    public com.baidu.tieba.data.aj a() {
+    public final com.baidu.tieba.data.aj a() {
         return this.h;
     }
 
-    public ForumData b() {
+    public final ForumData b() {
         return this.a;
     }
 
-    public ArrayList<com.baidu.tieba.data.ba> c() {
+    public final ArrayList<com.baidu.tieba.data.ba> c() {
         return this.b;
     }
 
-    public ArrayList<String> d() {
+    public final ArrayList<String> d() {
         return this.c;
     }
 
-    public int e() {
+    public final int e() {
         return this.d;
     }
 
-    public AntiData f() {
+    public final AntiData f() {
         return this.g;
     }
 
-    public void a(JSONObject jSONObject) {
+    public final void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 h();
@@ -93,14 +93,7 @@ public class al {
         }
     }
 
-    public void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-        }
-    }
-
-    public void a(int i) {
+    public final void a(int i) {
         if (this.k != null) {
             this.k.cancel();
         }
@@ -109,7 +102,7 @@ public class al {
         this.k.execute(new Object[0]);
     }
 
-    public void b(int i) {
+    public final void b(int i) {
         if (this.k == null && this.l == null) {
             this.l = new ao(this, i);
             this.l.setPriority(3);
@@ -117,7 +110,7 @@ public class al {
         }
     }
 
-    public void g() {
+    public final void g() {
         if (this.k != null) {
             this.k.cancel();
             this.k = null;
@@ -128,16 +121,16 @@ public class al {
         }
     }
 
-    public void a(String str, String str2) {
+    public final void a(String str, String str2) {
         this.i = str;
         this.j = str2;
     }
 
-    public void a(com.baidu.tieba.frs.bn bnVar) {
-        this.m = bnVar;
+    public final void a(com.baidu.tieba.frs.bo boVar) {
+        this.m = boVar;
     }
 
-    public void b(com.baidu.tieba.frs.bn bnVar) {
-        this.n = bnVar;
+    public final void b(com.baidu.tieba.frs.bo boVar) {
+        this.n = boVar;
     }
 }

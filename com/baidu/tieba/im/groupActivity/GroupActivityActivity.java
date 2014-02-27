@@ -65,10 +65,10 @@ public class GroupActivityActivity extends com.baidu.tieba.f implements View.OnC
 
     private void a() {
         if (this.c == null) {
-            this.c = new p(this, null);
-            com.baidu.tieba.im.messageCenter.e.a().a(103015, this.c);
-            com.baidu.tieba.im.messageCenter.e.a().a(-127, this.c);
-            com.baidu.tieba.im.messageCenter.e.a().a(103121, this.c);
+            this.c = new p(this, (byte) 0);
+            com.baidu.tieba.im.messageCenter.d.a().a(103015, this.c);
+            com.baidu.tieba.im.messageCenter.d.a().a(-127, this.c);
+            com.baidu.tieba.im.messageCenter.d.a().a(103121, this.c);
         }
     }
 
@@ -93,7 +93,7 @@ public class GroupActivityActivity extends com.baidu.tieba.f implements View.OnC
     public void onDestroy() {
         super.onDestroy();
         this.b.d();
-        com.baidu.tieba.im.messageCenter.e.a().a(this.c);
+        com.baidu.tieba.im.messageCenter.d.a().a(this.c);
         if (this.a != null) {
             this.a.a();
         }
@@ -121,21 +121,21 @@ public class GroupActivityActivity extends com.baidu.tieba.f implements View.OnC
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.a.e()) {
+        if (view == this.a.d()) {
             closeActivity();
-        } else if (view == this.a.f()) {
-            com.baidu.tieba.im.util.b.b(this, new n(this));
+        } else if (view == this.a.e()) {
+            com.baidu.tieba.im.util.b.a(this, new n(this));
         }
     }
 
     @Override // com.baidu.adp.a.a, android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         super.onClick(dialogInterface, i);
-        if (dialogInterface != null && dialogInterface == this.a.g()) {
+        if (dialogInterface != null && dialogInterface == this.a.f()) {
             if (i == 0) {
                 CreateGroupActivityActivity.a(this, (int) this.b.c(), this.b.h(), 23001);
             } else if (i == 1) {
-                com.baidu.tieba.im.util.b.b(this, new o(this));
+                com.baidu.tieba.im.util.b.a(this, new o(this));
             }
         }
     }

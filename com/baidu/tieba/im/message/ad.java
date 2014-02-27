@@ -3,7 +3,7 @@ package com.baidu.tieba.im.message;
 import com.google.protobuf.MessageLite;
 import protobuf.AddGroup.AddGroupReq;
 /* loaded from: classes.dex */
-public class ad extends s implements com.baidu.tieba.im.coder.g {
+public final class ad extends s implements com.baidu.tieba.im.coder.g {
     private String a;
     private String b;
     private String c;
@@ -20,88 +20,64 @@ public class ad extends s implements com.baidu.tieba.im.coder.g {
         e(103101);
     }
 
-    public int b() {
-        return this.i;
-    }
-
-    public void a(int i) {
+    public final void a(int i) {
         this.i = i;
     }
 
-    public String c() {
+    public final String b() {
         return this.a;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.a = str;
     }
 
-    public String d() {
-        return this.b;
-    }
-
-    public void b(String str) {
+    public final void b(String str) {
         this.b = str;
     }
 
-    public String e() {
+    public final String c() {
         return this.c;
     }
 
-    public void c(String str) {
+    public final void c(String str) {
         this.c = str;
     }
 
-    public String f() {
-        return this.d;
-    }
-
-    public void d(String str) {
+    public final void d(String str) {
         this.d = str;
     }
 
-    public void e(String str) {
+    public final void e(String str) {
         this.j = str;
     }
 
-    public String g() {
-        return this.e;
-    }
-
-    public void f(String str) {
+    public final void f(String str) {
         this.e = str;
     }
 
-    public String h() {
-        return this.h;
-    }
-
-    public void g(String str) {
+    public final void g(String str) {
         this.h = str;
     }
 
-    public int i() {
+    public final int d() {
         return this.f;
     }
 
-    public void b(int i) {
+    public final void b(int i) {
         this.f = i;
     }
 
-    public int j() {
-        return this.g;
-    }
-
-    public void c(int i) {
+    public final void c(int i) {
         this.g = i;
     }
 
-    public void h(String str) {
+    public final void h(String str) {
         this.k = str;
     }
 
     @Override // com.baidu.tieba.im.coder.g
-    public MessageLite a() {
-        return AddGroupReq.AddGroupReqIdl.newBuilder().a(AddGroupReq.DataReq.newBuilder().a(c()).b(d()).c(e()).d(f()).a(com.baidu.adp.lib.f.b.a(g(), 0.0d)).b(i()).c(j()).b(com.baidu.adp.lib.f.b.a(h(), 0.0d)).a(b()).build()).build();
+    public final MessageLite a() {
+        return AddGroupReq.AddGroupReqIdl.newBuilder().a(AddGroupReq.DataReq.newBuilder().a(this.a).b(this.b).c(this.c).d(this.d).a(com.baidu.adp.lib.f.b.a(this.e, 0.0d)).b(this.f).c(this.g).b(com.baidu.adp.lib.f.b.a(this.h, 0.0d)).a(this.i).build()).build();
     }
 }

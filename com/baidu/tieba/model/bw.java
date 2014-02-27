@@ -9,7 +9,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class bw {
+public final class bw {
     private int g;
     private int h = 0;
     private VersionData a = new VersionData();
@@ -19,15 +19,15 @@ public class bw {
     private au e = new au();
     private List<AdsEmotionGroupData> f = new LinkedList();
 
-    public void a(String str) {
+    public final void a(String str) {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
+            com.baidu.adp.lib.util.e.b(getClass().getName(), "parserJson", e.getMessage());
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    private void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 this.a.parserJson(jSONObject.optJSONObject("version"));
@@ -47,33 +47,33 @@ public class bw {
                     }
                 }
                 this.g = jSONObject.optInt("faceshop_version");
-                if (this.g > TiebaApplication.g().bg()) {
+                if (this.g > TiebaApplication.g().aY()) {
                     TiebaApplication.g().r(this.g);
-                    TiebaApplication.g().A(true);
+                    TiebaApplication.g().z(true);
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }
 
-    public com.baidu.tieba.data.j a() {
+    public final com.baidu.tieba.data.j a() {
         return this.c;
     }
 
-    public CombineDownload b() {
+    public final CombineDownload b() {
         return this.d;
     }
 
-    public VersionData c() {
+    public final VersionData c() {
         return this.a;
     }
 
-    public com.baidu.tieba.data.h d() {
+    public final com.baidu.tieba.data.h d() {
         return this.b;
     }
 
-    public List<AdsEmotionGroupData> e() {
+    public final List<AdsEmotionGroupData> e() {
         return this.f;
     }
 }

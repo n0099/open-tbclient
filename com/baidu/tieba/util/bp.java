@@ -3,8 +3,16 @@ package com.baidu.tieba.util;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallelType;
 /* loaded from: classes.dex */
-public class bp extends BdAsyncTask<String, String, String> {
+public final class bp extends BdAsyncTask<String, String, String> {
     private l a;
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ String a(String... strArr) {
+        return d();
+    }
 
     public bp(l lVar) {
         this.a = null;
@@ -13,11 +21,8 @@ public class bp extends BdAsyncTask<String, String, String> {
         setType(BdAsyncTaskParallelType.SERIAL);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Type inference failed for: r5v0, types: [byte[], java.lang.String] */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public String a(String... strArr) {
+    /* JADX WARN: Type inference failed for: r5v0, types: [java.lang.String, byte[]] */
+    private String d() {
         try {
             if (!this.a.p) {
                 if (this.a.d == 4) {

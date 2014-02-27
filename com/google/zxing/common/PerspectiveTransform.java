@@ -27,7 +27,7 @@ public final class PerspectiveTransform {
         return squareToQuadrilateral(f9, f10, f11, f12, f13, f14, f15, f16).times(quadrilateralToSquare(f, f2, f3, f4, f5, f6, f7, f8));
     }
 
-    public void transformPoints(float[] fArr) {
+    public final void transformPoints(float[] fArr) {
         int length = fArr.length;
         float f = this.a11;
         float f2 = this.a12;
@@ -47,7 +47,7 @@ public final class PerspectiveTransform {
         }
     }
 
-    public void transformPoints(float[] fArr, float[] fArr2) {
+    public final void transformPoints(float[] fArr, float[] fArr2) {
         int length = fArr.length;
         for (int i = 0; i < length; i++) {
             float f = fArr[i];
@@ -78,11 +78,11 @@ public final class PerspectiveTransform {
         return squareToQuadrilateral(f, f2, f3, f4, f5, f6, f7, f8).buildAdjoint();
     }
 
-    PerspectiveTransform buildAdjoint() {
+    final PerspectiveTransform buildAdjoint() {
         return new PerspectiveTransform((this.a22 * this.a33) - (this.a23 * this.a32), (this.a23 * this.a31) - (this.a21 * this.a33), (this.a21 * this.a32) - (this.a22 * this.a31), (this.a13 * this.a32) - (this.a12 * this.a33), (this.a11 * this.a33) - (this.a13 * this.a31), (this.a12 * this.a31) - (this.a11 * this.a32), (this.a12 * this.a23) - (this.a13 * this.a22), (this.a13 * this.a21) - (this.a11 * this.a23), (this.a11 * this.a22) - (this.a12 * this.a21));
     }
 
-    PerspectiveTransform times(PerspectiveTransform perspectiveTransform) {
+    final PerspectiveTransform times(PerspectiveTransform perspectiveTransform) {
         return new PerspectiveTransform((this.a11 * perspectiveTransform.a11) + (this.a21 * perspectiveTransform.a12) + (this.a31 * perspectiveTransform.a13), (this.a11 * perspectiveTransform.a21) + (this.a21 * perspectiveTransform.a22) + (this.a31 * perspectiveTransform.a23), (this.a11 * perspectiveTransform.a31) + (this.a21 * perspectiveTransform.a32) + (this.a31 * perspectiveTransform.a33), (this.a12 * perspectiveTransform.a11) + (this.a22 * perspectiveTransform.a12) + (this.a32 * perspectiveTransform.a13), (this.a12 * perspectiveTransform.a21) + (this.a22 * perspectiveTransform.a22) + (this.a32 * perspectiveTransform.a23), (this.a12 * perspectiveTransform.a31) + (this.a22 * perspectiveTransform.a32) + (this.a32 * perspectiveTransform.a33), (this.a13 * perspectiveTransform.a11) + (this.a23 * perspectiveTransform.a12) + (this.a33 * perspectiveTransform.a13), (this.a13 * perspectiveTransform.a21) + (this.a23 * perspectiveTransform.a22) + (this.a33 * perspectiveTransform.a23), (this.a13 * perspectiveTransform.a31) + (this.a23 * perspectiveTransform.a32) + (this.a33 * perspectiveTransform.a33));
     }
 }

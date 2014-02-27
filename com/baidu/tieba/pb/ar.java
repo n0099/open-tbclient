@@ -8,7 +8,7 @@ import com.baidu.tieba.write.NewVcodeActivity;
 import com.baidu.tieba.write.VcodeActivity;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-class ar implements com.baidu.tieba.model.bl {
+final class ar implements com.baidu.tieba.model.bl {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,7 +17,7 @@ class ar implements com.baidu.tieba.model.bl {
     }
 
     @Override // com.baidu.tieba.model.bl
-    public void a(boolean z, String str, com.baidu.tieba.data.bd bdVar, WriteData writeData, AntiData antiData) {
+    public final void a(boolean z, String str, com.baidu.tieba.data.bd bdVar, WriteData writeData, AntiData antiData) {
         cu cuVar;
         cu cuVar2;
         WriteImagesInfo writeImagesInfo;
@@ -33,7 +33,7 @@ class ar implements com.baidu.tieba.model.bl {
         com.baidu.tieba.model.bb bbVar4;
         cu cuVar5;
         com.baidu.tieba.model.bb bbVar5;
-        this.a.z();
+        this.a.t();
         cuVar = this.a.C;
         cuVar.a(z);
         cuVar2 = this.a.C;
@@ -41,7 +41,7 @@ class ar implements com.baidu.tieba.model.bl {
         cuVar2.a(writeImagesInfo, true);
         if (z) {
             cuVar3 = this.a.C;
-            cuVar3.Y();
+            cuVar3.R();
             bkVar = this.a.y;
             WriteData a = bkVar.a();
             bkVar2 = this.a.y;
@@ -49,20 +49,20 @@ class ar implements com.baidu.tieba.model.bl {
             bkVar3 = this.a.y;
             bkVar3.a(false);
             bbVar = this.a.w;
-            bbVar.w();
-            this.a.a(antiData, str);
+            bbVar.z();
+            NewPbActivity.a(this.a, antiData, str);
             bbVar2 = this.a.w;
-            if (!bbVar2.j()) {
+            if (!bbVar2.n()) {
                 bbVar5 = this.a.w;
-                com.baidu.tieba.write.af.b(bbVar5.c(), (WriteData) null);
+                com.baidu.tieba.write.ae.b(bbVar5.g(), (WriteData) null);
             }
             if (a != null) {
                 String floor = a.getFloor();
                 if (a == null || a.getType() != 2) {
                     bbVar3 = this.a.w;
-                    if (bbVar3.o()) {
+                    if (bbVar3.s()) {
                         cuVar4 = this.a.C;
-                        cuVar4.q();
+                        cuVar4.o();
                         return;
                     }
                     return;
@@ -71,8 +71,8 @@ class ar implements com.baidu.tieba.model.bl {
                 beVar.i();
                 if (floor != null) {
                     bbVar4 = this.a.w;
-                    com.baidu.tieba.data.am m = bbVar4.m();
-                    Iterator<com.baidu.tieba.data.aq> it = m.e().iterator();
+                    com.baidu.tieba.data.am q = bbVar4.q();
+                    Iterator<com.baidu.tieba.data.aq> it = q.e().iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             break;
@@ -84,14 +84,14 @@ class ar implements com.baidu.tieba.model.bl {
                         }
                     }
                     cuVar5 = this.a.C;
-                    cuVar5.a(m);
+                    cuVar5.a(q);
                 }
-                com.baidu.tieba.write.af.a(a.getThreadId(), this.a);
+                com.baidu.tieba.write.ae.a(a.getThreadId(), this.a);
             }
         } else if (bdVar == null || writeData == null || bdVar.b() == null) {
-            this.a.a(antiData, str);
+            NewPbActivity.a(this.a, antiData, str);
         } else if (AntiHelper.c(antiData)) {
-            this.a.a(antiData, str);
+            NewPbActivity.a(this.a, antiData, str);
         } else {
             writeData.setVcodeMD5(bdVar.a());
             writeData.setVcodeUrl(bdVar.b());

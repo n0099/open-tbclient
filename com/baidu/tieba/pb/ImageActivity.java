@@ -121,165 +121,8 @@ public class ImageActivity extends com.baidu.tieba.f {
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        TiebaApplication.g().a((com.baidu.tieba.f) this);
+        TiebaApplication.g().a(this);
         setContentView(R.layout.image_activity_2);
-        a(bundle);
-        e();
-        d();
-        if (!this.B) {
-            String a = a(this.c.get(this.c.size() - 1));
-            if (a == null) {
-                this.l.setVisibility(8);
-            }
-            this.u = new a(this.c, this.z, this.y, a);
-            this.u.a(new d(this));
-            this.u.a();
-        }
-    }
-
-    public String a() {
-        return this.x;
-    }
-
-    public String b() {
-        return this.y;
-    }
-
-    @Override // com.baidu.tieba.f
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        if (i == 1) {
-            this.m.setBackgroundColor(com.baidu.tieba.util.bq.d(i));
-        } else {
-            this.m.setBackgroundColor(-16777216);
-        }
-        this.l.c(i);
-    }
-
-    public String c() {
-        return this.z;
-    }
-
-    private void d() {
-        if (this.B) {
-            this.t = new i(this, null);
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction(com.baidu.tieba.data.i.d());
-            registerReceiver(this.t, intentFilter);
-        }
-    }
-
-    @Override // com.baidu.tieba.f, android.app.Activity
-    public void onPause() {
-        super.onPause();
-        this.m.b();
-    }
-
-    @Override // com.baidu.tieba.f, android.app.Activity
-    public void onResume() {
-        super.onResume();
-        this.m.a();
-    }
-
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a
-    public void releaseResouce() {
-        this.m.c();
-    }
-
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
-    public void onDestroy() {
-        TiebaApplication.g().b((com.baidu.tieba.f) this);
-        a(this.d, this.d);
-        h();
-        this.m.c();
-        if (this.h != null) {
-            this.h.cancel();
-            this.h = null;
-        }
-        if (this.a != null) {
-            this.a.setVisibility(8);
-        }
-        if (this.B) {
-            unregisterReceiver(this.t);
-        }
-        super.onDestroy();
-    }
-
-    @Override // com.baidu.tieba.f, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4) {
-            Intent intent = new Intent();
-            intent.putExtra("index", this.d);
-            setResult(-1, intent);
-            finish();
-            return true;
-        }
-        return super.onKeyDown(i, keyEvent);
-    }
-
-    private void e() {
-        this.n = new e(this);
-        this.p = new g(this);
-        this.o = new h(this);
-        this.l = (NavigationBar) findViewById(R.id.navigation_bar);
-        this.D = (FrameLayout) this.l.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.image_activity_save_button, this.n);
-        this.j = this.l.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.k = this.l.a("");
-        this.a = (ProgressBar) findViewById(R.id.progress);
-        this.i = (TextView) findViewById(R.id.save);
-        this.i.setClickable(false);
-        this.m = (MultiImageView) findViewById(R.id.viewpager);
-        this.m.setIsFromCDN(this.C);
-        this.m.setPageMargin(BdUtilHelper.a((Context) this, 8.0f));
-        this.m.a(2, com.baidu.tieba.data.i.t() * com.baidu.tieba.data.i.t());
-        this.m.setOnPageChangeListener(this.p);
-        this.m.setUrlData(this.c);
-        this.m.setItemOnclickListener(this.n);
-        this.m.a(g(), false);
-        this.m.setOnScrollOutListener(this.o);
-        this.m.setHasNext(this.f);
-        this.m.setNextTitle(this.g);
-        a(this.d, this.d);
-        f();
-    }
-
-    public void f() {
-        String str;
-        if (this.c != null) {
-            String str2 = String.valueOf(String.valueOf(this.d + 1 + this.b)) + "/";
-            if (this.e > 0) {
-                str = String.valueOf(str2) + this.e;
-            } else if (!this.B) {
-                str = String.valueOf(str2) + "...";
-            } else {
-                str = String.valueOf(str2) + this.c.size();
-            }
-            if (this.m.getHasNext() && this.d == this.m.getItemNum() - 1) {
-                this.k.setText(getString(R.string.image_recommend));
-                this.i.setVisibility(4);
-                return;
-            }
-            this.k.setText(str);
-            this.i.setVisibility(0);
-        }
-    }
-
-    public int g() {
-        if (this.c != null && this.c.size() > 0) {
-            int size = this.c.size();
-            if (this.d >= size) {
-                this.d = size - 1;
-            }
-            if (this.d < 0) {
-                this.d = 0;
-            }
-        } else {
-            this.d = 0;
-        }
-        return this.d;
-    }
-
-    private void a(Bundle bundle) {
         this.B = getIntent().getBooleanExtra("need_broadcast", false);
         if (bundle != null) {
             this.c = bundle.getStringArrayList(SocialConstants.PARAM_URL);
@@ -308,6 +151,166 @@ public class ImageActivity extends com.baidu.tieba.f {
             }
         }
         this.w = new HashMap<>();
+        this.n = new e(this);
+        this.p = new g(this);
+        this.o = new h(this);
+        this.l = (NavigationBar) findViewById(R.id.navigation_bar);
+        this.D = (FrameLayout) this.l.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.image_activity_save_button, this.n);
+        this.j = this.l.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.k = this.l.a("");
+        this.a = (ProgressBar) findViewById(R.id.progress);
+        this.i = (TextView) findViewById(R.id.save);
+        this.i.setClickable(false);
+        this.m = (MultiImageView) findViewById(R.id.viewpager);
+        this.m.setIsFromCDN(this.C);
+        this.m.setPageMargin(BdUtilHelper.a((Context) this, 8.0f));
+        this.m.a(2, com.baidu.tieba.data.i.t() * com.baidu.tieba.data.i.t());
+        this.m.setOnPageChangeListener(this.p);
+        this.m.setUrlData(this.c);
+        this.m.setItemOnclickListener(this.n);
+        this.m.a(e(), false);
+        this.m.setOnScrollOutListener(this.o);
+        this.m.setHasNext(this.f);
+        this.m.setNextTitle(this.g);
+        a(this.d, this.d);
+        d();
+        if (this.B) {
+            this.t = new i(this, (byte) 0);
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction(com.baidu.tieba.data.i.d());
+            registerReceiver(this.t, intentFilter);
+        }
+        if (!this.B) {
+            String e = com.baidu.tieba.util.bs.e(this.c.get(this.c.size() - 1));
+            if (e != null) {
+                if (e.indexOf(".baidu.com") == -1) {
+                    e = null;
+                } else {
+                    int lastIndexOf = e.lastIndexOf("/");
+                    if (lastIndexOf == -1) {
+                        e = null;
+                    } else {
+                        int indexOf = e.indexOf(".", lastIndexOf);
+                        e = indexOf == -1 ? null : e.substring(lastIndexOf + 1, indexOf);
+                    }
+                }
+            }
+            if (e == null) {
+                this.l.setVisibility(8);
+            }
+            this.u = new a(this.c, this.z, this.y, e);
+            this.u.a(new d(this));
+            this.u.a();
+        }
+    }
+
+    public final String a() {
+        return this.x;
+    }
+
+    public final String b() {
+        return this.y;
+    }
+
+    @Override // com.baidu.tieba.f
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        if (i == 1) {
+            this.m.setBackgroundColor(com.baidu.tieba.util.bq.d(i));
+        } else {
+            this.m.setBackgroundColor(-16777216);
+        }
+        this.l.b(i);
+    }
+
+    public final String c() {
+        return this.z;
+    }
+
+    @Override // com.baidu.tieba.f, android.app.Activity
+    public void onPause() {
+        super.onPause();
+        this.m.b();
+    }
+
+    @Override // com.baidu.tieba.f, android.app.Activity
+    public void onResume() {
+        super.onResume();
+        this.m.a();
+    }
+
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a
+    public void releaseResouce() {
+        this.m.c();
+    }
+
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    public void onDestroy() {
+        TiebaApplication.g().b(this);
+        a(this.d, this.d);
+        f();
+        this.m.c();
+        if (this.h != null) {
+            this.h.cancel();
+            this.h = null;
+        }
+        if (this.a != null) {
+            this.a.setVisibility(8);
+        }
+        if (this.B) {
+            unregisterReceiver(this.t);
+        }
+        super.onDestroy();
+    }
+
+    @Override // com.baidu.tieba.f, android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        if (i == 4) {
+            Intent intent = new Intent();
+            intent.putExtra("index", this.d);
+            setResult(-1, intent);
+            finish();
+            return true;
+        }
+        return super.onKeyDown(i, keyEvent);
+    }
+
+    public void d() {
+        String str;
+        if (this.c != null) {
+            String str2 = String.valueOf(String.valueOf(this.d + 1 + this.b)) + "/";
+            if (this.e > 0) {
+                str = String.valueOf(str2) + this.e;
+            } else if (!this.B) {
+                str = String.valueOf(str2) + "...";
+            } else {
+                str = String.valueOf(str2) + this.c.size();
+            }
+            if (this.m.getHasNext() && this.d == this.m.getItemNum() - 1) {
+                this.k.setText(getString(R.string.image_recommend));
+                this.i.setVisibility(4);
+                return;
+            }
+            this.k.setText(str);
+            this.i.setVisibility(0);
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x001c, code lost:
+        if (r2.d < 0) goto L13;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public int e() {
+        if (this.c != null && this.c.size() > 0) {
+            int size = this.c.size();
+            if (this.d >= size) {
+                this.d = size - 1;
+            }
+        }
+        this.d = 0;
+        return this.d;
     }
 
     @Override // android.app.Activity
@@ -342,37 +345,25 @@ public class ImageActivity extends com.baidu.tieba.f {
             }
         }
         if (this.w.size() >= 100) {
-            h();
+            f();
         }
     }
 
-    private void h() {
-        if (this.w != null) {
-            synchronized (this.w) {
-                if (this.w.size() > 0) {
-                    int i = 0;
-                    for (Map.Entry<String, Boolean> entry : this.w.entrySet()) {
-                        if (entry.getValue().booleanValue()) {
-                            i++;
-                        }
+    private void f() {
+        if (this.w == null) {
+            return;
+        }
+        synchronized (this.w) {
+            if (this.w.size() > 0) {
+                int i = 0;
+                for (Map.Entry<String, Boolean> entry : this.w.entrySet()) {
+                    if (entry.getValue().booleanValue()) {
+                        i++;
                     }
-                    TiebaApplication.g().a(i, this.w.size(), this.A);
-                    this.w.clear();
                 }
+                TiebaApplication.g().a(i, this.w.size(), this.A);
+                this.w.clear();
             }
         }
-    }
-
-    private String a(String str) {
-        int lastIndexOf;
-        int indexOf;
-        String e = com.baidu.tieba.util.bs.e(str);
-        if (e != null) {
-            if (e.indexOf(".baidu.com") != -1 && (lastIndexOf = e.lastIndexOf("/")) != -1 && (indexOf = e.indexOf(".", lastIndexOf)) != -1) {
-                return e.substring(lastIndexOf + 1, indexOf);
-            }
-            return null;
-        }
-        return e;
     }
 }

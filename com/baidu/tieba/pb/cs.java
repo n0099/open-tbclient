@@ -2,7 +2,7 @@ package com.baidu.tieba.pb;
 
 import android.os.Parcelable;
 /* loaded from: classes.dex */
-public class cs {
+public final class cs {
     private String a;
     private boolean b;
     private com.baidu.tieba.data.am c;
@@ -28,16 +28,16 @@ public class cs {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ cs(cs csVar) {
+    public /* synthetic */ cs(byte b) {
         this();
     }
 
-    public void a(String str, boolean z) {
+    public final void a(String str, boolean z) {
         this.b = false;
         if (z) {
             str = null;
         }
-        if (str == null || str.length() < 1) {
+        if (str == null || str.length() <= 0) {
             f();
             this.a = null;
         } else if (!str.equals(this.a)) {
@@ -48,7 +48,7 @@ public class cs {
         }
     }
 
-    public com.baidu.tieba.data.am b() {
+    public final com.baidu.tieba.data.am b() {
         if (!this.b) {
             this.d = false;
             return null;
@@ -64,7 +64,7 @@ public class cs {
         }
     }
 
-    public Parcelable c() {
+    public final Parcelable c() {
         if (this.d) {
             this.d = false;
             Parcelable parcelable = this.e;
@@ -75,15 +75,15 @@ public class cs {
         return null;
     }
 
-    public boolean d() {
+    public final boolean d() {
         return this.f;
     }
 
-    public boolean e() {
+    public final boolean e() {
         return this.g;
     }
 
-    public boolean a(com.baidu.tieba.data.am amVar, Parcelable parcelable, boolean z, boolean z2) {
+    public final boolean a(com.baidu.tieba.data.am amVar, Parcelable parcelable, boolean z, boolean z2) {
         this.b = false;
         if (this.a == null) {
             f();
@@ -94,7 +94,7 @@ public class cs {
         } else if (amVar.e() == null) {
             f();
             return false;
-        } else if (amVar.e().size() < 1) {
+        } else if (amVar.e().size() <= 0) {
             f();
             return false;
         } else if (parcelable == null) {
@@ -110,7 +110,7 @@ public class cs {
         }
     }
 
-    public void f() {
+    public final void f() {
         this.b = false;
         this.c = null;
         this.d = false;

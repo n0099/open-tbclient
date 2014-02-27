@@ -3,7 +3,7 @@ package com.baidu.tieba.pb;
 import android.content.Context;
 import android.view.View;
 /* loaded from: classes.dex */
-class ai implements View.OnClickListener {
+final class ai implements View.OnClickListener {
     final /* synthetic */ ah a;
     private final /* synthetic */ String b;
     private final /* synthetic */ String c;
@@ -16,7 +16,7 @@ class ai implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         Context context;
         context = this.a.c;
         com.baidu.tieba.person.cm.a(context, String.valueOf(this.b), this.c);

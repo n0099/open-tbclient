@@ -4,7 +4,7 @@ import android.util.SparseIntArray;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k {
+public final class k {
     SparseIntArray a;
     final /* synthetic */ f b;
 
@@ -21,13 +21,13 @@ public class k {
         }
     }
 
-    public boolean a(j jVar) {
+    public final boolean a(j jVar) {
         int i;
         if (jVar == null) {
             return false;
         }
         if (this.a != null && (i = this.a.get(jVar.h(), 0)) != 0) {
-            return jVar.j() == BdAsyncTaskParallelType.SERIAL ? i < 1 : jVar.j() == BdAsyncTaskParallelType.TWO_PARALLEL ? i < 2 : jVar.j() == BdAsyncTaskParallelType.THREE_PARALLEL ? i < 3 : jVar.j() != BdAsyncTaskParallelType.FOUR_PARALLEL || i < 4;
+            return jVar.j() == BdAsyncTaskParallelType.SERIAL ? i <= 0 : jVar.j() == BdAsyncTaskParallelType.TWO_PARALLEL ? i < 2 : jVar.j() == BdAsyncTaskParallelType.THREE_PARALLEL ? i < 3 : jVar.j() != BdAsyncTaskParallelType.FOUR_PARALLEL || i < 4;
         }
         return true;
     }

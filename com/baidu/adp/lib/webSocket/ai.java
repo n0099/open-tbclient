@@ -1,11 +1,13 @@
 package com.baidu.adp.lib.webSocket;
-/* loaded from: classes.dex */
-public class ai extends aa {
-    public int a;
-    public String b;
 
-    public ai(int i, String str) {
-        this.a = i;
-        this.b = str;
+import java.util.Map;
+/* loaded from: classes.dex */
+public final class ai extends z {
+    public boolean a;
+    public Map<String, String> b;
+
+    public ai(boolean z, Map<String, String> map) {
+        this.a = z;
+        this.b = map;
     }
 }

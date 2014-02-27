@@ -7,7 +7,7 @@ import com.baidu.tieba.util.ch;
 import com.baidu.tieba.util.cj;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v implements com.baidu.tbadk.imageManager.d {
+public final class v implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ u a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,7 +16,7 @@ public class v implements com.baidu.tbadk.imageManager.d {
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
         BdListView bdListView;
         InviteFriendCandidateList inviteFriendCandidateList;
         BdListView bdListView2;

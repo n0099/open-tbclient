@@ -4,7 +4,7 @@ import com.baidu.tieba.data.MarkData;
 import com.slidingmenu.lib.R;
 import java.text.MessageFormat;
 /* loaded from: classes.dex */
-class bz implements com.baidu.tieba.model.ax {
+final class bz implements com.baidu.tieba.model.ax {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ class bz implements com.baidu.tieba.model.ax {
     }
 
     @Override // com.baidu.tieba.model.ax
-    public void a(boolean z, boolean z2, String str) {
+    public final void a(boolean z, boolean z2) {
         cu cuVar;
         com.baidu.tieba.model.av avVar;
         com.baidu.tieba.model.bb bbVar;
@@ -22,19 +22,19 @@ class bz implements com.baidu.tieba.model.ax {
         com.baidu.tieba.model.bb bbVar3;
         com.baidu.tieba.model.av avVar2;
         cuVar = this.a.C;
-        cuVar.t();
+        cuVar.r();
         if (z) {
             avVar = this.a.x;
             avVar.a(z2);
             bbVar = this.a.w;
             bbVar.c(z2);
             bbVar2 = this.a.w;
-            if (!bbVar2.u()) {
+            if (!bbVar2.x()) {
                 cuVar2 = this.a.C;
                 bbVar3 = this.a.w;
-                cuVar2.a(bbVar3.m());
+                cuVar2.a(bbVar3.q());
             } else {
-                this.a.w();
+                NewPbActivity.c(this.a);
             }
             if (z2) {
                 avVar2 = this.a.x;
@@ -50,6 +50,6 @@ class bz implements com.baidu.tieba.model.ax {
             this.a.showToast(this.a.getString(R.string.remove_mark));
             return;
         }
-        this.a.showToast(str);
+        this.a.showToast(this.a.getString(R.string.update_mark_failed));
     }
 }

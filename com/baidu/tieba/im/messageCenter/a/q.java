@@ -5,16 +5,16 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.message.cc;
 import com.baidu.tieba.im.message.da;
 /* loaded from: classes.dex */
-public class q extends com.baidu.tieba.im.messageCenter.d {
-    @Override // com.baidu.tieba.im.messageCenter.d
-    public da a(com.baidu.tieba.im.message.s sVar) {
+public class q extends com.baidu.tieba.im.messageCenter.c {
+    @Override // com.baidu.tieba.im.messageCenter.c
+    public final da a(com.baidu.tieba.im.message.s sVar) {
         cc ccVar;
         if (sVar == null || !(sVar instanceof com.baidu.tieba.im.message.l)) {
             return null;
         }
         String str = "";
-        if (TiebaApplication.E() != null) {
-            str = TiebaApplication.E().getID();
+        if (TiebaApplication.y() != null) {
+            str = TiebaApplication.y().getID();
         }
         byte[] a = com.baidu.tieba.c.a.a().s().a("p_group_info" + str);
         cc ccVar2 = new cc();

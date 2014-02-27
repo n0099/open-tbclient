@@ -21,15 +21,15 @@ public final class EnterChatroomRes {
     /* loaded from: classes.dex */
     public final class ChatroomTopic extends GeneratedMessageLite implements i {
         public static final int CONTENT_FIELD_NUMBER = 2;
+        public static Parser<ChatroomTopic> PARSER = new g();
         public static final int TITLE_FIELD_NUMBER = 1;
+        private static final ChatroomTopic a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private Object content_;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
         private Object title_;
-        public static Parser<ChatroomTopic> PARSER = new g();
-        private static final ChatroomTopic a = new ChatroomTopic(true);
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ ChatroomTopic(GeneratedMessageLite.Builder builder, ChatroomTopic chatroomTopic) {
@@ -42,7 +42,7 @@ public final class EnterChatroomRes {
             this.memoizedSerializedSize = -1;
         }
 
-        private ChatroomTopic(boolean z) {
+        private ChatroomTopic() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -53,7 +53,7 @@ public final class EnterChatroomRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public ChatroomTopic getDefaultInstanceForType() {
+        public final ChatroomTopic getDefaultInstanceForType() {
             return a;
         }
 
@@ -103,19 +103,21 @@ public final class EnterChatroomRes {
         }
 
         static {
-            a.a();
+            ChatroomTopic chatroomTopic = new ChatroomTopic();
+            a = chatroomTopic;
+            chatroomTopic.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<ChatroomTopic> getParserForType() {
+        public final Parser<ChatroomTopic> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasTitle() {
+        public final boolean hasTitle() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public String getTitle() {
+        public final String getTitle() {
             Object obj = this.title_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -128,7 +130,7 @@ public final class EnterChatroomRes {
             return stringUtf8;
         }
 
-        public ByteString getTitleBytes() {
+        public final ByteString getTitleBytes() {
             Object obj = this.title_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -138,11 +140,11 @@ public final class EnterChatroomRes {
             return (ByteString) obj;
         }
 
-        public boolean hasContent() {
+        public final boolean hasContent() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public String getContent() {
+        public final String getContent() {
             Object obj = this.content_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -155,7 +157,7 @@ public final class EnterChatroomRes {
             return stringUtf8;
         }
 
-        public ByteString getContentBytes() {
+        public final ByteString getContentBytes() {
             Object obj = this.content_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -181,7 +183,7 @@ public final class EnterChatroomRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeBytes(1, getTitleBytes());
@@ -192,10 +194,13 @@ public final class EnterChatroomRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getTitleBytes()) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeBytesSize(1, getTitleBytes()) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeBytesSize(2, getContentBytes());
                 }
@@ -206,7 +211,7 @@ public final class EnterChatroomRes {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -251,12 +256,12 @@ public final class EnterChatroomRes {
         }
 
         public static h newBuilder() {
-            return h.f();
+            return h.a();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public h newBuilderForType() {
+        public final h newBuilderForType() {
             return newBuilder();
         }
 
@@ -266,7 +271,7 @@ public final class EnterChatroomRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public h toBuilder() {
+        public final h toBuilder() {
             return newBuilder(this);
         }
     }
@@ -279,11 +284,13 @@ public final class EnterChatroomRes {
         public static final int GROUPID_FIELD_NUMBER = 1;
         public static final int LASTMSGID_FIELD_NUMBER = 11;
         public static final int MAXUSERNUM_FIELD_NUMBER = 3;
+        public static Parser<DataRes> PARSER = new j();
         public static final int SILENCETIME_FIELD_NUMBER = 6;
         public static final int TITLE_FIELD_NUMBER = 8;
         public static final int TOPICLIST_FIELD_NUMBER = 10;
         public static final int USERLIST_FIELD_NUMBER = 4;
         public static final int USERNUM_FIELD_NUMBER = 2;
+        private static final DataRes a;
         private static final long serialVersionUID = 0;
         private int averageWaitTime_;
         private int bitField0_;
@@ -299,8 +306,6 @@ public final class EnterChatroomRes {
         private List<ChatroomTopic> topicList_;
         private List<Im.UserInfo> userList_;
         private int userNum_;
-        public static Parser<DataRes> PARSER = new j();
-        private static final DataRes a = new DataRes(true);
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ DataRes(GeneratedMessageLite.Builder builder, DataRes dataRes) {
@@ -313,7 +318,7 @@ public final class EnterChatroomRes {
             this.memoizedSerializedSize = -1;
         }
 
-        private DataRes(boolean z) {
+        private DataRes() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -324,7 +329,7 @@ public final class EnterChatroomRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public DataRes getDefaultInstanceForType() {
+        public final DataRes getDefaultInstanceForType() {
             return a;
         }
 
@@ -425,87 +430,89 @@ public final class EnterChatroomRes {
         }
 
         static {
-            a.a();
+            DataRes dataRes = new DataRes();
+            a = dataRes;
+            dataRes.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<DataRes> getParserForType() {
+        public final Parser<DataRes> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasGroupId() {
+        public final boolean hasGroupId() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public int getGroupId() {
+        public final int getGroupId() {
             return this.groupId_;
         }
 
-        public boolean hasUserNum() {
+        public final boolean hasUserNum() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public int getUserNum() {
+        public final int getUserNum() {
             return this.userNum_;
         }
 
-        public boolean hasMaxUserNum() {
+        public final boolean hasMaxUserNum() {
             return (this.bitField0_ & 4) == 4;
         }
 
-        public int getMaxUserNum() {
+        public final int getMaxUserNum() {
             return this.maxUserNum_;
         }
 
-        public List<Im.UserInfo> getUserListList() {
+        public final List<Im.UserInfo> getUserListList() {
             return this.userList_;
         }
 
-        public List<? extends aj> getUserListOrBuilderList() {
+        public final List<? extends aj> getUserListOrBuilderList() {
             return this.userList_;
         }
 
-        public int getUserListCount() {
+        public final int getUserListCount() {
             return this.userList_.size();
         }
 
-        public Im.UserInfo getUserList(int i) {
+        public final Im.UserInfo getUserList(int i) {
             return this.userList_.get(i);
         }
 
-        public aj getUserListOrBuilder(int i) {
+        public final aj getUserListOrBuilder(int i) {
             return this.userList_.get(i);
         }
 
-        public boolean hasDurationTime() {
+        public final boolean hasDurationTime() {
             return (this.bitField0_ & 8) == 8;
         }
 
-        public int getDurationTime() {
+        public final int getDurationTime() {
             return this.durationTime_;
         }
 
-        public boolean hasSilenceTime() {
+        public final boolean hasSilenceTime() {
             return (this.bitField0_ & 16) == 16;
         }
 
-        public int getSilenceTime() {
+        public final int getSilenceTime() {
             return this.silenceTime_;
         }
 
-        public boolean hasAverageWaitTime() {
+        public final boolean hasAverageWaitTime() {
             return (this.bitField0_ & 32) == 32;
         }
 
-        public int getAverageWaitTime() {
+        public final int getAverageWaitTime() {
             return this.averageWaitTime_;
         }
 
-        public boolean hasTitle() {
+        public final boolean hasTitle() {
             return (this.bitField0_ & 64) == 64;
         }
 
-        public String getTitle() {
+        public final String getTitle() {
             Object obj = this.title_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -518,7 +525,7 @@ public final class EnterChatroomRes {
             return stringUtf8;
         }
 
-        public ByteString getTitleBytes() {
+        public final ByteString getTitleBytes() {
             Object obj = this.title_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -528,11 +535,11 @@ public final class EnterChatroomRes {
             return (ByteString) obj;
         }
 
-        public boolean hasContent() {
+        public final boolean hasContent() {
             return (this.bitField0_ & 128) == 128;
         }
 
-        public String getContent() {
+        public final String getContent() {
             Object obj = this.content_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -545,7 +552,7 @@ public final class EnterChatroomRes {
             return stringUtf8;
         }
 
-        public ByteString getContentBytes() {
+        public final ByteString getContentBytes() {
             Object obj = this.content_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -555,31 +562,31 @@ public final class EnterChatroomRes {
             return (ByteString) obj;
         }
 
-        public List<ChatroomTopic> getTopicListList() {
+        public final List<ChatroomTopic> getTopicListList() {
             return this.topicList_;
         }
 
-        public List<? extends i> getTopicListOrBuilderList() {
+        public final List<? extends i> getTopicListOrBuilderList() {
             return this.topicList_;
         }
 
-        public int getTopicListCount() {
+        public final int getTopicListCount() {
             return this.topicList_.size();
         }
 
-        public ChatroomTopic getTopicList(int i) {
+        public final ChatroomTopic getTopicList(int i) {
             return this.topicList_.get(i);
         }
 
-        public i getTopicListOrBuilder(int i) {
+        public final i getTopicListOrBuilder(int i) {
             return this.topicList_.get(i);
         }
 
-        public boolean hasLastMsgId() {
+        public final boolean hasLastMsgId() {
             return (this.bitField0_ & 256) == 256;
         }
 
-        public long getLastMsgId() {
+        public final long getLastMsgId() {
             return this.lastMsgId_;
         }
 
@@ -608,7 +615,7 @@ public final class EnterChatroomRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeInt32(1, this.groupId_);
@@ -646,7 +653,7 @@ public final class EnterChatroomRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
                 int computeInt32Size = (this.bitField0_ & 1) == 1 ? CodedOutputStream.computeInt32Size(1, this.groupId_) + 0 : 0;
@@ -688,7 +695,7 @@ public final class EnterChatroomRes {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -733,12 +740,12 @@ public final class EnterChatroomRes {
         }
 
         public static k newBuilder() {
-            return k.f();
+            return k.b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public k newBuilderForType() {
+        public final k newBuilderForType() {
             return newBuilder();
         }
 
@@ -748,7 +755,7 @@ public final class EnterChatroomRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public k toBuilder() {
+        public final k toBuilder() {
             return newBuilder(this);
         }
     }
@@ -758,7 +765,7 @@ public final class EnterChatroomRes {
         public static final int DATA_FIELD_NUMBER = 2;
         public static final int ERROR_FIELD_NUMBER = 1;
         public static Parser<EnterChatroomResIdl> PARSER = new m();
-        private static final EnterChatroomResIdl a = new EnterChatroomResIdl(true);
+        private static final EnterChatroomResIdl a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private DataRes data_;
@@ -777,7 +784,7 @@ public final class EnterChatroomRes {
             this.memoizedSerializedSize = -1;
         }
 
-        private EnterChatroomResIdl(boolean z) {
+        private EnterChatroomResIdl() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -788,7 +795,7 @@ public final class EnterChatroomRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public EnterChatroomResIdl getDefaultInstanceForType() {
+        public final EnterChatroomResIdl getDefaultInstanceForType() {
             return a;
         }
 
@@ -848,27 +855,29 @@ public final class EnterChatroomRes {
         }
 
         static {
-            a.a();
+            EnterChatroomResIdl enterChatroomResIdl = new EnterChatroomResIdl();
+            a = enterChatroomResIdl;
+            enterChatroomResIdl.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<EnterChatroomResIdl> getParserForType() {
+        public final Parser<EnterChatroomResIdl> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasError() {
+        public final boolean hasError() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public Im.Error getError() {
+        public final Im.Error getError() {
             return this.error_;
         }
 
-        public boolean hasData() {
+        public final boolean hasData() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public DataRes getData() {
+        public final DataRes getData() {
             return this.data_;
         }
 
@@ -888,7 +897,7 @@ public final class EnterChatroomRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeMessage(1, this.error_);
@@ -899,10 +908,13 @@ public final class EnterChatroomRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeMessageSize(1, this.error_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeMessageSize(1, this.error_) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeMessageSize(2, this.data_);
                 }
@@ -913,7 +925,7 @@ public final class EnterChatroomRes {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -958,12 +970,12 @@ public final class EnterChatroomRes {
         }
 
         public static n newBuilder() {
-            return n.f();
+            return n.a();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public n newBuilderForType() {
+        public final n newBuilderForType() {
             return newBuilder();
         }
 
@@ -973,7 +985,7 @@ public final class EnterChatroomRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public n toBuilder() {
+        public final n toBuilder() {
             return newBuilder(this);
         }
     }

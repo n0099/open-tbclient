@@ -10,24 +10,20 @@ public abstract class e<T> {
 
     public e(int i) {
         this.a = i;
-        a();
-    }
-
-    private void a() {
         if (!a(this.a)) {
             throw new InvalidParameterException("cmd invalid");
         }
     }
 
-    public int d() {
+    public final int d() {
         return this.a;
     }
 
-    public int e() {
+    public final int e() {
         return this.b;
     }
 
-    public void b(int i) {
+    public final void b(int i) {
         this.b = i;
     }
 }

@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.QueryGroupLocation.QueryGroupLocationReq;
 /* loaded from: classes.dex */
 public final class b extends GeneratedMessageLite.Builder<QueryGroupLocationReq.DataReq, b> implements c {
@@ -12,19 +13,25 @@ public final class b extends GeneratedMessageLite.Builder<QueryGroupLocationReq.
     private double c;
     private double d;
 
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return QueryGroupLocationReq.DataReq.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return QueryGroupLocationReq.DataReq.getDefaultInstance();
+    }
+
     private b() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static b h() {
+    public static /* synthetic */ b c() {
         return new b();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: d */
     public b clear() {
         super.clear();
         this.b = 0;
@@ -37,20 +44,14 @@ public final class b extends GeneratedMessageLite.Builder<QueryGroupLocationReq.
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
+    /* renamed from: e */
     public b clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public QueryGroupLocationReq.DataReq getDefaultInstanceForType() {
-        return QueryGroupLocationReq.DataReq.getDefaultInstance();
+        return new b().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: d */
-    public QueryGroupLocationReq.DataReq build() {
+    /* renamed from: a */
+    public final QueryGroupLocationReq.DataReq build() {
         QueryGroupLocationReq.DataReq buildPartial = buildPartial();
         if (!buildPartial.isInitialized()) {
             throw newUninitializedMessageException(buildPartial);
@@ -59,8 +60,8 @@ public final class b extends GeneratedMessageLite.Builder<QueryGroupLocationReq.
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public QueryGroupLocationReq.DataReq buildPartial() {
+    /* renamed from: b */
+    public final QueryGroupLocationReq.DataReq buildPartial() {
         QueryGroupLocationReq.DataReq dataReq = new QueryGroupLocationReq.DataReq(this, (QueryGroupLocationReq.DataReq) null);
         int i = this.a;
         int i2 = (i & 1) != 1 ? 0 : 1;
@@ -79,7 +80,7 @@ public final class b extends GeneratedMessageLite.Builder<QueryGroupLocationReq.
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public b mergeFrom(QueryGroupLocationReq.DataReq dataReq) {
+    public final b mergeFrom(QueryGroupLocationReq.DataReq dataReq) {
         if (dataReq != QueryGroupLocationReq.DataReq.getDefaultInstance()) {
             if (dataReq.hasGroupId()) {
                 a(dataReq.getGroupId());
@@ -137,19 +138,19 @@ public final class b extends GeneratedMessageLite.Builder<QueryGroupLocationReq.
         }
     }
 
-    public b a(int i) {
+    public final b a(int i) {
         this.a |= 1;
         this.b = i;
         return this;
     }
 
-    public b a(double d) {
+    public final b a(double d) {
         this.a |= 2;
         this.c = d;
         return this;
     }
 
-    public b b(double d) {
+    public final b b(double d) {
         this.a |= 4;
         this.d = d;
         return this;

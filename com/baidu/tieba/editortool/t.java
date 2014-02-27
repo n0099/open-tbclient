@@ -1,11 +1,12 @@
 package com.baidu.tieba.editortool;
 
 import android.view.View;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.slidingmenu.lib.R;
+import android.widget.TextView;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.faceshop.FaceShopActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t implements View.OnClickListener {
+public final class t implements View.OnClickListener {
     final /* synthetic */ EmotionTabHorizonScrollView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +15,33 @@ public class t implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        BdUtilHelper.a(this.a.getContext(), (int) R.string.emotion_cant_show);
+    public final void onClick(View view) {
+        TextView textView;
+        int i;
+        String str;
+        l lVar;
+        textView = this.a.j;
+        if (textView != null) {
+            lVar = this.a.a;
+            lVar.setNewViewVisible(false);
+        }
+        TiebaApplication.g().q(TiebaApplication.g().ba());
+        TiebaApplication.g().z(false);
+        i = this.a.l;
+        switch (i) {
+            case 1:
+                str = "faceshop_from_write_shop";
+                break;
+            case 2:
+                str = "faceshop_from_pchat_shop";
+                break;
+            case 3:
+                str = "faceshop_from_gchat_shop";
+                break;
+            default:
+                str = "";
+                break;
+        }
+        FaceShopActivity.a(this.a.getContext(), str);
     }
 }

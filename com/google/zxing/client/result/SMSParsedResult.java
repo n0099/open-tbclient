@@ -22,7 +22,7 @@ public final class SMSParsedResult extends ParsedResult {
         this.body = str2;
     }
 
-    public String getSMSURI() {
+    public final String getSMSURI() {
         StringBuilder sb = new StringBuilder();
         sb.append("sms:");
         boolean z = true;
@@ -57,24 +57,24 @@ public final class SMSParsedResult extends ParsedResult {
         return sb.toString();
     }
 
-    public String[] getNumbers() {
+    public final String[] getNumbers() {
         return this.numbers;
     }
 
-    public String[] getVias() {
+    public final String[] getVias() {
         return this.vias;
     }
 
-    public String getSubject() {
+    public final String getSubject() {
         return this.subject;
     }
 
-    public String getBody() {
+    public final String getBody() {
         return this.body;
     }
 
     @Override // com.google.zxing.client.result.ParsedResult
-    public String getDisplayResult() {
+    public final String getDisplayResult() {
         StringBuilder sb = new StringBuilder(100);
         maybeAppend(this.numbers, sb);
         maybeAppend(this.subject, sb);

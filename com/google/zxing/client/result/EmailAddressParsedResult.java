@@ -15,24 +15,24 @@ public final class EmailAddressParsedResult extends ParsedResult {
         this.mailtoURI = str4;
     }
 
-    public String getEmailAddress() {
+    public final String getEmailAddress() {
         return this.emailAddress;
     }
 
-    public String getSubject() {
+    public final String getSubject() {
         return this.subject;
     }
 
-    public String getBody() {
+    public final String getBody() {
         return this.body;
     }
 
-    public String getMailtoURI() {
+    public final String getMailtoURI() {
         return this.mailtoURI;
     }
 
     @Override // com.google.zxing.client.result.ParsedResult
-    public String getDisplayResult() {
+    public final String getDisplayResult() {
         StringBuilder sb = new StringBuilder(30);
         maybeAppend(this.emailAddress, sb);
         maybeAppend(this.subject, sb);

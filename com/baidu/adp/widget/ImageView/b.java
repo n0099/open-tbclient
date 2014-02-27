@@ -11,20 +11,20 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.widget.ImageView;
 import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.widget.s;
 import com.baidu.adp.widget.t;
 import com.baidu.adp.widget.u;
-import com.baidu.adp.widget.v;
 import java.io.ByteArrayOutputStream;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
-public class b {
+public final class b {
     public static final Object a = new Object();
     public long b;
     private String c;
     private Bitmap d;
     private boolean e;
     private boolean f;
-    private t g;
+    private s g;
     private int h;
     private Paint i;
     private RectF j;
@@ -75,29 +75,29 @@ public class b {
         this.p = true;
     }
 
-    public boolean a() {
+    public final boolean a() {
         return this.p;
     }
 
-    public com.baidu.adp.gif.c b() {
+    public final com.baidu.adp.gif.c b() {
         return this.o;
     }
 
-    public int c() {
+    public final int c() {
         if (this.d == null) {
             return 0;
         }
         return this.d.getWidth();
     }
 
-    public int d() {
+    public final int d() {
         if (this.d == null) {
             return 0;
         }
         return this.d.getHeight();
     }
 
-    public void a(Canvas canvas, Matrix matrix, Paint paint) {
+    public final void a(Canvas canvas, Matrix matrix, Paint paint) {
         if (this.d != null) {
             this.n.set(true);
             canvas.drawBitmap(this.d, matrix, paint);
@@ -105,15 +105,15 @@ public class b {
         }
     }
 
-    public void a(Canvas canvas, float f, float f2, Paint paint) {
+    public final void a(Canvas canvas, float f, float f2, Paint paint) {
         if (this.d != null) {
             this.n.set(true);
-            canvas.drawBitmap(this.d, f, f2, paint);
+            canvas.drawBitmap(this.d, 0.0f, 0.0f, paint);
             this.n.set(false);
         }
     }
 
-    public void a(Canvas canvas, Matrix matrix, Resources resources, ImageView imageView, int i, ColorFilter colorFilter) {
+    public final void a(Canvas canvas, Matrix matrix, Resources resources, ImageView imageView, int i, ColorFilter colorFilter) {
         if (this.d != null) {
             if (this.l != imageView.getMeasuredWidth() || this.m != imageView.getMeasuredHeight()) {
                 this.g = null;
@@ -124,9 +124,9 @@ public class b {
             if (this.g == null || this.h != i) {
                 this.h = i;
                 if (Build.VERSION.SDK_INT < 11 && imageView.getMeasuredWidth() > BdUtilHelper.a(imageView.getContext(), 100.0f)) {
-                    this.g = new u(resources, matrix, imageView, this.d, this.h, colorFilter);
+                    this.g = new t(resources, imageView, this.d, this.h, colorFilter);
                 } else {
-                    this.g = new v(resources, matrix, imageView, this.d, this.h, colorFilter);
+                    this.g = new u(resources, matrix, imageView, this.d, this.h, colorFilter);
                 }
                 this.g.setBounds(0, 0, imageView.getMeasuredWidth(), imageView.getMeasuredHeight());
                 this.j = new RectF();
@@ -151,25 +151,25 @@ public class b {
         }
     }
 
-    public void a(ImageView imageView) {
+    public final void a(ImageView imageView) {
         if (imageView != null && this.d != null) {
             this.f = true;
             imageView.setImageBitmap(this.d);
         }
     }
 
-    public boolean e() {
+    public final boolean e() {
         return this.e;
     }
 
-    public int f() {
+    public final int f() {
         if (this.d == null) {
             return 0;
         }
         return this.d.getHeight() * this.d.getWidth() * 2;
     }
 
-    public boolean g() {
+    public final boolean g() {
         if (this.f || this.n.get()) {
             return false;
         }
@@ -186,12 +186,12 @@ public class b {
         return true;
     }
 
-    public Bitmap h() {
+    public final Bitmap h() {
         this.f = true;
         return this.d;
     }
 
-    public BitmapDrawable i() {
+    public final BitmapDrawable i() {
         if (this.d == null) {
             return null;
         }
@@ -199,11 +199,11 @@ public class b {
         return new c(this, this.d);
     }
 
-    public String j() {
+    public final String j() {
         return this.c;
     }
 
-    public byte[] k() {
+    public final byte[] k() {
         byte[] byteArray;
         if (this.d == null) {
             return null;

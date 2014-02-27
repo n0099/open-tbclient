@@ -13,7 +13,7 @@ import com.baidu.tieba.view.NavigationBar;
 import com.baidu.tieba.view.NoNetworkView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class i extends com.baidu.adp.a.e {
+public final class i extends com.baidu.adp.a.e {
     private FrsGroupActivity a;
     private View c;
     private ImageView d;
@@ -37,11 +37,6 @@ public class i extends com.baidu.adp.a.e {
         super(frsGroupActivity);
         this.a = frsGroupActivity;
         frsGroupActivity.setContentView(R.layout.im_frsgroup_activity);
-        a(frsGroupActivity);
-        b(frsGroupActivity);
-    }
-
-    private void a(FrsGroupActivity frsGroupActivity) {
         this.c = frsGroupActivity.findViewById(R.id.view_root);
         this.f = (NavigationBar) frsGroupActivity.findViewById(R.id.view_navigation_bar);
         this.f.a(this.a.getString(R.string.frsgroup_title));
@@ -50,9 +45,6 @@ public class i extends com.baidu.adp.a.e {
         this.d.setOnClickListener(frsGroupActivity);
         this.e.setOnClickListener(frsGroupActivity);
         this.s = (NoNetworkView) frsGroupActivity.findViewById(R.id.view_no_network);
-    }
-
-    private void b(FrsGroupActivity frsGroupActivity) {
         this.g = (RadioGroup) frsGroupActivity.findViewById(R.id.raidos_change);
         this.h = (RadioButton) frsGroupActivity.findViewById(R.id.radio_recommend);
         this.h.setChecked(true);
@@ -73,7 +65,7 @@ public class i extends com.baidu.adp.a.e {
         this.p[2] = this.m;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         for (int i2 = this.r ? 0 : 1; i2 < 3; i2++) {
             if (i == i2) {
                 this.p[i2].setVisibility(0);
@@ -83,11 +75,11 @@ public class i extends com.baidu.adp.a.e {
         }
     }
 
-    public String[] a() {
+    public final String[] a() {
         return this.o;
     }
 
-    public void b(int i) {
+    public final void b(int i) {
         switch (i) {
             case 1:
                 this.h.setChecked(true);
@@ -103,27 +95,27 @@ public class i extends com.baidu.adp.a.e {
         }
     }
 
-    public void e() {
+    public final void d() {
         this.g.setOnCheckedChangeListener(this.a);
     }
 
-    public void f() {
+    public final void e() {
         for (int i = 0; i < 3; i++) {
             this.n[i] = new c();
         }
     }
 
-    public void c(int i) {
+    public final void c(int i) {
         this.a.a().a(i == 1);
         this.a.a().a(this.c);
-        this.f.c(i);
+        this.f.b(i);
         if (this.s != null) {
             this.s.a(i);
         }
     }
 
     @Override // com.baidu.adp.a.e
-    public void c() {
+    public final void c() {
         super.c();
         if (this.n != null) {
             FragmentTransaction beginTransaction = this.a.getSupportFragmentManager().beginTransaction();
@@ -134,11 +126,11 @@ public class i extends com.baidu.adp.a.e {
         }
     }
 
-    public Fragment[] g() {
+    public final Fragment[] f() {
         return this.n;
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.r = z;
         if (z) {
             this.g.check(R.id.radio_recommend);
@@ -151,23 +143,23 @@ public class i extends com.baidu.adp.a.e {
         this.k.setVisibility(8);
     }
 
-    public void b(boolean z) {
-        this.e.setEnabled(z);
+    public final void b(boolean z) {
+        this.e.setEnabled(true);
     }
 
-    public void c(boolean z) {
+    public final void c(boolean z) {
         this.h.setVisibility(z ? 0 : 8);
     }
 
-    public ImageView h() {
+    public final ImageView g() {
         return this.d;
     }
 
-    public void d(boolean z) {
+    public final void d(boolean z) {
         this.q.setVisibility(z ? 0 : 8);
     }
 
-    public TextView i() {
+    public final TextView h() {
         return this.e;
     }
 }

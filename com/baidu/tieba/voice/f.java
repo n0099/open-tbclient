@@ -2,7 +2,7 @@ package com.baidu.tieba.voice;
 
 import android.os.Handler;
 /* loaded from: classes.dex */
-public class f {
+public final class f {
     private static h b;
     private static String c;
     private static r d;
@@ -13,7 +13,7 @@ public class f {
     public static boolean a(String str, int i, r rVar) {
         long currentTimeMillis = System.currentTimeMillis() - e;
         if (currentTimeMillis < 1000) {
-            com.baidu.adp.lib.util.f.d("----start duration......" + currentTimeMillis);
+            com.baidu.adp.lib.util.e.d("----start duration......" + currentTimeMillis);
             return false;
         }
         e = System.currentTimeMillis();
@@ -25,18 +25,18 @@ public class f {
             d = rVar;
             if (b.a(str, i)) {
                 a = 3;
-                com.baidu.adp.lib.util.f.d("----start record......");
+                com.baidu.adp.lib.util.e.d("----start record......");
                 new Thread(b).start();
                 return true;
             }
             return false;
         }
-        com.baidu.adp.lib.util.f.d("----start record state......" + a);
+        com.baidu.adp.lib.util.e.d("----start record state......" + a);
         return false;
     }
 
     public static void a() {
-        com.baidu.adp.lib.util.f.d("----stop record......");
+        com.baidu.adp.lib.util.e.d("----stop record......");
         if (b != null) {
             b.a();
         }
@@ -44,7 +44,7 @@ public class f {
     }
 
     public static void b() {
-        com.baidu.adp.lib.util.f.d("----cancel record......");
+        com.baidu.adp.lib.util.e.d("----cancel record......");
         if (b != null) {
             b.b();
         }

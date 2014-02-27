@@ -11,7 +11,7 @@ import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class j {
+public final class j {
     private HashMap<String, Integer> p;
     private boolean h = true;
     private boolean i = true;
@@ -36,11 +36,11 @@ public class j {
         this.p = new HashMap<>();
     }
 
-    public int a() {
+    public final int a() {
         return this.k;
     }
 
-    public void a(JSONObject jSONObject) {
+    public final void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 this.j.parserJson(jSONObject.optJSONObject("banner"));
@@ -77,33 +77,31 @@ public class j {
                 }
                 if (this.p != null && this.p.size() > 0) {
                     SwitchModel.refreshSwitchManager(this.p);
-                    if (com.baidu.adp.lib.a.d.a().b(SwitchKey.LOG) == 0) {
-                        com.baidu.tieba.log.a.a(true);
-                    } else {
-                        com.baidu.tieba.log.a.a(false);
-                    }
+                    com.baidu.adp.lib.a.d.a().b(SwitchKey.LOG);
+                    com.baidu.tieba.log.a.a();
                 }
                 this.l = jSONObject.optInt("is_pushservice_open", 1) == 1;
-                TiebaApplication.g().f(this.l);
-                TiebaApplication.g().e(jSONObject.optInt("is_moplus_open", 1) == 1);
+                TiebaApplication.g().e(this.l);
+                TiebaApplication.g().d(jSONObject.optInt("is_moplus_open", 1) == 1);
                 if (!this.l) {
                     UtilHelper.g(TiebaApplication.g().b().getApplicationContext());
                 }
                 this.i = jSONObject.optInt("gpu_open", 1) == 1;
-                TiebaApplication.g().d(this.i);
+                TiebaApplication.g().c(this.i);
                 this.r = jSONObject.optInt("voice_use_soft_decoder", 0) == 1;
-                VoiceManager.a(this.r);
-                if (TiebaApplication.g().aH()) {
+                boolean z = this.r;
+                VoiceManager.a();
+                if (TiebaApplication.g().aA()) {
                     int optInt3 = jSONObject.optInt("open_abstract", 0);
-                    if (!(optInt3 == 0 || TiebaApplication.g().aj() != 0)) {
+                    if (!(optInt3 == 0 || TiebaApplication.g().ac() != 0)) {
                         TiebaApplication.g().d(optInt3);
                     }
-                    TiebaApplication.g().w(false);
+                    TiebaApplication.g().v(false);
                 }
                 if (optInt == 1) {
-                    TiebaApplication.g().g(true);
+                    TiebaApplication.g().f(true);
                 } else if (optInt == 0) {
-                    TiebaApplication.g().g(false);
+                    TiebaApplication.g().f(false);
                 }
                 TiebaApplication.g().j(this.m);
                 TiebaApplication.g().n(this.n);
@@ -162,14 +160,14 @@ public class j {
                 }
                 com.baidu.tieba.im.messageCenter.m.a().e();
                 com.baidu.tieba.im.b.a.c().d();
-                TiebaApplication.g().c(optInt2 == 1);
+                TiebaApplication.g().b(optInt2 == 1);
                 i.b(this.a);
                 i.f(this.d);
                 i.e(this.e);
                 i.a(this.f, this.g);
                 i.c(this.c);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }

@@ -5,7 +5,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.util.DatabaseService;
 /* loaded from: classes.dex */
-class c extends BdAsyncTask<Void, Void, AccountData> {
+final class c extends BdAsyncTask<Void, Void, AccountData> {
     final /* synthetic */ b a;
     private final /* synthetic */ String b;
 
@@ -15,45 +15,38 @@ class c extends BdAsyncTask<Void, Void, AccountData> {
         this.b = str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public AccountData a(Void... voidArr) {
-        return DatabaseService.i(this.b);
+    public final /* synthetic */ AccountData a(Void... voidArr) {
+        return DatabaseService.g(this.b);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(AccountData accountData) {
-        a aVar;
+    public final /* synthetic */ void a(AccountData accountData) {
         boolean z;
-        a aVar2;
-        a aVar3;
         Activity activity;
-        a aVar4;
         int i;
-        a aVar5;
         at atVar;
-        super.a((c) accountData);
-        if (accountData == null || com.baidu.tieba.util.bs.c(accountData.getPassword())) {
-            aVar = this.a.a;
-            z = aVar.h;
-            if (!z) {
-                aVar2 = this.a.a;
-                aVar3 = this.a.a;
-                activity = aVar3.b;
-                aVar4 = this.a.a;
-                i = aVar4.c;
-                aVar2.a(activity, i);
+        AccountData accountData2 = accountData;
+        super.a((c) accountData2);
+        if (accountData2 == null || com.baidu.tieba.util.bs.c(accountData2.getPassword())) {
+            z = this.a.a.h;
+            if (z) {
                 return;
             }
+            a aVar = this.a.a;
+            activity = this.a.a.b;
+            i = this.a.a.c;
+            aVar.a(activity, i);
             return;
         }
-        String account = accountData.getAccount();
-        String password = accountData.getPassword();
-        aVar5 = this.a.a;
-        atVar = aVar5.k;
+        String account = accountData2.getAccount();
+        String password = accountData2.getPassword();
+        atVar = this.a.a.k;
         as.a(account, password, atVar);
     }
 }

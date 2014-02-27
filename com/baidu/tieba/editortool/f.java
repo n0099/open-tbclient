@@ -3,7 +3,7 @@ package com.baidu.tieba.editortool;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements View.OnClickListener {
+public final class f implements View.OnClickListener {
     final /* synthetic */ EditorToolComponetContainer a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,9 +12,9 @@ public class f implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        z zVar;
-        zVar = this.a.r;
-        zVar.a(7, null);
+    public final void onClick(View view) {
+        aa aaVar;
+        aaVar = this.a.r;
+        aaVar.a(7, null);
     }
 }

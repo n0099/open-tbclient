@@ -29,12 +29,15 @@ public class AllPostActivity extends com.baidu.tieba.f {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.all_post_activity);
-        a(bundle);
-        a();
-        a(0);
-    }
-
-    void a() {
+        this.f = new com.baidu.tieba.model.az();
+        if (bundle != null) {
+            this.f.a(bundle.getString("user"));
+            this.f.a(bundle.getInt("user_sex"));
+        } else {
+            Intent intent = getIntent();
+            this.f.a(intent.getStringExtra("user"));
+            this.f.a(intent.getIntExtra("user_sex", 0));
+        }
         this.a = (FrameLayout) findViewById(R.id.all_post_activity_layout);
         this.b = (TextView) findViewById(R.id.no_post_view);
         int b = this.f.b();
@@ -55,18 +58,7 @@ public class AllPostActivity extends com.baidu.tieba.f {
         this.c.setAdapter((ListAdapter) this.e);
         this.c.setOnItemClickListener(new b(this));
         this.h = (ProgressBar) findViewById(R.id.loading_progress);
-    }
-
-    void a(Bundle bundle) {
-        this.f = new com.baidu.tieba.model.az();
-        if (bundle != null) {
-            this.f.a(bundle.getString("user"));
-            this.f.a(bundle.getInt("user_sex"));
-            return;
-        }
-        Intent intent = getIntent();
-        this.f.a(intent.getStringExtra("user"));
-        this.f.a(intent.getIntExtra("user_sex", 0));
+        a(0);
     }
 
     @Override // android.app.Activity
@@ -77,7 +69,7 @@ public class AllPostActivity extends com.baidu.tieba.f {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(int i) {
+    public final void a(int i) {
         if (!this.i) {
             this.i = true;
             this.j = i;
@@ -92,7 +84,7 @@ public class AllPostActivity extends com.baidu.tieba.f {
         }
     }
 
-    public boolean b() {
+    public final boolean a() {
         return this.i && this.j == 1;
     }
 

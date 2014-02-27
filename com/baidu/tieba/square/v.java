@@ -13,7 +13,7 @@ import com.baidu.adp.widget.IndicatorView;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class v extends FrameLayout {
+public final class v extends FrameLayout {
     private static int l = 5000;
     public View.OnTouchListener a;
     private Context b;
@@ -33,8 +33,8 @@ public class v extends FrameLayout {
         this(context, null);
     }
 
-    public v(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
+    private v(Context context, AttributeSet attributeSet) {
+        super(context, null);
         this.b = null;
         this.c = null;
         this.d = null;
@@ -63,7 +63,7 @@ public class v extends FrameLayout {
         setPadding(this.k, this.j, this.k, this.i);
     }
 
-    public Boolean a(ArrayList<av> arrayList) {
+    public final Boolean a(ArrayList<av> arrayList) {
         if (arrayList == null || arrayList.size() == 0) {
             setVisibility(8);
             return false;
@@ -78,7 +78,7 @@ public class v extends FrameLayout {
         }
         this.e.a(this.m);
         this.c.setAdapter(this.e);
-        this.c.setOnPageChangeListener(new aa(this, null));
+        this.c.setOnPageChangeListener(new aa(this, (byte) 0));
         this.c.setCurrentItem(size > 1 ? 1 : 0, false);
         this.c.invalidate();
         if (size > 1) {
@@ -92,22 +92,22 @@ public class v extends FrameLayout {
         return true;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         if (this.e != null) {
-            this.e.a(i);
+            this.e.a();
         }
     }
 
-    public void a() {
+    public final void a() {
         this.n.removeMessages(0);
         this.n.sendEmptyMessageDelayed(0, l);
     }
 
-    public void b() {
+    public final void b() {
         this.n.removeMessages(0);
     }
 
-    public y getPagerAdapter() {
+    public final y getPagerAdapter() {
         return this.e;
     }
 }

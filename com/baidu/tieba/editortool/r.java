@@ -1,20 +1,39 @@
 package com.baidu.tieba.editortool;
 
+import android.support.v4.view.PagerAdapter;
 import android.view.View;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.ViewGroup;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class r implements View.OnClickListener {
-    final /* synthetic */ EmotionTabHorizonScrollView a;
+public final class r extends PagerAdapter {
+    final /* synthetic */ EmotionTabContentView a;
+    private ArrayList<View> b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public r(EmotionTabHorizonScrollView emotionTabHorizonScrollView) {
-        this.a = emotionTabHorizonScrollView;
+    public r(EmotionTabContentView emotionTabContentView, ArrayList<View> arrayList) {
+        this.a = emotionTabContentView;
+        this.b = new ArrayList<>();
+        this.b = arrayList;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        BdUtilHelper.a(this.a.getContext(), (int) R.string.emotion_cant_show);
+    @Override // android.support.v4.view.PagerAdapter
+    public final int getCount() {
+        return this.b.size();
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public final boolean isViewFromObject(View view, Object obj) {
+        return view == obj;
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public final void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+        viewGroup.removeView(this.b.get(i));
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public final Object instantiateItem(ViewGroup viewGroup, int i) {
+        View view = this.b.get(i);
+        viewGroup.addView(view);
+        return view;
     }
 }

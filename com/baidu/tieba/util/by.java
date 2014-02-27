@@ -2,7 +2,7 @@ package com.baidu.tieba.util;
 
 import android.app.Activity;
 /* loaded from: classes.dex */
-class by implements ca {
+final class by implements ca {
     final /* synthetic */ TbWebViewActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +11,7 @@ class by implements ca {
     }
 
     @Override // com.baidu.tieba.util.ca
-    public Object a(Activity activity) {
+    public final Object a(Activity activity) {
         return new TbJsBridge(activity);
     }
 }

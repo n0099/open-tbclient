@@ -4,7 +4,7 @@ import android.view.View;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.data.emotions.EmotionImageActivity;
 /* loaded from: classes.dex */
-class bc implements com.baidu.tbadk.widget.richText.q {
+final class bc implements com.baidu.tbadk.widget.richText.q {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ class bc implements com.baidu.tbadk.widget.richText.q {
     }
 
     @Override // com.baidu.tbadk.widget.richText.q
-    public void a(View view, String str, String str2, String str3, String str4, String str5, String str6, int i, int i2) {
+    public final void a(View view, String str, String str2, String str3, String str4, String str5, String str6, int i, int i2) {
         cu cuVar;
         com.baidu.tbadk.imageManager.d dVar;
         com.baidu.adp.widget.ImageView.b a;
@@ -27,12 +27,12 @@ class bc implements com.baidu.tbadk.widget.richText.q {
             tbRichTextEmotionINfo.k = false;
             if (com.baidu.tieba.util.i.b()) {
                 cuVar2 = this.a.C;
-                com.baidu.tieba.util.i a2 = cuVar2.i().a();
+                com.baidu.tieba.util.i a2 = cuVar2.g().a();
                 dVar2 = this.a.ae;
                 a = a2.a(str, str6, str5, true, dVar2);
             } else {
                 cuVar = this.a.C;
-                com.baidu.tieba.util.i a3 = cuVar.i().a();
+                com.baidu.tieba.util.i a3 = cuVar.g().a();
                 dVar = this.a.ae;
                 a = a3.a(str, str6, str4, false, dVar);
             }

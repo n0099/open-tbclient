@@ -28,20 +28,12 @@ public class TopRecActivity extends com.baidu.tieba.f {
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        a();
-        b();
-    }
-
-    private void a() {
         this.a = new h(this);
         this.a.a(true);
-    }
-
-    private void b() {
         this.b = new e(this);
         this.a.a(this.b);
         this.c = new l();
-        this.c.a(this.k);
+        this.c.b = this.k;
         this.c.LoadData();
         this.h = new LinkedList();
         this.i = new LinkedList();
@@ -53,7 +45,7 @@ public class TopRecActivity extends com.baidu.tieba.f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void a(int i, int i2) {
+    public synchronized void a(int i) {
         if (this.f != null && i < this.f.forum_list.length) {
             this.f.forum_list[i].is_like = 1;
             this.b.notifyDataSetChanged();
@@ -63,7 +55,7 @@ public class TopRecActivity extends com.baidu.tieba.f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void b(int i, int i2) {
+    public synchronized void b(int i) {
         if (this.f != null && i < this.f.forum_list.length) {
             this.f.forum_list[i].is_like = 0;
             this.b.notifyDataSetChanged();
@@ -75,12 +67,12 @@ public class TopRecActivity extends com.baidu.tieba.f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void c() {
+    public synchronized void a() {
         this.j++;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void d() {
+    public synchronized void b() {
         if (this.j != 0) {
             this.j--;
         }
@@ -132,7 +124,7 @@ public class TopRecActivity extends com.baidu.tieba.f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int a(int i) {
+    public int c(int i) {
         if (this.f == null) {
             return -1;
         }
@@ -150,7 +142,7 @@ public class TopRecActivity extends com.baidu.tieba.f {
         if (view == this.a.a()) {
             this.b.a();
             if (this.b.b()) {
-                this.a.e();
+                this.a.d();
             }
         } else if (view == this.a.b()) {
             if (this.j != 0) {
@@ -160,14 +152,14 @@ public class TopRecActivity extends com.baidu.tieba.f {
                 cb.a(this, "top_rec_no_like", "people_number", 1, new Object[0]);
             }
             finish();
-            com.baidu.tieba.mainentrance.f.a(this, 1);
+            com.baidu.tieba.mainentrance.d.a(this, 1);
         } else if (this.f != null && this.f.forum_list.length != 0) {
             int intValue = ((Integer) view.getTag()).intValue();
             if (this.f.forum_list.length != 0) {
-                int a = a(intValue);
-                if (this.f.forum_list[a].is_like == 1) {
-                    b(a, intValue);
-                    this.e = new d(this, null);
+                int c = c(intValue);
+                if (this.f.forum_list[c].is_like == 1) {
+                    b(c);
+                    this.e = new d(this, (byte) 0);
                     this.h.add(this.e);
                     this.e.setPriority(2);
                     this.e.execute(Integer.valueOf(intValue));
@@ -176,10 +168,10 @@ public class TopRecActivity extends com.baidu.tieba.f {
                 this.d = new ar();
                 if (!this.d.b()) {
                     this.i.add(this.d);
-                    a(a, intValue);
-                    this.d.setLoadDataCallBack(new c(this, a, intValue));
+                    a(c);
+                    this.d.setLoadDataCallBack(new c(this, c, intValue));
                     this.d.a("from_topRec");
-                    this.d.a(this.f.forum_list[a].forum_name, String.valueOf(this.f.forum_list[a].forum_id));
+                    this.d.a(this.f.forum_list[c].forum_name, String.valueOf(this.f.forum_list[c].forum_id));
                 }
             }
         }
@@ -195,6 +187,6 @@ public class TopRecActivity extends com.baidu.tieba.f {
             cb.a(this, "top_rec_no_like", "people_number", 1, new Object[0]);
         }
         finish();
-        com.baidu.tieba.mainentrance.f.a(this, 1);
+        com.baidu.tieba.mainentrance.d.a(this, 1);
     }
 }

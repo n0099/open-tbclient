@@ -33,7 +33,7 @@ public final class o {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public ArrayList a(int i) {
+    public final ArrayList a(int i) {
         Cursor cursor;
         if (this.d) {
             return new ArrayList();
@@ -103,7 +103,7 @@ public final class o {
         return arrayList;
     }
 
-    public void a(String str, String str2) {
+    public final void a(String str, String str2) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("value", str2);
         try {
@@ -116,7 +116,7 @@ public final class o {
         }
     }
 
-    public boolean a(ArrayList arrayList, int i) {
+    public final boolean a(ArrayList arrayList, int i) {
         if (this.e) {
             return false;
         }

@@ -72,11 +72,12 @@ public class k {
         j.a(f215else, "upload manager start to init cache ...");
         try {
             if (c == null) {
-                c = new File(h);
-                if (!c.exists()) {
-                    File file = new File(f.aa);
-                    if (!file.exists()) {
-                        file.mkdirs();
+                File file = new File(h);
+                c = file;
+                if (!file.exists()) {
+                    File file2 = new File(f.aa);
+                    if (!file2.exists()) {
+                        file2.mkdirs();
                     }
                     if (!c.createNewFile()) {
                         j.a(f215else, "upload manager create file error...");
@@ -107,8 +108,9 @@ public class k {
         }
         try {
             if (c == null) {
-                c = new File(h);
-                if (!c.exists()) {
+                File file = new File(h);
+                c = file;
+                if (!file.exists()) {
                     j.a(f215else, "upload man readfile does not exist...");
                     c = null;
                     return -2;
@@ -125,7 +127,7 @@ public class k {
             int readInt3 = randomAccessFile.readInt();
             int readInt4 = randomAccessFile.readInt();
             long readLong = randomAccessFile.readLong();
-            if (!a(readInt, readInt2, readInt3, readInt4, readLong) || readInt2 < 1) {
+            if (!a(readInt, readInt2, readInt3, readInt4, readLong) || readInt2 <= 0) {
                 randomAccessFile.close();
                 return -4;
             }
@@ -159,29 +161,29 @@ public class k {
 
     public static String a() {
         String str = null;
-        if (f223void == null || f223void.size() < 1) {
+        if (f223void == null || f223void.size() <= 0) {
             a(f223void, f221new);
         }
-        if (f223void != null && f223void.size() >= 1) {
+        if (f223void != null && f223void.size() > 0) {
             str = (String) f223void.get(0);
             f223void.remove(0);
             j.a(f215else, "upload manager get upload data from q1 ...");
         }
         if (str == null) {
-            if (f222try == null || f222try.size() < 1) {
+            if (f222try == null || f222try.size() <= 0) {
                 a(f222try, b);
             }
-            if (f222try != null && f222try.size() >= 1) {
+            if (f222try != null && f222try.size() > 0) {
                 str = (String) f222try.get(0);
                 f222try.remove(0);
                 j.a(f215else, "upload manager get upload data from q2 ...");
             }
         }
         if (str == null) {
-            if (f == null || f.size() < 1) {
+            if (f == null || f.size() <= 0) {
                 a(f, f219int);
             }
-            if (f != null && f.size() >= 1) {
+            if (f != null && f.size() > 0) {
                 str = (String) f.get(0);
                 f.remove(0);
                 j.a(f215else, "upload manager get upload data from q3 ...");
@@ -324,13 +326,14 @@ public class k {
         int i3;
         int i4;
         int i5 = 0;
-        if (list == null || list.size() < 1 || i2 > 256 || i2 < 0) {
+        if (list == null || list.size() <= 0 || i2 > 256 || i2 < 0) {
             return -1;
         }
         try {
             if (c == null) {
-                c = new File(h);
-                if (!c.exists()) {
+                File file = new File(h);
+                c = file;
+                if (!file.exists()) {
                     j.a(f215else, "upload man write file does not exist...");
                     c = null;
                     return -2;

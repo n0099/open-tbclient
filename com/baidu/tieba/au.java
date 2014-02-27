@@ -2,7 +2,7 @@ package com.baidu.tieba;
 
 import com.baidu.bdcvf.CertVerifier;
 /* loaded from: classes.dex */
-class au implements CertVerifier.ResultListener {
+final class au implements CertVerifier.ResultListener {
     final /* synthetic */ TiebaApplication a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,12 +11,12 @@ class au implements CertVerifier.ResultListener {
     }
 
     @Override // com.baidu.bdcvf.CertVerifier.ResultListener
-    public void onVerifyOK() {
+    public final void onVerifyOK() {
         this.a.O = true;
     }
 
     @Override // com.baidu.bdcvf.CertVerifier.ResultListener
-    public void onVerifyFail(int i) {
+    public final void onVerifyFail(int i) {
         this.a.O = false;
     }
 }

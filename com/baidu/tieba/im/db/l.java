@@ -13,7 +13,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class l {
+public final class l {
     private static l a = new l();
     private o b;
 
@@ -24,17 +24,13 @@ public class l {
         return a;
     }
 
-    public void b() {
-        c();
+    public final void b() {
+        this.b = new o(this, (byte) 0);
+        com.baidu.tieba.im.messageCenter.d.a().a(103112, this.b);
+        com.baidu.tieba.im.messageCenter.d.a().a(103101, this.b);
     }
 
-    private void c() {
-        this.b = new o(this, null);
-        com.baidu.tieba.im.messageCenter.e.a().a(103112, this.b);
-        com.baidu.tieba.im.messageCenter.e.a().a(103101, this.b);
-    }
-
-    public synchronized boolean a(String str, int i, CommonMsgPojo commonMsgPojo) {
+    private synchronized boolean a(CommonMsgPojo commonMsgPojo) {
         boolean b;
         boolean z = false;
         synchronized (this) {
@@ -42,12 +38,12 @@ public class l {
                 boolean z2 = true;
                 com.baidu.tieba.im.message.g chatMessage = commonMsgPojo.toChatMessage();
                 if (chatMessage != null) {
-                    SystemMsgData j = com.baidu.tieba.im.util.l.j(chatMessage);
-                    if (j != null && !j.getIsSelf()) {
+                    SystemMsgData i = com.baidu.tieba.im.util.l.i(chatMessage);
+                    if (i != null && !i.getIsSelf()) {
                         z2 = false;
                     }
-                    if (TiebaApplication.B()) {
-                        if (chatMessage.g().getUserId().equals(TiebaApplication.A()) && chatMessage.i() != 11) {
+                    if (TiebaApplication.w()) {
+                        if (chatMessage.g().getUserId().equals(TiebaApplication.v()) && chatMessage.i() != 11) {
                             z2 = false;
                         }
                     }
@@ -55,10 +51,10 @@ public class l {
                 if (commonMsgPojo.getRead_flag() == 0) {
                     z2 = false;
                 }
-                if (!TiebaApplication.g().Y() && !commonMsgPojo.isPrivate()) {
+                if (!TiebaApplication.g().S() && !commonMsgPojo.isPrivate()) {
                     z2 = false;
                 }
-                if (!TiebaApplication.g().X() && commonMsgPojo.isPrivate()) {
+                if (!TiebaApplication.g().R() && commonMsgPojo.isPrivate()) {
                     z2 = false;
                 }
                 String gid = commonMsgPojo.getGid();
@@ -67,11 +63,11 @@ public class l {
                 } else if (!TextUtils.isEmpty(gid) && PersonalChatActivity.a && gid.equals(PersonalChatActivity.b)) {
                     z2 = false;
                 }
-                com.baidu.tieba.im.c.i e = com.baidu.tieba.im.c.a.f().e(gid);
-                if (e != null) {
-                    b = e.isAcceptNotify();
+                com.baidu.tieba.im.c.i c = com.baidu.tieba.im.c.a.d().c(gid);
+                if (c != null) {
+                    b = c.isAcceptNotify();
                 } else {
-                    b = com.baidu.tieba.im.chat.personaltalk.a.b(TiebaApplication.A(), commonMsgPojo.getGid());
+                    b = com.baidu.tieba.im.chat.personaltalk.a.b(TiebaApplication.v(), commonMsgPojo.getGid());
                 }
                 if (!z2 || b) {
                     z = z2;
@@ -81,19 +77,21 @@ public class l {
         return z;
     }
 
-    public boolean a(HashMap<String, aj> hashMap) {
+    public final boolean a(HashMap<String, aj> hashMap) {
         boolean z = false;
         for (String str : hashMap.keySet()) {
             aj ajVar = hashMap.get(str);
             h.a().a(ajVar.a, ajVar.c, ajVar.b);
-            if (a(ajVar.a, ajVar.c, ajVar.b)) {
+            String str2 = ajVar.a;
+            int i = ajVar.c;
+            if (a(ajVar.b)) {
                 z = true;
             }
         }
         return z;
     }
 
-    public synchronized void a(ImMessageCenterPojo imMessageCenterPojo) {
+    public final synchronized void a(ImMessageCenterPojo imMessageCenterPojo) {
         if (imMessageCenterPojo != null) {
             String gid = imMessageCenterPojo.getGid();
             if (!TextUtils.isEmpty(gid)) {
@@ -134,22 +132,22 @@ public class l {
         }
     }
 
-    public synchronized void a(String str) {
+    public final synchronized void a(String str) {
         ImMessageCenterPojo a2 = h.a().d().a(str);
         if (a2 != null) {
             a2.setLast_rid(0L);
             a2.setPulled_msgId(0L);
             a2.setIs_delete(1);
         } else {
-            com.baidu.adp.lib.util.f.b("删除gid失败");
+            com.baidu.adp.lib.util.e.b("删除gid失败");
         }
     }
 
-    public synchronized void b(String str) {
+    public final synchronized void b(String str) {
         h.a().d().b(str);
     }
 
-    public synchronized void b(ImMessageCenterPojo imMessageCenterPojo) {
+    public final synchronized void b(ImMessageCenterPojo imMessageCenterPojo) {
         if (imMessageCenterPojo != null) {
             d d = h.a().d();
             ImMessageCenterPojo a2 = d.a(imMessageCenterPojo.getGid());
@@ -170,7 +168,7 @@ public class l {
         }
     }
 
-    public void c(String str) {
+    public static void c(String str) {
         d d;
         ImMessageCenterPojo a2;
         if (!TextUtils.isEmpty(str) && (d = h.a().d()) != null && (a2 = d.a(str)) != null) {
@@ -178,7 +176,7 @@ public class l {
         }
     }
 
-    public void a(d dVar, LinkedList<ImMessageCenterPojo> linkedList) {
+    public final void a(d dVar, LinkedList<ImMessageCenterPojo> linkedList) {
         if (dVar != null && linkedList != null) {
             HashSet hashSet = new HashSet();
             dVar.a(new m(this, hashSet));
@@ -203,7 +201,7 @@ public class l {
                     dVar.a(next);
                 }
             }
-            com.baidu.tieba.im.j.a(new n(this, linkedList), null);
+            com.baidu.tieba.im.i.a(new n(this, linkedList), null);
         }
     }
 }

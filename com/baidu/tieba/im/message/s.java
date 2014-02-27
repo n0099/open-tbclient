@@ -4,15 +4,15 @@ public abstract class s {
     private int a;
     private int b = com.baidu.tieba.im.messageCenter.r.a().b();
 
-    public int v() {
+    public final int v() {
         return this.b;
     }
 
-    public int w() {
+    public final int w() {
         return this.a;
     }
 
-    public void e(int i) {
+    public final void e(int i) {
         this.a = i;
     }
 }

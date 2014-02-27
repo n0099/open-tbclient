@@ -18,10 +18,10 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.view.NavigationBar;
-import com.baidu.tieba.view.ct;
+import com.baidu.tieba.view.cs;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class w {
+public final class w {
     ProgressBar A;
     private boolean B;
     private int C = 0;
@@ -42,8 +42,8 @@ public class w {
     LinearLayout o;
     TextView p;
     ImageView q;
-    ct r;
-    ct s;
+    cs r;
+    cs s;
     PopupWindow t;
     View u;
     ForumListActivity v;
@@ -67,8 +67,8 @@ public class w {
         this.j.setOnClickListener(forumListActivity);
         this.k = (TextView) forumListActivity.findViewById(R.id.tab_hot);
         this.k.setOnClickListener(forumListActivity);
-        this.r = new ct(forumListActivity);
-        this.s = new ct(forumListActivity);
+        this.r = new cs(forumListActivity);
+        this.s = new cs(forumListActivity);
         this.l = (LinearLayout) forumListActivity.getLayoutInflater().inflate(R.layout.forum_list_forum_footer, (ViewGroup) null);
         this.b = this.l.findViewById(R.id.footer_background);
         this.m = (TextView) this.l.findViewById(R.id.footer_text);
@@ -83,26 +83,22 @@ public class w {
         this.x = new a(this.v);
     }
 
-    public View a(int i, AdapterView.OnItemClickListener onItemClickListener) {
-        View inflate = LayoutInflater.from(this.v).inflate(R.layout.forum_list__dir_menu, (ViewGroup) null);
-        this.w = (ListView) inflate.findViewById(R.id.dir_menu_list);
-        this.w.setOnItemClickListener(onItemClickListener);
-        inflate.setBackgroundResource(R.drawable.bg_allsproutpop_dropdown);
-        this.C = this.x.getCount();
-        this.w.setAdapter((ListAdapter) this.x);
-        return inflate;
-    }
-
-    public void a(AdapterView.OnItemClickListener onItemClickListener) {
+    public final void a(AdapterView.OnItemClickListener onItemClickListener) {
         if (!this.B) {
-            if (TiebaApplication.g().al() == 1) {
+            if (TiebaApplication.g().ae() == 1) {
                 this.z.setImageResource(R.drawable.btn_allsproutpop_up_1);
             } else {
                 this.z.setImageResource(R.drawable.btn_allsproutpop_up);
             }
             this.B = true;
             if (this.u == null) {
-                this.u = a(0, onItemClickListener);
+                View inflate = LayoutInflater.from(this.v).inflate(R.layout.forum_list__dir_menu, (ViewGroup) null);
+                this.w = (ListView) inflate.findViewById(R.id.dir_menu_list);
+                this.w.setOnItemClickListener(onItemClickListener);
+                inflate.setBackgroundResource(R.drawable.bg_allsproutpop_dropdown);
+                this.C = this.x.getCount();
+                this.w.setAdapter((ListAdapter) this.x);
+                this.u = inflate;
             }
             int a = (BdUtilHelper.a((Context) this.v, 160.0f) - this.y.getWidth()) / 2;
             if (this.t == null) {
@@ -127,15 +123,7 @@ public class w {
         this.B = false;
     }
 
-    public void a() {
-        this.e.setVisibility(0);
-    }
-
-    public void b() {
-        this.e.setVisibility(8);
-    }
-
-    public void c() {
+    public final void a() {
         if (this.d.getCurrentItem() == 0) {
             this.h.a();
         } else {
@@ -144,7 +132,7 @@ public class w {
         this.A.setVisibility(8);
     }
 
-    public void d() {
+    public final void b() {
         this.y.setClickable(false);
         this.y.setOnClickListener(null);
     }

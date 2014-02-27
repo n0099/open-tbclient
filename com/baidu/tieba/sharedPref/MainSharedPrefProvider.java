@@ -73,7 +73,7 @@ public class MainSharedPrefProvider extends ContentProvider {
         return 0;
     }
 
-    private void a(String str, String str2) {
+    private static void a(String str, String str2) {
         Intent intent = new Intent();
         intent.setAction(i.j());
         intent.putExtra("intent_key", str);
@@ -81,7 +81,7 @@ public class MainSharedPrefProvider extends ContentProvider {
         TiebaApplication.g().b().sendBroadcast(intent);
     }
 
-    private boolean a(String str) {
+    private static boolean a(String str) {
         if (str == null || str.length() == 0) {
             return false;
         }
@@ -94,7 +94,7 @@ public class MainSharedPrefProvider extends ContentProvider {
         return false;
     }
 
-    private SharedPreferences a() {
+    private static SharedPreferences a() {
         try {
             if (TiebaApplication.g().b() != null) {
                 return TiebaApplication.g().b().getSharedPreferences("common_settings", 0);

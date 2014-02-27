@@ -24,7 +24,7 @@ public final class ReedSolomonEncoder {
         return this.cachedGenerators.get(i);
     }
 
-    public void encode(int[] iArr, int i) {
+    public final void encode(int[] iArr, int i) {
         if (i == 0) {
             throw new IllegalArgumentException("No error correction bytes");
         }

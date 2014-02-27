@@ -16,7 +16,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class aw extends BaseAdapter {
+public final class aw extends BaseAdapter {
     private static int d;
     private FaceShopData b;
     private Context c;
@@ -30,7 +30,7 @@ public class aw extends BaseAdapter {
     private int j = -1;
     View.OnClickListener a = new ax(this);
 
-    public int a() {
+    public final int a() {
         return this.j;
     }
 
@@ -47,13 +47,13 @@ public class aw extends BaseAdapter {
         this.l = null;
     }
 
-    public void a(FaceShopData faceShopData) {
+    public final void a(FaceShopData faceShopData) {
         this.b = faceShopData;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
-    public int getCount() {
+    public final int getCount() {
         if (this.b == null || this.b.packList == null) {
             return 0;
         }
@@ -61,7 +61,7 @@ public class aw extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public Object getItem(int i) {
+    public final Object getItem(int i) {
         if (this.b == null || this.b.packList == null) {
             return null;
         }
@@ -73,192 +73,183 @@ public class aw extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    public final long getItemId(int i) {
         return 0L;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
+    public final int getItemViewType(int i) {
         return (this.b == null || this.b.packList == null || this.b.packList.get(i) == null) ? 2 : 1;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
+    public final int getViewTypeCount() {
         return 3;
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public final View getView(int i, View view, ViewGroup viewGroup) {
+        View view2;
         int itemViewType = getItemViewType(i);
-        int al = TiebaApplication.g().al();
+        int ae = TiebaApplication.g().ae();
         if (view == null) {
-            view = a(itemViewType, viewGroup);
+            LayoutInflater from = LayoutInflater.from(this.c);
+            if (itemViewType == 1) {
+                ba baVar = new ba(this, (byte) 0);
+                View inflate = from.inflate(R.layout.face_shop_list_tem, (ViewGroup) null);
+                baVar.b = (TextView) inflate.findViewById(R.id.title);
+                baVar.a = (TbImageView) inflate.findViewById(R.id.image);
+                baVar.a.setDefaultResource(R.drawable.pic_baidu_logo_d);
+                baVar.a.setNightDefaultResource(R.drawable.pic_baidu_logo_d_1);
+                baVar.c = (FrameLayout) inflate.findViewById(R.id.btn);
+                baVar.d = (TextView) inflate.findViewById(R.id.btn_text);
+                baVar.e = (TextView) inflate.findViewById(R.id.downloaded);
+                baVar.g = (FrameLayout) inflate.findViewById(R.id.downloading);
+                baVar.f = (ImageView) inflate.findViewById(R.id.downloading_up);
+                baVar.h = (TextView) inflate.findViewById(R.id.intro);
+                baVar.i = (TbImageView) inflate.findViewById(R.id.icon);
+                baVar.i.setDefaultResource(0);
+                baVar.i.setNightDefaultResource(0);
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.e, this.f);
+                layoutParams.setMargins(0, 0, 0, this.c.getResources().getDimensionPixelSize(R.dimen.faceshop_img_marginBottom));
+                baVar.a.setLayoutParams(layoutParams);
+                baVar.d.setClickable(false);
+                baVar.c.setClickable(true);
+                baVar.c.setOnClickListener(this.a);
+                baVar.j = (TbImageView) inflate.findViewById(R.id.title_tag);
+                inflate.setTag(baVar);
+                view2 = inflate;
+            } else {
+                view2 = null;
+            }
+            view = view2;
         }
-        ba baVar = (ba) view.getTag();
+        ba baVar2 = (ba) view.getTag();
         if (this.c instanceof com.baidu.tieba.f) {
-            ((com.baidu.tieba.f) this.c).getLayoutMode().a(al == 1);
+            ((com.baidu.tieba.f) this.c).getLayoutMode().a(ae == 1);
             ((com.baidu.tieba.f) this.c).getLayoutMode().a(view);
         }
-        a(i, baVar);
-        a(baVar);
-        a(baVar, al);
-        return view;
-    }
-
-    public View a(int i, ViewGroup viewGroup) {
-        LayoutInflater from = LayoutInflater.from(this.c);
-        if (i == 1) {
-            ba baVar = new ba(this, null);
-            View inflate = from.inflate(R.layout.face_shop_list_tem, (ViewGroup) null);
-            baVar.b = (TextView) inflate.findViewById(R.id.title);
-            baVar.a = (TbImageView) inflate.findViewById(R.id.image);
-            baVar.a.setDefaultResource(R.drawable.pic_baidu_logo_d);
-            baVar.a.setNightDefaultResource(R.drawable.pic_baidu_logo_d_1);
-            baVar.c = (FrameLayout) inflate.findViewById(R.id.btn);
-            baVar.d = (TextView) inflate.findViewById(R.id.btn_text);
-            baVar.e = (TextView) inflate.findViewById(R.id.downloaded);
-            baVar.g = (FrameLayout) inflate.findViewById(R.id.downloading);
-            baVar.f = (ImageView) inflate.findViewById(R.id.downloading_up);
-            baVar.h = (TextView) inflate.findViewById(R.id.intro);
-            baVar.i = (TbImageView) inflate.findViewById(R.id.icon);
-            baVar.i.setDefaultResource(0);
-            baVar.i.setNightDefaultResource(0);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.e, this.f);
-            layoutParams.setMargins(0, 0, 0, this.c.getResources().getDimensionPixelSize(R.dimen.faceshop_img_marginBottom));
-            baVar.a.setLayoutParams(layoutParams);
-            baVar.d.setClickable(false);
-            baVar.c.setClickable(true);
-            baVar.c.setOnClickListener(this.a);
-            baVar.j = (TbImageView) inflate.findViewById(R.id.title_tag);
-            inflate.setTag(baVar);
-            return inflate;
-        }
-        return null;
-    }
-
-    private void a(int i, ba baVar) {
-        if (this.b != null && baVar != null) {
+        if (this.b != null && baVar2 != null) {
             try {
                 FacePackageData facePackageData = (FacePackageData) getItem(i);
                 if (facePackageData != null) {
-                    baVar.m = i;
-                    baVar.b.setText(facePackageData.pname);
-                    baVar.h.setText(facePackageData.pdesc);
-                    baVar.a.setTag(facePackageData.bannerUrl);
-                    if (facePackageData.newIcon != null && facePackageData.newIcon.length() > 0) {
-                        baVar.i.setTag(facePackageData.newIcon);
-                        baVar.i.setVisibility(0);
+                    baVar2.m = i;
+                    baVar2.b.setText(facePackageData.pname);
+                    baVar2.h.setText(facePackageData.pdesc);
+                    baVar2.a.setTag(facePackageData.bannerUrl);
+                    if (facePackageData.newIcon == null || facePackageData.newIcon.length() <= 0) {
+                        baVar2.i.setVisibility(8);
                     } else {
-                        baVar.i.setVisibility(8);
+                        baVar2.i.setTag(facePackageData.newIcon);
+                        baVar2.i.setVisibility(0);
                     }
-                    baVar.k = facePackageData.price;
-                    a(facePackageData, baVar);
-                    bb bbVar = new bb(this, null);
-                    bbVar.b = baVar.l;
+                    baVar2.k = facePackageData.price;
+                    if (facePackageData != null && baVar2 != null) {
+                        int i2 = facePackageData.buyStatus;
+                        int i3 = facePackageData.canDownload;
+                        int i4 = facePackageData.downloaded;
+                        if (facePackageData.downloading == 1) {
+                            baVar2.l = 5;
+                        } else if (i4 == 1) {
+                            baVar2.l = 1;
+                        } else if (i2 == 2) {
+                            baVar2.l = 6;
+                        } else if (i2 == 1) {
+                            if (i3 == 1) {
+                                baVar2.l = 2;
+                            }
+                        } else if (i2 == 0) {
+                            if (i3 == 1) {
+                                baVar2.l = 3;
+                            } else {
+                                baVar2.l = 4;
+                            }
+                        }
+                    }
+                    bb bbVar = new bb(this, (byte) 0);
+                    bbVar.b = baVar2.l;
                     bbVar.a = i;
-                    baVar.c.setTag(bbVar);
-                    if (!TextUtils.isEmpty(facePackageData.tagUrl)) {
-                        baVar.j.setVisibility(0);
-                        baVar.j.setTag(facePackageData.tagUrl);
-                        return;
+                    baVar2.c.setTag(bbVar);
+                    if (TextUtils.isEmpty(facePackageData.tagUrl)) {
+                        baVar2.j.setVisibility(8);
+                    } else {
+                        baVar2.j.setVisibility(0);
+                        baVar2.j.setTag(facePackageData.tagUrl);
                     }
-                    baVar.j.setVisibility(8);
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "fillItemView", e.toString());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "fillItemView", e.toString());
             }
         }
-    }
-
-    private void a(ba baVar) {
-        if (baVar != null) {
-            b(baVar);
-            switch (baVar.l) {
+        if (baVar2 != null) {
+            a(baVar2);
+            switch (baVar2.l) {
                 case 1:
-                    baVar.e.setVisibility(0);
-                    return;
+                    baVar2.e.setVisibility(0);
+                    break;
                 case 2:
                 case 3:
                 case 4:
-                    baVar.c.setVisibility(0);
-                    baVar.d.setVisibility(0);
-                    return;
+                    baVar2.c.setVisibility(0);
+                    baVar2.d.setVisibility(0);
+                    break;
                 case 5:
-                    baVar.g.setVisibility(0);
-                    return;
-                default:
-                    return;
+                    baVar2.g.setVisibility(0);
+                    break;
             }
         }
-    }
-
-    private void a(ba baVar, int i) {
-        if (baVar != null) {
-            if (baVar.l == 5) {
-                e(baVar, i);
-                return;
+        if (baVar2 != null) {
+            if (baVar2.l != 5) {
+                switch (baVar2.l) {
+                    case 2:
+                        baVar2.d.setText((CharSequence) null);
+                        if (ae != 1) {
+                            baVar2.c.setBackgroundResource(R.drawable.faceshop_list_download_selector);
+                            baVar2.d.setBackgroundResource(R.drawable.icon_content_download);
+                            break;
+                        } else {
+                            baVar2.c.setBackgroundResource(R.drawable.faceshop_list_download_selector_1);
+                            baVar2.d.setBackgroundResource(R.drawable.icon_content_download_1);
+                            break;
+                        }
+                    case 3:
+                        baVar2.d.setText(baVar2.k);
+                        baVar2.d.setBackgroundResource(0);
+                        if (ae != 1) {
+                            baVar2.c.setBackgroundResource(R.drawable.faceshop_list_btn_selector);
+                            break;
+                        } else {
+                            baVar2.c.setBackgroundResource(R.drawable.faceshop_list_btn_selector_1);
+                            break;
+                        }
+                    case 4:
+                        baVar2.d.setText(baVar2.k);
+                        baVar2.d.setBackgroundResource(0);
+                        if (ae != 1) {
+                            baVar2.c.setBackgroundResource(R.drawable.faceshop_list_btn_selector);
+                            break;
+                        } else {
+                            baVar2.c.setBackgroundResource(R.drawable.faceshop_list_btn_selector_1);
+                            break;
+                        }
+                }
+            } else {
+                a(baVar2);
+                baVar2.g.setVisibility(0);
+                FacePackageData facePackageData2 = (FacePackageData) getItem(baVar2.m);
+                if (facePackageData2 != null) {
+                    int i5 = (int) ((((float) facePackageData2.downloadNow) / ((float) facePackageData2.downloadTotal)) * this.h);
+                    int i6 = i5 < this.i ? this.i : i5;
+                    FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) baVar2.f.getLayoutParams();
+                    layoutParams2.width = i6;
+                    baVar2.f.setLayoutParams(layoutParams2);
+                }
             }
-            switch (baVar.l) {
-                case 2:
-                    c(baVar, i);
-                    return;
-                case 3:
-                    b(baVar, i);
-                    return;
-                case 4:
-                    d(baVar, i);
-                    return;
-                default:
-                    return;
-            }
         }
+        return view;
     }
 
-    private void b(ba baVar, int i) {
-        baVar.d.setText(baVar.k);
-        baVar.d.setBackgroundResource(0);
-        if (i == 1) {
-            baVar.c.setBackgroundResource(R.drawable.faceshop_list_btn_selector_1);
-        } else {
-            baVar.c.setBackgroundResource(R.drawable.faceshop_list_btn_selector);
-        }
-    }
-
-    private void c(ba baVar, int i) {
-        baVar.d.setText((CharSequence) null);
-        if (i == 1) {
-            baVar.c.setBackgroundResource(R.drawable.faceshop_list_download_selector_1);
-            baVar.d.setBackgroundResource(R.drawable.icon_content_download_1);
-            return;
-        }
-        baVar.c.setBackgroundResource(R.drawable.faceshop_list_download_selector);
-        baVar.d.setBackgroundResource(R.drawable.icon_content_download);
-    }
-
-    private void d(ba baVar, int i) {
-        baVar.d.setText(baVar.k);
-        baVar.d.setBackgroundResource(0);
-        if (i == 1) {
-            baVar.c.setBackgroundResource(R.drawable.faceshop_list_btn_selector_1);
-        } else {
-            baVar.c.setBackgroundResource(R.drawable.faceshop_list_btn_selector);
-        }
-    }
-
-    private void e(ba baVar, int i) {
-        b(baVar);
-        baVar.g.setVisibility(0);
-        FacePackageData facePackageData = (FacePackageData) getItem(baVar.m);
-        if (facePackageData != null) {
-            int i2 = (int) ((((float) facePackageData.downloadNow) / ((float) facePackageData.downloadTotal)) * this.h);
-            int i3 = i2 < this.i ? this.i : i2;
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) baVar.f.getLayoutParams();
-            layoutParams.width = i3;
-            baVar.f.setLayoutParams(layoutParams);
-        }
-    }
-
-    private void b(ba baVar) {
+    private static void a(ba baVar) {
         if (baVar != null) {
             baVar.d.setVisibility(8);
             baVar.c.setVisibility(8);
@@ -267,32 +258,7 @@ public class aw extends BaseAdapter {
         }
     }
 
-    private void a(FacePackageData facePackageData, ba baVar) {
-        if (facePackageData != null && baVar != null) {
-            int i = facePackageData.buyStatus;
-            int i2 = facePackageData.canDownload;
-            int i3 = facePackageData.downloaded;
-            if (facePackageData.downloading == 1) {
-                baVar.l = 5;
-            } else if (i3 == 1) {
-                baVar.l = 1;
-            } else if (i == 2) {
-                baVar.l = 6;
-            } else if (i == 1) {
-                if (i2 == 1) {
-                    baVar.l = 2;
-                }
-            } else if (i == 0) {
-                if (i2 == 1) {
-                    baVar.l = 3;
-                } else {
-                    baVar.l = 4;
-                }
-            }
-        }
-    }
-
-    public void a(int i) {
+    public final void a(int i) {
         FacePackageData facePackageData = (FacePackageData) getItem(i);
         if (facePackageData != null) {
             facePackageData.downloading = 1;
@@ -303,7 +269,7 @@ public class aw extends BaseAdapter {
         }
     }
 
-    public void b(int i) {
+    public final void b(int i) {
         com.baidu.tieba.ai.a(this.c, "emotion_package_list_free");
         FacePackageData facePackageData = (FacePackageData) getItem(i);
         if (facePackageData != null) {
@@ -312,7 +278,7 @@ public class aw extends BaseAdapter {
         }
     }
 
-    public void c(int i) {
+    public final void c(int i) {
         com.baidu.tieba.ai.a(this.c, "emotion_package_list_buy");
         FacePackageData facePackageData = (FacePackageData) getItem(i);
         if (this.b != null) {
@@ -325,11 +291,11 @@ public class aw extends BaseAdapter {
         }
     }
 
-    public com.baidu.tieba.util.i b() {
+    public final com.baidu.tieba.util.i b() {
         return this.g;
     }
 
-    public void c() {
+    public final void c() {
         if (this.l != null) {
             this.l.cancelLoadData();
         }

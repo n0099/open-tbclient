@@ -13,35 +13,35 @@ public abstract class b {
     }
 
     public static long a(String str, long j) {
-        if (str != null) {
-            try {
-                return Long.parseLong(str);
-            } catch (Exception e) {
-                return j;
-            }
+        if (str == null) {
+            return 0L;
         }
-        return j;
+        try {
+            return Long.parseLong(str);
+        } catch (Exception e) {
+            return 0L;
+        }
     }
 
     public static float a(String str, float f) {
-        if (str != null) {
-            try {
-                return Float.parseFloat(str);
-            } catch (Exception e) {
-                return f;
-            }
+        if (str == null) {
+            return 0.0f;
         }
-        return f;
+        try {
+            return Float.parseFloat(str);
+        } catch (Exception e) {
+            return 0.0f;
+        }
     }
 
     public static double a(String str, double d) {
-        if (str != null) {
-            try {
-                return Double.parseDouble(str);
-            } catch (Exception e) {
-                return d;
-            }
+        if (str == null) {
+            return 0.0d;
         }
-        return d;
+        try {
+            return Double.parseDouble(str);
+        } catch (Exception e) {
+            return 0.0d;
+        }
     }
 }

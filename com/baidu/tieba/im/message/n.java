@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.message;
 /* loaded from: classes.dex */
-public class n extends s {
+public final class n extends s {
     private String a;
 
     public n(String str) {
@@ -8,7 +8,7 @@ public class n extends s {
         this.a = str;
     }
 
-    public String a() {
+    public final String a() {
         return this.a;
     }
 }

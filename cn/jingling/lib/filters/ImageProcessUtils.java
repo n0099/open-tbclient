@@ -141,7 +141,7 @@ public class ImageProcessUtils {
         float max = (float) Math.max(-3.141592653589793d, Math.min(f, 3.141592653589793d));
         float cos = (float) Math.cos(max);
         float sin = (float) Math.sin(max);
-        colorMatrix.set(new float[]{((1.0f - 0.213f) * cos) + 0.213f + ((-0.213f) * sin), ((-0.715f) * cos) + 0.715f + ((-0.715f) * sin), ((-0.072f) * cos) + 0.072f + ((1.0f - 0.072f) * sin), 0.0f, 0.0f, ((-0.213f) * cos) + 0.213f + (0.143f * sin), ((1.0f - 0.715f) * cos) + 0.715f + (0.14f * sin), ((-0.072f) * cos) + 0.072f + ((-0.283f) * sin), 0.0f, 0.0f, ((-(1.0f - 0.213f)) * sin) + ((-0.213f) * cos) + 0.213f, (0.715f * sin) + ((-0.715f) * cos) + 0.715f, (sin * 0.072f) + (cos * (1.0f - 0.072f)) + 0.072f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f});
+        colorMatrix.set(new float[]{0.213f + (0.787f * cos) + (sin * (-0.213f)), (cos * (-0.715f)) + 0.715f + (sin * (-0.715f)), ((-0.072f) * cos) + 0.072f + (0.928f * sin), 0.0f, 0.0f, 0.213f + (cos * (-0.213f)) + (0.143f * sin), (0.28500003f * cos) + 0.715f + (0.14f * sin), ((-0.072f) * cos) + 0.072f + ((-0.283f) * sin), 0.0f, 0.0f, 0.213f + (cos * (-0.213f)) + ((-0.787f) * sin), (cos * (-0.715f)) + 0.715f + (sin * 0.715f), (sin * 0.072f) + (cos * 0.928f) + 0.072f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f});
     }
 
     public static Bitmap rotate(Bitmap bitmap, int i) {

@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.DelGroupMsgs.DelGroupMsgsReq;
 /* loaded from: classes.dex */
 public final class b extends GeneratedMessageLite.Builder<DelGroupMsgsReq.DataReq, b> implements c {
@@ -11,19 +12,25 @@ public final class b extends GeneratedMessageLite.Builder<DelGroupMsgsReq.DataRe
     private int b;
     private Object c = "";
 
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return DelGroupMsgsReq.DataReq.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return DelGroupMsgsReq.DataReq.getDefaultInstance();
+    }
+
     private b() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static b h() {
+    public static /* synthetic */ b c() {
         return new b();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: d */
     public b clear() {
         super.clear();
         this.b = 0;
@@ -34,20 +41,14 @@ public final class b extends GeneratedMessageLite.Builder<DelGroupMsgsReq.DataRe
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
+    /* renamed from: e */
     public b clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public DelGroupMsgsReq.DataReq getDefaultInstanceForType() {
-        return DelGroupMsgsReq.DataReq.getDefaultInstance();
+        return new b().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: d */
-    public DelGroupMsgsReq.DataReq build() {
+    /* renamed from: a */
+    public final DelGroupMsgsReq.DataReq build() {
         DelGroupMsgsReq.DataReq buildPartial = buildPartial();
         if (!buildPartial.isInitialized()) {
             throw newUninitializedMessageException(buildPartial);
@@ -56,8 +57,8 @@ public final class b extends GeneratedMessageLite.Builder<DelGroupMsgsReq.DataRe
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public DelGroupMsgsReq.DataReq buildPartial() {
+    /* renamed from: b */
+    public final DelGroupMsgsReq.DataReq buildPartial() {
         DelGroupMsgsReq.DataReq dataReq = new DelGroupMsgsReq.DataReq(this, (DelGroupMsgsReq.DataReq) null);
         int i = this.a;
         int i2 = (i & 1) != 1 ? 0 : 1;
@@ -72,7 +73,7 @@ public final class b extends GeneratedMessageLite.Builder<DelGroupMsgsReq.DataRe
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public b mergeFrom(DelGroupMsgsReq.DataReq dataReq) {
+    public final b mergeFrom(DelGroupMsgsReq.DataReq dataReq) {
         Object obj;
         if (dataReq != DelGroupMsgsReq.DataReq.getDefaultInstance()) {
             if (dataReq.hasGroupId()) {
@@ -130,13 +131,13 @@ public final class b extends GeneratedMessageLite.Builder<DelGroupMsgsReq.DataRe
         }
     }
 
-    public b a(int i) {
+    public final b a(int i) {
         this.a |= 1;
         this.b = i;
         return this;
     }
 
-    public b a(String str) {
+    public final b a(String str) {
         if (str != null) {
             this.a |= 2;
             this.c = str;

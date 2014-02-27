@@ -13,16 +13,12 @@ public class cg extends da implements com.baidu.tieba.im.coder.f {
         e(103009);
     }
 
-    public NearbyGroupsData a() {
+    public final NearbyGroupsData a() {
         return this.a;
     }
 
-    public void a(NearbyGroupsData nearbyGroupsData) {
-        this.a = nearbyGroupsData;
-    }
-
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<s> linkedList, byte[] bArr, int i) {
+    public final void a(LinkedList<s> linkedList, byte[] bArr, int i) {
         QueryGroupsByLocationRes.QueryGroupsByLocationResIdl parseFrom = QueryGroupsByLocationRes.QueryGroupsByLocationResIdl.parseFrom(bArr);
         g(parseFrom.getError().getErrorno());
         c(parseFrom.getError().getUsermsg());
@@ -69,7 +65,7 @@ public class cg extends da implements com.baidu.tieba.im.coder.f {
                     }
                     i2 = i3 + 1;
                 } else {
-                    a(nearbyGroupsData);
+                    this.a = nearbyGroupsData;
                     return;
                 }
             }

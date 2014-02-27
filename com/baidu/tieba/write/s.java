@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class s extends com.baidu.adp.a.d {
+public final class s extends com.baidu.adp.a.d {
     private ArrayList<com.baidu.tieba.data.az> b;
     private t a = null;
     private int c = 0;
@@ -15,31 +15,23 @@ public class s extends com.baidu.adp.a.d {
         this.b = new ArrayList<>();
     }
 
-    public ArrayList<com.baidu.tieba.data.az> a() {
+    public final ArrayList<com.baidu.tieba.data.az> a() {
         return this.b;
     }
 
-    public int b() {
+    public final int b() {
         return this.c;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         if (this.a == null) {
-            this.a = new t(this, null);
+            this.a = new t(this, (byte) 0);
             this.a.setPriority(3);
             this.a.execute(str);
         }
     }
 
-    public void b(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
-        }
-    }
-
-    public void a(JSONObject jSONObject) {
+    public final void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 this.c = jSONObject.optInt(SocialConstants.PARAM_ERROR_CODE, 0);
@@ -55,18 +47,18 @@ public class s extends com.baidu.adp.a.d {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
     @Override // com.baidu.adp.a.d
-    protected boolean LoadData() {
+    protected final boolean LoadData() {
         return false;
     }
 
     @Override // com.baidu.adp.a.d
-    public boolean cancelLoadData() {
+    public final boolean cancelLoadData() {
         if (this.a != null) {
             this.a.cancel();
             return true;

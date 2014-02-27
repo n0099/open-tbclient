@@ -5,7 +5,7 @@ import android.widget.ImageView;
 import com.baidu.tieba.util.cj;
 import com.baidu.tieba.view.HeadImageView;
 /* loaded from: classes.dex */
-class f implements cj {
+final class f implements cj {
     final /* synthetic */ e a;
     private final /* synthetic */ String b;
     private final /* synthetic */ com.baidu.adp.widget.ImageView.b c;
@@ -18,7 +18,7 @@ class f implements cj {
     }
 
     @Override // com.baidu.tieba.util.cj
-    public boolean a(View view) {
+    public final boolean a(View view) {
         if ((view instanceof ImageView) && this.b != null && this.b.equals(view.getTag())) {
             HeadImageView headImageView = (HeadImageView) view;
             headImageView.setImageBitmap(this.c.h());

@@ -37,10 +37,33 @@ public class PersonImageActivity extends com.baidu.tieba.f {
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        TiebaApplication.g().a((com.baidu.tieba.f) this);
+        TiebaApplication.g().a(this);
         setContentView(R.layout.person_image_activity);
-        a(bundle);
-        a();
+        if (bundle != null) {
+            com.baidu.adp.lib.util.e.e(" have savedInstanceState");
+            this.h = bundle.getString("curImgUrl");
+        } else {
+            com.baidu.adp.lib.util.e.e(" not have savedInstanceState");
+            Intent intent = getIntent();
+            if (intent != null) {
+                this.h = intent.getStringExtra("curImgUrl");
+            }
+        }
+        this.d = new ch(this);
+        this.e = new ci(this);
+        this.f = new cj(this);
+        this.g = new ck(this);
+        this.a = (ProgressBar) findViewById(R.id.progress);
+        this.c = (MultiImageView) findViewById(R.id.viewpager);
+        this.c.setPageMargin(BdUtilHelper.a((Context) this, 8.0f));
+        this.c.a(2, com.baidu.tieba.data.i.t() * com.baidu.tieba.data.i.t());
+        this.c.setItemOnclickListener(this.d);
+        this.c.setItemOnLongClickListener(this.e);
+        this.c.a(0, false);
+        this.c.setOnScrollOutListener(this.g);
+        this.c.setHasNext(false);
+        this.c.setNextTitle("mNextTitle");
+        this.c.setHeadImage(true);
         ArrayList<String> arrayList = new ArrayList<>();
         this.i = this;
         arrayList.add(this.h);
@@ -83,7 +106,7 @@ public class PersonImageActivity extends com.baidu.tieba.f {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
-        TiebaApplication.g().b((com.baidu.tieba.f) this);
+        TiebaApplication.g().b(this);
         this.c.c();
         if (this.b != null) {
             this.b.cancel();
@@ -102,37 +125,6 @@ public class PersonImageActivity extends com.baidu.tieba.f {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
-    }
-
-    private void a() {
-        this.d = new ch(this);
-        this.e = new ci(this);
-        this.f = new cj(this);
-        this.g = new ck(this);
-        this.a = (ProgressBar) findViewById(R.id.progress);
-        this.c = (MultiImageView) findViewById(R.id.viewpager);
-        this.c.setPageMargin(BdUtilHelper.a((Context) this, 8.0f));
-        this.c.a(2, com.baidu.tieba.data.i.t() * com.baidu.tieba.data.i.t());
-        this.c.setItemOnclickListener(this.d);
-        this.c.setItemOnLongClickListener(this.e);
-        this.c.a(0, false);
-        this.c.setOnScrollOutListener(this.g);
-        this.c.setHasNext(false);
-        this.c.setNextTitle("mNextTitle");
-        this.c.setHeadImage(true);
-    }
-
-    private void a(Bundle bundle) {
-        if (bundle != null) {
-            com.baidu.adp.lib.util.f.e(" have savedInstanceState");
-            this.h = bundle.getString("curImgUrl");
-            return;
-        }
-        com.baidu.adp.lib.util.f.e(" not have savedInstanceState");
-        Intent intent = getIntent();
-        if (intent != null) {
-            this.h = intent.getStringExtra("curImgUrl");
-        }
     }
 
     @Override // android.app.Activity

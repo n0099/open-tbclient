@@ -5,7 +5,7 @@ import android.view.View;
 import com.baidu.tieba.account.SapiFastRegActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t implements View.OnClickListener {
+public final class t implements View.OnClickListener {
     final /* synthetic */ r a;
     private final /* synthetic */ Activity b;
 
@@ -16,7 +16,7 @@ public class t implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         Activity activity;
         activity = this.a.a;
         SapiFastRegActivity.a(activity, 22002);

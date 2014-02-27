@@ -3,7 +3,7 @@ package com.baidu.tieba.view;
 import android.view.View;
 import android.widget.AdapterView;
 /* loaded from: classes.dex */
-class bl implements AdapterView.OnItemClickListener {
+final class bl implements AdapterView.OnItemClickListener {
     final /* synthetic */ bj a;
     private final /* synthetic */ com.baidu.tieba.pb.ah b;
 
@@ -14,7 +14,7 @@ class bl implements AdapterView.OnItemClickListener {
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+    public final void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         if (this.b == null || !this.b.b() || j != this.b.getCount() - 1) {
             return;
         }

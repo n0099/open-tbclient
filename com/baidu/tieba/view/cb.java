@@ -13,7 +13,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.pb.NewPbActivity;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class cb extends com.baidu.tbadk.widget.b {
+public final class cb extends com.baidu.tbadk.widget.b {
     private static Paint j;
     private static PaintFlagsDrawFilter k;
     private static Rect l;
@@ -39,10 +39,6 @@ public class cb extends com.baidu.tbadk.widget.b {
         this.m = -1;
         this.n = false;
         this.e = new cc(this);
-        k();
-    }
-
-    private void k() {
         this.f = false;
         this.i = 0;
         this.n = com.baidu.tieba.h.a.a().f();
@@ -53,8 +49,9 @@ public class cb extends com.baidu.tbadk.widget.b {
         this.c = BdUtilHelper.a(getContext(), 68.0f);
         this.d = BdUtilHelper.a(getContext(), 68.0f);
         if (j == null) {
-            j = new Paint();
-            j.setTextSize(getResources().getDimension(R.dimen.pb_img_text_tip));
+            Paint paint = new Paint();
+            j = paint;
+            paint.setTextSize(getResources().getDimension(R.dimen.pb_img_text_tip));
             j.setColor(getResources().getColor(R.color.pb_img_text_tip));
             j.setAntiAlias(true);
         }
@@ -69,9 +66,9 @@ public class cb extends com.baidu.tbadk.widget.b {
         return this.h;
     }
 
-    public void g() {
+    public final void e() {
         removeCallbacks(this.e);
-        if (TiebaApplication.g().al() == 1) {
+        if (TiebaApplication.g().ae() == 1) {
             setNightDefaultResource(R.drawable.img_loading_1);
             if (j != null) {
                 j.setColor(getResources().getColor(R.color.gray_night_1));
@@ -88,15 +85,15 @@ public class cb extends com.baidu.tbadk.widget.b {
         post(this.e);
     }
 
-    public void a(boolean z) {
-        j();
+    public final void a(boolean z) {
+        h();
         this.i = 0;
         removeCallbacks(this.e);
         this.f = false;
         if (!z) {
             setNightDefaultResource(R.drawable.icon_click_1);
             setDefaultResource(R.drawable.icon_click);
-            if (TiebaApplication.g().al() == 1) {
+            if (TiebaApplication.g().ae() == 1) {
                 if (j != null) {
                     j.setColor(getResources().getColor(R.color.gray_night_1));
                 }
@@ -112,24 +109,24 @@ public class cb extends com.baidu.tbadk.widget.b {
         invalidate();
     }
 
-    public void setBgColor(boolean z) {
+    public final void setBgColor(boolean z) {
         if (z) {
             this.m = -1;
-        } else if (TiebaApplication.g().al() == 1) {
+        } else if (TiebaApplication.g().ae() == 1) {
             this.m = getResources().getColor(R.color.pb_default_image_bg_1);
         } else {
             this.m = getResources().getColor(R.color.pb_default_image_bg);
         }
     }
 
-    public void h() {
-        j();
+    public final void f() {
+        h();
         removeCallbacks(this.e);
         setTag(null);
         this.f = false;
         this.i = 0;
         this.m = -1;
-        int al = TiebaApplication.g().al();
+        int ae = TiebaApplication.g().ae();
         if (this.n) {
             setNightDefaultResource(R.drawable.pic_baidu_logo_d_1);
             setDefaultResource(R.drawable.pic_baidu_logo_d);
@@ -139,7 +136,7 @@ public class cb extends com.baidu.tbadk.widget.b {
             setDefaultResource(R.drawable.icon_click);
             this.g = getResources().getString(R.string.pb_img_click_tip);
         }
-        if (al == 1) {
+        if (ae == 1) {
             if (j != null) {
                 j.setColor(getResources().getColor(R.color.gray_night_1));
             }
@@ -155,8 +152,8 @@ public class cb extends com.baidu.tbadk.widget.b {
         }
     }
 
-    public void i() {
-        j();
+    public final void g() {
+        h();
         removeCallbacks(this.e);
         this.f = false;
         this.i = 0;
@@ -164,11 +161,11 @@ public class cb extends com.baidu.tbadk.widget.b {
         this.m = -1;
         setRealShowSize(null);
         setCurrShowSize(null);
-        f();
+        d();
     }
 
     @Override // com.baidu.tbadk.widget.b
-    public void f() {
+    public final void d() {
         setTag(null);
         com.baidu.tbadk.widget.a listViewActivity = getListViewActivity();
         if (listViewActivity != null) {
@@ -177,10 +174,10 @@ public class cb extends com.baidu.tbadk.widget.b {
     }
 
     @Override // android.widget.ImageView, android.view.View
-    protected void onAttachedToWindow() {
+    protected final void onAttachedToWindow() {
         super.onAttachedToWindow();
         removeCallbacks(this.e);
-        if (!e()) {
+        if (!c()) {
             this.f = false;
             this.g = this.n ? null : getResources().getString(R.string.pb_img_click_tip);
             return;
@@ -190,13 +187,13 @@ public class cb extends com.baidu.tbadk.widget.b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.b, com.baidu.tbadk.widget.TbImageView, android.widget.ImageView, android.view.View
-    public void onDetachedFromWindow() {
+    public final void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         removeCallbacks(this.e);
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View
-    public void setLayoutParams(ViewGroup.LayoutParams layoutParams) {
+    public final void setLayoutParams(ViewGroup.LayoutParams layoutParams) {
         if (BdUtilHelper.b(getContext()) > layoutParams.width * 10 && layoutParams.height > 600) {
             layoutParams.height = 600;
         }
@@ -204,7 +201,7 @@ public class cb extends com.baidu.tbadk.widget.b {
     }
 
     @Override // com.baidu.tbadk.widget.b, com.baidu.tbadk.widget.TbImageView, com.baidu.adp.widget.ImageView.BDImageView
-    public com.baidu.adp.widget.ImageView.b getImage() {
+    public final com.baidu.adp.widget.ImageView.b getImage() {
         com.baidu.adp.widget.ImageView.b image = super.getImage();
         if (image != null) {
             this.g = null;
@@ -214,39 +211,29 @@ public class cb extends com.baidu.tbadk.widget.b {
         } else {
             setBgColor(false);
         }
-        c(image);
-        return image;
-    }
-
-    public void c(com.baidu.adp.widget.ImageView.b bVar) {
         if (!this.n) {
             int[] size = getSize();
             int i = size[0];
             int i2 = size[1];
             if (i > 0 && i2 > 0 && i2 <= 10000) {
-                if (bVar == null) {
+                if (image == null) {
                     int[] currShowSize = getCurrShowSize();
-                    if (currShowSize != null && currShowSize.length == 2) {
-                        if (i != currShowSize[0] || i2 != currShowSize[1]) {
-                            a(currShowSize);
-                            return;
-                        }
-                        return;
+                    if (currShowSize != null && currShowSize.length == 2 && (i != currShowSize[0] || i2 != currShowSize[1])) {
+                        a(currShowSize);
                     }
-                    return;
-                }
-                int[] realShowSize = getRealShowSize();
-                if (realShowSize != null) {
-                    if (realShowSize[0] != i || realShowSize[1] != i2) {
+                } else {
+                    int[] realShowSize = getRealShowSize();
+                    if (realShowSize != null && (realShowSize[0] != i || realShowSize[1] != i2)) {
                         a(realShowSize);
                     }
                 }
             }
         }
+        return image;
     }
 
     @Override // com.baidu.adp.widget.ImageView.BDImageView
-    public int getRealWidth() {
+    public final int getRealWidth() {
         int width = getWidth();
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         if (layoutParams != null) {
@@ -256,7 +243,7 @@ public class cb extends com.baidu.tbadk.widget.b {
     }
 
     @Override // com.baidu.adp.widget.ImageView.BDImageView
-    public int getRealHeight() {
+    public final int getRealHeight() {
         int height = getHeight();
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         if (layoutParams != null) {
@@ -265,7 +252,7 @@ public class cb extends com.baidu.tbadk.widget.b {
         return height;
     }
 
-    public Rect getRotateInvalidRect() {
+    public final Rect getRotateInvalidRect() {
         if (l != null) {
             return l;
         }
@@ -312,13 +299,13 @@ public class cb extends com.baidu.tbadk.widget.b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ImageView.BDImageView, android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
+    public final void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.b, com.baidu.tbadk.widget.TbImageView, com.baidu.adp.widget.ImageView.BDImageView, android.widget.ImageView, android.view.View
-    public void onDraw(Canvas canvas) {
+    public final void onDraw(Canvas canvas) {
         if (this.m != -1) {
             canvas.drawColor(this.m);
         }
@@ -330,7 +317,15 @@ public class cb extends com.baidu.tbadk.widget.b {
         } else {
             super.onDraw(canvas);
         }
-        a(canvas);
+        if (this.g == null || canvas == null || j == null) {
+            return;
+        }
+        int width = getWidth();
+        int height = getHeight();
+        float measureText = j.measureText(this.g);
+        if (measureText <= width) {
+            canvas.drawText(this.g, ((int) (width - measureText)) / 2, ((height + this.c) / 2) + this.b, j);
+        }
     }
 
     private void a(Canvas canvas, int i) {
@@ -341,28 +336,17 @@ public class cb extends com.baidu.tbadk.widget.b {
         canvas.restoreToCount(save);
     }
 
-    private void a(Canvas canvas) {
-        if (this.g != null && canvas != null && j != null) {
-            int width = getWidth();
-            int height = getHeight();
-            float measureText = j.measureText(this.g);
-            if (measureText <= width) {
-                canvas.drawText(this.g, ((int) (width - measureText)) / 2, ((height + this.c) / 2) + this.b, j);
-            }
-        }
-    }
-
-    public void j() {
+    private void h() {
         com.baidu.tieba.pb.cu pbView = getPbView();
         if (pbView != null) {
-            pbView.b(this);
+            pbView.a(this);
         }
     }
 
-    public com.baidu.tieba.pb.cu getPbView() {
+    public final com.baidu.tieba.pb.cu getPbView() {
         Context context = getContext();
         if (context instanceof NewPbActivity) {
-            return ((NewPbActivity) context).b();
+            return ((NewPbActivity) context).j();
         }
         return null;
     }

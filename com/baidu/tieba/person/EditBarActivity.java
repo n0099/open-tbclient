@@ -42,7 +42,7 @@ public class EditBarActivity extends com.baidu.tieba.f {
             intent.putExtra("view_user_id", str);
             intent.putExtra("user_sex", i2);
         }
-        activity.startActivityForResult(intent, i);
+        activity.startActivityForResult(intent, 103);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -50,54 +50,9 @@ public class EditBarActivity extends com.baidu.tieba.f {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.edit_bar_activity);
-        b();
-        c();
-        a();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
-    public void onDestroy() {
-        if (this.k != null) {
-            this.k.cancel();
-        }
-        if (this.n != null) {
-            this.n.cancel();
-        }
-        if (this.j != null) {
-            this.j.setVisibility(8);
-        }
-        super.onDestroy();
-    }
-
-    private void a() {
-        if (this.k != null) {
-            this.k.cancel();
-        }
-        this.k = new j(this, null);
-        this.k.setPriority(3);
-        this.k.execute(new Object[0]);
-    }
-
-    private void b() {
         this.a = new com.baidu.tieba.model.f();
         this.r = getIntent().getStringExtra("view_user_id");
         this.s = getIntent().getIntExtra("user_sex", 0);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        getLayoutMode().a(i == 1);
-        getLayoutMode().a((View) this.o);
-        this.f.c(i);
-        this.i.notifyDataSetChanged();
-        getLayoutMode().a(i == 1);
-        getLayoutMode().a(this.d);
-    }
-
-    private void c() {
         this.o = (RelativeLayout) findViewById(R.id.parent);
         this.f = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.h = this.f.a("");
@@ -125,39 +80,67 @@ public class EditBarActivity extends com.baidu.tieba.f {
             if (this.s == 2) {
                 this.h.setText(getString(R.string.her_attention_forums));
                 this.q.setText(getString(R.string.she_no_like_forum_other));
-                return;
             } else if (this.s == 1) {
                 this.h.setText(getString(R.string.his_attention_forums));
                 this.q.setText(getString(R.string.he_no_like_forum_other));
-                return;
             } else {
                 this.h.setText(getString(R.string.ta_attention_forums));
                 this.q.setText(getString(R.string.no_like_forum_other));
-                return;
             }
+        } else {
+            this.q.setText(getString(R.string.not_have_like_bars));
+            this.h.setText(getString(R.string.my_bar));
         }
-        this.q.setText(getString(R.string.not_have_like_bars));
-        this.h.setText(getString(R.string.my_bar));
+        if (this.k != null) {
+            this.k.cancel();
+        }
+        this.k = new j(this, (byte) 0);
+        this.k.setPriority(3);
+        this.k.execute(new Object[0]);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(boolean z) {
-        if (this.i != null) {
-            this.i.b();
-            if (this.i.c()) {
-                if (z) {
-                    this.g.setVisibility(4);
-                    this.i.a(false);
-                    this.p.setVisibility(0);
-                    this.b.setVisibility(8);
-                    return;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    public void onDestroy() {
+        if (this.k != null) {
+            this.k.cancel();
+        }
+        if (this.n != null) {
+            this.n.cancel();
+        }
+        if (this.j != null) {
+            this.j.setVisibility(8);
+        }
+        super.onDestroy();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.f
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        getLayoutMode().a(i == 1);
+        getLayoutMode().a(this.o);
+        this.f.b(i);
+        this.i.notifyDataSetChanged();
+        getLayoutMode().a(i == 1);
+        getLayoutMode().a(this.d);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(EditBarActivity editBarActivity, boolean z) {
+        if (editBarActivity.i != null) {
+            editBarActivity.i.b();
+            if (!editBarActivity.i.c()) {
+                editBarActivity.p.setVisibility(8);
+                editBarActivity.b.setVisibility(0);
+                if (editBarActivity.r == null) {
+                    editBarActivity.g.setVisibility(0);
                 }
-                return;
-            }
-            this.p.setVisibility(8);
-            this.b.setVisibility(0);
-            if (this.r == null) {
-                this.g.setVisibility(0);
+            } else if (z) {
+                editBarActivity.g.setVisibility(4);
+                editBarActivity.i.a(false);
+                editBarActivity.p.setVisibility(0);
+                editBarActivity.b.setVisibility(8);
             }
         }
     }

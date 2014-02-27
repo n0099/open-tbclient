@@ -9,10 +9,34 @@ import com.baidu.tieba.util.bs;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h extends BdAsyncTask<String, Integer, String> {
+public final class h extends BdAsyncTask<String, Integer, String> {
     String a;
     byte[] b;
     final /* synthetic */ GroupImageActivity c;
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ String a(String... strArr) {
+        return d();
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ void a(String str) {
+        TextView textView;
+        ProgressBar progressBar;
+        String str2 = str;
+        super.a((h) str2);
+        this.c.showToast(str2);
+        this.c.d = null;
+        textView = this.c.f;
+        textView.setVisibility(0);
+        progressBar = this.c.a;
+        progressBar.setVisibility(8);
+    }
 
     public h(GroupImageActivity groupImageActivity, String str, byte[] bArr) {
         this.c = groupImageActivity;
@@ -22,10 +46,7 @@ public class h extends BdAsyncTask<String, Integer, String> {
         this.b = bArr;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public String a(String... strArr) {
+    private String d() {
         String str;
         String f;
         try {
@@ -51,34 +72,19 @@ public class h extends BdAsyncTask<String, Integer, String> {
             }
             return this.c.getString(R.string.save_error);
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("SaveImageAsyncTask", "doInBackground", "error" + e.getMessage());
+            com.baidu.adp.lib.util.e.b("SaveImageAsyncTask", "doInBackground", "error" + e.getMessage());
             return this.c.getString(R.string.save_error);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(String str) {
-        TextView textView;
-        ProgressBar progressBar;
-        super.a((h) str);
-        this.c.showToast(str);
-        this.c.d = null;
-        textView = this.c.f;
-        textView.setVisibility(0);
-        progressBar = this.c.a;
-        progressBar.setVisibility(8);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void c() {
+    public final void c() {
         super.c();
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
+    public final void cancel() {
         TextView textView;
         ProgressBar progressBar;
         this.c.d = null;

@@ -4,7 +4,7 @@ import android.view.View;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.pb.NewPbActivity;
 /* loaded from: classes.dex */
-class aa implements View.OnClickListener {
+final class aa implements View.OnClickListener {
     final /* synthetic */ ReplyLinearLayout a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ class aa implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         String[] strArr = (String[]) view.getTag();
         if (strArr != null) {
             if (SocialConstants.FALSE.equals(strArr[3])) {

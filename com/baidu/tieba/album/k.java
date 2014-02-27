@@ -3,7 +3,7 @@ package com.baidu.tieba.album;
 import android.view.ViewGroup;
 import com.baidu.tieba.view.HeadImageView;
 /* loaded from: classes.dex */
-class k implements com.baidu.tbadk.imageManager.d {
+final class k implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ j a;
     private final /* synthetic */ ViewGroup b;
 
@@ -14,7 +14,7 @@ class k implements com.baidu.tbadk.imageManager.d {
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
         HeadImageView headImageView = (HeadImageView) this.b.findViewWithTag(str);
         if (headImageView != null && bVar != null) {
             headImageView.invalidate();

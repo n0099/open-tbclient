@@ -5,7 +5,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
-class r {
+final class r {
     View a;
     TextView b;
     LinearLayout c;
@@ -21,7 +21,7 @@ class r {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ r(h hVar, r rVar) {
+    public /* synthetic */ r(h hVar, byte b) {
         this(hVar);
     }
 }

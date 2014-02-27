@@ -41,7 +41,7 @@ public final class DefaultDateTypeAdapter implements JsonDeserializer<Date>, Jso
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.gson.JsonSerializer
-    public JsonElement serialize(Date date, Type type, JsonSerializationContext jsonSerializationContext) {
+    public final JsonElement serialize(Date date, Type type, JsonSerializationContext jsonSerializationContext) {
         JsonPrimitive jsonPrimitive;
         synchronized (this.localFormat) {
             jsonPrimitive = new JsonPrimitive(this.enUsFormat.format(date));
@@ -51,7 +51,7 @@ public final class DefaultDateTypeAdapter implements JsonDeserializer<Date>, Jso
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.gson.JsonDeserializer
-    public Date deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) {
+    public final Date deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) {
         if (!(jsonElement instanceof JsonPrimitive)) {
             throw new JsonParseException("The date should be a string value");
         }
@@ -88,7 +88,7 @@ public final class DefaultDateTypeAdapter implements JsonDeserializer<Date>, Jso
         return parse;
     }
 
-    public String toString() {
+    public final String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(DefaultDateTypeAdapter.class.getSimpleName());
         sb.append('(').append(this.localFormat.getClass().getSimpleName()).append(')');

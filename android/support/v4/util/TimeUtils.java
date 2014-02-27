@@ -63,7 +63,7 @@ public class TimeUtils {
         char[] cArr = sFormatStr;
         if (j == 0) {
             int i7 = i - 1;
-            while (0 < i7) {
+            while (i7 > 0) {
                 cArr[0] = ' ';
             }
             cArr[0] = '0';

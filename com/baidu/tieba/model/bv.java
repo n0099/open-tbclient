@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class bv {
+public final class bv {
     private Context a;
     private com.baidu.tieba.data.av b = new com.baidu.tieba.data.av();
 
@@ -52,16 +52,16 @@ public class bv {
             int optInt2 = optJSONObject5.optInt("page_size");
             int optInt3 = optJSONObject5.optInt("current_page");
             int optInt4 = optJSONObject5.optInt("total_count");
-            this.b.e(optInt3);
-            this.b.d(optInt2);
-            this.b.c(optInt4);
-            this.b.b(optInt);
+            this.b.d(optInt3);
+            this.b.c(optInt2);
+            this.b.b(optInt4);
+            this.b.a(optInt);
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("SubPbModel", "parseJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.util.e.b("SubPbModel", "parseJson", "error = " + e.getMessage());
         }
     }
 
-    public com.baidu.tieba.data.av a() {
+    public final com.baidu.tieba.data.av a() {
         return this.b;
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.util.a;
 
 import com.baidu.adp.lib.e.i;
 /* loaded from: classes.dex */
-public class g implements com.baidu.adp.lib.e.a {
+public final class g implements com.baidu.adp.lib.e.a {
     private static g a = null;
 
     public static g a() {
@@ -16,7 +16,7 @@ public class g implements com.baidu.adp.lib.e.a {
     }
 
     @Override // com.baidu.adp.lib.e.a
-    public i a(int i) {
+    public final i a(int i) {
         switch (i) {
             case 1:
                 return new e();
@@ -27,7 +27,7 @@ public class g implements com.baidu.adp.lib.e.a {
             case 273:
                 return new com.baidu.tieba.voice.a.g();
             default:
-                com.baidu.adp.lib.util.f.b("TiebaLoaderCreater", "getLoaderByType", "invalid type:" + i);
+                com.baidu.adp.lib.util.e.b("TiebaLoaderCreater", "getLoaderByType", "invalid type:" + i);
                 return null;
         }
     }

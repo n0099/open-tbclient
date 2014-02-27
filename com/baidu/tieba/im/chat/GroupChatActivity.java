@@ -24,20 +24,20 @@ public class GroupChatActivity extends MsglistActivity {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    public void j() {
+    public final void j() {
         super.j();
-        com.baidu.tieba.im.messageCenter.e.a().a(103013, this);
-        com.baidu.tieba.im.messageCenter.e.a().a(-125, this);
+        com.baidu.tieba.im.messageCenter.d.a().a(103013, this);
+        com.baidu.tieba.im.messageCenter.d.a().a(-125, this);
     }
 
     @Override // com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.s sVar) {
+    public final void a(com.baidu.tieba.im.message.s sVar) {
         super.a(sVar);
         switch (sVar.w()) {
             case -125:
-                if (TiebaApplication.g().aS() && this.i == 0) {
-                    this.d.Q().setVisibility(0);
-                    this.d.Q().h();
+                if (TiebaApplication.g().aK() && this.i == 0) {
+                    this.d.O().setVisibility(0);
+                    this.d.O().d();
                     return;
                 }
                 return;
@@ -67,50 +67,51 @@ public class GroupChatActivity extends MsglistActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.cz, com.baidu.tieba.f, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.cy, com.baidu.tieba.f, android.app.Activity
     public void onPause() {
         super.onPause();
         a = false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.chat.cz, com.baidu.tieba.f, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.chat.cy, com.baidu.tieba.f, android.app.Activity
     public void onResume() {
         super.onResume();
         a = true;
         com.baidu.tieba.mention.v.a().a(b);
         if (!TextUtils.isEmpty(b)) {
-            com.baidu.tieba.model.ag.a(b);
+            String str = b;
+            com.baidu.tieba.model.ag.c();
         }
-        if (TiebaApplication.g().aS() && this.i == 0 && this.d != null && this.d.Q() != null) {
-            this.d.Q().setVisibility(0);
-            this.d.Q().h();
-            this.d.Q().setOnClickListener(new am(this));
+        if (TiebaApplication.g().aK() && this.i == 0 && this.d != null && this.d.O() != null) {
+            this.d.O().setVisibility(0);
+            this.d.O().d();
+            this.d.O().setOnClickListener(new am(this));
         }
     }
 
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    protected void a(Intent intent) {
+    protected final void a(Intent intent) {
         this.e.a((GroupData) intent.getSerializableExtra("group"));
         this.e.a((UserData) null);
         b = String.valueOf(this.e.a().getGroupId());
     }
 
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    protected void a(Bundle bundle) {
+    protected final void a(Bundle bundle) {
         this.e.a((GroupData) bundle.getSerializable("group"));
         b = String.valueOf(this.e.a().getGroupId());
         this.e.a((UserData) null);
     }
 
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    protected boolean k() {
+    protected final boolean k() {
         GroupData a2 = this.e.a();
         if (a2 == null) {
-            com.baidu.adp.lib.util.f.b("error:group or forum is null");
+            com.baidu.adp.lib.util.e.b("error:group or forum is null");
             return false;
         } else if (a2.getGroupId() == 0) {
-            com.baidu.adp.lib.util.f.b("error:gid invalid," + a2.getGroupId());
+            com.baidu.adp.lib.util.e.b("error:gid invalid," + a2.getGroupId());
             return false;
         } else {
             return true;
@@ -120,27 +121,27 @@ public class GroupChatActivity extends MsglistActivity {
     @Override // com.baidu.tieba.im.chat.MsglistActivity
     protected void l() {
         int i;
-        this.d = new GroupChatView(this, this.e.d(), this.e.k());
+        this.d = new GroupChatView(this, this.e.d(), this.e.j());
         this.d.a((InputMethodManager) getSystemService("input_method"));
         int i2 = q.a;
-        if (this.e.k() == 0 && this.e.a() != null) {
+        if (this.e.j() == 0 && this.e.a() != null) {
             i = this.e.a().getGroupId();
-            this.d.a(this.e.a().getName(), true);
+            this.d.a(this.e.a().getName());
         } else {
             i = q.a;
-            this.d.a(this.e.b().getUserName(), false);
+            this.d.a(this.e.b().getUserName());
         }
         this.d.a(this.e.c(), i);
         this.d.a(new ao(this));
     }
 
-    @Override // com.baidu.tieba.im.chat.cz, com.baidu.adp.a.a, android.view.View.OnClickListener
+    @Override // com.baidu.tieba.im.chat.cy, com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.d.A()) {
+        if (view == this.d.x()) {
             GroupInfoActivity.a(this, this.e.a().getGroupId(), 3);
-            if (TiebaApplication.A().equals(getIntent().getStringExtra("group_author_id")) && (this.d instanceof GroupChatView)) {
-                ((GroupChatView) this.d).S();
+            if (TiebaApplication.v().equals(getIntent().getStringExtra("group_author_id")) && (this.d instanceof GroupChatView)) {
+                ((GroupChatView) this.d).P();
             }
         }
     }

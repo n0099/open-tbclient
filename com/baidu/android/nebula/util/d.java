@@ -95,7 +95,6 @@ public final class d {
         return TextUtils.isEmpty(str) ? "" : str;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION] complete} */
     private String e(Context context) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(context.getPackageName() + ".push_sync", 1);
         String string = sharedPreferences.getString("xboss_appid", "000000");
@@ -107,25 +106,19 @@ public final class d {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(resourceAsStream));
             try {
                 string = bufferedReader.readLine();
-                if (bufferedReader != null) {
-                    try {
-                        bufferedReader.close();
-                    } catch (IOException e) {
-                    }
+                try {
+                    bufferedReader.close();
+                } catch (IOException e) {
                 }
             } catch (IOException e2) {
-                if (bufferedReader != null) {
-                    try {
-                        bufferedReader.close();
-                    } catch (IOException e3) {
-                    }
+                try {
+                    bufferedReader.close();
+                } catch (IOException e3) {
                 }
             } catch (Throwable th) {
-                if (bufferedReader != null) {
-                    try {
-                        bufferedReader.close();
-                    } catch (IOException e4) {
-                    }
+                try {
+                    bufferedReader.close();
+                } catch (IOException e4) {
                 }
                 throw th;
             }
@@ -153,11 +146,11 @@ public final class d {
         }
     }
 
-    public String a() {
+    public final String a() {
         return this.i;
     }
 
-    public String a(String str) {
+    public final String a(String str) {
         if (str.indexOf("?") < 0) {
             str = str + "?";
         }
@@ -182,7 +175,7 @@ public final class d {
         return stringBuffer.toString();
     }
 
-    public String a(String str, boolean z) {
+    public final String a(String str, boolean z) {
         if (str.indexOf("?") < 0) {
             str = str + "?";
         }
@@ -217,11 +210,11 @@ public final class d {
         return stringBuffer2.toString();
     }
 
-    public String b() {
+    public final String b() {
         return this.h;
     }
 
-    public void b(Context context) {
+    public final void b(Context context) {
         this.c = context.getApplicationContext();
         PackageInfo b2 = com.baidu.android.systemmonitor.c.c.b(context, context.getPackageName());
         this.e = b2.versionCode;
@@ -236,7 +229,7 @@ public final class d {
         this.m = CommonParam.getCUID(this.c);
     }
 
-    public String c() {
+    public final String c() {
         return this.d;
     }
 }

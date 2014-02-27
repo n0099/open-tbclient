@@ -4,7 +4,7 @@ import com.baidu.android.pushservice.PushConstants;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t extends com.baidu.adp.a.g {
+public final class t extends com.baidu.adp.a.g {
     final /* synthetic */ FacePackageDetailActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ public class t extends com.baidu.adp.a.g {
     }
 
     @Override // com.baidu.adp.a.g
-    public void a(Object obj) {
+    public final void a(Object obj) {
         v vVar;
         v vVar2;
         x xVar;
@@ -38,7 +38,7 @@ public class t extends com.baidu.adp.a.g {
                 vVar2 = this.a.a;
                 vVar2.a(facePackageData);
                 xVar = this.a.b;
-                xVar.d();
+                xVar.b();
                 return;
             } else if (faceBuyData.usermsg != null) {
                 this.a.showToast(faceBuyData.usermsg);

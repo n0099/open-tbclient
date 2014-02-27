@@ -3,7 +3,6 @@ package com.baidu.tieba.forumdetail;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -39,7 +38,7 @@ public class ItemHeaderView extends RelativeLayout {
         a(context);
     }
 
-    public void a(Context context) {
+    private void a(Context context) {
         this.a = context;
         ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.forum_detail_header, (ViewGroup) this, true);
         this.b = (HeadImageView) findViewById(R.id.h_forum_portrait);
@@ -51,19 +50,19 @@ public class ItemHeaderView extends RelativeLayout {
         this.h = (TextView) findViewById(R.id.h_thread_icon);
     }
 
-    public boolean a(ForumDetailData forumDetailData) {
+    public final boolean a(ForumDetailData forumDetailData) {
         int i;
         if (forumDetailData == null || forumDetailData.forumDir == null) {
             return false;
         }
-        int al = TiebaApplication.g().al();
+        int ae = TiebaApplication.g().ae();
         ForumDetailData.ForumInfo forumInfo = forumDetailData.forumInfo;
         this.d.setText(forumInfo.forumName);
         this.e.setText(String.valueOf(forumInfo.memberCount));
         this.f.setText(String.valueOf(forumInfo.threadCount));
         int i2 = forumDetailData.forumDir.rank;
         if (i2 > 0 && i2 <= 3) {
-            if (al == 1) {
+            if (ae == 1) {
                 if (i2 == 1) {
                     i = R.drawable.icon_brief_grade_orange_1;
                 } else {
@@ -86,8 +85,8 @@ public class ItemHeaderView extends RelativeLayout {
         return true;
     }
 
-    public void a(com.baidu.tieba.f fVar, int i) {
+    public final void a(com.baidu.tieba.f fVar, int i) {
         fVar.getLayoutMode().a(i == 1);
-        fVar.getLayoutMode().a((View) this);
+        fVar.getLayoutMode().a(this);
     }
 }

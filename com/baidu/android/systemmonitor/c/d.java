@@ -31,10 +31,12 @@ import java.util.regex.Pattern;
 import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public final class d {
-    private static final HashMap a = new HashMap();
+    private static final HashMap a;
 
     static {
-        a.put("&lt;", "<");
+        HashMap hashMap = new HashMap();
+        a = hashMap;
+        hashMap.put("&lt;", "<");
         a.put("&gt;", ">");
         a.put("&amp;", "&");
         a.put("&quot;", "\"");
@@ -311,9 +313,10 @@ public final class d {
                     if (cursor != null) {
                         try {
                             cursor.close();
+                            return 0;
                         } catch (Exception e3) {
+                            return 0;
                         }
-                        return 0;
                     }
                     return 0;
                 } catch (Throwable th) {
@@ -373,9 +376,10 @@ public final class d {
                     if (cursor != null) {
                         try {
                             cursor.close();
+                            return 0;
                         } catch (Exception e3) {
+                            return 0;
                         }
-                        return 0;
                     }
                     return 0;
                 } catch (Throwable th) {
@@ -442,9 +446,10 @@ public final class d {
                     if (cursor != null) {
                         try {
                             cursor.close();
+                            return 0;
                         } catch (Exception e3) {
+                            return 0;
                         }
-                        return 0;
                     }
                     return 0;
                 } catch (Throwable th) {
@@ -508,9 +513,10 @@ public final class d {
                     if (cursor != null) {
                         try {
                             cursor.close();
+                            return 0;
                         } catch (Exception e3) {
+                            return 0;
                         }
-                        return 0;
                     }
                     return 0;
                 } catch (Throwable th) {
@@ -565,9 +571,10 @@ public final class d {
                     if (cursor != null) {
                         try {
                             cursor.close();
+                            return 0;
                         } catch (Exception e3) {
+                            return 0;
                         }
-                        return 0;
                     }
                     return 0;
                 } catch (Throwable th) {
@@ -592,8 +599,8 @@ public final class d {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:37:0x0028 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:43:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x0026 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:42:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -603,8 +610,6 @@ public final class d {
         Cursor cursor2 = null;
         try {
             Cursor query = context.getContentResolver().query(ContactsContract.Contacts.CONTENT_URI, new String[]{"_id"}, null, null, null);
-            if (query == null) {
-            }
             if (query != null) {
                 try {
                     if (query.moveToFirst()) {
@@ -624,7 +629,9 @@ public final class d {
                     if (cursor != null) {
                         try {
                             cursor.close();
+                            return 0;
                         } catch (Exception e3) {
+                            return 0;
                         }
                     }
                     return 0;
@@ -680,7 +687,9 @@ public final class d {
                     if (cursor2 != null) {
                         try {
                             cursor2.close();
+                            return 0;
                         } catch (Exception e3) {
+                            return 0;
                         }
                     }
                     return 0;

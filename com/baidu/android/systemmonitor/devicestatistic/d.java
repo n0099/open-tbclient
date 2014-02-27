@@ -59,7 +59,7 @@ public final class d {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public ArrayList a(int i, long j) {
+    public final ArrayList a(int i, long j) {
         String[] strArr;
         String str;
         Cursor cursor;
@@ -262,7 +262,7 @@ public final class d {
         return arrayList;
     }
 
-    public void a() {
+    public final void a() {
         if (this.d == null || this.a) {
             return;
         }
@@ -271,7 +271,7 @@ public final class d {
         this.d = null;
     }
 
-    public void a(Context context, long j) {
+    public final void a(Context context, long j) {
         PendingIntent broadcast = PendingIntent.getBroadcast(context, 0, new Intent("com.baidu.systemmonitor.getstoreinfo"), 268435456);
         long d = d();
         ((AlarmManager) context.getSystemService("alarm")).setRepeating(3, j + d, d, broadcast);
@@ -303,7 +303,7 @@ public final class d {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(Context context, long j, com.baidu.android.systemmonitor.devicestatistic.a.a aVar) {
+    public final void a(Context context, long j, com.baidu.android.systemmonitor.devicestatistic.a.a aVar) {
         Cursor cursor;
         int columnIndex;
         int columnIndex2;
@@ -392,7 +392,7 @@ public final class d {
         aVar.d = sb.toString();
     }
 
-    public boolean a(com.baidu.android.systemmonitor.devicestatistic.a.f fVar) {
+    public final boolean a(com.baidu.android.systemmonitor.devicestatistic.a.f fVar) {
         long insert;
         if (fVar == null) {
             return false;
@@ -453,7 +453,7 @@ public final class d {
         }
     }
 
-    public void b(Context context) {
+    public final void b(Context context) {
         ((AlarmManager) context.getSystemService("alarm")).cancel(PendingIntent.getBroadcast(context, 0, new Intent("com.baidu.systemmonitor.getstoreinfo"), 268435456));
     }
 
@@ -470,7 +470,7 @@ public final class d {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void b(Context context, long j, com.baidu.android.systemmonitor.devicestatistic.a.a aVar) {
+    public final void b(Context context, long j, com.baidu.android.systemmonitor.devicestatistic.a.a aVar) {
         Cursor cursor;
         Cursor cursor2;
         Cursor cursor3;
@@ -566,7 +566,7 @@ public final class d {
         aVar.f = sb.toString();
     }
 
-    public boolean b(int i, long j) {
+    public final boolean b(int i, long j) {
         String str;
         String[] strArr = null;
         if (j != 0) {
@@ -616,7 +616,7 @@ public final class d {
         }
     }
 
-    public void c() {
+    public final void c() {
         new Thread(new c(this)).start();
     }
 }

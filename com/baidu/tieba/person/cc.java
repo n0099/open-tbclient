@@ -1,9 +1,8 @@
 package com.baidu.tieba.person;
 
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cc implements View.OnClickListener {
+final class cc implements View.OnClickListener {
     final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +11,7 @@ public class cc implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.f();
+    public final void onClick(View view) {
+        PersonChangeActivity.m(this.a);
     }
 }

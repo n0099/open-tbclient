@@ -2,7 +2,7 @@ package com.baidu.tieba.pb;
 
 import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
-class k implements Runnable {
+final class k implements Runnable {
     final /* synthetic */ ImagePbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +11,7 @@ class k implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         boolean z;
         com.baidu.tieba.data.ab abVar;
         int i;
@@ -23,7 +23,6 @@ class k implements Runnable {
         com.baidu.tieba.view.bj bjVar;
         int i6;
         int i7;
-        boolean z2;
         com.baidu.tieba.view.bj bjVar2;
         com.baidu.tieba.view.bj bjVar3;
         com.baidu.tieba.data.ab abVar3;
@@ -55,20 +54,18 @@ class k implements Runnable {
                     UtilHelper.NetworkStateInfo h = UtilHelper.h(this.a);
                     bjVar = this.a.z;
                     bjVar.d().a();
-                    if (h != UtilHelper.NetworkStateInfo.WIFI && h != UtilHelper.NetworkStateInfo.ThreeG) {
+                    if (h == UtilHelper.NetworkStateInfo.WIFI || h == UtilHelper.NetworkStateInfo.ThreeG) {
+                        i6 = i5;
+                        i7 = i2;
+                    } else {
                         i8 = this.a.J;
                         i9 = this.a.J;
-                        i6 = i8;
-                        i7 = i9;
-                        z2 = false;
-                    } else {
-                        i6 = i2;
-                        i7 = i5;
-                        z2 = true;
+                        i6 = i9;
+                        i7 = i8;
                     }
                     bjVar2 = this.a.z;
-                    bjVar2.d().a(z2);
-                    for (int i11 = i6; i11 <= i7; i11++) {
+                    bjVar2.d();
+                    for (int i11 = i7; i11 <= i6; i11++) {
                         bjVar3 = this.a.z;
                         com.baidu.tieba.util.i d = bjVar3.d();
                         abVar3 = this.a.G;
@@ -77,7 +74,7 @@ class k implements Runnable {
                 }
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("ImagePbActivity", "mGetImageRunnble.run", "error = " + e.getMessage());
+            com.baidu.adp.lib.util.e.b("ImagePbActivity", "mGetImageRunnble.run", "error = " + e.getMessage());
         }
     }
 }

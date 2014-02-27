@@ -5,13 +5,33 @@ import com.baidu.cloudsdk.social.core.SocialConstants;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa extends BdAsyncTask<String, Integer, Boolean> {
+public final class aa extends BdAsyncTask<String, Integer, Boolean> {
     final /* synthetic */ z a;
     private com.baidu.tieba.util.ba b = null;
     private String c;
     private String d;
     private String e;
     private ab f;
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ void a(Boolean bool) {
+        com.baidu.tieba.frs.by byVar;
+        com.baidu.tieba.frs.by byVar2;
+        this.a.n = null;
+        this.a.a(false);
+        if (this.b != null) {
+            ac acVar = new ac(this.a);
+            acVar.d = this.b.i();
+            acVar.c = this.b.e();
+            byVar = this.a.k;
+            if (byVar != null) {
+                byVar2 = this.a.k;
+                byVar2.a(this.f, acVar);
+            }
+        }
+    }
 
     public aa(z zVar, String str, String str2, String str3) {
         this.a = zVar;
@@ -22,7 +42,7 @@ public class aa extends BdAsyncTask<String, Integer, Boolean> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
+    /* JADX INFO: Access modifiers changed from: private */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Boolean a(String... strArr) {
         try {
@@ -31,11 +51,11 @@ public class aa extends BdAsyncTask<String, Integer, Boolean> {
             this.b.a("kw", this.d);
             this.b.a("is_like", this.e);
             this.b.e(true);
-            String m = this.b.m();
-            if (this.b.e()) {
+            String l = this.b.l();
+            if (this.b.d()) {
                 if (this.e.equals(SocialConstants.FALSE)) {
                     try {
-                        JSONObject jSONObject = new JSONObject(m);
+                        JSONObject jSONObject = new JSONObject(l);
                         JSONObject optJSONObject = jSONObject.optJSONObject("like_data");
                         if (optJSONObject.optInt("is_success", 0) == 1) {
                             this.f.d = optJSONObject.optInt("level_id", 0);
@@ -49,53 +69,33 @@ public class aa extends BdAsyncTask<String, Integer, Boolean> {
                         }
                         this.a.a(this.f);
                     } catch (Exception e) {
-                        com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.getMessage());
+                        com.baidu.adp.lib.util.e.b(getClass().getName(), "doInBackground", e.getMessage());
                     }
                 }
-                if (this.b.d()) {
+                if (this.b.c()) {
                     try {
-                        JSONObject jSONObject2 = new JSONObject(m);
+                        JSONObject jSONObject2 = new JSONObject(l);
                         this.f.c = jSONObject2.optInt("num");
                         this.f.a = true;
                     } catch (Exception e2) {
-                        com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e2.getMessage());
+                        com.baidu.adp.lib.util.e.b(getClass().getName(), "doInBackground", e2.getMessage());
                     }
                 }
             }
             return false;
         } catch (Exception e3) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "", "AddFanAsyncTask.doInBackground error = " + e3.getMessage());
+            com.baidu.adp.lib.util.e.b(getClass().getName(), "", "AddFanAsyncTask.doInBackground error = " + e3.getMessage());
             return false;
         }
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
+    public final void cancel() {
         super.cancel(true);
         if (this.b != null) {
-            this.b.k();
+            this.b.j();
         }
         this.a.n = null;
         this.a.a(false);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Boolean bool) {
-        com.baidu.tieba.frs.bx bxVar;
-        com.baidu.tieba.frs.bx bxVar2;
-        this.a.n = null;
-        this.a.a(false);
-        if (this.b != null) {
-            ac acVar = new ac(this.a);
-            acVar.d = this.b.j();
-            acVar.c = this.b.f();
-            bxVar = this.a.k;
-            if (bxVar != null) {
-                bxVar2 = this.a.k;
-                bxVar2.a(this.f, acVar);
-            }
-        }
     }
 }

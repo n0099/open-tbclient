@@ -89,7 +89,7 @@ public class MultipartRequestParams extends RequestParams {
             if (stringBuilder.length() > 0) {
                 stringBuilder.append("&");
             }
-            stringBuilder.append((String) entry.getKey()).append("=").append("FILE");
+            stringBuilder.append((String) entry.getKey()).append("=FILE");
         }
         return stringBuilder;
     }

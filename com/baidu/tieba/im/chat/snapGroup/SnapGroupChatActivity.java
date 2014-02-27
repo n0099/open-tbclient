@@ -23,7 +23,6 @@ import com.baidu.tieba.im.model.aj;
 import com.baidu.tieba.im.model.ar;
 import com.slidingmenu.lib.R;
 import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes.dex */
 public class SnapGroupChatActivity extends GroupChatActivity implements AbsListView.OnScrollListener, com.baidu.tieba.im.messageCenter.g, aj {
     public static boolean l = false;
@@ -43,10 +42,10 @@ public class SnapGroupChatActivity extends GroupChatActivity implements AbsListV
     private com.baidu.tieba.im.messageCenter.g z = new a(this);
 
     public static void a(Context context, RandChatRoomData randChatRoomData, String str, String str2, String str3, int i) {
-        com.baidu.adp.lib.util.f.e("simon", "startActivity", "started");
+        com.baidu.adp.lib.util.e.e("simon", "startActivity", "started");
         Intent intent = new Intent(context, SnapGroupChatActivity.class);
         if (randChatRoomData == null) {
-            com.baidu.adp.lib.util.f.c("RandChatRoomData is null, skip launch SnapGroupChatActivity");
+            com.baidu.adp.lib.util.e.c("RandChatRoomData is null, skip launch SnapGroupChatActivity");
             return;
         }
         GroupData groupData = new GroupData();
@@ -71,10 +70,10 @@ public class SnapGroupChatActivity extends GroupChatActivity implements AbsListV
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
         if (Math.abs(i - this.s) == 1) {
-            if (!r().R().a() && i > this.s) {
-                r().R().b();
-            } else if (r().R().a() && i < this.s) {
-                r().R().c();
+            if (!((SnapGroupChatView) this.d).P().a() && i > this.s) {
+                ((SnapGroupChatView) this.d).P().b();
+            } else if (((SnapGroupChatView) this.d).P().a() && i < this.s) {
+                ((SnapGroupChatView) this.d).P().c();
             }
         }
         if (i != this.s) {
@@ -82,34 +81,34 @@ public class SnapGroupChatActivity extends GroupChatActivity implements AbsListV
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.GroupChatActivity, com.baidu.tieba.im.chat.cz, com.baidu.adp.a.a, android.view.View.OnClickListener
+    @Override // com.baidu.tieba.im.chat.GroupChatActivity, com.baidu.tieba.im.chat.cy, com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         try {
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getLocalClassName(), "onClick", e.getMessage());
+            com.baidu.adp.lib.util.e.b(getLocalClassName(), "onClick", e.getMessage());
         }
-        if (view == this.d.v()) {
+        if (view == this.d.t()) {
             if (this.v) {
                 finish();
                 return;
             } else {
-                r().S().show();
+                ((SnapGroupChatView) this.d).Q().show();
                 return;
             }
         }
-        if (view == r().W()) {
+        if (view == ((SnapGroupChatView) this.d).U()) {
             if (this.v) {
-                q();
+                p();
             } else {
-                r().T().show();
+                ((SnapGroupChatView) this.d).R().show();
             }
         }
         super.onClick(view);
     }
 
     @Override // com.baidu.tieba.im.model.aj
-    public void a(int i) {
-        r().U().setVisibility(4);
+    public final void o() {
+        ((SnapGroupChatView) this.d).S().setVisibility(4);
         if (this.r != null) {
             this.r.b();
         }
@@ -118,7 +117,7 @@ public class SnapGroupChatActivity extends GroupChatActivity implements AbsListV
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.chat.cz, com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.chat.cy, com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.q = getIntent().getIntExtra(PushConstants.EXTRA_GID, 0);
@@ -127,63 +126,64 @@ public class SnapGroupChatActivity extends GroupChatActivity implements AbsListV
             this.o = (RandChatRoomData) bundleExtra.getParcelable("rand_chat_room_data");
         }
         this.p = new com.baidu.tieba.im.model.c();
-        this.p.a(this.z);
+        com.baidu.tieba.im.model.c cVar = this.p;
+        com.baidu.tieba.im.model.c.a(this.z);
         this.t = getIntent().getIntExtra("restart_time", 0);
         this.x = getIntent().getStringExtra("topic_title");
         this.y = getIntent().getStringExtra("topic_content");
-        com.baidu.adp.lib.util.f.e("simon", "onCreate", "restart time = " + this.t);
+        com.baidu.adp.lib.util.e.e("simon", "onCreate", "restart time = " + this.t);
         if (this.o == null) {
-            com.baidu.adp.lib.util.f.b("RandChatRoomData is null, finish activity");
+            com.baidu.adp.lib.util.e.b("RandChatRoomData is null, finish activity");
             showToast("初始化失败，请重新尝试。");
             finish();
         } else {
-            com.baidu.adp.lib.util.f.e("simon", "onCreate", this.o.toString());
+            com.baidu.adp.lib.util.e.e("simon", "onCreate", this.o.toString());
         }
         if (this.t >= 2) {
-            com.baidu.adp.lib.util.f.e("simon", "initView", "disableChangeGroupBtn");
-            r().W().setOnClickListener(new b(this));
+            com.baidu.adp.lib.util.e.e("simon", "initView", "disableChangeGroupBtn");
+            ((SnapGroupChatView) this.d).U().setOnClickListener(new b(this));
         }
         this.r = new g(this, this.o.h() * 1000);
         this.r.c();
         this.n.b(this.q);
         this.w.postDelayed(new c(this), 300L);
-        r().V().a(this.o.g() * 1000, 500L, 60000L);
-        r().V().setOnFinishlistener(new d(this));
-        r().V().setFinalText(getString(R.string.snap_group_chat_remaining));
-        r().V().a();
+        ((SnapGroupChatView) this.d).T().a(this.o.g() * 1000, 500L, 60000L);
+        ((SnapGroupChatView) this.d).T().setOnFinishlistener(new d(this));
+        ((SnapGroupChatView) this.d).T().setFinalText(getString(R.string.snap_group_chat_remaining));
+        ((SnapGroupChatView) this.d).T().a();
         this.e.a(this);
         ai.b(getApplicationContext(), "snap_chat_activity");
     }
 
     @Override // com.baidu.tieba.im.chat.GroupChatActivity, com.baidu.tieba.im.chat.MsglistActivity
-    protected void l() {
-        com.baidu.adp.lib.util.f.e("simon", "initView", "initView");
+    protected final void l() {
+        com.baidu.adp.lib.util.e.e("simon", "initView", "initView");
         this.d = new SnapGroupChatView(this, this.e.d());
         this.d.a((InputMethodManager) getSystemService("input_method"));
         if (this.e.a() != null) {
             this.d.a(this.e.c(), this.e.a().getGroupId());
         }
         this.d.a(new e(this));
-        this.d.i().setOnScrollListener(this);
+        this.d.h().setOnScrollListener(this);
     }
 
-    @Override // com.baidu.tieba.im.chat.GroupChatActivity, com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.chat.cz, com.baidu.tieba.f, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.GroupChatActivity, com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.chat.cy, com.baidu.tieba.f, android.app.Activity
     protected void onResume() {
         super.onResume();
-        this.d.a(getString(R.string.snap_group_chat_chatting), false);
+        this.d.a(getString(R.string.snap_group_chat_chatting));
         this.u = false;
         a = false;
         l = true;
         m = String.valueOf(this.q);
     }
 
-    @Override // com.baidu.tieba.im.chat.GroupChatActivity, com.baidu.tieba.im.chat.cz, com.baidu.tieba.f, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.GroupChatActivity, com.baidu.tieba.im.chat.cy, com.baidu.tieba.f, android.app.Activity
     protected void onPause() {
         super.onPause();
         this.u = true;
     }
 
-    private void q() {
+    private void p() {
         showLoadingDialog(getString(R.string.group_tab_enterchatroom_loading), new f(this));
         this.p.a(this.q);
         com.baidu.tieba.im.util.d.a(String.valueOf(this.q));
@@ -191,79 +191,82 @@ public class SnapGroupChatActivity extends GroupChatActivity implements AbsListV
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.chat.cz, com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.chat.cy, com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         if (this.q != 0) {
             boolean booleanExtra = getIntent().getBooleanExtra("need_freeze_user", false);
-            com.baidu.adp.lib.util.f.e("simon", "onDestroy", "shouldFreeze = " + booleanExtra);
+            com.baidu.adp.lib.util.e.e("simon", "onDestroy", "shouldFreeze = " + booleanExtra);
             if (booleanExtra) {
-                com.baidu.tieba.sharedPref.b.a().b("chat_room_cool_down", String.valueOf(TiebaApplication.A()) + "_" + String.valueOf(System.currentTimeMillis() + 900000));
+                com.baidu.tieba.sharedPref.b.a().b("chat_room_cool_down", String.valueOf(TiebaApplication.v()) + "_" + String.valueOf(System.currentTimeMillis() + 900000));
             } else {
-                com.baidu.tieba.sharedPref.b.a().b("chat_room_cool_down", String.valueOf(TiebaApplication.A()) + "_" + String.valueOf(0L));
+                com.baidu.tieba.sharedPref.b.a().b("chat_room_cool_down", String.valueOf(TiebaApplication.v()) + "_" + String.valueOf(0L));
             }
             this.n.a(this.q, booleanExtra, 1);
         }
-        this.n.b(this.z);
-        this.p.b(this.z);
-        r().V().b();
-        r().U().b();
+        ar arVar = this.n;
+        ar.b(this.z);
+        com.baidu.tieba.im.model.c cVar = this.p;
+        com.baidu.tieba.im.messageCenter.d.a().a(this.z);
+        ((SnapGroupChatView) this.d).T().b();
+        ((SnapGroupChatView) this.d).S().b();
         this.r.b();
         com.baidu.tieba.im.util.d.a(String.valueOf(this.q));
         l = false;
         m = "";
     }
 
-    @Override // com.baidu.tieba.im.chat.cz, com.baidu.adp.a.a, android.content.DialogInterface.OnClickListener
+    @Override // com.baidu.tieba.im.chat.cy, com.baidu.adp.a.a, android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         super.onClick(dialogInterface, i);
-        if (dialogInterface == r().T() && i == -1) {
-            q();
+        if (dialogInterface == ((SnapGroupChatView) this.d).R() && i == -1) {
+            p();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    public boolean b(Bundle bundle) {
+    public final boolean b(Bundle bundle) {
         super.b(bundle);
         this.n = new ar(this);
         this.n.a(this.o);
-        this.n.a(this.z);
+        ar arVar = this.n;
+        ar.a(this.z);
         return true;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(com.baidu.tieba.im.data.b bVar) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(SnapGroupChatActivity snapGroupChatActivity, com.baidu.tieba.im.data.b bVar) {
         UserData next;
-        if (this.o != null && bVar != null) {
-            com.baidu.adp.lib.util.f.e("eventData uid = " + bVar.c);
-            Iterator<UserData> it = this.o.j().iterator();
-            while (it.hasNext() && (next = it.next()) != null) {
-                if (bVar.c == next.getUserIdLong()) {
-                    r().R().a(next);
-                    return;
-                }
+        if (snapGroupChatActivity.o == null || bVar == null) {
+            return;
+        }
+        com.baidu.adp.lib.util.e.e("eventData uid = " + bVar.c);
+        Iterator<UserData> it = snapGroupChatActivity.o.j().iterator();
+        while (it.hasNext() && (next = it.next()) != null) {
+            if (bVar.c == next.getUserIdLong()) {
+                ((SnapGroupChatView) snapGroupChatActivity.d).P().a(next);
+                return;
             }
         }
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:15:0x0027 -> B:16:0x0028). Please submit an issue!!! */
-    @Override // com.baidu.tieba.im.chat.cz, com.baidu.tieba.f, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tieba.im.chat.cy, com.baidu.tieba.f, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (4 == i) {
             try {
                 if (keyEvent.getAction() == 0 && this.d != null) {
                     n();
-                    if (this.d.t()) {
-                        this.d.u();
-                        return true;
-                    } else if (this.v) {
-                        finish();
-                        return true;
-                    } else {
-                        r().S().show();
+                    if (this.d.r()) {
+                        this.d.s();
                         return true;
                     }
+                    if (this.v) {
+                        finish();
+                    } else {
+                        ((SnapGroupChatView) this.d).Q().show();
+                    }
+                    return true;
                 }
             } catch (Exception e) {
             }
@@ -271,51 +274,47 @@ public class SnapGroupChatActivity extends GroupChatActivity implements AbsListV
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(List<UserData> list) {
-        ((SnapGroupChatView) this.d).R().setData(list);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ SnapGroupChatView d(SnapGroupChatActivity snapGroupChatActivity) {
+        return (SnapGroupChatView) snapGroupChatActivity.d;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public SnapGroupChatView r() {
-        return (SnapGroupChatView) this.d;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str, String str2) {
-        if (!TextUtils.isEmpty(str) && this.d != null) {
-            dd ddVar = new dd();
-            ddVar.b(String.valueOf(this.q));
-            ddVar.b = str;
-            ddVar.c = str2;
-            ddVar.c(-999L);
-            ddVar.d(0L);
-            q.b().a((com.baidu.tieba.im.message.b) ddVar);
-            this.d.a().notifyDataSetChanged();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(SnapGroupChatActivity snapGroupChatActivity, String str, String str2) {
+        if (TextUtils.isEmpty(str) || snapGroupChatActivity.d == null) {
+            return;
         }
+        dd ddVar = new dd();
+        ddVar.b(String.valueOf(snapGroupChatActivity.q));
+        ddVar.b = str;
+        ddVar.c = str2;
+        ddVar.c(-999L);
+        ddVar.d(0L);
+        q.b().a((com.baidu.tieba.im.message.b) ddVar);
+        snapGroupChatActivity.d.a().notifyDataSetChanged();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void s() {
-        if (this.d != null) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void i(SnapGroupChatActivity snapGroupChatActivity) {
+        if (snapGroupChatActivity.d != null) {
             com.baidu.tieba.im.message.f fVar = new com.baidu.tieba.im.message.f();
-            fVar.b(String.valueOf(this.q));
-            fVar.b = getString(R.string.snap_group_chat_rule);
+            fVar.b(String.valueOf(snapGroupChatActivity.q));
+            fVar.b = snapGroupChatActivity.getString(R.string.snap_group_chat_rule);
             fVar.c(-1000L);
             fVar.d(-1L);
             q.b().a((com.baidu.tieba.im.message.b) fVar);
-            this.d.a().notifyDataSetChanged();
+            snapGroupChatActivity.d.a().notifyDataSetChanged();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void t() {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void l(SnapGroupChatActivity snapGroupChatActivity) {
         com.baidu.tieba.im.message.f fVar = new com.baidu.tieba.im.message.f();
-        fVar.b(String.valueOf(this.q));
-        fVar.b = getString(R.string.snap_group_chat_times_up);
+        fVar.b(String.valueOf(snapGroupChatActivity.q));
+        fVar.b = snapGroupChatActivity.getString(R.string.snap_group_chat_times_up);
         fVar.c(Long.MAX_VALUE);
         q.b().a((com.baidu.tieba.im.message.b) fVar);
-        this.d.a().notifyDataSetChanged();
-        this.d.e().setVisibility(8);
+        snapGroupChatActivity.d.a().notifyDataSetChanged();
+        snapGroupChatActivity.d.d().setVisibility(8);
     }
 }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.k;
 import com.slidingmenu.lib.R;
@@ -31,18 +32,18 @@ public class MyGroupActivity extends k implements View.OnClickListener {
     }
 
     @Override // com.baidu.tieba.k
-    protected void b(int i) {
+    protected final void b(int i) {
         this.d.a(i);
     }
 
     public static void a(Context context) {
         if (context != null) {
-            if (!TiebaApplication.B()) {
+            if (!TiebaApplication.w()) {
                 if (context instanceof com.baidu.tieba.f) {
                     ((com.baidu.tieba.f) context).showToast(R.string.not_login_text);
                     return;
                 } else if (context instanceof k) {
-                    ((k) context).c(R.string.not_login_text);
+                    BdUtilHelper.a((Context) ((k) context), (int) R.string.not_login_text);
                     return;
                 } else {
                     return;

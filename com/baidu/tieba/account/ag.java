@@ -3,9 +3,8 @@ package com.baidu.tieba.account;
 import android.view.View;
 import android.widget.EditText;
 import com.baidu.adp.lib.util.BdUtilHelper;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ag implements View.OnClickListener {
+final class ag implements View.OnClickListener {
     final /* synthetic */ LoginActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +13,7 @@ public class ag implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         EditText editText;
         EditText editText2;
         EditText editText3;

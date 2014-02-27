@@ -17,7 +17,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class as extends BaseAdapter {
+public final class as extends BaseAdapter {
     Context a;
     com.baidu.tieba.model.az b;
     private ArrayList<ProgressBar> c = new ArrayList<>();
@@ -30,7 +30,7 @@ public class as extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public int getCount() {
+    public final int getCount() {
         if (this.b == null || this.b.d().size() == 0) {
             return 0;
         }
@@ -38,7 +38,7 @@ public class as extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public Object getItem(int i) {
+    public final Object getItem(int i) {
         if (this.b == null || i < 0 || i >= this.b.d().size()) {
             return null;
         }
@@ -46,17 +46,17 @@ public class as extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    public final long getItemId(int i) {
         return 0L;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
+    public final int getViewTypeCount() {
         return this.b == null ? 0 : 3;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
+    public final int getItemViewType(int i) {
         if (getItem(i) != null) {
             if (((com.baidu.tieba.model.ba) getItem(i)).a() == 0) {
                 return 0;
@@ -68,11 +68,11 @@ public class as extends BaseAdapter {
 
     /* JADX WARN: Not initialized variable reg: 1, insn: 0x01dd: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:55:0x01dc */
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public final View getView(int i, View view, ViewGroup viewGroup) {
         Exception exc;
         View view2;
         int itemViewType;
-        int al;
+        int ae;
         View view3;
         aw awVar;
         ax axVar;
@@ -81,7 +81,7 @@ public class as extends BaseAdapter {
         av avVar = null;
         try {
             itemViewType = getItemViewType(i);
-            al = TiebaApplication.g().al();
+            ae = TiebaApplication.g().ae();
         } catch (Exception e) {
             exc = e;
             view2 = view;
@@ -94,7 +94,7 @@ public class as extends BaseAdapter {
                     axVar = new ax(this);
                     axVar.b = (TextView) view4.findViewById(R.id.time_text);
                     axVar.a = (ImageView) view4.findViewById(R.id.time_icon);
-                    if (al == 1) {
+                    if (ae == 1) {
                         axVar.a.setBackgroundResource(R.drawable.icon_time_node_1);
                         axVar.b.setTextColor(-11446171);
                     }
@@ -108,7 +108,7 @@ public class as extends BaseAdapter {
                     awVar2.d = (TextView) view4.findViewById(R.id.post_time);
                     awVar2.e = (TextView) view4.findViewById(R.id.forum);
                     awVar2.b = (ImageView) view4.findViewById(R.id.post_icon);
-                    if (al == 1) {
+                    if (ae == 1) {
                         awVar2.a.setBackgroundResource(R.drawable.time_line_node_content_bg_skin_1);
                     }
                     view4.setTag(awVar2);
@@ -120,7 +120,7 @@ public class as extends BaseAdapter {
                         av avVar2 = new av(this);
                         avVar2.a = (TextView) view4.findViewById(R.id.page_text);
                         avVar2.b = (ProgressBar) view4.findViewById(R.id.progress);
-                        if (al == 1) {
+                        if (ae == 1) {
                             avVar2.a.setTextColor(-8682095);
                         }
                         view4.setTag(avVar2);
@@ -161,14 +161,14 @@ public class as extends BaseAdapter {
                 awVar.e.setText(String.valueOf(baVar.f()) + this.a.getString(R.string.forum));
                 awVar.e.setOnClickListener(new at(this, baVar));
                 if (baVar.a() == 2) {
-                    if (al == 1) {
+                    if (ae == 1) {
                         awVar.b.setBackgroundResource(R.drawable.icon_thread_node_1);
                     } else {
                         awVar.b.setBackgroundResource(R.drawable.icon_thread_node);
                     }
                     string = this.a.getString(R.string.add_thread);
                 } else {
-                    if (al == 1) {
+                    if (ae == 1) {
                         awVar.b.setBackgroundResource(R.drawable.icon_reply_node_1);
                     } else {
                         awVar.b.setBackgroundResource(R.drawable.icon_reply_node);
@@ -179,7 +179,7 @@ public class as extends BaseAdapter {
                 if (parseInt <= 0) {
                     awVar.c.setText(String.valueOf(string) + baVar.c());
                     awVar.c.setTextSize(2, 15.0f);
-                    if (al == 1) {
+                    if (ae == 1) {
                         awVar.c.setTextColor(-8682095);
                     } else {
                         awVar.c.setTextColor(-14277082);
@@ -201,7 +201,7 @@ public class as extends BaseAdapter {
                     SpannableString spannableString = new SpannableString(sb.toString());
                     spannableString.setSpan(new AbsoluteSizeSpan(BdUtilHelper.a(this.a, 15.0f)), 0, length, 18);
                     spannableString.setSpan(new AbsoluteSizeSpan(BdUtilHelper.a(this.a, 12.0f)), length + 1, length2, 18);
-                    if (al == 1) {
+                    if (ae == 1) {
                         spannableString.setSpan(new ForegroundColorSpan(-8682095), 0, length, 18);
                         spannableString.setSpan(new ForegroundColorSpan(-11446171), length + 1, length2, 18);
                     } else {
@@ -218,7 +218,7 @@ public class as extends BaseAdapter {
                 } else {
                     avVar.a.setText(R.string.no_more_to_load);
                 }
-                if (((AllPostActivity) this.a).b()) {
+                if (((AllPostActivity) this.a).a()) {
                     avVar.b.setVisibility(0);
                     return view4;
                 }
@@ -230,12 +230,12 @@ public class as extends BaseAdapter {
         } catch (Exception e2) {
             view2 = view3;
             exc = e2;
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "", "MyPostListAdapter.getView error = " + exc.getMessage());
+            com.baidu.adp.lib.util.e.b(getClass().getName(), "", "MyPostListAdapter.getView error = " + exc.getMessage());
             return view2;
         }
     }
 
-    public void a() {
+    public final void a() {
         if (this.c != null) {
             int i = 0;
             while (true) {
@@ -244,7 +244,7 @@ public class as extends BaseAdapter {
                     try {
                         this.c.get(i2).setVisibility(8);
                     } catch (Exception e) {
-                        com.baidu.adp.lib.util.f.b(getClass().getName(), "releaseProgressBar", e.getMessage());
+                        com.baidu.adp.lib.util.e.b(getClass().getName(), "releaseProgressBar", e.getMessage());
                     }
                     i = i2 + 1;
                 } else {

@@ -17,7 +17,7 @@ import com.slidingmenu.lib.R;
 import java.text.MessageFormat;
 import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
-public class m extends Dialog implements View.OnClickListener {
+public final class m extends Dialog implements View.OnClickListener {
     private Context a;
     private Button b;
     private Button c;
@@ -30,16 +30,16 @@ public class m extends Dialog implements View.OnClickListener {
     @SuppressLint({"HandlerLeak"})
     private Handler j;
 
-    public void a(String str) {
+    public final void a(String str) {
         this.g = str;
     }
 
-    public void b(String str) {
+    public final void b(String str) {
         this.h = str;
     }
 
     public m(Context context, int i) {
-        super(context, i);
+        super(context, R.style.NobackDialog);
         this.a = null;
         this.b = null;
         this.c = null;
@@ -53,12 +53,12 @@ public class m extends Dialog implements View.OnClickListener {
         this.a = context;
     }
 
-    public void a(l lVar) {
+    public final void a(l lVar) {
         this.f = lVar;
     }
 
     @Override // android.app.Dialog
-    protected void onCreate(Bundle bundle) {
+    protected final void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.chatterbox_edit_dialog);
         this.b = (Button) findViewById(R.id.chatterbox_edit_confirm);
@@ -72,13 +72,13 @@ public class m extends Dialog implements View.OnClickListener {
     }
 
     @Override // android.app.Dialog
-    public void show() {
+    public final void show() {
         super.show();
         this.j.sendEmptyMessage(0);
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         if (view != this.c && view == this.b) {
             this.g = this.e.getText().toString().trim().replace(IOUtils.LINE_SEPARATOR_UNIX, "").replace("\t", "");
             this.h = null;

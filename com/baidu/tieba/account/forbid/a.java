@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.RadioGroup;
 import com.baidu.tieba.util.bs;
 /* loaded from: classes.dex */
-class a implements View.OnClickListener {
+final class a implements View.OnClickListener {
     final /* synthetic */ ForbidActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ class a implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         e eVar;
         e eVar2;
         RadioGroup radioGroup;

@@ -10,7 +10,7 @@ import javax.crypto.Cipher;
 import javax.security.cert.X509Certificate;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
-public class ac {
+public final class ac {
     private String a;
 
     public ac() {
@@ -18,13 +18,13 @@ public class ac {
         this.a = a();
     }
 
-    private byte[] a(Key key, byte[] bArr) {
+    private static byte[] a(Key key, byte[] bArr) {
         Cipher cipher = Cipher.getInstance(com.baidu.sapi2.shell.b.a);
         cipher.init(1, key);
         return cipher.doFinal(bArr);
     }
 
-    public String a(String str, String str2) {
+    public final String a(String str, String str2) {
         int length;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
@@ -54,7 +54,7 @@ public class ac {
         return m.a(jSONArray.toString().getBytes("UTF-8"));
     }
 
-    private String a() {
+    private static String a() {
         Random random = new Random();
         StringBuffer stringBuffer = new StringBuffer();
         for (int i = 0; i < 16; i++) {

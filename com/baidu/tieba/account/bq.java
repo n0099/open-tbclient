@@ -5,9 +5,8 @@ import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.shell.listener.AuthorizationListener;
 import com.baidu.tieba.data.AccountData;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bq implements AuthorizationListener {
+final class bq implements AuthorizationListener {
     final /* synthetic */ SapiFastRegActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,7 +15,7 @@ public class bq implements AuthorizationListener {
     }
 
     @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
-    public void onSuccess() {
+    public final void onSuccess() {
         Handler handler;
         az azVar;
         SapiAccount session = SapiAccountManager.getInstance().getSession();
@@ -40,8 +39,8 @@ public class bq implements AuthorizationListener {
     }
 
     @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
-    public void onFailed(int i, String str) {
-        com.baidu.adp.lib.util.f.e("simon", "onFailed", str);
+    public final void onFailed(int i, String str) {
+        com.baidu.adp.lib.util.e.e("simon", "onFailed", str);
         this.a.finish();
     }
 }

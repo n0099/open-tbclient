@@ -161,19 +161,8 @@ public class FragmentActivity extends Activity {
         return super.onCreatePanelMenu(i, menu);
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x005c */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x0064 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:22:0x006e */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v0, types: [android.view.View] */
-    /* JADX WARN: Type inference failed for: r1v1 */
-    /* JADX WARN: Type inference failed for: r1v19, types: [android.support.v4.app.Fragment] */
-    /* JADX WARN: Type inference failed for: r1v2 */
-    /* JADX WARN: Type inference failed for: r1v3, types: [android.support.v4.app.Fragment, java.lang.Object] */
-    /* JADX WARN: Type inference failed for: r3v3, types: [android.support.v4.app.FragmentManagerImpl] */
     @Override // android.app.Activity, android.view.LayoutInflater.Factory
     public View onCreateView(String str, Context context, AttributeSet attributeSet) {
-        Fragment fragment;
         if (!"fragment".equals(str)) {
             return super.onCreateView(str, context, attributeSet);
         }
@@ -185,51 +174,46 @@ public class FragmentActivity extends Activity {
         int resourceId = obtainStyledAttributes.getResourceId(1, -1);
         String string = obtainStyledAttributes.getString(2);
         obtainStyledAttributes.recycle();
-        int id = 0 != 0 ? r1.getId() : 0;
-        if (id == -1 && resourceId == -1 && string == null) {
-            throw new IllegalArgumentException(attributeSet.getPositionDescription() + ": Must specify unique android:id, android:tag, or have a parent with an id for " + attributeValue);
+        Fragment findFragmentById = resourceId != -1 ? this.mFragments.findFragmentById(resourceId) : null;
+        if (findFragmentById == null && string != null) {
+            findFragmentById = this.mFragments.findFragmentByTag(string);
         }
-        r1 = resourceId != -1 ? this.mFragments.findFragmentById(resourceId) : 0;
-        if (r1 == 0 && string != null) {
-            r1 = this.mFragments.findFragmentByTag(string);
-        }
-        if (r1 == 0 && id != -1) {
-            r1 = this.mFragments.findFragmentById(id);
+        if (findFragmentById == null) {
+            findFragmentById = this.mFragments.findFragmentById(0);
         }
         if (FragmentManagerImpl.DEBUG) {
-            Log.v(TAG, "onCreateView: id=0x" + Integer.toHexString(resourceId) + " fname=" + attributeValue + " existing=" + ((Object) r1));
+            Log.v(TAG, "onCreateView: id=0x" + Integer.toHexString(resourceId) + " fname=" + attributeValue + " existing=" + findFragmentById);
         }
-        if (r1 == 0) {
+        if (findFragmentById == null) {
             Fragment instantiate = Fragment.instantiate(this, attributeValue);
             instantiate.mFromLayout = true;
-            instantiate.mFragmentId = resourceId != 0 ? resourceId : id;
-            instantiate.mContainerId = id;
+            instantiate.mFragmentId = resourceId != 0 ? resourceId : 0;
+            instantiate.mContainerId = 0;
             instantiate.mTag = string;
             instantiate.mInLayout = true;
             instantiate.mFragmentManager = this.mFragments;
             instantiate.onInflate(this, attributeSet, instantiate.mSavedFragmentState);
             this.mFragments.addFragment(instantiate, true);
-            fragment = instantiate;
-        } else if (r1.mInLayout) {
-            throw new IllegalArgumentException(attributeSet.getPositionDescription() + ": Duplicate id 0x" + Integer.toHexString(resourceId) + ", tag " + string + ", or parent id 0x" + Integer.toHexString(id) + " with another fragment for " + attributeValue);
+            findFragmentById = instantiate;
+        } else if (findFragmentById.mInLayout) {
+            throw new IllegalArgumentException(attributeSet.getPositionDescription() + ": Duplicate id 0x" + Integer.toHexString(resourceId) + ", tag " + string + ", or parent id 0x" + Integer.toHexString(0) + " with another fragment for " + attributeValue);
         } else {
-            r1.mInLayout = true;
-            if (!r1.mRetaining) {
-                r1.onInflate(this, attributeSet, r1.mSavedFragmentState);
+            findFragmentById.mInLayout = true;
+            if (!findFragmentById.mRetaining) {
+                findFragmentById.onInflate(this, attributeSet, findFragmentById.mSavedFragmentState);
             }
-            this.mFragments.moveToState(r1);
-            fragment = r1;
+            this.mFragments.moveToState(findFragmentById);
         }
-        if (fragment.mView == null) {
+        if (findFragmentById.mView == null) {
             throw new IllegalStateException("Fragment " + attributeValue + " did not create a view.");
         }
         if (resourceId != 0) {
-            fragment.mView.setId(resourceId);
+            findFragmentById.mView.setId(resourceId);
         }
-        if (fragment.mView.getTag() == null) {
-            fragment.mView.setTag(string);
+        if (findFragmentById.mView.getTag() == null) {
+            findFragmentById.mView.setTag(string);
         }
-        return fragment.mView;
+        return findFragmentById.mView;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -339,7 +323,7 @@ public class FragmentActivity extends Activity {
 
     @Override // android.app.Activity
     public final Object onRetainNonConfigurationInstance() {
-        int i = 0;
+        boolean z;
         if (this.mStopped) {
             doReallyStop(true);
         }
@@ -348,22 +332,19 @@ public class FragmentActivity extends Activity {
         if (this.mAllLoaderManagers != null) {
             LoaderManagerImpl[] loaderManagerImplArr = new LoaderManagerImpl[this.mAllLoaderManagers.size()];
             this.mAllLoaderManagers.values().toArray(loaderManagerImplArr);
-            if (loaderManagerImplArr != null) {
-                int i2 = 0;
-                while (i < loaderManagerImplArr.length) {
-                    LoaderManagerImpl loaderManagerImpl = loaderManagerImplArr[i];
-                    if (loaderManagerImpl.mRetaining) {
-                        i2 = 1;
-                    } else {
-                        loaderManagerImpl.doDestroy();
-                        this.mAllLoaderManagers.remove(loaderManagerImpl.mWho);
-                    }
-                    i++;
+            z = false;
+            for (LoaderManagerImpl loaderManagerImpl : loaderManagerImplArr) {
+                if (loaderManagerImpl.mRetaining) {
+                    z = true;
+                } else {
+                    loaderManagerImpl.doDestroy();
+                    this.mAllLoaderManagers.remove(loaderManagerImpl.mWho);
                 }
-                i = i2;
             }
+        } else {
+            z = false;
         }
-        if (retainNonConfig == null && i == 0 && onRetainCustomNonConfigurationInstance == null) {
+        if (retainNonConfig == null && !z && onRetainCustomNonConfigurationInstance == null) {
             return null;
         }
         NonConfigurationInstances nonConfigurationInstances = new NonConfigurationInstances();
@@ -414,11 +395,9 @@ public class FragmentActivity extends Activity {
         if (this.mAllLoaderManagers != null) {
             LoaderManagerImpl[] loaderManagerImplArr = new LoaderManagerImpl[this.mAllLoaderManagers.size()];
             this.mAllLoaderManagers.values().toArray(loaderManagerImplArr);
-            if (loaderManagerImplArr != null) {
-                for (LoaderManagerImpl loaderManagerImpl : loaderManagerImplArr) {
-                    loaderManagerImpl.finishRetain();
-                    loaderManagerImpl.doReportStart();
-                }
+            for (LoaderManagerImpl loaderManagerImpl : loaderManagerImplArr) {
+                loaderManagerImpl.finishRetain();
+                loaderManagerImpl.doReportStart();
             }
         }
     }
@@ -454,8 +433,7 @@ public class FragmentActivity extends Activity {
 
     @Override // android.app.Activity
     public void dump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
-        if (Build.VERSION.SDK_INT >= 11) {
-        }
+        int i = Build.VERSION.SDK_INT;
         printWriter.print(str);
         printWriter.print("Local FragmentActivity ");
         printWriter.print(Integer.toHexString(System.identityHashCode(this)));

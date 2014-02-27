@@ -4,7 +4,7 @@ import android.media.MediaPlayer;
 import com.baidu.tieba.voice.VoiceManager;
 import java.io.IOException;
 /* loaded from: classes.dex */
-public class j extends MediaPlayer implements g {
+public final class j extends MediaPlayer implements g {
     private static Object a = new Object();
     private static j b = null;
     private boolean c = false;
@@ -25,19 +25,15 @@ public class j extends MediaPlayer implements g {
         return b;
     }
 
-    public void b(int i) {
-        setAudioStreamType(i);
-    }
-
     @Override // com.baidu.tieba.voice.service.g
-    public boolean a(String str) {
+    public final boolean a(String str) {
         this.e = -1;
         if (!this.c) {
             this.d = true;
             reset();
             try {
                 setDataSource(str);
-                b(VoiceManager.i);
+                setAudioStreamType(VoiceManager.i);
                 try {
                     prepare();
                 } catch (IOException e) {
@@ -64,13 +60,13 @@ public class j extends MediaPlayer implements g {
     }
 
     @Override // com.baidu.tieba.voice.service.g
-    public void a() {
+    public final void a() {
         start();
         this.d = false;
     }
 
     @Override // com.baidu.tieba.voice.service.g
-    public void b() {
+    public final void b() {
         if (!this.d) {
             stop();
             this.d = true;
@@ -79,12 +75,12 @@ public class j extends MediaPlayer implements g {
     }
 
     @Override // com.baidu.tieba.voice.service.g
-    public void c() {
+    public final void c() {
         pause();
     }
 
     @Override // com.baidu.tieba.voice.service.g
-    public void d() {
+    public final void d() {
         reset();
         this.c = false;
         this.d = true;
@@ -92,21 +88,17 @@ public class j extends MediaPlayer implements g {
     }
 
     @Override // com.baidu.tieba.voice.service.g
-    public int e() {
+    public final int e() {
         return getCurrentPosition();
     }
 
     @Override // com.baidu.tieba.voice.service.g
-    public boolean f() {
+    public final boolean f() {
         return this.c;
     }
 
     @Override // com.baidu.tieba.voice.service.g
-    public void a(int i) {
-        c(i);
-    }
-
-    public void c(int i) {
+    public final void a(int i) {
         try {
             seekTo(i);
         } catch (Exception e) {
@@ -114,7 +106,7 @@ public class j extends MediaPlayer implements g {
     }
 
     @Override // com.baidu.tieba.voice.service.g
-    public int g() {
+    public final int g() {
         return this.e;
     }
 }

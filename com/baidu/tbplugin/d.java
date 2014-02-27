@@ -5,67 +5,50 @@ import android.content.ContextWrapper;
 import android.os.Build;
 import dalvik.system.DexClassLoader;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d {
+public final class d {
     private ClassLoader a;
     private Context b;
     private boolean c;
-    private List<ClassLoader> d = new ArrayList();
 
     public d(Context context) {
         this.b = context;
     }
 
-    public synchronized void a() {
-        if (!this.c || c()) {
-            String str = "";
-            File[] listFiles = f.a().listFiles();
-            if (listFiles != null && listFiles.length != 0) {
-                StringBuilder sb = new StringBuilder();
-                for (File file : listFiles) {
-                    sb.append(file.getAbsolutePath());
-                    sb.append(File.pathSeparator);
-                }
-                str = sb.substring(0, sb.length() - 1);
+    public final synchronized void a() {
+        boolean z = this.c;
+        String str = "";
+        File[] listFiles = f.a().listFiles();
+        if (listFiles != null && listFiles.length != 0) {
+            StringBuilder sb = new StringBuilder();
+            for (File file : listFiles) {
+                sb.append(file.getAbsolutePath());
+                sb.append(File.pathSeparator);
             }
-            com.baidu.adp.lib.util.f.d("load jars path: " + str);
-            this.a = new DexClassLoader(str, f.e().getAbsolutePath(), f.c().getAbsolutePath(), this.b.getClassLoader());
-            a(this.b, this.a);
-            com.baidu.adp.lib.util.f.c("New ClassLoader initialized");
+            str = sb.substring(0, sb.length() - 1);
         }
-    }
-
-    private boolean c() {
-        this.d.clear();
-        return true;
-    }
-
-    private void a(Context context, ClassLoader classLoader) {
-        Object obj;
+        this.a = new DexClassLoader(str, f.e().getAbsolutePath(), f.c().getAbsolutePath(), this.b.getClassLoader());
+        Context context = this.b;
+        ClassLoader classLoader = this.a;
         try {
-            if (Build.VERSION.SDK_INT <= 7) {
-                obj = f.a(Class.forName("android.app.ApplicationContext"), "mPackageInfo").get(context.getApplicationContext());
-            } else {
-                obj = f.a(Class.forName("android.app.ContextImpl"), "mPackageInfo").get(f.a(ContextWrapper.class, "mBase").get(context.getApplicationContext()));
-            }
+            Object obj = Build.VERSION.SDK_INT <= 7 ? f.a(Class.forName("android.app.ApplicationContext"), "mPackageInfo").get(context.getApplicationContext()) : f.a(Class.forName("android.app.ContextImpl"), "mPackageInfo").get(f.a(ContextWrapper.class, "mBase").get(context.getApplicationContext()));
             f.a(obj.getClass(), "mClassLoader").set(obj, classLoader);
         } catch (IllegalAccessException e) {
             e.printStackTrace();
-            com.baidu.adp.lib.util.f.b("IllegalAccessException");
+            com.baidu.adp.lib.util.e.b("IllegalAccessException");
             this.c = false;
         } catch (IllegalArgumentException e2) {
             e2.printStackTrace();
-            com.baidu.adp.lib.util.f.b("IllegalArgumentException");
+            com.baidu.adp.lib.util.e.b("IllegalArgumentException");
             this.c = false;
         } catch (Throwable th) {
-            com.baidu.adp.lib.util.f.b("Throwable " + th.getMessage());
+            com.baidu.adp.lib.util.e.b("Throwable " + th.getMessage());
             this.c = false;
         }
     }
 
-    public ClassLoader b() {
+    public final ClassLoader b() {
         return this.a;
     }
 }

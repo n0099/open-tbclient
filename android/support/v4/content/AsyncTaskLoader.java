@@ -32,13 +32,13 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.support.v4.content.ModernAsyncTask
-        public D doInBackground(Void... voidArr) {
+        public final D doInBackground(Void... voidArr) {
             this.result = (D) AsyncTaskLoader.this.onLoadInBackground();
             return this.result;
         }
 
         @Override // android.support.v4.content.ModernAsyncTask
-        protected void onPostExecute(D d) {
+        protected final void onPostExecute(D d) {
             try {
                 AsyncTaskLoader.this.dispatchOnLoadComplete(this, d);
             } finally {
@@ -47,7 +47,7 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
         }
 
         @Override // android.support.v4.content.ModernAsyncTask
-        protected void onCancelled() {
+        protected final void onCancelled() {
             try {
                 AsyncTaskLoader.this.dispatchOnCancelled(this, this.result);
             } finally {
@@ -56,7 +56,7 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
         }
 
         @Override // java.lang.Runnable
-        public void run() {
+        public final void run() {
             this.waiting = AsyncTaskLoader.DEBUG;
             AsyncTaskLoader.this.executePendingTask();
         }

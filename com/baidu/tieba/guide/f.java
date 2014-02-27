@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.baidu.tieba.data.InterestFrsData;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class f {
+final class f {
     final /* synthetic */ d a;
     private View b;
     private TextView c;
@@ -20,7 +20,7 @@ class f {
     private ImageView g;
     private LinearLayout h;
 
-    public View a() {
+    public final View a() {
         return this.b;
     }
 
@@ -30,7 +30,14 @@ class f {
         context = dVar.a;
         this.b = LayoutInflater.from(context).inflate(R.layout.new_user_rich_item, (ViewGroup) null);
         this.b.setTag(Integer.valueOf(card.getFid()));
-        a(card, onClickListener);
+        b();
+        this.h.setOnClickListener(onClickListener);
+        this.h.setTag(card);
+        this.c.setText(card.getFname());
+        this.d.setText(card.getCdesc());
+        this.e.setText(card.getSlogan());
+        this.g.setTag(card.getAvatar());
+        a(card.getIs_like() != 0);
     }
 
     public f(d dVar, View view) {
@@ -39,7 +46,7 @@ class f {
         b();
     }
 
-    public void b() {
+    private void b() {
         this.c = (TextView) this.b.findViewById(R.id.tv_fname);
         this.d = (TextView) this.b.findViewById(R.id.tv_cdesc);
         this.f = (ImageView) this.b.findViewById(R.id.iv_like);
@@ -48,7 +55,7 @@ class f {
         this.h = (LinearLayout) this.b.findViewById(R.id.ll_like);
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         Context context;
         Context context2;
         if (!z) {
@@ -60,16 +67,5 @@ class f {
         ImageView imageView2 = this.f;
         context = this.a.a;
         imageView2.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_s));
-    }
-
-    private void a(InterestFrsData.Card card, View.OnClickListener onClickListener) {
-        b();
-        this.h.setOnClickListener(onClickListener);
-        this.h.setTag(card);
-        this.c.setText(card.getFname());
-        this.d.setText(card.getCdesc());
-        this.e.setText(card.getSlogan());
-        this.g.setTag(card.getAvatar());
-        a(card.getIs_like() != 0);
     }
 }

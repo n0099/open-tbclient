@@ -1,6 +1,5 @@
 package com.baidu.tieba.more;
 
-import android.view.View;
 import android.widget.RelativeLayout;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tieba.TiebaApplication;
@@ -8,7 +7,7 @@ import com.baidu.tieba.util.bq;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class ay extends com.baidu.adp.a.e {
+public final class ay extends com.baidu.adp.a.e {
     private SystemHelpSettingActivity a;
     private RelativeLayout c;
     private SettingTextSwitchView d;
@@ -41,31 +40,31 @@ public class ay extends com.baidu.adp.a.e {
         this.g.setOnClickListener(this.a);
         this.e.setSwitchStateChangeListener(this.a);
         this.c = (RelativeLayout) this.a.findViewById(R.id.parent);
-        if (TiebaApplication.B()) {
+        if (TiebaApplication.w()) {
             this.g.setVisibility(0);
         } else {
             this.g.setVisibility(8);
         }
     }
 
-    public BdSwitchView a() {
+    public final BdSwitchView a() {
         return this.d.getSwitchView();
     }
 
-    public BdSwitchView e() {
+    public final BdSwitchView d() {
         return this.e.getSwitchView();
     }
 
-    public SettingTextTipView f() {
+    public final SettingTextTipView e() {
         return this.f;
     }
 
-    public SettingTextTipView g() {
+    public final SettingTextTipView f() {
         return this.g;
     }
 
-    public void a(int i) {
-        this.h.c(i);
+    public final void a(int i) {
+        this.h.b(i);
         this.e.a(i);
         this.d.a(i);
         if (i == 1) {
@@ -78,6 +77,6 @@ public class ay extends com.baidu.adp.a.e {
         this.f.a(i);
         this.g.a(i);
         this.a.getLayoutMode().a(i == 1);
-        this.a.getLayoutMode().a((View) this.c);
+        this.a.getLayoutMode().a(this.c);
     }
 }

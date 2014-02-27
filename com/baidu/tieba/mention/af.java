@@ -11,11 +11,11 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.aj;
-import com.baidu.tieba.view.ct;
+import com.baidu.tieba.view.cs;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class af extends com.baidu.tieba.j implements com.baidu.adp.widget.ListView.b {
-    private ct d;
+public final class af extends com.baidu.tieba.j implements com.baidu.adp.widget.ListView.b {
+    private cs d;
     private LinearLayout e;
     private com.baidu.tieba.home.r f;
     private aj g;
@@ -24,9 +24,9 @@ public class af extends com.baidu.tieba.j implements com.baidu.adp.widget.ListVi
     private boolean h = false;
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+    public final View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.reply_me_activity, (ViewGroup) null);
-        this.d = new ct(getActivity());
+        this.d = new cs(getActivity());
         this.d.a(this);
         this.e = (LinearLayout) inflate.findViewById(R.id.bodyNotLogin);
         this.g = new aj(inflate, (int) R.drawable.pic_blank_page_search, (int) R.drawable.pic_blank_page_search_1);
@@ -42,7 +42,7 @@ public class af extends com.baidu.tieba.j implements com.baidu.adp.widget.ListVi
     }
 
     @Override // com.baidu.tieba.j
-    public void c(int i) {
+    public final void c(int i) {
         super.c(i);
         if (isAdded()) {
             if (i == 1) {
@@ -67,7 +67,7 @@ public class af extends com.baidu.tieba.j implements com.baidu.adp.widget.ListVi
                 this.d.a(i);
             }
             if (this.f != null) {
-                this.f.b(i);
+                this.f.a(i);
             }
             if (this.b != null) {
                 this.b.g();
@@ -76,9 +76,9 @@ public class af extends com.baidu.tieba.j implements com.baidu.adp.widget.ListVi
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onResume() {
+    public final void onResume() {
         super.onResume();
-        if (TiebaApplication.B()) {
+        if (TiebaApplication.w()) {
             this.c.setVisibility(0);
             this.e.setVisibility(8);
             if (this.h) {
@@ -89,19 +89,19 @@ public class af extends com.baidu.tieba.j implements com.baidu.adp.widget.ListVi
             return;
         }
         this.g.b(8);
-        d();
+        b();
     }
 
-    public void a() {
+    public final void a() {
         if (this.b == null) {
             this.h = true;
             return;
         }
         this.h = false;
-        if (TiebaApplication.B()) {
+        if (TiebaApplication.w()) {
             this.c.setVisibility(0);
             this.e.setVisibility(8);
-            if (v.a().m() > 0) {
+            if (v.a().k() > 0) {
                 this.b.a(2);
             } else {
                 this.b.a(1);
@@ -110,37 +110,37 @@ public class af extends com.baidu.tieba.j implements com.baidu.adp.widget.ListVi
             this.b.e();
             return;
         }
-        d();
+        b();
     }
 
-    private void d() {
+    private void b() {
         if (this.f == null) {
             this.f = new com.baidu.tieba.home.r(getActivity(), getString(R.string.login_msg_tab), getString(R.string.login_msg_form), 3);
-            this.e.addView(this.f.e());
-            this.f.b(TiebaApplication.g().al());
+            this.e.addView(this.f.a());
+            this.f.a(TiebaApplication.g().ae());
         } else {
-            ((ViewGroup) this.f.e().getParent()).removeAllViews();
-            this.e.addView(this.f.e());
-            this.f.b(TiebaApplication.g().al());
+            ((ViewGroup) this.f.a().getParent()).removeAllViews();
+            this.e.addView(this.f.a());
+            this.f.a(TiebaApplication.g().ae());
         }
         this.c.setVisibility(8);
         this.e.setVisibility(0);
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onStop() {
+    public final void onStop() {
         super.onStop();
         this.g.b();
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onStart() {
+    public final void onStart() {
         super.onStart();
         this.g.a();
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onDestroy() {
+    public final void onDestroy() {
         super.onDestroy();
         try {
             if (this.b != null) {
@@ -149,18 +149,14 @@ public class af extends com.baidu.tieba.j implements com.baidu.adp.widget.ListVi
             }
             System.gc();
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "onDestroy", e.toString());
+            com.baidu.adp.lib.util.e.b(getClass().getName(), "onDestroy", e.toString());
         }
     }
 
-    public void c() {
-        this.b.b();
-    }
-
     @Override // com.baidu.adp.widget.ListView.b
-    public void a(boolean z) {
+    public final void a(boolean z) {
         if (!z) {
-            c();
+            this.b.b();
         }
     }
 }

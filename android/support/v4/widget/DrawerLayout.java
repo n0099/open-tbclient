@@ -360,8 +360,8 @@ public class DrawerLayout extends ViewGroup {
                 if (isContentView(childAt)) {
                     childAt.measure(View.MeasureSpec.makeMeasureSpec((size - layoutParams.leftMargin) - layoutParams.rightMargin, 1073741824), View.MeasureSpec.makeMeasureSpec((size2 - layoutParams.topMargin) - layoutParams.bottomMargin, 1073741824));
                 } else if (isDrawerView(childAt)) {
-                    if ((0 & getDrawerViewGravity(childAt) & 7) != 0) {
-                        throw new IllegalStateException("Child drawer has absolute gravity " + gravityToString(drawerViewGravity) + " but this " + TAG + " already has a drawer view along that edge");
+                    if ((getDrawerViewGravity(childAt) & 7 & 0) != 0) {
+                        throw new IllegalStateException("Child drawer has absolute gravity " + gravityToString(drawerViewGravity) + " but this DrawerLayout already has a drawer view along that edge");
                     }
                     childAt.measure(getChildMeasureSpec(i, this.mMinDrawerMargin + layoutParams.leftMargin + layoutParams.rightMargin, layoutParams.width), getChildMeasureSpec(i2, layoutParams.topMargin + layoutParams.bottomMargin, layoutParams.height));
                 } else {
@@ -460,10 +460,8 @@ public class DrawerLayout extends ViewGroup {
             int i3 = 0;
             while (i3 < childCount) {
                 View childAt = getChildAt(i3);
-                if (childAt != view && childAt.getVisibility() == 0 && hasOpaqueBackground(childAt) && isDrawerView(childAt)) {
-                    if (childAt.getHeight() < height) {
-                        i = width;
-                    } else if (checkDrawerViewGravity(childAt, 3)) {
+                if (childAt != view && childAt.getVisibility() == 0 && hasOpaqueBackground(childAt) && isDrawerView(childAt) && childAt.getHeight() >= height) {
+                    if (checkDrawerViewGravity(childAt, 3)) {
                         int right = childAt.getRight();
                         if (right <= i2) {
                             right = i2;
@@ -852,14 +850,14 @@ public class DrawerLayout extends ViewGroup {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public SavedState createFromParcel(Parcel parcel) {
+            public final SavedState createFromParcel(Parcel parcel) {
                 return new SavedState(parcel);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public SavedState[] newArray(int i) {
+            public final SavedState[] newArray(int i) {
                 return new SavedState[i];
             }
         };

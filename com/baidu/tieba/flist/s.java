@@ -3,7 +3,7 @@ package com.baidu.tieba.flist;
 import android.widget.TextView;
 import com.baidu.tieba.view.HeadImageView;
 /* loaded from: classes.dex */
-class s {
+final class s {
     HeadImageView a;
     TextView b;
     TextView c;

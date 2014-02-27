@@ -20,7 +20,7 @@ public final class DelGroupActivityRes {
         public static final int GROUPNAME_FIELD_NUMBER = 2;
         public static final int ISEND_FIELD_NUMBER = 4;
         public static Parser<DataRes> PARSER = new g();
-        private static final DataRes a = new DataRes(true);
+        private static final DataRes a;
         private static final long serialVersionUID = 0;
         private int activityId_;
         private int bitField0_;
@@ -41,7 +41,7 @@ public final class DelGroupActivityRes {
             this.memoizedSerializedSize = -1;
         }
 
-        private DataRes(boolean z) {
+        private DataRes() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -52,7 +52,7 @@ public final class DelGroupActivityRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public DataRes getDefaultInstanceForType() {
+        public final DataRes getDefaultInstanceForType() {
             return a;
         }
 
@@ -110,27 +110,29 @@ public final class DelGroupActivityRes {
         }
 
         static {
-            a.a();
+            DataRes dataRes = new DataRes();
+            a = dataRes;
+            dataRes.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<DataRes> getParserForType() {
+        public final Parser<DataRes> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasGroupId() {
+        public final boolean hasGroupId() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public int getGroupId() {
+        public final int getGroupId() {
             return this.groupId_;
         }
 
-        public boolean hasGroupName() {
+        public final boolean hasGroupName() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public String getGroupName() {
+        public final String getGroupName() {
             Object obj = this.groupName_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -143,7 +145,7 @@ public final class DelGroupActivityRes {
             return stringUtf8;
         }
 
-        public ByteString getGroupNameBytes() {
+        public final ByteString getGroupNameBytes() {
             Object obj = this.groupName_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -153,19 +155,19 @@ public final class DelGroupActivityRes {
             return (ByteString) obj;
         }
 
-        public boolean hasActivityId() {
+        public final boolean hasActivityId() {
             return (this.bitField0_ & 4) == 4;
         }
 
-        public int getActivityId() {
+        public final int getActivityId() {
             return this.activityId_;
         }
 
-        public boolean hasIsEnd() {
+        public final boolean hasIsEnd() {
             return (this.bitField0_ & 8) == 8;
         }
 
-        public int getIsEnd() {
+        public final int getIsEnd() {
             return this.isEnd_;
         }
 
@@ -187,7 +189,7 @@ public final class DelGroupActivityRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeInt32(1, this.groupId_);
@@ -204,10 +206,13 @@ public final class DelGroupActivityRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt32Size(1, this.groupId_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeInt32Size(1, this.groupId_) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeBytesSize(2, getGroupNameBytes());
                 }
@@ -224,7 +229,7 @@ public final class DelGroupActivityRes {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -269,12 +274,12 @@ public final class DelGroupActivityRes {
         }
 
         public static h newBuilder() {
-            return h.f();
+            return h.b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public h newBuilderForType() {
+        public final h newBuilderForType() {
             return newBuilder();
         }
 
@@ -284,7 +289,7 @@ public final class DelGroupActivityRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public h toBuilder() {
+        public final h toBuilder() {
             return newBuilder(this);
         }
     }
@@ -294,7 +299,7 @@ public final class DelGroupActivityRes {
         public static final int DATA_FIELD_NUMBER = 2;
         public static final int ERROR_FIELD_NUMBER = 1;
         public static Parser<DelGroupActivityResIdl> PARSER = new j();
-        private static final DelGroupActivityResIdl a = new DelGroupActivityResIdl(true);
+        private static final DelGroupActivityResIdl a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private DataRes data_;
@@ -313,7 +318,7 @@ public final class DelGroupActivityRes {
             this.memoizedSerializedSize = -1;
         }
 
-        private DelGroupActivityResIdl(boolean z) {
+        private DelGroupActivityResIdl() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -324,7 +329,7 @@ public final class DelGroupActivityRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public DelGroupActivityResIdl getDefaultInstanceForType() {
+        public final DelGroupActivityResIdl getDefaultInstanceForType() {
             return a;
         }
 
@@ -384,27 +389,29 @@ public final class DelGroupActivityRes {
         }
 
         static {
-            a.a();
+            DelGroupActivityResIdl delGroupActivityResIdl = new DelGroupActivityResIdl();
+            a = delGroupActivityResIdl;
+            delGroupActivityResIdl.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<DelGroupActivityResIdl> getParserForType() {
+        public final Parser<DelGroupActivityResIdl> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasError() {
+        public final boolean hasError() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public Im.Error getError() {
+        public final Im.Error getError() {
             return this.error_;
         }
 
-        public boolean hasData() {
+        public final boolean hasData() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public DataRes getData() {
+        public final DataRes getData() {
             return this.data_;
         }
 
@@ -424,7 +431,7 @@ public final class DelGroupActivityRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeMessage(1, this.error_);
@@ -435,10 +442,13 @@ public final class DelGroupActivityRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeMessageSize(1, this.error_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeMessageSize(1, this.error_) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeMessageSize(2, this.data_);
                 }
@@ -449,7 +459,7 @@ public final class DelGroupActivityRes {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -494,12 +504,12 @@ public final class DelGroupActivityRes {
         }
 
         public static k newBuilder() {
-            return k.f();
+            return k.a();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public k newBuilderForType() {
+        public final k newBuilderForType() {
             return newBuilder();
         }
 
@@ -509,7 +519,7 @@ public final class DelGroupActivityRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public k toBuilder() {
+        public final k toBuilder() {
             return newBuilder(this);
         }
     }

@@ -4,7 +4,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.TiebaApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ax extends BdAsyncTask<Void, Void, Void> {
+public final class ax extends BdAsyncTask<Void, Void, Void> {
     final /* synthetic */ aw a;
     private final /* synthetic */ boolean b;
 
@@ -14,12 +14,13 @@ public class ax extends BdAsyncTask<Void, Void, Void> {
         this.b = z;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void a(Void... voidArr) {
-        com.baidu.tieba.im.groupInfo.v.b(TiebaApplication.A(), this.a.c(), this.b);
-        com.baidu.tieba.im.c.a.f().a(this.a.c());
+    public final /* synthetic */ Void a(Void... voidArr) {
+        com.baidu.tieba.im.groupInfo.v.b(TiebaApplication.v(), this.a.c(), this.b);
+        com.baidu.tieba.im.c.a.d().a(this.a.c());
         return null;
     }
 }

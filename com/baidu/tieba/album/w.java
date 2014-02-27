@@ -1,47 +1,29 @@
 package com.baidu.tieba.album;
 
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import com.baidu.tbadk.widget.TbImageView;
+import android.view.View;
 import com.baidu.tieba.img.ImageFileInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ u a;
+public final class w implements View.OnClickListener {
+    final /* synthetic */ v a;
     private final /* synthetic */ ImageFileInfo b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(u uVar, ImageFileInfo imageFileInfo) {
-        this.a = uVar;
+    public w(v vVar, ImageFileInfo imageFileInfo) {
+        this.a = vVar;
         this.b = imageFileInfo;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        LinearLayout linearLayout;
-        LinearLayout linearLayout2;
-        LinearLayout linearLayout3;
-        LinearLayout linearLayout4;
-        TbImageView a;
-        if (bVar != null) {
-            linearLayout = this.a.i;
-            int childCount = linearLayout.getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                linearLayout2 = this.a.i;
-                if (linearLayout2.getChildAt(i) != null) {
-                    linearLayout3 = this.a.i;
-                    if (linearLayout3.getChildAt(i) instanceof FrameLayout) {
-                        linearLayout4 = this.a.i;
-                        a = this.a.a((FrameLayout) linearLayout4.getChildAt(i));
-                        if (a != null && a.getTag() != null && a.getTag().equals(this.b.toCachedKey(false))) {
-                            bVar.a(a);
-                            return;
-                        }
-                    } else {
-                        continue;
-                    }
-                }
-            }
-        }
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        AlbumActivity albumActivity;
+        AlbumActivity albumActivity2;
+        AlbumActivity albumActivity3;
+        albumActivity = this.a.l;
+        albumActivity.b(this.b);
+        albumActivity2 = this.a.l;
+        albumActivity2.a(this.b, false);
+        albumActivity3 = this.a.l;
+        albumActivity3.b(this.b, false);
     }
 }

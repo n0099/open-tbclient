@@ -3,7 +3,7 @@ package com.baidu.tieba.im.chat;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements View.OnClickListener {
+public final class l implements View.OnClickListener {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,10 +12,10 @@ public class l implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.R();
-        this.a.T();
+    public final void onClick(View view) {
+        r0.a(this.a.G);
+        this.a.Q();
+        this.a.P();
         this.a.S();
-        this.a.V();
     }
 }

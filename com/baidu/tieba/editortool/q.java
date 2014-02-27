@@ -1,39 +1,25 @@
 package com.baidu.tieba.editortool;
 
-import android.support.v4.view.PagerAdapter;
 import android.view.View;
-import android.view.ViewGroup;
-import java.util.ArrayList;
+import com.baidu.adp.widget.ImageView.BDImageView;
 /* loaded from: classes.dex */
-public class q extends PagerAdapter {
-    final /* synthetic */ EmotionTabContentView a;
-    private ArrayList<View> b;
+final class q implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ p a;
 
-    public q(EmotionTabContentView emotionTabContentView, ArrayList<View> arrayList) {
-        this.a = emotionTabContentView;
-        this.b = new ArrayList<>();
-        this.b = arrayList;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public q(p pVar) {
+        this.a = pVar;
     }
 
-    @Override // android.support.v4.view.PagerAdapter
-    public int getCount() {
-        return this.b.size();
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public boolean isViewFromObject(View view, Object obj) {
-        return view == obj;
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        viewGroup.removeView(this.b.get(i));
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public Object instantiateItem(ViewGroup viewGroup, int i) {
-        View view = this.b.get(i);
-        viewGroup.addView(view);
-        return view;
+    @Override // com.baidu.tbadk.imageManager.d
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        EmotionTabContentView emotionTabContentView;
+        emotionTabContentView = this.a.a;
+        View findViewWithTag = emotionTabContentView.findViewWithTag(str);
+        if (findViewWithTag != null && (findViewWithTag instanceof BDImageView) && bVar != null) {
+            BDImageView bDImageView = (BDImageView) findViewWithTag;
+            bVar.a(bDImageView);
+            bDImageView.setTag(null);
+        }
     }
 }

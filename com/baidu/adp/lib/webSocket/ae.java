@@ -1,9 +1,10 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
-public class ae extends aa {
-    public WebSocketException a;
+public final class ae extends z {
+    public byte[] a;
 
-    public ae(WebSocketException webSocketException) {
-        this.a = webSocketException;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ae(byte[] bArr) {
+        this.a = bArr;
     }
 }

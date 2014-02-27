@@ -1,15 +1,51 @@
 package com.baidu.tieba.mainentrance;
 
-import com.slidingmenu.lib.R;
+import android.content.Context;
 /* loaded from: classes.dex */
-public class d {
-    public static c a() {
-        c cVar = new c();
-        cVar.a = new com.baidu.tieba.e.p();
-        cVar.e = 0;
-        cVar.b = R.drawable.tabs_recommend;
-        cVar.c = R.drawable.tabs_recommend_1;
-        cVar.d = R.string.homepage;
-        return cVar;
+public final class d {
+    private static c a = null;
+
+    public static void a(Context context, int i) {
+        if (a != null) {
+            a.a(context, i);
+        }
+    }
+
+    public static void a(Context context) {
+        if (a != null) {
+            a.a(context);
+        }
+    }
+
+    public static void a(Context context, int i, boolean z) {
+        if (a != null) {
+            a.a(context, i, false);
+        }
+    }
+
+    public static void b(Context context, int i) {
+        if (a != null) {
+            a.b(context, i);
+        }
+    }
+
+    public static Class a() {
+        if (a == null) {
+            return null;
+        }
+        return a.a();
+    }
+
+    public static String b() {
+        if (a == null) {
+            return null;
+        }
+        return a.b();
+    }
+
+    public static void a(c cVar) {
+        if (cVar != null) {
+            a = cVar;
+        }
     }
 }

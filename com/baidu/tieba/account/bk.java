@@ -3,9 +3,8 @@ package com.baidu.tieba.account;
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bk extends com.baidu.tieba.util.ao {
+final class bk extends com.baidu.tieba.util.ao {
     final /* synthetic */ Register2Activity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,7 +15,7 @@ public class bk extends com.baidu.tieba.util.ao {
     }
 
     @Override // com.baidu.tieba.util.ao, android.text.style.ClickableSpan
-    public void onClick(View view) {
+    public final void onClick(View view) {
         bm bmVar;
         bmVar = this.a.O;
         if (bmVar == null) {

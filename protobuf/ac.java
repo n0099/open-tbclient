@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.Im;
 /* loaded from: classes.dex */
 public final class ac extends GeneratedMessageLite.Builder<Im.PusherMsgInfo, ac> implements ad {
@@ -13,24 +14,34 @@ public final class ac extends GeneratedMessageLite.Builder<Im.PusherMsgInfo, ac>
     private long d;
     private int e;
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        Im.PusherMsgInfo buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return Im.PusherMsgInfo.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return Im.PusherMsgInfo.getDefaultInstance();
+    }
+
     private ac() {
-        g();
     }
 
-    private void g() {
-    }
-
-    /* JADX DEBUG: Method not inlined, still used in: [protobuf.Im.PusherMsgInfo.newBuilder():protobuf.ac] */
-    public static /* synthetic */ ac f() {
-        return h();
-    }
-
-    public static ac h() {
+    public static /* synthetic */ ac b() {
         return new ac();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public ac clear() {
         super.clear();
         this.b = 0;
@@ -45,30 +56,14 @@ public final class ac extends GeneratedMessageLite.Builder<Im.PusherMsgInfo, ac>
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public ac clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public Im.PusherMsgInfo getDefaultInstanceForType() {
-        return Im.PusherMsgInfo.getDefaultInstance();
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public Im.PusherMsgInfo build() {
-        Im.PusherMsgInfo buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
+    public ac clone() {
+        return new ac().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public Im.PusherMsgInfo buildPartial() {
+    /* renamed from: a */
+    public final Im.PusherMsgInfo buildPartial() {
         Im.PusherMsgInfo pusherMsgInfo = new Im.PusherMsgInfo(this, (Im.PusherMsgInfo) null);
         int i = this.a;
         int i2 = (i & 1) != 1 ? 0 : 1;
@@ -91,19 +86,27 @@ public final class ac extends GeneratedMessageLite.Builder<Im.PusherMsgInfo, ac>
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public ac mergeFrom(Im.PusherMsgInfo pusherMsgInfo) {
+    public final ac mergeFrom(Im.PusherMsgInfo pusherMsgInfo) {
         if (pusherMsgInfo != Im.PusherMsgInfo.getDefaultInstance()) {
             if (pusherMsgInfo.hasGroupId()) {
-                a(pusherMsgInfo.getGroupId());
+                int groupId = pusherMsgInfo.getGroupId();
+                this.a |= 1;
+                this.b = groupId;
             }
             if (pusherMsgInfo.hasMsgId()) {
-                a(pusherMsgInfo.getMsgId());
+                long msgId = pusherMsgInfo.getMsgId();
+                this.a |= 2;
+                this.c = msgId;
             }
             if (pusherMsgInfo.hasPushTime()) {
-                b(pusherMsgInfo.getPushTime());
+                long pushTime = pusherMsgInfo.getPushTime();
+                this.a |= 4;
+                this.d = pushTime;
             }
             if (pusherMsgInfo.hasType()) {
-                b(pusherMsgInfo.getType());
+                int type = pusherMsgInfo.getType();
+                this.a |= 8;
+                this.e = type;
             }
         }
         return this;
@@ -150,29 +153,5 @@ public final class ac extends GeneratedMessageLite.Builder<Im.PusherMsgInfo, ac>
                 throw th;
             }
         }
-    }
-
-    public ac a(int i) {
-        this.a |= 1;
-        this.b = i;
-        return this;
-    }
-
-    public ac a(long j) {
-        this.a |= 2;
-        this.c = j;
-        return this;
-    }
-
-    public ac b(long j) {
-        this.a |= 4;
-        this.d = j;
-        return this;
-    }
-
-    public ac b(int i) {
-        this.a |= 8;
-        this.e = i;
-        return this;
     }
 }

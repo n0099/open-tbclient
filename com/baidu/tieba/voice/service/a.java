@@ -7,7 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 /* loaded from: classes.dex */
-public class a implements h {
+public final class a implements h {
     public static int a = 8000;
     public static int b = 2;
     public static int c = 2;
@@ -25,7 +25,7 @@ public class a implements h {
     private AudioRecord h = null;
     private File j = null;
 
-    public boolean a(int i, int i2, int i3, int i4, String str) {
+    private boolean a(int i, int i2, int i3, int i4, String str) {
         this.e = AudioRecord.getMinBufferSize(i2, i3, i4) + 2048;
         this.l = i2;
         this.m = i3;
@@ -52,56 +52,77 @@ public class a implements h {
             }
             try {
                 this.i = new RandomAccessFile(this.j, "rw");
-                e();
-                b(this.j.getParent());
+                try {
+                    this.i.setLength(0L);
+                    this.i.writeBytes("RIFF");
+                    this.i.writeInt(0);
+                    this.i.writeBytes("WAVE");
+                    this.i.writeBytes("fmt ");
+                    this.i.writeInt(Integer.reverseBytes(16));
+                    this.i.writeShort(Short.reverseBytes((short) 1));
+                    this.i.writeShort(Short.reverseBytes(this.o));
+                    this.i.writeInt(Integer.reverseBytes(this.l));
+                    this.i.writeInt(Integer.reverseBytes(((this.l * this.o) * this.p) / 8));
+                    this.i.writeShort(Short.reverseBytes((short) ((this.o * this.p) / 8)));
+                    this.i.writeShort(Short.reverseBytes(this.p));
+                    this.i.writeBytes("data");
+                    this.i.writeInt(0);
+                } catch (IOException e2) {
+                    if (this.j.exists()) {
+                        this.j.delete();
+                    }
+                    e2.printStackTrace();
+                }
+                this.g = this.j.getParent();
                 return true;
-            } catch (FileNotFoundException e2) {
-                e2.printStackTrace();
+            } catch (FileNotFoundException e3) {
+                e3.printStackTrace();
                 return false;
             }
-        } catch (IOException e3) {
+        } catch (IOException e4) {
             this.j = null;
-            Log.e("create file error in audio record", e3.getMessage());
+            Log.e("create file error in audio record", e4.getMessage());
             return false;
         }
     }
 
     @Override // com.baidu.tieba.voice.service.h
-    public boolean a(String str) {
+    public final boolean a(String str) {
         return a(d, a, b, c, str);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void d() {
-        if (this.h != null && this.j != null) {
-            try {
-                this.f = true;
-                byte[] bArr = new byte[this.e];
-                this.h.startRecording();
-                while (this.f) {
-                    this.h.read(bArr, 0, bArr.length);
-                    this.i.write(bArr);
-                    this.k += bArr.length;
-                }
-                this.i.seek(4L);
-                this.i.writeInt(Integer.reverseBytes(this.k + 36));
-                this.i.seek(40L);
-                this.i.writeInt(Integer.reverseBytes(this.k));
-                this.i.close();
-                this.h.stop();
-                this.h.release();
-                this.f = false;
-            } catch (Throwable th) {
-                Log.e("AudioRecord", "Recording Failed");
-                if (this.j.exists()) {
-                    this.j.delete();
-                }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(a aVar) {
+        if (aVar.h == null || aVar.j == null) {
+            return;
+        }
+        try {
+            aVar.f = true;
+            byte[] bArr = new byte[aVar.e];
+            aVar.h.startRecording();
+            while (aVar.f) {
+                aVar.h.read(bArr, 0, bArr.length);
+                aVar.i.write(bArr);
+                aVar.k += bArr.length;
+            }
+            aVar.i.seek(4L);
+            aVar.i.writeInt(Integer.reverseBytes(aVar.k + 36));
+            aVar.i.seek(40L);
+            aVar.i.writeInt(Integer.reverseBytes(aVar.k));
+            aVar.i.close();
+            aVar.h.stop();
+            aVar.h.release();
+            aVar.f = false;
+        } catch (Throwable th) {
+            Log.e("AudioRecord", "Recording Failed");
+            if (aVar.j.exists()) {
+                aVar.j.delete();
             }
         }
     }
 
     @Override // com.baidu.tieba.voice.service.h
-    public boolean a() {
+    public final boolean a() {
         Thread thread = new Thread(new b(this));
         thread.setPriority(10);
         thread.setDaemon(true);
@@ -110,40 +131,12 @@ public class a implements h {
     }
 
     @Override // com.baidu.tieba.voice.service.h
-    public void b() {
+    public final void b() {
         this.f = false;
     }
 
     @Override // com.baidu.tieba.voice.service.h
-    public boolean c() {
+    public final boolean c() {
         return this.f;
-    }
-
-    private void e() {
-        try {
-            this.i.setLength(0L);
-            this.i.writeBytes("RIFF");
-            this.i.writeInt(0);
-            this.i.writeBytes("WAVE");
-            this.i.writeBytes("fmt ");
-            this.i.writeInt(Integer.reverseBytes(16));
-            this.i.writeShort(Short.reverseBytes((short) 1));
-            this.i.writeShort(Short.reverseBytes(this.o));
-            this.i.writeInt(Integer.reverseBytes(this.l));
-            this.i.writeInt(Integer.reverseBytes(((this.l * this.o) * this.p) / 8));
-            this.i.writeShort(Short.reverseBytes((short) ((this.o * this.p) / 8)));
-            this.i.writeShort(Short.reverseBytes(this.p));
-            this.i.writeBytes("data");
-            this.i.writeInt(0);
-        } catch (IOException e) {
-            if (this.j.exists()) {
-                this.j.delete();
-            }
-            e.printStackTrace();
-        }
-    }
-
-    public void b(String str) {
-        this.g = str;
     }
 }

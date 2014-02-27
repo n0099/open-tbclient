@@ -11,11 +11,25 @@ import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f extends BdAsyncTask<HttpMessage, com.baidu.adp.framework.message.c, com.baidu.adp.framework.message.c> {
+public final class f extends BdAsyncTask<HttpMessage, com.baidu.adp.framework.message.c, com.baidu.adp.framework.message.c> {
     final /* synthetic */ d a;
     private HttpMessage b;
     private com.baidu.adp.lib.network.a c;
     private HttpMessageTask d;
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ com.baidu.adp.framework.message.c a(HttpMessage... httpMessageArr) {
+        return d();
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* bridge */ /* synthetic */ void a(com.baidu.adp.framework.message.c cVar) {
+        this.a.a.a(cVar);
+    }
 
     public f(d dVar, HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         this.a = dVar;
@@ -33,10 +47,7 @@ public class f extends BdAsyncTask<HttpMessage, com.baidu.adp.framework.message.
         this.c = new com.baidu.adp.lib.network.a();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public com.baidu.adp.framework.message.c a(HttpMessage... httpMessageArr) {
+    private com.baidu.adp.framework.message.c d() {
         com.baidu.adp.lib.network.f fVar;
         String a;
         if (this.c.c()) {
@@ -45,12 +56,12 @@ public class f extends BdAsyncTask<HttpMessage, com.baidu.adp.framework.message.
         StringBuilder sb = new StringBuilder(256);
         List<Map.Entry<String, Object>> c = this.b.c();
         HashMap<String, String> a2 = this.b.a();
-        LinkedList<BasicNameValuePair> linkedList = new LinkedList<>();
+        LinkedList linkedList = new LinkedList();
         for (Map.Entry<String, String> entry : a2.entrySet()) {
             linkedList.add(new BasicNameValuePair(entry.getKey(), entry.getValue()));
         }
-        ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
-        HashMap<String, byte[]> hashMap = new HashMap<>();
+        ArrayList arrayList = new ArrayList();
+        HashMap hashMap = new HashMap();
         if (this.b.b()) {
             for (Map.Entry<String, Object> entry2 : c) {
                 if (entry2 != null && entry2.getValue() != null) {
@@ -59,7 +70,7 @@ public class f extends BdAsyncTask<HttpMessage, com.baidu.adp.framework.message.
                     } else if (entry2.getValue() instanceof byte[]) {
                         hashMap.put(entry2.getKey(), (byte[]) entry2.getValue());
                     } else {
-                        com.baidu.adp.lib.util.f.b("Ignore request param:" + entry2.getKey());
+                        com.baidu.adp.lib.util.e.b("Ignore request param:" + entry2.getKey());
                     }
                 }
             }
@@ -78,7 +89,7 @@ public class f extends BdAsyncTask<HttpMessage, com.baidu.adp.framework.message.
                     sb.append("&");
                 }
                 sb.append(String.valueOf(key) + "=");
-                sb.append(com.baidu.adp.lib.util.h.c(str));
+                sb.append(com.baidu.adp.lib.util.g.c(str));
             }
             i = i2 + 1;
         }
@@ -86,16 +97,20 @@ public class f extends BdAsyncTask<HttpMessage, com.baidu.adp.framework.message.
         int a3 = this.d.j().a();
         try {
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(e.toString());
+            com.baidu.adp.lib.util.e.b(e.toString());
         }
         if (this.d.c() == HttpMessageTask.HTTP_METHOD.GET) {
-            fVar = com.baidu.adp.lib.network.e.a().a(this.d.a().endsWith("?") ? String.valueOf(a) + sb2 : String.valueOf(a) + "?" + sb2, this.d.d(), this.d.k(), 100, a3, (com.baidu.adp.lib.network.d) null, this.c, linkedList);
+            String str2 = this.d.a().endsWith("?") ? String.valueOf(a) + sb2 : String.valueOf(a) + "?" + sb2;
+            com.baidu.adp.lib.network.e.a();
+            fVar = com.baidu.adp.lib.network.e.a(str2, this.d.d(), this.d.k(), 100, a3, (com.baidu.adp.lib.network.d) null, this.c, linkedList);
         } else {
             if (this.d.c() == HttpMessageTask.HTTP_METHOD.POST) {
                 if (hashMap.size() > 0) {
-                    fVar = com.baidu.adp.lib.network.e.a().a(this.d.a(), this.d.d(), arrayList, hashMap, this.d.k(), a3, null, this.c, null, linkedList);
+                    com.baidu.adp.lib.network.e.a();
+                    fVar = com.baidu.adp.lib.network.e.a(this.d.a(), this.d.d(), arrayList, hashMap, this.d.k(), a3, null, this.c, linkedList);
                 } else {
-                    fVar = com.baidu.adp.lib.network.e.a().a(this.d.a(), sb2.getBytes(), this.d.d(), this.d.k(), a3, (com.baidu.adp.lib.network.d) null, this.c, linkedList);
+                    com.baidu.adp.lib.network.e.a();
+                    fVar = com.baidu.adp.lib.network.e.a(this.d.a(), sb2.getBytes(), this.d.d(), this.d.k(), a3, (com.baidu.adp.lib.network.d) null, this.c, linkedList);
                 }
             }
             fVar = null;
@@ -110,32 +125,27 @@ public class f extends BdAsyncTask<HttpMessage, com.baidu.adp.framework.message.
             if (newInstance.a()) {
                 try {
                     newInstance.a(this.b.d(), (int) fVar.d);
-                    newInstance.b(this.b.d(), fVar.d);
+                    this.b.d();
+                    byte[] bArr = fVar.d;
                     return newInstance;
                 } catch (Exception e2) {
                     newInstance.a(-1003);
-                    com.baidu.adp.lib.util.f.b(e2.toString());
+                    com.baidu.adp.lib.util.e.b(e2.toString());
                     return newInstance;
                 }
             }
             return newInstance;
         } catch (Exception e3) {
-            com.baidu.adp.lib.util.f.b("responsedMessage create error reason = " + e3.toString());
+            com.baidu.adp.lib.util.e.b("responsedMessage create error reason = " + e3.toString());
             return new e(this.b.d(), this.b);
         }
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
+    public final void cancel() {
         super.cancel(true);
         if (this.c != null) {
             this.c.a();
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(com.baidu.adp.framework.message.c cVar) {
-        this.a.a.a(cVar);
     }
 }

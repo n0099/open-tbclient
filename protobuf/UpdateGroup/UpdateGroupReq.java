@@ -18,7 +18,7 @@ public final class UpdateGroupReq {
     public final class UpdateGroupReqIdl extends GeneratedMessageLite implements c {
         public static final int DATA_FIELD_NUMBER = 1;
         public static Parser<UpdateGroupReqIdl> PARSER = new a();
-        private static final UpdateGroupReqIdl a = new UpdateGroupReqIdl(true);
+        private static final UpdateGroupReqIdl a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private Im.GroupInfo data_;
@@ -36,7 +36,7 @@ public final class UpdateGroupReq {
             this.memoizedSerializedSize = -1;
         }
 
-        private UpdateGroupReqIdl(boolean z) {
+        private UpdateGroupReqIdl() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -47,7 +47,7 @@ public final class UpdateGroupReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public UpdateGroupReqIdl getDefaultInstanceForType() {
+        public final UpdateGroupReqIdl getDefaultInstanceForType() {
             return a;
         }
 
@@ -55,7 +55,7 @@ public final class UpdateGroupReq {
             k kVar;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
-            a();
+            this.data_ = Im.GroupInfo.getDefaultInstance();
             boolean z = false;
             while (!z) {
                 try {
@@ -103,24 +103,22 @@ public final class UpdateGroupReq {
         }
 
         static {
-            a.a();
+            UpdateGroupReqIdl updateGroupReqIdl = new UpdateGroupReqIdl();
+            a = updateGroupReqIdl;
+            updateGroupReqIdl.data_ = Im.GroupInfo.getDefaultInstance();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<UpdateGroupReqIdl> getParserForType() {
+        public final Parser<UpdateGroupReqIdl> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasData() {
+        public final boolean hasData() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public Im.GroupInfo getData() {
+        public final Im.GroupInfo getData() {
             return this.data_;
-        }
-
-        private void a() {
-            this.data_ = Im.GroupInfo.getDefaultInstance();
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -134,7 +132,7 @@ public final class UpdateGroupReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeMessage(1, this.data_);
@@ -142,10 +140,13 @@ public final class UpdateGroupReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeMessageSize(1, this.data_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeMessageSize(1, this.data_) + 0;
+                }
                 this.memoizedSerializedSize = i;
             }
             return i;
@@ -153,7 +154,7 @@ public final class UpdateGroupReq {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -198,12 +199,12 @@ public final class UpdateGroupReq {
         }
 
         public static b newBuilder() {
-            return b.f();
+            return b.b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public b newBuilderForType() {
+        public final b newBuilderForType() {
             return newBuilder();
         }
 
@@ -213,7 +214,7 @@ public final class UpdateGroupReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public b toBuilder() {
+        public final b toBuilder() {
             return newBuilder(this);
         }
     }

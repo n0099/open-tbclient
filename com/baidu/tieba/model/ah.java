@@ -1,6 +1,6 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
-class ah extends com.baidu.tieba.im.c<Void> {
+final class ah extends com.baidu.tieba.im.b<Void> {
     final /* synthetic */ ag a;
     private final /* synthetic */ boolean c;
     private final /* synthetic */ String d;
@@ -12,17 +12,12 @@ class ah extends com.baidu.tieba.im.c<Void> {
         this.d = str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.c
-    /* renamed from: a */
-    public Void b() {
-        String str;
-        if (this.c) {
-            str = com.baidu.tieba.im.db.k.b(this.d);
-        } else {
-            str = this.d;
-        }
-        com.baidu.tieba.im.db.k.a().a(str, true);
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.b
+    public final /* synthetic */ Void a() {
+        String b = this.c ? com.baidu.tieba.im.db.k.b(this.d) : this.d;
+        com.baidu.tieba.im.db.k.a();
+        com.baidu.tieba.im.db.k.a(b, true);
         return null;
     }
 }

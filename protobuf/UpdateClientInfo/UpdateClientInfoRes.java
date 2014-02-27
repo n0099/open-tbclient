@@ -23,7 +23,9 @@ public final class UpdateClientInfoRes {
         public static final int GROUPINFO_FIELD_NUMBER = 1;
         public static final int HEARTBEATINTERVAL_FIELD_NUMBER = 4;
         public static final int MASKINFO_FIELD_NUMBER = 3;
+        public static Parser<DataRes> PARSER = new g();
         public static final int USERINFO_FIELD_NUMBER = 2;
+        private static final DataRes a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private List<Im.GroupInfo> groupInfo_;
@@ -32,8 +34,6 @@ public final class UpdateClientInfoRes {
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
         private Im.UserInfo userInfo_;
-        public static Parser<DataRes> PARSER = new g();
-        private static final DataRes a = new DataRes(true);
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ DataRes(GeneratedMessageLite.Builder builder, DataRes dataRes) {
@@ -46,7 +46,7 @@ public final class UpdateClientInfoRes {
             this.memoizedSerializedSize = -1;
         }
 
-        private DataRes(boolean z) {
+        private DataRes() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -57,7 +57,7 @@ public final class UpdateClientInfoRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public DataRes getDefaultInstanceForType() {
+        public final DataRes getDefaultInstanceForType() {
             return a;
         }
 
@@ -151,59 +151,61 @@ public final class UpdateClientInfoRes {
         }
 
         static {
-            a.a();
+            DataRes dataRes = new DataRes();
+            a = dataRes;
+            dataRes.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<DataRes> getParserForType() {
+        public final Parser<DataRes> getParserForType() {
             return PARSER;
         }
 
-        public List<Im.GroupInfo> getGroupInfoList() {
+        public final List<Im.GroupInfo> getGroupInfoList() {
             return this.groupInfo_;
         }
 
-        public List<? extends protobuf.l> getGroupInfoOrBuilderList() {
+        public final List<? extends protobuf.l> getGroupInfoOrBuilderList() {
             return this.groupInfo_;
         }
 
-        public int getGroupInfoCount() {
+        public final int getGroupInfoCount() {
             return this.groupInfo_.size();
         }
 
-        public Im.GroupInfo getGroupInfo(int i) {
+        public final Im.GroupInfo getGroupInfo(int i) {
             return this.groupInfo_.get(i);
         }
 
-        public protobuf.l getGroupInfoOrBuilder(int i) {
+        public final protobuf.l getGroupInfoOrBuilder(int i) {
             return this.groupInfo_.get(i);
         }
 
-        public boolean hasUserInfo() {
+        public final boolean hasUserInfo() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public Im.UserInfo getUserInfo() {
+        public final Im.UserInfo getUserInfo() {
             return this.userInfo_;
         }
 
-        public boolean hasMaskInfo() {
+        public final boolean hasMaskInfo() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public Im.MaskInfo getMaskInfo() {
+        public final Im.MaskInfo getMaskInfo() {
             return this.maskInfo_;
         }
 
-        public List<Integer> getHeartbeatIntervalList() {
+        public final List<Integer> getHeartbeatIntervalList() {
             return this.heartbeatInterval_;
         }
 
-        public int getHeartbeatIntervalCount() {
+        public final int getHeartbeatIntervalCount() {
             return this.heartbeatInterval_.size();
         }
 
-        public int getHeartbeatInterval(int i) {
+        public final int getHeartbeatInterval(int i) {
             return this.heartbeatInterval_.get(i).intValue();
         }
 
@@ -225,7 +227,7 @@ public final class UpdateClientInfoRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             for (int i = 0; i < this.groupInfo_.size(); i++) {
                 codedOutputStream.writeMessage(1, this.groupInfo_.get(i));
@@ -242,7 +244,7 @@ public final class UpdateClientInfoRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = 0;
             int i2 = this.memoizedSerializedSize;
             if (i2 == -1) {
@@ -270,7 +272,7 @@ public final class UpdateClientInfoRes {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -315,12 +317,12 @@ public final class UpdateClientInfoRes {
         }
 
         public static h newBuilder() {
-            return h.f();
+            return h.b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public h newBuilderForType() {
+        public final h newBuilderForType() {
             return newBuilder();
         }
 
@@ -330,7 +332,7 @@ public final class UpdateClientInfoRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public h toBuilder() {
+        public final h toBuilder() {
             return newBuilder(this);
         }
     }
@@ -340,7 +342,7 @@ public final class UpdateClientInfoRes {
         public static final int DATA_FIELD_NUMBER = 2;
         public static final int ERROR_FIELD_NUMBER = 1;
         public static Parser<UpdateClientInfoResIdl> PARSER = new j();
-        private static final UpdateClientInfoResIdl a = new UpdateClientInfoResIdl(true);
+        private static final UpdateClientInfoResIdl a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private DataRes data_;
@@ -359,7 +361,7 @@ public final class UpdateClientInfoRes {
             this.memoizedSerializedSize = -1;
         }
 
-        private UpdateClientInfoResIdl(boolean z) {
+        private UpdateClientInfoResIdl() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -370,7 +372,7 @@ public final class UpdateClientInfoRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public UpdateClientInfoResIdl getDefaultInstanceForType() {
+        public final UpdateClientInfoResIdl getDefaultInstanceForType() {
             return a;
         }
 
@@ -430,27 +432,29 @@ public final class UpdateClientInfoRes {
         }
 
         static {
-            a.a();
+            UpdateClientInfoResIdl updateClientInfoResIdl = new UpdateClientInfoResIdl();
+            a = updateClientInfoResIdl;
+            updateClientInfoResIdl.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<UpdateClientInfoResIdl> getParserForType() {
+        public final Parser<UpdateClientInfoResIdl> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasError() {
+        public final boolean hasError() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public Im.Error getError() {
+        public final Im.Error getError() {
             return this.error_;
         }
 
-        public boolean hasData() {
+        public final boolean hasData() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public DataRes getData() {
+        public final DataRes getData() {
             return this.data_;
         }
 
@@ -470,7 +474,7 @@ public final class UpdateClientInfoRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeMessage(1, this.error_);
@@ -481,10 +485,13 @@ public final class UpdateClientInfoRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeMessageSize(1, this.error_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeMessageSize(1, this.error_) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeMessageSize(2, this.data_);
                 }
@@ -495,7 +502,7 @@ public final class UpdateClientInfoRes {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -540,12 +547,12 @@ public final class UpdateClientInfoRes {
         }
 
         public static k newBuilder() {
-            return k.f();
+            return k.a();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public k newBuilderForType() {
+        public final k newBuilderForType() {
             return newBuilder();
         }
 
@@ -555,7 +562,7 @@ public final class UpdateClientInfoRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public k toBuilder() {
+        public final k toBuilder() {
             return newBuilder(this);
         }
     }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb;
 /* loaded from: classes.dex */
-class bd implements com.baidu.tbadk.imageManager.d {
+final class bd implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,8 +9,8 @@ class bd implements com.baidu.tbadk.imageManager.d {
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        this.a.a(bVar, str, z);
-        this.a.b(bVar, str, z);
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        NewPbActivity.a(this.a, bVar, str, z);
+        NewPbActivity.b(this.a, bVar, str, z);
     }
 }

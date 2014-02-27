@@ -15,7 +15,7 @@ import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r extends BaseAdapter implements View.OnClickListener {
+public final class r extends BaseAdapter implements View.OnClickListener {
     private com.baidu.tieba.f b;
     private int c;
     private int d;
@@ -34,26 +34,26 @@ public class r extends BaseAdapter implements View.OnClickListener {
         this.g = i;
     }
 
-    public ForumInfoData[] a() {
+    public final ForumInfoData[] a() {
         return this.j;
     }
 
-    public void a(ForumDetailActivity.FromType fromType) {
+    public final void a(ForumDetailActivity.FromType fromType) {
         this.i = fromType;
     }
 
-    public void a(ForumInfoData[] forumInfoDataArr) {
+    public final void a(ForumInfoData[] forumInfoDataArr) {
         this.j = forumInfoDataArr;
         if (this.j != null) {
             notifyDataSetChanged();
         }
     }
 
-    public void a(ar arVar) {
+    public final void a(ar arVar) {
         this.e = arVar;
     }
 
-    public void a(int i, int i2) {
+    public final void a(int i, int i2) {
         this.c = i;
         this.d = i2;
         if (i != 0 && i2 != 0) {
@@ -61,7 +61,7 @@ public class r extends BaseAdapter implements View.OnClickListener {
         }
     }
 
-    public void b() {
+    public final void b() {
         for (int i = 0; i < this.f; i++) {
             int d = TiebaApplication.g().d(this.j[i].forum_name);
             if (d == 1) {
@@ -72,24 +72,24 @@ public class r extends BaseAdapter implements View.OnClickListener {
         }
     }
 
-    public boolean c() {
+    public final boolean c() {
         if (this.e == null) {
             return false;
         }
         return this.e.b();
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.f = i;
         notifyDataSetChanged();
     }
 
-    public void a(Boolean bool) {
+    public final void a(Boolean bool) {
         this.h = bool.booleanValue();
     }
 
     @Override // android.widget.Adapter
-    public int getCount() {
+    public final int getCount() {
         if (this.j == null) {
             return 0;
         }
@@ -97,7 +97,7 @@ public class r extends BaseAdapter implements View.OnClickListener {
     }
 
     @Override // android.widget.Adapter
-    public Object getItem(int i) {
+    public final Object getItem(int i) {
         if (i > this.f) {
             return null;
         }
@@ -105,12 +105,12 @@ public class r extends BaseAdapter implements View.OnClickListener {
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    public final long getItemId(int i) {
         return i;
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public final View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null || view.getTag() == null) {
             view = View.inflate(this.b, R.layout.forum_list_forum_item, null);
             s sVar = new s(this);
@@ -140,11 +140,11 @@ public class r extends BaseAdapter implements View.OnClickListener {
             findViewById.setVisibility(8);
         }
         s sVar2 = (s) view.getTag();
-        int al = TiebaApplication.g().al();
-        this.b.getLayoutMode().a(al == 1);
+        int ae = TiebaApplication.g().ae();
+        this.b.getLayoutMode().a(ae == 1);
         this.b.getLayoutMode().a(view);
         ForumInfoData forumInfoData = this.j[i];
-        com.baidu.adp.lib.util.f.e("ForumListAdapter", "getView", "forum name:" + this.j[i].forum_name + "forum avatar:" + this.j[i].avatar);
+        com.baidu.adp.lib.util.e.e("ForumListAdapter", "getView", "forum name:" + this.j[i].forum_name + "forum avatar:" + this.j[i].avatar);
         String str = this.j[i].avatar;
         HeadImageView headImageView = sVar2.a;
         sVar2.a.setTag(str);
@@ -165,13 +165,13 @@ public class r extends BaseAdapter implements View.OnClickListener {
                 sVar2.b.setBackgroundDrawable(null);
                 switch (i) {
                     case 0:
-                        sVar2.b.setBackgroundResource(al != 1 ? R.drawable.icon_brief_grade_orange : R.drawable.icon_brief_grade_orange_1);
+                        sVar2.b.setBackgroundResource(ae != 1 ? R.drawable.icon_brief_grade_orange : R.drawable.icon_brief_grade_orange_1);
                         break;
                     case 1:
-                        sVar2.b.setBackgroundResource(al != 1 ? R.drawable.icon_brief_grade_blue : R.drawable.icon_brief_grade_blue_1);
+                        sVar2.b.setBackgroundResource(ae != 1 ? R.drawable.icon_brief_grade_blue : R.drawable.icon_brief_grade_blue_1);
                         break;
                     case 2:
-                        sVar2.b.setBackgroundResource(al != 1 ? R.drawable.icon_brief_grade_green : R.drawable.icon_brief_grade_green_1);
+                        sVar2.b.setBackgroundResource(ae != 1 ? R.drawable.icon_brief_grade_green : R.drawable.icon_brief_grade_green_1);
                         break;
                     default:
                         sVar2.b.setText(String.format("%02d", Integer.valueOf(i + 1)));
@@ -182,10 +182,10 @@ public class r extends BaseAdapter implements View.OnClickListener {
             sVar2.b.setVisibility(8);
             sVar2.c.setVisibility(0);
             sVar2.c.setText((CharSequence) null);
-            sVar2.c.setCompoundDrawablesWithIntrinsicBounds(al != 1 ? R.drawable.icon_rise : R.drawable.icon_rise_1, 0, 0, 0);
+            sVar2.c.setCompoundDrawablesWithIntrinsicBounds(ae != 1 ? R.drawable.icon_rise : R.drawable.icon_rise_1, 0, 0, 0);
             sVar2.c.setText(String.valueOf(this.b.getString(R.string.rise)) + String.valueOf(forumInfoData.mbr_inter_rank) + this.b.getString(R.string.number));
         }
-        if (TiebaApplication.g().al() == 1) {
+        if (TiebaApplication.g().ae() == 1) {
             sVar2.h.setTextColor(this.b.getResources().getColor(R.color.enterforum_name_txt_1));
         } else {
             sVar2.h.setTextColor(this.b.getResources().getColor(R.color.enterforum_name_txt));
@@ -196,9 +196,9 @@ public class r extends BaseAdapter implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         switch (view.getId()) {
-            case R.id.like /* 2131100383 */:
+            case R.id.like /* 2131100376 */:
                 cb.a(this.b, "forumlist_to_frs", "tofrsclick", 1, new Object[0]);
                 FrsActivity.a(this.b, (String) view.getTag(), null);
                 return;
@@ -214,14 +214,14 @@ public class r extends BaseAdapter implements View.OnClickListener {
         }
     }
 
-    public String b(int i) {
+    private String b(int i) {
         if (i >= 100000) {
             return String.valueOf(String.valueOf(i / 10000)) + this.b.getString(R.string.member_count_unit);
         }
         return String.valueOf(i);
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.k = z;
         notifyDataSetChanged();
     }

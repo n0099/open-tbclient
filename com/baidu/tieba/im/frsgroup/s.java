@@ -1,9 +1,8 @@
 package com.baidu.tieba.im.frsgroup;
 
 import com.baidu.adp.widget.ListView.BdListView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s implements com.baidu.adp.widget.ListView.b {
+final class s implements com.baidu.adp.widget.ListView.b {
     final /* synthetic */ MembersActivity a;
     private final /* synthetic */ BdListView b;
 
@@ -14,32 +13,32 @@ public class s implements com.baidu.adp.widget.ListView.b {
     }
 
     @Override // com.baidu.adp.widget.ListView.b
-    public void a(boolean z) {
+    public final void a(boolean z) {
         ae aeVar;
-        boolean i;
+        boolean e;
         com.baidu.tieba.im.model.l lVar;
         com.baidu.tieba.im.model.l lVar2;
         com.baidu.tieba.im.model.l lVar3;
         com.baidu.tieba.im.model.l lVar4;
         com.baidu.tieba.im.model.l lVar5;
         aeVar = this.a.b;
-        if (aeVar.i().d()) {
+        if (aeVar.h().d()) {
             this.b.a();
             return;
         }
-        i = this.a.i();
-        if (i) {
+        e = this.a.e();
+        if (e) {
             lVar = this.a.c;
             lVar2 = this.a.c;
             long f = lVar2.f();
             lVar3 = this.a.c;
             int d = lVar3.d();
             lVar4 = this.a.c;
-            int e = lVar4.e();
+            int e2 = lVar4.e();
             lVar5 = this.a.c;
-            lVar.a(f, d, e, lVar5.a());
+            lVar.a(f, d, e2, lVar5.a());
             return;
         }
-        this.a.g();
+        this.a.d();
     }
 }

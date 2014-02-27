@@ -11,7 +11,7 @@ import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class j {
+public final class j {
     private static j a = new j();
 
     public static j a() {
@@ -21,7 +21,7 @@ public class j {
     private j() {
     }
 
-    public boolean a(EmotionGroupData emotionGroupData) {
+    public static boolean a(EmotionGroupData emotionGroupData) {
         SQLiteDatabase a2 = DatabaseService.a();
         try {
             ContentValues contentValues = new ContentValues();
@@ -39,14 +39,14 @@ public class j {
             a2.insert("emotion_group", null, contentValues);
             return true;
         } catch (Throwable th) {
-            com.baidu.adp.lib.util.f.b("EmotionsDBManager", "addEmotionGroup", th.getMessage());
+            com.baidu.adp.lib.util.e.b("EmotionsDBManager", "addEmotionGroup", th.getMessage());
             DatabaseService.a(th, "EmotionsDBManager.addEmotionGroup");
             return false;
         }
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [123=4] */
-    public EmotionGroupData a(String str) {
+    public final EmotionGroupData a(String str) {
         Cursor cursor;
         EmotionGroupData emotionGroupData = null;
         if (!TextUtils.isEmpty(str)) {
@@ -63,7 +63,7 @@ public class j {
             } catch (Throwable th2) {
                 th = th2;
                 try {
-                    com.baidu.adp.lib.util.f.b("EmotionsDBManager", "getEmotionGroup", th.getMessage());
+                    com.baidu.adp.lib.util.e.b("EmotionsDBManager", "getEmotionGroup", th.getMessage());
                     DatabaseService.a(th, "EmotionsDBManager.getEmotionGroup");
                     return emotionGroupData;
                 } finally {
@@ -74,18 +74,18 @@ public class j {
         return emotionGroupData;
     }
 
-    public List<EmotionGroupData> a(int i) {
+    public final List<EmotionGroupData> a(int i) {
         SQLiteDatabase a2 = DatabaseService.a();
         Cursor cursor = null;
         LinkedList linkedList = new LinkedList();
         try {
-            cursor = a2.rawQuery("SELECT * FROM emotion_group where status = ? ", new String[]{String.valueOf(i)});
+            cursor = a2.rawQuery("SELECT * FROM emotion_group where status = ? ", new String[]{String.valueOf(1)});
             while (cursor.moveToNext()) {
                 linkedList.add(a(cursor));
             }
         } catch (Throwable th) {
             try {
-                com.baidu.adp.lib.util.f.b("EmotionsDBManager", "listAllEmotionGroups", th.getMessage());
+                com.baidu.adp.lib.util.e.b("EmotionsDBManager", "listAllEmotionGroups", th.getMessage());
                 DatabaseService.a(th, "EmotionsDBManager.listAllEmotionGroups");
             } finally {
                 r.a(cursor);
@@ -94,7 +94,7 @@ public class j {
         return linkedList;
     }
 
-    protected EmotionGroupData a(Cursor cursor) {
+    private static EmotionGroupData a(Cursor cursor) {
         EmotionGroupData emotionGroupData = new EmotionGroupData();
         emotionGroupData.groupId = cursor.getString(cursor.getColumnIndex("groupId"));
         emotionGroupData.groupName = cursor.getString(cursor.getColumnIndex("groupName"));
@@ -110,15 +110,7 @@ public class j {
         return emotionGroupData;
     }
 
-    public boolean a(String str, String str2, int i) {
-        EmotionData emotionData = new EmotionData();
-        emotionData.sharpText = str;
-        emotionData.groupId = str2;
-        emotionData.orderId = i;
-        return a(emotionData);
-    }
-
-    public boolean a(EmotionData emotionData) {
+    private static boolean a(EmotionData emotionData) {
         SQLiteDatabase a2 = DatabaseService.a();
         try {
             ContentValues contentValues = new ContentValues();
@@ -128,24 +120,28 @@ public class j {
             a2.insert("emotions", null, contentValues);
             return true;
         } catch (Throwable th) {
-            com.baidu.adp.lib.util.f.b("EmotionsDBManager", "addEmotion", th.getMessage());
+            com.baidu.adp.lib.util.e.b("EmotionsDBManager", "addEmotion", th.getMessage());
             DatabaseService.a(th, "EmotionsDBManager.addEmotion");
             return false;
         }
     }
 
-    public List<EmotionData> b(String str) {
+    public final List<EmotionData> b(String str) {
         SQLiteDatabase a2 = DatabaseService.a();
         Cursor cursor = null;
         LinkedList linkedList = new LinkedList();
         try {
             cursor = a2.rawQuery("SELECT * FROM emotions where groupId = ? order by orderId asc ", new String[]{String.valueOf(str)});
             while (cursor.moveToNext()) {
-                linkedList.add(b(cursor));
+                EmotionData emotionData = new EmotionData();
+                emotionData.sharpText = cursor.getString(cursor.getColumnIndex("sharpText"));
+                emotionData.groupId = cursor.getString(cursor.getColumnIndex("groupId"));
+                emotionData.orderId = cursor.getInt(cursor.getColumnIndex("orderId"));
+                linkedList.add(emotionData);
             }
         } catch (Throwable th) {
             try {
-                com.baidu.adp.lib.util.f.b("EmotionsDBManager", "listEmotionByGroup", th.getMessage());
+                com.baidu.adp.lib.util.e.b("EmotionsDBManager", "listEmotionByGroup", th.getMessage());
                 DatabaseService.a(th, "EmotionsDBManager.listEmotionByGroup");
             } finally {
                 r.a(cursor);
@@ -154,15 +150,7 @@ public class j {
         return linkedList;
     }
 
-    protected EmotionData b(Cursor cursor) {
-        EmotionData emotionData = new EmotionData();
-        emotionData.sharpText = cursor.getString(cursor.getColumnIndex("sharpText"));
-        emotionData.groupId = cursor.getString(cursor.getColumnIndex("groupId"));
-        emotionData.orderId = cursor.getInt(cursor.getColumnIndex("orderId"));
-        return emotionData;
-    }
-
-    public boolean a(String str, EmotionGroupData emotionGroupData) {
+    public static boolean a(String str, EmotionGroupData emotionGroupData) {
         if (TextUtils.isEmpty(str) || emotionGroupData == null) {
             return false;
         }
@@ -176,13 +164,13 @@ public class j {
             a2.insert("user_emotions", null, contentValues);
             return true;
         } catch (Throwable th) {
-            com.baidu.adp.lib.util.f.b("EmotionsDBManager", "addToMyEmotion", th.getMessage());
+            com.baidu.adp.lib.util.e.b("EmotionsDBManager", "addToMyEmotion", th.getMessage());
             DatabaseService.a(th, "EmotionsDBManager.addToMyEmotion");
             return false;
         }
     }
 
-    public boolean a(MyEmotionGroupData myEmotionGroupData) {
+    public static boolean a(MyEmotionGroupData myEmotionGroupData) {
         if (myEmotionGroupData == null) {
             return false;
         }
@@ -190,14 +178,14 @@ public class j {
             DatabaseService.a().delete("user_emotions", "uid = ? and groupId = ?", new String[]{myEmotionGroupData.uid, myEmotionGroupData.groupId});
             return true;
         } catch (Throwable th) {
-            com.baidu.adp.lib.util.f.b("EmotionsDBManager", "addToMyEmotion", th.getMessage());
+            com.baidu.adp.lib.util.e.b("EmotionsDBManager", "addToMyEmotion", th.getMessage());
             DatabaseService.a(th, "EmotionsDBManager.deleteMyEmotion");
             return false;
         }
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [322=4] */
-    public MyEmotionGroupData a(String str, String str2) {
+    public final MyEmotionGroupData a(String str, String str2) {
         Cursor cursor;
         MyEmotionGroupData myEmotionGroupData = null;
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
@@ -209,12 +197,12 @@ public class j {
             }
             try {
                 if (cursor.moveToNext()) {
-                    myEmotionGroupData = c(cursor);
+                    myEmotionGroupData = b(cursor);
                 }
             } catch (Throwable th2) {
                 th = th2;
                 try {
-                    com.baidu.adp.lib.util.f.b("EmotionsDBManager", "getMyEmotion", th.getMessage());
+                    com.baidu.adp.lib.util.e.b("EmotionsDBManager", "getMyEmotion", th.getMessage());
                     DatabaseService.a(th, "EmotionsDBManager.getMyEmotion");
                     return myEmotionGroupData;
                 } finally {
@@ -225,18 +213,18 @@ public class j {
         return myEmotionGroupData;
     }
 
-    public List<MyEmotionGroupData> c(String str) {
+    public final List<MyEmotionGroupData> c(String str) {
         LinkedList linkedList = new LinkedList();
         if (!TextUtils.isEmpty(str)) {
             Cursor cursor = null;
             try {
                 cursor = DatabaseService.a().rawQuery("SELECT * FROM user_emotions where uid = ? order by updateTime desc ", new String[]{str});
                 while (cursor.moveToNext()) {
-                    linkedList.add(c(cursor));
+                    linkedList.add(b(cursor));
                 }
             } catch (Throwable th) {
                 try {
-                    com.baidu.adp.lib.util.f.b("EmotionsDBManager", "listMyEmotions", th.getMessage());
+                    com.baidu.adp.lib.util.e.b("EmotionsDBManager", "listMyEmotions", th.getMessage());
                     DatabaseService.a(th, "EmotionsDBManager.listMyEmotions");
                 } finally {
                     r.a(cursor);
@@ -246,7 +234,7 @@ public class j {
         return linkedList;
     }
 
-    protected MyEmotionGroupData c(Cursor cursor) {
+    private static MyEmotionGroupData b(Cursor cursor) {
         MyEmotionGroupData myEmotionGroupData = new MyEmotionGroupData();
         myEmotionGroupData.id = cursor.getInt(cursor.getColumnIndex("id"));
         myEmotionGroupData.uid = cursor.getString(cursor.getColumnIndex(SapiAccountManager.SESSION_UID));
@@ -255,12 +243,16 @@ public class j {
         return myEmotionGroupData;
     }
 
-    public int a(String str, InputStream inputStream) {
-        j a2 = a();
-        List<String> a3 = d.a(str, inputStream);
+    public static int a(String str, InputStream inputStream) {
+        j jVar = a;
+        List<String> a2 = d.a(str, inputStream);
         int i = 0;
-        for (int i2 = 0; i2 < a3.size(); i2++) {
-            if (a2.a(a3.get(i2), str, i2 + 1)) {
+        for (int i2 = 0; i2 < a2.size(); i2++) {
+            EmotionData emotionData = new EmotionData();
+            emotionData.sharpText = a2.get(i2);
+            emotionData.groupId = str;
+            emotionData.orderId = i2 + 1;
+            if (a(emotionData)) {
                 i++;
             }
         }

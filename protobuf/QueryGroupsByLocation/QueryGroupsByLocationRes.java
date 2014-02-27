@@ -21,7 +21,7 @@ public final class QueryGroupsByLocationRes {
         public static final int BUSINESS_FIELD_NUMBER = 1;
         public static final int GROUPS_FIELD_NUMBER = 2;
         public static Parser<Business> PARSER = new g();
-        private static final Business a = new Business(true);
+        private static final Business a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private Object business_;
@@ -40,7 +40,7 @@ public final class QueryGroupsByLocationRes {
             this.memoizedSerializedSize = -1;
         }
 
-        private Business(boolean z) {
+        private Business() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -51,7 +51,7 @@ public final class QueryGroupsByLocationRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public Business getDefaultInstanceForType() {
+        public final Business getDefaultInstanceForType() {
             return a;
         }
 
@@ -110,19 +110,21 @@ public final class QueryGroupsByLocationRes {
         }
 
         static {
-            a.a();
+            Business business = new Business();
+            a = business;
+            business.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<Business> getParserForType() {
+        public final Parser<Business> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasBusiness() {
+        public final boolean hasBusiness() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public String getBusiness() {
+        public final String getBusiness() {
             Object obj = this.business_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -135,7 +137,7 @@ public final class QueryGroupsByLocationRes {
             return stringUtf8;
         }
 
-        public ByteString getBusinessBytes() {
+        public final ByteString getBusinessBytes() {
             Object obj = this.business_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -145,23 +147,23 @@ public final class QueryGroupsByLocationRes {
             return (ByteString) obj;
         }
 
-        public List<Im.GroupInfo> getGroupsList() {
+        public final List<Im.GroupInfo> getGroupsList() {
             return this.groups_;
         }
 
-        public List<? extends protobuf.l> getGroupsOrBuilderList() {
+        public final List<? extends protobuf.l> getGroupsOrBuilderList() {
             return this.groups_;
         }
 
-        public int getGroupsCount() {
+        public final int getGroupsCount() {
             return this.groups_.size();
         }
 
-        public Im.GroupInfo getGroups(int i) {
+        public final Im.GroupInfo getGroups(int i) {
             return this.groups_.get(i);
         }
 
-        public protobuf.l getGroupsOrBuilder(int i) {
+        public final protobuf.l getGroupsOrBuilder(int i) {
             return this.groups_.get(i);
         }
 
@@ -181,7 +183,7 @@ public final class QueryGroupsByLocationRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeBytes(1, getBusinessBytes());
@@ -199,7 +201,7 @@ public final class QueryGroupsByLocationRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = 0;
             int i2 = this.memoizedSerializedSize;
             if (i2 == -1) {
@@ -219,7 +221,7 @@ public final class QueryGroupsByLocationRes {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -264,12 +266,12 @@ public final class QueryGroupsByLocationRes {
         }
 
         public static h newBuilder() {
-            return h.f();
+            return h.a();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public h newBuilderForType() {
+        public final h newBuilderForType() {
             return newBuilder();
         }
 
@@ -279,7 +281,7 @@ public final class QueryGroupsByLocationRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public h toBuilder() {
+        public final h toBuilder() {
             return newBuilder(this);
         }
     }
@@ -291,7 +293,7 @@ public final class QueryGroupsByLocationRes {
         public static final int HASMORE_FIELD_NUMBER = 4;
         public static final int OFFSET_FIELD_NUMBER = 3;
         public static Parser<DataRes> PARSER = new j();
-        private static final DataRes a = new DataRes(true);
+        private static final DataRes a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private int geo_;
@@ -312,7 +314,7 @@ public final class QueryGroupsByLocationRes {
             this.memoizedSerializedSize = -1;
         }
 
-        private DataRes(boolean z) {
+        private DataRes() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -323,7 +325,7 @@ public final class QueryGroupsByLocationRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public DataRes getDefaultInstanceForType() {
+        public final DataRes getDefaultInstanceForType() {
             return a;
         }
 
@@ -390,55 +392,57 @@ public final class QueryGroupsByLocationRes {
         }
 
         static {
-            a.a();
+            DataRes dataRes = new DataRes();
+            a = dataRes;
+            dataRes.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<DataRes> getParserForType() {
+        public final Parser<DataRes> getParserForType() {
             return PARSER;
         }
 
-        public List<Business> getGroupsList() {
+        public final List<Business> getGroupsList() {
             return this.groups_;
         }
 
-        public List<? extends i> getGroupsOrBuilderList() {
+        public final List<? extends i> getGroupsOrBuilderList() {
             return this.groups_;
         }
 
-        public int getGroupsCount() {
+        public final int getGroupsCount() {
             return this.groups_.size();
         }
 
-        public Business getGroups(int i) {
+        public final Business getGroups(int i) {
             return this.groups_.get(i);
         }
 
-        public i getGroupsOrBuilder(int i) {
+        public final i getGroupsOrBuilder(int i) {
             return this.groups_.get(i);
         }
 
-        public boolean hasGeo() {
+        public final boolean hasGeo() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public int getGeo() {
+        public final int getGeo() {
             return this.geo_;
         }
 
-        public boolean hasOffset() {
+        public final boolean hasOffset() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public int getOffset() {
+        public final int getOffset() {
             return this.offset_;
         }
 
-        public boolean hasHasMore() {
+        public final boolean hasHasMore() {
             return (this.bitField0_ & 4) == 4;
         }
 
-        public int getHasMore() {
+        public final int getHasMore() {
             return this.hasMore_;
         }
 
@@ -460,7 +464,7 @@ public final class QueryGroupsByLocationRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             int i = 0;
             while (true) {
@@ -483,7 +487,7 @@ public final class QueryGroupsByLocationRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
                 i = 0;
@@ -506,7 +510,7 @@ public final class QueryGroupsByLocationRes {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -551,12 +555,12 @@ public final class QueryGroupsByLocationRes {
         }
 
         public static k newBuilder() {
-            return k.f();
+            return k.b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public k newBuilderForType() {
+        public final k newBuilderForType() {
             return newBuilder();
         }
 
@@ -566,7 +570,7 @@ public final class QueryGroupsByLocationRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public k toBuilder() {
+        public final k toBuilder() {
             return newBuilder(this);
         }
     }
@@ -576,7 +580,7 @@ public final class QueryGroupsByLocationRes {
         public static final int DATA_FIELD_NUMBER = 2;
         public static final int ERROR_FIELD_NUMBER = 1;
         public static Parser<QueryGroupsByLocationResIdl> PARSER = new m();
-        private static final QueryGroupsByLocationResIdl a = new QueryGroupsByLocationResIdl(true);
+        private static final QueryGroupsByLocationResIdl a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private DataRes data_;
@@ -595,7 +599,7 @@ public final class QueryGroupsByLocationRes {
             this.memoizedSerializedSize = -1;
         }
 
-        private QueryGroupsByLocationResIdl(boolean z) {
+        private QueryGroupsByLocationResIdl() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -606,7 +610,7 @@ public final class QueryGroupsByLocationRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public QueryGroupsByLocationResIdl getDefaultInstanceForType() {
+        public final QueryGroupsByLocationResIdl getDefaultInstanceForType() {
             return a;
         }
 
@@ -666,27 +670,29 @@ public final class QueryGroupsByLocationRes {
         }
 
         static {
-            a.a();
+            QueryGroupsByLocationResIdl queryGroupsByLocationResIdl = new QueryGroupsByLocationResIdl();
+            a = queryGroupsByLocationResIdl;
+            queryGroupsByLocationResIdl.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<QueryGroupsByLocationResIdl> getParserForType() {
+        public final Parser<QueryGroupsByLocationResIdl> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasError() {
+        public final boolean hasError() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public Im.Error getError() {
+        public final Im.Error getError() {
             return this.error_;
         }
 
-        public boolean hasData() {
+        public final boolean hasData() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public DataRes getData() {
+        public final DataRes getData() {
             return this.data_;
         }
 
@@ -706,7 +712,7 @@ public final class QueryGroupsByLocationRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeMessage(1, this.error_);
@@ -717,10 +723,13 @@ public final class QueryGroupsByLocationRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeMessageSize(1, this.error_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeMessageSize(1, this.error_) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeMessageSize(2, this.data_);
                 }
@@ -731,7 +740,7 @@ public final class QueryGroupsByLocationRes {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -776,12 +785,12 @@ public final class QueryGroupsByLocationRes {
         }
 
         public static n newBuilder() {
-            return n.f();
+            return n.a();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public n newBuilderForType() {
+        public final n newBuilderForType() {
             return newBuilder();
         }
 
@@ -791,7 +800,7 @@ public final class QueryGroupsByLocationRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public n toBuilder() {
+        public final n toBuilder() {
             return newBuilder(this);
         }
     }

@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dc implements ViewGroup.OnHierarchyChangeListener {
+public final class dc implements ViewGroup.OnHierarchyChangeListener {
     final /* synthetic */ UserIconBox a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,10 +14,10 @@ public class dc implements ViewGroup.OnHierarchyChangeListener {
     }
 
     @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewRemoved(View view, View view2) {
+    public final void onChildViewRemoved(View view, View view2) {
         com.baidu.adp.lib.d.b bVar;
         com.baidu.adp.lib.d.b bVar2;
-        com.baidu.adp.lib.util.f.e("pool return child");
+        com.baidu.adp.lib.util.e.e("pool return child");
         if (view2 instanceof TbImageView) {
             bVar = this.a.b;
             if (bVar != null) {
@@ -28,6 +28,6 @@ public class dc implements ViewGroup.OnHierarchyChangeListener {
     }
 
     @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewAdded(View view, View view2) {
+    public final void onChildViewAdded(View view, View view2) {
     }
 }

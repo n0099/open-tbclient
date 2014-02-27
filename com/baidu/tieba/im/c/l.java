@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements com.baidu.tieba.im.a<Boolean> {
+public final class l implements com.baidu.tieba.im.a<Boolean> {
     final /* synthetic */ j a;
     private final /* synthetic */ boolean b;
 
@@ -11,9 +11,9 @@ public class l implements com.baidu.tieba.im.a<Boolean> {
         this.b = z;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // com.baidu.tieba.im.a
-    public void a(Boolean bool) {
-        a.f().b(this.b && bool.booleanValue(), new m(this));
+    public final /* synthetic */ void a(Boolean bool) {
+        a.d().b(this.b && bool.booleanValue(), new m(this));
     }
 }

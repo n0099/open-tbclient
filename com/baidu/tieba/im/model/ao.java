@@ -8,7 +8,7 @@ import com.baidu.tieba.im.message.bh;
 import com.baidu.tieba.im.message.bi;
 import com.baidu.tieba.im.message.cw;
 /* loaded from: classes.dex */
-public class ao extends com.baidu.adp.a.d {
+public final class ao extends com.baidu.adp.a.d {
     private int a;
     private String b;
     private String c;
@@ -20,124 +20,100 @@ public class ao extends com.baidu.adp.a.d {
     private bg i;
     private cw j;
 
-    public int a() {
-        return this.a;
-    }
-
-    public void a(int i) {
+    public final void a(int i) {
         this.a = i;
     }
 
-    public void a(long j) {
+    public final void a(long j) {
         this.a = (int) j;
     }
 
-    public String b() {
-        return this.b;
-    }
-
-    public void a(String str) {
+    public final void a(String str) {
         this.b = str;
     }
 
-    public String c() {
-        return this.c;
-    }
-
-    public void b(String str) {
+    public final void b(String str) {
         this.c = str;
     }
 
-    public String d() {
-        return this.d;
-    }
-
-    public void c(String str) {
+    public final void c(String str) {
         this.d = str;
     }
 
-    public String e() {
+    public final String a() {
         return this.e;
     }
 
-    public void d(String str) {
+    public final void d(String str) {
         this.e = str;
     }
 
-    public String f() {
+    public final String b() {
         return this.f;
     }
 
-    public void e(String str) {
+    public final void e(String str) {
         this.f = str;
     }
 
-    public String g() {
-        return this.g;
-    }
-
-    public void f(String str) {
+    public final void f(String str) {
         this.g = str;
     }
 
-    public int h() {
+    public final int c() {
         return this.h;
     }
 
-    public void b(int i) {
+    public final void b(int i) {
         this.h = i;
     }
 
     @Override // com.baidu.adp.a.d
-    protected boolean LoadData() {
+    protected final boolean LoadData() {
         return false;
     }
 
     @Override // com.baidu.adp.a.d
-    public boolean cancelLoadData() {
+    public final boolean cancelLoadData() {
         return false;
     }
 
-    private bg d(int i) {
+    public final void c(int i) {
         bg bgVar = null;
         switch (i) {
             case 1:
-                bgVar = new bf(c());
+                bgVar = new bf(this.c);
                 break;
             case 2:
-                bgVar = new bh(b());
+                bgVar = new bh(this.b);
                 break;
             case 3:
-                bgVar = new bd(g());
+                bgVar = new bd(this.g);
                 break;
             case 4:
-                bgVar = new bi(d());
+                bgVar = new bi(this.d);
                 break;
             case 5:
-                bgVar = new be(h(), e(), f());
+                bgVar = new be(this.h, this.e, this.f);
             default:
-                com.baidu.adp.lib.util.f.b("no right type");
+                com.baidu.adp.lib.util.e.b("no right type");
                 break;
         }
         if (bgVar != null) {
-            bgVar.a(a());
-            bgVar.b(i);
+            bgVar.a(this.a);
+            bgVar.a = i;
         }
-        return bgVar;
+        this.i = bgVar;
+        com.baidu.tieba.im.messageCenter.d.a().a(this.i);
     }
 
-    public void c(int i) {
-        this.i = d(i);
-        com.baidu.tieba.im.messageCenter.e.a().a(this.i);
-    }
-
-    public void i() {
+    public final void d() {
         if (this.i != null) {
-            com.baidu.tieba.im.messageCenter.e.a().b(this.i);
+            com.baidu.tieba.im.messageCenter.d.a().b(this.i);
             this.i = null;
         }
         if (this.j != null) {
-            com.baidu.tieba.im.messageCenter.e.a().b(this.j);
+            com.baidu.tieba.im.messageCenter.d.a().b(this.j);
             this.j = null;
         }
     }

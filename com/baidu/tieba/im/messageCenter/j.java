@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.messageCenter;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j implements com.baidu.tieba.im.a<l> {
+public final class j implements com.baidu.tieba.im.a<l> {
     final /* synthetic */ i a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,9 +9,9 @@ public class j implements com.baidu.tieba.im.a<l> {
         this.a = iVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // com.baidu.tieba.im.a
-    public void a(l lVar) {
-        this.a.a(lVar);
+    public final /* bridge */ /* synthetic */ void a(l lVar) {
+        i.a(this.a, lVar);
     }
 }

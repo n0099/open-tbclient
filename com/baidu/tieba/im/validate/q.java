@@ -1,11 +1,9 @@
 package com.baidu.tieba.im.validate;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class q extends com.baidu.tieba.im.c<Integer> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.c
-    /* renamed from: a */
-    public Integer b() {
+final class q extends com.baidu.tieba.im.b<Integer> {
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.b
+    public final /* synthetic */ Integer a() {
         return Integer.valueOf(com.baidu.tieba.im.db.c.a().b("apply_join_group"));
     }
 }

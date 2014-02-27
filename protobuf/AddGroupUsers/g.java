@@ -5,11 +5,9 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import protobuf.AddGroupUsers.AddGroupUsersRes;
 /* loaded from: classes.dex */
-class g extends AbstractParser<AddGroupUsersRes.AddGroupUsersResIdl> {
-    /* JADX DEBUG: Method merged with bridge method */
+final class g extends AbstractParser<AddGroupUsersRes.AddGroupUsersResIdl> {
     @Override // com.google.protobuf.Parser
-    /* renamed from: a */
-    public AddGroupUsersRes.AddGroupUsersResIdl parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
+    public final /* synthetic */ Object parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
         return new AddGroupUsersRes.AddGroupUsersResIdl(codedInputStream, extensionRegistryLite, null);
     }
 }

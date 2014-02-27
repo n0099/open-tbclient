@@ -16,8 +16,8 @@ import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class BdCenterListView extends BdListView {
     public e a;
-    private Context b;
-    private Scroller c;
+    private final Context b;
+    private final Scroller c;
     private int d;
     private final int e;
     private final int f;
@@ -33,7 +33,7 @@ public class BdCenterListView extends BdListView {
     private float p;
     private float q;
     private float r;
-    private int s;
+    private final int s;
     private boolean t;
     private RotateAnimation u;
 
@@ -70,14 +70,14 @@ public class BdCenterListView extends BdListView {
                     this.d = this.i.getHeight();
                     this.k = this.l;
                     this.q = this.r;
-                    int left = this.i.getLeft();
-                    int bottom = this.i.getBottom();
-                    this.n = new f(this, left, bottom, left, bottom + 200);
+                    this.n = new f(this, this.i.getLeft(), this.i.getBottom());
                     break;
                 case 1:
                 case 3:
                     if (this.o) {
-                        c();
+                        this.c.startScroll(this.i.getLeft(), this.i.getBottom(), 0 - this.i.getLeft(), this.d - this.i.getBottom(), 200);
+                        invalidate();
+                        this.o = false;
                     }
                     this.o = false;
                     break;
@@ -94,10 +94,13 @@ public class BdCenterListView extends BdListView {
                                 this.j.setImageDrawable(getResources().getDrawable(R.drawable.icon_pop_refresh));
                             }
                             this.i.setLayoutParams(new RelativeLayout.LayoutParams(this.i.getWidth(), a));
-                            a(a);
-                        } else if (a <= this.m) {
-                            this.o = false;
-                        } else if (a > this.e) {
+                            float f3 = 360.0f - ((a - this.i.a) * 1.8f);
+                            RotateAnimation rotateAnimation = new RotateAnimation(this.p, f3, 1, 0.5f, 1, 0.5f);
+                            rotateAnimation.setFillBefore(true);
+                            rotateAnimation.setFillAfter(true);
+                            this.j.startAnimation(rotateAnimation);
+                            this.p = f3;
+                        } else if (a > this.m && a > this.e) {
                             this.o = true;
                         } else {
                             this.o = false;
@@ -111,6 +114,7 @@ public class BdCenterListView extends BdListView {
                     this.j.setImageDrawable(null);
                     this.j.setVisibility(8);
                     this.o = false;
+                    break;
                     break;
             }
             return super.dispatchTouchEvent(motionEvent);
@@ -134,13 +138,7 @@ public class BdCenterListView extends BdListView {
         return super.onTouchEvent(motionEvent);
     }
 
-    public void c() {
-        this.c.startScroll(this.i.getLeft(), this.i.getBottom(), 0 - this.i.getLeft(), this.d - this.i.getBottom(), 200);
-        invalidate();
-        this.o = false;
-    }
-
-    public void d() {
+    public final void c() {
         if (!this.t) {
             this.t = true;
             if (this.j.getVisibility() == 8) {
@@ -159,19 +157,10 @@ public class BdCenterListView extends BdListView {
         this.a = eVar;
     }
 
-    public void e() {
+    public final void d() {
         if (this.u != null) {
             postDelayed(new d(this), 500L);
         }
-    }
-
-    private void a(int i) {
-        float f = 360.0f - ((i - this.i.a) * 1.8f);
-        RotateAnimation rotateAnimation = new RotateAnimation(this.p, f, 1, 0.5f, 1, 0.5f);
-        rotateAnimation.setFillBefore(true);
-        rotateAnimation.setFillAfter(true);
-        this.j.startAnimation(rotateAnimation);
-        this.p = f;
     }
 
     @Override // android.view.View
@@ -179,7 +168,7 @@ public class BdCenterListView extends BdListView {
         if (this.c.computeScrollOffset()) {
             int currY = this.c.getCurrY();
             if (currY >= this.e - this.f) {
-                d();
+                c();
             } else if (!this.t) {
                 this.j.setImageDrawable(null);
                 this.j.setVisibility(8);

@@ -1,116 +1,128 @@
 package com.baidu.tieba.write;
 
-import android.graphics.Bitmap;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
+import android.location.Address;
+import android.widget.EditText;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.ErrorData;
 import com.baidu.tieba.data.WriteData;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class an extends BdAsyncTask<String, Integer, Bitmap> {
-    volatile com.baidu.tieba.util.ba a;
-    com.baidu.tieba.data.bd b;
-    final /* synthetic */ VcodeActivity c;
-    private volatile boolean d;
+public final class an extends BdAsyncTask<Integer, Integer, com.baidu.tieba.data.bd> {
+    final /* synthetic */ VcodeActivity a;
+    private WriteData b;
+    private com.baidu.tieba.util.ba c = null;
+    private String d = null;
 
-    private an(VcodeActivity vcodeActivity) {
-        this.c = vcodeActivity;
-        this.a = null;
-        this.b = null;
-        this.d = false;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ an(VcodeActivity vcodeActivity, an anVar) {
-        this(vcodeActivity);
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        ProgressBar progressBar;
-        this.c.h = null;
-        if (this.a != null) {
-            this.a.k();
-        }
-        this.d = true;
-        progressBar = this.c.f;
-        progressBar.setVisibility(8);
-        super.cancel(true);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Bitmap a(String... strArr) {
+    public final /* synthetic */ com.baidu.tieba.data.bd a(Integer... numArr) {
+        EditText editText;
+        Address b;
+        this.c = new com.baidu.tieba.util.ba();
+        this.c.a("anonymous", SocialConstants.FALSE);
+        this.c.a("fid", this.b.getForumId());
+        this.c.a("kw", this.b.getForumName());
+        String imagesCodeForPost = this.b.getImagesCodeForPost();
+        this.c.a("new_vcode", SocialConstants.TRUE);
+        this.c.a(PushConstants.EXTRA_CONTENT, String.valueOf(this.b.getContent()) + imagesCodeForPost);
+        this.c.a("vcode_md5", this.b.getVcodeMD5());
+        editText = this.a.e;
+        String editable = editText.getText().toString();
+        if (editable.length() > 0) {
+            this.c.a("vcode", editable);
+        }
+        this.c.e(true);
+        if (this.b.getVoice() != null) {
+            this.c.a("voice_md5", this.b.getVoice());
+            this.c.a("during_time", String.valueOf(this.b.getVoiceDuringTime()));
+        }
+        if (this.b.getType() == 0) {
+            this.c.a(String.valueOf(com.baidu.tieba.data.i.a) + "c/c/thread/add");
+            this.c.a("title", this.b.getTitle());
+            if (!com.baidu.tieba.data.i.s().equals(this.a.getIntent().getStringExtra("forum_id")) && TiebaApplication.g().o() && (b = com.baidu.adp.lib.c.a.a().b(false)) != null) {
+                this.c.a("lbs", String.valueOf(String.valueOf(b.getLatitude())) + "," + String.valueOf(b.getLongitude()));
+            }
+        } else {
+            this.c.a(String.valueOf(com.baidu.tieba.data.i.a) + "c/c/post/add");
+            this.c.a("tid", this.b.getThreadId());
+            this.c.a("is_ad", this.a.getIntent().getBooleanExtra("is_ad", false) ? SocialConstants.TRUE : SocialConstants.FALSE);
+            if (this.b.getType() == 2) {
+                this.c.a("quote_id", String.valueOf(this.b.getFloor()));
+                this.c.a("floor_num", String.valueOf(this.b.getFloorNum()));
+            }
+        }
+        this.d = this.c.l();
+        return null;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ void a(com.baidu.tieba.data.bd bdVar) {
+        EditText editText;
         WriteData writeData;
         WriteData writeData2;
         WriteData writeData3;
-        WriteData writeData4;
-        WriteData writeData5;
-        WriteData writeData6;
-        String str = strArr[0];
-        if (str == null || str.length() <= 0) {
-            this.a = new com.baidu.tieba.util.ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/f/anti/vcode");
-            com.baidu.tieba.util.ba baVar = this.a;
-            writeData = this.c.b;
-            baVar.a("fid", writeData.getForumId());
-            com.baidu.tieba.util.ba baVar2 = this.a;
-            writeData2 = this.c.b;
-            baVar2.a("kw", writeData2.getForumName());
-            this.a.a("new_vcode", SocialConstants.TRUE);
-            com.baidu.tieba.util.ba baVar3 = this.a;
-            writeData3 = this.c.b;
-            baVar3.a("title", writeData3.getTitle());
-            com.baidu.tieba.util.ba baVar4 = this.a;
-            writeData4 = this.c.b;
-            baVar4.a(PushConstants.EXTRA_CONTENT, writeData4.getContent());
-            writeData5 = this.c.b;
-            if (writeData5.getType() == 0) {
-                this.a.a("pub_type", SocialConstants.TRUE);
+        com.baidu.tieba.data.bd bdVar2 = bdVar;
+        this.a.closeLoadingDialog();
+        this.a.g = null;
+        if (this.c != null) {
+            if (this.c.c()) {
+                ErrorData errorData = new ErrorData();
+                errorData.parserJson(this.d);
+                if (errorData.getError_msg() == null || errorData.getError_msg().length() <= 0) {
+                    this.a.showToast(TiebaApplication.g().b().getString(R.string.send_success));
+                    this.b.deleteUploadedTempImages();
+                } else if (this.b.isHasImages() && com.baidu.adp.lib.util.g.b(String.valueOf(this.b.getContent()) + this.b.getImagesCodeForPost())) {
+                    this.a.showToast(TiebaApplication.g().b().getString(R.string.img_upload_error));
+                } else {
+                    this.a.showToast(errorData.getError_msg());
+                }
+                this.a.setResult(-1, this.a.getIntent());
+                this.a.finish();
+            } else if (this.b.isHasImages() && com.baidu.adp.lib.util.g.b(String.valueOf(this.b.getContent()) + this.b.getImagesCodeForPost())) {
+                this.a.showToast(TiebaApplication.g().b().getString(R.string.img_upload_error));
             } else {
-                this.a.a("pub_type", "2");
-                com.baidu.tieba.util.ba baVar5 = this.a;
-                writeData6 = this.c.b;
-                baVar5.a("tid", writeData6.getThreadId());
+                if (this.c.e() == 5 || this.c.e() == 6) {
+                    com.baidu.tieba.data.bd bdVar3 = new com.baidu.tieba.data.bd();
+                    bdVar3.a(this.d);
+                    if (bdVar3.b() != null) {
+                        writeData = this.a.b;
+                        writeData.setVcodeMD5(bdVar3.a());
+                        writeData2 = this.a.b;
+                        writeData2.setVcodeUrl(bdVar3.b());
+                        VcodeActivity vcodeActivity = this.a;
+                        writeData3 = this.a.b;
+                        vcodeActivity.a(writeData3.getVcodeUrl());
+                    }
+                    editText = this.a.e;
+                    editText.setText((CharSequence) null);
+                }
+                this.a.showToast(this.c.i());
             }
-            String m = this.a.m();
-            if (!this.a.d()) {
-                return null;
-            }
-            this.b = new com.baidu.tieba.data.bd();
-            this.b.a(m);
-            str = this.b.b();
         }
-        if (this.d) {
-            return null;
-        }
-        this.a = new com.baidu.tieba.util.ba(str);
-        return com.baidu.tieba.util.n.a(this.a.l());
+        super.a((an) bdVar2);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
+    public an(VcodeActivity vcodeActivity, WriteData writeData) {
+        this.a = vcodeActivity;
+        this.b = null;
+        this.b = writeData;
+    }
+
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Bitmap bitmap) {
-        ProgressBar progressBar;
-        WriteData writeData;
-        WriteData writeData2;
-        ImageView imageView;
-        this.c.h = null;
-        if (bitmap != null) {
-            imageView = this.c.d;
-            imageView.setImageBitmap(bitmap);
+    public final void cancel() {
+        this.a.g = null;
+        this.a.closeLoadingDialog();
+        if (this.c != null) {
+            this.c.j();
         }
-        progressBar = this.c.f;
-        progressBar.setVisibility(8);
-        if (this.b != null) {
-            writeData = this.c.b;
-            writeData.setVcodeMD5(this.b.a());
-            writeData2 = this.c.b;
-            writeData2.setVcodeUrl(this.b.b());
-        }
-        super.a((an) bitmap);
+        super.cancel(true);
     }
 }

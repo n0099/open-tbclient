@@ -1,8 +1,8 @@
 package com.baidu.tbplugin;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import com.baidu.tbplugin.plugins.BdBrowserDelegate;
-import com.baidu.tbplugin.plugins.MotuPlugin;
 import java.io.File;
 import java.io.IOException;
 import java.lang.annotation.Annotation;
@@ -11,31 +11,34 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 import org.apache.commons.io.FileUtils;
 /* loaded from: classes.dex */
-public class j {
+public final class j {
     public static final String a = f.f();
     public static final String b = "/plugins/" + a;
-    static final List<Class<?>> c = new ArrayList();
-    private static j e;
+    static final List<Class<?>> c;
+    private static j f;
     private boolean d;
-    private Map<String, Object> f = new HashMap();
-    private e g;
-    private final File h;
+    private Executor e;
+    private Map<String, Object> g = new HashMap();
+    private e h;
     private final File i;
     private final File j;
     private final File k;
     private final File l;
-    private final d m;
-    private final Context n;
+    private final File m;
+    private final d n;
 
     static {
-        c.add(BdBrowserDelegate.class);
-        c.add(MotuPlugin.class);
+        ArrayList arrayList = new ArrayList();
+        c = arrayList;
+        arrayList.add(BdBrowserDelegate.class);
     }
 
+    @SuppressLint({"SdCardPath"})
     private j(Context context) {
-        this.n = context;
         File filesDir = context.getFilesDir();
         if (filesDir == null) {
             filesDir = new File("/data/data/" + context.getPackageName() + "/files/");
@@ -43,110 +46,126 @@ public class j {
                 if (!filesDir.exists()) {
                     FileUtils.forceMkdir(filesDir);
                 }
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
         String absolutePath = filesDir.getAbsolutePath();
-        this.k = new File(String.valueOf(absolutePath) + "/plugins/");
-        if (!this.k.exists()) {
-            this.k.mkdirs();
-        }
-        this.h = new File(String.valueOf(absolutePath) + "/plugins/libs/");
-        if (!this.h.exists()) {
-            this.h.mkdirs();
-        }
-        this.i = new File(String.valueOf(absolutePath) + b);
-        if (!this.i.exists()) {
-            this.i.mkdirs();
-        }
-        this.j = new File(String.valueOf(absolutePath) + "/plugins/resources/");
-        if (!this.j.exists()) {
-            this.j.mkdirs();
-        }
-        this.l = new File(String.valueOf(absolutePath) + "/plugins/optimised/");
+        this.l = new File(String.valueOf(absolutePath) + "/plugins/");
         if (!this.l.exists()) {
             this.l.mkdirs();
         }
-        this.g = new i(context);
-        this.m = new d(context);
-    }
-
-    private void i() {
-        for (Class<?> cls : this.g.a(3)) {
-            com.baidu.tbplugin.a.a aVar = (com.baidu.tbplugin.a.a) f.a(cls, com.baidu.tbplugin.a.a.class);
-            com.baidu.tbplugin.a.c cVar = (com.baidu.tbplugin.a.c) f.a(cls, com.baidu.tbplugin.a.c.class);
-            if (aVar != null) {
-                try {
-                    this.f.put(cVar.a(), this.m.b().loadClass(aVar.b()).getConstructor(new Class[0]).newInstance(new Object[0]));
-                } catch (ClassNotFoundException e2) {
-                    e2.printStackTrace();
-                } catch (IllegalAccessException e3) {
-                    e3.printStackTrace();
-                } catch (InstantiationException e4) {
-                    e4.printStackTrace();
-                } catch (NoSuchMethodException e5) {
-                    e5.printStackTrace();
-                } catch (NullPointerException e6) {
-                    e6.printStackTrace();
-                } catch (InvocationTargetException e7) {
-                    e7.printStackTrace();
-                }
-            }
+        this.i = new File(String.valueOf(absolutePath) + "/plugins/libs/");
+        if (!this.i.exists()) {
+            this.i.mkdirs();
         }
+        this.j = new File(String.valueOf(absolutePath) + b);
+        if (!this.j.exists()) {
+            this.j.mkdirs();
+        }
+        this.k = new File(String.valueOf(absolutePath) + "/plugins/resources/");
+        if (!this.k.exists()) {
+            this.k.mkdirs();
+        }
+        this.m = new File(String.valueOf(absolutePath) + "/plugins/optimised/");
+        if (!this.m.exists()) {
+            this.m.mkdirs();
+        }
+        this.h = new i();
+        this.n = new d(context);
+        this.e = Executors.newSingleThreadExecutor();
     }
 
     public static void a(Context context) {
-        e = new j(context);
+        f = new j(context);
     }
 
     public static j a() {
-        return e;
+        return f;
     }
 
-    public <P> P a(Class<P> cls) {
-        if (!this.d) {
-            h();
-        }
-        com.baidu.tbplugin.a.c cVar = (com.baidu.tbplugin.a.c) f.a((Class<?>) cls, (Class<Annotation>) com.baidu.tbplugin.a.c.class);
-        if (cVar != null) {
-            return (P) this.f.get(cVar.a());
+    private <P> P c(Class<P> cls) {
+        com.baidu.tbplugin.a.a aVar = (com.baidu.tbplugin.a.a) f.a((Class<?>) cls, (Class<Annotation>) com.baidu.tbplugin.a.a.class);
+        if (aVar != null) {
+            try {
+                return (P) this.n.b().loadClass(aVar.b()).getConstructor(new Class[0]).newInstance(new Object[0]);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e2) {
+                e2.printStackTrace();
+            } catch (InstantiationException e3) {
+                e3.printStackTrace();
+            } catch (NoSuchMethodException e4) {
+                e4.printStackTrace();
+            } catch (NullPointerException e5) {
+                e5.printStackTrace();
+            } catch (InvocationTargetException e6) {
+                e6.printStackTrace();
+            }
         }
         return null;
     }
 
-    public e b() {
-        return this.g;
+    public final <P> P a(Class<P> cls) {
+        if (!this.d) {
+            i();
+        }
+        com.baidu.tbplugin.a.c cVar = (com.baidu.tbplugin.a.c) f.a((Class<?>) cls, (Class<Annotation>) com.baidu.tbplugin.a.c.class);
+        if (cVar != null) {
+            return (P) this.g.get(cVar.a());
+        }
+        return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public File c() {
+    public final <P> void b(Class<P> cls) {
+        com.baidu.tbplugin.a.c cVar = (com.baidu.tbplugin.a.c) f.a((Class<?>) cls, (Class<Annotation>) com.baidu.tbplugin.a.c.class);
+        for (Object obj : this.g.values()) {
+            if (obj.getClass().equals(cls)) {
+                this.g.remove(cVar.a());
+                return;
+            }
+        }
+    }
+
+    public final e b() {
         return this.h;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public File d() {
-        return this.j;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public File e() {
+    public final File c() {
         return this.i;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public File f() {
+    public final File d() {
         return this.k;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public File g() {
+    public final File e() {
+        return this.j;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public final File f() {
         return this.l;
     }
 
-    public synchronized void h() {
-        this.m.a();
-        i();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public final File g() {
+        return this.m;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public final Executor h() {
+        return this.e;
+    }
+
+    private synchronized void i() {
+        this.n.a();
+        for (Class<?> cls : this.h.a(3)) {
+            this.g.put(((com.baidu.tbplugin.a.c) f.a(cls, com.baidu.tbplugin.a.c.class)).a(), c(cls));
+        }
         this.d = true;
     }
 }

@@ -4,7 +4,7 @@ import com.baidu.tieba.im.message.ct;
 import com.baidu.tieba.im.message.s;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class d implements com.baidu.tieba.im.messageCenter.g {
+final class d implements com.baidu.tieba.im.messageCenter.g {
     final /* synthetic */ SearchGroupActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,12 +13,12 @@ class d implements com.baidu.tieba.im.messageCenter.g {
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(s sVar) {
+    public final void a(s sVar) {
         g gVar;
         g gVar2;
         g gVar3;
         gVar = this.a.b;
-        gVar.b();
+        gVar.c();
         if (sVar == null) {
             this.a.showToast(R.string.neterror);
         } else if (sVar.w() == 103007) {
@@ -31,10 +31,10 @@ class d implements com.baidu.tieba.im.messageCenter.g {
                         this.a.a();
                     }
                     gVar2 = this.a.b;
-                    gVar2.c();
+                    gVar2.d();
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.d("ResponseGroupInfoMessage invalid");
+                com.baidu.adp.lib.util.e.d("ResponseGroupInfoMessage invalid");
             }
         }
     }

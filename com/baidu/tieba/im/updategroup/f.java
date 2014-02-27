@@ -2,10 +2,10 @@ package com.baidu.tieba.im.updategroup;
 
 import android.text.InputFilter;
 import android.widget.ImageButton;
-import com.baidu.tieba.im.util.p;
+import com.baidu.tieba.im.util.o;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class f extends g {
+public final class f extends g {
     public f(UpdateGroupActivity updateGroupActivity) {
         super(updateGroupActivity);
         c(R.layout.update_group_name_activity);
@@ -15,10 +15,11 @@ public class f extends g {
         this.c.setFilters(new InputFilter[]{new com.baidu.tieba.im.util.a(20)});
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.updategroup.g
-    protected void a(int i, int i2, int i3, int i4) {
+    public final void a(int i, int i2, int i3, int i4) {
         super.a(i, i2, i3, i4);
-        if (i < 1) {
+        if (i <= 0) {
             this.g.setVisibility(8);
         } else {
             this.g.setVisibility(0);
@@ -26,12 +27,12 @@ public class f extends g {
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public void g() {
-        a(this.c.length(), p.a(this.c), 2, 20);
+    public final void g() {
+        a(this.c.length(), o.a(this.c), 2, 20);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public int j() {
+    public final int j() {
         return R.string.group_step_name_error;
     }
 }

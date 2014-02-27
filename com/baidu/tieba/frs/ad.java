@@ -2,7 +2,7 @@ package com.baidu.tieba.frs;
 
 import android.view.View;
 /* loaded from: classes.dex */
-class ad implements com.baidu.tbadk.imageManager.d {
+final class ad implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,11 +11,11 @@ class ad implements com.baidu.tbadk.imageManager.d {
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        br brVar;
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        bs bsVar;
         if (bVar != null) {
-            brVar = this.a.p;
-            View d = brVar.d(str);
+            bsVar = this.a.p;
+            View d = bsVar.d(str);
             if (d != null) {
                 d.invalidate();
             }

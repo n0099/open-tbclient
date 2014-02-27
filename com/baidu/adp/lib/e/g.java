@@ -2,7 +2,7 @@ package com.baidu.adp.lib.e;
 
 import java.util.Map;
 /* loaded from: classes.dex */
-public class g extends e {
+public final class g extends e {
     final /* synthetic */ c c;
     private final String d;
     private final int e;
@@ -16,7 +16,6 @@ public class g extends e {
         this.a.put(bVar, hVar);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Code restructure failed: missing block: B:5:0x000a, code lost:
         r1 = r3.c.a(r3.e);
      */
@@ -24,7 +23,7 @@ public class g extends e {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public Object a(String... strArr) {
+    protected final Object d() {
         a aVar;
         i a;
         aVar = this.c.a;
@@ -36,19 +35,31 @@ public class g extends e {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Object obj) {
+    public final void a() {
         for (Map.Entry<b, h> entry : this.a.entrySet()) {
             b key = entry.getKey();
             h value = entry.getValue();
             if (!key.b()) {
-                key.a(obj, this.d, value);
+                key.a(this.d, value, true);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void b(Object... objArr) {
+    public final void a(Object obj) {
+        for (Map.Entry<b, h> entry : this.a.entrySet()) {
+            b key = entry.getKey();
+            h value = entry.getValue();
+            if (!key.b()) {
+                key.a((b) obj, this.d, value);
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final void b(Object... objArr) {
         for (Map.Entry<b, h> entry : this.a.entrySet()) {
             b key = entry.getKey();
             entry.getValue();
@@ -60,12 +71,12 @@ public class g extends e {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void c() {
+    public final void c() {
         for (Map.Entry<b, h> entry : this.a.entrySet()) {
             b key = entry.getKey();
             h value = entry.getValue();
             if (!key.b()) {
-                key.c(this.d, value);
+                key.a(this.d, value);
             }
         }
     }

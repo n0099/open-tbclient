@@ -11,43 +11,43 @@ public abstract class a {
 
     protected abstract void a(JSONObject jSONObject);
 
-    public int a() {
+    public final int a() {
         return this.c;
     }
 
-    public boolean b() {
+    public final boolean b() {
         return this.b != null;
     }
 
-    public String c() {
+    public final String c() {
         return this.b;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.b = str;
     }
 
-    public void b(String str) {
+    public final void b(String str) {
         try {
             b(new JSONObject(str));
         } catch (Exception e) {
-            a("你的网络状况不大好，请稍后重试");
-            com.baidu.adp.lib.util.f.b("error = " + e.getMessage());
+            this.b = "你的网络状况不大好，请稍后重试";
+            com.baidu.adp.lib.util.e.b("error = " + e.getMessage());
         }
     }
 
-    public void b(JSONObject jSONObject) {
+    public final void b(JSONObject jSONObject) {
         try {
             this.c = jSONObject.optInt(SocialConstants.PARAM_ERROR_CODE, 0);
             if (this.c != 0) {
-                a(jSONObject.optString("error_msg", "你的网络状况不大好，请稍后重试"));
+                this.b = jSONObject.optString("error_msg", "你的网络状况不大好，请稍后重试");
                 return;
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("error");
             if (optJSONObject != null) {
                 this.c = optJSONObject.optInt("errno", 0);
                 if (this.c != 0) {
-                    a(optJSONObject.optString("usermsg", "你的网络状况不大好，请稍后重试"));
+                    this.b = optJSONObject.optString("usermsg", "你的网络状况不大好，请稍后重试");
                     return;
                 }
             }
@@ -57,8 +57,8 @@ public abstract class a {
             }
             a(jSONObject);
         } catch (Exception e) {
-            a("你的网络状况不大好，请稍后重试");
-            com.baidu.adp.lib.util.f.b("error = " + e.getMessage());
+            this.b = "你的网络状况不大好，请稍后重试";
+            com.baidu.adp.lib.util.e.b("error = " + e.getMessage());
         }
     }
 }

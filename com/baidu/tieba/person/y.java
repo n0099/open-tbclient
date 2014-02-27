@@ -12,23 +12,58 @@ import com.baidu.tieba.view.EditHeadImageView;
 import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y extends BdAsyncTask<Object, Integer, Bitmap> {
+public final class y extends BdAsyncTask<Object, Integer, Bitmap> {
     final /* synthetic */ EditHeadActivity a;
+
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ Bitmap a(Object... objArr) {
+        return d();
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ void a(Bitmap bitmap) {
+        ProgressBar progressBar;
+        TextView textView;
+        EditHeadImageView editHeadImageView;
+        boolean z;
+        String[] strArr;
+        Bitmap bitmap2 = bitmap;
+        super.a((y) bitmap2);
+        this.a.o = null;
+        this.a.h = bitmap2;
+        progressBar = this.a.n;
+        progressBar.setVisibility(8);
+        textView = this.a.j;
+        textView.setEnabled(true);
+        if (bitmap2 == null || bitmap2.isRecycled() || bitmap2 == null) {
+            return;
+        }
+        editHeadImageView = this.a.g;
+        editHeadImageView.setImageBitmap(bitmap2);
+        if (Build.VERSION.SDK_INT >= 7) {
+            z = this.a.A;
+            if (z) {
+                EditHeadActivity editHeadActivity = this.a;
+                strArr = EditHeadActivity.f;
+                EditHeadActivity.a(editHeadActivity, strArr);
+            }
+        }
+    }
 
     private y(EditHeadActivity editHeadActivity) {
         this.a = editHeadActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ y(EditHeadActivity editHeadActivity, y yVar) {
+    public /* synthetic */ y(EditHeadActivity editHeadActivity, byte b) {
         this(editHeadActivity);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public Bitmap a(Object... objArr) {
+    private Bitmap d() {
         boolean z;
         HashMap hashMap;
         String[] strArr;
@@ -45,7 +80,7 @@ public class y extends BdAsyncTask<Object, Integer, Bitmap> {
                     } catch (Exception e) {
                         e = e;
                         bitmap = a;
-                        com.baidu.adp.lib.util.f.b(getClass().getName(), "GetImageTask", e.toString());
+                        com.baidu.adp.lib.util.e.b(getClass().getName(), "GetImageTask", e.toString());
                         return bitmap;
                     }
                 }
@@ -86,7 +121,7 @@ public class y extends BdAsyncTask<Object, Integer, Bitmap> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void b() {
+    public final void b() {
         ProgressBar progressBar;
         TextView textView;
         progressBar = this.a.n;
@@ -97,7 +132,7 @@ public class y extends BdAsyncTask<Object, Integer, Bitmap> {
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
+    public final void cancel() {
         ProgressBar progressBar;
         TextView textView;
         this.a.o = null;
@@ -106,35 +141,5 @@ public class y extends BdAsyncTask<Object, Integer, Bitmap> {
         textView = this.a.j;
         textView.setEnabled(true);
         super.cancel(true);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Bitmap bitmap) {
-        ProgressBar progressBar;
-        TextView textView;
-        EditHeadImageView editHeadImageView;
-        boolean z;
-        String[] strArr;
-        super.a((y) bitmap);
-        this.a.o = null;
-        this.a.h = bitmap;
-        progressBar = this.a.n;
-        progressBar.setVisibility(8);
-        textView = this.a.j;
-        textView.setEnabled(true);
-        if (bitmap != null && !bitmap.isRecycled() && bitmap != null) {
-            editHeadImageView = this.a.g;
-            editHeadImageView.setImageBitmap(bitmap);
-            if (Build.VERSION.SDK_INT >= 7) {
-                z = this.a.A;
-                if (z) {
-                    EditHeadActivity editHeadActivity = this.a;
-                    strArr = EditHeadActivity.f;
-                    editHeadActivity.a(strArr);
-                }
-            }
-        }
     }
 }

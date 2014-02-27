@@ -1,35 +1,13 @@
 package com.baidu.tieba.editortool;
 
 import android.view.ViewGroup;
-import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
 /* loaded from: classes.dex */
-class ad implements Animation.AnimationListener {
-    private final /* synthetic */ ae a;
-    private final /* synthetic */ ViewGroup b;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(ae aeVar, ViewGroup viewGroup) {
-        this.a = aeVar;
-        this.b = viewGroup;
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        if (this.a != null) {
-            this.a.a();
-        }
-        this.b.setVisibility(0);
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-        this.b.setVisibility(8);
-        if (this.a != null) {
-            this.a.b();
-        }
+public final class ad {
+    public static void a(ViewGroup viewGroup, af afVar) {
+        TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, 1.0f);
+        translateAnimation.setDuration(200L);
+        translateAnimation.setAnimationListener(new ae(afVar, viewGroup));
+        viewGroup.startAnimation(translateAnimation);
     }
 }

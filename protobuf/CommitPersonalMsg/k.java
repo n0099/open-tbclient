@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.CommitPersonalMsg.CommitPersonalMsgRes;
 /* loaded from: classes.dex */
 public final class k extends GeneratedMessageLite.Builder<CommitPersonalMsgRes.DataRes, k> implements l {
@@ -13,19 +14,34 @@ public final class k extends GeneratedMessageLite.Builder<CommitPersonalMsgRes.D
     private long d;
     private long e;
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        CommitPersonalMsgRes.DataRes buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return CommitPersonalMsgRes.DataRes.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return CommitPersonalMsgRes.DataRes.getDefaultInstance();
+    }
+
     private k() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static k h() {
+    public static /* synthetic */ k b() {
         return new k();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public k clear() {
         super.clear();
         this.b = 0L;
@@ -40,30 +56,14 @@ public final class k extends GeneratedMessageLite.Builder<CommitPersonalMsgRes.D
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public k clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public CommitPersonalMsgRes.DataRes getDefaultInstanceForType() {
-        return CommitPersonalMsgRes.DataRes.getDefaultInstance();
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public CommitPersonalMsgRes.DataRes build() {
-        CommitPersonalMsgRes.DataRes buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
+    public k clone() {
+        return new k().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public CommitPersonalMsgRes.DataRes buildPartial() {
+    /* renamed from: a */
+    public final CommitPersonalMsgRes.DataRes buildPartial() {
         CommitPersonalMsgRes.DataRes dataRes = new CommitPersonalMsgRes.DataRes(this, (CommitPersonalMsgRes.DataRes) null);
         int i = this.a;
         int i2 = (i & 1) != 1 ? 0 : 1;
@@ -86,19 +86,27 @@ public final class k extends GeneratedMessageLite.Builder<CommitPersonalMsgRes.D
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public k mergeFrom(CommitPersonalMsgRes.DataRes dataRes) {
+    public final k mergeFrom(CommitPersonalMsgRes.DataRes dataRes) {
         if (dataRes != CommitPersonalMsgRes.DataRes.getDefaultInstance()) {
             if (dataRes.hasMsgId()) {
-                a(dataRes.getMsgId());
+                long msgId = dataRes.getMsgId();
+                this.a |= 1;
+                this.b = msgId;
             }
             if (dataRes.hasGroupId()) {
-                a(dataRes.getGroupId());
+                int groupId = dataRes.getGroupId();
+                this.a |= 2;
+                this.c = groupId;
             }
             if (dataRes.hasRecordId()) {
-                b(dataRes.getRecordId());
+                long recordId = dataRes.getRecordId();
+                this.a |= 4;
+                this.d = recordId;
             }
             if (dataRes.hasToUid()) {
-                c(dataRes.getToUid());
+                long toUid = dataRes.getToUid();
+                this.a |= 8;
+                this.e = toUid;
             }
         }
         return this;
@@ -145,29 +153,5 @@ public final class k extends GeneratedMessageLite.Builder<CommitPersonalMsgRes.D
                 throw th;
             }
         }
-    }
-
-    public k a(long j) {
-        this.a |= 1;
-        this.b = j;
-        return this;
-    }
-
-    public k a(int i) {
-        this.a |= 2;
-        this.c = i;
-        return this;
-    }
-
-    public k b(long j) {
-        this.a |= 4;
-        this.d = j;
-        return this;
-    }
-
-    public k c(long j) {
-        this.a |= 8;
-        this.e = j;
-        return this;
     }
 }

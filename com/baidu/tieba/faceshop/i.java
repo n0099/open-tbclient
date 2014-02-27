@@ -2,7 +2,7 @@ package com.baidu.tieba.faceshop;
 
 import android.view.View;
 /* loaded from: classes.dex */
-class i implements View.OnClickListener {
+final class i implements View.OnClickListener {
     final /* synthetic */ h a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +11,7 @@ class i implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         this.a.dismiss();
     }
 }

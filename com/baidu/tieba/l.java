@@ -13,37 +13,37 @@ public class l {
 
     public void a() {
         if (this.a != null) {
-            this.a.k();
+            this.a.j();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(String str) {
+    public final void a(String str) {
         this.a.a(str);
     }
 
-    public void a(String str, String str2) {
+    public final void a(String str, String str2) {
         this.a.a(str, str2);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public String b() {
-        String m = this.a.m();
+        String l = this.a.l();
         this.b = new NewErrorData();
-        this.b.parserJson(m);
-        return m;
+        this.b.parserJson(l);
+        return l;
     }
 
-    public boolean c() {
+    public final boolean c() {
         if (this.a != null) {
-            return this.a.d();
+            return this.a.c();
         }
         return false;
     }
 
-    public String d() {
+    public final String d() {
         if (this.a != null) {
-            return this.a.j();
+            return this.a.i();
         }
         return null;
     }

@@ -10,7 +10,7 @@ import com.slidingmenu.lib.R;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public abstract class MsglistActivity extends cz implements com.baidu.tieba.im.messageCenter.g {
+public abstract class MsglistActivity extends cy implements com.baidu.tieba.im.messageCenter.g {
     protected abstract void a(Intent intent);
 
     protected abstract void a(Bundle bundle);
@@ -20,7 +20,7 @@ public abstract class MsglistActivity extends cz implements com.baidu.tieba.im.m
     protected abstract void l();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.cz, com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.cy, com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
@@ -29,34 +29,34 @@ public abstract class MsglistActivity extends cz implements com.baidu.tieba.im.m
             } else {
                 l();
                 m();
-                if (s()) {
-                    t();
+                if (o()) {
+                    this.e.i();
                     j();
-                    cs.a = com.baidu.tieba.util.i.b();
+                    cr.a = com.baidu.tieba.util.i.b();
                 }
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(e.getMessage());
+            com.baidu.adp.lib.util.e.b(e.getMessage());
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.cz, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.cy, android.app.Activity
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         try {
-            com.baidu.adp.lib.util.f.d("----onNewIntent start-----");
+            com.baidu.adp.lib.util.e.d("----onNewIntent start-----");
             setIntent(intent);
             if (!b((Bundle) null)) {
                 finish();
             } else {
                 l();
                 m();
-                if (s()) {
-                    t();
+                if (o()) {
+                    this.e.i();
                 }
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(e.getMessage());
+            com.baidu.adp.lib.util.e.b(e.getMessage());
         }
     }
 
@@ -65,16 +65,16 @@ public abstract class MsglistActivity extends cz implements com.baidu.tieba.im.m
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (this.d != null) {
-            this.d.g(i);
+            this.d.L();
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.cz, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.cy, android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putInt("chat_mode", this.e.k());
+        bundle.putInt("chat_mode", this.e.j());
         bundle.putBoolean("is_accept_notify", this.e.d());
-        if (this.e.k() == 0 || this.e.k() == 2) {
+        if (this.e.j() == 0 || this.e.j() == 2) {
             bundle.putSerializable("group", this.e.a());
         } else {
             bundle.putSerializable("user", this.e.b());
@@ -82,32 +82,30 @@ public abstract class MsglistActivity extends cz implements com.baidu.tieba.im.m
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.cz, com.baidu.tieba.f, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.cy, com.baidu.tieba.f, android.app.Activity
     public void onResume() {
         super.onResume();
         if (this.d != null) {
-            this.d.g(TiebaApplication.g().al());
-            q();
-        }
-    }
-
-    private void q() {
-        if (TiebaApplication.g().ai()) {
-            this.d.J();
-        } else {
-            this.d.I();
-        }
-        if (this.e.k() == 0 || this.e.k() == 2) {
-            if (this.e.a() != null) {
-                String name = this.e.a().getName();
-                if (!TextUtils.isEmpty(name)) {
-                    this.d.a(name, true);
-                }
+            a aVar = this.d;
+            TiebaApplication.g().ae();
+            aVar.L();
+            if (TiebaApplication.g().ab()) {
+                this.d.G();
+            } else {
+                this.d.F();
             }
-            com.baidu.tieba.im.j.a(new cd(this), new ce(this));
-            return;
+            if (this.e.j() == 0 || this.e.j() == 2) {
+                if (this.e.a() != null) {
+                    String name = this.e.a().getName();
+                    if (!TextUtils.isEmpty(name)) {
+                        this.d.a(name);
+                    }
+                }
+                com.baidu.tieba.im.i.a(new cc(this), new cd(this));
+                return;
+            }
+            com.baidu.tieba.im.i.a(new ce(this), new cf(this));
         }
-        com.baidu.tieba.im.j.a(new cf(this), new cg(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -116,126 +114,58 @@ public abstract class MsglistActivity extends cz implements com.baidu.tieba.im.m
             this.e = new MsglistModel(this);
             this.e.setLoadDataCallBack(this.k);
             if (bundle != null) {
-                c(bundle);
+                this.i = bundle.getInt("chat_mode");
+                this.e.a(bundle.getBoolean("is_accept_notify", true));
+                this.e.d(this.i);
+                a(bundle);
             } else {
-                r();
+                Intent intent = getIntent();
+                this.i = intent.getIntExtra("chat_mode", 0);
+                boolean booleanExtra = intent.getBooleanExtra("is_accept_notify", true);
+                if (this.e == null) {
+                    com.baidu.adp.lib.util.e.b("mListModel is null");
+                } else {
+                    this.e.a(booleanExtra);
+                    this.e.d(this.i);
+                    a(intent);
+                }
             }
             return k();
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(e.getMessage());
+            com.baidu.adp.lib.util.e.b(e.getMessage());
             return false;
         }
     }
 
-    private void r() {
-        Intent intent = getIntent();
-        this.i = intent.getIntExtra("chat_mode", 0);
-        boolean booleanExtra = intent.getBooleanExtra("is_accept_notify", true);
-        if (this.e == null) {
-            com.baidu.adp.lib.util.f.b("mListModel is null");
-            return;
-        }
-        this.e.a(booleanExtra);
-        this.e.d(this.i);
-        a(intent);
-    }
-
-    private void c(Bundle bundle) {
-        this.i = bundle.getInt("chat_mode");
-        this.e.a(bundle.getBoolean("is_accept_notify", true));
-        this.e.d(this.i);
-        a(bundle);
-    }
-
-    private boolean s() {
-        if (this.e.k() == 1) {
+    private boolean o() {
+        if (this.e.j() == 1) {
             this.e.g();
         }
         return this.e.f();
     }
 
-    private boolean t() {
-        return this.e.i();
-    }
-
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.cz, com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.im.chat.cy, com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
-        com.baidu.adp.lib.util.f.e("----ondestroy---");
+        com.baidu.adp.lib.util.e.e("----ondestroy---");
         super.onDestroy();
-        u();
+        com.baidu.tieba.im.messageCenter.d.a().a(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void j() {
-        com.baidu.tieba.im.messageCenter.e.a().a(103110, this);
-        com.baidu.tieba.im.messageCenter.e.a().a(103101, this);
-        com.baidu.tieba.im.messageCenter.e.a().a(103112, this);
-        com.baidu.tieba.im.messageCenter.e.a().a(103104, this);
-        com.baidu.tieba.im.messageCenter.e.a().a(-109, this);
-        com.baidu.tieba.im.messageCenter.e.a().a(-130, this);
-        com.baidu.tieba.im.messageCenter.e.a().a(-132, this);
-        com.baidu.tieba.im.messageCenter.e.a().a(-138, this);
-        com.baidu.tieba.im.messageCenter.e.a().a(-136, this);
-        com.baidu.tieba.im.messageCenter.e.a().a(-134, this);
-        com.baidu.tieba.im.messageCenter.e.a().a(-137, this);
-        com.baidu.tieba.im.messageCenter.e.a().a(-141, this);
-    }
-
-    private void u() {
-        com.baidu.tieba.im.messageCenter.e.a().a(this);
-    }
-
-    private void a(GroupNewsPojo groupNewsPojo) {
-        if (groupNewsPojo != null && this.e != null && this.e.a() != null) {
-            try {
-                JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
-                String string = jSONObject.getJSONObject("eventParam").getString("groupId");
-                if (jSONObject.getString("eventId").equals("003") && string.equals(String.valueOf(this.e.a().getGroupId()))) {
-                    showToast(R.string.group_is_kicked, false);
-                    finish();
-                    com.baidu.adp.lib.util.f.e("newSystemMessageNotify suc and closeBottom");
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    private void b(GroupNewsPojo groupNewsPojo) {
-        if (groupNewsPojo != null && this.e != null && this.e.a() != null) {
-            try {
-                JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
-                JSONObject jSONObject2 = jSONObject.getJSONObject("eventParam");
-                String string = jSONObject2.getString("groupId");
-                if (jSONObject.getString("eventId").equals("101") && string.equals(String.valueOf(this.e.a().getGroupId()))) {
-                    String string2 = jSONObject2.getString("groupName");
-                    if (!TextUtils.isEmpty(string2)) {
-                        this.d.a(string2, true);
-                        this.e.a().setName(string2);
-                        com.baidu.adp.lib.util.f.e("newSystemMessageNotify suc and change name");
-                    }
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    private void c(GroupNewsPojo groupNewsPojo) {
-        if (groupNewsPojo != null && this.e != null && this.e.a() != null) {
-            try {
-                JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
-                String string = jSONObject.getJSONObject("eventParam").getString("groupId");
-                if (jSONObject.getString("eventId").equals("107") && string.equals(String.valueOf(this.e.a().getGroupId()))) {
-                    showToast(R.string.group_is_dismiss, false);
-                    finish();
-                    com.baidu.adp.lib.util.f.e("dismiss suc");
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
+        com.baidu.tieba.im.messageCenter.d.a().a(103110, this);
+        com.baidu.tieba.im.messageCenter.d.a().a(103101, this);
+        com.baidu.tieba.im.messageCenter.d.a().a(103112, this);
+        com.baidu.tieba.im.messageCenter.d.a().a(103104, this);
+        com.baidu.tieba.im.messageCenter.d.a().a(-109, this);
+        com.baidu.tieba.im.messageCenter.d.a().a(-130, this);
+        com.baidu.tieba.im.messageCenter.d.a().a(-132, this);
+        com.baidu.tieba.im.messageCenter.d.a().a(-138, this);
+        com.baidu.tieba.im.messageCenter.d.a().a(-136, this);
+        com.baidu.tieba.im.messageCenter.d.a().a(-134, this);
+        com.baidu.tieba.im.messageCenter.d.a().a(-137, this);
+        com.baidu.tieba.im.messageCenter.d.a().a(-141, this);
     }
 
     public void a(com.baidu.tieba.im.message.s sVar) {
@@ -252,19 +182,66 @@ public abstract class MsglistActivity extends cz implements com.baidu.tieba.im.m
                     if ((sVar instanceof com.baidu.tieba.im.message.aa) && (a = ((com.baidu.tieba.im.message.aa) sVar).a()) != null) {
                         String cmd = a.getCmd();
                         if (!TextUtils.isEmpty(cmd)) {
-                            this.d.f();
+                            this.d.e();
                             if (!cmd.equals("apply_join_success")) {
                                 if (cmd.equals("kick_out")) {
-                                    a(a);
-                                    return;
+                                    if (a == null || this.e == null || this.e.a() == null) {
+                                        return;
+                                    }
+                                    try {
+                                        JSONObject jSONObject = new JSONObject(a.getContent());
+                                        String string = jSONObject.getJSONObject("eventParam").getString("groupId");
+                                        if (!jSONObject.getString("eventId").equals("003") || !string.equals(String.valueOf(this.e.a().getGroupId()))) {
+                                            return;
+                                        }
+                                        showToast(R.string.group_is_kicked, false);
+                                        finish();
+                                        com.baidu.adp.lib.util.e.e("newSystemMessageNotify suc and closeBottom");
+                                        return;
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                        return;
+                                    }
                                 } else if (cmd.equals("group_name_change")) {
-                                    b(a);
-                                    return;
-                                } else if (cmd.equals("dismiss_group")) {
-                                    c(a);
+                                    if (a == null || this.e == null || this.e.a() == null) {
+                                        return;
+                                    }
+                                    try {
+                                        JSONObject jSONObject2 = new JSONObject(a.getContent());
+                                        JSONObject jSONObject3 = jSONObject2.getJSONObject("eventParam");
+                                        String string2 = jSONObject3.getString("groupId");
+                                        if (jSONObject2.getString("eventId").equals("101") && string2.equals(String.valueOf(this.e.a().getGroupId()))) {
+                                            String string3 = jSONObject3.getString("groupName");
+                                            if (!TextUtils.isEmpty(string3)) {
+                                                this.d.a(string3);
+                                                this.e.a().setName(string3);
+                                                com.baidu.adp.lib.util.e.e("newSystemMessageNotify suc and change name");
+                                                return;
+                                            }
+                                            return;
+                                        }
+                                        return;
+                                    } catch (JSONException e2) {
+                                        e2.printStackTrace();
+                                        return;
+                                    }
+                                } else if (!cmd.equals("dismiss_group") || a == null || this.e == null || this.e.a() == null) {
                                     return;
                                 } else {
-                                    return;
+                                    try {
+                                        JSONObject jSONObject4 = new JSONObject(a.getContent());
+                                        String string4 = jSONObject4.getJSONObject("eventParam").getString("groupId");
+                                        if (!jSONObject4.getString("eventId").equals("107") || !string4.equals(String.valueOf(this.e.a().getGroupId()))) {
+                                            return;
+                                        }
+                                        showToast(R.string.group_is_dismiss, false);
+                                        finish();
+                                        com.baidu.adp.lib.util.e.e("dismiss suc");
+                                        return;
+                                    } catch (JSONException e3) {
+                                        e3.printStackTrace();
+                                        return;
+                                    }
                                 }
                             }
                             return;
@@ -276,7 +253,7 @@ public abstract class MsglistActivity extends cz implements com.baidu.tieba.im.m
                 case 103101:
                 case 103110:
                 case 103112:
-                    this.d.f();
+                    this.d.e();
                     return;
                 case 103104:
                     if (sVar instanceof com.baidu.tieba.im.message.bv) {

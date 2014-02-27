@@ -4,9 +4,8 @@ import android.content.Context;
 import android.view.View;
 import com.slidingmenu.lib.R;
 import java.util.HashMap;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class af implements View.OnClickListener {
+final class af implements View.OnClickListener {
     final /* synthetic */ ae a;
     private final /* synthetic */ v b;
     private final /* synthetic */ ai c;
@@ -19,7 +18,7 @@ public class af implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         HashMap hashMap;
         Context context;
         if (!this.b.k()) {

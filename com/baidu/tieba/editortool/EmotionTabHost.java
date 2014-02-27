@@ -10,7 +10,7 @@ import com.baidu.tieba.data.emotions.WritableEmotionGroup;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class EmotionTabHost extends LinearLayout implements y, com.baidu.tieba.im.messageCenter.g {
+public class EmotionTabHost extends LinearLayout implements z, com.baidu.tieba.im.messageCenter.g {
     private LayoutInflater a;
     private EmotionTabContentView b;
     private EmotionTabWidgetView c;
@@ -49,9 +49,9 @@ public class EmotionTabHost extends LinearLayout implements y, com.baidu.tieba.i
         this.c = (EmotionTabWidgetView) findViewById(R.id.face_tab_widget);
         this.c.setOnTabSelectedListener(this);
         setOrientation(1);
-        this.g = TiebaApplication.g().al();
+        this.g = TiebaApplication.g().ae();
         b(this.g);
-        b();
+        a();
     }
 
     public void setFrom(int i) {
@@ -60,7 +60,7 @@ public class EmotionTabHost extends LinearLayout implements y, com.baidu.tieba.i
         }
     }
 
-    private void b() {
+    private void a() {
         this.d = com.baidu.tieba.data.emotions.l.a().d();
         this.c.setDatas(this.d);
         int size = this.d.size();
@@ -70,7 +70,7 @@ public class EmotionTabHost extends LinearLayout implements y, com.baidu.tieba.i
             if (this.f != null && this.f.equals(writableEmotionGroup.e())) {
                 i = i2;
             }
-            a(writableEmotionGroup);
+            this.c.a(writableEmotionGroup);
         }
         setCurrentEmotionGroup(i);
     }
@@ -78,27 +78,23 @@ public class EmotionTabHost extends LinearLayout implements y, com.baidu.tieba.i
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        com.baidu.tieba.im.messageCenter.e.a().a(-120, this);
+        com.baidu.tieba.im.messageCenter.d.a().a(-120, this);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        com.baidu.tieba.im.messageCenter.e.a().a(this);
+        com.baidu.tieba.im.messageCenter.d.a().a(this);
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
         super.setVisibility(i);
-        int al = TiebaApplication.g().al();
-        if (al != this.g) {
-            this.g = al;
+        int ae = TiebaApplication.g().ae();
+        if (ae != this.g) {
+            this.g = ae;
             b(this.g);
         }
-    }
-
-    private void a(WritableEmotionGroup writableEmotionGroup) {
-        this.c.a(writableEmotionGroup);
     }
 
     public void setCurrentEmotionGroup(int i) {
@@ -118,13 +114,6 @@ public class EmotionTabHost extends LinearLayout implements y, com.baidu.tieba.i
         }
     }
 
-    public void a() {
-        this.e = -1;
-        this.d.clear();
-        this.b.a();
-        this.c.a();
-    }
-
     public void setIsInChat(boolean z) {
         this.h = z;
     }
@@ -141,29 +130,32 @@ public class EmotionTabHost extends LinearLayout implements y, com.baidu.tieba.i
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.s sVar) {
+    public final void a(com.baidu.tieba.im.message.s sVar) {
         switch (sVar.w()) {
             case -120:
+                this.e = -1;
+                this.d.clear();
+                this.b.a();
+                this.c.a();
                 a();
-                b();
                 return;
             default:
                 return;
         }
     }
 
-    @Override // com.baidu.tieba.editortool.y
-    public void a(int i) {
+    @Override // com.baidu.tieba.editortool.z
+    public final void a(int i) {
         setCurrentEmotionGroup(i);
     }
 
-    public void b(int i) {
+    public final void b(int i) {
         this.c.a(i);
         this.b.a(i);
     }
 
-    public void setOnDataSelected(z zVar) {
-        this.b.setOnDataSelected(zVar);
-        this.c.setOnDataSelected(zVar);
+    public void setOnDataSelected(aa aaVar) {
+        this.b.setOnDataSelected(aaVar);
+        this.c.setOnDataSelected(aaVar);
     }
 }

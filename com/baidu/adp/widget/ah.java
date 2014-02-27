@@ -1,11 +1,9 @@
 package com.baidu.adp.widget;
 
-import android.view.animation.Interpolator;
+import android.graphics.Canvas;
 /* loaded from: classes.dex */
-class ah implements Interpolator {
-    @Override // android.animation.TimeInterpolator
-    public float getInterpolation(float f) {
-        float f2 = f - 1.0f;
-        return (f2 * f2 * f2 * f2 * f2) + 1.0f;
-    }
+public interface ah {
+    void a(int i, int i2);
+
+    void a(Canvas canvas);
 }

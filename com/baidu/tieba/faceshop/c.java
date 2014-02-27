@@ -6,22 +6,14 @@ import com.baidu.tieba.data.emotions.MyEmotionGroupData;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c extends BdAsyncTask<List<String>, Integer, Boolean> {
+public final class c extends BdAsyncTask<List<String>, Integer, Boolean> {
     final /* synthetic */ EmotionManageActivity a;
 
-    private c(EmotionManageActivity emotionManageActivity) {
-        this.a = emotionManageActivity;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ c(EmotionManageActivity emotionManageActivity, c cVar) {
-        this(emotionManageActivity);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Boolean a(List<String>... listArr) {
+    public final /* synthetic */ Boolean a(List<String>... listArr) {
         List<String> list = listArr[0];
         if (list == null || list.isEmpty()) {
             return false;
@@ -30,27 +22,35 @@ public class c extends BdAsyncTask<List<String>, Integer, Boolean> {
         for (String str : list) {
             MyEmotionGroupData myEmotionGroupData = new MyEmotionGroupData();
             myEmotionGroupData.setGroupId(str);
-            myEmotionGroupData.setUid(TiebaApplication.A());
-            if (com.baidu.tieba.data.emotions.j.a().a(myEmotionGroupData)) {
-                com.baidu.adp.lib.util.f.e("delete my emotion:" + myEmotionGroupData.getId());
+            myEmotionGroupData.setUid(TiebaApplication.v());
+            com.baidu.tieba.data.emotions.j.a();
+            if (com.baidu.tieba.data.emotions.j.a(myEmotionGroupData)) {
+                com.baidu.adp.lib.util.e.e("delete my emotion:" + myEmotionGroupData.getId());
                 i++;
             }
         }
-        if (i > 0) {
-            return true;
-        }
-        return false;
+        return i > 0;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Boolean bool) {
-        super.a((c) bool);
-        if (bool.booleanValue()) {
+    public final /* synthetic */ void a(Boolean bool) {
+        Boolean bool2 = bool;
+        super.a((c) bool2);
+        if (bool2.booleanValue()) {
             com.baidu.tieba.data.emotions.l.a().b();
             this.a.p = true;
             this.a.a(true);
         }
+    }
+
+    private c(EmotionManageActivity emotionManageActivity) {
+        this.a = emotionManageActivity;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ c(EmotionManageActivity emotionManageActivity, byte b) {
+        this(emotionManageActivity);
     }
 }

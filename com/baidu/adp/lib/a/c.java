@@ -3,7 +3,7 @@ package com.baidu.adp.lib.a;
 import android.content.SharedPreferences;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
-public class c {
+public final class c {
     private static String a = "_crashtime";
     private static String b = "_crashtype";
     private int c;
@@ -19,24 +19,20 @@ public class c {
         }
         this.e = aVar;
         if (this.e.b() > 0 && this.e.c() != null) {
-            this.c = e();
+            this.c = com.baidu.adp.a.b.a().b().getSharedPreferences("adp_feature_switch", 0).getInt(String.valueOf(this.e.a()) + a, -1);
             if (this.c == -1) {
-                c();
+                b();
             }
         }
-        this.d = d();
+        this.d = com.baidu.adp.a.b.a().b().getSharedPreferences("adp_feature_switch", 0).getInt(String.valueOf(this.e.a()) + b, this.e.e());
         this.e.a(this.d);
     }
 
-    public int a() {
-        return this.e.e();
-    }
-
-    public int b() {
+    public final int a() {
         return this.d;
     }
 
-    public boolean a(int i) {
+    public final boolean a(int i) {
         if (this.e.b() >= 0 && this.c >= this.e.b() + 2) {
             i = this.e.d();
         }
@@ -49,7 +45,7 @@ public class c {
         return true;
     }
 
-    public boolean a(String str) {
+    public final boolean a(String str) {
         if (str == null || this.e.b() <= 0 || this.e.c() == null) {
             return false;
         }
@@ -74,23 +70,15 @@ public class c {
         edit.commit();
     }
 
-    private int d() {
-        return com.baidu.adp.a.b.a().b().getSharedPreferences("adp_feature_switch", 0).getInt(String.valueOf(this.e.a()) + b, this.e.e());
-    }
-
-    private int e() {
-        return com.baidu.adp.a.b.a().b().getSharedPreferences("adp_feature_switch", 0).getInt(String.valueOf(this.e.a()) + a, -1);
-    }
-
     private void c(int i) {
         SharedPreferences.Editor edit = com.baidu.adp.a.b.a().b().getSharedPreferences("adp_feature_switch", 0).edit();
         edit.putInt(String.valueOf(this.e.a()) + a, i);
         edit.commit();
     }
 
-    public void c() {
+    public final void b() {
         this.c = 0;
         c(0);
-        b(a());
+        b(this.e.e());
     }
 }

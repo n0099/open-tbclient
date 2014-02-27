@@ -3,7 +3,7 @@ package com.baidu.tieba.im.net;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class b {
+public final class b {
     private String a;
     private List<String> b;
     private d c;
@@ -25,17 +25,13 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ b(b bVar) {
+    public /* synthetic */ b(byte b) {
         this();
     }
 
-    public int b() {
-        return com.baidu.tieba.sharedPref.b.a().a("KeyOfSharedPrefImCount", 0);
-    }
-
-    public String c() {
-        int b = b();
-        if (b >= 10) {
+    public final String b() {
+        int a = com.baidu.tieba.sharedPref.b.a().a("KeyOfSharedPrefImCount", 0);
+        if (a >= 10) {
             com.baidu.tieba.sharedPref.b.a().b("KeyOfSharedPrefImCount", 0);
             com.baidu.tieba.sharedPref.b.a().b("KeyOfSharedPrefValidIp", "");
             this.a = null;
@@ -44,37 +40,37 @@ public class b {
         if (this.a == null) {
             this.a = com.baidu.tieba.sharedPref.b.a().a("KeyOfSharedPrefValidIp", (String) null);
         }
-        if (!com.baidu.adp.lib.util.h.b(this.a)) {
-            com.baidu.tieba.sharedPref.b.a().b("KeyOfSharedPrefImCount", b + 1);
+        if (!com.baidu.adp.lib.util.g.b(this.a)) {
+            com.baidu.tieba.sharedPref.b.a().b("KeyOfSharedPrefImCount", a + 1);
         } else {
             this.a = null;
         }
         return this.a;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         if (!"ws://im.tieba.baidu.com:8000".equals(str)) {
             this.a = str;
             com.baidu.tieba.sharedPref.b.a().b("KeyOfSharedPrefValidIp", str);
         }
     }
 
-    public List<String> d() {
+    public final List<String> c() {
         if (this.b == null) {
             this.b = b(com.baidu.tieba.sharedPref.b.a().a("KeyOfSharedPrefIpList", (String) null));
         }
         return this.b;
     }
 
-    public void e() {
+    public final void d() {
         this.d = false;
     }
 
-    public boolean f() {
+    public final boolean e() {
         return this.d;
     }
 
-    public void a(c cVar) {
+    public final void a(c cVar) {
         if (this.c == null) {
             this.d = true;
             this.c = new d(this, cVar);
@@ -84,7 +80,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public List<String> b(String str) {
+    public static List<String> b(String str) {
         String[] split;
         ArrayList arrayList = null;
         if (str != null && str.length() > 0 && (split = str.split(",")) != null && split.length > 0) {

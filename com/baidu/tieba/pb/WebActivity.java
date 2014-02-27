@@ -59,39 +59,8 @@ public class WebActivity extends com.baidu.tieba.f {
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        TiebaApplication.g().a((com.baidu.tieba.f) this);
+        TiebaApplication.g().a(this);
         UtilHelper.b((Activity) this);
-        b();
-        if (bundle == null) {
-            this.d = getIntent().getStringExtra("bduss");
-        } else {
-            this.d = bundle.getString("bduss");
-        }
-        if (bundle == null) {
-            this.e = getIntent().getStringExtra(SapiAccountManager.SESSION_PTOKEN);
-        } else {
-            this.e = bundle.getString(SapiAccountManager.SESSION_PTOKEN);
-        }
-        a();
-        a(bundle);
-    }
-
-    public void a() {
-        CookieSyncManager.createInstance(this);
-        CookieManager cookieManager = CookieManager.getInstance();
-        cookieManager.setAcceptCookie(true);
-        cookieManager.setCookie("baidu.com", "BDUSS=" + this.d + "; domain=.baidu.com;");
-        cookieManager.setCookie("baidu.com", "PTOKEN=" + this.e + "; domain=.baidu.com;");
-        CookieSyncManager.getInstance().sync();
-    }
-
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a
-    public void releaseResouce() {
-        super.releaseResouce();
-        finish();
-    }
-
-    private void b() {
         setContentView(R.layout.web_activity);
         this.l = (LinearLayout) findViewById(R.id.softkey);
         this.j = (ProgressBar) findViewById(R.id.progress);
@@ -107,7 +76,7 @@ public class WebActivity extends com.baidu.tieba.f {
             settings.setPluginsEnabled(true);
             UtilHelper.a(settings);
         } catch (Throwable th) {
-            com.baidu.adp.lib.util.f.a(WebActivity.class.getName(), "set webview settings.", th);
+            com.baidu.adp.lib.util.e.a(WebActivity.class.getName(), "set webview settings.", th);
         }
         this.g = (ImageView) findViewById(R.id.webBack);
         this.g.setEnabled(false);
@@ -119,6 +88,38 @@ public class WebActivity extends com.baidu.tieba.f {
         this.i.setOnClickListener(new eu(this));
         this.b = (ImageView) findViewById(R.id.back);
         this.b.setOnClickListener(new ev(this));
+        if (bundle == null) {
+            this.d = getIntent().getStringExtra("bduss");
+        } else {
+            this.d = bundle.getString("bduss");
+        }
+        if (bundle == null) {
+            this.e = getIntent().getStringExtra(SapiAccountManager.SESSION_PTOKEN);
+        } else {
+            this.e = bundle.getString(SapiAccountManager.SESSION_PTOKEN);
+        }
+        CookieSyncManager.createInstance(this);
+        CookieManager cookieManager = CookieManager.getInstance();
+        cookieManager.setAcceptCookie(true);
+        cookieManager.setCookie("baidu.com", "BDUSS=" + this.d + "; domain=.baidu.com;");
+        cookieManager.setCookie("baidu.com", "PTOKEN=" + this.e + "; domain=.baidu.com;");
+        CookieSyncManager.getInstance().sync();
+        if (bundle != null) {
+            this.c = bundle.getString(SocialConstants.PARAM_URL);
+        } else {
+            this.c = getIntent().getStringExtra(SocialConstants.PARAM_URL);
+        }
+        if (this.c == null) {
+            finish();
+        } else {
+            this.m.postDelayed(this.n, 150L);
+        }
+    }
+
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a
+    public void releaseResouce() {
+        super.releaseResouce();
+        finish();
     }
 
     @Override // com.baidu.tieba.f, android.app.Activity, android.view.KeyEvent.Callback
@@ -151,25 +152,12 @@ public class WebActivity extends com.baidu.tieba.f {
     public void onDestroy() {
         super.onDestroy();
         this.m.removeCallbacks(this.n);
-        TiebaApplication.g().b((com.baidu.tieba.f) this);
+        TiebaApplication.g().b(this);
         if (this.j != null) {
             this.j.setVisibility(8);
         }
         if (this.k != null && (this.k instanceof CompatibleUtile.FullscreenableChromeClient)) {
             ((CompatibleUtile.FullscreenableChromeClient) this.k).hideCustomView();
-        }
-    }
-
-    private void a(Bundle bundle) {
-        if (bundle != null) {
-            this.c = bundle.getString(SocialConstants.PARAM_URL);
-        } else {
-            this.c = getIntent().getStringExtra(SocialConstants.PARAM_URL);
-        }
-        if (this.c == null) {
-            finish();
-        } else {
-            this.m.postDelayed(this.n, 150L);
         }
     }
 
@@ -193,7 +181,7 @@ public class WebActivity extends com.baidu.tieba.f {
             try {
                 WebView.class.getMethod(str, new Class[0]).invoke(this.a, new Object[0]);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "callHiddenWebViewMethod", "error = " + e.getMessage());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "callHiddenWebViewMethod", "error = " + e.getMessage());
             }
         }
     }

@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.AddGroupUsers.AddGroupUsersReq;
 /* loaded from: classes.dex */
 public final class e extends GeneratedMessageLite.Builder<AddGroupUsersReq.DataReq, e> implements f {
@@ -16,19 +17,25 @@ public final class e extends GeneratedMessageLite.Builder<AddGroupUsersReq.DataR
     private long g;
     private int h;
 
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return AddGroupUsersReq.DataReq.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return AddGroupUsersReq.DataReq.getDefaultInstance();
+    }
+
     private e() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static e h() {
+    public static /* synthetic */ e c() {
         return new e();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: d */
     public e clear() {
         super.clear();
         this.b = 0;
@@ -49,20 +56,14 @@ public final class e extends GeneratedMessageLite.Builder<AddGroupUsersReq.DataR
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
+    /* renamed from: e */
     public e clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public AddGroupUsersReq.DataReq getDefaultInstanceForType() {
-        return AddGroupUsersReq.DataReq.getDefaultInstance();
+        return new e().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: d */
-    public AddGroupUsersReq.DataReq build() {
+    /* renamed from: a */
+    public final AddGroupUsersReq.DataReq build() {
         AddGroupUsersReq.DataReq buildPartial = buildPartial();
         if (!buildPartial.isInitialized()) {
             throw newUninitializedMessageException(buildPartial);
@@ -71,8 +72,8 @@ public final class e extends GeneratedMessageLite.Builder<AddGroupUsersReq.DataR
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public AddGroupUsersReq.DataReq buildPartial() {
+    /* renamed from: b */
+    public final AddGroupUsersReq.DataReq buildPartial() {
         AddGroupUsersReq.DataReq dataReq = new AddGroupUsersReq.DataReq(this, (AddGroupUsersReq.DataReq) null);
         int i = this.a;
         int i2 = (i & 1) != 1 ? 0 : 1;
@@ -107,7 +108,7 @@ public final class e extends GeneratedMessageLite.Builder<AddGroupUsersReq.DataR
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public e mergeFrom(AddGroupUsersReq.DataReq dataReq) {
+    public final e mergeFrom(AddGroupUsersReq.DataReq dataReq) {
         Object obj;
         if (dataReq != AddGroupUsersReq.DataReq.getDefaultInstance()) {
             if (dataReq.hasGroupId()) {
@@ -119,19 +120,21 @@ public final class e extends GeneratedMessageLite.Builder<AddGroupUsersReq.DataR
                 this.c = obj;
             }
             if (dataReq.hasSysMsgId()) {
-                b(dataReq.getSysMsgId());
+                int sysMsgId = dataReq.getSysMsgId();
+                this.a |= 4;
+                this.d = sysMsgId;
             }
             if (dataReq.hasSysGroupId()) {
-                c(dataReq.getSysGroupId());
+                b(dataReq.getSysGroupId());
             }
             if (dataReq.hasDecision()) {
-                d(dataReq.getDecision());
+                c(dataReq.getDecision());
             }
             if (dataReq.hasInviteUserId()) {
                 a(dataReq.getInviteUserId());
             }
             if (dataReq.hasJoinType()) {
-                e(dataReq.getJoinType());
+                d(dataReq.getJoinType());
             }
         }
         return this;
@@ -180,13 +183,13 @@ public final class e extends GeneratedMessageLite.Builder<AddGroupUsersReq.DataR
         }
     }
 
-    public e a(int i) {
+    public final e a(int i) {
         this.a |= 1;
         this.b = i;
         return this;
     }
 
-    public e a(String str) {
+    public final e a(String str) {
         if (str != null) {
             this.a |= 2;
             this.c = str;
@@ -194,31 +197,25 @@ public final class e extends GeneratedMessageLite.Builder<AddGroupUsersReq.DataR
         return this;
     }
 
-    public e b(int i) {
-        this.a |= 4;
-        this.d = i;
-        return this;
-    }
-
-    public e c(int i) {
+    public final e b(int i) {
         this.a |= 8;
         this.e = i;
         return this;
     }
 
-    public e d(int i) {
+    public final e c(int i) {
         this.a |= 16;
         this.f = i;
         return this;
     }
 
-    public e a(long j) {
+    public final e a(long j) {
         this.a |= 32;
         this.g = j;
         return this;
     }
 
-    public e e(int i) {
+    public final e d(int i) {
         this.a |= 64;
         this.h = i;
         return this;

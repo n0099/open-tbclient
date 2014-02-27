@@ -3,9 +3,9 @@ package com.baidu.tieba.im.chat;
 import android.content.Intent;
 import com.baidu.tieba.im.data.GroupData;
 /* loaded from: classes.dex */
-class al implements com.baidu.adp.framework.task.a<com.baidu.tieba.a.b> {
+final class al implements com.baidu.adp.framework.task.a<com.baidu.tieba.a.b> {
     @Override // com.baidu.adp.framework.task.a
-    public com.baidu.adp.framework.message.b<com.baidu.tieba.a.b> a(com.baidu.adp.framework.message.a<com.baidu.tieba.a.b> aVar) {
+    public final com.baidu.adp.framework.message.b<com.baidu.tieba.a.b> a(com.baidu.adp.framework.message.a<com.baidu.tieba.a.b> aVar) {
         GroupData a;
         if (aVar != null && aVar.a() != null && (a = aVar.a().a()) != null && a.getGroupId() != 0) {
             String b = aVar.a().b();

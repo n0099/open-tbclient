@@ -35,8 +35,9 @@ public class SocialShareConfig extends BaseConfig {
 
     public static SocialShareConfig getInstance(Context context) {
         if (a == null) {
-            a = new SocialShareConfig(context);
-            a.loadDefaultConfig();
+            SocialShareConfig socialShareConfig = new SocialShareConfig(context);
+            a = socialShareConfig;
+            socialShareConfig.loadDefaultConfig();
         }
         return a;
     }

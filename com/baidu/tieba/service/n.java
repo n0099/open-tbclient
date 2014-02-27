@@ -3,7 +3,7 @@ package com.baidu.tieba.service;
 import android.net.Uri;
 import android.os.Handler;
 /* loaded from: classes.dex */
-class n implements Runnable {
+final class n implements Runnable {
     final /* synthetic */ TiebaPrepareImageService a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ class n implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         Handler handler;
         Runnable runnable;
         int i;

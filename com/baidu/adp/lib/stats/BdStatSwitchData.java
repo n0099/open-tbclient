@@ -77,7 +77,7 @@ public class BdStatSwitchData implements Serializable {
             try {
                 parserJson(new JSONObject(str));
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.a(getClass(), "parserJson", e);
+                com.baidu.adp.lib.util.e.a(getClass(), "parserJson", e);
             }
         }
     }
@@ -98,7 +98,7 @@ public class BdStatSwitchData implements Serializable {
                     this.error.parserJson(optJSONObject.optJSONObject("error"));
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.a(getClass(), "parserJson", e);
+                com.baidu.adp.lib.util.e.a(getClass(), "parserJson", e);
             }
         }
     }

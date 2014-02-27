@@ -4,7 +4,7 @@ import android.os.Handler;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 /* loaded from: classes.dex */
-class bd implements com.baidu.adp.lib.network.d {
+final class bd implements com.baidu.adp.lib.network.d {
     int a = 0;
     int b = 0;
     int c = 0;
@@ -20,14 +20,14 @@ class bd implements com.baidu.adp.lib.network.d {
     }
 
     @Override // com.baidu.adp.lib.network.d
-    public void a(int i, HttpURLConnection httpURLConnection, OutputStream outputStream) {
+    public final void a(int i, HttpURLConnection httpURLConnection, OutputStream outputStream) {
         if (httpURLConnection != null && i > 0) {
             this.a = i / 50;
         }
     }
 
     @Override // com.baidu.adp.lib.network.d
-    public void a(int i, int i2, HttpURLConnection httpURLConnection) {
+    public final void a(int i, int i2) {
         this.b += i - this.c;
         this.c = i;
         if (this.e != null) {
@@ -39,11 +39,7 @@ class bd implements com.baidu.adp.lib.network.d {
     }
 
     @Override // com.baidu.adp.lib.network.d
-    public void a(com.baidu.adp.lib.network.f fVar) {
-        com.baidu.adp.lib.util.f.a("NetWork", "downloadFile", "data.zise = " + String.valueOf(fVar.b));
-    }
-
-    @Override // com.baidu.adp.lib.network.d
-    public void a() {
+    public final void a(com.baidu.adp.lib.network.f fVar) {
+        com.baidu.adp.lib.util.e.a("NetWork", "downloadFile", "data.zise = " + String.valueOf(fVar.b));
     }
 }

@@ -135,7 +135,7 @@ public class c {
 
         /* renamed from: for  reason: not valid java name */
         public boolean m114for() {
-            return this.f107for > -1 && this.f111try > 0;
+            return this.f107for >= 0 && this.f111try > 0;
         }
 
         /* renamed from: if  reason: not valid java name */
@@ -353,8 +353,9 @@ public class c {
             }
             if (d == null) {
                 try {
-                    d = Class.forName("android.telephony.cdma.CdmaCellLocation");
-                    f97long = d.getMethod("getBaseStationId", new Class[0]);
+                    Class<?> cls = Class.forName("android.telephony.cdma.CdmaCellLocation");
+                    d = cls;
+                    f97long = cls.getMethod("getBaseStationId", new Class[0]);
                     f93case = d.getMethod("getNetworkId", new Class[0]);
                     f95for = d.getMethod("getSystemId", new Class[0]);
                 } catch (Exception e2) {

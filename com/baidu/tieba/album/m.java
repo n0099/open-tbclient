@@ -6,41 +6,39 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
-import android.widget.RelativeLayout;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 import java.util.List;
 /* loaded from: classes.dex */
-public class m extends com.baidu.tieba.j implements AdapterView.OnItemClickListener, t {
+public final class m extends com.baidu.tieba.j implements AdapterView.OnItemClickListener {
     private View b;
     private BdListView c;
     private NavigationBar d;
     private ImageView e;
-    private RelativeLayout f;
+    private LinearLayout f;
     private j g;
     private AlbumActivity h;
     private e i;
     private p j;
-    private boolean k;
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onCreate(Bundle bundle) {
+    public final void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.h = (AlbumActivity) getActivity();
-        this.j = this.h.f();
-        q.a().a(this);
+        this.j = this.h.e();
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+    public final View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.b = layoutInflater.inflate(R.layout.album_list_view, (ViewGroup) null);
         this.c = (BdListView) this.b.findViewById(R.id.album_list);
         this.d = (NavigationBar) this.b.findViewById(R.id.view_navigation_bar);
         this.e = this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.h);
         this.d.a(this.h.getString(R.string.album));
-        this.f = (RelativeLayout) this.b.findViewById(R.id.lay_no_data);
+        this.f = (LinearLayout) this.b.findViewById(R.id.lay_no_data);
         this.g = new j(this.h);
         this.c.setAdapter((ListAdapter) this.g);
         this.c.setOnScrollListener(this.g);
@@ -48,31 +46,44 @@ public class m extends com.baidu.tieba.j implements AdapterView.OnItemClickListe
         return this.b;
     }
 
-    public void a(List<a> list) {
-        if (this.g != null) {
-            this.g.a(list);
-        }
-    }
-
-    @Override // android.support.v4.app.Fragment
-    public void onViewCreated(View view, Bundle bundle) {
-        super.onViewCreated(view, bundle);
-        d();
-    }
-
-    private void c() {
+    @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
+    public final void onStart() {
+        super.onStart();
+        this.c.setVisibility(0);
+        this.f.setVisibility(8);
         if (this.i == null) {
             this.i = new e(this.h);
         }
         this.i.a(new n(this));
     }
 
-    public ImageView a() {
+    public final void a(List<a> list) {
+        if (this.g != null) {
+            this.g.a(list);
+        }
+    }
+
+    @Override // android.support.v4.app.Fragment
+    public final void onViewCreated(View view, Bundle bundle) {
+        super.onViewCreated(view, bundle);
+    }
+
+    @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
+    public final void onResume() {
+        super.onResume();
+    }
+
+    @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
+    public final void onPause() {
+        super.onPause();
+    }
+
+    public final ImageView a() {
         return this.e;
     }
 
     @Override // com.baidu.tieba.j, android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+    public final void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         a item;
         super.onItemClick(adapterView, view, i, j);
         if (this.g != null && (item = this.g.getItem(i)) != null && this.j != null && this.h != null) {
@@ -83,36 +94,18 @@ public class m extends com.baidu.tieba.j implements AdapterView.OnItemClickListe
     }
 
     @Override // com.baidu.tieba.j
-    public void c(int i) {
+    public final void c(int i) {
         super.c(i);
         this.h.a().a(i == 1);
         this.h.a().a(this.b);
-        this.d.c(i);
+        this.d.b(i);
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onDestroy() {
+    public final void onDestroy() {
         super.onDestroy();
         if (this.i != null) {
             this.i.a();
         }
-        q.a().b(this);
-    }
-
-    @Override // com.baidu.tieba.album.t
-    public void a(boolean z) {
-        this.k = z;
-        d();
-    }
-
-    private void d() {
-        if (this.k) {
-            this.c.setVisibility(8);
-            this.f.setVisibility(0);
-            return;
-        }
-        this.c.setVisibility(0);
-        this.f.setVisibility(8);
-        c();
     }
 }

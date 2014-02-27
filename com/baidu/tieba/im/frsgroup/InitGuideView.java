@@ -37,7 +37,7 @@ public class InitGuideView extends RelativeLayout {
         a(context);
     }
 
-    public void a(Context context) {
+    private void a(Context context) {
         addView(((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.im_frsgroup_guide, (ViewGroup) null));
         this.a = (ImageView) findViewById(R.id.guide_img);
         this.b = (TextView) findViewById(R.id.guide_tip1);
@@ -52,49 +52,26 @@ public class InitGuideView extends RelativeLayout {
         return this.e;
     }
 
-    private boolean b(int i) {
+    private boolean a(int i) {
         if (i == getSkinType()) {
             return false;
         }
-        setSkinType(i);
+        this.e = i;
         return true;
     }
 
-    public void a() {
+    public final void a() {
         setVisibility(8);
         if (this.d != null) {
             this.d.setVisibility(8);
         }
     }
 
-    public boolean b() {
+    public final boolean b() {
         return getVisibility() == 0;
     }
 
-    public void a(int i) {
-        if (b(i)) {
-            if (i == 1) {
-                this.a.setBackgroundResource(R.drawable.pic_go_ba_1);
-                this.b.setTextColor(-8815226);
-                this.c.setTextColor(-8815226);
-                if (this.d != null) {
-                    this.d.setBackgroundResource(R.drawable.btn_blue_square_1);
-                    this.d.setTextColor(TiebaApplication.g().b().getResources().getColor(R.color.c_acc5e0));
-                    return;
-                }
-                return;
-            }
-            this.a.setBackgroundResource(R.drawable.pic_go_ba);
-            this.b.setTextColor(-5065030);
-            this.c.setTextColor(-5065030);
-            if (this.d != null) {
-                this.d.setBackgroundResource(R.drawable.btn_blue_square);
-                this.d.setTextColor(TiebaApplication.g().b().getResources().getColor(R.color.white));
-            }
-        }
-    }
-
-    public void c() {
+    public final void c() {
         setVisibility(0);
         getTip1().setVisibility(4);
         getTip2().setText(R.string.frsgroup_no_recommend_tip);
@@ -103,7 +80,7 @@ public class InitGuideView extends RelativeLayout {
         }
     }
 
-    public void a(GroupPermData groupPermData) {
+    public final void a(GroupPermData groupPermData) {
         setVisibility(0);
         getTip1().setVisibility(4);
         getTip2().setText(R.string.frsgroup_no_hot_tip);
@@ -113,7 +90,7 @@ public class InitGuideView extends RelativeLayout {
         }
     }
 
-    public void b(GroupPermData groupPermData) {
+    public final void b(GroupPermData groupPermData) {
         setVisibility(0);
         if (groupPermData != null && groupPermData.isManager()) {
             getTip1().setVisibility(4);
@@ -135,7 +112,7 @@ public class InitGuideView extends RelativeLayout {
         }
     }
 
-    public void d() {
+    public final void d() {
         setVisibility(0);
         getTip1().setVisibility(4);
         getTip2().setText(R.string.members_no_person);
@@ -160,15 +137,31 @@ public class InitGuideView extends RelativeLayout {
         this.d = button;
     }
 
-    public void e() {
-        a(TiebaApplication.g().al());
+    public final void e() {
+        int ae = TiebaApplication.g().ae();
+        if (a(ae)) {
+            if (ae == 1) {
+                this.a.setBackgroundResource(R.drawable.pic_go_ba_1);
+                this.b.setTextColor(-8815226);
+                this.c.setTextColor(-8815226);
+                if (this.d != null) {
+                    this.d.setBackgroundResource(R.drawable.btn_blue_square_1);
+                    this.d.setTextColor(TiebaApplication.g().b().getResources().getColor(R.color.c_acc5e0));
+                    return;
+                }
+                return;
+            }
+            this.a.setBackgroundResource(R.drawable.pic_go_ba);
+            this.b.setTextColor(-5065030);
+            this.c.setTextColor(-5065030);
+            if (this.d != null) {
+                this.d.setBackgroundResource(R.drawable.btn_blue_square);
+                this.d.setTextColor(TiebaApplication.g().b().getResources().getColor(R.color.white));
+            }
+        }
     }
 
-    public void f() {
-        e();
-    }
-
-    public void g() {
+    public final void f() {
         this.e = -1;
         this.a.setBackgroundDrawable(null);
     }

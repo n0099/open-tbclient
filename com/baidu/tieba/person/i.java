@@ -4,9 +4,8 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements View.OnClickListener {
+final class i implements View.OnClickListener {
     final /* synthetic */ EditBarActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +14,7 @@ public class i implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         l lVar;
         l lVar2;
         TextView textView;
@@ -32,7 +31,7 @@ public class i implements View.OnClickListener {
             textView3 = this.a.g;
             textView3.setText(R.string.done);
             textView4 = this.a.g;
-            com.baidu.tieba.util.bq.h(textView4, TiebaApplication.g().al());
+            com.baidu.tieba.util.bq.h(textView4, TiebaApplication.g().ae());
             lVar5 = this.a.i;
             lVar5.notifyDataSetChanged();
             return;
@@ -42,7 +41,7 @@ public class i implements View.OnClickListener {
         textView = this.a.g;
         textView.setText(R.string.edit);
         textView2 = this.a.g;
-        com.baidu.tieba.util.bq.j(textView2, TiebaApplication.g().al());
+        com.baidu.tieba.util.bq.i(textView2, TiebaApplication.g().ae());
         lVar3 = this.a.i;
         lVar3.notifyDataSetChanged();
     }

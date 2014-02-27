@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.Im;
 import protobuf.QueryGroupLocation.QueryGroupLocationRes;
 /* loaded from: classes.dex */
@@ -12,19 +13,34 @@ public final class k extends GeneratedMessageLite.Builder<QueryGroupLocationRes.
     private Im.Error b = Im.Error.getDefaultInstance();
     private QueryGroupLocationRes.DataRes c = QueryGroupLocationRes.DataRes.getDefaultInstance();
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        QueryGroupLocationRes.QueryGroupLocationResIdl buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return QueryGroupLocationRes.QueryGroupLocationResIdl.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return QueryGroupLocationRes.QueryGroupLocationResIdl.getDefaultInstance();
+    }
+
     private k() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static k h() {
+    public static /* synthetic */ k a() {
         return new k();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: b */
     public k clear() {
         super.clear();
         this.b = Im.Error.getDefaultInstance();
@@ -35,29 +51,13 @@ public final class k extends GeneratedMessageLite.Builder<QueryGroupLocationRes.
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public k clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
     /* renamed from: c */
-    public QueryGroupLocationRes.QueryGroupLocationResIdl getDefaultInstanceForType() {
-        return QueryGroupLocationRes.QueryGroupLocationResIdl.getDefaultInstance();
+    public k clone() {
+        return new k().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public QueryGroupLocationRes.QueryGroupLocationResIdl build() {
-        QueryGroupLocationRes.QueryGroupLocationResIdl buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
     public QueryGroupLocationRes.QueryGroupLocationResIdl buildPartial() {
         QueryGroupLocationRes.QueryGroupLocationResIdl queryGroupLocationResIdl = new QueryGroupLocationRes.QueryGroupLocationResIdl(this, (QueryGroupLocationRes.QueryGroupLocationResIdl) null);
         int i = this.a;
@@ -73,13 +73,25 @@ public final class k extends GeneratedMessageLite.Builder<QueryGroupLocationRes.
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public k mergeFrom(QueryGroupLocationRes.QueryGroupLocationResIdl queryGroupLocationResIdl) {
+    public final k mergeFrom(QueryGroupLocationRes.QueryGroupLocationResIdl queryGroupLocationResIdl) {
         if (queryGroupLocationResIdl != QueryGroupLocationRes.QueryGroupLocationResIdl.getDefaultInstance()) {
             if (queryGroupLocationResIdl.hasError()) {
-                a(queryGroupLocationResIdl.getError());
+                Im.Error error = queryGroupLocationResIdl.getError();
+                if ((this.a & 1) != 1 || this.b == Im.Error.getDefaultInstance()) {
+                    this.b = error;
+                } else {
+                    this.b = Im.Error.newBuilder(this.b).mergeFrom(error).buildPartial();
+                }
+                this.a |= 1;
             }
             if (queryGroupLocationResIdl.hasData()) {
-                a(queryGroupLocationResIdl.getData());
+                QueryGroupLocationRes.DataRes data = queryGroupLocationResIdl.getData();
+                if ((this.a & 2) != 2 || this.c == QueryGroupLocationRes.DataRes.getDefaultInstance()) {
+                    this.c = data;
+                } else {
+                    this.c = QueryGroupLocationRes.DataRes.newBuilder(this.c).mergeFrom(data).buildPartial();
+                }
+                this.a |= 2;
             }
         }
         return this;
@@ -126,25 +138,5 @@ public final class k extends GeneratedMessageLite.Builder<QueryGroupLocationRes.
                 throw th;
             }
         }
-    }
-
-    public k a(Im.Error error) {
-        if ((this.a & 1) == 1 && this.b != Im.Error.getDefaultInstance()) {
-            this.b = Im.Error.newBuilder(this.b).mergeFrom(error).buildPartial();
-        } else {
-            this.b = error;
-        }
-        this.a |= 1;
-        return this;
-    }
-
-    public k a(QueryGroupLocationRes.DataRes dataRes) {
-        if ((this.a & 2) == 2 && this.c != QueryGroupLocationRes.DataRes.getDefaultInstance()) {
-            this.c = QueryGroupLocationRes.DataRes.newBuilder(this.c).mergeFrom(dataRes).buildPartial();
-        } else {
-            this.c = dataRes;
-        }
-        this.a |= 2;
-        return this;
     }
 }

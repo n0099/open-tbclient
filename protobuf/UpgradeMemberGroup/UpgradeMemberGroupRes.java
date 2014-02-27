@@ -17,7 +17,7 @@ public final class UpgradeMemberGroupRes {
     public final class UpgradeMemberGroupResIdl extends GeneratedMessageLite implements i {
         public static final int ERROR_FIELD_NUMBER = 1;
         public static Parser<UpgradeMemberGroupResIdl> PARSER = new g();
-        private static final UpgradeMemberGroupResIdl a = new UpgradeMemberGroupResIdl(true);
+        private static final UpgradeMemberGroupResIdl a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private Im.Error error_;
@@ -35,7 +35,7 @@ public final class UpgradeMemberGroupRes {
             this.memoizedSerializedSize = -1;
         }
 
-        private UpgradeMemberGroupResIdl(boolean z) {
+        private UpgradeMemberGroupResIdl() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -46,7 +46,7 @@ public final class UpgradeMemberGroupRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public UpgradeMemberGroupResIdl getDefaultInstanceForType() {
+        public final UpgradeMemberGroupResIdl getDefaultInstanceForType() {
             return a;
         }
 
@@ -54,7 +54,7 @@ public final class UpgradeMemberGroupRes {
             protobuf.e eVar;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
-            a();
+            this.error_ = Im.Error.getDefaultInstance();
             boolean z = false;
             while (!z) {
                 try {
@@ -102,24 +102,22 @@ public final class UpgradeMemberGroupRes {
         }
 
         static {
-            a.a();
+            UpgradeMemberGroupResIdl upgradeMemberGroupResIdl = new UpgradeMemberGroupResIdl();
+            a = upgradeMemberGroupResIdl;
+            upgradeMemberGroupResIdl.error_ = Im.Error.getDefaultInstance();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<UpgradeMemberGroupResIdl> getParserForType() {
+        public final Parser<UpgradeMemberGroupResIdl> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasError() {
+        public final boolean hasError() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public Im.Error getError() {
+        public final Im.Error getError() {
             return this.error_;
-        }
-
-        private void a() {
-            this.error_ = Im.Error.getDefaultInstance();
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -133,7 +131,7 @@ public final class UpgradeMemberGroupRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeMessage(1, this.error_);
@@ -141,10 +139,13 @@ public final class UpgradeMemberGroupRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeMessageSize(1, this.error_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeMessageSize(1, this.error_) + 0;
+                }
                 this.memoizedSerializedSize = i;
             }
             return i;
@@ -152,7 +153,7 @@ public final class UpgradeMemberGroupRes {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -197,12 +198,12 @@ public final class UpgradeMemberGroupRes {
         }
 
         public static h newBuilder() {
-            return h.f();
+            return h.a();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public h newBuilderForType() {
+        public final h newBuilderForType() {
             return newBuilder();
         }
 
@@ -212,7 +213,7 @@ public final class UpgradeMemberGroupRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public h toBuilder() {
+        public final h toBuilder() {
             return newBuilder(this);
         }
     }

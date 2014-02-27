@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class q extends BroadcastReceiver {
+public final class q extends BroadcastReceiver {
     final /* synthetic */ p a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,9 +14,9 @@ public class q extends BroadcastReceiver {
     }
 
     @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
+    public final void onReceive(Context context, Intent intent) {
         if (intent.getAction() == "com.baidu.tieba.SHOWSQUARE") {
-            this.a.e(0);
+            this.a.d(0);
         }
     }
 }

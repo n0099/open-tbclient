@@ -2,7 +2,7 @@ package com.baidu.tieba.voice;
 
 import android.widget.TextView;
 /* loaded from: classes.dex */
-class n implements Runnable {
+final class n implements Runnable {
     final /* synthetic */ RecordVoiceBnt a;
     private final /* synthetic */ String b;
 
@@ -13,7 +13,7 @@ class n implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         TextView textView;
         TextView textView2;
         textView = this.a.s;

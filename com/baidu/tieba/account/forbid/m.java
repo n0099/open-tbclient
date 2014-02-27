@@ -8,10 +8,34 @@ import com.baidu.tieba.util.bs;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m extends BdAsyncTask<String, Object, ForbidTplData> {
+public final class m extends BdAsyncTask<String, Object, ForbidTplData> {
     private String a;
     private String b;
     private WeakReference<n> c;
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ ForbidTplData a(String... strArr) {
+        return d();
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ void a(ForbidTplData forbidTplData) {
+        ForbidTplData forbidTplData2 = forbidTplData;
+        super.a((m) forbidTplData2);
+        n nVar = this.c.get();
+        if (nVar != null) {
+            if (forbidTplData2.error.a == 0 && bs.c(forbidTplData2.error.b)) {
+                nVar.a(forbidTplData2);
+            } else {
+                nVar.b(forbidTplData2);
+            }
+        }
+    }
 
     public m(String str, String str2, n nVar) {
         this.a = str;
@@ -20,44 +44,26 @@ public class m extends BdAsyncTask<String, Object, ForbidTplData> {
         setPriority(3);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public ForbidTplData a(String... strArr) {
+    private ForbidTplData d() {
         String str;
         str = l.a;
         ba baVar = new ba(str);
         baVar.a("forum_id", this.a);
         baVar.a(PushConstants.EXTRA_USER_ID, this.b);
-        String m = baVar.m();
-        if (baVar.d()) {
+        String l = baVar.l();
+        if (baVar.c()) {
             try {
-                return (ForbidTplData) new GsonBuilder().create().fromJson(m, (Class<Object>) ForbidTplData.class);
+                return (ForbidTplData) new GsonBuilder().create().fromJson(l, (Class<Object>) ForbidTplData.class);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b("ForbidTplModel", "doInBackground", e.getMessage());
+                com.baidu.adp.lib.util.e.b("ForbidTplModel", "doInBackground", e.getMessage());
                 ForbidTplData forbidTplData = new ForbidTplData();
                 forbidTplData.error.a = -1000;
                 return forbidTplData;
             }
         }
         ForbidTplData forbidTplData2 = new ForbidTplData();
-        forbidTplData2.error.a = baVar.f();
-        forbidTplData2.error.b = baVar.j();
+        forbidTplData2.error.a = baVar.e();
+        forbidTplData2.error.b = baVar.i();
         return forbidTplData2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(ForbidTplData forbidTplData) {
-        super.a((m) forbidTplData);
-        n nVar = this.c.get();
-        if (nVar != null) {
-            if (forbidTplData.error.a == 0 && bs.c(forbidTplData.error.b)) {
-                nVar.a(forbidTplData);
-            } else {
-                nVar.b(forbidTplData);
-            }
-        }
     }
 }

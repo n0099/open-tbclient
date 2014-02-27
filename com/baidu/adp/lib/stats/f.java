@@ -6,7 +6,7 @@ import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class f {
+public final class f {
     private static f a;
     private static int b = 20;
     private Context c;
@@ -20,7 +20,7 @@ public class f {
         return a;
     }
 
-    public String b() {
+    public final String b() {
         NetworkInfo activeNetworkInfo;
         ConnectivityManager connectivityManager = (ConnectivityManager) this.c.getSystemService("connectivity");
         if (connectivityManager != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null) {
@@ -29,9 +29,9 @@ public class f {
                 return "WIFI";
             }
             if (type == 0) {
-                int c = com.baidu.adp.lib.network.i.c();
+                int b2 = com.baidu.adp.lib.network.i.b();
                 StringBuilder sb = new StringBuilder();
-                switch (c) {
+                switch (b2) {
                     case 1:
                         sb.append('M');
                         break;

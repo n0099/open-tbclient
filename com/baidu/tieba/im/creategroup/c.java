@@ -9,7 +9,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.cb;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class c implements x {
+public final class c implements x {
     CreateGroupStepActivity a;
     View b;
     ImageView c;
@@ -36,39 +36,26 @@ public class c implements x {
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
-    public int b() {
+    public final int b() {
         return this.f;
     }
 
-    public EditText c() {
-        return this.d;
-    }
-
-    public TextView d() {
-        return this.e;
-    }
-
     @Override // com.baidu.tieba.im.creategroup.x
-    public View a() {
+    public final View a() {
         cb.a(this.a, "create_g_intro", "pv", 1, new Object[0]);
         return this.b;
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
-    public void h() {
+    public final void g() {
         this.c.setBackgroundDrawable(null);
     }
 
-    public void e() {
-        this.a.getLayoutMode().a(TiebaApplication.g().al() == 1);
-        this.a.getLayoutMode().a(this.e);
-    }
-
     @Override // com.baidu.tieba.im.creategroup.x
-    public void i() {
-        this.a.getLayoutMode().a(TiebaApplication.g().al() == 1);
+    public final void h() {
+        this.a.getLayoutMode().a(TiebaApplication.g().ae() == 1);
         this.a.getLayoutMode().a(this.b);
-        if (TiebaApplication.g().al() == 1) {
+        if (TiebaApplication.g().ae() == 1) {
             this.d.setHintTextColor(this.a.getResources().getColor(R.color.create_group_input_hintcolor_1));
         } else {
             this.d.setHintTextColor(this.a.getResources().getColor(R.color.create_group_input_hintcolor));
@@ -76,12 +63,12 @@ public class c implements x {
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
-    public String j() {
+    public final String i() {
         return String.format(this.a.getString(R.string.group_create_step_intro), Integer.valueOf(this.g));
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
-    public String k() {
+    public final String j() {
         if (this.f != this.h) {
             return this.a.getString(R.string.group_create_step_tip);
         }
@@ -89,17 +76,17 @@ public class c implements x {
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
-    public boolean l() {
+    public final boolean k() {
         return false;
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
-    public String m() {
+    public final String l() {
         return this.a.getString(R.string.group_step_info_error);
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
-    public boolean n() {
+    public final boolean m() {
         return true;
     }
 }

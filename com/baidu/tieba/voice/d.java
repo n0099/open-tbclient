@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements Runnable {
+public final class d implements Runnable {
     final /* synthetic */ c a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ public class d implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         AudioTrack audioTrack;
         AudioTrack audioTrack2;
         int i;
@@ -31,7 +31,7 @@ public class d implements Runnable {
                 int a = this.a.a();
                 i = this.a.h;
                 int i4 = a + i;
-                com.baidu.adp.lib.util.f.a(getClass(), "TestVoice2", "elapsedTime=" + i4);
+                com.baidu.adp.lib.util.e.a(getClass(), "TestVoice2", "elapsedTime=" + i4);
                 i2 = this.a.i;
                 if (i4 != i2) {
                     this.a.i = i4;

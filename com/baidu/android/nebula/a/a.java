@@ -5,14 +5,16 @@ import java.util.Map;
 import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public class a {
-    private static final Map a = new HashMap();
+    private static final Map a;
     private Map b = new HashMap();
     private StringBuilder c = new StringBuilder();
     private int d = 404;
     private String e = "HTTP/1.1";
 
     static {
-        a.put(new Integer(200), "OK");
+        HashMap hashMap = new HashMap();
+        a = hashMap;
+        hashMap.put(new Integer(200), "OK");
         a.put(new Integer(404), "Page Not Found");
         a.put(new Integer(500), "Intenal Error");
     }

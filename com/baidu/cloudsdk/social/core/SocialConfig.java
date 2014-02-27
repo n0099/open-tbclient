@@ -42,39 +42,40 @@ public final class SocialConfig extends BaseConfig {
 
     public static SocialConfig getInstance(Context context) {
         if (a == null) {
-            a = new SocialConfig(context);
-            a.loadDefaultConfig();
+            SocialConfig socialConfig = new SocialConfig(context);
+            a = socialConfig;
+            socialConfig.loadDefaultConfig();
         }
         return a;
     }
 
-    public String getClientId(MediaType mediaType) {
+    public final String getClientId(MediaType mediaType) {
         return (String) this.b.get(mediaType.toString());
     }
 
-    public String getClientId(String str) {
+    public final String getClientId(String str) {
         return (String) this.b.get(str);
     }
 
-    public String getClientName(MediaType mediaType) {
+    public final String getClientName(MediaType mediaType) {
         return (String) this.c.get(mediaType.toString());
     }
 
-    public String getClientName(String str) {
+    public final String getClientName(String str) {
         return (String) this.c.get(str);
     }
 
     @Override // com.baidu.cloudsdk.social.core.BaseConfig
-    protected String getDefaultConfigFile() {
+    protected final String getDefaultConfigFile() {
         return "social/core/config.json";
     }
 
-    public List getSsoMediaTypes() {
+    public final List getSsoMediaTypes() {
         return this.d;
     }
 
     @Override // com.baidu.cloudsdk.social.core.BaseConfig
-    protected void loadSelfDefinedConfigItems(JSONObject jSONObject) {
+    protected final void loadSelfDefinedConfigItems(JSONObject jSONObject) {
         JSONObject optJSONObject = jSONObject.optJSONObject("client_ids");
         if (optJSONObject != null) {
             copyStringFromJsonObject2Map(optJSONObject, this.b);
@@ -96,7 +97,7 @@ public final class SocialConfig extends BaseConfig {
         }
     }
 
-    public SocialConfig setClientId(String str, MediaType mediaType) {
+    public final SocialConfig setClientId(String str, MediaType mediaType) {
         this.b.put(mediaType.toString(), str);
         return this;
     }

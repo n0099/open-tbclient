@@ -18,15 +18,15 @@ public class a {
         this.b = new Intent();
     }
 
-    public Context c() {
+    public final Context c() {
         return this.a;
     }
 
-    public Intent d() {
+    public final Intent d() {
         return this.b;
     }
 
-    public void e() {
+    public final void e() {
         this.a.startActivity(this.b);
     }
 }

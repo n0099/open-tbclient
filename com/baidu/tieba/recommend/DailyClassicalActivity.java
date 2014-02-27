@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -41,7 +40,7 @@ public class DailyClassicalActivity extends com.baidu.tieba.f implements com.bai
 
     @Override // com.baidu.tieba.f
     public boolean getGpuSwitch() {
-        return TiebaApplication.g().u();
+        return TiebaApplication.g().p();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -49,10 +48,6 @@ public class DailyClassicalActivity extends com.baidu.tieba.f implements com.bai
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.day_classical_activity);
-        d();
-    }
-
-    private void d() {
         this.b = (RelativeLayout) findViewById(R.id.parent);
         this.c = (RelativeLayout) findViewById(R.id.title);
         this.d = (TextView) findViewById(R.id.title_text);
@@ -63,12 +58,12 @@ public class DailyClassicalActivity extends com.baidu.tieba.f implements com.bai
         this.g = (ProgressBar) findViewById(R.id.tag_progress);
         this.e = new a(this);
         this.a.setOnClickListener(this.e);
-        if (f()) {
-            this.m.setVisibility(8);
-            a();
+        if (!d()) {
+            this.m.setVisibility(0);
             return;
         }
-        this.m.setVisibility(0);
+        this.m.setVisibility(8);
+        a();
     }
 
     public static void a(Context context) {
@@ -95,8 +90,8 @@ public class DailyClassicalActivity extends com.baidu.tieba.f implements com.bai
         super.onResume();
     }
 
-    public void a() {
-        if (TiebaApplication.g().am() == 0 && !f()) {
+    public final void a() {
+        if (TiebaApplication.g().af() == 0 && !d()) {
             this.m.setVisibility(0);
             return;
         }
@@ -106,32 +101,45 @@ public class DailyClassicalActivity extends com.baidu.tieba.f implements com.bai
             this.g.setVisibility(0);
             this.j = false;
             this.k = true;
-            g();
-            this.i = new b(this, null);
+            if (this.i != null) {
+                this.i.cancel();
+            }
+            this.i = new b(this, (byte) 0);
             this.i.setPriority(3);
             this.i.execute(new Object[0]);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void e() {
-        if (this.j) {
-            if (!this.k) {
-                showToast(getResources().getString(R.string.neterror));
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void f(DailyClassicalActivity dailyClassicalActivity) {
+        if (dailyClassicalActivity.j) {
+            if (!dailyClassicalActivity.k) {
+                dailyClassicalActivity.showToast(dailyClassicalActivity.getResources().getString(R.string.neterror));
             }
-            this.n = false;
-            this.g.setVisibility(8);
+            dailyClassicalActivity.n = false;
+            dailyClassicalActivity.g.setVisibility(8);
         }
     }
 
     @Override // com.baidu.tieba.view.e
-    public boolean a(WebView webView, String str) {
+    public final boolean a(String str) {
+        String str2;
         if (!WebviewHelper.commonJumpHelper(this, str)) {
             if (str.contains("jumptoapp_browser=classic_everyday")) {
                 if (str.contains("pn=")) {
-                    String a = a(str, "pn=");
-                    if (a != null && a.length() >= 0) {
-                        this.q = a;
+                    int indexOf = str.indexOf("pn=");
+                    if (indexOf != -1) {
+                        int length = indexOf + "pn=".length();
+                        int i = length;
+                        while (i < str.length() && str.charAt(i) != '&') {
+                            i++;
+                        }
+                        str2 = URLDecoder.decode(str.substring(length, i));
+                    } else {
+                        str2 = "";
+                    }
+                    if (str2 != null && str2.length() >= 0) {
+                        this.q = str2;
                     }
                 } else {
                     this.q = SocialConstants.TRUE;
@@ -144,20 +152,7 @@ public class DailyClassicalActivity extends com.baidu.tieba.f implements com.bai
         return true;
     }
 
-    private String a(String str, String str2) {
-        int indexOf = str.indexOf(str2);
-        if (indexOf != -1) {
-            int length = str2.length() + indexOf;
-            int i = length;
-            while (i < str.length() && str.charAt(i) != '&') {
-                i++;
-            }
-            return URLDecoder.decode(str.substring(length, i));
-        }
-        return "";
-    }
-
-    private boolean f() {
+    private boolean d() {
         boolean z = false;
         if (this.f == null) {
             try {
@@ -165,7 +160,7 @@ public class DailyClassicalActivity extends com.baidu.tieba.f implements com.bai
                     super.showToast(getString(R.string.web_view_corrupted));
                 } else {
                     this.f = new BaseWebView(this);
-                    bq.a(this.f, TiebaApplication.g().al());
+                    bq.a(this.f, TiebaApplication.g().ae());
                     this.f.setOnLoadUrlListener(this);
                     this.f.setHorizontalScrollBarEnabled(false);
                     this.f.setHorizontalScrollbarOverlay(false);
@@ -176,16 +171,10 @@ public class DailyClassicalActivity extends com.baidu.tieba.f implements com.bai
                 }
                 return z;
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "", "TabContentActivity.refreshFrs error = " + e.getMessage());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "", "TabContentActivity.refreshFrs error = " + e.getMessage());
                 return z;
             }
         }
         return true;
-    }
-
-    private void g() {
-        if (this.i != null) {
-            this.i.cancel();
-        }
     }
 }

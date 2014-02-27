@@ -3,7 +3,7 @@ package com.baidu.tieba.view;
 import java.io.ByteArrayInputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x extends Thread {
+public final class x extends Thread {
     final /* synthetic */ w a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,7 +18,7 @@ public class x extends Thread {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void run() {
+    public final void run() {
         int i;
         aw awVar;
         byte[] bArr;
@@ -42,7 +42,7 @@ public class x extends Thread {
                             if (awVar5.d != 0) {
                                 this.a.B = 1;
                                 awVar3 = this.a.C;
-                                if (!awVar3.e()) {
+                                if (!awVar3.c()) {
                                     this.a.postInvalidate();
                                 }
                                 this.a.F = System.currentTimeMillis();
@@ -61,7 +61,7 @@ public class x extends Thread {
                         }
                         this.a.B = 0;
                         awVar3 = this.a.C;
-                        if (!awVar3.e()) {
+                        if (!awVar3.c()) {
                         }
                         this.a.F = System.currentTimeMillis();
                         this.a.a = 2;

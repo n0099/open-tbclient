@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
-public class i extends Dialog implements View.OnClickListener {
+public final class i extends Dialog implements View.OnClickListener {
     private LinearLayout a;
     private Button b;
     private Context c;
@@ -24,16 +24,16 @@ public class i extends Dialog implements View.OnClickListener {
     private String g;
     private String h;
 
-    public void a(String str) {
+    public final void a(String str) {
         this.g = str;
     }
 
-    public void b(String str) {
+    public final void b(String str) {
         this.h = str;
     }
 
     public i(Context context, int i) {
-        super(context, i);
+        super(context, R.style.NobackDialog);
         this.a = null;
         this.b = null;
         this.c = null;
@@ -43,10 +43,6 @@ public class i extends Dialog implements View.OnClickListener {
         this.g = null;
         this.h = null;
         this.c = context;
-        a();
-    }
-
-    private void a() {
         setContentView(R.layout.chatterbox_dialog);
         this.g = this.c.getResources().getString(R.string.chat_default_tip);
         this.h = null;
@@ -56,17 +52,17 @@ public class i extends Dialog implements View.OnClickListener {
         this.e = new m(this.c, R.style.NobackDialog);
     }
 
-    public void a(l lVar) {
+    public final void a(l lVar) {
         this.f = lVar;
         this.e.a(lVar);
     }
 
     @Override // android.app.Dialog
-    protected void onCreate(Bundle bundle) {
+    protected final void onCreate(Bundle bundle) {
         super.onCreate(bundle);
     }
 
-    public void a(List<ChatRoomTopicData> list) {
+    public final void a(List<ChatRoomTopicData> list) {
         LayoutInflater layoutInflater = (LayoutInflater) this.c.getSystemService("layout_inflater");
         this.a.removeAllViews();
         this.d.clear();
@@ -100,7 +96,7 @@ public class i extends Dialog implements View.OnClickListener {
     }
 
     @Override // android.app.Dialog
-    public void show() {
+    public final void show() {
         super.show();
         if (TextUtils.isEmpty(this.g)) {
             if (this.d != null && this.d.size() > 0) {
@@ -122,7 +118,7 @@ public class i extends Dialog implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         int i;
         int i2 = 0;
         int i3 = 0;

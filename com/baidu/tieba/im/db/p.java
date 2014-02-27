@@ -2,7 +2,7 @@ package com.baidu.tieba.im.db;
 
 import com.baidu.tieba.im.message.cp;
 /* loaded from: classes.dex */
-class p extends com.baidu.tieba.im.c<Void> {
+final class p extends com.baidu.tieba.im.b<Void> {
     final /* synthetic */ o a;
     private final /* synthetic */ cp c;
 
@@ -12,11 +12,11 @@ class p extends com.baidu.tieba.im.c<Void> {
         this.c = cpVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.c
-    /* renamed from: a */
-    public Void b() {
-        k.a().b(this.c.a(), true);
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.b
+    public final /* synthetic */ Void a() {
+        k.a();
+        k.b(this.c.a(), true);
         return null;
     }
 }

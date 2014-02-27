@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.tieba.data.MarkData;
 import com.baidu.tieba.pb.NewPbActivity;
+import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class EditMarkActivity extends com.baidu.tieba.f implements com.baidu.adp.widget.ListView.b, com.baidu.adp.widget.ListView.r {
@@ -16,7 +18,7 @@ public class EditMarkActivity extends com.baidu.tieba.f implements com.baidu.adp
     private ArrayList<MarkData> d = null;
 
     public static void a(Activity activity, int i) {
-        activity.startActivityForResult(new Intent(activity, EditMarkActivity.class), i);
+        activity.startActivityForResult(new Intent(activity, EditMarkActivity.class), SocialAPIErrorCodes.ERROR_INVALID_SESSION_KEY);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -26,8 +28,22 @@ public class EditMarkActivity extends com.baidu.tieba.f implements com.baidu.adp
         this.a = new com.baidu.tieba.model.g();
         this.a.a(new ab(this, this));
         this.b = new ad(this);
-        this.b.a(new ac(this));
-        b();
+        this.b.b = new ac(this);
+        com.baidu.tieba.model.g gVar = this.a;
+        if (com.baidu.tieba.model.g.k() >= 0) {
+            if (this.a.g() != 0) {
+                com.baidu.tieba.model.g gVar2 = this.a;
+                if (com.baidu.tieba.model.g.k() >= 0) {
+                    ad adVar = this.b;
+                    adVar.a.showLoadingDialog(adVar.a.getString(R.string.syncing));
+                    this.a.j();
+                    return;
+                }
+            }
+            this.a.a((Boolean) true);
+            return;
+        }
+        this.a.a((Boolean) true);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -37,22 +53,11 @@ public class EditMarkActivity extends com.baidu.tieba.f implements com.baidu.adp
         this.b.b(i);
     }
 
-    private void b() {
-        if (this.a.k() < 0) {
-            this.a.a((Boolean) true);
-        } else if (this.a.g() == 0 || this.a.k() < 0) {
-            this.a.a((Boolean) true);
-        } else {
-            this.b.f();
-            this.a.j();
-        }
-    }
-
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.b.i();
+        this.b.f();
         this.a.l();
     }
 
@@ -60,11 +65,15 @@ public class EditMarkActivity extends com.baidu.tieba.f implements com.baidu.adp
     public void onClick(View view) {
         if (view == this.b.a()) {
             this.b.b();
-        } else if (view.getId() == this.b.c()) {
-            int intValue = ((Integer) view.getTag()).intValue();
-            this.b.g();
-            if (!this.a.b(intValue)) {
-                this.b.e();
+        } else {
+            int id = view.getId();
+            ad adVar = this.b;
+            if (id == R.id.home_lv_markitem_delete) {
+                int intValue = ((Integer) view.getTag()).intValue();
+                this.b.d();
+                if (!this.a.b(intValue)) {
+                    this.b.c();
+                }
             }
         }
         super.onClick(view);
@@ -77,10 +86,10 @@ public class EditMarkActivity extends com.baidu.tieba.f implements com.baidu.adp
             MarkData markData = this.a.f().get(i);
             MarkData markData2 = this.d.get(i);
             int b = this.a.b();
-            int r = com.baidu.tieba.mention.v.a().r();
+            int p = com.baidu.tieba.mention.v.a().p();
             if (markData2.getNewCounts() > 0) {
-                if (r > 0) {
-                    com.baidu.tieba.mention.v.a().f(r - 1);
+                if (p > 0) {
+                    com.baidu.tieba.mention.v.a().f(p - 1);
                 } else {
                     com.baidu.tieba.mention.v.a().f(0);
                 }
@@ -116,7 +125,7 @@ public class EditMarkActivity extends com.baidu.tieba.f implements com.baidu.adp
                         this.a.f().get(this.c).setPostId(markData.getPostId());
                         this.a.f().get(this.c).setHostMode(markData.getHostMode());
                         this.a.f().get(this.c).setSequence(markData.getSequence());
-                        this.b.h();
+                        this.b.e();
                         return;
                     }
                     return;
@@ -128,7 +137,7 @@ public class EditMarkActivity extends com.baidu.tieba.f implements com.baidu.adp
                 case 17001:
                     if (this.a.f().size() > this.c && this.c >= 0) {
                         this.a.f().remove(this.c);
-                        this.b.h();
+                        this.b.e();
                         return;
                     }
                     return;
@@ -139,7 +148,7 @@ public class EditMarkActivity extends com.baidu.tieba.f implements com.baidu.adp
     }
 
     @Override // com.baidu.adp.widget.ListView.b
-    public void a(boolean z) {
+    public final void a(boolean z) {
         if (this.a != null && this.b != null) {
             this.a.d();
             this.b.a(true);
@@ -148,7 +157,7 @@ public class EditMarkActivity extends com.baidu.tieba.f implements com.baidu.adp
     }
 
     @Override // com.baidu.adp.widget.ListView.r
-    public void a() {
+    public final void b() {
         if (this.b != null && this.a != null && this.a.c()) {
             this.b.a(this.a.a());
             this.a.a((Boolean) false);

@@ -1,40 +1,40 @@
 package com.baidu.tieba.data;
 /* loaded from: classes.dex */
-public class g {
+public final class g {
     private f a;
     private boolean b;
     private int c;
     private String d;
 
-    public f a() {
+    public final f a() {
         return this.a;
     }
 
-    public void a(f fVar) {
+    public final void a(f fVar) {
         this.a = fVar;
     }
 
-    public boolean b() {
+    public final boolean b() {
         return this.b;
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.b = z;
     }
 
-    public int c() {
+    public final int c() {
         return this.c;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.c = i;
     }
 
-    public String d() {
+    public final String d() {
         return this.d;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.d = str;
     }
 }

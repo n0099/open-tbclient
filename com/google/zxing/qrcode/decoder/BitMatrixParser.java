@@ -18,7 +18,7 @@ final class BitMatrixParser {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public FormatInformation readFormatInformation() {
+    public final FormatInformation readFormatInformation() {
         int i = 0;
         if (this.parsedFormatInfo != null) {
             return this.parsedFormatInfo;
@@ -47,7 +47,7 @@ final class BitMatrixParser {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Version readVersion() {
+    public final Version readVersion() {
         if (this.parsedVersion != null) {
             return this.parsedVersion;
         }
@@ -70,8 +70,11 @@ final class BitMatrixParser {
         }
         int i6 = 0;
         for (int i7 = 5; i7 >= 0; i7--) {
-            for (int i8 = height - 9; i8 >= i2; i8--) {
-                i6 = copyBit(i7, i8, i6);
+            int i8 = height - 9;
+            while (i8 >= i2) {
+                int copyBit = copyBit(i7, i8, i6);
+                i8--;
+                i6 = copyBit;
             }
         }
         Version decodeVersionInformation2 = Version.decodeVersionInformation(i6);
@@ -87,7 +90,7 @@ final class BitMatrixParser {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public byte[] readCodewords() {
+    public final byte[] readCodewords() {
         FormatInformation readFormatInformation = readFormatInformation();
         Version readVersion = readVersion();
         DataMask forReference = DataMask.forReference(readFormatInformation.getDataMask());

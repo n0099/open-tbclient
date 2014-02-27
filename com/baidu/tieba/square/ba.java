@@ -9,11 +9,11 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.view.NoNetworkView;
 import com.baidu.tieba.view.SearchBoxView;
 import com.baidu.tieba.view.by;
-import com.baidu.tieba.view.ct;
+import com.baidu.tieba.view.cs;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class ba extends com.baidu.adp.a.e {
-    ct a;
+public final class ba extends com.baidu.adp.a.e {
+    cs a;
     private com.baidu.tieba.k c;
     private com.baidu.tieba.j d;
     private View e;
@@ -41,7 +41,7 @@ public class ba extends com.baidu.adp.a.e {
         this.f.setOnScrollListener(jVar);
         this.j = new az(kVar);
         this.f.setAdapter((ListAdapter) this.j);
-        this.a = new ct(kVar);
+        this.a = new cs(kVar);
         this.f.setPullRefresh(this.a);
         this.i = (NoNetworkView) this.e.findViewById(R.id.view_no_network);
         com.baidu.tieba.view.ad adVar = new com.baidu.tieba.view.ad(this.b);
@@ -49,18 +49,18 @@ public class ba extends com.baidu.adp.a.e {
         this.f.addFooterView(adVar);
     }
 
-    public void a(as asVar) {
+    public final void a(as asVar) {
         if (asVar != null) {
             try {
                 this.j.a(asVar);
                 this.j.notifyDataSetChanged();
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "refresh", e.getMessage());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "refresh", e.getMessage());
             }
         }
     }
 
-    public void a() {
+    public final void a() {
         if (this.f != null) {
             int headerViewsCount = this.f.getHeaderViewsCount() + 1;
             int firstVisiblePosition = this.f.getFirstVisiblePosition();
@@ -73,71 +73,57 @@ public class ba extends com.baidu.adp.a.e {
         }
     }
 
-    public void e() {
+    public final void d() {
         this.f.a();
     }
 
-    public void a(boolean z, String str) {
-        e();
-        if (!z && str != null) {
-            this.c.a(str);
-        }
-    }
-
-    public SearchBoxView f() {
+    public final SearchBoxView e() {
         return this.h;
     }
 
-    public void g() {
+    public final void f() {
         this.f.b();
     }
 
-    public void h() {
+    public final void g() {
         this.i.setVisibility(0);
     }
 
-    public void i() {
+    public final void h() {
         this.i.setVisibility(8);
     }
 
-    public void a(by byVar) {
+    public final void a(by byVar) {
         this.i.a(byVar);
     }
 
-    public void b(by byVar) {
+    public final void b(by byVar) {
         this.i.b(byVar);
     }
 
-    public void j() {
+    public final void i() {
         this.j.d();
     }
 
-    public void k() {
+    public final void j() {
         NetworkInfo activeNetworkInfo;
-        com.baidu.adp.lib.util.f.e("SquareView", "onResume", "onResume");
+        com.baidu.adp.lib.util.e.e("SquareView", "onResume", "onResume");
         this.j.a();
         if (this.i != null && this.i.getVisibility() == 0 && (activeNetworkInfo = ((ConnectivityManager) this.c.getSystemService("connectivity")).getActiveNetworkInfo()) != null && activeNetworkInfo.isAvailable()) {
             this.i.setVisible(false);
         }
     }
 
-    public void l() {
+    public final void k() {
         this.j.b();
     }
 
-    public void m() {
-    }
-
-    public void a(int i) {
+    public final void a(int i) {
         this.c.a().a(i == 1);
-        this.c.a().a((View) this.g);
+        this.c.a().a(this.g);
         this.j.a(i);
         this.a.a(i);
         this.i.a(i);
         this.h.a(i);
-    }
-
-    public void a(com.baidu.adp.widget.ListView.b bVar) {
-        this.a.a(bVar);
     }
 }

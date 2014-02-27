@@ -11,7 +11,7 @@ import com.slidingmenu.lib.R;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d extends BaseAdapter {
+public final class d extends BaseAdapter {
     final /* synthetic */ EmotionManageActivity a;
 
     private d(EmotionManageActivity emotionManageActivity) {
@@ -19,12 +19,12 @@ public class d extends BaseAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ d(EmotionManageActivity emotionManageActivity, d dVar) {
+    public /* synthetic */ d(EmotionManageActivity emotionManageActivity, byte b) {
         this(emotionManageActivity);
     }
 
     @Override // android.widget.Adapter
-    public int getCount() {
+    public final int getCount() {
         List list;
         List list2;
         list = this.a.a;
@@ -36,7 +36,7 @@ public class d extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public Object getItem(int i) {
+    public final Object getItem(int i) {
         List list;
         List list2;
         List list3;
@@ -52,7 +52,7 @@ public class d extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    public final long getItemId(int i) {
         List list;
         List list2;
         list = this.a.a;
@@ -66,48 +66,43 @@ public class d extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public final View getView(int i, View view, ViewGroup viewGroup) {
         List list;
         boolean z;
         List list2;
         List list3;
         if (view == null) {
-            view = a();
+            view = View.inflate(this.a, R.layout.emotion_manage_list_item, null);
+            g gVar = new g((byte) 0);
+            gVar.a = (ImageView) view.findViewById(R.id.emotion_group_select);
+            gVar.b = (ImageView) view.findViewById(R.id.emotion_group_photo);
+            gVar.c = (TextView) view.findViewById(R.id.emotion_group_name);
+            view.setTag(gVar);
         }
-        g gVar = (g) view.getTag();
+        g gVar2 = (g) view.getTag();
         list = this.a.a;
         Bitmap bitmap = ((e) list.get(i)).d;
         if (bitmap != null) {
-            gVar.b.setImageBitmap(bitmap);
+            gVar2.b.setImageBitmap(bitmap);
         } else {
-            bq.d(gVar.b, (int) R.drawable.pic_image_h_not);
+            bq.d(gVar2.b, (int) R.drawable.pic_image_h_not);
         }
         z = this.a.p;
         if (z) {
             list3 = this.a.a;
             if (((e) list3.get(i)).c) {
-                bq.d(gVar.a, (int) R.drawable.btn_expression_choose_s);
+                bq.d(gVar2.a, (int) R.drawable.btn_expression_choose_s);
             } else {
-                bq.d(gVar.a, (int) R.drawable.btn_expression_choose_n);
+                bq.d(gVar2.a, (int) R.drawable.btn_expression_choose_n);
             }
-            gVar.a.setVisibility(0);
+            gVar2.a.setVisibility(0);
         } else {
-            gVar.a.setVisibility(8);
+            gVar2.a.setVisibility(8);
         }
-        TextView textView = gVar.c;
+        TextView textView = gVar2.c;
         list2 = this.a.a;
         textView.setText(((e) list2.get(i)).b);
         this.a.getLayoutMode().a(view);
         return view;
-    }
-
-    private View a() {
-        View inflate = View.inflate(this.a, R.layout.emotion_manage_list_item, null);
-        g gVar = new g(null);
-        gVar.a = (ImageView) inflate.findViewById(R.id.emotion_group_select);
-        gVar.b = (ImageView) inflate.findViewById(R.id.emotion_group_photo);
-        gVar.c = (TextView) inflate.findViewById(R.id.emotion_group_name);
-        inflate.setTag(gVar);
-        return inflate;
     }
 }

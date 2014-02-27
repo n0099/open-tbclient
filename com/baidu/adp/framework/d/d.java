@@ -1,11 +1,24 @@
 package com.baidu.adp.framework.d;
 
 import com.baidu.adp.framework.controller.SocketRule;
+import com.baidu.adp.framework.message.e;
 import com.baidu.adp.framework.message.g;
 import com.baidu.adp.framework.message.h;
 /* loaded from: classes.dex */
-public class d extends c<g, com.baidu.adp.framework.task.c, SocketRule, h> {
+public final class d extends c<g, com.baidu.adp.framework.task.c, SocketRule, h> {
     private com.baidu.adp.framework.a.g c;
+
+    @Override // com.baidu.adp.framework.a
+    public final /* bridge */ /* synthetic */ void a(e eVar, com.baidu.adp.framework.task.b bVar) {
+        this.c.a((g) eVar, (com.baidu.adp.framework.task.c) bVar);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.e, com.baidu.adp.framework.task.b] */
+    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.e' to match base method */
+    @Override // com.baidu.adp.framework.d.c
+    public final /* synthetic */ g b(g gVar, com.baidu.adp.framework.task.c cVar) {
+        return this.a.b().a(gVar, cVar);
+    }
 
     public d(com.baidu.adp.framework.c cVar) {
         super(cVar);
@@ -14,19 +27,7 @@ public class d extends c<g, com.baidu.adp.framework.task.c, SocketRule, h> {
         this.b = com.baidu.adp.framework.e.c.a();
     }
 
-    public boolean a(int i) {
+    public final boolean a(int i) {
         return this.c.a(i);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.a
-    public void a(g gVar, com.baidu.adp.framework.task.c cVar) {
-        this.c.a(gVar, cVar);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.d.c
-    public g b(g gVar, com.baidu.adp.framework.task.c cVar) {
-        return this.a.b().a(gVar, cVar);
     }
 }

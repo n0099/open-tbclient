@@ -4,7 +4,7 @@ import com.baidu.tieba.util.av;
 import com.baidu.tieba.util.aw;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class i extends h implements aw {
+public final class i extends h implements aw {
     private String a;
     private String b;
     private String c;
@@ -29,154 +29,154 @@ public class i extends h implements aw {
         a(1);
     }
 
-    public boolean a() {
+    public final boolean a() {
         return this.p;
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.p = z;
     }
 
-    public String c() {
+    public final String c() {
         return this.a;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.a = str;
     }
 
-    public void b(String str) {
+    public final void b(String str) {
         this.b = str;
     }
 
-    public String d() {
+    public final String d() {
         return this.c;
     }
 
-    public void c(String str) {
+    public final void c(String str) {
         this.c = str;
     }
 
-    public String e() {
+    public final String e() {
         return this.d;
     }
 
-    public void d(String str) {
+    public final void d(String str) {
         this.d = str;
     }
 
-    public String f() {
+    public final String f() {
         return this.e;
     }
 
-    public void e(String str) {
+    public final void e(String str) {
         this.e = str;
     }
 
-    public int g() {
+    public final int g() {
         return this.f;
     }
 
-    public void b(int i) {
+    public final void b(int i) {
         this.f = i;
     }
 
-    public int h() {
+    public final int h() {
         return this.g;
     }
 
-    public void c(int i) {
+    public final void c(int i) {
         this.g = i;
     }
 
-    public void d(int i) {
+    public final void d(int i) {
         this.h = i;
     }
 
-    public void f(String str) {
+    public final void f(String str) {
         this.i = str;
     }
 
-    public int i() {
+    public final int i() {
         return this.j;
     }
 
-    public void e(int i) {
+    public final void e(int i) {
         this.j = i;
     }
 
-    public void g(String str) {
+    public final void g(String str) {
         this.k = str;
     }
 
-    public void h(String str) {
+    public final void h(String str) {
         this.l = str;
     }
 
-    public void i(String str) {
+    public final void i(String str) {
         this.m = str;
     }
 
-    public void j(String str) {
+    public final void j(String str) {
         this.n = str;
     }
 
-    public int j() {
+    public final int j() {
         return this.o;
     }
 
-    public void f(int i) {
+    public final void f(int i) {
         this.o = i;
     }
 
-    public boolean k() {
+    public final boolean k() {
         return this.q;
     }
 
-    public void b(boolean z) {
+    public final void b(boolean z) {
         this.q = z;
     }
 
-    public boolean l() {
+    public final boolean l() {
         return this.r;
     }
 
-    public void c(boolean z) {
+    public final void c(boolean z) {
         this.r = z;
     }
 
     @Override // com.baidu.tieba.util.aw
-    public LinkedList<String> getImageUrl() {
+    public final LinkedList<String> getImageUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(this.e);
         return linkedList;
     }
 
     @Override // com.baidu.tieba.util.aw
-    public LinkedList<String> getPhotoUrl() {
+    public final LinkedList<String> getPhotoUrl() {
         return null;
     }
 
     @Override // com.baidu.tieba.util.aw
-    public LinkedList<String> getForumPhotoUrl() {
+    public final LinkedList<String> getForumPhotoUrl() {
         return null;
     }
 
     @Override // com.baidu.tieba.util.aw
-    public boolean isSupportImageSize() {
+    public final boolean isSupportImageSize() {
         return false;
     }
 
     @Override // com.baidu.tieba.util.aw
-    public LinkedList<av> getImagesWithEmotions() {
+    public final LinkedList<av> getImagesWithEmotions() {
         return null;
     }
 
-    public boolean m() {
+    public final boolean m() {
         return this.s;
     }
 
-    public void d(boolean z) {
+    public final void d(boolean z) {
         this.s = z;
     }
 }

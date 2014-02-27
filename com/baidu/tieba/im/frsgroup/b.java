@@ -5,7 +5,7 @@ import com.baidu.tieba.im.data.GroupPermData;
 import com.baidu.tieba.im.message.cz;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class b implements com.baidu.tieba.im.messageCenter.g {
+final class b implements com.baidu.tieba.im.messageCenter.g {
     final /* synthetic */ FrsGroupActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ class b implements com.baidu.tieba.im.messageCenter.g {
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.s sVar) {
+    public final void a(com.baidu.tieba.im.message.s sVar) {
         i iVar;
         i iVar2;
         com.baidu.tieba.im.model.d dVar;
@@ -42,7 +42,7 @@ class b implements com.baidu.tieba.im.messageCenter.g {
         if (a != null) {
             dVar = this.a.e;
             dVar.a(a);
-            this.a.a(a);
+            FrsGroupActivity.a(this.a, a);
         }
     }
 }

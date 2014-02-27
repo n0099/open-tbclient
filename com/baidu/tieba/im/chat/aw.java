@@ -2,82 +2,72 @@ package com.baidu.tieba.im.chat;
 
 import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
-public class aw extends com.baidu.adp.a.d {
+public final class aw extends com.baidu.adp.a.d {
     private String a;
     private String b;
     private int c;
     private com.baidu.tieba.im.message.az d;
     private com.baidu.tieba.im.message.aj e;
 
-    public void a(String str, String str2, int i) {
-        b(str);
-        a(str2);
-        b(i);
-    }
-
     @Override // com.baidu.adp.a.d
-    protected boolean LoadData() {
+    protected final boolean LoadData() {
         return false;
     }
 
     @Override // com.baidu.adp.a.d
-    public boolean cancelLoadData() {
+    public final boolean cancelLoadData() {
         return false;
     }
 
-    public String a() {
+    public final String a() {
         return this.b;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.b = str;
     }
 
-    public void b() {
+    public final void b() {
         if (this.d != null) {
-            com.baidu.tieba.im.messageCenter.e.a().b(this.d);
+            com.baidu.tieba.im.messageCenter.d.a().b(this.d);
             this.d = null;
         }
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         new ax(this, z).execute(new Void[0]);
     }
 
-    public void a(com.baidu.tieba.im.a<Boolean> aVar) {
-        com.baidu.tieba.im.j.a(new ay(this), aVar);
-    }
-
-    public void a(long j) {
+    public final void a(long j) {
         this.d = new com.baidu.tieba.im.message.az();
         this.d.a(j);
-        this.d.a(TiebaApplication.E().getID());
-        com.baidu.tieba.im.messageCenter.e.a().a(this.d);
+        this.d.a(TiebaApplication.y().getID());
+        com.baidu.tieba.im.messageCenter.d.a().a(this.d);
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.e = new com.baidu.tieba.im.message.aj();
         this.e.a(i);
-        com.baidu.tieba.im.messageCenter.e.a().a(this.e);
+        com.baidu.tieba.im.messageCenter.d.a().a(this.e);
     }
 
-    public String c() {
+    public final String c() {
         return this.a;
     }
 
-    public int d() {
+    public final int d() {
         return com.baidu.adp.lib.f.b.a(this.a, 0);
     }
 
-    public void b(String str) {
+    public final void b(String str) {
         this.a = str;
     }
 
-    public int e() {
+    public final int e() {
         return this.c;
     }
 
-    public void b(int i) {
+    public final void b(int i) {
         this.c = i;
     }
 }

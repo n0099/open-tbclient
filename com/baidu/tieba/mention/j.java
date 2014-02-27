@@ -5,7 +5,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 /* loaded from: classes.dex */
-class j {
+final class j {
     TextView a;
     ProgressBar b;
     i c;
@@ -24,7 +24,7 @@ class j {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ j(h hVar, j jVar) {
+    public /* synthetic */ j(h hVar, byte b) {
         this(hVar);
     }
 }

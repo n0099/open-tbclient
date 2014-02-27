@@ -18,19 +18,19 @@ import java.lang.Thread;
 import java.util.List;
 import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
-public class ce implements Thread.UncaughtExceptionHandler {
+public final class ce implements Thread.UncaughtExceptionHandler {
     private static final String b = String.valueOf(Environment.getExternalStorageDirectory().getPath()) + File.separator + "tieba" + File.separator + "oom" + File.separator;
     private Thread.UncaughtExceptionHandler a = Thread.getDefaultUncaughtExceptionHandler();
 
-    /* JADX WARN: Removed duplicated region for block: B:126:0x01f1 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:84:0x01f6 A[Catch: Exception -> 0x021c, TryCatch #9 {Exception -> 0x021c, blocks: (B:82:0x01f1, B:84:0x01f6, B:86:0x01fb), top: B:126:0x01f1 }] */
-    /* JADX WARN: Removed duplicated region for block: B:86:0x01fb A[Catch: Exception -> 0x021c, TRY_LEAVE, TryCatch #9 {Exception -> 0x021c, blocks: (B:82:0x01f1, B:84:0x01f6, B:86:0x01fb), top: B:126:0x01f1 }] */
-    /* JADX WARN: Removed duplicated region for block: B:89:0x0204  */
+    /* JADX WARN: Removed duplicated region for block: B:119:0x0225 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:87:0x022a A[Catch: Exception -> 0x0250, TryCatch #0 {Exception -> 0x0250, blocks: (B:85:0x0225, B:87:0x022a, B:89:0x022f), top: B:119:0x0225 }] */
+    /* JADX WARN: Removed duplicated region for block: B:89:0x022f A[Catch: Exception -> 0x0250, TRY_LEAVE, TryCatch #0 {Exception -> 0x0250, blocks: (B:85:0x0225, B:87:0x022a, B:89:0x022f), top: B:119:0x0225 }] */
+    /* JADX WARN: Removed duplicated region for block: B:92:0x0238  */
     @Override // java.lang.Thread.UncaughtExceptionHandler
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void uncaughtException(Thread thread, Throwable th) {
+    public final void uncaughtException(Thread thread, Throwable th) {
         FileWriter fileWriter;
         PrintStream printStream;
         ByteArrayOutputStream byteArrayOutputStream;
@@ -39,7 +39,18 @@ public class ce implements Thread.UncaughtExceptionHandler {
         String str;
         FileWriter fileWriter2 = null;
         if (com.baidu.tieba.data.i.F() && a(th)) {
-            a();
+            com.baidu.adp.lib.util.e.b("OOM!!!please keep alive, and getting in touch with RD!");
+            try {
+                File file = new File(b);
+                if (!file.exists()) {
+                    file.mkdir();
+                }
+                Debug.dumpHprofData(String.valueOf(b) + System.currentTimeMillis());
+            } catch (Exception e) {
+                com.baidu.adp.lib.util.e.b("couldn’t dump hprof:Exception");
+            } catch (OutOfMemoryError e2) {
+                com.baidu.adp.lib.util.e.b("couldn’t dump hprof: OutOfMemoryError");
+            }
         }
         try {
             byteArrayOutputStream = new ByteArrayOutputStream();
@@ -55,7 +66,7 @@ public class ce implements Thread.UncaughtExceptionHandler {
                             str = "fatal_error.log";
                         }
                         File g = af.g(str);
-                        if (g != null && g.length() < 204800 && str2 != null) {
+                        if (g != null && g.length() < 204800) {
                             fileWriter = new FileWriter(g, true);
                             try {
                                 a(fileWriter, bs.a(), null);
@@ -66,10 +77,10 @@ public class ce implements Thread.UncaughtExceptionHandler {
                                 a(fileWriter, "android_sdk", String.valueOf(Build.VERSION.SDK_INT));
                                 a(fileWriter, "from", com.baidu.tieba.data.i.l());
                                 a(fileWriter, "current_from", com.baidu.tieba.data.i.m());
-                                a(fileWriter, SapiAccountManager.SESSION_UID, TiebaApplication.A());
-                                a(fileWriter, SocialConstants.PARAM_CLIENT_ID, TiebaApplication.K());
-                                a(fileWriter, "imei", TiebaApplication.g().p());
-                                a(fileWriter, "uname", TiebaApplication.F());
+                                a(fileWriter, SapiAccountManager.SESSION_UID, TiebaApplication.v());
+                                a(fileWriter, SocialConstants.PARAM_CLIENT_ID, TiebaApplication.E());
+                                a(fileWriter, "imei", TiebaApplication.g().k());
+                                a(fileWriter, "uname", TiebaApplication.z());
                                 a(fileWriter, "activity", cc.b());
                                 a(fileWriter, "maxMemory", String.valueOf(Runtime.getRuntime().maxMemory()));
                                 a(fileWriter, "crash_type", th.getClass().getName());
@@ -94,8 +105,8 @@ public class ce implements Thread.UncaughtExceptionHandler {
                                 fileWriter.append(IOUtils.LINE_SEPARATOR_UNIX);
                                 fileWriter.flush();
                                 fileWriter2 = fileWriter;
-                            } catch (Exception e) {
-                                e = e;
+                            } catch (Exception e3) {
+                                e = e3;
                                 fileWriter2 = fileWriter;
                                 printStream2 = printStream;
                                 byteArrayOutputStream2 = byteArrayOutputStream;
@@ -104,8 +115,8 @@ public class ce implements Thread.UncaughtExceptionHandler {
                                     if (printStream2 != null) {
                                         try {
                                             printStream2.close();
-                                        } catch (Exception e2) {
-                                            e2.printStackTrace();
+                                        } catch (Exception e4) {
+                                            e4.printStackTrace();
                                             if (!com.baidu.tieba.data.i.F() && this.a != null) {
                                                 this.a.uncaughtException(thread, th);
                                                 return;
@@ -131,27 +142,14 @@ public class ce implements Thread.UncaughtExceptionHandler {
                                     printStream = printStream2;
                                     fileWriter = fileWriter2;
                                     if (printStream != null) {
-                                        try {
-                                            printStream.close();
-                                        } catch (Exception e3) {
-                                            e3.printStackTrace();
-                                            if (!com.baidu.tieba.data.i.F()) {
-                                            }
-                                            Process.killProcess(Process.myPid());
-                                            throw th;
-                                        }
                                     }
                                     if (byteArrayOutputStream != null) {
-                                        byteArrayOutputStream.close();
                                     }
                                     if (fileWriter != null) {
-                                        fileWriter.close();
                                     }
-                                    if (!com.baidu.tieba.data.i.F() && this.a != null) {
-                                        this.a.uncaughtException(thread, th);
-                                    } else {
-                                        Process.killProcess(Process.myPid());
+                                    if (!com.baidu.tieba.data.i.F()) {
                                     }
+                                    Process.killProcess(Process.myPid());
                                     throw th;
                                 }
                             } catch (Throwable th3) {
@@ -168,66 +166,73 @@ public class ce implements Thread.UncaughtExceptionHandler {
                                 throw th;
                             }
                         }
-                        if (str2 != null) {
-                            try {
-                                if (str2.contains("java.lang.SecurityException: No permission to modify given thread")) {
-                                    TiebaApplication.g().g(TiebaApplication.g().am() + 1);
-                                } else if (str2.contains("com.baidu.location")) {
-                                    TiebaApplication.g().ap();
-                                } else if (str2.contains("Couldn't load mtprocessor-jni")) {
-                                    com.baidu.adp.lib.a.d.a().a(SwitchKey.MOTU, 1);
-                                }
-                                if (cc.a() != null && cc.a().indexOf("NewVcode") != -1) {
-                                    TiebaApplication.g().i(TiebaApplication.g().ao() + 1);
-                                }
-                            } catch (Throwable th4) {
-                                th = th4;
-                                fileWriter = fileWriter2;
-                                if (printStream != null) {
-                                }
-                                if (byteArrayOutputStream != null) {
-                                }
-                                if (fileWriter != null) {
-                                }
-                                if (!com.baidu.tieba.data.i.F()) {
-                                }
-                                Process.killProcess(Process.myPid());
-                                throw th;
+                        try {
+                            if (str2.contains("java.lang.SecurityException: No permission to modify given thread")) {
+                                TiebaApplication.g().g(TiebaApplication.g().af() + 1);
+                            } else if (str2.contains("com.baidu.location")) {
+                                TiebaApplication.g().ai();
+                            } else if (str2.contains("Couldn't load mtprocessor-jni")) {
+                                com.baidu.adp.lib.a.d.a().a(SwitchKey.MOTU, 1);
                             }
-                        }
-                        com.baidu.adp.lib.a.d.a().a(str2);
-                        if (!TextUtils.isEmpty(str2)) {
-                            com.baidu.adp.lib.util.f.b(str2);
-                        }
-                        if (printStream != null) {
+                            if (cc.a() != null && cc.a().indexOf("NewVcode") != -1) {
+                                TiebaApplication.g().i(TiebaApplication.g().ah() + 1);
+                            }
+                            com.baidu.adp.lib.a.d.a().a(str2);
+                            if (!TextUtils.isEmpty(str2)) {
+                                com.baidu.adp.lib.util.e.b(str2);
+                            }
                             try {
                                 printStream.close();
-                            } catch (Exception e4) {
-                                e4.printStackTrace();
+                                byteArrayOutputStream.close();
+                                if (fileWriter2 != null) {
+                                    fileWriter2.close();
+                                }
+                            } catch (Exception e5) {
+                                e5.printStackTrace();
                             }
-                        }
-                        if (byteArrayOutputStream != null) {
-                            byteArrayOutputStream.close();
-                        }
-                        if (fileWriter2 != null) {
-                            fileWriter2.close();
-                        }
-                        if (com.baidu.tieba.data.i.F() && this.a != null) {
-                            this.a.uncaughtException(thread, th);
-                        } else {
+                            if (com.baidu.tieba.data.i.F() && this.a != null) {
+                                this.a.uncaughtException(thread, th);
+                            } else {
+                                Process.killProcess(Process.myPid());
+                            }
+                        } catch (Throwable th4) {
+                            th = th4;
+                            fileWriter = fileWriter2;
+                            if (printStream != null) {
+                                try {
+                                    printStream.close();
+                                } catch (Exception e6) {
+                                    e6.printStackTrace();
+                                    if (!com.baidu.tieba.data.i.F() && this.a != null) {
+                                        this.a.uncaughtException(thread, th);
+                                    } else {
+                                        Process.killProcess(Process.myPid());
+                                    }
+                                    throw th;
+                                }
+                            }
+                            if (byteArrayOutputStream != null) {
+                                byteArrayOutputStream.close();
+                            }
+                            if (fileWriter != null) {
+                                fileWriter.close();
+                            }
+                            if (!com.baidu.tieba.data.i.F()) {
+                            }
                             Process.killProcess(Process.myPid());
+                            throw th;
                         }
-                    } catch (Throwable th5) {
-                        th = th5;
-                        fileWriter = null;
+                    } catch (Exception e7) {
+                        e = e7;
+                        printStream2 = printStream;
+                        byteArrayOutputStream2 = byteArrayOutputStream;
                     }
-                } catch (Exception e5) {
-                    e = e5;
-                    printStream2 = printStream;
-                    byteArrayOutputStream2 = byteArrayOutputStream;
+                } catch (Throwable th5) {
+                    th = th5;
+                    fileWriter = null;
                 }
-            } catch (Exception e6) {
-                e = e6;
+            } catch (Exception e8) {
+                e = e8;
                 printStream2 = null;
                 byteArrayOutputStream2 = byteArrayOutputStream;
             } catch (Throwable th6) {
@@ -235,8 +240,8 @@ public class ce implements Thread.UncaughtExceptionHandler {
                 fileWriter = null;
                 printStream = null;
             }
-        } catch (Exception e7) {
-            e = e7;
+        } catch (Exception e9) {
+            e = e9;
             printStream2 = null;
             byteArrayOutputStream2 = null;
         } catch (Throwable th7) {
@@ -256,33 +261,17 @@ public class ce implements Thread.UncaughtExceptionHandler {
             }
             fileWriter.append(IOUtils.LINE_SEPARATOR_UNIX);
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "addInfo", e.getMessage());
+            com.baidu.adp.lib.util.e.b(getClass().getName(), "addInfo", e.getMessage());
         }
     }
 
-    public static boolean a(Throwable th) {
-        if ("java.lang.OutOfMemoryError".equals(th.getClass().getName())) {
-            return true;
-        }
-        Throwable cause = th.getCause();
-        if (cause != null) {
-            return a(cause);
-        }
-        return false;
-    }
-
-    private void a() {
-        com.baidu.adp.lib.util.f.b("OOM!!!please keep alive, and getting in touch with RD!");
-        try {
-            File file = new File(b);
-            if (!file.exists()) {
-                file.mkdir();
+    private static boolean a(Throwable th) {
+        while (!"java.lang.OutOfMemoryError".equals(th.getClass().getName())) {
+            th = th.getCause();
+            if (th == null) {
+                return false;
             }
-            Debug.dumpHprofData(String.valueOf(b) + System.currentTimeMillis());
-        } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("couldn’t dump hprof:Exception");
-        } catch (OutOfMemoryError e2) {
-            com.baidu.adp.lib.util.f.b("couldn’t dump hprof: OutOfMemoryError");
         }
+        return true;
     }
 }

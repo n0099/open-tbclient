@@ -1,26 +1,30 @@
 package com.baidu.tieba.guide;
 
-import android.view.animation.Animation;
+import com.baidu.tieba.data.af;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements Animation.AnimationListener {
-    final /* synthetic */ u a;
+public final class x extends com.baidu.adp.a.g {
+    final /* synthetic */ w a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(u uVar) {
-        this.a = uVar;
+    public x(w wVar) {
+        this.a = wVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        this.a.f = false;
+    @Override // com.baidu.adp.a.g
+    public final void a(Object obj) {
+        a aVar;
+        NewUserGuideActivity newUserGuideActivity;
+        NewUserGuideActivity newUserGuideActivity2;
+        if (obj != null && (obj instanceof af)) {
+            int a = com.baidu.adp.lib.f.b.a(((af) obj).a(), 0);
+            aVar = this.a.c;
+            aVar.a(a);
+            this.a.a(a, true);
+            newUserGuideActivity = this.a.a;
+            newUserGuideActivity.b(true);
+            newUserGuideActivity2 = this.a.a;
+            newUserGuideActivity2.a(true);
+        }
     }
 }

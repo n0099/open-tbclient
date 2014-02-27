@@ -1,11 +1,9 @@
 package com.baidu.tieba.faceshop;
 
 import android.app.Activity;
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.os.Handler;
-import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
@@ -27,7 +25,7 @@ import com.baidu.tieba.view.by;
 import com.slidingmenu.lib.R;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class x {
+public final class x {
     private int A;
     private int B;
     private boolean C;
@@ -87,7 +85,7 @@ public class x {
         this.l = (FrameLayout) this.c.findViewById(R.id.face_package_downloading);
         this.m = (ImageView) this.c.findViewById(R.id.face_package_downloading_up);
         this.n = (ImageView) this.c.findViewById(R.id.face_package_downloading_cancel);
-        this.b = TiebaApplication.g().al();
+        this.b = TiebaApplication.g().ae();
         this.u = new com.baidu.tieba.util.i(fVar);
         this.u.a(fVar.getResources().getDimensionPixelSize(R.dimen.faceshop_cover_width), fVar.getResources().getDimensionPixelSize(R.dimen.faceshop_cover_height));
         this.v = new Handler();
@@ -100,68 +98,32 @@ public class x {
         this.r = this.a.getResources().getDimensionPixelSize(R.dimen.faceshop_page_padding);
         this.w = new h(fVar, R.style.common_alert_dialog);
         this.E = (ScrollView) this.c.findViewById(R.id.container_scrollview);
-        a(fVar);
-    }
-
-    private void a(Context context) {
-        int al = TiebaApplication.g().al();
-        this.x = new GifView(context);
-        if (al == 1) {
+        int ae = TiebaApplication.g().ae();
+        this.x = new GifView(fVar);
+        if (ae == 1) {
             this.x.setBackgroundResource(R.drawable.bg_expression_bubble_1);
         } else {
             this.x.setBackgroundResource(R.drawable.bg_expression_bubble);
         }
         this.x.setVisibility(8);
-        this.y = (WindowManager) context.getSystemService("window");
+        this.y = (WindowManager) fVar.getSystemService("window");
         this.z = new WindowManager.LayoutParams();
-        this.A = context.getResources().getDimensionPixelSize(R.dimen.face_tab_content_float_width);
-        this.B = context.getResources().getDimensionPixelSize(R.dimen.face_tab_content_float_height);
+        this.A = fVar.getResources().getDimensionPixelSize(R.dimen.face_tab_content_float_width);
+        this.B = fVar.getResources().getDimensionPixelSize(R.dimen.face_tab_content_float_height);
         this.z.width = this.A;
         this.z.height = this.B;
         this.z.gravity = 51;
         this.z.format = -3;
         this.z.type = LocationClientOption.MIN_SCAN_SPAN;
         this.z.flags |= 56;
-        if (TiebaApplication.g().bu()) {
+        if (TiebaApplication.g().bm()) {
             this.z.type = LocationClientOption.MIN_SCAN_SPAN;
             this.z.flags = 25165832;
         }
-        this.F = BdUtilHelper.a((Activity) context);
+        this.F = BdUtilHelper.a((Activity) fVar);
     }
 
-    public void a(v vVar) {
-        if (vVar != null) {
-            b(vVar);
-        }
-    }
-
-    private void b(FacePackageData facePackageData) {
-        if (facePackageData != null && facePackageData.faceList != null) {
-            this.s.setLayoutParams(new LinearLayout.LayoutParams(-1, ((BdUtilHelper.b(this.a) - (this.r * 2)) / 4) * ((int) Math.ceil(facePackageData.faceList.size() / 4.0f))));
-        }
-    }
-
-    public void a(String str) {
-        if (str != null && str.length() > 0) {
-            LinkedList linkedList = new LinkedList();
-            linkedList.add(str);
-            com.baidu.tieba.im.messageCenter.e.a().d(new com.baidu.tieba.d.j(linkedList));
-        }
-    }
-
-    public void a(FacePackageData facePackageData) {
-        if (facePackageData != null) {
-            if (this.t == null) {
-                this.t = new ae(this.a, facePackageData.faceList);
-                this.s.setAdapter((ListAdapter) this.t);
-                return;
-            }
-            this.t.a(facePackageData.faceList);
-            this.t.notifyDataSetChanged();
-        }
-    }
-
-    public void b(v vVar) {
+    public final void a(v vVar) {
         FacePackageData facePackageData;
         if (vVar != null && vVar.a() != null && (facePackageData = vVar.a().facePackage) != null) {
             if (vVar.c()) {
@@ -176,40 +138,44 @@ public class x {
             this.h.setText(String.valueOf(this.a.getResources().getString(R.string.price_tip)) + facePackageData.price);
             this.k.setText(facePackageData.pdesc);
             this.d.a(facePackageData.pname);
-            b(facePackageData);
-            a(vVar.e());
-            a(facePackageData);
-            p();
+            if (facePackageData != null && facePackageData.faceList != null) {
+                this.s.setLayoutParams(new LinearLayout.LayoutParams(-1, ((BdUtilHelper.b(this.a) - (this.r * 2)) / 4) * ((int) Math.ceil(facePackageData.faceList.size() / 4.0f))));
+            }
+            String e = vVar.e();
+            if (e != null && e.length() > 0) {
+                LinkedList linkedList = new LinkedList();
+                linkedList.add(e);
+                com.baidu.tieba.im.messageCenter.d.a().d(new com.baidu.tieba.d.j(linkedList));
+            }
+            if (facePackageData != null) {
+                if (this.t == null) {
+                    this.t = new ae(this.a, facePackageData.faceList);
+                    this.s.setAdapter((ListAdapter) this.t);
+                } else {
+                    this.t.a(facePackageData.faceList);
+                    this.t.notifyDataSetChanged();
+                }
+            }
+            if (this.v != null) {
+                this.v.removeCallbacks(this.J);
+                this.v.postDelayed(this.J, 300L);
+            }
         }
     }
 
-    private void p() {
-        if (this.v != null) {
-            this.v.removeCallbacks(this.J);
-            this.v.postDelayed(this.J, 300L);
-        }
-    }
-
-    private void q() {
-        if (this.u != null) {
-            this.u.d();
-        }
-        if (this.t != null) {
-            this.t.a();
-        }
-    }
-
-    public void a() {
+    public final void a() {
         if (this.u != null && this.f != null) {
             this.u.a();
             String obj = this.f.getTag().toString();
-            if (this.u.d(obj) == null) {
+            com.baidu.tieba.util.i iVar = this.u;
+            if (com.baidu.tbadk.imageManager.e.a().c(obj) == null) {
                 this.u.b(obj, new aa(this));
             } else {
                 this.f.invalidate();
             }
             String obj2 = this.H.getTag().toString();
-            if (this.u.d(obj2) == null) {
+            com.baidu.tieba.util.i iVar2 = this.u;
+            if (com.baidu.tbadk.imageManager.e.a().c(obj2) == null) {
                 this.u.b(obj2, new ab(this));
                 return;
             }
@@ -218,15 +184,15 @@ public class x {
         }
     }
 
-    public void a(by byVar) {
+    public final void a(by byVar) {
         this.e.a(byVar);
     }
 
-    public void b(by byVar) {
+    public final void b(by byVar) {
         this.e.b(byVar);
     }
 
-    public void c(v vVar) {
+    public final void b(v vVar) {
         if (vVar != null && vVar.a() != null && vVar.a().facePackage != null) {
             FacePackageData facePackageData = vVar.a().facePackage;
             if (facePackageData.buyStatus == 1) {
@@ -237,20 +203,54 @@ public class x {
             }
             switch (vVar.d()) {
                 case 1:
-                    b();
+                    this.j.setVisibility(0);
+                    this.l.setVisibility(8);
+                    this.j.setText(this.a.getResources().getString(R.string.downloaded));
+                    if (this.b != 1) {
+                        this.j.setTextColor(this.a.getResources().getColor(R.color.faceshop_downloaded_text));
+                        this.j.setBackgroundResource(R.drawable.btn_content_buy_d);
+                        return;
+                    }
+                    this.j.setTextColor(this.a.getResources().getColor(R.color.faceshop_downloaded_text_1));
+                    this.j.setBackgroundResource(R.drawable.btn_content_buy_d_1);
                     return;
                 case 2:
                 case 3:
-                    d();
+                    b();
                     return;
                 case 4:
-                    c();
-                    return;
+                    this.j.setVisibility(0);
+                    this.l.setVisibility(8);
+                    this.j.setText(this.a.getResources().getString(R.string.buy_package));
+                    if (this.b == 1) {
+                        this.j.setBackgroundResource(R.drawable.faceshop_package_btn_selector_1);
+                        return;
+                    } else {
+                        this.j.setBackgroundResource(R.drawable.faceshop_package_btn_selector);
+                        return;
+                    }
                 case 5:
-                    a(facePackageData.downloadTotal, facePackageData.downloadNow);
+                    long j = facePackageData.downloadTotal;
+                    long j2 = facePackageData.downloadNow;
+                    this.j.setVisibility(8);
+                    this.l.setVisibility(0);
+                    int i = (int) ((((float) j2) / ((float) j)) * this.q);
+                    int i2 = i < this.p ? this.p : i;
+                    FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.m.getLayoutParams();
+                    layoutParams.width = i2;
+                    this.m.setLayoutParams(layoutParams);
                     return;
                 case 6:
-                    r();
+                    this.j.setVisibility(0);
+                    this.l.setVisibility(8);
+                    this.j.setText(this.a.getResources().getString(R.string.off_the_shelf));
+                    if (this.b == 1) {
+                        this.j.setTextColor(this.a.getResources().getColor(R.color.faceshop_downloaded_text_1));
+                        this.j.setBackgroundResource(R.drawable.btn_content_buy_d_1);
+                        return;
+                    }
+                    this.j.setTextColor(this.a.getResources().getColor(R.color.faceshop_downloaded_text));
+                    this.j.setBackgroundResource(R.drawable.btn_content_buy_d);
                     return;
                 default:
                     return;
@@ -258,41 +258,7 @@ public class x {
         }
     }
 
-    public void b() {
-        this.j.setVisibility(0);
-        this.l.setVisibility(8);
-        this.j.setText(this.a.getResources().getString(R.string.downloaded));
-        if (this.b == 1) {
-            this.j.setTextColor(this.a.getResources().getColor(R.color.faceshop_downloaded_text_1));
-            this.j.setBackgroundResource(R.drawable.btn_content_buy_d_1);
-            return;
-        }
-        this.j.setTextColor(this.a.getResources().getColor(R.color.faceshop_downloaded_text));
-        this.j.setBackgroundResource(R.drawable.btn_content_buy_d);
-    }
-
-    public void a(long j, long j2) {
-        this.j.setVisibility(8);
-        this.l.setVisibility(0);
-        int i = (int) ((((float) j2) / ((float) j)) * this.q);
-        int i2 = i < this.p ? this.p : i;
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.m.getLayoutParams();
-        layoutParams.width = i2;
-        this.m.setLayoutParams(layoutParams);
-    }
-
-    public void c() {
-        this.j.setVisibility(0);
-        this.l.setVisibility(8);
-        this.j.setText(this.a.getResources().getString(R.string.buy_package));
-        if (this.b == 1) {
-            this.j.setBackgroundResource(R.drawable.faceshop_package_btn_selector_1);
-        } else {
-            this.j.setBackgroundResource(R.drawable.faceshop_package_btn_selector);
-        }
-    }
-
-    public void d() {
+    public final void b() {
         this.j.setVisibility(0);
         this.l.setVisibility(8);
         this.j.setText(this.a.getResources().getString(R.string.can_download));
@@ -305,68 +271,60 @@ public class x {
         this.j.setBackgroundResource(R.drawable.faceshop_package_btn_selector);
     }
 
-    private void r() {
-        this.j.setVisibility(0);
-        this.l.setVisibility(8);
-        this.j.setText(this.a.getResources().getString(R.string.off_the_shelf));
-        if (this.b == 1) {
-            this.j.setTextColor(this.a.getResources().getColor(R.color.faceshop_downloaded_text_1));
-            this.j.setBackgroundResource(R.drawable.btn_content_buy_d_1);
-            return;
-        }
-        this.j.setTextColor(this.a.getResources().getColor(R.color.faceshop_downloaded_text));
-        this.j.setBackgroundResource(R.drawable.btn_content_buy_d);
-    }
-
-    public void e() {
+    public final void c() {
         if (this.w != null) {
             this.w.a();
             this.w.show();
         }
     }
 
-    public void f() {
+    public final void d() {
         if (this.w != null) {
             this.w.b();
         }
     }
 
-    public void g() {
+    public final void e() {
         if (this.w != null) {
             this.w.dismiss();
         }
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.a.getLayoutMode().a(i == 1);
-        this.a.getLayoutMode().a((View) this.c);
+        this.a.getLayoutMode().a(this.c);
         if (this.d != null) {
-            this.d.c(i);
+            this.d.b(i);
         }
         if (this.e != null) {
             this.e.a(i);
         }
     }
 
-    public void h() {
+    public final void f() {
         if (this.e != null && this.e.getVisibility() == 0 && UtilHelper.b()) {
             this.e.setVisible(false);
         }
     }
 
-    public void i() {
-        q();
+    public final void g() {
+        if (this.u != null) {
+            this.u.c();
+        }
+        if (this.t != null) {
+            this.t.a();
+        }
     }
 
-    public TextView j() {
+    public final TextView h() {
         return this.j;
     }
 
-    public ImageView k() {
+    public final ImageView i() {
         return this.n;
     }
 
-    public void a(int i, Rect rect, FacePackageData facePackageData) {
+    public final void a(int i, Rect rect, FacePackageData facePackageData) {
         if (i != this.G && facePackageData.faceDynamicList != null && i >= 0 && i <= facePackageData.faceDynamicList.size()) {
             if (this.G != -1) {
                 a(this.G, false);
@@ -401,11 +359,11 @@ public class x {
         }
     }
 
-    public boolean l() {
+    public final boolean j() {
         return this.D;
     }
 
-    public void m() {
+    public final void k() {
         this.D = false;
         this.x.setVisibility(8);
         this.s.setSelection(-1);
@@ -417,7 +375,7 @@ public class x {
         ((ViewGroup) this.s.getChildAt(i - this.s.getFirstVisiblePosition())).getChildAt(0).setSelected(z);
     }
 
-    public void n() {
+    public final void l() {
         this.D = false;
         if (this.C) {
             this.C = false;
@@ -425,7 +383,7 @@ public class x {
         }
     }
 
-    public GridView o() {
+    public final GridView m() {
         return this.s;
     }
 }

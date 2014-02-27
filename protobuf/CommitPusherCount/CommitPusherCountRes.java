@@ -16,7 +16,7 @@ public final class CommitPusherCountRes {
     /* loaded from: classes.dex */
     public final class DataRes extends GeneratedMessageLite implements l {
         public static Parser<DataRes> PARSER = new j();
-        private static final DataRes a = new DataRes(true);
+        private static final DataRes a = new DataRes();
         private static final long serialVersionUID = 0;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
@@ -32,7 +32,7 @@ public final class CommitPusherCountRes {
             this.memoizedSerializedSize = -1;
         }
 
-        private DataRes(boolean z) {
+        private DataRes() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -43,14 +43,13 @@ public final class CommitPusherCountRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public DataRes getDefaultInstanceForType() {
+        public final DataRes getDefaultInstanceForType() {
             return a;
         }
 
         private DataRes(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
-            a();
             boolean z = false;
             while (!z) {
                 try {
@@ -84,16 +83,9 @@ public final class CommitPusherCountRes {
             this(codedInputStream, extensionRegistryLite);
         }
 
-        static {
-            a.a();
-        }
-
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<DataRes> getParserForType() {
+        public final Parser<DataRes> getParserForType() {
             return PARSER;
-        }
-
-        private void a() {
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -107,12 +99,12 @@ public final class CommitPusherCountRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
                 this.memoizedSerializedSize = 0;
@@ -123,7 +115,7 @@ public final class CommitPusherCountRes {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -168,12 +160,12 @@ public final class CommitPusherCountRes {
         }
 
         public static k newBuilder() {
-            return k.f();
+            return k.b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public k newBuilderForType() {
+        public final k newBuilderForType() {
             return newBuilder();
         }
 
@@ -183,7 +175,7 @@ public final class CommitPusherCountRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public k toBuilder() {
+        public final k toBuilder() {
             return newBuilder(this);
         }
     }
@@ -193,7 +185,7 @@ public final class CommitPusherCountRes {
         public static final int DATA_FIELD_NUMBER = 2;
         public static final int ERROR_FIELD_NUMBER = 1;
         public static Parser<CommitPusherCountResIdl> PARSER = new g();
-        private static final CommitPusherCountResIdl a = new CommitPusherCountResIdl(true);
+        private static final CommitPusherCountResIdl a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private DataRes data_;
@@ -212,7 +204,7 @@ public final class CommitPusherCountRes {
             this.memoizedSerializedSize = -1;
         }
 
-        private CommitPusherCountResIdl(boolean z) {
+        private CommitPusherCountResIdl() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -223,7 +215,7 @@ public final class CommitPusherCountRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public CommitPusherCountResIdl getDefaultInstanceForType() {
+        public final CommitPusherCountResIdl getDefaultInstanceForType() {
             return a;
         }
 
@@ -283,27 +275,29 @@ public final class CommitPusherCountRes {
         }
 
         static {
-            a.a();
+            CommitPusherCountResIdl commitPusherCountResIdl = new CommitPusherCountResIdl();
+            a = commitPusherCountResIdl;
+            commitPusherCountResIdl.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<CommitPusherCountResIdl> getParserForType() {
+        public final Parser<CommitPusherCountResIdl> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasError() {
+        public final boolean hasError() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public Im.Error getError() {
+        public final Im.Error getError() {
             return this.error_;
         }
 
-        public boolean hasData() {
+        public final boolean hasData() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public DataRes getData() {
+        public final DataRes getData() {
             return this.data_;
         }
 
@@ -323,7 +317,7 @@ public final class CommitPusherCountRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeMessage(1, this.error_);
@@ -334,10 +328,13 @@ public final class CommitPusherCountRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeMessageSize(1, this.error_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeMessageSize(1, this.error_) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeMessageSize(2, this.data_);
                 }
@@ -348,7 +345,7 @@ public final class CommitPusherCountRes {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -393,12 +390,12 @@ public final class CommitPusherCountRes {
         }
 
         public static h newBuilder() {
-            return h.f();
+            return h.a();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public h newBuilderForType() {
+        public final h newBuilderForType() {
             return newBuilder();
         }
 
@@ -408,7 +405,7 @@ public final class CommitPusherCountRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public h toBuilder() {
+        public final h toBuilder() {
             return newBuilder(this);
         }
     }

@@ -19,8 +19,10 @@ public final class GetMaskInfoRes {
     /* loaded from: classes.dex */
     public final class UserInfo extends GeneratedMessageLite implements o {
         public static final int NAME_FIELD_NUMBER = 1;
+        public static Parser<UserInfo> PARSER = new m();
         public static final int PORTRAIT_FIELD_NUMBER = 2;
         public static final int UID_FIELD_NUMBER = 3;
+        private static final UserInfo a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private byte memoizedIsInitialized;
@@ -28,8 +30,6 @@ public final class GetMaskInfoRes {
         private Object name_;
         private Object portrait_;
         private int uid_;
-        public static Parser<UserInfo> PARSER = new m();
-        private static final UserInfo a = new UserInfo(true);
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ UserInfo(GeneratedMessageLite.Builder builder, UserInfo userInfo) {
@@ -42,7 +42,7 @@ public final class GetMaskInfoRes {
             this.memoizedSerializedSize = -1;
         }
 
-        private UserInfo(boolean z) {
+        private UserInfo() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -53,7 +53,7 @@ public final class GetMaskInfoRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public UserInfo getDefaultInstanceForType() {
+        public final UserInfo getDefaultInstanceForType() {
             return a;
         }
 
@@ -107,19 +107,21 @@ public final class GetMaskInfoRes {
         }
 
         static {
-            a.a();
+            UserInfo userInfo = new UserInfo();
+            a = userInfo;
+            userInfo.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<UserInfo> getParserForType() {
+        public final Parser<UserInfo> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasName() {
+        public final boolean hasName() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public String getName() {
+        public final String getName() {
             Object obj = this.name_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -132,7 +134,7 @@ public final class GetMaskInfoRes {
             return stringUtf8;
         }
 
-        public ByteString getNameBytes() {
+        public final ByteString getNameBytes() {
             Object obj = this.name_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -142,11 +144,11 @@ public final class GetMaskInfoRes {
             return (ByteString) obj;
         }
 
-        public boolean hasPortrait() {
+        public final boolean hasPortrait() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public String getPortrait() {
+        public final String getPortrait() {
             Object obj = this.portrait_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -159,7 +161,7 @@ public final class GetMaskInfoRes {
             return stringUtf8;
         }
 
-        public ByteString getPortraitBytes() {
+        public final ByteString getPortraitBytes() {
             Object obj = this.portrait_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -169,11 +171,11 @@ public final class GetMaskInfoRes {
             return (ByteString) obj;
         }
 
-        public boolean hasUid() {
+        public final boolean hasUid() {
             return (this.bitField0_ & 4) == 4;
         }
 
-        public int getUid() {
+        public final int getUid() {
             return this.uid_;
         }
 
@@ -194,7 +196,7 @@ public final class GetMaskInfoRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeBytes(1, getNameBytes());
@@ -208,10 +210,13 @@ public final class GetMaskInfoRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getNameBytes()) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeBytesSize(1, getNameBytes()) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeBytesSize(2, getPortraitBytes());
                 }
@@ -225,7 +230,7 @@ public final class GetMaskInfoRes {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -270,12 +275,12 @@ public final class GetMaskInfoRes {
         }
 
         public static n newBuilder() {
-            return n.f();
+            return n.a();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public n newBuilderForType() {
+        public final n newBuilderForType() {
             return newBuilder();
         }
 
@@ -285,7 +290,7 @@ public final class GetMaskInfoRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public n toBuilder() {
+        public final n toBuilder() {
             return newBuilder(this);
         }
     }
@@ -294,7 +299,9 @@ public final class GetMaskInfoRes {
     public final class DataRes extends GeneratedMessageLite implements i {
         public static final int ISMASK_FIELD_NUMBER = 1;
         public static final int LIST_FIELD_NUMBER = 2;
+        public static Parser<DataRes> PARSER = new g();
         public static final int USERS_FIELD_NUMBER = 3;
+        private static final DataRes a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private int isMask_;
@@ -302,8 +309,6 @@ public final class GetMaskInfoRes {
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
         private List<UserInfo> users_;
-        public static Parser<DataRes> PARSER = new g();
-        private static final DataRes a = new DataRes(true);
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ DataRes(GeneratedMessageLite.Builder builder, DataRes dataRes) {
@@ -316,7 +321,7 @@ public final class GetMaskInfoRes {
             this.memoizedSerializedSize = -1;
         }
 
-        private DataRes(boolean z) {
+        private DataRes() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -327,7 +332,7 @@ public final class GetMaskInfoRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public DataRes getDefaultInstanceForType() {
+        public final DataRes getDefaultInstanceForType() {
             return a;
         }
 
@@ -390,27 +395,29 @@ public final class GetMaskInfoRes {
         }
 
         static {
-            a.a();
+            DataRes dataRes = new DataRes();
+            a = dataRes;
+            dataRes.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<DataRes> getParserForType() {
+        public final Parser<DataRes> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasIsMask() {
+        public final boolean hasIsMask() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public int getIsMask() {
+        public final int getIsMask() {
             return this.isMask_;
         }
 
-        public boolean hasList() {
+        public final boolean hasList() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public String getList() {
+        public final String getList() {
             Object obj = this.list_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -423,7 +430,7 @@ public final class GetMaskInfoRes {
             return stringUtf8;
         }
 
-        public ByteString getListBytes() {
+        public final ByteString getListBytes() {
             Object obj = this.list_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -433,23 +440,23 @@ public final class GetMaskInfoRes {
             return (ByteString) obj;
         }
 
-        public List<UserInfo> getUsersList() {
+        public final List<UserInfo> getUsersList() {
             return this.users_;
         }
 
-        public List<? extends o> getUsersOrBuilderList() {
+        public final List<? extends o> getUsersOrBuilderList() {
             return this.users_;
         }
 
-        public int getUsersCount() {
+        public final int getUsersCount() {
             return this.users_.size();
         }
 
-        public UserInfo getUsers(int i) {
+        public final UserInfo getUsers(int i) {
             return this.users_.get(i);
         }
 
-        public o getUsersOrBuilder(int i) {
+        public final o getUsersOrBuilder(int i) {
             return this.users_.get(i);
         }
 
@@ -470,7 +477,7 @@ public final class GetMaskInfoRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeUInt32(1, this.isMask_);
@@ -491,7 +498,7 @@ public final class GetMaskInfoRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = 0;
             int i2 = this.memoizedSerializedSize;
             if (i2 == -1) {
@@ -514,7 +521,7 @@ public final class GetMaskInfoRes {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -559,12 +566,12 @@ public final class GetMaskInfoRes {
         }
 
         public static h newBuilder() {
-            return h.f();
+            return h.b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public h newBuilderForType() {
+        public final h newBuilderForType() {
             return newBuilder();
         }
 
@@ -574,7 +581,7 @@ public final class GetMaskInfoRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public h toBuilder() {
+        public final h toBuilder() {
             return newBuilder(this);
         }
     }
@@ -584,7 +591,7 @@ public final class GetMaskInfoRes {
         public static final int DATA_FIELD_NUMBER = 2;
         public static final int ERROR_FIELD_NUMBER = 1;
         public static Parser<GetMaskInfoResIdl> PARSER = new j();
-        private static final GetMaskInfoResIdl a = new GetMaskInfoResIdl(true);
+        private static final GetMaskInfoResIdl a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private DataRes data_;
@@ -603,7 +610,7 @@ public final class GetMaskInfoRes {
             this.memoizedSerializedSize = -1;
         }
 
-        private GetMaskInfoResIdl(boolean z) {
+        private GetMaskInfoResIdl() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -614,7 +621,7 @@ public final class GetMaskInfoRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public GetMaskInfoResIdl getDefaultInstanceForType() {
+        public final GetMaskInfoResIdl getDefaultInstanceForType() {
             return a;
         }
 
@@ -674,27 +681,29 @@ public final class GetMaskInfoRes {
         }
 
         static {
-            a.a();
+            GetMaskInfoResIdl getMaskInfoResIdl = new GetMaskInfoResIdl();
+            a = getMaskInfoResIdl;
+            getMaskInfoResIdl.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<GetMaskInfoResIdl> getParserForType() {
+        public final Parser<GetMaskInfoResIdl> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasError() {
+        public final boolean hasError() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public Im.Error getError() {
+        public final Im.Error getError() {
             return this.error_;
         }
 
-        public boolean hasData() {
+        public final boolean hasData() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public DataRes getData() {
+        public final DataRes getData() {
             return this.data_;
         }
 
@@ -714,7 +723,7 @@ public final class GetMaskInfoRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeMessage(1, this.error_);
@@ -725,10 +734,13 @@ public final class GetMaskInfoRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeMessageSize(1, this.error_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeMessageSize(1, this.error_) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeMessageSize(2, this.data_);
                 }
@@ -739,7 +751,7 @@ public final class GetMaskInfoRes {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -784,12 +796,12 @@ public final class GetMaskInfoRes {
         }
 
         public static k newBuilder() {
-            return k.f();
+            return k.a();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public k newBuilderForType() {
+        public final k newBuilderForType() {
             return newBuilder();
         }
 
@@ -799,7 +811,7 @@ public final class GetMaskInfoRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public k toBuilder() {
+        public final k toBuilder() {
             return newBuilder(this);
         }
     }

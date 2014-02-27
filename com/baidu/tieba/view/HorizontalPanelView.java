@@ -48,11 +48,11 @@ public class HorizontalPanelView extends LinearLayout implements View.OnClickLis
         a(context);
     }
 
-    public boolean a() {
+    public final boolean a() {
         return this.h;
     }
 
-    public void b() {
+    public final void b() {
         if (this.e == null) {
             this.e = AnimationUtils.loadAnimation(this.a, R.anim.panel_fold_up);
             this.e.setAnimationListener(new bd(this));
@@ -61,7 +61,7 @@ public class HorizontalPanelView extends LinearLayout implements View.OnClickLis
         this.h = true;
     }
 
-    public void c() {
+    public final void c() {
         if (this.f == null) {
             this.f = AnimationUtils.loadAnimation(this.a, R.anim.panel_fold_down);
         }
@@ -70,7 +70,7 @@ public class HorizontalPanelView extends LinearLayout implements View.OnClickLis
         this.h = false;
     }
 
-    public void a(UserData userData) {
+    public final void a(UserData userData) {
         com.baidu.tieba.util.ch.a((ViewGroup) this.d, false, (com.baidu.tieba.util.cj) new be(this, userData));
     }
 
@@ -101,14 +101,14 @@ public class HorizontalPanelView extends LinearLayout implements View.OnClickLis
                         }
                         this.b.c(userData.getPortrait(), new bf(this));
                     } else {
-                        com.baidu.adp.lib.util.f.b("HorizontalPanelView not Portrait");
+                        com.baidu.adp.lib.util.e.b("HorizontalPanelView not Portrait");
                     }
                 }
             }
         }
     }
 
-    public void a(Context context) {
+    private void a(Context context) {
         this.a = context;
         ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.horizontal_panel_view, (ViewGroup) this, true);
         setOrientation(1);
@@ -117,20 +117,16 @@ public class HorizontalPanelView extends LinearLayout implements View.OnClickLis
         setHorizontalScrollBarEnabled(false);
     }
 
-    public void d() {
+    @Override // android.view.ViewGroup, android.view.View
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
         if (this.b != null) {
-            this.b.d();
+            this.b.c();
             this.b = null;
         }
         if (this.g != null) {
             this.g.clear();
         }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    protected void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        d();
     }
 
     @Override // android.view.View.OnClickListener
@@ -143,10 +139,10 @@ public class HorizontalPanelView extends LinearLayout implements View.OnClickLis
                     com.baidu.tieba.person.cm.a(this.a, headImageView.getUserId(), headImageView.getUserName());
                     return;
                 }
-                com.baidu.adp.lib.util.f.e("no user id");
+                com.baidu.adp.lib.util.e.e("no user id");
                 return;
             }
-            com.baidu.adp.lib.util.f.e("not image view");
+            com.baidu.adp.lib.util.e.e("not image view");
         }
     }
 }

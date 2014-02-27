@@ -22,7 +22,7 @@ public final class PushNotifyRes {
         public static final int CMD_FIELD_NUMBER = 1;
         public static final int DATA_FIELD_NUMBER = 2;
         public static Parser<PusherMsg> PARSER = new g();
-        private static final PusherMsg a = new PusherMsg(true);
+        private static final PusherMsg a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private int cmd_;
@@ -41,7 +41,7 @@ public final class PushNotifyRes {
             this.memoizedSerializedSize = -1;
         }
 
-        private PusherMsg(boolean z) {
+        private PusherMsg() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -52,7 +52,7 @@ public final class PushNotifyRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public PusherMsg getDefaultInstanceForType() {
+        public final PusherMsg getDefaultInstanceForType() {
             return a;
         }
 
@@ -112,27 +112,29 @@ public final class PushNotifyRes {
         }
 
         static {
-            a.a();
+            PusherMsg pusherMsg = new PusherMsg();
+            a = pusherMsg;
+            pusherMsg.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<PusherMsg> getParserForType() {
+        public final Parser<PusherMsg> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasCmd() {
+        public final boolean hasCmd() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public int getCmd() {
+        public final int getCmd() {
             return this.cmd_;
         }
 
-        public boolean hasData() {
+        public final boolean hasData() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public Im.PusherMsgInfo getData() {
+        public final Im.PusherMsgInfo getData() {
             return this.data_;
         }
 
@@ -152,7 +154,7 @@ public final class PushNotifyRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeInt32(1, this.cmd_);
@@ -163,10 +165,13 @@ public final class PushNotifyRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt32Size(1, this.cmd_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeInt32Size(1, this.cmd_) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeMessageSize(2, this.data_);
                 }
@@ -177,7 +182,7 @@ public final class PushNotifyRes {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -222,12 +227,12 @@ public final class PushNotifyRes {
         }
 
         public static h newBuilder() {
-            return h.f();
+            return h.a();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public h newBuilderForType() {
+        public final h newBuilderForType() {
             return newBuilder();
         }
 
@@ -237,7 +242,7 @@ public final class PushNotifyRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public h toBuilder() {
+        public final h toBuilder() {
             return newBuilder(this);
         }
     }
@@ -245,15 +250,15 @@ public final class PushNotifyRes {
     /* loaded from: classes.dex */
     public final class PushNotifyResIdl extends GeneratedMessageLite implements f {
         public static final int MULTIMSG_FIELD_NUMBER = 2;
+        public static Parser<PushNotifyResIdl> PARSER = new d();
         public static final int PUSHTIME_FIELD_NUMBER = 1;
+        private static final PushNotifyResIdl a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
         private List<PusherMsg> multiMsg_;
         private long pushTime_;
-        public static Parser<PushNotifyResIdl> PARSER = new d();
-        private static final PushNotifyResIdl a = new PushNotifyResIdl(true);
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ PushNotifyResIdl(GeneratedMessageLite.Builder builder, PushNotifyResIdl pushNotifyResIdl) {
@@ -266,7 +271,7 @@ public final class PushNotifyRes {
             this.memoizedSerializedSize = -1;
         }
 
-        private PushNotifyResIdl(boolean z) {
+        private PushNotifyResIdl() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -277,7 +282,7 @@ public final class PushNotifyRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public PushNotifyResIdl getDefaultInstanceForType() {
+        public final PushNotifyResIdl getDefaultInstanceForType() {
             return a;
         }
 
@@ -336,39 +341,41 @@ public final class PushNotifyRes {
         }
 
         static {
-            a.a();
+            PushNotifyResIdl pushNotifyResIdl = new PushNotifyResIdl();
+            a = pushNotifyResIdl;
+            pushNotifyResIdl.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<PushNotifyResIdl> getParserForType() {
+        public final Parser<PushNotifyResIdl> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasPushTime() {
+        public final boolean hasPushTime() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public long getPushTime() {
+        public final long getPushTime() {
             return this.pushTime_;
         }
 
-        public List<PusherMsg> getMultiMsgList() {
+        public final List<PusherMsg> getMultiMsgList() {
             return this.multiMsg_;
         }
 
-        public List<? extends i> getMultiMsgOrBuilderList() {
+        public final List<? extends i> getMultiMsgOrBuilderList() {
             return this.multiMsg_;
         }
 
-        public int getMultiMsgCount() {
+        public final int getMultiMsgCount() {
             return this.multiMsg_.size();
         }
 
-        public PusherMsg getMultiMsg(int i) {
+        public final PusherMsg getMultiMsg(int i) {
             return this.multiMsg_.get(i);
         }
 
-        public i getMultiMsgOrBuilder(int i) {
+        public final i getMultiMsgOrBuilder(int i) {
             return this.multiMsg_.get(i);
         }
 
@@ -388,7 +395,7 @@ public final class PushNotifyRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeInt64(1, this.pushTime_);
@@ -406,7 +413,7 @@ public final class PushNotifyRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = 0;
             int i2 = this.memoizedSerializedSize;
             if (i2 == -1) {
@@ -426,7 +433,7 @@ public final class PushNotifyRes {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -471,12 +478,12 @@ public final class PushNotifyRes {
         }
 
         public static e newBuilder() {
-            return e.f();
+            return e.a();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public e newBuilderForType() {
+        public final e newBuilderForType() {
             return newBuilder();
         }
 
@@ -486,7 +493,7 @@ public final class PushNotifyRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public e toBuilder() {
+        public final e toBuilder() {
             return newBuilder(this);
         }
     }

@@ -7,7 +7,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.account.LoginActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ax implements View.OnClickListener {
+public final class ax implements View.OnClickListener {
     final /* synthetic */ aw a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,13 +16,13 @@ public class ax implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         Context context;
         try {
             bb bbVar = (bb) view.getTag();
             if (bbVar != null) {
                 int i = bbVar.a;
-                if (!TiebaApplication.B()) {
+                if (!TiebaApplication.w()) {
                     this.a.j = bbVar.a;
                     context = this.a.c;
                     LoginActivity.a((Activity) ((com.baidu.adp.a.a) context), (String) null, true, 11003);

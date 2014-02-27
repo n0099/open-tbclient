@@ -23,7 +23,7 @@ public final class AddGroupActivityReq {
         public static final int GACTIVITYTITLE_FIELD_NUMBER = 3;
         public static final int GROUPID_FIELD_NUMBER = 1;
         public static Parser<DataReq> PARSER = new d();
-        private static final DataReq a = new DataReq(true);
+        private static final DataReq a;
         private static final long serialVersionUID = 0;
         private int activityId_;
         private int bitField0_;
@@ -47,7 +47,7 @@ public final class AddGroupActivityReq {
             this.memoizedSerializedSize = -1;
         }
 
-        private DataReq(boolean z) {
+        private DataReq() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -58,7 +58,7 @@ public final class AddGroupActivityReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public DataReq getDefaultInstanceForType() {
+        public final DataReq getDefaultInstanceForType() {
             return a;
         }
 
@@ -128,35 +128,37 @@ public final class AddGroupActivityReq {
         }
 
         static {
-            a.a();
+            DataReq dataReq = new DataReq();
+            a = dataReq;
+            dataReq.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<DataReq> getParserForType() {
+        public final Parser<DataReq> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasGroupId() {
+        public final boolean hasGroupId() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public int getGroupId() {
+        public final int getGroupId() {
             return this.groupId_;
         }
 
-        public boolean hasActivityId() {
+        public final boolean hasActivityId() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public int getActivityId() {
+        public final int getActivityId() {
             return this.activityId_;
         }
 
-        public boolean hasGActivityTitle() {
+        public final boolean hasGActivityTitle() {
             return (this.bitField0_ & 4) == 4;
         }
 
-        public String getGActivityTitle() {
+        public final String getGActivityTitle() {
             Object obj = this.gActivityTitle_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -169,7 +171,7 @@ public final class AddGroupActivityReq {
             return stringUtf8;
         }
 
-        public ByteString getGActivityTitleBytes() {
+        public final ByteString getGActivityTitleBytes() {
             Object obj = this.gActivityTitle_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -179,11 +181,11 @@ public final class AddGroupActivityReq {
             return (ByteString) obj;
         }
 
-        public boolean hasGActivityContent() {
+        public final boolean hasGActivityContent() {
             return (this.bitField0_ & 8) == 8;
         }
 
-        public String getGActivityContent() {
+        public final String getGActivityContent() {
             Object obj = this.gActivityContent_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -196,7 +198,7 @@ public final class AddGroupActivityReq {
             return stringUtf8;
         }
 
-        public ByteString getGActivityContentBytes() {
+        public final ByteString getGActivityContentBytes() {
             Object obj = this.gActivityContent_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -206,11 +208,11 @@ public final class AddGroupActivityReq {
             return (ByteString) obj;
         }
 
-        public boolean hasGActivityArea() {
+        public final boolean hasGActivityArea() {
             return (this.bitField0_ & 16) == 16;
         }
 
-        public String getGActivityArea() {
+        public final String getGActivityArea() {
             Object obj = this.gActivityArea_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -223,7 +225,7 @@ public final class AddGroupActivityReq {
             return stringUtf8;
         }
 
-        public ByteString getGActivityAreaBytes() {
+        public final ByteString getGActivityAreaBytes() {
             Object obj = this.gActivityArea_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -233,19 +235,19 @@ public final class AddGroupActivityReq {
             return (ByteString) obj;
         }
 
-        public boolean hasGActivityTime() {
+        public final boolean hasGActivityTime() {
             return (this.bitField0_ & 32) == 32;
         }
 
-        public long getGActivityTime() {
+        public final long getGActivityTime() {
             return this.gActivityTime_;
         }
 
-        public boolean hasCommitType() {
+        public final boolean hasCommitType() {
             return (this.bitField0_ & 64) == 64;
         }
 
-        public int getCommitType() {
+        public final int getCommitType() {
             return this.commitType_;
         }
 
@@ -270,7 +272,7 @@ public final class AddGroupActivityReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeInt32(1, this.groupId_);
@@ -296,10 +298,13 @@ public final class AddGroupActivityReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt32Size(1, this.groupId_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeInt32Size(1, this.groupId_) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeInt32Size(2, this.activityId_);
                 }
@@ -325,7 +330,7 @@ public final class AddGroupActivityReq {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -370,12 +375,12 @@ public final class AddGroupActivityReq {
         }
 
         public static e newBuilder() {
-            return e.f();
+            return e.c();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public e newBuilderForType() {
+        public final e newBuilderForType() {
             return newBuilder();
         }
 
@@ -385,7 +390,7 @@ public final class AddGroupActivityReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public e toBuilder() {
+        public final e toBuilder() {
             return newBuilder(this);
         }
     }
@@ -394,7 +399,7 @@ public final class AddGroupActivityReq {
     public final class AddGroupActivityReqIdl extends GeneratedMessageLite implements c {
         public static final int DATA_FIELD_NUMBER = 1;
         public static Parser<AddGroupActivityReqIdl> PARSER = new a();
-        private static final AddGroupActivityReqIdl a = new AddGroupActivityReqIdl(true);
+        private static final AddGroupActivityReqIdl a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private DataReq data_;
@@ -412,7 +417,7 @@ public final class AddGroupActivityReq {
             this.memoizedSerializedSize = -1;
         }
 
-        private AddGroupActivityReqIdl(boolean z) {
+        private AddGroupActivityReqIdl() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -423,7 +428,7 @@ public final class AddGroupActivityReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public AddGroupActivityReqIdl getDefaultInstanceForType() {
+        public final AddGroupActivityReqIdl getDefaultInstanceForType() {
             return a;
         }
 
@@ -431,7 +436,7 @@ public final class AddGroupActivityReq {
             e eVar;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
-            a();
+            this.data_ = DataReq.getDefaultInstance();
             boolean z = false;
             while (!z) {
                 try {
@@ -479,24 +484,22 @@ public final class AddGroupActivityReq {
         }
 
         static {
-            a.a();
+            AddGroupActivityReqIdl addGroupActivityReqIdl = new AddGroupActivityReqIdl();
+            a = addGroupActivityReqIdl;
+            addGroupActivityReqIdl.data_ = DataReq.getDefaultInstance();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<AddGroupActivityReqIdl> getParserForType() {
+        public final Parser<AddGroupActivityReqIdl> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasData() {
+        public final boolean hasData() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public DataReq getData() {
+        public final DataReq getData() {
             return this.data_;
-        }
-
-        private void a() {
-            this.data_ = DataReq.getDefaultInstance();
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -510,7 +513,7 @@ public final class AddGroupActivityReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeMessage(1, this.data_);
@@ -518,10 +521,13 @@ public final class AddGroupActivityReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeMessageSize(1, this.data_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeMessageSize(1, this.data_) + 0;
+                }
                 this.memoizedSerializedSize = i;
             }
             return i;
@@ -529,7 +535,7 @@ public final class AddGroupActivityReq {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -574,12 +580,12 @@ public final class AddGroupActivityReq {
         }
 
         public static b newBuilder() {
-            return b.f();
+            return b.b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public b newBuilderForType() {
+        public final b newBuilderForType() {
             return newBuilder();
         }
 
@@ -589,7 +595,7 @@ public final class AddGroupActivityReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public b toBuilder() {
+        public final b toBuilder() {
             return newBuilder(this);
         }
     }

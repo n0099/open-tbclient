@@ -145,12 +145,13 @@ final class q {
         }
     }
 
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r0v8 android.telephony.CellLocation)] */
     public static String e(Context context) {
         String format = String.format("%s_%s_%s", 0, 0, 0);
         try {
             if (com.baidu.mobstat.a.a.e(context, "android.permission.ACCESS_FINE_LOCATION") || com.baidu.mobstat.a.a.e(context, "android.permission.ACCESS_COARSE_LOCATION")) {
                 CellLocation cellLocation = ((TelephonyManager) context.getSystemService("phone")).getCellLocation();
-                com.baidu.mobstat.a.b.a("getLocation cell:", cellLocation + "");
+                com.baidu.mobstat.a.b.a("getLocation cell:", new StringBuilder().append(cellLocation).toString());
                 if (cellLocation == null) {
                     return format;
                 }
@@ -205,6 +206,7 @@ final class q {
         }
     }
 
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.util.List<android.net.wifi.ScanResult> : 0x0020: INVOKE  (r4v0 java.util.List<android.net.wifi.ScanResult> A[REMOVE]) = (r0v8 android.net.wifi.WifiManager) type: VIRTUAL call: android.net.wifi.WifiManager.getScanResults():java.util.List)] */
     public static String h(Context context) {
         Exception exc;
         String str;
@@ -216,7 +218,7 @@ final class q {
             if (com.baidu.mobstat.a.a.e(context, "android.permission.ACCESS_WIFI_STATE")) {
                 WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
                 if (wifiManager.isWifiEnabled()) {
-                    com.baidu.mobstat.a.b.a("[d]", wifiManager.getScanResults() + "");
+                    com.baidu.mobstat.a.b.a("[d]", new StringBuilder().append(wifiManager.getScanResults()).toString());
                     int i4 = Shared.INFINITY;
                     int i5 = -1;
                     while (i3 < wifiManager.getScanResults().size()) {

@@ -13,7 +13,7 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public class ah extends ViewGroup implements com.baidu.tbadk.imageManager.d, bg {
+public final class ah extends ViewGroup implements com.baidu.tbadk.imageManager.d, bg {
     private Context a;
     private LayoutInflater b;
     private final int c;
@@ -33,8 +33,8 @@ public class ah extends ViewGroup implements com.baidu.tbadk.imageManager.d, bg 
         this(context, null);
     }
 
-    public ah(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
+    private ah(Context context, AttributeSet attributeSet) {
+        super(context, null);
         this.a = null;
         this.b = null;
         this.g = new ArrayList<>(4);
@@ -63,34 +63,30 @@ public class ah extends ViewGroup implements com.baidu.tbadk.imageManager.d, bg 
         setPadding(this.c, 0, this.c, 0);
     }
 
-    public boolean a(ArrayList<av> arrayList) {
-        this.l = b(arrayList);
+    public final boolean a(ArrayList<av> arrayList) {
+        ArrayList<av> arrayList2 = null;
+        if (arrayList != null) {
+            int size = (arrayList.size() / 2) * 2;
+            int i = size <= 4 ? size : 4;
+            if (i > 0) {
+                arrayList2 = new ArrayList<>(arrayList.subList(0, i));
+            }
+        }
+        this.l = arrayList2;
         Iterator<HeadImageView> it = this.g.iterator();
         while (it.hasNext()) {
             it.next().setVisibility(8);
         }
         if (this.l != null) {
             setVisibility(0);
-            c(this.l);
+            b(this.l);
             return true;
         }
         setVisibility(8);
         return false;
     }
 
-    private ArrayList<av> b(ArrayList<av> arrayList) {
-        if (arrayList != null) {
-            int size = (arrayList.size() / 2) * 2;
-            int i = size <= 4 ? size : 4;
-            if (i > 0) {
-                return new ArrayList<>(arrayList.subList(0, i));
-            }
-            return null;
-        }
-        return null;
-    }
-
-    private void c(ArrayList<av> arrayList) {
+    private void b(ArrayList<av> arrayList) {
         int size = arrayList.size();
         this.k = size;
         requestLayout();
@@ -104,7 +100,7 @@ public class ah extends ViewGroup implements com.baidu.tbadk.imageManager.d, bg 
     }
 
     @Override // android.view.View
-    protected void onMeasure(int i, int i2) {
+    protected final void onMeasure(int i, int i2) {
         int i3 = i & 1073741823;
         int childCount = getChildCount();
         int i4 = i3 - (this.c * 2);
@@ -117,7 +113,7 @@ public class ah extends ViewGroup implements com.baidu.tbadk.imageManager.d, bg 
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    protected final void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int i5;
         int i6;
         int paddingLeft = getPaddingLeft();
@@ -127,40 +123,40 @@ public class ah extends ViewGroup implements com.baidu.tbadk.imageManager.d, bg 
         int i8 = paddingLeft;
         while (i7 < childCount) {
             View childAt = getChildAt(i7);
-            if (childAt == null) {
-                int i9 = paddingTop;
-                i6 = i8;
-                i5 = i9;
-            } else {
+            if (childAt != null) {
                 if (i7 % 2 == 0) {
                     i8 = getPaddingLeft();
                 }
                 childAt.layout(i8, paddingTop, childAt.getMeasuredWidth() + i8, childAt.getMeasuredHeight() + paddingTop);
                 int measuredWidth = childAt.getMeasuredWidth() + this.d + i8;
                 if (i7 % 2 != 0) {
-                    i5 = childAt.getMeasuredHeight() + this.d + paddingTop;
-                    i6 = measuredWidth;
+                    i6 = childAt.getMeasuredHeight() + this.d + paddingTop;
+                    i5 = measuredWidth;
                 } else {
-                    i5 = paddingTop;
-                    i6 = measuredWidth;
+                    i6 = paddingTop;
+                    i5 = measuredWidth;
                 }
+            } else {
+                int i9 = paddingTop;
+                i5 = i8;
+                i6 = i9;
             }
             i7++;
-            int i10 = i5;
-            i8 = i6;
+            int i10 = i6;
+            i8 = i5;
             paddingTop = i10;
         }
     }
 
     @Override // com.baidu.tieba.view.bg
-    public void d() {
+    public final void d() {
         if (this.m != null) {
-            this.m.d();
+            this.m.c();
         }
     }
 
     @Override // com.baidu.tieba.view.bg
-    public void a(View view, int i, int i2) {
+    public final void a(View view, int i, int i2) {
         this.n = view;
         try {
             if (this.m != null) {
@@ -185,20 +181,17 @@ public class ah extends ViewGroup implements com.baidu.tbadk.imageManager.d, bg 
                 }
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("ForumsTopicsRecommendView", "mGetImageRunnble.run", "error = " + e.getMessage());
+            com.baidu.adp.lib.util.e.b("ForumsTopicsRecommendView", "mGetImageRunnble.run", "error = " + e.getMessage());
         }
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        a(str);
-    }
-
-    private void a(String str) {
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
         HeadImageView headImageView;
-        if (this.n != null && (headImageView = (HeadImageView) this.n.findViewWithTag(str)) != null) {
-            headImageView.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-            headImageView.invalidate();
+        if (this.n == null || (headImageView = (HeadImageView) this.n.findViewWithTag(str)) == null) {
+            return;
         }
+        headImageView.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        headImageView.invalidate();
     }
 }

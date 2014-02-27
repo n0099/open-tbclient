@@ -1,24 +1,19 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.UserData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.voice.VoiceManager;
 /* loaded from: classes.dex */
-public class co extends com.baidu.tieba.im.c<Void> {
+final class co implements p {
     final /* synthetic */ PersonalChatActivity a;
-    private final /* synthetic */ UserData c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public co(PersonalChatActivity personalChatActivity, UserData userData) {
+    public co(PersonalChatActivity personalChatActivity) {
         this.a = personalChatActivity;
-        this.c = userData;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.c
-    /* renamed from: a */
-    public Void b() {
-        com.baidu.tieba.im.chat.personaltalk.a.a(TiebaApplication.A(), PersonalChatActivity.b, this.c);
-        return null;
+    @Override // com.baidu.tieba.im.chat.p
+    public final void a(VoiceManager.VoiceModel voiceModel) {
+        if (voiceModel != null) {
+            this.a.e.a(voiceModel.voiceId, voiceModel.duration);
+        }
     }
 }

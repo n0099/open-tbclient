@@ -28,12 +28,12 @@ public final class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(SapiConfiguration sapiConfiguration) {
+    public final void a(SapiConfiguration sapiConfiguration) {
         g = sapiConfiguration;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public SapiConfiguration a() {
+    public final SapiConfiguration a() {
         return g;
     }
 
@@ -49,7 +49,7 @@ public final class d {
         return this.e.getString(str, "");
     }
 
-    public void a(SapiAccount sapiAccount) {
+    public final void a(SapiAccount sapiAccount) {
         if (sapiAccount == null) {
             a(a, "");
             return;
@@ -60,7 +60,7 @@ public final class d {
         }
     }
 
-    public SapiAccount b() {
+    public final SapiAccount b() {
         if (TextUtils.isEmpty(a(a))) {
             return null;
         }
@@ -71,7 +71,7 @@ public final class d {
         }
     }
 
-    public void b(SapiAccount sapiAccount) {
+    public final void b(SapiAccount sapiAccount) {
         if (sapiAccount != null) {
             List<SapiAccount> d2 = d();
             if (!d2.contains(sapiAccount)) {
@@ -83,7 +83,7 @@ public final class d {
         }
     }
 
-    public void c(SapiAccount sapiAccount) {
+    public final void c(SapiAccount sapiAccount) {
         if (sapiAccount != null) {
             List<SapiAccount> c2 = c();
             if (c2.contains(sapiAccount)) {
@@ -93,7 +93,7 @@ public final class d {
         }
     }
 
-    public void d(SapiAccount sapiAccount) {
+    public final void d(SapiAccount sapiAccount) {
         if (sapiAccount != null) {
             List<SapiAccount> d2 = d();
             if (d2.contains(sapiAccount)) {
@@ -103,7 +103,7 @@ public final class d {
         }
     }
 
-    public List<SapiAccount> c() {
+    public final List<SapiAccount> c() {
         if (!TextUtils.isEmpty(a(b))) {
             try {
                 return SapiAccount.fromJSONArray(new JSONArray(a(b)));
@@ -114,7 +114,7 @@ public final class d {
         return new ArrayList();
     }
 
-    public List<SapiAccount> d() {
+    public final List<SapiAccount> d() {
         if (!TextUtils.isEmpty(a(c))) {
             try {
                 return SapiAccount.fromJSONArray(new JSONArray(a(c)));
@@ -139,7 +139,7 @@ public final class d {
         }
     }
 
-    public b e() {
+    public final b e() {
         String a2 = a(d);
         if (!TextUtils.isEmpty(a2)) {
             try {
@@ -150,7 +150,7 @@ public final class d {
         return new b();
     }
 
-    public void a(b bVar) {
+    public final void a(b bVar) {
         if (bVar != null) {
             a(d, bVar.c());
         }

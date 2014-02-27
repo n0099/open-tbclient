@@ -4,9 +4,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.view.View;
 import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ci implements View.OnLongClickListener {
+final class ci implements View.OnLongClickListener {
     final /* synthetic */ PersonImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +14,7 @@ public class ci implements View.OnLongClickListener {
     }
 
     @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
+    public final boolean onLongClick(View view) {
         Context context;
         Context context2;
         DialogInterface.OnClickListener onClickListener;

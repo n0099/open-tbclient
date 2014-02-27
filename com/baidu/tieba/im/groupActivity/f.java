@@ -5,7 +5,7 @@ import android.view.View;
 import java.util.Calendar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements View.OnClickListener {
+public final class f implements View.OnClickListener {
     final /* synthetic */ e a;
     private final /* synthetic */ Calendar b;
 
@@ -16,7 +16,7 @@ public class f implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         DatePickerDialog datePickerDialog;
         DatePickerDialog datePickerDialog2;
         int i;

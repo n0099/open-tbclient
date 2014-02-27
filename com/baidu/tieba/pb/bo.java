@@ -1,7 +1,7 @@
 package com.baidu.tieba.pb;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bo implements Runnable {
+public final class bo implements Runnable {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,12 +10,12 @@ public class bo implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         cu cuVar;
         cu cuVar2;
         cu cuVar3;
         cuVar = this.a.C;
-        if (!cuVar.z()) {
+        if (!cuVar.x()) {
             cuVar3 = this.a.C;
             cuVar3.b(false);
             return;

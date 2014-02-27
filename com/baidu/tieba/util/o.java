@@ -14,7 +14,7 @@ public class o {
     private final int d = 1;
     private final int e = 2;
     private final int f = 3;
-    private q l = new q(this, null);
+    private q l = new q(this, (byte) 0);
 
     public static o a() {
         if (n == null) {
@@ -30,39 +30,43 @@ public class o {
     private o() {
     }
 
-    public com.baidu.tieba.data.c b() {
+    public final com.baidu.tieba.data.c b() {
         return this.g;
     }
 
-    public void a(com.baidu.tieba.data.c cVar) {
+    public final void a(com.baidu.tieba.data.c cVar) {
         synchronized (m) {
             this.g = cVar;
         }
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         int i2;
         int i3;
         int i4;
         int i5;
         String qVar;
         int i6 = 0;
-        if (b() != null && b().a()) {
+        if (this.g != null && this.g.a()) {
             synchronized (m) {
                 this.j++;
                 this.i++;
-                this.l.a(i);
+                q qVar2 = this.l;
+                if (qVar2.a.length() != 0) {
+                    qVar2.a.append(",");
+                }
+                qVar2.a.append(i);
                 i2 = this.j;
                 i3 = this.i;
                 i4 = this.h;
                 i5 = this.h != 0 ? this.k / this.h : 0;
                 qVar = this.l.toString();
-                if (this.j >= b().b() && this.j >= 10) {
-                    if (this.i >= b().e() && this.h >= b().c()) {
+                if (this.j >= this.g.b() && this.j >= 10) {
+                    if (this.i >= this.g.e() && this.h >= this.g.c()) {
                         i6 = 1;
-                    } else if (this.i >= b().e()) {
+                    } else if (this.i >= this.g.e()) {
                         i6 = 2;
-                    } else if (this.h >= b().c()) {
+                    } else if (this.h >= this.g.c()) {
                         i6 = 3;
                     }
                     c();
@@ -72,17 +76,17 @@ public class o {
         }
     }
 
-    public void a(long j) {
+    public final void a(long j) {
         int i;
         int i2;
         int i3;
         int i4;
         String qVar;
         int i5 = 0;
-        if (b() != null && b().a()) {
+        if (this.g != null && this.g.a()) {
             synchronized (m) {
                 this.j++;
-                if (j >= b().d()) {
+                if (j >= this.g.d()) {
                     this.h++;
                     this.k = (int) (this.k + j);
                 }
@@ -91,12 +95,12 @@ public class o {
                 i3 = this.h;
                 i4 = this.h != 0 ? this.k / this.h : 0;
                 qVar = this.l.toString();
-                if (this.j >= b().b() && this.j >= 10) {
-                    if (this.i >= b().e() && this.h >= b().c()) {
+                if (this.j >= this.g.b() && this.j >= 10) {
+                    if (this.i >= this.g.e() && this.h >= this.g.c()) {
                         i5 = 1;
-                    } else if (this.i >= b().e()) {
+                    } else if (this.i >= this.g.e()) {
                         i5 = 2;
-                    } else if (this.h >= b().c()) {
+                    } else if (this.h >= this.g.c()) {
                         i5 = 3;
                     }
                     c();
@@ -107,15 +111,11 @@ public class o {
     }
 
     private void a(int i, int i2, int i3, String str, int i4, int i5) {
-        if (b() != null && b().a() && i != 0) {
-            a(i, i2, i3, str, i4, new StringBuilder(String.valueOf(i5)).toString());
+        if (this.g != null && this.g.a() && i != 0) {
+            p pVar = new p(this, i, i2, i3, str, i4, new StringBuilder(String.valueOf(i5)).toString());
+            pVar.setParallelTag(2);
+            pVar.execute(new Object[0]);
         }
-    }
-
-    private void a(int i, int i2, int i3, String str, int i4, String str2) {
-        p pVar = new p(this, i, i2, i3, str, i4, str2);
-        pVar.setParallelTag(2);
-        pVar.execute(new Object[0]);
     }
 
     private void c() {
@@ -123,6 +123,6 @@ public class o {
         this.h = 0;
         this.i = 0;
         this.k = 0;
-        this.l.a();
+        this.l.a.setLength(0);
     }
 }

@@ -17,7 +17,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 import java.util.Random;
 /* loaded from: classes.dex */
-public class ao extends FrameLayout {
+public final class ao extends FrameLayout {
     private int a;
     private final int b;
     private Context c;
@@ -40,10 +40,6 @@ public class ao extends FrameLayout {
         this.k = new ap(this);
         this.l = new aq(this);
         this.m = new ar(this);
-        b();
-    }
-
-    private void b() {
         this.c = getContext();
         ((LayoutInflater) this.c.getSystemService("layout_inflater")).inflate(R.layout.signallforum_progress_view, this);
         this.d = (ProgressBar) findViewById(R.id.signallforum_progress);
@@ -51,7 +47,7 @@ public class ao extends FrameLayout {
         this.f = (TextView) findViewById(R.id.signallforun_status);
         this.g = (TextView) findViewById(R.id.signallforun_message1);
         this.h = (TextView) findViewById(R.id.signallforun_message2);
-        c();
+        b();
         this.i = new Scroller(this.c, new DecelerateInterpolator());
         BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), BitmapFactory.decodeResource(getResources(), R.drawable.bg_all_sign));
         bitmapDrawable.setTileModeXY(Shader.TileMode.REPEAT, Shader.TileMode.REPEAT);
@@ -59,17 +55,17 @@ public class ao extends FrameLayout {
     }
 
     @Override // android.view.View
-    protected void onSizeChanged(int i, int i2, int i3, int i4) {
+    protected final void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
     }
 
     @Override // android.widget.FrameLayout, android.view.View
-    protected void onMeasure(int i, int i2) {
+    protected final void onMeasure(int i, int i2) {
         super.onMeasure(i, View.MeasureSpec.makeMeasureSpec(BdUtilHelper.a(this.c, 180.0f), 1073741824));
     }
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    protected final void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int i5 = (i3 - i) / 2;
         int measuredWidth = this.d.getMeasuredWidth();
         int measuredHeight = this.d.getMeasuredHeight();
@@ -100,13 +96,13 @@ public class ao extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    protected void dispatchSetPressed(boolean z) {
+    protected final void dispatchSetPressed(boolean z) {
     }
 
-    private void c() {
+    private void b() {
         removeCallbacks(this.k);
         removeCallbacks(this.l);
-        boolean z = TiebaApplication.g().al() == 1;
+        boolean z = TiebaApplication.g().ae() == 1;
         switch (this.a) {
             case 0:
                 this.d.setClickable(true);
@@ -141,50 +137,50 @@ public class ao extends FrameLayout {
         }
     }
 
-    public int getCurrentStatus() {
+    public final int getCurrentStatus() {
         return this.a;
     }
 
-    public void setSigning(int i) {
+    public final void setSigning(int i) {
         if (this.a != 1 && this.a == 0) {
             this.d.setProgress(i);
             this.a = 1;
-            c();
+            b();
         }
     }
 
-    public void a() {
+    public final void a() {
         if (this.a != 2) {
             this.a = 2;
-            c();
+            b();
         }
     }
 
-    public ProgressBar getProgressBar() {
+    public final ProgressBar getProgressBar() {
         return this.d;
     }
 
-    public ImageView getIcon() {
+    public final ImageView getIcon() {
         return this.e;
     }
 
-    public TextView getmStatus() {
+    public final TextView getmStatus() {
         return this.f;
     }
 
-    public TextView getMessage1() {
+    public final TextView getMessage1() {
         return this.g;
     }
 
-    public TextView getMessage2() {
+    public final TextView getMessage2() {
         return this.h;
     }
 
-    public int getProgress() {
+    public final int getProgress() {
         return this.d.getProgress();
     }
 
-    public void setDuration(int i) {
+    public final void setDuration(int i) {
         this.j = i;
     }
 }

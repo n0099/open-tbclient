@@ -9,7 +9,6 @@ import android.os.Handler;
 import android.view.KeyEvent;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
-import android.webkit.WebView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.bq;
 import com.baidu.tieba.util.bs;
@@ -44,12 +43,6 @@ public class FaceBuyWebViewActivity extends com.baidu.tieba.f implements com.bai
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        b();
-        a(bundle);
-        a();
-    }
-
-    private void b() {
         setContentView(R.layout.face_buy_webview_activity);
         this.a = (BaseWebView) findViewById(R.id.webview);
         this.b = (NavigationBar) findViewById(R.id.view_navigation_bar);
@@ -59,9 +52,6 @@ public class FaceBuyWebViewActivity extends com.baidu.tieba.f implements com.bai
         this.a.setOnPageFinishedListener(this);
         this.a.setOnPageStartedListener(this);
         this.a.setHorizontalScrollBarEnabled(false);
-    }
-
-    private void a(Bundle bundle) {
         if (bundle != null) {
             this.c = bundle.getString("tag_url");
             this.d = bundle.getString("tag_hook_url");
@@ -75,6 +65,17 @@ public class FaceBuyWebViewActivity extends com.baidu.tieba.f implements com.bai
         }
         this.b.a(this.e);
         this.i.postDelayed(this.j, 150L);
+        try {
+            com.baidu.tieba.account.o a = com.baidu.tieba.account.a.a(TiebaApplication.x());
+            CookieSyncManager.createInstance(this);
+            CookieManager cookieManager = CookieManager.getInstance();
+            cookieManager.setAcceptCookie(true);
+            cookieManager.setCookie("baidu.com", "BDUSS=" + a.a + "; domain=.baidu.com;");
+            cookieManager.setCookie("baidu.com", "PTOKEN=" + a.b + "; domain=.baidu.com;");
+            CookieSyncManager.getInstance().sync();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override // android.app.Activity
@@ -112,7 +113,7 @@ public class FaceBuyWebViewActivity extends com.baidu.tieba.f implements com.bai
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (this.b != null) {
-            this.b.c(i);
+            this.b.b(i);
         }
         if (this.a != null) {
             bq.a(this.a, i);
@@ -126,20 +127,6 @@ public class FaceBuyWebViewActivity extends com.baidu.tieba.f implements com.bai
             return true;
         }
         return super.onKeyDown(i, keyEvent);
-    }
-
-    public void a() {
-        try {
-            com.baidu.tieba.account.o a = com.baidu.tieba.account.a.a(TiebaApplication.D());
-            CookieSyncManager.createInstance(this);
-            CookieManager cookieManager = CookieManager.getInstance();
-            cookieManager.setAcceptCookie(true);
-            cookieManager.setCookie("baidu.com", "BDUSS=" + a.a + "; domain=.baidu.com;");
-            cookieManager.setCookie("baidu.com", "PTOKEN=" + a.b + "; domain=.baidu.com;");
-            CookieSyncManager.getInstance().sync();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -158,7 +145,7 @@ public class FaceBuyWebViewActivity extends com.baidu.tieba.f implements com.bai
     }
 
     @Override // com.baidu.tieba.view.e
-    public boolean a(WebView webView, String str) {
+    public final boolean a(String str) {
         if (str != null) {
             if (bs.c(str) || bs.c(this.d)) {
                 return false;
@@ -175,7 +162,7 @@ public class FaceBuyWebViewActivity extends com.baidu.tieba.f implements com.bai
                         closeActivity();
                         return true;
                     } catch (Exception e) {
-                        com.baidu.adp.lib.util.f.b(getClass().getName(), "shouldOverrideUrlLoading", e.toString());
+                        com.baidu.adp.lib.util.e.b(getClass().getName(), "shouldOverrideUrlLoading", e.toString());
                     }
                 }
             }
@@ -184,12 +171,12 @@ public class FaceBuyWebViewActivity extends com.baidu.tieba.f implements com.bai
     }
 
     @Override // com.baidu.tieba.view.f
-    public void b(WebView webView, String str) {
+    public final void a() {
         hideProgressBar();
     }
 
     @Override // com.baidu.tieba.view.g
-    public void c(WebView webView, String str) {
+    public final void b() {
         showProgressBar();
     }
 }

@@ -1,12 +1,11 @@
 package com.baidu.tieba.write;
 
-import android.content.DialogInterface;
-import com.baidu.tieba.album.AlbumActivity;
-import com.baidu.tieba.img.WriteImagesInfo;
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+import com.baidu.tieba.editortool.EditorToolComponetContainer;
 /* loaded from: classes.dex */
-public class bg implements DialogInterface.OnClickListener {
+final class bg implements View.OnClickListener {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,28 +13,23 @@ public class bg implements DialogInterface.OnClickListener {
         this.a = writeActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        WriteImagesInfo writeImagesInfo;
-        WriteImagesInfo writeImagesInfo2;
-        WriteImagesInfo writeImagesInfo3;
-        String str;
-        if (i == 0) {
-            writeImagesInfo2 = this.a.D;
-            int size = writeImagesInfo2.size();
-            writeImagesInfo3 = this.a.D;
-            if (size < writeImagesInfo3.getMaxImagesAllowed()) {
-                this.a.E = String.valueOf(System.currentTimeMillis());
-                WriteActivity writeActivity = this.a;
-                str = this.a.E;
-                bz.a(writeActivity, str);
-                return;
-            }
-            this.a.showToast(String.format(this.a.getString(R.string.editor_mutiiamge_max), 10));
-        } else if (i == 1) {
-            WriteActivity writeActivity2 = this.a;
-            writeImagesInfo = this.a.D;
-            AlbumActivity.a(writeActivity2, writeImagesInfo, 12002);
-        }
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        InputMethodManager inputMethodManager;
+        EditText editText;
+        InputMethodManager inputMethodManager2;
+        EditText editText2;
+        EditorToolComponetContainer editorToolComponetContainer;
+        WriteActivity writeActivity = this.a;
+        inputMethodManager = this.a.e;
+        editText = this.a.g;
+        writeActivity.HidenSoftKeyPad(inputMethodManager, editText);
+        WriteActivity writeActivity2 = this.a;
+        inputMethodManager2 = this.a.e;
+        editText2 = this.a.j;
+        writeActivity2.HidenSoftKeyPad(inputMethodManager2, editText2);
+        editorToolComponetContainer = this.a.B;
+        editorToolComponetContainer.b();
+        this.a.c();
     }
 }

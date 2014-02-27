@@ -12,17 +12,17 @@ public final class p extends AsyncTask<Object, Object, Object> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ p(o oVar, p pVar) {
+    public /* synthetic */ p(o oVar, byte b) {
         this(oVar);
     }
 
     @Override // android.os.AsyncTask
-    protected Object doInBackground(Object... objArr) {
+    protected final Object doInBackground(Object... objArr) {
         Activity activity;
         Activity activity2;
         try {
             Thread.sleep(300000L);
-            com.baidu.adp.lib.util.f.a(getClass().getName(), "doInBackground", "Finishing activity due to inactivity");
+            com.baidu.adp.lib.util.e.a(getClass().getName(), "doInBackground", "Finishing activity due to inactivity");
             activity = this.a.a;
             activity.setResult(0);
             activity2 = this.a.a;

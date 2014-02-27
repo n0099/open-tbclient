@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.Im;
 /* loaded from: classes.dex */
 public final class b extends GeneratedMessageLite.Builder<Im.ActivityInfo, b> implements c {
@@ -12,24 +13,34 @@ public final class b extends GeneratedMessageLite.Builder<Im.ActivityInfo, b> im
     private Object c = "";
     private int d;
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        Im.ActivityInfo buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return Im.ActivityInfo.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return Im.ActivityInfo.getDefaultInstance();
+    }
+
     private b() {
-        g();
     }
 
-    private void g() {
-    }
-
-    /* JADX DEBUG: Method not inlined, still used in: [protobuf.Im.ActivityInfo.newBuilder():protobuf.b] */
-    public static /* synthetic */ b f() {
-        return h();
-    }
-
-    public static b h() {
+    public static /* synthetic */ b a() {
         return new b();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: b */
     public b clear() {
         super.clear();
         this.b = 0;
@@ -42,29 +53,13 @@ public final class b extends GeneratedMessageLite.Builder<Im.ActivityInfo, b> im
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public b clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
     /* renamed from: c */
-    public Im.ActivityInfo getDefaultInstanceForType() {
-        return Im.ActivityInfo.getDefaultInstance();
+    public b clone() {
+        return new b().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public Im.ActivityInfo build() {
-        Im.ActivityInfo buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
     public Im.ActivityInfo buildPartial() {
         Im.ActivityInfo activityInfo = new Im.ActivityInfo(this, (Im.ActivityInfo) null);
         int i = this.a;
@@ -84,11 +79,13 @@ public final class b extends GeneratedMessageLite.Builder<Im.ActivityInfo, b> im
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public b mergeFrom(Im.ActivityInfo activityInfo) {
+    public final b mergeFrom(Im.ActivityInfo activityInfo) {
         Object obj;
         if (activityInfo != Im.ActivityInfo.getDefaultInstance()) {
             if (activityInfo.hasActivityId()) {
-                a(activityInfo.getActivityId());
+                int activityId = activityInfo.getActivityId();
+                this.a |= 1;
+                this.b = activityId;
             }
             if (activityInfo.hasActivityTitle()) {
                 this.a |= 2;
@@ -96,7 +93,9 @@ public final class b extends GeneratedMessageLite.Builder<Im.ActivityInfo, b> im
                 this.c = obj;
             }
             if (activityInfo.hasIsEnd()) {
-                b(activityInfo.getIsEnd());
+                int isEnd = activityInfo.getIsEnd();
+                this.a |= 4;
+                this.d = isEnd;
             }
         }
         return this;
@@ -143,17 +142,5 @@ public final class b extends GeneratedMessageLite.Builder<Im.ActivityInfo, b> im
                 throw th;
             }
         }
-    }
-
-    public b a(int i) {
-        this.a |= 1;
-        this.b = i;
-        return this;
-    }
-
-    public b b(int i) {
-        this.a |= 4;
-        this.d = i;
-        return this;
     }
 }

@@ -12,7 +12,7 @@ import com.baidu.tieba.data.VersionData;
 import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class an extends Dialog {
+public final class an extends Dialog {
     public TextView a;
     public TextView b;
     public Button c;
@@ -23,13 +23,13 @@ public class an extends Dialog {
     private aq h;
 
     public an(Context context, int i) {
-        super(context, i);
+        super(context, R.style.common_alert_dialog);
         this.g = null;
         this.h = null;
     }
 
     @Override // android.app.Dialog
-    protected void onCreate(Bundle bundle) {
+    protected final void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.update_dialog);
         this.a = (TextView) findViewById(R.id.newvison);
@@ -60,7 +60,7 @@ public class an extends Dialog {
         this.c.setOnClickListener(new ap(this));
     }
 
-    public void a(VersionData versionData, CombineDownload combineDownload, aq aqVar) {
+    public final void a(VersionData versionData, CombineDownload combineDownload, aq aqVar) {
         this.f = versionData;
         this.g = combineDownload;
         this.h = aqVar;

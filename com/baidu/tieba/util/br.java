@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.text.TextUtils;
 import java.io.File;
 /* loaded from: classes.dex */
-public class br {
+public final class br {
     private static br a;
 
     public static synchronized br a() {
@@ -18,7 +18,7 @@ public class br {
         return brVar;
     }
 
-    private String d(String str) {
+    private static String d(String str) {
         long j = 0;
         for (byte b : str.getBytes()) {
             j += b;
@@ -26,28 +26,28 @@ public class br {
         return "image/" + (j % 20);
     }
 
-    public Bitmap a(String str) {
+    public final Bitmap a(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         return af.c(d(str), str);
     }
 
-    public boolean b(String str) {
+    public final boolean b(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
         return af.b(d(str), str);
     }
 
-    public int c(String str) {
+    public final int c(String str) {
         if (TextUtils.isEmpty(str)) {
             return -1;
         }
         return (int) af.a(d(str), str);
     }
 
-    public boolean a(String str, String str2) {
+    public final boolean a(String str, String str2) {
         String str3 = af.a + "/" + com.baidu.tieba.data.i.k() + "/";
         if (!af.a(str3)) {
             af.l(str3);
@@ -63,7 +63,7 @@ public class br {
         return af.a(str, str5, true);
     }
 
-    public void a(String str, byte[] bArr) {
+    public final void a(String str, byte[] bArr) {
         if (!TextUtils.isEmpty(str)) {
             af.a(d(str), str, bArr);
         }
@@ -77,13 +77,13 @@ public class br {
                     a(file2);
                     file2.delete();
                 } else if (!file2.delete()) {
-                    com.baidu.adp.lib.util.f.b(getClass().getName(), "run", "list[i].delete error");
+                    com.baidu.adp.lib.util.e.b(getClass().getName(), "run", "list[i].delete error");
                 }
             }
         }
     }
 
-    public void b() {
+    public final void b() {
         a(new File(af.a + "/" + com.baidu.tieba.data.i.k() + "/image"));
     }
 }

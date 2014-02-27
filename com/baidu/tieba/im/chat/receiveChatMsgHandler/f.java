@@ -3,7 +3,7 @@ package com.baidu.tieba.im.chat.receiveChatMsgHandler;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-class f extends com.baidu.tieba.im.c<LinkedList<GroupNewsPojo>> {
+final class f extends com.baidu.tieba.im.b<LinkedList<GroupNewsPojo>> {
     final /* synthetic */ SystemMsgReceivedHandler a;
     private final /* synthetic */ com.baidu.tieba.im.data.c c;
 
@@ -13,12 +13,12 @@ class f extends com.baidu.tieba.im.c<LinkedList<GroupNewsPojo>> {
         this.c = cVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.c
-    /* renamed from: a */
-    public LinkedList<GroupNewsPojo> b() {
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.b
+    public final /* bridge */ /* synthetic */ LinkedList<GroupNewsPojo> a() {
         LinkedList<GroupNewsPojo> b;
-        b = this.a.b(this.c);
+        SystemMsgReceivedHandler systemMsgReceivedHandler = this.a;
+        b = SystemMsgReceivedHandler.b(this.c);
         return b;
     }
 }

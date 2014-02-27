@@ -1,18 +1,11 @@
 package com.baidu.adp.lib.webSocket;
+
+import java.net.SocketException;
 /* loaded from: classes.dex */
-public class v extends aa {
-    public int a;
-    public String b;
+public final class v extends z {
+    public SocketException a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public v() {
-        this.a = -1;
-        this.b = null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public v(int i, String str) {
-        this.a = i;
-        this.b = str;
+    public v(SocketException socketException) {
+        this.a = socketException;
     }
 }

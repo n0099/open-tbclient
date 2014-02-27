@@ -12,7 +12,7 @@ import com.baidu.tieba.view.bg;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class t extends PagerAdapter implements bg {
+public final class t extends PagerAdapter implements bg {
     ArrayList<View> a = new ArrayList<>();
     public int b;
     public int c;
@@ -33,7 +33,7 @@ public class t extends PagerAdapter implements bg {
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+    public final void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         viewGroup.removeView(this.a.get(i));
     }
 
@@ -63,30 +63,30 @@ public class t extends PagerAdapter implements bg {
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public Object instantiateItem(ViewGroup viewGroup, int i) {
+    public final Object instantiateItem(ViewGroup viewGroup, int i) {
         viewGroup.addView(this.a.get(i));
         return this.a.get(i);
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public int getCount() {
+    public final int getCount() {
         return this.a.size();
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public boolean isViewFromObject(View view, Object obj) {
+    public final boolean isViewFromObject(View view, Object obj) {
         return view == obj;
     }
 
     @Override // com.baidu.tieba.view.bg
-    public void d() {
+    public final void d() {
         if (this.g != null) {
-            this.g.d();
+            this.g.c();
         }
     }
 
     @Override // com.baidu.tieba.view.bg
-    public void a(View view, int i, int i2) {
+    public final void a(View view, int i, int i2) {
         if (this.g != null && this.f != null) {
             int i3 = 0;
             while (true) {

@@ -14,7 +14,7 @@ public class q extends com.baidu.adp.widget.ListView.a implements b {
     }
 
     @Override // com.baidu.adp.widget.ScrollView.b
-    public void a_() {
+    public final void a_() {
         a(this.a);
         if (this.a) {
             this.a = false;
@@ -22,38 +22,28 @@ public class q extends com.baidu.adp.widget.ListView.a implements b {
     }
 
     @Override // com.baidu.adp.widget.ListView.a, com.baidu.adp.widget.ListView.d
-    public void e() {
+    public final void e() {
         this.a = true;
         super.e();
     }
 
     @Override // com.baidu.adp.widget.ListView.a, com.baidu.adp.widget.ListView.d
-    public void f() {
+    public final void f() {
         this.a = false;
         super.f();
     }
 
     @Override // com.baidu.adp.widget.ScrollView.b
-    public void b_() {
+    public final void b_() {
         this.a = false;
         super.b(true);
     }
 
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(String str, String str2, String str3) {
-        View a = super.a(str, str2, str3);
-        l();
-        return a;
-    }
-
-    @Override // com.baidu.adp.widget.ScrollView.b
-    public View getRealView() {
-        return b();
-    }
-
-    public void l() {
+    public final View a(String str, String str2, String str3) {
         ViewGroup.LayoutParams layoutParams;
         ViewGroup.LayoutParams layoutParams2;
+        View a = super.a(str, str2, str3);
         View realView = getRealView();
         if (realView != null) {
             View findViewById = realView.findViewById(com.baidu.adp.d.pull_content);
@@ -65,5 +55,11 @@ public class q extends com.baidu.adp.widget.ListView.a implements b {
                 ((LinearLayout.LayoutParams) layoutParams).topMargin = 0;
             }
         }
+        return a;
+    }
+
+    @Override // com.baidu.adp.widget.ScrollView.b
+    public View getRealView() {
+        return b();
     }
 }

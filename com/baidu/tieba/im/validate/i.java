@@ -5,7 +5,7 @@ import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.tieba.view.HeadImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements View.OnClickListener {
+public final class i implements View.OnClickListener {
     final /* synthetic */ g a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,13 +14,13 @@ public class i implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         ValidateActivity validateActivity;
-        HeadImageView headImageView;
         ValidateItemData validateItemData;
+        HeadImageView unused;
         validateActivity = this.a.i;
-        headImageView = this.a.d;
+        unused = this.a.d;
         validateItemData = this.a.j;
-        validateActivity.a(headImageView, SocialAPIErrorCodes.ERROR_INVALID_CLIENT_ID, 0, 0L, validateItemData);
+        validateActivity.a(SocialAPIErrorCodes.ERROR_INVALID_CLIENT_ID, validateItemData);
     }
 }

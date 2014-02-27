@@ -7,7 +7,7 @@ import android.content.IntentFilter;
 public final class o {
     private final Activity a;
     private final com.baidu.tieba.barcode.b.a.a b = new com.baidu.tieba.barcode.b.a.b().a();
-    private final BroadcastReceiver c = new q(this, null);
+    private final BroadcastReceiver c = new q(this, (byte) 0);
     private p d;
 
     public o(Activity activity) {
@@ -15,18 +15,18 @@ public final class o {
         a();
     }
 
-    public synchronized void a() {
+    public final synchronized void a() {
         e();
-        this.d = new p(this, null);
+        this.d = new p(this, (byte) 0);
         this.b.a(this.d, new Object[0]);
     }
 
-    public void b() {
+    public final void b() {
         e();
         this.a.unregisterReceiver(this.c);
     }
 
-    public void c() {
+    public final void c() {
         this.a.registerReceiver(this.c, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
         a();
     }
@@ -39,7 +39,7 @@ public final class o {
         }
     }
 
-    public void d() {
+    public final void d() {
         e();
     }
 }

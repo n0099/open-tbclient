@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aj implements com.baidu.tieba.im.a<Void> {
+public final class aj implements com.baidu.tieba.im.a<Void> {
     final /* synthetic */ ag a;
     private final /* synthetic */ com.baidu.tieba.im.a b;
 
@@ -15,18 +15,18 @@ public class aj implements com.baidu.tieba.im.a<Void> {
         this.b = aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // com.baidu.tieba.im.a
-    public void a(Void r3) {
+    public final /* synthetic */ void a(Void r3) {
         List list;
         List list2;
-        LinkedList<ImMessageCenterShowItemData> i = com.baidu.tieba.im.c.a.f().i();
-        if (i != null) {
+        LinkedList<ImMessageCenterShowItemData> e = com.baidu.tieba.im.c.a.d().e();
+        if (e != null) {
             list = this.a.b;
             list.clear();
             list2 = this.a.b;
-            list2.addAll(i);
-            this.a.c();
+            list2.addAll(e);
+            this.a.d();
             if (this.b != null) {
                 this.b.a(null);
             }

@@ -5,34 +5,34 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class r {
+public final class r {
     private String a;
     private String b;
     private String c;
     private boolean d;
     private ArrayList<q> e = new ArrayList<>();
 
-    public String a() {
+    public final String a() {
         return this.a;
     }
 
-    public String b() {
+    public final String b() {
         return this.b;
     }
 
-    public ArrayList<q> c() {
+    public final ArrayList<q> c() {
         return this.e;
     }
 
-    public boolean d() {
+    public final boolean d() {
         return this.d;
     }
 
-    public void a(boolean z) {
-        this.d = z;
+    public final void a(boolean z) {
+        this.d = true;
     }
 
-    public void a(JSONObject jSONObject) {
+    public final void a(JSONObject jSONObject) {
         try {
             this.b = jSONObject.optString("publish_time");
             this.a = jSONObject.optString("total");
@@ -47,7 +47,7 @@ public class r {
                 }
             }
         } catch (JSONException e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.adp.lib.util.e.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 }

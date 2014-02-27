@@ -39,7 +39,7 @@ public final class a {
         this.d = new g(context);
     }
 
-    public boolean a(LoginCallBack loginCallBack, String str, String str2) {
+    public final boolean a(LoginCallBack loginCallBack, String str, String str2) {
         if (this.b.context == null) {
             return false;
         }
@@ -167,7 +167,7 @@ public final class a {
         }
     }
 
-    void a(int i, LoginCallBack loginCallBack, String str, com.baidu.sapi2.shell.b bVar) {
+    final void a(int i, LoginCallBack loginCallBack, String str, com.baidu.sapi2.shell.b bVar) {
         if (str != null) {
             LoginResponse loginResponse = new LoginResponse();
             try {
@@ -216,7 +216,7 @@ public final class a {
         }
     }
 
-    public boolean a(GetDynamicPwdCallBack getDynamicPwdCallBack, String str) {
+    public final boolean a(GetDynamicPwdCallBack getDynamicPwdCallBack, String str) {
         if (this.b == null || this.b.context == null) {
             return false;
         }
@@ -280,7 +280,7 @@ public final class a {
         }
     }
 
-    public boolean a(FastRegCallBack fastRegCallBack, String str) {
+    public final boolean a(FastRegCallBack fastRegCallBack, String str) {
         if (this.b == null || this.b.context == null) {
             return false;
         }
@@ -371,10 +371,10 @@ public final class a {
     }
 
     private String j() {
-        return "tpl:" + this.b.tpl + ";android_sapi_v" + SapiAccountManager.VERSION_NAME;
+        return "tpl:" + this.b.tpl + ";android_sapi_v6.3.0";
     }
 
-    int a(String str) {
+    final int a(String str) {
         try {
             return new JSONObject(str).getInt("errno");
         } catch (Exception e) {
@@ -383,7 +383,7 @@ public final class a {
         }
     }
 
-    int b(String str) {
+    final int b(String str) {
         int a2 = a(str);
         if (a2 == 110000) {
             return 0;
@@ -392,7 +392,7 @@ public final class a {
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    void a(int i, FastRegCallBack fastRegCallBack, String str) {
+    final void a(int i, FastRegCallBack fastRegCallBack, String str) {
         if (str != null) {
             FastRegResponse fastRegResponse = new FastRegResponse();
             try {
@@ -432,7 +432,7 @@ public final class a {
         }
     }
 
-    void b(GetDynamicPwdCallBack getDynamicPwdCallBack, String str) {
+    final void b(GetDynamicPwdCallBack getDynamicPwdCallBack, String str) {
         try {
             int parseInt = Integer.parseInt(new JSONObject(str).optString("errno"));
             switch (parseInt) {
@@ -464,39 +464,39 @@ public final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String a() {
+    public final String a() {
         return k().getWap() + "/passport/login";
     }
 
-    String b() {
+    final String b() {
         return this.d.a() + h.a;
     }
 
-    public String c() {
+    public final String c() {
         return this.d.a() + "/phoenix/account/ssologin";
     }
 
-    public String d() {
+    public final String d() {
         return this.d.a() + "/phoenix/account/ssologin";
     }
 
-    public String e() {
+    public final String e() {
         return this.d.a() + h.h;
     }
 
-    public String f() {
+    public final String f() {
         return this.d.a() + h.i;
     }
 
-    public String g() {
+    public final String g() {
         return this.d.a() + h.j;
     }
 
-    public String h() {
+    public final String h() {
         return this.d.a() + h.k;
     }
 
-    public String i() {
+    public final String i() {
         return this.d.a() + h.m;
     }
 }

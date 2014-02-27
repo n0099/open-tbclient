@@ -5,11 +5,9 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import protobuf.QueryGroupCount.QueryGroupCountRes;
 /* loaded from: classes.dex */
-class g extends AbstractParser<QueryGroupCountRes.Banner> {
-    /* JADX DEBUG: Method merged with bridge method */
+final class g extends AbstractParser<QueryGroupCountRes.Banner> {
     @Override // com.google.protobuf.Parser
-    /* renamed from: a */
-    public QueryGroupCountRes.Banner parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
+    public final /* synthetic */ Object parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
         return new QueryGroupCountRes.Banner(codedInputStream, extensionRegistryLite, null);
     }
 }

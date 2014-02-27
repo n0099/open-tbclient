@@ -57,11 +57,7 @@ public class i implements h {
             return;
         }
         String a = a(str);
-        if (a != null) {
-            this.e = a.equals(str2);
-        } else {
-            this.e = str2 == null;
-        }
+        this.e = a != null ? a.equals(str2) : str2 == null;
     }
 
     @Override // com.baidu.loginshare.h

@@ -6,7 +6,7 @@ import com.baidu.tieba.data.AccountData;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements az {
+public final class h implements az {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,18 +15,17 @@ public class h implements az {
     }
 
     @Override // com.baidu.tieba.account.az
-    public void a(String str) {
+    public final void a(String str) {
         k kVar;
-        k kVar2;
+        k unused;
         kVar = this.a.d;
         if (kVar != null) {
-            kVar2 = this.a.d;
-            kVar2.a(str);
+            unused = this.a.d;
         }
     }
 
     @Override // com.baidu.tieba.account.az
-    public void a(AccountData accountData) {
+    public final void a(AccountData accountData) {
         Activity activity;
         Activity activity2;
         k kVar;
@@ -35,9 +34,10 @@ public class h implements az {
         TiebaApplication.a(accountData, activity);
         activity2 = this.a.b;
         if (activity2 != null) {
-            TiebaApplication.g().z();
-            com.baidu.tieba.mention.v.a().l();
+            TiebaApplication.g();
+            TiebaApplication.u();
             com.baidu.tieba.mention.v.a().j();
+            com.baidu.tieba.mention.v.a().h();
             kVar = this.a.d;
             if (kVar != null) {
                 kVar2 = this.a.d;
@@ -48,25 +48,24 @@ public class h implements az {
     }
 
     @Override // com.baidu.tieba.account.az
-    public void a(String str, String str2) {
-        AccountData c;
+    public final void a(String str, String str2) {
         int i;
         ArrayList arrayList;
         at atVar;
-        c = this.a.c(str);
-        if (c == null || com.baidu.tieba.util.bs.c(c.getPassword())) {
+        AccountData a = a.a(this.a, str);
+        if (a == null || com.baidu.tieba.util.bs.c(a.getPassword())) {
             i = this.a.g;
             arrayList = this.a.f;
-            if (i < arrayList.size()) {
-                this.a.b();
+            if (i >= arrayList.size()) {
+                a.k(this.a);
                 return;
             } else {
-                this.a.c();
+                this.a.b();
                 return;
             }
         }
-        String account = c.getAccount();
-        String password = c.getPassword();
+        String account = a.getAccount();
+        String password = a.getPassword();
         atVar = this.a.j;
         as.a(account, password, atVar);
     }

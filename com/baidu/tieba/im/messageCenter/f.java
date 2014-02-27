@@ -1,19 +1,23 @@
 package com.baidu.tieba.im.messageCenter;
 
-import com.baidu.tieba.im.message.da;
+import com.baidu.tieba.im.message.s;
+import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements com.baidu.tieba.im.a<da> {
-    final /* synthetic */ e a;
+public final class f implements Runnable {
+    final /* synthetic */ d a;
+    private final /* synthetic */ s b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(e eVar) {
-        this.a = eVar;
+    public f(d dVar, s sVar) {
+        this.a = dVar;
+        this.b = sVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(da daVar) {
-        this.a.e(daVar);
+    @Override // java.lang.Runnable
+    public final void run() {
+        LinkedList linkedList = new LinkedList();
+        linkedList.add(this.b);
+        this.a.a(linkedList);
     }
 }

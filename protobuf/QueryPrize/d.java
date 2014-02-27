@@ -5,11 +5,9 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import protobuf.QueryPrize.QueryPrizeReq;
 /* loaded from: classes.dex */
-class d extends AbstractParser<QueryPrizeReq.QueryPrizeReqIdl> {
-    /* JADX DEBUG: Method merged with bridge method */
+final class d extends AbstractParser<QueryPrizeReq.QueryPrizeReqIdl> {
     @Override // com.google.protobuf.Parser
-    /* renamed from: a */
-    public QueryPrizeReq.QueryPrizeReqIdl parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
+    public final /* synthetic */ Object parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
         return new QueryPrizeReq.QueryPrizeReqIdl(codedInputStream, extensionRegistryLite, null);
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.write;
 
 import android.widget.EditText;
 /* loaded from: classes.dex */
-class a implements Runnable {
+final class a implements Runnable {
     final /* synthetic */ AtListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +11,7 @@ class a implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         EditText editText;
         AtListActivity atListActivity = this.a;
         editText = this.a.b;

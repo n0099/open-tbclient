@@ -44,7 +44,7 @@ abstract class DataMask {
         }
 
         @Override // com.google.zxing.qrcode.decoder.DataMask
-        boolean isMasked(int i, int i2) {
+        final boolean isMasked(int i, int i2) {
             return ((i + i2) & 1) == 0;
         }
     }
@@ -60,7 +60,7 @@ abstract class DataMask {
         }
 
         @Override // com.google.zxing.qrcode.decoder.DataMask
-        boolean isMasked(int i, int i2) {
+        final boolean isMasked(int i, int i2) {
             return (i & 1) == 0;
         }
     }
@@ -76,7 +76,7 @@ abstract class DataMask {
         }
 
         @Override // com.google.zxing.qrcode.decoder.DataMask
-        boolean isMasked(int i, int i2) {
+        final boolean isMasked(int i, int i2) {
             return i2 % 3 == 0;
         }
     }
@@ -92,7 +92,7 @@ abstract class DataMask {
         }
 
         @Override // com.google.zxing.qrcode.decoder.DataMask
-        boolean isMasked(int i, int i2) {
+        final boolean isMasked(int i, int i2) {
             return (i + i2) % 3 == 0;
         }
     }
@@ -108,7 +108,7 @@ abstract class DataMask {
         }
 
         @Override // com.google.zxing.qrcode.decoder.DataMask
-        boolean isMasked(int i, int i2) {
+        final boolean isMasked(int i, int i2) {
             return (((i >>> 1) + (i2 / 3)) & 1) == 0;
         }
     }
@@ -124,7 +124,7 @@ abstract class DataMask {
         }
 
         @Override // com.google.zxing.qrcode.decoder.DataMask
-        boolean isMasked(int i, int i2) {
+        final boolean isMasked(int i, int i2) {
             int i3 = i * i2;
             return (i3 % 3) + (i3 & 1) == 0;
         }
@@ -141,7 +141,7 @@ abstract class DataMask {
         }
 
         @Override // com.google.zxing.qrcode.decoder.DataMask
-        boolean isMasked(int i, int i2) {
+        final boolean isMasked(int i, int i2) {
             int i3 = i * i2;
             return (((i3 % 3) + (i3 & 1)) & 1) == 0;
         }
@@ -158,7 +158,7 @@ abstract class DataMask {
         }
 
         @Override // com.google.zxing.qrcode.decoder.DataMask
-        boolean isMasked(int i, int i2) {
+        final boolean isMasked(int i, int i2) {
             return ((((i + i2) & 1) + ((i * i2) % 3)) & 1) == 0;
         }
     }

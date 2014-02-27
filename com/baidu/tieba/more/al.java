@@ -6,7 +6,7 @@ import com.baidu.tieba.im.message.bz;
 import com.baidu.tieba.im.message.cx;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class al implements com.baidu.tieba.im.messageCenter.g {
+final class al implements com.baidu.tieba.im.messageCenter.g {
     final /* synthetic */ SecretSettingActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +15,7 @@ class al implements com.baidu.tieba.im.messageCenter.g {
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.s sVar) {
+    public final void a(com.baidu.tieba.im.message.s sVar) {
         am amVar;
         am amVar2;
         am amVar3;
@@ -23,7 +23,7 @@ class al implements com.baidu.tieba.im.messageCenter.g {
         am amVar5;
         am amVar6;
         amVar = this.a.b;
-        amVar.g();
+        amVar.f();
         if (sVar.w() == 104103) {
             if (!(sVar instanceof bz)) {
                 this.a.showToast(R.string.neterror);
@@ -47,11 +47,11 @@ class al implements com.baidu.tieba.im.messageCenter.g {
                 }
                 if (bzVar.a() != 0) {
                     amVar6 = this.a.b;
-                    amVar6.i().b();
+                    amVar6.h().b();
                     return;
                 }
                 amVar5 = this.a.b;
-                amVar5.i().a();
+                amVar5.h().a();
             }
         } else if (sVar.w() == 104102) {
             if (!(sVar instanceof cx)) {
@@ -65,15 +65,15 @@ class al implements com.baidu.tieba.im.messageCenter.g {
             } else if (((bj) o2).b() == 8) {
                 if (!cxVar.l()) {
                     amVar2 = this.a.b;
-                    Object tag = amVar2.i().getTag();
+                    Object tag = amVar2.h().getTag();
                     if (tag != null && (tag instanceof Boolean)) {
                         if (((Boolean) tag).booleanValue()) {
                             amVar4 = this.a.b;
-                            amVar4.i().b();
+                            amVar4.h().b();
                             return;
                         }
                         amVar3 = this.a.b;
-                        amVar3.i().a();
+                        amVar3.h().a();
                     }
                 } else if (cxVar.m() > 0) {
                     if (!TextUtils.isEmpty(cxVar.n())) {

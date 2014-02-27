@@ -2,7 +2,7 @@ package com.baidu.tieba.faceshop;
 
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class r extends com.baidu.tieba.i {
+final class r extends com.baidu.tieba.i {
     final /* synthetic */ FacePackageDetailActivity b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ class r extends com.baidu.tieba.i {
     }
 
     @Override // com.baidu.tieba.i
-    public void a(Object... objArr) {
+    public final void a(Object... objArr) {
         x xVar;
         x xVar2;
         v vVar;
@@ -27,7 +27,9 @@ class r extends com.baidu.tieba.i {
                 if (facePackageDetailData.errno == 0 && facePackageDetailData.usermsg != null) {
                     xVar2 = this.b.b;
                     vVar = this.b.a;
-                    xVar2.a(vVar);
+                    if (vVar != null) {
+                        xVar2.a(vVar);
+                    }
                     if (!bool.booleanValue()) {
                         this.b.e = true;
                         return;

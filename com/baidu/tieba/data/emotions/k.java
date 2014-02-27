@@ -8,12 +8,8 @@ import com.baidu.tieba.util.ad;
 import com.slidingmenu.lib.R;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class k extends WritableEmotionGroup {
+public final class k extends WritableEmotionGroup {
     public k() {
-        b();
-    }
-
-    private void b() {
         super.b(7);
         super.c(3);
         com.baidu.adp.widget.ImageView.b bVar = new com.baidu.adp.widget.ImageView.b(BitmapFactory.decodeResource(TiebaApplication.g().b().getResources(), R.drawable.icon_face_original_s), false);
@@ -22,7 +18,7 @@ public class k extends WritableEmotionGroup {
     }
 
     @Override // com.baidu.tieba.data.emotions.WritableEmotionGroup
-    public String a(int i) {
+    public final String a(int i) {
         int i2;
         if (i < 0 || i >= ad.a.size()) {
             i2 = 0;
@@ -38,52 +34,56 @@ public class k extends WritableEmotionGroup {
     }
 
     @Override // com.baidu.tieba.data.emotions.WritableEmotionGroup
-    public boolean a(String str) {
+    public final boolean a(String str) {
         return ad.b.get(str) != null;
     }
 
     @Override // com.baidu.tieba.data.emotions.WritableEmotionGroup
-    public com.baidu.adp.widget.ImageView.b b(String str) {
-        Bitmap a;
+    public final com.baidu.adp.widget.ImageView.b b(String str) {
         Integer num = ad.b.get(str);
-        if (num != null && (a = com.baidu.adp.lib.util.b.a().a(TiebaApplication.g().b(), num.intValue())) != null) {
+        if (num == null) {
+            return null;
+        }
+        com.baidu.adp.lib.util.a.a();
+        Bitmap a = com.baidu.adp.lib.util.a.a(TiebaApplication.g().b(), num.intValue());
+        if (a != null) {
             return new com.baidu.adp.widget.ImageView.b(a, false, str);
         }
         return null;
     }
 
     @Override // com.baidu.tieba.data.emotions.WritableEmotionGroup
-    public int d() {
+    public final int d() {
         return ad.a.size();
     }
 
     @Override // com.baidu.tieba.data.emotions.WritableEmotionGroup
-    public com.baidu.adp.widget.ImageView.b c(String str) {
+    public final com.baidu.adp.widget.ImageView.b c(String str) {
         return b(str);
     }
 
     @Override // com.baidu.tieba.data.emotions.WritableEmotionGroup
-    public WritableEmotionGroup.EmotionGroupType c() {
+    public final WritableEmotionGroup.EmotionGroupType c() {
         return WritableEmotionGroup.EmotionGroupType.LOCAL;
     }
 
     @Override // com.baidu.tieba.data.emotions.WritableEmotionGroup
-    public String e() {
+    public final String e() {
         return "_local";
     }
 
     @Override // com.baidu.tieba.data.emotions.WritableEmotionGroup
-    public String f() {
+    public final String f() {
         return "_local";
     }
 
     @Override // com.baidu.tieba.data.emotions.WritableEmotionGroup
-    public int g() {
+    public final int g() {
         return 0;
     }
 
     @Override // com.baidu.tieba.data.emotions.WritableEmotionGroup
-    public int h() {
+    public final int h() {
         return 0;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.view;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cd extends com.baidu.tieba.util.bt {
+public final class cd extends com.baidu.tieba.util.bt {
     final /* synthetic */ ProgressCountDownView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,13 +12,13 @@ public class cd extends com.baidu.tieba.util.bt {
     }
 
     @Override // com.baidu.tieba.util.bt
-    public void a(long j) {
-        this.a.a(j);
-        this.a.b(j);
+    public final void a(long j) {
+        ProgressCountDownView.a(this.a, j);
+        ProgressCountDownView.b(this.a, j);
     }
 
     @Override // com.baidu.tieba.util.bt
-    public void a() {
+    public final void a() {
         ce ceVar;
         ce ceVar2;
         ceVar = this.a.g;

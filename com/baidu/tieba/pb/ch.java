@@ -6,7 +6,7 @@ import android.view.View;
 import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class ch extends cf {
+public final class ch extends cf {
     private String j;
     private int k;
     private boolean l;
@@ -20,16 +20,12 @@ public class ch extends cf {
         this.m = false;
     }
 
-    public void c(boolean z) {
+    public final void b(boolean z) {
         this.m = z;
     }
 
-    public boolean c() {
-        return this.m;
-    }
-
     @Override // com.baidu.tieba.pb.cf, android.widget.Adapter
-    public int getCount() {
+    public final int getCount() {
         if (this.a == null) {
             return 0;
         }
@@ -37,20 +33,20 @@ public class ch extends cf {
     }
 
     @Override // com.baidu.tieba.pb.cf, android.widget.Adapter
-    public Object getItem(int i) {
+    public final Object getItem(int i) {
         if (this.a == null || i < 0 || i >= this.a.size()) {
             return null;
         }
         return this.a.get(i);
     }
 
-    public void a(String str, int i) {
+    public final void a(String str, int i) {
         this.j = str;
         this.k = i;
     }
 
     @Override // com.baidu.tieba.pb.cf
-    public int a(String str) {
+    public final int a(String str) {
         if (this.a == null) {
             return -1;
         }
@@ -64,26 +60,26 @@ public class ch extends cf {
     }
 
     @Override // com.baidu.tieba.pb.cf
-    public void a(com.baidu.tieba.data.aq aqVar, cg cgVar, boolean z, boolean z2) {
+    public final void a(com.baidu.tieba.data.aq aqVar, cg cgVar, boolean z, boolean z2) {
         int i = R.drawable.bg_floor_new_foot_d;
         int i2 = R.dimen.default_size_22;
-        boolean z3 = TiebaApplication.g().al() == 1;
+        boolean z3 = TiebaApplication.g().ae() == 1;
         if (this.j != null && this.k != 0 && this.j.equals(aqVar.d())) {
             if (z2 && !z) {
-                if (c()) {
+                if (this.m) {
                     cgVar.a.setBackgroundResource(z3 ? R.drawable.bg_floor_new_foot_d_1 : R.drawable.bg_floor_new_foot_d);
                 } else {
                     cgVar.a.setBackgroundResource(z3 ? R.drawable.bg_floor_new_d_1 : R.drawable.bg_floor_new_d);
                 }
-                cgVar.a.setPadding(this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_8), this.b.getResources().getDimensionPixelSize(c() ? R.dimen.default_gap_10 : R.dimen.default_size_22), this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_8), this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_10));
+                cgVar.a.setPadding(this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_8), this.b.getResources().getDimensionPixelSize(this.m ? R.dimen.default_gap_10 : R.dimen.default_size_22), this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_8), this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_10));
             } else if (z2) {
-                if (c()) {
+                if (this.m) {
                     cgVar.a.setBackgroundResource(z3 ? R.drawable.bg_floor_new_middle_d_1 : R.drawable.bg_floor_new_middle_d);
                 } else {
                     cgVar.a.setBackgroundResource(z3 ? R.drawable.bg_floor_new_top_d_1 : R.drawable.bg_floor_new_top_d);
                 }
                 Resources resources = this.b.getResources();
-                if (c()) {
+                if (this.m) {
                     i2 = R.dimen.default_gap_10;
                 }
                 cgVar.a.setPadding(this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_8), resources.getDimensionPixelSize(i2), this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_8), this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_10));
@@ -99,14 +95,14 @@ public class ch extends cf {
                 }
                 cgVar.a.setPadding(this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_8), this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_10), this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_8), this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_10));
             }
-        } else if (c() && z2) {
+        } else if (this.m && z2) {
             if (!z) {
                 cgVar.a.setBackgroundResource(z3 ? R.drawable.subpb_list_item_foot_bg_1 : R.drawable.subpb_list_item_foot_bg);
             } else if (z2) {
                 cgVar.a.setBackgroundResource(z3 ? R.drawable.subpb_list_item_middle_bg_1 : R.drawable.subpb_list_item_middle_bg);
             }
             Resources resources2 = this.b.getResources();
-            if (c()) {
+            if (this.m) {
                 i2 = R.dimen.default_gap_10;
             }
             cgVar.a.setPadding(this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_8), resources2.getDimensionPixelSize(i2), this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_8), this.b.getResources().getDimensionPixelSize(R.dimen.default_gap_10));

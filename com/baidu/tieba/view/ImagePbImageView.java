@@ -43,18 +43,14 @@ public class ImagePbImageView extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        b();
+        this.n = 0;
+        this.o.removeMessages(1);
     }
 
-    public void a() {
+    public final void a() {
         this.n = 10;
         this.o.sendMessageDelayed(this.o.obtainMessage(1), 20L);
         invalidate();
-    }
-
-    public void b() {
-        this.n = 0;
-        this.o.removeMessages(1);
     }
 
     public void setFirst(boolean z) {
@@ -79,7 +75,7 @@ public class ImagePbImageView extends ImageView {
         this.m = null;
         this.n = -1;
         this.o = new bi(this);
-        c();
+        b();
     }
 
     public ImagePbImageView(Context context, AttributeSet attributeSet) {
@@ -99,7 +95,7 @@ public class ImagePbImageView extends ImageView {
         this.m = null;
         this.n = -1;
         this.o = new bi(this);
-        c();
+        b();
     }
 
     public ImagePbImageView(Context context, AttributeSet attributeSet, int i) {
@@ -119,10 +115,10 @@ public class ImagePbImageView extends ImageView {
         this.m = null;
         this.n = -1;
         this.o = new bi(this);
-        c();
+        b();
     }
 
-    private void c() {
+    private void b() {
         this.e.setColor(1275068416);
     }
 
@@ -133,7 +129,7 @@ public class ImagePbImageView extends ImageView {
         com.baidu.adp.widget.ImageView.b c = com.baidu.tbadk.imageManager.e.a().c(String.valueOf((String) getTag()) + "_big");
         if (c == null) {
             this.g = false;
-            if (TiebaApplication.g().al() == 1) {
+            if (TiebaApplication.g().ae() == 1) {
                 if (this.m == null) {
                     this.l = new com.baidu.adp.widget.ImageView.b(com.baidu.tieba.util.n.a((int) R.drawable.image_default_1), false, null);
                     this.m = new SoftReference<>(this.l);
@@ -174,7 +170,7 @@ public class ImagePbImageView extends ImageView {
             }
             this.c.postTranslate(f, f2);
             bVar.a(canvas, this.c, this.d);
-            if (this.g && TiebaApplication.g().al() == 1) {
+            if (this.g && TiebaApplication.g().ae() == 1) {
                 this.f.set(f, f2, c2 + f, d + f2);
                 canvas.drawRect(this.f, this.e);
             }

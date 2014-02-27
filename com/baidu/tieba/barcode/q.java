@@ -12,12 +12,12 @@ final class q extends BroadcastReceiver {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ q(o oVar, q qVar) {
+    public /* synthetic */ q(o oVar, byte b) {
         this(oVar);
     }
 
     @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
+    public final void onReceive(Context context, Intent intent) {
         if ("android.intent.action.BATTERY_CHANGED".equals(intent.getAction())) {
             if (intent.getIntExtra("plugged", -1) <= 0) {
                 this.a.a();

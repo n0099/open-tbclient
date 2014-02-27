@@ -307,6 +307,11 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0051  */
+    /* JADX WARN: Removed duplicated region for block: B:8:0x0021  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static <MessageType extends MessageLite> boolean parseUnknownField(FieldSet<ExtensionDescriptor> fieldSet, MessageType messagetype, CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, int i) {
         boolean z;
         Object findValueByNumber;
@@ -315,70 +320,71 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
         boolean z2 = false;
         int tagWireType = WireFormat.getTagWireType(i);
         GeneratedExtension findLiteExtensionByNumber = extensionRegistryLite.findLiteExtensionByNumber(messagetype, WireFormat.getTagFieldNumber(i));
-        if (findLiteExtensionByNumber == null) {
-            z = true;
-        } else if (tagWireType == FieldSet.getWireFormatForFieldType(findLiteExtensionByNumber.descriptor.getLiteType(), false)) {
-            z = false;
-        } else if (findLiteExtensionByNumber.descriptor.isRepeated && findLiteExtensionByNumber.descriptor.type.isPackable() && tagWireType == FieldSet.getWireFormatForFieldType(findLiteExtensionByNumber.descriptor.getLiteType(), true)) {
-            z = false;
-            z2 = true;
-        } else {
-            z = true;
-        }
-        if (z) {
-            return codedInputStream.skipField(i);
-        }
-        if (z2) {
-            int pushLimit = codedInputStream.pushLimit(codedInputStream.readRawVarint32());
-            if (findLiteExtensionByNumber.descriptor.getLiteType() == WireFormat.FieldType.ENUM) {
-                while (codedInputStream.getBytesUntilLimit() > 0) {
-                    Object findValueByNumber2 = findLiteExtensionByNumber.descriptor.getEnumType().findValueByNumber(codedInputStream.readEnum());
-                    if (findValueByNumber2 == null) {
-                        return true;
+        if (findLiteExtensionByNumber != null) {
+            if (tagWireType == FieldSet.getWireFormatForFieldType(findLiteExtensionByNumber.descriptor.getLiteType(), false)) {
+                z = false;
+            } else if (findLiteExtensionByNumber.descriptor.isRepeated && findLiteExtensionByNumber.descriptor.type.isPackable() && tagWireType == FieldSet.getWireFormatForFieldType(findLiteExtensionByNumber.descriptor.getLiteType(), true)) {
+                z = false;
+                z2 = true;
+            }
+            if (!z) {
+                return codedInputStream.skipField(i);
+            }
+            if (z2) {
+                int pushLimit = codedInputStream.pushLimit(codedInputStream.readRawVarint32());
+                if (findLiteExtensionByNumber.descriptor.getLiteType() == WireFormat.FieldType.ENUM) {
+                    while (codedInputStream.getBytesUntilLimit() > 0) {
+                        Object findValueByNumber2 = findLiteExtensionByNumber.descriptor.getEnumType().findValueByNumber(codedInputStream.readEnum());
+                        if (findValueByNumber2 == null) {
+                            return true;
+                        }
+                        fieldSet.addRepeatedField(findLiteExtensionByNumber.descriptor, findValueByNumber2);
                     }
-                    fieldSet.addRepeatedField(findLiteExtensionByNumber.descriptor, findValueByNumber2);
+                } else {
+                    while (codedInputStream.getBytesUntilLimit() > 0) {
+                        fieldSet.addRepeatedField(findLiteExtensionByNumber.descriptor, FieldSet.readPrimitiveField(codedInputStream, findLiteExtensionByNumber.descriptor.getLiteType()));
+                    }
                 }
+                codedInputStream.popLimit(pushLimit);
             } else {
-                while (codedInputStream.getBytesUntilLimit() > 0) {
-                    fieldSet.addRepeatedField(findLiteExtensionByNumber.descriptor, FieldSet.readPrimitiveField(codedInputStream, findLiteExtensionByNumber.descriptor.getLiteType()));
+                switch (findLiteExtensionByNumber.descriptor.getLiteJavaType()) {
+                    case MESSAGE:
+                        if (findLiteExtensionByNumber.descriptor.isRepeated() || (messageLite = (MessageLite) fieldSet.getField(findLiteExtensionByNumber.descriptor)) == null) {
+                            builder = null;
+                        } else {
+                            builder = messageLite.toBuilder();
+                        }
+                        if (builder == null) {
+                            builder = findLiteExtensionByNumber.messageDefaultInstance.newBuilderForType();
+                        }
+                        if (findLiteExtensionByNumber.descriptor.getLiteType() == WireFormat.FieldType.GROUP) {
+                            codedInputStream.readGroup(findLiteExtensionByNumber.getNumber(), builder, extensionRegistryLite);
+                        } else {
+                            codedInputStream.readMessage(builder, extensionRegistryLite);
+                        }
+                        findValueByNumber = builder.build();
+                        break;
+                    case ENUM:
+                        findValueByNumber = findLiteExtensionByNumber.descriptor.getEnumType().findValueByNumber(codedInputStream.readEnum());
+                        if (findValueByNumber == null) {
+                            return true;
+                        }
+                        break;
+                    default:
+                        findValueByNumber = FieldSet.readPrimitiveField(codedInputStream, findLiteExtensionByNumber.descriptor.getLiteType());
+                        break;
+                }
+                if (findLiteExtensionByNumber.descriptor.isRepeated()) {
+                    fieldSet.addRepeatedField(findLiteExtensionByNumber.descriptor, findValueByNumber);
+                } else {
+                    fieldSet.setField(findLiteExtensionByNumber.descriptor, findValueByNumber);
                 }
             }
-            codedInputStream.popLimit(pushLimit);
-        } else {
-            switch (findLiteExtensionByNumber.descriptor.getLiteJavaType()) {
-                case MESSAGE:
-                    if (findLiteExtensionByNumber.descriptor.isRepeated() || (messageLite = (MessageLite) fieldSet.getField(findLiteExtensionByNumber.descriptor)) == null) {
-                        builder = null;
-                    } else {
-                        builder = messageLite.toBuilder();
-                    }
-                    if (builder == null) {
-                        builder = findLiteExtensionByNumber.messageDefaultInstance.newBuilderForType();
-                    }
-                    if (findLiteExtensionByNumber.descriptor.getLiteType() == WireFormat.FieldType.GROUP) {
-                        codedInputStream.readGroup(findLiteExtensionByNumber.getNumber(), builder, extensionRegistryLite);
-                    } else {
-                        codedInputStream.readMessage(builder, extensionRegistryLite);
-                    }
-                    findValueByNumber = builder.build();
-                    break;
-                case ENUM:
-                    findValueByNumber = findLiteExtensionByNumber.descriptor.getEnumType().findValueByNumber(codedInputStream.readEnum());
-                    if (findValueByNumber == null) {
-                        return true;
-                    }
-                    break;
-                default:
-                    findValueByNumber = FieldSet.readPrimitiveField(codedInputStream, findLiteExtensionByNumber.descriptor.getLiteType());
-                    break;
-            }
-            if (findLiteExtensionByNumber.descriptor.isRepeated()) {
-                fieldSet.addRepeatedField(findLiteExtensionByNumber.descriptor, findValueByNumber);
-            } else {
-                fieldSet.setField(findLiteExtensionByNumber.descriptor, findValueByNumber);
-            }
+            return true;
         }
-        return true;
+        z = true;
+        if (!z) {
+        }
     }
 
     public static <ContainingType extends MessageLite, Type> GeneratedExtension<ContainingType, Type> newSingularGeneratedExtension(ContainingType containingtype, Type type, MessageLite messageLite, Internal.EnumLiteMap<?> enumLiteMap, int i, WireFormat.FieldType fieldType) {
@@ -407,43 +413,43 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
         }
 
         @Override // com.google.protobuf.FieldSet.FieldDescriptorLite
-        public int getNumber() {
+        public final int getNumber() {
             return this.number;
         }
 
         @Override // com.google.protobuf.FieldSet.FieldDescriptorLite
-        public WireFormat.FieldType getLiteType() {
+        public final WireFormat.FieldType getLiteType() {
             return this.type;
         }
 
         @Override // com.google.protobuf.FieldSet.FieldDescriptorLite
-        public WireFormat.JavaType getLiteJavaType() {
+        public final WireFormat.JavaType getLiteJavaType() {
             return this.type.getJavaType();
         }
 
         @Override // com.google.protobuf.FieldSet.FieldDescriptorLite
-        public boolean isRepeated() {
+        public final boolean isRepeated() {
             return this.isRepeated;
         }
 
         @Override // com.google.protobuf.FieldSet.FieldDescriptorLite
-        public boolean isPacked() {
+        public final boolean isPacked() {
             return this.isPacked;
         }
 
         @Override // com.google.protobuf.FieldSet.FieldDescriptorLite
-        public Internal.EnumLiteMap<?> getEnumType() {
+        public final Internal.EnumLiteMap<?> getEnumType() {
             return this.enumTypeMap;
         }
 
         @Override // com.google.protobuf.FieldSet.FieldDescriptorLite
-        public MessageLite.Builder internalMergeFrom(MessageLite.Builder builder, MessageLite messageLite) {
+        public final MessageLite.Builder internalMergeFrom(MessageLite.Builder builder, MessageLite messageLite) {
             return ((Builder) builder).mergeFrom((Builder) ((GeneratedMessageLite) messageLite));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.lang.Comparable
-        public int compareTo(ExtensionDescriptor extensionDescriptor) {
+        public final int compareTo(ExtensionDescriptor extensionDescriptor) {
             return this.number - extensionDescriptor.number;
         }
     }
@@ -468,15 +474,15 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
             this.descriptor = extensionDescriptor;
         }
 
-        public ContainingType getContainingTypeDefaultInstance() {
+        public final ContainingType getContainingTypeDefaultInstance() {
             return this.containingTypeDefaultInstance;
         }
 
-        public int getNumber() {
+        public final int getNumber() {
             return this.descriptor.getNumber();
         }
 
-        public MessageLite getMessageDefaultInstance() {
+        public final MessageLite getMessageDefaultInstance() {
             return this.messageDefaultInstance;
         }
     }
@@ -492,7 +498,7 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
             this.asBytes = messageLite.toByteArray();
         }
 
-        protected Object readResolve() {
+        protected final Object readResolve() {
             try {
                 MessageLite.Builder builder = (MessageLite.Builder) Class.forName(this.messageClassName).getMethod("newBuilder", new Class[0]).invoke(null, new Object[0]);
                 builder.mergeFrom(this.asBytes);

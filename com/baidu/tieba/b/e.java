@@ -4,11 +4,11 @@ import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.data.NewErrorData;
 import com.baidu.tieba.l;
 /* loaded from: classes.dex */
-public class e extends l {
+public final class e extends l {
     private static final String c = String.valueOf(com.baidu.tieba.data.i.a) + "c/u/user/get_double_follows";
     private static final String d = String.valueOf(com.baidu.tieba.data.i.a) + "c/u/user/search_double_follows";
 
-    public String b(String str) {
+    public final String b(String str) {
         if (str == null || str.trim().equals("")) {
             a(c);
         } else {
@@ -26,27 +26,27 @@ public class e extends l {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.l
-    public String b() {
-        String m = this.a.m();
-        if (this.a.d()) {
+    public final String b() {
+        String l = this.a.l();
+        if (this.a.c()) {
             this.b = new NewErrorData();
-            this.b.parserJson(m);
+            this.b.parserJson(l);
         } else {
             this.b = new NewErrorData();
-            this.b.errmsg = this.a.j();
-            this.b.errno = this.a.f();
+            this.b.errmsg = this.a.i();
+            this.b.errno = this.a.e();
         }
-        return m;
+        return l;
     }
 
     @Override // com.baidu.tieba.l
-    public void a() {
+    public final void a() {
         if (this.a != null) {
-            this.a.k();
+            this.a.j();
         }
     }
 
-    public String g() {
+    public final String g() {
         if (this.b != null) {
             return this.b.getErrorMsg();
         }
@@ -54,7 +54,7 @@ public class e extends l {
     }
 
     @Override // com.baidu.tieba.l
-    public int e() {
+    public final int e() {
         if (this.b != null) {
             return this.b.getErrorNumber();
         }

@@ -121,12 +121,10 @@ public final class a {
             }
             try {
                 fileOutputStream.write(str2.getBytes("utf-8"));
-                if (fileOutputStream != null) {
-                    try {
-                        fileOutputStream.close();
-                    } catch (IOException e3) {
-                        Log.w("Mobads SDK", "AdUtil.writeExt", e3);
-                    }
+                try {
+                    fileOutputStream.close();
+                } catch (IOException e3) {
+                    Log.w("Mobads SDK", "AdUtil.writeExt", e3);
                 }
             } catch (FileNotFoundException e4) {
                 e = e4;
@@ -185,11 +183,11 @@ public final class a {
         return false;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:41:0x00af */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x00b1 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:45:0x00b3 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:40:0x00ad */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x00af */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:44:0x00b1 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x00a2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x00a0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r2v12, types: [java.lang.String] */
     /* JADX WARN: Type inference failed for: r2v7, types: [java.lang.String] */
     /* JADX WARN: Type inference failed for: r2v9, types: [java.lang.String] */
@@ -212,15 +210,12 @@ public final class a {
                             byte[] bArr = new byte[fileInputStream2.available()];
                             fileInputStream2.read(bArr);
                             str2 = new String(bArr, "utf-8");
-                            fileInputStream = fileInputStream2;
-                            if (fileInputStream2 != null) {
-                                try {
-                                    fileInputStream2.close();
-                                    fileInputStream = fileInputStream2;
-                                } catch (IOException e) {
-                                    Log.w("Mobads SDK", "AdUtil.readExt", e);
-                                    fileInputStream = "Mobads SDK";
-                                }
+                            try {
+                                fileInputStream2.close();
+                                fileInputStream = fileInputStream2;
+                            } catch (IOException e) {
+                                Log.w("Mobads SDK", "AdUtil.readExt", e);
+                                fileInputStream = "Mobads SDK";
                             }
                         } catch (FileNotFoundException e2) {
                             e = e2;

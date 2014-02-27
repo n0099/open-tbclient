@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.db.pojo;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.f;
+import com.baidu.adp.lib.util.e;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.groupUpdates.UpdatesItemData;
 import com.baidu.tieba.im.groupUpdates.m;
@@ -65,7 +65,27 @@ public class GroupNewsPojo implements Serializable {
             setContent(bVar.k());
             setTime(bVar.p() * 1000);
             setNotice_id(String.valueOf(bVar.l()));
-            a();
+            e.e("begin");
+            if (!TextUtils.isEmpty(getCmd())) {
+                if (getCmd().equals("group_intro_change") || getCmd().equals("group_name_change") || getCmd().equals("group_notice_change")) {
+                    UpdatesItemData a = m.a(this);
+                    if (a != null) {
+                        String v = TiebaApplication.v();
+                        if (!TextUtils.isEmpty(v)) {
+                            String authorId = a.getAuthorId();
+                            if (!TextUtils.isEmpty(authorId)) {
+                                e.e("curUid:" + v + " uid:" + authorId);
+                                if (v.equals(authorId)) {
+                                    setContent_status(2);
+                                } else {
+                                    setContent_status(1);
+                                }
+                            }
+                        }
+                    }
+                }
+                e.e("end");
+            }
             String content = getContent();
             if (!TextUtils.isEmpty(content)) {
                 try {
@@ -80,36 +100,6 @@ public class GroupNewsPojo implements Serializable {
             if (str2.equals("apply_join_group")) {
                 a(l.a(this));
             }
-        }
-    }
-
-    private void a() {
-        f.e("begin");
-        if (!TextUtils.isEmpty(getCmd())) {
-            if (getCmd().equals("group_intro_change") || getCmd().equals("group_name_change") || getCmd().equals("group_notice_change")) {
-                UpdatesItemData a = m.a(this);
-                if (a != null) {
-                    String A = TiebaApplication.A();
-                    if (!TextUtils.isEmpty(A)) {
-                        String authorId = a.getAuthorId();
-                        if (!TextUtils.isEmpty(authorId)) {
-                            f.e("curUid:" + A + " uid:" + authorId);
-                            if (A.equals(authorId)) {
-                                setContent_status(2);
-                            } else {
-                                setContent_status(1);
-                            }
-                        } else {
-                            return;
-                        }
-                    } else {
-                        return;
-                    }
-                } else {
-                    return;
-                }
-            }
-            f.e("end");
         }
     }
 

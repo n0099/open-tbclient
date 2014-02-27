@@ -1,7 +1,7 @@
 package com.baidu.tieba.img.view;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c implements Runnable {
+public final class c implements Runnable {
     final /* synthetic */ DragHorizonScrollView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,7 +10,7 @@ public class c implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         boolean g;
         int h;
         int h2;

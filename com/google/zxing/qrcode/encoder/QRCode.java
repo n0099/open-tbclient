@@ -12,27 +12,27 @@ public final class QRCode {
     private Mode mode;
     private Version version;
 
-    public Mode getMode() {
+    public final Mode getMode() {
         return this.mode;
     }
 
-    public ErrorCorrectionLevel getECLevel() {
+    public final ErrorCorrectionLevel getECLevel() {
         return this.ecLevel;
     }
 
-    public Version getVersion() {
+    public final Version getVersion() {
         return this.version;
     }
 
-    public int getMaskPattern() {
+    public final int getMaskPattern() {
         return this.maskPattern;
     }
 
-    public ByteMatrix getMatrix() {
+    public final ByteMatrix getMatrix() {
         return this.matrix;
     }
 
-    public String toString() {
+    public final String toString() {
         StringBuilder sb = new StringBuilder(200);
         sb.append("<<\n");
         sb.append(" mode: ");
@@ -53,23 +53,23 @@ public final class QRCode {
         return sb.toString();
     }
 
-    public void setMode(Mode mode) {
+    public final void setMode(Mode mode) {
         this.mode = mode;
     }
 
-    public void setECLevel(ErrorCorrectionLevel errorCorrectionLevel) {
+    public final void setECLevel(ErrorCorrectionLevel errorCorrectionLevel) {
         this.ecLevel = errorCorrectionLevel;
     }
 
-    public void setVersion(Version version) {
+    public final void setVersion(Version version) {
         this.version = version;
     }
 
-    public void setMaskPattern(int i) {
+    public final void setMaskPattern(int i) {
         this.maskPattern = i;
     }
 
-    public void setMatrix(ByteMatrix byteMatrix) {
+    public final void setMatrix(ByteMatrix byteMatrix) {
         this.matrix = byteMatrix;
     }
 

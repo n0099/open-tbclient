@@ -20,21 +20,21 @@ public class d implements View.OnClickListener, View.OnKeyListener {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(Configuration configuration) {
+    public final void a(Configuration configuration) {
         this.b = configuration;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(b[] bVarArr) {
+    public final void a(b[] bVarArr) {
         this.d = bVarArr;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(h hVar) {
+    public final void a(h hVar) {
         this.e = hVar;
     }
 
-    public void a(Activity activity) {
+    public final void a(Activity activity) {
         if (this.c == null) {
             this.c = b(activity);
         }
@@ -49,12 +49,12 @@ public class d implements View.OnClickListener, View.OnKeyListener {
                 loadAnimation.setAnimationListener(new e(this));
                 this.c.startAnimation(loadAnimation);
             } else if (this.e != null) {
-                this.e.a();
+                h hVar = this.e;
             }
         }
     }
 
-    public void a() {
+    public final void a() {
         ViewGroup viewGroup;
         if (this.c != null && (viewGroup = (ViewGroup) this.c.getParent()) != null) {
             if (this.b.j != -1) {
@@ -72,13 +72,14 @@ public class d implements View.OnClickListener, View.OnKeyListener {
             }
             viewGroup.removeView(this.c);
             if (this.e != null) {
-                this.e.b();
+                h hVar = this.e;
             }
             b();
         }
     }
 
     private i b(Activity activity) {
+        b[] bVarArr;
         i iVar = new i(activity);
         iVar.b(activity.getResources().getColor(this.b.e));
         iVar.a(this.b.b);
@@ -121,7 +122,14 @@ public class d implements View.OnClickListener, View.OnKeyListener {
         }
         iVar.setOnClickListener(this);
         for (b bVar : this.d) {
-            iVar.addView(a.a(activity.getLayoutInflater(), bVar));
+            View a2 = bVar.a(activity.getLayoutInflater());
+            j jVar = new j(-2, -2);
+            jVar.c = bVar.c();
+            jVar.d = bVar.d();
+            jVar.a = bVar.a();
+            jVar.b = bVar.b();
+            a2.setLayoutParams(jVar);
+            iVar.addView(a2);
         }
         return iVar;
     }

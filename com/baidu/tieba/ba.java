@@ -2,21 +2,25 @@ package com.baidu.tieba;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.util.UtilHelper;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ba extends BdAsyncTask<String, Integer, String> {
+final class ba extends BdAsyncTask<String, Integer, String> {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ String a(String... strArr) {
+        return d();
+    }
+
     private ba() {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ba(ba baVar) {
+    public /* synthetic */ ba(byte b) {
         this();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public String a(String... strArr) {
+    private static String d() {
         byte[] bArr;
         byte[] bArr2;
         bArr = TiebaApplication.aA;

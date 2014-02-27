@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 /* loaded from: classes.dex */
-public class d {
+public final class d {
     private String a;
     private String b;
     private int c;
@@ -25,187 +25,187 @@ public class d {
     private int v;
     private StringBuffer w = new StringBuffer();
 
-    public String toString() {
+    public final String toString() {
         return "BDLayoutInfo [TAG=" + this.w.toString() + "]";
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.w.append(str).append(" || ");
     }
 
-    public int a() {
+    public final int a() {
         return this.q;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.q = i;
     }
 
-    public int b() {
+    public final int b() {
         return this.r;
     }
 
-    public void b(int i) {
+    public final void b(int i) {
         this.r = i;
     }
 
-    public int c() {
+    public final int c() {
         return this.o;
     }
 
-    public void c(int i) {
+    public final void c(int i) {
         this.o = i;
     }
 
-    public int d() {
+    public final int d() {
         return this.p;
     }
 
-    public void d(int i) {
+    public final void d(int i) {
         this.p = i;
     }
 
-    public int e() {
+    public final int e() {
         return this.m;
     }
 
-    public void e(int i) {
+    public final void e(int i) {
         this.m = i;
     }
 
-    public int f() {
+    public final int f() {
         return this.n;
     }
 
-    public void f(int i) {
+    public final void f(int i) {
         this.n = i;
     }
 
-    public String g() {
+    public final String g() {
         return this.a;
     }
 
-    public int h() {
+    public final int h() {
         return this.s;
     }
 
-    public void g(int i) {
+    public final void g(int i) {
         this.s = i;
     }
 
-    public int i() {
+    public final int i() {
         return this.t;
     }
 
-    public void h(int i) {
+    public final void h(int i) {
         this.t = i;
     }
 
-    public void b(String str) {
+    public final void b(String str) {
         this.a = str;
     }
 
-    public String j() {
+    public final String j() {
         return this.b;
     }
 
-    public void c(String str) {
+    public final void c(String str) {
         this.b = str;
     }
 
-    public int k() {
+    public final int k() {
         return this.c;
     }
 
-    public void i(int i) {
+    public final void i(int i) {
         this.c = i;
     }
 
-    public int l() {
+    public final int l() {
         return this.d;
     }
 
-    public void j(int i) {
+    public final void j(int i) {
         this.d = i;
     }
 
-    public int m() {
+    public final int m() {
         return this.g;
     }
 
-    public void k(int i) {
+    public final void k(int i) {
         this.g = i;
     }
 
-    public int n() {
+    public final int n() {
         return this.h;
     }
 
-    public void l(int i) {
+    public final void l(int i) {
         this.h = i;
     }
 
-    public int o() {
+    public final int o() {
         return this.e;
     }
 
-    public void m(int i) {
+    public final void m(int i) {
         this.e = i;
     }
 
-    public int p() {
+    public final int p() {
         return this.f;
     }
 
-    public void n(int i) {
+    public final void n(int i) {
         this.f = i;
     }
 
-    public int q() {
+    public final int q() {
         return this.j;
     }
 
-    public int r() {
+    public final int r() {
         return this.i;
     }
 
-    public void o(int i) {
+    public final void o(int i) {
         this.i = i;
     }
 
-    public void p(int i) {
+    public final void p(int i) {
         this.j = i;
     }
 
-    public int s() {
+    public final int s() {
         return this.l;
     }
 
-    public void q(int i) {
+    public final void q(int i) {
         this.l = i;
     }
 
-    public int t() {
+    public final int t() {
         return this.k;
     }
 
-    public void r(int i) {
+    public final void r(int i) {
         this.k = i;
     }
 
-    public int u() {
+    public final int u() {
         return this.u;
     }
 
-    public void s(int i) {
+    public final void s(int i) {
         this.u = i;
     }
 
-    public int v() {
+    public final int v() {
         return this.v;
     }
 
-    public void t(int i) {
+    public final void t(int i) {
         this.v = i;
     }
 }

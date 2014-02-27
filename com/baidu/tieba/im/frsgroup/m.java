@@ -11,7 +11,7 @@ import com.baidu.tieba.util.bq;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class m extends com.baidu.adp.a.e {
+public final class m extends com.baidu.adp.a.e {
     protected NavigationBar a;
     private GroupLevelActivity c;
     private View d;
@@ -47,16 +47,6 @@ public class m extends com.baidu.adp.a.e {
         this.a = null;
         this.c = groupLevelActivity;
         groupLevelActivity.setContentView(R.layout.im_grouplevel_activity);
-        b(groupLevelActivity);
-        a(groupLevelActivity);
-    }
-
-    private void a(GroupLevelActivity groupLevelActivity) {
-        this.e.setOnClickListener(this.c);
-        this.y.setOnClickListener(this.c);
-    }
-
-    private void b(GroupLevelActivity groupLevelActivity) {
         this.d = groupLevelActivity.findViewById(R.id.parent);
         this.t = (ProgressBar) groupLevelActivity.findViewById(R.id.progress_loading);
         this.f = (ImageView) groupLevelActivity.findViewById(R.id.level_image_1);
@@ -91,9 +81,11 @@ public class m extends com.baidu.adp.a.e {
         this.e = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.y = (Button) groupLevelActivity.findViewById(R.id.upgrade_mem_group_btn);
         this.z = (TextView) groupLevelActivity.findViewById(R.id.upgrade_mem_group_tip);
+        this.e.setOnClickListener(this.c);
+        this.y.setOnClickListener(this.c);
     }
 
-    public void a(boolean z, boolean z2, boolean z3, int i) {
+    public final void a(boolean z, boolean z2, boolean z3, int i) {
         String string;
         if (z) {
             this.i.setText(TiebaApplication.g().getString(R.string.grouplevel_vip_current_level));
@@ -126,62 +118,62 @@ public class m extends com.baidu.adp.a.e {
         this.z.setText(string);
     }
 
-    public ImageView a() {
+    public final ImageView a() {
         return this.e;
     }
 
-    public Button e() {
+    public final Button d() {
         return this.y;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.c.getLayoutMode().a(i == 1);
         this.c.getLayoutMode().a(this.d);
-        this.a.c(i);
+        this.a.b(i);
     }
 
-    public TextView[] f() {
+    public final TextView[] e() {
         return this.v;
     }
 
-    public TextView[] g() {
+    public final TextView[] f() {
         return this.w;
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.t.setVisibility(z ? 0 : 8);
     }
 
-    public void a(int i, boolean z) {
+    public final void a(int i, boolean z) {
         int i2 = 1;
         if (i <= 1) {
             i = 1;
         }
         while (i2 <= i) {
-            if (!z) {
-                bq.d(this.u[i2], (int) R.drawable.icon_grade_big_star_s);
-            } else {
+            if (z) {
                 bq.d(this.u[i2], (int) R.drawable.icon_vip_grade_big_star_s);
+            } else {
+                bq.d(this.u[i2], (int) R.drawable.icon_grade_big_star_s);
             }
             i2++;
         }
         while (i2 <= 3) {
-            if (!z) {
-                bq.d(this.u[i2], (int) R.drawable.icon_grade_big_star_n);
-            } else {
+            if (z) {
                 bq.d(this.u[i2], (int) R.drawable.icon_vip_grade_big_star_n);
+            } else {
+                bq.d(this.u[i2], (int) R.drawable.icon_grade_big_star_n);
             }
             i2++;
         }
         this.j.setText(this.x[i]);
     }
 
-    public TextView h() {
+    public final TextView g() {
         return this.p;
     }
 
-    public void a(int i, int i2, int i3) {
-        if (i >= 1 && i <= 2) {
+    public final void a(int i, int i2, int i3) {
+        if (i > 0 && i <= 2) {
             this.k.setVisibility(0);
             this.l.setVisibility(8);
             this.m.setProgress((int) ((i2 / i3) * 100.0f));

@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -17,19 +18,34 @@ public final class h extends GeneratedMessageLite.Builder<QueryGroupGradeRes.Dat
     private QueryGroupGradeRes.MemberPerm d = QueryGroupGradeRes.MemberPerm.getDefaultInstance();
     private List<Im.GradeInfo> e = Collections.emptyList();
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        QueryGroupGradeRes.DataRes buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return QueryGroupGradeRes.DataRes.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return QueryGroupGradeRes.DataRes.getDefaultInstance();
+    }
+
     private h() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static h h() {
+    public static /* synthetic */ h b() {
         return new h();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public h clear() {
         super.clear();
         this.b = Im.GroupInfo.getDefaultInstance();
@@ -44,30 +60,14 @@ public final class h extends GeneratedMessageLite.Builder<QueryGroupGradeRes.Dat
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public h clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public QueryGroupGradeRes.DataRes getDefaultInstanceForType() {
-        return QueryGroupGradeRes.DataRes.getDefaultInstance();
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public QueryGroupGradeRes.DataRes build() {
-        QueryGroupGradeRes.DataRes buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
+    public h clone() {
+        return new h().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public QueryGroupGradeRes.DataRes buildPartial() {
+    /* renamed from: a */
+    public final QueryGroupGradeRes.DataRes buildPartial() {
         QueryGroupGradeRes.DataRes dataRes = new QueryGroupGradeRes.DataRes(this, (QueryGroupGradeRes.DataRes) null);
         int i = this.a;
         int i2 = (i & 1) != 1 ? 0 : 1;
@@ -92,7 +92,7 @@ public final class h extends GeneratedMessageLite.Builder<QueryGroupGradeRes.Dat
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public h mergeFrom(QueryGroupGradeRes.DataRes dataRes) {
+    public final h mergeFrom(QueryGroupGradeRes.DataRes dataRes) {
         List list;
         List list2;
         List list3;
@@ -101,7 +101,13 @@ public final class h extends GeneratedMessageLite.Builder<QueryGroupGradeRes.Dat
         List<Im.GradeInfo> list6;
         if (dataRes != QueryGroupGradeRes.DataRes.getDefaultInstance()) {
             if (dataRes.hasGroupInfo()) {
-                a(dataRes.getGroupInfo());
+                Im.GroupInfo groupInfo = dataRes.getGroupInfo();
+                if ((this.a & 1) != 1 || this.b == Im.GroupInfo.getDefaultInstance()) {
+                    this.b = groupInfo;
+                } else {
+                    this.b = Im.GroupInfo.newBuilder(this.b).mergeFrom(groupInfo).buildPartial();
+                }
+                this.a |= 1;
             }
             list = dataRes.gradeInfos_;
             if (!list.isEmpty()) {
@@ -110,14 +116,23 @@ public final class h extends GeneratedMessageLite.Builder<QueryGroupGradeRes.Dat
                     this.c = list6;
                     this.a &= -3;
                 } else {
-                    i();
+                    if ((this.a & 2) != 2) {
+                        this.c = new ArrayList(this.c);
+                        this.a |= 2;
+                    }
                     List<Im.GradeInfo> list7 = this.c;
                     list5 = dataRes.gradeInfos_;
                     list7.addAll(list5);
                 }
             }
             if (dataRes.hasMemberPerm()) {
-                a(dataRes.getMemberPerm());
+                QueryGroupGradeRes.MemberPerm memberPerm = dataRes.getMemberPerm();
+                if ((this.a & 4) != 4 || this.d == QueryGroupGradeRes.MemberPerm.getDefaultInstance()) {
+                    this.d = memberPerm;
+                } else {
+                    this.d = QueryGroupGradeRes.MemberPerm.newBuilder(this.d).mergeFrom(memberPerm).buildPartial();
+                }
+                this.a |= 4;
             }
             list2 = dataRes.memberGradeInfos_;
             if (!list2.isEmpty()) {
@@ -126,7 +141,10 @@ public final class h extends GeneratedMessageLite.Builder<QueryGroupGradeRes.Dat
                     this.e = list4;
                     this.a &= -9;
                 } else {
-                    j();
+                    if ((this.a & 8) != 8) {
+                        this.e = new ArrayList(this.e);
+                        this.a |= 8;
+                    }
                     List<Im.GradeInfo> list8 = this.e;
                     list3 = dataRes.memberGradeInfos_;
                     list8.addAll(list3);
@@ -176,40 +194,6 @@ public final class h extends GeneratedMessageLite.Builder<QueryGroupGradeRes.Dat
                 }
                 throw th;
             }
-        }
-    }
-
-    public h a(Im.GroupInfo groupInfo) {
-        if ((this.a & 1) == 1 && this.b != Im.GroupInfo.getDefaultInstance()) {
-            this.b = Im.GroupInfo.newBuilder(this.b).mergeFrom(groupInfo).buildPartial();
-        } else {
-            this.b = groupInfo;
-        }
-        this.a |= 1;
-        return this;
-    }
-
-    private void i() {
-        if ((this.a & 2) != 2) {
-            this.c = new ArrayList(this.c);
-            this.a |= 2;
-        }
-    }
-
-    public h a(QueryGroupGradeRes.MemberPerm memberPerm) {
-        if ((this.a & 4) == 4 && this.d != QueryGroupGradeRes.MemberPerm.getDefaultInstance()) {
-            this.d = QueryGroupGradeRes.MemberPerm.newBuilder(this.d).mergeFrom(memberPerm).buildPartial();
-        } else {
-            this.d = memberPerm;
-        }
-        this.a |= 4;
-        return this;
-    }
-
-    private void j() {
-        if ((this.a & 8) != 8) {
-            this.e = new ArrayList(this.e);
-            this.a |= 8;
         }
     }
 }

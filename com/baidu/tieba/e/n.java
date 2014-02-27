@@ -10,7 +10,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n {
+public final class n {
     public boolean a = false;
     final /* synthetic */ i b;
     private TextView c;
@@ -31,32 +31,32 @@ public class n {
         this.g.setOnClickListener(new o(this, context));
     }
 
-    public void a() {
+    public final void a() {
         LinearLayout linearLayout;
         this.a = false;
         this.c.setVisibility(8);
         this.d.setVisibility(8);
         this.e.setVisibility(8);
         this.f.setVisibility(8);
-        int i = TiebaApplication.g().al() == 1 ? R.color.forumfeed_frs_bg_1 : R.color.forumfeed_frs_bg;
+        int i = TiebaApplication.g().ae() == 1 ? R.color.forumfeed_frs_bg_1 : R.color.forumfeed_frs_bg;
         linearLayout = this.b.n;
         linearLayout.setBackgroundResource(i);
     }
 
-    public void b() {
+    public final void b() {
         LinearLayout linearLayout;
         this.a = true;
-        int al = TiebaApplication.g().al();
+        int ae = TiebaApplication.g().ae();
         this.c.setVisibility(0);
         this.d.setVisibility(0);
         this.e.setVisibility(0);
         this.f.setVisibility(0);
-        a(al);
+        a(ae);
         linearLayout = this.b.n;
         linearLayout.setBackgroundColor(0);
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         if (i == 1) {
             this.h.setBackgroundResource(R.color.forumfeed_frs_bg_1);
         } else if (this.a) {

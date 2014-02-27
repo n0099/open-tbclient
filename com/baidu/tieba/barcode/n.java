@@ -33,11 +33,11 @@ public final class n extends Thread {
             this.b.put(DecodeHintType.CHARACTER_SET, str);
         }
         this.b.put(DecodeHintType.NEED_RESULT_POINT_CALLBACK, resultPointCallback);
-        com.baidu.adp.lib.util.f.a(getClass().getName(), "DecodeThread", "Hints: " + this.b);
+        com.baidu.adp.lib.util.e.a(getClass().getName(), "DecodeThread", "Hints: " + this.b);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Handler a() {
+    public final Handler a() {
         try {
             this.d.await();
         } catch (InterruptedException e) {
@@ -46,7 +46,7 @@ public final class n extends Thread {
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
+    public final void run() {
         Looper.prepare();
         this.c = new m(this.a, this.b);
         this.d.countDown();

@@ -2,17 +2,37 @@ package com.baidu.tieba.im.groupCard;
 
 import android.graphics.Bitmap;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.f;
+import com.baidu.adp.lib.util.e;
 import com.baidu.tieba.util.af;
 import com.baidu.tieba.util.ay;
 import com.baidu.tieba.util.bs;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c extends BdAsyncTask<String, Integer, String> {
+public final class c extends BdAsyncTask<String, Integer, String> {
     String a;
     Bitmap b;
     final /* synthetic */ b c;
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ String a(String... strArr) {
+        return d();
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ void a(String str) {
+        GroupCardActivity groupCardActivity;
+        String str2 = str;
+        super.a((c) str2);
+        groupCardActivity = this.c.b;
+        groupCardActivity.showToast(str2);
+        this.c.d = null;
+    }
 
     public c(b bVar, Bitmap bitmap) {
         String str;
@@ -24,10 +44,7 @@ public class c extends BdAsyncTask<String, Integer, String> {
         this.b = bitmap;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public String a(String... strArr) {
+    private String d() {
         GroupCardActivity groupCardActivity;
         GroupCardActivity groupCardActivity2;
         String f;
@@ -56,31 +73,20 @@ public class c extends BdAsyncTask<String, Integer, String> {
             }
             return af.b();
         } catch (Exception e) {
-            f.b("SaveImageAsyncTask", "doInBackground", "error" + e.getMessage());
+            e.b("SaveImageAsyncTask", "doInBackground", "error" + e.getMessage());
             groupCardActivity = this.c.b;
             return groupCardActivity.getString(R.string.save_error);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(String str) {
-        GroupCardActivity groupCardActivity;
-        super.a((c) str);
-        groupCardActivity = this.c.b;
-        groupCardActivity.showToast(str);
-        this.c.d = null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void c() {
+    public final void c() {
         super.c();
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
+    public final void cancel() {
         this.c.d = null;
         super.cancel(true);
     }

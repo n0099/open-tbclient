@@ -1,7 +1,6 @@
 package com.baidu.tieba.person;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cn implements com.baidu.adp.widget.ListView.r {
+final class cn implements com.baidu.adp.widget.ListView.r {
     final /* synthetic */ cm a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,7 +9,7 @@ public class cn implements com.baidu.adp.widget.ListView.r {
     }
 
     @Override // com.baidu.adp.widget.ListView.r
-    public void a() {
+    public final void b() {
         com.baidu.tieba.model.bp bpVar;
         bj bjVar;
         bj bjVar2;
@@ -18,13 +17,13 @@ public class cn implements com.baidu.adp.widget.ListView.r {
             bpVar = this.a.c;
             if (bpVar.b()) {
                 bjVar2 = this.a.m;
-                bjVar2.b();
+                bjVar2.a();
                 return;
             }
             this.a.a(true);
             bjVar = this.a.m;
-            bjVar.g();
-            this.a.k();
+            bjVar.e();
+            this.a.c.a(false, true, 2);
         }
     }
 }

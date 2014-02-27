@@ -4,25 +4,32 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.GetPeerInfo.GetPeerInfoReq;
 /* loaded from: classes.dex */
 public final class e extends GeneratedMessageLite.Builder<GetPeerInfoReq.GetPeerInfoReqIdl, e> implements f {
     private int a;
     private GetPeerInfoReq.DataReq b = GetPeerInfoReq.DataReq.getDefaultInstance();
 
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return GetPeerInfoReq.GetPeerInfoReqIdl.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return GetPeerInfoReq.GetPeerInfoReqIdl.getDefaultInstance();
+    }
+
     private e() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static e h() {
+    public static /* synthetic */ e b() {
         return new e();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public e clear() {
         super.clear();
         this.b = GetPeerInfoReq.DataReq.getDefaultInstance();
@@ -31,20 +38,14 @@ public final class e extends GeneratedMessageLite.Builder<GetPeerInfoReq.GetPeer
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
+    /* renamed from: d */
     public e clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public GetPeerInfoReq.GetPeerInfoReqIdl getDefaultInstanceForType() {
-        return GetPeerInfoReq.GetPeerInfoReqIdl.getDefaultInstance();
+        return new e().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: d */
-    public GetPeerInfoReq.GetPeerInfoReqIdl build() {
+    /* renamed from: a */
+    public final GetPeerInfoReq.GetPeerInfoReqIdl build() {
         GetPeerInfoReq.GetPeerInfoReqIdl buildPartial = buildPartial();
         if (!buildPartial.isInitialized()) {
             throw newUninitializedMessageException(buildPartial);
@@ -64,9 +65,15 @@ public final class e extends GeneratedMessageLite.Builder<GetPeerInfoReq.GetPeer
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public e mergeFrom(GetPeerInfoReq.GetPeerInfoReqIdl getPeerInfoReqIdl) {
+    public final e mergeFrom(GetPeerInfoReq.GetPeerInfoReqIdl getPeerInfoReqIdl) {
         if (getPeerInfoReqIdl != GetPeerInfoReq.GetPeerInfoReqIdl.getDefaultInstance() && getPeerInfoReqIdl.hasData()) {
-            b(getPeerInfoReqIdl.getData());
+            GetPeerInfoReq.DataReq data = getPeerInfoReqIdl.getData();
+            if ((this.a & 1) != 1 || this.b == GetPeerInfoReq.DataReq.getDefaultInstance()) {
+                this.b = data;
+            } else {
+                this.b = GetPeerInfoReq.DataReq.newBuilder(this.b).mergeFrom(data).buildPartial();
+            }
+            this.a |= 1;
         }
         return this;
     }
@@ -114,21 +121,11 @@ public final class e extends GeneratedMessageLite.Builder<GetPeerInfoReq.GetPeer
         }
     }
 
-    public e a(GetPeerInfoReq.DataReq dataReq) {
+    public final e a(GetPeerInfoReq.DataReq dataReq) {
         if (dataReq != null) {
             this.b = dataReq;
             this.a |= 1;
         }
-        return this;
-    }
-
-    public e b(GetPeerInfoReq.DataReq dataReq) {
-        if ((this.a & 1) == 1 && this.b != GetPeerInfoReq.DataReq.getDefaultInstance()) {
-            this.b = GetPeerInfoReq.DataReq.newBuilder(this.b).mergeFrom(dataReq).buildPartial();
-        } else {
-            this.b = dataReq;
-        }
-        this.a |= 1;
         return this;
     }
 }

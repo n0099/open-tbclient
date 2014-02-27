@@ -47,7 +47,7 @@ public class WebBdActivity extends com.baidu.tieba.f implements Observer {
             this.a.setCallback(new ex(this));
             this.a.onCreate(bundle);
         } catch (Throwable th) {
-            com.baidu.adp.lib.util.f.b("Exception: " + th.getMessage());
+            com.baidu.adp.lib.util.e.b("Exception: " + th.getMessage());
             UtilHelper.a((Context) this, getIntent().getStringExtra(SocialConstants.PARAM_URL), true);
             finish();
         }

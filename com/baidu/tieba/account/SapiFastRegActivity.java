@@ -21,7 +21,7 @@ public class SapiFastRegActivity extends com.baidu.tieba.f {
     private az d = new bn(this);
 
     public static void a(Activity activity, int i) {
-        activity.startActivityForResult(new Intent(activity, SapiFastRegActivity.class), i);
+        activity.startActivityForResult(new Intent(activity, SapiFastRegActivity.class), 22002);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -29,25 +29,21 @@ public class SapiFastRegActivity extends com.baidu.tieba.f {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.pass_spi_webview_fastreg);
-        a();
-    }
-
-    protected void a() {
         SapiWebView sapiWebView = (SapiWebView) findViewById(R.id.sapi_webview);
         sapiWebView.setOnFinishCallback(new bp(this));
         sapiWebView.setAuthorizationListener(new bq(this));
         sapiWebView.loadFastReg();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(AccountData accountData) {
-        if (this.a == null) {
-            this.a = new y(this);
-            this.a.a(new bs(this));
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(SapiFastRegActivity sapiFastRegActivity, AccountData accountData) {
+        if (sapiFastRegActivity.a == null) {
+            sapiFastRegActivity.a = new y(sapiFastRegActivity);
+            sapiFastRegActivity.a.a(new bs(sapiFastRegActivity));
         }
-        this.a.e();
-        this.a.a(accountData);
-        this.a.a();
+        sapiFastRegActivity.a.e();
+        sapiFastRegActivity.a.a(accountData);
+        sapiFastRegActivity.a.a();
     }
 
     public static void a(Context context) {

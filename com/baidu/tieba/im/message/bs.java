@@ -10,25 +10,21 @@ public class bs extends br {
         e(205001);
     }
 
-    public String d() {
+    public final String d() {
         return this.a;
     }
 
-    public void b(String str) {
-        this.a = str;
-    }
-
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<s> linkedList, byte[] bArr, int i) {
+    public final void a(LinkedList<s> linkedList, byte[] bArr, int i) {
         CommitPersonalMsgRes.CommitPersonalMsgResIdl parseFrom = CommitPersonalMsgRes.CommitPersonalMsgResIdl.parseFrom(bArr);
         g(parseFrom.getError().getErrorno());
         c(parseFrom.getError().getUsermsg());
         linkedList.add(this);
         if (!l()) {
-            a(com.baidu.tieba.im.chat.be.b(parseFrom.getData().getMsgId()));
+            a(parseFrom.getData().getMsgId() * 100);
             b(parseFrom.getData().getRecordId());
             a(String.valueOf(parseFrom.getData().getGroupId()));
-            b(String.valueOf(parseFrom.getData().getToUid()));
+            this.a = String.valueOf(parseFrom.getData().getToUid());
         }
     }
 }

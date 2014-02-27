@@ -1,6 +1,6 @@
 package com.baidu.adp.lib.cache;
 /* loaded from: classes.dex */
-public class n {
+public final class n {
     public String a;
     public String b;
     public int c;

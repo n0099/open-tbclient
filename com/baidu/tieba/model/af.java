@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class af {
+public final class af {
     private ForumData a = new ForumData();
     private ArrayList<com.baidu.tieba.data.ba> b = new ArrayList<>();
     private ArrayList<String> c = new ArrayList<>();
@@ -16,11 +16,11 @@ public class af {
     private AntiData g = new AntiData();
     private com.baidu.tieba.data.aj h = new com.baidu.tieba.data.aj();
 
-    public ArrayList<com.baidu.tieba.data.ba> a() {
+    public final ArrayList<com.baidu.tieba.data.ba> a() {
         return this.b;
     }
 
-    public void a(JSONObject jSONObject) {
+    public final void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 this.a.parserJson(jSONObject.optJSONObject("forum"));
@@ -47,7 +47,7 @@ public class af {
                     this.f = optJSONObject.optInt("current_count", 0);
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
             }
         }
     }

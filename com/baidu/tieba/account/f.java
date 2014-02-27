@@ -5,7 +5,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements at {
+public final class f implements at {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,14 +14,15 @@ public class f implements at {
     }
 
     @Override // com.baidu.tieba.account.at
-    public void a(AccountData accountData) {
+    public final void a(AccountData accountData) {
         boolean z;
         Activity activity;
         k kVar;
         k kVar2;
         z = this.a.e;
         if (z) {
-            this.a.b("login_after_shareout_by_up");
+            a aVar = this.a;
+            a.b("login_after_shareout_by_up");
         }
         activity = this.a.b;
         TiebaApplication.a(accountData, activity);
@@ -34,7 +35,7 @@ public class f implements at {
     }
 
     @Override // com.baidu.tieba.account.at
-    public void a(String str) {
+    public final void a() {
         this.a.b();
     }
 }

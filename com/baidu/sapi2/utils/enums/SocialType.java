@@ -16,11 +16,11 @@ public enum SocialType {
         this.b = str;
     }
 
-    public int getType() {
+    public final int getType() {
         return this.a;
     }
 
-    public String getName() {
+    public final String getName() {
         return this.b;
     }
 

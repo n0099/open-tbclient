@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.ImageView;
 import com.baidu.tbadk.gif.GifView;
 /* loaded from: classes.dex */
-class k implements View.OnClickListener {
+final class k implements View.OnClickListener {
     final /* synthetic */ TbRichTextView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ class k implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         r rVar;
         String str;
         r rVar2;

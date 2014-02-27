@@ -5,7 +5,7 @@ import com.baidu.tieba.util.cj;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class r implements cj {
+final class r implements cj {
     final /* synthetic */ q a;
     private final /* synthetic */ String b;
     private final /* synthetic */ com.baidu.adp.widget.ImageView.b c;
@@ -18,7 +18,7 @@ class r implements cj {
     }
 
     @Override // com.baidu.tieba.util.cj
-    public boolean a(View view) {
+    public final boolean a(View view) {
         if (view instanceof HeadImageView) {
             HeadImageView headImageView = (HeadImageView) view;
             if (this.b.equals(headImageView.getTag())) {

@@ -5,7 +5,7 @@ import android.os.Message;
 import android.os.SystemClock;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bu extends Handler {
+public final class bu extends Handler {
     final /* synthetic */ bt a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ public class bu extends Handler {
     }
 
     @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    public final void handleMessage(Message message) {
         long j;
         long j2;
         long j3;

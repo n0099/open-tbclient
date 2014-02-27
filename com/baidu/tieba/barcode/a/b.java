@@ -10,12 +10,12 @@ final class b extends AsyncTask<Object, Object, Object> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ b(a aVar, b bVar) {
+    public /* synthetic */ b(a aVar, byte b) {
         this(aVar);
     }
 
     @Override // android.os.AsyncTask
-    protected Object doInBackground(Object... objArr) {
+    protected final Object doInBackground(Object... objArr) {
         try {
             Thread.sleep(2000L);
         } catch (InterruptedException e) {

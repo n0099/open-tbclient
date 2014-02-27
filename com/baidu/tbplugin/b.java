@@ -1,8 +1,8 @@
 package com.baidu.tbplugin;
 
 import android.content.Context;
-import android.os.AsyncTask;
 import android.support.v4.view.MotionEventCompat;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbplugin.exceptions.InstallException;
 import java.io.File;
 import java.io.IOException;
@@ -11,104 +11,138 @@ import java.util.List;
 import org.apache.commons.io.FileUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b extends AsyncTask<Void, Integer, Void> {
+public final class b extends BdAsyncTask<Void, Integer, Void> {
     final /* synthetic */ a a;
     private String b;
     private boolean c;
     private boolean d;
     private boolean e;
 
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ Void a(Void... voidArr) {
+        return d();
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ void b(Integer... numArr) {
+        h hVar;
+        h unused;
+        Integer[] numArr2 = numArr;
+        hVar = this.a.b;
+        if (hVar != null) {
+            unused = this.a.b;
+            f.a(numArr2[0].intValue(), numArr2[1].intValue());
+        }
+    }
+
     private b(a aVar) {
         this.a = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ b(a aVar, b bVar) {
+    public /* synthetic */ b(a aVar, byte b) {
         this(aVar);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public synchronized Void doInBackground(Void... voidArr) {
+    private synchronized Void d() {
         h hVar;
         h hVar2;
+        h hVar3;
+        Class cls;
+        Class cls2;
+        Context context;
+        h hVar4;
+        h hVar5;
+        Class cls3;
+        Context context2;
         try {
-            a();
-            File b = b();
-            a(b);
-            k b2 = b(FileUtils.getFile(b, "plugin.xml"));
-            a(b2, b);
-            b(b2, b);
-            c(b);
-            hVar2 = this.a.b;
-            hVar2.a(0, null);
+            hVar3 = this.a.b;
         } catch (InstallException e) {
             hVar = this.a.b;
-            hVar.a(1, e.getMessage());
+            if (hVar != null) {
+                hVar2 = this.a.b;
+                hVar2.a(1, e.getMessage());
+            }
+        }
+        if (hVar3 == null) {
+            throw new InstallException("No installation callback");
+        }
+        cls = this.a.a;
+        com.baidu.tbplugin.a.c cVar = (com.baidu.tbplugin.a.c) f.a(cls, com.baidu.tbplugin.a.c.class);
+        if (cVar == null || cVar.a().equals("")) {
+            throw new InstallException("Plugin has no name");
+        }
+        this.b = cVar.a();
+        cls2 = this.a.a;
+        if (f.a(cls2)) {
+            cls3 = this.a.a;
+            context2 = this.a.c;
+            new o(cls3, context2, null).a();
+        }
+        File e2 = e();
+        c((Object[]) new Integer[]{2, 0});
+        try {
+            context = this.a.c;
+            new c(context.getAssets().open(String.valueOf(this.b) + ".tbplugin"), e2.getAbsolutePath()).a();
+            c((Object[]) new Integer[]{2, Integer.valueOf((int) MotionEventCompat.ACTION_MASK)});
+            File file = FileUtils.getFile(e2, "plugin.xml");
+            c((Object[]) new Integer[]{3, 0});
+            k kVar = new k(file);
+            c((Object[]) new Integer[]{3, Integer.valueOf((int) MotionEventCompat.ACTION_MASK)});
+            a(kVar, e2);
+            try {
+                c((Object[]) new Integer[]{5, 0});
+                if (this.c) {
+                    FileUtils.copyFileToDirectory(new File(String.valueOf(e2.getAbsolutePath()) + "/jar/" + kVar.b()), f.a());
+                }
+                c((Object[]) new Integer[]{5, 68});
+                if (this.d) {
+                    FileUtils.copyDirectory(new File(String.format("%s/so/%s/", e2.getAbsolutePath(), j.a)), f.c());
+                }
+                c((Object[]) new Integer[]{5, 136});
+                if (this.e) {
+                    FileUtils.copyFileToDirectory(new File(String.valueOf(e2.getAbsolutePath()) + "/res/" + kVar.c()), f.b());
+                }
+                c((Object[]) new Integer[]{5, 187});
+                FileUtils.copyFile(new File(String.valueOf(e2.getAbsolutePath()) + "/plugin.xml"), FileUtils.getFile(f.d(), String.valueOf(this.b) + ".xml"));
+                c((Object[]) new Integer[]{5, Integer.valueOf((int) MotionEventCompat.ACTION_MASK)});
+                try {
+                    FileUtils.deleteDirectory(e2);
+                    hVar4 = this.a.b;
+                    if (hVar4 != null) {
+                        hVar5 = this.a.b;
+                        hVar5.a(0, null);
+                    }
+                } catch (IOException e3) {
+                    throw new InstallException("Delete temporary files failed");
+                }
+            } catch (Exception e4) {
+                throw new InstallException("Nested exception: " + e4.getMessage());
+            }
+        } catch (IOException e5) {
+            throw new InstallException("Plugin files decompress failed.");
         }
         return null;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public void onProgressUpdate(Integer... numArr) {
-        h hVar;
-        hVar = this.a.b;
-        hVar.a(f.a(numArr[0].intValue(), numArr[1].intValue()));
-    }
-
-    private void a() {
-        h hVar;
-        Class cls;
-        hVar = this.a.b;
-        if (hVar != null) {
-            cls = this.a.a;
-            com.baidu.tbplugin.a.c cVar = (com.baidu.tbplugin.a.c) f.a(cls, com.baidu.tbplugin.a.c.class);
-            if (cVar == null || cVar.a().equals("")) {
-                throw new InstallException("Plugin has no name");
-            }
-            this.b = cVar.a();
-            return;
-        }
-        throw new InstallException("No installation callback");
-    }
-
-    private File b() {
+    private File e() {
         Context context;
-        publishProgress(1, 0);
+        c((Object[]) new Integer[]{1, 0});
         try {
             context = this.a.c;
             File file = FileUtils.getFile(context.getFilesDir(), "tmp" + File.separator + this.b);
             FileUtils.deleteDirectory(file);
             FileUtils.forceMkdir(file);
-            publishProgress(1, Integer.valueOf((int) MotionEventCompat.ACTION_MASK));
+            c((Object[]) new Integer[]{1, Integer.valueOf((int) MotionEventCompat.ACTION_MASK)});
             return file;
         } catch (IOException e) {
             throw new InstallException("Directory create failed: " + e.getMessage());
         }
-    }
-
-    private void a(File file) {
-        Context context;
-        publishProgress(2, 0);
-        try {
-            context = this.a.c;
-            new c(context.getAssets().open(String.valueOf(this.b) + ".tbplugin"), file.getAbsolutePath()).a();
-            publishProgress(2, Integer.valueOf((int) MotionEventCompat.ACTION_MASK));
-        } catch (IOException e) {
-            throw new InstallException("Plugin files decompress failed.");
-        }
-    }
-
-    private k b(File file) {
-        publishProgress(3, 0);
-        k kVar = new k(file);
-        publishProgress(3, Integer.valueOf((int) MotionEventCompat.ACTION_MASK));
-        return kVar;
     }
 
     private boolean a(k kVar, File file) {
@@ -121,7 +155,7 @@ public class b extends AsyncTask<Void, Integer, Void> {
         File file2;
         File file3;
         File file4;
-        publishProgress(4, 0);
+        c((Object[]) new Integer[]{4, 0});
         if (kVar.a().equals(this.b)) {
             cls = this.a.a;
             com.baidu.tbplugin.a.a aVar = (com.baidu.tbplugin.a.a) f.a(cls, com.baidu.tbplugin.a.a.class);
@@ -136,7 +170,7 @@ public class b extends AsyncTask<Void, Integer, Void> {
                 z = true;
             }
             this.c = z4 && z && b.equals(aVar.a());
-            publishProgress(4, 85);
+            c((Object[]) new Integer[]{4, 85});
             cls2 = this.a.a;
             com.baidu.tbplugin.a.d dVar = (com.baidu.tbplugin.a.d) f.a(cls2, com.baidu.tbplugin.a.d.class);
             boolean z5 = (dVar == null || dVar.a().length() == 0) ? false : true;
@@ -150,7 +184,7 @@ public class b extends AsyncTask<Void, Integer, Void> {
                 z2 = true;
             }
             this.e = z5 && z2 && c.equals(dVar.a());
-            publishProgress(4, 170);
+            c((Object[]) new Integer[]{4, 170});
             cls3 = this.a.a;
             com.baidu.tbplugin.a.b bVar = (com.baidu.tbplugin.a.b) f.a(cls3, com.baidu.tbplugin.a.b.class);
             if (bVar != null) {
@@ -195,39 +229,9 @@ public class b extends AsyncTask<Void, Integer, Void> {
                     }
                 }
             }
-            publishProgress(4, Integer.valueOf((int) MotionEventCompat.ACTION_MASK));
+            c((Object[]) new Integer[]{4, Integer.valueOf((int) MotionEventCompat.ACTION_MASK)});
             return true;
         }
         throw new InstallException("Plugin has no name");
-    }
-
-    private void b(k kVar, File file) {
-        try {
-            publishProgress(5, 0);
-            if (this.c) {
-                FileUtils.copyFileToDirectory(new File(String.valueOf(file.getAbsolutePath()) + "/jar/" + kVar.b()), f.a());
-            }
-            publishProgress(5, 68);
-            if (this.d) {
-                FileUtils.copyDirectory(new File(String.format("%s/so/%s/", file.getAbsolutePath(), j.a)), f.c());
-            }
-            publishProgress(5, 136);
-            if (this.e) {
-                FileUtils.copyFileToDirectory(new File(String.valueOf(file.getAbsolutePath()) + "/res/" + kVar.c()), f.b());
-            }
-            publishProgress(5, 187);
-            FileUtils.copyFile(new File(String.valueOf(file.getAbsolutePath()) + "/plugin.xml"), FileUtils.getFile(f.d(), String.valueOf(this.b) + ".xml"));
-            publishProgress(5, Integer.valueOf((int) MotionEventCompat.ACTION_MASK));
-        } catch (Exception e) {
-            throw new InstallException("Nested exception: " + e.getMessage());
-        }
-    }
-
-    private void c(File file) {
-        try {
-            FileUtils.deleteDirectory(file);
-        } catch (IOException e) {
-            throw new InstallException("Delete temporary files failed");
-        }
     }
 }

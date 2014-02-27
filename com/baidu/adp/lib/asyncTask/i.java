@@ -3,7 +3,7 @@ package com.baidu.adp.lib.asyncTask;
 import android.os.Handler;
 import android.os.Process;
 /* loaded from: classes.dex */
-class i extends j {
+final class i extends j {
     final /* synthetic */ f a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +15,7 @@ class i extends j {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [116=4] */
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         Handler handler;
         Handler handler2;
         try {
@@ -28,7 +28,7 @@ class i extends j {
                     Process.setThreadPriority(10);
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(e.getMessage());
+                com.baidu.adp.lib.util.e.b(e.getMessage());
             }
             b();
         } finally {

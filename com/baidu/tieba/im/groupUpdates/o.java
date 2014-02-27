@@ -1,9 +1,8 @@
 package com.baidu.tieba.im.groupUpdates;
 
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o extends com.baidu.tieba.im.c<Boolean> {
+final class o extends com.baidu.tieba.im.b<Boolean> {
     final /* synthetic */ m a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,10 +10,9 @@ public class o extends com.baidu.tieba.im.c<Boolean> {
         this.a = mVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.c
-    /* renamed from: a */
-    public Boolean b() {
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.b
+    public final /* synthetic */ Boolean a() {
         List<UpdatesItemData> list;
         com.baidu.tieba.im.db.c a = com.baidu.tieba.im.db.c.a();
         list = this.a.a;

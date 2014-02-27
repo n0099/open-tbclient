@@ -14,7 +14,7 @@ import com.baidu.tieba.img.WriteImagesInfo;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g extends BaseAdapter {
+public final class g extends BaseAdapter {
     final /* synthetic */ EditorToolComponetContainer a;
     private WriteImagesInfo b;
 
@@ -24,22 +24,22 @@ public class g extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public int getCount() {
+    public final int getCount() {
         return this.b.size();
     }
 
     @Override // android.widget.Adapter
-    public Object getItem(int i) {
+    public final Object getItem(int i) {
         return this.b.getChosedFiles().get(i);
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    public final long getItemId(int i) {
         return i;
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public final View getView(int i, View view, ViewGroup viewGroup) {
         FrameLayout frameLayout;
         int i2;
         int i3;
@@ -51,7 +51,7 @@ public class g extends BaseAdapter {
         } else {
             frameLayout = view;
         }
-        int al = TiebaApplication.g().al();
+        int ae = TiebaApplication.g().ae();
         ImageFileInfo imageFileInfo = this.b.getChosedFiles().get(i);
         int measuredWidth = viewGroup.getMeasuredWidth();
         i2 = this.a.n;
@@ -65,8 +65,8 @@ public class g extends BaseAdapter {
         if (i5 > 0) {
             int paddingRight = (i5 / 3) - linearLayout.getPaddingRight();
             int measuredHeight = viewGroup.getMeasuredHeight() - linearLayout.getPaddingTop();
-            int i6 = al == 1 ? R.drawable.bg_add_photo_1 : R.drawable.bg_add_photo;
-            int i7 = al == 1 ? R.drawable.bg_add_photo_foregroundselector_1 : R.drawable.bg_add_photo_foregroundselector;
+            int i6 = ae == 1 ? R.drawable.bg_add_photo_1 : R.drawable.bg_add_photo;
+            int i7 = ae == 1 ? R.drawable.bg_add_photo_foregroundselector_1 : R.drawable.bg_add_photo_foregroundselector;
             frameLayout3.setBackgroundResource(i6);
             frameLayout3.setForeground(this.a.getResources().getDrawable(i7));
             imageFileInfo.clearPageActions();
@@ -80,13 +80,8 @@ public class g extends BaseAdapter {
         frameLayout2.setLayoutParams(new ViewGroup.LayoutParams(i5 / 3, -1));
         frameLayout2.setOnClickListener(new i(this, viewGroup));
         ImageView imageView = (ImageView) frameLayout2.findViewById(R.id.delete);
-        imageView.setImageResource(al == 1 ? R.drawable.btn_add_photo_close_n_1 : R.drawable.btn_add_photo_close_n);
+        imageView.setImageResource(ae == 1 ? R.drawable.btn_add_photo_close_n_1 : R.drawable.btn_add_photo_close_n);
         imageView.setOnClickListener(new j(this, frameLayout2));
         return frameLayout2;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str) {
-        new k(this, str).execute(new Void[0]);
     }
 }

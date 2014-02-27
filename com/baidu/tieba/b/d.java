@@ -7,12 +7,12 @@ import com.baidu.tieba.l;
 import com.baidu.tieba.util.bv;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class d extends l {
+public final class d extends l {
     private static final String e = String.valueOf(com.baidu.tieba.data.i.a) + "c/u/feed/forum";
     private int c = 0;
     private String d;
 
-    public String b(String str) {
+    public final String b(String str) {
         a("pn", str);
         a("rn", String.valueOf(20));
         this.a.e(true);
@@ -25,14 +25,14 @@ public class d extends l {
         this.a.a("scr_h", String.valueOf(c));
         this.a.a("scr_dip", String.valueOf(f));
         this.a.a("q_type", String.valueOf(i));
-        String m = this.a.m();
-        if (this.a.d()) {
+        String l = this.a.l();
+        if (this.a.c()) {
             this.b = new NewErrorData();
-            this.b.parserJson(m);
-            return m;
-        } else if (this.a.e()) {
-            this.c = this.a.f();
-            this.d = this.a.j();
+            this.b.parserJson(l);
+            return l;
+        } else if (this.a.d()) {
+            this.c = this.a.e();
+            this.d = this.a.i();
             return null;
         } else {
             this.c = -1;
@@ -42,7 +42,7 @@ public class d extends l {
     }
 
     @Override // com.baidu.tieba.l
-    public int e() {
+    public final int e() {
         if (this.b != null) {
             return this.b.getErrorNumber();
         }
@@ -53,7 +53,7 @@ public class d extends l {
     }
 
     @Override // com.baidu.tieba.l
-    public String f() {
+    public final String f() {
         if (this.b != null) {
             return this.b.getErrorMsg();
         }

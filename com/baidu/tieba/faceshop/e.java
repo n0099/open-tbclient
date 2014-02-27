@@ -3,7 +3,7 @@ package com.baidu.tieba.faceshop;
 import android.graphics.Bitmap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e {
+public final class e {
     String a;
     String b;
     boolean c;
@@ -16,7 +16,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ e(EmotionManageActivity emotionManageActivity, e eVar) {
+    public /* synthetic */ e(EmotionManageActivity emotionManageActivity, byte b) {
         this(emotionManageActivity);
     }
 }

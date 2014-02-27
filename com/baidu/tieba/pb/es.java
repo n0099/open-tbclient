@@ -2,7 +2,7 @@ package com.baidu.tieba.pb;
 
 import android.view.View;
 /* loaded from: classes.dex */
-class es implements View.OnClickListener {
+final class es implements View.OnClickListener {
     final /* synthetic */ WebActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +11,7 @@ class es implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         if (this.a.a.canGoBack()) {
             this.a.a.goBack();
         }

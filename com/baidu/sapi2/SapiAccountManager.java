@@ -21,10 +21,12 @@ public final class SapiAccountManager {
     private static SapiConfiguration b;
     private static d c;
     private static SapiAccountService d;
-    private static final List<String> e = new ArrayList();
+    private static final List<String> e;
 
     static {
-        e.addAll(Arrays.asList(SESSION_UID, SESSION_DISPLAYNAME, "bduss", SESSION_PTOKEN, SESSION_STOKEN));
+        ArrayList arrayList = new ArrayList();
+        e = arrayList;
+        arrayList.addAll(Arrays.asList(SESSION_UID, SESSION_DISPLAYNAME, "bduss", SESSION_PTOKEN, SESSION_STOKEN));
     }
 
     public static synchronized SapiAccountManager getInstance() {
@@ -41,14 +43,15 @@ public final class SapiAccountManager {
     private SapiAccountManager() {
     }
 
-    public synchronized void init(SapiConfiguration sapiConfiguration) {
+    public final synchronized void init(SapiConfiguration sapiConfiguration) {
         if (sapiConfiguration == null) {
             throw new IllegalArgumentException(getClass().getSimpleName() + " initialized failed: SapiConfiguration can't be null");
         }
         if (b == null) {
             b = sapiConfiguration;
-            c = d.a(sapiConfiguration.context);
-            c.a(sapiConfiguration);
+            d a2 = d.a(sapiConfiguration.context);
+            c = a2;
+            a2.a(sapiConfiguration);
             com.baidu.sapi2.utils.a.a.a().a(sapiConfiguration.context);
             d = new SapiAccountService(sapiConfiguration.context);
             SapiCache.a(sapiConfiguration.context);
@@ -57,22 +60,22 @@ public final class SapiAccountManager {
         }
     }
 
-    public SapiConfiguration getSapiConfiguration() {
+    public final SapiConfiguration getSapiConfiguration() {
         b();
         return b;
     }
 
-    public SapiAccountService getAccountService() {
+    public final SapiAccountService getAccountService() {
         b();
         return d;
     }
 
-    public boolean isLogin() {
+    public final boolean isLogin() {
         b();
         return c.b() != null;
     }
 
-    public void login(Intent intent) {
+    public final void login(Intent intent) {
         b();
         if (intent == null) {
             throw new IllegalArgumentException("Intent can't be null");
@@ -81,12 +84,12 @@ public final class SapiAccountManager {
         b.context.startActivity(intent);
     }
 
-    public void logout() {
+    public final void logout() {
         b();
         com.baidu.sapi2.b.a.a().b();
     }
 
-    public String getSession(String str, String str2) {
+    public final String getSession(String str, String str2) {
         JSONObject jSONObject;
         b();
         if (str != null && str.trim().length() != 0 && a(str) && isLogin() && (jSONObject = getSession().toJSONObject()) != null) {
@@ -95,27 +98,27 @@ public final class SapiAccountManager {
         return str2;
     }
 
-    public String getSession(String str) {
+    public final String getSession(String str) {
         b();
         return getSession(str, null);
     }
 
-    public SapiAccount getSession() {
+    public final SapiAccount getSession() {
         b();
         return c.b();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public List<SapiAccount> a() {
+    public final List<SapiAccount> a() {
         b();
         return c.c();
     }
 
-    boolean a(String str) {
+    final boolean a(String str) {
         return !TextUtils.isEmpty(str) && e.contains(str);
     }
 
-    void b() {
+    final void b() {
         if (b == null) {
             try {
                 init(c.a());

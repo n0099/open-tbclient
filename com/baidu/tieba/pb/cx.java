@@ -4,7 +4,7 @@ import android.view.animation.Animation;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cx implements Animation.AnimationListener {
+public final class cx implements Animation.AnimationListener {
     final /* synthetic */ cu a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,11 +13,11 @@ public class cx implements Animation.AnimationListener {
     }
 
     @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
+    public final void onAnimationStart(Animation animation) {
     }
 
     @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
+    public final void onAnimationEnd(Animation animation) {
         NewPbActivity newPbActivity;
         this.a.f.setVisibility(4);
         newPbActivity = this.a.h;
@@ -25,6 +25,6 @@ public class cx implements Animation.AnimationListener {
     }
 
     @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
+    public final void onAnimationRepeat(Animation animation) {
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.im.frsgroup;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.util.ap;
 /* loaded from: classes.dex */
-class r implements Runnable {
+final class r implements Runnable {
     final /* synthetic */ MembersActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,12 +12,12 @@ class r implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         ae aeVar;
         ae aeVar2;
         aeVar = this.a.b;
-        BdListView l = aeVar.l();
+        BdListView k = aeVar.k();
         aeVar2 = this.a.b;
-        ap.a(l, aeVar2.i().e(), 1, 0);
+        ap.a(k, aeVar2.h().e(), 1, 0);
     }
 }

@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.os.Handler;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -19,7 +18,7 @@ import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 import java.util.Date;
 /* loaded from: classes.dex */
-public class r extends com.baidu.adp.a.e {
+public final class r extends com.baidu.adp.a.e {
     private static TextView v;
     private GroupActivityActivity a;
     private HeadImageView c;
@@ -45,15 +44,10 @@ public class r extends com.baidu.adp.a.e {
 
     public r(GroupActivityActivity groupActivityActivity) {
         super(groupActivityActivity);
-        this.w = new u(null);
+        this.w = new u((byte) 0);
         this.a = groupActivityActivity;
         groupActivityActivity.setContentView(R.layout.im_group_activity_activity);
         this.d = new com.baidu.tieba.util.i(groupActivityActivity);
-        a(groupActivityActivity);
-        b(groupActivityActivity);
-    }
-
-    private void a(GroupActivityActivity groupActivityActivity) {
         this.e = (NavigationBar) groupActivityActivity.findViewById(R.id.view_navigation_bar);
         this.e.a(groupActivityActivity.getResources().getString(R.string.group_activity));
         this.f = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, groupActivityActivity);
@@ -63,9 +57,6 @@ public class r extends com.baidu.adp.a.e {
         this.u = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, groupActivityActivity.getString(R.string.delete));
         this.u.setOnClickListener(groupActivityActivity);
         this.u.setVisibility(8);
-    }
-
-    private void b(GroupActivityActivity groupActivityActivity) {
         this.h = (RelativeLayout) groupActivityActivity.findViewById(R.id.group_info_container);
         this.c = (HeadImageView) groupActivityActivity.findViewById(R.id.group_head_pic);
         this.c.setAutoChangeStyle(true);
@@ -84,22 +75,22 @@ public class r extends com.baidu.adp.a.e {
         v = (TextView) groupActivityActivity.findViewById(R.id.tv_group_activity_del_tip);
     }
 
-    public void a(GroupActivityData groupActivityData, boolean z) {
+    public final void a(GroupActivityData groupActivityData, boolean z) {
         if (groupActivityData != null) {
             if (!TextUtils.isEmpty(groupActivityData.getActivityPortrait())) {
                 this.d.c(groupActivityData.getActivityPortrait(), new t(this));
             }
             this.i.setText(groupActivityData.getgActivityTitle());
             this.j.setText(String.valueOf(this.a.getResources().getString(R.string.group_activity_creator)) + "：" + groupActivityData.getUserName());
-            if (com.baidu.tieba.im.f.c() != null && com.baidu.tieba.im.f.c().getID() != null && com.baidu.tieba.im.f.c().getID().equals(String.valueOf(groupActivityData.getUserId()))) {
+            if (com.baidu.tieba.im.e.d() != null && com.baidu.tieba.im.e.d().getID() != null && com.baidu.tieba.im.e.d().getID().equals(String.valueOf(groupActivityData.getUserId()))) {
                 if (groupActivityData.getIsEnd() == 1) {
                     this.g.setVisibility(8);
                     this.u.setVisibility(0);
-                    if (TiebaApplication.g().ak() || z) {
+                    if (TiebaApplication.g().ad() || z) {
                         v.setVisibility(8);
                     } else {
                         v.setVisibility(0);
-                        TiebaApplication.g().t(true);
+                        TiebaApplication.g().s(true);
                         this.w.removeMessages(1);
                         this.w.sendMessageDelayed(this.w.obtainMessage(1), 3000L);
                     }
@@ -178,37 +169,37 @@ public class r extends com.baidu.adp.a.e {
         }
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.a.getLayoutMode().a(i == 1);
-        this.a.getLayoutMode().a((View) this.h);
-        this.e.c(i);
+        this.a.getLayoutMode().a(this.h);
+        this.e.b(i);
     }
 
-    public void a() {
-        this.d.d();
+    public final void a() {
+        this.d.c();
         this.w.removeMessages(1);
     }
 
-    public ImageView e() {
+    public final ImageView d() {
         return this.f;
     }
 
-    public TextView f() {
+    public final TextView e() {
         return this.u;
     }
 
-    public Dialog g() {
+    public final Dialog f() {
         return this.t;
     }
 
-    public void i() {
-        if (this.t == null) {
-            CharSequence[] charSequenceArr = {this.a.getString(R.string.group_activity_eidt), this.a.getString(R.string.group_activity_delete)};
-            AlertDialog.Builder builder = new AlertDialog.Builder(this.a);
-            builder.setTitle(this.a.getString(R.string.operation));
-            builder.setItems(charSequenceArr, this.a);
-            this.t = builder.create();
-            this.t.setCanceledOnTouchOutside(true);
+    public static /* synthetic */ void a(r rVar) {
+        if (rVar.t == null) {
+            CharSequence[] charSequenceArr = {rVar.a.getString(R.string.group_activity_eidt), rVar.a.getString(R.string.group_activity_delete)};
+            AlertDialog.Builder builder = new AlertDialog.Builder(rVar.a);
+            builder.setTitle(rVar.a.getString(R.string.operation));
+            builder.setItems(charSequenceArr, rVar.a);
+            rVar.t = builder.create();
+            rVar.t.setCanceledOnTouchOutside(true);
         }
     }
 }

@@ -5,7 +5,7 @@ import android.text.ClipboardManager;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t implements DialogInterface.OnClickListener {
+public final class t implements DialogInterface.OnClickListener {
     final /* synthetic */ m a;
     private final /* synthetic */ String b;
 
@@ -16,7 +16,7 @@ public class t implements DialogInterface.OnClickListener {
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
+    public final void onClick(DialogInterface dialogInterface, int i) {
         GroupInfoActivity groupInfoActivity;
         GroupInfoActivity groupInfoActivity2;
         try {
@@ -25,7 +25,7 @@ public class t implements DialogInterface.OnClickListener {
             groupInfoActivity2 = this.a.d;
             groupInfoActivity2.showToast(R.string.copy_success);
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("copy group introduction failed");
+            com.baidu.adp.lib.util.e.b("copy group introduction failed");
         }
     }
 }

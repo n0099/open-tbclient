@@ -2,11 +2,11 @@ package com.baidu.tieba.f;
 
 import android.content.pm.ComponentInfo;
 import android.content.pm.PackageInfo;
-import com.baidu.adp.lib.util.f;
+import com.baidu.adp.lib.util.e;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public class b {
+public final class b {
     private static final ArrayList<String> a = new ArrayList<>();
 
     public static void a() {
@@ -23,10 +23,9 @@ public class b {
             try {
                 Class.forName(it.next());
             } catch (Exception e2) {
-                f.b(e2.getMessage());
+                e.b(e2.getMessage());
             }
         }
-        b();
     }
 
     private static void a(ComponentInfo[] componentInfoArr) {
@@ -35,12 +34,9 @@ public class b {
                 try {
                     Class.forName(componentInfo.name);
                 } catch (Exception e) {
-                    f.b(e.getMessage());
+                    e.b(e.getMessage());
                 }
             }
         }
-    }
-
-    private static void b() {
     }
 }

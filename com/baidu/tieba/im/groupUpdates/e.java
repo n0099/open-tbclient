@@ -6,7 +6,7 @@ import android.widget.BaseAdapter;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class e extends BaseAdapter {
+public final class e extends BaseAdapter {
     private UpdatesActivity a;
     private List<UpdatesItemData> b = new ArrayList();
 
@@ -14,20 +14,20 @@ public class e extends BaseAdapter {
         this.a = updatesActivity;
     }
 
-    public void a() {
+    public final void a() {
         this.a = null;
     }
 
-    public void a(List<UpdatesItemData> list) {
+    public final void a(List<UpdatesItemData> list) {
         if (list != null) {
             this.b = list;
-            com.baidu.adp.lib.util.f.e("size:" + this.b.size());
+            com.baidu.adp.lib.util.e.e("size:" + this.b.size());
             notifyDataSetChanged();
         }
     }
 
     @Override // android.widget.Adapter
-    public int getCount() {
+    public final int getCount() {
         if (this.b == null) {
             return 0;
         }
@@ -35,23 +35,24 @@ public class e extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public final View getView(int i, View view, ViewGroup viewGroup) {
         f fVar = null;
         if (view != null) {
             fVar = (f) view.getTag();
         }
         f fVar2 = fVar == null ? new f(this.a) : fVar;
         fVar2.a(this.b.get(i));
+        fVar2.d();
         return fVar2.a();
     }
 
     @Override // android.widget.Adapter
-    public Object getItem(int i) {
+    public final Object getItem(int i) {
         return this.b.get(i);
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    public final long getItemId(int i) {
         return i;
     }
 }

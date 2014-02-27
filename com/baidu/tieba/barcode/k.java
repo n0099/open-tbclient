@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 /* loaded from: classes.dex */
-class k extends BroadcastReceiver {
+final class k extends BroadcastReceiver {
     final /* synthetic */ CaptureActivity a;
 
     private k(CaptureActivity captureActivity) {
@@ -12,12 +12,12 @@ class k extends BroadcastReceiver {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ k(CaptureActivity captureActivity, k kVar) {
+    public /* synthetic */ k(CaptureActivity captureActivity, byte b) {
         this(captureActivity);
     }
 
     @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
+    public final void onReceive(Context context, Intent intent) {
         this.a.releaseResouce();
         if (intent.getBooleanExtra("result", false)) {
             CaptureActivity.a(this.a);

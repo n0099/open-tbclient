@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k implements AbsListView.OnScrollListener {
+public final class k implements AbsListView.OnScrollListener {
     final /* synthetic */ i a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,11 +13,11 @@ public class k implements AbsListView.OnScrollListener {
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    public final void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
+    public final void onScrollStateChanged(AbsListView absListView, int i) {
         Handler handler;
         Handler handler2;
         Handler handler3;

@@ -21,6 +21,6 @@ public class ImMessageCenterActivity extends com.baidu.tieba.k {
     }
 
     @Override // com.baidu.tieba.k
-    protected void b(int i) {
+    protected final void b(int i) {
     }
 }

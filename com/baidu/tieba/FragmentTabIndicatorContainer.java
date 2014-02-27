@@ -10,7 +10,7 @@ public class FragmentTabIndicatorContainer extends FrameLayout {
     public FragmentTabIndicator a;
     private HashMap<String, q> b;
 
-    public void a(String str, q qVar) {
+    public final void a(String str, q qVar) {
         if (qVar != null && qVar.c != null) {
             this.b.put(str, qVar);
             addView(qVar.c);
@@ -45,7 +45,7 @@ public class FragmentTabIndicatorContainer extends FrameLayout {
         this.b = new HashMap<>();
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         if (this.a == null) {
             this.a = (FragmentTabIndicator) getChildAt(0);
         }

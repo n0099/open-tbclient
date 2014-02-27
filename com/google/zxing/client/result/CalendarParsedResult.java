@@ -11,6 +11,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public final class CalendarParsedResult extends ParsedResult {
+    private static final DateFormat DATE_FORMAT;
     private static final DateFormat DATE_TIME_FORMAT;
     private final String[] attendees;
     private final String description;
@@ -26,10 +27,11 @@ public final class CalendarParsedResult extends ParsedResult {
     private static final Pattern RFC2445_DURATION = Pattern.compile("P(?:(\\d+)W)?(?:(\\d+)D)?(?:T(?:(\\d+)H)?(?:(\\d+)M)?(?:(\\d+)S)?)?");
     private static final long[] RFC2445_DURATION_FIELD_UNITS = {604800000, 86400000, 3600000, 60000, 1000};
     private static final Pattern DATE_TIME = Pattern.compile("[0-9]{8}(T[0-9]{6}Z?)?");
-    private static final DateFormat DATE_FORMAT = new SimpleDateFormat("yyyyMMdd", Locale.ENGLISH);
 
     static {
-        DATE_FORMAT.setTimeZone(TimeZone.getTimeZone("GMT"));
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd", Locale.ENGLISH);
+        DATE_FORMAT = simpleDateFormat;
+        simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
         DATE_TIME_FORMAT = new SimpleDateFormat("yyyyMMdd'T'HHmmss", Locale.ENGLISH);
     }
 
@@ -61,52 +63,52 @@ public final class CalendarParsedResult extends ParsedResult {
         }
     }
 
-    public String getSummary() {
+    public final String getSummary() {
         return this.summary;
     }
 
-    public Date getStart() {
+    public final Date getStart() {
         return this.start;
     }
 
-    public boolean isStartAllDay() {
+    public final boolean isStartAllDay() {
         return this.startAllDay;
     }
 
-    public Date getEnd() {
+    public final Date getEnd() {
         return this.end;
     }
 
-    public boolean isEndAllDay() {
+    public final boolean isEndAllDay() {
         return this.endAllDay;
     }
 
-    public String getLocation() {
+    public final String getLocation() {
         return this.location;
     }
 
-    public String getOrganizer() {
+    public final String getOrganizer() {
         return this.organizer;
     }
 
-    public String[] getAttendees() {
+    public final String[] getAttendees() {
         return this.attendees;
     }
 
-    public String getDescription() {
+    public final String getDescription() {
         return this.description;
     }
 
-    public double getLatitude() {
+    public final double getLatitude() {
         return this.latitude;
     }
 
-    public double getLongitude() {
+    public final double getLongitude() {
         return this.longitude;
     }
 
     @Override // com.google.zxing.client.result.ParsedResult
-    public String getDisplayResult() {
+    public final String getDisplayResult() {
         StringBuilder sb = new StringBuilder(100);
         maybeAppend(this.summary, sb);
         maybeAppend(format(this.startAllDay, this.start), sb);

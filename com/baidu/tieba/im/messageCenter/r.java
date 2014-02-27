@@ -19,12 +19,12 @@ public class r {
         return a;
     }
 
-    public synchronized void a(Map<String, String> map) {
+    public final synchronized void a(Map<String, String> map) {
         if (map != null) {
             try {
                 this.b = Integer.valueOf(map.get("Seq-Id")).intValue();
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(e.getMessage());
+                com.baidu.adp.lib.util.e.b(e.getMessage());
                 cb.a(0, 0, "on connected", "SequenceManager: setSequenceId", "Seq-Id = " + map.get("Seq-Id"), 0, null);
                 if (this.b == 0) {
                     this.b = new Random().nextInt();
@@ -33,7 +33,7 @@ public class r {
         }
     }
 
-    public synchronized int b() {
+    public final synchronized int b() {
         int i;
         if (this.b == 0) {
             this.b++;

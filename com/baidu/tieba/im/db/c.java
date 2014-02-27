@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteStatement;
 import android.text.TextUtils;
 import cn.jingling.lib.file.Shared;
 import com.baidu.android.pushservice.PushConstants;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.groupUpdates.UpdatesItemData;
 import com.baidu.tieba.im.validate.ValidateItemData;
@@ -18,7 +19,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class c {
+public final class c {
     private static c a;
     private StringBuffer b = new StringBuffer();
     private SQLiteStatement c;
@@ -55,13 +56,13 @@ public class c {
         return cVar;
     }
 
-    public synchronized void a(String str) {
+    public final synchronized void a(String str) {
         try {
             SQLiteDatabase a2 = g.a();
             if (!TextUtils.isEmpty(str) && a2 != null) {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("content_status", (Integer) 2);
-                com.baidu.adp.lib.util.f.e("count:" + a2.update("tb_group_news", contentValues, "cmd=?", new String[]{str}) + " cmd:" + str);
+                com.baidu.adp.lib.util.e.e("count:" + a2.update("tb_group_news", contentValues, "cmd=?", new String[]{str}) + " cmd:" + str);
             }
         } catch (Exception e) {
             cb.a(e, "GroupNewsDao.markReadByCmd", new Object[0]);
@@ -70,8 +71,7 @@ public class c {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [116=4] */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r9v0 int)] */
-    public synchronized int a(String str, int i) {
+    public final synchronized int a(String str, int i) {
         Cursor cursor = null;
         int i2 = 0;
         synchronized (this) {
@@ -79,17 +79,17 @@ public class c {
             if (a2 != null) {
                 try {
                     try {
-                        String format = String.format("select count(*) from tb_group_news WHERE cmd IN ( '%1$s' ) and content_status = %2$s", str, new StringBuilder().append(i).toString());
-                        com.baidu.adp.lib.util.f.e("sql:" + format);
+                        String format = String.format("select count(*) from tb_group_news WHERE cmd IN ( '%1$s' ) and content_status = %2$s", str, new StringBuilder(SocialConstants.TRUE).toString());
+                        com.baidu.adp.lib.util.e.e("sql:" + format);
                         cursor = a2.rawQuery(format, null);
                         i2 = cursor.moveToFirst() ? cursor.getInt(0) : -1;
                         r.a(cursor);
-                    } catch (SQLiteException e) {
+                    } catch (Exception e) {
                         cb.a(e, "GroupNewsDao.getNewCountByCmd", new Object[0]);
                         e.printStackTrace();
                         r.a(cursor);
                     }
-                } catch (Exception e2) {
+                } catch (SQLiteException e2) {
                     cb.a(e2, "GroupNewsDao.getNewCountByCmd", new Object[0]);
                     e2.printStackTrace();
                     r.a(cursor);
@@ -100,7 +100,7 @@ public class c {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [150=4] */
-    public synchronized int b(String str) {
+    public final synchronized int b(String str) {
         Cursor cursor = null;
         int i = 0;
         synchronized (this) {
@@ -109,7 +109,7 @@ public class c {
                 try {
                     try {
                         String format = String.format("select count(*) from tb_group_news WHERE cmd IN ( '%1$s' )", str);
-                        com.baidu.adp.lib.util.f.e("sql:" + format);
+                        com.baidu.adp.lib.util.e.e("sql:" + format);
                         cursor = a2.rawQuery(format, null);
                         i = cursor.moveToFirst() ? cursor.getInt(0) : -1;
                         r.a(cursor);
@@ -128,7 +128,7 @@ public class c {
         return i;
     }
 
-    public synchronized boolean a(ValidateItemData validateItemData) {
+    public final synchronized boolean a(ValidateItemData validateItemData) {
         boolean booleanValue;
         int i;
         int i2 = 0;
@@ -155,14 +155,14 @@ public class c {
                     i2++;
                     i3 = i;
                 }
-                com.baidu.adp.lib.util.f.e("affectCount:" + i3);
+                com.baidu.adp.lib.util.e.e("affectCount:" + i3);
                 booleanValue = a(linkedList).booleanValue();
             }
         }
         return booleanValue;
     }
 
-    public Boolean a(LinkedList<GroupNewsPojo> linkedList) {
+    public final Boolean a(LinkedList<GroupNewsPojo> linkedList) {
         Boolean bool = false;
         SQLiteDatabase a2 = g.a();
         if (a2 != null && linkedList != null) {
@@ -204,7 +204,7 @@ public class c {
         return false;
     }
 
-    public synchronized LinkedList<GroupNewsPojo> a(long j, int i, int i2, String str) {
+    public final synchronized LinkedList<GroupNewsPojo> a(long j, int i, int i2, String str) {
         LinkedList<GroupNewsPojo> linkedList;
         Cursor cursor = null;
         synchronized (this) {
@@ -218,25 +218,25 @@ public class c {
             SQLiteDatabase a2 = g.a();
             if (a2 != null) {
                 try {
-                    if (j <= 0) {
+                    if (0 <= 0) {
                         if (TextUtils.isEmpty(str)) {
                             String str2 = "select * from tb_group_news ORDER BY time DESC LIMIT " + i + " OFFSET " + i2;
-                            com.baidu.adp.lib.util.f.e("sql:" + str2);
+                            com.baidu.adp.lib.util.e.e("sql:" + str2);
                             cursor = a2.rawQuery(str2, null);
                         } else {
                             String format = String.format("select * from tb_group_news WHERE cmd IN ( '%1$s' ) ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, str);
-                            com.baidu.adp.lib.util.f.e("sql:" + format);
+                            com.baidu.adp.lib.util.e.e("sql:" + format);
                             cursor = a2.rawQuery(format, null);
-                            com.baidu.adp.lib.util.f.e(" test sql:" + format);
+                            com.baidu.adp.lib.util.e.e(" test sql:" + format);
                         }
                     } else if (TextUtils.isEmpty(str)) {
                         String str3 = "select * from tb_group_news WHERE time <=? ORDER BY time DESC LIMIT " + i + " OFFSET " + i2;
-                        com.baidu.adp.lib.util.f.e("sql:" + str3);
-                        cursor = a2.rawQuery(str3, new String[]{String.valueOf(j)});
+                        com.baidu.adp.lib.util.e.e("sql:" + str3);
+                        cursor = a2.rawQuery(str3, new String[]{String.valueOf(0L)});
                     } else {
                         String str4 = "select * from tb_group_news WHERE time <=? AND cmd IN ( ? ) ORDER BY time DESC LIMIT " + i + " OFFSET " + i2;
-                        com.baidu.adp.lib.util.f.e("sql:" + str4);
-                        cursor = a2.rawQuery(str4, new String[]{String.valueOf(j), str});
+                        com.baidu.adp.lib.util.e.e("sql:" + str4);
+                        cursor = a2.rawQuery(str4, new String[]{String.valueOf(0L), str});
                     }
                     if (cursor != null) {
                         while (cursor.moveToNext()) {
@@ -267,7 +267,7 @@ public class c {
         LinkedList<GroupNewsPojo> linkedList2 = new LinkedList<>();
         ArrayList arrayList = new ArrayList();
         int size = linkedList.size();
-        com.baidu.adp.lib.util.f.e("before unique size:" + size);
+        com.baidu.adp.lib.util.e.e("before unique size:" + size);
         for (int i = 0; i < size; i++) {
             GroupNewsPojo groupNewsPojo = linkedList.get(i);
             boolean z = false;
@@ -283,14 +283,14 @@ public class c {
             }
             int size2 = arrayList.size();
             for (int i3 = 0; i3 < size2; i3++) {
-                b((String) arrayList.get(i3), 3);
+                d((String) arrayList.get(i3));
             }
-            com.baidu.adp.lib.util.f.e("after unique size:" + linkedList2.size());
+            com.baidu.adp.lib.util.e.e("after unique size:" + linkedList2.size());
         }
         return linkedList2;
     }
 
-    public synchronized boolean c(String str) {
+    public final synchronized boolean c(String str) {
         Boolean bool;
         Boolean.valueOf(false);
         try {
@@ -306,11 +306,11 @@ public class c {
             e.printStackTrace();
             bool = false;
         }
-        com.baidu.adp.lib.util.f.e("noticeid: " + str + " success:" + bool);
+        com.baidu.adp.lib.util.e.e("noticeid: " + str + " success:" + bool);
         return bool.booleanValue();
     }
 
-    public synchronized boolean a(String str, String str2) {
+    public final synchronized boolean a(String str, String str2) {
         boolean z = true;
         synchronized (this) {
             try {
@@ -329,8 +329,8 @@ public class c {
         return z;
     }
 
-    public synchronized int b(String str, int i) {
-        int i2;
+    private synchronized int d(String str) {
+        int i;
         SQLiteDatabase a2;
         try {
             a2 = g.a();
@@ -341,14 +341,14 @@ public class c {
         if (!TextUtils.isEmpty(str) && a2 != null) {
             ContentValues contentValues = new ContentValues();
             contentValues.put("content_status", (Integer) 3);
-            i2 = a2.update("tb_group_news", contentValues, "notice_id= ?", new String[]{str});
-            com.baidu.adp.lib.util.f.e("count:" + i2);
+            i = a2.update("tb_group_news", contentValues, "notice_id= ?", new String[]{str});
+            com.baidu.adp.lib.util.e.e("count:" + i);
         }
-        i2 = 0;
-        return i2;
+        i = 0;
+        return i;
     }
 
-    public synchronized boolean a(List<UpdatesItemData> list) {
+    public final synchronized boolean a(List<UpdatesItemData> list) {
         boolean booleanValue;
         Boolean bool;
         SQLiteDatabase a2;
@@ -368,7 +368,7 @@ public class c {
                 booleanValue = bool3.booleanValue();
             } else {
                 int size = list.size();
-                com.baidu.adp.lib.util.f.e("size:" + size);
+                com.baidu.adp.lib.util.e.e("size:" + size);
                 for (int i = 0; i < size; i++) {
                     UpdatesItemData updatesItemData = list.get(i);
                     if (updatesItemData != null) {
@@ -415,7 +415,7 @@ public class c {
         return j;
     }
 
-    public void b() {
+    public final void b() {
         try {
             if (this.c != null) {
                 this.c.close();

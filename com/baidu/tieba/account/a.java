@@ -7,7 +7,7 @@ import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.util.cb;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class a {
+public final class a {
     private static a a = null;
     private Activity b;
     private int c;
@@ -21,7 +21,7 @@ public class a {
     private at k = new f(this);
     private az l = new h(this);
 
-    public void a(k kVar) {
+    public final void a(k kVar) {
         this.d = kVar;
     }
 
@@ -41,7 +41,7 @@ public class a {
         if (str != null) {
             try {
                 String[] split = str.split("[|]");
-                if (split != null && split.length >= 1) {
+                if (split != null && split.length > 0) {
                     oVar = new o();
                     try {
                         oVar.a = split[0];
@@ -52,7 +52,7 @@ public class a {
                         return oVar;
                     } catch (Exception e2) {
                         e = e2;
-                        com.baidu.adp.lib.util.f.b("AccountShareHelper", "parseBDUSS", e.getMessage());
+                        com.baidu.adp.lib.util.e.b("AccountShareHelper", "parseBDUSS", e.getMessage());
                         return oVar;
                     }
                 }
@@ -64,20 +64,20 @@ public class a {
         return null;
     }
 
-    public void a(Activity activity, boolean z) {
+    public final void a(Activity activity, boolean z) {
         o a2;
         if (UtilHelper.b()) {
             this.b = activity;
             this.e = z;
-            AccountData E = TiebaApplication.E();
-            if (E != null && (a2 = a(E.getBDUSS())) != null) {
-                ay.a(E.getAccount(), a2.a, a2.b, this.i, false);
+            AccountData y = TiebaApplication.y();
+            if (y != null && (a2 = a(y.getBDUSS())) != null) {
+                ay.a(y.getAccount(), a2.a, a2.b, this.i, false);
             }
         }
     }
 
-    public void a(Activity activity, int i) {
-        if (UtilHelper.b() && TiebaApplication.E() == null) {
+    public final void a(Activity activity, int i) {
+        if (UtilHelper.b() && TiebaApplication.y() == null) {
             this.h = true;
             this.b = activity;
             this.c = i;
@@ -89,45 +89,46 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean b() {
-        if (this.g < this.f.size()) {
+        l lVar;
+        o a2;
+        while (this.g < this.f.size()) {
             ArrayList<AccountData> arrayList = this.f;
             int i = this.g;
             this.g = i + 1;
-            l a2 = a(arrayList.get(i));
-            if (a2 == null) {
-                return b();
+            AccountData accountData = arrayList.get(i);
+            if (accountData == null || accountData.getAccount().equals(TiebaApplication.z()) || (a2 = a(accountData.getBDUSS())) == null) {
+                lVar = null;
+                continue;
+            } else {
+                l lVar2 = new l();
+                lVar2.c = accountData.getAccount();
+                lVar2.a = a2.a;
+                lVar2.b = a2.b;
+                lVar = lVar2;
+                continue;
             }
-            ay.a(a2.c, a2.a, a2.b, this.l, false);
-            return true;
+            if (lVar != null) {
+                ay.a(lVar.c, lVar.a, lVar.b, this.l, false);
+                return true;
+            }
         }
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void c() {
-        l c = m.a().c();
-        if (c != null && this.b != null) {
-            ReLoginShareActivity.a(this.b, c.c, c.a, c.b, this.c);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void k(a aVar) {
+        l d = m.a().d();
+        if (d == null || aVar.b == null) {
+            return;
         }
+        ReLoginShareActivity.a(aVar.b, d.c, d.a, d.b, aVar.c);
     }
 
-    private l a(AccountData accountData) {
-        o a2;
-        if (accountData == null || accountData.getAccount().equals(TiebaApplication.F()) || (a2 = a(accountData.getBDUSS())) == null) {
-            return null;
-        }
-        l lVar = new l();
-        lVar.c = accountData.getAccount();
-        lVar.a = a2.a;
-        lVar.b = a2.b;
-        return lVar;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public AccountData c(String str) {
-        int size = this.f.size();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ AccountData a(a aVar, String str) {
+        int size = aVar.f.size();
         for (int i = 0; i < size; i++) {
-            AccountData accountData = this.f.get(i);
+            AccountData accountData = aVar.f.get(i);
             if (accountData.getAccount().equals(str)) {
                 return accountData;
             }
@@ -135,7 +136,7 @@ public class a {
         return null;
     }
 
-    public void b(String str) {
+    public static void b(String str) {
         try {
             cb.a(TiebaApplication.g().b(), str, "click", 1, new Object[0]);
         } catch (Exception e) {

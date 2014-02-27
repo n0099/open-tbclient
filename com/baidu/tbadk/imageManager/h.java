@@ -1,6 +1,6 @@
 package com.baidu.tbadk.imageManager;
 /* loaded from: classes.dex */
-public class h {
+public final class h {
     public String a;
     public long b;
 }

@@ -4,58 +4,63 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.CommitPusherCount.CommitPusherCountRes;
 /* loaded from: classes.dex */
 public final class k extends GeneratedMessageLite.Builder<CommitPusherCountRes.DataRes, k> implements l {
-    private k() {
-        g();
-    }
-
-    private void g() {
-    }
-
-    public static k h() {
-        return new k();
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        CommitPusherCountRes.DataRes buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
-    public k clear() {
+    public final /* bridge */ /* synthetic */ GeneratedMessageLite.Builder clear() {
         super.clear();
         return this;
     }
 
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public k clone() {
-        return h().mergeFrom(buildPartial());
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
+    public final /* bridge */ /* synthetic */ MessageLite.Builder clear() {
+        super.clear();
+        return this;
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public CommitPusherCountRes.DataRes getDefaultInstanceForType() {
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
         return CommitPusherCountRes.DataRes.getDefaultInstance();
     }
 
-    @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: d */
-    public CommitPusherCountRes.DataRes build() {
-        CommitPusherCountRes.DataRes buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return CommitPusherCountRes.DataRes.getDefaultInstance();
+    }
+
+    private k() {
+    }
+
+    public static /* synthetic */ k b() {
+        return new k();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
+    /* renamed from: c */
+    public k clone() {
+        return new k().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public CommitPusherCountRes.DataRes buildPartial() {
+    /* renamed from: a */
+    public final CommitPusherCountRes.DataRes buildPartial() {
         return new CommitPusherCountRes.DataRes(this, (CommitPusherCountRes.DataRes) null);
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public k mergeFrom(CommitPusherCountRes.DataRes dataRes) {
+    public final k mergeFrom(CommitPusherCountRes.DataRes dataRes) {
         if (dataRes == CommitPusherCountRes.DataRes.getDefaultInstance()) {
         }
         return this;

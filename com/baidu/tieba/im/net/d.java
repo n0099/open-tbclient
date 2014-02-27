@@ -7,10 +7,36 @@ import java.util.List;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d extends BdAsyncTask<Object, Integer, Void> {
+public final class d extends BdAsyncTask<Object, Integer, Void> {
     final /* synthetic */ b a;
     private c b;
     private volatile ba c = null;
+
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ Void a(Object... objArr) {
+        return d();
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* bridge */ /* synthetic */ void a(Void r3) {
+        this.a.c = null;
+        if (this.b != null) {
+            this.b.a();
+        }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    protected final /* synthetic */ void b(Void r3) {
+        this.a.c = null;
+        if (this.b != null) {
+            this.b.a();
+        }
+    }
 
     public d(b bVar, c cVar) {
         this.a = bVar;
@@ -18,22 +44,19 @@ public class d extends BdAsyncTask<Object, Integer, Void> {
         this.b = cVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public Void a(Object... objArr) {
+    private Void d() {
         List b;
         List list;
         try {
             this.c = new ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/s/getipinfo");
-            String m = this.c.m();
-            if (this.c.d() && m != null) {
-                JSONObject jSONObject = new JSONObject(m);
+            String l = this.c.l();
+            if (this.c.c() && l != null) {
+                JSONObject jSONObject = new JSONObject(l);
                 if (jSONObject.optInt(SocialConstants.PARAM_ERROR_CODE) == 0) {
                     String optString = jSONObject.optString("urls");
                     b bVar = this.a;
-                    b = this.a.b(optString);
+                    b bVar2 = this.a;
+                    b = b.b(optString);
                     bVar.b = b;
                     list = this.a.b;
                     if (list != null) {
@@ -46,34 +69,14 @@ public class d extends BdAsyncTask<Object, Integer, Void> {
             }
             return null;
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("IpListManager get list exception: " + e.toString());
+            com.baidu.adp.lib.util.e.b("IpListManager get list exception: " + e.toString());
             return null;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Void r3) {
-        this.a.c = null;
-        if (this.b != null) {
-            this.b.a();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void b(Void r3) {
-        this.a.c = null;
-        if (this.b != null) {
-            this.b.a();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void c() {
+    public final void c() {
         this.a.c = null;
         if (this.b != null) {
             this.b.a();
@@ -81,9 +84,9 @@ public class d extends BdAsyncTask<Object, Integer, Void> {
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
+    public final void cancel() {
         if (this.c != null) {
-            this.c.k();
+            this.c.j();
             this.c = null;
         }
         this.a.c = null;

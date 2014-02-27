@@ -25,10 +25,6 @@ public class NoNetworkMoreActivity extends f {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.no_network_more_view);
-        a();
-    }
-
-    protected void a() {
         this.a = findViewById(R.id.title);
         this.b = (ImageView) findViewById(R.id.back);
         this.b.setOnClickListener(this);

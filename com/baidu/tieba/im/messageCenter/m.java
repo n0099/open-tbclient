@@ -41,67 +41,64 @@ public class m extends Handler {
         }
     }
 
-    private void a(String str) {
-        if (TiebaSocketLinkService.b()) {
-            TiebaSocketLinkService.a(false, str);
-        } else if (TiebaSocketLinkService.c()) {
-            a(false, str);
-        }
-    }
-
-    public boolean a(boolean z, String str) {
+    public final boolean a(boolean z, String str) {
         if ((z || System.currentTimeMillis() - this.b >= 180000) && TiebaSocketLinkService.c()) {
             cb.a(1003, 0, str, "send ping", null, 0, null);
             this.b = System.currentTimeMillis();
-            e.a().a(this.f, -3, 0, false);
+            d.a().a(this.f, -3, 0, false);
             return true;
         }
         return false;
     }
 
-    public void b() {
+    public final void b() {
         removeMessages(1);
     }
 
-    public void c() {
+    public final void c() {
         removeMessages(1);
         sendMessageDelayed(obtainMessage(1), this.e);
         this.b = System.currentTimeMillis();
     }
 
-    public void d() {
+    public final void d() {
         this.f = new x();
         e();
         this.g = new n(this);
-        e.a().a(-11, this.g);
-        e.a().a(1003, this.g);
+        d.a().a(-11, this.g);
+        d.a().a(1003, this.g);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(da daVar) {
-        if (daVar != null && daVar.m() != 0) {
-            TiebaSocketLinkService.a(7, "ping error");
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(m mVar, da daVar) {
+        if (daVar == null || daVar.m() == 0) {
+            return;
         }
+        TiebaSocketLinkService.a(7, "ping error");
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(com.baidu.tieba.im.message.a aVar) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(m mVar, com.baidu.tieba.im.message.a aVar) {
         if (aVar != null) {
             if (aVar.a()) {
-                this.e = this.d;
+                mVar.e = mVar.d;
             } else {
-                this.e = this.c;
-                a("switchToForeground");
+                mVar.e = mVar.c;
+                if (TiebaSocketLinkService.b()) {
+                    TiebaSocketLinkService.a(false, "switchToForeground");
+                } else if (TiebaSocketLinkService.c()) {
+                    mVar.a(false, "switchToForeground");
+                }
             }
-            com.baidu.adp.lib.util.f.e("pingManager mCurrentInterval = " + this.e);
+            com.baidu.adp.lib.util.e.e("pingManager mCurrentInterval = " + mVar.e);
         }
     }
 
-    public void e() {
-        int[] aV = TiebaApplication.g().aV();
-        if (aV.length == 2) {
-            this.c = aV[0] * LocationClientOption.MIN_SCAN_SPAN;
-            this.d = aV[1] * LocationClientOption.MIN_SCAN_SPAN;
+    public final void e() {
+        int[] aN = TiebaApplication.g().aN();
+        if (aN.length == 2) {
+            this.c = aN[0] * LocationClientOption.MIN_SCAN_SPAN;
+            this.d = aN[1] * LocationClientOption.MIN_SCAN_SPAN;
             if (this.c < 180000) {
                 this.c = 180000;
             }

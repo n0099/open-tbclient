@@ -99,39 +99,42 @@ public class TypeToken<T> {
 
     private static boolean isAssignableFrom(Type type, ParameterizedType parameterizedType, Map<String, Type> map) {
         ParameterizedType parameterizedType2;
-        if (type == null) {
-            return false;
-        }
-        if (parameterizedType.equals(type)) {
-            return true;
-        }
-        Class<?> rawType = C$Gson$Types.getRawType(type);
-        if (!(type instanceof ParameterizedType)) {
-            parameterizedType2 = null;
-        } else {
-            parameterizedType2 = (ParameterizedType) type;
-        }
-        if (parameterizedType2 != null) {
-            Type[] actualTypeArguments = parameterizedType2.getActualTypeArguments();
-            TypeVariable<Class<?>>[] typeParameters = rawType.getTypeParameters();
-            for (int i = 0; i < actualTypeArguments.length; i++) {
-                Type type2 = actualTypeArguments[i];
-                TypeVariable<Class<?>> typeVariable = typeParameters[i];
-                while (type2 instanceof TypeVariable) {
-                    type2 = map.get(((TypeVariable) type2).getName());
+        Type type2 = type;
+        while (type2 != null) {
+            if (parameterizedType.equals(type2)) {
+                return true;
+            }
+            Class<?> rawType = C$Gson$Types.getRawType(type2);
+            if (!(type2 instanceof ParameterizedType)) {
+                parameterizedType2 = null;
+            } else {
+                parameterizedType2 = (ParameterizedType) type2;
+            }
+            if (parameterizedType2 != null) {
+                Type[] actualTypeArguments = parameterizedType2.getActualTypeArguments();
+                TypeVariable<Class<?>>[] typeParameters = rawType.getTypeParameters();
+                for (int i = 0; i < actualTypeArguments.length; i++) {
+                    Type type3 = actualTypeArguments[i];
+                    TypeVariable<Class<?>> typeVariable = typeParameters[i];
+                    while (type3 instanceof TypeVariable) {
+                        type3 = map.get(((TypeVariable) type3).getName());
+                    }
+                    map.put(typeVariable.getName(), type3);
                 }
-                map.put(typeVariable.getName(), type2);
+                if (typeEquals(parameterizedType2, parameterizedType, map)) {
+                    return true;
+                }
             }
-            if (typeEquals(parameterizedType2, parameterizedType, map)) {
-                return true;
+            for (Type type4 : rawType.getGenericInterfaces()) {
+                if (isAssignableFrom(type4, parameterizedType, new HashMap(map))) {
+                    return true;
+                }
             }
+            Type genericSuperclass = rawType.getGenericSuperclass();
+            map = new HashMap(map);
+            type2 = genericSuperclass;
         }
-        for (Type type3 : rawType.getGenericInterfaces()) {
-            if (isAssignableFrom(type3, parameterizedType, new HashMap(map))) {
-                return true;
-            }
-        }
-        return isAssignableFrom(rawType.getGenericSuperclass(), parameterizedType, new HashMap(map));
+        return false;
     }
 
     private static boolean typeEquals(ParameterizedType parameterizedType, ParameterizedType parameterizedType2, Map<String, Type> map) {

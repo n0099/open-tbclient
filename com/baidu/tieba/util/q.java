@@ -1,6 +1,6 @@
 package com.baidu.tieba.util;
 /* loaded from: classes.dex */
-class q {
+final class q {
     StringBuffer a;
     final /* synthetic */ o b;
 
@@ -10,22 +10,11 @@ class q {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ q(o oVar, q qVar) {
+    public /* synthetic */ q(o oVar, byte b) {
         this(oVar);
     }
 
-    public void a(int i) {
-        if (this.a.length() != 0) {
-            this.a.append(",");
-        }
-        this.a.append(i);
-    }
-
-    public void a() {
-        this.a.setLength(0);
-    }
-
-    public String toString() {
+    public final String toString() {
         return this.a.toString();
     }
 }

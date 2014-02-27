@@ -254,7 +254,7 @@ public class GestureDetectorCompat {
                     float f5 = this.mLastFocusX - f3;
                     float f6 = this.mLastFocusY - f4;
                     if (this.mIsDoubleTapping) {
-                        return false | this.mDoubleTapListener.onDoubleTapEvent(motionEvent);
+                        return this.mDoubleTapListener.onDoubleTapEvent(motionEvent) | false;
                     }
                     if (!this.mAlwaysInTapRegion) {
                         if (Math.abs(f5) >= 1.0f || Math.abs(f6) >= 1.0f) {

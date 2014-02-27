@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class f implements com.baidu.adp.widget.ListView.b {
+final class f implements com.baidu.adp.widget.ListView.b {
     final /* synthetic */ c a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ class f implements com.baidu.adp.widget.ListView.b {
     }
 
     @Override // com.baidu.adp.widget.ListView.b
-    public void a(boolean z) {
+    public final void a(boolean z) {
         com.baidu.tieba.im.model.d dVar;
         com.baidu.tieba.im.model.d dVar2;
         int i;
@@ -21,7 +21,7 @@ class f implements com.baidu.adp.widget.ListView.b {
         dVar = this.a.c;
         if (!dVar.h() || !z) {
             dVar2 = this.a.c;
-            if (dVar2.i()) {
+            if (dVar2.g() == 2) {
                 i = this.a.k;
                 if (i == BdUtilHelper.a()) {
                     bdListView = this.a.e;
@@ -30,7 +30,7 @@ class f implements com.baidu.adp.widget.ListView.b {
                     return;
                 }
             }
-            this.a.f();
+            this.a.a();
             return;
         }
         this.a.a(false);

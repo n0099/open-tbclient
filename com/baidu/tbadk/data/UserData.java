@@ -1,6 +1,6 @@
 package com.baidu.tbadk.data;
 
-import com.baidu.adp.lib.util.f;
+import com.baidu.adp.lib.util.e;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -93,7 +93,7 @@ public class UserData extends MetaData {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            f.b("PostData", "parserJson", "error = " + e.getMessage());
+            e.b("PostData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -124,20 +124,20 @@ public class UserData extends MetaData {
                 }
             }
         } catch (Exception e) {
-            f.b("PostData", "parserJson", "error = " + e.getMessage());
+            e.b("PostData", "parserJson", "error = " + e.getMessage());
         }
     }
 
     @Override // com.baidu.tbadk.data.MetaData
     public void logPrint() {
         super.logPrint();
-        f.d(getClass().getName(), "logPrint", "ip = " + this.ip);
-        f.d(getClass().getName(), "logPrint", "BDUSS = " + this.BDUSS);
-        f.d(getClass().getName(), "logPrint", "level_id = " + String.valueOf(this.level_id));
-        f.d(getClass().getName(), "logPrint", "fans_num = " + String.valueOf(this.fans_num));
-        f.d(getClass().getName(), "logPrint", "concern_num = " + String.valueOf(this.concern_num));
-        f.d(getClass().getName(), "logPrint", "sex = " + String.valueOf(this.sex));
-        f.d(getClass().getName(), "logPrint", "intro = " + this.intro);
+        e.d(getClass().getName(), "logPrint", "ip = " + this.ip);
+        e.d(getClass().getName(), "logPrint", "BDUSS = " + this.BDUSS);
+        e.d(getClass().getName(), "logPrint", "level_id = " + String.valueOf(this.level_id));
+        e.d(getClass().getName(), "logPrint", "fans_num = " + String.valueOf(this.fans_num));
+        e.d(getClass().getName(), "logPrint", "concern_num = " + String.valueOf(this.concern_num));
+        e.d(getClass().getName(), "logPrint", "sex = " + String.valueOf(this.sex));
+        e.d(getClass().getName(), "logPrint", "intro = " + this.intro);
     }
 
     public void setFans_num(int i) {

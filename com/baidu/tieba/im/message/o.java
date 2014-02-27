@@ -2,7 +2,7 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.sapi2.shell.SapiErrorCode;
 /* loaded from: classes.dex */
-public class o extends s {
+public final class o extends s {
     private int a = 0;
     private String b;
 
@@ -10,19 +10,19 @@ public class o extends s {
         e(SapiErrorCode.INVALID_ARG);
     }
 
-    public String a() {
+    public final String a() {
         return this.b;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.b = str;
     }
 
-    public int b() {
+    public final int b() {
         return this.a;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.a = i;
     }
 }

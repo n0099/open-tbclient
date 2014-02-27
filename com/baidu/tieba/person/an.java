@@ -17,7 +17,7 @@ import com.baidu.tieba.view.UserIconBox;
 import com.slidingmenu.lib.R;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class an {
+public final class an {
     protected UserIconBox a;
     private com.baidu.tieba.k b;
     private UserData c;
@@ -68,36 +68,46 @@ public class an {
         a();
     }
 
-    public void a() {
+    public final void a() {
         this.j.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
         this.j.setDefaultResource(0);
         this.j.setNightDefaultResource(0);
         this.j.setImageBitmap(com.baidu.tieba.util.n.a((int) R.drawable.person_photo));
     }
 
-    public void a(al alVar) {
+    public final void a(al alVar) {
         if (alVar != null) {
             this.n.setVisibility(0);
         }
     }
 
-    public void a(al alVar, boolean z) {
+    public final void a(al alVar, boolean z) {
+        String portrait;
         this.n.setVisibility(8);
         if (z) {
             if (alVar.b() != null && alVar.b().length() > 0) {
-                f();
-            } else {
                 e();
+            } else {
+                d();
             }
             b(alVar);
-            d(alVar);
+            if (alVar != null && alVar.a() != null && (portrait = alVar.a().getPortrait()) != null && portrait.length() > 0) {
+                alVar.g();
+                com.baidu.adp.widget.ImageView.b b = com.baidu.tbadk.imageManager.e.a().b(portrait);
+                if (b == null) {
+                    alVar.g().c(portrait, new ao(this));
+                } else {
+                    this.j.setImageResource(0);
+                    b.a(this.j);
+                }
+            }
         }
         if (alVar.getErrorString() != null && !alVar.h()) {
             this.b.a(alVar.getErrorString());
         }
     }
 
-    public void b(al alVar) {
+    public final void b(al alVar) {
         if (alVar != null) {
             this.c = alVar.a();
             if (this.c != null) {
@@ -118,7 +128,7 @@ public class an {
         }
     }
 
-    public void c(al alVar) {
+    public final void c(al alVar) {
         if (alVar != null) {
             if (alVar.c() > 0 && !alVar.f()) {
                 this.m.setVisibility(0);
@@ -133,15 +143,10 @@ public class an {
         }
     }
 
-    public void b() {
-        c();
-        d();
-    }
-
-    public void c() {
+    public final void b() {
         boolean z = true;
-        VersionData as = TiebaApplication.g().as();
-        if (as == null || as.getHas_new_ver() != 1) {
+        VersionData al = TiebaApplication.g().al();
+        if (al == null || al.getHas_new_ver() != 1) {
             z = false;
         }
         boolean a = com.baidu.tieba.sharedPref.b.a().a(SettingTextFunctionIntroView.a, false);
@@ -152,7 +157,7 @@ public class an {
         }
     }
 
-    public void d() {
+    public final void c() {
         if (!com.baidu.tieba.sharedPref.b.a().a("has_shown_member_benifit", false)) {
             this.p.a();
         } else {
@@ -160,47 +165,34 @@ public class an {
         }
     }
 
-    public void e() {
+    public final void d() {
         this.i.setVisibility(0);
         this.h.setVisibility(8);
     }
 
-    public void f() {
+    public final void e() {
         this.i.setVisibility(8);
         this.h.setVisibility(0);
     }
 
-    public void d(al alVar) {
-        String portrait;
-        if (alVar != null && alVar.a() != null && (portrait = alVar.a().getPortrait()) != null && portrait.length() > 0) {
-            com.baidu.adp.widget.ImageView.b c = alVar.g().c(portrait);
-            if (c == null) {
-                alVar.g().c(portrait, new ao(this));
-                return;
-            }
-            this.j.setImageResource(0);
-            c.a(this.j);
-        }
-    }
-
-    public void a(int i) {
+    public final void a(int i) {
         this.b.a().a(i == 1);
         this.b.a().a(this.f);
-        this.j.f();
-        this.d.c(i);
+        this.j.d();
+        this.d.b(i);
         this.o.a(i);
         this.p.a(i);
         this.q.a(i);
         this.r.a(i);
     }
 
-    public void g() {
+    public final void f() {
         if (this.n != null) {
             this.n.setVisibility(8);
         }
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         if (z) {
             this.q.a();
         } else {

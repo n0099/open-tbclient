@@ -57,11 +57,11 @@ public class a {
         return a;
     }
 
-    private void a(int i, Class<?> cls) {
+    private static void a(int i, Class<?> cls) {
         c.a().a(i, cls);
     }
 
-    public void b() {
+    public final void b() {
         a(1001, ch.class);
         a(103002, bx.class);
         a(103005, cf.class);

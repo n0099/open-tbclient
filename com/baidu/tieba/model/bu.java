@@ -6,9 +6,31 @@ import com.baidu.tieba.data.SignData;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bu extends BdAsyncTask<Object, Integer, SignData> {
+public final class bu extends BdAsyncTask<Object, Integer, SignData> {
     final /* synthetic */ bt a;
     private volatile com.baidu.tieba.util.ba b;
+
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ SignData a(Object... objArr) {
+        return d();
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ void a(SignData signData) {
+        com.baidu.adp.a.g gVar;
+        SignData signData2 = signData;
+        this.a.c = null;
+        if (signData2 == null && this.b != null) {
+            this.a.mErrorCode = this.b.e();
+            this.a.mErrorString = this.b.i();
+        }
+        gVar = this.a.mLoadDataCallBack;
+        gVar.a(signData2);
+    }
 
     private bu(bt btVar) {
         this.a = btVar;
@@ -16,20 +38,18 @@ public class bu extends BdAsyncTask<Object, Integer, SignData> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bu(bt btVar, bu buVar) {
+    public /* synthetic */ bu(bt btVar, byte b) {
         this(btVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void b() {
+    public final void b() {
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x008c */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x005b */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:? */
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x008a */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x005b */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:? */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v11 */
     /* JADX WARN: Type inference failed for: r0v12 */
@@ -39,15 +59,12 @@ public class bu extends BdAsyncTask<Object, Integer, SignData> {
     /* JADX WARN: Type inference failed for: r0v22 */
     /* JADX WARN: Type inference failed for: r0v23 */
     /* JADX WARN: Type inference failed for: r0v3, types: [com.baidu.tieba.data.SignData] */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public SignData a(Object... objArr) {
+    private SignData d() {
         Object obj;
         Exception e;
         String str;
         String str2;
-        String m;
-        JSONObject jSONObject;
+        String l;
         Object obj2 = null;
         try {
             this.b = new com.baidu.tieba.util.ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/c/forum/sign");
@@ -58,21 +75,21 @@ public class bu extends BdAsyncTask<Object, Integer, SignData> {
             str2 = this.a.b;
             baVar2.a("fid", str2);
             this.b.e(true);
-            m = this.b.m();
+            l = this.b.l();
         } catch (Exception e2) {
             obj = obj2;
             e = e2;
         }
-        if (this.b.e()) {
-            obj = this.b.d();
+        if (this.b.d()) {
+            obj = this.b.c();
             try {
                 if (obj != 0) {
                     SignData signData = new SignData();
-                    signData.parserJson(m);
+                    signData.parserJson(l);
                     obj = signData;
-                } else if (!com.baidu.tieba.util.bs.c(m) && (jSONObject = new JSONObject(m)) != null && "199901".equals(jSONObject.optString(SocialConstants.PARAM_ERROR_CODE))) {
+                } else if (!com.baidu.tieba.util.bs.c(l) && "199901".equals(new JSONObject(l).optString(SocialConstants.PARAM_ERROR_CODE))) {
                     SignData signData2 = new SignData();
-                    signData2.parserJson(m);
+                    signData2.parserJson(l);
                     signData2.setIsSigned(1);
                     signData2.setCountSignNum(1);
                     obj2 = null;
@@ -81,7 +98,7 @@ public class bu extends BdAsyncTask<Object, Integer, SignData> {
                 }
             } catch (Exception e3) {
                 e = e3;
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.getMessage());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "doInBackground", e.getMessage());
                 return obj;
             }
             return obj;
@@ -91,28 +108,14 @@ public class bu extends BdAsyncTask<Object, Integer, SignData> {
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
+    public final void cancel() {
         com.baidu.adp.a.g gVar;
         if (this.b != null) {
-            this.b.k();
+            this.b.j();
         }
         this.a.c = null;
         super.cancel(true);
         gVar = this.a.mLoadDataCallBack;
         gVar.a(null);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(SignData signData) {
-        com.baidu.adp.a.g gVar;
-        this.a.c = null;
-        if (signData == null && this.b != null) {
-            this.a.mErrorCode = this.b.f();
-            this.a.mErrorString = this.b.j();
-        }
-        gVar = this.a.mLoadDataCallBack;
-        gVar.a(signData);
     }
 }

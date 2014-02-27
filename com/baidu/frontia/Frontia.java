@@ -35,8 +35,9 @@ public class Frontia {
         if (context == null || str == null) {
             return false;
         }
-        b = FrontiaImpl.get();
-        if (b != null) {
+        FrontiaImpl frontiaImpl = FrontiaImpl.get();
+        b = frontiaImpl;
+        if (frontiaImpl != null) {
             b.setAppContext(context.getApplicationContext());
             b.setAppKey(str);
             b.start();

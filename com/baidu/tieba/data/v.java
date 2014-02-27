@@ -35,7 +35,7 @@ public class v extends com.baidu.tieba.util.au {
     private LinkedList<IconData> q;
     private LinkedList<IconData> r;
 
-    public void a(JSONObject jSONObject) {
+    public final void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 this.a = jSONObject.optString("forum_id", "");
@@ -111,16 +111,16 @@ public class v extends com.baidu.tieba.util.au {
                 }
                 a(optString);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(v.class.getName(), "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.util.e.b(v.class.getName(), "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
-    public LinkedList<IconData> a() {
+    public final LinkedList<IconData> a() {
         return this.r;
     }
 
-    public void a(String str) {
+    private void a(String str) {
         SpannableString spannableString;
         if (str != null) {
             ArrayList arrayList = new ArrayList();
@@ -149,51 +149,51 @@ public class v extends com.baidu.tieba.util.au {
         }
     }
 
-    public String b() {
+    public final String b() {
         return this.a;
     }
 
-    public String c() {
+    public final String c() {
         return this.b != null ? this.b : "";
     }
 
-    public String d() {
+    public final String d() {
         return this.c != null ? this.c : "";
     }
 
-    public SpannableString e() {
+    public final SpannableString e() {
         return this.d;
     }
 
-    public int f() {
+    public final int f() {
         return this.e;
     }
 
-    public String g() {
+    public final String g() {
         return this.g != null ? this.g : "";
     }
 
-    public long h() {
+    public final long h() {
         return this.h;
     }
 
-    public String i() {
+    public final String i() {
         return this.i != null ? this.i : "";
     }
 
-    public int j() {
+    public final int j() {
         return this.j;
     }
 
-    public ArrayList<ah> k() {
+    public final ArrayList<ah> k() {
         return this.m;
     }
 
-    public ArrayList<VoiceManager.VoiceModel> l() {
+    public final ArrayList<VoiceManager.VoiceModel> l() {
         return this.n;
     }
 
-    public LinkedList<IconData> m() {
+    public final LinkedList<IconData> m() {
         return this.q;
     }
 

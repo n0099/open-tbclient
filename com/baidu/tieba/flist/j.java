@@ -3,7 +3,7 @@ package com.baidu.tieba.flist;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.util.ap;
 /* loaded from: classes.dex */
-class j implements Runnable {
+final class j implements Runnable {
     final /* synthetic */ ForumListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ class j implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         int i;
         com.baidu.tieba.util.i iVar;
         com.baidu.tieba.util.i iVar2;

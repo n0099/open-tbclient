@@ -43,11 +43,11 @@ public abstract class WritableEmotionGroup {
 
     public abstract int h();
 
-    public com.baidu.adp.widget.ImageView.b i() {
+    public final com.baidu.adp.widget.ImageView.b i() {
         return this.a;
     }
 
-    public void a(com.baidu.adp.widget.ImageView.b bVar) {
+    public final void a(com.baidu.adp.widget.ImageView.b bVar) {
         if (bVar != null) {
             bVar.h();
         }
@@ -58,28 +58,28 @@ public abstract class WritableEmotionGroup {
         return this.b;
     }
 
-    public void b(com.baidu.adp.widget.ImageView.b bVar) {
+    public final void b(com.baidu.adp.widget.ImageView.b bVar) {
         if (bVar != null) {
             bVar.h();
         }
         this.b = bVar;
     }
 
-    public int j() {
+    public final int j() {
         return this.d;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void b(int i) {
+    public final void b(int i) {
         this.d = i;
     }
 
-    public int k() {
+    public final int k() {
         return this.c;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void c(int i) {
+    public final void c(int i) {
         this.c = i;
     }
 }

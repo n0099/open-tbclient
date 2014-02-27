@@ -14,7 +14,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
-public class d {
+public final class d {
     public static String a(String str, boolean z) {
         long hashCode = str.hashCode();
         if (hashCode < 0) {
@@ -44,10 +44,6 @@ public class d {
             return com.baidu.adp.gif.b.a().a(file.getAbsolutePath());
         }
         return null;
-    }
-
-    public static byte[] c(String str, String str2) {
-        return af.d(".emotions/" + str, str2);
     }
 
     public static boolean a(String str) {
@@ -89,10 +85,10 @@ public class d {
                         break;
                     } else if (!nextEntry.isDirectory()) {
                         String name = nextEntry.getName();
-                        com.baidu.adp.lib.util.f.e("zip file name:" + name);
+                        com.baidu.adp.lib.util.e.e("zip file name:" + name);
                         a(str, name, zipInputStream);
                     } else {
-                        com.baidu.adp.lib.util.f.e("zip file dir:" + nextEntry.getName());
+                        com.baidu.adp.lib.util.e.e("zip file dir:" + nextEntry.getName());
                     }
                 } catch (Throwable th) {
                     th = th;
@@ -102,11 +98,11 @@ public class d {
             }
             zipInputStream.close();
             r.a((InputStream) zipInputStream);
-            byte[] c = c(str, "map.txt");
-            if (c == null) {
+            byte[] d = af.d(".emotions/" + str, "map.txt");
+            if (d == null) {
                 throw new FileNotFoundException("map.txt file not exsit!");
             }
-            String str2 = new String(c, "UTF-8");
+            String str2 = new String(d, "UTF-8");
             LinkedList linkedList = new LinkedList();
             for (String str3 : str2.split(IOUtils.LINE_SEPARATOR_UNIX)) {
                 String trim = str3.trim();

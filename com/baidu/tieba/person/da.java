@@ -2,9 +2,8 @@ package com.baidu.tieba.person;
 
 import android.view.View;
 import com.baidu.tieba.data.UserData;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class da implements View.OnClickListener {
+final class da implements View.OnClickListener {
     final /* synthetic */ PersonListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +12,7 @@ public class da implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         dg dgVar;
         dg dgVar2;
         dg dgVar3;

@@ -40,8 +40,10 @@ public class ForumDetailActivity extends com.baidu.tieba.f {
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        a();
-        b();
+        this.a = new e(this);
+        this.b = getIntent().getStringExtra("forum_id");
+        this.c = getIntent().getStringExtra("from_type").equals(FromType.FRS.toString()) ? SocialConstants.FALSE : SocialConstants.TRUE;
+        b.a(this.b, this.c, this.d);
         cb.a(this, getIntent().getStringExtra("from_type").equals(FromType.FRS.toString()) ? "detail_from_frs" : "detail_from_bar_dir", "click", 1, new Object[0]);
     }
 
@@ -50,16 +52,6 @@ public class ForumDetailActivity extends com.baidu.tieba.f {
     public void onResume() {
         super.onResume();
         this.a.a();
-    }
-
-    private void a() {
-        this.a = new e(this);
-    }
-
-    private void b() {
-        this.b = getIntent().getStringExtra("forum_id");
-        this.c = getIntent().getStringExtra("from_type").equals(FromType.FRS.toString()) ? SocialConstants.FALSE : SocialConstants.TRUE;
-        b.a(this.b, this.c, this.d);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

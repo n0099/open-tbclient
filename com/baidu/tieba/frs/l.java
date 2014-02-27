@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 /* loaded from: classes.dex */
-class l implements AbsListView.OnScrollListener {
+final class l implements AbsListView.OnScrollListener {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,48 +13,48 @@ class l implements AbsListView.OnScrollListener {
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    public final void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
+    public final void onScrollStateChanged(AbsListView absListView, int i) {
         Handler handler;
-        br brVar;
-        br brVar2;
+        bs bsVar;
+        bs bsVar2;
         Handler handler2;
-        br brVar3;
+        bs bsVar3;
         AdapterView.OnItemLongClickListener onItemLongClickListener;
-        br brVar4;
+        bs bsVar4;
         Handler handler3;
         Runnable runnable;
         Handler handler4;
         Runnable runnable2;
-        handler = this.a.U;
+        handler = this.a.W;
         if (handler != null) {
-            handler4 = this.a.U;
-            runnable2 = this.a.W;
+            handler4 = this.a.W;
+            runnable2 = this.a.Y;
             handler4.removeCallbacks(runnable2);
         }
-        this.a.af = i;
+        this.a.ah = i;
         if (i != 0) {
-            brVar = this.a.p;
-            brVar.a((AdapterView.OnItemLongClickListener) null);
-            brVar2 = this.a.p;
-            brVar2.e(true);
+            bsVar = this.a.p;
+            bsVar.a((AdapterView.OnItemLongClickListener) null);
+            bsVar2 = this.a.p;
+            bsVar2.f(true);
             this.a.N = true;
             return;
         }
-        handler2 = this.a.U;
+        handler2 = this.a.W;
         if (handler2 != null) {
-            handler3 = this.a.U;
-            runnable = this.a.W;
+            handler3 = this.a.W;
+            runnable = this.a.Y;
             handler3.postDelayed(runnable, 300L);
         }
-        brVar3 = this.a.p;
-        onItemLongClickListener = this.a.ac;
-        brVar3.a(onItemLongClickListener);
-        brVar4 = this.a.p;
-        brVar4.e(false);
+        bsVar3 = this.a.p;
+        onItemLongClickListener = this.a.ae;
+        bsVar3.a(onItemLongClickListener);
+        bsVar4 = this.a.p;
+        bsVar4.f(false);
         this.a.N = false;
     }
 }

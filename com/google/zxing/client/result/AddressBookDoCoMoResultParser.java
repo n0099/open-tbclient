@@ -5,7 +5,7 @@ import com.google.zxing.Result;
 public final class AddressBookDoCoMoResultParser extends AbstractDoCoMoResultParser {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.zxing.client.result.ResultParser
-    public AddressBookParsedResult parse(Result result) {
+    public final AddressBookParsedResult parse(Result result) {
         String[] matchDoCoMoPrefixedField;
         String massagedText = getMassagedText(result);
         if (!massagedText.startsWith("MECARD:") || (matchDoCoMoPrefixedField = matchDoCoMoPrefixedField("N:", massagedText, true)) == null) {

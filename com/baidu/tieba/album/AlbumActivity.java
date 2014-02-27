@@ -1,12 +1,15 @@
 package com.baidu.tieba.album;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tieba.img.ImageFileInfo;
 import com.baidu.tieba.img.WriteImagesInfo;
 import com.slidingmenu.lib.R;
@@ -14,22 +17,19 @@ import com.slidingmenu.lib.R;
 public class AlbumActivity extends com.baidu.tieba.k implements View.OnClickListener {
     private static final String d = AlbumActivity.class.getName();
     private p e;
-    private u f;
+    private v f;
     private int g;
     private boolean h = false;
     private com.baidu.tieba.img.e i;
 
-    private static void a(Activity activity, String str, int i) {
-        if (!TextUtils.isEmpty(str)) {
-            Intent intent = new Intent(activity, AlbumActivity.class);
-            intent.putExtra("write_images_info", str);
-            activity.startActivityForResult(intent, i);
-        }
-    }
-
     public static void a(Activity activity, WriteImagesInfo writeImagesInfo, int i) {
         if (writeImagesInfo != null) {
-            a(activity, writeImagesInfo.toJsonString(), i);
+            String jsonString = writeImagesInfo.toJsonString();
+            if (!TextUtils.isEmpty(jsonString)) {
+                Intent intent = new Intent(activity, AlbumActivity.class);
+                intent.putExtra("write_images_info", jsonString);
+                activity.startActivityForResult(intent, 12002);
+            }
         }
     }
 
@@ -39,13 +39,38 @@ public class AlbumActivity extends com.baidu.tieba.k implements View.OnClickList
         super.onCreate(bundle);
         try {
             this.i = new com.baidu.tieba.img.e(this);
-            h();
-            a(bundle);
-            i();
-            j();
-            e();
+            this.f = new v(this);
+            this.f.a();
+            this.e = new p();
+            if (bundle != null) {
+                WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
+                writeImagesInfo.parseJson(bundle.getString("write_images_info"));
+                this.e.a(writeImagesInfo);
+            } else {
+                Intent intent = getIntent();
+                if (intent != null) {
+                    WriteImagesInfo writeImagesInfo2 = new WriteImagesInfo();
+                    writeImagesInfo2.parseJson(intent.getStringExtra("write_images_info"));
+                    this.e.a(writeImagesInfo2);
+                }
+            }
+            if (this.e == null || TextUtils.isEmpty(this.e.c())) {
+                d(0);
+            } else {
+                d(1);
+            }
+            if (this.f != null && this.e != null) {
+                this.f.a(this.e.d());
+                if (this.e.a() != null) {
+                    for (ImageFileInfo imageFileInfo : this.e.a()) {
+                        this.f.a(imageFileInfo);
+                    }
+                }
+                i();
+            }
+            g();
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(d, "oncreate", "error = " + e.getMessage());
+            com.baidu.adp.lib.util.e.b(d, "oncreate", "error = " + e.getMessage());
         }
     }
 
@@ -56,61 +81,20 @@ public class AlbumActivity extends com.baidu.tieba.k implements View.OnClickList
         bundle.putString("write_images_info", this.e.b().toJsonString());
     }
 
-    private void a(Bundle bundle) {
-        this.e = new p();
-        if (bundle != null) {
-            WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
-            writeImagesInfo.parseJson(bundle.getString("write_images_info"));
-            this.e.a(writeImagesInfo);
-            return;
-        }
-        Intent intent = getIntent();
-        if (intent != null) {
-            WriteImagesInfo writeImagesInfo2 = new WriteImagesInfo();
-            writeImagesInfo2.parseJson(intent.getStringExtra("write_images_info"));
-            this.e.a(writeImagesInfo2);
-        }
-    }
-
-    private void h() {
-        this.f = new u(this);
-        this.f.a();
-    }
-
-    private void i() {
-        if (this.e != null && !TextUtils.isEmpty(this.e.c())) {
-            d(1);
-        } else {
-            d(0);
-        }
-    }
-
-    private void j() {
-        if (this.f != null && this.e != null) {
-            this.f.a(this.e.d());
-            if (this.e.a() != null) {
-                for (ImageFileInfo imageFileInfo : this.e.a()) {
-                    this.f.a(imageFileInfo);
-                }
-            }
-            l();
-        }
-    }
-
-    public void e() {
+    private void g() {
         int d2 = this.e.d();
         int h = this.e.h();
         this.f.a(h != 0, getString(R.string.album_finish_btn, new Object[]{Integer.valueOf(h), Integer.valueOf(d2)}));
     }
 
     @Override // com.baidu.tieba.k
-    protected void b(int i) {
+    protected final void b(int i) {
         this.f.d(i);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f.e()) {
+        if (view == this.f.d()) {
             if (this.g == 0) {
                 this.e.a((String) null);
             }
@@ -118,37 +102,49 @@ public class AlbumActivity extends com.baidu.tieba.k implements View.OnClickList
             intent.putExtra("album_result", this.e.b().toJsonString());
             setResult(-1, intent);
             finish();
-        } else if (view == this.f.f()) {
+            return;
+        }
+        Fragment b = this.f.b(0);
+        if (view == ((b == null || !(b instanceof m)) ? null : ((m) b).a())) {
             if (this.e != null) {
                 this.e.a((String) null);
             }
-            k();
-        } else if (view == this.f.g()) {
+            h();
+            return;
+        }
+        Fragment b2 = this.f.b(1);
+        if (view == ((b2 == null || !(b2 instanceof ah)) ? null : ((ah) b2).a())) {
             d(0);
-        } else if (view == this.f.h()) {
+            return;
+        }
+        Fragment b3 = this.f.b(2);
+        if (view == ((b3 == null || !(b3 instanceof b)) ? null : ((b) b3).a())) {
             d(1);
-        } else if (view == this.f.i()) {
-            k();
+            return;
+        }
+        Fragment b4 = this.f.b(1);
+        if (view == ((b4 == null || !(b4 instanceof ah)) ? null : ((ah) b4).b())) {
+            h();
         }
     }
 
-    public p f() {
+    public final p e() {
         return this.e;
     }
 
-    public com.baidu.tieba.img.e g() {
+    public final com.baidu.tieba.img.e f() {
         if (this.i == null) {
             this.i = new com.baidu.tieba.img.e(this);
         }
         return this.i;
     }
 
-    public void d(int i) {
+    public final void d(int i) {
         if (!this.h) {
+            FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
             Fragment findFragmentByTag = getSupportFragmentManager().findFragmentByTag(this.f.c(this.g));
             if (findFragmentByTag != null) {
-                getSupportFragmentManager().beginTransaction().hide(findFragmentByTag).commitAllowingStateLoss();
-                getSupportFragmentManager().executePendingTransactions();
+                beginTransaction.hide(findFragmentByTag);
                 this.i.b();
             }
             this.g = i;
@@ -156,16 +152,16 @@ public class AlbumActivity extends com.baidu.tieba.k implements View.OnClickList
                 this.f.e(this.g);
             }
             if (getSupportFragmentManager().findFragmentByTag(this.f.c(i)) != null) {
-                getSupportFragmentManager().beginTransaction().show(this.f.b(i)).commitAllowingStateLoss();
-                getSupportFragmentManager().executePendingTransactions();
-                return;
+                beginTransaction.show(this.f.b(i));
+            } else {
+                beginTransaction.add(R.id.fragment, this.f.b(i), this.f.c(i));
             }
-            getSupportFragmentManager().beginTransaction().add(R.id.fragment, this.f.b(i), this.f.c(i)).commitAllowingStateLoss();
+            beginTransaction.commitAllowingStateLoss();
             getSupportFragmentManager().executePendingTransactions();
         }
     }
 
-    public boolean a(ImageFileInfo imageFileInfo) {
+    public final boolean a(ImageFileInfo imageFileInfo) {
         if (imageFileInfo == null) {
             return false;
         }
@@ -175,22 +171,22 @@ public class AlbumActivity extends com.baidu.tieba.k implements View.OnClickList
             imageFileInfo2.setAlbumnId(imageFileInfo.getAlbumId());
             imageFileInfo2.setFilePath(imageFileInfo.getFilePath());
             this.e.a(imageFileInfo2);
-            e();
-            l();
+            g();
+            i();
             this.f.a(imageFileInfo2);
             return true;
         }
-        a(String.format(getString(R.string.album_beyond_max_choose), Integer.valueOf(d2)));
+        BdUtilHelper.a((Context) this, String.format(getString(R.string.album_beyond_max_choose), Integer.valueOf(d2)));
         return false;
     }
 
-    public boolean b(ImageFileInfo imageFileInfo) {
+    public final boolean b(ImageFileInfo imageFileInfo) {
         if (imageFileInfo == null) {
             return false;
         }
         this.e.b(imageFileInfo);
-        e();
-        l();
+        g();
+        i();
         this.f.b(imageFileInfo);
         return true;
     }
@@ -202,7 +198,7 @@ public class AlbumActivity extends com.baidu.tieba.k implements View.OnClickList
                 if (this.e != null) {
                     this.e.a((String) null);
                 }
-                k();
+                h();
                 return true;
             } else if (this.g == 1) {
                 d(0);
@@ -217,28 +213,28 @@ public class AlbumActivity extends com.baidu.tieba.k implements View.OnClickList
         return super.onKeyDown(i, keyEvent);
     }
 
-    public void a(int i, boolean z) {
+    public final void a(int i, boolean z) {
         Fragment b;
-        if (this.f != null && (b = this.f.b(1)) != null && (b instanceof ag)) {
-            ((ag) b).a(i, z);
+        if (this.f != null && (b = this.f.b(1)) != null && (b instanceof ah)) {
+            ((ah) b).a(i, z);
         }
     }
 
-    public void a(ImageFileInfo imageFileInfo, boolean z) {
+    public final void a(ImageFileInfo imageFileInfo, boolean z) {
         Fragment b;
-        if (this.f != null && (b = this.f.b(1)) != null && (b instanceof ag)) {
-            ((ag) b).a(imageFileInfo, z);
+        if (this.f != null && (b = this.f.b(1)) != null && (b instanceof ah)) {
+            ((ah) b).a(imageFileInfo, false);
         }
     }
 
-    public void b(ImageFileInfo imageFileInfo, boolean z) {
+    public final void b(ImageFileInfo imageFileInfo, boolean z) {
         Fragment b;
         if (this.f != null && (b = this.f.b(2)) != null && (b instanceof b)) {
-            ((b) b).a(imageFileInfo, z);
+            ((b) b).a(imageFileInfo, false);
         }
     }
 
-    private void k() {
+    private void h() {
         Intent intent = new Intent();
         String c = this.e.c();
         if (TextUtils.isEmpty(c)) {
@@ -249,7 +245,7 @@ public class AlbumActivity extends com.baidu.tieba.k implements View.OnClickList
         finish();
     }
 
-    private void l() {
+    private void i() {
         if (this.e != null && this.f != null) {
             if (this.e.h() == this.e.d()) {
                 this.f.a(false);
@@ -265,8 +261,9 @@ public class AlbumActivity extends com.baidu.tieba.k implements View.OnClickList
         super.onDestroy();
         this.h = true;
         if (this.f != null) {
-            this.f.j();
+            this.f.e();
         }
         this.i.b();
+        q.a().b();
     }
 }

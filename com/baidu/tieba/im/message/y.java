@@ -6,56 +6,56 @@ import com.google.protobuf.MessageLite;
 import com.google.protobuf.Parser;
 import java.io.OutputStream;
 /* loaded from: classes.dex */
-class y implements MessageLite {
+final class y implements MessageLite {
     @Override // com.google.protobuf.MessageLiteOrBuilder
-    public boolean isInitialized() {
+    public final boolean isInitialized() {
         return false;
     }
 
     @Override // com.google.protobuf.MessageLiteOrBuilder
-    public MessageLite getDefaultInstanceForType() {
+    public final MessageLite getDefaultInstanceForType() {
         return null;
     }
 
     @Override // com.google.protobuf.MessageLite
-    public void writeTo(OutputStream outputStream) {
+    public final void writeTo(OutputStream outputStream) {
     }
 
     @Override // com.google.protobuf.MessageLite
-    public void writeTo(CodedOutputStream codedOutputStream) {
+    public final void writeTo(CodedOutputStream codedOutputStream) {
     }
 
     @Override // com.google.protobuf.MessageLite
-    public void writeDelimitedTo(OutputStream outputStream) {
+    public final void writeDelimitedTo(OutputStream outputStream) {
     }
 
     @Override // com.google.protobuf.MessageLite
-    public ByteString toByteString() {
+    public final ByteString toByteString() {
         return null;
     }
 
     @Override // com.google.protobuf.MessageLite
-    public byte[] toByteArray() {
+    public final byte[] toByteArray() {
         return null;
     }
 
     @Override // com.google.protobuf.MessageLite
-    public MessageLite.Builder toBuilder() {
+    public final MessageLite.Builder toBuilder() {
         return null;
     }
 
     @Override // com.google.protobuf.MessageLite
-    public MessageLite.Builder newBuilderForType() {
+    public final MessageLite.Builder newBuilderForType() {
         return null;
     }
 
     @Override // com.google.protobuf.MessageLite
-    public int getSerializedSize() {
+    public final int getSerializedSize() {
         return 0;
     }
 
     @Override // com.google.protobuf.MessageLite
-    public Parser<? extends MessageLite> getParserForType() {
+    public final Parser<? extends MessageLite> getParserForType() {
         return null;
     }
 }

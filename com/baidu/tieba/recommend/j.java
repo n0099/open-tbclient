@@ -3,7 +3,7 @@ package com.baidu.tieba.recommend;
 import android.support.v4.view.ViewPager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j extends ViewPager.SimpleOnPageChangeListener {
+public final class j extends ViewPager.SimpleOnPageChangeListener {
     final /* synthetic */ h a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ public class j extends ViewPager.SimpleOnPageChangeListener {
     }
 
     @Override // android.support.v4.view.ViewPager.SimpleOnPageChangeListener, android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrollStateChanged(int i) {
+    public final void onPageScrollStateChanged(int i) {
         com.baidu.tieba.view.q qVar;
         com.baidu.tieba.view.q qVar2;
         t tVar;
@@ -25,7 +25,7 @@ public class j extends ViewPager.SimpleOnPageChangeListener {
         if (i == 0) {
             qVar2 = this.a.f;
             int currentItem = qVar2.getCurrentItem();
-            if (currentItem < 1) {
+            if (currentItem <= 0) {
                 qVar6 = this.a.f;
                 tVar2 = this.a.g;
                 qVar6.setCurrentItem(tVar2.getCount() - 2, false);
@@ -49,7 +49,7 @@ public class j extends ViewPager.SimpleOnPageChangeListener {
     }
 
     @Override // android.support.v4.view.ViewPager.SimpleOnPageChangeListener, android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageSelected(int i) {
+    public final void onPageSelected(int i) {
         t tVar;
         t tVar2;
         com.baidu.tieba.view.q qVar;

@@ -19,7 +19,7 @@ import com.baidu.tieba.k;
 import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.util.ap;
 import com.baidu.tieba.util.cb;
-import com.baidu.tieba.view.ct;
+import com.baidu.tieba.view.cs;
 import com.slidingmenu.lib.R;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,7 +28,7 @@ public class MyGroupFragment extends j implements View.OnClickListener, AdapterV
     public boolean c;
     private h d;
     public BdListView b = null;
-    private ct e = null;
+    private cs e = null;
     private a f = null;
     private EnterForumGuideCenterView g = null;
     private View h = null;
@@ -50,38 +50,38 @@ public class MyGroupFragment extends j implements View.OnClickListener, AdapterV
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
     public void onDestroyView() {
-        com.baidu.tieba.im.messageCenter.e.a().a(this.k);
-        com.baidu.tieba.im.messageCenter.e.a().a(this.j);
-        com.baidu.tieba.im.messageCenter.e.a().a(this);
-        com.baidu.tieba.im.messageCenter.e.a().a(this.i);
+        com.baidu.tieba.im.messageCenter.d.a().a(this.k);
+        com.baidu.tieba.im.messageCenter.d.a().a(this.j);
+        com.baidu.tieba.im.messageCenter.d.a().a(this);
+        com.baidu.tieba.im.messageCenter.d.a().a(this.i);
         super.onDestroyView();
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        com.baidu.tieba.im.messageCenter.e.a().a(103003, this.k);
-        com.baidu.tieba.im.messageCenter.e.a().a(SapiErrorCode.SAVE_CERT_FAIL, this.k);
-        com.baidu.tieba.im.messageCenter.e.a().a(103101, this.j);
-        com.baidu.tieba.im.messageCenter.e.a().a(103112, this.j);
-        com.baidu.tieba.im.messageCenter.e.a().a(103102, this.j);
-        com.baidu.tieba.im.messageCenter.e.a().a(-109, this.j);
-        com.baidu.tieba.im.messageCenter.e.a().a(103104, this.j);
-        com.baidu.tieba.im.messageCenter.e.a().a(103105, this.j);
-        com.baidu.tieba.im.messageCenter.e.a().a(-130, this.i);
-        com.baidu.tieba.im.messageCenter.e.a().a(-132, this.i);
-        com.baidu.tieba.im.messageCenter.e.a().a(-136, this.i);
-        com.baidu.tieba.im.messageCenter.e.a().a(-137, this.i);
-        com.baidu.tieba.im.messageCenter.e.a().a(-134, this.i);
-        com.baidu.tieba.im.messageCenter.e.a().a(-138, this.i);
-        com.baidu.tieba.im.messageCenter.e.a().a(-141, this);
+        com.baidu.tieba.im.messageCenter.d.a().a(103003, this.k);
+        com.baidu.tieba.im.messageCenter.d.a().a(SapiErrorCode.SAVE_CERT_FAIL, this.k);
+        com.baidu.tieba.im.messageCenter.d.a().a(103101, this.j);
+        com.baidu.tieba.im.messageCenter.d.a().a(103112, this.j);
+        com.baidu.tieba.im.messageCenter.d.a().a(103102, this.j);
+        com.baidu.tieba.im.messageCenter.d.a().a(-109, this.j);
+        com.baidu.tieba.im.messageCenter.d.a().a(103104, this.j);
+        com.baidu.tieba.im.messageCenter.d.a().a(103105, this.j);
+        com.baidu.tieba.im.messageCenter.d.a().a(-130, this.i);
+        com.baidu.tieba.im.messageCenter.d.a().a(-132, this.i);
+        com.baidu.tieba.im.messageCenter.d.a().a(-136, this.i);
+        com.baidu.tieba.im.messageCenter.d.a().a(-137, this.i);
+        com.baidu.tieba.im.messageCenter.d.a().a(-134, this.i);
+        com.baidu.tieba.im.messageCenter.d.a().a(-138, this.i);
+        com.baidu.tieba.im.messageCenter.d.a().a(-141, this);
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
     public void onStart() {
         super.onStart();
         if (this.g != null) {
-            this.g.b();
+            this.g.a();
         }
     }
 
@@ -89,7 +89,7 @@ public class MyGroupFragment extends j implements View.OnClickListener, AdapterV
     public void onStop() {
         super.onStop();
         if (this.g != null) {
-            this.g.c();
+            this.g.b();
         }
     }
 
@@ -99,7 +99,7 @@ public class MyGroupFragment extends j implements View.OnClickListener, AdapterV
         this.g = (EnterForumGuideCenterView) inflate.findViewById(R.id.lv_guid_center_root);
         this.b = (BdListView) inflate.findViewById(R.id.my_group_list);
         this.b.a(new f(this), 300L);
-        this.e = new ct(getActivity());
+        this.e = new cs(getActivity());
         this.f = new a(this);
         this.e.a(new g(this));
         this.b.setPullRefresh(this.e);
@@ -129,7 +129,7 @@ public class MyGroupFragment extends j implements View.OnClickListener, AdapterV
     public void onClick(View view) {
         super.onClick(view);
         switch (view.getId()) {
-            case R.id.click_head /* 2131100649 */:
+            case R.id.click_head /* 2131100645 */:
                 GroupInfoData groupInfoData = null;
                 if (view.getTag() instanceof GroupInfoData) {
                     groupInfoData = (GroupInfoData) view.getTag();
@@ -145,29 +145,24 @@ public class MyGroupFragment extends j implements View.OnClickListener, AdapterV
     }
 
     @Override // com.baidu.tieba.j
-    public void c(int i) {
+    public final void c(int i) {
         super.c(i);
         ((k) getActivity()).a().a(this.h);
         this.e.a(i);
     }
 
-    private void a(GroupNewsPojo groupNewsPojo) {
-        if (groupNewsPojo != null) {
+    @Override // com.baidu.tieba.im.messageCenter.g
+    public final void a(s sVar) {
+        GroupNewsPojo a;
+        if (sVar != null && (sVar instanceof aa) && (a = ((aa) sVar).a()) != null && "dismiss_group".equals(a.getCmd()) && a != null) {
             try {
-                if ("107".equals(new JSONObject(groupNewsPojo.getContent()).getString("eventId")) && UtilHelper.b()) {
-                    this.c = true;
+                if (!"107".equals(new JSONObject(a.getContent()).getString("eventId")) || !UtilHelper.b()) {
+                    return;
                 }
+                this.c = true;
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(s sVar) {
-        GroupNewsPojo a;
-        if (sVar != null && (sVar instanceof aa) && (a = ((aa) sVar).a()) != null && "dismiss_group".equals(a.getCmd())) {
-            a(a);
         }
     }
 }

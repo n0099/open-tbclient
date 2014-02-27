@@ -5,9 +5,39 @@ import com.baidu.tieba.data.SignData;
 import com.baidu.tieba.util.ba;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aw extends BdAsyncTask<Object, Integer, SignData> {
+public final class aw extends BdAsyncTask<Object, Integer, SignData> {
     final /* synthetic */ au a;
     private volatile ba b;
+
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ SignData a(Object... objArr) {
+        return d();
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ void a(SignData signData) {
+        av avVar;
+        av avVar2;
+        String str;
+        String str2;
+        SignData signData2 = signData;
+        this.a.c = null;
+        if (signData2 == null && this.b != null) {
+            this.a.mErrorCode = this.b.e();
+            this.a.mErrorString = this.b.i();
+            avVar2 = this.a.d;
+            str = this.a.b;
+            str2 = this.a.mErrorString;
+            avVar2.a(str, str2);
+            return;
+        }
+        avVar = this.a.d;
+        avVar.a(signData2);
+    }
 
     private aw(au auVar) {
         this.a = auVar;
@@ -15,20 +45,16 @@ public class aw extends BdAsyncTask<Object, Integer, SignData> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ aw(au auVar, aw awVar) {
+    public /* synthetic */ aw(au auVar, byte b) {
         this(auVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void b() {
+    public final void b() {
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public SignData a(Object... objArr) {
+    private SignData d() {
         SignData signData;
         Exception e;
         String str;
@@ -44,13 +70,13 @@ public class aw extends BdAsyncTask<Object, Integer, SignData> {
             str2 = this.a.b;
             baVar2.a("fid", str2);
             this.b.e(true);
-            String m = this.b.m();
-            if (!this.b.e() || !this.b.d()) {
+            String l = this.b.l();
+            if (!this.b.d() || !this.b.c()) {
                 return null;
             }
             signData = new SignData();
             try {
-                signData.parserJson(m);
+                signData.parserJson(l);
                 str3 = this.a.b;
                 signData.setForumId(str3);
                 str4 = this.a.a;
@@ -58,7 +84,7 @@ public class aw extends BdAsyncTask<Object, Integer, SignData> {
                 return signData;
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.getMessage());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "doInBackground", e.getMessage());
                 return signData;
             }
         } catch (Exception e3) {
@@ -68,38 +94,16 @@ public class aw extends BdAsyncTask<Object, Integer, SignData> {
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
+    public final void cancel() {
         av avVar;
         String str;
         if (this.b != null) {
-            this.b.k();
+            this.b.j();
         }
         this.a.c = null;
         super.cancel(true);
         avVar = this.a.d;
         str = this.a.b;
         avVar.a(str, null);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(SignData signData) {
-        av avVar;
-        av avVar2;
-        String str;
-        String str2;
-        this.a.c = null;
-        if (signData != null || this.b == null) {
-            avVar = this.a.d;
-            avVar.a(signData);
-            return;
-        }
-        this.a.mErrorCode = this.b.f();
-        this.a.mErrorString = this.b.j();
-        avVar2 = this.a.d;
-        str = this.a.b;
-        str2 = this.a.mErrorString;
-        avVar2.a(str, str2);
     }
 }

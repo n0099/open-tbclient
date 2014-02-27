@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.Im;
 /* loaded from: classes.dex */
 public final class z extends GeneratedMessageLite.Builder<Im.Photo, z> implements aa {
@@ -12,24 +13,34 @@ public final class z extends GeneratedMessageLite.Builder<Im.Photo, z> implement
     private Object c = "";
     private Object d = "";
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        Im.Photo buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return Im.Photo.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return Im.Photo.getDefaultInstance();
+    }
+
     private z() {
-        g();
     }
 
-    private void g() {
-    }
-
-    /* JADX DEBUG: Method not inlined, still used in: [protobuf.Im.Photo.newBuilder():protobuf.z] */
-    public static /* synthetic */ z f() {
-        return h();
-    }
-
-    public static z h() {
+    public static /* synthetic */ z a() {
         return new z();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: b */
     public z clear() {
         super.clear();
         this.b = "";
@@ -42,29 +53,13 @@ public final class z extends GeneratedMessageLite.Builder<Im.Photo, z> implement
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public z clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
     /* renamed from: c */
-    public Im.Photo getDefaultInstanceForType() {
-        return Im.Photo.getDefaultInstance();
+    public z clone() {
+        return new z().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public Im.Photo build() {
-        Im.Photo buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
     public Im.Photo buildPartial() {
         Im.Photo photo = new Im.Photo(this, (Im.Photo) null);
         int i = this.a;
@@ -84,7 +79,7 @@ public final class z extends GeneratedMessageLite.Builder<Im.Photo, z> implement
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public z mergeFrom(Im.Photo photo) {
+    public final z mergeFrom(Im.Photo photo) {
         Object obj;
         Object obj2;
         Object obj3;

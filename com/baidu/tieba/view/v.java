@@ -2,7 +2,7 @@ package com.baidu.tieba.view;
 
 import java.util.List;
 /* loaded from: classes.dex */
-class v {
+final class v {
     public final boolean a;
     public final List<Object> b;
     public final List<Object> c;

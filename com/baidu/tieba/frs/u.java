@@ -1,7 +1,6 @@
 package com.baidu.tieba.frs;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u implements com.baidu.tieba.model.n {
+final class u implements com.baidu.tieba.model.n {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,7 +9,7 @@ public class u implements com.baidu.tieba.model.n {
     }
 
     @Override // com.baidu.tieba.model.n
-    public void a(com.baidu.tieba.model.l lVar) {
-        this.a.u();
+    public final void a(com.baidu.tieba.model.l lVar) {
+        FrsActivity.z(this.a);
     }
 }

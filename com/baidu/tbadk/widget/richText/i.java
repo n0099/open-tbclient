@@ -10,154 +10,57 @@ import com.baidu.tbadk.imageManager.TbFaceManager;
 import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class i {
+public final class i {
     private int a = 0;
     private b b = null;
     private g c = null;
     private t d = null;
     private e e = null;
 
-    public int a() {
+    public final int a() {
         return this.a;
     }
 
-    public void a(int i, b bVar, g gVar, t tVar, e eVar) {
-        this.a = i;
-        this.b = bVar;
-        this.c = gVar;
-        this.d = tVar;
-        this.e = eVar;
-    }
-
-    public g b() {
+    public final g b() {
         if (this.a == 8) {
             return this.c;
         }
         return null;
     }
 
-    public t c() {
+    public final t c() {
         if (this.a == 512 || this.a == 768) {
             return this.d;
         }
         return null;
     }
 
-    public e d() {
+    public final e d() {
         if (this.a == 17) {
             return this.e;
         }
         return null;
     }
 
-    public SpannableString e() {
-        if (this.a != 1 || this.b == null) {
-            return null;
-        }
-        return new SpannableString(this.b.a());
-    }
-
-    public CharSequence a(Context context, ArrayList<f> arrayList) {
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        if (this.a == 32 && this.b != null) {
-            spannableStringBuilder.append((CharSequence) "视频：");
-            CharSequence d = d(context, arrayList);
-            if (d != null) {
-                spannableStringBuilder.append(d);
-            }
-            SpannableString a = a(context, this.a, this.b.a(), this.b.a());
-            if (a != null) {
-                spannableStringBuilder.append((CharSequence) a);
-            }
-        }
-        return spannableStringBuilder;
-    }
-
-    public CharSequence b(Context context, ArrayList<f> arrayList) {
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        if (this.a == 128 && this.b != null) {
-            CharSequence d = d(context, arrayList);
-            if (d != null) {
-                spannableStringBuilder.append(d);
-            }
-            SpannableString a = a(context, this.a, this.b.b(), this.b.b());
-            if (a != null) {
-                spannableStringBuilder.append((CharSequence) a);
-            }
-        }
-        return spannableStringBuilder;
-    }
-
-    private CharSequence d(Context context, ArrayList<f> arrayList) {
+    private static CharSequence b(Context context, ArrayList<f> arrayList) {
         i iVar = new i();
-        iVar.a(4, new b("video_icon", " "), null, null, null);
-        return iVar.c(context, arrayList);
+        b bVar = new b("video_icon", " ");
+        iVar.a = 4;
+        iVar.b = bVar;
+        iVar.c = null;
+        iVar.d = null;
+        iVar.e = null;
+        return iVar.a(context, arrayList);
     }
 
-    public String f() {
+    public final String e() {
         if (this.a != 32 || this.b == null) {
             return null;
         }
         return this.b.a();
     }
 
-    public SpannableString a(Context context) {
-        if (this.a != 2 || this.b == null) {
-            return null;
-        }
-        return a(context, this.a, this.b.a(), this.b.b());
-    }
-
-    public SpannableString b(Context context) {
-        if (this.a != 256 || this.b == null) {
-            return null;
-        }
-        String a = this.b.a();
-        if (a == null) {
-            return null;
-        }
-        if (!a.endsWith(" ")) {
-            a = String.valueOf(a) + " ";
-        }
-        SpannableString spannableString = new SpannableString(a);
-        h hVar = new h(context, this.a, a);
-        hVar.a(this.b.b());
-        spannableString.setSpan(hVar, 0, a.length() - 1, 33);
-        return spannableString;
-    }
-
-    public SpannableString c(Context context) {
-        if (this.a != 16 || this.b == null) {
-            return null;
-        }
-        return a(context, this.a, this.b.a(), this.b.b());
-    }
-
-    private SpannableString e(Context context, ArrayList<f> arrayList) {
-        SpannableString spannableString = null;
-        if (this.a == 4 && this.b != null && this.b.a() != null && this.b.b() != null) {
-            String a = this.b.a();
-            String b = this.b.b();
-            int b2 = TbFaceManager.a().b(a);
-            if (b2 != 0) {
-                spannableString = new SpannableString(String.valueOf(b) + " ");
-                f fVar = new f(context, b2);
-                if (arrayList != null) {
-                    arrayList.add(fVar);
-                }
-                com.baidu.tbadk.imageManager.c c = TbFaceManager.a().c(a);
-                if (c != null) {
-                    fVar.setBounds(new Rect(0, 0, c.a(), c.b()));
-                } else {
-                    fVar.setBounds(new Rect(0, 0, 0, 0));
-                }
-                spannableString.setSpan(new ImageSpan(fVar, 0), 0, b.length(), 33);
-            }
-        }
-        return spannableString;
-    }
-
-    private SpannableString a(Context context, int i, String str, String str2) {
+    private static SpannableString a(Context context, int i, String str, String str2) {
         if (str == null) {
             return null;
         }
@@ -169,33 +72,139 @@ public class i {
         return spannableString;
     }
 
-    public CharSequence c(Context context, ArrayList<f> arrayList) {
+    public final CharSequence a(Context context, ArrayList<f> arrayList) {
+        String a;
         switch (this.a) {
             case 1:
-                return e();
+                if (this.a != 1 || this.b == null) {
+                    return null;
+                }
+                return new SpannableString(this.b.a());
             case 2:
-                return a(context);
+                if (this.a != 2 || this.b == null) {
+                    return null;
+                }
+                return a(context, this.a, this.b.a(), this.b.b());
             case 4:
-                return e(context, arrayList);
+                if (this.a != 4 || this.b == null || this.b.a() == null || this.b.b() == null) {
+                    return null;
+                }
+                String a2 = this.b.a();
+                String b = this.b.b();
+                int b2 = TbFaceManager.a().b(a2);
+                if (b2 != 0) {
+                    SpannableString spannableString = new SpannableString(String.valueOf(b) + " ");
+                    f fVar = new f(context, b2);
+                    if (arrayList != null) {
+                        arrayList.add(fVar);
+                    }
+                    com.baidu.tbadk.imageManager.c c = TbFaceManager.a().c(a2);
+                    if (c != null) {
+                        fVar.setBounds(new Rect(0, 0, c.a(), c.b()));
+                    } else {
+                        fVar.setBounds(new Rect(0, 0, 0, 0));
+                    }
+                    spannableString.setSpan(new ImageSpan(fVar, 0), 0, b.length(), 33);
+                    return spannableString;
+                }
+                return null;
             case 8:
             case 17:
             default:
                 return null;
             case 16:
-                return c(context);
+                if (this.a != 16 || this.b == null) {
+                    return null;
+                }
+                return a(context, this.a, this.b.a(), this.b.b());
             case 32:
-                return a(context, arrayList);
+                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+                if (this.a != 32 || this.b == null) {
+                    return spannableStringBuilder;
+                }
+                spannableStringBuilder.append((CharSequence) "视频：");
+                CharSequence b3 = b(context, arrayList);
+                if (b3 != null) {
+                    spannableStringBuilder.append(b3);
+                }
+                SpannableString a3 = a(context, this.a, this.b.a(), this.b.a());
+                if (a3 != null) {
+                    spannableStringBuilder.append((CharSequence) a3);
+                    return spannableStringBuilder;
+                }
+                return spannableStringBuilder;
             case 128:
-                return b(context, arrayList);
+                SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder();
+                if (this.a != 128 || this.b == null) {
+                    return spannableStringBuilder2;
+                }
+                CharSequence b4 = b(context, arrayList);
+                if (b4 != null) {
+                    spannableStringBuilder2.append(b4);
+                }
+                SpannableString a4 = a(context, this.a, this.b.b(), this.b.b());
+                if (a4 != null) {
+                    spannableStringBuilder2.append((CharSequence) a4);
+                    return spannableStringBuilder2;
+                }
+                return spannableStringBuilder2;
             case 256:
-                return b(context);
+                if (this.a != 256 || this.b == null || (a = this.b.a()) == null) {
+                    return null;
+                }
+                String str = !a.endsWith(" ") ? String.valueOf(a) + " " : a;
+                SpannableString spannableString2 = new SpannableString(str);
+                h hVar = new h(context, this.a, str);
+                hVar.a(this.b.b());
+                spannableString2.setSpan(hVar, 0, str.length() - 1, 33);
+                return spannableString2;
         }
     }
 
-    public void a(JSONObject jSONObject) {
-        int i = 0;
+    public final void a(JSONObject jSONObject) {
+        int i;
+        int i2 = 0;
         try {
-            this.a = a(jSONObject.optInt("type", 0));
+            switch (jSONObject.optInt("type", 0)) {
+                case 0:
+                    i = 1;
+                    break;
+                case 1:
+                    i = 2;
+                    break;
+                case 2:
+                    i = 4;
+                    break;
+                case 3:
+                    i = 8;
+                    break;
+                case 4:
+                    i = 16;
+                    break;
+                case 5:
+                    i = 32;
+                    break;
+                case 6:
+                    i = 64;
+                    break;
+                case 7:
+                default:
+                    i = 0;
+                    break;
+                case 8:
+                    i = 128;
+                    break;
+                case 9:
+                    i = 256;
+                    break;
+                case 10:
+                    i = 512;
+                    break;
+                case 11:
+                    i = 17;
+                    break;
+            }
+            this.a = i;
             if (this.a == 8) {
                 this.c = new g(jSONObject);
             } else if (this.a == 512) {
@@ -214,14 +223,16 @@ public class i {
                 this.e.i = jSONObject.optString("icon");
                 String[] split = this.e.b.split("/");
                 for (String str : split) {
-                    i++;
+                    i2++;
                     if (str.equals("faceshop")) {
-                        break;
+                        String str2 = split[i2].split("_")[0];
+                        com.baidu.adp.lib.util.e.e("TbRichTextView", "onClick", str2);
+                        this.e.e = str2;
                     }
                 }
-                String str2 = split[i].split("_")[0];
-                com.baidu.adp.lib.util.f.e("TbRichTextView", "onClick", str2);
-                this.e.e = str2;
+                String str22 = split[i2].split("_")[0];
+                com.baidu.adp.lib.util.e.e("TbRichTextView", "onClick", str22);
+                this.e.e = str22;
             } else {
                 this.b = new b(jSONObject);
                 if (this.a == 4) {
@@ -240,37 +251,7 @@ public class i {
                 this.b.c();
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(e.getMessage());
-        }
-    }
-
-    private int a(int i) {
-        switch (i) {
-            case 0:
-                return 1;
-            case 1:
-                return 2;
-            case 2:
-                return 4;
-            case 3:
-                return 8;
-            case 4:
-                return 16;
-            case 5:
-                return 32;
-            case 6:
-                return 64;
-            case 7:
-            default:
-                return 0;
-            case 8:
-                return 128;
-            case 9:
-                return 256;
-            case 10:
-                return 512;
-            case 11:
-                return 17;
+            com.baidu.adp.lib.util.e.b(e.getMessage());
         }
     }
 }

@@ -2,45 +2,28 @@ package com.baidu.tieba.im.model;
 
 import com.baidu.tieba.im.message.bj;
 /* loaded from: classes.dex */
-public class k extends com.baidu.adp.a.d {
+public final class k extends com.baidu.adp.a.d {
     @Override // com.baidu.adp.a.d
-    public boolean cancelLoadData() {
+    public final boolean cancelLoadData() {
         return false;
     }
 
-    private com.baidu.tieba.im.message.an b(int i) {
+    public final void a(int i) {
         com.baidu.tieba.im.message.an anVar = new com.baidu.tieba.im.message.an();
-        anVar.a(i);
-        return anVar;
+        anVar.a(8);
+        com.baidu.tieba.im.messageCenter.d.a().a(anVar);
     }
 
-    private bj b(int i, boolean z) {
+    public final void a(int i, boolean z) {
         bj bjVar = new bj();
         bjVar.a(z);
-        bjVar.a(i);
+        bjVar.a(8);
         bjVar.a("");
-        return bjVar;
-    }
-
-    public void a(int i) {
-        com.baidu.tieba.im.messageCenter.e.a().a(b(i));
-    }
-
-    public void a(int i, boolean z) {
-        com.baidu.tieba.im.messageCenter.e.a().a(b(i, z));
-    }
-
-    public void a(com.baidu.tieba.im.messageCenter.g gVar) {
-        com.baidu.tieba.im.messageCenter.e.a().a(104103, gVar);
-        com.baidu.tieba.im.messageCenter.e.a().a(104102, gVar);
-    }
-
-    public void b(com.baidu.tieba.im.messageCenter.g gVar) {
-        com.baidu.tieba.im.messageCenter.e.a().a(gVar);
+        com.baidu.tieba.im.messageCenter.d.a().a(bjVar);
     }
 
     @Override // com.baidu.adp.a.d
-    protected boolean LoadData() {
+    protected final boolean LoadData() {
         return false;
     }
 }

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class as {
+public final class as {
     private ArrayList<av> a = new ArrayList<>();
     private ArrayList<av> b = new ArrayList<>();
     private af c = new af();
@@ -13,54 +13,51 @@ public class as {
     private au e = null;
     private boolean f = true;
 
-    public boolean a() {
+    public final boolean a() {
         return this.f;
     }
 
-    public ArrayList<av> b() {
+    public final ArrayList<av> b() {
         return this.a;
     }
 
-    public ArrayList<av> c() {
+    public final ArrayList<av> c() {
         return this.b;
     }
 
-    public af d() {
+    public final af d() {
         return this.c;
     }
 
-    public ForumDetailData.ThreadInfo[] e() {
+    public final ForumDetailData.ThreadInfo[] e() {
         return this.d;
     }
 
-    public au f() {
+    public final au f() {
         return this.e;
     }
 
-    public void a(String str) {
-        if (str == null || str.length() < 1) {
+    public final void a(String str) {
+        if (str == null || str.length() <= 0) {
             this.f = false;
             return;
         }
         try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
+            JSONObject jSONObject = new JSONObject(str);
+            try {
+                a(jSONObject.optJSONArray("banner"));
+                b(jSONObject.optJSONArray("forum_list_recommend_img"));
+                this.c.a(jSONObject.optJSONArray("forum_list_recommend"));
+                c(jSONObject.optJSONArray("thread_list"));
+                this.e = new au();
+                this.e.b(jSONObject);
+            } catch (Exception e) {
+                this.f = false;
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "parserJson", e.toString());
+            }
+        } catch (Exception e2) {
             this.f = false;
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.toString());
-        }
-    }
-
-    public void a(JSONObject jSONObject) {
-        try {
-            a(jSONObject.optJSONArray("banner"));
-            b(jSONObject.optJSONArray("forum_list_recommend_img"));
-            this.c.a(jSONObject.optJSONArray("forum_list_recommend"));
-            c(jSONObject.optJSONArray("thread_list"));
-            this.e = new au();
-            this.e.b(jSONObject);
-        } catch (Exception e) {
-            this.f = false;
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.adp.lib.util.e.b(getClass().getName(), "parserJson", e2.toString());
         }
     }
 
@@ -77,7 +74,7 @@ public class as {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "parseCarouselRecommendData", e.toString());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "parseCarouselRecommendData", e.toString());
             }
         }
     }
@@ -95,7 +92,7 @@ public class as {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "parseForumTopicRecommendData", e.toString());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "parseForumTopicRecommendData", e.toString());
             }
         }
     }
@@ -131,12 +128,12 @@ public class as {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "parseRecommendPostData", e.toString());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "parseRecommendPostData", e.toString());
             }
         }
     }
 
-    public boolean g() {
+    public final boolean g() {
         boolean z = false;
         if (this.f) {
             if (this.a == null || this.e == null || this.b == null || this.c == null || this.d == null) {

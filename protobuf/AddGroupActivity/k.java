@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.AddGroupActivity.AddGroupActivityRes;
 /* loaded from: classes.dex */
 public final class k extends GeneratedMessageLite.Builder<AddGroupActivityRes.DataRes, k> implements l {
@@ -14,19 +15,34 @@ public final class k extends GeneratedMessageLite.Builder<AddGroupActivityRes.Da
     private Object d = "";
     private Object f = "";
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        AddGroupActivityRes.DataRes buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return AddGroupActivityRes.DataRes.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return AddGroupActivityRes.DataRes.getDefaultInstance();
+    }
+
     private k() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static k h() {
+    public static /* synthetic */ k b() {
         return new k();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public k clear() {
         super.clear();
         this.b = 0;
@@ -43,30 +59,14 @@ public final class k extends GeneratedMessageLite.Builder<AddGroupActivityRes.Da
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public k clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public AddGroupActivityRes.DataRes getDefaultInstanceForType() {
-        return AddGroupActivityRes.DataRes.getDefaultInstance();
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public AddGroupActivityRes.DataRes build() {
-        AddGroupActivityRes.DataRes buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
+    public k clone() {
+        return new k().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public AddGroupActivityRes.DataRes buildPartial() {
+    /* renamed from: a */
+    public final AddGroupActivityRes.DataRes buildPartial() {
         AddGroupActivityRes.DataRes dataRes = new AddGroupActivityRes.DataRes(this, (AddGroupActivityRes.DataRes) null);
         int i = this.a;
         int i2 = (i & 1) != 1 ? 0 : 1;
@@ -93,13 +93,15 @@ public final class k extends GeneratedMessageLite.Builder<AddGroupActivityRes.Da
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public k mergeFrom(AddGroupActivityRes.DataRes dataRes) {
+    public final k mergeFrom(AddGroupActivityRes.DataRes dataRes) {
         Object obj;
         Object obj2;
         Object obj3;
         if (dataRes != AddGroupActivityRes.DataRes.getDefaultInstance()) {
             if (dataRes.hasGroupId()) {
-                a(dataRes.getGroupId());
+                int groupId = dataRes.getGroupId();
+                this.a |= 1;
+                this.b = groupId;
             }
             if (dataRes.hasGroupName()) {
                 this.a |= 2;
@@ -112,7 +114,9 @@ public final class k extends GeneratedMessageLite.Builder<AddGroupActivityRes.Da
                 this.d = obj2;
             }
             if (dataRes.hasGActivityTime()) {
-                a(dataRes.getGActivityTime());
+                long gActivityTime = dataRes.getGActivityTime();
+                this.a |= 8;
+                this.e = gActivityTime;
             }
             if (dataRes.hasGActivityArea()) {
                 this.a |= 16;
@@ -164,17 +168,5 @@ public final class k extends GeneratedMessageLite.Builder<AddGroupActivityRes.Da
                 throw th;
             }
         }
-    }
-
-    public k a(int i) {
-        this.a |= 1;
-        this.b = i;
-        return this;
-    }
-
-    public k a(long j) {
-        this.a |= 8;
-        this.e = j;
-        return this;
     }
 }

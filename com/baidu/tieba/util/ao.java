@@ -17,15 +17,15 @@ public class ao extends ClickableSpan {
     public void onClick(View view) {
     }
 
-    public Context a() {
+    public final Context a() {
         return this.a;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         UtilHelper.c(this.a, str);
     }
 
-    public void b(String str) {
+    public final void b(String str) {
         NewPbActivity.a(this.a, str, (String) null, (String) null);
     }
 }

@@ -47,6 +47,7 @@ public class FilenameUtils {
     }
 
     private static String doNormalize(String str, char c, boolean z) {
+        boolean z2;
         int i;
         if (str == null) {
             return null;
@@ -65,77 +66,74 @@ public class FilenameUtils {
                     cArr[i2] = c;
                 }
             }
-            boolean z2 = true;
             if (cArr[length - 1] != c) {
-                i = length + 1;
                 cArr[length] = c;
+                i = length + 1;
                 z2 = false;
             } else {
+                z2 = true;
                 i = length;
             }
-            int i3 = i;
-            int i4 = prefixLength + 1;
-            while (i4 < i3) {
-                if (cArr[i4] == c && cArr[i4 - 1] == c) {
-                    System.arraycopy(cArr, i4, cArr, i4 - 1, i3 - i4);
+            int i3 = prefixLength + 1;
+            while (i3 < i) {
+                if (cArr[i3] == c && cArr[i3 - 1] == c) {
+                    System.arraycopy(cArr, i3, cArr, i3 - 1, i - i3);
+                    i--;
                     i3--;
+                }
+                i3++;
+            }
+            int i4 = prefixLength + 1;
+            while (i4 < i) {
+                if (cArr[i4] == c && cArr[i4 - 1] == '.' && (i4 == prefixLength + 1 || cArr[i4 - 2] == c)) {
+                    if (i4 == i - 1) {
+                        z2 = true;
+                    }
+                    System.arraycopy(cArr, i4 + 1, cArr, i4 - 1, i - i4);
+                    i -= 2;
                     i4--;
                 }
                 i4++;
             }
-            int i5 = prefixLength + 1;
-            while (i5 < i3) {
-                if (cArr[i5] == c && cArr[i5 - 1] == '.' && (i5 == prefixLength + 1 || cArr[i5 - 2] == c)) {
-                    if (i5 == i3 - 1) {
-                        z2 = true;
-                    }
-                    System.arraycopy(cArr, i5 + 1, cArr, i5 - 1, i3 - i5);
-                    i3 -= 2;
-                    i5--;
-                }
-                z2 = z2;
-                i5++;
-            }
-            int i6 = prefixLength + 2;
-            while (i6 < i3) {
-                if (cArr[i6] == c && cArr[i6 - 1] == '.' && cArr[i6 - 2] == '.' && (i6 == prefixLength + 2 || cArr[i6 - 3] == c)) {
-                    if (i6 == prefixLength + 2) {
+            int i5 = prefixLength + 2;
+            while (i5 < i) {
+                if (cArr[i5] == c && cArr[i5 - 1] == '.' && cArr[i5 - 2] == '.' && (i5 == prefixLength + 2 || cArr[i5 - 3] == c)) {
+                    if (i5 == prefixLength + 2) {
                         return null;
                     }
-                    if (i6 == i3 - 1) {
+                    if (i5 == i - 1) {
                         z2 = true;
                     }
-                    int i7 = i6 - 4;
+                    int i6 = i5 - 4;
                     while (true) {
-                        if (i7 >= prefixLength) {
-                            if (cArr[i7] == c) {
-                                System.arraycopy(cArr, i6 + 1, cArr, i7 + 1, i3 - i6);
-                                i3 -= i6 - i7;
-                                i6 = i7 + 1;
+                        if (i6 >= prefixLength) {
+                            if (cArr[i6] == c) {
+                                System.arraycopy(cArr, i5 + 1, cArr, i6 + 1, i - i5);
+                                i -= i5 - i6;
+                                i5 = i6 + 1;
                                 break;
                             }
-                            i7--;
+                            i6--;
                         } else {
-                            System.arraycopy(cArr, i6 + 1, cArr, prefixLength, i3 - i6);
-                            i3 -= (i6 + 1) - prefixLength;
-                            i6 = prefixLength + 1;
+                            System.arraycopy(cArr, i5 + 1, cArr, prefixLength, i - i5);
+                            i -= (i5 + 1) - prefixLength;
+                            i5 = prefixLength + 1;
                             break;
                         }
                     }
                 }
-                z2 = z2;
-                i6++;
+                i5++;
             }
-            if (i3 <= 0) {
+            if (i <= 0) {
                 return "";
             }
-            if (i3 <= prefixLength) {
-                return new String(cArr, 0, i3);
+            if (i <= prefixLength) {
+                return new String(cArr, 0, i);
             }
             if (z2 && z) {
-                return new String(cArr, 0, i3);
+                return new String(cArr, 0, i);
             }
-            return new String(cArr, 0, i3 - 1);
+            return new String(cArr, 0, i - 1);
         }
         return str;
     }
@@ -194,56 +192,54 @@ public class FilenameUtils {
             return -1;
         }
         int length = str.length();
-        if (length == 0) {
-            return 0;
-        }
-        char charAt = str.charAt(0);
-        if (charAt == ':') {
-            return -1;
-        }
-        if (length == 1) {
-            if (charAt == '~') {
-                return 2;
+        if (length != 0) {
+            char charAt = str.charAt(0);
+            if (charAt == ':') {
+                return -1;
             }
-            return !isSeparator(charAt) ? 0 : 1;
-        } else if (charAt == '~') {
-            int indexOf = str.indexOf(47, 1);
-            int indexOf2 = str.indexOf(92, 1);
-            if (indexOf == -1 && indexOf2 == -1) {
-                return length + 1;
-            }
-            if (indexOf == -1) {
-                indexOf = indexOf2;
-            }
-            if (indexOf2 == -1) {
-                indexOf2 = indexOf;
-            }
-            return Math.min(indexOf, indexOf2) + 1;
-        } else {
-            char charAt2 = str.charAt(1);
-            if (charAt2 == ':') {
-                char upperCase = Character.toUpperCase(charAt);
-                if (upperCase < 'A' || upperCase > 'Z') {
-                    return -1;
+            if (length == 1) {
+                if (charAt == '~') {
+                    return 2;
                 }
-                return (length == 2 || !isSeparator(str.charAt(2))) ? 2 : 3;
-            } else if (!isSeparator(charAt) || !isSeparator(charAt2)) {
-                return !isSeparator(charAt) ? 0 : 1;
+                return isSeparator(charAt) ? 1 : 0;
+            } else if (charAt == '~') {
+                int indexOf = str.indexOf(47, 1);
+                int indexOf2 = str.indexOf(92, 1);
+                if (indexOf == -1 && indexOf2 == -1) {
+                    return length + 1;
+                }
+                if (indexOf == -1) {
+                    indexOf = indexOf2;
+                }
+                if (indexOf2 == -1) {
+                    indexOf2 = indexOf;
+                }
+                return Math.min(indexOf, indexOf2) + 1;
             } else {
-                int indexOf3 = str.indexOf(47, 2);
-                int indexOf4 = str.indexOf(92, 2);
-                if ((indexOf3 == -1 && indexOf4 == -1) || indexOf3 == 2 || indexOf4 == 2) {
-                    return -1;
+                char charAt2 = str.charAt(1);
+                if (charAt2 == ':') {
+                    char upperCase = Character.toUpperCase(charAt);
+                    if (upperCase < 'A' || upperCase > 'Z') {
+                        return -1;
+                    }
+                    return (length == 2 || !isSeparator(str.charAt(2))) ? 2 : 3;
+                } else if (!isSeparator(charAt) || !isSeparator(charAt2)) {
+                    return isSeparator(charAt) ? 1 : 0;
+                } else {
+                    int indexOf3 = str.indexOf(47, 2);
+                    int indexOf4 = str.indexOf(92, 2);
+                    if ((indexOf3 == -1 && indexOf4 == -1) || indexOf3 == 2 || indexOf4 == 2) {
+                        return -1;
+                    }
+                    int i = indexOf3 == -1 ? indexOf4 : indexOf3;
+                    if (indexOf4 == -1) {
+                        indexOf4 = i;
+                    }
+                    return Math.min(i, indexOf4) + 1;
                 }
-                if (indexOf3 == -1) {
-                    indexOf3 = indexOf4;
-                }
-                if (indexOf4 == -1) {
-                    indexOf4 = indexOf3;
-                }
-                return Math.min(indexOf3, indexOf4) + 1;
             }
         }
+        return 0;
     }
 
     public static int indexOfLastSeparator(String str) {

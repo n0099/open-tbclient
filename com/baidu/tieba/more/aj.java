@@ -6,7 +6,7 @@ import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class aj implements TimePickerDialog.OnTimeSetListener {
+final class aj implements TimePickerDialog.OnTimeSetListener {
     final /* synthetic */ MsgRemindActivity a;
     private final /* synthetic */ int b;
     private final /* synthetic */ TiebaApplication c;
@@ -19,22 +19,22 @@ class aj implements TimePickerDialog.OnTimeSetListener {
     }
 
     @Override // android.app.TimePickerDialog.OnTimeSetListener
-    public void onTimeSet(TimePicker timePicker, int i, int i2) {
+    public final void onTimeSet(TimePicker timePicker, int i, int i2) {
         ak akVar;
         ak akVar2;
         if (this.b == R.id.sign_remind) {
             this.c.a(i, i2);
             akVar2 = this.a.a;
-            akVar2.e();
+            akVar2.d();
         } else if (this.b == R.id.no_disturb_end_time || this.b == R.id.no_disturb_start_time) {
             String str = String.valueOf(String.valueOf(i < 10 ? SocialConstants.FALSE : "") + i) + ":" + (String.valueOf(i2 < 10 ? SocialConstants.FALSE : "") + i2);
             if (this.b == R.id.no_disturb_start_time) {
-                this.c.n(str);
-            } else {
                 this.c.o(str);
+            } else {
+                this.c.p(str);
             }
             akVar = this.a.a;
-            akVar.f();
+            akVar.e();
         }
     }
 }

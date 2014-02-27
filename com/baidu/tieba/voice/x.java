@@ -12,7 +12,7 @@ import com.baidu.tieba.voice.service.MediaService;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x extends BroadcastReceiver {
+public final class x extends BroadcastReceiver {
     final /* synthetic */ VoiceManager a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -21,18 +21,17 @@ public class x extends BroadcastReceiver {
     }
 
     @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
+    public final void onReceive(Context context, Intent intent) {
         VoiceManager.VoiceModel voiceModel;
-        ad m;
+        ad o;
         VoiceManager.VoiceModel voiceModel2;
         VoiceManager.VoiceModel voiceModel3;
         String a;
         VoiceManager.VoiceModel voiceModel4;
-        ad m2;
         VoiceManager.VoiceModel voiceModel5;
         VoiceManager.VoiceModel voiceModel6;
         VoiceManager.VoiceModel voiceModel7;
-        ad m3;
+        ad o2;
         VoiceManager.VoiceModel voiceModel8;
         boolean z;
         boolean z2;
@@ -40,7 +39,7 @@ public class x extends BroadcastReceiver {
         Handler handler2;
         Handler handler3;
         VoiceManager.VoiceModel voiceModel9;
-        ad m4;
+        ad o3;
         VoiceManager.VoiceModel voiceModel10;
         VoiceManager.VoiceModel voiceModel11;
         VoiceManager.VoiceModel voiceModel12;
@@ -49,7 +48,7 @@ public class x extends BroadcastReceiver {
         VoiceManager.VoiceModel voiceModel14;
         VoiceManager.VoiceModel voiceModel15;
         VoiceManager.VoiceModel voiceModel16;
-        ad m5;
+        ad o4;
         VoiceManager.VoiceModel voiceModel17;
         Handler handler5;
         Runnable runnable;
@@ -71,10 +70,10 @@ public class x extends BroadcastReceiver {
                         try {
                             voiceModel16 = this.a.v;
                             voiceModel16.voice_status = 3;
-                            m5 = this.a.m();
-                            if (m5 != null) {
+                            o4 = this.a.o();
+                            if (o4 != null) {
                                 voiceModel17 = this.a.v;
-                                m5.a(voiceModel17);
+                                o4.a(voiceModel17);
                             }
                         } catch (Exception e) {
                             com.baidu.tieba.util.ae aeVar = new com.baidu.tieba.util.ae();
@@ -91,9 +90,9 @@ public class x extends BroadcastReceiver {
                 }
             } else if (action.equals("com.baidu.playElapsedTime")) {
                 int intExtra = intent.getIntExtra("com.baidu.msg.playElapsedTime", 0);
-                m4 = this.a.m();
-                if (m4 != null) {
-                    m4.c(intExtra);
+                o3 = this.a.o();
+                if (o3 != null) {
+                    o3.a(intExtra);
                 }
                 voiceModel10 = this.a.v;
                 if (voiceModel10 != null) {
@@ -101,7 +100,7 @@ public class x extends BroadcastReceiver {
                     voiceModel11.elapse = intExtra;
                 }
             } else if (action.equals("com.baidu.isStoped")) {
-                m3 = this.a.m();
+                o2 = this.a.o();
                 voiceModel8 = this.a.v;
                 if (voiceModel8 != null) {
                     z = this.a.M;
@@ -114,8 +113,8 @@ public class x extends BroadcastReceiver {
                     }
                     this.a.v = null;
                     z2 = this.a.M;
-                    if (z2 && m3 != null) {
-                        VoiceManager.VoiceModel voiceModel18 = m3.getVoiceModel();
+                    if (z2 && o2 != null) {
+                        VoiceManager.VoiceModel voiceModel18 = o2.getVoiceModel();
                         if (voiceModel18 != null) {
                             voiceModel18.curr_time = intent.getIntExtra("com.baidu.msg.curr_time", 0);
                         }
@@ -145,21 +144,18 @@ public class x extends BroadcastReceiver {
                             voiceModel6.duration2 = (int) longExtra;
                         }
                     }
-                    m2 = this.a.m();
-                    if (m2 != null) {
-                        m2.b();
-                    }
+                    this.a.o();
                     MediaService.startPlay(context);
                     return;
                 }
-                m = this.a.m();
-                if (m != null) {
+                o = this.a.o();
+                if (o != null) {
                     if (intExtra2 == 2) {
                         a = ak.a(R.string.voice_err_io);
                     } else {
                         a = ak.a(R.string.voice_err_play);
                     }
-                    m.a(5, a);
+                    o.a(5, a);
                 }
                 voiceModel2 = this.a.v;
                 if (voiceModel2 != null) {

@@ -1,12 +1,14 @@
 package com.baidu.tieba.im.groupActivity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.im.data.GroupActivityData;
@@ -37,7 +39,7 @@ public class CreateGroupActivityActivity extends com.baidu.tieba.k implements Vi
             intent.putExtra("time", groupActivityData.getgActivityTime());
             intent.putExtra("area", groupActivityData.getgActivityArea());
             intent.putExtra(PushConstants.EXTRA_CONTENT, groupActivityData.getgActivityContent());
-            activity.startActivityForResult(intent, i2);
+            activity.startActivityForResult(intent, 23001);
         }
     }
 
@@ -111,14 +113,14 @@ public class CreateGroupActivityActivity extends com.baidu.tieba.k implements Vi
             i = this.e.a().getGroupId();
         }
         bundle.putInt(PushConstants.EXTRA_GID, i);
-        bundle.putString(SocialConstants.PARAM_MEDIA_UNAME, this.d.f());
-        bundle.putString(PushConstants.EXTRA_CONTENT, this.d.h());
-        bundle.putString("area", this.d.g());
-        bundle.putLong("time", this.d.i());
+        bundle.putString(SocialConstants.PARAM_MEDIA_UNAME, this.d.e());
+        bundle.putString(PushConstants.EXTRA_CONTENT, this.d.g());
+        bundle.putString("area", this.d.f());
+        bundle.putLong("time", this.d.h());
     }
 
     @Override // com.baidu.tieba.k
-    protected void b(int i) {
+    protected final void b(int i) {
         if (this.d != null) {
             this.d.a(i);
         }
@@ -126,8 +128,8 @@ public class CreateGroupActivityActivity extends com.baidu.tieba.k implements Vi
 
     private void e() {
         if (this.f == null) {
-            this.f = new c(this, null);
-            com.baidu.tieba.im.messageCenter.e.a().a(103120, this.f);
+            this.f = new c(this, (byte) 0);
+            com.baidu.tieba.im.messageCenter.d.a().a(103120, this.f);
         }
     }
 
@@ -135,8 +137,11 @@ public class CreateGroupActivityActivity extends com.baidu.tieba.k implements Vi
     @Override // com.baidu.tieba.k, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.e.b();
-        com.baidu.tieba.im.messageCenter.e.a().a(this.f);
+        d dVar = this.e;
+        if (dVar.a != null) {
+            com.baidu.tieba.im.messageCenter.d.a().b(dVar.a);
+        }
+        com.baidu.tieba.im.messageCenter.d.a().a(this.f);
         this.d.c();
     }
 
@@ -144,16 +149,16 @@ public class CreateGroupActivityActivity extends com.baidu.tieba.k implements Vi
     public void onClick(View view) {
         if (view == this.d.a()) {
             f();
-        } else if (view == this.d.e() && this.e != null && this.e.a() != null) {
-            long i = this.d.i();
-            if ((!this.g || this.d.j()) && 1000 * i < System.currentTimeMillis()) {
-                c(R.string.group_activity_time_val);
+        } else if (view == this.d.d() && this.e != null && this.e.a() != null) {
+            long h = this.d.h();
+            if ((!this.g || this.d.i()) && 1000 * h < System.currentTimeMillis()) {
+                BdUtilHelper.a((Context) this, (int) R.string.group_activity_time_val);
                 return;
             }
-            this.e.a().setgActivityArea(this.d.g());
-            this.e.a().setgActivityContent(this.d.h());
-            this.e.a().setgActivityTime(i);
-            this.e.a().setgActivityTitle(this.d.f());
+            this.e.a().setgActivityArea(this.d.f());
+            this.e.a().setgActivityContent(this.d.g());
+            this.e.a().setgActivityTime(h);
+            this.e.a().setgActivityTitle(this.d.e());
             c();
             this.e.a(this.g);
         }
@@ -162,7 +167,7 @@ public class CreateGroupActivityActivity extends com.baidu.tieba.k implements Vi
     @Override // com.baidu.tieba.k, android.support.v4.app.FragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            if (TextUtils.isEmpty(this.d.f())) {
+            if (TextUtils.isEmpty(this.d.e())) {
                 finish();
                 return true;
             }
@@ -173,6 +178,7 @@ public class CreateGroupActivityActivity extends com.baidu.tieba.k implements Vi
     }
 
     private void f() {
-        com.baidu.tieba.im.util.b.a(this, this.g, new a(this), new b(this));
+        boolean z = this.g;
+        new AlertDialog.Builder(this).setTitle(R.string.quit).setMessage(z ? R.string.group_activity_edit_quit : R.string.group_activity_create_quit).setPositiveButton(R.string.confirm, new a(this)).setNegativeButton(R.string.cancel, new b(this)).create().show();
     }
 }

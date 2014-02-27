@@ -12,7 +12,7 @@ final class r implements ResultPointCallback {
     }
 
     @Override // com.google.zxing.ResultPointCallback
-    public void foundPossibleResultPoint(ResultPoint resultPoint) {
+    public final void foundPossibleResultPoint(ResultPoint resultPoint) {
         this.a.a(resultPoint);
     }
 }

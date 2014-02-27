@@ -2,7 +2,7 @@ package com.baidu.adp.lib.a;
 
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
-public class a {
+public final class a {
     private int a = 0;
     private String[] b = null;
     private int c = 0;
@@ -22,33 +22,33 @@ public class a {
         this.f = i;
     }
 
-    public void a(int i, String[] strArr, int i2) {
+    public final void a(int i, String[] strArr, int i2) {
         this.a = i;
         this.b = strArr;
         this.c = i2;
     }
 
-    public String a() {
+    public final String a() {
         return this.d;
     }
 
-    public int b() {
+    public final int b() {
         return this.a;
     }
 
-    public String[] c() {
+    public final String[] c() {
         return this.b;
     }
 
-    public int d() {
+    public final int d() {
         return this.c;
     }
 
-    public int e() {
+    public final int e() {
         return this.f;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         if (this.e != null) {
             this.e.callback(this.d, i);
         }

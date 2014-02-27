@@ -3,7 +3,7 @@ package com.baidu.tieba.recommend;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n implements com.baidu.tbadk.imageManager.d {
+public final class n implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ h a;
     private final /* synthetic */ View b;
 
@@ -14,7 +14,7 @@ public class n implements com.baidu.tbadk.imageManager.d {
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
         View findViewWithTag;
         if (this.b != null && (findViewWithTag = this.b.findViewWithTag(str)) != null) {
             findViewWithTag.invalidate();

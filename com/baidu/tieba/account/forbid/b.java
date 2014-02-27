@@ -2,7 +2,7 @@ package com.baidu.tieba.account.forbid;
 
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class b implements j {
+final class b implements j {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +11,7 @@ class b implements j {
     }
 
     @Override // com.baidu.tieba.account.forbid.j
-    public void a(ForbidResultData forbidResultData) {
+    public final void a() {
         ForbidActivity forbidActivity;
         ForbidActivity forbidActivity2;
         ForbidActivity forbidActivity3;
@@ -23,7 +23,7 @@ class b implements j {
     }
 
     @Override // com.baidu.tieba.account.forbid.j
-    public void b(ForbidResultData forbidResultData) {
+    public final void b() {
         ForbidActivity forbidActivity;
         ForbidActivity forbidActivity2;
         forbidActivity = this.a.a;

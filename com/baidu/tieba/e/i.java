@@ -11,14 +11,14 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.u;
 import com.baidu.tieba.util.ap;
 import com.baidu.tieba.view.NoNetworkView;
-import com.baidu.tieba.view.ct;
+import com.baidu.tieba.view.cs;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class i extends com.baidu.adp.a.e {
+public final class i extends com.baidu.adp.a.e {
     private f a;
     private BdListView c;
     private com.baidu.tieba.k d;
-    private ct e;
+    private cs e;
     private RelativeLayout f;
     private View g;
     private Handler h;
@@ -41,23 +41,28 @@ public class i extends com.baidu.adp.a.e {
         this.l = (NoNetworkView) this.g.findViewById(R.id.view_no_network);
         this.n = (LinearLayout) this.g.findViewById(R.id.content_with_data);
         this.m = new n(this, kVar, this.f);
-        r();
-        a(TiebaApplication.g().al());
+        this.e = new cs(this.d);
+        this.c = (BdListView) this.g.findViewById(R.id.forum_feed_list);
+        this.c.setPullRefresh(this.e);
+        this.j = new m(this, this.d);
+        this.c.setNextPage(this.j);
+        this.c.setRecyclerListener(new l(this));
+        a(TiebaApplication.g().ae());
     }
 
-    public void a() {
+    public final void a() {
         if (this.a == null) {
-            p();
-            q();
+            n();
+            o();
         }
         this.c.b();
     }
 
-    public void e() {
+    public final void d() {
         this.o = false;
-        o();
+        m();
         if (this.a == null) {
-            p();
+            n();
         }
         if (this.c != null) {
             this.c.setBackgroundColor(0);
@@ -70,49 +75,49 @@ public class i extends com.baidu.adp.a.e {
         }
     }
 
-    public void f() {
+    public final void e() {
         if (this.c != null) {
             this.c.setSelection(0);
         }
     }
 
-    public void a(com.baidu.adp.widget.ListView.b bVar) {
+    public final void a(com.baidu.adp.widget.ListView.b bVar) {
         this.e.a(bVar);
     }
 
-    public void a(com.baidu.adp.widget.ListView.r rVar) {
+    public final void a(com.baidu.adp.widget.ListView.r rVar) {
         this.c.setOnSrollToBottomListener(rVar);
     }
 
-    public void g() {
+    public final void f() {
         this.j.g();
         this.c.a();
     }
 
-    public void h() {
+    public final void g() {
         this.j.e();
     }
 
-    public void i() {
+    public final void h() {
         this.j.f();
     }
 
-    public void j() {
+    public final void i() {
         if (this.i != null) {
             this.i.a();
-            this.i.d();
+            this.i.c();
         }
     }
 
-    public void a(View.OnClickListener onClickListener) {
+    public final void a(View.OnClickListener onClickListener) {
         this.j.a(onClickListener);
     }
 
-    public void a(u uVar) {
+    public final void a(u uVar) {
         if (uVar != null) {
             if (this.a == null) {
-                p();
-                q();
+                n();
+                o();
             }
             if (uVar.a() == 1) {
                 this.a.a(true);
@@ -126,17 +131,17 @@ public class i extends com.baidu.adp.a.e {
             if (this.j != null) {
                 this.j.d();
             }
-            k();
-            g();
+            j();
+            f();
             if (this.a.getCount() > 0) {
                 this.j.h();
             }
         }
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.d.a().a(i == 1);
-        this.d.a().a((View) this.f);
+        this.d.a().a(this.f);
         this.c.setBackgroundColor(0);
         if (!this.m.a) {
             this.n.setBackgroundResource(i == 1 ? R.color.forumfeed_frs_bg_1 : R.color.forumfeed_frs_bg);
@@ -154,29 +159,29 @@ public class i extends com.baidu.adp.a.e {
             this.l.a(i);
         }
         if (!this.o) {
-            o();
+            m();
         }
     }
 
-    public void k() {
+    public final void j() {
         if (this.h != null) {
             this.h.removeCallbacks(this.p);
             this.h.postDelayed(this.p, 0L);
         }
     }
 
-    public void l() {
+    public final void k() {
         if (com.baidu.tieba.h.a.a().f()) {
-            ap.a(this.c, this.a.b(), 0, -1);
+            ap.a(this.c, this.a.a(), 0, -1);
         }
     }
 
-    private void o() {
+    private void m() {
         if (this.c == null) {
         }
     }
 
-    private void p() {
+    private void n() {
         this.a = new f(this.d);
         if (this.k != null) {
             this.a.a(this.k);
@@ -185,25 +190,12 @@ public class i extends com.baidu.adp.a.e {
         this.i = new com.baidu.tieba.util.i(this.d);
     }
 
-    private void q() {
+    private void o() {
         this.h = new Handler();
         this.c.setOnScrollListener(new k(this));
     }
 
-    private void r() {
-        this.e = new ct(this.d);
-        this.c = (BdListView) this.g.findViewById(R.id.forum_feed_list);
-        this.c.setPullRefresh(this.e);
-        this.j = new m(this, this.d);
-        this.c.setNextPage(this.j);
-        this.c.setRecyclerListener(new l(this));
-    }
-
-    public ListView m() {
+    public final ListView l() {
         return this.c;
-    }
-
-    public int n() {
-        return R.id.user_icon_box;
     }
 }

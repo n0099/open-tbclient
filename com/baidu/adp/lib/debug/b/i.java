@@ -5,7 +5,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 /* loaded from: classes.dex */
-public class i {
+public final class i {
     private static float c = 0.0f;
     private static float d = 200.0f;
     private static float e = 0.0f;
@@ -19,7 +19,9 @@ public class i {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(Context context, View view) {
-        a(context);
+        if (j != null && j.isShown()) {
+            ((WindowManager) context.getSystemService("window")).removeView(j);
+        }
         i = view;
         j = view;
         h = (WindowManager) context.getSystemService("window");
@@ -39,35 +41,21 @@ public class i {
         d = motionEvent.getRawY();
         switch (motionEvent.getAction()) {
             case 0:
-                a(0.0f);
+                e = 0.0f;
                 f = motionEvent.getX();
                 g = motionEvent.getY();
                 return false;
             case 1:
-                a(1.0f);
+                e = 1.0f;
                 return false;
             case 2:
-                a(2.0f);
-                a(view);
+                e = 2.0f;
+                a.x = (int) (c - f);
+                a.y = (int) (d - g);
+                h.updateViewLayout(i, a);
                 return false;
             default:
                 return false;
         }
-    }
-
-    public static void a(Context context) {
-        if (j != null && j.isShown()) {
-            ((WindowManager) context.getSystemService("window")).removeView(j);
-        }
-    }
-
-    private static void a(View view) {
-        a.x = (int) (c - f);
-        a.y = (int) (d - g);
-        h.updateViewLayout(i, a);
-    }
-
-    public static void a(float f2) {
-        e = f2;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.im.message;
 import android.text.TextUtils;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 /* loaded from: classes.dex */
-public class aa extends da {
+public final class aa extends da {
     private GroupNewsPojo a;
 
     public aa(GroupNewsPojo groupNewsPojo) {
@@ -44,7 +44,7 @@ public class aa extends da {
         }
     }
 
-    public GroupNewsPojo a() {
+    public final GroupNewsPojo a() {
         return this.a;
     }
 }

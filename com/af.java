@@ -26,16 +26,16 @@ public class af extends ak {
         try {
             ((Activity) this.mContext).startActivityForResult(emailIntent, this.mRequestCode);
         } catch (ActivityNotFoundException e) {
-            if (!z) {
-                onStartLocalShareFailed("no_valid_mail_app", this.mListener);
-                return;
+            if (z) {
+                emailIntent.setPackage(null);
+                try {
+                    ((Activity) this.mContext).startActivityForResult(emailIntent, this.mRequestCode);
+                    return;
+                } catch (ActivityNotFoundException e2) {
+                    onStartLocalShareFailed("no_valid_mail_app", this.mListener);
+                }
             }
-            emailIntent.setPackage(null);
-            try {
-                ((Activity) this.mContext).startActivityForResult(emailIntent, this.mRequestCode);
-            } catch (ActivityNotFoundException e2) {
-                onStartLocalShareFailed("no_valid_mail_app", this.mListener);
-            }
+            onStartLocalShareFailed("no_valid_mail_app", this.mListener);
         }
     }
 }

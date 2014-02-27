@@ -14,7 +14,7 @@ import com.baidu.tieba.view.ai;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class f extends BaseAdapter {
+public final class f extends BaseAdapter {
     private u a;
     private Context b;
     private ai c;
@@ -27,7 +27,7 @@ public class f extends BaseAdapter {
     private float j = 0.4f;
     private boolean k = false;
 
-    public void a(u uVar) {
+    public final void a(u uVar) {
         b(bv.a().b());
         this.e = true;
         this.a = uVar;
@@ -42,7 +42,7 @@ public class f extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public int getCount() {
+    public final int getCount() {
         ArrayList<v> b;
         if (!this.e) {
             return 1;
@@ -54,7 +54,7 @@ public class f extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public Object getItem(int i) {
+    public final Object getItem(int i) {
         if (!this.e || this.a == null || this.a.b() == null) {
             return null;
         }
@@ -66,23 +66,25 @@ public class f extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    public final long getItemId(int i) {
         return 0L;
     }
 
-    public void a(View.OnClickListener onClickListener) {
+    public final void a(View.OnClickListener onClickListener) {
         this.d = onClickListener;
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.k = z;
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public final View getView(int i, View view, ViewGroup viewGroup) {
         v vVar;
         if (!this.e) {
-            return a();
+            View view2 = new View(this.b);
+            view2.setBackgroundColor(0);
+            return view2;
         }
         if (this.c == null) {
             this.c = new ai(this.b);
@@ -91,25 +93,25 @@ public class f extends BaseAdapter {
         this.c.a(this.k);
         View a = (view == null || view.getTag() == null) ? this.c.a() : view;
         a.setPadding(0, i == 0 ? this.b.getResources().getDimensionPixelSize(R.dimen.forumfeed_first_item_margin_top) : 0, 0, 0);
-        int al = TiebaApplication.g().al();
+        int ae = TiebaApplication.g().ae();
         ArrayList<v> b = this.a.b();
         if (b != null && (vVar = b.get(i)) != null) {
             this.c.a(a, vVar);
-            this.c.a(al, a);
+            this.c.a(ae, a);
         }
         com.baidu.tieba.k kVar = (com.baidu.tieba.k) this.b;
-        kVar.a().a(al == 1);
+        kVar.a().a(ae == 1);
         kVar.a().a(a);
         return a;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
+    public final int getViewTypeCount() {
         return 6;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
+    public final int getItemViewType(int i) {
         v vVar;
         ArrayList<ah> k;
         if (this.e && this.a != null) {
@@ -129,13 +131,7 @@ public class f extends BaseAdapter {
         return 0;
     }
 
-    public View a() {
-        View view = new View(this.b);
-        view.setBackgroundColor(0);
-        return view;
-    }
-
-    public void b(boolean z) {
+    private void b(boolean z) {
         this.i = z;
         this.h = this.g;
         if (this.i) {
@@ -145,7 +141,7 @@ public class f extends BaseAdapter {
             if (this.h > BdUtilHelper.a(this.b, 320.0f)) {
                 this.h = BdUtilHelper.a(this.b, 320.0f);
             }
-            this.f.b("_small");
+            this.f.f = "_small";
         } else {
             if (this.h > this.j * 480.0f) {
                 this.h = (int) (this.j * 480.0f);
@@ -153,12 +149,12 @@ public class f extends BaseAdapter {
             if (this.h > BdUtilHelper.a(this.b, 320.0f) * this.j) {
                 this.h = (int) (BdUtilHelper.a(this.b, 320.0f) * this.j);
             }
-            this.f.b("_mobile");
+            this.f.f = "_mobile";
         }
         this.f.a(this.h, this.h);
     }
 
-    public com.baidu.tieba.util.i b() {
+    public final com.baidu.tieba.util.i a() {
         return this.f;
     }
 }

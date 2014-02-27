@@ -6,7 +6,7 @@ import com.baidu.tieba.util.bq;
 import com.slidingmenu.lib.R;
 import java.util.List;
 /* loaded from: classes.dex */
-class b implements AdapterView.OnItemClickListener {
+final class b implements AdapterView.OnItemClickListener {
     final /* synthetic */ EmotionManageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +15,7 @@ class b implements AdapterView.OnItemClickListener {
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+    public final void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         boolean z;
         List list;
         g gVar;
@@ -39,11 +39,11 @@ class b implements AdapterView.OnItemClickListener {
                                 bq.d(gVar.a, (int) R.drawable.btn_expression_choose_n);
                                 list5 = this.a.b;
                                 list5.remove(str);
-                                this.a.b(str);
+                                EmotionManageActivity.a(this.a, str);
                                 eVar.c = false;
                             } else {
                                 bq.d(gVar.a, (int) R.drawable.btn_expression_choose_s);
-                                this.a.a(str);
+                                EmotionManageActivity.b(this.a, str);
                                 eVar.c = true;
                             }
                         }

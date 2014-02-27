@@ -4,7 +4,7 @@ public class g {
     private static final String a = g.class.getName();
     private String b = "";
 
-    public String a(String str) {
+    public static String a(String str) {
         com.baidu.tieba.data.f a2;
         if (str != null) {
             try {
@@ -15,7 +15,7 @@ public class g {
                     return a4;
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(a, "submitVoiceBinary", "error: " + e.getMessage());
+                com.baidu.adp.lib.util.e.b(a, "submitVoiceBinary", "error: " + e.getMessage());
             }
         }
         return null;

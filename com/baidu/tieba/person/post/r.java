@@ -12,7 +12,7 @@ import com.baidu.tieba.view.PbListView;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r implements o {
+public final class r implements o {
     final /* synthetic */ q a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -27,7 +27,7 @@ public class r implements o {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(PersonPostReplyModel personPostReplyModel, boolean z) {
+    public final void a(PersonPostReplyModel personPostReplyModel, boolean z) {
         ProgressBar progressBar;
         TextView textView;
         TextView textView2;
@@ -47,7 +47,7 @@ public class r implements o {
         if (this.a.isAdded()) {
             progressBar = this.a.e;
             progressBar.setVisibility(8);
-            if (TiebaApplication.g().al() == 1) {
+            if (TiebaApplication.g().ae() == 1) {
                 textView7 = this.a.g;
                 textView7.setTextColor(this.a.getResources().getColor(R.color.person_post_header_uname_1));
             } else {
@@ -98,7 +98,7 @@ public class r implements o {
                 }
                 return;
             }
-            if (TiebaApplication.g().al() == 1) {
+            if (TiebaApplication.g().ae() == 1) {
                 textView4 = this.a.g;
                 textView4.setTextColor(this.a.getResources().getColor(R.color.person_post_header_uname_1));
             } else {

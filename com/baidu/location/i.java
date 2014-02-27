@@ -144,7 +144,6 @@ public class i {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(BDLocation bDLocation) {
-        float f;
         j.a(this.f185do, "notify new loation");
         this.f193void = false;
         if (bDLocation.getLocType() != 61 && bDLocation.getLocType() != 161 && bDLocation.getLocType() != 65) {
@@ -154,19 +153,16 @@ public class i {
             this.f183case = bDLocation;
             this.b = System.currentTimeMillis();
             float[] fArr = new float[1];
-            float f2 = Float.MAX_VALUE;
             Iterator it = this.f182byte.iterator();
-            while (true) {
-                f = f2;
-                if (!it.hasNext()) {
-                    break;
-                }
+            float f = Float.MAX_VALUE;
+            while (it.hasNext()) {
                 BDNotifyListener bDNotifyListener = (BDNotifyListener) it.next();
                 Location.distanceBetween(bDLocation.getLatitude(), bDLocation.getLongitude(), bDNotifyListener.mLatitudeC, bDNotifyListener.mLongitudeC, fArr);
-                f2 = (fArr[0] - bDNotifyListener.mRadius) - bDLocation.getRadius();
-                j.a(this.f185do, "distance:" + f2);
-                if (f2 > 0.0f) {
-                    if (f2 < f) {
+                float radius = (fArr[0] - bDNotifyListener.mRadius) - bDLocation.getRadius();
+                j.a(this.f185do, "distance:" + radius);
+                if (radius > 0.0f) {
+                    if (radius < f) {
+                        f = radius;
                     }
                 } else if (bDNotifyListener.Notified < 3) {
                     bDNotifyListener.Notified++;
@@ -175,7 +171,6 @@ public class i {
                         this.f191long = true;
                     }
                 }
-                f2 = f;
             }
             if (f < this.f188goto) {
                 this.f188goto = f;

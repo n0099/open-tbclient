@@ -20,54 +20,45 @@ public class j {
         return a;
     }
 
-    public void b() {
-        this.c = new HashMap();
-        a(new int[3]);
-        this.b = BdUtilHelper.NetworkStateInfo.UNAVAIL;
-    }
-
-    public void a(int[] iArr) {
-        int i;
-        int i2;
-        int i3 = 0;
-        if (iArr == null || iArr.length != 3) {
-            i = 0;
-            i2 = 0;
-        } else {
-            i2 = iArr[0];
-            i = iArr[1];
-            i3 = iArr[2];
-        }
-        if (i2 < 5000) {
-            i2 = 20000;
-        }
-        if (i < 5000) {
-            i = 10000;
-        }
-        int i4 = i3 >= 5000 ? i3 : 5000;
-        this.c.put(BdUtilHelper.NetworkStateInfo.TwoG, Integer.valueOf(i2));
-        this.c.put(BdUtilHelper.NetworkStateInfo.ThreeG, Integer.valueOf(i));
-        this.c.put(BdUtilHelper.NetworkStateInfo.WIFI, Integer.valueOf(i4));
-    }
-
-    public void c() {
+    public final void b() {
         this.b = BdUtilHelper.e(com.baidu.adp.a.b.a().b());
     }
 
-    public int d() {
+    public final int c() {
         int i;
+        int i2;
+        int i3;
         if (this.c == null) {
-            b();
+            this.c = new HashMap();
+            int[] iArr = new int[3];
+            if (iArr == null || iArr.length != 3) {
+                i = 0;
+                i2 = 0;
+                i3 = 0;
+            } else {
+                i3 = iArr[0];
+                i2 = iArr[1];
+                i = iArr[2];
+            }
+            if (i3 < 5000) {
+                i3 = 20000;
+            }
+            if (i2 < 5000) {
+                i2 = 10000;
+            }
+            if (i < 5000) {
+                i = 5000;
+            }
+            this.c.put(BdUtilHelper.NetworkStateInfo.TwoG, Integer.valueOf(i3));
+            this.c.put(BdUtilHelper.NetworkStateInfo.ThreeG, Integer.valueOf(i2));
+            this.c.put(BdUtilHelper.NetworkStateInfo.WIFI, Integer.valueOf(i));
+            this.b = BdUtilHelper.NetworkStateInfo.UNAVAIL;
         }
         Integer num = this.c.get(this.b);
-        if (num == null) {
-            i = 0;
-        } else {
-            i = num.intValue();
-        }
-        if (i < 5000) {
+        int intValue = num != null ? num.intValue() : 0;
+        if (intValue < 5000) {
             return 5000;
         }
-        return i;
+        return intValue;
     }
 }

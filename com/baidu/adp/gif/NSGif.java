@@ -43,7 +43,7 @@ public class NSGif implements c {
     }
 
     @Override // com.baidu.adp.gif.c
-    public void a() {
+    public final void a() {
         this.b = nativeDestroy(this.b);
     }
 
@@ -56,22 +56,22 @@ public class NSGif implements c {
     }
 
     @Override // com.baidu.adp.gif.c
-    public int b() {
+    public final int b() {
         return this.c;
     }
 
     @Override // com.baidu.adp.gif.c
-    public int c() {
+    public final int c() {
         return this.d;
     }
 
     @Override // com.baidu.adp.gif.c
-    public int d() {
+    public final int d() {
         return this.e;
     }
 
     @Override // com.baidu.adp.gif.c
-    public int b(int i) {
+    public final int b(int i) {
         int nativeGetFrameDelay = nativeGetFrameDelay(this.b, i);
         if (nativeGetFrameDelay <= 0) {
             return 100;
@@ -80,12 +80,12 @@ public class NSGif implements c {
     }
 
     @Override // com.baidu.adp.gif.c
-    public boolean a(int i) {
+    public final boolean a(int i) {
         return nativeDecodeFrame(this.b, i);
     }
 
     @Override // com.baidu.adp.gif.c
-    public boolean a(Bitmap bitmap, Canvas canvas) {
+    public final boolean a(Bitmap bitmap, Canvas canvas) {
         if (bitmap == null) {
             return false;
         }

@@ -9,31 +9,22 @@ import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class h implements a {
+public final class h implements a {
+    private LinearLayout a;
+    private TextView b;
+    private Button c;
     private NearbyGroupsActivity d;
+    private View e;
     private int f;
-    private LinearLayout a = null;
-    private TextView b = null;
-    private Button c = null;
-    private View e = null;
 
     public h(NearbyGroupsActivity nearbyGroupsActivity, int i) {
+        this.a = null;
+        this.b = null;
+        this.c = null;
         this.d = null;
+        this.e = null;
         this.d = nearbyGroupsActivity;
         this.f = i;
-        b();
-    }
-
-    @Override // com.baidu.tieba.im.nearbygroups.a
-    public View a() {
-        return this.e;
-    }
-
-    @Override // com.baidu.tieba.im.nearbygroups.a
-    public void a(int i, Object obj) {
-    }
-
-    public void b() {
         this.e = LayoutInflater.from(this.d).inflate(R.layout.nearby_group_guide, (ViewGroup) null);
         this.a = (LinearLayout) this.e.findViewById(R.id.guide_parent);
         this.b = (TextView) this.e.findViewById(R.id.guide_tip);
@@ -49,15 +40,16 @@ public class h implements a {
             this.b.setText(R.string.nearby_group_gps_error);
             this.c.setVisibility(8);
         }
-        c();
+        this.d.getLayoutMode().a(TiebaApplication.g().ae() == 1);
+        this.d.getLayoutMode().a(this.a);
     }
 
-    public void a(int i) {
-        this.d.getLayoutMode().a(i == 1);
-        this.d.getLayoutMode().a((View) this.a);
+    @Override // com.baidu.tieba.im.nearbygroups.a
+    public final View a() {
+        return this.e;
     }
 
-    public void c() {
-        a(TiebaApplication.g().al());
+    @Override // com.baidu.tieba.im.nearbygroups.a
+    public final void a(Object obj) {
     }
 }

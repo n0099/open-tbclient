@@ -1,27 +1,40 @@
 package com.baidu.tieba.frs;
 
-import android.view.animation.Animation;
+import android.view.LayoutInflater;
+import android.view.View;
 /* loaded from: classes.dex */
-class as implements Animation.AnimationListener {
-    final /* synthetic */ aq a;
-    private final /* synthetic */ com.baidu.adp.lib.guide.d b;
+final class as implements com.baidu.adp.lib.guide.b {
+    final /* synthetic */ ar a;
+    private final /* synthetic */ View b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public as(aq aqVar, com.baidu.adp.lib.guide.d dVar) {
-        this.a = aqVar;
-        this.b = dVar;
+    public as(ar arVar, View view) {
+        this.a = arVar;
+        this.b = view;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
+    @Override // com.baidu.adp.lib.guide.b
+    public final View a(LayoutInflater layoutInflater) {
+        return this.b;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
+    @Override // com.baidu.adp.lib.guide.b
+    public final int a() {
+        return 5;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        this.b.a();
+    @Override // com.baidu.adp.lib.guide.b
+    public final int b() {
+        return 32;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public final int c() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public final int d() {
+        return 0;
     }
 }

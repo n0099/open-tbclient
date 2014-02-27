@@ -4,8 +4,8 @@ import android.os.Handler;
 import android.os.Message;
 import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
-class l extends Handler {
-    long a = TiebaApplication.g().M();
+final class l extends Handler {
+    long a = TiebaApplication.g().G();
     long b = 0;
     final /* synthetic */ TiebaMessageService c;
 
@@ -15,7 +15,7 @@ class l extends Handler {
     }
 
     @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    public final void handleMessage(Message message) {
         int i;
         int i2;
         Handler handler;
@@ -24,9 +24,9 @@ class l extends Handler {
                 this.b = 1800 / this.a;
                 i = this.c.d;
                 if (i % this.b == 0) {
-                    this.c.a(2);
+                    TiebaMessageService.a(this.c, 2);
                 } else {
-                    this.c.a(1);
+                    TiebaMessageService.a(this.c, 1);
                 }
                 TiebaMessageService tiebaMessageService = this.c;
                 i2 = tiebaMessageService.d;
@@ -37,10 +37,10 @@ class l extends Handler {
             }
             this.c.stopSelf();
         } else if (message.what == 3) {
-            if (this.a <= 0) {
-                this.c.stopSelf();
+            if (this.a > 0) {
+                TiebaMessageService.a(this.c, 3);
             } else {
-                this.c.a(3);
+                this.c.stopSelf();
             }
         }
     }

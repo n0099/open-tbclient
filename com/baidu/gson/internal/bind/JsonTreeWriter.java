@@ -39,7 +39,7 @@ public final class JsonTreeWriter extends JsonWriter {
         this.product = JsonNull.INSTANCE;
     }
 
-    public JsonElement get() {
+    public final JsonElement get() {
         if (!this.stack.isEmpty()) {
             throw new IllegalStateException("Expected one JSON element but was " + this.stack);
         }
@@ -69,7 +69,7 @@ public final class JsonTreeWriter extends JsonWriter {
     }
 
     @Override // com.baidu.gson.stream.JsonWriter
-    public JsonWriter beginArray() {
+    public final JsonWriter beginArray() {
         JsonArray jsonArray = new JsonArray();
         put(jsonArray);
         this.stack.add(jsonArray);
@@ -77,7 +77,7 @@ public final class JsonTreeWriter extends JsonWriter {
     }
 
     @Override // com.baidu.gson.stream.JsonWriter
-    public JsonWriter endArray() {
+    public final JsonWriter endArray() {
         if (this.stack.isEmpty() || this.pendingName != null) {
             throw new IllegalStateException();
         }
@@ -89,7 +89,7 @@ public final class JsonTreeWriter extends JsonWriter {
     }
 
     @Override // com.baidu.gson.stream.JsonWriter
-    public JsonWriter beginObject() {
+    public final JsonWriter beginObject() {
         JsonObject jsonObject = new JsonObject();
         put(jsonObject);
         this.stack.add(jsonObject);
@@ -97,7 +97,7 @@ public final class JsonTreeWriter extends JsonWriter {
     }
 
     @Override // com.baidu.gson.stream.JsonWriter
-    public JsonWriter endObject() {
+    public final JsonWriter endObject() {
         if (this.stack.isEmpty() || this.pendingName != null) {
             throw new IllegalStateException();
         }
@@ -109,7 +109,7 @@ public final class JsonTreeWriter extends JsonWriter {
     }
 
     @Override // com.baidu.gson.stream.JsonWriter
-    public JsonWriter name(String str) {
+    public final JsonWriter name(String str) {
         if (this.stack.isEmpty() || this.pendingName != null) {
             throw new IllegalStateException();
         }
@@ -121,7 +121,7 @@ public final class JsonTreeWriter extends JsonWriter {
     }
 
     @Override // com.baidu.gson.stream.JsonWriter
-    public JsonWriter value(String str) {
+    public final JsonWriter value(String str) {
         if (str == null) {
             return nullValue();
         }
@@ -130,19 +130,19 @@ public final class JsonTreeWriter extends JsonWriter {
     }
 
     @Override // com.baidu.gson.stream.JsonWriter
-    public JsonWriter nullValue() {
+    public final JsonWriter nullValue() {
         put(JsonNull.INSTANCE);
         return this;
     }
 
     @Override // com.baidu.gson.stream.JsonWriter
-    public JsonWriter value(boolean z) {
+    public final JsonWriter value(boolean z) {
         put(new JsonPrimitive(Boolean.valueOf(z)));
         return this;
     }
 
     @Override // com.baidu.gson.stream.JsonWriter
-    public JsonWriter value(double d) {
+    public final JsonWriter value(double d) {
         if (!isLenient() && (Double.isNaN(d) || Double.isInfinite(d))) {
             throw new IllegalArgumentException("JSON forbids NaN and infinities: " + d);
         }
@@ -151,13 +151,13 @@ public final class JsonTreeWriter extends JsonWriter {
     }
 
     @Override // com.baidu.gson.stream.JsonWriter
-    public JsonWriter value(long j) {
+    public final JsonWriter value(long j) {
         put(new JsonPrimitive((Number) Long.valueOf(j)));
         return this;
     }
 
     @Override // com.baidu.gson.stream.JsonWriter
-    public JsonWriter value(Number number) {
+    public final JsonWriter value(Number number) {
         if (number == null) {
             return nullValue();
         }
@@ -172,11 +172,11 @@ public final class JsonTreeWriter extends JsonWriter {
     }
 
     @Override // com.baidu.gson.stream.JsonWriter, java.io.Flushable
-    public void flush() {
+    public final void flush() {
     }
 
     @Override // com.baidu.gson.stream.JsonWriter, java.io.Closeable, java.lang.AutoCloseable
-    public void close() {
+    public final void close() {
         if (!this.stack.isEmpty()) {
             throw new IOException("Incomplete document");
         }

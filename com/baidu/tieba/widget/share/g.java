@@ -6,7 +6,7 @@ import android.util.Log;
 import com.baidu.tieba.util.bs;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class g {
+public final class g {
     private static c a = null;
     private static boolean b = false;
     private Context c;
@@ -41,41 +41,41 @@ public class g {
         return a != null;
     }
 
-    public void a(f fVar) {
+    public final void a(f fVar) {
         if (this.e != null) {
             this.e.a(a(fVar, "weixin"), 3, false);
         }
     }
 
-    public void b(f fVar) {
+    public final void b(f fVar) {
         if (this.e != null) {
             fVar.a = fVar.b;
             this.e.a(a(fVar, "weixin_timeline"), 2, false);
         }
     }
 
-    public void c(f fVar) {
+    public final void c(f fVar) {
         if (this.e != null) {
             fVar.b = a(fVar.b, 80, 32);
             this.e.a(a(fVar, "qzone"), 4, true);
         }
     }
 
-    public void d(f fVar) {
+    public final void d(f fVar) {
         if (this.e != null) {
             fVar.b = a(fVar.b, 140, 20);
             this.e.a(a(fVar, "tencent_weibo"), 5, true);
         }
     }
 
-    public void e(f fVar) {
+    public final void e(f fVar) {
         if (this.e != null) {
             fVar.b = a(fVar.b, 140, 20);
             this.e.a(a(fVar, "sina_weibo"), 6, true);
         }
     }
 
-    public void f(f fVar) {
+    public final void f(f fVar) {
         if (this.e != null) {
             fVar.b = a(fVar.b, 140, 20);
             this.e.a(a(fVar, "renren"), 7, true);
@@ -106,7 +106,7 @@ public class g {
         return fVar;
     }
 
-    private String a(String str, String str2) {
+    private static String a(String str, String str2) {
         if (bs.c(Uri.parse(str).getQuery())) {
             str = String.valueOf(str) + "?";
         }

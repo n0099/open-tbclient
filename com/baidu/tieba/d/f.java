@@ -3,7 +3,7 @@ package com.baidu.tieba.d;
 public interface f {
     void a(a aVar);
 
-    void a(a aVar, int i, String str);
+    void a(a aVar, int i);
 
     boolean b(a aVar);
 

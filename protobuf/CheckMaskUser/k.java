@@ -4,25 +4,41 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.CheckMaskUser.CheckMaskUserRes;
 /* loaded from: classes.dex */
 public final class k extends GeneratedMessageLite.Builder<CheckMaskUserRes.DataRes, k> implements l {
     private int a;
     private int b;
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        CheckMaskUserRes.DataRes buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return CheckMaskUserRes.DataRes.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return CheckMaskUserRes.DataRes.getDefaultInstance();
+    }
+
     private k() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static k h() {
+    public static /* synthetic */ k b() {
         return new k();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public k clear() {
         super.clear();
         this.b = 0;
@@ -31,30 +47,14 @@ public final class k extends GeneratedMessageLite.Builder<CheckMaskUserRes.DataR
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public k clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public CheckMaskUserRes.DataRes getDefaultInstanceForType() {
-        return CheckMaskUserRes.DataRes.getDefaultInstance();
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public CheckMaskUserRes.DataRes build() {
-        CheckMaskUserRes.DataRes buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
+    public k clone() {
+        return new k().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public CheckMaskUserRes.DataRes buildPartial() {
+    /* renamed from: a */
+    public final CheckMaskUserRes.DataRes buildPartial() {
         CheckMaskUserRes.DataRes dataRes = new CheckMaskUserRes.DataRes(this, (CheckMaskUserRes.DataRes) null);
         int i = (this.a & 1) != 1 ? 0 : 1;
         dataRes.isMask_ = this.b;
@@ -64,9 +64,11 @@ public final class k extends GeneratedMessageLite.Builder<CheckMaskUserRes.DataR
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public k mergeFrom(CheckMaskUserRes.DataRes dataRes) {
+    public final k mergeFrom(CheckMaskUserRes.DataRes dataRes) {
         if (dataRes != CheckMaskUserRes.DataRes.getDefaultInstance() && dataRes.hasIsMask()) {
-            a(dataRes.getIsMask());
+            int isMask = dataRes.getIsMask();
+            this.a |= 1;
+            this.b = isMask;
         }
         return this;
     }
@@ -112,11 +114,5 @@ public final class k extends GeneratedMessageLite.Builder<CheckMaskUserRes.DataR
                 throw th;
             }
         }
-    }
-
-    public k a(int i) {
-        this.a |= 1;
-        this.b = i;
-        return this;
     }
 }

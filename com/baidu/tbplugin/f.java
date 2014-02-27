@@ -3,8 +3,11 @@ package com.baidu.tbplugin;
 import java.io.File;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
+import org.apache.commons.io.FileUtils;
 /* loaded from: classes.dex */
 public final class f {
+    static final Object a = new Object();
+
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: java.lang.Class<T extends java.lang.annotation.Annotation> */
     /* JADX WARN: Multi-variable type inference failed */
     public static <T extends Annotation> T a(Class<?> cls, Class<T> cls2) {
@@ -55,5 +58,10 @@ public final class f {
             return "x86";
         }
         return substring;
+    }
+
+    public static boolean a(Class<?> cls) {
+        com.baidu.tbplugin.a.c cVar = (com.baidu.tbplugin.a.c) cls.getAnnotation(com.baidu.tbplugin.a.c.class);
+        return cVar != null && FileUtils.getFile(j.a().f(), new StringBuilder().append(cVar).append(".xml").toString()).exists();
     }
 }

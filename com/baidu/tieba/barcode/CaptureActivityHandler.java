@@ -44,7 +44,7 @@ public final class CaptureActivityHandler extends Handler {
     /* JADX INFO: Access modifiers changed from: package-private */
     public CaptureActivityHandler(CaptureActivity captureActivity, Collection<BarcodeFormat> collection, Map<DecodeHintType, ?> map, String str, com.baidu.tieba.barcode.a.e eVar) {
         this.a = captureActivity;
-        this.b = new n(captureActivity, collection, map, str, new r(captureActivity.a()));
+        this.b = new n(captureActivity, null, null, null, new r(captureActivity.a()));
         this.b.start();
         this.c = State.SUCCESS;
         this.d = eVar;
@@ -53,15 +53,15 @@ public final class CaptureActivityHandler extends Handler {
     }
 
     @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    public final void handleMessage(Message message) {
         Bitmap bitmap;
         float f;
         String str = null;
         if (message.what == R.id.restart_preview) {
-            com.baidu.adp.lib.util.f.e(getClass().getName(), "handleMessage", "Got restart preview message");
+            com.baidu.adp.lib.util.e.e(getClass().getName(), "handleMessage", "Got restart preview message");
             b();
         } else if (message.what == R.id.decode_succeeded) {
-            com.baidu.adp.lib.util.f.e(getClass().getName(), "handleMessage", "Got decode succeeded message");
+            com.baidu.adp.lib.util.e.e(getClass().getName(), "handleMessage", "Got decode succeeded message");
             this.c = State.SUCCESS;
             Bundle data = message.getData();
             if (data == null) {
@@ -78,11 +78,11 @@ public final class CaptureActivityHandler extends Handler {
             this.c = State.PREVIEW;
             this.d.a(this.b.a(), R.id.decode);
         } else if (message.what == R.id.return_scan_result) {
-            com.baidu.adp.lib.util.f.e(getClass().getName(), "handleMessage", "Got return scan result message");
+            com.baidu.adp.lib.util.e.e(getClass().getName(), "handleMessage", "Got return scan result message");
             this.a.setResult(-1, (Intent) message.obj);
             this.a.finish();
         } else if (message.what == R.id.launch_product_query) {
-            com.baidu.adp.lib.util.f.e(getClass().getName(), "handleMessage", "Got product query message");
+            com.baidu.adp.lib.util.e.e(getClass().getName(), "handleMessage", "Got product query message");
             String str2 = (String) message.obj;
             Intent intent = new Intent("android.intent.action.VIEW");
             intent.addFlags(AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END);
@@ -90,7 +90,7 @@ public final class CaptureActivityHandler extends Handler {
             ResolveInfo resolveActivity = this.a.getPackageManager().resolveActivity(intent, AccessibilityEventCompat.TYPE_VIEW_ACCESSIBILITY_FOCUS_CLEARED);
             if (resolveActivity.activityInfo != null) {
                 str = resolveActivity.activityInfo.packageName;
-                com.baidu.adp.lib.util.f.e(getClass().getName(), "handleMessage", "Using browser in package " + str);
+                com.baidu.adp.lib.util.e.e(getClass().getName(), "handleMessage", "Using browser in package " + str);
             }
             if ("com.android.browser".equals(str) || "com.android.chrome".equals(str)) {
                 intent.setPackage(str);
@@ -100,12 +100,12 @@ public final class CaptureActivityHandler extends Handler {
             try {
                 this.a.startActivity(intent);
             } catch (ActivityNotFoundException e) {
-                com.baidu.adp.lib.util.f.e(getClass().getName(), "handleMessage", "Can't find anything to handle VIEW of URI " + str2);
+                com.baidu.adp.lib.util.e.e(getClass().getName(), "handleMessage", "Can't find anything to handle VIEW of URI " + str2);
             }
         }
     }
 
-    public void a() {
+    public final void a() {
         this.c = State.DONE;
         this.d.d();
         Message.obtain(this.b.a(), (int) R.id.quit).sendToTarget();

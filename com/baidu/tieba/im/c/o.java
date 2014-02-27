@@ -2,41 +2,41 @@ package com.baidu.tieba.im.c;
 
 import com.baidu.tieba.im.message.s;
 /* loaded from: classes.dex */
-public class o extends s {
+public final class o extends s {
     private long a;
     private long b;
     private long c;
     private int d;
 
-    public int a() {
+    public final int a() {
         return this.d;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.d = i;
     }
 
-    public long b() {
+    public final long b() {
         return this.c;
     }
 
-    public void a(long j) {
+    public final void a(long j) {
         this.c = j;
     }
 
-    public long c() {
+    public final long c() {
         return this.b;
     }
 
-    public void b(long j) {
+    public final void b(long j) {
         this.b = j;
     }
 
-    public long d() {
+    public final long d() {
         return this.a;
     }
 
-    public void c(long j) {
+    public final void c(long j) {
         this.a = j;
     }
 

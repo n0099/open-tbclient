@@ -9,7 +9,7 @@ public class e extends b {
     private int a = 0;
 
     @Override // com.baidu.tieba.img.effects.b
-    public String a() {
+    public final String a() {
         return "rotate";
     }
 
@@ -21,18 +21,18 @@ public class e extends b {
     }
 
     @Override // com.baidu.tieba.img.effects.b
-    public void b(String str) {
+    public final void b(String str) {
         if (str != null) {
             this.a = Integer.parseInt(str);
         }
     }
 
     @Override // com.baidu.tieba.img.effects.b
-    public Bitmap a(Bitmap bitmap, boolean z) {
+    public final Bitmap a(Bitmap bitmap, boolean z) {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.e.a().c(n.a(bitmap) * 2);
+        com.baidu.tbadk.imageManager.e.a().b(n.a(bitmap) * 2);
         if (this.a == 0 || this.a == 1) {
             return n.d(bitmap, this.a);
         }
@@ -43,7 +43,7 @@ public class e extends b {
     }
 
     @Override // com.baidu.tieba.img.effects.b
-    public Bitmap c(String str) {
+    public final Bitmap c(String str) {
         int max = Math.max(BdUtilHelper.b(TiebaApplication.g().b()), BdUtilHelper.c(TiebaApplication.g().b()));
         return a(n.a(str, max, max), true);
     }

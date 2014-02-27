@@ -2,7 +2,7 @@ package com.baidu.tieba.im.message;
 
 import com.google.protobuf.MessageLite;
 /* loaded from: classes.dex */
-public class f extends g {
+public final class f extends g {
     public String b;
 
     public f() {
@@ -11,7 +11,7 @@ public class f extends g {
     }
 
     @Override // com.baidu.tieba.im.message.g, com.baidu.tieba.im.coder.g
-    public MessageLite a() {
+    public final MessageLite a() {
         return null;
     }
 }

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class ac {
+public final class ac {
     private int a;
     private int b;
     private AntiData c;
@@ -31,31 +31,31 @@ public class ac {
         this.d = context;
     }
 
-    public ArrayList<aq> a() {
+    public final ArrayList<aq> a() {
         return this.e;
     }
 
-    public int b() {
+    public final int b() {
         return this.a;
     }
 
-    public int c() {
+    public final int c() {
         return this.b;
     }
 
-    public boolean d() {
+    public final boolean d() {
         return this.e.size() >= this.b;
     }
 
-    public boolean e() {
+    public final boolean e() {
         return this.e != null && this.e.size() < this.b && this.e.size() < 200;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "paserJson", e.toString());
+            com.baidu.adp.lib.util.e.b(getClass().getName(), "paserJson", e.toString());
         }
     }
 
@@ -84,7 +84,7 @@ public class ac {
             this.b = jSONObject.optInt("comment_amount", 0);
             this.c.setTbs(jSONObject.getJSONObject("tbs").optString("common"));
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "paserJson", e.toString());
+            com.baidu.adp.lib.util.e.b(getClass().getName(), "paserJson", e.toString());
         }
     }
 }

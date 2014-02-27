@@ -1,6 +1,6 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
-public class ba {
+public final class ba {
     int a;
     String b;
     String c;
@@ -16,39 +16,39 @@ public class ba {
         this.j = azVar;
     }
 
-    public int a() {
+    public final int a() {
         return this.a;
     }
 
-    public String b() {
+    public final String b() {
         return this.b;
     }
 
-    public String c() {
+    public final String c() {
         return this.c;
     }
 
-    public String d() {
+    public final String d() {
         return this.d;
     }
 
-    public String e() {
+    public final String e() {
         return this.e;
     }
 
-    public String f() {
+    public final String f() {
         return this.f;
     }
 
-    public String g() {
+    public final String g() {
         return this.g;
     }
 
-    public String h() {
+    public final String h() {
         return this.h;
     }
 
-    public boolean i() {
+    public final boolean i() {
         return this.i;
     }
 }

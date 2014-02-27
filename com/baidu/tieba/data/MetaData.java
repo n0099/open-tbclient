@@ -1,10 +1,10 @@
 package com.baidu.tieba.data;
 
 import com.baidu.tbadk.data.IconData;
-import com.baidu.tieba.view.cs;
+import com.baidu.tieba.view.cr;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class MetaData extends com.baidu.tbadk.data.MetaData implements com.baidu.tieba.util.aw, cs {
+public class MetaData extends com.baidu.tbadk.data.MetaData implements com.baidu.tieba.util.aw, cr {
     private static final long serialVersionUID = -5772546803814127750L;
     private boolean mIsChecked = false;
 
@@ -32,12 +32,12 @@ public class MetaData extends com.baidu.tbadk.data.MetaData implements com.baidu
         return linkedList;
     }
 
-    @Override // com.baidu.tieba.view.cs
+    @Override // com.baidu.tieba.view.cr
     public boolean isChecked() {
         return this.mIsChecked;
     }
 
-    @Override // com.baidu.tieba.view.cs
+    @Override // com.baidu.tieba.view.cr
     public void setChecked(boolean z) {
         this.mIsChecked = z;
     }

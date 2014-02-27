@@ -1,29 +1,50 @@
 package com.baidu.adp.lib.webSocket;
 
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.InetSocketAddress;
+import java.net.Socket;
 import java.nio.ByteBuffer;
-import java.nio.channels.SocketChannel;
 /* loaded from: classes.dex */
-class h implements g {
-    private SocketChannel a;
+final class h implements g {
+    private Socket a;
+    private InputStream b;
+    private OutputStream c;
+    private byte[] d;
 
-    public h(String str, int i, am amVar) {
+    public h(String str, int i, al alVar) {
         this.a = null;
-        this.a = SocketChannel.open();
-        this.a.socket().connect(new InetSocketAddress(str, i), amVar.f());
-        this.a.socket().setSoTimeout(amVar.e());
-        this.a.socket().setTcpNoDelay(amVar.d());
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.a = new Socket();
+        this.a.connect(new InetSocketAddress(str, i), alVar.f());
+        this.a.setSoTimeout(alVar.e());
+        this.a.setTcpNoDelay(alVar.d());
+        this.b = this.a.getInputStream();
+        this.c = this.a.getOutputStream();
+        this.d = new byte[1024];
     }
 
     @Override // com.baidu.adp.lib.webSocket.g
-    public void a() {
+    public final void a() {
+        try {
+            this.b.close();
+        } catch (Exception e) {
+            com.baidu.adp.lib.util.e.b(e.getMessage());
+        }
+        try {
+            this.c.close();
+        } catch (Exception e2) {
+            com.baidu.adp.lib.util.e.b(e2.getMessage());
+        }
         if (this.a != null) {
             this.a.close();
         }
     }
 
     @Override // com.baidu.adp.lib.webSocket.g
-    public boolean b() {
+    public final boolean b() {
         if (this.a != null) {
             return this.a.isConnected();
         }
@@ -31,12 +52,22 @@ class h implements g {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g
-    public int a(ByteBuffer byteBuffer) {
-        return this.a.read(byteBuffer);
+    public final int a(ByteBuffer byteBuffer) {
+        int read = this.b.read(this.d);
+        if (read > 0) {
+            byteBuffer.put(this.d, 0, read);
+        }
+        return read;
     }
 
     @Override // com.baidu.adp.lib.webSocket.g
-    public int b(ByteBuffer byteBuffer) {
-        return this.a.write(byteBuffer);
+    public final int b(ByteBuffer byteBuffer) {
+        int remaining = byteBuffer.remaining();
+        if (remaining > 0) {
+            byte[] bArr = new byte[remaining];
+            byteBuffer.get(bArr);
+            this.c.write(bArr);
+        }
+        return remaining;
     }
 }

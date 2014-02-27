@@ -2,11 +2,10 @@ package com.baidu.tieba.write;
 
 import com.baidu.tieba.data.MetaData;
 import com.baidu.tieba.view.TbCheckBox;
-import com.baidu.tieba.view.cr;
+import com.baidu.tieba.view.cq;
 import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements cr {
+final class h implements cq {
     final /* synthetic */ AtListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,8 +13,8 @@ public class h implements cr {
         this.a = atListActivity;
     }
 
-    @Override // com.baidu.tieba.view.cr
-    public void a(TbCheckBox tbCheckBox, boolean z, Object obj) {
+    @Override // com.baidu.tieba.view.cq
+    public final void a(TbCheckBox tbCheckBox, boolean z, Object obj) {
         AtSelectFriendList atSelectFriendList;
         if (obj != null && (obj instanceof MetaData)) {
             if (z) {

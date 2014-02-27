@@ -4,7 +4,7 @@ import android.os.Handler;
 import com.baidu.adp.lib.debug.a.q;
 import java.math.BigDecimal;
 /* loaded from: classes.dex */
-public class b {
+public final class b {
     private static int e = 0;
     private static String f = null;
     private static String g = null;

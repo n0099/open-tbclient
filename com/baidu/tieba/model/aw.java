@@ -5,29 +5,17 @@ import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tieba.data.MarkData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aw extends BdAsyncTask<Boolean, Integer, Boolean> {
+public final class aw extends BdAsyncTask<Boolean, Integer, Boolean> {
     final /* synthetic */ av a;
     private com.baidu.tieba.util.ba b = null;
     private boolean c;
     private com.baidu.tieba.data.ay d;
 
-    public aw(av avVar, boolean z) {
-        this.a = avVar;
-        this.c = true;
-        this.d = null;
-        this.c = z;
-        this.d = new com.baidu.tieba.data.ay();
-    }
-
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void b() {
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Boolean a(Boolean... boolArr) {
+    public final /* synthetic */ Boolean a(Boolean... boolArr) {
         MarkData markData;
         MarkData markData2;
         MarkData markData3;
@@ -46,27 +34,14 @@ public class aw extends BdAsyncTask<Boolean, Integer, Boolean> {
             markData2 = this.a.b;
             baVar2.a("tid", markData2.getId());
         }
-        this.d.a(this.b.m());
-        boolean z = this.d.a() == 0;
-        if (this.b.d() && z) {
-            return true;
-        }
-        return false;
+        this.d.a(this.b.l());
+        return this.b.c() && (this.d.a() == 0);
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        super.cancel(true);
-        if (this.b != null) {
-            this.b.k();
-        }
-        this.a.c = null;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Boolean bool) {
+    public final /* synthetic */ void a(Boolean bool) {
         ax axVar;
         ax axVar2;
         ax axVar3;
@@ -77,23 +52,49 @@ public class aw extends BdAsyncTask<Boolean, Integer, Boolean> {
                 axVar4 = this.a.d;
                 if (axVar4 != null) {
                     axVar5 = this.a.d;
-                    axVar5.a(true, this.c, null);
+                    axVar5.a(true, this.c);
                 }
             } else {
                 axVar = this.a.d;
                 if (axVar != null) {
-                    if (this.b == null || this.b.d()) {
+                    if (this.b == null || this.b.c()) {
                         axVar2 = this.a.d;
-                        axVar2.a(false, this.c, this.d.b());
+                        boolean z = this.c;
+                        this.d.b();
+                        axVar2.a(false, z);
                     } else {
                         axVar3 = this.a.d;
-                        axVar3.a(false, this.c, this.b.j());
+                        boolean z2 = this.c;
+                        this.b.i();
+                        axVar3.a(false, z2);
                     }
                 }
             }
             this.a.c = null;
         } catch (Throwable th) {
-            com.baidu.adp.lib.util.f.b(th.toString());
+            com.baidu.adp.lib.util.e.b(th.toString());
         }
+    }
+
+    public aw(av avVar, boolean z) {
+        this.a = avVar;
+        this.c = true;
+        this.d = null;
+        this.c = z;
+        this.d = new com.baidu.tieba.data.ay();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final void b() {
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final void cancel() {
+        super.cancel(true);
+        if (this.b != null) {
+            this.b.j();
+        }
+        this.a.c = null;
     }
 }

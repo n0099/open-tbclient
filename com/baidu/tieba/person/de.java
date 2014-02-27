@@ -1,7 +1,6 @@
 package com.baidu.tieba.person;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class de implements com.baidu.adp.widget.ListView.r {
+final class de implements com.baidu.adp.widget.ListView.r {
     final /* synthetic */ PersonListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,7 +9,7 @@ public class de implements com.baidu.adp.widget.ListView.r {
     }
 
     @Override // com.baidu.adp.widget.ListView.r
-    public void a() {
-        this.a.a(true);
+    public final void b() {
+        PersonListActivity.a(this.a, true);
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.pb;
 
 import com.baidu.tieba.data.AntiData;
 /* loaded from: classes.dex */
-class aq implements com.baidu.tieba.model.bg {
+final class aq implements com.baidu.tieba.model.bg {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,13 +16,13 @@ class aq implements com.baidu.tieba.model.bg {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(boolean z, int i, String str, com.baidu.tieba.data.av avVar) {
+    public final void a(boolean z, int i, String str, com.baidu.tieba.data.av avVar) {
         cu cuVar;
         cu cuVar2;
         com.baidu.tieba.model.be beVar;
         cu cuVar3;
         com.baidu.tieba.model.bb bbVar;
-        AntiData i2;
+        AntiData h;
         com.baidu.tieba.model.be beVar2;
         String str2;
         cu cuVar4;
@@ -30,15 +30,15 @@ class aq implements com.baidu.tieba.model.bg {
         String str3;
         com.baidu.tieba.model.be beVar3;
         com.baidu.tieba.model.bb bbVar3;
-        this.a.z();
+        this.a.t();
         cuVar = this.a.C;
-        cuVar.c(str);
+        cuVar.a(str);
         cuVar2 = this.a.C;
-        cuVar2.B();
+        cuVar2.z();
         if (!z) {
             if (i == 4 || i == 28) {
                 bbVar3 = this.a.w;
-                if (bbVar3.j()) {
+                if (bbVar3.n()) {
                     this.a.closeActivity();
                 }
             }
@@ -52,17 +52,17 @@ class aq implements com.baidu.tieba.model.bg {
                     if (str2 != null) {
                         cuVar4 = this.a.C;
                         bbVar2 = this.a.w;
-                        int l = bbVar2.m().l();
+                        int l = bbVar2.q().l();
                         str3 = this.a.G;
                         boolean z2 = avVar.b() > 1;
                         beVar3 = this.a.A;
                         cuVar4.a(avVar, l, str3, z2, beVar3.g() == 1);
-                        i2 = avVar.i();
-                        if (i2 == null) {
-                            Boolean valueOf = Boolean.valueOf(i2.isIfvoice());
-                            this.a.o = i2.getVoice_message();
-                            if (avVar.h() != null) {
-                                this.a.a(avVar.h().getName(), valueOf);
+                        h = avVar.h();
+                        if (h == null) {
+                            Boolean valueOf = Boolean.valueOf(h.isIfvoice());
+                            this.a.o = h.getVoice_message();
+                            if (avVar.g() != null) {
+                                NewPbActivity.a(this.a, avVar.g().getName(), valueOf);
                                 return;
                             }
                             return;
@@ -73,9 +73,9 @@ class aq implements com.baidu.tieba.model.bg {
             }
             cuVar3 = this.a.C;
             bbVar = this.a.w;
-            cuVar3.a(avVar, bbVar.m().l());
-            i2 = avVar.i();
-            if (i2 == null) {
+            cuVar3.a(avVar, bbVar.q().l());
+            h = avVar.h();
+            if (h == null) {
             }
         }
     }

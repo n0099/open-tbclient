@@ -4,33 +4,33 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class af {
+public final class af {
     private String a = null;
     private String b = null;
     private String c = "";
     private ArrayList<af> d = null;
 
-    public String a() {
+    public final String a() {
         return this.a;
     }
 
-    public String b() {
+    public final String b() {
         return this.b;
     }
 
-    public String c() {
+    public final String c() {
         return this.c;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.c = str;
     }
 
-    public ArrayList<af> d() {
+    public final ArrayList<af> d() {
         return this.d;
     }
 
-    public void a(JSONArray jSONArray) {
+    public final void a(JSONArray jSONArray) {
         if (jSONArray != null) {
             try {
                 if (jSONArray.length() != 0) {
@@ -44,7 +44,7 @@ public class af {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "parseForumListRecommendData", e.toString());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "parseForumListRecommendData", e.toString());
             }
         }
     }

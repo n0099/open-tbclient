@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
-public class cr extends da {
+public final class cr extends da {
     private String a;
     private List<String> b;
 
@@ -14,28 +14,28 @@ public class cr extends da {
     }
 
     public cr(int i) {
-        super(i);
+        super(103010);
         this.a = "";
         this.b = new ArrayList();
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         if (str != null) {
             this.a = str;
         }
     }
 
-    public String a() {
+    public final String a() {
         return this.a;
     }
 
-    public void b(String str) {
+    public final void b(String str) {
         if (str != null && !str.equals("") && !this.b.contains(str)) {
             this.b.add(str);
         }
     }
 
-    public Iterator<String> b() {
+    public final Iterator<String> b() {
         return this.b.iterator();
     }
 }

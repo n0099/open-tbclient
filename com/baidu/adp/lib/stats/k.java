@@ -21,12 +21,12 @@ public class k {
 
     private s<String> b() {
         if (this.a == null) {
-            this.a = BdCacheService.c().a("adp.stat.uploadtime", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 100);
+            this.a = BdCacheService.a().a("adp.stat.uploadtime", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 100);
         }
         return this.a;
     }
 
-    public void a(long j, String str) {
+    public final void a(long j, String str) {
         if (j > 0) {
             String str2 = "adp.stat.stat_upload_time ";
             if (!TextUtils.isEmpty(str)) {
@@ -36,7 +36,7 @@ public class k {
         }
     }
 
-    public long a(String str) {
+    public final long a(String str) {
         String str2 = "adp.stat.stat_upload_time ";
         if (!TextUtils.isEmpty(str)) {
             str2 = String.valueOf("adp.stat.stat_upload_time ") + str;
@@ -46,13 +46,13 @@ public class k {
             try {
                 return Long.parseLong(a);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.d(e.getMessage());
+                com.baidu.adp.lib.util.e.d(e.getMessage());
             }
         }
         return 0L;
     }
 
-    public void b(long j, String str) {
+    public final void b(long j, String str) {
         if (j > 0) {
             String str2 = "adp.stat.stat_debug_time";
             if (!TextUtils.isEmpty(str)) {
@@ -62,7 +62,7 @@ public class k {
         }
     }
 
-    public long b(String str) {
+    public final long b(String str) {
         String str2 = "adp.stat.stat_debug_time";
         if (!TextUtils.isEmpty(str)) {
             str2 = String.valueOf("adp.stat.stat_debug_time") + str;
@@ -72,13 +72,13 @@ public class k {
             try {
                 return Long.parseLong(a);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.d(e.getMessage());
+                com.baidu.adp.lib.util.e.d(e.getMessage());
             }
         }
         return 0L;
     }
 
-    public void c(long j, String str) {
+    public final void c(long j, String str) {
         if (j > 0) {
             String str2 = "adp.stat.stat_error_time";
             if (!TextUtils.isEmpty(str)) {
@@ -88,7 +88,7 @@ public class k {
         }
     }
 
-    public long c(String str) {
+    public final long c(String str) {
         String str2 = "adp.stat.stat_error_time";
         if (!TextUtils.isEmpty(str)) {
             str2 = String.valueOf("adp.stat.stat_error_time") + str;
@@ -98,7 +98,7 @@ public class k {
             try {
                 return Long.parseLong(a);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.d(e.getMessage());
+                com.baidu.adp.lib.util.e.d(e.getMessage());
             }
         }
         return 0L;

@@ -3,7 +3,7 @@ package com.baidu.adp.widget.ScrollView;
 import android.view.View;
 import java.util.Timer;
 /* loaded from: classes.dex */
-public class f {
+public final class f {
     private int b;
     private int c;
     private i e;
@@ -17,11 +17,11 @@ public class f {
         this.b = (int) (i3 / abs);
     }
 
-    public void a(i iVar) {
+    public final void a(i iVar) {
         this.e = iVar;
     }
 
-    public void a(View view) {
+    public final void a(View view) {
         this.d = false;
         Timer timer = new Timer();
         timer.schedule(new g(this, view, timer), 0L, this.b);

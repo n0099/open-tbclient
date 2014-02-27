@@ -37,19 +37,12 @@ public class NotLoginGuideActivity extends com.baidu.tieba.f {
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        a(bundle);
-        a();
-    }
-
-    private void a(Bundle bundle) {
+        com.baidu.tieba.ai.a(this, "not_login_guide_page_pv");
         if (bundle != null) {
             this.g = bundle.getString(h);
         } else {
             this.g = getIntent().getStringExtra(h);
         }
-    }
-
-    private void a() {
         setContentView(R.layout.not_login_guide_activity);
         this.c = (ImageView) findViewById(R.id.guide_bg);
         this.e = (Button) findViewById(R.id.guide_regist);
@@ -65,7 +58,7 @@ public class NotLoginGuideActivity extends com.baidu.tieba.f {
     public void onResume() {
         int i;
         super.onResume();
-        if (TiebaApplication.g().aE()) {
+        if (TiebaApplication.g().ax()) {
             i = 2;
         } else {
             i = 1;
@@ -77,8 +70,8 @@ public class NotLoginGuideActivity extends com.baidu.tieba.f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b() {
-        if (TiebaApplication.g().aE()) {
+    public void a() {
+        if (TiebaApplication.g().ax()) {
             GuideActivity.a(this, "from_logo_page");
         } else {
             MainTabActivity.a(this, 1);
@@ -94,6 +87,7 @@ public class NotLoginGuideActivity extends com.baidu.tieba.f {
             SapiFastRegActivity.a(this, 22002);
             return;
         }
+        com.baidu.tieba.ai.a(this, "sapi_go_to_login_click");
         LoginActivity.a((Activity) this, (String) null, true, 11003);
     }
 
@@ -112,17 +106,14 @@ public class NotLoginGuideActivity extends com.baidu.tieba.f {
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        c();
-    }
-
-    private void c() {
         if (this.c != null) {
             this.c.setImageBitmap(null);
         }
-        if (this.d != null && !this.d.isRecycled()) {
-            this.d.recycle();
-            this.d = null;
+        if (this.d == null || this.d.isRecycled()) {
+            return;
         }
+        this.d.recycle();
+        this.d = null;
     }
 
     @Override // android.app.Activity
@@ -130,20 +121,21 @@ public class NotLoginGuideActivity extends com.baidu.tieba.f {
         super.onActivityResult(i, i2, intent);
         if (i2 == -1) {
             if (i == 11003) {
-                b();
+                a();
             } else if (i == 22002 && intent != null) {
                 String stringExtra = intent.getStringExtra("fast_reg_user_type");
                 if (!TextUtils.isEmpty(stringExtra)) {
                     if (stringExtra.equals("login_user")) {
-                        b();
+                        a();
                     } else if (stringExtra.equals("regist_user")) {
                         if (UtilHelper.b()) {
                             NewUserGuideActivity.a(this, true, false);
                         } else {
-                            b();
+                            a();
                         }
-                        if (TiebaApplication.g().aE()) {
-                            TiebaApplication.g().aF();
+                        if (TiebaApplication.g().ax()) {
+                            TiebaApplication.g();
+                            TiebaApplication.ay();
                         }
                         finish();
                     }

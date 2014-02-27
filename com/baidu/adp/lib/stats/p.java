@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
-public class p {
+public final class p {
     private ArrayList<BasicNameValuePair> a;
     private String b;
 
@@ -21,7 +21,7 @@ public class p {
         this.b = null;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         String[] split;
         if (!TextUtils.isEmpty(str)) {
             if (this.a == null) {
@@ -35,7 +35,7 @@ public class p {
                         try {
                             this.a.add(new BasicNameValuePair(split[0], URLDecoder.decode(split[1], "utf-8")));
                         } catch (UnsupportedEncodingException e) {
-                            com.baidu.adp.lib.util.f.a(getClass(), "parse", e);
+                            com.baidu.adp.lib.util.e.a(getClass(), "parse", e);
                         }
                     }
                 }
@@ -43,7 +43,7 @@ public class p {
         }
     }
 
-    public void a(Object obj, Object obj2) {
+    public final void a(Object obj, Object obj2) {
         if (obj != null && obj2 != null) {
             if (this.a == null) {
                 this.a = new ArrayList<>();
@@ -52,7 +52,7 @@ public class p {
         }
     }
 
-    public String toString() {
+    public final String toString() {
         StringBuilder sb = new StringBuilder();
         if (this.a != null) {
             Iterator<BasicNameValuePair> it = this.a.iterator();
@@ -67,7 +67,7 @@ public class p {
                     try {
                         sb.append(URLEncoder.encode(next.getValue(), "utf-8"));
                     } catch (UnsupportedEncodingException e) {
-                        com.baidu.adp.lib.util.f.a(getClass(), "toString", e);
+                        com.baidu.adp.lib.util.e.a(getClass(), "toString", e);
                         sb.append(next.getValue());
                     }
                 }
@@ -76,7 +76,7 @@ public class p {
         return sb.toString();
     }
 
-    public void a(Object... objArr) {
+    public final void a(Object... objArr) {
         if (objArr != null) {
             for (int i = 0; i < objArr.length / 2; i++) {
                 if ((i * 2) + 1 < objArr.length) {
@@ -86,7 +86,7 @@ public class p {
         }
     }
 
-    public String b(String str) {
+    public final String b(String str) {
         if (this.a == null || this.a.size() == 0 || TextUtils.isEmpty(str)) {
             return null;
         }
@@ -100,7 +100,7 @@ public class p {
         return null;
     }
 
-    public void a(String str, int i) {
+    public final void a(String str, int i) {
         if (this.a != null && this.a.size() != 0 && !TextUtils.isEmpty(str)) {
             Iterator<BasicNameValuePair> it = this.a.iterator();
             while (it.hasNext()) {

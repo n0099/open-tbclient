@@ -1,9 +1,8 @@
 package com.baidu.tieba.view;
 
 import android.graphics.Bitmap;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ax {
+final class ax {
     public Bitmap a;
     public int b;
 

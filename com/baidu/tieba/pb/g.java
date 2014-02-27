@@ -5,9 +5,8 @@ import android.support.v4.view.ViewPager;
 import com.baidu.tieba.view.MultiImageView;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements ViewPager.OnPageChangeListener {
+final class g implements ViewPager.OnPageChangeListener {
     final /* synthetic */ ImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,7 +15,7 @@ public class g implements ViewPager.OnPageChangeListener {
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageSelected(int i) {
+    public final void onPageSelected(int i) {
         boolean z;
         a aVar;
         MultiImageView multiImageView;
@@ -41,15 +40,15 @@ public class g implements ViewPager.OnPageChangeListener {
         i2 = this.a.d;
         imageActivity.a(i2, i);
         this.a.d = i;
-        this.a.f();
+        this.a.d();
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrolled(int i, float f, int i2) {
+    public final void onPageScrolled(int i, float f, int i2) {
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrollStateChanged(int i) {
+    public final void onPageScrollStateChanged(int i) {
         long j;
         ArrayList arrayList;
         int i2;

@@ -2,7 +2,7 @@ package com.baidu.tieba.group;
 
 import android.content.DialogInterface;
 /* loaded from: classes.dex */
-class c implements DialogInterface.OnCancelListener {
+final class c implements DialogInterface.OnCancelListener {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +11,7 @@ class c implements DialogInterface.OnCancelListener {
     }
 
     @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
+    public final void onCancel(DialogInterface dialogInterface) {
         com.baidu.tieba.im.model.c cVar;
         cVar = this.a.d;
         cVar.b();

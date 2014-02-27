@@ -1,7 +1,6 @@
 package com.baidu.tieba.img;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f {
+final class f {
     ImageFileInfo a;
     com.baidu.tbadk.imageManager.d b;
     boolean c;
@@ -14,7 +13,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ f(e eVar, f fVar) {
+    public /* synthetic */ f(e eVar, byte b) {
         this(eVar);
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.adp.lib.stats;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m {
+public final class m {
     final /* synthetic */ l a;
     private long b;
     private boolean c;
@@ -17,47 +17,47 @@ public class m {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ m(l lVar, m mVar) {
+    public /* synthetic */ m(l lVar, byte b) {
         this(lVar);
     }
 
-    public boolean a() {
+    public final boolean a() {
         return this.f;
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.f = z;
     }
 
-    public long b() {
+    public final long b() {
         return this.e;
     }
 
-    public void a(long j) {
+    public final void a(long j) {
         this.e = j;
     }
 
-    public int c() {
+    public final int c() {
         return this.d;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.d = i;
     }
 
-    public long d() {
+    public final long d() {
         return this.b;
     }
 
-    public void b(long j) {
+    public final void b(long j) {
         this.b = j;
     }
 
-    public boolean e() {
+    public final boolean e() {
         return this.c;
     }
 
-    public void b(boolean z) {
+    public final void b(boolean z) {
         this.c = z;
     }
 }

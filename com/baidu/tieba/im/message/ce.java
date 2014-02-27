@@ -7,12 +7,8 @@ import protobuf.GetMaskInfo.GetMaskInfoRes;
 public class ce extends da implements com.baidu.tieba.im.coder.f {
     private MaskData a;
 
-    public void a(MaskData maskData) {
-        this.a = maskData;
-    }
-
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<s> linkedList, byte[] bArr, int i) {
+    public final void a(LinkedList<s> linkedList, byte[] bArr, int i) {
         GetMaskInfoRes.GetMaskInfoResIdl parseFrom = GetMaskInfoRes.GetMaskInfoResIdl.parseFrom(bArr);
         e(i);
         g(parseFrom.getError().getErrorno());
@@ -23,7 +19,7 @@ public class ce extends da implements com.baidu.tieba.im.coder.f {
             MaskData maskData = new MaskData();
             maskData.setIsMask(data.getIsMask());
             maskData.setList(maskData.getList());
-            a(maskData);
+            this.a = maskData;
         }
     }
 }

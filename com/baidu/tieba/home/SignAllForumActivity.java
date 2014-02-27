@@ -27,24 +27,24 @@ public class SignAllForumActivity extends com.baidu.tieba.f implements com.baidu
     private y g = new ab(this);
     private am h = new ac(this);
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str) {
-        if (this.e) {
-            u h = this.a.h();
-            Intent intent = new Intent(this, SignAllForumActivity.class);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(SignAllForumActivity signAllForumActivity, String str) {
+        if (signAllForumActivity.e) {
+            u g = signAllForumActivity.a.g();
+            Intent intent = new Intent(signAllForumActivity, SignAllForumActivity.class);
             intent.addFlags(805306368);
             intent.putExtra("signall_noyify_click", true);
-            PendingIntent activity = PendingIntent.getActivity(this, 0, intent, 134217728);
-            str = getString(R.string.signallforum_back_finish, new Object[]{0, Integer.valueOf(h.m().size())});
-            a(str, activity, 16);
-            if (this.f) {
+            PendingIntent activity = PendingIntent.getActivity(signAllForumActivity, 0, intent, 134217728);
+            str = signAllForumActivity.getString(R.string.signallforum_back_finish, new Object[]{0, Integer.valueOf(g.m().size())});
+            signAllForumActivity.a(str, activity, 16);
+            if (signAllForumActivity.f) {
                 return;
             }
         }
-        showToast(str);
-        this.a.f().a();
-        u h2 = this.a.h();
-        ArrayList<v> m = h2.m();
+        signAllForumActivity.showToast(str);
+        signAllForumActivity.a.e().a();
+        u g2 = signAllForumActivity.a.g();
+        ArrayList<v> m = g2.m();
         int size = m.size();
         for (int i = 0; i < size; i++) {
             v vVar = m.get(i);
@@ -52,10 +52,10 @@ public class SignAllForumActivity extends com.baidu.tieba.f implements com.baidu
             vVar.c(false);
             vVar.a(false);
         }
-        int size2 = h2.j().size();
-        int size3 = h2.l().size();
-        this.a.j().setText(getString(R.string.signallforum_res, new Object[]{Integer.valueOf(size3), Integer.valueOf(size2 - size3)}));
-        this.a.i().notifyDataSetChanged();
+        int size2 = g2.j().size();
+        int size3 = g2.l().size();
+        signAllForumActivity.a.i().setText(signAllForumActivity.getString(R.string.signallforum_res, new Object[]{Integer.valueOf(size3), Integer.valueOf(size2 - size3)}));
+        signAllForumActivity.a.h().notifyDataSetChanged();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -68,10 +68,6 @@ public class SignAllForumActivity extends com.baidu.tieba.f implements com.baidu
         ((NotificationManager) getSystemService("notification")).notify(R.drawable.singnallforum_progress, notification);
     }
 
-    private void a() {
-        ((NotificationManager) getSystemService("notification")).cancel(R.drawable.singnallforum_progress);
-    }
-
     public static void a(Context context) {
         Intent intent = new Intent(context, SignAllForumActivity.class);
         intent.addFlags(268435456);
@@ -82,9 +78,21 @@ public class SignAllForumActivity extends com.baidu.tieba.f implements com.baidu
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        b();
-        c();
-        a();
+        this.a = new as(this);
+        this.a.a((com.baidu.adp.widget.ListView.b) this);
+        this.a.a((AdapterView.OnItemClickListener) this);
+        this.c = new AlertDialog.Builder(this).setPositiveButton(R.string.signallforum_signnow, new ad(this)).create();
+        this.b = new w();
+        this.b.a(this.g);
+        this.d = al.a();
+        this.d.a(this.h);
+        if (this.d.a) {
+            this.g.a(this.d.b());
+            this.a.e().setSigning(90);
+        } else {
+            this.a.a();
+        }
+        ((NotificationManager) getSystemService("notification")).cancel(R.drawable.singnallforum_progress);
         Intent intent = getIntent();
         if (intent.hasExtra("signall_noyify_click") && intent.getBooleanExtra("signall_noyify_click", false)) {
             com.baidu.tieba.ai.a(this, "signall_noyify_click");
@@ -95,17 +103,17 @@ public class SignAllForumActivity extends com.baidu.tieba.f implements com.baidu
     @Override // com.baidu.tieba.f, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (TiebaApplication.g().k() > 0 && this.a != null && this.a.h() != null && this.a.h().j() != null) {
-            u h = this.a.h();
-            TiebaApplication g = TiebaApplication.g();
-            ArrayList<v> m = h.m();
-            ArrayList<v> l = h.l();
+        if (TiebaApplication.g().i() > 0 && this.a != null && this.a.g() != null && this.a.g().j() != null) {
+            u g = this.a.g();
+            TiebaApplication g2 = TiebaApplication.g();
+            ArrayList<v> m = g.m();
+            ArrayList<v> l = g.l();
             Iterator<v> it = m.iterator();
             while (it.hasNext()) {
                 v next = it.next();
                 String b = next.b();
-                if (g.a(b)) {
-                    int b2 = g.b(b);
+                if (g2.a(b)) {
+                    int b2 = g2.b(b);
                     next.a(1);
                     next.a(true);
                     next.d(b2);
@@ -116,34 +124,14 @@ public class SignAllForumActivity extends com.baidu.tieba.f implements com.baidu
                 }
             }
         }
-        this.a.i().notifyDataSetChanged();
+        this.a.h().notifyDataSetChanged();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.f, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.a.i().b();
-    }
-
-    private void b() {
-        this.a = new as(this);
-        this.a.a((com.baidu.adp.widget.ListView.b) this);
-        this.a.a((AdapterView.OnItemClickListener) this);
-        e();
-    }
-
-    private void c() {
-        this.b = new w();
-        this.b.a(this.g);
-        this.d = al.a();
-        this.d.a(this.h);
-        if (this.d.a) {
-            this.g.a(this.d.b());
-            this.a.f().setSigning(90);
-            return;
-        }
-        this.a.a();
+        this.a.h().b();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -154,11 +142,11 @@ public class SignAllForumActivity extends com.baidu.tieba.f implements com.baidu
     }
 
     @Override // com.baidu.adp.widget.ListView.b
-    public void a(boolean z) {
+    public final void a(boolean z) {
         NetworkInfo activeNetworkInfo = ((ConnectivityManager) getSystemService("connectivity")).getActiveNetworkInfo();
         if (activeNetworkInfo == null || !activeNetworkInfo.isAvailable()) {
             showToast(R.string.neterror);
-            this.a.e();
+            this.a.d();
             return;
         }
         this.b.LoadData();
@@ -166,21 +154,26 @@ public class SignAllForumActivity extends com.baidu.tieba.f implements com.baidu
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
-        u h = this.a.h();
-        if (view == this.a.g()) {
-            if (this.a.f().getCurrentStatus() == 2) {
+        u g = this.a.g();
+        if (view == this.a.f()) {
+            if (this.a.e().getCurrentStatus() == 2) {
                 showToast(R.string.signallforum_finished);
                 return;
             }
-            if (h.g() != 0) {
-                this.c.setMessage(h.h());
+            if (g.g() != 0) {
+                this.c.setMessage(g.h());
                 if (!this.c.isShowing()) {
                     this.c.show();
                 }
             } else {
                 NetworkInfo activeNetworkInfo = ((ConnectivityManager) getSystemService("connectivity")).getActiveNetworkInfo();
                 if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
-                    d();
+                    u g2 = this.a.g();
+                    this.a.e().setDuration(Math.max(g2.m().size() * 50, 2000));
+                    this.a.e().setSigning(0);
+                    this.d.a(g2);
+                    this.d.LoadData();
+                    this.a.h().notifyDataSetChanged();
                 } else {
                     showToast(R.string.neterror);
                 }
@@ -189,26 +182,13 @@ public class SignAllForumActivity extends com.baidu.tieba.f implements com.baidu
         }
     }
 
-    private void d() {
-        u h = this.a.h();
-        this.a.f().setDuration(Math.max(h.m().size() * 50, 2000));
-        this.a.f().setSigning(0);
-        this.d.a(h);
-        this.d.LoadData();
-        this.a.i().notifyDataSetChanged();
-    }
-
     @Override // com.baidu.adp.a.a, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         v vVar;
-        if (this.a.i().getItemViewType(i) == 0 && (vVar = this.a.h().j().get(i / 2)) != null) {
+        if (this.a.h().getItemViewType(i) == 0 && (vVar = this.a.g().j().get(i / 2)) != null) {
             FrsActivity.a(this, vVar.b(), "signallforum");
             com.baidu.tieba.ai.a(this, "signall_frs_click");
         }
-    }
-
-    private void e() {
-        this.c = new AlertDialog.Builder(this).setPositiveButton(R.string.signallforum_signnow, new ad(this)).create();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -216,7 +196,7 @@ public class SignAllForumActivity extends com.baidu.tieba.f implements com.baidu
     public void onStop() {
         super.onStop();
         if (this.d != null && this.d.a) {
-            f();
+            a();
         }
     }
 
@@ -229,18 +209,18 @@ public class SignAllForumActivity extends com.baidu.tieba.f implements com.baidu
             this.b.cancelLoadData();
             this.b = null;
         }
-        if (this.a != null && this.a.i() != null) {
-            this.a.i().a();
+        if (this.a != null && this.a.h() != null) {
+            this.a.h().a();
         }
         if (this.d != null && this.d.a) {
-            f();
+            a();
         } else if (this.b != null) {
             this.b.cancelLoadData();
             this.b = null;
         }
     }
 
-    private void f() {
+    private void a() {
         this.e = true;
         Intent intent = new Intent(this, SignAllForumActivity.class);
         intent.addFlags(805306368);

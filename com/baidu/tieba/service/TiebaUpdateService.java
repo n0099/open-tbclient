@@ -43,7 +43,7 @@ public class TiebaUpdateService extends Service {
         }
     }
 
-    public Notification a() {
+    private static Notification a() {
         PendingIntent activity = PendingIntent.getActivity(TiebaApplication.g().b(), 0, new Intent(), 0);
         Notification notification = new Notification(17301633, null, System.currentTimeMillis());
         notification.contentView = new RemoteViews(TiebaApplication.g().b().getPackageName(), (int) R.layout.notify_item);
@@ -74,7 +74,9 @@ public class TiebaUpdateService extends Service {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         boolean z;
-        com.baidu.adp.lib.util.f.a(getClass().getName(), "onStart", "onStart");
+        String str;
+        String[] split;
+        com.baidu.adp.lib.util.e.a(getClass().getName(), "onStart", "onStart");
         if (!h) {
             h = true;
             if (intent != null && intent.getBooleanExtra("update", false)) {
@@ -98,7 +100,16 @@ public class TiebaUpdateService extends Service {
                     } else {
                         z = true;
                     }
-                    this.a = a(this.i);
+                    String str2 = this.i;
+                    if (str2 == null || str2.length() == 0) {
+                        str = null;
+                    } else {
+                        if (str2.contains("?")) {
+                            str2 = str2.substring(0, str2.indexOf("?"));
+                        }
+                        str = str2.split("/")[split.length - 1];
+                    }
+                    this.a = str;
                     if (this.a == null || this.a.length() < 4) {
                         this.j = true;
                         z = false;
@@ -119,16 +130,5 @@ public class TiebaUpdateService extends Service {
             }
             super.onStart(intent, i);
         }
-    }
-
-    private String a(String str) {
-        if (str == null || str.length() == 0) {
-            return null;
-        }
-        if (str.contains("?")) {
-            str = str.substring(0, str.indexOf("?"));
-        }
-        String[] split = str.split("/");
-        return split[split.length - 1];
     }
 }

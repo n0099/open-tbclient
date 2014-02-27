@@ -8,13 +8,13 @@ public class e {
     private final String b = com.baidu.tieba.data.i.k();
     private f c;
     private g d;
-    private Context e;
+    private final Context e;
 
     public e(Context context) {
         this.e = context;
     }
 
-    public boolean a(o oVar) {
+    public final boolean a(o oVar) {
         if (oVar == null) {
             return false;
         }
@@ -25,25 +25,25 @@ public class e {
         return true;
     }
 
-    public boolean a(String str, ak akVar) {
-        if (akVar == null || TextUtils.isEmpty(str)) {
+    public final boolean a(String str, al alVar) {
+        if (alVar == null || TextUtils.isEmpty(str)) {
             return false;
         }
         b();
-        this.d = new g(this, str, akVar);
+        this.d = new g(this, str, alVar);
         this.d.setPriority(3);
         this.d.execute(new Object[0]);
         return true;
     }
 
-    public void a() {
+    public final void a() {
         if (this.c != null) {
             this.c.cancel();
             this.c = null;
         }
     }
 
-    public void b() {
+    public final void b() {
         if (this.d != null) {
             this.d.cancel();
             this.d = null;

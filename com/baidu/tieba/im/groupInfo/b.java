@@ -4,7 +4,7 @@ import android.view.View;
 import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class b implements View.OnClickListener {
+final class b implements View.OnClickListener {
     final /* synthetic */ ApplyJoinGroupActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ class b implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         if (view != null) {
             if (view.equals(this.a.f)) {
                 if (!UtilHelper.b()) {
@@ -25,9 +25,9 @@ class b implements View.OnClickListener {
                 ahVar.a(this.a.b.getText().toString());
                 ahVar.a(this.a.r);
                 ahVar.a(this.a.n);
-                com.baidu.adp.lib.util.f.e("groupId:" + this.a.k + "userMsg:" + this.a.b.getContext().toString());
+                com.baidu.adp.lib.util.e.e("groupId:" + this.a.k + "userMsg:" + this.a.b.getContext().toString());
                 this.a.f.setEnabled(false);
-                com.baidu.tieba.im.messageCenter.e.a().a(ahVar);
+                com.baidu.tieba.im.messageCenter.d.a().a(ahVar);
             } else if (view.equals(this.a.e)) {
                 this.a.finish();
             }

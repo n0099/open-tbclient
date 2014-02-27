@@ -1,7 +1,7 @@
 package com.baidu.tieba.faceshop;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s extends com.baidu.adp.a.g {
+public final class s extends com.baidu.adp.a.g {
     final /* synthetic */ FacePackageDetailActivity a;
     private final /* synthetic */ com.baidu.tieba.d.a b;
 
@@ -12,7 +12,7 @@ public class s extends com.baidu.adp.a.g {
     }
 
     @Override // com.baidu.adp.a.g
-    public void a(Object obj) {
+    public final void a(Object obj) {
         v vVar;
         v vVar2;
         v vVar3;
@@ -32,7 +32,7 @@ public class s extends com.baidu.adp.a.g {
                         vVar4 = this.a.a;
                         String e = vVar4.e();
                         vVar5 = this.a.a;
-                        facePackageDetailActivity.a(e, vVar5.a().facePackage.pname, str);
+                        FacePackageDetailActivity.a(e, vVar5.a().facePackage.pname, str);
                         return;
                     }
                     return;
@@ -42,10 +42,12 @@ public class s extends com.baidu.adp.a.g {
                 this.a.showToast(facePackageDownloadData.usermsg);
                 return;
             } else {
-                com.baidu.tieba.d.d.a().a(this.b);
+                com.baidu.tieba.d.d.a();
+                com.baidu.tieba.d.d.a(this.b);
                 return;
             }
         }
-        com.baidu.tieba.d.d.a().a(this.b);
+        com.baidu.tieba.d.d.a();
+        com.baidu.tieba.d.d.a(this.b);
     }
 }

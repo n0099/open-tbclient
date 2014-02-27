@@ -7,7 +7,7 @@ import com.baidu.tieba.view.NavigationBar;
 import com.baidu.tieba.view.NoNetworkView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class d extends e {
+public final class d extends e {
     private HotGroupActivity a;
     private View c;
     private NavigationBar d;
@@ -19,10 +19,6 @@ public class d extends e {
         super(hotGroupActivity);
         this.a = hotGroupActivity;
         hotGroupActivity.setContentView(R.layout.hot_group_activity);
-        e();
-    }
-
-    private void e() {
         this.c = this.a.findViewById(R.id.parent);
         this.d = (NavigationBar) this.a.findViewById(R.id.view_navigation_bar);
         this.d.a(R.string.hot_group);
@@ -32,14 +28,14 @@ public class d extends e {
         this.e = (NoNetworkView) this.a.findViewById(R.id.view_no_network);
     }
 
-    public ImageView a() {
+    public final ImageView a() {
         return this.f;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.a.a().a(i == 1);
         this.a.a().a(this.c);
-        this.d.c(i);
+        this.d.b(i);
         this.g.c(i);
         this.e.a(i);
     }

@@ -38,7 +38,7 @@ public class PersonalTalkSettingViewSettingView extends LinearLayout {
         this.c = (RelativeLayout) findViewById(R.id.change_attention);
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         if (z) {
             this.a.b(false);
         } else {
@@ -46,7 +46,7 @@ public class PersonalTalkSettingViewSettingView extends LinearLayout {
         }
     }
 
-    public void b(boolean z) {
+    public final void b(boolean z) {
         boolean z2 = false;
         Context context = getContext();
         if (context instanceof com.baidu.tieba.f) {
@@ -69,12 +69,12 @@ public class PersonalTalkSettingViewSettingView extends LinearLayout {
         this.b.setText(R.string.add_attention);
         if (z2) {
             this.b.setTextColor(getResources().getColor(R.color.btn_attention_add_1));
-            this.b.setCompoundDrawablesWithIntrinsicBounds(context.getResources().getDrawable(R.drawable.icon_information_add_1), (Drawable) null, (Drawable) null, (Drawable) null);
+            this.b.setCompoundDrawablesWithIntrinsicBounds(context.getResources().getDrawable(R.drawable.icon_brief_attention_1), (Drawable) null, (Drawable) null, (Drawable) null);
             this.c.setBackgroundResource(R.drawable.btn_information_discuss_1);
             return;
         }
         this.b.setTextColor(getResources().getColor(R.color.btn_attention_add));
-        this.b.setCompoundDrawablesWithIntrinsicBounds(context.getResources().getDrawable(R.drawable.icon_information_add), (Drawable) null, (Drawable) null, (Drawable) null);
+        this.b.setCompoundDrawablesWithIntrinsicBounds(context.getResources().getDrawable(R.drawable.icon_brief_attention), (Drawable) null, (Drawable) null, (Drawable) null);
         this.c.setBackgroundResource(R.drawable.btn_information_discuss);
     }
 }

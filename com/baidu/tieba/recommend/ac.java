@@ -1,6 +1,6 @@
 package com.baidu.tieba.recommend;
 /* loaded from: classes.dex */
-public class ac {
+public final class ac {
     public String a;
     public String b;
 
@@ -11,11 +11,11 @@ public class ac {
         this.b = str2;
     }
 
-    public int hashCode() {
+    public final int hashCode() {
         return (((this.a == null ? 0 : this.a.hashCode()) + 31) * 31) + (this.b != null ? this.b.hashCode() : 0);
     }
 
-    public boolean equals(Object obj) {
+    public final boolean equals(Object obj) {
         if (this == obj) {
             return true;
         }

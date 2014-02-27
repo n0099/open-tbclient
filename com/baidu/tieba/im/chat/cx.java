@@ -1,9 +1,11 @@
 package com.baidu.tieba.im.chat;
 
 import com.baidu.tbadk.gif.GifView;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cx implements com.baidu.tbadk.imageManager.d {
+public final class cx implements com.baidu.tbadk.imageManager.d {
     private final /* synthetic */ GifView a;
     private final /* synthetic */ String b;
     private final /* synthetic */ com.baidu.tieba.im.message.b c;
@@ -24,28 +26,27 @@ public class cx implements com.baidu.tbadk.imageManager.d {
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        com.baidu.adp.widget.ImageView.b b;
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
         Object tag = this.a.getTag();
         if (tag != null && ((String) tag).equals(this.b)) {
-            this.a.setIsLoading(false);
             if (bVar != null) {
                 this.a.setGif(bVar);
                 this.c.b(true);
             } else if (bVar == null) {
-                if (str == null || !str.equals(this.d)) {
-                    this.a.setGif(bVar);
-                    this.c.b(false);
+                if (str != null && UtilHelper.h(TiebaApplication.g()) == UtilHelper.NetworkStateInfo.UNAVAIL && !this.c.a) {
+                    this.c.a = true;
+                    com.baidu.adp.widget.ImageView.b b = str.equals(this.d) ? cr.b(this.e, this.f, this.b, this.g, false, this) : cr.b(this.e, this.f, this.b, this.d, true, this);
+                    if (b != null) {
+                        this.a.setGif(b);
+                        this.a.setIsLoading(false);
+                        this.c.b(true);
+                        return;
+                    }
+                    this.a.setIsLoading(true);
                     return;
                 }
-                b = cs.b(this.e, this.f, this.b, this.g, false, this);
-                if (b != null) {
-                    this.a.setGif(b);
-                    this.a.setIsLoading(false);
-                    this.c.b(true);
-                    return;
-                }
-                this.a.setIsLoading(true);
+                this.a.setGif(bVar);
+                this.c.b(false);
             }
         }
     }

@@ -131,6 +131,10 @@ public class PersonPostListData implements Serializable {
         public String big_pic = "";
         @SerializedName("water_pic")
         public String water_pic = "";
+        @SerializedName("vsrc")
+        public String video_url = "";
+        @SerializedName("vpic")
+        public String pic_url = "";
 
         public String toString() {
             return "Media{type=" + this.type + ", small_pic='" + this.small_pic + "', big_pic='" + this.big_pic + "', water_pic='" + this.water_pic + "'}";

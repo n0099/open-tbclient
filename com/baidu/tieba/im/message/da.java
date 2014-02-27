@@ -12,31 +12,31 @@ public class da extends s {
         e(i);
     }
 
-    public boolean l() {
+    public final boolean l() {
         return this.a != 0;
     }
 
-    public int m() {
+    public final int m() {
         return this.a;
     }
 
-    public void g(int i) {
+    public final void g(int i) {
         this.a = i;
     }
 
-    public String n() {
+    public final String n() {
         return this.b;
     }
 
-    public void c(String str) {
+    public final void c(String str) {
         this.b = str;
     }
 
-    public s o() {
+    public final s o() {
         return this.c;
     }
 
-    public void a(s sVar) {
+    public final void a(s sVar) {
         this.c = sVar;
     }
 }

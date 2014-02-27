@@ -5,9 +5,9 @@ import android.os.Message;
 import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class g implements Handler.Callback {
+final class g implements Handler.Callback {
     @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
+    public final boolean handleMessage(Message message) {
         r rVar;
         r rVar2;
         r rVar3;
@@ -47,7 +47,7 @@ class g implements Handler.Callback {
             case 3:
                 rVar9 = f.d;
                 if (rVar9 != null) {
-                    if (com.baidu.adp.lib.util.c.b()) {
+                    if (com.baidu.adp.lib.util.b.a()) {
                         rVar11 = f.d;
                         rVar11.a(message.what, ak.a(R.string.voice_err_create_file_fail));
                     } else {
@@ -108,7 +108,7 @@ class g implements Handler.Callback {
                     rVar13 = f.d;
                     rVar13.a(message.what, ak.a(R.string.voice_record_short_tip));
                     f.d = null;
-                    com.baidu.adp.lib.util.f.d("----record too short......");
+                    com.baidu.adp.lib.util.e.d("----record too short......");
                     break;
                 }
                 break;

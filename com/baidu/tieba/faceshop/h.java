@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class h extends Dialog {
+public final class h extends Dialog {
     int a;
     private Context b;
     private LayoutInflater c;
@@ -22,23 +22,23 @@ public class h extends Dialog {
     private TextView g;
 
     public h(Context context, int i) {
-        super(context, i);
+        super(context, R.style.common_alert_dialog);
         this.b = context;
         this.c = LayoutInflater.from(getContext());
     }
 
-    public void a() {
+    public final void a() {
         this.d = this.c.inflate(R.layout.face_buy_loading, (ViewGroup) null);
-        this.a = TiebaApplication.g().al();
+        this.a = TiebaApplication.g().ae();
         setContentView(this.d, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.faceshop_buy_dialog_width), getContext().getResources().getDimensionPixelSize(R.dimen.faceshop_buy_dialog_height)));
         setCancelable(false);
         c();
     }
 
-    public void b() {
+    public final void b() {
         ForegroundColorSpan foregroundColorSpan;
         this.d = this.c.inflate(R.layout.face_buy_fail, (ViewGroup) null);
-        this.a = TiebaApplication.g().al();
+        this.a = TiebaApplication.g().ae();
         String string = getContext().getResources().getString(R.string.query_buy_fail_tel);
         this.e = new SpannableString(string);
         if (this.a == 1) {

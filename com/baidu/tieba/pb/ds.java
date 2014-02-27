@@ -4,7 +4,7 @@ import android.widget.ImageView;
 import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ds implements com.baidu.tbadk.imageManager.d {
+public final class ds implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ cu a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ public class ds implements com.baidu.tbadk.imageManager.d {
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
         BdListView bdListView;
         ed edVar;
         ed edVar2;
@@ -32,11 +32,11 @@ public class ds implements com.baidu.tbadk.imageManager.d {
             }
             imageView.invalidate();
         }
-        if (this.a.z()) {
+        if (this.a.x()) {
             edVar = this.a.s;
             if (edVar != null) {
                 edVar2 = this.a.s;
-                ImageView imageView2 = (ImageView) edVar2.n().findViewWithTag(str);
+                ImageView imageView2 = (ImageView) edVar2.l().findViewWithTag(str);
                 if (imageView2 != null) {
                     imageView2.invalidate();
                 }

@@ -30,7 +30,7 @@ public final class l {
 
     public static void b() {
         if (e != null) {
-            e.d();
+            e.d = null;
             e = null;
         }
     }
@@ -55,7 +55,7 @@ public final class l {
         this.d = null;
     }
 
-    public String a() {
+    public final String a() {
         return (this.d == null || TextUtils.isEmpty((CharSequence) this.d.get("upload"))) ? this.c : (String) this.d.get("upload");
     }
 }

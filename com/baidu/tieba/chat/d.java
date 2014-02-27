@@ -9,7 +9,7 @@ import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements View.OnClickListener {
+public final class d implements View.OnClickListener {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,11 +18,11 @@ public class d implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         Activity activity;
         Activity activity2;
         switch (view.getId()) {
-            case R.id.chat_head /* 2131100037 */:
+            case R.id.chat_head /* 2131100032 */:
                 HeadImageView headImageView = (HeadImageView) view;
                 String userId = headImageView.getUserId();
                 String userName = headImageView.getUserName();

@@ -15,7 +15,7 @@ public final class PushNotifyReq {
     /* loaded from: classes.dex */
     public final class PushNotifyReqIdl extends GeneratedMessageLite implements c {
         public static Parser<PushNotifyReqIdl> PARSER = new a();
-        private static final PushNotifyReqIdl a = new PushNotifyReqIdl(true);
+        private static final PushNotifyReqIdl a = new PushNotifyReqIdl();
         private static final long serialVersionUID = 0;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
@@ -31,7 +31,7 @@ public final class PushNotifyReq {
             this.memoizedSerializedSize = -1;
         }
 
-        private PushNotifyReqIdl(boolean z) {
+        private PushNotifyReqIdl() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -42,14 +42,13 @@ public final class PushNotifyReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public PushNotifyReqIdl getDefaultInstanceForType() {
+        public final PushNotifyReqIdl getDefaultInstanceForType() {
             return a;
         }
 
         private PushNotifyReqIdl(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
-            a();
             boolean z = false;
             while (!z) {
                 try {
@@ -83,16 +82,9 @@ public final class PushNotifyReq {
             this(codedInputStream, extensionRegistryLite);
         }
 
-        static {
-            a.a();
-        }
-
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<PushNotifyReqIdl> getParserForType() {
+        public final Parser<PushNotifyReqIdl> getParserForType() {
             return PARSER;
-        }
-
-        private void a() {
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -106,12 +98,12 @@ public final class PushNotifyReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
                 this.memoizedSerializedSize = 0;
@@ -122,7 +114,7 @@ public final class PushNotifyReq {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -167,12 +159,12 @@ public final class PushNotifyReq {
         }
 
         public static b newBuilder() {
-            return b.f();
+            return b.a();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public b newBuilderForType() {
+        public final b newBuilderForType() {
             return newBuilder();
         }
 
@@ -182,7 +174,7 @@ public final class PushNotifyReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public b toBuilder() {
+        public final b toBuilder() {
             return newBuilder(this);
         }
     }

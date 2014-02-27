@@ -13,25 +13,25 @@ import android.widget.RadioGroup;
 import com.baidu.tieba.util.cc;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class p extends com.baidu.tieba.j implements ViewPager.OnPageChangeListener, RadioGroup.OnCheckedChangeListener {
+public final class p extends com.baidu.tieba.j implements ViewPager.OnPageChangeListener, RadioGroup.OnCheckedChangeListener {
     private com.baidu.tieba.k d;
     private s e;
     private int c = 0;
     public BroadcastReceiver b = new q(this);
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onAttach(Activity activity) {
+    public final void onAttach(Activity activity) {
         super.onAttach(activity);
         this.d = (com.baidu.tieba.k) activity;
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+    public final View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         return layoutInflater.inflate(R.layout.home_activity, (ViewGroup) null);
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onCreate(Bundle bundle) {
+    public final void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.baidu.tieba.SHOWSQUARE");
@@ -39,24 +39,25 @@ public class p extends com.baidu.tieba.j implements ViewPager.OnPageChangeListen
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onActivityCreated(Bundle bundle) {
+    public final void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        a(bundle);
+        this.e = new s(this.d, this);
+        this.e.a().check(R.id.radio_square);
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onResume() {
+    public final void onResume() {
         super.onResume();
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onDestroy() {
+    public final void onDestroy() {
         super.onDestroy();
         this.d.unregisterReceiver(this.b);
     }
 
     @Override // android.support.v4.app.Fragment
-    public void onSaveInstanceState(Bundle bundle) {
+    public final void onSaveInstanceState(Bundle bundle) {
         if (this.c != -1) {
             bundle.putInt("type", this.c);
         } else {
@@ -65,26 +66,8 @@ public class p extends com.baidu.tieba.j implements ViewPager.OnPageChangeListen
         super.onSaveInstanceState(bundle);
     }
 
-    private void a(Bundle bundle) {
-        this.e = new s(this.d, this);
-        this.e.a().check(R.id.radio_square);
-    }
-
-    private void d(int i) {
-        int i2 = 0;
-        switch (i) {
-            case R.id.radio_forumfeed /* 2131101125 */:
-                i2 = 1;
-                break;
-        }
-        if (i2 != this.c) {
-            this.c = i2;
-            this.e.e().setCurrentItem(i2);
-        }
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
-    public void e(int i) {
+    public void d(int i) {
         Fragment item;
         int i2 = R.id.radio_square;
         switch (i) {
@@ -95,31 +78,40 @@ public class p extends com.baidu.tieba.j implements ViewPager.OnPageChangeListen
         if (this.e != null && this.e.a() != null) {
             this.e.a().check(i2);
         }
-        if (this.e != null && this.e.f() != null && (item = this.e.f().getItem(i)) != null) {
+        if (this.e != null && this.e.e() != null && (item = this.e.e().getItem(i)) != null) {
             cc.a(item.getClass().getName());
         }
     }
 
     @Override // com.baidu.tieba.j
-    public void c(int i) {
+    public final void c(int i) {
         this.e.a(i);
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrolled(int i, float f, int i2) {
+    public final void onPageScrolled(int i, float f, int i2) {
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageSelected(int i) {
-        e(i);
+    public final void onPageSelected(int i) {
+        d(i);
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrollStateChanged(int i) {
+    public final void onPageScrollStateChanged(int i) {
     }
 
     @Override // android.widget.RadioGroup.OnCheckedChangeListener
-    public void onCheckedChanged(RadioGroup radioGroup, int i) {
-        d(i);
+    public final void onCheckedChanged(RadioGroup radioGroup, int i) {
+        int i2 = 0;
+        switch (i) {
+            case R.id.radio_forumfeed /* 2131101118 */:
+                i2 = 1;
+                break;
+        }
+        if (i2 != this.c) {
+            this.c = i2;
+            this.e.d().setCurrentItem(i2);
+        }
     }
 }

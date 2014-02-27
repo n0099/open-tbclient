@@ -32,50 +32,41 @@ public abstract class d {
         this.a = context;
     }
 
-    public Context h() {
+    public final Context g() {
         return this.a;
     }
 
-    public final View i() {
+    public final View h() {
         if (this.b == null) {
             this.b = a();
             if (this.b == null) {
                 throw new IllegalStateException("BdIListPullView getView is null");
             }
-            a(this.b);
+            View view = this.b;
+            ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+            if (layoutParams == null) {
+                layoutParams = new ViewGroup.LayoutParams(-1, -2);
+            }
+            int childMeasureSpec = ViewGroup.getChildMeasureSpec(0, 0, layoutParams.width);
+            int i = layoutParams.height;
+            view.measure(childMeasureSpec, i > 0 ? View.MeasureSpec.makeMeasureSpec(i, 1073741824) : View.MeasureSpec.makeMeasureSpec(0, 0));
             this.d = this.b.getMeasuredHeight();
             this.e = this.b.getMeasuredWidth();
         }
         return this.b;
     }
 
-    public void a(int i, int i2, int i3, int i4) {
+    public final void a(int i, int i2, int i3, int i4) {
         if (this.b != null) {
-            this.b.setPadding(i, i2, i3, i4);
+            this.b.setPadding(0, i2, 0, 0);
         }
     }
 
-    public boolean j() {
+    public final boolean i() {
         return this.c;
     }
 
-    private void a(View view) {
-        int makeMeasureSpec;
-        ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-        if (layoutParams == null) {
-            layoutParams = new ViewGroup.LayoutParams(-1, -2);
-        }
-        int childMeasureSpec = ViewGroup.getChildMeasureSpec(0, 0, layoutParams.width);
-        int i = layoutParams.height;
-        if (i > 0) {
-            makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i, 1073741824);
-        } else {
-            makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
-        }
-        view.measure(childMeasureSpec, makeMeasureSpec);
-    }
-
-    public int k() {
+    public final int j() {
         return this.d;
     }
 }

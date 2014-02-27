@@ -5,9 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import com.baidu.adp.lib.util.BdUtilHelper;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j implements View.OnClickListener {
+final class j implements View.OnClickListener {
     final /* synthetic */ AtListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,7 +15,7 @@ public class j implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         AtSelectFriendList atSelectFriendList;
         EditText editText;
         Intent intent = new Intent();

@@ -9,7 +9,7 @@ import android.support.v4.view.MotionEventCompat;
 import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
-public class a {
+public final class a {
     public boolean a;
     public float b;
     private DragLayer c;
@@ -30,14 +30,14 @@ public class a {
         this.h = this.d.getResources().getDisplayMetrics().density * 20.0f;
     }
 
-    public void a(DragLayer dragLayer) {
+    public final void a(DragLayer dragLayer) {
         this.c = dragLayer;
         dragLayer.setDragController(this);
         this.l = this.c.getPaddingLeft();
         this.m = this.c.getPaddingRight();
     }
 
-    public void a(View view, Bundle bundle) {
+    public final void a(View view, Bundle bundle) {
         this.a = true;
         this.i = new e(this.d);
         Rect rect = new Rect();
@@ -49,14 +49,14 @@ public class a {
         view.destroyDrawingCache();
         view.setDrawingCacheEnabled(false);
         this.i.a = rect;
-        this.i.c = bundle;
+        this.i.c = null;
         view.setVisibility(4);
         a(this.i);
         this.c.setDragObject(this.i);
         this.e.vibrate(300L);
     }
 
-    public void a() {
+    private void b() {
         if (this.a) {
             this.a = false;
             this.i = null;
@@ -67,7 +67,7 @@ public class a {
         }
     }
 
-    public boolean a(MotionEvent motionEvent) {
+    public final boolean a(MotionEvent motionEvent) {
         switch (motionEvent.getAction() & MotionEventCompat.ACTION_MASK) {
             case 0:
                 this.b = motionEvent.getX(0);
@@ -76,13 +76,13 @@ public class a {
             case 3:
             case 4:
             case 6:
-                a();
+                b();
                 break;
         }
         return this.a;
     }
 
-    public boolean b(MotionEvent motionEvent) {
+    public final boolean b(MotionEvent motionEvent) {
         if (this.a) {
             if (this.k == null) {
                 this.k = new Rect();
@@ -100,14 +100,14 @@ public class a {
                 case 3:
                 case 4:
                 case 6:
-                    a();
+                    b();
                     break;
                 case 2:
                     float x = motionEvent.getX(0);
                     this.b = x;
                     this.i.a.offset((int) (x - this.b), 0);
                     a(this.i);
-                    b();
+                    a();
                     break;
             }
             return true;
@@ -115,7 +115,7 @@ public class a {
         return false;
     }
 
-    public void b() {
+    public final void a() {
         this.j.set(this.i.a);
         this.c.offsetRectIntoDescendantCoords((View) this.f, this.j);
         this.f.a(this.j);
@@ -153,11 +153,11 @@ public class a {
         }
     }
 
-    public void a(g gVar) {
+    public final void a(g gVar) {
         this.f = gVar;
     }
 
-    public void a(f fVar) {
+    public final void a(f fVar) {
         this.g = fVar;
         this.g.setDragController(this);
     }

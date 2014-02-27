@@ -30,20 +30,23 @@ public class BrowseSettingActivity extends com.baidu.tieba.f implements com.baid
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.a.a()) {
-            this.a.i();
-        } else if (view == this.a.e()) {
-            this.a.j();
-        } else if (view == this.a.f()) {
-            this.a.k();
-        } else if (view == this.a.g()) {
-            this.a.l();
-        } else if (view == this.a.h()) {
-            this.a.m();
+            this.a.g();
+        } else if (view == this.a.d()) {
+            this.a.h();
+        } else {
+            v vVar = this.a;
+            if (view == null) {
+                this.a.i();
+            } else if (view == this.a.e()) {
+                this.a.j();
+            } else if (view == this.a.f()) {
+                this.a.k();
+            }
         }
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.c
-    public void a(View view, BdSwitchView.SwitchState switchState) {
+    public final void a(View view, BdSwitchView.SwitchState switchState) {
         if (switchState == BdSwitchView.SwitchState.ON) {
             this.a.b(1);
         } else {

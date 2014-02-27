@@ -24,10 +24,12 @@ public final class QueryChatroomInfoRes {
         public static final int LASTMSGID_FIELD_NUMBER = 8;
         public static final int LEFTTIME_FIELD_NUMBER = 5;
         public static final int MAXUSERNUM_FIELD_NUMBER = 3;
+        public static Parser<DataRes> PARSER = new g();
         public static final int STATUS_FIELD_NUMBER = 4;
         public static final int TITLE_FIELD_NUMBER = 6;
         public static final int USERLIST_FIELD_NUMBER = 2;
         public static final int USERNUM_FIELD_NUMBER = 1;
+        private static final DataRes a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private Object content_;
@@ -40,8 +42,6 @@ public final class QueryChatroomInfoRes {
         private Object title_;
         private List<Im.UserInfo> userList_;
         private int userNum_;
-        public static Parser<DataRes> PARSER = new g();
-        private static final DataRes a = new DataRes(true);
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ DataRes(GeneratedMessageLite.Builder builder, DataRes dataRes) {
@@ -54,7 +54,7 @@ public final class QueryChatroomInfoRes {
             this.memoizedSerializedSize = -1;
         }
 
-        private DataRes(boolean z) {
+        private DataRes() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -65,7 +65,7 @@ public final class QueryChatroomInfoRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public DataRes getDefaultInstanceForType() {
+        public final DataRes getDefaultInstanceForType() {
             return a;
         }
 
@@ -148,71 +148,73 @@ public final class QueryChatroomInfoRes {
         }
 
         static {
-            a.a();
+            DataRes dataRes = new DataRes();
+            a = dataRes;
+            dataRes.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<DataRes> getParserForType() {
+        public final Parser<DataRes> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasUserNum() {
+        public final boolean hasUserNum() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public int getUserNum() {
+        public final int getUserNum() {
             return this.userNum_;
         }
 
-        public List<Im.UserInfo> getUserListList() {
+        public final List<Im.UserInfo> getUserListList() {
             return this.userList_;
         }
 
-        public List<? extends aj> getUserListOrBuilderList() {
+        public final List<? extends aj> getUserListOrBuilderList() {
             return this.userList_;
         }
 
-        public int getUserListCount() {
+        public final int getUserListCount() {
             return this.userList_.size();
         }
 
-        public Im.UserInfo getUserList(int i) {
+        public final Im.UserInfo getUserList(int i) {
             return this.userList_.get(i);
         }
 
-        public aj getUserListOrBuilder(int i) {
+        public final aj getUserListOrBuilder(int i) {
             return this.userList_.get(i);
         }
 
-        public boolean hasMaxUserNum() {
+        public final boolean hasMaxUserNum() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public int getMaxUserNum() {
+        public final int getMaxUserNum() {
             return this.maxUserNum_;
         }
 
-        public boolean hasStatus() {
+        public final boolean hasStatus() {
             return (this.bitField0_ & 4) == 4;
         }
 
-        public int getStatus() {
+        public final int getStatus() {
             return this.status_;
         }
 
-        public boolean hasLeftTime() {
+        public final boolean hasLeftTime() {
             return (this.bitField0_ & 8) == 8;
         }
 
-        public int getLeftTime() {
+        public final int getLeftTime() {
             return this.leftTime_;
         }
 
-        public boolean hasTitle() {
+        public final boolean hasTitle() {
             return (this.bitField0_ & 16) == 16;
         }
 
-        public String getTitle() {
+        public final String getTitle() {
             Object obj = this.title_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -225,7 +227,7 @@ public final class QueryChatroomInfoRes {
             return stringUtf8;
         }
 
-        public ByteString getTitleBytes() {
+        public final ByteString getTitleBytes() {
             Object obj = this.title_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -235,11 +237,11 @@ public final class QueryChatroomInfoRes {
             return (ByteString) obj;
         }
 
-        public boolean hasContent() {
+        public final boolean hasContent() {
             return (this.bitField0_ & 32) == 32;
         }
 
-        public String getContent() {
+        public final String getContent() {
             Object obj = this.content_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -252,7 +254,7 @@ public final class QueryChatroomInfoRes {
             return stringUtf8;
         }
 
-        public ByteString getContentBytes() {
+        public final ByteString getContentBytes() {
             Object obj = this.content_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -262,11 +264,11 @@ public final class QueryChatroomInfoRes {
             return (ByteString) obj;
         }
 
-        public boolean hasLastMsgId() {
+        public final boolean hasLastMsgId() {
             return (this.bitField0_ & 64) == 64;
         }
 
-        public long getLastMsgId() {
+        public final long getLastMsgId() {
             return this.lastMsgId_;
         }
 
@@ -292,7 +294,7 @@ public final class QueryChatroomInfoRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeInt32(1, this.userNum_);
@@ -327,7 +329,7 @@ public final class QueryChatroomInfoRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = 0;
             int i2 = this.memoizedSerializedSize;
             if (i2 == -1) {
@@ -365,7 +367,7 @@ public final class QueryChatroomInfoRes {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -410,12 +412,12 @@ public final class QueryChatroomInfoRes {
         }
 
         public static h newBuilder() {
-            return h.f();
+            return h.b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public h newBuilderForType() {
+        public final h newBuilderForType() {
             return newBuilder();
         }
 
@@ -425,7 +427,7 @@ public final class QueryChatroomInfoRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public h toBuilder() {
+        public final h toBuilder() {
             return newBuilder(this);
         }
     }
@@ -435,7 +437,7 @@ public final class QueryChatroomInfoRes {
         public static final int DATA_FIELD_NUMBER = 2;
         public static final int ERROR_FIELD_NUMBER = 1;
         public static Parser<QueryChatroomInfoResIdl> PARSER = new j();
-        private static final QueryChatroomInfoResIdl a = new QueryChatroomInfoResIdl(true);
+        private static final QueryChatroomInfoResIdl a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private DataRes data_;
@@ -454,7 +456,7 @@ public final class QueryChatroomInfoRes {
             this.memoizedSerializedSize = -1;
         }
 
-        private QueryChatroomInfoResIdl(boolean z) {
+        private QueryChatroomInfoResIdl() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -465,7 +467,7 @@ public final class QueryChatroomInfoRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public QueryChatroomInfoResIdl getDefaultInstanceForType() {
+        public final QueryChatroomInfoResIdl getDefaultInstanceForType() {
             return a;
         }
 
@@ -525,27 +527,29 @@ public final class QueryChatroomInfoRes {
         }
 
         static {
-            a.a();
+            QueryChatroomInfoResIdl queryChatroomInfoResIdl = new QueryChatroomInfoResIdl();
+            a = queryChatroomInfoResIdl;
+            queryChatroomInfoResIdl.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<QueryChatroomInfoResIdl> getParserForType() {
+        public final Parser<QueryChatroomInfoResIdl> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasError() {
+        public final boolean hasError() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public Im.Error getError() {
+        public final Im.Error getError() {
             return this.error_;
         }
 
-        public boolean hasData() {
+        public final boolean hasData() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public DataRes getData() {
+        public final DataRes getData() {
             return this.data_;
         }
 
@@ -565,7 +569,7 @@ public final class QueryChatroomInfoRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeMessage(1, this.error_);
@@ -576,10 +580,13 @@ public final class QueryChatroomInfoRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeMessageSize(1, this.error_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeMessageSize(1, this.error_) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeMessageSize(2, this.data_);
                 }
@@ -590,7 +597,7 @@ public final class QueryChatroomInfoRes {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -635,12 +642,12 @@ public final class QueryChatroomInfoRes {
         }
 
         public static k newBuilder() {
-            return k.f();
+            return k.a();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public k newBuilderForType() {
+        public final k newBuilderForType() {
             return newBuilder();
         }
 
@@ -650,7 +657,7 @@ public final class QueryChatroomInfoRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public k toBuilder() {
+        public final k toBuilder() {
             return newBuilder(this);
         }
     }

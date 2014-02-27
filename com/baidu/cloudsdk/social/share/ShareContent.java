@@ -56,11 +56,11 @@ public final class ShareContent implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public int describeContents() {
+    public final int describeContents() {
         return 0;
     }
 
-    public byte[] getCompressedImageData() {
+    public final byte[] getCompressedImageData() {
         Bitmap bitmap;
         if (this.h == null || (bitmap = (Bitmap) this.h.get()) == null || bitmap.isRecycled()) {
             return null;
@@ -75,11 +75,11 @@ public final class ShareContent implements Parcelable {
         }
     }
 
-    public String getContent() {
+    public final String getContent() {
         return this.c;
     }
 
-    public String getEmailBody() {
+    public final String getEmailBody() {
         String str = this.e;
         if (Build.VERSION.SDK_INT >= 16) {
             str = this.d;
@@ -87,7 +87,7 @@ public final class ShareContent implements Parcelable {
         return TextUtils.isEmpty(str) ? getContent() + IOUtils.LINE_SEPARATOR_WINDOWS + getLinkUrl() : str;
     }
 
-    public Bitmap getImageData() {
+    public final Bitmap getImageData() {
         Bitmap bitmap;
         if (this.h == null || (bitmap = (Bitmap) this.h.get()) == null || bitmap.isRecycled()) {
             return null;
@@ -95,35 +95,35 @@ public final class ShareContent implements Parcelable {
         return bitmap;
     }
 
-    public Uri getImageUri() {
+    public final Uri getImageUri() {
         return this.g;
     }
 
-    public String getLinkUrl() {
+    public final String getLinkUrl() {
         return this.f;
     }
 
-    public Location getLocation() {
+    public final Location getLocation() {
         return this.j;
     }
 
-    public String getTitle() {
+    public final String getTitle() {
         return this.b;
     }
 
-    public byte[] getWXMediaContent() {
+    public final byte[] getWXMediaContent() {
         return this.l;
     }
 
-    public String getWXMediaContentPath() {
+    public final String getWXMediaContentPath() {
         return this.m;
     }
 
-    public int getWXMediaObjectType() {
+    public final int getWXMediaObjectType() {
         return this.k;
     }
 
-    public void saveImageDataIfNecessary() {
+    public final void saveImageDataIfNecessary() {
         byte[] compressedImageData;
         if (this.h == null || this.i || (compressedImageData = getCompressedImageData()) == null) {
             return;
@@ -146,57 +146,57 @@ public final class ShareContent implements Parcelable {
         }
     }
 
-    public ShareContent setContent(String str) {
+    public final ShareContent setContent(String str) {
         this.c = str;
         return this;
     }
 
-    public ShareContent setEmailBody(String str, String str2) {
+    public final ShareContent setEmailBody(String str, String str2) {
         this.d = str;
         this.e = str2;
         return this;
     }
 
-    public ShareContent setImageData(Bitmap bitmap) {
+    public final ShareContent setImageData(Bitmap bitmap) {
         this.h = new WeakReference(bitmap);
         this.i = false;
         return this;
     }
 
-    public ShareContent setImageUri(Uri uri) {
+    public final ShareContent setImageUri(Uri uri) {
         this.g = uri;
         return this;
     }
 
-    public ShareContent setLinkUrl(String str) {
+    public final ShareContent setLinkUrl(String str) {
         this.f = str;
         return this;
     }
 
-    public ShareContent setLocation(Location location) {
+    public final ShareContent setLocation(Location location) {
         this.j = location;
         return this;
     }
 
-    public ShareContent setTitle(String str) {
+    public final ShareContent setTitle(String str) {
         this.b = str;
         return this;
     }
 
-    public void setWXMediaContent(byte[] bArr) {
+    public final void setWXMediaContent(byte[] bArr) {
         this.l = bArr;
     }
 
-    public void setWXMediaContentPath(String str) {
+    public final void setWXMediaContentPath(String str) {
         this.m = str;
     }
 
-    public void setWXMediaObjectType(int i) {
+    public final void setWXMediaObjectType(int i) {
         this.k = i;
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public final void writeToParcel(Parcel parcel, int i) {
         saveImageDataIfNecessary();
         parcel.writeString(this.b);
         parcel.writeString(this.c);

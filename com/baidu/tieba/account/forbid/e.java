@@ -10,7 +10,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e extends BaseAdapter {
+public final class e extends BaseAdapter {
     private String[] a;
     private int b = 0;
     private View.OnClickListener c = new f(this);
@@ -19,7 +19,7 @@ public class e extends BaseAdapter {
         this.a = strArr;
     }
 
-    public String a() {
+    public final String a() {
         if (this.a != null) {
             return this.a[this.b];
         }
@@ -27,7 +27,7 @@ public class e extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public int getCount() {
+    public final int getCount() {
         if (this.a == null) {
             return 0;
         }
@@ -35,11 +35,11 @@ public class e extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public final View getView(int i, View view, ViewGroup viewGroup) {
         g gVar;
         if (view == null) {
             view = ((LayoutInflater) viewGroup.getContext().getSystemService("layout_inflater")).inflate(R.layout.forbid_list_item, (ViewGroup) null);
-            g gVar2 = new g(null);
+            g gVar2 = new g((byte) 0);
             gVar2.a = (TextView) view.findViewById(R.id.reason_text);
             gVar2.b = (ImageView) view.findViewById(R.id.check_img);
             view.setTag(gVar2);
@@ -49,7 +49,7 @@ public class e extends BaseAdapter {
             gVar = (g) view.getTag();
         }
         gVar.c = i;
-        boolean z = TiebaApplication.g().al() == 1;
+        boolean z = TiebaApplication.g().ae() == 1;
         gVar.a.setText(this.a[i]);
         if (gVar.c == this.b) {
             gVar.b.setImageDrawable(viewGroup.getResources().getDrawable(z ? R.drawable.icon_found_information_choose_1 : R.drawable.icon_found_information_choose));
@@ -63,12 +63,12 @@ public class e extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public Object getItem(int i) {
+    public final Object getItem(int i) {
         return null;
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    public final long getItemId(int i) {
         return 0L;
     }
 }

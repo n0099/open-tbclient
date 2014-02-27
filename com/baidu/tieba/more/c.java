@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 /* loaded from: classes.dex */
-class c extends BroadcastReceiver {
+final class c extends BroadcastReceiver {
     final /* synthetic */ AboutActivity a;
 
     private c(AboutActivity aboutActivity) {
@@ -12,14 +12,14 @@ class c extends BroadcastReceiver {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ c(AboutActivity aboutActivity, c cVar) {
+    public /* synthetic */ c(AboutActivity aboutActivity, byte b) {
         this(aboutActivity);
     }
 
     @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
+    public final void onReceive(Context context, Intent intent) {
         if (AboutActivity.a(this.a) != null) {
-            AboutActivity.a(this.a).f();
+            AboutActivity.a(this.a).e();
         }
     }
 }

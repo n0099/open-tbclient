@@ -41,103 +41,95 @@ public class az extends com.baidu.tieba.util.au {
     private String v = null;
     private int w = 0;
 
-    public void a(String str) {
+    public final void a(String str) {
         this.c = str;
     }
 
-    public String a() {
+    public final String a() {
         return this.c;
     }
 
-    public void b(String str) {
+    public final void b(String str) {
         this.d = str;
     }
 
-    public String b() {
+    public final String b() {
         return this.d;
     }
 
-    public void c(String str) {
+    public final void c(String str) {
         this.e = str;
     }
 
-    public String c() {
+    public final String c() {
         return this.e;
     }
 
-    public int d() {
+    public final int d() {
         return this.f;
     }
 
-    public long e() {
+    public final long e() {
         return this.j;
     }
 
-    public void a(long j) {
+    public final void a(long j) {
         this.j = j;
     }
 
-    public int f() {
+    public final int f() {
         return this.k;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.k = i;
     }
 
-    public int g() {
+    public final int g() {
         return this.l;
     }
 
-    public void b(int i) {
+    public final void b(int i) {
         this.l = i;
     }
 
-    public int h() {
-        return this.m;
-    }
-
-    public bc i() {
+    public final bc h() {
         return this.n;
     }
 
-    public MetaData j() {
+    public final MetaData i() {
         return this.o;
     }
 
-    public int k() {
-        return this.r;
-    }
-
-    public String l() {
+    public final String j() {
         return this.s;
     }
 
-    public String m() {
+    public final String k() {
         return this.u;
     }
 
-    public int n() {
+    public final int l() {
         return this.w;
     }
 
-    public void c(int i) {
+    public final void c(int i) {
         this.w = i;
     }
 
-    public String o() {
+    public final String m() {
         return this.x;
     }
 
-    public void d(String str) {
+    public final void d(String str) {
         this.x = str;
     }
 
-    public ArrayList<ah> p() {
+    public final ArrayList<ah> n() {
         return this.a;
     }
 
-    public ArrayList<VoiceManager.VoiceModel> q() {
+    public final ArrayList<VoiceManager.VoiceModel> o() {
         return this.b;
     }
 
@@ -201,55 +193,55 @@ public class az extends com.baidu.tieba.util.au {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b("ThreadData", "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.util.e.b("ThreadData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
-    public SpannableString r() {
+    public final SpannableString p() {
         return this.t;
     }
 
-    public boolean s() {
-        return f() != 0;
+    private boolean r() {
+        return this.k != 0;
     }
 
-    public void t() {
+    public final void q() {
         SpannableString spannableString;
         if (this.e != null) {
             ArrayList arrayList = new ArrayList();
-            if (TiebaApplication.g().al() == 1) {
-                if (f() == 1) {
+            if (TiebaApplication.g().ae() == 1) {
+                if (this.k == 1) {
                     arrayList.add(Integer.valueOf((int) R.drawable.icon_top_1));
-                } else if (f() == 2) {
+                } else if (this.k == 2) {
                     arrayList.add(Integer.valueOf((int) R.drawable.icon_notice_1));
                 }
-                if (h() == 1 || this.n.a() != 0) {
+                if (this.m == 1 || this.n.a() != 0) {
                     arrayList.add(Integer.valueOf((int) R.drawable.icon_live_1));
                 }
-                if (g() == 1 && !s()) {
+                if (this.l == 1 && !r()) {
                     arrayList.add(Integer.valueOf((int) R.drawable.icon_elite_1));
                 }
                 if (this.y == 1 || this.z == 11) {
                     arrayList.add(Integer.valueOf((int) R.drawable.icon_voice_1));
                 }
             } else {
-                if (f() == 1) {
+                if (this.k == 1) {
                     arrayList.add(Integer.valueOf((int) R.drawable.icon_top));
-                } else if (f() == 2) {
+                } else if (this.k == 2) {
                     arrayList.add(Integer.valueOf((int) R.drawable.icon_notice));
                 }
-                if (h() == 1 || this.n.a() != 0) {
+                if (this.m == 1 || this.n.a() != 0) {
                     arrayList.add(Integer.valueOf((int) R.drawable.icon_live));
                 }
-                if (g() == 1 && !s()) {
+                if (this.l == 1 && !r()) {
                     arrayList.add(Integer.valueOf((int) R.drawable.icon_elite));
                 }
                 if (this.y == 1 || this.z == 11) {
                     arrayList.add(Integer.valueOf((int) R.drawable.icon_voice));
                 }
             }
-            if (k() == 1) {
+            if (this.r == 1) {
                 arrayList.add(Integer.valueOf((int) R.drawable.frs_post_ding));
             }
             if (arrayList.size() > 0) {
@@ -276,19 +268,19 @@ public class az extends com.baidu.tieba.util.au {
 
     @Override // com.baidu.tieba.util.au, com.baidu.tieba.util.aw
     public LinkedList<String> getImageUrl() {
-        ArrayList<ah> p = p();
-        if (p == null || s()) {
+        ArrayList<ah> arrayList = this.a;
+        if (arrayList == null || r()) {
             return null;
         }
         LinkedList<String> linkedList = new LinkedList<>();
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= p.size() || i2 >= 3) {
+            if (i2 >= arrayList.size() || i2 >= 3) {
                 break;
             }
-            if (p.get(i2).a() == 3) {
-                linkedList.add(p.get(i2).b());
+            if (arrayList.get(i2).a() == 3) {
+                linkedList.add(arrayList.get(i2).b());
             }
             i = i2 + 1;
         }

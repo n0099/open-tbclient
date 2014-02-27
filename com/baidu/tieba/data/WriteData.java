@@ -54,7 +54,7 @@ public class WriteData implements Serializable {
     }
 
     public boolean hasContentToSave() {
-        if (com.baidu.adp.lib.util.h.b(this.mContent) && com.baidu.adp.lib.util.h.b(this.mTitle)) {
+        if (com.baidu.adp.lib.util.g.b(this.mContent) && com.baidu.adp.lib.util.g.b(this.mTitle)) {
             return this.writeImagesInfo != null && this.writeImagesInfo.size() > 0;
         }
         return true;
@@ -76,7 +76,7 @@ public class WriteData implements Serializable {
     }
 
     public static WriteData fromDraftString(String str) {
-        if (com.baidu.adp.lib.util.h.b(str)) {
+        if (com.baidu.adp.lib.util.g.b(str)) {
             return null;
         }
         try {
@@ -241,7 +241,7 @@ public class WriteData implements Serializable {
                 int i2 = i;
                 if (i2 < chosedFiles.size()) {
                     ImageFileInfo imageFileInfo = chosedFiles.get(i2);
-                    if (imageFileInfo.isTempFile() && imageFileInfo.isAlreadyUploadedToServer() && !com.baidu.adp.lib.util.h.b(imageFileInfo.getFilePath())) {
+                    if (imageFileInfo.isTempFile() && imageFileInfo.isAlreadyUploadedToServer() && !com.baidu.adp.lib.util.g.b(imageFileInfo.getFilePath())) {
                         File file = new File(imageFileInfo.getFilePath());
                         if (file.exists()) {
                             file.delete();

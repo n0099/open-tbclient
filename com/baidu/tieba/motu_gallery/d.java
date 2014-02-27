@@ -3,9 +3,8 @@ package com.baidu.tieba.motu_gallery;
 import android.os.Handler;
 import android.os.Message;
 import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes.dex */
-class d implements Handler.Callback {
+final class d implements Handler.Callback {
     final /* synthetic */ JigsawAlbumActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +13,7 @@ class d implements Handler.Callback {
     }
 
     @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
+    public final boolean handleMessage(Message message) {
         l lVar;
         l lVar2;
         j jVar;
@@ -26,7 +25,7 @@ class d implements Handler.Callback {
         switch (message.what) {
             case 1:
                 jVar3 = this.a.i;
-                jVar3.a((List<c>) null);
+                jVar3.a(null);
                 jVar4 = this.a.i;
                 jVar4.notifyDataSetChanged();
                 runnable = this.a.w;

@@ -36,25 +36,25 @@ public class MsgRemindActivity extends com.baidu.tieba.f implements View.OnClick
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.c
-    public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (view == this.a.g()) {
+    public final void a(View view, BdSwitchView.SwitchState switchState) {
+        if (view == this.a.f()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                TiebaApplication.g().i(true);
+                TiebaApplication.g().h(true);
             } else {
-                TiebaApplication.g().i(false);
+                TiebaApplication.g().h(false);
             }
-        } else if (view == this.a.h()) {
+        } else if (view == this.a.g()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                TiebaApplication.g().r(true);
-                this.a.e();
+                TiebaApplication.g().q(true);
+                this.a.d();
                 this.a.e(true);
                 this.a.c(true);
                 return;
             }
-            TiebaApplication.g().r(false);
+            TiebaApplication.g().q(false);
             this.a.e(false);
             this.a.c(false);
-        } else if (view == this.a.i()) {
+        } else if (view == this.a.h()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 TiebaApplication.g().b(300);
                 this.a.f(true);
@@ -64,27 +64,27 @@ public class MsgRemindActivity extends com.baidu.tieba.f implements View.OnClick
             TiebaApplication.g().b(0);
             this.a.f(false);
             this.a.b(false);
-        } else if (view == this.a.k()) {
+        } else if (view == this.a.j()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                TiebaApplication.g().k(true);
+                TiebaApplication.g().j(true);
                 this.a.d(true);
                 this.a.a(true);
                 return;
             }
-            TiebaApplication.g().k(false);
+            TiebaApplication.g().j(false);
             this.a.d(false);
             this.a.a(false);
+        } else if (view == this.a.n()) {
+            if (switchState == BdSwitchView.SwitchState.ON) {
+                TiebaApplication.g().i(true);
+            } else {
+                TiebaApplication.g().i(false);
+            }
         } else if (view == this.a.o()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                TiebaApplication.g().j(true);
+                TiebaApplication.g().k(true);
             } else {
-                TiebaApplication.g().j(false);
-            }
-        } else if (view == this.a.p()) {
-            if (switchState == BdSwitchView.SwitchState.ON) {
-                TiebaApplication.g().l(true);
-            } else {
-                TiebaApplication.g().l(false);
+                TiebaApplication.g().k(false);
             }
         }
     }
@@ -103,13 +103,13 @@ public class MsgRemindActivity extends com.baidu.tieba.f implements View.OnClick
             } else {
                 this.a.g(true);
             }
-        } else if (view == this.a.j()) {
+        } else if (view == this.a.i()) {
             showDialog(R.id.sign_remind);
-        } else if (view == this.a.l()) {
+        } else if (view == this.a.k()) {
             this.a.g(false);
-        } else if (view == this.a.m()) {
+        } else if (view == this.a.l()) {
             showDialog(R.id.no_disturb_start_time);
-        } else if (view == this.a.n()) {
+        } else if (view == this.a.m()) {
             showDialog(R.id.no_disturb_end_time);
         }
     }
@@ -119,10 +119,10 @@ public class MsgRemindActivity extends com.baidu.tieba.f implements View.OnClick
         if (dialog instanceof TimePickerDialog) {
             TiebaApplication g = TiebaApplication.g();
             if (i == R.id.sign_remind) {
-                ((TimePickerDialog) dialog).updateTime(g.ab(), g.ac());
+                ((TimePickerDialog) dialog).updateTime(g.V(), g.W());
                 return;
             } else if (i == R.id.no_disturb_start_time || i == R.id.no_disturb_end_time) {
-                String[] split = i == R.id.no_disturb_start_time ? g.P().split(":") : g.Q().split(":");
+                String[] split = i == R.id.no_disturb_start_time ? g.J().split(":") : g.K().split(":");
                 ((TimePickerDialog) dialog).updateTime(Integer.parseInt(split[0]), Integer.parseInt(split[1]));
                 return;
             } else {
@@ -159,34 +159,34 @@ public class MsgRemindActivity extends com.baidu.tieba.f implements View.OnClick
         int id = compoundButton.getId();
         if (id == R.id.check_replyme) {
             if (z) {
-                TiebaApplication.g().o(true);
-            } else {
-                TiebaApplication.g().o(false);
-            }
-        } else if (id == R.id.check_atme) {
-            if (z) {
                 TiebaApplication.g().n(true);
             } else {
                 TiebaApplication.g().n(false);
             }
-        } else if (id == R.id.check_newfans) {
+        } else if (id == R.id.check_atme) {
             if (z) {
                 TiebaApplication.g().m(true);
             } else {
                 TiebaApplication.g().m(false);
             }
+        } else if (id == R.id.check_newfans) {
+            if (z) {
+                TiebaApplication.g().l(true);
+            } else {
+                TiebaApplication.g().l(false);
+            }
         } else if (id == R.id.check_chatmessage) {
             if (z) {
-                TiebaApplication.g().p(true);
+                TiebaApplication.g().o(true);
             } else {
-                TiebaApplication.g().p(false);
+                TiebaApplication.g().o(false);
             }
         } else if (id == R.id.check_groupmessage) {
             if (z) {
-                TiebaApplication.g().q(true);
+                TiebaApplication.g().p(true);
                 return;
             }
-            TiebaApplication.g().q(false);
+            TiebaApplication.g().p(false);
             cb.a(this, "group_message_remind", "check_click", 1, new Object[0]);
         }
     }

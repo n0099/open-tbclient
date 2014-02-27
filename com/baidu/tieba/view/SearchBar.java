@@ -30,7 +30,7 @@ public class SearchBar extends LinearLayout {
         a();
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         if (i == 1) {
             this.b.setHintTextColor(getResources().getColor(R.color.widget_searchbox_text_1));
             setBackgroundColor(getResources().getColor(R.color.search_box_bg_1));
@@ -48,7 +48,7 @@ public class SearchBar extends LinearLayout {
         this.b.addTextChangedListener(new cf(this));
         this.c.setOnClickListener(new cg(this));
         this.d.setOnClickListener(new ch(this));
-        a(TiebaApplication.g().al());
+        a(TiebaApplication.g().ae());
     }
 
     public void setHint(String str) {

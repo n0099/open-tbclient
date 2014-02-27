@@ -23,7 +23,7 @@ public final class QueryGroupGradeRes {
         public static final int ISAUTHOR_FIELD_NUMBER = 1;
         public static final int LEFTCREATENUM_FIELD_NUMBER = 4;
         public static Parser<MemberPerm> PARSER = new j();
-        private static final MemberPerm a = new MemberPerm(true);
+        private static final MemberPerm a;
         private static final long serialVersionUID = 0;
         private int alreadyCreateNum_;
         private int bitField0_;
@@ -44,7 +44,7 @@ public final class QueryGroupGradeRes {
             this.memoizedSerializedSize = -1;
         }
 
-        private MemberPerm(boolean z) {
+        private MemberPerm() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -55,7 +55,7 @@ public final class QueryGroupGradeRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public MemberPerm getDefaultInstanceForType() {
+        public final MemberPerm getDefaultInstanceForType() {
             return a;
         }
 
@@ -113,43 +113,45 @@ public final class QueryGroupGradeRes {
         }
 
         static {
-            a.a();
+            MemberPerm memberPerm = new MemberPerm();
+            a = memberPerm;
+            memberPerm.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<MemberPerm> getParserForType() {
+        public final Parser<MemberPerm> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasIsAuthor() {
+        public final boolean hasIsAuthor() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public int getIsAuthor() {
+        public final int getIsAuthor() {
             return this.isAuthor_;
         }
 
-        public boolean hasCanCreateMember() {
+        public final boolean hasCanCreateMember() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public int getCanCreateMember() {
+        public final int getCanCreateMember() {
             return this.canCreateMember_;
         }
 
-        public boolean hasAlreadyCreateNum() {
+        public final boolean hasAlreadyCreateNum() {
             return (this.bitField0_ & 4) == 4;
         }
 
-        public int getAlreadyCreateNum() {
+        public final int getAlreadyCreateNum() {
             return this.alreadyCreateNum_;
         }
 
-        public boolean hasLeftCreateNum() {
+        public final boolean hasLeftCreateNum() {
             return (this.bitField0_ & 8) == 8;
         }
 
-        public int getLeftCreateNum() {
+        public final int getLeftCreateNum() {
             return this.leftCreateNum_;
         }
 
@@ -171,7 +173,7 @@ public final class QueryGroupGradeRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeInt32(1, this.isAuthor_);
@@ -188,10 +190,13 @@ public final class QueryGroupGradeRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt32Size(1, this.isAuthor_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeInt32Size(1, this.isAuthor_) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeInt32Size(2, this.canCreateMember_);
                 }
@@ -208,7 +213,7 @@ public final class QueryGroupGradeRes {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -253,12 +258,12 @@ public final class QueryGroupGradeRes {
         }
 
         public static k newBuilder() {
-            return k.f();
+            return k.b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public k newBuilderForType() {
+        public final k newBuilderForType() {
             return newBuilder();
         }
 
@@ -268,7 +273,7 @@ public final class QueryGroupGradeRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public k toBuilder() {
+        public final k toBuilder() {
             return newBuilder(this);
         }
     }
@@ -280,7 +285,7 @@ public final class QueryGroupGradeRes {
         public static final int MEMBERGRADEINFOS_FIELD_NUMBER = 4;
         public static final int MEMBERPERM_FIELD_NUMBER = 3;
         public static Parser<DataRes> PARSER = new g();
-        private static final DataRes a = new DataRes(true);
+        private static final DataRes a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private List<Im.GradeInfo> gradeInfos_;
@@ -301,7 +306,7 @@ public final class QueryGroupGradeRes {
             this.memoizedSerializedSize = -1;
         }
 
-        private DataRes(boolean z) {
+        private DataRes() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -312,7 +317,7 @@ public final class QueryGroupGradeRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public DataRes getDefaultInstanceForType() {
+        public final DataRes getDefaultInstanceForType() {
             return a;
         }
 
@@ -405,67 +410,69 @@ public final class QueryGroupGradeRes {
         }
 
         static {
-            a.a();
+            DataRes dataRes = new DataRes();
+            a = dataRes;
+            dataRes.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<DataRes> getParserForType() {
+        public final Parser<DataRes> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasGroupInfo() {
+        public final boolean hasGroupInfo() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public Im.GroupInfo getGroupInfo() {
+        public final Im.GroupInfo getGroupInfo() {
             return this.groupInfo_;
         }
 
-        public List<Im.GradeInfo> getGradeInfosList() {
+        public final List<Im.GradeInfo> getGradeInfosList() {
             return this.gradeInfos_;
         }
 
-        public List<? extends protobuf.i> getGradeInfosOrBuilderList() {
+        public final List<? extends protobuf.i> getGradeInfosOrBuilderList() {
             return this.gradeInfos_;
         }
 
-        public int getGradeInfosCount() {
+        public final int getGradeInfosCount() {
             return this.gradeInfos_.size();
         }
 
-        public Im.GradeInfo getGradeInfos(int i) {
+        public final Im.GradeInfo getGradeInfos(int i) {
             return this.gradeInfos_.get(i);
         }
 
-        public protobuf.i getGradeInfosOrBuilder(int i) {
+        public final protobuf.i getGradeInfosOrBuilder(int i) {
             return this.gradeInfos_.get(i);
         }
 
-        public boolean hasMemberPerm() {
+        public final boolean hasMemberPerm() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public MemberPerm getMemberPerm() {
+        public final MemberPerm getMemberPerm() {
             return this.memberPerm_;
         }
 
-        public List<Im.GradeInfo> getMemberGradeInfosList() {
+        public final List<Im.GradeInfo> getMemberGradeInfosList() {
             return this.memberGradeInfos_;
         }
 
-        public List<? extends protobuf.i> getMemberGradeInfosOrBuilderList() {
+        public final List<? extends protobuf.i> getMemberGradeInfosOrBuilderList() {
             return this.memberGradeInfos_;
         }
 
-        public int getMemberGradeInfosCount() {
+        public final int getMemberGradeInfosCount() {
             return this.memberGradeInfos_.size();
         }
 
-        public Im.GradeInfo getMemberGradeInfos(int i) {
+        public final Im.GradeInfo getMemberGradeInfos(int i) {
             return this.memberGradeInfos_.get(i);
         }
 
-        public protobuf.i getMemberGradeInfosOrBuilder(int i) {
+        public final protobuf.i getMemberGradeInfosOrBuilder(int i) {
             return this.memberGradeInfos_.get(i);
         }
 
@@ -487,7 +494,7 @@ public final class QueryGroupGradeRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeMessage(1, this.groupInfo_);
@@ -504,7 +511,7 @@ public final class QueryGroupGradeRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
                 i = (this.bitField0_ & 1) == 1 ? CodedOutputStream.computeMessageSize(1, this.groupInfo_) + 0 : 0;
@@ -524,7 +531,7 @@ public final class QueryGroupGradeRes {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -569,12 +576,12 @@ public final class QueryGroupGradeRes {
         }
 
         public static h newBuilder() {
-            return h.f();
+            return h.b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public h newBuilderForType() {
+        public final h newBuilderForType() {
             return newBuilder();
         }
 
@@ -584,7 +591,7 @@ public final class QueryGroupGradeRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public h toBuilder() {
+        public final h toBuilder() {
             return newBuilder(this);
         }
     }
@@ -594,7 +601,7 @@ public final class QueryGroupGradeRes {
         public static final int DATA_FIELD_NUMBER = 2;
         public static final int ERROR_FIELD_NUMBER = 1;
         public static Parser<QueryGroupGradeResIdl> PARSER = new m();
-        private static final QueryGroupGradeResIdl a = new QueryGroupGradeResIdl(true);
+        private static final QueryGroupGradeResIdl a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private DataRes data_;
@@ -613,7 +620,7 @@ public final class QueryGroupGradeRes {
             this.memoizedSerializedSize = -1;
         }
 
-        private QueryGroupGradeResIdl(boolean z) {
+        private QueryGroupGradeResIdl() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -624,7 +631,7 @@ public final class QueryGroupGradeRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public QueryGroupGradeResIdl getDefaultInstanceForType() {
+        public final QueryGroupGradeResIdl getDefaultInstanceForType() {
             return a;
         }
 
@@ -684,27 +691,29 @@ public final class QueryGroupGradeRes {
         }
 
         static {
-            a.a();
+            QueryGroupGradeResIdl queryGroupGradeResIdl = new QueryGroupGradeResIdl();
+            a = queryGroupGradeResIdl;
+            queryGroupGradeResIdl.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<QueryGroupGradeResIdl> getParserForType() {
+        public final Parser<QueryGroupGradeResIdl> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasError() {
+        public final boolean hasError() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public Im.Error getError() {
+        public final Im.Error getError() {
             return this.error_;
         }
 
-        public boolean hasData() {
+        public final boolean hasData() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public DataRes getData() {
+        public final DataRes getData() {
             return this.data_;
         }
 
@@ -724,7 +733,7 @@ public final class QueryGroupGradeRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeMessage(1, this.error_);
@@ -735,10 +744,13 @@ public final class QueryGroupGradeRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeMessageSize(1, this.error_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeMessageSize(1, this.error_) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeMessageSize(2, this.data_);
                 }
@@ -749,7 +761,7 @@ public final class QueryGroupGradeRes {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -794,12 +806,12 @@ public final class QueryGroupGradeRes {
         }
 
         public static n newBuilder() {
-            return n.f();
+            return n.a();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public n newBuilderForType() {
+        public final n newBuilderForType() {
             return newBuilder();
         }
 
@@ -809,7 +821,7 @@ public final class QueryGroupGradeRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public n toBuilder() {
+        public final n toBuilder() {
             return newBuilder(this);
         }
     }

@@ -19,7 +19,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 /* loaded from: classes.dex */
-public class e extends com.baidu.adp.a.e {
+public final class e extends com.baidu.adp.a.e {
     private CreateGroupActivityActivity a;
     private View c;
     private NavigationBar d;
@@ -53,10 +53,6 @@ public class e extends com.baidu.adp.a.e {
         this.u = false;
         this.a = createGroupActivityActivity;
         createGroupActivityActivity.setContentView(R.layout.create_group_activity_activity);
-        k();
-    }
-
-    private void k() {
         this.c = this.a.findViewById(R.id.parent);
         this.d = (NavigationBar) this.a.findViewById(R.id.view_navigation_bar);
         this.d.a(R.string.group_activity_create);
@@ -78,8 +74,8 @@ public class e extends com.baidu.adp.a.e {
         this.r = calendar.get(5);
         this.s = calendar.get(11);
         this.t = calendar.get(12);
-        m();
-        l();
+        k();
+        j();
         this.k.setOnClickListener(new f(this, calendar));
         this.l.setOnClickListener(new h(this));
         this.g.setOnClickListener(new j(this));
@@ -89,7 +85,7 @@ public class e extends com.baidu.adp.a.e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void l() {
+    public void j() {
         if (this.s > 12) {
             this.l.setText(String.valueOf(this.a.getResources().getString(R.string.afternoon)) + " " + (this.s - 12) + ":" + (this.t < 10 ? SocialConstants.FALSE : "") + this.t);
         } else {
@@ -98,81 +94,65 @@ public class e extends com.baidu.adp.a.e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void m() {
+    public void k() {
         this.k.setText(this.p + "-" + (this.q + 1) + "-" + this.r + " " + bs.a(this.p, this.q, this.r));
     }
 
     @Override // com.baidu.adp.a.e
-    public void c() {
+    public final void c() {
     }
 
-    public ImageView a() {
+    public final ImageView a() {
         return this.e;
     }
 
-    public TextView e() {
+    public final TextView d() {
         return this.h;
     }
 
-    public String f() {
+    public final String e() {
         return this.f.getText().toString();
     }
 
-    public String g() {
+    public final String f() {
         return this.i.getText().toString();
     }
 
-    public String h() {
+    public final String g() {
         return this.o.getText().toString();
     }
 
-    public long i() {
+    public final long h() {
         try {
             return new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(this.p + "-" + (this.q + 1) + "-" + this.r + " " + this.s + ":" + this.t).getTime() / 1000;
         } catch (ParseException e) {
-            com.baidu.adp.lib.util.f.b(e.getMessage());
+            com.baidu.adp.lib.util.e.b(e.getMessage());
             return 0L;
         }
     }
 
-    public void a(String str) {
-        this.f.setText(str);
-    }
-
-    public void b(String str) {
-        this.o.setText(str);
-    }
-
-    public void c(String str) {
-        this.i.setText(str);
-    }
-
-    public void a(long j) {
-        Date date = new Date(1000 * j);
-        this.p = date.getYear() + 1900;
-        this.q = date.getMonth();
-        this.r = date.getDate();
-        this.s = date.getHours();
-        this.t = date.getMinutes();
-        m();
-        l();
-    }
-
-    public void a(int i) {
+    public final void a(int i) {
         this.a.a().a(i == 1);
         this.a.a().a(this.c);
-        this.d.c(i);
+        this.d.b(i);
     }
 
-    public void a(GroupActivityData groupActivityData, boolean z) {
+    public final void a(GroupActivityData groupActivityData, boolean z) {
         if (z) {
             this.h.setText(this.a.getString(R.string.done));
             this.d.a(R.string.group_activity_edit_title);
             if (groupActivityData != null) {
-                b(groupActivityData.getgActivityContent());
-                a(groupActivityData.getgActivityTitle());
-                a(groupActivityData.getgActivityTime());
-                c(groupActivityData.getgActivityArea());
+                this.o.setText(groupActivityData.getgActivityContent());
+                this.f.setText(groupActivityData.getgActivityTitle());
+                Date date = new Date(groupActivityData.getgActivityTime() * 1000);
+                this.p = date.getYear() + 1900;
+                this.q = date.getMonth();
+                this.r = date.getDate();
+                this.s = date.getHours();
+                this.t = date.getMinutes();
+                k();
+                j();
+                this.i.setText(groupActivityData.getgActivityArea());
                 return;
             }
             return;
@@ -181,7 +161,7 @@ public class e extends com.baidu.adp.a.e {
         this.d.a(R.string.group_activity_create);
     }
 
-    public boolean j() {
+    public final boolean i() {
         return this.u;
     }
 }

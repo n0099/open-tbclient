@@ -5,7 +5,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements TextView.OnEditorActionListener {
+public final class l implements TextView.OnEditorActionListener {
     final /* synthetic */ g a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ public class l implements TextView.OnEditorActionListener {
     }
 
     @Override // android.widget.TextView.OnEditorActionListener
-    public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+    public final boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
         SearchGroupActivity searchGroupActivity;
         EditText editText;
         if (i == 2) {

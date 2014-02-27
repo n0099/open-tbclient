@@ -4,7 +4,7 @@ import android.content.Intent;
 import com.baidu.tieba.im.data.PhotoUrlData;
 import com.baidu.tieba.img.ImageUploadResult;
 /* loaded from: classes.dex */
-class s implements com.baidu.tieba.img.d {
+final class s implements com.baidu.tieba.img.d {
     final /* synthetic */ r a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ class s implements com.baidu.tieba.img.d {
     }
 
     @Override // com.baidu.tieba.img.d
-    public void a(String str, ImageUploadResult imageUploadResult) {
+    public final void a(String str, ImageUploadResult imageUploadResult) {
         EditHeadActivity editHeadActivity;
         EditHeadActivity editHeadActivity2;
         EditHeadActivity editHeadActivity3;

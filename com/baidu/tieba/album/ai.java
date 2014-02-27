@@ -1,28 +1,24 @@
 package com.baidu.tieba.album;
 
 import com.baidu.tieba.img.ImageFileInfo;
-import java.util.List;
 /* loaded from: classes.dex */
-class ai implements y {
-    final /* synthetic */ ag a;
+final class ai implements aa {
+    final /* synthetic */ ah a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(ag agVar) {
-        this.a = agVar;
+    public ai(ah ahVar) {
+        this.a = ahVar;
     }
 
-    @Override // com.baidu.tieba.album.y
-    public void onClick(int i, ImageFileInfo imageFileInfo) {
-        p pVar;
-        List<ImageFileInfo> list;
-        p pVar2;
+    @Override // com.baidu.tieba.album.aa
+    public final boolean onClick(int i, ImageFileInfo imageFileInfo, boolean z) {
         AlbumActivity albumActivity;
-        pVar = this.a.c;
-        list = this.a.n;
-        pVar.a(list);
-        pVar2 = this.a.c;
-        pVar2.a(i);
+        AlbumActivity albumActivity2;
+        if (z) {
+            albumActivity2 = this.a.b;
+            return albumActivity2.a(imageFileInfo);
+        }
         albumActivity = this.a.b;
-        albumActivity.d(2);
+        return albumActivity.b(imageFileInfo);
     }
 }

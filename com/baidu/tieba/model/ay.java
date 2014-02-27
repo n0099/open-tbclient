@@ -5,38 +5,38 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class ay {
+public final class ay {
     private com.baidu.tieba.data.ai c = new com.baidu.tieba.data.ai();
     private ArrayList<com.baidu.tieba.data.t> a = new ArrayList<>();
     private com.baidu.tieba.data.al b = new com.baidu.tieba.data.al();
     private boolean d = true;
 
-    public boolean a() {
+    public final boolean a() {
         return this.d;
     }
 
-    public void a(ArrayList<com.baidu.tieba.data.t> arrayList) {
+    public final void a(ArrayList<com.baidu.tieba.data.t> arrayList) {
         this.a = arrayList;
     }
 
-    public ArrayList<com.baidu.tieba.data.t> b() {
+    public final ArrayList<com.baidu.tieba.data.t> b() {
         return this.a;
     }
 
-    public com.baidu.tieba.data.al c() {
+    public final com.baidu.tieba.data.al c() {
         return this.b;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
             this.d = false;
-            com.baidu.adp.lib.util.f.b("MentionModel", "parserJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.util.e.b("MentionModel", "parserJson", "error = " + e.getMessage());
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    private void a(JSONObject jSONObject) {
         try {
             JSONArray optJSONArray = jSONObject.optJSONArray("reply_list");
             JSONArray optJSONArray2 = optJSONArray == null ? jSONObject.optJSONArray("at_list") : optJSONArray;
@@ -51,7 +51,7 @@ public class ay {
             this.b.a(jSONObject.optJSONObject("page"));
         } catch (Exception e) {
             this.d = false;
-            com.baidu.adp.lib.util.f.b("MentionModel", "parserJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.util.e.b("MentionModel", "parserJson", "error = " + e.getMessage());
         }
     }
 }

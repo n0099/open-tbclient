@@ -27,183 +27,135 @@ public class ca extends da implements com.baidu.tieba.im.coder.f {
         e(103004);
     }
 
-    public GroupActivityData a() {
+    public final GroupActivityData a() {
         return this.l;
     }
 
-    public void a(GroupActivityData groupActivityData) {
-        this.l = groupActivityData;
-    }
-
-    public GroupData b() {
+    public final GroupData b() {
         return this.b;
     }
 
-    public void a(GroupData groupData) {
-        this.b = groupData;
-    }
-
-    public List<MemberData> c() {
+    public final List<MemberData> c() {
         return this.c;
     }
 
-    public void a(List<MemberData> list) {
-        this.c = list;
-    }
-
-    public List<PhotoUrlData> d() {
+    public final List<PhotoUrlData> d() {
         return this.d;
     }
 
-    public void b(List<PhotoUrlData> list) {
+    public final void a(List<PhotoUrlData> list) {
         this.d = list;
     }
 
-    public int e() {
+    public final int e() {
         return this.e;
     }
 
-    public void a(int i) {
-        this.e = i;
-    }
-
-    public int f() {
+    public final int f() {
         return this.f;
     }
 
-    public void b(int i) {
-        this.f = i;
-    }
-
-    public boolean g() {
+    public final boolean g() {
         return this.g;
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.g = z;
     }
 
-    public boolean h() {
+    public final boolean h() {
         return this.h;
     }
 
-    public void b(boolean z) {
-        this.h = z;
-    }
-
-    public boolean i() {
+    public final boolean i() {
         return this.i;
     }
 
-    public void c(boolean z) {
-        this.i = z;
-    }
-
-    public boolean j() {
+    public final boolean j() {
         return this.j;
     }
 
-    public void d(boolean z) {
-        this.j = z;
-    }
-
-    public boolean k() {
+    public final boolean k() {
         return this.k;
     }
 
-    public void e(boolean z) {
-        this.k = z;
-    }
-
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<s> linkedList, byte[] bArr, int i) {
+    public final void a(LinkedList<s> linkedList, byte[] bArr, int i) {
         Im.ActivityInfo activityInfo;
         this.a = QueryGroupDetailRes.QueryGroupDetailResIdl.parseFrom(bArr);
         g(this.a.getError().getErrorno());
         c(this.a.getError().getUsermsg());
         linkedList.add(this);
         if (!l()) {
-            b(this.a.getData().getCanJoinGroupNum());
-            b(this.a.getData().getIsGroupManager() != 0);
-            c(this.a.getData().getHideRecommendGroup() != 0);
-            a(this.a.getData().getIsJoin() != 0);
-            a(this.a.getData().getJoinGroupNum());
-            d(this.a.getData().getGroup().getIsMemberGroup() == 1);
-            e(this.a.getData().getCanCreateMember() == 1);
+            this.f = this.a.getData().getCanJoinGroupNum();
+            this.h = this.a.getData().getIsGroupManager() != 0;
+            this.i = this.a.getData().getHideRecommendGroup() != 0;
+            this.g = this.a.getData().getIsJoin() != 0;
+            this.e = this.a.getData().getJoinGroupNum();
+            this.j = this.a.getData().getGroup().getIsMemberGroup() == 1;
+            this.k = this.a.getData().getCanCreateMember() == 1;
             Im.GroupInfo group = this.a.getData().getGroup();
             GroupData groupData = new GroupData();
-            a(group, groupData);
-            a(groupData);
+            if (groupData != null && group != null) {
+                groupData.setAlbum(group.getAlbum());
+                groupData.setAuthorId(group.getAuthorId());
+                groupData.setAuthorName(group.getAuthorName());
+                groupData.setAuthorPortrait(group.getAuthorPortrait());
+                groupData.setCreateTime(group.getCreateTime());
+                groupData.setFlag(group.getFlag());
+                groupData.setForumId(group.getForumId());
+                groupData.setForumName(group.getForumName());
+                groupData.setGrade(group.getGrade());
+                groupData.setGroupId(group.getGroupId());
+                groupData.setGroupType(group.getGroupType());
+                groupData.setIntro(group.getIntro());
+                groupData.setIsHidePosition(group.getIsHidePosition());
+                groupData.setLat(String.valueOf(group.getLat()));
+                groupData.setLng(String.valueOf(group.getLng()));
+                groupData.setMaxMemberNum(group.getMaxMemberNum());
+                groupData.setMemberNum(group.getMemberNum());
+                groupData.setName(group.getName());
+                groupData.setNickName(group.getNickName());
+                groupData.setNotice(group.getNotice());
+                groupData.setPortrait(group.getPortrait());
+                groupData.setPosition(group.getPosition());
+                groupData.setBusiness(group.getBusiness());
+                groupData.setStatus(group.getStatus());
+                groupData.setMeizhi(group.getAuthorIsMeizhi() != 0);
+            }
+            this.b = groupData;
             List<Im.UserInfo> memberList = this.a.getData().getMemberList();
             LinkedList linkedList2 = new LinkedList();
             for (Im.UserInfo userInfo : memberList) {
                 MemberData memberData = new MemberData();
-                a(userInfo, memberData);
+                if (userInfo != null && memberData != null) {
+                    memberData.setPortrait(userInfo.getPortrait());
+                    memberData.setUserId(userInfo.getUserId());
+                    memberData.setUserName(userInfo.getUserName());
+                }
                 linkedList2.add(memberData);
             }
-            a(linkedList2);
+            this.c = linkedList2;
             List<Im.Photo> photoList = this.a.getData().getPhotoList();
             LinkedList linkedList3 = new LinkedList();
             for (Im.Photo photo : photoList) {
                 PhotoUrlData photoUrlData = new PhotoUrlData();
-                a(photo, photoUrlData);
+                if (photo != null && photoUrlData != null) {
+                    photoUrlData.setBigurl(photo.getBigurl());
+                    photoUrlData.setPicId(photo.getPicId());
+                    photoUrlData.setSmallurl(photo.getSmallurl());
+                }
                 linkedList3.add(photoUrlData);
             }
-            b(linkedList3);
+            this.d = linkedList3;
             List<Im.ActivityInfo> activityList = this.a.getData().getActivityList();
             if (activityList != null && activityList.size() > 0 && (activityInfo = activityList.get(0)) != null) {
                 GroupActivityData groupActivityData = new GroupActivityData();
-                a(groupActivityData);
+                this.l = groupActivityData;
                 groupActivityData.setActivityId(activityInfo.getActivityId());
                 groupActivityData.setIsEnd(activityInfo.getIsEnd());
                 groupActivityData.setgActivityTitle(activityInfo.getActivityTitle());
             }
-        }
-    }
-
-    public static void a(Im.GroupInfo groupInfo, GroupData groupData) {
-        if (groupData != null && groupInfo != null) {
-            groupData.setAlbum(groupInfo.getAlbum());
-            groupData.setAuthorId(groupInfo.getAuthorId());
-            groupData.setAuthorName(groupInfo.getAuthorName());
-            groupData.setAuthorPortrait(groupInfo.getAuthorPortrait());
-            groupData.setCreateTime(groupInfo.getCreateTime());
-            groupData.setFlag(groupInfo.getFlag());
-            groupData.setForumId(groupInfo.getForumId());
-            groupData.setForumName(groupInfo.getForumName());
-            groupData.setGrade(groupInfo.getGrade());
-            groupData.setGroupId(groupInfo.getGroupId());
-            groupData.setGroupType(groupInfo.getGroupType());
-            groupData.setIntro(groupInfo.getIntro());
-            groupData.setIsHidePosition(groupInfo.getIsHidePosition());
-            groupData.setLat(String.valueOf(groupInfo.getLat()));
-            groupData.setLng(String.valueOf(groupInfo.getLng()));
-            groupData.setMaxMemberNum(groupInfo.getMaxMemberNum());
-            groupData.setMemberNum(groupInfo.getMemberNum());
-            groupData.setName(groupInfo.getName());
-            groupData.setNickName(groupInfo.getNickName());
-            groupData.setNotice(groupInfo.getNotice());
-            groupData.setPortrait(groupInfo.getPortrait());
-            groupData.setPosition(groupInfo.getPosition());
-            groupData.setBusiness(groupInfo.getBusiness());
-            groupData.setStatus(groupInfo.getStatus());
-            groupData.setMeizhi(groupInfo.getAuthorIsMeizhi() != 0);
-        }
-    }
-
-    public static void a(Im.Photo photo, PhotoUrlData photoUrlData) {
-        if (photo != null && photoUrlData != null) {
-            photoUrlData.setBigurl(photo.getBigurl());
-            photoUrlData.setPicId(photo.getPicId());
-            photoUrlData.setSmallurl(photo.getSmallurl());
-        }
-    }
-
-    public static void a(Im.UserInfo userInfo, MemberData memberData) {
-        if (userInfo != null && memberData != null) {
-            memberData.setPortrait(userInfo.getPortrait());
-            memberData.setUserId(userInfo.getUserId());
-            memberData.setUserName(userInfo.getUserName());
         }
     }
 }

@@ -5,7 +5,7 @@ import android.widget.ProgressBar;
 import com.baidu.adp.lib.util.BdUtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ar implements Runnable {
+public final class ar implements Runnable {
     final /* synthetic */ ao a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ public class ar implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         Context context;
         Context context2;
         ProgressBar progressBar;
@@ -24,7 +24,8 @@ public class ar implements Runnable {
         int a2 = BdUtilHelper.a(context2, 100.0f);
         int i = a2 - (a * 2);
         int i2 = (a2 - i) / 2;
+        int i3 = i + i2;
         progressBar = this.a.d;
-        progressBar.getProgressDrawable().setBounds(i2, i2, i2 + i, i + i2);
+        progressBar.getProgressDrawable().setBounds(i2, i2, i3, i3);
     }
 }

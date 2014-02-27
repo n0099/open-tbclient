@@ -11,7 +11,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes.dex */
-public class f implements Executor {
+public final class f implements Executor {
     private final LinkedList<j> f = new LinkedList<>();
     private final LinkedList<j> g = new LinkedList<>();
     private final LinkedList<j> h = new LinkedList<>();
@@ -25,7 +25,7 @@ public class f implements Executor {
     private f() {
     }
 
-    public String toString() {
+    public final String toString() {
         return "mTasks = " + this.f.size() + " mActives = " + this.g.size() + " mTimeOutActives = " + this.h.size();
     }
 
@@ -37,21 +37,21 @@ public class f implements Executor {
     }
 
     @Override // java.util.concurrent.Executor
-    public synchronized void execute(Runnable runnable) {
+    public final synchronized void execute(Runnable runnable) {
         if (runnable instanceof l) {
             i iVar = new i(this, (l) runnable);
             if (iVar.k()) {
                 new Thread(iVar).start();
             } else if (iVar.l()) {
-                a(iVar);
+                d(iVar);
             } else {
-                c(iVar);
-                b((j) null);
+                b(iVar);
+                a((j) null);
             }
         }
     }
 
-    private synchronized void c(j jVar) {
+    private synchronized void b(j jVar) {
         int size = this.f.size();
         int i = 0;
         while (i < size && this.f.get(i).e() >= jVar.e()) {
@@ -61,7 +61,7 @@ public class f implements Executor {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void d(j jVar) {
+    public synchronized void c(j jVar) {
         j poll;
         this.g.remove(jVar);
         jVar.a(true);
@@ -73,21 +73,21 @@ public class f implements Executor {
                 poll.c();
             }
         }
-        b((j) null);
+        a((j) null);
     }
 
-    protected synchronized void a(j jVar) {
+    private synchronized void d(j jVar) {
         if (new k(this, this.g).a(jVar)) {
             this.g.add(jVar);
             a.execute(jVar);
             this.i.sendMessageDelayed(this.i.obtainMessage(1, jVar), jVar.a() / 2);
         } else {
-            c(jVar);
+            b(jVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public synchronized void b(j jVar) {
+    public final synchronized void a(j jVar) {
         if (jVar != null) {
             this.g.remove(jVar);
             this.h.remove(jVar);
@@ -96,17 +96,17 @@ public class f implements Executor {
         int size = this.g.size();
         if (size >= 5) {
             if (b) {
-                com.baidu.adp.lib.util.f.e(a().toString());
+                com.baidu.adp.lib.util.e.e(a().toString());
             }
         } else {
             j peek = this.f.peek();
             if (peek == null) {
                 if (b) {
-                    com.baidu.adp.lib.util.f.e(a().toString());
+                    com.baidu.adp.lib.util.e.e(a().toString());
                 }
             } else if (size >= 4 && peek.e() == 1) {
                 if (b) {
-                    com.baidu.adp.lib.util.f.e(a().toString());
+                    com.baidu.adp.lib.util.e.e(a().toString());
                 }
             } else {
                 k kVar = new k(this, this.g);
@@ -128,49 +128,45 @@ public class f implements Executor {
                     }
                 }
                 if (b) {
-                    com.baidu.adp.lib.util.f.e(a().toString());
+                    com.baidu.adp.lib.util.e.e(a().toString());
                 }
             }
         }
     }
 
-    public synchronized void a(int i) {
+    public final synchronized void a(int i) {
         b(i);
-        a(this.g, false, i);
-        a(this.h, false, i);
+        a(this.g, false, i, null);
+        a(this.h, false, i, null);
         if (b) {
-            com.baidu.adp.lib.util.f.e(a().toString());
+            com.baidu.adp.lib.util.e.e(a().toString());
         }
     }
 
-    public synchronized void a(int i, String str) {
+    public final synchronized void a(int i, String str) {
         b(i, str);
         a(this.g, false, i, str);
         a(this.h, false, i, str);
         if (b) {
-            com.baidu.adp.lib.util.f.e(a().toString());
+            com.baidu.adp.lib.util.e.e(a().toString());
         }
     }
 
-    public synchronized void b(int i) {
-        a(this.f, true, i);
+    public final synchronized void b(int i) {
+        a(this.f, true, i, null);
         if (b) {
-            com.baidu.adp.lib.util.f.e(a().toString());
+            com.baidu.adp.lib.util.e.e(a().toString());
         }
     }
 
-    public synchronized void b(int i, String str) {
+    public final synchronized void b(int i, String str) {
         a(this.f, true, i, str);
         if (b) {
-            com.baidu.adp.lib.util.f.e(a().toString());
+            com.baidu.adp.lib.util.e.e(a().toString());
         }
     }
 
-    private void a(LinkedList<j> linkedList, boolean z, int i) {
-        a(linkedList, z, i, null);
-    }
-
-    private void a(LinkedList<j> linkedList, boolean z, int i, String str) {
+    private static void a(LinkedList<j> linkedList, boolean z, int i, String str) {
         Iterator<j> it = linkedList.iterator();
         while (it.hasNext()) {
             j next = it.next();
@@ -185,7 +181,7 @@ public class f implements Executor {
         }
     }
 
-    public synchronized void a(BdAsyncTask<?, ?, ?> bdAsyncTask) {
+    public final synchronized void a(BdAsyncTask<?, ?, ?> bdAsyncTask) {
         Iterator<j> it = this.f.iterator();
         while (true) {
             if (!it.hasNext()) {
@@ -198,11 +194,11 @@ public class f implements Executor {
             }
         }
         if (b) {
-            com.baidu.adp.lib.util.f.e(a().toString());
+            com.baidu.adp.lib.util.e.e(a().toString());
         }
     }
 
-    public synchronized BdAsyncTask<?, ?, ?> a(String str) {
+    public final synchronized BdAsyncTask<?, ?, ?> a(String str) {
         BdAsyncTask<?, ?, ?> a2;
         a2 = a(this.f, str);
         if (a2 == null) {
@@ -216,7 +212,7 @@ public class f implements Executor {
         return a2;
     }
 
-    public synchronized LinkedList<BdAsyncTask<?, ?, ?>> c(int i, String str) {
+    public final synchronized LinkedList<BdAsyncTask<?, ?, ?>> c(int i, String str) {
         LinkedList<BdAsyncTask<?, ?, ?>> linkedList;
         linkedList = new LinkedList<>();
         linkedList.addAll(a(this.f, i, str));
@@ -225,7 +221,7 @@ public class f implements Executor {
         return linkedList;
     }
 
-    public synchronized LinkedList<BdAsyncTask<?, ?, ?>> c(int i) {
+    public final synchronized LinkedList<BdAsyncTask<?, ?, ?>> c(int i) {
         LinkedList<BdAsyncTask<?, ?, ?>> linkedList;
         linkedList = new LinkedList<>();
         linkedList.addAll(a(this.f, i));
@@ -234,15 +230,15 @@ public class f implements Executor {
         return linkedList;
     }
 
-    public synchronized BdAsyncTask<?, ?, ?> b(String str) {
+    public final synchronized BdAsyncTask<?, ?, ?> b(String str) {
         return a(this.f, str);
     }
 
-    public synchronized BdAsyncTask<?, ?, ?> c(String str) {
+    public final synchronized BdAsyncTask<?, ?, ?> c(String str) {
         return a(this.g, str);
     }
 
-    public BdAsyncTask<?, ?, ?> a(LinkedList<j> linkedList, String str) {
+    private static BdAsyncTask<?, ?, ?> a(LinkedList<j> linkedList, String str) {
         if (linkedList == null) {
             return null;
         }
@@ -257,7 +253,7 @@ public class f implements Executor {
         return null;
     }
 
-    public LinkedList<BdAsyncTask<?, ?, ?>> a(LinkedList<j> linkedList, int i) {
+    private static LinkedList<BdAsyncTask<?, ?, ?>> a(LinkedList<j> linkedList, int i) {
         if (linkedList == null) {
             return null;
         }
@@ -272,7 +268,7 @@ public class f implements Executor {
         return linkedList2;
     }
 
-    public LinkedList<BdAsyncTask<?, ?, ?>> a(LinkedList<j> linkedList, int i, String str) {
+    private static LinkedList<BdAsyncTask<?, ?, ?>> a(LinkedList<j> linkedList, int i, String str) {
         if (linkedList == null) {
             return null;
         }

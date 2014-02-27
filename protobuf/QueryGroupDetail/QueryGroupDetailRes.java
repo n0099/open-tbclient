@@ -32,7 +32,9 @@ public final class QueryGroupDetailRes {
         public static final int JOINGROUPNUM_FIELD_NUMBER = 4;
         public static final int LEFTCREATENUM_FIELD_NUMBER = 11;
         public static final int MEMBER_FIELD_NUMBER = 3;
+        public static Parser<DataRes> PARSER = new g();
         public static final int PHOTO_FIELD_NUMBER = 2;
+        private static final DataRes a;
         private static final long serialVersionUID = 0;
         private List<Im.ActivityInfo> activity_;
         private int alreadyCreateNum_;
@@ -49,8 +51,6 @@ public final class QueryGroupDetailRes {
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
         private List<Im.Photo> photo_;
-        public static Parser<DataRes> PARSER = new g();
-        private static final DataRes a = new DataRes(true);
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ DataRes(GeneratedMessageLite.Builder builder, DataRes dataRes) {
@@ -63,7 +63,7 @@ public final class QueryGroupDetailRes {
             this.memoizedSerializedSize = -1;
         }
 
-        private DataRes(boolean z) {
+        private DataRes() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -74,7 +74,7 @@ public final class QueryGroupDetailRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public DataRes getDefaultInstanceForType() {
+        public final DataRes getDefaultInstanceForType() {
             return a;
         }
 
@@ -195,143 +195,145 @@ public final class QueryGroupDetailRes {
         }
 
         static {
-            a.a();
+            DataRes dataRes = new DataRes();
+            a = dataRes;
+            dataRes.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<DataRes> getParserForType() {
+        public final Parser<DataRes> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasGroup() {
+        public final boolean hasGroup() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public Im.GroupInfo getGroup() {
+        public final Im.GroupInfo getGroup() {
             return this.group_;
         }
 
-        public List<Im.Photo> getPhotoList() {
+        public final List<Im.Photo> getPhotoList() {
             return this.photo_;
         }
 
-        public List<? extends aa> getPhotoOrBuilderList() {
+        public final List<? extends aa> getPhotoOrBuilderList() {
             return this.photo_;
         }
 
-        public int getPhotoCount() {
+        public final int getPhotoCount() {
             return this.photo_.size();
         }
 
-        public Im.Photo getPhoto(int i) {
+        public final Im.Photo getPhoto(int i) {
             return this.photo_.get(i);
         }
 
-        public aa getPhotoOrBuilder(int i) {
+        public final aa getPhotoOrBuilder(int i) {
             return this.photo_.get(i);
         }
 
-        public List<Im.UserInfo> getMemberList() {
+        public final List<Im.UserInfo> getMemberList() {
             return this.member_;
         }
 
-        public List<? extends aj> getMemberOrBuilderList() {
+        public final List<? extends aj> getMemberOrBuilderList() {
             return this.member_;
         }
 
-        public int getMemberCount() {
+        public final int getMemberCount() {
             return this.member_.size();
         }
 
-        public Im.UserInfo getMember(int i) {
+        public final Im.UserInfo getMember(int i) {
             return this.member_.get(i);
         }
 
-        public aj getMemberOrBuilder(int i) {
+        public final aj getMemberOrBuilder(int i) {
             return this.member_.get(i);
         }
 
-        public boolean hasJoinGroupNum() {
+        public final boolean hasJoinGroupNum() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public int getJoinGroupNum() {
+        public final int getJoinGroupNum() {
             return this.joinGroupNum_;
         }
 
-        public boolean hasCanJoinGroupNum() {
+        public final boolean hasCanJoinGroupNum() {
             return (this.bitField0_ & 4) == 4;
         }
 
-        public int getCanJoinGroupNum() {
+        public final int getCanJoinGroupNum() {
             return this.canJoinGroupNum_;
         }
 
-        public boolean hasIsJoin() {
+        public final boolean hasIsJoin() {
             return (this.bitField0_ & 8) == 8;
         }
 
-        public int getIsJoin() {
+        public final int getIsJoin() {
             return this.isJoin_;
         }
 
-        public boolean hasIsGroupManager() {
+        public final boolean hasIsGroupManager() {
             return (this.bitField0_ & 16) == 16;
         }
 
-        public int getIsGroupManager() {
+        public final int getIsGroupManager() {
             return this.isGroupManager_;
         }
 
-        public boolean hasHideRecommendGroup() {
+        public final boolean hasHideRecommendGroup() {
             return (this.bitField0_ & 32) == 32;
         }
 
-        public int getHideRecommendGroup() {
+        public final int getHideRecommendGroup() {
             return this.hideRecommendGroup_;
         }
 
-        public boolean hasCanCreateMember() {
+        public final boolean hasCanCreateMember() {
             return (this.bitField0_ & 64) == 64;
         }
 
-        public int getCanCreateMember() {
+        public final int getCanCreateMember() {
             return this.canCreateMember_;
         }
 
-        public boolean hasAlreadyCreateNum() {
+        public final boolean hasAlreadyCreateNum() {
             return (this.bitField0_ & 128) == 128;
         }
 
-        public int getAlreadyCreateNum() {
+        public final int getAlreadyCreateNum() {
             return this.alreadyCreateNum_;
         }
 
-        public boolean hasLeftCreateNum() {
+        public final boolean hasLeftCreateNum() {
             return (this.bitField0_ & 256) == 256;
         }
 
-        public int getLeftCreateNum() {
+        public final int getLeftCreateNum() {
             return this.leftCreateNum_;
         }
 
-        public List<Im.ActivityInfo> getActivityList() {
+        public final List<Im.ActivityInfo> getActivityList() {
             return this.activity_;
         }
 
-        public List<? extends protobuf.c> getActivityOrBuilderList() {
+        public final List<? extends protobuf.c> getActivityOrBuilderList() {
             return this.activity_;
         }
 
-        public int getActivityCount() {
+        public final int getActivityCount() {
             return this.activity_.size();
         }
 
-        public Im.ActivityInfo getActivity(int i) {
+        public final Im.ActivityInfo getActivity(int i) {
             return this.activity_.get(i);
         }
 
-        public protobuf.c getActivityOrBuilder(int i) {
+        public final protobuf.c getActivityOrBuilder(int i) {
             return this.activity_.get(i);
         }
 
@@ -361,7 +363,7 @@ public final class QueryGroupDetailRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeMessage(1, this.group_);
@@ -402,7 +404,7 @@ public final class QueryGroupDetailRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
                 i = (this.bitField0_ & 1) == 1 ? CodedOutputStream.computeMessageSize(1, this.group_) + 0 : 0;
@@ -446,7 +448,7 @@ public final class QueryGroupDetailRes {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -491,12 +493,12 @@ public final class QueryGroupDetailRes {
         }
 
         public static h newBuilder() {
-            return h.f();
+            return h.b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public h newBuilderForType() {
+        public final h newBuilderForType() {
             return newBuilder();
         }
 
@@ -506,7 +508,7 @@ public final class QueryGroupDetailRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public h toBuilder() {
+        public final h toBuilder() {
             return newBuilder(this);
         }
     }
@@ -516,7 +518,7 @@ public final class QueryGroupDetailRes {
         public static final int DATA_FIELD_NUMBER = 2;
         public static final int ERROR_FIELD_NUMBER = 1;
         public static Parser<QueryGroupDetailResIdl> PARSER = new j();
-        private static final QueryGroupDetailResIdl a = new QueryGroupDetailResIdl(true);
+        private static final QueryGroupDetailResIdl a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private DataRes data_;
@@ -535,7 +537,7 @@ public final class QueryGroupDetailRes {
             this.memoizedSerializedSize = -1;
         }
 
-        private QueryGroupDetailResIdl(boolean z) {
+        private QueryGroupDetailResIdl() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -546,7 +548,7 @@ public final class QueryGroupDetailRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public QueryGroupDetailResIdl getDefaultInstanceForType() {
+        public final QueryGroupDetailResIdl getDefaultInstanceForType() {
             return a;
         }
 
@@ -606,27 +608,29 @@ public final class QueryGroupDetailRes {
         }
 
         static {
-            a.a();
+            QueryGroupDetailResIdl queryGroupDetailResIdl = new QueryGroupDetailResIdl();
+            a = queryGroupDetailResIdl;
+            queryGroupDetailResIdl.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<QueryGroupDetailResIdl> getParserForType() {
+        public final Parser<QueryGroupDetailResIdl> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasError() {
+        public final boolean hasError() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public Im.Error getError() {
+        public final Im.Error getError() {
             return this.error_;
         }
 
-        public boolean hasData() {
+        public final boolean hasData() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public DataRes getData() {
+        public final DataRes getData() {
             return this.data_;
         }
 
@@ -646,7 +650,7 @@ public final class QueryGroupDetailRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeMessage(1, this.error_);
@@ -657,10 +661,13 @@ public final class QueryGroupDetailRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeMessageSize(1, this.error_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeMessageSize(1, this.error_) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeMessageSize(2, this.data_);
                 }
@@ -671,7 +678,7 @@ public final class QueryGroupDetailRes {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -716,12 +723,12 @@ public final class QueryGroupDetailRes {
         }
 
         public static k newBuilder() {
-            return k.f();
+            return k.a();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public k newBuilderForType() {
+        public final k newBuilderForType() {
             return newBuilder();
         }
 
@@ -731,7 +738,7 @@ public final class QueryGroupDetailRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public k toBuilder() {
+        public final k toBuilder() {
             return newBuilder(this);
         }
     }

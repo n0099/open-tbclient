@@ -4,22 +4,22 @@ import android.os.Handler;
 import android.os.Message;
 import android.widget.TextView;
 /* loaded from: classes.dex */
-class u extends Handler {
+final class u extends Handler {
     private u() {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ u(u uVar) {
+    public /* synthetic */ u(byte b) {
         this();
     }
 
     @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    public final void handleMessage(Message message) {
         super.handleMessage(message);
         switch (message.what) {
             case 1:
-                if (r.h() != null) {
-                    r.h().setVisibility(8);
+                if (r.g() != null) {
+                    r.g().setVisibility(8);
                     r.a((TextView) null);
                     return;
                 }

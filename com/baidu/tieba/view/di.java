@@ -6,6 +6,4 @@ public interface di {
     void b();
 
     void c();
-
-    void d();
 }

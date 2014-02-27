@@ -2,7 +2,7 @@ package com.baidu.tieba.pb;
 
 import android.widget.LinearLayout;
 /* loaded from: classes.dex */
-class bh implements com.baidu.adp.lib.d.c<LinearLayout> {
+final class bh implements com.baidu.adp.lib.d.c<LinearLayout> {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,10 +10,9 @@ class bh implements com.baidu.adp.lib.d.c<LinearLayout> {
         this.a = newPbActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // com.baidu.adp.lib.d.c
-    /* renamed from: b */
-    public LinearLayout a() {
+    public final /* synthetic */ LinearLayout a() {
         LinearLayout linearLayout = new LinearLayout(this.a);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         linearLayout.setLayoutParams(layoutParams);
@@ -24,22 +23,25 @@ class bh implements com.baidu.adp.lib.d.c<LinearLayout> {
         return linearLayout;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // com.baidu.adp.lib.d.c
-    public void a(LinearLayout linearLayout) {
+    public final /* synthetic */ void a(LinearLayout linearLayout) {
         linearLayout.removeAllViews();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // com.baidu.adp.lib.d.c
-    public LinearLayout b(LinearLayout linearLayout) {
+    public final /* bridge */ /* synthetic */ LinearLayout b(LinearLayout linearLayout) {
         return linearLayout;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // com.baidu.adp.lib.d.c
-    public LinearLayout c(LinearLayout linearLayout) {
-        linearLayout.removeAllViews();
-        return linearLayout;
+    public final /* synthetic */ LinearLayout c(LinearLayout linearLayout) {
+        LinearLayout linearLayout2 = linearLayout;
+        linearLayout2.removeAllViews();
+        return linearLayout2;
     }
 }

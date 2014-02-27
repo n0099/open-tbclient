@@ -1,30 +1,50 @@
 package com.baidu.tieba.square;
 /* loaded from: classes.dex */
-public class aw extends com.baidu.adp.a.d {
+public final class aw extends com.baidu.adp.a.d {
     private as b;
     private ay a = null;
     private ax c = null;
+    private long d = 0;
+    private long e = 0;
+    private long f = 0;
+    private long g = 0;
 
     public aw() {
         this.b = null;
         this.b = new as();
     }
 
-    public as a() {
+    public final long a() {
+        return this.g;
+    }
+
+    public final long b() {
+        return this.e;
+    }
+
+    public final long c() {
+        return this.f;
+    }
+
+    public final long d() {
+        return this.d;
+    }
+
+    public final as e() {
         return this.b;
     }
 
-    public void a(ax axVar) {
+    public final void a(ax axVar) {
         this.c = axVar;
     }
 
     @Override // com.baidu.adp.a.d
-    protected boolean LoadData() {
+    protected final boolean LoadData() {
         return false;
     }
 
     @Override // com.baidu.adp.a.d
-    public boolean cancelLoadData() {
+    public final boolean cancelLoadData() {
         if (this.a != null) {
             this.a.cancel();
             return false;
@@ -32,15 +52,7 @@ public class aw extends com.baidu.adp.a.d {
         return false;
     }
 
-    public boolean b() {
-        return a(1);
-    }
-
-    public boolean c() {
-        return a(0);
-    }
-
-    public boolean a(int i) {
+    public final boolean a(int i) {
         if (this.a != null) {
             return false;
         }

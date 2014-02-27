@@ -4,7 +4,7 @@ import android.app.Application;
 import com.baidu.tieba.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ax implements com.baidu.tieba.im.a<Integer> {
+public final class ax implements com.baidu.tieba.im.a<Integer> {
     private final /* synthetic */ AccountData a;
     private final /* synthetic */ Application b;
 
@@ -14,10 +14,12 @@ public class ax implements com.baidu.tieba.im.a<Integer> {
         this.b = application;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // com.baidu.tieba.im.a
-    public void a(Integer num) {
-        com.baidu.tieba.im.f.a(this.a, this.b);
-        com.baidu.tieba.im.j.b();
+    public final /* synthetic */ void a(Integer num) {
+        AccountData accountData = this.a;
+        Application application = this.b;
+        com.baidu.tieba.im.e.a();
+        com.baidu.tieba.im.i.b();
     }
 }

@@ -12,7 +12,7 @@ import java.lang.ref.SoftReference;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class a {
+public final class a {
     private static long b = 10000;
     private static a c = null;
     private static long d = 300000;
@@ -45,39 +45,31 @@ public class a {
         return aVar;
     }
 
-    public void a(Context context, String str) {
-        a(context, str, true);
-    }
-
-    public void a(Context context, String str, boolean z) {
+    public final void a(Context context, String str) {
         if (context == null) {
             throw new InvalidParameterException("context is null");
         }
         this.n = new ArrayList<>();
         this.o = context;
         this.h = str;
-        this.i = z;
+        this.i = true;
+        this.p = new Handler(new c(this));
         b();
-        c();
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.e = z;
     }
 
     private void b() {
-        this.p = new Handler(new c(this));
-    }
-
-    private void c() {
         try {
             this.k = (LocationManager) this.o.getSystemService("location");
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(e.getMessage());
+            com.baidu.adp.lib.util.e.b(e.getMessage());
         }
         try {
             if (this.e) {
-                this.g = new e(this, null);
+                this.g = new e(this, (byte) 0);
                 LocationClientOption locationClientOption = new LocationClientOption();
                 locationClientOption.setOpenGps(true);
                 locationClientOption.setProdName(this.h);
@@ -90,30 +82,28 @@ public class a {
                 this.f.setLocOption(locationClientOption);
             }
         } catch (Exception e2) {
-            com.baidu.adp.lib.util.f.b(e2.getMessage());
+            com.baidu.adp.lib.util.e.b(e2.getMessage());
         }
     }
 
-    public Address b(boolean z) {
+    public final Address b(boolean z) {
         if (System.currentTimeMillis() - this.a > d) {
             this.l = null;
         }
-        if (this.l != null && !z) {
+        if (this.l != null) {
             return this.l;
         }
         this.l = null;
-        e();
+        d();
         return null;
     }
 
-    public Address a(boolean z, d dVar) {
+    public final Address a(boolean z, d dVar) {
         boolean z2;
         if (System.currentTimeMillis() - this.a > d) {
             this.l = null;
         }
-        if (this.l != null && !z) {
-            return this.l;
-        }
+        Address address = this.l;
         if (dVar != null) {
             int i = 0;
             while (true) {
@@ -136,12 +126,12 @@ public class a {
                 }
                 this.n.add(new SoftReference<>(dVar));
             }
-            e();
+            d();
         }
         return null;
     }
 
-    public void d() {
+    public void c() {
         if (this.p.hasMessages(0)) {
             this.p.removeMessages(0);
         }
@@ -149,7 +139,7 @@ public class a {
             try {
                 this.k.removeUpdates(this.q);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b("error : " + e.getMessage());
+                com.baidu.adp.lib.util.e.b("error : " + e.getMessage());
             }
         }
         if (this.f != null && this.f.isStarted()) {
@@ -161,7 +151,7 @@ public class a {
         }
     }
 
-    private void e() {
+    private void d() {
         try {
             this.l = null;
             if (this.p.hasMessages(0)) {
@@ -196,7 +186,7 @@ public class a {
             }
             this.p.sendMessageDelayed(this.p.obtainMessage(0), b);
         } catch (Exception e) {
-            d();
+            c();
             this.j = 5;
             if (this.p.hasMessages(0)) {
                 this.p.removeMessages(0);
@@ -205,26 +195,25 @@ public class a {
         }
     }
 
-    public void a(int i, String str, Address address) {
+    public static /* synthetic */ void a(a aVar, int i, String str, Address address) {
         int i2 = 0;
-        if (this.p.hasMessages(0)) {
-            this.p.removeMessages(0);
+        if (aVar.p.hasMessages(0)) {
+            aVar.p.removeMessages(0);
         }
-        if (this.n == null) {
+        if (aVar.n == null) {
             return;
         }
         while (true) {
             int i3 = i2;
-            if (i3 < this.n.size()) {
-                d dVar = this.n.get(i3).get();
-                if (dVar != null) {
-                    dVar.a(i, str, address);
-                }
-                i2 = i3 + 1;
-            } else {
-                this.n.clear();
+            if (i3 >= aVar.n.size()) {
+                aVar.n.clear();
                 return;
             }
+            d dVar = aVar.n.get(i3).get();
+            if (dVar != null) {
+                dVar.a(i, address);
+            }
+            i2 = i3 + 1;
         }
     }
 }

@@ -4,25 +4,41 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.DelGroupUsers.DelGroupUsersRes;
 /* loaded from: classes.dex */
 public final class h extends GeneratedMessageLite.Builder<DelGroupUsersRes.DataRes, h> implements i {
     private int a;
     private int b;
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        DelGroupUsersRes.DataRes buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return DelGroupUsersRes.DataRes.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return DelGroupUsersRes.DataRes.getDefaultInstance();
+    }
+
     private h() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static h h() {
+    public static /* synthetic */ h b() {
         return new h();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public h clear() {
         super.clear();
         this.b = 0;
@@ -31,30 +47,14 @@ public final class h extends GeneratedMessageLite.Builder<DelGroupUsersRes.DataR
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public h clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public DelGroupUsersRes.DataRes getDefaultInstanceForType() {
-        return DelGroupUsersRes.DataRes.getDefaultInstance();
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public DelGroupUsersRes.DataRes build() {
-        DelGroupUsersRes.DataRes buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
+    public h clone() {
+        return new h().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public DelGroupUsersRes.DataRes buildPartial() {
+    /* renamed from: a */
+    public final DelGroupUsersRes.DataRes buildPartial() {
         DelGroupUsersRes.DataRes dataRes = new DelGroupUsersRes.DataRes(this, (DelGroupUsersRes.DataRes) null);
         int i = (this.a & 1) != 1 ? 0 : 1;
         dataRes.groupId_ = this.b;
@@ -64,9 +64,11 @@ public final class h extends GeneratedMessageLite.Builder<DelGroupUsersRes.DataR
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public h mergeFrom(DelGroupUsersRes.DataRes dataRes) {
+    public final h mergeFrom(DelGroupUsersRes.DataRes dataRes) {
         if (dataRes != DelGroupUsersRes.DataRes.getDefaultInstance() && dataRes.hasGroupId()) {
-            a(dataRes.getGroupId());
+            int groupId = dataRes.getGroupId();
+            this.a |= 1;
+            this.b = groupId;
         }
         return this;
     }
@@ -112,11 +114,5 @@ public final class h extends GeneratedMessageLite.Builder<DelGroupUsersRes.DataR
                 throw th;
             }
         }
-    }
-
-    public h a(int i) {
-        this.a |= 1;
-        this.b = i;
-        return this;
     }
 }

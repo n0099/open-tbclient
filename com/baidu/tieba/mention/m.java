@@ -3,7 +3,7 @@ package com.baidu.tieba.mention;
 import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements Runnable {
+public final class m implements Runnable {
     final /* synthetic */ l a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ public class m implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         BdListView bdListView;
         BdListView bdListView2;
         int i;
@@ -48,7 +48,7 @@ public class m implements Runnable {
                 }
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("MentionView", "mGetImageRunnble.run", "error = " + e.getMessage());
+            com.baidu.adp.lib.util.e.b("MentionView", "mGetImageRunnble.run", "error = " + e.getMessage());
         }
     }
 }

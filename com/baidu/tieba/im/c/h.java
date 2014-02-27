@@ -1,8 +1,8 @@
 package com.baidu.tieba.im.c;
 /* loaded from: classes.dex */
-class h implements com.baidu.tieba.im.a<Void> {
-    /* JADX DEBUG: Method merged with bridge method */
+final class h implements com.baidu.tieba.im.a<Void> {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // com.baidu.tieba.im.a
-    public void a(Void r1) {
+    public final /* bridge */ /* synthetic */ void a(Void r1) {
     }
 }

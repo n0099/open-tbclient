@@ -2,12 +2,12 @@ package com.baidu.adp.framework;
 
 import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.f;
 import com.baidu.adp.framework.message.g;
 import com.baidu.adp.framework.message.h;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.adp.lib.util.f;
 /* loaded from: classes.dex */
 public class c {
     private static c a = null;
@@ -38,7 +38,7 @@ public class c {
         this.e = new com.baidu.adp.framework.b.d();
     }
 
-    public boolean a(com.baidu.adp.framework.message.e<?> eVar) {
+    public final boolean a(com.baidu.adp.framework.message.e<?> eVar) {
         if (eVar == null) {
             return false;
         }
@@ -51,29 +51,17 @@ public class c {
         if (eVar instanceof com.baidu.adp.framework.message.a) {
             return this.d.c((com.baidu.adp.framework.message.a) eVar, null);
         }
-        f.b("message invalid");
+        com.baidu.adp.lib.util.e.b("message invalid");
         return false;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.c.a(i);
-    }
-
-    public void b(int i) {
         this.d.a(i);
-    }
-
-    public void c(int i) {
         this.b.a(i);
     }
 
-    public void d(int i) {
-        a(i);
-        b(i);
-        c(i);
-    }
-
-    public void a(com.baidu.adp.framework.task.b bVar) {
+    public final void a(com.baidu.adp.framework.task.b bVar) {
         if (bVar != null) {
             BdUtilHelper.b();
             if (bVar instanceof HttpMessageTask) {
@@ -83,12 +71,12 @@ public class c {
             } else if (bVar instanceof CustomMessageTask) {
                 this.d.a((com.baidu.adp.framework.d.a) ((CustomMessageTask) bVar));
             } else {
-                f.b("task invalid");
+                com.baidu.adp.lib.util.e.b("task invalid");
             }
         }
     }
 
-    public com.baidu.adp.framework.task.b e(int i) {
+    public final com.baidu.adp.framework.task.b b(int i) {
         FrameHelper.TYPE a2 = FrameHelper.a(i);
         if (FrameHelper.TYPE.HTTP == a2) {
             return this.b.b(i);
@@ -102,7 +90,7 @@ public class c {
         return this.d.b(i);
     }
 
-    public void a(com.baidu.adp.framework.c.c<?> cVar) {
+    public final void a(com.baidu.adp.framework.c.c<?> cVar) {
         if (cVar != null) {
             BdUtilHelper.b();
             FrameHelper.TYPE a2 = FrameHelper.a(cVar.b());
@@ -113,22 +101,22 @@ public class c {
             } else if (a2 == FrameHelper.TYPE.CUSTOM && (cVar instanceof com.baidu.adp.framework.c.a)) {
                 this.d.a(0, (com.baidu.adp.framework.c.a) cVar);
             } else {
-                f.b("listener invalid");
+                com.baidu.adp.lib.util.e.b("listener invalid");
             }
         }
     }
 
-    public void f(int i) {
+    public final void c(int i) {
         this.b.c(i);
         this.c.c(i);
         this.d.c(i);
     }
 
-    public com.baidu.adp.framework.b.d b() {
+    public final com.baidu.adp.framework.b.d b() {
         return this.e;
     }
 
-    public void a(com.baidu.adp.framework.message.f<?> fVar) {
+    public final void a(f<?> fVar) {
         if (fVar != null) {
             FrameHelper.TYPE a2 = FrameHelper.a(fVar.b());
             if (a2 == FrameHelper.TYPE.HTTP && (fVar instanceof com.baidu.adp.framework.message.c)) {
@@ -138,7 +126,7 @@ public class c {
             } else if (a2 == FrameHelper.TYPE.CUSTOM && (fVar instanceof com.baidu.adp.framework.message.b)) {
                 this.d.a((com.baidu.adp.framework.d.a) this.e.a((com.baidu.adp.framework.message.b) fVar));
             } else {
-                f.b("responsedMessage invalid");
+                com.baidu.adp.lib.util.e.b("responsedMessage invalid");
             }
         }
     }

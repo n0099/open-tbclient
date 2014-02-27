@@ -110,11 +110,11 @@ public class WriteImagesInfo implements Parcelable, Serializable {
     }
 
     public void parseJson(String str) {
-        if (!com.baidu.adp.lib.util.h.b(str)) {
+        if (!com.baidu.adp.lib.util.g.b(str)) {
             try {
                 parseJson(new JSONObject(str));
             } catch (JSONException e) {
-                com.baidu.adp.lib.util.f.b(e.getMessage());
+                com.baidu.adp.lib.util.e.b(e.getMessage());
             }
         }
     }
@@ -165,7 +165,7 @@ public class WriteImagesInfo implements Parcelable, Serializable {
             }
             return jSONObject;
         } catch (JSONException e) {
-            com.baidu.adp.lib.util.f.b(e.getMessage());
+            com.baidu.adp.lib.util.e.b(e.getMessage());
             return null;
         }
     }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.view;
 /* loaded from: classes.dex */
-class ak {
+final class ak {
     final /* synthetic */ ai a;
 
     private ak(ai aiVar) {
@@ -8,7 +8,7 @@ class ak {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ak(ai aiVar, ak akVar) {
+    public /* synthetic */ ak(ai aiVar, byte b) {
         this(aiVar);
     }
 }

@@ -14,14 +14,14 @@ public final class GetPeerInfoReq {
 
     /* loaded from: classes.dex */
     public final class DataReq extends GeneratedMessageLite implements c {
+        public static Parser<DataReq> PARSER = new a();
         public static final int PEERUID_FIELD_NUMBER = 1;
+        private static final DataReq a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
         private long peerUid_;
-        public static Parser<DataReq> PARSER = new a();
-        private static final DataReq a = new DataReq(true);
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ DataReq(GeneratedMessageLite.Builder builder, DataReq dataReq) {
@@ -34,7 +34,7 @@ public final class GetPeerInfoReq {
             this.memoizedSerializedSize = -1;
         }
 
-        private DataReq(boolean z) {
+        private DataReq() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -45,14 +45,14 @@ public final class GetPeerInfoReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public DataReq getDefaultInstanceForType() {
+        public final DataReq getDefaultInstanceForType() {
             return a;
         }
 
         private DataReq(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
-            a();
+            this.peerUid_ = 0L;
             boolean z = false;
             while (!z) {
                 try {
@@ -91,24 +91,22 @@ public final class GetPeerInfoReq {
         }
 
         static {
-            a.a();
+            DataReq dataReq = new DataReq();
+            a = dataReq;
+            dataReq.peerUid_ = 0L;
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<DataReq> getParserForType() {
+        public final Parser<DataReq> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasPeerUid() {
+        public final boolean hasPeerUid() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public long getPeerUid() {
+        public final long getPeerUid() {
             return this.peerUid_;
-        }
-
-        private void a() {
-            this.peerUid_ = 0L;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -122,7 +120,7 @@ public final class GetPeerInfoReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeInt64(1, this.peerUid_);
@@ -130,10 +128,13 @@ public final class GetPeerInfoReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt64Size(1, this.peerUid_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeInt64Size(1, this.peerUid_) + 0;
+                }
                 this.memoizedSerializedSize = i;
             }
             return i;
@@ -141,7 +142,7 @@ public final class GetPeerInfoReq {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -186,12 +187,12 @@ public final class GetPeerInfoReq {
         }
 
         public static b newBuilder() {
-            return b.f();
+            return b.c();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public b newBuilderForType() {
+        public final b newBuilderForType() {
             return newBuilder();
         }
 
@@ -201,7 +202,7 @@ public final class GetPeerInfoReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public b toBuilder() {
+        public final b toBuilder() {
             return newBuilder(this);
         }
     }
@@ -210,7 +211,7 @@ public final class GetPeerInfoReq {
     public final class GetPeerInfoReqIdl extends GeneratedMessageLite implements f {
         public static final int DATA_FIELD_NUMBER = 1;
         public static Parser<GetPeerInfoReqIdl> PARSER = new d();
-        private static final GetPeerInfoReqIdl a = new GetPeerInfoReqIdl(true);
+        private static final GetPeerInfoReqIdl a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private DataReq data_;
@@ -228,7 +229,7 @@ public final class GetPeerInfoReq {
             this.memoizedSerializedSize = -1;
         }
 
-        private GetPeerInfoReqIdl(boolean z) {
+        private GetPeerInfoReqIdl() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -239,7 +240,7 @@ public final class GetPeerInfoReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public GetPeerInfoReqIdl getDefaultInstanceForType() {
+        public final GetPeerInfoReqIdl getDefaultInstanceForType() {
             return a;
         }
 
@@ -247,7 +248,7 @@ public final class GetPeerInfoReq {
             b bVar;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
-            a();
+            this.data_ = DataReq.getDefaultInstance();
             boolean z = false;
             while (!z) {
                 try {
@@ -295,24 +296,22 @@ public final class GetPeerInfoReq {
         }
 
         static {
-            a.a();
+            GetPeerInfoReqIdl getPeerInfoReqIdl = new GetPeerInfoReqIdl();
+            a = getPeerInfoReqIdl;
+            getPeerInfoReqIdl.data_ = DataReq.getDefaultInstance();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<GetPeerInfoReqIdl> getParserForType() {
+        public final Parser<GetPeerInfoReqIdl> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasData() {
+        public final boolean hasData() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public DataReq getData() {
+        public final DataReq getData() {
             return this.data_;
-        }
-
-        private void a() {
-            this.data_ = DataReq.getDefaultInstance();
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -326,7 +325,7 @@ public final class GetPeerInfoReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeMessage(1, this.data_);
@@ -334,10 +333,13 @@ public final class GetPeerInfoReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeMessageSize(1, this.data_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeMessageSize(1, this.data_) + 0;
+                }
                 this.memoizedSerializedSize = i;
             }
             return i;
@@ -345,7 +347,7 @@ public final class GetPeerInfoReq {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -390,12 +392,12 @@ public final class GetPeerInfoReq {
         }
 
         public static e newBuilder() {
-            return e.f();
+            return e.b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public e newBuilderForType() {
+        public final e newBuilderForType() {
             return newBuilder();
         }
 
@@ -405,7 +407,7 @@ public final class GetPeerInfoReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public e toBuilder() {
+        public final e toBuilder() {
             return newBuilder(this);
         }
     }

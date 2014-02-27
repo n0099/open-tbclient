@@ -2,7 +2,7 @@ package com.baidu.tbadk.widget.richText;
 
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class g {
+public final class g {
     private String a;
     private String b;
     private String c;
@@ -29,7 +29,7 @@ public class g {
                 this.d = Integer.valueOf(split[0]).intValue();
                 this.e = Integer.valueOf(split[1]).intValue();
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(e.getMessage());
+                com.baidu.adp.lib.util.e.b(e.getMessage());
             }
             if (this.d <= 0) {
                 this.d = 1;
@@ -43,27 +43,27 @@ public class g {
         }
     }
 
-    public String a() {
+    public final String a() {
         return this.c;
     }
 
-    public int b() {
+    public final int b() {
         return this.e;
     }
 
-    public int c() {
+    public final int c() {
         return this.d;
     }
 
-    public boolean d() {
+    public final boolean d() {
         return this.f;
     }
 
-    public String e() {
+    public final String e() {
         return this.a;
     }
 
-    public String f() {
+    public final String f() {
         return this.b;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.frs;
 import java.util.LinkedList;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class g extends com.baidu.tieba.data.az {
+public final class g extends com.baidu.tieba.data.az {
     private int c;
     private int d;
     private String e;
@@ -14,40 +14,40 @@ public class g extends com.baidu.tieba.data.az {
     private String j;
     private int k;
 
-    public int u() {
+    public final int r() {
         return this.d;
     }
 
-    public String v() {
+    public final String s() {
         return this.e;
     }
 
-    public String w() {
+    public final String t() {
         return this.g;
     }
 
-    public String x() {
+    public final String u() {
         return this.h;
     }
 
-    public String y() {
+    public final String v() {
         return this.i;
     }
 
-    public String z() {
+    public final String w() {
         return this.j;
     }
 
-    public void d(int i) {
+    public final void d(int i) {
         this.k = i;
     }
 
-    public int A() {
+    public final int x() {
         return this.k;
     }
 
     @Override // com.baidu.tieba.data.az
-    public void a(JSONObject jSONObject) {
+    public final void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 this.c = jSONObject.optInt("type", 0);
@@ -59,13 +59,13 @@ public class g extends com.baidu.tieba.data.az {
                 this.i = jSONObject.optString("p_name", "");
                 this.j = jSONObject.optString("p_url", "");
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
     @Override // com.baidu.tieba.data.az, com.baidu.tieba.util.au, com.baidu.tieba.util.aw
-    public LinkedList<String> getImageUrl() {
+    public final LinkedList<String> getImageUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(this.e);
         return linkedList;

@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class ab {
+public final class ab {
     private String a;
     private String b;
     private int c;
@@ -36,39 +36,39 @@ public class ab {
         this.d = new AntiData();
     }
 
-    public boolean a() {
+    public final boolean a() {
         return this.c > 0 && this.c <= this.f.size();
     }
 
-    public boolean b() {
+    public final boolean b() {
         return (this.g == null || this.g.length() == 0 || this.h == null || this.h.length() == 0) ? false : true;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.i = str;
     }
 
-    public void b(String str) {
+    public final void b(String str) {
         this.j = str;
     }
 
-    public String c() {
+    public final String c() {
         return this.i;
     }
 
-    public String d() {
+    public final String d() {
         return this.j;
     }
 
-    public AntiData e() {
+    public final AntiData e() {
         return this.d;
     }
 
-    public String f() {
+    public final String f() {
         return this.g;
     }
 
-    public String g() {
+    public final String g() {
         return this.h;
     }
 
@@ -88,42 +88,42 @@ public class ab {
         this.d = new AntiData();
     }
 
-    public void a(String str, boolean z) {
+    public final void a(String str, boolean z) {
         try {
-            a(new JSONObject(str), Boolean.valueOf(z));
+            a(new JSONObject(str), (Boolean) true);
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "paserJson", e.toString());
+            com.baidu.adp.lib.util.e.b(getClass().getName(), "paserJson", e.toString());
         }
     }
 
-    public LinkedList<aa> h() {
+    public final LinkedList<aa> h() {
         return this.f;
     }
 
-    public void c(String str) {
+    public final void c(String str) {
         this.a = str;
     }
 
-    public String i() {
+    public final String i() {
         return this.a;
     }
 
-    public String j() {
+    public final String j() {
         return this.b;
     }
 
-    public int k() {
+    public final int k() {
         return this.c;
     }
 
-    public String l() {
+    public final String l() {
         return this.f.size() > 0 ? this.f.get(this.f.size() - 1).c() : "";
     }
 
-    public void a(JSONObject jSONObject, Boolean bool) {
+    private void a(JSONObject jSONObject, Boolean bool) {
         if (jSONObject != null) {
             try {
-                a(jSONObject.optInt("is_new_url", 0));
+                this.k = jSONObject.optInt("is_new_url", 0);
                 JSONObject optJSONObject = jSONObject.optJSONObject("forum");
                 if (optJSONObject != null) {
                     this.a = optJSONObject.optString(SocialConstants.PARAM_MEDIA_UNAME);
@@ -137,7 +137,7 @@ public class ab {
                             aa aaVar = new aa(this.e);
                             aaVar.a(optJSONArray.optJSONObject(i));
                             int h = aaVar.h();
-                            if (h >= 1 && h <= this.c) {
+                            if (h > 0 && h <= this.c) {
                                 this.f.addLast(aaVar);
                             }
                         }
@@ -146,7 +146,7 @@ public class ab {
                             aa aaVar2 = new aa(this.e);
                             aaVar2.a(optJSONArray.getJSONObject(length));
                             int h2 = aaVar2.h();
-                            if (h2 >= 1 && h2 <= this.c) {
+                            if (h2 > 0 && h2 <= this.c) {
                                 this.f.addFirst(aaVar2);
                             }
                         }
@@ -156,16 +156,12 @@ public class ab {
                 this.g = optJSONObject2.optString("tid");
                 this.h = optJSONObject2.optString("title");
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "paserJson", e.toString());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "paserJson", e.toString());
             }
         }
     }
 
-    public int m() {
+    public final int m() {
         return this.k;
-    }
-
-    public void a(int i) {
-        this.k = i;
     }
 }

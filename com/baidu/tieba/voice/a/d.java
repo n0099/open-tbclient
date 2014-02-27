@@ -3,7 +3,7 @@ package com.baidu.tieba.voice.a;
 import com.baidu.tieba.voice.ak;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class d {
+public final class d {
     public String a = null;
     public String b = null;
     public int c = 0;

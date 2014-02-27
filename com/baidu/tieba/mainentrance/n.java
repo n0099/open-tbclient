@@ -1,9 +1,11 @@
 package com.baidu.tieba.mainentrance;
 
+import android.app.AlertDialog;
 import android.view.View;
 import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class n implements View.OnClickListener {
+public final class n implements View.OnClickListener {
     final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,26 +14,7 @@ class n implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        String str;
-        String str2;
-        int i;
-        String str3;
-        str = this.a.C;
-        if (str != null) {
-            str2 = this.a.C;
-            if (str2.trim().length() >= 1) {
-                i = this.a.D;
-                if (i == 0) {
-                    this.a.d();
-                    return;
-                }
-                SquareSearchActivity squareSearchActivity = this.a;
-                str3 = this.a.C;
-                squareSearchActivity.a(1, str3);
-                return;
-            }
-        }
-        this.a.showToast(this.a.getResources().getString(R.string.write_keyword));
+    public final void onClick(View view) {
+        new AlertDialog.Builder(this.a).setTitle("提醒").setIcon(R.drawable.dialogue_quit).setMessage("确认清除搜索记录？").setPositiveButton("确认", new o(this)).setNegativeButton("取消", new p(this)).create().show();
     }
 }

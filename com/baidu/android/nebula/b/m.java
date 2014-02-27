@@ -20,12 +20,9 @@ public final class m {
             try {
                 String str = resolveInfo.activityInfo.packageName;
                 long j3 = context.createPackageContext(str, 0).getSharedPreferences(str + ".share_list", 1).getLong("last_sync_with_cloud_time_key", -1L);
-                if (j3 > j2) {
-                    j2 = j3;
-                }
+                j2 = j3 > j2 ? j3 : j2;
             } catch (PackageManager.NameNotFoundException e) {
             }
-            j2 = j2;
         }
         if (j2 == -1) {
             b(context, j);

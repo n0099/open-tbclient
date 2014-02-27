@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.message;
 /* loaded from: classes.dex */
-public class bi extends bg {
+public final class bi extends bg {
     private String b;
 
     public bi(String str) {
@@ -8,12 +8,8 @@ public class bi extends bg {
         this.b = str;
     }
 
-    public String b() {
-        return this.b;
-    }
-
     @Override // com.baidu.tieba.im.message.bg
-    protected void a(protobuf.k kVar) {
-        kVar.c(b());
+    protected final void a(protobuf.k kVar) {
+        kVar.c(this.b);
     }
 }

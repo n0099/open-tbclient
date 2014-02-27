@@ -1,10 +1,11 @@
 package com.baidu.tieba.write;
 
+import android.content.DialogInterface;
+import com.baidu.tieba.album.AlbumActivity;
+import com.baidu.tieba.img.WriteImagesInfo;
 import com.slidingmenu.lib.R;
-import java.util.ArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bf extends com.baidu.adp.a.g {
+final class bf implements DialogInterface.OnClickListener {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,26 +13,28 @@ public class bf extends com.baidu.adp.a.g {
         this.a = writeActivity;
     }
 
-    @Override // com.baidu.adp.a.g
-    public void a(Object obj) {
-        FeedBackTopListView feedBackTopListView;
-        FeedBackTopListView feedBackTopListView2;
-        FeedBackTopListView feedBackTopListView3;
-        this.a.hideProgressBar();
-        if (obj == null || !(obj instanceof s)) {
-            feedBackTopListView = this.a.m;
-            feedBackTopListView.setVisibility(8);
-            this.a.showToast(R.string.neterror);
-            return;
+    @Override // android.content.DialogInterface.OnClickListener
+    public final void onClick(DialogInterface dialogInterface, int i) {
+        WriteImagesInfo writeImagesInfo;
+        WriteImagesInfo writeImagesInfo2;
+        WriteImagesInfo writeImagesInfo3;
+        String str;
+        if (i == 0) {
+            writeImagesInfo2 = this.a.D;
+            int size = writeImagesInfo2.size();
+            writeImagesInfo3 = this.a.D;
+            if (size < writeImagesInfo3.getMaxImagesAllowed()) {
+                this.a.E = String.valueOf(System.currentTimeMillis());
+                WriteActivity writeActivity = this.a;
+                str = this.a.E;
+                by.a(writeActivity, str);
+                return;
+            }
+            this.a.showToast(String.format(this.a.getString(R.string.editor_mutiiamge_max), 10));
+        } else if (i == 1) {
+            WriteActivity writeActivity2 = this.a;
+            writeImagesInfo = this.a.D;
+            AlbumActivity.a(writeActivity2, writeImagesInfo, 12002);
         }
-        s sVar = (s) obj;
-        if (sVar.b() != 0) {
-            feedBackTopListView2 = this.a.m;
-            feedBackTopListView2.setVisibility(8);
-            return;
-        }
-        ArrayList<com.baidu.tieba.data.az> a = sVar.a();
-        feedBackTopListView3 = this.a.m;
-        feedBackTopListView3.setData(a);
     }
 }

@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.CommitPersonalMsg.CommitPersonalMsgRes;
 import protobuf.Im;
 /* loaded from: classes.dex */
@@ -12,19 +13,34 @@ public final class h extends GeneratedMessageLite.Builder<CommitPersonalMsgRes.C
     private Im.Error b = Im.Error.getDefaultInstance();
     private CommitPersonalMsgRes.DataRes c = CommitPersonalMsgRes.DataRes.getDefaultInstance();
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        CommitPersonalMsgRes.CommitPersonalMsgResIdl buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return CommitPersonalMsgRes.CommitPersonalMsgResIdl.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return CommitPersonalMsgRes.CommitPersonalMsgResIdl.getDefaultInstance();
+    }
+
     private h() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static h h() {
+    public static /* synthetic */ h a() {
         return new h();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: b */
     public h clear() {
         super.clear();
         this.b = Im.Error.getDefaultInstance();
@@ -35,29 +51,13 @@ public final class h extends GeneratedMessageLite.Builder<CommitPersonalMsgRes.C
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public h clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
     /* renamed from: c */
-    public CommitPersonalMsgRes.CommitPersonalMsgResIdl getDefaultInstanceForType() {
-        return CommitPersonalMsgRes.CommitPersonalMsgResIdl.getDefaultInstance();
+    public h clone() {
+        return new h().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public CommitPersonalMsgRes.CommitPersonalMsgResIdl build() {
-        CommitPersonalMsgRes.CommitPersonalMsgResIdl buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
     public CommitPersonalMsgRes.CommitPersonalMsgResIdl buildPartial() {
         CommitPersonalMsgRes.CommitPersonalMsgResIdl commitPersonalMsgResIdl = new CommitPersonalMsgRes.CommitPersonalMsgResIdl(this, (CommitPersonalMsgRes.CommitPersonalMsgResIdl) null);
         int i = this.a;
@@ -73,13 +73,25 @@ public final class h extends GeneratedMessageLite.Builder<CommitPersonalMsgRes.C
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public h mergeFrom(CommitPersonalMsgRes.CommitPersonalMsgResIdl commitPersonalMsgResIdl) {
+    public final h mergeFrom(CommitPersonalMsgRes.CommitPersonalMsgResIdl commitPersonalMsgResIdl) {
         if (commitPersonalMsgResIdl != CommitPersonalMsgRes.CommitPersonalMsgResIdl.getDefaultInstance()) {
             if (commitPersonalMsgResIdl.hasError()) {
-                a(commitPersonalMsgResIdl.getError());
+                Im.Error error = commitPersonalMsgResIdl.getError();
+                if ((this.a & 1) != 1 || this.b == Im.Error.getDefaultInstance()) {
+                    this.b = error;
+                } else {
+                    this.b = Im.Error.newBuilder(this.b).mergeFrom(error).buildPartial();
+                }
+                this.a |= 1;
             }
             if (commitPersonalMsgResIdl.hasData()) {
-                a(commitPersonalMsgResIdl.getData());
+                CommitPersonalMsgRes.DataRes data = commitPersonalMsgResIdl.getData();
+                if ((this.a & 2) != 2 || this.c == CommitPersonalMsgRes.DataRes.getDefaultInstance()) {
+                    this.c = data;
+                } else {
+                    this.c = CommitPersonalMsgRes.DataRes.newBuilder(this.c).mergeFrom(data).buildPartial();
+                }
+                this.a |= 2;
             }
         }
         return this;
@@ -126,25 +138,5 @@ public final class h extends GeneratedMessageLite.Builder<CommitPersonalMsgRes.C
                 throw th;
             }
         }
-    }
-
-    public h a(Im.Error error) {
-        if ((this.a & 1) == 1 && this.b != Im.Error.getDefaultInstance()) {
-            this.b = Im.Error.newBuilder(this.b).mergeFrom(error).buildPartial();
-        } else {
-            this.b = error;
-        }
-        this.a |= 1;
-        return this;
-    }
-
-    public h a(CommitPersonalMsgRes.DataRes dataRes) {
-        if ((this.a & 2) == 2 && this.c != CommitPersonalMsgRes.DataRes.getDefaultInstance()) {
-            this.c = CommitPersonalMsgRes.DataRes.newBuilder(this.c).mergeFrom(dataRes).buildPartial();
-        } else {
-            this.c = dataRes;
-        }
-        this.a |= 2;
-        return this;
     }
 }

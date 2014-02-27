@@ -34,18 +34,10 @@ public class CreateBarSuccessActivity extends com.baidu.tieba.f {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.create_bar_success_activity);
-        a();
-        b();
-    }
-
-    private void a() {
         this.d = getIntent().getStringExtra("barname");
         if (this.d == null) {
             this.d = "";
         }
-    }
-
-    private void b() {
         this.a = (LinearLayout) findViewById(R.id.container);
         this.b = findViewById(R.id.title);
         this.c = (TextView) findViewById(R.id.title_text);

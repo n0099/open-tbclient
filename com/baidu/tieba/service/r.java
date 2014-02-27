@@ -10,7 +10,7 @@ import com.baidu.tieba.data.VersionData;
 import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class r extends Handler {
+final class r extends Handler {
     final /* synthetic */ TiebaUpdateService a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -19,7 +19,7 @@ class r extends Handler {
     }
 
     @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    public final void handleMessage(Message message) {
         VersionData versionData;
         boolean z;
         Notification notification;

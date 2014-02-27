@@ -4,9 +4,30 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import java.io.IOException;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i extends BdAsyncTask<String, Void, Boolean> {
+public final class i extends BdAsyncTask<String, Void, Boolean> {
     Process a;
     final /* synthetic */ h b;
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ void a(Boolean bool) {
+        j jVar;
+        k kVar;
+        k kVar2;
+        j jVar2;
+        Boolean bool2 = bool;
+        jVar = this.b.b;
+        if (jVar != null) {
+            jVar2 = this.b.b;
+            jVar2.a(bool2 == null ? false : bool2.booleanValue());
+        }
+        kVar = this.b.a;
+        if (kVar != null) {
+            kVar2 = this.b.a;
+            kVar2.removeMessages(0);
+        }
+    }
 
     private i(h hVar) {
         this.b = hVar;
@@ -14,41 +35,33 @@ public class i extends BdAsyncTask<String, Void, Boolean> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ i(h hVar, i iVar) {
+    public /* synthetic */ i(h hVar, byte b) {
         this(hVar);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [115=4] */
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
+    /* JADX INFO: Access modifiers changed from: private */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Boolean a(String... strArr) {
-        boolean z = false;
-        if (strArr != null && strArr.length >= 1) {
+        if (strArr != null && strArr.length > 0) {
             try {
-                try {
-                    this.a = Runtime.getRuntime().exec(strArr[0]);
-                    boolean z2 = this.a.waitFor() == 0;
-                    this.a.destroy();
-                    z = z2;
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    this.a.destroy();
-                } catch (InterruptedException e2) {
-                    e2.printStackTrace();
-                    this.a.destroy();
-                }
-            } catch (Throwable th) {
+                this.a = Runtime.getRuntime().exec(strArr[0]);
+                r0 = this.a.waitFor() == 0;
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e2) {
+                e2.printStackTrace();
+            } finally {
                 this.a.destroy();
-                throw th;
             }
         }
-        return Boolean.valueOf(z);
+        return Boolean.valueOf(r0);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void c() {
+    public final void c() {
         j jVar;
         k kVar;
         k kVar2;
@@ -65,26 +78,6 @@ public class i extends BdAsyncTask<String, Void, Boolean> {
         if (jVar != null) {
             jVar2 = this.b.b;
             jVar2.a(false);
-        }
-        kVar = this.b.a;
-        if (kVar != null) {
-            kVar2 = this.b.a;
-            kVar2.removeMessages(0);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Boolean bool) {
-        j jVar;
-        k kVar;
-        k kVar2;
-        j jVar2;
-        jVar = this.b.b;
-        if (jVar != null) {
-            jVar2 = this.b.b;
-            jVar2.a(bool.booleanValue());
         }
         kVar = this.b.a;
         if (kVar != null) {

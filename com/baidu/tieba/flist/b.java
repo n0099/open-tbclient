@@ -2,9 +2,8 @@ package com.baidu.tieba.flist;
 
 import android.widget.ImageView;
 import android.widget.TextView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b {
+final class b {
     ImageView a;
     TextView b;
     final /* synthetic */ a c;

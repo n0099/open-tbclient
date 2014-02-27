@@ -3,7 +3,7 @@ package com.baidu.tieba.im.friend;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-class k extends com.baidu.adp.a.g {
+final class k extends com.baidu.adp.a.g {
     final /* synthetic */ InviteFriendListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,14 +12,14 @@ class k extends com.baidu.adp.a.g {
     }
 
     @Override // com.baidu.adp.a.g
-    public void a(Object obj) {
+    public final void a(Object obj) {
         u uVar;
         u uVar2;
         com.baidu.tieba.im.model.h hVar;
         com.baidu.tieba.im.model.h hVar2;
         com.baidu.tieba.im.model.h hVar3;
         uVar = this.a.a;
-        uVar.m();
+        uVar.k();
         this.a.closeLoadingDialog();
         if (obj == null) {
             hVar = this.a.b;

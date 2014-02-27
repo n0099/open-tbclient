@@ -11,7 +11,7 @@ public final class BitMatrix {
     }
 
     public BitMatrix(int i, int i2) {
-        if (i < 1 || i2 < 1) {
+        if (i <= 0 || i2 <= 0) {
             throw new IllegalArgumentException("Both dimensions must be greater than 0");
         }
         this.width = i;
@@ -20,34 +20,34 @@ public final class BitMatrix {
         this.bits = new int[this.rowSize * i2];
     }
 
-    public boolean get(int i, int i2) {
+    public final boolean get(int i, int i2) {
         return ((this.bits[(this.rowSize * i2) + (i >> 5)] >>> (i & 31)) & 1) != 0;
     }
 
-    public void set(int i, int i2) {
+    public final void set(int i, int i2) {
         int i3 = (this.rowSize * i2) + (i >> 5);
         int[] iArr = this.bits;
         iArr[i3] = iArr[i3] | (1 << (i & 31));
     }
 
-    public void flip(int i, int i2) {
+    public final void flip(int i, int i2) {
         int i3 = (this.rowSize * i2) + (i >> 5);
         int[] iArr = this.bits;
         iArr[i3] = iArr[i3] ^ (1 << (i & 31));
     }
 
-    public void clear() {
+    public final void clear() {
         int length = this.bits.length;
         for (int i = 0; i < length; i++) {
             this.bits[i] = 0;
         }
     }
 
-    public void setRegion(int i, int i2, int i3, int i4) {
+    public final void setRegion(int i, int i2, int i3, int i4) {
         if (i2 < 0 || i < 0) {
             throw new IllegalArgumentException("Left and top must be nonnegative");
         }
-        if (i4 < 1 || i3 < 1) {
+        if (i4 <= 0 || i3 <= 0) {
             throw new IllegalArgumentException("Height and width must be at least 1");
         }
         int i5 = i + i3;
@@ -66,7 +66,7 @@ public final class BitMatrix {
         }
     }
 
-    public BitArray getRow(int i, BitArray bitArray) {
+    public final BitArray getRow(int i, BitArray bitArray) {
         if (bitArray == null || bitArray.getSize() < this.width) {
             bitArray = new BitArray(this.width);
         }
@@ -77,7 +77,7 @@ public final class BitMatrix {
         return bitArray;
     }
 
-    public void setRow(int i, BitArray bitArray) {
+    public final void setRow(int i, BitArray bitArray) {
         System.arraycopy(bitArray.getBitArray(), 0, this.bits, this.rowSize * i, this.rowSize);
     }
 
@@ -86,7 +86,7 @@ public final class BitMatrix {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int[] getEnclosingRectangle() {
+    public final int[] getEnclosingRectangle() {
         int i;
         int i2 = this.width;
         int i3 = this.height;
@@ -143,7 +143,7 @@ public final class BitMatrix {
         return new int[]{i4, i3, i12, i13};
     }
 
-    public int[] getTopLeftOnBit() {
+    public final int[] getTopLeftOnBit() {
         int i = 0;
         while (i < this.bits.length && this.bits[i] == 0) {
             i++;
@@ -161,7 +161,7 @@ public final class BitMatrix {
         return new int[]{i3 + i5, i2};
     }
 
-    public int[] getBottomRightOnBit() {
+    public final int[] getBottomRightOnBit() {
         int length = this.bits.length - 1;
         while (length >= 0 && this.bits[length] == 0) {
             length--;
@@ -179,15 +179,15 @@ public final class BitMatrix {
         return new int[]{i2 + i4, i};
     }
 
-    public int getWidth() {
+    public final int getWidth() {
         return this.width;
     }
 
-    public int getHeight() {
+    public final int getHeight() {
         return this.height;
     }
 
-    public boolean equals(Object obj) {
+    public final boolean equals(Object obj) {
         if (obj instanceof BitMatrix) {
             BitMatrix bitMatrix = (BitMatrix) obj;
             if (this.width == bitMatrix.width && this.height == bitMatrix.height && this.rowSize == bitMatrix.rowSize && this.bits.length == bitMatrix.bits.length) {
@@ -203,7 +203,7 @@ public final class BitMatrix {
         return false;
     }
 
-    public int hashCode() {
+    public final int hashCode() {
         int i = this.rowSize + (((((this.width * 31) + this.width) * 31) + this.height) * 31);
         for (int i2 : this.bits) {
             i = (i * 31) + i2;
@@ -211,7 +211,7 @@ public final class BitMatrix {
         return i;
     }
 
-    public String toString() {
+    public final String toString() {
         StringBuilder sb = new StringBuilder(this.height * (this.width + 1));
         for (int i = 0; i < this.height; i++) {
             for (int i2 = 0; i2 < this.width; i2++) {

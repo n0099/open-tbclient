@@ -10,9 +10,8 @@ import android.widget.TextView;
 import com.baidu.tieba.view.MultiImageView;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements View.OnClickListener {
+final class d implements View.OnClickListener {
     final /* synthetic */ GroupImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -21,7 +20,7 @@ public class d implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         ImageView imageView;
         FrameLayout frameLayout;
         boolean z;

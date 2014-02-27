@@ -8,7 +8,7 @@ import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 /* loaded from: classes.dex */
-public class e {
+public final class e {
     public Rect a;
     public Bitmap b;
     public Bundle c;
@@ -21,7 +21,7 @@ public class e {
         this.g = context;
     }
 
-    public void a(Canvas canvas) {
+    public final void a(Canvas canvas) {
         DisplayMetrics displayMetrics = this.g.getResources().getDisplayMetrics();
         this.f.set(0, 0, this.b.getScaledWidth(displayMetrics), this.b.getScaledHeight(displayMetrics));
         canvas.drawBitmap(this.b, this.f, this.a, (Paint) null);

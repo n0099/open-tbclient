@@ -9,7 +9,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class z {
+public final class z {
     private ForumData a;
     private ArrayList<com.baidu.tieba.data.az> b;
     private AntiData c;
@@ -19,32 +19,52 @@ public class z {
     private UserData g;
     private com.baidu.tieba.data.d h;
     private int i = 0;
-    private com.baidu.tieba.frs.by j = null;
-    private com.baidu.tieba.frs.bx k = null;
+    private com.baidu.tieba.frs.bz j = null;
+    private com.baidu.tieba.frs.by k = null;
     private boolean l = false;
     private ad m = null;
     private aa n = null;
     private boolean o = false;
+    private long p = 0;
+    private long q = 0;
+    private long r = 0;
+    private long s = 0;
 
-    public boolean a() {
+    public final long a() {
+        return this.s;
+    }
+
+    public final long b() {
+        return this.q;
+    }
+
+    public final long c() {
+        return this.r;
+    }
+
+    public final long d() {
+        return this.p;
+    }
+
+    public final boolean e() {
         return this.f;
     }
 
     public z() {
-        l();
+        p();
     }
 
-    private void l() {
+    private void p() {
         this.a = new ForumData();
         this.b = new ArrayList<>();
         this.d = new com.baidu.tieba.data.al();
         this.e = new com.baidu.tieba.data.y();
         this.g = new UserData();
-        a(new AntiData());
-        a(new com.baidu.tieba.data.d());
+        this.c = new AntiData();
+        this.h = new com.baidu.tieba.data.d();
     }
 
-    public void a(com.baidu.tieba.data.af afVar) {
+    public final void a(com.baidu.tieba.data.af afVar) {
         this.a.setCurScore(afVar.e());
         this.a.setLevelupScore(afVar.f());
         this.a.setLike(afVar.c());
@@ -52,66 +72,62 @@ public class z {
         this.a.setLevelName(afVar.d());
     }
 
-    public void a(SignData signData) {
+    public final void a(SignData signData) {
         this.a.setSignData(signData);
     }
 
-    public ForumData b() {
+    public final ForumData f() {
         return this.a;
     }
 
-    public ArrayList<com.baidu.tieba.data.az> c() {
+    public final ArrayList<com.baidu.tieba.data.az> g() {
         return this.b;
     }
 
-    public UserData d() {
+    public final UserData h() {
         return this.g;
     }
 
-    public void a(AntiData antiData) {
-        this.c = antiData;
-    }
-
-    public AntiData e() {
+    public final AntiData i() {
         return this.c;
     }
 
-    public com.baidu.tieba.data.al f() {
+    public final com.baidu.tieba.data.al j() {
         return this.d;
     }
 
-    public com.baidu.tieba.data.y g() {
+    public final com.baidu.tieba.data.y k() {
         return this.e;
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.l = z;
     }
 
-    public boolean h() {
+    public final boolean l() {
         return this.l;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    private void a(JSONObject jSONObject) {
         try {
-            a(jSONObject.optInt("is_new_url", 0));
+            this.i = jSONObject.optInt("is_new_url", 0);
             this.f = jSONObject.optInt("fortune_bag", 0) == 1;
             JSONObject optJSONObject = jSONObject.optJSONObject("forum");
-            l();
+            p();
             this.a.parserJson(optJSONObject);
             JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     com.baidu.tieba.data.az azVar = new com.baidu.tieba.data.az();
                     azVar.a(optJSONArray.optJSONObject(i));
-                    azVar.t();
+                    azVar.q();
                     this.b.add(azVar);
                 }
             }
@@ -125,7 +141,7 @@ public class z {
         }
     }
 
-    public void a(String str, ArrayList<BasicNameValuePair> arrayList, int i, boolean z, String str2) {
+    public final void a(String str, ArrayList<BasicNameValuePair> arrayList, int i, boolean z, String str2) {
         if (this.m != null) {
             this.m.cancel();
             this.m = null;
@@ -136,18 +152,18 @@ public class z {
         this.m.execute(str, arrayList);
     }
 
-    public void b(String str) {
+    public final void b(String str) {
         if (this.n != null) {
             this.n.cancel();
             this.n = null;
         }
-        ForumData b = b();
-        this.n = new aa(this, b.getId(), b.getName(), str);
+        ForumData forumData = this.a;
+        this.n = new aa(this, forumData.getId(), forumData.getName(), str);
         this.n.setPriority(2);
         this.n.execute(String.valueOf(com.baidu.tieba.data.i.a) + "c/c/user/fansno");
     }
 
-    public void i() {
+    public final void m() {
         if (this.m != null) {
             this.m.cancel();
             this.m = null;
@@ -158,37 +174,29 @@ public class z {
         }
     }
 
-    public void a(ab abVar) {
+    public final void a(ab abVar) {
         com.baidu.tieba.data.af afVar = new com.baidu.tieba.data.af();
         afVar.b(1);
         afVar.a(abVar.d);
         afVar.c(abVar.e);
-        afVar.e(abVar.f);
-        afVar.f(abVar.g);
+        afVar.c(abVar.f);
+        afVar.d(abVar.g);
         a(afVar);
     }
 
-    public void a(com.baidu.tieba.frs.by byVar) {
-        this.j = byVar;
+    public final void a(com.baidu.tieba.frs.bz bzVar) {
+        this.j = bzVar;
     }
 
-    public void a(com.baidu.tieba.frs.bx bxVar) {
-        this.k = bxVar;
+    public final void a(com.baidu.tieba.frs.by byVar) {
+        this.k = byVar;
     }
 
-    public int j() {
+    public final int n() {
         return this.i;
     }
 
-    public void a(int i) {
-        this.i = i;
-    }
-
-    public com.baidu.tieba.data.d k() {
+    public final com.baidu.tieba.data.d o() {
         return this.h;
-    }
-
-    public void a(com.baidu.tieba.data.d dVar) {
-        this.h = dVar;
     }
 }

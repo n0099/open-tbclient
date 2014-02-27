@@ -4,9 +4,8 @@ import android.app.Activity;
 import android.view.View;
 import com.baidu.tieba.f;
 import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements View.OnClickListener {
+final class e implements View.OnClickListener {
     final /* synthetic */ d a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,13 +14,9 @@ public class e implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Invite2GroupView invite2GroupView;
-        Invite2GroupView invite2GroupView2;
-        invite2GroupView = this.a.a;
-        if (invite2GroupView.getContext() instanceof Activity) {
-            invite2GroupView2 = this.a.a;
-            ((f) invite2GroupView2.getContext()).showToast(R.string.has_recent_join);
+    public final void onClick(View view) {
+        if (this.a.a.getContext() instanceof Activity) {
+            ((f) this.a.a.getContext()).showToast(R.string.has_recent_join);
         }
     }
 }

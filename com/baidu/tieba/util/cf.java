@@ -6,7 +6,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.pb.cs;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cf implements DialogInterface.OnClickListener {
+public final class cf implements DialogInterface.OnClickListener {
     private final /* synthetic */ Activity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,10 +15,10 @@ public class cf implements DialogInterface.OnClickListener {
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        TiebaApplication.g().aA();
+    public final void onClick(DialogInterface dialogInterface, int i) {
+        TiebaApplication.g().at();
         com.baidu.tieba.log.a.b();
-        TiebaApplication.g().bs();
+        TiebaApplication.g().bk();
         cs.a().f();
         this.a.finish();
     }

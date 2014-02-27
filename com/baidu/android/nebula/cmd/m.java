@@ -95,14 +95,14 @@ public final class m {
         }
     }
 
-    public void a(Context context, String str) {
+    public final void a(Context context, String str) {
         if (this.e || TextUtils.isEmpty(str)) {
             return;
         }
         this.f.submit(new l(this, str, context));
     }
 
-    public JSONArray b() {
+    public final JSONArray b() {
         FileReader fileReader;
         BufferedReader bufferedReader;
         BufferedReader bufferedReader2 = null;
@@ -114,8 +114,7 @@ public final class m {
         BufferedReader bufferedReader4 = null;
         JSONArray jSONArray = new JSONArray();
         if (this.b != null && this.b.exists() && this.b.length() != 0) {
-            if (this.e) {
-            }
+            boolean z = this.e;
             this.e = true;
             try {
                 fileReader = new FileReader(this.b);
@@ -124,17 +123,22 @@ public final class m {
                     while (true) {
                         try {
                             String readLine = bufferedReader.readLine();
-                            if (readLine == null) {
-                                break;
+                            if (readLine != null) {
+                                jSONArray.put(com.baidu.android.systemmonitor.security.a.b(readLine));
+                            } else {
+                                try {
+                                    break;
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
                             }
-                            jSONArray.put(com.baidu.android.systemmonitor.security.a.b(readLine));
-                        } catch (IOException e) {
+                        } catch (IOException e2) {
                             fileReader2 = fileReader;
                             if (bufferedReader != null) {
                                 try {
                                     bufferedReader.close();
-                                } catch (IOException e2) {
-                                    e2.printStackTrace();
+                                } catch (IOException e3) {
+                                    e3.printStackTrace();
                                 }
                             }
                             if (fileReader2 != null) {
@@ -142,13 +146,13 @@ public final class m {
                             }
                             this.e = false;
                             return jSONArray;
-                        } catch (Exception e3) {
+                        } catch (Exception e4) {
                             bufferedReader3 = bufferedReader;
                             if (bufferedReader3 != null) {
                                 try {
                                     bufferedReader3.close();
-                                } catch (IOException e4) {
-                                    e4.printStackTrace();
+                                } catch (IOException e5) {
+                                    e5.printStackTrace();
                                 }
                             }
                             if (fileReader != null) {
@@ -156,13 +160,13 @@ public final class m {
                             }
                             this.e = false;
                             return jSONArray;
-                        } catch (OutOfMemoryError e5) {
+                        } catch (OutOfMemoryError e6) {
                             bufferedReader4 = bufferedReader;
                             if (bufferedReader4 != null) {
                                 try {
                                     bufferedReader4.close();
-                                } catch (IOException e6) {
-                                    e6.printStackTrace();
+                                } catch (IOException e7) {
+                                    e7.printStackTrace();
                                 }
                             }
                             if (fileReader != null) {
@@ -176,8 +180,8 @@ public final class m {
                             if (bufferedReader2 != null) {
                                 try {
                                     bufferedReader2.close();
-                                } catch (IOException e7) {
-                                    e7.printStackTrace();
+                                } catch (IOException e8) {
+                                    e8.printStackTrace();
                                     throw th;
                                 }
                             }
@@ -187,13 +191,7 @@ public final class m {
                             throw th;
                         }
                     }
-                    if (bufferedReader != null) {
-                        try {
-                            bufferedReader.close();
-                        } catch (IOException e8) {
-                            e8.printStackTrace();
-                        }
-                    }
+                    bufferedReader.close();
                     if (fileReader != null) {
                         fileReader.close();
                     }
@@ -220,7 +218,7 @@ public final class m {
         return jSONArray;
     }
 
-    public void c() {
+    public final void c() {
         this.e = false;
         try {
             if (c != null) {
@@ -236,8 +234,7 @@ public final class m {
         if (this.b == null || !this.b.exists()) {
             return;
         }
-        if (this.b.delete()) {
-        }
+        this.b.delete();
         this.b = null;
     }
 }

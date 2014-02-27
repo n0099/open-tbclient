@@ -9,7 +9,7 @@ import com.baidu.tieba.person.cm;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class as extends ClickableSpan {
+public final class as extends ClickableSpan {
     final /* synthetic */ aq a;
     private String b;
     private String c;
@@ -26,9 +26,9 @@ public class as extends ClickableSpan {
     }
 
     @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-    public void updateDrawState(TextPaint textPaint) {
+    public final void updateDrawState(TextPaint textPaint) {
         if (this.d != null) {
-            if (TiebaApplication.g().al() == 1) {
+            if (TiebaApplication.g().ae() == 1) {
                 textPaint.setColor(this.d.getResources().getColor(R.color.common_link_text_1));
             } else {
                 textPaint.setColor(this.d.getResources().getColor(R.color.common_link_text));
@@ -39,7 +39,7 @@ public class as extends ClickableSpan {
     }
 
     @Override // android.text.style.ClickableSpan
-    public void onClick(View view) {
+    public final void onClick(View view) {
         if (this.b != null && this.c != null && this.d != null) {
             cm.a(this.d, this.c, this.b);
         }

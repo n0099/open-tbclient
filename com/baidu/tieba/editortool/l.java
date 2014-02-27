@@ -1,27 +1,53 @@
 package com.baidu.tieba.editortool;
 
+import android.content.Context;
+import android.graphics.Canvas;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.GridView;
-import com.baidu.tieba.data.emotions.WritableEmotionGroup;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.LinearLayout;
 /* loaded from: classes.dex */
-public class l implements AdapterView.OnItemLongClickListener {
-    final /* synthetic */ EmotionTabContentView a;
+public final class l extends LinearLayout {
+    private View a;
+    private boolean b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public l(EmotionTabContentView emotionTabContentView) {
-        this.a = emotionTabContentView;
+    public l(Context context) {
+        super(context);
     }
 
-    @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-        WritableEmotionGroup writableEmotionGroup;
-        writableEmotionGroup = this.a.b;
-        if (writableEmotionGroup.c() == WritableEmotionGroup.EmotionGroupType.BIG_EMOTION) {
-            this.a.a(i, (GridView) adapterView);
-            return true;
+    @Override // android.widget.LinearLayout, android.view.View
+    protected final void onMeasure(int i, int i2) {
+        super.onMeasure(i, i2);
+        if (this.a != null) {
+            this.a.measure(getChildMeasureSpec(i, 0, this.a.getLayoutParams().width), getChildMeasureSpec(i2, 0, this.a.getLayoutParams().height));
         }
-        return true;
+    }
+
+    @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
+    protected final void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        super.onLayout(z, i, i2, i3, i4);
+        View childAt = getChildAt(0);
+        if (this.a != null && childAt != null) {
+            int measuredWidth = childAt.getMeasuredWidth() - this.a.getMeasuredWidth();
+            this.a.layout(measuredWidth, 0, this.a.getMeasuredWidth() + measuredWidth, this.a.getMeasuredHeight());
+        }
+    }
+
+    public final void setNewView(View view) {
+        this.a = view;
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    protected final void dispatchDraw(Canvas canvas) {
+        super.dispatchDraw(canvas);
+        if (this.b) {
+            canvas.save();
+            canvas.translate(this.a.getLeft(), this.a.getTop());
+            this.a.draw(canvas);
+            canvas.restore();
+        }
+    }
+
+    public final void setNewViewVisible(boolean z) {
+        this.b = z;
+        invalidate();
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba;
 import android.location.Address;
 import android.text.TextUtils;
 /* loaded from: classes.dex */
-class as implements com.baidu.adp.lib.c.d {
+final class as implements com.baidu.adp.lib.c.d {
     final /* synthetic */ TiebaApplication a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ class as implements com.baidu.adp.lib.c.d {
     }
 
     @Override // com.baidu.adp.lib.c.d
-    public void a(int i, String str, Address address) {
+    public final void a(int i, Address address) {
         if (i == 0 && address != null) {
             try {
                 String valueOf = String.valueOf(address.getLatitude());
@@ -23,7 +23,7 @@ class as implements com.baidu.adp.lib.c.d {
                     this.a.z(address.getAddressLine(0));
                 }
             } catch (IllegalStateException e) {
-                com.baidu.adp.lib.util.f.b(e.getMessage());
+                com.baidu.adp.lib.util.e.b(e.getMessage());
             }
         }
     }

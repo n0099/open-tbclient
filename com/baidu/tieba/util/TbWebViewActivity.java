@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.ViewGroup;
 import android.webkit.URLUtil;
-import android.webkit.WebView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -45,7 +44,7 @@ public class TbWebViewActivity extends com.baidu.tieba.f implements com.baidu.ti
 
     @Override // com.baidu.tieba.f
     public boolean getGpuSwitch() {
-        return TiebaApplication.g().u();
+        return TiebaApplication.g().p();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -65,14 +64,6 @@ public class TbWebViewActivity extends com.baidu.tieba.f implements com.baidu.ti
             BdUtilHelper.a((Context) this, getResources().getString(R.string.url_is_null));
             return;
         }
-        b();
-        if (this.f) {
-            UtilHelper.c(this);
-        }
-        c();
-    }
-
-    private void b() {
         this.h = (RelativeLayout) findViewById(R.id.parent);
         this.r = (NavigationBar) findViewById(R.id.view_navigation_bar);
         if (this.b) {
@@ -89,14 +80,14 @@ public class TbWebViewActivity extends com.baidu.tieba.f implements com.baidu.ti
         this.k = (LinearLayout) findViewById(R.id.webview_container);
         this.l = (TextView) this.k.findViewById(R.id.webview_crash_tip);
         this.j = (ProgressBar) findViewById(R.id.webview_progress);
-        if (e()) {
+        if (c()) {
             this.l.setVisibility(8);
         } else {
             this.l.setVisibility(0);
         }
-    }
-
-    private void c() {
+        if (this.f) {
+            UtilHelper.c(this);
+        }
         if (!bs.c(this.d)) {
             if (this.d.indexOf("_client_version") < 0) {
                 if (bs.c(Uri.parse(this.d).getQuery())) {
@@ -112,16 +103,16 @@ public class TbWebViewActivity extends com.baidu.tieba.f implements com.baidu.ti
         this.p.postDelayed(this.q, 500L);
     }
 
-    public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, HashMap<String, ca> hashMap) {
+    private static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, HashMap<String, ca> hashMap) {
         Intent intent = new Intent(context, TbWebViewActivity.class);
         intent.putExtra("tag_title", str);
         intent.putExtra("tag_url", str2);
         intent.putExtra("tag_navigation_bar", true);
-        intent.putExtra("tag_back", z);
+        intent.putExtra("tag_back", true);
         intent.putExtra("tag_refresh", z2);
         intent.putExtra("tag_cookie", z3);
-        intent.putExtra("tag_enable_js", z4);
-        a = hashMap;
+        intent.putExtra("tag_enable_js", false);
+        a = null;
         if (!(context instanceof Activity)) {
             intent.addFlags(268435456);
         }
@@ -132,9 +123,9 @@ public class TbWebViewActivity extends com.baidu.tieba.f implements com.baidu.ti
         Intent intent = new Intent(context, TbWebViewActivity.class);
         intent.putExtra("tag_url", str);
         intent.putExtra("tag_navigation_bar", false);
-        intent.putExtra("tag_cookie", z);
+        intent.putExtra("tag_cookie", true);
         intent.putExtra("tag_enable_js", true);
-        a = hashMap;
+        a = null;
         if (!(context instanceof Activity)) {
             intent.addFlags(268435456);
         }
@@ -142,7 +133,7 @@ public class TbWebViewActivity extends com.baidu.tieba.f implements com.baidu.ti
     }
 
     public static void a(Context context, String str, String str2, boolean z) {
-        a(context, str, str2, true, z, true, false, null);
+        a(context, str, str2, true, false, true, false, null);
     }
 
     public static void a(Context context, String str, String str2) {
@@ -162,12 +153,12 @@ public class TbWebViewActivity extends com.baidu.tieba.f implements com.baidu.ti
             bq.a(this.i, i);
         }
         if (this.r != null && this.r.getVisibility() == 0) {
-            this.r.c(i);
+            this.r.b(i);
         }
     }
 
     @Override // com.baidu.tieba.view.e
-    public boolean a(WebView webView, String str) {
+    public final boolean a(String str) {
         if (bs.c(str)) {
             return false;
         }
@@ -179,7 +170,7 @@ public class TbWebViewActivity extends com.baidu.tieba.f implements com.baidu.ti
         return true;
     }
 
-    private void d() {
+    private void b() {
         if (a == null) {
             a = new HashMap<>();
         }
@@ -191,11 +182,11 @@ public class TbWebViewActivity extends com.baidu.tieba.f implements com.baidu.ti
         }
     }
 
-    private boolean e() {
+    private boolean c() {
         if (this.i == null) {
             try {
                 this.i = new BaseWebView(this);
-                bq.a(this.i, TiebaApplication.g().al());
+                bq.a(this.i, TiebaApplication.g().ae());
                 this.i.getSettings().setJavaScriptEnabled(true);
                 this.i.setOnLoadUrlListener(this);
                 this.i.setHorizontalScrollBarEnabled(false);
@@ -206,19 +197,19 @@ public class TbWebViewActivity extends com.baidu.tieba.f implements com.baidu.ti
                 this.i.setWebChromeClient(new bz(this));
                 this.k.addView(this.i);
                 if (this.n) {
-                    d();
+                    b();
                     return true;
                 }
                 return true;
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "", "TbWebViewActivity.createWebView error = " + e.getMessage());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "", "TbWebViewActivity.createWebView error = " + e.getMessage());
                 return false;
             }
         }
         return true;
     }
 
-    public void a() {
+    public final void a() {
         this.l.setVisibility(8);
         if (!this.m) {
             this.m = true;
@@ -237,7 +228,7 @@ public class TbWebViewActivity extends com.baidu.tieba.f implements com.baidu.ti
         boolean z;
         super.onResume();
         String str3 = "";
-        com.baidu.tieba.account.o a2 = com.baidu.tieba.account.a.a(TiebaApplication.D());
+        com.baidu.tieba.account.o a2 = com.baidu.tieba.account.a.a(TiebaApplication.x());
         if (a2 != null) {
             if (a2.a != null) {
                 str3 = a2.a;
@@ -277,6 +268,6 @@ public class TbWebViewActivity extends com.baidu.tieba.f implements com.baidu.ti
         if (this.p != null) {
             this.p.removeCallbacks(this.q);
         }
-        TiebaApplication.g().b((com.baidu.tieba.f) this);
+        TiebaApplication.g().b(this);
     }
 }

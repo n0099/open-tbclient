@@ -2,7 +2,7 @@ package com.baidu.tieba.log;
 
 import android.text.TextUtils;
 /* loaded from: classes.dex */
-public class g {
+public final class g {
     private static String a = "";
     private static boolean b = false;
 
@@ -10,14 +10,10 @@ public class g {
         if (loggerItem == null) {
             return false;
         }
-        return a(loggerItem.getType());
+        return com.baidu.adp.lib.a.d.a().b(loggerItem.getType()) == 0;
     }
 
-    public static boolean a(String str) {
-        return com.baidu.adp.lib.a.d.a().b(str) == 0;
-    }
-
-    public static String b(String str) {
+    public static String a(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
@@ -28,7 +24,7 @@ public class g {
         try {
             a = com.baidu.adp.lib.stats.f.a().b();
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.e(e.getMessage());
+            com.baidu.adp.lib.util.e.e(e.getMessage());
         }
     }
 

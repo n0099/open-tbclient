@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class az {
+public final class az {
     private int b = 0;
     private boolean c = false;
     private String d = null;
@@ -12,53 +12,53 @@ public class az {
     private int f = 0;
     private ArrayList<ba> a = new ArrayList<>();
 
-    public void a(String str) {
+    public final void a(String str) {
         this.d = str;
     }
 
-    public String a() {
+    public final String a() {
         return this.d;
     }
 
-    public int b() {
+    public final int b() {
         return this.f;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.f = i;
     }
 
-    public boolean c() {
+    public final boolean c() {
         return this.e;
     }
 
-    public ArrayList<ba> d() {
+    public final ArrayList<ba> d() {
         return this.a;
     }
 
-    public void e() {
+    public final void e() {
         this.a.clear();
         this.b = 0;
         this.c = false;
     }
 
-    public int f() {
+    public final int f() {
         return this.b;
     }
 
-    public boolean g() {
+    public final boolean g() {
         return this.c;
     }
 
-    public void b(String str) {
+    public final void b(String str) {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("MyPostModel", "parserJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.util.e.b("MyPostModel", "parserJson", "error = " + e.getMessage());
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    private void a(JSONObject jSONObject) {
         try {
             if (this.d != null) {
                 this.e = jSONObject.optInt("hide_post", 0) == 0;
@@ -107,7 +107,7 @@ public class az {
             }
             this.c = false;
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("MyPostModel", "parserJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.util.e.b("MyPostModel", "parserJson", "error = " + e.getMessage());
         }
     }
 }

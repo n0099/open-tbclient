@@ -5,11 +5,9 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import protobuf.CommitGroupMsg.CommitGroupMsgReq;
 /* loaded from: classes.dex */
-class d extends AbstractParser<CommitGroupMsgReq.DataReq> {
-    /* JADX DEBUG: Method merged with bridge method */
+final class d extends AbstractParser<CommitGroupMsgReq.DataReq> {
     @Override // com.google.protobuf.Parser
-    /* renamed from: a */
-    public CommitGroupMsgReq.DataReq parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
+    public final /* synthetic */ Object parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
         return new CommitGroupMsgReq.DataReq(codedInputStream, extensionRegistryLite, null);
     }
 }

@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 /* loaded from: classes.dex */
-public class af {
+public final class af {
     public static final File a = Environment.getExternalStorageDirectory();
     private static final File b = TiebaApplication.g().b().getCacheDir();
 
@@ -64,7 +64,7 @@ public class af {
             try {
                 return new File(new StringBuilder().append(a).append("/").append(com.baidu.tieba.data.i.k()).append("/").append(str).toString()).exists();
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b("FileHelper", "CheckFile", "error = " + e.getMessage());
+                com.baidu.adp.lib.util.e.b("FileHelper", "CheckFile", "error = " + e.getMessage());
                 cb.a(e, "FileHelper.CheckFile " + str);
                 return false;
             }
@@ -80,7 +80,7 @@ public class af {
                 }
                 return -1L;
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b("FileHelper", "CheckFile", "error = " + e.getMessage());
+                com.baidu.adp.lib.util.e.b("FileHelper", "CheckFile", "error = " + e.getMessage());
                 cb.a(e, "FileHelper.checkImageFileSize " + str + "/" + str2);
                 return -1L;
             }
@@ -104,7 +104,7 @@ public class af {
                 }
                 return null;
             } catch (SecurityException e) {
-                com.baidu.adp.lib.util.f.b("FileHelper", "GetFile", "error = " + e.getMessage());
+                com.baidu.adp.lib.util.e.b("FileHelper", "GetFile", "error = " + e.getMessage());
                 cb.a(e, "FileHelper.GetFile" + str);
                 return null;
             }
@@ -131,7 +131,7 @@ public class af {
                 }
                 return null;
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b("FileHelper", "CreateFile", "error = " + e.getMessage());
+                com.baidu.adp.lib.util.e.b("FileHelper", "CreateFile", "error = " + e.getMessage());
                 cb.a(e, "FileHelper.CreateFile " + str);
                 return null;
             }
@@ -151,7 +151,7 @@ public class af {
                 }
                 return null;
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b("FileHelper", "CreateFileIfNotFound", "error = " + e.getMessage());
+                com.baidu.adp.lib.util.e.b("FileHelper", "CreateFileIfNotFound", "error = " + e.getMessage());
                 cb.a(e, "FileHelper.CreateFileIfNotFound " + str);
                 return null;
             }
@@ -159,13 +159,13 @@ public class af {
         return null;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [409=4, 410=4, 412=4, 413=4, 414=4] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x016c */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [409=4] */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:37:0x0143 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x0125 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r2v4, types: [java.lang.StringBuilder] */
-    /* JADX WARN: Type inference failed for: r2v5 */
-    /* JADX WARN: Type inference failed for: r2v8, types: [java.io.InputStream] */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x011e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r2v0, types: [java.lang.StringBuilder] */
+    /* JADX WARN: Type inference failed for: r2v1 */
+    /* JADX WARN: Type inference failed for: r2v4, types: [java.io.InputStream] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -174,7 +174,6 @@ public class af {
         IOException e;
         boolean z;
         FileNotFoundException e2;
-        FileInputStream fileInputStream2 = null;
         ?? sb = new StringBuilder(String.valueOf(str != null ? a + "/" + com.baidu.tieba.data.i.k() + "/" + str + "/" : a + "/" + com.baidu.tieba.data.i.k() + "/"));
         try {
             try {
@@ -182,52 +181,40 @@ public class af {
                 try {
                     byte[] bArr = new byte[7];
                     z = fileInputStream.read(bArr, 0, 6) == 6 ? BdUtilHelper.a(bArr) : false;
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (FileNotFoundException e3) {
-                            e2 = e3;
-                            e2.printStackTrace();
-                            cb.a(e2, "FileHelper.isGif " + str + "/" + str2);
-                            if (fileInputStream != null) {
-                                try {
-                                    fileInputStream.close();
-                                } catch (Exception e4) {
-                                    e4.printStackTrace();
-                                    cb.a(e4, "FileHelper.isGif " + str + "/" + str2);
-                                }
+                    try {
+                        fileInputStream.close();
+                    } catch (FileNotFoundException e3) {
+                        e2 = e3;
+                        e2.printStackTrace();
+                        cb.a(e2, "FileHelper.isGif " + str + "/" + str2);
+                        if (fileInputStream != null) {
+                            try {
+                                fileInputStream.close();
+                            } catch (Exception e4) {
+                                e4.printStackTrace();
+                                cb.a(e4, "FileHelper.isGif " + str + "/" + str2);
                             }
-                            return z;
-                        } catch (IOException e5) {
-                            e = e5;
-                            e.printStackTrace();
-                            cb.a(e, "FileHelper.isGif " + str + "/" + str2);
-                            if (fileInputStream != null) {
-                                try {
-                                    fileInputStream.close();
-                                } catch (Exception e6) {
-                                    e6.printStackTrace();
-                                    cb.a(e6, "FileHelper.isGif " + str + "/" + str2);
-                                }
+                        }
+                        return z;
+                    } catch (IOException e5) {
+                        e = e5;
+                        e.printStackTrace();
+                        cb.a(e, "FileHelper.isGif " + str + "/" + str2);
+                        if (fileInputStream != null) {
+                            try {
+                                fileInputStream.close();
+                            } catch (Exception e6) {
+                                e6.printStackTrace();
+                                cb.a(e6, "FileHelper.isGif " + str + "/" + str2);
                             }
-                            return z;
                         }
-                    } else {
-                        fileInputStream2 = fileInputStream;
+                        return z;
                     }
-                    if (fileInputStream2 != null) {
-                        try {
-                            fileInputStream2.close();
-                        } catch (Exception e7) {
-                            e7.printStackTrace();
-                            cb.a(e7, "FileHelper.isGif " + str + "/" + str2);
-                        }
-                    }
-                } catch (FileNotFoundException e8) {
-                    e2 = e8;
+                } catch (FileNotFoundException e7) {
+                    e2 = e7;
                     z = false;
-                } catch (IOException e9) {
-                    e = e9;
+                } catch (IOException e8) {
+                    e = e8;
                     z = false;
                 }
             } catch (Throwable th) {
@@ -235,20 +222,20 @@ public class af {
                 if (sb != 0) {
                     try {
                         sb.close();
-                    } catch (Exception e10) {
-                        e10.printStackTrace();
-                        cb.a(e10, "FileHelper.isGif " + str + "/" + str2);
+                    } catch (Exception e9) {
+                        e9.printStackTrace();
+                        cb.a(e9, "FileHelper.isGif " + str + "/" + str2);
                     }
                 }
                 throw th;
             }
-        } catch (FileNotFoundException e11) {
+        } catch (FileNotFoundException e10) {
             fileInputStream = null;
-            e2 = e11;
+            e2 = e10;
             z = false;
-        } catch (IOException e12) {
+        } catch (IOException e11) {
             fileInputStream = null;
-            e = e12;
+            e = e11;
             z = false;
         } catch (Throwable th2) {
             th = th2;
@@ -284,7 +271,7 @@ public class af {
             }
             return null;
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("FileHelper", "SaveFile", e.getMessage());
+            com.baidu.adp.lib.util.e.b("FileHelper", "SaveFile", e.getMessage());
             cb.a(e, "FileHelper.SaveFile1 " + str + "/" + str2);
             return null;
         }
@@ -343,23 +330,20 @@ public class af {
     }
 
     public static String a(String str, byte[] bArr, int i) {
-        return a() ? a((String) null, a(str, i, false), bArr) : a(i, str, bArr);
+        return a() ? a((String) null, a(str, 1, false), bArr) : a(1, str, bArr);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [586=5, 587=5, 589=5, 590=10, 591=5, 592=5] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:59:0x0241 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:61:0x0243 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:64:0x008f */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [587=5, 590=4] */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:45:0x0179 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:47:0x017b */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:52:0x008e */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:74:0x0201 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x0139 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r2v10, types: [java.io.FileOutputStream] */
     /* JADX WARN: Type inference failed for: r2v17 */
     /* JADX WARN: Type inference failed for: r2v26 */
-    /* JADX WARN: Type inference failed for: r2v30, types: [java.io.FileOutputStream] */
-    /* JADX WARN: Type inference failed for: r2v50, types: [java.io.File] */
-    /* JADX WARN: Type inference failed for: r2v54 */
-    /* JADX WARN: Type inference failed for: r2v57 */
-    /* JADX WARN: Type inference failed for: r2v59 */
+    /* JADX WARN: Type inference failed for: r2v28, types: [java.io.File] */
+    /* JADX WARN: Type inference failed for: r2v34 */
     /* JADX WARN: Type inference failed for: r2v7 */
     /* JADX WARN: Type inference failed for: r2v8 */
     /*
@@ -374,7 +358,7 @@ public class af {
         }
         File file = new File(String.valueOf(str3) + str2);
         String parent = file.getParent();
-        boolean a2 = com.baidu.adp.lib.util.m.a(parent);
+        boolean a2 = com.baidu.adp.lib.util.k.a(parent);
         FileOutputStream fileOutputStream2 = a2;
         if (!a2) {
             ?? file2 = new File(parent);
@@ -385,7 +369,6 @@ public class af {
                 fileOutputStream2 = file2;
             }
         }
-        FileOutputStream fileOutputStream3 = null;
         try {
             try {
             } catch (Throwable th) {
@@ -394,7 +377,7 @@ public class af {
                     try {
                         fileOutputStream2.close();
                     } catch (Throwable th2) {
-                        com.baidu.adp.lib.util.f.b("FileHelper", "SaveFile", "error = " + th2.getMessage());
+                        com.baidu.adp.lib.util.e.b("FileHelper", "SaveFile", "error = " + th2.getMessage());
                         cb.a(th2.getMessage(), "FileHelper.SaveFile2 " + str + "/" + str2);
                     }
                 }
@@ -410,67 +393,37 @@ public class af {
             }
             throw th;
         }
-        if (file.exists() && !file.delete()) {
-            if (0 != 0) {
-                try {
-                    fileOutputStream3.close();
-                } catch (Throwable th4) {
-                    com.baidu.adp.lib.util.f.b("FileHelper", "SaveFile", "error = " + th4.getMessage());
-                    cb.a(th4.getMessage(), "FileHelper.SaveFile2 " + str + "/" + str2);
-                }
-            }
-            return null;
-        } else if (!file.createNewFile()) {
-            if (0 != 0) {
-                try {
-                    fileOutputStream3.close();
-                } catch (Throwable th5) {
-                    com.baidu.adp.lib.util.f.b("FileHelper", "SaveFile", "error = " + th5.getMessage());
-                    cb.a(th5.getMessage(), "FileHelper.SaveFile2 " + str + "/" + str2);
-                }
-            }
-            return null;
-        } else {
+        if ((!file.exists() || file.delete()) && file.createNewFile()) {
             fileOutputStream = new FileOutputStream(file);
             try {
                 fileOutputStream.write(bArr, 0, bArr.length);
                 fileOutputStream.flush();
                 fileOutputStream.close();
-                fileOutputStream2 = 0;
-                fileOutputStream2 = 0;
                 str4 = file.getPath();
-                if (0 != 0) {
-                    try {
-                        fileOutputStream2.close();
-                    } catch (Throwable th6) {
-                        com.baidu.adp.lib.util.f.b("FileHelper", "SaveFile", "error = " + th6.getMessage());
-                        String str5 = "FileHelper.SaveFile2 " + str + "/" + str2;
-                        cb.a(th6.getMessage(), str5);
-                        fileOutputStream2 = str5;
-                    }
-                }
+                fileOutputStream2 = fileOutputStream;
             } catch (IOException e2) {
                 e = e2;
-                com.baidu.adp.lib.util.f.b("FileHelper", "SaveFile", "error = " + e.getMessage());
+                com.baidu.adp.lib.util.e.b("FileHelper", "SaveFile", "error = " + e.getMessage());
                 cb.a(e, "FileHelper.SaveFile2 " + str + "/" + str2);
-                String str6 = fileOutputStream;
+                String str5 = fileOutputStream;
                 if (fileOutputStream != null) {
                     try {
                         fileOutputStream.close();
-                        str6 = fileOutputStream;
-                    } catch (Throwable th7) {
-                        com.baidu.adp.lib.util.f.b("FileHelper", "SaveFile", "error = " + th7.getMessage());
-                        String str7 = "FileHelper.SaveFile2 " + str + "/" + str2;
-                        cb.a(th7.getMessage(), str7);
-                        str6 = str7;
+                        str5 = fileOutputStream;
+                    } catch (Throwable th4) {
+                        com.baidu.adp.lib.util.e.b("FileHelper", "SaveFile", "error = " + th4.getMessage());
+                        String str6 = "FileHelper.SaveFile2 " + str + "/" + str2;
+                        cb.a(th4.getMessage(), str6);
+                        str5 = str6;
                     }
                 }
                 str4 = null;
-                fileOutputStream2 = str6;
+                fileOutputStream2 = str5;
                 return str4;
             }
             return str4;
         }
+        return null;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [646=5] */
@@ -490,7 +443,7 @@ public class af {
         }
         File file = new File(String.valueOf(str3) + str2);
         String parent = file.getParent();
-        boolean a2 = com.baidu.adp.lib.util.m.a(parent);
+        boolean a2 = com.baidu.adp.lib.util.k.a(parent);
         ?? r2 = a2;
         if (!a2) {
             File file2 = new File(parent);
@@ -525,7 +478,7 @@ public class af {
                         }
                     } catch (IOException e) {
                         e = e;
-                        com.baidu.adp.lib.util.f.b("FileHelper", "SaveFile", "error = " + e.getMessage());
+                        com.baidu.adp.lib.util.e.b("FileHelper", "SaveFile", "error = " + e.getMessage());
                         cb.a(e, "FileHelper.saveFile " + str + "/" + str2);
                         r.a((OutputStream) fileOutputStream);
                         return null;
@@ -559,25 +512,23 @@ public class af {
         }
         File file = new File(String.valueOf(str3) + str2);
         try {
-            if (file.exists()) {
-                FileInputStream fileInputStream = new FileInputStream(file);
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
-                byte[] bArr = new byte[1024];
-                while (true) {
-                    int read = fileInputStream.read(bArr, 0, 1024);
-                    if (read == -1) {
-                        break;
-                    }
-                    byteArrayOutputStream.write(bArr, 0, read);
-                }
-                if (fileInputStream != null) {
-                    fileInputStream.close();
-                }
-                return byteArrayOutputStream.toByteArray();
+            if (!file.exists()) {
+                return null;
             }
-            return null;
+            FileInputStream fileInputStream = new FileInputStream(file);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
+            byte[] bArr = new byte[1024];
+            while (true) {
+                int read = fileInputStream.read(bArr, 0, 1024);
+                if (read != -1) {
+                    byteArrayOutputStream.write(bArr, 0, read);
+                } else {
+                    fileInputStream.close();
+                    return byteArrayOutputStream.toByteArray();
+                }
+            }
         } catch (IOException e) {
-            com.baidu.adp.lib.util.f.b("FileHelper", "GetFileData", "error = " + e.getMessage());
+            com.baidu.adp.lib.util.e.b("FileHelper", "GetFileData", "error = " + e.getMessage());
             cb.a(e, "FileHelper.GetFileData " + str + "/" + str2);
             return null;
         }
@@ -595,248 +546,165 @@ public class af {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [733=4, 734=4, 736=4, 737=4, 738=4, 741=4, 742=4, 744=4, 745=4, 746=4] */
-    public static boolean a(java.lang.String r8, java.lang.String r9, boolean r10) {
+    public static boolean a(java.lang.String r7, java.lang.String r8, boolean r9) {
         /*
-            r0 = 0
             r3 = 0
-            r1 = 0
-            r2 = 0
-            java.lang.String r4 = b(r8, r10)
-            java.lang.String r5 = b(r9, r10)
-            java.io.File r6 = new java.io.File     // Catch: java.lang.Throwable -> L212
-            r6.<init>(r4)     // Catch: java.lang.Throwable -> L212
-            java.io.File r7 = new java.io.File     // Catch: java.lang.Throwable -> L212
-            r7.<init>(r5)     // Catch: java.lang.Throwable -> L212
-            boolean r4 = r6.exists()     // Catch: java.lang.Throwable -> L212
-            if (r4 != 0) goto L81
-            if (r3 == 0) goto L21
-            r1.close()     // Catch: java.lang.Throwable -> L27
-        L21:
-            if (r3 == 0) goto L26
-            r2.close()     // Catch: java.lang.Throwable -> L54
-        L26:
+            r0 = 0
+            java.lang.String r1 = b(r7, r9)
+            java.lang.String r2 = b(r8, r9)
+            java.io.File r5 = new java.io.File     // Catch: java.lang.Throwable -> L13f
+            r5.<init>(r1)     // Catch: java.lang.Throwable -> L13f
+            java.io.File r1 = new java.io.File     // Catch: java.lang.Throwable -> L13f
+            r1.<init>(r2)     // Catch: java.lang.Throwable -> L13f
+            boolean r2 = r5.exists()     // Catch: java.lang.Throwable -> L13f
+            if (r2 != 0) goto L1b
+        L1a:
             return r0
-        L27:
-            r1 = move-exception
-            java.lang.String r4 = "FileHelper"
-            java.lang.String r5 = "CopyFile"
-            java.lang.String r6 = r1.toString()
-            com.baidu.adp.lib.util.f.b(r4, r5, r6)
-            java.lang.String r1 = r1.getMessage()
-            java.lang.StringBuilder r4 = new java.lang.StringBuilder
-            java.lang.String r5 = "FileHelper.CopyFile "
-            r4.<init>(r5)
-            java.lang.StringBuilder r4 = r4.append(r8)
-            java.lang.String r5 = " to "
-            java.lang.StringBuilder r4 = r4.append(r5)
-            java.lang.StringBuilder r4 = r4.append(r9)
-            java.lang.String r4 = r4.toString()
-            com.baidu.tieba.util.cb.a(r1, r4)
-            goto L21
-        L54:
-            r1 = move-exception
-            java.lang.String r2 = "FileHelper"
-            java.lang.String r3 = "CopyFile"
-            java.lang.String r4 = r1.toString()
-            com.baidu.adp.lib.util.f.b(r2, r3, r4)
-            java.lang.String r1 = r1.getMessage()
-            java.lang.StringBuilder r2 = new java.lang.StringBuilder
-            java.lang.String r3 = "FileHelper.CopyFile "
-            r2.<init>(r3)
-            java.lang.StringBuilder r2 = r2.append(r8)
-            java.lang.String r3 = " to "
-            java.lang.StringBuilder r2 = r2.append(r3)
-            java.lang.StringBuilder r2 = r2.append(r9)
-            java.lang.String r2 = r2.toString()
-            com.baidu.tieba.util.cb.a(r1, r2)
-            goto L26
-        L81:
-            java.io.FileInputStream r4 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> L212
-            r4.<init>(r6)     // Catch: java.lang.Throwable -> L212
-            java.io.FileOutputStream r2 = new java.io.FileOutputStream     // Catch: java.lang.Throwable -> L216
-            r2.<init>(r7)     // Catch: java.lang.Throwable -> L216
+        L1b:
+            java.io.FileInputStream r4 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> L13f
+            r4.<init>(r5)     // Catch: java.lang.Throwable -> L13f
+            java.io.FileOutputStream r2 = new java.io.FileOutputStream     // Catch: java.lang.Throwable -> L143
+            r2.<init>(r1)     // Catch: java.lang.Throwable -> L143
             r1 = 1024(0x400, float:1.435E-42)
-            byte[] r1 = new byte[r1]     // Catch: java.lang.Throwable -> Ldd
-        L8f:
-            int r5 = r4.read(r1)     // Catch: java.lang.Throwable -> Ldd
-            if (r5 > 0) goto Ld8
-            r4.close()     // Catch: java.lang.Throwable -> Ldd
-            r1 = 0
-            r2.close()     // Catch: java.lang.Throwable -> L21b
-            r2 = 0
+            byte[] r1 = new byte[r1]     // Catch: java.lang.Throwable -> L3c
+        L29:
+            int r5 = r4.read(r1)     // Catch: java.lang.Throwable -> L3c
+            if (r5 > 0) goto L37
+            r4.close()     // Catch: java.lang.Throwable -> L3c
+            r2.close()     // Catch: java.lang.Throwable -> L148
             r0 = 1
-            if (r3 == 0) goto La3
-            r1.close()     // Catch: java.lang.Throwable -> L1d8
-        La3:
-            if (r3 == 0) goto L26
-            r2.close()     // Catch: java.lang.Throwable -> Laa
-            goto L26
-        Laa:
-            r1 = move-exception
-            java.lang.String r2 = "FileHelper"
-            java.lang.String r3 = "CopyFile"
-            java.lang.String r4 = r1.toString()
-            com.baidu.adp.lib.util.f.b(r2, r3, r4)
-            java.lang.String r1 = r1.getMessage()
-            java.lang.StringBuilder r2 = new java.lang.StringBuilder
-            java.lang.String r3 = "FileHelper.CopyFile "
-            r2.<init>(r3)
-            java.lang.StringBuilder r2 = r2.append(r8)
-            java.lang.String r3 = " to "
-            java.lang.StringBuilder r2 = r2.append(r3)
-            java.lang.StringBuilder r2 = r2.append(r9)
-            java.lang.String r2 = r2.toString()
-            com.baidu.tieba.util.cb.a(r1, r2)
-            goto L26
-        Ld8:
+            goto L1a
+        L37:
             r6 = 0
-            r2.write(r1, r6, r5)     // Catch: java.lang.Throwable -> Ldd
-            goto L8f
-        Ldd:
+            r2.write(r1, r6, r5)     // Catch: java.lang.Throwable -> L3c
+            goto L29
+        L3c:
             r1 = move-exception
             r3 = r4
-        Ldf:
+        L3e:
             java.lang.String r4 = "FileHelper"
             java.lang.String r5 = "CopyFile"
-            java.lang.String r6 = r1.toString()     // Catch: java.lang.Throwable -> L20f
-            com.baidu.adp.lib.util.f.b(r4, r5, r6)     // Catch: java.lang.Throwable -> L20f
-            java.lang.String r1 = r1.getMessage()     // Catch: java.lang.Throwable -> L20f
-            java.lang.StringBuilder r4 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L20f
+            java.lang.String r6 = r1.toString()     // Catch: java.lang.Throwable -> L13d
+            com.baidu.adp.lib.util.e.b(r4, r5, r6)     // Catch: java.lang.Throwable -> L13d
+            java.lang.String r1 = r1.getMessage()     // Catch: java.lang.Throwable -> L13d
+            java.lang.StringBuilder r4 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L13d
             java.lang.String r5 = "FileHelper.CopyFile "
-            r4.<init>(r5)     // Catch: java.lang.Throwable -> L20f
-            java.lang.StringBuilder r4 = r4.append(r8)     // Catch: java.lang.Throwable -> L20f
+            r4.<init>(r5)     // Catch: java.lang.Throwable -> L13d
+            java.lang.StringBuilder r4 = r4.append(r7)     // Catch: java.lang.Throwable -> L13d
             java.lang.String r5 = " to "
-            java.lang.StringBuilder r4 = r4.append(r5)     // Catch: java.lang.Throwable -> L20f
-            java.lang.StringBuilder r4 = r4.append(r9)     // Catch: java.lang.Throwable -> L20f
-            java.lang.String r4 = r4.toString()     // Catch: java.lang.Throwable -> L20f
-            com.baidu.tieba.util.cb.a(r1, r4)     // Catch: java.lang.Throwable -> L20f
-            if (r3 == 0) goto L10f
-            r3.close()     // Catch: java.lang.Throwable -> L144
-        L10f:
-            if (r2 == 0) goto L26
-            r2.close()     // Catch: java.lang.Throwable -> L116
-            goto L26
-        L116:
+            java.lang.StringBuilder r4 = r4.append(r5)     // Catch: java.lang.Throwable -> L13d
+            java.lang.StringBuilder r4 = r4.append(r8)     // Catch: java.lang.Throwable -> L13d
+            java.lang.String r4 = r4.toString()     // Catch: java.lang.Throwable -> L13d
+            com.baidu.tieba.util.cb.a(r1, r4)     // Catch: java.lang.Throwable -> L13d
+            if (r3 == 0) goto L6e
+            r3.close()     // Catch: java.lang.Throwable -> La2
+        L6e:
+            if (r2 == 0) goto L1a
+            r2.close()     // Catch: java.lang.Throwable -> L74
+            goto L1a
+        L74:
             r1 = move-exception
             java.lang.String r2 = "FileHelper"
             java.lang.String r3 = "CopyFile"
             java.lang.String r4 = r1.toString()
-            com.baidu.adp.lib.util.f.b(r2, r3, r4)
+            com.baidu.adp.lib.util.e.b(r2, r3, r4)
             java.lang.String r1 = r1.getMessage()
             java.lang.StringBuilder r2 = new java.lang.StringBuilder
             java.lang.String r3 = "FileHelper.CopyFile "
             r2.<init>(r3)
-            java.lang.StringBuilder r2 = r2.append(r8)
+            java.lang.StringBuilder r2 = r2.append(r7)
             java.lang.String r3 = " to "
             java.lang.StringBuilder r2 = r2.append(r3)
-            java.lang.StringBuilder r2 = r2.append(r9)
+            java.lang.StringBuilder r2 = r2.append(r8)
             java.lang.String r2 = r2.toString()
             com.baidu.tieba.util.cb.a(r1, r2)
-            goto L26
-        L144:
+            goto L1a
+        La2:
             r1 = move-exception
             java.lang.String r3 = "FileHelper"
             java.lang.String r4 = "CopyFile"
             java.lang.String r5 = r1.toString()
-            com.baidu.adp.lib.util.f.b(r3, r4, r5)
+            com.baidu.adp.lib.util.e.b(r3, r4, r5)
             java.lang.String r1 = r1.getMessage()
             java.lang.StringBuilder r3 = new java.lang.StringBuilder
             java.lang.String r4 = "FileHelper.CopyFile "
             r3.<init>(r4)
-            java.lang.StringBuilder r3 = r3.append(r8)
+            java.lang.StringBuilder r3 = r3.append(r7)
             java.lang.String r4 = " to "
             java.lang.StringBuilder r3 = r3.append(r4)
-            java.lang.StringBuilder r3 = r3.append(r9)
+            java.lang.StringBuilder r3 = r3.append(r8)
             java.lang.String r3 = r3.toString()
             com.baidu.tieba.util.cb.a(r1, r3)
-            goto L10f
-        L171:
+            goto L6e
+        Lcf:
             r0 = move-exception
             r2 = r3
-        L173:
-            if (r3 == 0) goto L178
-            r3.close()     // Catch: java.lang.Throwable -> L17e
-        L178:
-            if (r2 == 0) goto L17d
-            r2.close()     // Catch: java.lang.Throwable -> L1ab
-        L17d:
+        Ld1:
+            if (r3 == 0) goto Ld6
+            r3.close()     // Catch: java.lang.Throwable -> Ldc
+        Ld6:
+            if (r2 == 0) goto Ldb
+            r2.close()     // Catch: java.lang.Throwable -> L109
+        Ldb:
             throw r0
-        L17e:
+        Ldc:
             r1 = move-exception
             java.lang.String r3 = "FileHelper"
             java.lang.String r4 = "CopyFile"
             java.lang.String r5 = r1.toString()
-            com.baidu.adp.lib.util.f.b(r3, r4, r5)
+            com.baidu.adp.lib.util.e.b(r3, r4, r5)
             java.lang.String r1 = r1.getMessage()
             java.lang.StringBuilder r3 = new java.lang.StringBuilder
             java.lang.String r4 = "FileHelper.CopyFile "
             r3.<init>(r4)
-            java.lang.StringBuilder r3 = r3.append(r8)
+            java.lang.StringBuilder r3 = r3.append(r7)
             java.lang.String r4 = " to "
             java.lang.StringBuilder r3 = r3.append(r4)
-            java.lang.StringBuilder r3 = r3.append(r9)
+            java.lang.StringBuilder r3 = r3.append(r8)
             java.lang.String r3 = r3.toString()
             com.baidu.tieba.util.cb.a(r1, r3)
-            goto L178
-        L1ab:
+            goto Ld6
+        L109:
             r1 = move-exception
             java.lang.String r2 = "FileHelper"
             java.lang.String r3 = "CopyFile"
             java.lang.String r4 = r1.toString()
-            com.baidu.adp.lib.util.f.b(r2, r3, r4)
+            com.baidu.adp.lib.util.e.b(r2, r3, r4)
             java.lang.String r1 = r1.getMessage()
             java.lang.StringBuilder r2 = new java.lang.StringBuilder
             java.lang.String r3 = "FileHelper.CopyFile "
             r2.<init>(r3)
-            java.lang.StringBuilder r2 = r2.append(r8)
+            java.lang.StringBuilder r2 = r2.append(r7)
             java.lang.String r3 = " to "
             java.lang.StringBuilder r2 = r2.append(r3)
-            java.lang.StringBuilder r2 = r2.append(r9)
+            java.lang.StringBuilder r2 = r2.append(r8)
             java.lang.String r2 = r2.toString()
             com.baidu.tieba.util.cb.a(r1, r2)
-            goto L17d
-        L1d8:
-            r1 = move-exception
-            java.lang.String r4 = "FileHelper"
-            java.lang.String r5 = "CopyFile"
-            java.lang.String r6 = r1.toString()
-            com.baidu.adp.lib.util.f.b(r4, r5, r6)
-            java.lang.String r1 = r1.getMessage()
-            java.lang.StringBuilder r4 = new java.lang.StringBuilder
-            java.lang.String r5 = "FileHelper.CopyFile "
-            r4.<init>(r5)
-            java.lang.StringBuilder r4 = r4.append(r8)
-            java.lang.String r5 = " to "
-            java.lang.StringBuilder r4 = r4.append(r5)
-            java.lang.StringBuilder r4 = r4.append(r9)
-            java.lang.String r4 = r4.toString()
-            com.baidu.tieba.util.cb.a(r1, r4)
-            goto La3
-        L206:
+            goto Ldb
+        L136:
             r0 = move-exception
             r2 = r3
             r3 = r4
-            goto L173
-        L20b:
+            goto Ld1
+        L13a:
             r0 = move-exception
             r3 = r4
-            goto L173
-        L20f:
+            goto Ld1
+        L13d:
             r0 = move-exception
-            goto L173
-        L212:
+            goto Ld1
+        L13f:
             r1 = move-exception
             r2 = r3
-            goto Ldf
-        L216:
+            goto L3e
+        L143:
             r1 = move-exception
             r2 = r3
             r3 = r4
-            goto Ldf
-        L21b:
+            goto L3e
+        L148:
             r1 = move-exception
-            goto Ldf
+            goto L3e
         */
         throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.util.af.a(java.lang.String, java.lang.String, boolean):boolean");
     }
@@ -861,7 +729,7 @@ public class af {
         try {
             try {
             } catch (SecurityException e) {
-                com.baidu.adp.lib.util.f.b("FileHelper", "GetFile", "error = " + e.getMessage());
+                com.baidu.adp.lib.util.e.b("FileHelper", "GetFile", "error = " + e.getMessage());
                 cb.a(e, "FileHelper.GetStreamFromTmpFile " + str);
                 return a(file);
             }
@@ -876,7 +744,7 @@ public class af {
             try {
                 return new FileInputStream(file);
             } catch (Throwable th) {
-                com.baidu.adp.lib.util.f.b("FileHelper", "GetStreamFromFile", "error = " + th.getMessage());
+                com.baidu.adp.lib.util.e.b("FileHelper", "GetStreamFromFile", "error = " + th.getMessage());
                 cb.a(th.getMessage(), "FileHelper.GetStreamFromFile");
                 return null;
             }
@@ -893,7 +761,7 @@ public class af {
                 }
                 return false;
             } catch (Throwable th) {
-                com.baidu.adp.lib.util.f.b("FileHelper", "DelFile", "error = " + th.getMessage());
+                com.baidu.adp.lib.util.e.b("FileHelper", "DelFile", "error = " + th.getMessage());
                 cb.a(th.getMessage(), "FileHelper.DelFile " + str);
                 return false;
             }
@@ -909,7 +777,7 @@ public class af {
         File file = new File(str);
         File file2 = new File(str2);
         String parent = file2.getParent();
-        if (!com.baidu.adp.lib.util.m.a(parent)) {
+        if (!com.baidu.adp.lib.util.k.a(parent)) {
             File file3 = new File(parent);
             if (!file3.exists()) {
                 file3.mkdirs();
@@ -933,10 +801,6 @@ public class af {
         }
         StatFs statFs = new StatFs(absolutePath);
         return statFs.getBlockSize() * statFs.getAvailableBlocks();
-    }
-
-    public static String a(int i, String str) {
-        return a(i, str, false);
     }
 
     private static String a(int i, String str, boolean z) {
@@ -969,12 +833,12 @@ public class af {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [973=4, 974=4, 976=4, 977=8, 978=4, 979=4] */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x00dc A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [974=4, 977=4] */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x0085 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String a(int i, String str, byte[] bArr) {
+    private static String a(int i, String str, byte[] bArr) {
         FileOutputStream fileOutputStream;
         if (str == null || bArr == null || bArr.length == 0) {
             return null;
@@ -983,18 +847,9 @@ public class af {
         if (a2 != null) {
             return a2;
         }
-        FileOutputStream fileOutputStream2 = null;
         try {
             File createTempFile = File.createTempFile(a(i), str, b);
             if (createTempFile == null) {
-                if (0 != 0) {
-                    try {
-                        fileOutputStream2.close();
-                    } catch (Throwable th) {
-                        com.baidu.adp.lib.util.f.b("FileHelper", "SaveFile", "error = " + th.getMessage());
-                        cb.a(th.getMessage(), "FileHelper.SaveFile ");
-                    }
-                }
                 return null;
             }
             fileOutputStream = new FileOutputStream(createTempFile);
@@ -1003,41 +858,29 @@ public class af {
                     fileOutputStream.write(bArr, 0, bArr.length);
                     fileOutputStream.flush();
                     fileOutputStream.close();
-                    FileOutputStream fileOutputStream3 = null;
-                    String path = createTempFile.getPath();
-                    if (0 != 0) {
-                        try {
-                            fileOutputStream3.close();
-                            return path;
-                        } catch (Throwable th2) {
-                            com.baidu.adp.lib.util.f.b("FileHelper", "SaveFile", "error = " + th2.getMessage());
-                            cb.a(th2.getMessage(), "FileHelper.SaveFile ");
-                            return path;
-                        }
-                    }
-                    return path;
+                    return createTempFile.getPath();
                 } catch (IOException e) {
                     e = e;
-                    com.baidu.adp.lib.util.f.b("FileHelper", "SaveFile", "error = " + e.getMessage());
+                    com.baidu.adp.lib.util.e.b("FileHelper", "SaveFile", "error = " + e.getMessage());
                     cb.a(e, "FileHelper.SaveFile ");
                     if (fileOutputStream != null) {
                         try {
                             fileOutputStream.close();
-                        } catch (Throwable th3) {
-                            com.baidu.adp.lib.util.f.b("FileHelper", "SaveFile", "error = " + th3.getMessage());
-                            cb.a(th3.getMessage(), "FileHelper.SaveFile ");
+                        } catch (Throwable th) {
+                            com.baidu.adp.lib.util.e.b("FileHelper", "SaveFile", "error = " + th.getMessage());
+                            cb.a(th.getMessage(), "FileHelper.SaveFile ");
                         }
                     }
                     return null;
                 }
-            } catch (Throwable th4) {
-                th = th4;
+            } catch (Throwable th2) {
+                th = th2;
                 if (fileOutputStream != null) {
                     try {
                         fileOutputStream.close();
-                    } catch (Throwable th5) {
-                        com.baidu.adp.lib.util.f.b("FileHelper", "SaveFile", "error = " + th5.getMessage());
-                        cb.a(th5.getMessage(), "FileHelper.SaveFile ");
+                    } catch (Throwable th3) {
+                        com.baidu.adp.lib.util.e.b("FileHelper", "SaveFile", "error = " + th3.getMessage());
+                        cb.a(th3.getMessage(), "FileHelper.SaveFile ");
                     }
                 }
                 throw th;
@@ -1045,8 +888,8 @@ public class af {
         } catch (IOException e2) {
             e = e2;
             fileOutputStream = null;
-        } catch (Throwable th6) {
-            th = th6;
+        } catch (Throwable th4) {
+            th = th4;
             fileOutputStream = null;
             if (fileOutputStream != null) {
             }
@@ -1059,12 +902,12 @@ public class af {
             return null;
         }
         if (a()) {
-            if (b(a(str, i, false))) {
-                return a(str, i, true);
+            if (b(a(str, 1, false))) {
+                return a(str, 1, true);
             }
             return null;
         }
-        return a(1, str);
+        return a(1, str, false);
     }
 
     public static String a(String str, int i, boolean z) {
@@ -1157,7 +1000,7 @@ public class af {
         return a(new File(str), z);
     }
 
-    public static long a(File file, boolean z) {
+    private static long a(File file, boolean z) {
         long length;
         long j = 0;
         File[] listFiles = file.listFiles();
@@ -1194,7 +1037,7 @@ public class af {
                 }
                 return -1L;
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b("FileHelper", "CheckFile", "error = " + e.getMessage());
+                com.baidu.adp.lib.util.e.b("FileHelper", "CheckFile", "error = " + e.getMessage());
                 cb.a(e, "FileHelper.checkFileSize " + str + "/" + str2);
                 return -1L;
             }

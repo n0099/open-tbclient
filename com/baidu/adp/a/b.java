@@ -12,19 +12,15 @@ public class b extends Application {
     @Override // android.app.Application
     public void onCreate() {
         super.onCreate();
-        a(this);
-    }
-
-    public void a(Application application) {
         a = this;
-        this.c = application;
-        BdUtilHelper.a(application);
-        g();
-        h();
-        f();
-    }
-
-    private void f() {
+        this.c = this;
+        BdUtilHelper.a(this);
+        if ((this.c.getApplicationInfo().flags & 2) == 0) {
+            this.b = false;
+        } else {
+            this.b = true;
+        }
+        com.baidu.adp.lib.util.a.a().a(this.c);
         com.baidu.adp.lib.network.e.a().a(this.c, false);
     }
 
@@ -40,20 +36,8 @@ public class b extends Application {
         return this.c;
     }
 
-    private void g() {
-        if ((this.c.getApplicationInfo().flags & 2) == 0) {
-            this.b = false;
-        } else {
-            this.b = true;
-        }
-    }
-
-    public boolean d() {
+    public final boolean d() {
         return this.b;
-    }
-
-    private void h() {
-        com.baidu.adp.lib.util.b.a().a(this.c);
     }
 
     public void e() {

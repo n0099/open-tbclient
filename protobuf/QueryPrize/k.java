@@ -6,6 +6,7 @@ import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.LazyStringArrayList;
 import com.google.protobuf.LazyStringList;
+import com.google.protobuf.MessageLite;
 import com.google.protobuf.UnmodifiableLazyStringList;
 import protobuf.QueryPrize.QueryPrizeRes;
 /* loaded from: classes.dex */
@@ -20,19 +21,34 @@ public final class k extends GeneratedMessageLite.Builder<QueryPrizeRes.PrizeInf
     private LazyStringList e = LazyStringArrayList.EMPTY;
     private Object g = "";
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        QueryPrizeRes.PrizeInfo buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return QueryPrizeRes.PrizeInfo.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return QueryPrizeRes.PrizeInfo.getDefaultInstance();
+    }
+
     private k() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static k h() {
+    public static /* synthetic */ k b() {
         return new k();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public k clear() {
         super.clear();
         this.b = "";
@@ -55,30 +71,14 @@ public final class k extends GeneratedMessageLite.Builder<QueryPrizeRes.PrizeInf
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public k clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public QueryPrizeRes.PrizeInfo getDefaultInstanceForType() {
-        return QueryPrizeRes.PrizeInfo.getDefaultInstance();
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public QueryPrizeRes.PrizeInfo build() {
-        QueryPrizeRes.PrizeInfo buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
+    public k clone() {
+        return new k().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public QueryPrizeRes.PrizeInfo buildPartial() {
+    /* renamed from: a */
+    public final QueryPrizeRes.PrizeInfo buildPartial() {
         QueryPrizeRes.PrizeInfo prizeInfo = new QueryPrizeRes.PrizeInfo(this, (QueryPrizeRes.PrizeInfo) null);
         int i = this.a;
         int i2 = (i & 1) != 1 ? 0 : 1;
@@ -118,7 +118,7 @@ public final class k extends GeneratedMessageLite.Builder<QueryPrizeRes.PrizeInf
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public k mergeFrom(QueryPrizeRes.PrizeInfo prizeInfo) {
+    public final k mergeFrom(QueryPrizeRes.PrizeInfo prizeInfo) {
         LazyStringList lazyStringList;
         Object obj;
         LazyStringList lazyStringList2;
@@ -132,7 +132,9 @@ public final class k extends GeneratedMessageLite.Builder<QueryPrizeRes.PrizeInf
                 this.b = obj3;
             }
             if (prizeInfo.hasType()) {
-                a(prizeInfo.getType());
+                int type = prizeInfo.getType();
+                this.a |= 2;
+                this.c = type;
             }
             if (prizeInfo.hasLink()) {
                 this.a |= 4;
@@ -146,14 +148,19 @@ public final class k extends GeneratedMessageLite.Builder<QueryPrizeRes.PrizeInf
                     this.e = lazyStringList3;
                     this.a &= -9;
                 } else {
-                    i();
+                    if ((this.a & 8) != 8) {
+                        this.e = new LazyStringArrayList(this.e);
+                        this.a |= 8;
+                    }
                     LazyStringList lazyStringList4 = this.e;
                     lazyStringList2 = prizeInfo.picList_;
                     lazyStringList4.addAll(lazyStringList2);
                 }
             }
             if (prizeInfo.hasSubType()) {
-                b(prizeInfo.getSubType());
+                int subType = prizeInfo.getSubType();
+                this.a |= 16;
+                this.f = subType;
             }
             if (prizeInfo.hasAbstract()) {
                 this.a |= 32;
@@ -161,10 +168,14 @@ public final class k extends GeneratedMessageLite.Builder<QueryPrizeRes.PrizeInf
                 this.g = obj;
             }
             if (prizeInfo.hasPrizeId()) {
-                c(prizeInfo.getPrizeId());
+                int prizeId = prizeInfo.getPrizeId();
+                this.a |= 64;
+                this.h = prizeId;
             }
             if (prizeInfo.hasOpTime()) {
-                d(prizeInfo.getOpTime());
+                int opTime = prizeInfo.getOpTime();
+                this.a |= 128;
+                this.i = opTime;
             }
         }
         return this;
@@ -211,36 +222,5 @@ public final class k extends GeneratedMessageLite.Builder<QueryPrizeRes.PrizeInf
                 throw th;
             }
         }
-    }
-
-    public k a(int i) {
-        this.a |= 2;
-        this.c = i;
-        return this;
-    }
-
-    private void i() {
-        if ((this.a & 8) != 8) {
-            this.e = new LazyStringArrayList(this.e);
-            this.a |= 8;
-        }
-    }
-
-    public k b(int i) {
-        this.a |= 16;
-        this.f = i;
-        return this;
-    }
-
-    public k c(int i) {
-        this.a |= 64;
-        this.h = i;
-        return this;
-    }
-
-    public k d(int i) {
-        this.a |= 128;
-        this.i = i;
-        return this;
     }
 }

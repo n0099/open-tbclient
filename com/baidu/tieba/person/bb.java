@@ -7,7 +7,7 @@ import com.baidu.tieba.view.CommonImageLayout;
 import com.baidu.tieba.view.UserIconBox;
 import com.baidu.tieba.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-public class bb {
+public final class bb {
     public LinearLayout a;
     public RelativeLayout b;
     public TextView c;

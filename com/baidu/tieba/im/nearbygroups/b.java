@@ -6,7 +6,7 @@ import com.baidu.tieba.im.data.NearbyGroupsData;
 import com.baidu.tieba.im.model.ak;
 import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
-class b implements com.baidu.adp.widget.ListView.b {
+final class b implements com.baidu.adp.widget.ListView.b {
     final /* synthetic */ NearbyGroupsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +15,7 @@ class b implements com.baidu.adp.widget.ListView.b {
     }
 
     @Override // com.baidu.adp.widget.ListView.b
-    public void a(boolean z) {
+    public final void a(boolean z) {
         ak akVar;
         k kVar;
         k kVar2;
@@ -24,24 +24,24 @@ class b implements com.baidu.adp.widget.ListView.b {
         ak akVar3;
         ak akVar4;
         ak akVar5;
-        String bc = TiebaApplication.g().bc();
-        String be = TiebaApplication.g().be();
+        String aU = TiebaApplication.g().aU();
+        String aW = TiebaApplication.g().aW();
         akVar = this.a.c;
-        if (!akVar.c() && !TextUtils.isEmpty(bc) && !TextUtils.isEmpty(be)) {
+        if (!akVar.c() && !TextUtils.isEmpty(aU) && !TextUtils.isEmpty(aW)) {
             akVar3 = this.a.c;
-            akVar3.b(bc);
+            akVar3.b(aU);
             akVar4 = this.a.c;
-            akVar4.a(be);
+            akVar4.a(aW);
             akVar5 = this.a.c;
             akVar5.f();
         } else if (!UtilHelper.b()) {
             kVar = this.a.b;
-            if (kVar.j() == null) {
+            if (kVar.i() == null) {
                 kVar3 = this.a.b;
                 kVar3.a(new NearbyGroupsData());
             }
             kVar2 = this.a.b;
-            kVar2.h();
+            kVar2.g();
         } else {
             akVar2 = this.a.c;
             akVar2.c(true);

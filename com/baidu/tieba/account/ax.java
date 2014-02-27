@@ -1,6 +1,6 @@
 package com.baidu.tieba.account;
 /* loaded from: classes.dex */
-public class ax extends Thread {
+public final class ax extends Thread {
     private String a;
     private String b;
     private String c;
@@ -39,7 +39,7 @@ public class ax extends Thread {
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
+    public final void run() {
         String str;
         String str2;
         super.run();
@@ -68,11 +68,11 @@ public class ax extends Thread {
         if (this.d != null) {
             baVar.a("obj_tp", this.d);
         }
-        baVar.m();
+        baVar.l();
         if (this.e) {
             return;
         }
-        if (!baVar.d() || baVar.f() != 0) {
+        if (!baVar.c() || baVar.e() != 0) {
             com.baidu.tieba.util.bg.a().b(str2);
         }
     }

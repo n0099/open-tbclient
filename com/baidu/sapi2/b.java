@@ -22,15 +22,15 @@ public final class b {
     private a k = new a();
     private RegistMode l = RegistMode.getDefault();
 
-    public RegistMode a() {
+    public final RegistMode a() {
         return this.l;
     }
 
-    public a b() {
+    public final a b() {
         return this.k;
     }
 
-    public String c() {
+    public final String c() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(b, this.k.c());

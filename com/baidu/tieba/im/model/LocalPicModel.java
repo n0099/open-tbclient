@@ -30,7 +30,7 @@ public class LocalPicModel extends com.baidu.adp.a.d implements Serializable {
         if (this.mImageTask != null) {
             return false;
         }
-        this.mImageTask = new j(this, null);
+        this.mImageTask = new j(this, (byte) 0);
         this.mImageTask.setSelfExecute(true);
         this.mImageTask.execute(new Object[0]);
         return true;

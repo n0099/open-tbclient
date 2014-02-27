@@ -7,7 +7,7 @@ import android.widget.TextView;
 import com.baidu.tieba.view.HeadImageView;
 import com.baidu.tieba.view.UserIconBox;
 /* loaded from: classes.dex */
-class ad {
+final class ad {
     LinearLayout a;
     TextView b;
     ProgressBar c;

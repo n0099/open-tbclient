@@ -20,6 +20,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.zip.GZIPOutputStream;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class g {
@@ -58,7 +59,7 @@ public class g {
         return a;
     }
 
-    public void a(Context context, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
+    public final void a(Context context, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
         this.b = context;
         this.o = str;
         this.p = str2;
@@ -73,16 +74,16 @@ public class g {
         this.l = str9;
         if (this.x == null && context != null) {
             try {
-                this.x = new j(this, null);
+                this.x = new j(this, (byte) 0);
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
                 context.registerReceiver(this.x, intentFilter);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(e.getMessage());
+                com.baidu.adp.lib.util.e.b(e.getMessage());
             }
         }
         if (this.y == null && context != null) {
-            this.y = new h(this, null);
+            this.y = new h(this, (byte) 0);
             IntentFilter intentFilter2 = new IntentFilter();
             intentFilter2.addAction("adp.bdstatisticsmanager2.account_changed");
             context.registerReceiver(this.y, intentFilter2);
@@ -109,27 +110,27 @@ public class g {
         f();
     }
 
-    private void f() {
+    private static void f() {
         s.removeMessages(8);
         s.sendMessage(s.obtainMessage(8));
     }
 
-    public void g() {
-        this.q = o.a(this.b);
-        this.r = o.b(this.b);
+    public static /* synthetic */ void a(g gVar) {
+        gVar.q = o.a(gVar.b);
+        gVar.r = o.b(gVar.b);
         boolean a2 = com.baidu.adp.lib.network.i.a();
-        if (this.t != null) {
-            this.t.c(a2);
+        if (gVar.t != null) {
+            gVar.t.c(a2);
         }
-        if (this.u != null) {
-            this.u.c(a2);
+        if (gVar.u != null) {
+            gVar.u.c(a2);
         }
-        if (this.v != null) {
-            this.v.c(a2);
+        if (gVar.v != null) {
+            gVar.v.c(a2);
         }
     }
 
-    public synchronized void a(String str, String str2, String str3) {
+    public final synchronized void a(String str, String str2, String str3) {
         if ((this.g != null || str != null) && (this.g == null || !this.g.equals(str))) {
             this.g = str;
             this.h = str2;
@@ -147,26 +148,26 @@ public class g {
         }
     }
 
-    public void a(String str, Object... objArr) {
+    public final void a(String str, Object... objArr) {
         d a2;
-        if (!TextUtils.isEmpty(str) && objArr != null && objArr.length != 0 && (a2 = a(str)) != null && a2.j()) {
+        if (!TextUtils.isEmpty(str) && objArr != null && objArr.length != 0 && (a2 = a(str)) != null && a2.i()) {
             p pVar = new p(str);
             pVar.a(objArr);
             a2.a(pVar);
         }
     }
 
-    public void a(String str, String str2, String str3, long j, long j2, long j3, long j4, long j5, int i, int i2, String str4, Object... objArr) {
-        a("img", str, str2, str3, j, j2, j3, j4, j5, i, i2, str4, objArr);
+    public final void a(String str, String str2, String str3, long j, long j2, long j3, long j4, long j5, int i, int i2, String str4, Object... objArr) {
+        a("img", null, str2, str3, j, j2, j3, j4, j5, i, i2, str4, objArr);
     }
 
-    public void b(String str, String str2, String str3, long j, long j2, long j3, long j4, long j5, int i, int i2, String str4, Object... objArr) {
+    public final void b(String str, String str2, String str3, long j, long j2, long j3, long j4, long j5, int i, int i2, String str4, Object... objArr) {
         a("d", str, str2, str3, j, j2, j3, j4, j5, i, i2, str4, objArr);
     }
 
     private void a(String str, String str2, String str3, String str4, long j, long j2, long j3, long j4, long j5, int i, int i2, String str5, Object... objArr) {
         d a2 = a(com.baidu.loginshare.e.e);
-        if (a2 != null && a2.j() && a2.c(str) && !l.a().a(com.baidu.loginshare.e.e)) {
+        if (a2 != null && a2.i() && a2.c(str) && !l.a().a(com.baidu.loginshare.e.e)) {
             p pVar = new p(com.baidu.loginshare.e.e);
             pVar.a("module", com.baidu.loginshare.e.e, "st", str, com.baidu.loginshare.e.e, this.q, "interface", str2, "f", str4, "cost", Long.valueOf(j3), "con_cost", Long.valueOf(j4), "rsp_cost", Long.valueOf(j5), "size_u", Long.valueOf(j2), "size_d", Long.valueOf(j), "t", String.valueOf(System.currentTimeMillis()));
             if (objArr != null && objArr.length > 0) {
@@ -184,13 +185,13 @@ public class g {
         }
     }
 
-    public void a(String str, String str2, String str3, long j, int i, String str4, Object... objArr) {
-        a(true, "d", str, str2, str3, j, i, str4, objArr);
+    public final void a(String str, String str2, String str3, long j, int i, String str4, Object... objArr) {
+        a(true, "d", str, str2, null, j, i, str4, objArr);
     }
 
-    public void a(boolean z, String str, String str2, String str3, String str4, long j, int i, String str5, Object... objArr) {
+    public final void a(boolean z, String str, String str2, String str3, String str4, long j, int i, String str5, Object... objArr) {
         d a2 = a("op");
-        if (a2 != null && a2.j() && a2.c(str)) {
+        if (a2 != null && a2.i() && a2.c(str)) {
             if (!z || !l.a().a("op")) {
                 p pVar = new p("op");
                 pVar.a("module", "op", "st", str, "op_key", str2, "sid", str3, "f", str4, "cost", Long.valueOf(j), "result", Integer.valueOf(i), "es", str5, "t", String.valueOf(System.currentTimeMillis()));
@@ -202,39 +203,39 @@ public class g {
         }
     }
 
-    public void a(String str, String str2, String str3, String str4, int i, String str5, Object... objArr) {
+    public final void a(String str, String str2, String str3, String str4, int i, String str5, Object... objArr) {
         a(true, str, str2, str3, str4, 0L, i, str5, objArr);
     }
 
-    public void a(String str, String str2, String str3, int i, String str4, Object... objArr) {
+    public final void a(String str, String str2, String str3, int i, String str4, Object... objArr) {
         if (!l.a().a("file")) {
-            a(true, "file", str, str2, str3, 0L, i, str4, objArr);
+            a(true, "file", str, null, str3, 0L, i, str4, objArr);
         }
     }
 
-    public void b(String str, String str2, String str3, int i, String str4, Object... objArr) {
+    public final void b(String str, String str2, String str3, int i, String str4, Object... objArr) {
         if (!l.a().a("db")) {
-            a(true, "db", str, str2, str3, 0L, i, str4, objArr);
+            a(true, "db", str, null, str3, 0L, i, str4, objArr);
         }
     }
 
-    public void c(String str, String str2, String str3, int i, String str4, Object... objArr) {
+    public final void c(String str, String str2, String str3, int i, String str4, Object... objArr) {
         if (!l.a().a("img")) {
             a(true, "img", str, str2, str3, 0L, i, str4, objArr);
         }
     }
 
-    public void d(String str, String str2, String str3, int i, String str4, Object... objArr) {
+    public final void d(String str, String str2, String str3, int i, String str4, Object... objArr) {
         if (!l.a().a(SwitchKey.VOICE)) {
             a(true, SwitchKey.VOICE, str, str2, str3, 0L, i, str4, objArr);
         }
     }
 
-    public void a(String str, String str2, String str3, Object... objArr) {
+    public final void a(String str, String str2, String str3, Object... objArr) {
         d a2 = a("crash");
-        if (a2 != null && a2.j()) {
+        if (a2 != null && a2.i()) {
             p pVar = new p("crash");
-            pVar.a("module", "crash", "crash_type", str, "ci", str2, "f", str3, "t", String.valueOf(System.currentTimeMillis()));
+            pVar.a("module", "crash", "crash_type", str, "ci", 0, "f", 0, "t", String.valueOf(System.currentTimeMillis()));
             if (objArr != null && objArr.length > 0) {
                 pVar.a(objArr);
             }
@@ -242,9 +243,9 @@ public class g {
         }
     }
 
-    public void b(String str, Object... objArr) {
+    public final void b(String str, Object... objArr) {
         d a2 = a("dbg");
-        if (a2 != null && a2.j() && a2.c(str)) {
+        if (a2 != null && a2.i() && a2.c(str)) {
             p pVar = new p("dbg");
             pVar.a("module", "dbg", "st", str, "t", String.valueOf(System.currentTimeMillis()));
             if (objArr != null && objArr.length > 0) {
@@ -254,9 +255,9 @@ public class g {
         }
     }
 
-    public void a(Context context, String str, String str2, int i, Object... objArr) {
+    public final void a(String str, String str2, int i, Object... objArr) {
         d a2 = a("stat");
-        if (a2 != null && a2.j() && !l.a().a("stat")) {
+        if (a2 != null && a2.i() && !l.a().a("stat")) {
             p pVar = new p("stat");
             pVar.a("module", "stat", "op_key", str, "pt", str2, "co", Integer.valueOf(i), "t", String.valueOf(System.currentTimeMillis()));
             if (objArr != null && objArr.length > 0) {
@@ -267,7 +268,7 @@ public class g {
         }
     }
 
-    public void b() {
+    public final void b() {
         if (this.t != null) {
             this.t.b(true);
         }
@@ -279,7 +280,7 @@ public class g {
         }
     }
 
-    public void c() {
+    public final void c() {
         if (this.t != null) {
             this.t.a(true);
         }
@@ -291,106 +292,114 @@ public class g {
         }
     }
 
-    public void h() {
+    public static /* synthetic */ void g(g gVar) {
         try {
-            String a2 = a(false);
-            com.baidu.adp.lib.network.f a3 = com.baidu.adp.lib.network.e.a().a(this.p, TextUtils.isEmpty(a2) ? null : a2.getBytes(), 3, -1, null, null, null);
+            String a2 = gVar.a(false);
+            byte[] bytes = TextUtils.isEmpty(a2) ? null : a2.getBytes();
+            com.baidu.adp.lib.network.e.a();
+            com.baidu.adp.lib.network.f a3 = com.baidu.adp.lib.network.b.a(false, gVar.p, bytes, 3, -1, null, null, null);
             if (a3 != null) {
                 String str = new String(a3.d, "utf-8");
-                if (!TextUtils.isEmpty(str)) {
-                    BdStatSwitchData bdStatSwitchData = new BdStatSwitchData();
-                    bdStatSwitchData.parserJson(str);
-                    if (bdStatSwitchData.getError_code() == 0) {
-                        a(bdStatSwitchData);
-                        if (bdStatSwitchData.getDebug() != null && bdStatSwitchData.getDebug().getCommon() != null && !bdStatSwitchData.getDebug().getCommon().isIs_open()) {
-                            this.u.f();
-                        }
-                        if (bdStatSwitchData.getError() != null && bdStatSwitchData.getError().getCommon() != null && !bdStatSwitchData.getError().getCommon().isIs_open()) {
-                            this.v.f();
-                        }
-                        if (bdStatSwitchData.getStat() != null && bdStatSwitchData.getStat().getCommon() != null && !bdStatSwitchData.getStat().getCommon().isIs_open()) {
-                            this.t.f();
-                        }
-                        s.removeMessages(7);
-                        s.sendMessage(s.obtainMessage(7));
+                if (TextUtils.isEmpty(str)) {
+                    return;
+                }
+                BdStatSwitchData bdStatSwitchData = new BdStatSwitchData();
+                bdStatSwitchData.parserJson(str);
+                if (bdStatSwitchData.getError_code() == 0) {
+                    gVar.a(bdStatSwitchData);
+                    if (bdStatSwitchData.getDebug() != null && bdStatSwitchData.getDebug().getCommon() != null && !bdStatSwitchData.getDebug().getCommon().isIs_open()) {
+                        gVar.u.e();
                     }
+                    if (bdStatSwitchData.getError() != null && bdStatSwitchData.getError().getCommon() != null && !bdStatSwitchData.getError().getCommon().isIs_open()) {
+                        gVar.v.e();
+                    }
+                    if (bdStatSwitchData.getStat() != null && bdStatSwitchData.getStat().getCommon() != null && !bdStatSwitchData.getStat().getCommon().isIs_open()) {
+                        gVar.t.e();
+                    }
+                    s.removeMessages(7);
+                    s.sendMessage(s.obtainMessage(7));
                 }
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.a(getClass(), "syncSwitch", e);
+            com.baidu.adp.lib.util.e.a(gVar.getClass(), "syncSwitch", e);
         }
     }
 
     private void a(BdStatSwitchData bdStatSwitchData) {
-        if (bdStatSwitchData != null) {
-            synchronized (BdStatSwitchData.class) {
-                this.w = bdStatSwitchData;
-                if (this.w.getError() != null && this.v != null) {
-                    this.v.a(this.w.getError());
-                }
-                if (this.w.getStat() != null && this.t != null) {
-                    this.t.a(this.w.getStat());
-                }
-                if (this.w.getDebug() != null && this.u != null) {
-                    this.u.a(this.w.getDebug());
-                }
+        if (bdStatSwitchData == null) {
+            return;
+        }
+        synchronized (BdStatSwitchData.class) {
+            this.w = bdStatSwitchData;
+            if (this.w.getError() != null && this.v != null) {
+                this.v.a(this.w.getError());
+            }
+            if (this.w.getStat() != null && this.t != null) {
+                this.t.a(this.w.getStat());
+            }
+            if (this.w.getDebug() != null && this.u != null) {
+                this.u.a(this.w.getDebug());
             }
         }
     }
 
-    public void a(d dVar) {
-        String a2;
-        ArrayList<String> a3;
-        if (dVar != null && !dVar.i() && dVar.j()) {
-            dVar.d(true);
-            try {
-                if (dVar.d() != null && dVar.d().equals("omp")) {
-                    a2 = i();
-                } else {
-                    a2 = a(true);
+    public static /* synthetic */ void b(g gVar, d dVar) {
+        ArrayList<String> a2;
+        if (dVar == null || dVar.h() || !dVar.i()) {
+            return;
+        }
+        dVar.d(true);
+        try {
+            String a3 = (dVar.c() == null || !dVar.c().equals("omp")) ? gVar.a(true) : gVar.g();
+            if (dVar.d()) {
+                ArrayList<String> k = dVar.k();
+                dVar.l();
+                ArrayList<String> a4 = dVar.a(k);
+                if (a4 != null && a4.size() > 0) {
+                    gVar.a(dVar, a3, a4, (String) null);
                 }
-                if (dVar.e()) {
-                    ArrayList<String> l = dVar.l();
-                    dVar.m();
-                    ArrayList<String> a4 = dVar.a(l);
-                    if (a4 != null && a4.size() > 0) {
-                        a(dVar, a2, a4, (String) null);
-                    }
-                } else {
-                    ArrayList<String> c = dVar.c();
-                    if (c != null && c.size() > 0) {
-                        Iterator<String> it = c.iterator();
-                        while (it.hasNext()) {
-                            String next = it.next();
-                            if (!TextUtils.isEmpty(next) && (a3 = dVar.a(b(next))) != null && a3.size() != 0) {
-                                a(dVar, a2, a3, next);
-                            }
+            } else {
+                ArrayList<String> b = dVar.b();
+                if (b != null && b.size() > 0) {
+                    Iterator<String> it = b.iterator();
+                    while (it.hasNext()) {
+                        String next = it.next();
+                        if (!TextUtils.isEmpty(next) && (a2 = dVar.a(gVar.b(next))) != null && a2.size() != 0) {
+                            gVar.a(dVar, a3, a2, next);
                         }
                     }
                 }
-            } catch (Exception e) {
-                com.baidu.adp.lib.util.f.a(getClass(), "upload", e);
             }
-            dVar.d(false);
-            dVar.a();
-            dVar.a(this.g);
+        } catch (Exception e) {
+            com.baidu.adp.lib.util.e.a(gVar.getClass(), "upload", e);
         }
+        dVar.d(false);
+        dVar.a();
+        dVar.a(gVar.g);
     }
 
     private void a(d dVar, String str, ArrayList<String> arrayList, String str2) {
         byte[] a2;
         if (dVar != null && (a2 = a(str, arrayList)) != null && a2.length > 0) {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(a2.length / 2);
-            try {
-                com.baidu.adp.lib.util.e.a(a2, byteArrayOutputStream);
-            } catch (Exception e) {
-                com.baidu.adp.lib.util.f.a(getClass(), "compressAndUpload", e);
+            if (a2 != null) {
+                try {
+                    if (a2.length != 0) {
+                        GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
+                        gZIPOutputStream.write(a2, 0, a2.length);
+                        gZIPOutputStream.flush();
+                        gZIPOutputStream.finish();
+                        gZIPOutputStream.close();
+                    }
+                } catch (Exception e) {
+                    com.baidu.adp.lib.util.e.a(getClass(), "compressAndUpload", e);
+                }
             }
             byte[] byteArray = byteArrayOutputStream.toByteArray();
-            HashMap<String, byte[]> hashMap = new HashMap<>();
-            hashMap.put(dVar.d(), byteArray);
+            HashMap hashMap = new HashMap();
+            hashMap.put(dVar.c(), byteArray);
             try {
-                ArrayList<BasicNameValuePair> arrayList2 = new ArrayList<>();
+                ArrayList arrayList2 = new ArrayList();
                 arrayList2.add(new BasicNameValuePair("_client_type", "2"));
                 arrayList2.add(new BasicNameValuePair("_client_version", this.e));
                 arrayList2.add(new BasicNameValuePair("_phone_imei", this.l));
@@ -406,18 +415,19 @@ public class g {
                 }
                 arrayList2.add(new BasicNameValuePair("un", this.h));
                 arrayList2.add(new BasicNameValuePair("BDUSS", this.i));
-                com.baidu.adp.lib.network.f a3 = com.baidu.adp.lib.network.e.a().a(this.o, false, arrayList2, hashMap, 3, -1, null, null, null, null);
+                com.baidu.adp.lib.network.e.a();
+                com.baidu.adp.lib.network.f a3 = com.baidu.adp.lib.network.e.a(this.o, false, arrayList2, hashMap, 3, -1, null, null, null);
                 if (a3 != null && a3.a == 200) {
                     dVar.b(str2);
                 }
             } catch (Exception e2) {
-                com.baidu.adp.lib.util.f.a(getClass(), "compressAndUpload", e2);
+                com.baidu.adp.lib.util.e.a(getClass(), "compressAndUpload", e2);
             }
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:35:0x009a  */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x00bf  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x0094  */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x00b9  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -431,13 +441,13 @@ public class g {
             if (str2.split("\\.").length == 4) {
                 str = String.valueOf(split[0]) + "." + split[1] + "." + split[2];
                 try {
-                    StringBuilder append = sb.append("&").append("new_four_version").append("=");
+                    StringBuilder append = sb.append("&new_four_version").append("=");
                     if (z) {
                         str2 = URLEncoder.encode(str2, "utf-8");
                     }
                     append.append(str2);
                 } catch (UnsupportedEncodingException e) {
-                    com.baidu.adp.lib.util.f.a(getClass(), "generalStatCommonPostdata", e);
+                    com.baidu.adp.lib.util.e.a(getClass(), "generalStatCommonPostdata", e);
                 }
                 a(sb, "_client_version", str, z);
                 a(sb, "_phone_imei", this.l, z);
@@ -481,12 +491,12 @@ public class g {
                 }
                 append.append(str3);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.a(getClass(), "AppendParam", e);
+                com.baidu.adp.lib.util.e.a(getClass(), "AppendParam", e);
             }
         }
     }
 
-    private String i() {
+    private String g() {
         StringBuilder sb = new StringBuilder();
         try {
             sb.append("product");
@@ -553,7 +563,7 @@ public class g {
             sb.append("=");
             sb.append(URLEncoder.encode(this.q, "utf-8"));
         } catch (UnsupportedEncodingException e) {
-            com.baidu.adp.lib.util.f.a(getClass(), "generalCommonPostdata", e);
+            com.baidu.adp.lib.util.e.a(getClass(), "generalCommonPostdata", e);
         }
         return sb.toString();
     }
@@ -573,12 +583,12 @@ public class g {
                 try {
                     sb.append(URLEncoder.encode(arrayList.get(i), "utf-8"));
                 } catch (UnsupportedEncodingException e) {
-                    com.baidu.adp.lib.util.f.a(getClass(), "generatePostdata", e);
+                    com.baidu.adp.lib.util.e.a(getClass(), "generatePostdata", e);
                 }
             }
             return sb.toString().getBytes();
         } catch (Exception e2) {
-            com.baidu.adp.lib.util.f.a(getClass(), "generatePostdata", e2);
+            com.baidu.adp.lib.util.e.a(getClass(), "generatePostdata", e2);
             return null;
         }
     }
@@ -596,62 +606,68 @@ public class g {
         return this.v;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:114:0x0077 A[Catch: IOException -> 0x0080, TryCatch #4 {IOException -> 0x0080, blocks: (B:112:0x0072, B:114:0x0077, B:116:0x007c), top: B:136:0x0072 }] */
-    /* JADX WARN: Removed duplicated region for block: B:116:0x007c A[Catch: IOException -> 0x0080, TRY_LEAVE, TryCatch #4 {IOException -> 0x0080, blocks: (B:112:0x0072, B:114:0x0077, B:116:0x007c), top: B:136:0x0072 }] */
-    /* JADX WARN: Removed duplicated region for block: B:136:0x0072 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     private ArrayList<String> b(String str) {
         BufferedReader bufferedReader;
         InputStreamReader inputStreamReader;
         FileInputStream fileInputStream;
         Throwable th;
+        BufferedReader bufferedReader2;
         IOException e;
         if (!TextUtils.isEmpty(str) && new File(str).exists()) {
             ArrayList<String> arrayList = new ArrayList<>();
             try {
-                fileInputStream = new FileInputStream(str);
                 try {
-                    inputStreamReader = new InputStreamReader(fileInputStream, "utf-8");
-                } catch (IOException e2) {
-                    inputStreamReader = null;
-                    e = e2;
-                    bufferedReader = null;
-                } catch (Throwable th2) {
-                    bufferedReader = null;
-                    inputStreamReader = null;
-                    th = th2;
-                }
-            } catch (IOException e3) {
-                inputStreamReader = null;
-                fileInputStream = null;
-                bufferedReader = null;
-                e = e3;
-            } catch (Throwable th3) {
-                bufferedReader = null;
-                inputStreamReader = null;
-                fileInputStream = null;
-                th = th3;
-            }
-            try {
-                bufferedReader = new BufferedReader(inputStreamReader);
-                while (true) {
+                    fileInputStream = new FileInputStream(str);
                     try {
+                        inputStreamReader = new InputStreamReader(fileInputStream, "utf-8");
                         try {
-                            String readLine = bufferedReader.readLine();
-                            if (readLine == null) {
-                                break;
+                            bufferedReader2 = new BufferedReader(inputStreamReader);
+                            while (true) {
+                                try {
+                                    String readLine = bufferedReader2.readLine();
+                                    if (readLine != null) {
+                                        arrayList.add(readLine);
+                                    } else {
+                                        try {
+                                            break;
+                                        } catch (IOException e2) {
+                                            com.baidu.adp.lib.util.e.a(getClass(), "readLogFile", e2);
+                                        }
+                                    }
+                                } catch (IOException e3) {
+                                    e = e3;
+                                    com.baidu.adp.lib.util.e.a(getClass(), "readLogFile", e);
+                                    if (bufferedReader2 != null) {
+                                        try {
+                                            bufferedReader2.close();
+                                        } catch (IOException e4) {
+                                            com.baidu.adp.lib.util.e.a(getClass(), "readLogFile", e4);
+                                        }
+                                    }
+                                    if (inputStreamReader != null) {
+                                        inputStreamReader.close();
+                                    }
+                                    if (fileInputStream != null) {
+                                        fileInputStream.close();
+                                    }
+                                    return arrayList;
+                                }
                             }
-                            arrayList.add(readLine);
-                        } catch (IOException e4) {
-                            e = e4;
-                            com.baidu.adp.lib.util.f.a(getClass(), "readLogFile", e);
+                            bufferedReader2.close();
+                            inputStreamReader.close();
+                            fileInputStream.close();
+                        } catch (IOException e5) {
+                            bufferedReader2 = null;
+                            e = e5;
+                        } catch (Throwable th2) {
+                            bufferedReader = null;
+                            th = th2;
                             if (bufferedReader != null) {
                                 try {
                                     bufferedReader.close();
-                                } catch (IOException e5) {
-                                    com.baidu.adp.lib.util.f.a(getClass(), "readLogFile", e5);
+                                } catch (IOException e6) {
+                                    com.baidu.adp.lib.util.e.a(getClass(), "readLogFile", e6);
+                                    throw th;
                                 }
                             }
                             if (inputStreamReader != null) {
@@ -660,73 +676,52 @@ public class g {
                             if (fileInputStream != null) {
                                 fileInputStream.close();
                             }
-                            return arrayList;
+                            throw th;
                         }
-                    } catch (Throwable th4) {
-                        th = th4;
-                        if (bufferedReader != null) {
-                            try {
-                                bufferedReader.close();
-                            } catch (IOException e6) {
-                                com.baidu.adp.lib.util.f.a(getClass(), "readLogFile", e6);
-                                throw th;
-                            }
-                        }
-                        if (inputStreamReader != null) {
-                            inputStreamReader.close();
-                        }
-                        if (fileInputStream != null) {
-                            fileInputStream.close();
-                        }
-                        throw th;
-                    }
-                }
-                if (bufferedReader != null) {
-                    try {
-                        bufferedReader.close();
                     } catch (IOException e7) {
-                        com.baidu.adp.lib.util.f.a(getClass(), "readLogFile", e7);
+                        inputStreamReader = null;
+                        e = e7;
+                        bufferedReader2 = null;
+                    } catch (Throwable th3) {
+                        bufferedReader = null;
+                        inputStreamReader = null;
+                        th = th3;
                     }
-                }
-                if (inputStreamReader != null) {
-                    inputStreamReader.close();
-                }
-                if (fileInputStream != null) {
-                    fileInputStream.close();
+                } catch (Throwable th4) {
+                    th = th4;
                 }
             } catch (IOException e8) {
-                bufferedReader = null;
+                inputStreamReader = null;
+                fileInputStream = null;
+                bufferedReader2 = null;
                 e = e8;
             } catch (Throwable th5) {
                 bufferedReader = null;
+                inputStreamReader = null;
+                fileInputStream = null;
                 th = th5;
-                if (bufferedReader != null) {
-                }
-                if (inputStreamReader != null) {
-                }
-                if (fileInputStream != null) {
-                }
-                throw th;
             }
             return arrayList;
         }
         return null;
     }
 
-    public void b(d dVar) {
-        if (dVar != null && !dVar.i()) {
-            dVar.a();
-            if (dVar.g() == null) {
-                if (this.g != null) {
-                    dVar.a(this.g);
-                }
-            } else if (!dVar.g().equals(this.g)) {
-                dVar.a(this.g);
+    public static /* synthetic */ void a(g gVar, d dVar) {
+        if (dVar == null || dVar.h()) {
+            return;
+        }
+        dVar.a();
+        if (dVar.f() == null) {
+            if (gVar.g != null) {
+                dVar.a(gVar.g);
             }
+        } else if (dVar.f().equals(gVar.g)) {
+        } else {
+            dVar.a(gVar.g);
         }
     }
 
-    public long d() {
+    public final long d() {
         long uploadMilliInterval;
         synchronized (BdStatSwitchData.class) {
             if (this.w == null) {

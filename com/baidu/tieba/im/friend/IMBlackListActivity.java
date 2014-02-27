@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import com.baidu.tieba.im.message.bj;
 import com.baidu.tieba.im.message.bz;
 import com.baidu.tieba.im.message.cx;
@@ -21,28 +20,16 @@ public class IMBlackListActivity extends com.baidu.tieba.f implements com.baidu.
         context.startActivity(new Intent(context, IMBlackListActivity.class));
     }
 
-    private void a() {
-        this.b = new f(this);
-    }
-
-    private void b() {
-        this.a = new com.baidu.tieba.im.model.b();
-    }
-
-    private void c() {
-        this.a.a();
-        this.b.a();
-    }
-
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        com.baidu.tieba.im.messageCenter.e.a().a(104103, this);
-        com.baidu.tieba.im.messageCenter.e.a().a(104102, this);
-        a();
-        b();
-        c();
+        com.baidu.tieba.im.messageCenter.d.a().a(104103, this);
+        com.baidu.tieba.im.messageCenter.d.a().a(104102, this);
+        this.b = new f(this);
+        this.a = new com.baidu.tieba.im.model.b();
+        this.a.a();
+        this.b.a();
     }
 
     @Override // android.app.Activity
@@ -54,7 +41,7 @@ public class IMBlackListActivity extends com.baidu.tieba.f implements com.baidu.
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        com.baidu.tieba.im.messageCenter.e.a().a(this);
+        com.baidu.tieba.im.messageCenter.d.a().a(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -78,10 +65,10 @@ public class IMBlackListActivity extends com.baidu.tieba.f implements com.baidu.
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.s sVar) {
+    public final void a(com.baidu.tieba.im.message.s sVar) {
         cx cxVar;
         com.baidu.tieba.im.message.s o;
-        this.b.e();
+        this.b.d();
         closeLoadingDialog();
         if (sVar != null) {
             if (sVar.w() == 104103 && (sVar instanceof bz)) {
@@ -105,30 +92,17 @@ public class IMBlackListActivity extends com.baidu.tieba.f implements com.baidu.
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void d() {
-        showLoadingDialog(null, new a(this));
-    }
-
-    private void a(com.baidu.tieba.im.data.a aVar) {
-        if (this.d == null) {
-            e();
-        }
-        this.d.setMessage(String.format(getString(R.string.black_list_ensure_toremove_text), aVar.b()));
-        this.d.show();
-    }
-
-    private void e() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setPositiveButton(R.string.confirm, new b(this));
-        builder.setNegativeButton(R.string.alert_no_button, (DialogInterface.OnClickListener) null);
-        this.d = builder.create();
-    }
-
-    public void a(View view, com.baidu.tieba.im.data.a aVar) {
+    public final void a(com.baidu.tieba.im.data.a aVar) {
         if (aVar != null && aVar.a() > 0) {
             this.c = aVar;
-            a(aVar);
+            if (this.d == null) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setPositiveButton(R.string.confirm, new b(this));
+                builder.setNegativeButton(R.string.alert_no_button, (DialogInterface.OnClickListener) null);
+                this.d = builder.create();
+            }
+            this.d.setMessage(String.format(getString(R.string.black_list_ensure_toremove_text), aVar.b()));
+            this.d.show();
         }
     }
 }

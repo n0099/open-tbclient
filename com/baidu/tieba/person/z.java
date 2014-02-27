@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 /* loaded from: classes.dex */
-class z extends BroadcastReceiver {
+final class z extends BroadcastReceiver {
     final /* synthetic */ EditHeadActivity a;
 
     private z(EditHeadActivity editHeadActivity) {
@@ -12,12 +12,12 @@ class z extends BroadcastReceiver {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ z(EditHeadActivity editHeadActivity, z zVar) {
+    public /* synthetic */ z(EditHeadActivity editHeadActivity, byte b) {
         this(editHeadActivity);
     }
 
     @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
+    public final void onReceive(Context context, Intent intent) {
         this.a.releaseResouce();
         if (intent.getBooleanExtra("result", false)) {
             EditHeadActivity.h(this.a);

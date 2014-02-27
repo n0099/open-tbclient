@@ -10,7 +10,7 @@ import com.slidingmenu.lib.R;
 import java.util.LinkedList;
 import protobuf.QueryUserInfos.QueryUserInfosRes;
 /* loaded from: classes.dex */
-public class p {
+public final class p {
     public PersonaltalkSettingViewBlackManView a;
     public PersonalTalkSettingViewSettingView b;
     private PersonalTalkSettingActivity c;
@@ -37,77 +37,48 @@ public class p {
         this.i = (TextView) this.c.findViewById(R.id.user_desc);
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.c.getLayoutMode().a(this.e);
-        this.d.c(i);
+        this.d.b(i);
     }
 
-    public void a(boolean z, int i) {
-        if (z) {
-            this.a.setSex(i);
-            this.a.setVisibility(0);
-            this.b.setVisibility(8);
-            return;
-        }
-        this.b.setVisibility(0);
-        this.a.setVisibility(8);
-    }
-
-    public void a(boolean z) {
-        this.b.b(z);
-    }
-
-    public void b(boolean z) {
-        this.b.a(z);
-    }
-
-    public void a(l lVar) {
-        if (lVar != null) {
-            a(lVar.d(), lVar.b().getSex());
-            a(lVar.c());
-            b(lVar.a());
-            a(lVar.b());
-            b(lVar);
-        }
-    }
-
-    public void a(QueryUserInfosRes.DataRes dataRes) {
-        int i = 3;
+    /* JADX WARN: Removed duplicated region for block: B:10:0x002a  */
+    /* JADX WARN: Removed duplicated region for block: B:26:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void a(QueryUserInfosRes.DataRes dataRes) {
         if (dataRes != null) {
             this.g.setText(dataRes.getName());
+            int i = 4;
             if (dataRes.getSex() == 1) {
                 this.g.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_pop_boy, 0);
-            } else if (dataRes.getSex() != 2) {
-                i = 4;
-            } else if (dataRes.getIconInfoCount() > 0 && dataRes.getIconInfo(0).getName().equals(IconData.meizhi_icon_name)) {
-                this.g.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
             } else {
-                this.g.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_pop_girl, 0);
-            }
-            this.i.setText(dataRes.getIntro());
-            if (this.h != null) {
-                LinkedList linkedList = new LinkedList();
-                for (QueryUserInfosRes.IconInfo iconInfo : dataRes.getIconInfoList()) {
-                    IconData iconData = new IconData();
-                    iconData.setIconName(iconInfo.getName());
-                    iconData.setIcon(iconInfo.getIconUrl());
-                    linkedList.add(iconData);
+                if (dataRes.getSex() == 2) {
+                    if (dataRes.getIconInfoCount() > 0 && dataRes.getIconInfo(0).getName().equals(IconData.meizhi_icon_name)) {
+                        this.g.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+                    } else {
+                        this.g.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_pop_girl, 0);
+                    }
                 }
-                this.h.a(linkedList, i, this.c.getResources().getDimensionPixelSize(R.dimen.person_icon_width), this.c.getResources().getDimensionPixelSize(R.dimen.person_icon_height), this.c.getResources().getDimensionPixelSize(R.dimen.person_icon_margin));
+                this.i.setText(dataRes.getIntro());
+                if (this.h == null) {
+                    LinkedList linkedList = new LinkedList();
+                    for (QueryUserInfosRes.IconInfo iconInfo : dataRes.getIconInfoList()) {
+                        IconData iconData = new IconData();
+                        iconData.setIconName(iconInfo.getName());
+                        iconData.setIcon(iconInfo.getIconUrl());
+                        linkedList.add(iconData);
+                    }
+                    this.h.a(linkedList, i, this.c.getResources().getDimensionPixelSize(R.dimen.person_icon_width), this.c.getResources().getDimensionPixelSize(R.dimen.person_icon_height), this.c.getResources().getDimensionPixelSize(R.dimen.person_icon_margin));
+                    return;
+                }
+                return;
             }
-        }
-    }
-
-    public void b(l lVar) {
-        String portrait;
-        if (lVar != null && lVar.b() != null && (portrait = lVar.b().getPortrait()) != null && portrait.length() > 0) {
-            lVar.f().c(portrait, new q(this));
-        }
-    }
-
-    public void a(com.baidu.adp.widget.BdSwitchView.c cVar) {
-        if (this.b != null) {
-            this.b.setSwitchStateChangeListener(cVar);
+            i = 3;
+            this.i.setText(dataRes.getIntro());
+            if (this.h == null) {
+            }
         }
     }
 }

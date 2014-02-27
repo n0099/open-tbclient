@@ -85,15 +85,15 @@ public class e implements HttpEntity {
                     }
                     this.b.write(bArr, 0, read);
                 }
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } finally {
+                try {
+                    inputStream.close();
+                } catch (IOException e2) {
+                    e2.printStackTrace();
+                }
             }
-        } finally {
-            try {
-                inputStream.close();
-            } catch (IOException e3) {
-                e3.printStackTrace();
-            }
+        } catch (IOException e3) {
+            e3.printStackTrace();
         }
     }
 

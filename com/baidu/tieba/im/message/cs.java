@@ -5,7 +5,7 @@ import protobuf.QueryGroupLocation.QueryGroupLocationRes;
 /* loaded from: classes.dex */
 public class cs implements com.baidu.tieba.im.coder.f {
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<s> linkedList, byte[] bArr, int i) {
+    public final void a(LinkedList<s> linkedList, byte[] bArr, int i) {
         QueryGroupLocationRes.QueryGroupLocationResIdl parseFrom = QueryGroupLocationRes.QueryGroupLocationResIdl.parseFrom(bArr);
         QueryGroupLocationRes.DataRes data = parseFrom.getData();
         cr crVar = new cr(103010);

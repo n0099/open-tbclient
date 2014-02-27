@@ -4,15 +4,14 @@ import android.content.Context;
 import android.util.SparseArray;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallelType;
-import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class c {
+public final class c {
     private static c c;
     private a a = null;
     private SparseArray<i> b = null;
 
-    public c a(a aVar) {
+    public final c a(a aVar) {
         this.a = aVar;
         return this;
     }
@@ -24,42 +23,19 @@ public class c {
         return c;
     }
 
-    public void a(String str, Context context) {
-        a(str, context, null);
-    }
-
-    public void a(String str, Context context, b bVar) {
-        int i;
+    public final void a(String str, Context context) {
         BdAsyncTask<?, ?, ?> searchTask = BdAsyncTask.searchTask(String.valueOf(str) + context.getClass().getName());
         if (searchTask != null) {
             f fVar = (f) searchTask;
-            Iterator<Map.Entry<b, h>> it = fVar.a.entrySet().iterator();
-            int i2 = 0;
-            while (true) {
-                i = i2;
-                if (!it.hasNext()) {
-                    break;
-                }
-                Map.Entry<b, h> next = it.next();
-                b key = next.getKey();
-                next.getValue();
-                i2 = (bVar == null || bVar.b()) ? i : i + 1;
-                if (bVar == null) {
-                    fVar.a(key);
-                }
-            }
-            if (i >= 2) {
-                if (fVar.a.containsKey(bVar)) {
-                    fVar.a(bVar);
-                    return;
-                }
-                return;
+            for (Map.Entry<b, h> entry : fVar.a.entrySet()) {
+                entry.getValue();
+                fVar.a(entry.getKey());
             }
             fVar.cancel();
         }
     }
 
-    public Object a(String str, int i, b bVar, Context context, h hVar, BdAsyncTaskParallelType bdAsyncTaskParallelType, int i2) {
+    private Object a(String str, int i, b bVar, Context context, h hVar, BdAsyncTaskParallelType bdAsyncTaskParallelType, int i2) {
         boolean z;
         BdAsyncTask<?, ?, ?> bdAsyncTask;
         Object a;
@@ -93,9 +69,6 @@ public class c {
                 ((f) bdAsyncTask).a(dVar, hVar);
             } else {
                 f fVar = new f(this, str, i, dVar, hVar);
-                if (bdAsyncTaskParallelType != null) {
-                    fVar.setType(bdAsyncTaskParallelType);
-                }
                 fVar.setPriority(i2);
                 fVar.setKey(String.valueOf(str) + context.getClass().getName());
                 if (context != null && (context instanceof com.baidu.adp.a.a)) {
@@ -109,11 +82,11 @@ public class c {
         return a3;
     }
 
-    public Object a(String str, int i, b bVar, Context context, h hVar) {
+    public final Object a(String str, int i, b bVar, Context context, h hVar) {
         return a(str, i, bVar, context, hVar, null, 1);
     }
 
-    public Object a(String str, int i, b bVar, Context context, h hVar, int i2) {
+    public final Object a(String str, int i, b bVar, Context context, h hVar, int i2) {
         return a(str, i, bVar, context, hVar, null, i2);
     }
 

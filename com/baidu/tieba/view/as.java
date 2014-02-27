@@ -7,7 +7,7 @@ import com.baidu.tieba.util.TbWebViewActivity;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class as implements View.OnClickListener {
+public final class as implements View.OnClickListener {
     final /* synthetic */ ar a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,7 +16,7 @@ public class as implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         String str;
         Activity activity;
         Activity activity2;

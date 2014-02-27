@@ -5,11 +5,11 @@ import android.os.Message;
 import com.baidu.sapi2.shell.SapiErrorCode;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f extends Handler {
+public final class f extends Handler {
     final /* synthetic */ HorizontalTranslateLayout a;
 
     @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    public final void handleMessage(Message message) {
         g gVar;
         g gVar2;
         g gVar3;

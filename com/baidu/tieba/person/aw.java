@@ -4,7 +4,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
-class aw {
+final class aw {
     LinearLayout a;
     ImageView b;
     TextView c;

@@ -15,7 +15,7 @@ public final class ClearClientInfoReq {
     /* loaded from: classes.dex */
     public final class DataReq extends GeneratedMessageLite implements f {
         public static Parser<DataReq> PARSER = new d();
-        private static final DataReq a = new DataReq(true);
+        private static final DataReq a = new DataReq();
         private static final long serialVersionUID = 0;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
@@ -31,7 +31,7 @@ public final class ClearClientInfoReq {
             this.memoizedSerializedSize = -1;
         }
 
-        private DataReq(boolean z) {
+        private DataReq() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -42,14 +42,13 @@ public final class ClearClientInfoReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public DataReq getDefaultInstanceForType() {
+        public final DataReq getDefaultInstanceForType() {
             return a;
         }
 
         private DataReq(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
-            a();
             boolean z = false;
             while (!z) {
                 try {
@@ -83,16 +82,9 @@ public final class ClearClientInfoReq {
             this(codedInputStream, extensionRegistryLite);
         }
 
-        static {
-            a.a();
-        }
-
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<DataReq> getParserForType() {
+        public final Parser<DataReq> getParserForType() {
             return PARSER;
-        }
-
-        private void a() {
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -106,12 +98,12 @@ public final class ClearClientInfoReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
                 this.memoizedSerializedSize = 0;
@@ -122,7 +114,7 @@ public final class ClearClientInfoReq {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -167,12 +159,12 @@ public final class ClearClientInfoReq {
         }
 
         public static e newBuilder() {
-            return e.f();
+            return e.b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public e newBuilderForType() {
+        public final e newBuilderForType() {
             return newBuilder();
         }
 
@@ -182,7 +174,7 @@ public final class ClearClientInfoReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public e toBuilder() {
+        public final e toBuilder() {
             return newBuilder(this);
         }
     }
@@ -191,7 +183,7 @@ public final class ClearClientInfoReq {
     public final class ClearClientInfoReqIdl extends GeneratedMessageLite implements c {
         public static final int DATA_FIELD_NUMBER = 1;
         public static Parser<ClearClientInfoReqIdl> PARSER = new a();
-        private static final ClearClientInfoReqIdl a = new ClearClientInfoReqIdl(true);
+        private static final ClearClientInfoReqIdl a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private DataReq data_;
@@ -209,7 +201,7 @@ public final class ClearClientInfoReq {
             this.memoizedSerializedSize = -1;
         }
 
-        private ClearClientInfoReqIdl(boolean z) {
+        private ClearClientInfoReqIdl() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -220,7 +212,7 @@ public final class ClearClientInfoReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public ClearClientInfoReqIdl getDefaultInstanceForType() {
+        public final ClearClientInfoReqIdl getDefaultInstanceForType() {
             return a;
         }
 
@@ -228,7 +220,7 @@ public final class ClearClientInfoReq {
             e eVar;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
-            a();
+            this.data_ = DataReq.getDefaultInstance();
             boolean z = false;
             while (!z) {
                 try {
@@ -276,24 +268,22 @@ public final class ClearClientInfoReq {
         }
 
         static {
-            a.a();
+            ClearClientInfoReqIdl clearClientInfoReqIdl = new ClearClientInfoReqIdl();
+            a = clearClientInfoReqIdl;
+            clearClientInfoReqIdl.data_ = DataReq.getDefaultInstance();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<ClearClientInfoReqIdl> getParserForType() {
+        public final Parser<ClearClientInfoReqIdl> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasData() {
+        public final boolean hasData() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public DataReq getData() {
+        public final DataReq getData() {
             return this.data_;
-        }
-
-        private void a() {
-            this.data_ = DataReq.getDefaultInstance();
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -307,7 +297,7 @@ public final class ClearClientInfoReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeMessage(1, this.data_);
@@ -315,10 +305,13 @@ public final class ClearClientInfoReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeMessageSize(1, this.data_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeMessageSize(1, this.data_) + 0;
+                }
                 this.memoizedSerializedSize = i;
             }
             return i;
@@ -326,7 +319,7 @@ public final class ClearClientInfoReq {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -371,12 +364,12 @@ public final class ClearClientInfoReq {
         }
 
         public static b newBuilder() {
-            return b.f();
+            return b.a();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public b newBuilderForType() {
+        public final b newBuilderForType() {
             return newBuilder();
         }
 
@@ -386,7 +379,7 @@ public final class ClearClientInfoReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public b toBuilder() {
+        public final b toBuilder() {
             return newBuilder(this);
         }
     }

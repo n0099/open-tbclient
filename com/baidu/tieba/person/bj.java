@@ -9,7 +9,7 @@ import android.widget.ListAdapter;
 import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class bj extends LinearLayout {
+public final class bj extends LinearLayout {
     private Context a;
     private cm b;
     private View c;
@@ -28,17 +28,26 @@ public class bj extends LinearLayout {
         this.k = new bk(this);
         this.a = context;
         this.b = cmVar;
-        j();
-    }
-
-    private void j() {
         this.c = this.b.getView();
         this.d = (BdCenterListView) this.c.findViewById(R.id.user_info_center_lv);
-        a();
+        this.j = false;
+        if (this.e == null) {
+            h();
+            i();
+        }
+        this.d.removeFooterView(this.i.b());
+        if (1 == TiebaApplication.g().ae()) {
+            this.d.setBackgroundResource(R.color.person_center_list_no_data_bg_color_1);
+        } else {
+            this.d.setBackgroundResource(R.color.person_center_list_no_data_bg_color);
+        }
+        this.d.setRecyclerListener(new bl(this));
+        this.e.a(null, null);
+        this.e.notifyDataSetChanged();
     }
 
-    private void k() {
-        this.h = this.b.d();
+    private void h() {
+        this.h = this.b.c();
         this.e = new ay(this.a);
         if (this.h != null) {
             this.d.addHeaderView(this.h);
@@ -50,51 +59,34 @@ public class bj extends LinearLayout {
         this.g = new com.baidu.tieba.util.i(this.a);
     }
 
-    public void setListItemTagClickListener(AdapterView.OnItemClickListener onItemClickListener) {
+    public final void setListItemTagClickListener(AdapterView.OnItemClickListener onItemClickListener) {
         this.d.setOnItemClickListener(onItemClickListener);
     }
 
-    public void a() {
-        this.j = false;
-        if (this.e == null) {
-            k();
-            l();
-        }
-        this.d.removeFooterView(this.i.b());
-        if (1 == TiebaApplication.g().al()) {
-            this.d.setBackgroundResource(R.color.person_center_list_no_data_bg_color_1);
-        } else {
-            this.d.setBackgroundResource(R.color.person_center_list_no_data_bg_color);
-        }
-        this.d.setRecyclerListener(new bl(this));
-        this.e.a((PersonPostListData) null, (com.baidu.tieba.model.bp) null);
-        this.e.notifyDataSetChanged();
-    }
-
-    public void setScrollToBottomListener(com.baidu.adp.widget.ListView.r rVar) {
+    public final void setScrollToBottomListener(com.baidu.adp.widget.ListView.r rVar) {
         this.d.setOnSrollToBottomListener(rVar);
     }
 
-    public void setLoadMoreOnClickListener(View.OnClickListener onClickListener) {
+    public final void setLoadMoreOnClickListener(View.OnClickListener onClickListener) {
         this.i.a(onClickListener);
     }
 
-    public void setCoverListRefreshListener(e eVar) {
+    public final void setCoverListRefreshListener(e eVar) {
         this.d.setCoverListRefreshListener(eVar);
     }
 
-    public void a(com.baidu.tieba.model.bp bpVar) {
+    public final void a(com.baidu.tieba.model.bp bpVar) {
         if (bpVar != null) {
             if (this.e == null) {
-                k();
-                l();
+                h();
+                i();
             }
             if (bpVar.a() != null && bpVar.a().post_list != null && bpVar.a().post_list.size() > 0) {
                 this.d.setNextPage(this.i);
                 this.d.setBackgroundResource(R.color.transparent);
             } else {
                 this.d.removeFooterView(this.i.b());
-                if (1 == TiebaApplication.g().al()) {
+                if (1 == TiebaApplication.g().ae()) {
                     this.d.setBackgroundResource(R.color.person_center_list_no_data_bg_color_1);
                 } else {
                     this.d.setBackgroundResource(R.color.person_center_list_no_data_bg_color);
@@ -105,70 +97,66 @@ public class bj extends LinearLayout {
             this.e.a(bpVar.a(), bpVar);
             this.e.notifyDataSetChanged();
             if (this.i != null) {
-                this.i.c();
+                this.i.d();
             }
-            e();
+            if (this.f != null) {
+                this.f.removeCallbacks(this.k);
+                this.f.postDelayed(this.k, 0L);
+            }
         }
     }
 
-    public int getAdapterCount() {
+    public final int getAdapterCount() {
         if (this.e != null) {
             return this.e.getCount();
         }
         return 0;
     }
 
-    public void b() {
+    public final void a() {
         if (this.i != null) {
-            this.i.e();
+            this.i.f();
         }
     }
 
-    public void c() {
-        if (this.d != null) {
-            this.d.e();
-        }
-    }
-
-    public void d() {
+    public final void b() {
         if (this.d != null) {
             this.d.d();
         }
     }
 
-    public void e() {
-        if (this.f != null) {
-            this.f.removeCallbacks(this.k);
-            this.f.postDelayed(this.k, 0L);
+    public final void c() {
+        if (this.d != null) {
+            this.d.c();
         }
     }
 
-    public void f() {
+    public final void d() {
         if (com.baidu.tieba.h.a.a().f()) {
             com.baidu.tieba.util.ap.a(this.d, this.e.a(), 0, -1);
         }
     }
 
-    private void l() {
+    private void i() {
         this.f = new Handler();
         this.d.setOnScrollListener(new bm(this));
     }
 
-    public void g() {
-        this.i.d();
+    public final void e() {
+        this.i.e();
     }
 
-    public void h() {
-        this.i.f();
+    public final void f() {
+        this.i.g();
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         ((com.baidu.tieba.k) this.a).a().a(i == 1);
         ((com.baidu.tieba.k) this.a).a().a(this.c);
-        this.i.a(i);
+        this.i.c();
     }
 
-    public void i() {
+    public final void g() {
         this.e.notifyDataSetChanged();
     }
 }

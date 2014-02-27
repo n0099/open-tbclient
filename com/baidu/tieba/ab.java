@@ -5,7 +5,7 @@ import android.view.animation.AlphaAnimation;
 import android.widget.ImageView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class ab implements Runnable {
+final class ab implements Runnable {
     final /* synthetic */ LogoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ class ab implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         Bitmap bitmap;
         ImageView imageView;
         ImageView imageView2;

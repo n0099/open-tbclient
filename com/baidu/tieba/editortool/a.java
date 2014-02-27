@@ -26,11 +26,11 @@ public class a extends RelativeLayout {
         this.a = context;
     }
 
-    private boolean d() {
-        return TiebaApplication.g().al() == 1;
+    private static boolean d() {
+        return TiebaApplication.g().ae() == 1;
     }
 
-    public TextView a(EditorToolButton editorToolButton, boolean z) {
+    public final TextView a(EditorToolButton editorToolButton, boolean z) {
         TextView textView = new TextView(this.a);
         textView.setTextSize(10.0f);
         textView.setTextColor(this.a.getResources().getColor(d() ? R.color.top_msg_num_night : R.color.top_msg_num_day));
@@ -45,7 +45,7 @@ public class a extends RelativeLayout {
         return textView;
     }
 
-    public void a() {
+    public final void a() {
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childAt = getChildAt(i);
@@ -55,7 +55,7 @@ public class a extends RelativeLayout {
         }
     }
 
-    public void b() {
+    public final void b() {
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childAt = getChildAt(i);
@@ -65,7 +65,7 @@ public class a extends RelativeLayout {
         }
     }
 
-    public void c() {
+    public final void c() {
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childAt = getChildAt(i);

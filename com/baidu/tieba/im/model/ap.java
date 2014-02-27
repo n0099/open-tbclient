@@ -14,7 +14,7 @@ public class ap extends com.baidu.adp.a.d {
         return false;
     }
 
-    public void a(String str, long j) {
+    public final void a(String str, long j) {
         if (this.b != null) {
             this.b.cancel();
             this.b = null;

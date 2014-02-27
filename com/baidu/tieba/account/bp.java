@@ -1,9 +1,8 @@
 package com.baidu.tieba.account;
 
 import com.baidu.sapi2.SapiWebView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bp implements SapiWebView.OnFinishCallback {
+final class bp implements SapiWebView.OnFinishCallback {
     final /* synthetic */ SapiFastRegActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +11,7 @@ public class bp implements SapiWebView.OnFinishCallback {
     }
 
     @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
-    public void onFinish() {
+    public final void onFinish() {
         this.a.finish();
     }
 }

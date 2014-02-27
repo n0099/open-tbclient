@@ -36,7 +36,7 @@ public class BDImageView extends ImageView {
     private boolean p;
     private boolean q;
 
-    static /* synthetic */ int[] c() {
+    private static /* synthetic */ int[] c() {
         int[] iArr = r;
         if (iArr == null) {
             iArr = new int[ImageView.ScaleType.values().length];
@@ -107,7 +107,17 @@ public class BDImageView extends ImageView {
         this.m = null;
         this.n = false;
         this.o = null;
-        a(context, attributeSet);
+        this.c = new Paint();
+        this.c.setColor(-1);
+        if (attributeSet != null) {
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, g.BDImageView);
+            if (obtainStyledAttributes == null) {
+                this.p = false;
+                return;
+            }
+            this.a = obtainStyledAttributes.getDimensionPixelSize(0, 0);
+            this.p = this.a != 0;
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -127,20 +137,6 @@ public class BDImageView extends ImageView {
 
     public void setAutoAnim(boolean z) {
         this.n = z;
-    }
-
-    private void a(Context context, AttributeSet attributeSet) {
-        this.c = new Paint();
-        this.c.setColor(-1);
-        if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, g.BDImageView);
-            if (obtainStyledAttributes != null) {
-                this.a = obtainStyledAttributes.getDimensionPixelSize(0, 0);
-                this.p = this.a != 0;
-                return;
-            }
-            this.p = false;
-        }
     }
 
     public void setRadius(int i) {
@@ -174,19 +170,12 @@ public class BDImageView extends ImageView {
         this.b = i;
     }
 
-    public void a() {
+    public final void a() {
         setDefaultResource(0);
         this.h = null;
         setTag(null);
         this.e = null;
         this.f = null;
-    }
-
-    public void a(long j, float f, float f2) {
-        clearAnimation();
-        AlphaAnimation alphaAnimation = new AlphaAnimation(f, f2);
-        alphaAnimation.setDuration(j);
-        startAnimation(alphaAnimation);
     }
 
     public boolean getIsLoaded() {
@@ -201,15 +190,7 @@ public class BDImageView extends ImageView {
         return this.m;
     }
 
-    protected Matrix a(b bVar) {
-        return this.d != null ? a(bVar, this.d) : a(bVar, getScaleType());
-    }
-
-    protected Matrix b(b bVar) {
-        return a(bVar, getScaleType());
-    }
-
-    protected Matrix a(b bVar, ImageView.ScaleType scaleType) {
+    private Matrix a(b bVar, ImageView.ScaleType scaleType) {
         if (bVar == null) {
             return null;
         }
@@ -313,14 +294,11 @@ public class BDImageView extends ImageView {
         return null;
     }
 
-    public void a(String str, int i) {
-        a(str, i, this.l);
-    }
-
-    public void a(String str, int i, h hVar) {
+    public final void a(String str, int i) {
+        h hVar = this.l;
         this.h = str;
         if (this.h != null) {
-            this.i = i;
+            this.i = 1;
             this.l = hVar;
             try {
                 com.baidu.adp.lib.e.c.a().a(this.h, this.i, new a(this), getContext(), hVar);
@@ -336,8 +314,8 @@ public class BDImageView extends ImageView {
         if (this.g == null) {
             this.g = new SparseArray<>();
         }
-        if (this.g.indexOfKey(this.b) <= -1 || (softReference = this.g.get(this.b)) == null || (bVar = softReference.get()) == null) {
-            b bVar2 = new b(com.baidu.adp.lib.util.b.a().a(this.b), false, null);
+        if (this.g.indexOfKey(this.b) < 0 || (softReference = this.g.get(this.b)) == null || (bVar = softReference.get()) == null) {
+            b bVar2 = new b(com.baidu.adp.lib.util.a.a().a(this.b), false, null);
             this.g.put(this.b, new SoftReference<>(bVar2));
             return bVar2;
         }
@@ -355,7 +333,10 @@ public class BDImageView extends ImageView {
                 if (!this.k) {
                     this.k = true;
                     if (this.n) {
-                        a(500L, 0.1f, 1.0f);
+                        clearAnimation();
+                        AlphaAnimation alphaAnimation = new AlphaAnimation(0.1f, 1.0f);
+                        alphaAnimation.setDuration(500L);
+                        startAnimation(alphaAnimation);
                         invalidate();
                         return;
                     }
@@ -369,16 +350,17 @@ public class BDImageView extends ImageView {
                     }
                 }
                 if (this.f == null) {
-                    this.f = b(image);
+                    this.f = a(image, getScaleType());
                 }
                 matrix = this.f;
             } else {
                 this.k = false;
-                image = getDefaultBdImage();
+                b defaultBdImage = getDefaultBdImage();
                 if (this.e == null) {
-                    this.e = a(image);
+                    this.e = this.d != null ? a(defaultBdImage, this.d) : a(defaultBdImage, getScaleType());
                 }
                 matrix = this.e;
+                image = defaultBdImage;
             }
             if (this.p) {
                 image.a(canvas, matrix, getResources(), this, this.a, this.o);
@@ -403,7 +385,7 @@ public class BDImageView extends ImageView {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void b() {
+    public final void b() {
         this.o = null;
         this.c.setColorFilter(null);
     }

@@ -5,9 +5,8 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
 import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z implements View.OnClickListener {
+final class z implements View.OnClickListener {
     final /* synthetic */ ImagePbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,7 +15,7 @@ public class z implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         String str;
         String str2;
         View view2;
@@ -32,7 +31,7 @@ public class z implements View.OnClickListener {
         if (str != null) {
             str2 = this.a.E;
             if (str2.length() != 0) {
-                this.a.b();
+                ImagePbActivity.w(this.a);
                 view2 = this.a.k;
                 TextView textView3 = (TextView) view2.findViewById(R.id.text);
                 if (textView3 != null) {

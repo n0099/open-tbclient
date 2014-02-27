@@ -21,13 +21,13 @@ public class p {
         return a;
     }
 
-    public void b() {
+    public final void b() {
         this.c = new HashMap();
-        a(TiebaApplication.g().aT());
+        a(TiebaApplication.g().aL());
         this.b = UtilHelper.NetworkStateInfo.UNAVAIL;
     }
 
-    public void a(int[] iArr) {
+    public final void a(int[] iArr) {
         int i;
         int i2;
         int i3 = 0;
@@ -51,17 +51,15 @@ public class p {
         this.c.put(UtilHelper.NetworkStateInfo.WIFI, Integer.valueOf(i4));
     }
 
-    public void c() {
+    public final void c() {
         this.b = UtilHelper.h(TiebaApplication.g().b());
     }
 
-    public int d() {
-        int i;
+    public final int d() {
+        int i = 0;
         this.c.get(this.b);
         Integer num = 15000;
-        if (num == null) {
-            i = 0;
-        } else {
+        if (num != null) {
             i = num.intValue();
         }
         if (i < 5000) {

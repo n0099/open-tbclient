@@ -44,7 +44,7 @@ public class EllipsizingTextView extends TextView {
         this.h = 0.0f;
     }
 
-    public void a(c cVar) {
+    public final void a(c cVar) {
         if (cVar == null) {
             throw new NullPointerException();
         }
@@ -79,66 +79,59 @@ public class EllipsizingTextView extends TextView {
         }
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:14:0x0068  */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x0075  */
     @Override // android.widget.TextView, android.view.View
-    protected void onDraw(Canvas canvas) {
-        if (this.c) {
-            super.setEllipsize(null);
-            a();
-        }
-        super.onDraw(canvas);
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:12:0x0060  */
-    /* JADX WARN: Removed duplicated region for block: B:17:0x006d  */
-    /* JADX WARN: Removed duplicated region for block: B:20:0x007b A[ORIG_RETURN, RETURN] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void a() {
+    protected void onDraw(Canvas canvas) {
         boolean z;
-        int maxLines = getMaxLines();
-        String str = this.e;
-        if (maxLines != -1) {
-            Layout a = a(str);
-            if (a.getLineCount() > maxLines) {
-                String trim = this.e.substring(0, a.getLineEnd(maxLines - 1)).trim();
-                while (a(String.valueOf(trim) + "...").getLineCount() > maxLines) {
-                    if (trim.length() > "...".length()) {
-                        trim = trim.substring(0, trim.length() - "...".length());
+        if (this.c) {
+            super.setEllipsize(null);
+            int maxLines = getMaxLines();
+            String str = this.e;
+            if (maxLines != -1) {
+                Layout a = a(str);
+                if (a.getLineCount() > maxLines) {
+                    String trim = this.e.substring(0, a.getLineEnd(maxLines - 1)).trim();
+                    while (a(String.valueOf(trim) + "...").getLineCount() > maxLines) {
+                        if (trim.length() > 3) {
+                            trim = trim.substring(0, trim.length() - 3);
+                        }
+                        int lastIndexOf = trim.lastIndexOf(32);
+                        if (lastIndexOf == -1) {
+                            break;
+                        }
+                        trim = trim.substring(0, lastIndexOf);
                     }
-                    int lastIndexOf = trim.lastIndexOf(32);
-                    if (lastIndexOf == -1) {
-                        break;
+                    str = String.valueOf(trim) + "...";
+                    z = true;
+                    if (!str.equals(getText())) {
+                        this.d = true;
+                        try {
+                            setText(str);
+                        } finally {
+                            this.d = false;
+                        }
                     }
-                    trim = trim.substring(0, lastIndexOf);
+                    this.c = false;
+                    if (z != this.b) {
+                        this.b = z;
+                        for (c cVar : this.a) {
+                            cVar.a(z);
+                        }
+                    }
                 }
-                str = String.valueOf(trim) + "...";
-                z = true;
-                if (!str.equals(getText())) {
-                    this.d = true;
-                    try {
-                        setText(str);
-                    } finally {
-                        this.d = false;
-                    }
-                }
-                this.c = false;
-                if (z == this.b) {
-                    this.b = z;
-                    for (c cVar : this.a) {
-                        cVar.a(z);
-                    }
-                    return;
-                }
-                return;
+            }
+            z = false;
+            if (!str.equals(getText())) {
+            }
+            this.c = false;
+            if (z != this.b) {
             }
         }
-        z = false;
-        if (!str.equals(getText())) {
-        }
-        this.c = false;
-        if (z == this.b) {
-        }
+        super.onDraw(canvas);
     }
 
     private Layout a(String str) {

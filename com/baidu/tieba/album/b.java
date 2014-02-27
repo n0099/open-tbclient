@@ -14,7 +14,7 @@ import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 import java.util.List;
 /* loaded from: classes.dex */
-public class b extends com.baidu.tieba.j implements t {
+public final class b extends com.baidu.tieba.j {
     private AlbumActivity b;
     private p c;
     private com.baidu.tieba.img.e d;
@@ -27,18 +27,16 @@ public class b extends com.baidu.tieba.j implements t {
     private View k;
     private ImageView l;
     private View m;
-    private boolean n;
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onCreate(Bundle bundle) {
+    public final void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.b = (AlbumActivity) getActivity();
-        this.c = this.b.f();
-        q.a().a(this);
+        this.c = this.b.e();
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+    public final View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.k = layoutInflater.inflate(R.layout.album_big_image_view, (ViewGroup) null);
         this.e = (NavigationBar) this.k.findViewById(R.id.navigation_bar);
         this.f = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.b);
@@ -47,25 +45,24 @@ public class b extends com.baidu.tieba.j implements t {
         this.l = (ImageView) inflate.findViewById(R.id.img_choose);
         this.e.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, inflate, new c(this));
         this.h = (ViewPager) this.k.findViewById(R.id.viewPager);
-        this.d = this.b.g();
+        this.d = this.b.f();
         this.h.setOnPageChangeListener(new d(this));
         this.m = this.k.findViewById(R.id.album_no_data);
         return this.k;
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onResume() {
+    public final void onResume() {
         super.onResume();
-        if (b()) {
-            d();
-        }
-    }
-
-    private void c() {
-        if (this.c == null && this.b != null) {
-            this.c = this.b.f();
-        }
-        if (this.c != null && this.c.f() != null) {
+        if (d() && !isHidden()) {
+            this.m.setVisibility(8);
+            this.h.setVisibility(0);
+            if (this.c == null && this.b != null) {
+                this.c = this.b.e();
+            }
+            if (this.c == null || this.c.f() == null) {
+                return;
+            }
             int g = this.c.g();
             if (g >= 0) {
                 this.j = g;
@@ -91,38 +88,43 @@ public class b extends com.baidu.tieba.j implements t {
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onHiddenChanged(boolean z) {
+    public final void onPause() {
+        super.onPause();
+    }
+
+    @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
+    public final void onHiddenChanged(boolean z) {
         super.onHiddenChanged(z);
         if (z && this.i != null) {
             this.i.a((List<ImageFileInfo>) null);
         }
     }
 
-    public ImageView a() {
+    public final ImageView a() {
         return this.f;
     }
 
     @Override // com.baidu.tieba.j
-    public void c(int i) {
+    public final void c(int i) {
         super.c(i);
         this.b.a().a(i == 1);
         this.b.a().a(this.k);
         if (this.e != null) {
-            this.e.c(i);
+            this.e.b(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(ImageView imageView, boolean z) {
+    public static void a(ImageView imageView, boolean z) {
         if (imageView != null) {
-            int al = TiebaApplication.g().al();
+            int ae = TiebaApplication.g().ae();
             if (z) {
-                if (al == 1) {
+                if (ae == 1) {
                     imageView.setBackgroundResource(R.drawable.btn_add_finish_s_1);
                 } else {
                     imageView.setBackgroundResource(R.drawable.btn_add_finish_s);
                 }
-            } else if (al == 1) {
+            } else if (ae == 1) {
                 imageView.setBackgroundResource(R.drawable.btn_add_finish_n_1);
             } else {
                 imageView.setBackgroundResource(R.drawable.btn_add_finish_n);
@@ -141,36 +143,15 @@ public class b extends com.baidu.tieba.j implements t {
         }
     }
 
-    public void a(ImageFileInfo imageFileInfo, boolean z) {
+    public final void a(ImageFileInfo imageFileInfo, boolean z) {
         ImageFileInfo a;
         if (imageFileInfo != null && imageFileInfo.getFilePath() != null && this.i != null && (a = this.i.a(this.j)) != null && a.getFilePath() != null && a.getFilePath().equals(imageFileInfo.getFilePath())) {
             a(this.l, z);
         }
     }
 
-    @Override // com.baidu.tieba.album.t
-    public void a(boolean z) {
-        this.n = z;
-        this.c.a(this.j);
-        d();
-    }
-
-    private void d() {
-        if (!isHidden()) {
-            if (this.n) {
-                this.m.setVisibility(0);
-                this.h.setVisibility(8);
-                return;
-            }
-            this.m.setVisibility(8);
-            this.h.setVisibility(0);
-            c();
-        }
-    }
-
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onDestroy() {
+    public final void onDestroy() {
         super.onDestroy();
-        q.a().b(this);
     }
 }

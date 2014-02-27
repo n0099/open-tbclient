@@ -22,7 +22,7 @@ public class e {
         this.b = (int) System.currentTimeMillis();
     }
 
-    public synchronized int b() {
+    public final synchronized int b() {
         int i;
         if (this.b >= 0 && this.b <= 100000) {
             this.b = SapiErrorCode.DB_GATE_COMMUNICATION_ERROR;

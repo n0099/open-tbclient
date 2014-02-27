@@ -33,7 +33,7 @@ public class TiebaSyncService extends Service {
         if (this.b != null) {
             this.b.cancel();
         }
-        this.b = new q(this, null);
+        this.b = new q(this, (byte) 0);
         this.b.execute(new String[0]);
     }
 
@@ -54,11 +54,11 @@ public class TiebaSyncService extends Service {
         b();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void c() {
-        if (this.d != null) {
-            sendBroadcast(new Intent(com.baidu.tieba.data.i.g()));
-            com.baidu.adp.lib.util.f.a(getClass().getName(), "broadcastNewVersion", "sendBroadcast: " + String.format("%s", this.d.c().getNew_version()));
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void c(TiebaSyncService tiebaSyncService) {
+        if (tiebaSyncService.d != null) {
+            tiebaSyncService.sendBroadcast(new Intent(com.baidu.tieba.data.i.g()));
+            com.baidu.adp.lib.util.e.a(tiebaSyncService.getClass().getName(), "broadcastNewVersion", "sendBroadcast: " + String.format("%s", tiebaSyncService.d.c().getNew_version()));
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.pb;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cj implements Runnable {
+public final class cj implements Runnable {
     final /* synthetic */ PbEditor a;
     private final /* synthetic */ int b;
 
@@ -12,7 +12,10 @@ public class cj implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
-        this.a.a(this.b, new ck(this));
+    public final void run() {
+        PbEditor pbEditor = this.a;
+        int i = this.b;
+        new ck(this);
+        pbEditor.a(i);
     }
 }

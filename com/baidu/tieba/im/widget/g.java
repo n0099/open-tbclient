@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.widget;
 /* loaded from: classes.dex */
-class g implements Runnable {
+final class g implements Runnable {
     final /* synthetic */ EggBreakerView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,7 +9,7 @@ class g implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
-        this.a.b();
+    public final void run() {
+        this.a.a();
     }
 }

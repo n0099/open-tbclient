@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-class z extends PagerAdapter {
+final class z extends PagerAdapter {
     final /* synthetic */ GuideActivity a;
 
     private z(GuideActivity guideActivity) {
@@ -14,19 +14,19 @@ class z extends PagerAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ z(GuideActivity guideActivity, z zVar) {
+    public /* synthetic */ z(GuideActivity guideActivity, byte b) {
         this(guideActivity);
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public int getCount() {
+    public final int getCount() {
         int[] iArr;
         iArr = this.a.f;
         return iArr.length + 1;
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public Object instantiateItem(View view, int i) {
+    public final Object instantiateItem(View view, int i) {
         ArrayList arrayList;
         ArrayList arrayList2;
         ArrayList arrayList3;
@@ -51,17 +51,17 @@ class z extends PagerAdapter {
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public void destroyItem(View view, int i, Object obj) {
+    public final void destroyItem(View view, int i, Object obj) {
         ((ViewPager) view).removeView((View) obj);
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public boolean isViewFromObject(View view, Object obj) {
+    public final boolean isViewFromObject(View view, Object obj) {
         return view == obj;
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
+    public final void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         super.setPrimaryItem(viewGroup, i, obj);
     }
 }

@@ -1,8 +1,10 @@
 package com.baidu.tieba.write;
 
-import android.text.style.ImageSpan;
+import android.view.View;
+import android.widget.EditText;
+import com.baidu.tieba.editortool.EditorToolComponetContainer;
 /* loaded from: classes.dex */
-class az implements com.baidu.tbadk.imageManager.a {
+final class az implements View.OnClickListener {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,18 +12,24 @@ class az implements com.baidu.tbadk.imageManager.a {
         this.a = writeActivity;
     }
 
-    @Override // com.baidu.tbadk.imageManager.a
-    public ImageSpan a(String str) {
-        com.baidu.adp.widget.ImageView.b b = com.baidu.tieba.data.emotions.l.a().b(str);
-        if (b == null) {
-            b = com.baidu.tieba.data.emotions.l.a().a((String) null, str);
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        EditorToolComponetContainer editorToolComponetContainer;
+        EditText editText;
+        EditText editText2;
+        EditorToolComponetContainer editorToolComponetContainer2;
+        editorToolComponetContainer = this.a.B;
+        if (editorToolComponetContainer.a()) {
+            editorToolComponetContainer2 = this.a.B;
+            editorToolComponetContainer2.b();
         }
-        if (b == null) {
-            return null;
+        int d = WriteActivity.d(this.a);
+        if (d >= 0) {
+            editText = this.a.j;
+            if (d < editText.getText().length()) {
+                editText2 = this.a.j;
+                editText2.setSelection(d);
+            }
         }
-        com.baidu.tieba.view.bu buVar = new com.baidu.tieba.view.bu(b.h());
-        buVar.setBounds(0, 0, b.c() + 1, b.d());
-        buVar.setGravity(3);
-        return new ImageSpan(buVar, 0);
     }
 }

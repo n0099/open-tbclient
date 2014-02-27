@@ -2,7 +2,7 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.sapi2.shell.SapiErrorCode;
 /* loaded from: classes.dex */
-public class db extends s {
+public final class db extends s {
     private String a;
     private String b;
     private int c = 0;
@@ -11,27 +11,27 @@ public class db extends s {
         e(SapiErrorCode.GETTING_CERT);
     }
 
-    public String a() {
+    public final String a() {
         return this.b;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.b = str;
     }
 
-    public String b() {
+    public final String b() {
         return this.a;
     }
 
-    public void b(String str) {
+    public final void b(String str) {
         this.a = str;
     }
 
-    public int c() {
+    public final int c() {
         return this.c;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.c = i;
     }
 }

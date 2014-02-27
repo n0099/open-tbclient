@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 import org.apache.commons.io.IOUtils;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class k {
+public final class k {
     private static final Pattern j = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
     private static final Pattern k = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
     private String c;
@@ -34,31 +34,31 @@ public class k {
         return (i != 0 || i2 == 3 || i2 == 2) ? false : true;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.a = i;
     }
 
-    public int a() {
+    public final int a() {
         return this.a;
     }
 
-    public String b() {
+    public final String b() {
         return this.b;
     }
 
-    public String c() {
+    public final String c() {
         return this.c;
     }
 
-    public void a(SpannableStringBuilder spannableStringBuilder) {
+    public final void a(SpannableStringBuilder spannableStringBuilder) {
         this.i = spannableStringBuilder;
     }
 
-    public SpannableStringBuilder d() {
+    public final SpannableStringBuilder d() {
         return this.i;
     }
 
-    public SpannableStringBuilder a(SpannableString spannableString) {
+    public final SpannableStringBuilder a(SpannableString spannableString) {
         if (this.i == null) {
             this.i = new SpannableStringBuilder();
         }
@@ -66,7 +66,7 @@ public class k {
         return this.i;
     }
 
-    public SpannableString a(Context context) {
+    public final SpannableString a(Context context) {
         String str;
         switch (this.a) {
             case 0:
@@ -115,7 +115,7 @@ public class k {
         }
     }
 
-    public SpannableString a(Context context, int i, int i2) {
+    public final SpannableString c(int i, int i2) {
         int d;
         if (this.a != 2) {
             return null;
@@ -135,11 +135,11 @@ public class k {
         return spannableString;
     }
 
-    public String e() {
+    public final String e() {
         return this.g;
     }
 
-    public void a(JSONObject jSONObject) {
+    public final void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 this.a = jSONObject.optInt("type", 0);
@@ -183,7 +183,7 @@ public class k {
                     this.g = this.g.replaceAll(IOUtils.LINE_SEPARATOR_UNIX, "");
                 }
             } catch (Exception e2) {
-                com.baidu.adp.lib.util.f.b("ContentData", "parserJson", "error = " + e2.getMessage());
+                com.baidu.adp.lib.util.e.b("ContentData", "parserJson", "error = " + e2.getMessage());
             }
         }
     }

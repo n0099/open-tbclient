@@ -33,12 +33,12 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
     public static <FieldDescriptorType extends FieldSet.FieldDescriptorLite<FieldDescriptorType>> SmallSortedMap<FieldDescriptorType, Object> newFieldMap(int i) {
         return (SmallSortedMap<FieldDescriptorType, Object>) new SmallSortedMap<FieldDescriptorType, Object>(i) { // from class: com.google.protobuf.SmallSortedMap.1
             @Override // com.google.protobuf.SmallSortedMap, java.util.AbstractMap, java.util.Map
-            public /* bridge */ /* synthetic */ Object put(Object obj, Object obj2) {
+            public final /* bridge */ /* synthetic */ Object put(Object obj, Object obj2) {
                 return super.put((AnonymousClass1) ((FieldSet.FieldDescriptorLite) obj), (FieldSet.FieldDescriptorLite) obj2);
             }
 
             @Override // com.google.protobuf.SmallSortedMap
-            public void makeImmutable() {
+            public final void makeImmutable() {
                 if (!isImmutable()) {
                     int i2 = 0;
                     while (true) {
@@ -183,9 +183,6 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
     }
 
     private int binarySearchInArray(K k) {
-        int i;
-        int i2;
-        int i3 = 0;
         int size = this.entryList.size() - 1;
         if (size >= 0) {
             int compareTo = k.compareTo(this.entryList.get(size).getKey());
@@ -196,23 +193,20 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
                 return size;
             }
         }
-        while (i3 <= size) {
-            int i4 = (i3 + size) / 2;
-            int compareTo2 = k.compareTo(this.entryList.get(i4).getKey());
+        int i = 0;
+        int i2 = size;
+        while (i <= i2) {
+            int i3 = (i + i2) / 2;
+            int compareTo2 = k.compareTo(this.entryList.get(i3).getKey());
             if (compareTo2 < 0) {
-                i2 = i4 - 1;
-                i = i3;
+                i2 = i3 - 1;
             } else if (compareTo2 <= 0) {
-                return i4;
+                return i3;
             } else {
-                int i5 = size;
-                i = i4 + 1;
-                i2 = i5;
+                i = i3 + 1;
             }
-            i3 = i;
-            size = i2;
         }
-        return -(i3 + 1);
+        return -(i + 1);
     }
 
     @Override // java.util.AbstractMap, java.util.Map
@@ -420,23 +414,23 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
     public class EmptySet {
         private static final Iterator<Object> ITERATOR = new Iterator<Object>() { // from class: com.google.protobuf.SmallSortedMap.EmptySet.1
             @Override // java.util.Iterator
-            public boolean hasNext() {
+            public final boolean hasNext() {
                 return false;
             }
 
             @Override // java.util.Iterator
-            public Object next() {
+            public final Object next() {
                 throw new NoSuchElementException();
             }
 
             @Override // java.util.Iterator
-            public void remove() {
+            public final void remove() {
                 throw new UnsupportedOperationException();
             }
         };
         private static final Iterable<Object> ITERABLE = new Iterable<Object>() { // from class: com.google.protobuf.SmallSortedMap.EmptySet.2
             @Override // java.lang.Iterable
-            public Iterator<Object> iterator() {
+            public final Iterator<Object> iterator() {
                 return EmptySet.ITERATOR;
             }
         };

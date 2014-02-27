@@ -21,7 +21,7 @@ import com.baidu.tieba.util.bs;
 import com.baidu.tieba.util.cb;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class d implements View.OnClickListener {
+public final class d implements View.OnClickListener {
     private LayoutInflater a;
     private Context b;
     private View c;
@@ -64,33 +64,27 @@ public class d implements View.OnClickListener {
         this.m = (LinearLayout) this.c.findViewById(R.id.customViewBox);
     }
 
-    public void a(a aVar) {
-        if (aVar != null) {
-            this.r = aVar;
-        }
-    }
-
-    public void a(SparseArray<String> sparseArray) {
+    public final void a(SparseArray<String> sparseArray) {
         this.q = sparseArray;
     }
 
-    public void a(f fVar, boolean z) {
-        Location c;
-        if (z && (c = c()) != null) {
-            fVar.e = c;
+    public final void a(f fVar, boolean z) {
+        Location b = b();
+        if (b != null) {
+            fVar.e = b;
         }
         this.o.put(1, fVar);
     }
 
-    public void a(int i, f fVar, boolean z) {
-        Location c;
-        if (z && (c = c()) != null) {
-            fVar.e = c;
+    public final void a(int i, f fVar, boolean z) {
+        Location b = b();
+        if (b != null) {
+            fVar.e = b;
         }
-        this.o.put(i, fVar);
+        this.o.put(3, fVar);
     }
 
-    private Location c() {
+    private Location b() {
         LocationManager locationManager = (LocationManager) this.b.getSystemService("location");
         Criteria criteria = new Criteria();
         criteria.setAccuracy(1);
@@ -105,7 +99,7 @@ public class d implements View.OnClickListener {
         }
     }
 
-    public void a(View view, View.OnClickListener onClickListener) {
+    public final void a(View view, View.OnClickListener onClickListener) {
         if (view != null) {
             this.m.addView(view);
             if (onClickListener != null) {
@@ -115,7 +109,7 @@ public class d implements View.OnClickListener {
         }
     }
 
-    public void a() {
+    public final void a() {
         if (!UtilHelper.b()) {
             BdUtilHelper.a(this.b, (int) R.string.share_on_no_network);
             return;
@@ -127,21 +121,40 @@ public class d implements View.OnClickListener {
         window.setWindowAnimations(R.style.share_dialog_style);
         window.setGravity(80);
         window.setLayout(-1, -2);
-        a(this.r);
+        a aVar = this.r;
+        if (aVar != null) {
+            this.r = aVar;
+        }
         window.setContentView(this.c);
-        d();
+        a(this.f, R.drawable.icon_unite_share_friend, R.color.share_to, R.drawable.icon_unite_share_friend_1, R.color.share_to_1);
+        a(this.g, R.drawable.icon_unite_share_weixin, R.color.share_to, R.drawable.icon_unite_share_weixin_1, R.color.share_to_1);
+        a(this.h, R.drawable.icon_unite_share_qqzon, R.color.share_to, R.drawable.icon_unite_share_qqzon_1, R.color.share_to_1);
+        a(this.i, R.drawable.icon_unite_share_tencent, R.color.share_to, R.drawable.icon_unite_share_tencent_1, R.color.share_to_1);
+        a(this.j, R.drawable.icon_unite_share_sina, R.color.share_to, R.drawable.icon_unite_share_sina_1, R.color.share_to_1);
+        a(this.k, R.drawable.icon_unite_share_renren, R.color.share_to, R.drawable.icon_unite_share_renren_1, R.color.share_to_1);
+        int paddingLeft = this.d.getPaddingLeft();
+        if (TiebaApplication.g().ae() == 1) {
+            this.e.setBackgroundResource(R.drawable.bg_unite_popup_share_down_1);
+            this.d.setBackgroundResource(R.drawable.bg_unite_popup_share_up_1);
+            this.d.setTextColor(this.b.getResources().getColor(R.color.share_to_1));
+            this.l.setBackgroundResource(R.drawable.btn_w_square_1);
+            this.l.setTextColor(this.b.getResources().getColor(R.color.share_to_1));
+        } else {
+            this.e.setBackgroundResource(R.drawable.bg_unite_popup_share_down);
+            this.d.setBackgroundResource(R.drawable.bg_unite_popup_share_up);
+            this.d.setTextColor(this.b.getResources().getColor(R.color.share_to));
+            this.l.setBackgroundResource(R.drawable.btn_w_square);
+            this.l.setTextColor(this.b.getResources().getColor(R.color.share_to));
+        }
+        this.d.setPadding(paddingLeft, 0, 0, 0);
     }
 
-    public void b() {
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
         if (this.n != null) {
             this.p = false;
             this.n.dismiss();
         }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        b();
         if (this.o.size() != 0) {
             if (view.getId() == R.id.btnShareCancel || !this.p) {
                 this.p = true;
@@ -149,7 +162,7 @@ public class d implements View.OnClickListener {
                 int id = view.getId();
                 if (id == R.id.btnShareCancel) {
                     a("share_cancel");
-                    this.r.b();
+                    a aVar = this.r;
                 } else if (id == R.id.iconWeixin) {
                     a("share_to_weixin");
                     b(3);
@@ -221,41 +234,15 @@ public class d implements View.OnClickListener {
         cb.a(this.b, str, "click", 1, new Object[0]);
     }
 
-    private void d() {
-        a(this.f, R.drawable.icon_unite_share_friend, R.color.share_to, R.drawable.icon_unite_share_friend_1, R.color.share_to_1);
-        a(this.g, R.drawable.icon_unite_share_weixin, R.color.share_to, R.drawable.icon_unite_share_weixin_1, R.color.share_to_1);
-        a(this.h, R.drawable.icon_unite_share_qqzon, R.color.share_to, R.drawable.icon_unite_share_qqzon_1, R.color.share_to_1);
-        a(this.i, R.drawable.icon_unite_share_tencent, R.color.share_to, R.drawable.icon_unite_share_tencent_1, R.color.share_to_1);
-        a(this.j, R.drawable.icon_unite_share_sina, R.color.share_to, R.drawable.icon_unite_share_sina_1, R.color.share_to_1);
-        a(this.k, R.drawable.icon_unite_share_renren, R.color.share_to, R.drawable.icon_unite_share_renren_1, R.color.share_to_1);
-        int paddingLeft = this.d.getPaddingLeft();
-        if (TiebaApplication.g().al() == 1) {
-            this.e.setBackgroundResource(R.drawable.bg_unite_popup_share_down_1);
-            this.d.setBackgroundResource(R.drawable.bg_unite_popup_share_up_1);
-            this.d.setTextColor(this.b.getResources().getColor(R.color.share_to_1));
-            this.l.setBackgroundResource(R.drawable.btn_w_square_1);
-            this.l.setTextColor(this.b.getResources().getColor(R.color.share_to_1));
-        } else {
-            this.e.setBackgroundResource(R.drawable.bg_unite_popup_share_down);
-            this.d.setBackgroundResource(R.drawable.bg_unite_popup_share_up);
-            this.d.setTextColor(this.b.getResources().getColor(R.color.share_to));
-            this.l.setBackgroundResource(R.drawable.btn_w_square);
-            this.l.setTextColor(this.b.getResources().getColor(R.color.share_to));
-        }
-        this.d.setPadding(paddingLeft, 0, 0, 0);
-    }
-
     private void a(TextView textView, int i, int i2, int i3, int i4) {
-        int al = TiebaApplication.g().al();
-        if (al != 1) {
+        int ae = TiebaApplication.g().ae();
+        if (ae != 1) {
             i3 = i;
         }
-        if (al != 1) {
-            i4 = i2;
-        }
+        int i5 = ae == 1 ? R.color.share_to_1 : R.color.share_to;
         Drawable drawable = this.b.getResources().getDrawable(i3);
         drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
         textView.setCompoundDrawables(null, drawable, null, null);
-        textView.setTextColor(this.b.getResources().getColor(i4));
+        textView.setTextColor(this.b.getResources().getColor(i5));
     }
 }

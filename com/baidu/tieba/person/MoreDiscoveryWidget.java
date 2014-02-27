@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -44,11 +43,11 @@ public class MoreDiscoveryWidget extends FrameLayout {
         obtainStyledAttributes.recycle();
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         if (this.e instanceof com.baidu.tieba.f) {
-            ((com.baidu.tieba.f) this.e).getLayoutMode().a((View) this);
+            ((com.baidu.tieba.f) this.e).getLayoutMode().a(this);
         } else if (this.e instanceof com.baidu.tieba.k) {
-            ((com.baidu.tieba.k) getContext()).a().a((View) this);
+            ((com.baidu.tieba.k) getContext()).a().a(this);
         }
         if (1 == i) {
             this.a.setImageResource(this.f[1]);
@@ -57,19 +56,19 @@ public class MoreDiscoveryWidget extends FrameLayout {
         }
     }
 
-    public void a() {
+    public final void a() {
         this.c.setVisibility(0);
     }
 
-    public void b() {
+    public final void b() {
         this.c.setVisibility(8);
     }
 
-    public void c() {
+    public final void c() {
         this.d.setVisibility(0);
     }
 
-    public void d() {
+    public final void d() {
         this.d.setVisibility(8);
     }
 }

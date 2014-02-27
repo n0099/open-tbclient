@@ -6,7 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.widget.Toast;
 /* loaded from: classes.dex */
-class g implements DialogInterface.OnClickListener {
+final class g implements DialogInterface.OnClickListener {
     final /* synthetic */ f a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +15,7 @@ class g implements DialogInterface.OnClickListener {
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
+    public final void onClick(DialogInterface dialogInterface, int i) {
         c cVar;
         c cVar2;
         Context context;
@@ -32,7 +32,7 @@ class g implements DialogInterface.OnClickListener {
             return;
         }
         cVar = this.a.a;
-        cVar.d();
+        cVar.c();
         cVar2 = this.a.a;
         context = cVar2.k;
         ((Activity) context).finish();

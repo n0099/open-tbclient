@@ -4,25 +4,32 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.GetPeerInfo.GetPeerInfoReq;
 /* loaded from: classes.dex */
 public final class b extends GeneratedMessageLite.Builder<GetPeerInfoReq.DataReq, b> implements c {
     private int a;
     private long b;
 
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return GetPeerInfoReq.DataReq.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return GetPeerInfoReq.DataReq.getDefaultInstance();
+    }
+
     private b() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static b h() {
+    public static /* synthetic */ b c() {
         return new b();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: d */
     public b clear() {
         super.clear();
         this.b = 0L;
@@ -31,20 +38,14 @@ public final class b extends GeneratedMessageLite.Builder<GetPeerInfoReq.DataReq
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
+    /* renamed from: e */
     public b clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public GetPeerInfoReq.DataReq getDefaultInstanceForType() {
-        return GetPeerInfoReq.DataReq.getDefaultInstance();
+        return new b().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: d */
-    public GetPeerInfoReq.DataReq build() {
+    /* renamed from: a */
+    public final GetPeerInfoReq.DataReq build() {
         GetPeerInfoReq.DataReq buildPartial = buildPartial();
         if (!buildPartial.isInitialized()) {
             throw newUninitializedMessageException(buildPartial);
@@ -53,8 +54,8 @@ public final class b extends GeneratedMessageLite.Builder<GetPeerInfoReq.DataReq
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public GetPeerInfoReq.DataReq buildPartial() {
+    /* renamed from: b */
+    public final GetPeerInfoReq.DataReq buildPartial() {
         GetPeerInfoReq.DataReq dataReq = new GetPeerInfoReq.DataReq(this, (GetPeerInfoReq.DataReq) null);
         int i = (this.a & 1) != 1 ? 0 : 1;
         dataReq.peerUid_ = this.b;
@@ -64,7 +65,7 @@ public final class b extends GeneratedMessageLite.Builder<GetPeerInfoReq.DataReq
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public b mergeFrom(GetPeerInfoReq.DataReq dataReq) {
+    public final b mergeFrom(GetPeerInfoReq.DataReq dataReq) {
         if (dataReq != GetPeerInfoReq.DataReq.getDefaultInstance() && dataReq.hasPeerUid()) {
             a(dataReq.getPeerUid());
         }
@@ -114,7 +115,7 @@ public final class b extends GeneratedMessageLite.Builder<GetPeerInfoReq.DataReq
         }
     }
 
-    public b a(long j) {
+    public final b a(long j) {
         this.a |= 1;
         this.b = j;
         return this;

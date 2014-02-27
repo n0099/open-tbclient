@@ -6,9 +6,8 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r extends BaseAdapter {
+final class r extends BaseAdapter {
     final /* synthetic */ JigsawAlbumListActivity a;
     private Context b;
 
@@ -18,22 +17,22 @@ public class r extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public int getCount() {
+    public final int getCount() {
         return this.a.a.b();
     }
 
     @Override // android.widget.Adapter
-    public Object getItem(int i) {
+    public final Object getItem(int i) {
         return this.a.a.a(i);
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    public final long getItemId(int i) {
         return i;
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public final View getView(int i, View view, ViewGroup viewGroup) {
         ViewphotoLinkedHashMap viewphotoLinkedHashMap;
         a aVar;
         ViewphotoLinkedHashMap viewphotoLinkedHashMap2;

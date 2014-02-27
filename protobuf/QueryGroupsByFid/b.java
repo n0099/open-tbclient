@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.QueryGroupsByFid.QueryGroupsByFidReq;
 /* loaded from: classes.dex */
 public final class b extends GeneratedMessageLite.Builder<QueryGroupsByFidReq.DataReq, b> implements c {
@@ -15,19 +16,25 @@ public final class b extends GeneratedMessageLite.Builder<QueryGroupsByFidReq.Da
     private int f;
     private int g;
 
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return QueryGroupsByFidReq.DataReq.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return QueryGroupsByFidReq.DataReq.getDefaultInstance();
+    }
+
     private b() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static b h() {
+    public static /* synthetic */ b c() {
         return new b();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: d */
     public b clear() {
         super.clear();
         this.b = 0;
@@ -46,20 +53,14 @@ public final class b extends GeneratedMessageLite.Builder<QueryGroupsByFidReq.Da
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
+    /* renamed from: e */
     public b clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public QueryGroupsByFidReq.DataReq getDefaultInstanceForType() {
-        return QueryGroupsByFidReq.DataReq.getDefaultInstance();
+        return new b().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: d */
-    public QueryGroupsByFidReq.DataReq build() {
+    /* renamed from: a */
+    public final QueryGroupsByFidReq.DataReq build() {
         QueryGroupsByFidReq.DataReq buildPartial = buildPartial();
         if (!buildPartial.isInitialized()) {
             throw newUninitializedMessageException(buildPartial);
@@ -68,8 +69,8 @@ public final class b extends GeneratedMessageLite.Builder<QueryGroupsByFidReq.Da
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public QueryGroupsByFidReq.DataReq buildPartial() {
+    /* renamed from: b */
+    public final QueryGroupsByFidReq.DataReq buildPartial() {
         QueryGroupsByFidReq.DataReq dataReq = new QueryGroupsByFidReq.DataReq(this, (QueryGroupsByFidReq.DataReq) null);
         int i = this.a;
         int i2 = (i & 1) != 1 ? 0 : 1;
@@ -100,7 +101,7 @@ public final class b extends GeneratedMessageLite.Builder<QueryGroupsByFidReq.Da
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public b mergeFrom(QueryGroupsByFidReq.DataReq dataReq) {
+    public final b mergeFrom(QueryGroupsByFidReq.DataReq dataReq) {
         if (dataReq != QueryGroupsByFidReq.DataReq.getDefaultInstance()) {
             if (dataReq.hasForumId()) {
                 a(dataReq.getForumId());
@@ -167,37 +168,37 @@ public final class b extends GeneratedMessageLite.Builder<QueryGroupsByFidReq.Da
         }
     }
 
-    public b a(int i) {
+    public final b a(int i) {
         this.a |= 1;
         this.b = i;
         return this;
     }
 
-    public b b(int i) {
+    public final b b(int i) {
         this.a |= 2;
         this.c = i;
         return this;
     }
 
-    public b c(int i) {
+    public final b c(int i) {
         this.a |= 4;
         this.d = i;
         return this;
     }
 
-    public b d(int i) {
+    public final b d(int i) {
         this.a |= 8;
         this.e = i;
         return this;
     }
 
-    public b e(int i) {
+    public final b e(int i) {
         this.a |= 16;
         this.f = i;
         return this;
     }
 
-    public b f(int i) {
+    public final b f(int i) {
         this.a |= 32;
         this.g = i;
         return this;

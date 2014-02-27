@@ -136,12 +136,8 @@ public class ImageSelection {
                     if (i10 >= this.mWidth) {
                         break;
                     }
-                    if (i8 >= i5 && i8 < i5 + i2 && i10 >= i6 && i10 < i6 + i) {
-                        if (isOutTheCorner(i, i2, i10 - i6, i8 - i5, i3)) {
-                            this.mSelection[(this.mWidth * i8) + i10] = 0;
-                        } else {
-                            this.mSelection[(this.mWidth * i8) + i10] = getSquareFeatherValue(i, i2, i10 - i6, i8 - i5, i4);
-                        }
+                    if (i8 >= i5 && i8 < i5 + i2 && i10 >= i6 && i10 < i6 + i && !isOutTheCorner(i, i2, i10 - i6, i8 - i5, i3)) {
+                        this.mSelection[(this.mWidth * i8) + i10] = getSquareFeatherValue(i, i2, i10 - i6, i8 - i5, i4);
                     } else {
                         this.mSelection[(this.mWidth * i8) + i10] = 0;
                     }

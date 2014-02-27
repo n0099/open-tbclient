@@ -7,7 +7,7 @@ import com.baidu.tieba.model.bj;
 import com.baidu.tieba.view.RightSlideViewPager;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class b implements bj {
+final class b implements bj {
     final /* synthetic */ NewUserGuideActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,7 +16,7 @@ class b implements bj {
     }
 
     @Override // com.baidu.tieba.model.bj
-    public void a(InterestFrsData interestFrsData) {
+    public final void a(InterestFrsData interestFrsData) {
         bh bhVar;
         bh bhVar2;
         RightSlideViewPager rightSlideViewPager;
@@ -29,7 +29,7 @@ class b implements bj {
     }
 
     @Override // com.baidu.tieba.model.bj
-    public void b(InterestFrsData interestFrsData) {
+    public final void a() {
         bh bhVar;
         bh bhVar2;
         bhVar = this.a.d;

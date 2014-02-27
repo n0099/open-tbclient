@@ -83,7 +83,7 @@ public final class SapiCache {
     public static void a(Context context) {
         g = context;
         a();
-        syncCache();
+        syncCache(null);
     }
 
     /* JADX WARN: Type inference failed for: r0v7, types: [com.baidu.sapi2.SapiCache$1] */
@@ -99,7 +99,7 @@ public final class SapiCache {
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // android.os.AsyncTask
                 /* renamed from: a */
-                public Void doInBackground(Void... voidArr) {
+                public final Void doInBackground(Void... voidArr) {
                     for (b.a.C0010a c0010a2 : b.a.this.b()) {
                         SapiCache.a(c0010a2, new LoadModuleEventListener() { // from class: com.baidu.sapi2.SapiCache.1.1
                             @Override // com.baidu.sapi2.SapiCache.LoadModuleEventListener
@@ -134,8 +134,6 @@ public final class SapiCache {
                 }
                 return;
             } catch (IOException e2) {
-                loadModuleEventListener.onFailure(c0010a);
-                return;
             }
         }
         loadModuleEventListener.onFailure(c0010a);
@@ -176,7 +174,7 @@ public final class SapiCache {
     public static void syncCache(final CacheEventListener cacheEventListener) {
         Handler handler = new Handler() { // from class: com.baidu.sapi2.SapiCache.2
             @Override // android.os.Handler
-            public void handleMessage(Message message) {
+            public final void handleMessage(Message message) {
                 if (message.what == 1001 && CacheEventListener.this != null) {
                     CacheEventListener.this.onUpdated();
                 }
@@ -205,7 +203,7 @@ public final class SapiCache {
         }
 
         @Override // com.baidu.sapi2.a.h
-        public void onSuccess(JSONObject jSONObject) {
+        public final void onSuccess(JSONObject jSONObject) {
             b e = d.a(SapiCache.g).e();
             b a = b.a(jSONObject);
             b.a b = a.b();
@@ -342,7 +340,7 @@ public final class SapiCache {
         }
 
         @Override // com.baidu.sapi2.a.h
-        public void onFailure(Throwable th, JSONObject jSONObject) {
+        public final void onFailure(Throwable th, JSONObject jSONObject) {
             if (this.b != null) {
                 this.b.onUpdated();
             }
@@ -463,11 +461,9 @@ public final class SapiCache {
             fileOutputStream = new FileOutputStream(file);
             try {
                 fileOutputStream.write(bArr);
-                if (fileOutputStream != null) {
-                    try {
-                        fileOutputStream.close();
-                    } catch (IOException e2) {
-                    }
+                try {
+                    fileOutputStream.close();
+                } catch (IOException e2) {
                 }
             } catch (IOException e3) {
                 fileOutputStream2 = fileOutputStream;

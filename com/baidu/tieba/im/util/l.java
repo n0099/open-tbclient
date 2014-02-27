@@ -18,7 +18,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class l {
+public final class l {
     private static short a = 1;
     private static short b = 2;
     private static short c = 3;
@@ -26,20 +26,18 @@ public class l {
     private static Pattern e = Pattern.compile("(#\\([^#\\)\\(]+\\))");
 
     public static String a(String str, boolean z) {
-        String str2 = null;
         if (str == null) {
             return null;
         }
         try {
-            str2 = new JSONArray(str).getJSONObject(0).optString(z ? "big_src" : "src");
-            return str2;
+            return new JSONArray(str).getJSONObject(0).optString("big_src");
         } catch (Exception e2) {
-            return str2;
+            return null;
         }
     }
 
     public static String a(JSONObject jSONObject, boolean z) {
-        return jSONObject.optString(z ? "big_src" : "src");
+        return jSONObject.optString("src");
     }
 
     public static boolean a(com.baidu.tieba.im.message.b bVar) {
@@ -56,12 +54,12 @@ public class l {
 
     public static boolean d(com.baidu.tieba.im.message.b bVar) {
         try {
-            if (bVar.i() != 11 && TiebaApplication.B()) {
-                return bVar.g().getUserId().equals(TiebaApplication.A());
+            if (bVar.i() != 11 && TiebaApplication.w()) {
+                return bVar.g().getUserId().equals(TiebaApplication.v());
             }
             return false;
         } catch (Exception e2) {
-            com.baidu.adp.lib.util.f.b("LocalUtil", "isAuthor", "Msg Author is Null");
+            com.baidu.adp.lib.util.e.b("LocalUtil", "isAuthor", "Msg Author is Null");
             return false;
         }
     }
@@ -70,18 +68,18 @@ public class l {
         return bVar != null && bVar.i() == 6;
     }
 
-    public static MsgCacheData f(com.baidu.tieba.im.message.b bVar) {
+    public static MsgCacheData a() {
         try {
             MsgCacheData msgCacheData = new MsgCacheData();
             msgCacheData.setRich_content(null);
             return msgCacheData;
         } catch (Exception e2) {
-            com.baidu.adp.lib.util.f.b("LocalUtil", "getMsgCacheData", "error:" + e2.getMessage());
+            com.baidu.adp.lib.util.e.b("LocalUtil", "getMsgCacheData", "error:" + e2.getMessage());
             return null;
         }
     }
 
-    public static VoiceMsgData g(com.baidu.tieba.im.message.b bVar) {
+    public static VoiceMsgData f(com.baidu.tieba.im.message.b bVar) {
         VoiceMsgData voiceMsgData;
         Exception e2;
         if (bVar == null || bVar.i() != 3) {
@@ -109,7 +107,7 @@ public class l {
                 return voiceMsgData;
             } catch (Exception e3) {
                 e2 = e3;
-                com.baidu.adp.lib.util.f.b("LocalUtil", "deserializerVoiceMsgData", "error:" + e2.getMessage());
+                com.baidu.adp.lib.util.e.b("LocalUtil", "deserializerVoiceMsgData", "error:" + e2.getMessage());
                 return voiceMsgData;
             }
         } catch (Exception e4) {
@@ -145,7 +143,7 @@ public class l {
         return sb.toString();
     }
 
-    public static String h(com.baidu.tieba.im.message.b bVar) {
+    public static String g(com.baidu.tieba.im.message.b bVar) {
         if (bVar == null) {
             return null;
         }
@@ -171,8 +169,8 @@ public class l {
             }
             if (bVar.i() == 11) {
                 String b2 = b(bVar.k());
-                com.baidu.adp.lib.util.f.e("simon", "raw system message", bVar.k());
-                com.baidu.adp.lib.util.f.e("simon", "converted system message", b2);
+                com.baidu.adp.lib.util.e.e("simon", "raw system message", bVar.k());
+                com.baidu.adp.lib.util.e.e("simon", "converted system message", b2);
                 return b2;
             } else if (bVar.i() == 4) {
                 String k = bVar.k();
@@ -216,7 +214,7 @@ public class l {
         }
     }
 
-    public static String i(com.baidu.tieba.im.message.b bVar) {
+    public static String h(com.baidu.tieba.im.message.b bVar) {
         if (bVar == null) {
             return null;
         }
@@ -225,16 +223,16 @@ public class l {
         if (g != null && !TextUtils.isEmpty(g.getUserName())) {
             str = bVar.g().getUserName();
         }
-        if (g != null && !TextUtils.isEmpty(g.getUserId()) && g.getUserId().equals(TiebaApplication.A())) {
-            return h(bVar);
+        if (g != null && !TextUtils.isEmpty(g.getUserId()) && g.getUserId().equals(TiebaApplication.v())) {
+            return g(bVar);
         }
         if (bVar.i() == 11) {
-            return h(bVar);
+            return g(bVar);
         }
         if (!TextUtils.isEmpty(str)) {
-            return String.valueOf(str) + ":" + h(bVar);
+            return String.valueOf(str) + ":" + g(bVar);
         }
-        return h(bVar);
+        return g(bVar);
     }
 
     private static String b(String str) {
@@ -246,7 +244,7 @@ public class l {
                 String optString2 = jSONObject.optString("userMsg");
                 JSONObject optJSONObject = jSONObject.optJSONObject("eventParam");
                 if (TextUtils.isEmpty(optString) || optJSONObject == null) {
-                    com.baidu.adp.lib.util.f.b("eventId == null or eventParam == null");
+                    com.baidu.adp.lib.util.e.b("eventId == null or eventParam == null");
                 } else if (optString.equals("-10001")) {
                     str2 = optString2;
                 } else if (optString.equals("003")) {
@@ -256,7 +254,7 @@ public class l {
                 } else if (optString.equals("105")) {
                     String optString3 = optJSONObject.optString("userId");
                     String optString4 = optJSONObject.optString("userName");
-                    if (optString3.equals(TiebaApplication.A())) {
+                    if (optString3.equals(TiebaApplication.v())) {
                         str2 = TiebaApplication.g().b().getString(R.string.join_group_myself);
                     } else {
                         str2 = String.valueOf(optString4) + TiebaApplication.g().b().getString(R.string.join_group);
@@ -264,7 +262,7 @@ public class l {
                 } else if (optString.equals("106")) {
                     String optString5 = optJSONObject.optString("userId");
                     optJSONObject.optString("userName");
-                    str2 = optString5.equals(TiebaApplication.A()) ? TiebaApplication.g().b().getString(R.string.kick_out_myself) : optString2;
+                    str2 = optString5.equals(TiebaApplication.v()) ? TiebaApplication.g().b().getString(R.string.kick_out_myself) : optString2;
                 } else if (optString.equals("002")) {
                     str2 = TiebaApplication.g().b().getString(R.string.join_group_myself);
                 } else if (optString.equals("109")) {
@@ -278,13 +276,13 @@ public class l {
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();
-                com.baidu.adp.lib.util.f.b("transform erro" + e2.getMessage());
+                com.baidu.adp.lib.util.e.b("transform erro" + e2.getMessage());
             }
         }
         return str2;
     }
 
-    public static SystemMsgData j(com.baidu.tieba.im.message.b bVar) {
+    public static SystemMsgData i(com.baidu.tieba.im.message.b bVar) {
         if (bVar == null || bVar.i() != 11 || TextUtils.isEmpty(bVar.k())) {
             return null;
         }
@@ -294,7 +292,7 @@ public class l {
             String optString2 = jSONObject.optString("userMsg");
             JSONObject optJSONObject = jSONObject.optJSONObject("eventParam");
             if (TextUtils.isEmpty(optString) || optJSONObject == null) {
-                com.baidu.adp.lib.util.f.b("eventId == null or eventParam == null");
+                com.baidu.adp.lib.util.e.b("eventId == null or eventParam == null");
                 return null;
             } else if (optString.equals("003")) {
                 SystemMsgData systemMsgData = new SystemMsgData();
@@ -310,7 +308,7 @@ public class l {
                 String optString3 = optJSONObject.optString("userId");
                 String optString4 = optJSONObject.optString("userName");
                 SystemMsgData systemMsgData3 = new SystemMsgData();
-                if (optString3.equals(TiebaApplication.A())) {
+                if (optString3.equals(TiebaApplication.v())) {
                     systemMsgData3.setIsSelf(true);
                     systemMsgData3.setContent(TiebaApplication.g().b().getString(R.string.join_group_myself));
                 } else {
@@ -322,7 +320,7 @@ public class l {
                 String optString5 = optJSONObject.optString("userId");
                 optJSONObject.optString("userName");
                 SystemMsgData systemMsgData4 = new SystemMsgData();
-                if (optString5.equals(TiebaApplication.A())) {
+                if (optString5.equals(TiebaApplication.v())) {
                     systemMsgData4.setIsSelf(true);
                     systemMsgData4.setContent(TiebaApplication.g().b().getString(R.string.kick_out_myself));
                 } else {
@@ -345,7 +343,7 @@ public class l {
             }
         } catch (JSONException e2) {
             e2.printStackTrace();
-            com.baidu.adp.lib.util.f.b("transform erro" + e2.getMessage());
+            com.baidu.adp.lib.util.e.b("transform erro" + e2.getMessage());
             return null;
         }
     }

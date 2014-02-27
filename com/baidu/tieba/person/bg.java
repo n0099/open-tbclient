@@ -13,7 +13,7 @@ import com.slidingmenu.lib.R;
 import java.text.DecimalFormat;
 import java.util.List;
 /* loaded from: classes.dex */
-public class bg extends LinearLayout {
+public final class bg extends LinearLayout {
     private Context a;
     private View b;
     private ViewPager c;
@@ -43,32 +43,9 @@ public class bg extends LinearLayout {
         super(context);
         this.a = context;
         this.v = cmVar;
-        c();
-        a();
-        addView(this.b);
-    }
-
-    public void a() {
-        this.l.setText(SocialConstants.FALSE);
-        this.n.setText(SocialConstants.FALSE);
-        this.p.setText(SocialConstants.FALSE);
-        this.r.setText(SocialConstants.FALSE);
-        this.k = this.v.c();
-        this.e.setVisibility(8);
-        this.m.setText(this.a.getResources().getString(R.string.user_info_center_head_forums_name_text_n));
-        this.o.setText(this.a.getResources().getString(R.string.user_info_center_head_post_name_text_n));
-        this.q.setText(this.a.getResources().getString(R.string.user_info_center_head_attention_name_text_n));
-        this.s.setText(this.a.getResources().getString(R.string.user_info_center_head_fans_name_text_n));
-        this.x = new bi(this, this.k);
-        this.c.setAdapter(this.x);
-        this.c.setOnPageChangeListener(new bh(this));
-        b(0);
-    }
-
-    private void c() {
         this.b = View.inflate(this.a, R.layout.person_center_head_view, null);
         this.w = (BdCenterImageView) this.b.findViewById(R.id.user_info_center_head_cover_im);
-        if (TiebaApplication.g().al() == 1) {
+        if (TiebaApplication.g().ae() == 1) {
             this.w.setImageDrawable(this.a.getResources().getDrawable(R.drawable.cent_banner_pic_n_1));
         } else {
             this.w.setImageDrawable(this.a.getResources().getDrawable(R.drawable.cent_banner_pic_n));
@@ -97,13 +74,28 @@ public class bg extends LinearLayout {
         this.t.setVisibility(8);
         this.d.setOnClickListener(this.v);
         this.e.setOnClickListener(this.v);
+        this.l.setText(SocialConstants.FALSE);
+        this.n.setText(SocialConstants.FALSE);
+        this.p.setText(SocialConstants.FALSE);
+        this.r.setText(SocialConstants.FALSE);
+        this.k = this.v.b();
+        this.e.setVisibility(8);
+        this.m.setText(this.a.getResources().getString(R.string.user_info_center_head_forums_name_text_n));
+        this.o.setText(this.a.getResources().getString(R.string.user_info_center_head_post_name_text_n));
+        this.q.setText(this.a.getResources().getString(R.string.user_info_center_head_attention_name_text_n));
+        this.s.setText(this.a.getResources().getString(R.string.user_info_center_head_fans_name_text_n));
+        this.x = new bi(this, this.k);
+        this.c.setAdapter(this.x);
+        this.c.setOnPageChangeListener(new bh(this));
+        b(0);
+        addView(this.b);
     }
 
-    public ImageView getBackBtn() {
+    public final ImageView getBackBtn() {
         return this.d;
     }
 
-    public ImageView getEditBtn() {
+    public final ImageView getEditBtn() {
         return this.e;
     }
 
@@ -113,12 +105,12 @@ public class bg extends LinearLayout {
         for (int i2 = 0; i2 < childCount; i2++) {
             ImageView imageView = (ImageView) this.f.getChildAt(i2);
             if (i2 == i % 2) {
-                if (TiebaApplication.g().al() == 1) {
+                if (TiebaApplication.g().ae() == 1) {
                     imageView.setImageResource(R.drawable.icon_pop_dot_s_1);
                 } else {
                     imageView.setImageResource(R.drawable.icon_pop_dot_s);
                 }
-            } else if (TiebaApplication.g().al() == 1) {
+            } else if (TiebaApplication.g().ae() == 1) {
                 imageView.setImageResource(R.drawable.icon_pop_dot_n_1);
             } else {
                 imageView.setImageResource(R.drawable.icon_pop_dot_n);
@@ -126,14 +118,14 @@ public class bg extends LinearLayout {
         }
     }
 
-    public void a(com.baidu.tieba.model.bp bpVar) {
+    public final void a(com.baidu.tieba.model.bp bpVar) {
         if (bpVar.f() != null) {
             this.u = bpVar;
             this.l.setText(c(bpVar.f().getLike_bars()));
             this.n.setText(c(bpVar.f().getPosts_num()));
             this.p.setText(c(bpVar.f().getConcern_num()));
             this.r.setText(c(bpVar.f().getFans_num()));
-            this.k = this.v.c();
+            this.k = this.v.b();
             if (this.u != null && !this.u.e()) {
                 this.e.setVisibility(8);
                 if (bpVar.f().getSex() == 1) {
@@ -163,40 +155,40 @@ public class bg extends LinearLayout {
         }
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r5v0 int)] */
-    private String c(int i) {
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r4v0 int)] */
+    private static String c(int i) {
         if (i > 9999) {
             return String.valueOf(new DecimalFormat(".00").format(i / 10000.0f)) + "w";
         }
         return new StringBuilder().append(i).toString();
     }
 
-    public void b() {
+    public final void a() {
         this.x.notifyDataSetChanged();
     }
 
-    public int getForumId() {
+    public final int getForumId() {
         return R.id.user_info_center_head_forums;
     }
 
-    public int getPostId() {
+    public final int getPostId() {
         return R.id.user_info_center_head_post;
     }
 
-    public int getFansId() {
+    public final int getFansId() {
         return R.id.user_info_center_head_fans;
     }
 
-    public int getAttentionId() {
+    public final int getAttentionId() {
         return R.id.user_info_center_head_attention;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         ((com.baidu.tieba.k) this.a).a().a(i == 1);
         ((com.baidu.tieba.k) this.a).a().a(this.b);
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         if (z) {
             this.t.setVisibility(0);
         } else {

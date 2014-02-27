@@ -1,13 +1,12 @@
 package com.baidu.tieba.more;
 
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class am extends com.baidu.adp.a.e {
+public final class am extends com.baidu.adp.a.e {
     private NavigationBar a;
     private ViewGroup c;
     private ImageView d;
@@ -22,18 +21,15 @@ public class am extends com.baidu.adp.a.e {
         secretSettingActivity.setContentView(R.layout.secret_setting_activity);
     }
 
-    public void a(SecretSettingActivity secretSettingActivity) {
-        b(secretSettingActivity);
-    }
-
-    public void a(int i) {
+    public final void a(int i) {
         this.g.getLayoutMode().a(i == 1);
-        this.g.getLayoutMode().a((View) this.c);
-        this.a.c(i);
+        this.g.getLayoutMode().a(this.c);
+        this.a.b(i);
         this.f.a(i);
     }
 
-    void b(SecretSettingActivity secretSettingActivity) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public final void a(SecretSettingActivity secretSettingActivity) {
         this.c = (RelativeLayout) secretSettingActivity.findViewById(R.id.parent);
         this.a = (NavigationBar) secretSettingActivity.findViewById(R.id.view_navigation_bar);
         this.a.a(secretSettingActivity.getString(R.string.secretSetting_title));
@@ -44,31 +40,32 @@ public class am extends com.baidu.adp.a.e {
         this.f.setOnClickListener(this.g);
     }
 
-    public void a() {
+    public final void a() {
         this.g.showLoadingDialog(this.g.getString(R.string.loading));
     }
 
-    public void e() {
-        this.f.d();
+    public final void d() {
+        SettingTextTipView settingTextTipView = this.f;
+        SettingTextTipView.d();
     }
 
-    public void f() {
+    public final void e() {
         this.g.showLoadingDialog(this.g.getString(R.string.saving));
     }
 
-    public void g() {
+    public final void f() {
         this.g.closeLoadingDialog();
     }
 
-    public ImageView h() {
+    public final ImageView g() {
         return this.d;
     }
 
-    public SettingTextSwitchView i() {
+    public final SettingTextSwitchView h() {
         return this.e;
     }
 
-    public SettingTextTipView j() {
+    public final SettingTextTipView i() {
         return this.f;
     }
 }

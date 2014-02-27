@@ -1,9 +1,9 @@
 package com.baidu.tieba.mainentrance;
 
-import java.util.ArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import com.baidu.adp.lib.util.BdUtilHelper;
 /* loaded from: classes.dex */
-public class z implements com.baidu.tieba.im.a<ArrayList<String>> {
+final class z implements View.OnFocusChangeListener {
     final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,9 +11,10 @@ public class z implements com.baidu.tieba.im.a<ArrayList<String>> {
         this.a = squareSearchActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(ArrayList<String> arrayList) {
-        this.a.a(false, arrayList);
+    @Override // android.view.View.OnFocusChangeListener
+    public final void onFocusChange(View view, boolean z) {
+        if (!z) {
+            BdUtilHelper.a(this.a, view);
+        }
     }
 }

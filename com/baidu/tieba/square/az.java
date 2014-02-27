@@ -8,7 +8,7 @@ import com.baidu.tieba.view.bg;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public class az extends BaseAdapter implements bg {
+public final class az extends BaseAdapter implements bg {
     private ArrayList<BaseAdapter> a;
     private Context b;
     private com.baidu.tieba.util.i c;
@@ -42,7 +42,7 @@ public class az extends BaseAdapter implements bg {
         this.a.add(this.g);
     }
 
-    public void a(as asVar) {
+    public final void a(as asVar) {
         if (asVar != null) {
             if (this.d != null) {
                 this.d.a(asVar.b());
@@ -62,9 +62,9 @@ public class az extends BaseAdapter implements bg {
         }
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         if (this.g != null) {
-            this.g.a(i);
+            this.g.notifyDataSetChanged();
         }
         if (this.d != null) {
             this.d.a(i);
@@ -72,20 +72,20 @@ public class az extends BaseAdapter implements bg {
         notifyDataSetChanged();
     }
 
-    public void a() {
+    public final void a() {
         if (this.d != null) {
             this.d.a();
         }
     }
 
-    public void b() {
+    public final void b() {
         if (this.d != null) {
             this.d.b();
         }
     }
 
     @Override // android.widget.Adapter
-    public int getCount() {
+    public final int getCount() {
         int i = 0;
         Iterator<BaseAdapter> it = this.a.iterator();
         while (true) {
@@ -99,7 +99,7 @@ public class az extends BaseAdapter implements bg {
     }
 
     @Override // android.widget.Adapter
-    public Object getItem(int i) {
+    public final Object getItem(int i) {
         int i2 = 0;
         while (true) {
             int i3 = i2;
@@ -117,7 +117,7 @@ public class az extends BaseAdapter implements bg {
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
+    public final int getViewTypeCount() {
         int i;
         int i2 = 0;
         Iterator<BaseAdapter> it = this.a.iterator();
@@ -135,7 +135,7 @@ public class az extends BaseAdapter implements bg {
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
+    public final int getItemViewType(int i) {
         int i2 = 0;
         for (int i3 = 0; i3 < this.a.size(); i3++) {
             BaseAdapter baseAdapter = this.a.get(i3);
@@ -149,12 +149,12 @@ public class az extends BaseAdapter implements bg {
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    public final long getItemId(int i) {
         return i;
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public final View getView(int i, View view, ViewGroup viewGroup) {
         int i2 = 0;
         while (true) {
             int i3 = i2;
@@ -172,7 +172,7 @@ public class az extends BaseAdapter implements bg {
     }
 
     @Override // com.baidu.tieba.view.bg
-    public void d() {
+    public final void d() {
         Iterator<BaseAdapter> it = this.a.iterator();
         while (it.hasNext()) {
             BaseAdapter next = it.next();
@@ -183,13 +183,13 @@ public class az extends BaseAdapter implements bg {
     }
 
     @Override // com.baidu.tieba.view.bg
-    public void a(View view, int i, int i2) {
+    public final void a(View view, int i, int i2) {
         for (int i3 = 0; i3 < this.a.size(); i3++) {
             BaseAdapter baseAdapter = this.a.get(i3);
             if (baseAdapter instanceof bg) {
                 ((bg) baseAdapter).a(view, i < 0 ? 0 : i, i2 > baseAdapter.getCount() + (-1) ? baseAdapter.getCount() - 1 : i2);
             }
-            com.baidu.adp.lib.util.f.a(getClass().getName(), "startLoadImage", "start:" + i + "en:" + i2);
+            com.baidu.adp.lib.util.e.a(getClass().getName(), "startLoadImage", "start:" + i + "en:" + i2);
             i -= baseAdapter.getCount();
             i2 -= baseAdapter.getCount();
             if (i2 < 0) {

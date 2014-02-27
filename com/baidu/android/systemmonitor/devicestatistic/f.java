@@ -46,7 +46,7 @@ public final class f {
         this.c.removeCallbacks(this.e);
     }
 
-    public void a() {
+    public final void a() {
         this.d = new com.baidu.android.systemmonitor.devicestatistic.a.e(System.currentTimeMillis());
         this.d.a = BDLocationManager.d(this.b.getApplicationContext());
         this.d.d = com.baidu.android.systemmonitor.c.d.b(this.b);
@@ -54,7 +54,7 @@ public final class f {
         this.c.postDelayed(this.e, 60000L);
     }
 
-    public void b() {
+    public final void b() {
         this.c.removeCallbacks(this.e);
         if (this.d != null) {
             if (this.d.c == 0) {
@@ -65,7 +65,7 @@ public final class f {
         }
     }
 
-    public void c() {
+    public final void c() {
         Intent registerReceiver = this.b.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
         int intExtra = registerReceiver.getIntExtra("status", -1);
         boolean z = intExtra == 2;
@@ -90,14 +90,14 @@ public final class f {
         }
     }
 
-    public int d() {
-        long currentTimeMillis = System.currentTimeMillis();
+    public final int d() {
+        System.currentTimeMillis();
         int intExtra = this.b.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED")).getIntExtra("level", 0);
-        long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+        System.currentTimeMillis();
         return intExtra;
     }
 
-    public void e() {
+    public final void e() {
         if (this.c != null) {
             this.c.removeCallbacks(this.e);
         }

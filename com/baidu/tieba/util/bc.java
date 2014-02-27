@@ -6,7 +6,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bc implements com.baidu.adp.lib.network.d {
+public final class bc implements com.baidu.adp.lib.network.d {
     final /* synthetic */ NetWorkCoreByBdHttp a;
     private final /* synthetic */ String b;
     private final /* synthetic */ long c;
@@ -19,7 +19,7 @@ public class bc implements com.baidu.adp.lib.network.d {
     }
 
     @Override // com.baidu.adp.lib.network.d
-    public void a(int i, HttpURLConnection httpURLConnection, OutputStream outputStream) {
+    public final void a(int i, HttpURLConnection httpURLConnection, OutputStream outputStream) {
         bj bjVar;
         int i2;
         boolean z = false;
@@ -65,14 +65,10 @@ public class bc implements com.baidu.adp.lib.network.d {
     }
 
     @Override // com.baidu.adp.lib.network.d
-    public void a(int i, int i2, HttpURLConnection httpURLConnection) {
+    public final void a(int i, int i2) {
     }
 
     @Override // com.baidu.adp.lib.network.d
-    public void a(com.baidu.adp.lib.network.f fVar) {
-    }
-
-    @Override // com.baidu.adp.lib.network.d
-    public void a() {
+    public final void a(com.baidu.adp.lib.network.f fVar) {
     }
 }

@@ -4,25 +4,32 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.AddGroupActivity.AddGroupActivityReq;
 /* loaded from: classes.dex */
 public final class b extends GeneratedMessageLite.Builder<AddGroupActivityReq.AddGroupActivityReqIdl, b> implements c {
     private int a;
     private AddGroupActivityReq.DataReq b = AddGroupActivityReq.DataReq.getDefaultInstance();
 
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return AddGroupActivityReq.AddGroupActivityReqIdl.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return AddGroupActivityReq.AddGroupActivityReqIdl.getDefaultInstance();
+    }
+
     private b() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static b h() {
+    public static /* synthetic */ b b() {
         return new b();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public b clear() {
         super.clear();
         this.b = AddGroupActivityReq.DataReq.getDefaultInstance();
@@ -31,20 +38,14 @@ public final class b extends GeneratedMessageLite.Builder<AddGroupActivityReq.Ad
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
+    /* renamed from: d */
     public b clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public AddGroupActivityReq.AddGroupActivityReqIdl getDefaultInstanceForType() {
-        return AddGroupActivityReq.AddGroupActivityReqIdl.getDefaultInstance();
+        return new b().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: d */
-    public AddGroupActivityReq.AddGroupActivityReqIdl build() {
+    /* renamed from: a */
+    public final AddGroupActivityReq.AddGroupActivityReqIdl build() {
         AddGroupActivityReq.AddGroupActivityReqIdl buildPartial = buildPartial();
         if (!buildPartial.isInitialized()) {
             throw newUninitializedMessageException(buildPartial);
@@ -64,9 +65,15 @@ public final class b extends GeneratedMessageLite.Builder<AddGroupActivityReq.Ad
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public b mergeFrom(AddGroupActivityReq.AddGroupActivityReqIdl addGroupActivityReqIdl) {
+    public final b mergeFrom(AddGroupActivityReq.AddGroupActivityReqIdl addGroupActivityReqIdl) {
         if (addGroupActivityReqIdl != AddGroupActivityReq.AddGroupActivityReqIdl.getDefaultInstance() && addGroupActivityReqIdl.hasData()) {
-            b(addGroupActivityReqIdl.getData());
+            AddGroupActivityReq.DataReq data = addGroupActivityReqIdl.getData();
+            if ((this.a & 1) != 1 || this.b == AddGroupActivityReq.DataReq.getDefaultInstance()) {
+                this.b = data;
+            } else {
+                this.b = AddGroupActivityReq.DataReq.newBuilder(this.b).mergeFrom(data).buildPartial();
+            }
+            this.a |= 1;
         }
         return this;
     }
@@ -114,21 +121,11 @@ public final class b extends GeneratedMessageLite.Builder<AddGroupActivityReq.Ad
         }
     }
 
-    public b a(AddGroupActivityReq.DataReq dataReq) {
+    public final b a(AddGroupActivityReq.DataReq dataReq) {
         if (dataReq != null) {
             this.b = dataReq;
             this.a |= 1;
         }
-        return this;
-    }
-
-    public b b(AddGroupActivityReq.DataReq dataReq) {
-        if ((this.a & 1) == 1 && this.b != AddGroupActivityReq.DataReq.getDefaultInstance()) {
-            this.b = AddGroupActivityReq.DataReq.newBuilder(this.b).mergeFrom(dataReq).buildPartial();
-        } else {
-            this.b = dataReq;
-        }
-        this.a |= 1;
         return this;
     }
 }

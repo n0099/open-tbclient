@@ -5,7 +5,7 @@ import android.util.SparseArray;
 import android.view.View;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class bf implements View.OnLongClickListener {
+final class bf implements View.OnLongClickListener {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ class bf implements View.OnLongClickListener {
     }
 
     @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
+    public final boolean onLongClick(View view) {
         SparseArray sparseArray;
         com.baidu.tieba.model.av avVar;
         boolean z;
@@ -34,7 +34,7 @@ class bf implements View.OnLongClickListener {
                 if (avVar.a() && this.a.b.d() != null) {
                     String d = this.a.b.d();
                     bbVar = this.a.w;
-                    if (d.equals(bbVar.l())) {
+                    if (d.equals(bbVar.p())) {
                         z = true;
                         boolean booleanValue = ((Boolean) sparseArray.get(R.id.tag_is_subpb)).booleanValue();
                         cuVar = this.a.C;

@@ -377,29 +377,29 @@ public final class WXMediaMessage {
         }
     }
 
-    public int getType() {
+    public final int getType() {
         if (this.e != null) {
             return this.e.type();
         }
         return 0;
     }
 
-    public WXMediaMessage setDesc(String str) {
+    public final WXMediaMessage setDesc(String str) {
         this.c = str;
         return this;
     }
 
-    public WXMediaMessage setThumbImage(byte[] bArr) {
+    public final WXMediaMessage setThumbImage(byte[] bArr) {
         this.d = bArr;
         return this;
     }
 
-    public WXMediaMessage setTitle(String str) {
+    public final WXMediaMessage setTitle(String str) {
         this.b = str;
         return this;
     }
 
-    public Bundle toBundle() {
+    public final Bundle toBundle() {
         Bundle bundle = new Bundle();
         bundle.putInt("_wxobject_sdkVer", 553844737);
         bundle.putString("_wxobject_title", this.b);

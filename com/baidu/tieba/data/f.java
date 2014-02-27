@@ -1,31 +1,31 @@
 package com.baidu.tieba.data;
 /* loaded from: classes.dex */
-public class f {
+public final class f {
     private String a;
     private long b;
     private int c;
 
-    public String a() {
+    public final String a() {
         return this.a;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.a = str;
     }
 
-    public long b() {
+    public final long b() {
         return this.b;
     }
 
-    public void a(long j) {
+    public final void a(long j) {
         this.b = j;
     }
 
-    public int c() {
+    public final int c() {
         return this.c;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.c = i;
     }
 }

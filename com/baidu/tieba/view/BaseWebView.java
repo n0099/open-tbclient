@@ -28,7 +28,7 @@ public class BaseWebView extends WebView {
     public void setDownloadEnabled(boolean z) {
         if (z) {
             if (this.d == null) {
-                b();
+                this.d = new c(this);
             }
             setOnLoadUrlListener(this.d);
             return;
@@ -47,7 +47,7 @@ public class BaseWebView extends WebView {
         a();
     }
 
-    public void a() {
+    private void a() {
         getSettings().setJavaScriptEnabled(true);
         getSettings().setCacheMode(2);
         UtilHelper.a(getSettings());
@@ -66,9 +66,5 @@ public class BaseWebView extends WebView {
 
     public void setOnPageFinishedListener(f fVar) {
         this.f = fVar;
-    }
-
-    private void b() {
-        this.d = new c(this);
     }
 }

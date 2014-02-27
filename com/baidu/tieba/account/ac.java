@@ -4,7 +4,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac implements CompoundButton.OnCheckedChangeListener {
+public final class ac implements CompoundButton.OnCheckedChangeListener {
     final /* synthetic */ y a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ public class ac implements CompoundButton.OnCheckedChangeListener {
     }
 
     @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+    public final void onCheckedChanged(CompoundButton compoundButton, boolean z) {
         EditText editText;
         if (z) {
             editText = this.a.c;

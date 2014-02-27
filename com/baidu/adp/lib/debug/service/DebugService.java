@@ -27,7 +27,7 @@ public class DebugService extends Service {
         if (this.a != null) {
             Log.i("Monitor", "off");
             try {
-                this.a.c();
+                this.a.a();
                 this.a.setVisibility(8);
             } catch (Throwable th) {
                 th.printStackTrace();

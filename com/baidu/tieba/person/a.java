@@ -3,7 +3,7 @@ package com.baidu.tieba.person;
 import android.os.Handler;
 import android.os.Message;
 /* loaded from: classes.dex */
-class a implements Handler.Callback {
+final class a implements Handler.Callback {
     final /* synthetic */ AllPostActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ class a implements Handler.Callback {
     }
 
     @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
+    public final boolean handleMessage(Message message) {
         switch (message.what) {
             case 1:
                 this.a.finish();

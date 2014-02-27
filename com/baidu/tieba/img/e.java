@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 /* loaded from: classes.dex */
-public class e {
+public final class e {
     public Context a;
     private Queue<f> b = new ConcurrentLinkedQueue();
     private volatile g c;
@@ -16,17 +16,17 @@ public class e {
         this.a = context;
     }
 
-    public com.baidu.adp.widget.ImageView.b a(ImageFileInfo imageFileInfo, boolean z) {
+    public static com.baidu.adp.widget.ImageView.b a(ImageFileInfo imageFileInfo, boolean z) {
         if (imageFileInfo == null) {
             return null;
         }
         return com.baidu.tbadk.imageManager.e.a().c(imageFileInfo.toCachedKey(z));
     }
 
-    public com.baidu.adp.widget.ImageView.b a(ImageFileInfo imageFileInfo, com.baidu.tbadk.imageManager.d dVar, boolean z) {
+    public final com.baidu.adp.widget.ImageView.b a(ImageFileInfo imageFileInfo, com.baidu.tbadk.imageManager.d dVar, boolean z) {
         com.baidu.adp.widget.ImageView.b a = a(imageFileInfo, z);
         if (a == null) {
-            f fVar = new f(this, null);
+            f fVar = new f(this, (byte) 0);
             fVar.b = dVar;
             fVar.a = imageFileInfo;
             fVar.c = z;
@@ -38,14 +38,14 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a() {
+    public final void a() {
         if (this.c == null && !this.b.isEmpty()) {
             this.c = new g(this, this.b);
             this.c.execute(new Void[0]);
         }
     }
 
-    public void b() {
+    public final void b() {
         this.b = new ConcurrentLinkedQueue();
         if (this.c != null) {
             this.c.cancel(true);
@@ -53,7 +53,7 @@ public class e {
         }
     }
 
-    public Bitmap b(ImageFileInfo imageFileInfo, boolean z) {
+    public static Bitmap b(ImageFileInfo imageFileInfo, boolean z) {
         if (imageFileInfo == null) {
             return null;
         }

@@ -3,7 +3,7 @@ package com.baidu.tieba.guide;
 import android.view.View;
 import com.baidu.tieba.view.RightSlideViewPager;
 /* loaded from: classes.dex */
-class n implements View.OnClickListener {
+final class n implements View.OnClickListener {
     final /* synthetic */ l a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ class n implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         NewUserGuideActivity newUserGuideActivity;
         NewUserGuideActivity newUserGuideActivity2;
         NewUserGuideActivity newUserGuideActivity3;

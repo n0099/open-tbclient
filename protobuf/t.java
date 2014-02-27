@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.Im;
 /* loaded from: classes.dex */
 public final class t extends GeneratedMessageLite.Builder<Im.MaskInfo, t> implements u {
@@ -14,24 +15,34 @@ public final class t extends GeneratedMessageLite.Builder<Im.MaskInfo, t> implem
     private Object c = "";
     private Object e = "";
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        Im.MaskInfo buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return Im.MaskInfo.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return Im.MaskInfo.getDefaultInstance();
+    }
+
     private t() {
-        g();
     }
 
-    private void g() {
-    }
-
-    /* JADX DEBUG: Method not inlined, still used in: [protobuf.Im.MaskInfo.newBuilder():protobuf.t] */
-    public static /* synthetic */ t f() {
-        return h();
-    }
-
-    public static t h() {
+    public static /* synthetic */ t b() {
         return new t();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public t clear() {
         super.clear();
         this.b = 0L;
@@ -48,30 +59,14 @@ public final class t extends GeneratedMessageLite.Builder<Im.MaskInfo, t> implem
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public t clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public Im.MaskInfo getDefaultInstanceForType() {
-        return Im.MaskInfo.getDefaultInstance();
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public Im.MaskInfo build() {
-        Im.MaskInfo buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
+    public t clone() {
+        return new t().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public Im.MaskInfo buildPartial() {
+    /* renamed from: a */
+    public final Im.MaskInfo buildPartial() {
         Im.MaskInfo maskInfo = new Im.MaskInfo(this, (Im.MaskInfo) null);
         int i = this.a;
         int i2 = (i & 1) != 1 ? 0 : 1;
@@ -98,12 +93,14 @@ public final class t extends GeneratedMessageLite.Builder<Im.MaskInfo, t> implem
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public t mergeFrom(Im.MaskInfo maskInfo) {
+    public final t mergeFrom(Im.MaskInfo maskInfo) {
         Object obj;
         Object obj2;
         if (maskInfo != Im.MaskInfo.getDefaultInstance()) {
             if (maskInfo.hasUserId()) {
-                a(maskInfo.getUserId());
+                long userId = maskInfo.getUserId();
+                this.a |= 1;
+                this.b = userId;
             }
             if (maskInfo.hasMaskGids()) {
                 this.a |= 2;
@@ -111,7 +108,9 @@ public final class t extends GeneratedMessageLite.Builder<Im.MaskInfo, t> implem
                 this.c = obj2;
             }
             if (maskInfo.hasRemindMask()) {
-                a(maskInfo.getRemindMask());
+                int remindMask = maskInfo.getRemindMask();
+                this.a |= 4;
+                this.d = remindMask;
             }
             if (maskInfo.hasMaskUids()) {
                 this.a |= 8;
@@ -119,7 +118,9 @@ public final class t extends GeneratedMessageLite.Builder<Im.MaskInfo, t> implem
                 this.e = obj;
             }
             if (maskInfo.hasShieldStatus()) {
-                b(maskInfo.getShieldStatus());
+                int shieldStatus = maskInfo.getShieldStatus();
+                this.a |= 16;
+                this.f = shieldStatus;
             }
         }
         return this;
@@ -166,23 +167,5 @@ public final class t extends GeneratedMessageLite.Builder<Im.MaskInfo, t> implem
                 throw th;
             }
         }
-    }
-
-    public t a(long j) {
-        this.a |= 1;
-        this.b = j;
-        return this;
-    }
-
-    public t a(int i) {
-        this.a |= 4;
-        this.d = i;
-        return this;
-    }
-
-    public t b(int i) {
-        this.a |= 16;
-        this.f = i;
-        return this;
     }
 }

@@ -30,102 +30,102 @@ public final class GsonBuilder {
     private int timeStyle = 2;
     private boolean escapeHtmlChars = true;
 
-    public GsonBuilder setVersion(double d) {
+    public final GsonBuilder setVersion(double d) {
         this.excluder = this.excluder.withVersion(d);
         return this;
     }
 
-    public GsonBuilder excludeFieldsWithModifiers(int... iArr) {
+    public final GsonBuilder excludeFieldsWithModifiers(int... iArr) {
         this.excluder = this.excluder.withModifiers(iArr);
         return this;
     }
 
-    public GsonBuilder generateNonExecutableJson() {
+    public final GsonBuilder generateNonExecutableJson() {
         this.generateNonExecutableJson = true;
         return this;
     }
 
-    public GsonBuilder excludeFieldsWithoutExposeAnnotation() {
+    public final GsonBuilder excludeFieldsWithoutExposeAnnotation() {
         this.excluder = this.excluder.excludeFieldsWithoutExposeAnnotation();
         return this;
     }
 
-    public GsonBuilder serializeNulls() {
+    public final GsonBuilder serializeNulls() {
         this.serializeNulls = true;
         return this;
     }
 
-    public GsonBuilder enableComplexMapKeySerialization() {
+    public final GsonBuilder enableComplexMapKeySerialization() {
         this.complexMapKeySerialization = true;
         return this;
     }
 
-    public GsonBuilder disableInnerClassSerialization() {
+    public final GsonBuilder disableInnerClassSerialization() {
         this.excluder = this.excluder.disableInnerClassSerialization();
         return this;
     }
 
-    public GsonBuilder setLongSerializationPolicy(LongSerializationPolicy longSerializationPolicy) {
+    public final GsonBuilder setLongSerializationPolicy(LongSerializationPolicy longSerializationPolicy) {
         this.longSerializationPolicy = longSerializationPolicy;
         return this;
     }
 
-    public GsonBuilder setFieldNamingPolicy(FieldNamingPolicy fieldNamingPolicy) {
+    public final GsonBuilder setFieldNamingPolicy(FieldNamingPolicy fieldNamingPolicy) {
         this.fieldNamingPolicy = fieldNamingPolicy;
         return this;
     }
 
-    public GsonBuilder setFieldNamingStrategy(FieldNamingStrategy fieldNamingStrategy) {
+    public final GsonBuilder setFieldNamingStrategy(FieldNamingStrategy fieldNamingStrategy) {
         this.fieldNamingPolicy = fieldNamingStrategy;
         return this;
     }
 
-    public GsonBuilder setExclusionStrategies(ExclusionStrategy... exclusionStrategyArr) {
+    public final GsonBuilder setExclusionStrategies(ExclusionStrategy... exclusionStrategyArr) {
         for (ExclusionStrategy exclusionStrategy : exclusionStrategyArr) {
             this.excluder = this.excluder.withExclusionStrategy(exclusionStrategy, true, true);
         }
         return this;
     }
 
-    public GsonBuilder addSerializationExclusionStrategy(ExclusionStrategy exclusionStrategy) {
+    public final GsonBuilder addSerializationExclusionStrategy(ExclusionStrategy exclusionStrategy) {
         this.excluder = this.excluder.withExclusionStrategy(exclusionStrategy, true, false);
         return this;
     }
 
-    public GsonBuilder addDeserializationExclusionStrategy(ExclusionStrategy exclusionStrategy) {
+    public final GsonBuilder addDeserializationExclusionStrategy(ExclusionStrategy exclusionStrategy) {
         this.excluder = this.excluder.withExclusionStrategy(exclusionStrategy, false, true);
         return this;
     }
 
-    public GsonBuilder setPrettyPrinting() {
+    public final GsonBuilder setPrettyPrinting() {
         this.prettyPrinting = true;
         return this;
     }
 
-    public GsonBuilder disableHtmlEscaping() {
+    public final GsonBuilder disableHtmlEscaping() {
         this.escapeHtmlChars = false;
         return this;
     }
 
-    public GsonBuilder setDateFormat(String str) {
+    public final GsonBuilder setDateFormat(String str) {
         this.datePattern = str;
         return this;
     }
 
-    public GsonBuilder setDateFormat(int i) {
+    public final GsonBuilder setDateFormat(int i) {
         this.dateStyle = i;
         this.datePattern = null;
         return this;
     }
 
-    public GsonBuilder setDateFormat(int i, int i2) {
+    public final GsonBuilder setDateFormat(int i, int i2) {
         this.dateStyle = i;
         this.timeStyle = i2;
         this.datePattern = null;
         return this;
     }
 
-    public GsonBuilder registerTypeAdapter(Type type, Object obj) {
+    public final GsonBuilder registerTypeAdapter(Type type, Object obj) {
         C$Gson$Preconditions.checkArgument((obj instanceof JsonSerializer) || (obj instanceof JsonDeserializer) || (obj instanceof InstanceCreator) || (obj instanceof TypeAdapter));
         if (obj instanceof InstanceCreator) {
             this.instanceCreators.put(type, (InstanceCreator) obj);
@@ -139,12 +139,12 @@ public final class GsonBuilder {
         return this;
     }
 
-    public GsonBuilder registerTypeAdapterFactory(TypeAdapterFactory typeAdapterFactory) {
+    public final GsonBuilder registerTypeAdapterFactory(TypeAdapterFactory typeAdapterFactory) {
         this.factories.add(typeAdapterFactory);
         return this;
     }
 
-    public GsonBuilder registerTypeHierarchyAdapter(Class<?> cls, Object obj) {
+    public final GsonBuilder registerTypeHierarchyAdapter(Class<?> cls, Object obj) {
         C$Gson$Preconditions.checkArgument((obj instanceof JsonSerializer) || (obj instanceof JsonDeserializer) || (obj instanceof TypeAdapter));
         if ((obj instanceof JsonDeserializer) || (obj instanceof JsonSerializer)) {
             this.hierarchyFactories.add(0, TreeTypeAdapter.newTypeHierarchyFactory(cls, obj));
@@ -155,12 +155,12 @@ public final class GsonBuilder {
         return this;
     }
 
-    public GsonBuilder serializeSpecialFloatingPointValues() {
+    public final GsonBuilder serializeSpecialFloatingPointValues() {
         this.serializeSpecialFloatingPointValues = true;
         return this;
     }
 
-    public Gson create() {
+    public final Gson create() {
         ArrayList arrayList = new ArrayList();
         arrayList.addAll(this.factories);
         Collections.reverse(arrayList);

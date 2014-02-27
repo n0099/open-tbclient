@@ -4,7 +4,7 @@ import android.view.View;
 import com.baidu.tieba.view.PbListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cv implements View.OnClickListener {
+public final class cv implements View.OnClickListener {
     final /* synthetic */ cu a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ public class cv implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         PbListView pbListView;
         boolean z;
         pbListView = this.a.at;
@@ -21,6 +21,6 @@ public class cv implements View.OnClickListener {
         cc ccVar = this.a.g;
         z = this.a.au;
         ccVar.a(z);
-        this.a.ai();
+        this.a.Z();
     }
 }

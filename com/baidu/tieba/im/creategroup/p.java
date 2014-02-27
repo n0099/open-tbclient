@@ -6,11 +6,10 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.more.SettingTextSwitchView;
-import com.baidu.tieba.util.bq;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class p extends com.baidu.adp.a.e {
+public final class p extends com.baidu.adp.a.e {
     NavigationBar a;
     View c;
     GroupAddressEditActivity d;
@@ -22,11 +21,7 @@ public class p extends com.baidu.adp.a.e {
     private String[] j;
     private boolean k;
 
-    public View a() {
-        return this.e;
-    }
-
-    public ImageView e() {
+    public final ImageView a() {
         return this.h;
     }
 
@@ -44,16 +39,6 @@ public class p extends com.baidu.adp.a.e {
         this.g = null;
         this.j = strArr;
         this.k = z;
-        b(groupAddressEditActivity);
-        a(groupAddressEditActivity);
-    }
-
-    private void a(GroupAddressEditActivity groupAddressEditActivity) {
-        this.h.setOnClickListener(groupAddressEditActivity);
-        this.e.setOnClickListener(groupAddressEditActivity);
-    }
-
-    private void b(GroupAddressEditActivity groupAddressEditActivity) {
         this.d = groupAddressEditActivity;
         groupAddressEditActivity.setContentView(R.layout.group_address_activity);
         this.c = groupAddressEditActivity.findViewById(R.id.parent);
@@ -62,7 +47,7 @@ public class p extends com.baidu.adp.a.e {
         this.f.setAdapter((ListAdapter) this.g);
         this.f.setOnItemClickListener(this.d);
         this.i = (TextView) groupAddressEditActivity.findViewById(R.id.address_title_poslist);
-        if (this.j == null || this.j.length < 1) {
+        if (this.j == null || this.j.length <= 0) {
             this.f.setVisibility(8);
             this.i.setText(R.string.address_locate_noaddresslist);
         }
@@ -78,21 +63,7 @@ public class p extends com.baidu.adp.a.e {
         this.a.setSystemClickable(false);
         this.h = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.e = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, groupAddressEditActivity.getResources().getString(R.string.save));
-    }
-
-    public void f() {
-        this.g.notifyDataSetChanged();
-    }
-
-    public void a(int i) {
-        this.d.getLayoutMode().a(i == 1);
-        this.d.getLayoutMode().a(this.c);
-        bq.b(this.c, i);
-        this.a.c(i);
-        if (i == 1) {
-            this.c.setBackgroundResource(R.color.group_info_bg_1);
-        } else {
-            this.c.setBackgroundResource(R.color.group_info_bg);
-        }
+        this.h.setOnClickListener(groupAddressEditActivity);
+        this.e.setOnClickListener(groupAddressEditActivity);
     }
 }

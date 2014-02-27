@@ -5,38 +5,38 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.util.ba;
 /* loaded from: classes.dex */
-public class z {
+public final class z {
     private static final String b = String.valueOf(com.baidu.tieba.data.i.a) + "c/f/forum/getforumlist";
     private ba a = null;
 
-    public String a() {
-        AccountData E = TiebaApplication.E();
+    public final String a() {
+        AccountData y = TiebaApplication.y();
         String str = null;
-        if (E != null) {
-            str = E.getID();
+        if (y != null) {
+            str = y.getID();
         }
         this.a = new ba(b);
         this.a.a(PushConstants.EXTRA_USER_ID, str);
         this.a.c(true);
-        return this.a.m();
+        return this.a.l();
     }
 
-    public void b() {
+    public final void b() {
         if (this.a != null) {
-            this.a.k();
+            this.a.j();
         }
     }
 
-    public boolean c() {
+    public final boolean c() {
         if (this.a != null) {
-            return this.a.d();
+            return this.a.c();
         }
         return false;
     }
 
-    public String d() {
+    public final String d() {
         if (this.a != null) {
-            return this.a.j();
+            return this.a.i();
         }
         return null;
     }

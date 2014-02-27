@@ -1,11 +1,10 @@
 package com.baidu.tieba.im.a;
 
 import com.baidu.tieba.im.message.ab;
-import com.baidu.tieba.im.messageCenter.e;
 import com.baidu.tieba.im.messageCenter.g;
 import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
-public class a {
+public final class a {
     public static boolean a = true;
     private int d;
     private int e;
@@ -16,36 +15,36 @@ public class a {
     private g i = new b(this);
     com.baidu.adp.lib.c.d b = new c(this);
 
-    public void a(d dVar) {
+    public final void a(d dVar) {
         this.h = dVar;
     }
 
-    public void a() {
+    public final void a() {
         if (this.c) {
             if (UtilHelper.b()) {
                 com.baidu.adp.lib.c.a.a().a(true, this.b);
                 return;
             } else if (this.h != null) {
-                this.h.c();
+                this.h.a();
                 return;
             } else {
                 return;
             }
         }
         this.c = true;
-        e.a().a(new ab());
+        com.baidu.tieba.im.messageCenter.d.a().a(new ab());
     }
 
-    public void b() {
+    public final void b() {
         a();
     }
 
-    public void c() {
-        e.a().a(103011, this.i);
-        e.a().a(-114, this.i);
+    public final void c() {
+        com.baidu.tieba.im.messageCenter.d.a().a(103011, this.i);
+        com.baidu.tieba.im.messageCenter.d.a().a(-114, this.i);
     }
 
-    public void d() {
-        e.a().a(this.i);
+    public final void d() {
+        com.baidu.tieba.im.messageCenter.d.a().a(this.i);
     }
 }

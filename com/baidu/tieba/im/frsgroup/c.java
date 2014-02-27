@@ -15,17 +15,17 @@ import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.message.bv;
 import com.baidu.tieba.im.message.cy;
-import com.baidu.tieba.view.ct;
+import com.baidu.tieba.view.cs;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class c extends com.baidu.tieba.j implements AbsListView.OnScrollListener, com.baidu.adp.widget.ListView.r, com.baidu.tieba.im.messageCenter.g {
+public final class c extends com.baidu.tieba.j implements AbsListView.OnScrollListener, com.baidu.adp.widget.ListView.r, com.baidu.tieba.im.messageCenter.g {
     private FrsGroupActivity b;
     private com.baidu.tieba.im.model.d c;
     private i d;
     private BdListView e;
     private Button f;
-    private ct g;
+    private cs g;
     private InitGuideView h;
     private GroupListAdapter i;
     private Handler j;
@@ -35,45 +35,40 @@ public class c extends com.baidu.tieba.j implements AbsListView.OnScrollListener
     private com.baidu.tieba.im.messageCenter.g n = new e(this);
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onCreate(Bundle bundle) {
+    public final void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.b = (FrsGroupActivity) getActivity();
         this.c = this.b.e();
         this.d = this.b.f();
         this.j = new Handler();
-        this.c.a(this.n);
-        com.baidu.tieba.im.messageCenter.e.a().a(103104, this);
-        com.baidu.tieba.im.messageCenter.e.a().a(-141, this);
-        com.baidu.tieba.im.messageCenter.e.a().a(103105, this);
-    }
-
-    private void c() {
-        this.c.a(this.n);
-        if (!this.c.b(getTag()) || this.l) {
-            f();
-        }
-    }
-
-    private void d() {
-        this.c.b(this.n);
+        com.baidu.tieba.im.model.d dVar = this.c;
+        com.baidu.tieba.im.model.d.a(this.n);
+        com.baidu.tieba.im.messageCenter.d.a().a(103104, this);
+        com.baidu.tieba.im.messageCenter.d.a().a(-141, this);
+        com.baidu.tieba.im.messageCenter.d.a().a(103105, this);
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onHiddenChanged(boolean z) {
+    public final void onHiddenChanged(boolean z) {
         if (z) {
-            d();
-        } else {
-            c();
+            com.baidu.tieba.im.model.d dVar = this.c;
+            com.baidu.tieba.im.messageCenter.d.a().a(this.n);
+            return;
+        }
+        com.baidu.tieba.im.model.d dVar2 = this.c;
+        com.baidu.tieba.im.model.d.a(this.n);
+        if (!this.c.b(getTag()) || this.l) {
+            a();
         }
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+    public final View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.im_frsgroup_list, (ViewGroup) null);
         this.h = (InitGuideView) inflate.findViewById(R.id.group_guide);
         this.f = (Button) inflate.findViewById(R.id.guide_create);
         this.e = (BdListView) inflate.findViewById(R.id.group_list);
-        this.g = new ct(this.b);
+        this.g = new cs(this.b);
         this.e.setPullRefresh(this.g);
         this.i = new GroupListAdapter(this.b);
         this.e.setAdapter((ListAdapter) this.i);
@@ -87,14 +82,14 @@ public class c extends com.baidu.tieba.j implements AbsListView.OnScrollListener
     }
 
     @Override // android.support.v4.app.Fragment
-    public void onViewCreated(View view, Bundle bundle) {
+    public final void onViewCreated(View view, Bundle bundle) {
         super.onViewCreated(view, bundle);
-        g();
+        c();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public int e() {
-        switch (this.c.g()) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ int l(c cVar) {
+        switch (cVar.c.g()) {
             case 1:
             default:
                 return 4;
@@ -106,37 +101,38 @@ public class c extends com.baidu.tieba.j implements AbsListView.OnScrollListener
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onStart() {
+    public final void onStart() {
         super.onStart();
         if (this.h.b()) {
-            this.h.f();
+            this.h.e();
         }
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onStop() {
+    public final void onStop() {
         super.onStop();
-        this.h.g();
+        this.h.f();
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onDestroy() {
+    public final void onDestroy() {
         super.onDestroy();
-        this.c.b(this.n);
-        com.baidu.tieba.im.messageCenter.e.a().a(this);
+        com.baidu.tieba.im.model.d dVar = this.c;
+        com.baidu.tieba.im.messageCenter.d.a().a(this.n);
+        com.baidu.tieba.im.messageCenter.d.a().a(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z) {
         if (z) {
-            this.c.a(this.c.m(), this.c.j(), this.c.k(), this.c.l(), this.c.b(), this.c.c());
+            this.c.a(this.c.l(), this.c.i(), this.c.j(), this.c.k(), this.c.b(), this.c.c());
         } else {
-            this.c.b(this.c.m(), this.c.j(), this.c.k(), this.c.l(), this.c.b(), this.c.c());
+            this.c.b(this.c.l(), this.c.i(), this.c.j(), this.c.k(), this.c.b(), this.c.c());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void f() {
+    public void a() {
         this.c.f();
         this.c.a(true);
         this.i.a(false);
@@ -146,7 +142,7 @@ public class c extends com.baidu.tieba.j implements AbsListView.OnScrollListener
         this.e.b();
     }
 
-    private void g() {
+    private void c() {
         this.c.f();
         this.c.a(false);
         this.k = 0;
@@ -158,18 +154,14 @@ public class c extends com.baidu.tieba.j implements AbsListView.OnScrollListener
     }
 
     @Override // com.baidu.adp.widget.ListView.r
-    public void a() {
-        h();
-    }
-
-    private void h() {
+    public final void b() {
         if (this.i.c()) {
             a(true);
         }
     }
 
     @Override // com.baidu.tieba.j, android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
+    public final void onScrollStateChanged(AbsListView absListView, int i) {
         if (i == 0) {
             if (this.j != null) {
                 this.j.removeCallbacks(this.m);
@@ -181,18 +173,18 @@ public class c extends com.baidu.tieba.j implements AbsListView.OnScrollListener
     }
 
     @Override // com.baidu.tieba.j, android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    public final void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void i() {
-        if (this.c.h()) {
-            this.e.a();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void e(c cVar) {
+        if (cVar.c.h()) {
+            cVar.e.a();
         }
     }
 
     @Override // com.baidu.tieba.j
-    public void c(int i) {
+    public final void c(int i) {
         super.c(i);
         if (i == 1) {
             this.e.setDivider(getResources().getDrawable(R.drawable.list_divider_1));
@@ -202,46 +194,46 @@ public class c extends com.baidu.tieba.j implements AbsListView.OnScrollListener
         this.g.a(i);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void j() {
-        if (this.h.b()) {
-            this.h.a();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void h(c cVar) {
+        if (cVar.h.b()) {
+            cVar.h.a();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void k() {
-        if (this.j != null) {
-            this.j.removeCallbacks(this.m);
-            this.j.postDelayed(this.m, 0L);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void d(c cVar) {
+        if (cVar.j != null) {
+            cVar.j.removeCallbacks(cVar.m);
+            cVar.j.postDelayed(cVar.m, 0L);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z) {
-        int al = TiebaApplication.g().al();
+        int ae = TiebaApplication.g().ae();
         if (!z) {
             this.e.setDivider(getResources().getDrawable(17170445));
-        } else if (al == 1) {
+        } else if (ae == 1) {
             this.e.setDivider(getResources().getDrawable(R.drawable.list_divider_1));
         } else {
             this.e.setDivider(getResources().getDrawable(R.drawable.list_divider));
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void l() {
-        b(false);
-        this.h.f();
-        switch (this.c.g()) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void g(c cVar) {
+        cVar.b(false);
+        cVar.h.e();
+        switch (cVar.c.g()) {
             case 1:
-                this.h.c();
+                cVar.h.c();
                 return;
             case 2:
-                this.h.a(this.c.d());
+                cVar.h.a(cVar.c.d());
                 return;
             case 3:
-                this.h.b(this.c.d());
+                cVar.h.b(cVar.c.d());
                 return;
             default:
                 return;
@@ -249,7 +241,7 @@ public class c extends com.baidu.tieba.j implements AbsListView.OnScrollListener
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.s sVar) {
+    public final void a(com.baidu.tieba.im.message.s sVar) {
         GroupNewsPojo a;
         if (sVar != null) {
             if (sVar instanceof bv) {
@@ -260,7 +252,7 @@ public class c extends com.baidu.tieba.j implements AbsListView.OnScrollListener
             } else if (sVar instanceof cy) {
                 cy cyVar = (cy) sVar;
                 if (!cyVar.l() || cyVar.m() == 2230110) {
-                    g();
+                    c();
                 }
             } else if ((sVar instanceof com.baidu.tieba.im.message.aa) && (a = ((com.baidu.tieba.im.message.aa) sVar).a()) != null && !TextUtils.isEmpty(a.getCmd()) && a.getCmd().equals("dismiss_group")) {
                 a(Long.parseLong(a.getGid()));
@@ -274,8 +266,8 @@ public class c extends com.baidu.tieba.j implements AbsListView.OnScrollListener
             int size = a.size();
             for (int i = 0; i < size; i++) {
                 if (a.get(i).getGroupId() == j) {
-                    if (b()) {
-                        f();
+                    if (d()) {
+                        a();
                         return;
                     } else {
                         this.l = true;

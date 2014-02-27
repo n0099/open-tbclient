@@ -166,7 +166,8 @@ public class PersonPostThreadModel extends com.baidu.adp.a.d implements Serializ
         if (sFetchThreadAsyncTask != null && sFetchThreadAsyncTask.getStatus() != BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
             sFetchThreadAsyncTask.cancel();
         }
-        sFetchThreadAsyncTask = new i(hVar, z);
-        sFetchThreadAsyncTask.execute(new Void[0]);
+        i iVar = new i(hVar, z);
+        sFetchThreadAsyncTask = iVar;
+        iVar.execute(new Void[0]);
     }
 }

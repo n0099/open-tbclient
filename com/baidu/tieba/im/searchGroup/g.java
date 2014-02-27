@@ -16,30 +16,35 @@ import com.slidingmenu.lib.R;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class g {
+public final class g {
     public BdListView a;
     private SearchGroupActivity b;
     private View c;
-    private NavigationBar d = null;
-    private EditText e = null;
-    private Button f = null;
-    private Button g = null;
-    private TextView h = null;
-    private ProgressBar i = null;
+    private NavigationBar d;
+    private EditText e;
+    private Button f;
+    private Button g;
+    private TextView h;
+    private ProgressBar i;
     private e j;
 
-    public e a() {
+    public final e a() {
         return this.j;
     }
 
     public g(SearchGroupActivity searchGroupActivity) {
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.g = null;
+        this.h = null;
+        this.i = null;
         this.b = searchGroupActivity;
         searchGroupActivity.setContentView(R.layout.search_group_activity);
-        f();
-        e();
-    }
-
-    private void e() {
+        this.c = this.b.findViewById(R.id.mparent);
+        this.d = (NavigationBar) this.b.findViewById(R.id.view_navigation_bar);
+        this.d.a(this.b.getResources().getString(R.string.search_group_text));
+        this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.h = (TextView) this.b.findViewById(R.id.text_no_data);
         this.h.setText(R.string.text_no_search_record_ground);
         this.e = (EditText) this.b.findViewById(R.id.home_et_search);
@@ -64,26 +69,19 @@ public class g {
         this.b.ShowSoftKeyPadDelay(this.e, SocialAPIErrorCodes.ERROR_AUTHORIZATION_CANCELED);
     }
 
-    private void f() {
-        this.c = this.b.findViewById(R.id.mparent);
-        this.d = (NavigationBar) this.b.findViewById(R.id.view_navigation_bar);
-        this.d.a(this.b.getResources().getString(R.string.search_group_text));
-        this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-    }
-
-    public void a(int i) {
+    public final void b() {
         this.b.getLayoutMode().a(false);
         this.b.getLayoutMode().a(this.c);
         bq.a(this.c, 0);
-        this.d.c(0);
+        this.d.b(0);
         this.h.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.pic_search_fruitless, 0, 0);
     }
 
-    public void b() {
+    public final void c() {
         this.i.setVisibility(8);
     }
 
-    public void c() {
+    public final void d() {
         if (this.j.getCount() == 0) {
             this.h.setVisibility(0);
         } else {
@@ -91,7 +89,7 @@ public class g {
         }
     }
 
-    public void a(ct ctVar) {
+    public final void a(ct ctVar) {
         List<BaseGroupData> linkedList = new LinkedList<>();
         if (ctVar != null && ctVar.a() != null) {
             linkedList = ctVar.a();
@@ -99,7 +97,7 @@ public class g {
         this.j.a(linkedList);
     }
 
-    public void d() {
+    public final void e() {
         this.i.setVisibility(0);
     }
 }

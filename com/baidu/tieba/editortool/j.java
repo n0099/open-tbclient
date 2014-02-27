@@ -6,7 +6,7 @@ import com.baidu.tieba.img.ImageFileInfo;
 import com.baidu.tieba.img.WriteImagesInfo;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class j implements View.OnClickListener {
+final class j implements View.OnClickListener {
     final /* synthetic */ g a;
     private final /* synthetic */ FrameLayout b;
 
@@ -17,7 +17,7 @@ class j implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         EditorToolComponetContainer editorToolComponetContainer;
         EditorToolComponetContainer editorToolComponetContainer2;
         EditorToolComponetContainer editorToolComponetContainer3;
@@ -30,7 +30,7 @@ class j implements View.OnClickListener {
         EditorToolComponetContainer editorToolComponetContainer8;
         EditorToolComponetContainer editorToolComponetContainer9;
         EditorToolComponetContainer editorToolComponetContainer10;
-        z zVar;
+        aa aaVar;
         EditorToolComponetContainer editorToolComponetContainer11;
         editorToolComponetContainer = this.a.a;
         if (!editorToolComponetContainer.i.e()) {
@@ -42,7 +42,7 @@ class j implements View.OnClickListener {
             writeImagesInfo = editorToolComponetContainer4.q;
             ImageFileInfo remove = writeImagesInfo.getChosedFiles().remove(a);
             if (remove.isTempFile()) {
-                this.a.a(remove.getFilePath());
+                new k(this.a, remove.getFilePath()).execute(new Void[0]);
             }
             editorToolComponetContainer5 = this.a.a;
             int maxItemNum = editorToolComponetContainer5.i.getMaxItemNum();
@@ -60,8 +60,8 @@ class j implements View.OnClickListener {
                 editorToolComponetContainer11.b.a();
             }
             editorToolComponetContainer10 = this.a.a;
-            zVar = editorToolComponetContainer10.r;
-            zVar.a(13, null);
+            aaVar = editorToolComponetContainer10.r;
+            aaVar.a(13, null);
         }
     }
 }

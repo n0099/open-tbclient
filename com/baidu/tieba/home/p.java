@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p implements View.OnClickListener {
+public final class p implements View.OnClickListener {
     final /* synthetic */ n a;
     private final /* synthetic */ FrameLayout b;
 
@@ -15,7 +15,7 @@ public class p implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         View view2;
         FrameLayout frameLayout = this.b;
         view2 = this.a.r;

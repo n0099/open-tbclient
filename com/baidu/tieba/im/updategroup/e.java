@@ -4,7 +4,7 @@ import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class e extends g {
+public final class e extends g {
     protected TextView a;
 
     public e(UpdateGroupActivity updateGroupActivity) {
@@ -16,7 +16,7 @@ public class e extends g {
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public void g() {
+    public final void g() {
         int length = this.c.getText().length();
         a(length, length, 15, 300);
         int i = 300 - length;
@@ -28,18 +28,14 @@ public class e extends g {
         }
         if (i == 0) {
             this.a.setTextColor(this.h.getResources().getColor(R.color.group_create_info_count_color));
-        } else {
-            n();
+            return;
         }
-    }
-
-    private void n() {
-        this.h.getLayoutMode().a(TiebaApplication.g().al() == 1);
+        this.h.getLayoutMode().a(TiebaApplication.g().ae() == 1);
         this.h.getLayoutMode().a(this.a);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public int j() {
+    public final int j() {
         return R.string.group_step_info_error;
     }
 }

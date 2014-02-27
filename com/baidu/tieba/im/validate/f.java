@@ -6,7 +6,7 @@ import android.widget.BaseAdapter;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class f extends BaseAdapter {
+public final class f extends BaseAdapter {
     ValidateActivity a;
     com.baidu.tieba.util.i b;
     List<ValidateItemData> c = new ArrayList();
@@ -17,20 +17,20 @@ public class f extends BaseAdapter {
         this.b = new com.baidu.tieba.util.i(this.a);
     }
 
-    public void a() {
+    public final void a() {
         this.a = null;
     }
 
-    public void a(List<ValidateItemData> list) {
+    public final void a(List<ValidateItemData> list) {
         if (list != null) {
             this.c.addAll(list);
-            com.baidu.adp.lib.util.f.e("size:" + this.c.size());
+            com.baidu.adp.lib.util.e.e("size:" + this.c.size());
             notifyDataSetChanged();
         }
     }
 
     @Override // android.widget.Adapter
-    public int getCount() {
+    public final int getCount() {
         if (this.c == null) {
             return 0;
         }
@@ -38,27 +38,28 @@ public class f extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public final View getView(int i, View view, ViewGroup viewGroup) {
         g gVar = null;
         if (view != null) {
             gVar = (g) view.getTag();
         }
         g gVar2 = gVar == null ? new g(this.a) : gVar;
         gVar2.a(this.c.get(i));
+        gVar2.d();
         return gVar2.a();
     }
 
     @Override // android.widget.Adapter
-    public Object getItem(int i) {
+    public final Object getItem(int i) {
         return this.c.get(i);
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    public final long getItemId(int i) {
         return i;
     }
 
-    public List<ValidateItemData> b() {
+    public final List<ValidateItemData> b() {
         return this.c;
     }
 }

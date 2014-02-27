@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import com.baidu.tieba.view.GoOnAnimView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class l extends com.baidu.tieba.j {
+public final class l extends com.baidu.tieba.j {
     private ViewGroup b;
     private NewUserGuideActivity c;
     private ImageView d;
@@ -21,13 +21,13 @@ public class l extends com.baidu.tieba.j {
     private Handler h = new m(this);
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onCreate(Bundle bundle) {
+    public final void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.c = (NewUserGuideActivity) getActivity();
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+    public final View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         ViewGroup viewGroup2 = (ViewGroup) layoutInflater.inflate(R.layout.guide_introduce, (ViewGroup) null);
         this.b = (ViewGroup) viewGroup2.findViewById(R.id.root_view);
         this.d = (ImageView) viewGroup2.findViewById(R.id.image_tip_1);
@@ -43,31 +43,19 @@ public class l extends com.baidu.tieba.j {
         return viewGroup2;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void d() {
-        this.d.setImageResource(R.drawable.pic_startpage1_one);
-        this.e.setImageResource(R.drawable.pic_startpage1_two);
-        this.f.setImageResource(R.drawable.pic_startpage1_three);
-        a(this.d, true, 0L);
-        a(this.e, false, 100L);
-        a(this.f, true, 250L);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(l lVar) {
+        lVar.d.setImageResource(R.drawable.pic_startpage1_one);
+        lVar.e.setImageResource(R.drawable.pic_startpage1_two);
+        lVar.f.setImageResource(R.drawable.pic_startpage1_three);
+        a(lVar.d, true, 0L);
+        a(lVar.e, false, 100L);
+        a(lVar.f, true, 250L);
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onDestroy() {
+    public final void onDestroy() {
         super.onDestroy();
-        e();
-    }
-
-    public void a() {
-        this.g.a();
-    }
-
-    public void c() {
-        this.g.b();
-    }
-
-    private void e() {
         this.b.setBackgroundDrawable(null);
         this.d.clearAnimation();
         this.d.setImageBitmap(null);
@@ -80,7 +68,15 @@ public class l extends com.baidu.tieba.j {
         this.h.removeMessages(1);
     }
 
-    private void a(ImageView imageView, boolean z, long j) {
+    public final void a() {
+        this.g.a();
+    }
+
+    public final void b() {
+        this.g.b();
+    }
+
+    private static void a(ImageView imageView, boolean z, long j) {
         TranslateAnimation translateAnimation = new TranslateAnimation(2, z ? 1.0f : -1.0f, 1, 0.0f, 1, 0.0f, 1, 0.0f);
         translateAnimation.setInterpolator(new LinearInterpolator());
         translateAnimation.setDuration(500L);

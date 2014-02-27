@@ -2,7 +2,7 @@ package com.baidu.tbplugin;
 
 import android.content.Context;
 /* loaded from: classes.dex */
-public class a implements g {
+public final class a implements g {
     private Class<?> a;
     private h b;
     private Context c;
@@ -13,7 +13,7 @@ public class a implements g {
         this.c = context;
     }
 
-    public synchronized void a() {
-        new b(this, null).execute(new Void[0]);
+    public final synchronized void a() {
+        new b(this, (byte) 0).executeOnExecutor(j.a().h(), new Void[0]);
     }
 }

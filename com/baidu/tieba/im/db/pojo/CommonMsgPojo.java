@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.db.pojo;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.f;
+import com.baidu.adp.lib.util.e;
 import com.baidu.gson.Gson;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.UserData;
@@ -133,7 +133,7 @@ public class CommonMsgPojo implements Serializable {
     /* JADX WARN: Removed duplicated region for block: B:15:0x0044  */
     /* JADX WARN: Removed duplicated region for block: B:18:0x005b  */
     /* JADX WARN: Removed duplicated region for block: B:21:0x00a5  */
-    /* JADX WARN: Removed duplicated region for block: B:26:0x00b6  */
+    /* JADX WARN: Removed duplicated region for block: B:31:0x00d4  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -143,7 +143,9 @@ public class CommonMsgPojo implements Serializable {
         long j2;
         UserData g;
         UserData h;
+        OldUserData oldUserData;
         long j3;
+        OldUserData oldUserData2;
         long j4 = 0;
         g gVar = new g();
         try {
@@ -177,7 +179,7 @@ public class CommonMsgPojo implements Serializable {
                 h = gVar.h();
                 if (h != null) {
                 }
-                l.g(gVar);
+                l.f(gVar);
                 return gVar;
             }
         } catch (Exception e3) {
@@ -208,24 +210,30 @@ public class CommonMsgPojo implements Serializable {
             gVar.a(this.content);
             g = gVar.g();
             if (g != null) {
+                if (com.baidu.adp.lib.util.g.b(g.getUserId()) && (oldUserData2 = (OldUserData) new Gson().fromJson(this.user_info, (Class<Object>) OldUserData.class)) != null) {
+                    oldUserData2.setToUserData(g);
+                }
                 try {
                     j3 = Long.parseLong(g.getUserId());
                 } catch (Exception e4) {
-                    f.b("error" + e4.getMessage());
+                    e.b("error" + e4.getMessage());
                     j3 = 0;
                 }
                 gVar.e(j3);
             }
             h = gVar.h();
             if (h != null) {
+                if (com.baidu.adp.lib.util.g.b(h.getUserId()) && (oldUserData = (OldUserData) new Gson().fromJson(this.to_user_info, (Class<Object>) OldUserData.class)) != null) {
+                    oldUserData.setToUserData(h);
+                }
                 try {
                     j4 = Long.parseLong(h.getUserId());
                 } catch (Exception e5) {
-                    f.b("error" + e5.getMessage());
+                    e.b("error" + e5.getMessage());
                 }
                 gVar.b(j4);
             }
-            l.g(gVar);
+            l.f(gVar);
             return gVar;
         }
         j2 = 0;
@@ -253,7 +261,7 @@ public class CommonMsgPojo implements Serializable {
         h = gVar.h();
         if (h != null) {
         }
-        l.g(gVar);
+        l.f(gVar);
         return gVar;
     }
 
@@ -290,7 +298,7 @@ public class CommonMsgPojo implements Serializable {
     }
 
     public String getUser_info() {
-        if (this.user_info == null || (this.user_info.length() < 1 && this.user_info_data != null)) {
+        if (this.user_info == null || (this.user_info.length() <= 0 && this.user_info_data != null)) {
             this.user_info = this.gson.toJson(this.user_info_data);
         }
         return this.user_info;
@@ -302,7 +310,7 @@ public class CommonMsgPojo implements Serializable {
     }
 
     public String getToUser_info() {
-        if (this.to_user_info == null || (this.to_user_info.length() < 1 && this.to_user_info_data != null)) {
+        if (this.to_user_info == null || (this.to_user_info.length() <= 0 && this.to_user_info_data != null)) {
             this.to_user_info = this.gson.toJson(this.to_user_info_data);
         }
         return this.to_user_info;
@@ -354,8 +362,8 @@ public class CommonMsgPojo implements Serializable {
     }
 
     public void checkRidAndSelf() {
-        if (!TextUtils.isEmpty(TiebaApplication.A())) {
-            if (TiebaApplication.A().equals(this.uid)) {
+        if (!TextUtils.isEmpty(TiebaApplication.v())) {
+            if (TiebaApplication.v().equals(this.uid)) {
                 this.isSelf = true;
             }
         } else {

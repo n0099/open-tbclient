@@ -35,81 +35,80 @@ public final class JsonTreeReader extends JsonReader {
     }
 
     @Override // com.baidu.gson.stream.JsonReader
-    public void beginArray() {
+    public final void beginArray() {
         expect(JsonToken.BEGIN_ARRAY);
         this.stack.add(((JsonArray) peekStack()).iterator());
     }
 
     @Override // com.baidu.gson.stream.JsonReader
-    public void endArray() {
+    public final void endArray() {
         expect(JsonToken.END_ARRAY);
         popStack();
         popStack();
     }
 
     @Override // com.baidu.gson.stream.JsonReader
-    public void beginObject() {
+    public final void beginObject() {
         expect(JsonToken.BEGIN_OBJECT);
         this.stack.add(((JsonObject) peekStack()).entrySet().iterator());
     }
 
     @Override // com.baidu.gson.stream.JsonReader
-    public void endObject() {
+    public final void endObject() {
         expect(JsonToken.END_OBJECT);
         popStack();
         popStack();
     }
 
     @Override // com.baidu.gson.stream.JsonReader
-    public boolean hasNext() {
+    public final boolean hasNext() {
         JsonToken peek = peek();
         return (peek == JsonToken.END_OBJECT || peek == JsonToken.END_ARRAY) ? false : true;
     }
 
     @Override // com.baidu.gson.stream.JsonReader
-    public JsonToken peek() {
-        if (this.stack.isEmpty()) {
-            return JsonToken.END_DOCUMENT;
-        }
-        Object peekStack = peekStack();
-        if (peekStack instanceof Iterator) {
-            boolean z = this.stack.get(this.stack.size() - 2) instanceof JsonObject;
-            Iterator it = (Iterator) peekStack;
-            if (!it.hasNext()) {
-                return z ? JsonToken.END_OBJECT : JsonToken.END_ARRAY;
-            } else if (z) {
-                return JsonToken.NAME;
+    public final JsonToken peek() {
+        while (!this.stack.isEmpty()) {
+            Object peekStack = peekStack();
+            if (peekStack instanceof Iterator) {
+                boolean z = this.stack.get(this.stack.size() - 2) instanceof JsonObject;
+                Iterator it = (Iterator) peekStack;
+                if (!it.hasNext()) {
+                    return z ? JsonToken.END_OBJECT : JsonToken.END_ARRAY;
+                } else if (z) {
+                    return JsonToken.NAME;
+                } else {
+                    this.stack.add(it.next());
+                }
+            } else if (peekStack instanceof JsonObject) {
+                return JsonToken.BEGIN_OBJECT;
             } else {
-                this.stack.add(it.next());
-                return peek();
-            }
-        } else if (peekStack instanceof JsonObject) {
-            return JsonToken.BEGIN_OBJECT;
-        } else {
-            if (peekStack instanceof JsonArray) {
-                return JsonToken.BEGIN_ARRAY;
-            }
-            if (peekStack instanceof JsonPrimitive) {
-                JsonPrimitive jsonPrimitive = (JsonPrimitive) peekStack;
-                if (jsonPrimitive.isString()) {
-                    return JsonToken.STRING;
+                if (peekStack instanceof JsonArray) {
+                    return JsonToken.BEGIN_ARRAY;
                 }
-                if (jsonPrimitive.isBoolean()) {
-                    return JsonToken.BOOLEAN;
+                if (peekStack instanceof JsonPrimitive) {
+                    JsonPrimitive jsonPrimitive = (JsonPrimitive) peekStack;
+                    if (jsonPrimitive.isString()) {
+                        return JsonToken.STRING;
+                    }
+                    if (jsonPrimitive.isBoolean()) {
+                        return JsonToken.BOOLEAN;
+                    }
+                    if (jsonPrimitive.isNumber()) {
+                        return JsonToken.NUMBER;
+                    }
+                    throw new AssertionError();
+                } else if (peekStack instanceof JsonNull) {
+                    return JsonToken.NULL;
+                } else {
+                    if (peekStack == SENTINEL_CLOSED) {
+                        throw new IllegalStateException("JsonReader is closed");
+                    }
+                    throw new AssertionError();
                 }
-                if (jsonPrimitive.isNumber()) {
-                    return JsonToken.NUMBER;
-                }
-                throw new AssertionError();
-            } else if (peekStack instanceof JsonNull) {
-                return JsonToken.NULL;
-            } else {
-                if (peekStack == SENTINEL_CLOSED) {
-                    throw new IllegalStateException("JsonReader is closed");
-                }
-                throw new AssertionError();
             }
         }
+        return JsonToken.END_DOCUMENT;
     }
 
     private Object peekStack() {
@@ -127,7 +126,7 @@ public final class JsonTreeReader extends JsonReader {
     }
 
     @Override // com.baidu.gson.stream.JsonReader
-    public String nextName() {
+    public final String nextName() {
         expect(JsonToken.NAME);
         Map.Entry entry = (Map.Entry) ((Iterator) peekStack()).next();
         this.stack.add(entry.getValue());
@@ -135,7 +134,7 @@ public final class JsonTreeReader extends JsonReader {
     }
 
     @Override // com.baidu.gson.stream.JsonReader
-    public String nextString() {
+    public final String nextString() {
         JsonToken peek = peek();
         if (peek != JsonToken.STRING && peek != JsonToken.NUMBER) {
             throw new IllegalStateException("Expected " + JsonToken.STRING + " but was " + peek);
@@ -144,19 +143,19 @@ public final class JsonTreeReader extends JsonReader {
     }
 
     @Override // com.baidu.gson.stream.JsonReader
-    public boolean nextBoolean() {
+    public final boolean nextBoolean() {
         expect(JsonToken.BOOLEAN);
         return ((JsonPrimitive) popStack()).getAsBoolean();
     }
 
     @Override // com.baidu.gson.stream.JsonReader
-    public void nextNull() {
+    public final void nextNull() {
         expect(JsonToken.NULL);
         popStack();
     }
 
     @Override // com.baidu.gson.stream.JsonReader
-    public double nextDouble() {
+    public final double nextDouble() {
         JsonToken peek = peek();
         if (peek != JsonToken.NUMBER && peek != JsonToken.STRING) {
             throw new IllegalStateException("Expected " + JsonToken.NUMBER + " but was " + peek);
@@ -170,7 +169,7 @@ public final class JsonTreeReader extends JsonReader {
     }
 
     @Override // com.baidu.gson.stream.JsonReader
-    public long nextLong() {
+    public final long nextLong() {
         JsonToken peek = peek();
         if (peek != JsonToken.NUMBER && peek != JsonToken.STRING) {
             throw new IllegalStateException("Expected " + JsonToken.NUMBER + " but was " + peek);
@@ -181,7 +180,7 @@ public final class JsonTreeReader extends JsonReader {
     }
 
     @Override // com.baidu.gson.stream.JsonReader
-    public int nextInt() {
+    public final int nextInt() {
         JsonToken peek = peek();
         if (peek != JsonToken.NUMBER && peek != JsonToken.STRING) {
             throw new IllegalStateException("Expected " + JsonToken.NUMBER + " but was " + peek);
@@ -192,13 +191,13 @@ public final class JsonTreeReader extends JsonReader {
     }
 
     @Override // com.baidu.gson.stream.JsonReader, java.io.Closeable, java.lang.AutoCloseable
-    public void close() {
+    public final void close() {
         this.stack.clear();
         this.stack.add(SENTINEL_CLOSED);
     }
 
     @Override // com.baidu.gson.stream.JsonReader
-    public void skipValue() {
+    public final void skipValue() {
         if (peek() == JsonToken.NAME) {
             nextName();
         } else {
@@ -207,11 +206,11 @@ public final class JsonTreeReader extends JsonReader {
     }
 
     @Override // com.baidu.gson.stream.JsonReader
-    public String toString() {
+    public final String toString() {
         return getClass().getSimpleName();
     }
 
-    public void promoteNameToValue() {
+    public final void promoteNameToValue() {
         expect(JsonToken.NAME);
         Map.Entry entry = (Map.Entry) ((Iterator) peekStack()).next();
         this.stack.add(entry.getValue());

@@ -1,29 +1,21 @@
 package com.baidu.tieba.guide;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.widget.ImageView;
 /* loaded from: classes.dex */
-public class r extends FragmentPagerAdapter {
-    private final com.baidu.tieba.j[] a;
-    private final int b;
+final class r implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ o a;
+    private final /* synthetic */ ImageView b;
 
-    public r(FragmentManager fragmentManager) {
-        super(fragmentManager);
-        this.a = new com.baidu.tieba.j[]{new l(), new o()};
-        this.b = this.a.length;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public r(o oVar, ImageView imageView) {
+        this.a = oVar;
+        this.b = imageView;
     }
 
-    @Override // android.support.v4.app.FragmentPagerAdapter
-    public Fragment getItem(int i) {
-        if (i < 0 || i >= this.b) {
-            return null;
+    @Override // com.baidu.tbadk.imageManager.d
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        if (bVar != null) {
+            bVar.a(this.b);
         }
-        return this.a[i];
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public int getCount() {
-        return this.b;
     }
 }

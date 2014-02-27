@@ -1,17 +1,36 @@
 package com.baidu.tieba.mainentrance;
 
 import android.content.Context;
+import com.baidu.tieba.MainTabActivity;
 /* loaded from: classes.dex */
-public interface e {
-    Class a();
+public final class e implements c {
+    @Override // com.baidu.tieba.mainentrance.c
+    public final void a(Context context, int i) {
+        MainTabActivity.a(context, i);
+    }
 
-    void a(Context context);
+    @Override // com.baidu.tieba.mainentrance.c
+    public final void a(Context context) {
+        MainTabActivity.a(context);
+    }
 
-    void a(Context context, int i);
+    @Override // com.baidu.tieba.mainentrance.c
+    public final void a(Context context, int i, boolean z) {
+        MainTabActivity.b(context, i, z);
+    }
 
-    void a(Context context, int i, boolean z);
+    @Override // com.baidu.tieba.mainentrance.c
+    public final void b(Context context, int i) {
+        MainTabActivity.b(context, i);
+    }
 
-    String b();
+    @Override // com.baidu.tieba.mainentrance.c
+    public final Class a() {
+        return MainTabActivity.class;
+    }
 
-    void b(Context context, int i);
+    @Override // com.baidu.tieba.mainentrance.c
+    public final String b() {
+        return MainTabActivity.class.getName();
+    }
 }

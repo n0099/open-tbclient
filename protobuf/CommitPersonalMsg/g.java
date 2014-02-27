@@ -5,11 +5,9 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import protobuf.CommitPersonalMsg.CommitPersonalMsgRes;
 /* loaded from: classes.dex */
-class g extends AbstractParser<CommitPersonalMsgRes.CommitPersonalMsgResIdl> {
-    /* JADX DEBUG: Method merged with bridge method */
+final class g extends AbstractParser<CommitPersonalMsgRes.CommitPersonalMsgResIdl> {
     @Override // com.google.protobuf.Parser
-    /* renamed from: a */
-    public CommitPersonalMsgRes.CommitPersonalMsgResIdl parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
+    public final /* synthetic */ Object parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
         return new CommitPersonalMsgRes.CommitPersonalMsgResIdl(codedInputStream, extensionRegistryLite, null);
     }
 }

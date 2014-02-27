@@ -8,7 +8,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class h implements x {
+public final class h implements x {
     CreateGroupStepActivity a;
     View b;
     HeadImageView c;
@@ -36,47 +36,39 @@ public class h implements x {
         this.j = i3;
     }
 
-    public void c() {
+    public final void c() {
         if (this.g != null) {
             this.g.cancel();
         }
         this.f = null;
-        this.g = new i(this, null);
+        this.g = new i(this, (byte) 0);
         this.g.execute(new Object[0]);
     }
 
-    public ImageView d() {
-        return this.d;
-    }
-
-    public Button e() {
-        return this.e;
-    }
-
     @Override // com.baidu.tieba.im.creategroup.x
-    public View a() {
+    public final View a() {
         return this.b;
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
-    public void h() {
+    public final void g() {
         this.d.setBackgroundDrawable(null);
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
-    public void i() {
-        this.a.getLayoutMode().a(TiebaApplication.g().al() == 1);
+    public final void h() {
+        this.a.getLayoutMode().a(TiebaApplication.g().ae() == 1);
         this.a.getLayoutMode().a(this.b);
-        this.c.f();
+        this.c.d();
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
-    public String j() {
+    public final String i() {
         return String.format(this.a.getString(R.string.group_create_step_photo), Integer.valueOf(this.i));
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
-    public String k() {
+    public final String j() {
         if (this.h != this.j) {
             return this.a.getString(R.string.group_create_step_tip);
         }
@@ -84,22 +76,22 @@ public class h implements x {
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
-    public boolean l() {
+    public final boolean k() {
         return true;
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
-    public int b() {
+    public final int b() {
         return this.h;
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
-    public String m() {
+    public final String l() {
         return null;
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
-    public boolean n() {
+    public final boolean m() {
         return true;
     }
 }

@@ -5,11 +5,9 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import protobuf.CommitPusherCount.CommitPusherCountReq;
 /* loaded from: classes.dex */
-class a extends AbstractParser<CommitPusherCountReq.CommitPusherCountReqIdl> {
-    /* JADX DEBUG: Method merged with bridge method */
+final class a extends AbstractParser<CommitPusherCountReq.CommitPusherCountReqIdl> {
     @Override // com.google.protobuf.Parser
-    /* renamed from: a */
-    public CommitPusherCountReq.CommitPusherCountReqIdl parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
+    public final /* synthetic */ Object parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
         return new CommitPusherCountReq.CommitPusherCountReqIdl(codedInputStream, extensionRegistryLite, null);
     }
 }

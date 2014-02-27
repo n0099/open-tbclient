@@ -7,10 +7,10 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.k;
 import com.baidu.tieba.view.NavigationBar;
 import com.baidu.tieba.view.NoNetworkView;
-import com.baidu.tieba.view.ct;
+import com.baidu.tieba.view.cs;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class g {
+public final class g {
     TextView a;
     private k b;
     private a c;
@@ -18,7 +18,7 @@ public class g {
     private View e;
     private BdListView f;
     private e g;
-    private ct h;
+    private cs h;
     private NoNetworkView i;
 
     public g(k kVar, a aVar) {
@@ -29,7 +29,7 @@ public class g {
         this.d = (NavigationBar) this.e.findViewById(R.id.view_navigation_bar);
         this.d.a(this.b.getString(R.string.groups));
         this.a = this.d.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.c);
-        this.h = new ct(this.b);
+        this.h = new cs(this.b);
         this.f = (BdListView) this.e.findViewById(R.id.list_view);
         this.f.setPullRefresh(this.h);
         this.g = new e(aVar);
@@ -37,34 +37,34 @@ public class g {
         this.i = (NoNetworkView) this.e.findViewById(R.id.view_no_network_group);
     }
 
-    public void a() {
+    public final void a() {
         this.f.a();
     }
 
-    public void a(com.baidu.adp.widget.ListView.b bVar) {
+    public final void a(com.baidu.adp.widget.ListView.b bVar) {
         this.h.a(bVar);
     }
 
-    public void b() {
+    public final void b() {
         this.f.b();
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.b.a().a(i == 1);
         this.b.a().a(this.e);
-        this.d.c(i);
+        this.d.b(i);
         this.i.a(i);
-        this.g.b(i);
+        this.g.a();
         this.h.a(i);
     }
 
-    public void b(int i) {
+    public final void b(int i) {
         if (this.g != null) {
             this.g.a(i);
         }
     }
 
-    public void a(String str, String str2) {
+    public final void a(String str, String str2) {
         if (this.g != null) {
             this.g.a(str2, str);
         }

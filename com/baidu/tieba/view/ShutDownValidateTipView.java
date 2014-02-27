@@ -22,7 +22,7 @@ public class ShutDownValidateTipView extends FrameLayout {
     private TextView e;
     private Context g;
     private boolean h;
-    private ArrayList<cn> i;
+    private ArrayList<NetworkChangeListener> i;
 
     public ShutDownValidateTipView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -42,7 +42,7 @@ public class ShutDownValidateTipView extends FrameLayout {
         a(context);
     }
 
-    public void a(Context context) {
+    private void a(Context context) {
         this.g = context;
         addView(((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.shut_down_validate_tip, (ViewGroup) null));
         this.c = (ImageView) findViewById(R.id.no_network_icon);
@@ -60,7 +60,7 @@ public class ShutDownValidateTipView extends FrameLayout {
     public static void setIsHasNetwork(boolean z) {
         if (z != f) {
             f = z;
-            if (f) {
+            if (z) {
                 Iterator<ShutDownValidateTipView> it = a.iterator();
                 while (it.hasNext()) {
                     it.next().setVisible(false);
@@ -75,6 +75,7 @@ public class ShutDownValidateTipView extends FrameLayout {
     }
 
     public void setVisible(boolean z) {
+        int i = 0;
         if (z != this.h) {
             this.h = z;
             if (z) {
@@ -84,8 +85,9 @@ public class ShutDownValidateTipView extends FrameLayout {
                 alphaAnimation.setAnimationListener(new cl(this));
                 setVisibility(0);
                 startAnimation(alphaAnimation);
-                for (int i = 0; i < this.i.size(); i++) {
-                    this.i.get(i).a(false);
+                while (i < this.i.size()) {
+                    this.i.get(i);
+                    i++;
                 }
             } else if (getVisibility() != 8) {
                 AlphaAnimation alphaAnimation2 = new AlphaAnimation(1.0f, 0.0f);
@@ -93,8 +95,9 @@ public class ShutDownValidateTipView extends FrameLayout {
                 alphaAnimation2.setDuration(500L);
                 alphaAnimation2.setAnimationListener(new cm(this));
                 startAnimation(alphaAnimation2);
-                for (int i2 = 0; i2 < this.i.size(); i2++) {
-                    this.i.get(i2).a(true);
+                while (i < this.i.size()) {
+                    this.i.get(i);
+                    i++;
                 }
             }
         }
@@ -113,7 +116,7 @@ public class ShutDownValidateTipView extends FrameLayout {
         this.i.clear();
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         if (i == 1) {
             this.c.setImageResource(R.drawable.icon_error_1);
             findViewById(R.id.no_network_parent).setBackgroundResource(R.drawable.bg_no_network_1);

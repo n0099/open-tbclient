@@ -50,23 +50,23 @@ public class ClearTempService extends Service {
                     a(file2);
                 } else if (length > 0 && i < length) {
                     if (!file2.delete()) {
-                        com.baidu.adp.lib.util.f.b(getClass().getName(), "run", "list[i].delete error");
+                        com.baidu.adp.lib.util.e.b(getClass().getName(), "run", "list[i].delete error");
                     }
                 } else if (time - listFiles[i].lastModified() > 259200000 && !file2.delete()) {
-                    com.baidu.adp.lib.util.f.b(getClass().getName(), "run", "list[i].delete error");
+                    com.baidu.adp.lib.util.e.b(getClass().getName(), "run", "list[i].delete error");
                 }
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(File file) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void b(ClearTempService clearTempService, File file) {
         File[] listFiles = file.listFiles();
         long time = new Date().getTime();
         if (listFiles != null) {
-            for (int i = 0; i < listFiles.length && !this.a; i++) {
+            for (int i = 0; i < listFiles.length && !clearTempService.a; i++) {
                 if (time - listFiles[i].lastModified() > 259200000 && !listFiles[i].delete()) {
-                    com.baidu.adp.lib.util.f.b(getClass().getName(), "run", "list[i].delete error");
+                    com.baidu.adp.lib.util.e.b(clearTempService.getClass().getName(), "run", "list[i].delete error");
                 }
             }
         }

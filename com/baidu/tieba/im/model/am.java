@@ -3,56 +3,52 @@ package com.baidu.tieba.im.model;
 import com.baidu.tieba.im.message.av;
 import com.baidu.tieba.im.message.cr;
 /* loaded from: classes.dex */
-public class am extends com.baidu.adp.a.d {
+public final class am extends com.baidu.adp.a.d {
     private av a = null;
     private cr b = null;
     private int c;
     private String d;
     private String e;
 
-    public void a(int i) {
-        this.c = i;
+    public final void a(int i) {
+        this.c = 0;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.d = str;
     }
 
-    public void b(String str) {
+    public final void b(String str) {
         this.e = str;
     }
 
-    private av c() {
+    public final void a() {
         av avVar = new av();
         avVar.a(this.d);
         avVar.b(this.e);
         avVar.a(this.c);
-        return avVar;
+        this.a = avVar;
+        com.baidu.tieba.im.messageCenter.d.a().a(this.a);
     }
 
-    public void a() {
-        this.a = c();
-        com.baidu.tieba.im.messageCenter.e.a().a(this.a);
-    }
-
-    public void b() {
+    public final void b() {
         if (this.a != null) {
-            com.baidu.tieba.im.messageCenter.e.a().b(this.a);
+            com.baidu.tieba.im.messageCenter.d.a().b(this.a);
             this.a = null;
         }
         if (this.b != null) {
-            com.baidu.tieba.im.messageCenter.e.a().b(this.b);
+            com.baidu.tieba.im.messageCenter.d.a().b(this.b);
             this.b = null;
         }
     }
 
     @Override // com.baidu.adp.a.d
-    protected boolean LoadData() {
+    protected final boolean LoadData() {
         return false;
     }
 
     @Override // com.baidu.adp.a.d
-    public boolean cancelLoadData() {
+    public final boolean cancelLoadData() {
         return false;
     }
 }

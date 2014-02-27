@@ -62,7 +62,7 @@ public class HaloView extends View {
             int c2 = BdUtilHelper.c(this.c, R.dimen.ds90);
             int c3 = BdUtilHelper.c(this.c, R.dimen.ds30);
             int c4 = BdUtilHelper.c(this.c, R.dimen.ds60);
-            if (this.e >= 1) {
+            if (this.e > 0) {
                 this.b.setARGB(25, MotionEventCompat.ACTION_MASK, MotionEventCompat.ACTION_MASK, MotionEventCompat.ACTION_MASK);
                 this.b.setStrokeWidth(c3);
                 canvas.drawCircle(width, height, c, this.b);
@@ -86,7 +86,7 @@ public class HaloView extends View {
         super.onDraw(canvas);
     }
 
-    public void a() {
+    public final void a() {
         this.f = true;
     }
 }

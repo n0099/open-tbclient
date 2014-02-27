@@ -1,8 +1,8 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.view.HeadImageShaderView;
+import android.view.View;
 /* loaded from: classes.dex */
-class cj implements com.baidu.tbadk.imageManager.d {
+final class cj implements View.OnClickListener {
     final /* synthetic */ MsgrightView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,12 +10,8 @@ class cj implements com.baidu.tbadk.imageManager.d {
         this.a = msgrightView;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        HeadImageShaderView headImageShaderView;
-        if (bVar != null) {
-            headImageShaderView = this.a.s;
-            bVar.a(headImageShaderView.getHeadImageView());
-        }
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        this.a.c.a(view, 1, this.a.f);
     }
 }

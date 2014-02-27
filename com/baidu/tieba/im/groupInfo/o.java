@@ -3,7 +3,7 @@ package com.baidu.tieba.im.groupInfo;
 import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o implements c {
+public final class o implements c {
     final /* synthetic */ m a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ public class o implements c {
     }
 
     @Override // com.baidu.tieba.im.groupInfo.c
-    public void a(boolean z) {
+    public final void a(boolean z) {
         TextView textView;
         TextView textView2;
         if (z) {

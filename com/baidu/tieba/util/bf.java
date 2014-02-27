@@ -14,7 +14,7 @@ public class bf {
     private static int f = 10;
 
     private bf() {
-        a = TiebaApplication.g().aP();
+        a = TiebaApplication.g().aH();
     }
 
     public static synchronized bf a() {
@@ -28,7 +28,7 @@ public class bf {
         return bfVar;
     }
 
-    public an a(bj bjVar) {
+    public static an a(bj bjVar) {
         switch (a) {
             case 0:
                 return new NetWorkCore(bjVar);
@@ -45,12 +45,12 @@ public class bf {
                 long currentTimeMillis = System.currentTimeMillis();
                 if (currentTimeMillis - d < e) {
                     c++;
-                    com.baidu.adp.lib.util.f.c(bf.class.getName(), "addError", "发生一次新网络内核不通畅警告！ errotime:" + c);
+                    com.baidu.adp.lib.util.e.c(bf.class.getName(), "addError", "发生一次新网络内核不通畅警告！ errotime:" + c);
                     if (c > f) {
                         a = 0;
-                        com.baidu.adp.lib.util.f.b(bf.class.getName(), "addError", "切换会老的网络内核");
+                        com.baidu.adp.lib.util.e.b(bf.class.getName(), "addError", "切换会老的网络内核");
                         TiebaApplication.g().k(a);
-                        cb.a(TiebaApplication.g().b().getApplicationContext(), "network_core", "current Net：" + UtilHelper.h(TiebaApplication.g().b().getApplicationContext()) + ", TelType:" + com.baidu.adp.lib.network.i.c() + ", wap:" + c(), 1, new Object[0]);
+                        cb.a(TiebaApplication.g().b().getApplicationContext(), "network_core", "current Net：" + UtilHelper.h(TiebaApplication.g().b().getApplicationContext()) + ", TelType:" + com.baidu.adp.lib.network.i.b() + ", wap:" + c(), 1, new Object[0]);
                     }
                 } else {
                     c = 0;
@@ -60,7 +60,7 @@ public class bf {
         }
     }
 
-    public static String c() {
+    private static String c() {
         try {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) TiebaApplication.g().b().getApplicationContext().getSystemService("connectivity")).getActiveNetworkInfo();
             if (activeNetworkInfo.isAvailable()) {

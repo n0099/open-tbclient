@@ -9,7 +9,7 @@ public class cy extends da implements com.baidu.tieba.im.coder.f {
     }
 
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<s> linkedList, byte[] bArr, int i) {
+    public final void a(LinkedList<s> linkedList, byte[] bArr, int i) {
         UpgradeMemberGroupRes.UpgradeMemberGroupResIdl parseFrom = UpgradeMemberGroupRes.UpgradeMemberGroupResIdl.parseFrom(bArr);
         g(parseFrom.getError().getErrorno());
         c(parseFrom.getError().getUsermsg());

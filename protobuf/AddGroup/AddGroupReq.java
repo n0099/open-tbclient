@@ -24,8 +24,10 @@ public final class AddGroupReq {
         public static final int LAT_FIELD_NUMBER = 8;
         public static final int LNG_FIELD_NUMBER = 7;
         public static final int NAME_FIELD_NUMBER = 2;
+        public static Parser<DataReq> PARSER = new d();
         public static final int PORTRAIT_FIELD_NUMBER = 4;
         public static final int POSITION_FIELD_NUMBER = 5;
+        private static final DataReq a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private Object business_;
@@ -40,8 +42,6 @@ public final class AddGroupReq {
         private Object name_;
         private Object portrait_;
         private Object position_;
-        public static Parser<DataReq> PARSER = new d();
-        private static final DataReq a = new DataReq(true);
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ DataReq(GeneratedMessageLite.Builder builder, DataReq dataReq) {
@@ -54,7 +54,7 @@ public final class AddGroupReq {
             this.memoizedSerializedSize = -1;
         }
 
-        private DataReq(boolean z) {
+        private DataReq() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -65,7 +65,7 @@ public final class AddGroupReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public DataReq getDefaultInstanceForType() {
+        public final DataReq getDefaultInstanceForType() {
             return a;
         }
 
@@ -147,27 +147,29 @@ public final class AddGroupReq {
         }
 
         static {
-            a.a();
+            DataReq dataReq = new DataReq();
+            a = dataReq;
+            dataReq.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<DataReq> getParserForType() {
+        public final Parser<DataReq> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasForumId() {
+        public final boolean hasForumId() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public int getForumId() {
+        public final int getForumId() {
             return this.forumId_;
         }
 
-        public boolean hasName() {
+        public final boolean hasName() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public String getName() {
+        public final String getName() {
             Object obj = this.name_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -180,7 +182,7 @@ public final class AddGroupReq {
             return stringUtf8;
         }
 
-        public ByteString getNameBytes() {
+        public final ByteString getNameBytes() {
             Object obj = this.name_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -190,11 +192,11 @@ public final class AddGroupReq {
             return (ByteString) obj;
         }
 
-        public boolean hasIntro() {
+        public final boolean hasIntro() {
             return (this.bitField0_ & 4) == 4;
         }
 
-        public String getIntro() {
+        public final String getIntro() {
             Object obj = this.intro_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -207,7 +209,7 @@ public final class AddGroupReq {
             return stringUtf8;
         }
 
-        public ByteString getIntroBytes() {
+        public final ByteString getIntroBytes() {
             Object obj = this.intro_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -217,11 +219,11 @@ public final class AddGroupReq {
             return (ByteString) obj;
         }
 
-        public boolean hasPortrait() {
+        public final boolean hasPortrait() {
             return (this.bitField0_ & 8) == 8;
         }
 
-        public String getPortrait() {
+        public final String getPortrait() {
             Object obj = this.portrait_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -234,7 +236,7 @@ public final class AddGroupReq {
             return stringUtf8;
         }
 
-        public ByteString getPortraitBytes() {
+        public final ByteString getPortraitBytes() {
             Object obj = this.portrait_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -244,11 +246,11 @@ public final class AddGroupReq {
             return (ByteString) obj;
         }
 
-        public boolean hasPosition() {
+        public final boolean hasPosition() {
             return (this.bitField0_ & 16) == 16;
         }
 
-        public String getPosition() {
+        public final String getPosition() {
             Object obj = this.position_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -261,7 +263,7 @@ public final class AddGroupReq {
             return stringUtf8;
         }
 
-        public ByteString getPositionBytes() {
+        public final ByteString getPositionBytes() {
             Object obj = this.position_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -271,11 +273,11 @@ public final class AddGroupReq {
             return (ByteString) obj;
         }
 
-        public boolean hasBusiness() {
+        public final boolean hasBusiness() {
             return (this.bitField0_ & 32) == 32;
         }
 
-        public String getBusiness() {
+        public final String getBusiness() {
             Object obj = this.business_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -288,7 +290,7 @@ public final class AddGroupReq {
             return stringUtf8;
         }
 
-        public ByteString getBusinessBytes() {
+        public final ByteString getBusinessBytes() {
             Object obj = this.business_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -298,35 +300,35 @@ public final class AddGroupReq {
             return (ByteString) obj;
         }
 
-        public boolean hasLng() {
+        public final boolean hasLng() {
             return (this.bitField0_ & 64) == 64;
         }
 
-        public double getLng() {
+        public final double getLng() {
             return this.lng_;
         }
 
-        public boolean hasLat() {
+        public final boolean hasLat() {
             return (this.bitField0_ & 128) == 128;
         }
 
-        public double getLat() {
+        public final double getLat() {
             return this.lat_;
         }
 
-        public boolean hasGroupType() {
+        public final boolean hasGroupType() {
             return (this.bitField0_ & 256) == 256;
         }
 
-        public int getGroupType() {
+        public final int getGroupType() {
             return this.groupType_;
         }
 
-        public boolean hasFlag() {
+        public final boolean hasFlag() {
             return (this.bitField0_ & 512) == 512;
         }
 
-        public int getFlag() {
+        public final int getFlag() {
             return this.flag_;
         }
 
@@ -354,7 +356,7 @@ public final class AddGroupReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeInt32(1, this.forumId_);
@@ -389,10 +391,13 @@ public final class AddGroupReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt32Size(1, this.forumId_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeInt32Size(1, this.forumId_) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeBytesSize(2, getNameBytes());
                 }
@@ -427,7 +432,7 @@ public final class AddGroupReq {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -472,12 +477,12 @@ public final class AddGroupReq {
         }
 
         public static e newBuilder() {
-            return e.f();
+            return e.c();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public e newBuilderForType() {
+        public final e newBuilderForType() {
             return newBuilder();
         }
 
@@ -487,7 +492,7 @@ public final class AddGroupReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public e toBuilder() {
+        public final e toBuilder() {
             return newBuilder(this);
         }
     }
@@ -496,7 +501,7 @@ public final class AddGroupReq {
     public final class AddGroupReqIdl extends GeneratedMessageLite implements c {
         public static final int DATA_FIELD_NUMBER = 1;
         public static Parser<AddGroupReqIdl> PARSER = new a();
-        private static final AddGroupReqIdl a = new AddGroupReqIdl(true);
+        private static final AddGroupReqIdl a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private DataReq data_;
@@ -514,7 +519,7 @@ public final class AddGroupReq {
             this.memoizedSerializedSize = -1;
         }
 
-        private AddGroupReqIdl(boolean z) {
+        private AddGroupReqIdl() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -525,7 +530,7 @@ public final class AddGroupReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public AddGroupReqIdl getDefaultInstanceForType() {
+        public final AddGroupReqIdl getDefaultInstanceForType() {
             return a;
         }
 
@@ -533,7 +538,7 @@ public final class AddGroupReq {
             e eVar;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
-            a();
+            this.data_ = DataReq.getDefaultInstance();
             boolean z = false;
             while (!z) {
                 try {
@@ -581,24 +586,22 @@ public final class AddGroupReq {
         }
 
         static {
-            a.a();
+            AddGroupReqIdl addGroupReqIdl = new AddGroupReqIdl();
+            a = addGroupReqIdl;
+            addGroupReqIdl.data_ = DataReq.getDefaultInstance();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<AddGroupReqIdl> getParserForType() {
+        public final Parser<AddGroupReqIdl> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasData() {
+        public final boolean hasData() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public DataReq getData() {
+        public final DataReq getData() {
             return this.data_;
-        }
-
-        private void a() {
-            this.data_ = DataReq.getDefaultInstance();
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -612,7 +615,7 @@ public final class AddGroupReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeMessage(1, this.data_);
@@ -620,10 +623,13 @@ public final class AddGroupReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeMessageSize(1, this.data_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeMessageSize(1, this.data_) + 0;
+                }
                 this.memoizedSerializedSize = i;
             }
             return i;
@@ -631,7 +637,7 @@ public final class AddGroupReq {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -676,12 +682,12 @@ public final class AddGroupReq {
         }
 
         public static b newBuilder() {
-            return b.f();
+            return b.b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public b newBuilderForType() {
+        public final b newBuilderForType() {
             return newBuilder();
         }
 
@@ -691,7 +697,7 @@ public final class AddGroupReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public b toBuilder() {
+        public final b toBuilder() {
             return newBuilder(this);
         }
     }

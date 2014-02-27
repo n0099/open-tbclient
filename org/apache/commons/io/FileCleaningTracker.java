@@ -76,7 +76,7 @@ public class FileCleaningTracker {
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
-        public void run() {
+        public final void run() {
             while (true) {
                 if (!FileCleaningTracker.this.exitWhenFinished || FileCleaningTracker.this.trackers.size() > 0) {
                     try {
@@ -107,11 +107,11 @@ public class FileCleaningTracker {
             this.deleteStrategy = fileDeleteStrategy == null ? FileDeleteStrategy.NORMAL : fileDeleteStrategy;
         }
 
-        public String getPath() {
+        public final String getPath() {
             return this.path;
         }
 
-        public boolean delete() {
+        public final boolean delete() {
             return this.deleteStrategy.deleteQuietly(new File(this.path));
         }
     }

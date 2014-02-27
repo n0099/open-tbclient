@@ -17,32 +17,28 @@ public class TiebaActiveService extends Service {
     private Handler c = new Handler();
     private Runnable d = new j(this);
 
-    private String a() {
-        return com.baidu.tieba.sharedPref.b.a().a("channel_id", (String) null);
-    }
-
-    private void a(String str) {
+    private static void a(String str) {
         if (str != null && str.length() > 0) {
             com.baidu.tieba.sharedPref.b.a().b("channel_id", str);
         }
     }
 
-    private String b() {
+    private String a() {
         String str = null;
         try {
             File d = af.d("channel.dat");
-            if (d != null) {
-                BufferedReader bufferedReader = new BufferedReader(new FileReader(d));
-                str = bufferedReader.readLine();
-                if (bufferedReader != null) {
-                    bufferedReader.close();
-                }
+            if (d == null) {
+                return null;
             }
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(d));
+            str = bufferedReader.readLine();
+            bufferedReader.close();
+            return str;
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "getFromByFile", e.getMessage());
+            com.baidu.adp.lib.util.e.b(getClass().getName(), "getFromByFile", e.getMessage());
             cb.a(e, "TiebaActiveService.getChannelyFile");
+            return str;
         }
-        return str;
     }
 
     private void b(String str) {
@@ -56,21 +52,21 @@ public class TiebaActiveService extends Service {
                     fileWriter.close();
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "saveFromToFile", e.getMessage());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "saveFromToFile", e.getMessage());
                 cb.a(e, "TiebaActiveService.saveChannelToFile");
             }
         }
     }
 
-    private boolean c() {
+    private boolean b() {
         try {
-            String a = a();
+            String a = com.baidu.tieba.sharedPref.b.a().a("channel_id", (String) null);
             if (a == null) {
-                String b = b();
-                if (b != null && b.length() > 0) {
-                    a(b);
+                String a2 = a();
+                if (a2 != null && a2.length() > 0) {
+                    a(a2);
                 } else {
-                    if ("aishide" != 0 && "aishide".length() > 0) {
+                    if ("aishide".length() > 0) {
                         a("aishide");
                         b("aishide");
                     }
@@ -80,9 +76,9 @@ public class TiebaActiveService extends Service {
                 b(a);
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "getActiveState", e.getMessage());
+            com.baidu.adp.lib.util.e.b(getClass().getName(), "getActiveState", e.getMessage());
         }
-        com.baidu.adp.lib.util.f.a(getClass().getName(), "getActiveState", "channel = ");
+        com.baidu.adp.lib.util.e.a(getClass().getName(), "getActiveState", "channel = ");
         return true;
     }
 
@@ -94,10 +90,10 @@ public class TiebaActiveService extends Service {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (c() && com.baidu.tieba.sharedPref.b.a().a("active", 2) != 1) {
+        if (b() && com.baidu.tieba.sharedPref.b.a().a("active", 2) != 1) {
             stopSelf();
         } else {
-            d();
+            c();
         }
     }
 
@@ -112,11 +108,11 @@ public class TiebaActiveService extends Service {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void d() {
+    public void c() {
         if (this.a != null) {
             this.a.cancel();
         }
-        this.a = new k(this, null);
+        this.a = new k(this, (byte) 0);
         this.a.execute(new String[0]);
     }
 }

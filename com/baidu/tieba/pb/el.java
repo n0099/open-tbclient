@@ -1,7 +1,6 @@
 package com.baidu.tieba.pb;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class el implements Runnable {
+final class el implements Runnable {
     final /* synthetic */ ed a;
     private final /* synthetic */ String b;
 
@@ -12,7 +11,7 @@ public class el implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         this.a.a(this.b);
     }
 }

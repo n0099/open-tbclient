@@ -7,17 +7,17 @@ public interface x {
 
     int b();
 
+    void g();
+
     void h();
 
-    void i();
+    String i();
 
     String j();
 
-    String k();
+    boolean k();
 
-    boolean l();
+    String l();
 
-    String m();
-
-    boolean n();
+    boolean m();
 }

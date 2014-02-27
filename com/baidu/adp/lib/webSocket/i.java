@@ -1,73 +1,33 @@
 package com.baidu.adp.lib.webSocket;
-
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.InetSocketAddress;
-import java.net.Socket;
-import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
-class i implements g {
-    private Socket a;
-    private InputStream b;
-    private OutputStream c;
-    private byte[] d;
+public final class i {
+    private static final int[] a = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8, 8, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 10, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 3, 11, 6, 6, 6, 5, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 0, 1, 2, 3, 5, 8, 7, 1, 1, 1, 4, 6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+    private int b;
+    private int c;
 
-    public i(String str, int i, am amVar) {
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.a = new Socket();
-        this.a.connect(new InetSocketAddress(str, i), amVar.f());
-        this.a.setSoTimeout(amVar.e());
-        this.a.setTcpNoDelay(amVar.d());
-        this.b = this.a.getInputStream();
-        this.c = this.a.getOutputStream();
-        this.d = new byte[1024];
+    public i() {
+        a();
     }
 
-    @Override // com.baidu.adp.lib.webSocket.g
-    public void a() {
-        try {
-            this.b.close();
-        } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(e.getMessage());
-        }
-        try {
-            this.c.close();
-        } catch (Exception e2) {
-            com.baidu.adp.lib.util.f.b(e2.getMessage());
-        }
-        if (this.a != null) {
-            this.a.close();
-        }
+    public final void a() {
+        this.b = 0;
+        this.c = 0;
     }
 
-    @Override // com.baidu.adp.lib.webSocket.g
-    public boolean b() {
-        if (this.a != null) {
-            return this.a.isConnected();
-        }
-        return false;
+    public final boolean b() {
+        return this.b == 0;
     }
 
-    @Override // com.baidu.adp.lib.webSocket.g
-    public int a(ByteBuffer byteBuffer) {
-        int read = this.b.read(this.d);
-        if (read > 0) {
-            byteBuffer.put(this.d, 0, read);
+    public final boolean a(byte[] bArr) {
+        int length = bArr.length;
+        for (int i = 0; i < length + 0; i++) {
+            this.b = a[(this.b << 4) + 256 + a[bArr[i] & 255]];
+            if (this.b == 1) {
+                this.c += i;
+                return false;
+            }
         }
-        return read;
-    }
-
-    @Override // com.baidu.adp.lib.webSocket.g
-    public int b(ByteBuffer byteBuffer) {
-        int remaining = byteBuffer.remaining();
-        if (remaining > 0) {
-            byte[] bArr = new byte[remaining];
-            byteBuffer.get(bArr);
-            this.c.write(bArr);
-        }
-        return remaining;
+        this.c += length;
+        return true;
     }
 }

@@ -5,7 +5,7 @@ import android.widget.Button;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j implements Animation.AnimationListener {
+public final class j implements Animation.AnimationListener {
     final /* synthetic */ h a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ public class j implements Animation.AnimationListener {
     }
 
     @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
+    public final void onAnimationEnd(Animation animation) {
         int i;
         Button button;
         TopRecActivity topRecActivity;
@@ -39,10 +39,10 @@ public class j implements Animation.AnimationListener {
     }
 
     @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
+    public final void onAnimationRepeat(Animation animation) {
     }
 
     @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
+    public final void onAnimationStart(Animation animation) {
     }
 }

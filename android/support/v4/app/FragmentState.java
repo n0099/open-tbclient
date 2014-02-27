@@ -11,14 +11,14 @@ public final class FragmentState implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public FragmentState createFromParcel(Parcel parcel) {
+        public final FragmentState createFromParcel(Parcel parcel) {
             return new FragmentState(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public FragmentState[] newArray(int i) {
+        public final FragmentState[] newArray(int i) {
             return new FragmentState[i];
         }
     };
@@ -59,7 +59,7 @@ public final class FragmentState implements Parcelable {
         this.mSavedFragmentState = parcel.readBundle();
     }
 
-    public Fragment instantiate(FragmentActivity fragmentActivity, Fragment fragment) {
+    public final Fragment instantiate(FragmentActivity fragmentActivity, Fragment fragment) {
         if (this.mInstance != null) {
             return this.mInstance;
         }
@@ -87,12 +87,12 @@ public final class FragmentState implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public int describeContents() {
+    public final int describeContents() {
         return 0;
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public final void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(this.mClassName);
         parcel.writeInt(this.mIndex);
         parcel.writeInt(this.mFromLayout ? 1 : 0);

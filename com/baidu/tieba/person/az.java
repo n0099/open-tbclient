@@ -16,7 +16,7 @@ import com.baidu.tieba.view.UserIconBox;
 import com.baidu.tieba.voice.PlayVoiceBnt;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class az {
+public final class az {
     private Context a;
     private boolean b = true;
     private boolean c = false;
@@ -26,15 +26,15 @@ public class az {
         this.a = context;
     }
 
-    public void a(int i, boolean z, float f) {
+    public final void a(boolean z) {
         this.b = z;
     }
 
-    public void a(boolean z) {
+    public final void b(boolean z) {
         this.c = z;
     }
 
-    public void a(View view, PersonPostListData.PostList postList) {
+    public final void a(View view, PersonPostListData.PostList postList) {
         bb bbVar;
         int i = 0;
         if (view.getTag() != null && (bbVar = (bb) view.getTag()) != null) {
@@ -70,9 +70,15 @@ public class az {
                             for (int i3 = 0; i3 < mediaArr.length && i < i2; i3++) {
                                 if (mediaArr[i3].type == 3 || mediaArr[i3].type == 5) {
                                     com.baidu.tieba.data.ah ahVar = new com.baidu.tieba.data.ah();
-                                    ahVar.a(mediaArr[i3].water_pic);
-                                    ahVar.a(mediaArr[i3].type);
-                                    ahVar.b(mediaArr[i3].water_pic);
+                                    if (mediaArr[i3].type == 3) {
+                                        ahVar.a(mediaArr[i3].water_pic);
+                                        ahVar.a(mediaArr[i3].type);
+                                        ahVar.b(mediaArr[i3].water_pic);
+                                    } else {
+                                        ahVar.a(mediaArr[i3].pic_url);
+                                        ahVar.a(mediaArr[i3].type);
+                                        ahVar.b(mediaArr[i3].video_url);
+                                    }
                                     ahVarArr[i] = ahVar;
                                     i++;
                                 }
@@ -94,7 +100,7 @@ public class az {
         }
     }
 
-    public View a() {
+    public final View a() {
         bb bbVar = new bb();
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a).inflate(R.layout.forum_feed_item, (ViewGroup) null);
         bbVar.a = (LinearLayout) linearLayout.findViewById(R.id.layoutForumTop);
@@ -115,34 +121,26 @@ public class az {
         return linearLayout;
     }
 
-    public void a(int i, View view) {
+    public final void a(int i, View view) {
         bb bbVar;
         if (view != null && (bbVar = (bb) view.getTag()) != null && bbVar.m != i) {
             switch (i) {
                 case 1:
-                    b(bbVar);
+                    Resources resources = this.a.getResources();
+                    bbVar.a.setBackgroundResource(R.drawable.forumfeed_frs_list_item_top_bg_1);
+                    com.baidu.tieba.util.bq.e((View) bbVar.c, (int) R.drawable.bg_label_1);
+                    bbVar.h.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(R.drawable.icon_little_comment_s_1), (Drawable) null, (Drawable) null, (Drawable) null);
+                    bbVar.b.setBackgroundResource(R.drawable.forumfeed_frs_list_item_foot_bg_1);
                     break;
                 default:
-                    a(bbVar);
+                    Resources resources2 = this.a.getResources();
+                    bbVar.a.setBackgroundResource(R.drawable.forumfeed_frs_list_item_top_bg);
+                    com.baidu.tieba.util.bq.e((View) bbVar.c, (int) R.drawable.bg_label);
+                    bbVar.h.setCompoundDrawablesWithIntrinsicBounds(resources2.getDrawable(R.drawable.icon_little_comment_s), (Drawable) null, (Drawable) null, (Drawable) null);
+                    bbVar.b.setBackgroundResource(R.drawable.forumfeed_frs_list_item_foot_bg);
                     break;
             }
             bbVar.m = i;
         }
-    }
-
-    private void a(bb bbVar) {
-        Resources resources = this.a.getResources();
-        bbVar.a.setBackgroundResource(R.drawable.forumfeed_frs_list_item_top_bg);
-        com.baidu.tieba.util.bq.e((View) bbVar.c, (int) R.drawable.bg_label);
-        bbVar.h.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(R.drawable.icon_little_comment_s), (Drawable) null, (Drawable) null, (Drawable) null);
-        bbVar.b.setBackgroundResource(R.drawable.forumfeed_frs_list_item_foot_bg);
-    }
-
-    private void b(bb bbVar) {
-        Resources resources = this.a.getResources();
-        bbVar.a.setBackgroundResource(R.drawable.forumfeed_frs_list_item_top_bg_1);
-        com.baidu.tieba.util.bq.e((View) bbVar.c, (int) R.drawable.bg_label_1);
-        bbVar.h.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(R.drawable.icon_little_comment_s_1), (Drawable) null, (Drawable) null, (Drawable) null);
-        bbVar.b.setBackgroundResource(R.drawable.forumfeed_frs_list_item_foot_bg_1);
     }
 }

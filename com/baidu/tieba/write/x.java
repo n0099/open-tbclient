@@ -3,7 +3,7 @@ package com.baidu.tieba.write;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements View.OnClickListener {
+public final class x implements View.OnClickListener {
     final /* synthetic */ v a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ public class x implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.a(view);
+    public final void onClick(View view) {
+        v.b(this.a, view);
     }
 }

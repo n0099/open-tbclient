@@ -5,7 +5,7 @@ import android.view.View;
 import com.baidu.tieba.pb.NewPbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u implements View.OnClickListener {
+public final class u implements View.OnClickListener {
     final /* synthetic */ FeedBackTopListView a;
     private final /* synthetic */ String b;
 
@@ -16,7 +16,7 @@ public class u implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         Context context;
         context = this.a.a;
         NewPbActivity.a(context, this.b, (String) null, "feed_back");

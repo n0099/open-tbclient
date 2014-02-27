@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.DelGroup.DelGroupRes;
 import protobuf.Im;
 /* loaded from: classes.dex */
@@ -12,19 +13,34 @@ public final class k extends GeneratedMessageLite.Builder<DelGroupRes.DelGroupRe
     private Im.Error b = Im.Error.getDefaultInstance();
     private DelGroupRes.DataRes c = DelGroupRes.DataRes.getDefaultInstance();
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        DelGroupRes.DelGroupResIdl buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return DelGroupRes.DelGroupResIdl.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return DelGroupRes.DelGroupResIdl.getDefaultInstance();
+    }
+
     private k() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static k h() {
+    public static /* synthetic */ k a() {
         return new k();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: b */
     public k clear() {
         super.clear();
         this.b = Im.Error.getDefaultInstance();
@@ -35,29 +51,13 @@ public final class k extends GeneratedMessageLite.Builder<DelGroupRes.DelGroupRe
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public k clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
     /* renamed from: c */
-    public DelGroupRes.DelGroupResIdl getDefaultInstanceForType() {
-        return DelGroupRes.DelGroupResIdl.getDefaultInstance();
+    public k clone() {
+        return new k().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public DelGroupRes.DelGroupResIdl build() {
-        DelGroupRes.DelGroupResIdl buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
     public DelGroupRes.DelGroupResIdl buildPartial() {
         DelGroupRes.DelGroupResIdl delGroupResIdl = new DelGroupRes.DelGroupResIdl(this, (DelGroupRes.DelGroupResIdl) null);
         int i = this.a;
@@ -73,13 +73,25 @@ public final class k extends GeneratedMessageLite.Builder<DelGroupRes.DelGroupRe
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public k mergeFrom(DelGroupRes.DelGroupResIdl delGroupResIdl) {
+    public final k mergeFrom(DelGroupRes.DelGroupResIdl delGroupResIdl) {
         if (delGroupResIdl != DelGroupRes.DelGroupResIdl.getDefaultInstance()) {
             if (delGroupResIdl.hasError()) {
-                a(delGroupResIdl.getError());
+                Im.Error error = delGroupResIdl.getError();
+                if ((this.a & 1) != 1 || this.b == Im.Error.getDefaultInstance()) {
+                    this.b = error;
+                } else {
+                    this.b = Im.Error.newBuilder(this.b).mergeFrom(error).buildPartial();
+                }
+                this.a |= 1;
             }
             if (delGroupResIdl.hasData()) {
-                a(delGroupResIdl.getData());
+                DelGroupRes.DataRes data = delGroupResIdl.getData();
+                if ((this.a & 2) != 2 || this.c == DelGroupRes.DataRes.getDefaultInstance()) {
+                    this.c = data;
+                } else {
+                    this.c = DelGroupRes.DataRes.newBuilder(this.c).mergeFrom(data).buildPartial();
+                }
+                this.a |= 2;
             }
         }
         return this;
@@ -126,25 +138,5 @@ public final class k extends GeneratedMessageLite.Builder<DelGroupRes.DelGroupRe
                 throw th;
             }
         }
-    }
-
-    public k a(Im.Error error) {
-        if ((this.a & 1) == 1 && this.b != Im.Error.getDefaultInstance()) {
-            this.b = Im.Error.newBuilder(this.b).mergeFrom(error).buildPartial();
-        } else {
-            this.b = error;
-        }
-        this.a |= 1;
-        return this;
-    }
-
-    public k a(DelGroupRes.DataRes dataRes) {
-        if ((this.a & 2) == 2 && this.c != DelGroupRes.DataRes.getDefaultInstance()) {
-            this.c = DelGroupRes.DataRes.newBuilder(this.c).mergeFrom(dataRes).buildPartial();
-        } else {
-            this.c = dataRes;
-        }
-        this.a |= 2;
-        return this;
     }
 }

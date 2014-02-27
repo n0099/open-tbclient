@@ -9,7 +9,7 @@ import com.baidu.tieba.data.UserData;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
-public class a {
+public final class a {
     private static HashMap<String, String> a = new HashMap<>();
 
     public static void a() {
@@ -18,18 +18,18 @@ public class a {
             a.clear();
         }
         String str = "";
-        if (TiebaApplication.E() != null) {
-            str = TiebaApplication.E().getID();
+        if (TiebaApplication.y() != null) {
+            str = TiebaApplication.y().getID();
         }
         if (str != null && str.length() != 0) {
             String str2 = String.valueOf(str) + "@";
             synchronized (a) {
                 s<String> v = com.baidu.tieba.c.a.a().v();
-                List<t<String>> a3 = com.baidu.adp.lib.util.k.a(v);
+                List<t<String>> a3 = com.baidu.adp.lib.util.i.a(v);
                 if (a3 != null) {
                     for (t<String> tVar : a3) {
                         String str3 = tVar.a;
-                        if (str3.startsWith(str2) && (a2 = v.a(str3)) != null) {
+                        if (str3 != null && str3.startsWith(str2) && (a2 = v.a(str3)) != null) {
                             a.put(str3, a2);
                         }
                     }
@@ -44,11 +44,11 @@ public class a {
             return null;
         }
         String str4 = String.valueOf(str) + "@" + str2;
-        com.baidu.adp.lib.util.f.e("key is:" + str4);
+        com.baidu.adp.lib.util.e.e("key is:" + str4);
         synchronized (a) {
             str3 = a.get(str4);
         }
-        com.baidu.adp.lib.util.f.e("key is:" + str4 + " value is:" + str3);
+        com.baidu.adp.lib.util.e.e("key is:" + str4 + " value is:" + str3);
         if (TextUtils.isEmpty(str3)) {
             PersonalSettingItemData personalSettingItemData = new PersonalSettingItemData();
             personalSettingItemData.setMyUid(str);
@@ -57,7 +57,11 @@ public class a {
             a(personalSettingItemData);
             return personalSettingItemData;
         }
-        return (PersonalSettingItemData) new Gson().fromJson(str3, (Class<Object>) PersonalSettingItemData.class);
+        try {
+            return (PersonalSettingItemData) new Gson().fromJson(str3, (Class<Object>) PersonalSettingItemData.class);
+        } catch (Throwable th) {
+            return null;
+        }
     }
 
     public static void a(String str, String str2, UserData userData) {
@@ -71,13 +75,13 @@ public class a {
 
     public static void a(PersonalSettingItemData personalSettingItemData) {
         if (personalSettingItemData == null) {
-            com.baidu.adp.lib.util.f.e("value is null");
+            com.baidu.adp.lib.util.e.e("value is null");
             return;
         }
         String myUid = personalSettingItemData.getMyUid();
         String toUid = personalSettingItemData.getToUid();
         if (TextUtils.isEmpty(myUid) || TextUtils.isEmpty(toUid)) {
-            com.baidu.adp.lib.util.f.b(" key value is null");
+            com.baidu.adp.lib.util.e.b(" key value is null");
             if (com.baidu.tieba.data.i.F()) {
                 throw new RuntimeException("key param is null");
             }
@@ -85,9 +89,9 @@ public class a {
         }
         s<String> v = com.baidu.tieba.c.a.a().v();
         String str = String.valueOf(myUid) + "@" + toUid;
-        com.baidu.adp.lib.util.f.e(" key value is " + str);
+        com.baidu.adp.lib.util.e.e(" key value is " + str);
         String json = new Gson().toJson(personalSettingItemData);
-        com.baidu.adp.lib.util.f.e(" json value is " + json);
+        com.baidu.adp.lib.util.e.e(" json value is " + json);
         synchronized (a) {
             a.put(str, json);
         }
@@ -113,6 +117,6 @@ public class a {
     }
 
     public static void a(String str, String str2, com.baidu.tieba.im.a<Boolean> aVar) {
-        com.baidu.tieba.im.j.a(new b(str, str2), aVar);
+        com.baidu.tieba.im.i.a(new b(str, str2), aVar);
     }
 }

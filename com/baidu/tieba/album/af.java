@@ -1,21 +1,15 @@
 package com.baidu.tieba.album;
-
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import com.baidu.tieba.view.HeadImageView;
 /* loaded from: classes.dex */
-class af {
-    HeadImageView a;
-    ImageView b;
-    RelativeLayout c;
-    final /* synthetic */ aa d;
+final class af {
+    boolean a;
+    final /* synthetic */ ab b;
 
-    private af(aa aaVar) {
-        this.d = aaVar;
+    private af(ab abVar) {
+        this.b = abVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ af(aa aaVar, af afVar) {
-        this(aaVar);
+    public /* synthetic */ af(ab abVar, byte b) {
+        this(abVar);
     }
 }

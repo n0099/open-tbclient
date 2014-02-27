@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h extends Handler {
+public final class h extends Handler {
     final /* synthetic */ g a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ public class h extends Handler {
     }
 
     @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    public final void handleMessage(Message message) {
         a aVar;
         a aVar2;
         a aVar3;
@@ -28,7 +28,7 @@ public class h extends Handler {
                 aVar2.a(message.arg1);
                 aVar3 = g.b;
                 aVar3.b(message.arg2);
-                com.baidu.adp.lib.util.f.e("download_file:" + message.arg1 + "/" + message.arg2);
+                com.baidu.adp.lib.util.e.e("download_file:" + message.arg1 + "/" + message.arg2);
                 aVar4 = g.b;
                 if (aVar4.m() != null) {
                     aVar5 = g.b;

@@ -3,7 +3,7 @@ package com.baidu.adp.widget.BdSwitchView;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b implements View.OnClickListener {
+public final class b implements View.OnClickListener {
     final /* synthetic */ BdSwitchView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ public class b implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         this.a.c(true);
     }
 }

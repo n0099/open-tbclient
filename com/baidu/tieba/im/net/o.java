@@ -1,14 +1,14 @@
 package com.baidu.tieba.im.net;
 
 import android.os.Handler;
-import com.baidu.adp.lib.webSocket.r;
+import com.baidu.adp.lib.webSocket.q;
 import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.util.cb;
 import java.util.Map;
 /* loaded from: classes.dex */
-class o extends r {
-    @Override // com.baidu.adp.lib.webSocket.r, com.baidu.adp.lib.webSocket.l
-    public void a(byte[] bArr) {
+final class o extends q {
+    @Override // com.baidu.adp.lib.webSocket.q, com.baidu.adp.lib.webSocket.k
+    public final void a(byte[] bArr) {
         a aVar;
         a aVar2;
         aVar = TiebaSocketLinkService.b;
@@ -18,8 +18,8 @@ class o extends r {
         }
     }
 
-    @Override // com.baidu.adp.lib.webSocket.r, com.baidu.adp.lib.webSocket.l
-    public void a(String str) {
+    @Override // com.baidu.adp.lib.webSocket.q, com.baidu.adp.lib.webSocket.k
+    public final void a(String str) {
         a aVar;
         a aVar2;
         aVar = TiebaSocketLinkService.b;
@@ -29,8 +29,8 @@ class o extends r {
         }
     }
 
-    @Override // com.baidu.adp.lib.webSocket.r, com.baidu.adp.lib.webSocket.l
-    public void a(com.baidu.adp.lib.webSocket.d dVar) {
+    @Override // com.baidu.adp.lib.webSocket.q, com.baidu.adp.lib.webSocket.k
+    public final void a(com.baidu.adp.lib.webSocket.d dVar) {
         a aVar;
         a aVar2;
         aVar = TiebaSocketLinkService.b;
@@ -40,8 +40,8 @@ class o extends r {
         }
     }
 
-    @Override // com.baidu.adp.lib.webSocket.r, com.baidu.adp.lib.webSocket.l
-    public void a(Map<String, String> map) {
+    @Override // com.baidu.adp.lib.webSocket.q, com.baidu.adp.lib.webSocket.k
+    public final void a(Map<String, String> map) {
         Handler handler;
         a aVar;
         a aVar2;
@@ -56,8 +56,8 @@ class o extends r {
         }
     }
 
-    @Override // com.baidu.adp.lib.webSocket.r, com.baidu.adp.lib.webSocket.l
-    public void a(int i, String str) {
+    @Override // com.baidu.adp.lib.webSocket.q, com.baidu.adp.lib.webSocket.k
+    public final void a(int i, String str) {
         Handler handler;
         a aVar;
         l lVar;
@@ -71,7 +71,7 @@ class o extends r {
             if (i != 0) {
                 com.baidu.tieba.im.b.a.c().b();
                 cb.a("TiebaSocketLinkService", 0, 0, "onClose():" + str, i);
-                str = com.baidu.tieba.im.util.o.a(-1);
+                str = com.baidu.tieba.im.util.n.a(-1);
             }
             aVar2 = TiebaSocketLinkService.b;
             z = aVar2.a(i, str);

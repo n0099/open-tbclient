@@ -1,21 +1,19 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.view.HeadImageShaderView;
+import com.baidu.tieba.TiebaApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cc implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ MsgleftView a;
+public final class cc extends com.baidu.tieba.im.b<Boolean> {
+    final /* synthetic */ MsglistActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cc(MsgleftView msgleftView) {
-        this.a = msgleftView;
+    public cc(MsglistActivity msglistActivity) {
+        this.a = msglistActivity;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        HeadImageShaderView headImageShaderView;
-        if (bVar != null) {
-            headImageShaderView = this.a.q;
-            bVar.a(headImageShaderView.getHeadImageView());
-        }
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.b
+    public final /* synthetic */ Boolean a() {
+        return Boolean.valueOf(com.baidu.tieba.im.groupInfo.v.b(TiebaApplication.v(), String.valueOf(this.a.e.a().getGroupId())));
     }
 }

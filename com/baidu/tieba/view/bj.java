@@ -18,49 +18,70 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class bj extends PagerAdapter {
+public final class bj extends PagerAdapter {
+    LayoutInflater a;
     private Context b;
     private com.baidu.tieba.util.i c;
+    private HashMap<String, com.baidu.tieba.data.ac> h;
+    private ArrayList<bm> j;
+    private int m;
+    private int n;
+    private int o;
+    private ArrayList<View> r;
+    private ArrayList<View> s;
     private String d = null;
     private String e = null;
     private com.baidu.tieba.data.ab f = null;
     private LinkedList<com.baidu.tieba.data.aa> g = null;
-    private HashMap<String, com.baidu.tieba.data.ac> h = null;
     private com.baidu.tieba.pb.ad i = null;
-    private ArrayList<bm> j = null;
     private boolean k = false;
     private com.baidu.tieba.pb.ah l = null;
-    private int m = 0;
-    private int n = 0;
-    private int o = 0;
     private boolean p = true;
     private int q = 0;
-    private ArrayList<View> r = null;
-    private ArrayList<View> s = null;
-    LayoutInflater a = null;
     private final View.OnClickListener t = new bk(this);
 
     public bj(Context context) {
         this.b = null;
+        this.h = null;
+        this.j = null;
+        this.m = 0;
+        this.n = 0;
+        this.o = 0;
+        this.r = null;
+        this.s = null;
+        this.a = null;
         this.b = context;
-        f();
+        this.c = new com.baidu.tieba.util.i(this.b);
+        this.c.f = "_big";
+        this.c.b("pb");
+        this.m = BdUtilHelper.b(this.b);
+        this.n = (BdUtilHelper.c(this.b) * 3) / 5;
+        this.o = this.n >> 1;
+        int t = com.baidu.tieba.data.i.t() < this.m ? com.baidu.tieba.data.i.t() : this.m;
+        this.n = com.baidu.tieba.data.i.t() < this.n ? com.baidu.tieba.data.i.t() : this.n;
+        this.c.a(t - BdUtilHelper.a(this.b, 8.0f), this.n);
+        this.a = LayoutInflater.from(this.b);
+        this.j = new ArrayList<>();
+        this.h = new HashMap<>();
+        this.r = new ArrayList<>();
+        this.s = new ArrayList<>();
     }
 
-    public void a() {
+    public final void a() {
         this.h.clear();
     }
 
-    public void b() {
+    public final void b() {
         this.k = false;
         this.p = false;
         c();
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.d = str;
     }
 
-    public void a(com.baidu.tieba.data.ab abVar) {
+    public final void a(com.baidu.tieba.data.ab abVar) {
         if (abVar != null) {
             this.p = abVar.b();
             this.f = abVar;
@@ -69,7 +90,7 @@ public class bj extends PagerAdapter {
         }
     }
 
-    public void c() {
+    public final void c() {
         if (this.j != null) {
             Iterator<bm> it = this.j.iterator();
             if (it.hasNext()) {
@@ -81,12 +102,12 @@ public class bj extends PagerAdapter {
             this.l.notifyDataSetChanged();
         }
         if (this.c != null) {
-            this.c.d();
+            this.c.c();
         }
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public int getCount() {
+    public final int getCount() {
         if (this.f == null) {
             return 0;
         }
@@ -97,12 +118,12 @@ public class bj extends PagerAdapter {
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public boolean isViewFromObject(View view, Object obj) {
+    public final boolean isViewFromObject(View view, Object obj) {
         return view.equals(obj);
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+    public final void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         View view = (View) obj;
         if (view != null && view.getTag() != null && (view.getTag() instanceof com.baidu.tieba.pb.ah)) {
             ((com.baidu.tieba.pb.ah) view.getTag()).a();
@@ -110,22 +131,22 @@ public class bj extends PagerAdapter {
                 this.r.add((View) obj);
             }
             this.s.remove(obj);
-            com.baidu.adp.lib.util.f.a(getClass().getName(), "destroyItem", String.valueOf(this.s.size()));
+            com.baidu.adp.lib.util.e.a(getClass().getName(), "destroyItem", String.valueOf(this.s.size()));
         }
         viewGroup.removeView((View) obj);
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public int getItemPosition(Object obj) {
+    public final int getItemPosition(Object obj) {
         return -2;
     }
 
-    public void a(com.baidu.tieba.pb.ad adVar) {
+    public final void a(com.baidu.tieba.pb.ad adVar) {
         this.i = adVar;
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public Object instantiateItem(ViewGroup viewGroup, int i) {
+    public final Object instantiateItem(ViewGroup viewGroup, int i) {
         View inflate;
         if (i == this.f.k()) {
             View inflate2 = this.a.inflate(R.layout.image_pb_next, (ViewGroup) null);
@@ -134,7 +155,7 @@ public class bj extends PagerAdapter {
             ImageView imageView = (ImageView) inflate2.findViewById(R.id.image);
             TextView textView = (TextView) inflate2.findViewById(R.id.next);
             TextView textView2 = (TextView) inflate2.findViewById(R.id.thread_name);
-            if (TiebaApplication.g().al() == 1) {
+            if (TiebaApplication.g().ae() == 1) {
                 textView.setTextColor(com.baidu.tieba.util.bq.c(1));
                 textView2.setTextColor(com.baidu.tieba.util.bq.a(1));
                 imageView.setBackgroundResource(R.drawable.image_pb_next_default_1);
@@ -156,12 +177,12 @@ public class bj extends PagerAdapter {
             this.s.clear();
         }
         this.s.add(inflate);
-        com.baidu.adp.lib.util.f.a(getClass().getName(), "instantiateItem", String.valueOf(this.s.size()));
+        com.baidu.adp.lib.util.e.a(getClass().getName(), "instantiateItem", String.valueOf(this.s.size()));
         ListView listView = (ListView) inflate.findViewById(R.id.image_pb_listview);
-        com.baidu.tieba.util.bq.a(listView, TiebaApplication.g().al());
+        com.baidu.tieba.util.bq.a(listView, TiebaApplication.g().ae());
         if (aaVar == null) {
             if (this.i != null) {
-                this.i.a(i, 0, 0);
+                this.i.a();
             }
             if (inflate.getParent() == viewGroup) {
                 viewGroup.removeView(inflate);
@@ -193,15 +214,13 @@ public class bj extends PagerAdapter {
         return inflate;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i) {
-        if (i < this.g.size()) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(bj bjVar, int i) {
+        if (i < bjVar.g.size()) {
             ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < this.g.size(); i2++) {
-                com.baidu.tieba.data.aa aaVar = this.g.get(i2);
-                if (!com.baidu.adp.lib.util.m.a(aaVar.j())) {
-                    arrayList.add(aaVar.j());
-                } else {
+            for (int i2 = 0; i2 < bjVar.g.size(); i2++) {
+                com.baidu.tieba.data.aa aaVar = bjVar.g.get(i2);
+                if (com.baidu.adp.lib.util.k.a(aaVar.j())) {
                     StringBuffer stringBuffer = new StringBuffer(100);
                     if (aaVar.g() * aaVar.f() > com.baidu.tieba.data.i.t() * com.baidu.tieba.data.i.t()) {
                         double sqrt = Math.sqrt((com.baidu.tieba.data.i.t() * com.baidu.tieba.data.i.t()) / (aaVar.g() * aaVar.f()));
@@ -218,14 +237,16 @@ public class bj extends PagerAdapter {
                     stringBuffer.append("&src=");
                     stringBuffer.append(com.baidu.tieba.util.bs.d(aaVar.b()));
                     arrayList.add(stringBuffer.toString());
+                } else {
+                    arrayList.add(aaVar.j());
                 }
             }
-            ImageActivity.a(this.b, arrayList, i, this.f.k(), this.f.k() == arrayList.size() && this.f.b(), this.f);
+            ImageActivity.a(bjVar.b, arrayList, i, bjVar.f.k(), bjVar.f.k() == arrayList.size() && bjVar.f.b(), bjVar.f);
         }
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
+    public final void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         super.setPrimaryItem(viewGroup, i, obj);
         this.q = i;
         if (this.g != null) {
@@ -247,37 +268,20 @@ public class bj extends PagerAdapter {
                         }
                     }
                 } catch (Exception e) {
-                    com.baidu.adp.lib.util.f.a(getClass().getName(), "setPrimaryItem", e.toString());
+                    com.baidu.adp.lib.util.e.a(getClass().getName(), "setPrimaryItem", e.toString());
                 }
             }
         }
     }
 
-    public com.baidu.tieba.util.i d() {
+    public final com.baidu.tieba.util.i d() {
         return this.c;
     }
 
-    public void e() {
+    public final void e() {
         if (this.l != null && this.l.c()) {
             a(this.l.d(), this.l.e().c(), 10, this.l);
         }
-    }
-
-    private void f() {
-        this.c = new com.baidu.tieba.util.i(this.b);
-        this.c.b("_big");
-        this.c.f("pb");
-        this.m = BdUtilHelper.b(this.b);
-        this.n = (BdUtilHelper.c(this.b) * 3) / 5;
-        this.o = this.n >> 1;
-        int t = com.baidu.tieba.data.i.t() < this.m ? com.baidu.tieba.data.i.t() : this.m;
-        this.n = com.baidu.tieba.data.i.t() < this.n ? com.baidu.tieba.data.i.t() : this.n;
-        this.c.a(t - BdUtilHelper.a(this.b, 8.0f), this.n);
-        this.a = LayoutInflater.from(this.b);
-        this.j = new ArrayList<>();
-        this.h = new HashMap<>();
-        this.r = new ArrayList<>();
-        this.s = new ArrayList<>();
     }
 
     /* JADX INFO: Access modifiers changed from: private */

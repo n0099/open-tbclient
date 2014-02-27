@@ -3,7 +3,7 @@ package com.baidu.tieba.im.groupUpdates;
 import com.baidu.tieba.util.ap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements Runnable {
+public final class d implements Runnable {
     final /* synthetic */ UpdatesActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,9 +12,9 @@ public class d implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         q qVar;
         qVar = this.a.b;
-        ap.a(qVar.i(), this.a.a(), 0, -1);
+        ap.a(qVar.g(), this.a.a(), 0, -1);
     }
 }

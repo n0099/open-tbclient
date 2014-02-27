@@ -6,7 +6,7 @@ public class OperatingMsgReceivedhandler extends d {
     }
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.d
-    protected void a(com.baidu.tieba.im.data.c cVar) {
+    protected final void a(com.baidu.tieba.im.data.c cVar) {
         a.a(cVar);
     }
 }

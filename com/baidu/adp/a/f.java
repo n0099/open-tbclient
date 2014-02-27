@@ -3,7 +3,7 @@ package com.baidu.adp.a;
 import android.app.Activity;
 import android.view.View;
 /* loaded from: classes.dex */
-class f implements Runnable {
+final class f implements Runnable {
     final /* synthetic */ e a;
     private View b;
 
@@ -14,7 +14,7 @@ class f implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         if (this.a.b != null && (this.a.b instanceof Activity) && !((Activity) this.a.b).isFinishing()) {
             this.a.b(this.b);
         }

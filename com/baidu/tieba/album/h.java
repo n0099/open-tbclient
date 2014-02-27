@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class h extends PagerAdapter {
+public final class h extends PagerAdapter {
     private AlbumActivity a;
     private com.baidu.tieba.img.e b;
     private List<ImageFileInfo> c;
@@ -28,13 +28,13 @@ public class h extends PagerAdapter {
         this.e = BdUtilHelper.c(this.a) - ((int) this.a.getResources().getDimension(R.dimen.album_bottom_height));
     }
 
-    public void a(List<ImageFileInfo> list) {
+    public final void a(List<ImageFileInfo> list) {
         this.c = list;
         notifyDataSetChanged();
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public int getCount() {
+    public final int getCount() {
         if (this.c != null) {
             return this.c.size();
         }
@@ -42,23 +42,23 @@ public class h extends PagerAdapter {
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public boolean isViewFromObject(View view, Object obj) {
+    public final boolean isViewFromObject(View view, Object obj) {
         return view == obj;
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+    public final void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         ((ViewPager) viewGroup).removeView((View) obj);
     }
 
-    public ImageFileInfo a(int i) {
+    public final ImageFileInfo a(int i) {
         if (i < 0 || i >= getCount()) {
             return null;
         }
         return this.c.get(i);
     }
 
-    public boolean b(int i) {
+    public final boolean b(int i) {
         if (this.f.get(Integer.valueOf(i)) == null) {
             return false;
         }
@@ -66,7 +66,7 @@ public class h extends PagerAdapter {
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public Object instantiateItem(ViewGroup viewGroup, int i) {
+    public final Object instantiateItem(ViewGroup viewGroup, int i) {
         View inflate = LayoutInflater.from(this.a).inflate(R.layout.album_big_image_item, (ViewGroup) null);
         TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.big_image);
         tbImageView.setTag(null);
@@ -78,7 +78,8 @@ public class h extends PagerAdapter {
             a.clearPageActions();
             a.addPageAction(com.baidu.tieba.img.effects.d.a(this.d, this.e));
             tbImageView.setTag(a.toCachedKey(false));
-            if (this.b.a(a, false) != null) {
+            com.baidu.tieba.img.e eVar = this.b;
+            if (com.baidu.tieba.img.e.a(a, false) != null) {
                 tbImageView.invalidate();
                 this.f.put(Integer.valueOf(i), true);
             } else {

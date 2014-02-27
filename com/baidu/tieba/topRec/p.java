@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class p implements com.baidu.adp.lib.guide.b {
+final class p implements com.baidu.adp.lib.guide.b {
     final /* synthetic */ o a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,27 +14,27 @@ class p implements com.baidu.adp.lib.guide.b {
     }
 
     @Override // com.baidu.adp.lib.guide.b
-    public View a(LayoutInflater layoutInflater) {
+    public final View a(LayoutInflater layoutInflater) {
         return layoutInflater.inflate(R.layout.top_cover, (ViewGroup) null);
     }
 
     @Override // com.baidu.adp.lib.guide.b
-    public int a() {
+    public final int a() {
         return 5;
     }
 
     @Override // com.baidu.adp.lib.guide.b
-    public int b() {
+    public final int b() {
         return 32;
     }
 
     @Override // com.baidu.adp.lib.guide.b
-    public int c() {
+    public final int c() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.guide.b
-    public int d() {
+    public final int d() {
         return 0;
     }
 }

@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements e {
+public final class m implements e {
     final /* synthetic */ l a;
     private final /* synthetic */ Set b;
 
@@ -16,7 +16,7 @@ public class m implements e {
     }
 
     @Override // com.baidu.tieba.im.db.e
-    public void a(Iterator<ImMessageCenterPojo> it) {
+    public final void a(Iterator<ImMessageCenterPojo> it) {
         while (it.hasNext()) {
             this.b.add(it.next().getGid());
         }

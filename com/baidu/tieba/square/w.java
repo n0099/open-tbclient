@@ -6,7 +6,7 @@ import android.support.v4.view.ViewPager;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w extends Handler {
+public final class w extends Handler {
     final /* synthetic */ v a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +15,7 @@ public class w extends Handler {
     }
 
     @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    public final void handleMessage(Message message) {
         ViewPager viewPager;
         ViewPager viewPager2;
         y yVar;
@@ -37,7 +37,7 @@ public class w extends Handler {
                 if (yVar != null) {
                     arrayList = this.a.m;
                     if (arrayList.size() > 1) {
-                        if (currentItem < 1) {
+                        if (currentItem <= 0) {
                             viewPager7 = this.a.c;
                             yVar3 = this.a.e;
                             viewPager7.setCurrentItem(yVar3.getCount() - 2, false);

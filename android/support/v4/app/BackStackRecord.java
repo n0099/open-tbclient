@@ -52,7 +52,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
         ArrayList<Fragment> removed;
     }
 
-    public String toString() {
+    public final String toString() {
         StringBuilder sb = new StringBuilder(128);
         sb.append("BackStackEntry{");
         sb.append(Integer.toHexString(System.identityHashCode(this)));
@@ -68,11 +68,11 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
         return sb.toString();
     }
 
-    public void dump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+    public final void dump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
         dump(str, printWriter, true);
     }
 
-    public void dump(String str, PrintWriter printWriter, boolean z) {
+    public final void dump(String str, PrintWriter printWriter, boolean z) {
         String str2;
         if (z) {
             printWriter.print(str);
@@ -205,32 +205,32 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     }
 
     @Override // android.support.v4.app.FragmentManager.BackStackEntry
-    public int getId() {
+    public final int getId() {
         return this.mIndex;
     }
 
     @Override // android.support.v4.app.FragmentManager.BackStackEntry
-    public int getBreadCrumbTitleRes() {
+    public final int getBreadCrumbTitleRes() {
         return this.mBreadCrumbTitleRes;
     }
 
     @Override // android.support.v4.app.FragmentManager.BackStackEntry
-    public int getBreadCrumbShortTitleRes() {
+    public final int getBreadCrumbShortTitleRes() {
         return this.mBreadCrumbShortTitleRes;
     }
 
     @Override // android.support.v4.app.FragmentManager.BackStackEntry
-    public CharSequence getBreadCrumbTitle() {
+    public final CharSequence getBreadCrumbTitle() {
         return this.mBreadCrumbTitleRes != 0 ? this.mManager.mActivity.getText(this.mBreadCrumbTitleRes) : this.mBreadCrumbTitleText;
     }
 
     @Override // android.support.v4.app.FragmentManager.BackStackEntry
-    public CharSequence getBreadCrumbShortTitle() {
+    public final CharSequence getBreadCrumbShortTitle() {
         return this.mBreadCrumbShortTitleRes != 0 ? this.mManager.mActivity.getText(this.mBreadCrumbShortTitleRes) : this.mBreadCrumbShortTitleText;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void addOp(Op op) {
+    public final void addOp(Op op) {
         if (this.mHead == null) {
             this.mTail = op;
             this.mHead = op;
@@ -247,19 +247,19 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     }
 
     @Override // android.support.v4.app.FragmentTransaction
-    public FragmentTransaction add(Fragment fragment, String str) {
+    public final FragmentTransaction add(Fragment fragment, String str) {
         doAddOp(0, fragment, str, 1);
         return this;
     }
 
     @Override // android.support.v4.app.FragmentTransaction
-    public FragmentTransaction add(int i, Fragment fragment) {
+    public final FragmentTransaction add(int i, Fragment fragment) {
         doAddOp(i, fragment, null, 1);
         return this;
     }
 
     @Override // android.support.v4.app.FragmentTransaction
-    public FragmentTransaction add(int i, Fragment fragment, String str) {
+    public final FragmentTransaction add(int i, Fragment fragment, String str) {
         doAddOp(i, fragment, str, 1);
         return this;
     }
@@ -286,12 +286,12 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     }
 
     @Override // android.support.v4.app.FragmentTransaction
-    public FragmentTransaction replace(int i, Fragment fragment) {
+    public final FragmentTransaction replace(int i, Fragment fragment) {
         return replace(i, fragment, null);
     }
 
     @Override // android.support.v4.app.FragmentTransaction
-    public FragmentTransaction replace(int i, Fragment fragment, String str) {
+    public final FragmentTransaction replace(int i, Fragment fragment, String str) {
         if (i == 0) {
             throw new IllegalArgumentException("Must use non-zero containerViewId");
         }
@@ -300,7 +300,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     }
 
     @Override // android.support.v4.app.FragmentTransaction
-    public FragmentTransaction remove(Fragment fragment) {
+    public final FragmentTransaction remove(Fragment fragment) {
         Op op = new Op();
         op.cmd = 3;
         op.fragment = fragment;
@@ -309,7 +309,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     }
 
     @Override // android.support.v4.app.FragmentTransaction
-    public FragmentTransaction hide(Fragment fragment) {
+    public final FragmentTransaction hide(Fragment fragment) {
         Op op = new Op();
         op.cmd = 4;
         op.fragment = fragment;
@@ -318,7 +318,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     }
 
     @Override // android.support.v4.app.FragmentTransaction
-    public FragmentTransaction show(Fragment fragment) {
+    public final FragmentTransaction show(Fragment fragment) {
         Op op = new Op();
         op.cmd = 5;
         op.fragment = fragment;
@@ -327,7 +327,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     }
 
     @Override // android.support.v4.app.FragmentTransaction
-    public FragmentTransaction detach(Fragment fragment) {
+    public final FragmentTransaction detach(Fragment fragment) {
         Op op = new Op();
         op.cmd = 6;
         op.fragment = fragment;
@@ -336,7 +336,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     }
 
     @Override // android.support.v4.app.FragmentTransaction
-    public FragmentTransaction attach(Fragment fragment) {
+    public final FragmentTransaction attach(Fragment fragment) {
         Op op = new Op();
         op.cmd = 7;
         op.fragment = fragment;
@@ -345,12 +345,12 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     }
 
     @Override // android.support.v4.app.FragmentTransaction
-    public FragmentTransaction setCustomAnimations(int i, int i2) {
+    public final FragmentTransaction setCustomAnimations(int i, int i2) {
         return setCustomAnimations(i, i2, 0, 0);
     }
 
     @Override // android.support.v4.app.FragmentTransaction
-    public FragmentTransaction setCustomAnimations(int i, int i2, int i3, int i4) {
+    public final FragmentTransaction setCustomAnimations(int i, int i2, int i3, int i4) {
         this.mEnterAnim = i;
         this.mExitAnim = i2;
         this.mPopEnterAnim = i3;
@@ -359,19 +359,19 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     }
 
     @Override // android.support.v4.app.FragmentTransaction
-    public FragmentTransaction setTransition(int i) {
+    public final FragmentTransaction setTransition(int i) {
         this.mTransition = i;
         return this;
     }
 
     @Override // android.support.v4.app.FragmentTransaction
-    public FragmentTransaction setTransitionStyle(int i) {
+    public final FragmentTransaction setTransitionStyle(int i) {
         this.mTransitionStyle = i;
         return this;
     }
 
     @Override // android.support.v4.app.FragmentTransaction
-    public FragmentTransaction addToBackStack(String str) {
+    public final FragmentTransaction addToBackStack(String str) {
         if (!this.mAllowAddToBackStack) {
             throw new IllegalStateException("This FragmentTransaction is not allowed to be added to the back stack.");
         }
@@ -381,12 +381,12 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     }
 
     @Override // android.support.v4.app.FragmentTransaction
-    public boolean isAddToBackStackAllowed() {
+    public final boolean isAddToBackStackAllowed() {
         return this.mAllowAddToBackStack;
     }
 
     @Override // android.support.v4.app.FragmentTransaction
-    public FragmentTransaction disallowAddToBackStack() {
+    public final FragmentTransaction disallowAddToBackStack() {
         if (this.mAddToBackStack) {
             throw new IllegalStateException("This transaction is already being added to the back stack");
         }
@@ -395,35 +395,35 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     }
 
     @Override // android.support.v4.app.FragmentTransaction
-    public FragmentTransaction setBreadCrumbTitle(int i) {
+    public final FragmentTransaction setBreadCrumbTitle(int i) {
         this.mBreadCrumbTitleRes = i;
         this.mBreadCrumbTitleText = null;
         return this;
     }
 
     @Override // android.support.v4.app.FragmentTransaction
-    public FragmentTransaction setBreadCrumbTitle(CharSequence charSequence) {
+    public final FragmentTransaction setBreadCrumbTitle(CharSequence charSequence) {
         this.mBreadCrumbTitleRes = 0;
         this.mBreadCrumbTitleText = charSequence;
         return this;
     }
 
     @Override // android.support.v4.app.FragmentTransaction
-    public FragmentTransaction setBreadCrumbShortTitle(int i) {
+    public final FragmentTransaction setBreadCrumbShortTitle(int i) {
         this.mBreadCrumbShortTitleRes = i;
         this.mBreadCrumbShortTitleText = null;
         return this;
     }
 
     @Override // android.support.v4.app.FragmentTransaction
-    public FragmentTransaction setBreadCrumbShortTitle(CharSequence charSequence) {
+    public final FragmentTransaction setBreadCrumbShortTitle(CharSequence charSequence) {
         this.mBreadCrumbShortTitleRes = 0;
         this.mBreadCrumbShortTitleText = charSequence;
         return this;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bumpBackStackNesting(int i) {
+    public final void bumpBackStackNesting(int i) {
         if (this.mAddToBackStack) {
             if (FragmentManagerImpl.DEBUG) {
                 Log.v(TAG, "Bump nesting in " + this + " by " + i);
@@ -449,16 +449,16 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     }
 
     @Override // android.support.v4.app.FragmentTransaction
-    public int commit() {
+    public final int commit() {
         return commitInternal(false);
     }
 
     @Override // android.support.v4.app.FragmentTransaction
-    public int commitAllowingStateLoss() {
+    public final int commitAllowingStateLoss() {
         return commitInternal(true);
     }
 
-    int commitInternal(boolean z) {
+    final int commitInternal(boolean z) {
         if (this.mCommitted) {
             throw new IllegalStateException("commit already called");
         }
@@ -477,7 +477,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         Fragment fragment;
         if (FragmentManagerImpl.DEBUG) {
             Log.v(TAG, "Run: " + this);
@@ -567,7 +567,7 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
         }
     }
 
-    public void popFromBackStack(boolean z) {
+    public final void popFromBackStack(boolean z) {
         if (FragmentManagerImpl.DEBUG) {
             Log.v(TAG, "popFromBackStack: " + this);
             dump("  ", null, new PrintWriter(new LogWriter(TAG)), null);
@@ -635,20 +635,20 @@ public final class BackStackRecord extends FragmentTransaction implements Fragme
     }
 
     @Override // android.support.v4.app.FragmentManager.BackStackEntry
-    public String getName() {
+    public final String getName() {
         return this.mName;
     }
 
-    public int getTransition() {
+    public final int getTransition() {
         return this.mTransition;
     }
 
-    public int getTransitionStyle() {
+    public final int getTransitionStyle() {
         return this.mTransitionStyle;
     }
 
     @Override // android.support.v4.app.FragmentTransaction
-    public boolean isEmpty() {
+    public final boolean isEmpty() {
         return this.mNumOp == 0;
     }
 }

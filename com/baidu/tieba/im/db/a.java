@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.db;
 /* loaded from: classes.dex */
-public class a {
+public final class a {
     private static a a = new a();
 
     public static a a() {
@@ -10,7 +10,7 @@ public class a {
     private a() {
     }
 
-    public synchronized void b() {
+    public final synchronized void b() {
         com.baidu.tieba.im.chat.personaltalk.a.a();
         h.a().c();
     }

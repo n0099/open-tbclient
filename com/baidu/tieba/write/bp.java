@@ -1,14 +1,11 @@
 package com.baidu.tieba.write;
 
-import android.widget.CompoundButton;
-import android.widget.HorizontalScrollView;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.TextView;
-import com.slidingmenu.lib.R;
+import android.graphics.Bitmap;
+import android.view.View;
+import android.widget.ProgressBar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bp implements CompoundButton.OnCheckedChangeListener {
+public final class bp implements View.OnClickListener {
     final /* synthetic */ WriteImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,35 +13,23 @@ public class bp implements CompoundButton.OnCheckedChangeListener {
         this.a = writeImageActivity;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        RadioButton radioButton;
-        RadioButton radioButton2;
-        HorizontalScrollView horizontalScrollView;
-        LinearLayout linearLayout;
-        TextView textView;
-        HorizontalScrollView horizontalScrollView2;
-        LinearLayout linearLayout2;
-        TextView textView2;
-        if (z) {
-            radioButton = this.a.j;
-            if (compoundButton == radioButton) {
-                horizontalScrollView2 = this.a.f;
-                horizontalScrollView2.setVisibility(0);
-                linearLayout2 = this.a.l;
-                linearLayout2.setVisibility(8);
-                textView2 = this.a.n;
-                textView2.setText(this.a.getString(R.string.beautify));
-                return;
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        ProgressBar progressBar;
+        Bitmap bitmap;
+        Bitmap bitmap2;
+        progressBar = this.a.g;
+        if (progressBar.getVisibility() != 0) {
+            bitmap = this.a.c;
+            if (bitmap == null) {
+                bitmap2 = this.a.p;
+                if (bitmap2 == null) {
+                    return;
+                }
             }
-            radioButton2 = this.a.k;
-            if (compoundButton == radioButton2) {
-                horizontalScrollView = this.a.f;
-                horizontalScrollView.setVisibility(8);
-                linearLayout = this.a.l;
-                linearLayout.setVisibility(0);
-                textView = this.a.n;
-                textView.setText(this.a.getString(R.string.rotate));
+            if (view.getTag() != null) {
+                this.a.x = false;
+                WriteImageActivity.b(this.a, view.getTag().toString());
             }
         }
     }

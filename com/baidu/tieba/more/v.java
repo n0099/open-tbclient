@@ -7,14 +7,13 @@ import android.os.Handler;
 import android.text.SpannableString;
 import android.text.style.AbsoluteSizeSpan;
 import android.util.TypedValue;
-import android.view.View;
 import android.widget.RelativeLayout;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class v extends com.baidu.adp.a.e {
+public final class v extends com.baidu.adp.a.e {
     Handler a;
     private BrowseSettingActivity c;
     private RelativeLayout d;
@@ -59,75 +58,6 @@ public class v extends com.baidu.adp.a.e {
         this.u = new aa(this);
         this.a = new Handler();
         this.c = browseSettingActivity;
-        u();
-        n();
-        v();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void a(int i) {
-        this.e.c(i);
-        this.f.a(i);
-        this.g.a(i);
-        this.h.a(i);
-        this.i.a(i);
-        this.j.a(i);
-        this.k.a(i);
-        this.c.getLayoutMode().a(i == 1);
-        this.c.getLayoutMode().a((View) this.d);
-    }
-
-    public SettingTextTipView a() {
-        return this.i;
-    }
-
-    public SettingTextTipView e() {
-        return this.h;
-    }
-
-    public SettingTextTipView f() {
-        return null;
-    }
-
-    public SettingTextTipView g() {
-        return this.j;
-    }
-
-    public SettingTextTipView h() {
-        return this.k;
-    }
-
-    public void i() {
-        x();
-        this.l.setCanceledOnTouchOutside(true);
-        this.l.show();
-    }
-
-    public void j() {
-        w();
-        this.m.setCanceledOnTouchOutside(true);
-        this.m.show();
-    }
-
-    public void k() {
-        y();
-        this.n.setCanceledOnTouchOutside(true);
-        this.n.show();
-    }
-
-    public void l() {
-        z();
-        this.o.setCanceledOnTouchOutside(true);
-        this.o.show();
-    }
-
-    public void m() {
-        A();
-        this.p.setCanceledOnTouchOutside(true);
-        this.p.show();
-    }
-
-    private void u() {
         this.c.setContentView(R.layout.browse_setting_activity);
         this.e = (NavigationBar) this.c.findViewById(R.id.view_navigation_bar);
         this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
@@ -139,9 +69,16 @@ public class v extends com.baidu.adp.a.e {
         this.j = (SettingTextTipView) this.c.findViewById(R.id.show_image);
         this.k = (SettingTextTipView) this.c.findViewById(R.id.font_size);
         this.d = (RelativeLayout) this.c.findViewById(R.id.parent);
-    }
-
-    private void v() {
+        if (TiebaApplication.g().ae() == 1) {
+            this.f.b();
+        } else {
+            this.f.a();
+        }
+        p();
+        q();
+        o();
+        n();
+        a(false);
         this.h.setOnClickListener(this.c);
         this.i.setOnClickListener(this.c);
         this.f.setSwitchStateChangeListener(this.c);
@@ -149,7 +86,51 @@ public class v extends com.baidu.adp.a.e {
         this.k.setOnClickListener(this.c);
     }
 
-    private void w() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public final void a(int i) {
+        this.e.b(i);
+        this.f.a(i);
+        this.g.a(i);
+        this.h.a(i);
+        this.i.a(i);
+        this.j.a(i);
+        this.k.a(i);
+        this.c.getLayoutMode().a(i == 1);
+        this.c.getLayoutMode().a(this.d);
+    }
+
+    public final SettingTextTipView a() {
+        return this.i;
+    }
+
+    public final SettingTextTipView d() {
+        return this.h;
+    }
+
+    public final SettingTextTipView e() {
+        return this.j;
+    }
+
+    public final SettingTextTipView f() {
+        return this.k;
+    }
+
+    public final void g() {
+        if (this.l == null) {
+            SpannableString spannableString = new SpannableString(this.c.getString(R.string.image_quality_auto_menu));
+            spannableString.setSpan(new AbsoluteSizeSpan(BdUtilHelper.a(this.b, 12.0f)), 5, spannableString.length(), 18);
+            SpannableString spannableString2 = new SpannableString(this.c.getString(R.string.image_quality_high_menu));
+            spannableString2.setSpan(new AbsoluteSizeSpan(BdUtilHelper.a((Context) this.c, 12.0f)), 1, spannableString2.length(), 18);
+            SpannableString spannableString3 = new SpannableString(this.c.getString(R.string.image_quality_mid_menu));
+            SpannableString spannableString4 = new SpannableString(this.c.getString(R.string.image_quality_low_menu));
+            spannableString4.setSpan(new AbsoluteSizeSpan(BdUtilHelper.a((Context) this.c, 12.0f)), 1, spannableString4.length(), 18);
+            this.l = new AlertDialog.Builder(this.c).setTitle(R.string.upload_image_quality).setItems(new CharSequence[]{spannableString, spannableString2, spannableString3, spannableString4}, this.s).create();
+        }
+        this.l.setCanceledOnTouchOutside(true);
+        this.l.show();
+    }
+
+    public final void h() {
         if (this.m == null) {
             SpannableString spannableString = new SpannableString(this.c.getString(R.string.view_image_quality_auto_menu));
             spannableString.setSpan(new AbsoluteSizeSpan(BdUtilHelper.a(this.b, 12.0f)), 5, spannableString.length(), 18);
@@ -161,22 +142,11 @@ public class v extends com.baidu.adp.a.e {
             spannableString4.setSpan(new AbsoluteSizeSpan(BdUtilHelper.a(this.b, 12.0f)), 2, spannableString4.length(), 18);
             this.m = new AlertDialog.Builder(this.c).setTitle(R.string.browser_image_quality).setItems(new CharSequence[]{spannableString, spannableString2, spannableString3, spannableString4}, this.r).create();
         }
+        this.m.setCanceledOnTouchOutside(true);
+        this.m.show();
     }
 
-    private void x() {
-        if (this.l == null) {
-            SpannableString spannableString = new SpannableString(this.c.getString(R.string.image_quality_auto_menu));
-            spannableString.setSpan(new AbsoluteSizeSpan(BdUtilHelper.a(this.b, 12.0f)), 5, spannableString.length(), 18);
-            SpannableString spannableString2 = new SpannableString(this.c.getString(R.string.image_quality_high_menu));
-            spannableString2.setSpan(new AbsoluteSizeSpan(BdUtilHelper.a((Context) this.c, 12.0f)), 1, spannableString2.length(), 18);
-            SpannableString spannableString3 = new SpannableString(this.c.getString(R.string.image_quality_mid_menu));
-            SpannableString spannableString4 = new SpannableString(this.c.getString(R.string.image_quality_low_menu));
-            spannableString4.setSpan(new AbsoluteSizeSpan(BdUtilHelper.a((Context) this.c, 12.0f)), 1, spannableString4.length(), 18);
-            this.l = new AlertDialog.Builder(this.c).setTitle(R.string.upload_image_quality).setItems(new CharSequence[]{spannableString, spannableString2, spannableString3, spannableString4}, this.s).create();
-        }
-    }
-
-    private void y() {
+    public final void i() {
         if (this.n == null) {
             int applyDimension = (int) TypedValue.applyDimension(2, 14.0f, this.b.getResources().getDisplayMetrics());
             SpannableString spannableString = new SpannableString(this.c.getString(R.string.is_flowmode_close));
@@ -186,25 +156,31 @@ public class v extends com.baidu.adp.a.e {
             SpannableString spannableString3 = new SpannableString(this.c.getString(R.string.is_flowmode_alwaysopen));
             spannableString3.setSpan(new AbsoluteSizeSpan(applyDimension), 4, spannableString3.length(), 33);
         }
+        this.n.setCanceledOnTouchOutside(true);
+        this.n.show();
     }
 
-    private void z() {
+    public final void j() {
         if (this.o == null) {
             SpannableString spannableString = new SpannableString(this.c.getString(R.string.is_wifiopen_dialog));
             spannableString.setSpan(new AbsoluteSizeSpan(BdUtilHelper.a(this.b, 12.0f)), 5, spannableString.length(), 18);
             this.o = new AlertDialog.Builder(this.c).setTitle(R.string.show_photo).setItems(new CharSequence[]{spannableString, new SpannableString(this.c.getString(R.string.is_alwaysopen)), new SpannableString(this.c.getString(R.string.is_close))}, this.t).create();
         }
+        this.o.setCanceledOnTouchOutside(true);
+        this.o.show();
     }
 
-    private void A() {
+    public final void k() {
         if (this.p == null) {
             this.p = new AlertDialog.Builder(this.c).setTitle(R.string.font_size).setItems(new CharSequence[]{new SpannableString(this.c.getString(R.string.font_size_big)), new SpannableString(this.c.getString(R.string.font_size_mid)), new SpannableString(this.c.getString(R.string.font_size_small))}, this.u).create();
         }
+        this.p.setCanceledOnTouchOutside(true);
+        this.p.show();
     }
 
-    public void b(int i) {
+    public final void b(int i) {
         if (i == 1) {
-            if (TiebaApplication.g().al() != 1) {
+            if (TiebaApplication.g().ae() != 1) {
                 TiebaApplication.g().e(i);
                 a(i);
                 new com.baidu.tieba.account.ax("eyeshield").start();
@@ -212,7 +188,7 @@ public class v extends com.baidu.adp.a.e {
                 return;
             }
         } else if (i == 0) {
-            if (TiebaApplication.g().al() != 0) {
+            if (TiebaApplication.g().ae() != 0) {
                 TiebaApplication.g().e(i);
                 a(i);
             } else {
@@ -222,31 +198,13 @@ public class v extends com.baidu.adp.a.e {
         com.baidu.tieba.util.n.a();
     }
 
-    public void n() {
+    public final void l() {
         p();
-        B();
-        C();
-        r();
-        t();
-        s();
-        a(false);
+        q();
+        n();
     }
 
-    public void o() {
-        B();
-        C();
-        s();
-    }
-
-    public void p() {
-        if (TiebaApplication.g().al() == 1) {
-            this.f.b();
-        } else {
-            this.f.a();
-        }
-    }
-
-    public void a(boolean z) {
+    private void a(boolean z) {
         this.g.setSwitchStateChangeListener(null);
         if (com.baidu.tieba.h.a.a().h()) {
             this.g.b(z);
@@ -256,12 +214,12 @@ public class v extends com.baidu.adp.a.e {
         this.g.setSwitchStateChangeListener(this.q);
     }
 
-    public void q() {
+    public final void m() {
         a(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void B() {
+    public void p() {
         if (!com.baidu.tieba.h.a.a().f()) {
             this.h.setTip(this.b.getString(R.string.view_close));
         } else if (com.baidu.tieba.h.a.a().g() == 1) {
@@ -274,7 +232,7 @@ public class v extends com.baidu.adp.a.e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void C() {
+    public void q() {
         switch (com.baidu.tieba.h.a.a().e()) {
             case 0:
                 this.i.setTip(this.b.getString(R.string.view_auto));
@@ -293,10 +251,7 @@ public class v extends com.baidu.adp.a.e {
         }
     }
 
-    public void r() {
-    }
-
-    public void s() {
+    public final void n() {
         switch (com.baidu.tieba.h.a.a().c()) {
             case 0:
                 this.j.setTip(this.b.getString(R.string.is_wifiopen));
@@ -312,10 +267,10 @@ public class v extends com.baidu.adp.a.e {
         }
     }
 
-    public void t() {
-        if (TiebaApplication.g().ah() == 1) {
+    public final void o() {
+        if (TiebaApplication.g().aa() == 1) {
             this.k.setTip(this.b.getString(R.string.font_size_big));
-        } else if (TiebaApplication.g().ah() == 2) {
+        } else if (TiebaApplication.g().aa() == 2) {
             this.k.setTip(this.b.getString(R.string.font_size_mid));
         } else {
             this.k.setTip(this.b.getString(R.string.font_size_small));

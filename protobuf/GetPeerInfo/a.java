@@ -5,11 +5,9 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import protobuf.GetPeerInfo.GetPeerInfoReq;
 /* loaded from: classes.dex */
-class a extends AbstractParser<GetPeerInfoReq.DataReq> {
-    /* JADX DEBUG: Method merged with bridge method */
+final class a extends AbstractParser<GetPeerInfoReq.DataReq> {
     @Override // com.google.protobuf.Parser
-    /* renamed from: a */
-    public GetPeerInfoReq.DataReq parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
+    public final /* synthetic */ Object parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
         return new GetPeerInfoReq.DataReq(codedInputStream, extensionRegistryLite, null);
     }
 }

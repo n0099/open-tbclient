@@ -3,7 +3,7 @@ package com.baidu.tieba.flist;
 import android.os.Handler;
 import android.widget.AbsListView;
 /* loaded from: classes.dex */
-class k implements AbsListView.OnScrollListener {
+final class k implements AbsListView.OnScrollListener {
     final /* synthetic */ ForumListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,11 +12,11 @@ class k implements AbsListView.OnScrollListener {
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
+    public final void onScrollStateChanged(AbsListView absListView, int i) {
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    public final void onScroll(AbsListView absListView, int i, int i2, int i3) {
         Handler handler;
         Runnable runnable;
         Handler handler2;

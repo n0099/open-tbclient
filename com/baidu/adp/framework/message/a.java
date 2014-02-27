@@ -2,7 +2,7 @@ package com.baidu.adp.framework.message;
 
 import com.baidu.adp.framework.FrameHelper;
 /* loaded from: classes.dex */
-public class a<T> extends e<T> {
+public final class a<T> extends e<T> {
     private T a;
 
     public a(int i, T t) {
@@ -11,12 +11,12 @@ public class a<T> extends e<T> {
         this.a = t;
     }
 
-    public T a() {
+    public final T a() {
         return this.a;
     }
 
     @Override // com.baidu.adp.framework.message.e
-    public boolean a(int i) {
+    public final boolean a(int i) {
         return FrameHelper.d(i);
     }
 }

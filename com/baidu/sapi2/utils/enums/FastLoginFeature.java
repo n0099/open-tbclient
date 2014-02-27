@@ -18,7 +18,7 @@ public enum FastLoginFeature {
         this.a = str;
     }
 
-    public String getStrValue() {
+    public final String getStrValue() {
         return this.a;
     }
 }

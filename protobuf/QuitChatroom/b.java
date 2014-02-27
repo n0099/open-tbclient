@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.QuitChatroom.QuitChatroomReq;
 /* loaded from: classes.dex */
 public final class b extends GeneratedMessageLite.Builder<QuitChatroomReq.DataReq, b> implements c {
@@ -11,19 +12,25 @@ public final class b extends GeneratedMessageLite.Builder<QuitChatroomReq.DataRe
     private int b;
     private int c;
 
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return QuitChatroomReq.DataReq.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return QuitChatroomReq.DataReq.getDefaultInstance();
+    }
+
     private b() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static b h() {
+    public static /* synthetic */ b c() {
         return new b();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: d */
     public b clear() {
         super.clear();
         this.b = 0;
@@ -34,20 +41,14 @@ public final class b extends GeneratedMessageLite.Builder<QuitChatroomReq.DataRe
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
+    /* renamed from: e */
     public b clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public QuitChatroomReq.DataReq getDefaultInstanceForType() {
-        return QuitChatroomReq.DataReq.getDefaultInstance();
+        return new b().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: d */
-    public QuitChatroomReq.DataReq build() {
+    /* renamed from: a */
+    public final QuitChatroomReq.DataReq build() {
         QuitChatroomReq.DataReq buildPartial = buildPartial();
         if (!buildPartial.isInitialized()) {
             throw newUninitializedMessageException(buildPartial);
@@ -56,8 +57,8 @@ public final class b extends GeneratedMessageLite.Builder<QuitChatroomReq.DataRe
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public QuitChatroomReq.DataReq buildPartial() {
+    /* renamed from: b */
+    public final QuitChatroomReq.DataReq buildPartial() {
         QuitChatroomReq.DataReq dataReq = new QuitChatroomReq.DataReq(this, (QuitChatroomReq.DataReq) null);
         int i = this.a;
         int i2 = (i & 1) != 1 ? 0 : 1;
@@ -72,7 +73,7 @@ public final class b extends GeneratedMessageLite.Builder<QuitChatroomReq.DataRe
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public b mergeFrom(QuitChatroomReq.DataReq dataReq) {
+    public final b mergeFrom(QuitChatroomReq.DataReq dataReq) {
         if (dataReq != QuitChatroomReq.DataReq.getDefaultInstance()) {
             if (dataReq.hasGroupId()) {
                 a(dataReq.getGroupId());
@@ -127,13 +128,13 @@ public final class b extends GeneratedMessageLite.Builder<QuitChatroomReq.DataRe
         }
     }
 
-    public b a(int i) {
+    public final b a(int i) {
         this.a |= 1;
         this.b = i;
         return this;
     }
 
-    public b b(int i) {
+    public final b b(int i) {
         this.a |= 2;
         this.c = i;
         return this;

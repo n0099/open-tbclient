@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.GetPeerInfo.GetPeerInfoRes;
 /* loaded from: classes.dex */
 public final class h extends GeneratedMessageLite.Builder<GetPeerInfoRes.DataRes, h> implements i {
@@ -11,19 +12,34 @@ public final class h extends GeneratedMessageLite.Builder<GetPeerInfoRes.DataRes
     private int b;
     private Object c = "";
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        GetPeerInfoRes.DataRes buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return GetPeerInfoRes.DataRes.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return GetPeerInfoRes.DataRes.getDefaultInstance();
+    }
+
     private h() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static h h() {
+    public static /* synthetic */ h b() {
         return new h();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public h clear() {
         super.clear();
         this.b = 0;
@@ -34,30 +50,14 @@ public final class h extends GeneratedMessageLite.Builder<GetPeerInfoRes.DataRes
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public h clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public GetPeerInfoRes.DataRes getDefaultInstanceForType() {
-        return GetPeerInfoRes.DataRes.getDefaultInstance();
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public GetPeerInfoRes.DataRes build() {
-        GetPeerInfoRes.DataRes buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
+    public h clone() {
+        return new h().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public GetPeerInfoRes.DataRes buildPartial() {
+    /* renamed from: a */
+    public final GetPeerInfoRes.DataRes buildPartial() {
         GetPeerInfoRes.DataRes dataRes = new GetPeerInfoRes.DataRes(this, (GetPeerInfoRes.DataRes) null);
         int i = this.a;
         int i2 = (i & 1) != 1 ? 0 : 1;
@@ -72,11 +72,13 @@ public final class h extends GeneratedMessageLite.Builder<GetPeerInfoRes.DataRes
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public h mergeFrom(GetPeerInfoRes.DataRes dataRes) {
+    public final h mergeFrom(GetPeerInfoRes.DataRes dataRes) {
         Object obj;
         if (dataRes != GetPeerInfoRes.DataRes.getDefaultInstance()) {
             if (dataRes.hasIsAllowed()) {
-                a(dataRes.getIsAllowed());
+                int isAllowed = dataRes.getIsAllowed();
+                this.a |= 1;
+                this.b = isAllowed;
             }
             if (dataRes.hasLbs()) {
                 this.a |= 2;
@@ -128,11 +130,5 @@ public final class h extends GeneratedMessageLite.Builder<GetPeerInfoRes.DataRes
                 throw th;
             }
         }
-    }
-
-    public h a(int i) {
-        this.a |= 1;
-        this.b = i;
-        return this;
     }
 }

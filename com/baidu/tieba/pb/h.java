@@ -2,9 +2,8 @@ package com.baidu.tieba.pb;
 
 import android.content.Intent;
 import com.baidu.cloudsdk.social.core.SocialConstants;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements com.baidu.tieba.view.a {
+final class h implements com.baidu.tieba.view.a {
     final /* synthetic */ ImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +12,7 @@ public class h implements com.baidu.tieba.view.a {
     }
 
     @Override // com.baidu.tieba.view.a
-    public void a(int i) {
+    public final void a(int i) {
         boolean z;
         a aVar;
         z = this.a.B;

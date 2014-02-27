@@ -4,7 +4,7 @@ import com.baidu.android.pushservice.PushConstants;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class b {
+public final class b {
     public String a;
     public int b;
     public int c;

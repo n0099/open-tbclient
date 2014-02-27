@@ -38,7 +38,7 @@ public abstract class j extends Fragment implements DialogInterface.OnClickListe
         super.onActivityCreated(bundle);
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         if (getActivity() != null) {
             String name = getClass().getName();
             String str2 = String.valueOf(getActivity().getApplicationContext().getPackageName()) + ".chat";
@@ -50,7 +50,7 @@ public abstract class j extends Fragment implements DialogInterface.OnClickListe
         }
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         if (getActivity() != null) {
             String name = getClass().getName();
             String str = String.valueOf(getActivity().getApplicationContext().getPackageName()) + ".chat";
@@ -73,13 +73,13 @@ public abstract class j extends Fragment implements DialogInterface.OnClickListe
             this.b.c();
         }
         super.onResume();
-        if (b()) {
-            b(TiebaApplication.g().al());
+        if (d()) {
+            b(TiebaApplication.g().ae());
             cc.a(getClass().getName());
         }
     }
 
-    public void b(int i) {
+    public final void b(int i) {
         if (i != this.a) {
             this.a = i;
             c(this.a);
@@ -149,7 +149,7 @@ public abstract class j extends Fragment implements DialogInterface.OnClickListe
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean b() {
+    public final boolean d() {
         return !isHidden();
     }
 }

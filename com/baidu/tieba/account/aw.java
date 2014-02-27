@@ -1,6 +1,6 @@
 package com.baidu.tieba.account;
 /* loaded from: classes.dex */
-public class aw extends Thread {
+public final class aw extends Thread {
     private int a;
     private int b;
     private String c = null;
@@ -12,12 +12,12 @@ public class aw extends Thread {
         this.b = i2;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.c = str;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
+    public final void run() {
         super.run();
         com.baidu.tieba.util.ba baVar = new com.baidu.tieba.util.ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/s/pv");
         baVar.a("img_num", String.valueOf(this.a));
@@ -25,6 +25,6 @@ public class aw extends Thread {
         if (this.c != null) {
             baVar.a("img_type", this.c);
         }
-        baVar.m();
+        baVar.l();
     }
 }

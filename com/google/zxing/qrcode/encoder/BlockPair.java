@@ -10,11 +10,11 @@ final class BlockPair {
         this.errorCorrectionBytes = bArr2;
     }
 
-    public byte[] getDataBytes() {
+    public final byte[] getDataBytes() {
         return this.dataBytes;
     }
 
-    public byte[] getErrorCorrectionBytes() {
+    public final byte[] getErrorCorrectionBytes() {
         return this.errorCorrectionBytes;
     }
 }

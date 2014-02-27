@@ -40,16 +40,12 @@ public final class Invite2GroupView extends LinearLayout {
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup
-    protected LinearLayout.LayoutParams generateDefaultLayoutParams() {
+    protected final LinearLayout.LayoutParams generateDefaultLayoutParams() {
         return new LinearLayout.LayoutParams(-1, -2);
     }
 
-    public void setData(InviteMsgData inviteMsgData) {
+    public final void setData(InviteMsgData inviteMsgData) {
         this.e = inviteMsgData;
-        b();
-    }
-
-    private void b() {
         this.d.setEnabled(true);
         this.d.setTag(String.valueOf(this.e.getGroupId()));
         this.d.setText(R.string.i_want_attent);
@@ -59,14 +55,11 @@ public final class Invite2GroupView extends LinearLayout {
         this.b.setTag(this.e.getPortrait());
         this.c.setText(this.e.getNotice());
         setOnClickListener(new b(this));
-        if (h.a().d().a(String.valueOf(this.e.getGroupId())) != null) {
-            if (String.valueOf(this.e.getGroupId()).equals(this.d.getTag())) {
-                this.d.setText(R.string.i_want_talk);
-                this.d.setOnClickListener(new c(this));
-                return;
-            }
-            return;
+        if (h.a().d().a(String.valueOf(this.e.getGroupId())) == null) {
+            v.a(TiebaApplication.v(), String.valueOf(this.e.getGroupId()), 60000L, new d(this));
+        } else if (String.valueOf(this.e.getGroupId()).equals(this.d.getTag())) {
+            this.d.setText(R.string.i_want_talk);
+            this.d.setOnClickListener(new c(this));
         }
-        v.a(TiebaApplication.A(), String.valueOf(this.e.getGroupId()), 60000L, new d(this));
     }
 }

@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.Im;
 import protobuf.UpdateGroup.UpdateGroupReq;
 /* loaded from: classes.dex */
@@ -11,19 +12,25 @@ public final class b extends GeneratedMessageLite.Builder<UpdateGroupReq.UpdateG
     private int a;
     private Im.GroupInfo b = Im.GroupInfo.getDefaultInstance();
 
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return UpdateGroupReq.UpdateGroupReqIdl.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return UpdateGroupReq.UpdateGroupReqIdl.getDefaultInstance();
+    }
+
     private b() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static b h() {
+    public static /* synthetic */ b b() {
         return new b();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public b clear() {
         super.clear();
         this.b = Im.GroupInfo.getDefaultInstance();
@@ -32,20 +39,14 @@ public final class b extends GeneratedMessageLite.Builder<UpdateGroupReq.UpdateG
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
+    /* renamed from: d */
     public b clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public UpdateGroupReq.UpdateGroupReqIdl getDefaultInstanceForType() {
-        return UpdateGroupReq.UpdateGroupReqIdl.getDefaultInstance();
+        return new b().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: d */
-    public UpdateGroupReq.UpdateGroupReqIdl build() {
+    /* renamed from: a */
+    public final UpdateGroupReq.UpdateGroupReqIdl build() {
         UpdateGroupReq.UpdateGroupReqIdl buildPartial = buildPartial();
         if (!buildPartial.isInitialized()) {
             throw newUninitializedMessageException(buildPartial);
@@ -65,9 +66,15 @@ public final class b extends GeneratedMessageLite.Builder<UpdateGroupReq.UpdateG
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public b mergeFrom(UpdateGroupReq.UpdateGroupReqIdl updateGroupReqIdl) {
+    public final b mergeFrom(UpdateGroupReq.UpdateGroupReqIdl updateGroupReqIdl) {
         if (updateGroupReqIdl != UpdateGroupReq.UpdateGroupReqIdl.getDefaultInstance() && updateGroupReqIdl.hasData()) {
-            b(updateGroupReqIdl.getData());
+            Im.GroupInfo data = updateGroupReqIdl.getData();
+            if ((this.a & 1) != 1 || this.b == Im.GroupInfo.getDefaultInstance()) {
+                this.b = data;
+            } else {
+                this.b = Im.GroupInfo.newBuilder(this.b).mergeFrom(data).buildPartial();
+            }
+            this.a |= 1;
         }
         return this;
     }
@@ -115,21 +122,11 @@ public final class b extends GeneratedMessageLite.Builder<UpdateGroupReq.UpdateG
         }
     }
 
-    public b a(Im.GroupInfo groupInfo) {
+    public final b a(Im.GroupInfo groupInfo) {
         if (groupInfo != null) {
             this.b = groupInfo;
             this.a |= 1;
         }
-        return this;
-    }
-
-    public b b(Im.GroupInfo groupInfo) {
-        if ((this.a & 1) == 1 && this.b != Im.GroupInfo.getDefaultInstance()) {
-            this.b = Im.GroupInfo.newBuilder(this.b).mergeFrom(groupInfo).buildPartial();
-        } else {
-            this.b = groupInfo;
-        }
-        this.a |= 1;
         return this;
     }
 }

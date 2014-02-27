@@ -6,7 +6,7 @@ import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.flist.ForumListActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class au implements View.OnClickListener {
+public final class au implements View.OnClickListener {
     final /* synthetic */ ar a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +15,7 @@ public class au implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         Activity activity;
         String str;
         activity = this.a.y;

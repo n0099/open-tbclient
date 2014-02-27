@@ -22,7 +22,9 @@ public final class QueryUserInfosRes {
     public final class IconInfo extends GeneratedMessageLite implements l {
         public static final int ICONURL_FIELD_NUMBER = 3;
         public static final int NAME_FIELD_NUMBER = 1;
+        public static Parser<IconInfo> PARSER = new j();
         public static final int WEIGHT_FIELD_NUMBER = 2;
+        private static final IconInfo a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private Object iconUrl_;
@@ -30,8 +32,6 @@ public final class QueryUserInfosRes {
         private int memoizedSerializedSize;
         private Object name_;
         private int weight_;
-        public static Parser<IconInfo> PARSER = new j();
-        private static final IconInfo a = new IconInfo(true);
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ IconInfo(GeneratedMessageLite.Builder builder, IconInfo iconInfo) {
@@ -44,7 +44,7 @@ public final class QueryUserInfosRes {
             this.memoizedSerializedSize = -1;
         }
 
-        private IconInfo(boolean z) {
+        private IconInfo() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -55,7 +55,7 @@ public final class QueryUserInfosRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public IconInfo getDefaultInstanceForType() {
+        public final IconInfo getDefaultInstanceForType() {
             return a;
         }
 
@@ -109,19 +109,21 @@ public final class QueryUserInfosRes {
         }
 
         static {
-            a.a();
+            IconInfo iconInfo = new IconInfo();
+            a = iconInfo;
+            iconInfo.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<IconInfo> getParserForType() {
+        public final Parser<IconInfo> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasName() {
+        public final boolean hasName() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public String getName() {
+        public final String getName() {
             Object obj = this.name_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -134,7 +136,7 @@ public final class QueryUserInfosRes {
             return stringUtf8;
         }
 
-        public ByteString getNameBytes() {
+        public final ByteString getNameBytes() {
             Object obj = this.name_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -144,19 +146,19 @@ public final class QueryUserInfosRes {
             return (ByteString) obj;
         }
 
-        public boolean hasWeight() {
+        public final boolean hasWeight() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public int getWeight() {
+        public final int getWeight() {
             return this.weight_;
         }
 
-        public boolean hasIconUrl() {
+        public final boolean hasIconUrl() {
             return (this.bitField0_ & 4) == 4;
         }
 
-        public String getIconUrl() {
+        public final String getIconUrl() {
             Object obj = this.iconUrl_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -169,7 +171,7 @@ public final class QueryUserInfosRes {
             return stringUtf8;
         }
 
-        public ByteString getIconUrlBytes() {
+        public final ByteString getIconUrlBytes() {
             Object obj = this.iconUrl_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -196,7 +198,7 @@ public final class QueryUserInfosRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeBytes(1, getNameBytes());
@@ -210,10 +212,13 @@ public final class QueryUserInfosRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getNameBytes()) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeBytesSize(1, getNameBytes()) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeInt32Size(2, this.weight_);
                 }
@@ -227,7 +232,7 @@ public final class QueryUserInfosRes {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -272,12 +277,12 @@ public final class QueryUserInfosRes {
         }
 
         public static k newBuilder() {
-            return k.f();
+            return k.a();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public k newBuilderForType() {
+        public final k newBuilderForType() {
             return newBuilder();
         }
 
@@ -287,7 +292,7 @@ public final class QueryUserInfosRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public k toBuilder() {
+        public final k toBuilder() {
             return newBuilder(this);
         }
     }
@@ -304,11 +309,13 @@ public final class QueryUserInfosRes {
         public static final int MEIZHILEVEL_FIELD_NUMBER = 10;
         public static final int NAMESHOW_FIELD_NUMBER = 3;
         public static final int NAME_FIELD_NUMBER = 2;
+        public static Parser<DataRes> PARSER = new g();
         public static final int PORTRAITH_FIELD_NUMBER = 5;
         public static final int PORTRAIT_FIELD_NUMBER = 4;
         public static final int SEX_FIELD_NUMBER = 7;
         public static final int SUPERBOY_FIELD_NUMBER = 13;
         public static final int USERTYPE_FIELD_NUMBER = 11;
+        private static final DataRes a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private int hasConcerned_;
@@ -328,8 +335,6 @@ public final class QueryUserInfosRes {
         private int sex_;
         private int superboy_;
         private int userType_;
-        public static Parser<DataRes> PARSER = new g();
-        private static final DataRes a = new DataRes(true);
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ DataRes(GeneratedMessageLite.Builder builder, DataRes dataRes) {
@@ -342,7 +347,7 @@ public final class QueryUserInfosRes {
             this.memoizedSerializedSize = -1;
         }
 
-        private DataRes(boolean z) {
+        private DataRes() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -353,7 +358,7 @@ public final class QueryUserInfosRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public DataRes getDefaultInstanceForType() {
+        public final DataRes getDefaultInstanceForType() {
             return a;
         }
 
@@ -462,27 +467,29 @@ public final class QueryUserInfosRes {
         }
 
         static {
-            a.a();
+            DataRes dataRes = new DataRes();
+            a = dataRes;
+            dataRes.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<DataRes> getParserForType() {
+        public final Parser<DataRes> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasId() {
+        public final boolean hasId() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public long getId() {
+        public final long getId() {
             return this.id_;
         }
 
-        public boolean hasName() {
+        public final boolean hasName() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public String getName() {
+        public final String getName() {
             Object obj = this.name_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -495,7 +502,7 @@ public final class QueryUserInfosRes {
             return stringUtf8;
         }
 
-        public ByteString getNameBytes() {
+        public final ByteString getNameBytes() {
             Object obj = this.name_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -505,11 +512,11 @@ public final class QueryUserInfosRes {
             return (ByteString) obj;
         }
 
-        public boolean hasNameShow() {
+        public final boolean hasNameShow() {
             return (this.bitField0_ & 4) == 4;
         }
 
-        public String getNameShow() {
+        public final String getNameShow() {
             Object obj = this.nameShow_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -522,7 +529,7 @@ public final class QueryUserInfosRes {
             return stringUtf8;
         }
 
-        public ByteString getNameShowBytes() {
+        public final ByteString getNameShowBytes() {
             Object obj = this.nameShow_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -532,11 +539,11 @@ public final class QueryUserInfosRes {
             return (ByteString) obj;
         }
 
-        public boolean hasPortrait() {
+        public final boolean hasPortrait() {
             return (this.bitField0_ & 8) == 8;
         }
 
-        public String getPortrait() {
+        public final String getPortrait() {
             Object obj = this.portrait_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -549,7 +556,7 @@ public final class QueryUserInfosRes {
             return stringUtf8;
         }
 
-        public ByteString getPortraitBytes() {
+        public final ByteString getPortraitBytes() {
             Object obj = this.portrait_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -559,11 +566,11 @@ public final class QueryUserInfosRes {
             return (ByteString) obj;
         }
 
-        public boolean hasPortraith() {
+        public final boolean hasPortraith() {
             return (this.bitField0_ & 16) == 16;
         }
 
-        public String getPortraith() {
+        public final String getPortraith() {
             Object obj = this.portraith_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -576,7 +583,7 @@ public final class QueryUserInfosRes {
             return stringUtf8;
         }
 
-        public ByteString getPortraithBytes() {
+        public final ByteString getPortraithBytes() {
             Object obj = this.portraith_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -586,11 +593,11 @@ public final class QueryUserInfosRes {
             return (ByteString) obj;
         }
 
-        public boolean hasIntro() {
+        public final boolean hasIntro() {
             return (this.bitField0_ & 32) == 32;
         }
 
-        public String getIntro() {
+        public final String getIntro() {
             Object obj = this.intro_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -603,7 +610,7 @@ public final class QueryUserInfosRes {
             return stringUtf8;
         }
 
-        public ByteString getIntroBytes() {
+        public final ByteString getIntroBytes() {
             Object obj = this.intro_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -613,87 +620,87 @@ public final class QueryUserInfosRes {
             return (ByteString) obj;
         }
 
-        public boolean hasSex() {
+        public final boolean hasSex() {
             return (this.bitField0_ & 64) == 64;
         }
 
-        public int getSex() {
+        public final int getSex() {
             return this.sex_;
         }
 
-        public boolean hasHasConcerned() {
+        public final boolean hasHasConcerned() {
             return (this.bitField0_ & 128) == 128;
         }
 
-        public int getHasConcerned() {
+        public final int getHasConcerned() {
             return this.hasConcerned_;
         }
 
-        public boolean hasIsBlacklist() {
+        public final boolean hasIsBlacklist() {
             return (this.bitField0_ & 256) == 256;
         }
 
-        public int getIsBlacklist() {
+        public final int getIsBlacklist() {
             return this.isBlacklist_;
         }
 
-        public boolean hasMeizhiLevel() {
+        public final boolean hasMeizhiLevel() {
             return (this.bitField0_ & 512) == 512;
         }
 
-        public int getMeizhiLevel() {
+        public final int getMeizhiLevel() {
             return this.meizhiLevel_;
         }
 
-        public boolean hasUserType() {
+        public final boolean hasUserType() {
             return (this.bitField0_ & 1024) == 1024;
         }
 
-        public int getUserType() {
+        public final int getUserType() {
             return this.userType_;
         }
 
-        public boolean hasIsCoreuser() {
+        public final boolean hasIsCoreuser() {
             return (this.bitField0_ & 2048) == 2048;
         }
 
-        public int getIsCoreuser() {
+        public final int getIsCoreuser() {
             return this.isCoreuser_;
         }
 
-        public boolean hasSuperboy() {
+        public final boolean hasSuperboy() {
             return (this.bitField0_ & 4096) == 4096;
         }
 
-        public int getSuperboy() {
+        public final int getSuperboy() {
             return this.superboy_;
         }
 
-        public boolean hasIsInterestman() {
+        public final boolean hasIsInterestman() {
             return (this.bitField0_ & 8192) == 8192;
         }
 
-        public int getIsInterestman() {
+        public final int getIsInterestman() {
             return this.isInterestman_;
         }
 
-        public List<IconInfo> getIconInfoList() {
+        public final List<IconInfo> getIconInfoList() {
             return this.iconInfo_;
         }
 
-        public List<? extends l> getIconInfoOrBuilderList() {
+        public final List<? extends l> getIconInfoOrBuilderList() {
             return this.iconInfo_;
         }
 
-        public int getIconInfoCount() {
+        public final int getIconInfoCount() {
             return this.iconInfo_.size();
         }
 
-        public IconInfo getIconInfo(int i) {
+        public final IconInfo getIconInfo(int i) {
             return this.iconInfo_.get(i);
         }
 
-        public l getIconInfoOrBuilder(int i) {
+        public final l getIconInfoOrBuilder(int i) {
             return this.iconInfo_.get(i);
         }
 
@@ -726,7 +733,7 @@ public final class QueryUserInfosRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeInt64(1, this.id_);
@@ -783,7 +790,7 @@ public final class QueryUserInfosRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = 0;
             int i2 = this.memoizedSerializedSize;
             if (i2 == -1) {
@@ -842,7 +849,7 @@ public final class QueryUserInfosRes {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -887,12 +894,12 @@ public final class QueryUserInfosRes {
         }
 
         public static h newBuilder() {
-            return h.f();
+            return h.b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public h newBuilderForType() {
+        public final h newBuilderForType() {
             return newBuilder();
         }
 
@@ -902,7 +909,7 @@ public final class QueryUserInfosRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public h toBuilder() {
+        public final h toBuilder() {
             return newBuilder(this);
         }
     }
@@ -912,7 +919,7 @@ public final class QueryUserInfosRes {
         public static final int DATA_FIELD_NUMBER = 2;
         public static final int ERROR_FIELD_NUMBER = 1;
         public static Parser<QueryUserInfosResIdl> PARSER = new m();
-        private static final QueryUserInfosResIdl a = new QueryUserInfosResIdl(true);
+        private static final QueryUserInfosResIdl a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private DataRes data_;
@@ -931,7 +938,7 @@ public final class QueryUserInfosRes {
             this.memoizedSerializedSize = -1;
         }
 
-        private QueryUserInfosResIdl(boolean z) {
+        private QueryUserInfosResIdl() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -942,7 +949,7 @@ public final class QueryUserInfosRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public QueryUserInfosResIdl getDefaultInstanceForType() {
+        public final QueryUserInfosResIdl getDefaultInstanceForType() {
             return a;
         }
 
@@ -1002,27 +1009,29 @@ public final class QueryUserInfosRes {
         }
 
         static {
-            a.a();
+            QueryUserInfosResIdl queryUserInfosResIdl = new QueryUserInfosResIdl();
+            a = queryUserInfosResIdl;
+            queryUserInfosResIdl.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<QueryUserInfosResIdl> getParserForType() {
+        public final Parser<QueryUserInfosResIdl> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasError() {
+        public final boolean hasError() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public Im.Error getError() {
+        public final Im.Error getError() {
             return this.error_;
         }
 
-        public boolean hasData() {
+        public final boolean hasData() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public DataRes getData() {
+        public final DataRes getData() {
             return this.data_;
         }
 
@@ -1042,7 +1051,7 @@ public final class QueryUserInfosRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeMessage(1, this.error_);
@@ -1053,10 +1062,13 @@ public final class QueryUserInfosRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeMessageSize(1, this.error_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeMessageSize(1, this.error_) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeMessageSize(2, this.data_);
                 }
@@ -1067,7 +1079,7 @@ public final class QueryUserInfosRes {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -1112,12 +1124,12 @@ public final class QueryUserInfosRes {
         }
 
         public static n newBuilder() {
-            return n.f();
+            return n.a();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public n newBuilderForType() {
+        public final n newBuilderForType() {
             return newBuilder();
         }
 
@@ -1127,7 +1139,7 @@ public final class QueryUserInfosRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public n toBuilder() {
+        public final n toBuilder() {
             return newBuilder(this);
         }
     }

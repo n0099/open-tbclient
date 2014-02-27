@@ -135,7 +135,7 @@ public final class c {
         this.a.unregisterReceiver(this.h);
     }
 
-    public j a(int i) {
+    public final j a(int i) {
         this.d.a();
         if (i >= this.e.c()) {
             this.d = this.e.a(0, this.e.c());
@@ -145,7 +145,7 @@ public final class c {
         return this.d;
     }
 
-    public boolean a(ArrayList arrayList) {
+    public final boolean a(ArrayList arrayList) {
         if (arrayList == null || arrayList.size() > this.d.c()) {
             return false;
         }
@@ -166,7 +166,7 @@ public final class c {
         return true;
     }
 
-    public j b(int i) {
+    public final j b(int i) {
         if (i >= this.b.c()) {
             return this.b;
         }
@@ -178,11 +178,11 @@ public final class c {
         return jVar;
     }
 
-    public void b() {
+    public final void b() {
         d.a(this.a).b();
     }
 
-    public void b(ArrayList arrayList) {
+    public final void b(ArrayList arrayList) {
         if (arrayList == null) {
             return;
         }
@@ -192,11 +192,11 @@ public final class c {
         }
     }
 
-    public boolean c() {
+    public final boolean c() {
         return this.e.c() > 0;
     }
 
-    public void d() {
+    public final void d() {
         this.e.a();
         Iterator it = this.b.b().iterator();
         while (it.hasNext()) {
@@ -206,7 +206,7 @@ public final class c {
         }
     }
 
-    public boolean e() {
+    public final boolean e() {
         return this.e.c() > 0;
     }
 }

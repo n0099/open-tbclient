@@ -28,7 +28,7 @@ public final class ConstructorConstructor {
         this.instanceCreators = map;
     }
 
-    public <T> ObjectConstructor<T> get(TypeToken<T> typeToken) {
+    public final <T> ObjectConstructor<T> get(TypeToken<T> typeToken) {
         final Type type = typeToken.getType();
         Class<? super T> rawType = typeToken.getRawType();
         final InstanceCreator<?> instanceCreator = this.instanceCreators.get(type);
@@ -184,7 +184,7 @@ public final class ConstructorConstructor {
         };
     }
 
-    public String toString() {
+    public final String toString() {
         return this.instanceCreators.toString();
     }
 }

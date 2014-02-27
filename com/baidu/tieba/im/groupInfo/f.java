@@ -3,9 +3,8 @@ package com.baidu.tieba.im.groupInfo;
 import android.support.v4.view.ViewPager;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements ViewPager.OnPageChangeListener {
+final class f implements ViewPager.OnPageChangeListener {
     final /* synthetic */ GroupImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,21 +13,21 @@ public class f implements ViewPager.OnPageChangeListener {
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageSelected(int i) {
+    public final void onPageSelected(int i) {
         int i2;
         GroupImageActivity groupImageActivity = this.a;
         i2 = this.a.c;
-        groupImageActivity.a(i2, i);
+        groupImageActivity.a(i2);
         this.a.c = i;
-        this.a.b();
+        this.a.a();
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrolled(int i, float f, int i2) {
+    public final void onPageScrolled(int i, float f, int i2) {
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrollStateChanged(int i) {
+    public final void onPageScrollStateChanged(int i) {
         long j;
         ArrayList arrayList;
         int i2;

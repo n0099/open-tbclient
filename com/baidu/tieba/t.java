@@ -4,7 +4,7 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.view.BaseViewPager;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class t implements com.baidu.tieba.view.a {
+final class t implements com.baidu.tieba.view.a {
     final /* synthetic */ GuideActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ class t implements com.baidu.tieba.view.a {
     }
 
     @Override // com.baidu.tieba.view.a
-    public void a(int i) {
+    public final void a(int i) {
         BaseViewPager baseViewPager;
         String str;
         BaseViewPager baseViewPager2;

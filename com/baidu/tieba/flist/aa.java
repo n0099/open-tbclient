@@ -11,7 +11,7 @@ import com.baidu.tieba.util.aw;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class aa extends com.baidu.adp.a.g {
+final class aa extends com.baidu.adp.a.g {
     final /* synthetic */ ForumRankActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -20,7 +20,7 @@ class aa extends com.baidu.adp.a.g {
     }
 
     @Override // com.baidu.adp.a.g
-    public void a(Object obj) {
+    public final void a(Object obj) {
         BdListView bdListView;
         r rVar;
         r rVar2;

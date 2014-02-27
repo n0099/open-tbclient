@@ -14,14 +14,14 @@ public final class CheckMaskUserReq {
 
     /* loaded from: classes.dex */
     public final class DataReq extends GeneratedMessageLite implements f {
+        public static Parser<DataReq> PARSER = new d();
         public static final int UID_FIELD_NUMBER = 1;
+        private static final DataReq a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
         private int uid_;
-        public static Parser<DataReq> PARSER = new d();
-        private static final DataReq a = new DataReq(true);
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ DataReq(GeneratedMessageLite.Builder builder, DataReq dataReq) {
@@ -34,7 +34,7 @@ public final class CheckMaskUserReq {
             this.memoizedSerializedSize = -1;
         }
 
-        private DataReq(boolean z) {
+        private DataReq() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -45,37 +45,39 @@ public final class CheckMaskUserReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public DataReq getDefaultInstanceForType() {
+        public final DataReq getDefaultInstanceForType() {
             return a;
         }
 
         private DataReq(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
+            boolean z = false;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
-            a();
-            boolean z = false;
+            this.uid_ = 0;
             while (!z) {
                 try {
                     try {
-                        int readTag = codedInputStream.readTag();
-                        switch (readTag) {
-                            case 0:
-                                z = true;
-                                break;
-                            case 8:
-                                this.bitField0_ |= 1;
-                                this.uid_ = codedInputStream.readUInt32();
-                                break;
-                            default:
-                                if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
+                        try {
+                            int readTag = codedInputStream.readTag();
+                            switch (readTag) {
+                                case 0:
                                     z = true;
                                     break;
-                                } else {
+                                case 8:
+                                    this.bitField0_ |= 1;
+                                    this.uid_ = codedInputStream.readUInt32();
                                     break;
-                                }
+                                default:
+                                    if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
+                                        z = true;
+                                        break;
+                                    } else {
+                                        break;
+                                    }
+                            }
+                        } catch (InvalidProtocolBufferException e) {
+                            throw e.setUnfinishedMessage(this);
                         }
-                    } catch (InvalidProtocolBufferException e) {
-                        throw e.setUnfinishedMessage(this);
                     } catch (IOException e2) {
                         throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                     }
@@ -91,24 +93,22 @@ public final class CheckMaskUserReq {
         }
 
         static {
-            a.a();
+            DataReq dataReq = new DataReq();
+            a = dataReq;
+            dataReq.uid_ = 0;
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<DataReq> getParserForType() {
+        public final Parser<DataReq> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasUid() {
+        public final boolean hasUid() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public int getUid() {
+        public final int getUid() {
             return this.uid_;
-        }
-
-        private void a() {
-            this.uid_ = 0;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -122,7 +122,7 @@ public final class CheckMaskUserReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeUInt32(1, this.uid_);
@@ -130,10 +130,13 @@ public final class CheckMaskUserReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeUInt32Size(1, this.uid_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeUInt32Size(1, this.uid_) + 0;
+                }
                 this.memoizedSerializedSize = i;
             }
             return i;
@@ -141,7 +144,7 @@ public final class CheckMaskUserReq {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -186,12 +189,12 @@ public final class CheckMaskUserReq {
         }
 
         public static e newBuilder() {
-            return e.f();
+            return e.c();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public e newBuilderForType() {
+        public final e newBuilderForType() {
             return newBuilder();
         }
 
@@ -201,7 +204,7 @@ public final class CheckMaskUserReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public e toBuilder() {
+        public final e toBuilder() {
             return newBuilder(this);
         }
     }
@@ -210,7 +213,7 @@ public final class CheckMaskUserReq {
     public final class CheckMaskUserIdl extends GeneratedMessageLite implements c {
         public static final int DATA_FIELD_NUMBER = 1;
         public static Parser<CheckMaskUserIdl> PARSER = new a();
-        private static final CheckMaskUserIdl a = new CheckMaskUserIdl(true);
+        private static final CheckMaskUserIdl a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private DataReq data_;
@@ -228,7 +231,7 @@ public final class CheckMaskUserReq {
             this.memoizedSerializedSize = -1;
         }
 
-        private CheckMaskUserIdl(boolean z) {
+        private CheckMaskUserIdl() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -239,7 +242,7 @@ public final class CheckMaskUserReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public CheckMaskUserIdl getDefaultInstanceForType() {
+        public final CheckMaskUserIdl getDefaultInstanceForType() {
             return a;
         }
 
@@ -247,7 +250,7 @@ public final class CheckMaskUserReq {
             e eVar;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
-            a();
+            this.data_ = DataReq.getDefaultInstance();
             boolean z = false;
             while (!z) {
                 try {
@@ -295,24 +298,22 @@ public final class CheckMaskUserReq {
         }
 
         static {
-            a.a();
+            CheckMaskUserIdl checkMaskUserIdl = new CheckMaskUserIdl();
+            a = checkMaskUserIdl;
+            checkMaskUserIdl.data_ = DataReq.getDefaultInstance();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<CheckMaskUserIdl> getParserForType() {
+        public final Parser<CheckMaskUserIdl> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasData() {
+        public final boolean hasData() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public DataReq getData() {
+        public final DataReq getData() {
             return this.data_;
-        }
-
-        private void a() {
-            this.data_ = DataReq.getDefaultInstance();
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -326,7 +327,7 @@ public final class CheckMaskUserReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeMessage(1, this.data_);
@@ -334,10 +335,13 @@ public final class CheckMaskUserReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeMessageSize(1, this.data_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeMessageSize(1, this.data_) + 0;
+                }
                 this.memoizedSerializedSize = i;
             }
             return i;
@@ -345,7 +349,7 @@ public final class CheckMaskUserReq {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -390,12 +394,12 @@ public final class CheckMaskUserReq {
         }
 
         public static b newBuilder() {
-            return b.f();
+            return b.b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public b newBuilderForType() {
+        public final b newBuilderForType() {
             return newBuilder();
         }
 
@@ -405,7 +409,7 @@ public final class CheckMaskUserReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public b toBuilder() {
+        public final b toBuilder() {
             return newBuilder(this);
         }
     }

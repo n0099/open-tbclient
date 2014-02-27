@@ -5,7 +5,7 @@ import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b extends l<Result> {
+public final class b extends l<Result> {
     final /* synthetic */ BdAsyncTask a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,7 +16,7 @@ public class b extends l<Result> {
     }
 
     @Override // java.util.concurrent.FutureTask
-    protected void done() {
+    protected final void done() {
         try {
             this.a.c((BdAsyncTask) get());
         } catch (InterruptedException e) {
@@ -31,7 +31,7 @@ public class b extends l<Result> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.l
-    public void a() {
+    public final void a() {
         this.a.cancel();
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.util;
 import android.location.Address;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aj implements com.baidu.adp.lib.c.d {
+public final class aj implements com.baidu.adp.lib.c.d {
     final /* synthetic */ ai a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ public class aj implements com.baidu.adp.lib.c.d {
     }
 
     @Override // com.baidu.adp.lib.c.d
-    public void a(int i, String str, Address address) {
+    public final void a(int i, Address address) {
         al alVar;
         al alVar2;
         com.baidu.tieba.im.model.am amVar;

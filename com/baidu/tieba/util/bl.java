@@ -1,6 +1,6 @@
 package com.baidu.tieba.util;
 /* loaded from: classes.dex */
-public class bl {
+public final class bl {
     public int a;
     public long b;
     public int c;

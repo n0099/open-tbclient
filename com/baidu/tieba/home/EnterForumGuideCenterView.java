@@ -39,7 +39,7 @@ public class EnterForumGuideCenterView extends RelativeLayout {
         a(context);
     }
 
-    public void a(Context context) {
+    private void a(Context context) {
         ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.enter_forum_guide_center, this);
         this.a = (ImageView) findViewById(R.id.img_bg_center);
         this.b = (TextView) findViewById(R.id.tip_center);
@@ -59,36 +59,29 @@ public class EnterForumGuideCenterView extends RelativeLayout {
         return this.c;
     }
 
-    private boolean b(int i) {
+    private boolean a(int i) {
         if (i == getSkinType()) {
             return false;
         }
-        setSkinType(i);
+        this.c = i;
         return true;
     }
 
-    public void a(int i) {
-        if (b(i)) {
-            bq.a(this, i);
-            if (i == 1) {
-                this.a.setBackgroundResource(R.drawable.pic_go_ba_1);
-                this.b.setTextColor(-8815226);
+    public final void a() {
+        int ae = TiebaApplication.g().ae();
+        if (a(ae)) {
+            bq.a(this, ae);
+            if (ae != 1) {
+                this.a.setBackgroundResource(R.drawable.pic_go_ba);
+                this.b.setTextColor(-5065030);
                 return;
             }
-            this.a.setBackgroundResource(R.drawable.pic_go_ba);
-            this.b.setTextColor(-5065030);
+            this.a.setBackgroundResource(R.drawable.pic_go_ba_1);
+            this.b.setTextColor(-8815226);
         }
     }
 
-    public void a() {
-        a(TiebaApplication.g().al());
-    }
-
-    public void b() {
-        a();
-    }
-
-    public void c() {
+    public final void b() {
         this.c = -1;
         this.a.setBackgroundDrawable(null);
     }

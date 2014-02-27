@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.Im;
 /* loaded from: classes.dex */
 public final class w extends GeneratedMessageLite.Builder<Im.MsgInfo, w> implements x {
@@ -21,19 +22,34 @@ public final class w extends GeneratedMessageLite.Builder<Im.MsgInfo, w> impleme
     private Im.UserInfo k = Im.UserInfo.getDefaultInstance();
     private Im.UserInfo m = Im.UserInfo.getDefaultInstance();
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        Im.MsgInfo buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return Im.MsgInfo.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return Im.MsgInfo.getDefaultInstance();
+    }
+
     private w() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static w h() {
+    public static /* synthetic */ w a() {
         return new w();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: b */
     public w clear() {
         super.clear();
         this.b = 0L;
@@ -64,29 +80,13 @@ public final class w extends GeneratedMessageLite.Builder<Im.MsgInfo, w> impleme
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public w clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
     /* renamed from: c */
-    public Im.MsgInfo getDefaultInstanceForType() {
-        return Im.MsgInfo.getDefaultInstance();
+    public w clone() {
+        return new w().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public Im.MsgInfo build() {
-        Im.MsgInfo buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
     public Im.MsgInfo buildPartial() {
         Im.MsgInfo msgInfo = new Im.MsgInfo(this, (Im.MsgInfo) null);
         int i = this.a;
@@ -142,20 +142,28 @@ public final class w extends GeneratedMessageLite.Builder<Im.MsgInfo, w> impleme
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public w mergeFrom(Im.MsgInfo msgInfo) {
+    public final w mergeFrom(Im.MsgInfo msgInfo) {
         Object obj;
         if (msgInfo != Im.MsgInfo.getDefaultInstance()) {
             if (msgInfo.hasMsgId()) {
-                a(msgInfo.getMsgId());
+                long msgId = msgInfo.getMsgId();
+                this.a |= 1;
+                this.b = msgId;
             }
             if (msgInfo.hasGroupId()) {
-                a(msgInfo.getGroupId());
+                int groupId = msgInfo.getGroupId();
+                this.a |= 2;
+                this.c = groupId;
             }
             if (msgInfo.hasMsgType()) {
-                b(msgInfo.getMsgType());
+                int msgType = msgInfo.getMsgType();
+                this.a |= 4;
+                this.d = msgType;
             }
             if (msgInfo.hasUserId()) {
-                b(msgInfo.getUserId());
+                long userId = msgInfo.getUserId();
+                this.a |= 8;
+                this.e = userId;
             }
             if (msgInfo.hasContent()) {
                 this.a |= 16;
@@ -163,25 +171,47 @@ public final class w extends GeneratedMessageLite.Builder<Im.MsgInfo, w> impleme
                 this.f = obj;
             }
             if (msgInfo.hasStatus()) {
-                c(msgInfo.getStatus());
+                int status = msgInfo.getStatus();
+                this.a |= 32;
+                this.g = status;
             }
             if (msgInfo.hasDuration()) {
-                d(msgInfo.getDuration());
+                int duration = msgInfo.getDuration();
+                this.a |= 64;
+                this.h = duration;
             }
             if (msgInfo.hasCreateTime()) {
-                e(msgInfo.getCreateTime());
+                int createTime = msgInfo.getCreateTime();
+                this.a |= 128;
+                this.i = createTime;
             }
             if (msgInfo.hasRecordId()) {
-                c(msgInfo.getRecordId());
+                long recordId = msgInfo.getRecordId();
+                this.a |= 256;
+                this.j = recordId;
             }
             if (msgInfo.hasUserInfo()) {
-                a(msgInfo.getUserInfo());
+                Im.UserInfo userInfo = msgInfo.getUserInfo();
+                if ((this.a & 512) != 512 || this.k == Im.UserInfo.getDefaultInstance()) {
+                    this.k = userInfo;
+                } else {
+                    this.k = Im.UserInfo.newBuilder(this.k).mergeFrom(userInfo).buildPartial();
+                }
+                this.a |= 512;
             }
             if (msgInfo.hasToUid()) {
-                d(msgInfo.getToUid());
+                long toUid = msgInfo.getToUid();
+                this.a |= 1024;
+                this.l = toUid;
             }
             if (msgInfo.hasToUserInfo()) {
-                b(msgInfo.getToUserInfo());
+                Im.UserInfo toUserInfo = msgInfo.getToUserInfo();
+                if ((this.a & 2048) != 2048 || this.m == Im.UserInfo.getDefaultInstance()) {
+                    this.m = toUserInfo;
+                } else {
+                    this.m = Im.UserInfo.newBuilder(this.m).mergeFrom(toUserInfo).buildPartial();
+                }
+                this.a |= 2048;
             }
         }
         return this;
@@ -228,79 +258,5 @@ public final class w extends GeneratedMessageLite.Builder<Im.MsgInfo, w> impleme
                 throw th;
             }
         }
-    }
-
-    public w a(long j) {
-        this.a |= 1;
-        this.b = j;
-        return this;
-    }
-
-    public w a(int i) {
-        this.a |= 2;
-        this.c = i;
-        return this;
-    }
-
-    public w b(int i) {
-        this.a |= 4;
-        this.d = i;
-        return this;
-    }
-
-    public w b(long j) {
-        this.a |= 8;
-        this.e = j;
-        return this;
-    }
-
-    public w c(int i) {
-        this.a |= 32;
-        this.g = i;
-        return this;
-    }
-
-    public w d(int i) {
-        this.a |= 64;
-        this.h = i;
-        return this;
-    }
-
-    public w e(int i) {
-        this.a |= 128;
-        this.i = i;
-        return this;
-    }
-
-    public w c(long j) {
-        this.a |= 256;
-        this.j = j;
-        return this;
-    }
-
-    public w a(Im.UserInfo userInfo) {
-        if ((this.a & 512) == 512 && this.k != Im.UserInfo.getDefaultInstance()) {
-            this.k = Im.UserInfo.newBuilder(this.k).mergeFrom(userInfo).buildPartial();
-        } else {
-            this.k = userInfo;
-        }
-        this.a |= 512;
-        return this;
-    }
-
-    public w d(long j) {
-        this.a |= 1024;
-        this.l = j;
-        return this;
-    }
-
-    public w b(Im.UserInfo userInfo) {
-        if ((this.a & 2048) == 2048 && this.m != Im.UserInfo.getDefaultInstance()) {
-            this.m = Im.UserInfo.newBuilder(this.m).mergeFrom(userInfo).buildPartial();
-        } else {
-            this.m = userInfo;
-        }
-        this.a |= 2048;
-        return this;
     }
 }

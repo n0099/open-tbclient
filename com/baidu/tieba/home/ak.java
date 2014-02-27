@@ -2,7 +2,7 @@ package com.baidu.tieba.home;
 
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class ak {
+public final class ak {
     private int a;
     private String b;
     private int c;
@@ -12,27 +12,27 @@ public class ak {
     private int g;
     private q h = new q();
 
-    public int a() {
+    public final int a() {
         return this.a;
     }
 
-    public int b() {
+    public final int b() {
         return this.c;
     }
 
-    public int c() {
+    public final int c() {
         return this.f;
     }
 
-    public int d() {
+    public final int d() {
         return this.g;
     }
 
-    public q e() {
+    public final q e() {
         return this.h;
     }
 
-    public void a(JSONObject jSONObject) {
+    public final void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 this.h.a(jSONObject.optJSONObject("error"));
@@ -44,7 +44,7 @@ public class ak {
                 this.f = jSONObject.optInt("sign_day_count");
                 this.g = jSONObject.optInt("cur_score");
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }

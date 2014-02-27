@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class av {
+public final class av {
     private ForumData a;
     private int e;
     private int g;
@@ -18,137 +18,129 @@ public class av {
     private ArrayList<aq> c = new ArrayList<>();
     private int d = 1;
 
-    public aq a() {
+    public final aq a() {
         return this.b;
     }
 
-    public void a(aq aqVar) {
+    public final void a(aq aqVar) {
         this.b = aqVar;
     }
 
-    public void a(int i) {
-        this.h = i;
-    }
-
-    public int b() {
+    public final int b() {
         if (this.h == -1) {
             this.h = this.g;
         }
         return this.h;
     }
 
-    public void a(av avVar, boolean z) {
+    public final void a(av avVar) {
         if (avVar != null) {
-            a(avVar.i());
-            a(avVar.g());
-            a(avVar.h());
-            d(avVar.f());
-            a(avVar.m());
-            c(avVar.e());
-            b(avVar.d());
+            this.i = avVar.i;
+            this.h = avVar.g;
+            this.a = avVar.a;
+            c(avVar.f);
+            this.j = avVar.j;
+            this.e = avVar.e;
+            this.d = avVar.d;
             this.c.size();
-            this.c.addAll(0, avVar.c());
+            this.c.addAll(0, avVar.c);
         }
     }
 
-    public void b(av avVar, boolean z) {
+    public final void a(av avVar, boolean z) {
         if (avVar != null) {
-            a(avVar.i());
-            e(avVar.g());
-            a(avVar.h());
-            d(avVar.f());
-            a(avVar.m());
-            c(avVar.e());
-            b(avVar.d());
+            this.i = avVar.i;
+            this.g = avVar.g;
+            this.a = avVar.a;
+            c(avVar.f);
+            this.j = avVar.j;
+            this.e = avVar.e;
+            this.d = avVar.d;
             int size = this.c.size();
             if (z && size % this.f != 0) {
                 for (int i = 0; i < size % this.f; i++) {
                     this.c.remove(this.c.size() - 1);
                 }
             }
-            this.c.addAll(avVar.c());
+            this.c.addAll(avVar.c);
         }
     }
 
-    public ArrayList<aq> c() {
+    public final ArrayList<aq> c() {
         return this.c;
     }
 
-    public void a(ArrayList<aq> arrayList) {
+    public final void a(ArrayList<aq> arrayList) {
         this.c = arrayList;
     }
 
-    public int d() {
-        return this.d;
-    }
-
-    public void b(int i) {
+    public final void a(int i) {
         this.d = i;
     }
 
-    public int e() {
+    public final int d() {
         return this.e;
     }
 
-    public void c(int i) {
+    public final void b(int i) {
         this.e = i;
     }
 
-    public int f() {
+    public final int e() {
         return this.f;
     }
 
-    public void d(int i) {
+    public final void c(int i) {
         if (i != 0) {
             this.f = i;
         }
     }
 
-    public int g() {
+    public final int f() {
         return this.g;
     }
 
-    public void e(int i) {
+    public final void d(int i) {
         this.g = i;
     }
 
-    public void a(ForumData forumData) {
+    public final void a(ForumData forumData) {
         this.a = forumData;
     }
 
-    public ForumData h() {
+    public final ForumData g() {
         return this.a;
     }
 
-    public void a(AntiData antiData) {
+    public final void a(AntiData antiData) {
         this.i = antiData;
     }
 
-    public AntiData i() {
+    public final AntiData h() {
         return this.i;
     }
 
-    public void a(az azVar) {
+    public final void a(az azVar) {
         this.j = azVar;
     }
 
-    public boolean j() {
-        return (this.j == null || this.b == null || this.j.j() == null || this.j.j().getUserId() == null || this.b.g() == null || this.b.g().getUserId() == null || !this.j.j().getUserId().equals(this.b.g().getUserId())) ? false : true;
+    public final boolean i() {
+        return (this.j == null || this.b == null || this.j.i() == null || this.j.i().getUserId() == null || this.b.g() == null || this.b.g().getUserId() == null || !this.j.i().getUserId().equals(this.b.g().getUserId())) ? false : true;
     }
 
-    public boolean k() {
+    public final boolean j() {
         return this.k;
     }
 
-    public boolean l() {
+    public final boolean k() {
         return this.g < this.d && this.g * this.f < 200;
     }
 
-    public az m() {
+    public final az l() {
         return this.j;
     }
 
-    public void a(String str, Context context) {
+    public final void a(String str, Context context) {
         try {
             JSONObject jSONObject = new JSONObject(str);
             JSONObject optJSONObject = jSONObject.optJSONObject("post");
@@ -158,16 +150,16 @@ public class av {
             JSONObject optJSONObject4 = jSONObject.optJSONObject("anti");
             AntiData antiData = new AntiData();
             antiData.parserJson(optJSONObject4);
-            a(antiData);
+            this.i = antiData;
             az azVar = new az();
             azVar.a(optJSONObject3);
-            a(azVar);
+            this.j = azVar;
             ForumData forumData = new ForumData();
             forumData.parserJson(optJSONObject2);
-            a(forumData);
+            this.a = forumData;
             aq aqVar = new aq();
             aqVar.a(optJSONObject, context);
-            a(aqVar);
+            this.b = aqVar;
             int length = optJSONArray.length();
             ArrayList<aq> arrayList = new ArrayList<>();
             for (int i = 0; i < length; i++) {
@@ -176,22 +168,22 @@ public class av {
                 aqVar2.a(jSONObject2, context);
                 arrayList.add(aqVar2);
             }
-            a(arrayList);
+            this.c = arrayList;
             JSONObject optJSONObject5 = jSONObject.optJSONObject("page");
             int optInt = optJSONObject5.optInt("total_page");
             int optInt2 = optJSONObject5.optInt("page_size", 10);
             int optInt3 = optJSONObject5.optInt("current_page");
             int optInt4 = optJSONObject5.optInt("total_count");
-            e(optInt3);
-            d(optInt2);
-            c(optInt4);
-            b(optInt);
+            this.g = optInt3;
+            c(optInt2);
+            this.e = optInt4;
+            this.d = optInt;
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("SubPbModel", "parseJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.util.e.b("SubPbModel", "parseJson", "error = " + e.getMessage());
         }
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.k = z;
     }
 }

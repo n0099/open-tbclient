@@ -3,7 +3,7 @@ package com.baidu.adp.lib.a;
 import java.util.HashMap;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public class d {
+public final class d {
     private static d a = null;
     private HashMap<String, c> b;
 
@@ -23,19 +23,19 @@ public class d {
         return dVar;
     }
 
-    public void a(a aVar) {
+    public final void a(a aVar) {
         if (aVar != null && !this.b.containsKey(aVar.a())) {
             this.b.put(aVar.a(), new c(aVar));
         }
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         Iterator<c> it = this.b.values().iterator();
         while (it.hasNext() && !it.next().a(str)) {
         }
     }
 
-    public boolean a(String str, int i) {
+    public final boolean a(String str, int i) {
         c cVar;
         if (i >= 0 && (cVar = this.b.get(str)) != null) {
             return cVar.a(i);
@@ -43,17 +43,17 @@ public class d {
         return false;
     }
 
-    public int b(String str) {
+    public final int b(String str) {
         c cVar = this.b.get(str);
         if (cVar != null) {
-            return cVar.b();
+            return cVar.a();
         }
         return -1;
     }
 
-    public void b() {
+    public final void b() {
         for (c cVar : this.b.values()) {
-            cVar.c();
+            cVar.b();
         }
     }
 }

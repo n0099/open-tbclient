@@ -4,7 +4,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import com.baidu.tieba.view.HeadImageView;
 /* loaded from: classes.dex */
-class n {
+final class n {
     HeadImageView a;
     TextView b;
     StringBuffer c;
@@ -21,7 +21,7 @@ class n {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ n(l lVar, n nVar) {
+    public /* synthetic */ n(l lVar, byte b) {
         this(lVar);
     }
 }

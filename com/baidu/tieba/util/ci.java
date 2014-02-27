@@ -9,7 +9,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ci implements cj {
+public final class ci implements cj {
     private final /* synthetic */ int a;
     private final /* synthetic */ boolean b;
 
@@ -20,7 +20,7 @@ public class ci implements cj {
     }
 
     @Override // com.baidu.tieba.util.cj
-    public boolean a(View view) {
+    public final boolean a(View view) {
         int b;
         int b2;
         int b3;

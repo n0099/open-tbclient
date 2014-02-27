@@ -5,7 +5,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-class ba {
+final class ba {
     TbImageView a;
     TextView b;
     FrameLayout c;
@@ -26,7 +26,7 @@ class ba {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ba(aw awVar, ba baVar) {
+    public /* synthetic */ ba(aw awVar, byte b) {
         this(awVar);
     }
 }

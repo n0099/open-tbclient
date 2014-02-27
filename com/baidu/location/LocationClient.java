@@ -203,7 +203,7 @@ public final class LocationClient {
                 if (LocationClient.this.k == null || LocationClient.this.i == null) {
                     return;
                 }
-                if (LocationClient.this.C == null || LocationClient.this.C.size() < 1) {
+                if (LocationClient.this.C == null || LocationClient.this.C.size() <= 0) {
                     return;
                 }
                 j.a(LocationClient.f28for, "request location ...");
@@ -509,72 +509,72 @@ public final class LocationClient {
         }
     }
 
-    public BDLocation getLastKnownLocation() {
+    public final BDLocation getLastKnownLocation() {
         return this.x;
     }
 
-    public LocationClientOption getLocOption() {
+    public final LocationClientOption getLocOption() {
         return this.l;
     }
 
-    public String getVersion() {
+    public final String getVersion() {
         return this.e;
     }
 
-    public boolean isStarted() {
+    public final boolean isStarted() {
         return this.q;
     }
 
-    public void onRegisterNotify(Message message) {
+    public final void onRegisterNotify(Message message) {
         if (message == null || message.obj == null) {
             return;
         }
         this.f37else.m232if((BDNotifyListener) message.obj);
     }
 
-    public void onRegisterNotifyLocationListener(Message message) {
+    public final void onRegisterNotifyLocationListener(Message message) {
         if (message == null || message.obj == null) {
             return;
         }
         this.c = (BDLocationListener) message.obj;
     }
 
-    public void onRemoveNotifyEvent(Message message) {
+    public final void onRemoveNotifyEvent(Message message) {
         if (message == null || message.obj == null) {
             return;
         }
         this.f37else.m231do((BDNotifyListener) message.obj);
     }
 
-    public void registerLocationListener(BDLocationListener bDLocationListener) {
+    public final void registerLocationListener(BDLocationListener bDLocationListener) {
         Message obtainMessage = this.f36do.obtainMessage(5);
         obtainMessage.obj = bDLocationListener;
         obtainMessage.sendToTarget();
     }
 
-    public void registerNotify(BDNotifyListener bDNotifyListener) {
+    public final void registerNotify(BDNotifyListener bDNotifyListener) {
         Message obtainMessage = this.f36do.obtainMessage(9);
         obtainMessage.obj = bDNotifyListener;
         obtainMessage.sendToTarget();
     }
 
-    public void registerNotifyLocationListener(BDLocationListener bDLocationListener) {
+    public final void registerNotifyLocationListener(BDLocationListener bDLocationListener) {
         Message obtainMessage = this.f36do.obtainMessage(8);
         obtainMessage.obj = bDLocationListener;
         obtainMessage.sendToTarget();
     }
 
-    public void removeNotifyEvent(BDNotifyListener bDNotifyListener) {
+    public final void removeNotifyEvent(BDNotifyListener bDNotifyListener) {
         Message obtainMessage = this.f36do.obtainMessage(10);
         obtainMessage.obj = bDNotifyListener;
         obtainMessage.sendToTarget();
     }
 
-    public int requestLocation() {
+    public final int requestLocation() {
         if (this.k == null || this.i == null) {
             return 1;
         }
-        if (this.C == null || this.C.size() < 1) {
+        if (this.C == null || this.C.size() <= 0) {
             return 2;
         }
         if (System.currentTimeMillis() - this.r < 1000) {
@@ -585,32 +585,32 @@ public final class LocationClient {
         return 0;
     }
 
-    public void requestNotifyLocation() {
+    public final void requestNotifyLocation() {
         this.f36do.obtainMessage(11).sendToTarget();
     }
 
-    public int requestOfflineLocation() {
+    public final int requestOfflineLocation() {
         if (this.k == null || this.i == null) {
             return 1;
         }
-        if (this.C == null || this.C.size() < 1) {
+        if (this.C == null || this.C.size() <= 0) {
             return 2;
         }
         this.f36do.obtainMessage(12).sendToTarget();
         return 0;
     }
 
-    public int requestPoi() {
+    public final int requestPoi() {
         if (this.k == null || this.i == null) {
             return 1;
         }
-        if (this.C == null || this.C.size() < 1) {
+        if (this.C == null || this.C.size() <= 0) {
             return 2;
         }
         if (System.currentTimeMillis() - this.f35char < 6000) {
             return 6;
         }
-        if (this.l.a >= 1) {
+        if (this.l.a > 0) {
             j.a(f28for, "request location ...");
             this.f36do.obtainMessage(7).sendToTarget();
             return 0;
@@ -618,17 +618,17 @@ public final class LocationClient {
         return 7;
     }
 
-    public void setForBaiduMap(boolean z) {
+    public final void setForBaiduMap(boolean z) {
         this.f39long = Boolean.valueOf(z);
         j.f205try = z;
     }
 
-    public void setForPreImport(boolean z) {
+    public final void setForPreImport(boolean z) {
         this.f34case = Boolean.valueOf(z);
         j.v = z;
     }
 
-    public void setLocOption(LocationClientOption locationClientOption) {
+    public final void setLocOption(LocationClientOption locationClientOption) {
         if (locationClientOption == null) {
             locationClientOption = new LocationClientOption();
         }
@@ -637,7 +637,7 @@ public final class LocationClient {
         obtainMessage.sendToTarget();
     }
 
-    public void setTestUrl(String str) {
+    public final void setTestUrl(String str) {
         if (str == null) {
             this.u = "http://220.181.3.9:8091/loc_addr_all.php";
         } else {
@@ -645,21 +645,21 @@ public final class LocationClient {
         }
     }
 
-    public void start() {
+    public final void start() {
         this.f36do.obtainMessage(1).sendToTarget();
     }
 
-    public void stop() {
+    public final void stop() {
         this.f36do.obtainMessage(2).sendToTarget();
     }
 
-    public void unRegisterLocationListener(BDLocationListener bDLocationListener) {
+    public final void unRegisterLocationListener(BDLocationListener bDLocationListener) {
         Message obtainMessage = this.f36do.obtainMessage(6);
         obtainMessage.obj = bDLocationListener;
         obtainMessage.sendToTarget();
     }
 
-    public boolean updateLocation(Location location) {
+    public final boolean updateLocation(Location location) {
         if (this.k == null || this.i == null || location == null) {
             return false;
         }

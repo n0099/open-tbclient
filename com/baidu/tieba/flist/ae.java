@@ -3,9 +3,8 @@ package com.baidu.tieba.flist;
 import android.view.View;
 import android.widget.LinearLayout;
 import com.baidu.adp.widget.ListView.BdListView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ae implements View.OnClickListener {
+final class ae implements View.OnClickListener {
     final /* synthetic */ ForumRankActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +13,7 @@ public class ae implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         BdListView bdListView;
         LinearLayout linearLayout;
         r rVar;

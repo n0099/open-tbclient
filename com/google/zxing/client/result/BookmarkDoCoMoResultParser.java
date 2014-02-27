@@ -5,7 +5,7 @@ import com.google.zxing.Result;
 public final class BookmarkDoCoMoResultParser extends AbstractDoCoMoResultParser {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.zxing.client.result.ResultParser
-    public URIParsedResult parse(Result result) {
+    public final URIParsedResult parse(Result result) {
         String text = result.getText();
         if (text.startsWith("MEBKM:")) {
             String matchSingleDoCoMoPrefixedField = matchSingleDoCoMoPrefixedField("TITLE:", text, true);

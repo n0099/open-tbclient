@@ -9,7 +9,7 @@ import android.widget.ProgressBar;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class b extends com.baidu.adp.a.e {
+public final class b extends com.baidu.adp.a.e {
     private View a;
     private NavigationBar c;
     private ImageView d;
@@ -30,38 +30,6 @@ public class b extends com.baidu.adp.a.e {
         this.h = null;
         this.i = null;
         this.i = addGroupActivity;
-        h();
-    }
-
-    public View a() {
-        return this.f;
-    }
-
-    public View e() {
-        return this.h;
-    }
-
-    public View f() {
-        return this.d;
-    }
-
-    public void g() {
-        if (this.e != null) {
-            this.e.setText("");
-        }
-    }
-
-    public void a(boolean z) {
-        this.g.setVisibility(z ? 0 : 8);
-    }
-
-    public void a(int i) {
-        this.i.getLayoutMode().a(i == 1);
-        this.i.getLayoutMode().a(this.a);
-        this.c.c(i);
-    }
-
-    private void h() {
         this.i.setContentView(R.layout.im_add_group_activity);
         this.a = this.i.findViewById(R.id.addgroup_rootlayout);
         this.c = (NavigationBar) this.i.findViewById(R.id.addgroup_navigationbar);
@@ -77,5 +45,33 @@ public class b extends com.baidu.adp.a.e {
         this.d.setOnClickListener(this.i);
         this.f.setOnClickListener(this.i);
         this.h.setOnClickListener(this.i);
+    }
+
+    public final View a() {
+        return this.f;
+    }
+
+    public final View d() {
+        return this.h;
+    }
+
+    public final View e() {
+        return this.d;
+    }
+
+    public final void f() {
+        if (this.e != null) {
+            this.e.setText("");
+        }
+    }
+
+    public final void a(boolean z) {
+        this.g.setVisibility(z ? 0 : 8);
+    }
+
+    public final void a(int i) {
+        this.i.getLayoutMode().a(i == 1);
+        this.i.getLayoutMode().a(this.a);
+        this.c.b(i);
     }
 }

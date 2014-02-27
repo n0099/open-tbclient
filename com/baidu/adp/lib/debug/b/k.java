@@ -3,7 +3,7 @@ package com.baidu.adp.lib.debug.b;
 import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
-class k implements View.OnTouchListener {
+final class k implements View.OnTouchListener {
     final /* synthetic */ j a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ class k implements View.OnTouchListener {
     }
 
     @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
+    public final boolean onTouch(View view, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
             view.setBackgroundResource(com.baidu.adp.c.adp_debug_refresh_press);
             com.baidu.adp.lib.debug.b.b(0);

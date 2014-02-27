@@ -3,7 +3,7 @@ package com.baidu.adp.lib.network.a;
 import android.os.Handler;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
-public class h extends com.baidu.adp.lib.webSocket.d {
+public final class h extends com.baidu.adp.lib.webSocket.d {
     private static Handler a = new Handler();
     private com.baidu.adp.framework.e.e b;
     private boolean c;
@@ -11,11 +11,11 @@ public class h extends com.baidu.adp.lib.webSocket.d {
     private int e;
     private boolean f;
     private e h;
+    private int l;
     private Runnable g = null;
     private boolean i = true;
     private int j = 0;
     private int k = 0;
-    private int l = 3;
 
     public h(com.baidu.adp.framework.message.g gVar, boolean z, int i, boolean z2, e eVar, com.baidu.adp.framework.e.e eVar2, int i2) {
         this.b = null;
@@ -24,6 +24,7 @@ public class h extends com.baidu.adp.lib.webSocket.d {
         this.e = 0;
         this.f = false;
         this.h = null;
+        this.l = 3;
         if (gVar == null) {
             throw new InvalidParameterException("SenderData msg null");
         }
@@ -33,110 +34,94 @@ public class h extends com.baidu.adp.lib.webSocket.d {
         this.c = z;
         this.b = eVar2;
         this.h = eVar;
-        b(i2);
+        this.l = i2;
     }
 
-    private void c(int i) {
-        if (this.h != null && this.i) {
-            this.h.a(i, this);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(h hVar) {
+        if (hVar.h == null || !hVar.i) {
+            return;
         }
+        hVar.h.a(hVar);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void m() {
-        if (this.h != null && this.i) {
-            this.h.a(this);
-        }
-    }
-
-    private void n() {
-        if (this.h != null && this.i) {
-            this.h.b(this);
-        }
-    }
-
-    private void o() {
-        if (this.h != null && this.i) {
-            this.h.c(this);
-        }
-    }
-
-    private Runnable p() {
+    private Runnable l() {
         if (this.g == null) {
             this.g = new i(this);
         }
         return this.g;
     }
 
-    public void a() {
-        a.removeCallbacks(p());
-    }
-
-    public void b() {
-        a();
+    public final void a() {
+        a.removeCallbacks(l());
         this.i = false;
     }
 
-    @Override // com.baidu.adp.lib.webSocket.ap
-    public void c() {
-        a.removeCallbacks(p());
+    @Override // com.baidu.adp.lib.webSocket.ao
+    public final void b() {
+        a.removeCallbacks(l());
         if (this.b.a() > 0) {
-            a.postDelayed(p(), this.b.a());
+            a.postDelayed(l(), this.b.a());
         } else {
-            a.postDelayed(p(), j.a().d());
+            a.postDelayed(l(), j.a().c());
         }
-        o();
+        if (this.h == null || !this.i) {
+            return;
+        }
+        this.h.b(this);
     }
 
-    @Override // com.baidu.adp.lib.webSocket.ap
-    public void a(int i) {
-        a.removeCallbacks(p());
-        c(i);
+    @Override // com.baidu.adp.lib.webSocket.ao
+    public final void a(int i) {
+        a.removeCallbacks(l());
+        if (this.h == null || !this.i) {
+            return;
+        }
+        this.h.a(i, this);
     }
 
-    @Override // com.baidu.adp.lib.webSocket.ap
-    public void d() {
+    @Override // com.baidu.adp.lib.webSocket.ao
+    public final void c() {
         if (!this.c) {
-            a.removeCallbacks(p());
+            a.removeCallbacks(l());
         }
-        n();
+        if (this.h == null || !this.i) {
+            return;
+        }
+        this.h.a();
     }
 
-    public boolean e() {
+    public final boolean d() {
         return this.c;
     }
 
-    public int f() {
+    public final int e() {
         return this.e;
     }
 
-    public com.baidu.adp.framework.message.g g() {
+    public final com.baidu.adp.framework.message.g f() {
         return this.d;
     }
 
     @Override // com.baidu.adp.lib.webSocket.d
-    protected byte[] h() {
+    protected final byte[] g() {
         if (this.d == null) {
             return null;
         }
         return this.d.a();
     }
 
-    public int i() {
+    public final int h() {
         return this.j;
     }
 
-    public int j() {
+    public final int i() {
         int i = this.j + 1;
         this.j = i;
         return i;
     }
 
-    public int k() {
+    public final int j() {
         return this.l;
-    }
-
-    public void b(int i) {
-        this.l = i;
     }
 }

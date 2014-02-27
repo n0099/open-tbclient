@@ -5,11 +5,9 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import protobuf.ClearClientInfo.ClearClientInfoReq;
 /* loaded from: classes.dex */
-class a extends AbstractParser<ClearClientInfoReq.ClearClientInfoReqIdl> {
-    /* JADX DEBUG: Method merged with bridge method */
+final class a extends AbstractParser<ClearClientInfoReq.ClearClientInfoReqIdl> {
     @Override // com.google.protobuf.Parser
-    /* renamed from: a */
-    public ClearClientInfoReq.ClearClientInfoReqIdl parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
+    public final /* synthetic */ Object parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
         return new ClearClientInfoReq.ClearClientInfoReqIdl(codedInputStream, extensionRegistryLite, null);
     }
 }

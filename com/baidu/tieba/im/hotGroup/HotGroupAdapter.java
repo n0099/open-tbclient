@@ -22,7 +22,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
-public class HotGroupAdapter extends BaseAdapter {
+public final class HotGroupAdapter extends BaseAdapter {
     private HotGroupActivity a;
     private i b;
     private List<GroupInfoData> c = new ArrayList();
@@ -49,30 +49,36 @@ public class HotGroupAdapter extends BaseAdapter {
     public HotGroupAdapter(HotGroupActivity hotGroupActivity) {
         this.a = hotGroupActivity;
         this.b = new i(this.a);
-        this.b.d(true);
+        this.b.a(true);
     }
 
-    public i a() {
+    public final i a() {
         return this.b;
     }
 
-    public void a(List<GroupInfoData> list) {
+    public final void a(List<GroupInfoData> list) {
         this.c.addAll(list);
-        c();
+        HashSet hashSet = new HashSet();
+        Iterator<GroupInfoData> it = this.c.iterator();
+        while (it.hasNext()) {
+            if (!hashSet.add(Integer.valueOf(it.next().getGroupId()))) {
+                it.remove();
+            }
+        }
     }
 
-    public void b() {
+    public final void b() {
         if (this.c != null) {
             this.c.clear();
         }
     }
 
-    public void a(BOTTOM_TYPE bottom_type) {
+    public final void a(BOTTOM_TYPE bottom_type) {
         this.d = bottom_type;
     }
 
     @Override // android.widget.Adapter
-    public int getCount() {
+    public final int getCount() {
         if (this.c == null) {
             return 0;
         }
@@ -84,23 +90,23 @@ public class HotGroupAdapter extends BaseAdapter {
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
+    public final int getViewTypeCount() {
         return 2;
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.e = z;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
+    public final int getItemViewType(int i) {
         return getItemId(i) >= 0 ? 0 : 1;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: a */
-    public GroupInfoData getItem(int i) {
+    public final GroupInfoData getItem(int i) {
         int itemId = (int) getItemId(i);
         if (itemId < 0 || itemId >= this.c.size()) {
             return null;
@@ -109,7 +115,7 @@ public class HotGroupAdapter extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    public final long getItemId(int i) {
         if (i == getCount() - 1 && this.e) {
             i = -2;
         }
@@ -117,7 +123,7 @@ public class HotGroupAdapter extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public final View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null || view.getTag() == null || !(view.getTag() instanceof a)) {
             view = LayoutInflater.from(this.a).inflate(R.layout.hot_group_item_view, viewGroup, false);
@@ -183,7 +189,7 @@ public class HotGroupAdapter extends BaseAdapter {
                 }
                 a(aVar.o, item.getGrade());
             }
-            this.a.a().a(TiebaApplication.g().al() == 1);
+            this.a.a().a(TiebaApplication.g().ae() == 1);
             this.a.a().a(view);
             if (item != null && item.isMemGroup()) {
                 bq.a(aVar.i, R.color.im_group_vip_text, 1);
@@ -195,7 +201,7 @@ public class HotGroupAdapter extends BaseAdapter {
         return view;
     }
 
-    private void a(ImageView[] imageViewArr, int i) {
+    private static void a(ImageView[] imageViewArr, int i) {
         int i2 = i < 0 ? 0 : i;
         if (i2 > 3) {
             i2 = 3;
@@ -205,16 +211,6 @@ public class HotGroupAdapter extends BaseAdapter {
                 imageViewArr[i3].setVisibility(0);
             } else {
                 imageViewArr[i3].setVisibility(8);
-            }
-        }
-    }
-
-    private void c() {
-        HashSet hashSet = new HashSet();
-        Iterator<GroupInfoData> it = this.c.iterator();
-        while (it.hasNext()) {
-            if (!hashSet.add(Integer.valueOf(it.next().getGroupId()))) {
-                it.remove();
             }
         }
     }

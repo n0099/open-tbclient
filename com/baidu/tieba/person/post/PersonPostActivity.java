@@ -33,7 +33,7 @@ public class PersonPostActivity extends com.baidu.tieba.k implements View.OnClic
         this.d = getIntent().getStringExtra("key_uid");
         this.g = getIntent().getIntExtra("key_sex", 0);
         this.d = this.d == null ? "" : this.d;
-        if (this.d.equals(TiebaApplication.A())) {
+        if (this.d.equals(TiebaApplication.v())) {
             this.e = getString(R.string.me);
             this.h = true;
         } else {
@@ -69,15 +69,11 @@ public class PersonPostActivity extends com.baidu.tieba.k implements View.OnClic
         }
     }
 
-    public String e() {
+    public final String e() {
         return this.d;
     }
 
-    public String f() {
-        return this.e;
-    }
-
-    public String g() {
+    public final String f() {
         return this.f;
     }
 
@@ -88,7 +84,7 @@ public class PersonPostActivity extends com.baidu.tieba.k implements View.OnClic
     }
 
     @Override // com.baidu.tieba.k
-    protected void b(int i) {
+    protected final void b(int i) {
         this.i.a(i);
     }
 
@@ -105,19 +101,19 @@ public class PersonPostActivity extends com.baidu.tieba.k implements View.OnClic
         }
     }
 
-    public String h() {
-        return this.h ? getString(R.string.person_post_lv_empty_host) : String.format(getString(R.string.person_post_lv_empty_guest), f());
+    public final String g() {
+        return this.h ? getString(R.string.person_post_lv_empty_host) : String.format(getString(R.string.person_post_lv_empty_guest), this.e);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.reply /* 2131100874 */:
+            case R.id.reply /* 2131100870 */:
                 cb.a(this, this.h ? "pp_my_reply" : "pp_his_reply", "click", 1, new Object[0]);
                 d(2);
                 this.i.b.setCurrentItem(1);
                 return;
-            case R.id.thread /* 2131101134 */:
+            case R.id.thread /* 2131101127 */:
                 cb.a(this, this.h ? "pp_my_thread" : "pp_his_thread", "click", 1, new Object[0]);
                 d(1);
                 this.i.b.setCurrentItem(0);

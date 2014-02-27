@@ -10,7 +10,7 @@ import java.security.InvalidParameterException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
-public class TbFaceManager {
+public final class TbFaceManager {
     private static TbFaceManager a = null;
     private Context b = null;
     private b c = null;
@@ -32,7 +32,7 @@ public class TbFaceManager {
     private TbFaceManager() {
     }
 
-    public void a(Context context, b bVar) {
+    public final void a(Context context, b bVar) {
         if (context == null || bVar == null) {
             throw new InvalidParameterException("TbFaceManager initial error");
         }
@@ -40,39 +40,44 @@ public class TbFaceManager {
         this.c = bVar;
     }
 
-    public com.baidu.adp.widget.ImageView.b a(String str) {
+    public final com.baidu.adp.widget.ImageView.b a(String str) {
         return a(b(str), str);
     }
 
     private com.baidu.adp.widget.ImageView.b a(int i, String str) {
-        Bitmap a2;
         com.baidu.adp.widget.ImageView.b c = e.a().c(str);
-        if (c == null && (a2 = com.baidu.adp.lib.util.b.a().a(this.b, i)) != null) {
-            com.baidu.adp.widget.ImageView.b bVar = new com.baidu.adp.widget.ImageView.b(a2, false, str);
-            e.a().b(str, bVar);
-            return bVar;
+        if (c == null) {
+            com.baidu.adp.lib.util.a.a();
+            Bitmap a2 = com.baidu.adp.lib.util.a.a(this.b, i);
+            if (a2 != null) {
+                com.baidu.adp.widget.ImageView.b bVar = new com.baidu.adp.widget.ImageView.b(a2, false, str);
+                e.a().c(str, bVar);
+                return bVar;
+            }
+            return c;
         }
         return c;
     }
 
-    public int b(String str) {
+    public final int b(String str) {
         return this.c.a(str);
     }
 
-    public c c(String str) {
-        com.baidu.adp.widget.ImageView.b a2;
-        c a3 = this.c.a(this.b, str);
-        if (a3 == null && (a2 = a(str)) != null) {
+    public final c c(String str) {
+        b bVar = this.c;
+        Context context = this.b;
+        com.baidu.adp.widget.ImageView.b a2 = a(str);
+        if (a2 != null) {
             return new c(a2.c(), a2.d());
         }
-        return a3;
+        return null;
     }
 
-    public String d(String str) {
+    public final String d(String str) {
         return this.c.c(str);
     }
 
-    public SpannableString a(Context context, String str) {
+    public final SpannableString e(String str) {
         com.baidu.adp.widget.ImageView.b a2;
         if (str == null) {
             return null;
@@ -93,7 +98,7 @@ public class TbFaceManager {
         return spannableString;
     }
 
-    public SpannableString a(Context context, String str, a aVar) {
+    public final SpannableString a(String str, a aVar) {
         ImageSpan a2;
         if (str == null) {
             return null;

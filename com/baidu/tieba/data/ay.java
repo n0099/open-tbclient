@@ -2,32 +2,29 @@ package com.baidu.tieba.data;
 
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class ay {
+public final class ay {
     private int a = 0;
     private String b = null;
 
-    public int a() {
+    public final int a() {
         return this.a;
     }
 
-    public String b() {
+    public final String b() {
         return this.b;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         try {
-            a(new JSONObject(str).optJSONObject("error"));
-        } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.toString());
-        }
-    }
-
-    public void a(JSONObject jSONObject) {
-        try {
-            this.a = jSONObject.optInt("errno");
-            this.b = jSONObject.optString("usermsg");
-        } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.toString());
+            JSONObject optJSONObject = new JSONObject(str).optJSONObject("error");
+            try {
+                this.a = optJSONObject.optInt("errno");
+                this.b = optJSONObject.optString("usermsg");
+            } catch (Exception e) {
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "parserJson", e.toString());
+            }
+        } catch (Exception e2) {
+            com.baidu.adp.lib.util.e.b(getClass().getName(), "parserJson", e2.toString());
         }
     }
 }

@@ -16,13 +16,13 @@ public final class f implements Camera.PreviewCallback {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(Handler handler, int i) {
+    public final void a(Handler handler, int i) {
         this.b = handler;
         this.c = i;
     }
 
     @Override // android.hardware.Camera.PreviewCallback
-    public void onPreviewFrame(byte[] bArr, Camera camera) {
+    public final void onPreviewFrame(byte[] bArr, Camera camera) {
         Point a = this.a.a();
         Handler handler = this.b;
         if (a != null && handler != null) {
@@ -30,6 +30,6 @@ public final class f implements Camera.PreviewCallback {
             this.b = null;
             return;
         }
-        com.baidu.adp.lib.util.f.e(getClass().getName(), "onPreviewFrame", "Got preview callback, but no handler or resolution available");
+        com.baidu.adp.lib.util.e.e(getClass().getName(), "onPreviewFrame", "Got preview callback, but no handler or resolution available");
     }
 }

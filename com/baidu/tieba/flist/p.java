@@ -7,9 +7,81 @@ import com.baidu.tieba.flist.ForumListModel;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p extends BdAsyncTask<Void, Void, ForumListModel> {
+public final class p extends BdAsyncTask<Void, Void, ForumListModel> {
     boolean a;
     final /* synthetic */ ForumListActivity b;
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ ForumListModel a(Void... voidArr) {
+        return d();
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ void a(ForumListModel forumListModel) {
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        ForumListModel.RequestParams requestParams;
+        r rVar;
+        r rVar2;
+        int i5;
+        int i6;
+        int i7;
+        ForumListModel forumListModel2 = forumListModel;
+        if (forumListModel2 == null || forumListModel2.recommend_list_right == null) {
+            this.b.showToast(this.b.getString(R.string.neterror));
+            if (this.a) {
+                this.b.c.p.setText(this.b.getString(R.string.flist_expand_list));
+                ImageView imageView = this.b.c.q;
+                i4 = this.b.l;
+                imageView.setImageResource(i4);
+                requestParams = this.b.A;
+                requestParams.rn = 200;
+                this.b.o = 200;
+            } else {
+                i = this.b.o;
+                if (i == 200) {
+                    this.b.c.p.setText(this.b.getString(R.string.flist_expand_list));
+                    ImageView imageView2 = this.b.c.q;
+                    i3 = this.b.l;
+                    imageView2.setImageResource(i3);
+                } else {
+                    this.b.c.p.setText(this.b.getString(R.string.flist_collapse_list));
+                    ImageView imageView3 = this.b.c.q;
+                    i2 = this.b.m;
+                    imageView3.setImageResource(i2);
+                }
+            }
+        } else {
+            int min = Math.min(forumListModel2.recommend_list_right.forum_list.length, this.b.b.forum_list.length);
+            System.arraycopy(forumListModel2.recommend_list_right.forum_list, 0, this.b.b.forum_list, 0, min);
+            rVar = this.b.E;
+            rVar.a(min);
+            rVar2 = this.b.E;
+            rVar2.a(this.b.b.forum_list);
+            i5 = this.b.o;
+            if (i5 == 200) {
+                this.b.c.p.setText(this.b.getString(R.string.flist_expand_list));
+                ImageView imageView4 = this.b.c.q;
+                i7 = this.b.l;
+                imageView4.setImageResource(i7);
+            } else {
+                this.b.c.p.setText(this.b.getString(R.string.flist_collapse_list));
+                ImageView imageView5 = this.b.c.q;
+                i6 = this.b.m;
+                imageView5.setImageResource(i6);
+                this.b.C = true;
+            }
+        }
+        this.b.c.o.setEnabled(true);
+        this.b.c.a();
+    }
 
     private p(ForumListActivity forumListActivity) {
         this.b = forumListActivity;
@@ -17,25 +89,22 @@ public class p extends BdAsyncTask<Void, Void, ForumListModel> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ p(ForumListActivity forumListActivity, p pVar) {
+    public /* synthetic */ p(ForumListActivity forumListActivity, byte b) {
         this(forumListActivity);
     }
 
-    public void a(boolean z) {
-        this.a = z;
+    public final void a(boolean z) {
+        this.a = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void b() {
+    public final void b() {
         this.b.c.o.setEnabled(false);
         this.b.c.p.setText(this.b.getString(R.string.flist_loading));
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public ForumListModel a(Void... voidArr) {
+    private ForumListModel d() {
         ForumListModel.RequestParams requestParams;
         ForumListModel.RequestParams requestParams2;
         ForumListModel.RequestParams requestParams3;
@@ -55,68 +124,5 @@ public class p extends BdAsyncTask<Void, Void, ForumListModel> {
         } catch (JsonParseException e) {
             return null;
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(ForumListModel forumListModel) {
-        int i;
-        int i2;
-        int i3;
-        int i4;
-        ForumListModel.RequestParams requestParams;
-        r rVar;
-        r rVar2;
-        int i5;
-        int i6;
-        int i7;
-        if (forumListModel != null && forumListModel.recommend_list_right != null) {
-            int min = Math.min(forumListModel.recommend_list_right.forum_list.length, this.b.b.forum_list.length);
-            System.arraycopy(forumListModel.recommend_list_right.forum_list, 0, this.b.b.forum_list, 0, min);
-            rVar = this.b.E;
-            rVar.a(min);
-            rVar2 = this.b.E;
-            rVar2.a(this.b.b.forum_list);
-            i5 = this.b.o;
-            if (i5 == 200) {
-                this.b.c.p.setText(this.b.getString(R.string.flist_expand_list));
-                ImageView imageView = this.b.c.q;
-                i7 = this.b.l;
-                imageView.setImageResource(i7);
-            } else {
-                this.b.c.p.setText(this.b.getString(R.string.flist_collapse_list));
-                ImageView imageView2 = this.b.c.q;
-                i6 = this.b.m;
-                imageView2.setImageResource(i6);
-                this.b.C = true;
-            }
-        } else {
-            this.b.showToast(this.b.getString(R.string.neterror));
-            if (!this.a) {
-                i = this.b.o;
-                if (i == 200) {
-                    this.b.c.p.setText(this.b.getString(R.string.flist_expand_list));
-                    ImageView imageView3 = this.b.c.q;
-                    i3 = this.b.l;
-                    imageView3.setImageResource(i3);
-                } else {
-                    this.b.c.p.setText(this.b.getString(R.string.flist_collapse_list));
-                    ImageView imageView4 = this.b.c.q;
-                    i2 = this.b.m;
-                    imageView4.setImageResource(i2);
-                }
-            } else {
-                this.b.c.p.setText(this.b.getString(R.string.flist_expand_list));
-                ImageView imageView5 = this.b.c.q;
-                i4 = this.b.l;
-                imageView5.setImageResource(i4);
-                requestParams = this.b.A;
-                requestParams.rn = 200;
-                this.b.o = 200;
-            }
-        }
-        this.b.c.o.setEnabled(true);
-        this.b.c.c();
     }
 }

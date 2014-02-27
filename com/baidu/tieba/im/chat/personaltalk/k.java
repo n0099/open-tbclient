@@ -4,7 +4,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
-class k extends BdAsyncTask<Void, Void, Void> {
+final class k extends BdAsyncTask<Void, Void, Void> {
     final /* synthetic */ PersonalTalkSettingActivity a;
     private final /* synthetic */ BdSwitchView.SwitchState b;
 
@@ -14,25 +14,26 @@ class k extends BdAsyncTask<Void, Void, Void> {
         this.b = switchState;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void a(Void... voidArr) {
+    public final /* synthetic */ Void a(Void... voidArr) {
         long j;
         long j2;
         long j3;
         if (this.b == BdSwitchView.SwitchState.OFF) {
-            String A = TiebaApplication.A();
+            String v = TiebaApplication.v();
             j3 = this.a.c;
-            a.a(A, String.valueOf(j3), false);
+            a.a(v, String.valueOf(j3), false);
         } else {
-            String A2 = TiebaApplication.A();
+            String v2 = TiebaApplication.v();
             j = this.a.c;
-            a.a(A2, String.valueOf(j), true);
+            a.a(v2, String.valueOf(j), true);
         }
-        com.baidu.tieba.im.c.a f = com.baidu.tieba.im.c.a.f();
+        com.baidu.tieba.im.c.a d = com.baidu.tieba.im.c.a.d();
         j2 = this.a.c;
-        f.a(String.valueOf(j2));
+        d.a(String.valueOf(j2));
         return null;
     }
 }

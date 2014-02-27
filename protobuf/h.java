@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.Im;
 /* loaded from: classes.dex */
 public final class h extends GeneratedMessageLite.Builder<Im.GradeInfo, h> implements i {
@@ -13,24 +14,34 @@ public final class h extends GeneratedMessageLite.Builder<Im.GradeInfo, h> imple
     private int d;
     private int e;
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        Im.GradeInfo buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return Im.GradeInfo.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return Im.GradeInfo.getDefaultInstance();
+    }
+
     private h() {
-        g();
     }
 
-    private void g() {
-    }
-
-    /* JADX DEBUG: Method not inlined, still used in: [protobuf.Im.GradeInfo.newBuilder():protobuf.h] */
-    public static /* synthetic */ h f() {
-        return h();
-    }
-
-    public static h h() {
+    public static /* synthetic */ h a() {
         return new h();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: b */
     public h clear() {
         super.clear();
         this.b = 0;
@@ -45,29 +56,13 @@ public final class h extends GeneratedMessageLite.Builder<Im.GradeInfo, h> imple
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public h clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
     /* renamed from: c */
-    public Im.GradeInfo getDefaultInstanceForType() {
-        return Im.GradeInfo.getDefaultInstance();
+    public h clone() {
+        return new h().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public Im.GradeInfo build() {
-        Im.GradeInfo buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
     public Im.GradeInfo buildPartial() {
         Im.GradeInfo gradeInfo = new Im.GradeInfo(this, (Im.GradeInfo) null);
         int i = this.a;
@@ -91,11 +86,13 @@ public final class h extends GeneratedMessageLite.Builder<Im.GradeInfo, h> imple
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public h mergeFrom(Im.GradeInfo gradeInfo) {
+    public final h mergeFrom(Im.GradeInfo gradeInfo) {
         Object obj;
         if (gradeInfo != Im.GradeInfo.getDefaultInstance()) {
             if (gradeInfo.hasGrade()) {
-                a(gradeInfo.getGrade());
+                int grade = gradeInfo.getGrade();
+                this.a |= 1;
+                this.b = grade;
             }
             if (gradeInfo.hasIntro()) {
                 this.a |= 2;
@@ -103,10 +100,14 @@ public final class h extends GeneratedMessageLite.Builder<Im.GradeInfo, h> imple
                 this.c = obj;
             }
             if (gradeInfo.hasThresholdDay()) {
-                b(gradeInfo.getThresholdDay());
+                int thresholdDay = gradeInfo.getThresholdDay();
+                this.a |= 4;
+                this.d = thresholdDay;
             }
             if (gradeInfo.hasMaxMemberNum()) {
-                c(gradeInfo.getMaxMemberNum());
+                int maxMemberNum = gradeInfo.getMaxMemberNum();
+                this.a |= 8;
+                this.e = maxMemberNum;
             }
         }
         return this;
@@ -153,23 +154,5 @@ public final class h extends GeneratedMessageLite.Builder<Im.GradeInfo, h> imple
                 throw th;
             }
         }
-    }
-
-    public h a(int i) {
-        this.a |= 1;
-        this.b = i;
-        return this;
-    }
-
-    public h b(int i) {
-        this.a |= 4;
-        this.d = i;
-        return this;
-    }
-
-    public h c(int i) {
-        this.a |= 8;
-        this.e = i;
-        return this;
     }
 }

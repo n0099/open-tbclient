@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class p extends FrameLayout {
+public final class p extends FrameLayout {
     public LinearLayout a;
     public Button b;
     public Context c;
@@ -35,10 +35,6 @@ public class p extends FrameLayout {
         this.h = null;
         this.i = null;
         this.j = false;
-        a(context);
-    }
-
-    private void a(Context context) {
         this.c = context;
         LayoutInflater.from(context).inflate(R.layout.chatterbox_view, (ViewGroup) this, true);
         this.b = (Button) findViewById(R.id.chat_select_btn);
@@ -49,7 +45,7 @@ public class p extends FrameLayout {
         this.h = (TextView) findViewById(R.id.chat_view_content_3);
     }
 
-    public void a(boolean z, boolean z2) {
+    public final void a(boolean z, boolean z2) {
         boolean z3 = this.j;
         this.j = z;
         if (z2 || (!z3 && z3 != this.j)) {
@@ -74,7 +70,7 @@ public class p extends FrameLayout {
         this.b.setVisibility(8);
     }
 
-    public void setTitle(String str) {
+    public final void setTitle(String str) {
         if (str == null || !str.equals(this.i)) {
             if (TextUtils.isEmpty(str)) {
                 b();
@@ -112,7 +108,7 @@ public class p extends FrameLayout {
         }
     }
 
-    public boolean a(View view) {
+    public final boolean a(View view) {
         if (this.j) {
             return view == this.b || view == this.e;
         }
@@ -120,13 +116,13 @@ public class p extends FrameLayout {
     }
 
     @Override // android.view.View
-    public void setOnClickListener(View.OnClickListener onClickListener) {
+    public final void setOnClickListener(View.OnClickListener onClickListener) {
         super.setOnClickListener(onClickListener);
         this.b.setOnClickListener(onClickListener);
         this.e.setOnClickListener(onClickListener);
     }
 
-    public void a() {
+    public final void a() {
         this.d.a();
     }
 }

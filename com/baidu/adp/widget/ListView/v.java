@@ -1,6 +1,7 @@
 package com.baidu.adp.widget.ListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class v implements com.baidu.adp.widget.ScrollView.i {
+public final class v implements com.baidu.adp.widget.ScrollView.i {
     final /* synthetic */ u a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,7 +10,7 @@ class v implements com.baidu.adp.widget.ScrollView.i {
     }
 
     @Override // com.baidu.adp.widget.ScrollView.i
-    public void a() {
+    public final void a() {
         this.a.b();
     }
 }

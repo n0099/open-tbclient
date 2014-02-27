@@ -3,7 +3,7 @@ package com.baidu.tieba.account.appeal;
 import com.baidu.tieba.util.bs;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class c implements h {
+final class c implements h {
     final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,16 +12,16 @@ class c implements h {
     }
 
     @Override // com.baidu.tieba.account.appeal.h
-    public void a(AppealData appealData) {
+    public final void a() {
         AppealActivity appealActivity;
         AppealActivity appealActivity2;
         appealActivity = this.a.a;
         appealActivity2 = this.a.a;
-        appealActivity.a(appealActivity2.getString(R.string.appeal_post_success), true);
+        AppealActivity.a(appealActivity, appealActivity2.getString(R.string.appeal_post_success), true);
     }
 
     @Override // com.baidu.tieba.account.appeal.h
-    public void b(AppealData appealData) {
+    public final void a(AppealData appealData) {
         AppealActivity appealActivity;
         AppealActivity appealActivity2;
         String string;
@@ -32,6 +32,6 @@ class c implements h {
         } else {
             string = appealData.errMsg;
         }
-        appealActivity.a(string, false);
+        AppealActivity.a(appealActivity, string, false);
     }
 }

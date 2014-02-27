@@ -3,13 +3,13 @@ package com.baidu.tieba.im.net;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
-public class h {
+public final class h {
     private static /* synthetic */ int[] d;
     private k a;
     private j b;
     private i c;
 
-    static /* synthetic */ int[] a() {
+    private static /* synthetic */ int[] a() {
         int[] iArr = d;
         if (iArr == null) {
             iArr = new int[UtilHelper.NetworkStateInfo.valuesCustom().length];
@@ -35,37 +35,42 @@ public class h {
     }
 
     public h(String str, j jVar) {
+        String str2;
         this.a = null;
         this.b = null;
         this.c = null;
         this.a = new k(this);
         this.b = jVar;
         this.a.sendEmptyMessageDelayed(0, 50000L);
-        this.c = new i(this, null);
+        this.c = new i(this, (byte) 0);
         this.c.setSelfExecute(true);
-        this.c.execute(String.valueOf(b()) + str);
-    }
-
-    private String b() {
+        i iVar = this.c;
+        String[] strArr = new String[1];
         switch (a()[UtilHelper.h(TiebaApplication.g().b().getApplicationContext()).ordinal()]) {
             case 2:
-                return "ping -c 3 -w 3000 ";
+                str2 = "ping -c 3 -w 3000 ";
+                break;
             case 3:
-                return "ping -c 3 -w 10000 ";
+                str2 = "ping -c 3 -w 10000 ";
+                break;
             case 4:
-                return "ping -c 3 -w 5000 ";
+                str2 = "ping -c 3 -w 5000 ";
+                break;
             default:
-                return "ping -c 3 -w 5000 ";
+                str2 = "ping -c 3 -w 5000 ";
+                break;
         }
+        strArr[0] = String.valueOf(str2) + str;
+        iVar.execute(strArr);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void c() {
-        if (this.c != null) {
-            this.c.cancel(true);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(h hVar) {
+        if (hVar.c != null) {
+            hVar.c.cancel(true);
         }
-        if (this.a != null) {
-            this.a.removeMessages(0);
+        if (hVar.a != null) {
+            hVar.a.removeMessages(0);
         }
     }
 }

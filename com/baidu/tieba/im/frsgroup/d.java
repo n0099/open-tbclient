@@ -4,7 +4,7 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.util.ap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements Runnable {
+public final class d implements Runnable {
     final /* synthetic */ c a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ public class d implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         BdListView bdListView;
         GroupListAdapter groupListAdapter;
         bdListView = this.a.e;

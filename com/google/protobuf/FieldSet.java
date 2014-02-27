@@ -51,20 +51,20 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
         return DEFAULT_INSTANCE;
     }
 
-    public void makeImmutable() {
+    public final void makeImmutable() {
         if (!this.isImmutable) {
             this.fields.makeImmutable();
             this.isImmutable = true;
         }
     }
 
-    public boolean isImmutable() {
+    public final boolean isImmutable() {
         return this.isImmutable;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public FieldSet<FieldDescriptorType> m250clone() {
+    public final FieldSet<FieldDescriptorType> m250clone() {
         FieldSet<FieldDescriptorType> newFieldSet = newFieldSet();
         int i = 0;
         while (true) {
@@ -83,12 +83,12 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
         return newFieldSet;
     }
 
-    public void clear() {
+    public final void clear() {
         this.fields.clear();
         this.hasLazyField = false;
     }
 
-    public Map<FieldDescriptorType, Object> getAllFields() {
+    public final Map<FieldDescriptorType, Object> getAllFields() {
         if (!this.hasLazyField) {
             return this.fields.isImmutable() ? this.fields : Collections.unmodifiableMap(this.fields);
         }
@@ -115,18 +115,18 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
         }
     }
 
-    public Iterator<Map.Entry<FieldDescriptorType, Object>> iterator() {
+    public final Iterator<Map.Entry<FieldDescriptorType, Object>> iterator() {
         return this.hasLazyField ? new LazyField.LazyIterator(this.fields.entrySet().iterator()) : this.fields.entrySet().iterator();
     }
 
-    public boolean hasField(FieldDescriptorType fielddescriptortype) {
+    public final boolean hasField(FieldDescriptorType fielddescriptortype) {
         if (fielddescriptortype.isRepeated()) {
             throw new IllegalArgumentException("hasField() can only be called on non-repeated fields.");
         }
         return this.fields.get(fielddescriptortype) != null;
     }
 
-    public Object getField(FieldDescriptorType fielddescriptortype) {
+    public final Object getField(FieldDescriptorType fielddescriptortype) {
         Object obj = this.fields.get(fielddescriptortype);
         if (obj instanceof LazyField) {
             return ((LazyField) obj).getValue();
@@ -134,7 +134,7 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
         return obj;
     }
 
-    public void setField(FieldDescriptorType fielddescriptortype, Object obj) {
+    public final void setField(FieldDescriptorType fielddescriptortype, Object obj) {
         if (fielddescriptortype.isRepeated()) {
             if (!(obj instanceof List)) {
                 throw new IllegalArgumentException("Wrong object type used with protocol message reflection.");
@@ -154,14 +154,14 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
         this.fields.put((SmallSortedMap<FieldDescriptorType, Object>) fielddescriptortype, (FieldDescriptorType) obj);
     }
 
-    public void clearField(FieldDescriptorType fielddescriptortype) {
+    public final void clearField(FieldDescriptorType fielddescriptortype) {
         this.fields.remove(fielddescriptortype);
         if (this.fields.isEmpty()) {
             this.hasLazyField = false;
         }
     }
 
-    public int getRepeatedFieldCount(FieldDescriptorType fielddescriptortype) {
+    public final int getRepeatedFieldCount(FieldDescriptorType fielddescriptortype) {
         if (!fielddescriptortype.isRepeated()) {
             throw new IllegalArgumentException("getRepeatedField() can only be called on repeated fields.");
         }
@@ -172,7 +172,7 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
         return ((List) field).size();
     }
 
-    public Object getRepeatedField(FieldDescriptorType fielddescriptortype, int i) {
+    public final Object getRepeatedField(FieldDescriptorType fielddescriptortype, int i) {
         if (!fielddescriptortype.isRepeated()) {
             throw new IllegalArgumentException("getRepeatedField() can only be called on repeated fields.");
         }
@@ -183,7 +183,7 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
         return ((List) field).get(i);
     }
 
-    public void setRepeatedField(FieldDescriptorType fielddescriptortype, int i, Object obj) {
+    public final void setRepeatedField(FieldDescriptorType fielddescriptortype, int i, Object obj) {
         if (!fielddescriptortype.isRepeated()) {
             throw new IllegalArgumentException("getRepeatedField() can only be called on repeated fields.");
         }
@@ -195,7 +195,7 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
         ((List) field).set(i, obj);
     }
 
-    public void addRepeatedField(FieldDescriptorType fielddescriptortype, Object obj) {
+    public final void addRepeatedField(FieldDescriptorType fielddescriptortype, Object obj) {
         List list;
         if (!fielddescriptortype.isRepeated()) {
             throw new IllegalArgumentException("addRepeatedField() can only be called on repeated fields.");
@@ -253,7 +253,7 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
         }
     }
 
-    public boolean isInitialized() {
+    public final boolean isInitialized() {
         for (int i = 0; i < this.fields.getNumArrayEntries(); i++) {
             if (!isInitialized(this.fields.getArrayEntryAt(i))) {
                 return false;
@@ -300,7 +300,7 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
         return fieldType.getWireType();
     }
 
-    public void mergeFrom(FieldSet<FieldDescriptorType> fieldSet) {
+    public final void mergeFrom(FieldSet<FieldDescriptorType> fieldSet) {
         for (int i = 0; i < fieldSet.fields.getNumArrayEntries(); i++) {
             mergeFromField(fieldSet.fields.getArrayEntryAt(i));
         }
@@ -496,7 +496,7 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
         }
     }
 
-    public void writeTo(CodedOutputStream codedOutputStream) {
+    public final void writeTo(CodedOutputStream codedOutputStream) {
         int i = 0;
         while (true) {
             int i2 = i;
@@ -512,7 +512,7 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
         }
     }
 
-    public void writeMessageSetTo(CodedOutputStream codedOutputStream) {
+    public final void writeMessageSetTo(CodedOutputStream codedOutputStream) {
         for (int i = 0; i < this.fields.getNumArrayEntries(); i++) {
             writeMessageSetTo(this.fields.getArrayEntryAt(i), codedOutputStream);
         }
@@ -627,7 +627,7 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
         }
     }
 
-    public int getSerializedSize() {
+    public final int getSerializedSize() {
         int i = 0;
         for (int i2 = 0; i2 < this.fields.getNumArrayEntries(); i2++) {
             Map.Entry<FieldDescriptorType, Object> arrayEntryAt = this.fields.getArrayEntryAt(i2);
@@ -639,7 +639,7 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
         return i;
     }
 
-    public int getMessageSetSerializedSize() {
+    public final int getMessageSetSerializedSize() {
         int i = 0;
         for (int i2 = 0; i2 < this.fields.getNumArrayEntries(); i2++) {
             i += getMessageSetSerializedSize(this.fields.getArrayEntryAt(i2));

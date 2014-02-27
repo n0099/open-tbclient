@@ -4,7 +4,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aq implements com.baidu.tbadk.imageManager.d {
+public final class aq implements com.baidu.tbadk.imageManager.d {
     private final /* synthetic */ ListView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ public class aq implements com.baidu.tbadk.imageManager.d {
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
         if (bVar != null && str != null) {
             ch.a((ViewGroup) this.a, false, (cj) new ar(this, str));
         }

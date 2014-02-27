@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -24,19 +25,34 @@ public final class k extends GeneratedMessageLite.Builder<EnterChatroomRes.DataR
     private Object j = "";
     private List<EnterChatroomRes.ChatroomTopic> k = Collections.emptyList();
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        EnterChatroomRes.DataRes buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return EnterChatroomRes.DataRes.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return EnterChatroomRes.DataRes.getDefaultInstance();
+    }
+
     private k() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static k h() {
+    public static /* synthetic */ k b() {
         return new k();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public k clear() {
         super.clear();
         this.b = 0;
@@ -65,30 +81,14 @@ public final class k extends GeneratedMessageLite.Builder<EnterChatroomRes.DataR
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public k clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public EnterChatroomRes.DataRes getDefaultInstanceForType() {
-        return EnterChatroomRes.DataRes.getDefaultInstance();
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public EnterChatroomRes.DataRes build() {
-        EnterChatroomRes.DataRes buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
+    public k clone() {
+        return new k().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public EnterChatroomRes.DataRes buildPartial() {
+    /* renamed from: a */
+    public final EnterChatroomRes.DataRes buildPartial() {
         EnterChatroomRes.DataRes dataRes = new EnterChatroomRes.DataRes(this, (EnterChatroomRes.DataRes) null);
         int i = this.a;
         int i2 = (i & 1) != 1 ? 0 : 1;
@@ -141,7 +141,7 @@ public final class k extends GeneratedMessageLite.Builder<EnterChatroomRes.DataR
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public k mergeFrom(EnterChatroomRes.DataRes dataRes) {
+    public final k mergeFrom(EnterChatroomRes.DataRes dataRes) {
         List list;
         List list2;
         List list3;
@@ -152,13 +152,19 @@ public final class k extends GeneratedMessageLite.Builder<EnterChatroomRes.DataR
         List<Im.UserInfo> list6;
         if (dataRes != EnterChatroomRes.DataRes.getDefaultInstance()) {
             if (dataRes.hasGroupId()) {
-                a(dataRes.getGroupId());
+                int groupId = dataRes.getGroupId();
+                this.a |= 1;
+                this.b = groupId;
             }
             if (dataRes.hasUserNum()) {
-                b(dataRes.getUserNum());
+                int userNum = dataRes.getUserNum();
+                this.a |= 2;
+                this.c = userNum;
             }
             if (dataRes.hasMaxUserNum()) {
-                c(dataRes.getMaxUserNum());
+                int maxUserNum = dataRes.getMaxUserNum();
+                this.a |= 4;
+                this.d = maxUserNum;
             }
             list = dataRes.userList_;
             if (!list.isEmpty()) {
@@ -167,20 +173,29 @@ public final class k extends GeneratedMessageLite.Builder<EnterChatroomRes.DataR
                     this.e = list6;
                     this.a &= -9;
                 } else {
-                    i();
+                    if ((this.a & 8) != 8) {
+                        this.e = new ArrayList(this.e);
+                        this.a |= 8;
+                    }
                     List<Im.UserInfo> list7 = this.e;
                     list5 = dataRes.userList_;
                     list7.addAll(list5);
                 }
             }
             if (dataRes.hasDurationTime()) {
-                d(dataRes.getDurationTime());
+                int durationTime = dataRes.getDurationTime();
+                this.a |= 16;
+                this.f = durationTime;
             }
             if (dataRes.hasSilenceTime()) {
-                e(dataRes.getSilenceTime());
+                int silenceTime = dataRes.getSilenceTime();
+                this.a |= 32;
+                this.g = silenceTime;
             }
             if (dataRes.hasAverageWaitTime()) {
-                f(dataRes.getAverageWaitTime());
+                int averageWaitTime = dataRes.getAverageWaitTime();
+                this.a |= 64;
+                this.h = averageWaitTime;
             }
             if (dataRes.hasTitle()) {
                 this.a |= 128;
@@ -199,14 +214,19 @@ public final class k extends GeneratedMessageLite.Builder<EnterChatroomRes.DataR
                     this.k = list4;
                     this.a &= -513;
                 } else {
-                    j();
+                    if ((this.a & 512) != 512) {
+                        this.k = new ArrayList(this.k);
+                        this.a |= 512;
+                    }
                     List<EnterChatroomRes.ChatroomTopic> list8 = this.k;
                     list3 = dataRes.topicList_;
                     list8.addAll(list3);
                 }
             }
             if (dataRes.hasLastMsgId()) {
-                a(dataRes.getLastMsgId());
+                long lastMsgId = dataRes.getLastMsgId();
+                this.a |= 1024;
+                this.l = lastMsgId;
             }
         }
         return this;
@@ -253,61 +273,5 @@ public final class k extends GeneratedMessageLite.Builder<EnterChatroomRes.DataR
                 throw th;
             }
         }
-    }
-
-    public k a(int i) {
-        this.a |= 1;
-        this.b = i;
-        return this;
-    }
-
-    public k b(int i) {
-        this.a |= 2;
-        this.c = i;
-        return this;
-    }
-
-    public k c(int i) {
-        this.a |= 4;
-        this.d = i;
-        return this;
-    }
-
-    private void i() {
-        if ((this.a & 8) != 8) {
-            this.e = new ArrayList(this.e);
-            this.a |= 8;
-        }
-    }
-
-    public k d(int i) {
-        this.a |= 16;
-        this.f = i;
-        return this;
-    }
-
-    public k e(int i) {
-        this.a |= 32;
-        this.g = i;
-        return this;
-    }
-
-    public k f(int i) {
-        this.a |= 64;
-        this.h = i;
-        return this;
-    }
-
-    private void j() {
-        if ((this.a & 512) != 512) {
-            this.k = new ArrayList(this.k);
-            this.a |= 512;
-        }
-    }
-
-    public k a(long j) {
-        this.a |= 1024;
-        this.l = j;
-        return this;
     }
 }

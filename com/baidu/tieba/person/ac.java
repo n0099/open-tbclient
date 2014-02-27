@@ -2,7 +2,7 @@ package com.baidu.tieba.person;
 
 import android.content.DialogInterface;
 /* loaded from: classes.dex */
-class ac implements DialogInterface.OnClickListener {
+final class ac implements DialogInterface.OnClickListener {
     final /* synthetic */ EditMarkActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +11,7 @@ class ac implements DialogInterface.OnClickListener {
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
+    public final void onClick(DialogInterface dialogInterface, int i) {
         ad adVar;
         com.baidu.tieba.model.g gVar;
         com.baidu.tieba.model.g gVar2;

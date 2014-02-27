@@ -5,7 +5,6 @@ import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.text.SpannableString;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -16,7 +15,7 @@ import com.baidu.tieba.more.SettingTextTipView;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class az extends com.baidu.adp.a.e {
+public final class az extends com.baidu.adp.a.e {
     private GroupSettingActivity a;
     private RelativeLayout c;
     private AlertDialog d;
@@ -34,7 +33,7 @@ public class az extends com.baidu.adp.a.e {
     private NavigationBar p;
     private ImageView q;
 
-    public void a(DialogInterface.OnClickListener onClickListener) {
+    public final void a(DialogInterface.OnClickListener onClickListener) {
         this.m = onClickListener;
     }
 
@@ -50,32 +49,6 @@ public class az extends com.baidu.adp.a.e {
         this.j = null;
         this.m = null;
         this.a = groupSettingActivity;
-        y();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void a(int i) {
-        this.f.a(i);
-        this.g.a(i);
-        this.i.a(i);
-        this.h.a(i);
-        this.j.a(i);
-        this.a.getLayoutMode().a(i == 1);
-        this.a.getLayoutMode().a((View) this.c);
-        this.p.c(i);
-    }
-
-    public ImageView a() {
-        return this.q;
-    }
-
-    public void a(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            this.h.setText(str);
-        }
-    }
-
-    private void y() {
         this.a.setContentView(R.layout.group_setting_activity);
         this.f = (SettingTextSwitchView) this.a.findViewById(R.id.sv_group_msg_notify);
         this.g = (SettingTextSwitchView) this.a.findViewById(R.id.sv_group_add_group);
@@ -91,7 +64,29 @@ public class az extends com.baidu.adp.a.e {
         this.p.a(R.string.group_setting);
     }
 
-    public void e() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public final void a(int i) {
+        this.f.a(i);
+        this.g.a(i);
+        this.i.a(i);
+        this.h.a(i);
+        this.j.a(i);
+        this.a.getLayoutMode().a(i == 1);
+        this.a.getLayoutMode().a(this.c);
+        this.p.b(i);
+    }
+
+    public final ImageView a() {
+        return this.q;
+    }
+
+    public final void a(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            this.h.setText(str);
+        }
+    }
+
+    public final void d() {
         this.f.setSwitchStateChangeListener(this.a);
         this.g.setSwitchStateChangeListener(this.a);
         this.h.setOnClickListener(this.a);
@@ -101,27 +96,27 @@ public class az extends com.baidu.adp.a.e {
         this.j.setOnClickListener(this.a);
     }
 
-    public SettingTextTipView f() {
+    public final SettingTextTipView e() {
         return this.h;
     }
 
-    public Button g() {
+    public final Button f() {
         return this.l;
     }
 
-    public Button h() {
+    public final Button g() {
         return this.k;
     }
 
-    public SettingTextTipView i() {
+    public final SettingTextTipView h() {
         return this.i;
     }
 
-    public SettingTextTipView j() {
+    public final SettingTextTipView i() {
         return this.j;
     }
 
-    public void k() {
+    public final void j() {
         if (this.e == null) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this.a);
             builder.setTitle(R.string.alerm_title);
@@ -138,11 +133,11 @@ public class az extends com.baidu.adp.a.e {
         }
     }
 
-    public AlertDialog l() {
+    public final AlertDialog k() {
         return this.e;
     }
 
-    public void m() {
+    public final void l() {
         if (this.d == null) {
             this.d = new AlertDialog.Builder(this.a).setTitle(R.string.group_report).setItems(new CharSequence[]{new SpannableString(this.a.getString(R.string.group_report_ad)), new SpannableString(this.a.getString(R.string.group_report_sex)), new SpannableString(this.a.getString(R.string.group_report_lllegal))}, this.m).create();
         }
@@ -150,25 +145,25 @@ public class az extends com.baidu.adp.a.e {
         this.d.show();
     }
 
-    public void n() {
+    public final void m() {
         if (this.l != null) {
             this.l.setVisibility(8);
         }
     }
 
-    public void o() {
+    public final void n() {
         if (this.k != null) {
             this.k.setVisibility(8);
         }
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         if (this.g != null) {
             this.g.setVisibility(z ? 0 : 8);
         }
     }
 
-    public void b(boolean z) {
+    public final void b(boolean z) {
         if (z) {
             this.g.b();
         } else {
@@ -176,39 +171,39 @@ public class az extends com.baidu.adp.a.e {
         }
     }
 
-    public void p() {
+    public final void o() {
         if (this.l != null) {
             this.l.setVisibility(0);
         }
     }
 
-    public void q() {
+    public final void p() {
         if (this.k != null) {
             this.k.setVisibility(0);
         }
     }
 
-    public void r() {
+    public final void q() {
         if (this.i != null) {
             this.i.setVisibility(0);
         }
     }
 
-    public void s() {
+    public final void r() {
         if (this.i != null) {
             this.i.setVisibility(8);
         }
     }
 
-    public BdSwitchView t() {
+    public final BdSwitchView s() {
         return this.g.getSwitchView();
     }
 
-    public BdSwitchView u() {
+    public final BdSwitchView t() {
         return this.f.getSwitchView();
     }
 
-    public void v() {
+    public final void u() {
         if (this.o == null) {
             this.o = new AlertDialog.Builder(this.b).setTitle(this.b.getString(R.string.alerm_title)).setCancelable(false).setMessage(R.string.group_dismiss_alert).setPositiveButton(R.string.alert_yes_button, this.a).setNegativeButton(R.string.alert_no_button, new bb(this)).create();
         }
@@ -217,11 +212,11 @@ public class az extends com.baidu.adp.a.e {
         }
     }
 
-    public AlertDialog w() {
+    public final AlertDialog v() {
         return this.o;
     }
 
-    public void x() {
+    public final void w() {
         if (this.o != null && this.o.isShowing()) {
             this.o.dismiss();
             this.o = null;

@@ -14,7 +14,7 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
-public class l extends BaseAdapter {
+public final class l extends BaseAdapter {
     private o a;
     private PersonPostReplyModel b;
     private String c;
@@ -23,27 +23,27 @@ public class l extends BaseAdapter {
     private f f = new m(this);
     private c g = new n(this);
 
-    public l(Context context, String str, String str2) {
+    public l(Context context, String str) {
         this.e = (Activity) context;
         this.c = str;
     }
 
-    public void a(o oVar) {
+    public final void a(o oVar) {
         this.a = oVar;
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         PersonPostReplyModel.fetchReply(this.f, z, this.c);
     }
 
-    public void a() {
+    public final void a() {
         if (this.b != null) {
             this.b.cancelLoadData();
         }
     }
 
     @Override // android.widget.Adapter
-    public int getCount() {
+    public final int getCount() {
         if (this.b == null || this.b.post_list == null) {
             return 0;
         }
@@ -51,22 +51,23 @@ public class l extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public Object getItem(int i) {
+    public final Object getItem(int i) {
         return null;
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    public final long getItemId(int i) {
         return 0L;
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public final View getView(int i, View view, ViewGroup viewGroup) {
         p pVar;
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.person_post_item_reply, viewGroup, false);
-            pVar = new p(view);
-            view.setTag(pVar);
+            p pVar2 = new p(view);
+            view.setTag(pVar2);
+            pVar = pVar2;
         } else {
             pVar = (p) view.getTag();
         }
@@ -75,46 +76,37 @@ public class l extends BaseAdapter {
         } else {
             pVar.a.setVisibility(8);
         }
-        a(i, pVar, viewGroup);
-        return view;
-    }
-
-    private PersonPostReplyModel.Post a(int i) {
-        return this.b.post_list.get(i);
-    }
-
-    private void a(int i, p pVar, ViewGroup viewGroup) {
-        PersonPostReplyModel.Post a = a(i);
+        PersonPostReplyModel.Post post = this.b.post_list.get(i);
         if (this.d == null) {
-            this.d = a.user_portrait;
+            this.d = post.user_portrait;
         }
-        pVar.a(a, this.d);
+        pVar.a(post, this.d);
         ArrayList<String[]> arrayList = new ArrayList<>();
-        int length = a.content.length;
+        int length = post.content.length;
         for (int i2 = 0; i2 < length; i2++) {
-            if (a.content[i2].post_content.length != 0) {
+            if (post.content[i2].post_content.length != 0) {
                 StringBuffer stringBuffer = new StringBuffer();
-                if (!a.content[i2].post_content[0].text.startsWith("回复 ")) {
+                if (!post.content[i2].post_content[0].text.startsWith("回复 ")) {
                     stringBuffer.append("回复：");
                 }
-                int length2 = a.content[i2].post_content.length;
+                int length2 = post.content[i2].post_content.length;
                 for (int i3 = 0; i3 < length2; i3++) {
-                    stringBuffer.append(a.content[i2].post_content[i3].text);
+                    stringBuffer.append(post.content[i2].post_content[i3].text);
                 }
-                arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(a.thread_id), String.valueOf(a.content[i2].post_id), String.valueOf(a.content[i2].post_type), bs.a(a.content[i2].create_time * 1000)});
+                arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(post.thread_id), String.valueOf(post.content[i2].post_id), String.valueOf(post.content[i2].post_type), bs.a(post.content[i2].create_time * 1000)});
             }
         }
         pVar.g.setContent(arrayList);
-        if (Pattern.compile("^回复：").matcher(a.title).find()) {
-            pVar.h.setText(a.title.replaceFirst("回复：", "原贴："));
+        if (Pattern.compile("^回复：").matcher(post.title).find()) {
+            pVar.h.setText(post.title.replaceFirst("回复：", "原贴："));
         } else {
-            pVar.h.setText(a.title);
+            pVar.h.setText(post.title);
         }
         TextView textView = pVar.h;
         String[] strArr = new String[3];
-        strArr[0] = String.valueOf(a.thread_id);
+        strArr[0] = String.valueOf(post.thread_id);
         textView.setTag(strArr);
-        if (TiebaApplication.g().al() == 1) {
+        if (TiebaApplication.g().ae() == 1) {
             pVar.h.setTextColor(viewGroup.getResources().getColor(R.color.person_post_content_ori_1));
             pVar.h.setBackgroundResource(R.drawable.person_post_line_1);
         } else {
@@ -124,6 +116,7 @@ public class l extends BaseAdapter {
         int dimensionPixelSize = viewGroup.getResources().getDimensionPixelSize(R.dimen.person_post_reply_ori_padding);
         pVar.h.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
         pVar.a(this.g);
-        pVar.a(TiebaApplication.g().al());
+        pVar.a(TiebaApplication.g().ae());
+        return view;
     }
 }

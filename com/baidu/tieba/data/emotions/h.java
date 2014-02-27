@@ -1,9 +1,8 @@
 package com.baidu.tieba.data.emotions;
 
 import com.baidu.adp.widget.ImageView.BDImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements com.baidu.tbadk.imageManager.d {
+final class h implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ EmotionImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +11,7 @@ public class h implements com.baidu.tbadk.imageManager.d {
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
         boolean z2;
         String str2;
         BDImageView bDImageView;

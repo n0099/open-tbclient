@@ -2,7 +2,7 @@ package com.baidu.tieba.im.model;
 
 import com.baidu.tieba.im.message.bm;
 /* loaded from: classes.dex */
-public class a extends com.baidu.adp.a.d {
+public final class a extends com.baidu.adp.a.d {
     private int c;
     private String d;
     private String e;
@@ -17,61 +17,61 @@ public class a extends com.baidu.adp.a.d {
     private bm b = null;
     private int m = -1;
 
-    public void a(int i) {
+    public final void a(int i) {
         this.c = i;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.d = str;
     }
 
-    public void b(String str) {
+    public final void b(String str) {
         this.e = str;
     }
 
-    public void c(String str) {
+    public final void c(String str) {
         this.f = str;
     }
 
-    public void d(String str) {
+    public final void d(String str) {
         this.g = str;
     }
 
-    public void e(String str) {
+    public final void e(String str) {
         this.h = str;
     }
 
-    public void f(String str) {
+    public final void f(String str) {
         this.i = str;
     }
 
-    public void g(String str) {
+    public final void g(String str) {
         this.j = str;
     }
 
-    public void b(int i) {
+    public final void b(int i) {
         this.k = i;
     }
 
-    public void c(int i) {
+    public final void c(int i) {
         this.l = i;
     }
 
     @Override // com.baidu.adp.a.d
-    protected boolean LoadData() {
+    protected final boolean LoadData() {
         return false;
     }
 
     @Override // com.baidu.adp.a.d
-    public boolean cancelLoadData() {
+    public final boolean cancelLoadData() {
         return false;
     }
 
-    public void d(int i) {
+    public final void d(int i) {
         this.m = i;
     }
 
-    private com.baidu.tieba.im.message.ad c() {
+    public final void a() {
         com.baidu.tieba.im.message.ad adVar = new com.baidu.tieba.im.message.ad();
         adVar.a(this.c);
         adVar.a(this.d);
@@ -100,21 +100,17 @@ public class a extends com.baidu.adp.a.d {
                 adVar.h("");
                 break;
         }
-        return adVar;
+        this.a = adVar;
+        com.baidu.tieba.im.messageCenter.d.a().a(this.a);
     }
 
-    public void a() {
-        this.a = c();
-        com.baidu.tieba.im.messageCenter.e.a().a(this.a);
-    }
-
-    public void b() {
+    public final void b() {
         if (this.a != null) {
-            com.baidu.tieba.im.messageCenter.e.a().b(this.a);
+            com.baidu.tieba.im.messageCenter.d.a().b(this.a);
             this.a = null;
         }
         if (this.b != null) {
-            com.baidu.tieba.im.messageCenter.e.a().b(this.b);
+            com.baidu.tieba.im.messageCenter.d.a().b(this.b);
             this.b = null;
         }
     }

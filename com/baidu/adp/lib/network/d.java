@@ -4,9 +4,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 /* loaded from: classes.dex */
 public interface d {
-    void a();
-
-    void a(int i, int i2, HttpURLConnection httpURLConnection);
+    void a(int i, int i2);
 
     void a(int i, HttpURLConnection httpURLConnection, OutputStream outputStream);
 

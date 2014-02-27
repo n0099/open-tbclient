@@ -3,9 +3,8 @@ package com.baidu.tieba.person;
 import android.view.View;
 import android.widget.AdapterView;
 import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b implements AdapterView.OnItemClickListener {
+final class b implements AdapterView.OnItemClickListener {
     final /* synthetic */ AllPostActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,9 +13,8 @@ public class b implements AdapterView.OnItemClickListener {
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+    public final void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         switch (this.a.e.getItemViewType(i)) {
-            case 0:
             case 1:
             default:
                 return;

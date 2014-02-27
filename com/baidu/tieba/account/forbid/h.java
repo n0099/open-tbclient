@@ -1,6 +1,6 @@
 package com.baidu.tieba.account.forbid;
 /* loaded from: classes.dex */
-public class h {
+public final class h {
     private static final String a = String.valueOf(com.baidu.tieba.data.i.a) + "c/c/bawu/commitprison";
 
     public static void a(String str, String str2, String str3, String str4, String str5, String str6, j jVar) {

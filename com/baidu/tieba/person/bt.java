@@ -7,9 +7,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bt implements TextWatcher {
+final class bt implements TextWatcher {
     final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,11 +17,11 @@ public class bt implements TextWatcher {
     }
 
     @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    public final void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 
     @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    public final void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         EditText editText;
         TextView textView;
         LinearLayout linearLayout;
@@ -37,7 +36,7 @@ public class bt implements TextWatcher {
         linearLayout = this.a.q;
         linearLayout.setVisibility(0);
         this.a.a(0);
-        this.a.e();
+        PersonChangeActivity.t(this.a);
         if (length > 50) {
             this.a.showToast(R.string.over_limit_tip);
             int selectionEnd = Selection.getSelectionEnd(text);
@@ -55,6 +54,6 @@ public class bt implements TextWatcher {
     }
 
     @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
+    public final void afterTextChanged(Editable editable) {
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.message;
 /* loaded from: classes.dex */
-public class a extends s {
+public final class a extends s {
     private boolean a;
 
     public a(boolean z) {
@@ -8,7 +8,7 @@ public class a extends s {
         this.a = z;
     }
 
-    public boolean a() {
+    public final boolean a() {
         return this.a;
     }
 }

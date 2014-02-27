@@ -204,7 +204,7 @@ public class PagerTitleStrip extends ViewGroup implements ViewPager.Decor {
         CharSequence charSequence = null;
         int count = pagerAdapter != null ? pagerAdapter.getCount() : 0;
         this.mUpdatingText = true;
-        this.mPrevText.setText((i < 1 || pagerAdapter == null) ? null : pagerAdapter.getPageTitle(i - 1));
+        this.mPrevText.setText((i <= 0 || pagerAdapter == null) ? null : pagerAdapter.getPageTitle(i - 1));
         this.mCurrText.setText((pagerAdapter == null || i >= count) ? null : pagerAdapter.getPageTitle(i));
         if (i + 1 < count && pagerAdapter != null) {
             charSequence = pagerAdapter.getPageTitle(i + 1);
@@ -273,7 +273,7 @@ public class PagerTitleStrip extends ViewGroup implements ViewPager.Decor {
         if (f2 > 1.0f) {
             f2 -= 1.0f;
         }
-        int i8 = ((width - i6) - ((int) (f2 * i7))) - (measuredWidth2 / 2);
+        int i8 = ((width - i6) - ((int) (f2 * i7))) - i5;
         int i9 = i8 + measuredWidth2;
         int baseline = this.mPrevText.getBaseline();
         int baseline2 = this.mCurrText.getBaseline();
@@ -287,18 +287,18 @@ public class PagerTitleStrip extends ViewGroup implements ViewPager.Decor {
             case 16:
                 int i13 = (((height - paddingTop) - paddingBottom) - max2) / 2;
                 i2 = i13 + i10;
-                i3 = i11 + i13;
+                i3 = i13 + i11;
                 i4 = i13 + i12;
                 break;
             case e.i /* 80 */:
                 int i14 = (height - paddingBottom) - max2;
                 i2 = i14 + i10;
-                i3 = i11 + i14;
+                i3 = i14 + i11;
                 i4 = i14 + i12;
                 break;
             default:
                 i2 = paddingTop + i10;
-                i3 = i11 + paddingTop;
+                i3 = paddingTop + i11;
                 i4 = paddingTop + i12;
                 break;
         }

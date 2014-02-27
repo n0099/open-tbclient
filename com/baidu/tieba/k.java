@@ -29,22 +29,22 @@ public abstract class k extends FragmentActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        this.c = TiebaApplication.g().bu();
+        this.c = TiebaApplication.g().bm();
         if (this.c) {
             SmartBarUtils.initActionBar(this);
             SmartBarUtils.setActionBarTabsShowAtBottom(this, true);
             SmartBarUtils.setActionBarViewCollapsable(this, true);
         }
         super.onCreate(bundle);
-        com.baidu.tieba.account.m.a().b();
-        TiebaApplication.v(true);
+        com.baidu.tieba.account.m.a().c();
+        TiebaApplication.u(true);
         cc.a(getClass().getName());
         this.f = new e();
-        if (TiebaApplication.g().s()) {
+        if (TiebaApplication.g().n()) {
             try {
                 StatService.setAppChannel(com.baidu.tieba.data.i.l());
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "onCreate", e.getMessage());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "onCreate", e.getMessage());
             }
         }
     }
@@ -53,19 +53,19 @@ public abstract class k extends FragmentActivity {
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        a(TiebaApplication.g().al());
-        if (TiebaApplication.g().s()) {
+        a(TiebaApplication.g().ae());
+        if (TiebaApplication.g().n()) {
             try {
                 StatService.onResume(this);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "onResume", e.getMessage());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "onResume", e.getMessage());
             }
         }
-        TiebaApplication.g().ax();
+        TiebaApplication.g().aq();
         cc.a(getClass().getName());
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         if (i != this.b) {
             this.b = i;
             b(this.b);
@@ -76,12 +76,12 @@ public abstract class k extends FragmentActivity {
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        TiebaApplication.g().ay();
-        if (TiebaApplication.g().s()) {
+        TiebaApplication.g().ar();
+        if (TiebaApplication.g().n()) {
             try {
                 StatService.onPause(this);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "onPause", e.getMessage());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "onPause", e.getMessage());
             }
         }
     }
@@ -95,11 +95,11 @@ public abstract class k extends FragmentActivity {
         super.onDestroy();
     }
 
-    public e a() {
+    public final e a() {
         return this.f;
     }
 
-    public void a(String str, DialogInterface.OnCancelListener onCancelListener) {
+    public final void a(String str, DialogInterface.OnCancelListener onCancelListener) {
         if (str != null) {
             this.a = ProgressDialog.show(this, "", str, true, true, onCancelListener);
         } else {
@@ -107,24 +107,24 @@ public abstract class k extends FragmentActivity {
         }
     }
 
-    public void b() {
+    public final void b() {
         if (this.a != null) {
             try {
                 if (this.a.isShowing()) {
                     this.a.dismiss();
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "closeLoadingDialog", e.getMessage());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "closeLoadingDialog", e.getMessage());
             }
             this.a = null;
         }
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         BdUtilHelper.a((Context) this, str);
     }
 
-    public void c(int i) {
+    public final void c(int i) {
         BdUtilHelper.a((Context) this, i);
     }
 
@@ -137,21 +137,17 @@ public abstract class k extends FragmentActivity {
         return super.onCreateView(str, context, attributeSet);
     }
 
-    public void c() {
-        a(0, 0);
-    }
-
-    public void a(int i, int i2) {
+    public final void c() {
         if (this.e == null) {
             this.e = new ProgressBar(this);
             this.e.setIndeterminateDrawable(getResources().getDrawable(R.drawable.progressbar));
             ((FrameLayout) findViewById(16908290)).addView(this.e, new FrameLayout.LayoutParams(-2, -2, 17));
         }
-        this.e.setPadding(BdUtilHelper.a(this, i), BdUtilHelper.a(this, i2), 0, 0);
+        this.e.setPadding(BdUtilHelper.a((Context) this, 0.0f), BdUtilHelper.a((Context) this, 0.0f), 0, 0);
         this.e.setVisibility(0);
     }
 
-    public void d() {
+    public final void d() {
         if (this.e != null) {
             this.e.setVisibility(8);
         }

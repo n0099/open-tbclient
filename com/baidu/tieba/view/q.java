@@ -5,7 +5,7 @@ import android.graphics.PointF;
 import android.support.v4.view.ViewPager;
 import android.view.MotionEvent;
 /* loaded from: classes.dex */
-public class q extends ViewPager {
+public final class q extends ViewPager {
     PointF a;
     PointF b;
     r c;
@@ -17,12 +17,12 @@ public class q extends ViewPager {
     }
 
     @Override // android.support.v4.view.ViewPager, android.view.ViewGroup
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+    public final boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         return true;
     }
 
     @Override // android.support.v4.view.ViewPager, android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
+    public final boolean onTouchEvent(MotionEvent motionEvent) {
         this.b.x = motionEvent.getX();
         this.b.y = motionEvent.getY();
         if (motionEvent.getAction() == 0) {
@@ -36,17 +36,14 @@ public class q extends ViewPager {
         if (motionEvent.getAction() != 1 || Math.abs(this.a.x - this.b.x) + Math.abs(this.a.y - this.b.y) >= 3.0f) {
             return super.onTouchEvent(motionEvent);
         }
-        a();
+        if (this.c != null) {
+            this.c.a();
+            return true;
+        }
         return true;
     }
 
-    public void a() {
-        if (this.c != null) {
-            this.c.a();
-        }
-    }
-
-    public void setOnSingleTouchListener(r rVar) {
+    public final void setOnSingleTouchListener(r rVar) {
         this.c = rVar;
     }
 }

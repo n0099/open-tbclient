@@ -2,8 +2,9 @@ package com.baidu.tieba.person;
 
 import android.view.View;
 import android.widget.AbsListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bl implements AbsListView.RecyclerListener {
+public final class bl implements AbsListView.RecyclerListener {
     final /* synthetic */ bj a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,6 +13,6 @@ class bl implements AbsListView.RecyclerListener {
     }
 
     @Override // android.widget.AbsListView.RecyclerListener
-    public void onMovedToScrapHeap(View view) {
+    public final void onMovedToScrapHeap(View view) {
     }
 }

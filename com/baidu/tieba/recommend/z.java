@@ -12,15 +12,15 @@ import com.baidu.adp.widget.PinnedHeaderListView;
 import com.baidu.tieba.util.bq;
 import com.baidu.tieba.view.NavigationBar;
 import com.baidu.tieba.view.PbListView;
-import com.baidu.tieba.view.cu;
+import com.baidu.tieba.view.ct;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class z extends com.baidu.adp.a.e {
+public final class z extends com.baidu.adp.a.e {
     private DailyRecommendActivity a;
     private PinnedHeaderListView c;
     private ProgressBar d;
     private View e;
-    private cu f;
+    private ct f;
     private PbListView g;
     private View h;
     private TextView i;
@@ -35,7 +35,7 @@ public class z extends com.baidu.adp.a.e {
         this.c = (PinnedHeaderListView) this.e.findViewById(R.id.pinnedHeaderListview);
         this.j = new h(dailyRecommendActivity, pVar);
         this.i = (TextView) this.e.findViewById(R.id.text_info);
-        this.f = new cu(this.b);
+        this.f = new ct(this.b);
         this.c.setPullRefresh(this.f);
         this.c.setAdapter((ListAdapter) this.j);
         this.c.setOnSrollToBottomListener(rVar);
@@ -50,27 +50,24 @@ public class z extends com.baidu.adp.a.e {
         this.k.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, NavigationBar.ControlType.HOME_BUTTON);
     }
 
-    public void a() {
+    public final void a() {
         this.g.c();
     }
 
-    public void e() {
+    public final void d() {
         this.d.setVisibility(0);
     }
 
-    public void a(boolean z, String str) {
+    public final void a(boolean z, String str) {
         this.d.setVisibility(8);
-        if (!z && str != null) {
-            this.a.showToast(str);
-        }
     }
 
-    public void f() {
+    public final void e() {
         this.d.setVisibility(8);
         this.g.d();
     }
 
-    public void a(com.baidu.tieba.data.p pVar) {
+    public final void a(com.baidu.tieba.data.p pVar) {
         this.c.a();
         this.g.d();
         if (pVar != null) {
@@ -82,14 +79,14 @@ public class z extends com.baidu.adp.a.e {
         }
     }
 
-    public void g() {
+    public final void f() {
         Animation loadAnimation = AnimationUtils.loadAnimation(this.b, R.anim.custom_home_text_info);
         this.i.setVisibility(0);
         loadAnimation.setAnimationListener(new ab(this));
         this.i.startAnimation(loadAnimation);
     }
 
-    public void h() {
+    public final void g() {
         int headerViewsCount = this.c.getHeaderViewsCount() + 1;
         int firstVisiblePosition = this.c.getFirstVisiblePosition();
         int lastVisiblePosition = this.c.getLastVisiblePosition();
@@ -100,22 +97,19 @@ public class z extends com.baidu.adp.a.e {
         this.j.a(this.c, firstVisiblePosition, lastVisiblePosition);
     }
 
-    public void a(int i) {
-        this.k.c(i);
+    public final void a(int i) {
+        this.k.b(i);
         bq.b(this.c, i);
         this.f.a(i);
         if (this.g != null) {
-            this.g.d(i);
+            this.g.c(i);
         }
         this.i.setTextColor(i == 1 ? -3380702 : -893399);
         this.i.setBackgroundResource(i == 1 ? R.drawable.bg_update_1 : R.drawable.bg_update);
         this.j.a();
     }
 
-    public void i() {
-    }
-
-    public void a(com.baidu.adp.widget.ListView.b bVar) {
+    public final void a(com.baidu.adp.widget.ListView.b bVar) {
         this.f.a(bVar);
     }
 }

@@ -53,7 +53,7 @@ public final class d {
         this.a = str;
     }
 
-    public String toString() {
+    public final String toString() {
         return "AppChange: packageName =" + this.a + " appname =" + this.h + "\u3000eventType =" + this.c + " changeStamp =" + this.b + " versionCode =" + this.e + " versionCodeAfter =" + this.g + " versionName =" + this.d + " versionNameAfter =" + this.f;
     }
 }

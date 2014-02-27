@@ -4,18 +4,18 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 /* loaded from: classes.dex */
-class n extends Handler {
+final class n extends Handler {
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(Looper looper) {
         super(looper);
     }
 
     @Override // android.os.Handler
-    public void dispatchMessage(Message message) {
+    public final void dispatchMessage(Message message) {
         l lVar;
         switch (message.what) {
             case 1:
-                com.baidu.adp.lib.util.f.e("tcp建立和握手超时");
+                com.baidu.adp.lib.util.e.e("tcp建立和握手超时");
                 TiebaSocketLinkService.b("tcp or websocket handshake timeout");
                 lVar = TiebaSocketLinkService.a;
                 lVar.a("tcp or websocket handshake timeout");

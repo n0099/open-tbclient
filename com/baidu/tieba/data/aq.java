@@ -20,7 +20,7 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class aq extends com.baidu.tieba.util.au {
+public final class aq extends com.baidu.tieba.util.au {
     private String e;
     private ArrayList<aq> j;
     private com.baidu.tbadk.widget.richText.a k = null;
@@ -38,45 +38,45 @@ public class aq extends com.baidu.tieba.util.au {
         this.j = new ArrayList<>();
     }
 
-    public ArrayList<aq> a() {
+    public final ArrayList<aq> a() {
         return this.j;
     }
 
-    public void b() {
+    public final void b() {
         this.i++;
     }
 
-    public void c() {
+    public final void c() {
         this.i--;
     }
 
-    public String d() {
+    public final String d() {
         return this.a;
     }
 
-    public int e() {
+    public final int e() {
         return this.c;
     }
 
-    public long f() {
+    public final long f() {
         return this.d;
     }
 
-    public UserData g() {
+    public final UserData g() {
         return this.f;
     }
 
-    public com.baidu.tbadk.widget.richText.a h() {
+    public final com.baidu.tbadk.widget.richText.a h() {
         return this.k;
     }
 
-    public void a(Context context, boolean z, com.baidu.tieba.util.i iVar) {
+    public final void a(Context context, boolean z, com.baidu.tieba.util.i iVar) {
         String str;
         SpannableString spannableString;
         String str2;
         Bitmap h;
         if (context != null && this.k != null && this.k.a() != null) {
-            LinkedList<IconData> tShowInfo = g().getTShowInfo();
+            LinkedList<IconData> tShowInfo = this.f.getTShowInfo();
             String str3 = z ? " [host]" : "";
             int b = BdUtilHelper.b(context, 15.0f);
             ArrayList arrayList = new ArrayList();
@@ -87,7 +87,7 @@ public class aq extends com.baidu.tieba.util.au {
                     if (b2 != null && (h = b2.h()) != null) {
                         BitmapDrawable bitmapDrawable = new BitmapDrawable(h);
                         bitmapDrawable.setBounds(0, 0, TiebaApplication.g().b().getApplicationContext().getResources().getDimensionPixelSize(R.dimen.small_icon_width), TiebaApplication.g().b().getApplicationContext().getResources().getDimensionPixelSize(R.dimen.small_icon_height));
-                        arrayList.add(new com.baidu.adp.widget.w(bitmapDrawable, 1));
+                        arrayList.add(new com.baidu.adp.widget.v(bitmapDrawable, 1));
                     }
                 }
             }
@@ -119,9 +119,9 @@ public class aq extends com.baidu.tieba.util.au {
                 bitmapDrawable2.setBounds(0, 0, width, b);
                 ImageSpan imageSpan = new ImageSpan(bitmapDrawable2, 1);
                 if (this.f != null) {
-                    spannableString.setSpan(imageSpan, str4.length() + this.f.getName_show().length() + 1, str3.length() + str4.length() + this.f.getName_show().length(), 17);
+                    spannableString.setSpan(imageSpan, str4.length() + this.f.getName_show().length() + 1, str4.length() + this.f.getName_show().length() + str3.length(), 17);
                 } else {
-                    spannableString.setSpan(imageSpan, str4.length(), str3.length() + str4.length(), 17);
+                    spannableString.setSpan(imageSpan, str4.length(), str4.length() + str3.length(), 17);
                 }
             }
             spannableString.setSpan(asVar, 0, length, 18);
@@ -154,19 +154,19 @@ public class aq extends com.baidu.tieba.util.au {
         }
     }
 
-    public void a(ArrayList<k> arrayList) {
+    public final void a(ArrayList<k> arrayList) {
         this.g = arrayList;
     }
 
-    public ArrayList<k> i() {
+    public final ArrayList<k> i() {
         return this.h;
     }
 
-    public int j() {
+    public final int j() {
         return this.i;
     }
 
-    public void a(Context context) {
+    public final void a(Context context) {
         int a;
         int i;
         int i2;
@@ -177,7 +177,7 @@ public class aq extends com.baidu.tieba.util.au {
                 try {
                     i3 = this.h.get(size - 1).a();
                 } catch (Exception e) {
-                    com.baidu.adp.lib.util.f.b("PostData", "uniteContentExcepFace", "error = " + e.getMessage());
+                    com.baidu.adp.lib.util.e.b("PostData", "uniteContentExcepFace", "error = " + e.getMessage());
                     return;
                 }
             }
@@ -210,7 +210,7 @@ public class aq extends com.baidu.tieba.util.au {
         }
     }
 
-    public void b(Context context) {
+    public final void b(Context context) {
         int i;
         int i2;
         int i3;
@@ -221,7 +221,7 @@ public class aq extends com.baidu.tieba.util.au {
                 try {
                     i4 = this.h.get(size - 1).a();
                 } catch (Exception e) {
-                    com.baidu.adp.lib.util.f.b("PostData", "uniteContent", "error = " + e.getMessage());
+                    com.baidu.adp.lib.util.e.b("PostData", "uniteContent", "error = " + e.getMessage());
                     return;
                 }
             }
@@ -257,13 +257,13 @@ public class aq extends com.baidu.tieba.util.au {
         }
     }
 
-    public void c(Context context) {
+    public final void c(Context context) {
         try {
             if (this.k != null) {
                 ClipboardManager clipboardManager = (ClipboardManager) context.getSystemService("clipboard");
                 clipboardManager.setText(this.k.toString());
                 if (clipboardManager.getText() != null) {
-                    com.baidu.adp.lib.util.f.e(getClass().getName(), "clip_text", clipboardManager.getText().toString());
+                    com.baidu.adp.lib.util.e.e(getClass().getName(), "clip_text", clipboardManager.getText().toString());
                     return;
                 }
                 return;
@@ -299,19 +299,19 @@ public class aq extends com.baidu.tieba.util.au {
                 ClipboardManager clipboardManager2 = (ClipboardManager) context.getSystemService("clipboard");
                 clipboardManager2.setText(sb.toString());
                 if (clipboardManager2.getText() != null) {
-                    com.baidu.adp.lib.util.f.e("PbActivity", "clip_text", clipboardManager2.getText().toString());
+                    com.baidu.adp.lib.util.e.e("PbActivity", "clip_text", clipboardManager2.getText().toString());
                 }
             }
         } catch (NullPointerException e) {
-            com.baidu.adp.lib.util.f.b("PostData", "setClipString", e.getMessage());
+            com.baidu.adp.lib.util.e.b("PostData", "setClipString", e.getMessage());
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    public final void a(JSONObject jSONObject) {
         a(jSONObject, null);
     }
 
-    public void a(JSONObject jSONObject, Context context) {
+    public final void a(JSONObject jSONObject, Context context) {
         if (jSONObject != null) {
             try {
                 this.a = jSONObject.optString("id");
@@ -342,18 +342,18 @@ public class aq extends com.baidu.tieba.util.au {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b("PostData", "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.util.e.b("PostData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
     @Override // com.baidu.tieba.util.au, com.baidu.tieba.util.aw
-    public boolean isSupportImageSize() {
+    public final boolean isSupportImageSize() {
         return true;
     }
 
     @Override // com.baidu.tieba.util.au, com.baidu.tieba.util.aw
-    public LinkedList<String> getImageUrl() {
+    public final LinkedList<String> getImageUrl() {
         ArrayList<com.baidu.tbadk.widget.richText.c> a;
         if (this.k == null || (a = this.k.a()) == null) {
             return null;
@@ -370,7 +370,7 @@ public class aq extends com.baidu.tieba.util.au {
     }
 
     @Override // com.baidu.tieba.util.au, com.baidu.tieba.util.aw
-    public LinkedList<com.baidu.tieba.util.av> getImagesWithEmotions() {
+    public final LinkedList<com.baidu.tieba.util.av> getImagesWithEmotions() {
         ArrayList<com.baidu.tbadk.widget.richText.c> a;
         if (this.k == null || (a = this.k.a()) == null) {
             return null;
@@ -396,7 +396,7 @@ public class aq extends com.baidu.tieba.util.au {
         return linkedList;
     }
 
-    public String k() {
+    public final String k() {
         ArrayList<com.baidu.tbadk.widget.richText.c> a;
         String str;
         if (this.k == null || (a = this.k.a()) == null) {
@@ -416,7 +416,7 @@ public class aq extends com.baidu.tieba.util.au {
     }
 
     @Override // com.baidu.tieba.util.au, com.baidu.tieba.util.aw
-    public LinkedList<String> getPhotoUrl() {
+    public final LinkedList<String> getPhotoUrl() {
         if (this.f == null) {
             return null;
         }

@@ -1,30 +1,32 @@
 package com.baidu.tieba.mainentrance;
 
-import android.widget.CompoundButton;
-import android.widget.RadioButton;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.DialogInterface;
+import com.baidu.tieba.util.DatabaseService;
 /* loaded from: classes.dex */
-public class o implements CompoundButton.OnCheckedChangeListener {
-    final /* synthetic */ SquareSearchActivity a;
+final class o implements DialogInterface.OnClickListener {
+    final /* synthetic */ n a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(SquareSearchActivity squareSearchActivity) {
-        this.a = squareSearchActivity;
+    public o(n nVar) {
+        this.a = nVar;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        RadioButton radioButton;
-        RadioButton radioButton2;
-        RadioButton radioButton3;
-        if (z) {
-            this.a.a(1);
-            radioButton = this.a.k;
-            radioButton.setChecked(false);
-            radioButton2 = this.a.k;
-            radioButton2.setSelected(false);
-            radioButton3 = this.a.l;
-            radioButton3.setSelected(true);
+    @Override // android.content.DialogInterface.OnClickListener
+    public final void onClick(DialogInterface dialogInterface, int i) {
+        SquareSearchActivity squareSearchActivity;
+        int i2;
+        SquareSearchActivity squareSearchActivity2;
+        SquareSearchActivity squareSearchActivity3;
+        squareSearchActivity = this.a.a;
+        i2 = squareSearchActivity.D;
+        if (i2 == 0) {
+            DatabaseService.o();
+            squareSearchActivity3 = this.a.a;
+            squareSearchActivity3.c();
+            return;
         }
+        DatabaseService.p();
+        squareSearchActivity2 = this.a.a;
+        squareSearchActivity2.d();
     }
 }

@@ -3,7 +3,6 @@ package com.baidu.tieba.barcode;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
@@ -59,23 +58,23 @@ public final class CaptureActivity extends com.baidu.tieba.f implements SurfaceH
     private Handler m = new Handler();
 
     public static void a(Activity activity, int i) {
-        activity.startActivityForResult(new Intent(activity, CaptureActivity.class), i);
+        activity.startActivityForResult(new Intent(activity, CaptureActivity.class), 16003);
     }
 
-    public ViewfinderView a() {
+    public final ViewfinderView a() {
         return this.d;
     }
 
-    public Handler b() {
+    public final Handler b() {
         return this.b;
     }
 
-    public com.baidu.tieba.barcode.a.e c() {
+    public final com.baidu.tieba.barcode.a.e c() {
         return this.a;
     }
 
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
-    public void onCreate(Bundle bundle) {
+    public final void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         getWindow().addFlags(128);
         setContentView(R.layout.barcode_capture);
@@ -88,49 +87,45 @@ public final class CaptureActivity extends com.baidu.tieba.f implements SurfaceH
         this.h.setOnClickListener(new b(this));
         this.e = false;
         this.f = new o(this);
-        f();
+        this.i = new k(this, (byte) 0);
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(com.baidu.tieba.data.i.b());
+        registerReceiver(this.i, intentFilter);
     }
 
-    public boolean e() {
+    public static /* synthetic */ boolean d(CaptureActivity captureActivity) {
         if (af.a()) {
             return true;
         }
-        showToast(getString(R.string.voice_error_sdcard));
+        captureActivity.showToast(captureActivity.getString(R.string.voice_error_sdcard));
         return false;
     }
 
     @Override // android.app.Activity
-    protected void onActivityResult(int i, int i2, Intent intent) {
+    protected final void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i2 == -1 && i == 12002 && intent != null && intent.getData() != null) {
             TiebaPrepareImageService.a(i, intent.getData(), bv.a().e(), BdUtilHelper.b(this));
         }
     }
 
-    private void f() {
-        this.i = new k(this, null);
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(com.baidu.tieba.data.i.b());
-        registerReceiver(this.i, intentFilter);
-    }
-
-    public void g() {
-        if (this.j != null) {
-            this.j.cancel();
+    public static /* synthetic */ void a(CaptureActivity captureActivity) {
+        if (captureActivity.j != null) {
+            captureActivity.j.cancel();
         }
-        this.j = new j(this, null);
-        this.j.execute(new Object[0]);
+        captureActivity.j = new j(captureActivity, (byte) 0);
+        captureActivity.j.execute(new Object[0]);
     }
 
     public void a(String str) {
         if (TextUtils.isEmpty(str)) {
-            com.baidu.tieba.im.util.b.a((Context) this, (DialogInterface.OnClickListener) new c(this));
+            new AlertDialog.Builder(this).setTitle(R.string.anti_title).setMessage(R.string.msg_album_bug).setPositiveButton(R.string.alert_yes_button, new c(this)).create().show();
             return;
         }
         cb.a(this, "2d_code_scan_suc", "onclick", 1, new Object[0]);
         if (URLUtil.isHttpUrl(str) || URLUtil.isHttpsUrl(str)) {
-            if (com.baidu.tieba.im.util.q.a(str)) {
-                com.baidu.tieba.im.util.q.a((Context) this, str, false);
+            if (com.baidu.tieba.im.util.p.a(str)) {
+                com.baidu.tieba.im.util.p.a((Context) this, str, false);
                 Intent intent = new Intent();
                 intent.putExtra("result", str);
                 setResult(-1, intent);
@@ -138,13 +133,13 @@ public final class CaptureActivity extends com.baidu.tieba.f implements SurfaceH
                 finish();
                 return;
             }
-            com.baidu.tieba.im.util.b.a(this, new d(this, str), new e(this), str);
+            new AlertDialog.Builder(this).setTitle(R.string.del_post_tip).setMessage(String.format(getString(R.string.url_notify), str)).setPositiveButton(R.string.alert_yes_button, new d(this, str)).setNegativeButton(R.string.alert_no_button, new e(this)).create().show();
             return;
         }
-        com.baidu.tieba.im.util.b.a(this, new f(this), str);
+        new AlertDialog.Builder(this).setTitle(R.string.bar_code_result).setMessage(str).setPositiveButton(R.string.alert_yes_button, new f(this)).create().show();
     }
 
-    public String a(Bitmap bitmap) {
+    public static String a(Bitmap bitmap) {
         Hashtable hashtable = new Hashtable();
         hashtable.put(DecodeHintType.CHARACTER_SET, "utf-8");
         int width = bitmap.getWidth();
@@ -166,13 +161,13 @@ public final class CaptureActivity extends com.baidu.tieba.f implements SurfaceH
     }
 
     @Override // com.baidu.tieba.f, android.app.Activity
-    public void onResume() {
+    public final void onResume() {
         super.onResume();
         this.a = new com.baidu.tieba.barcode.a.e(getApplication());
         this.d = (ViewfinderView) findViewById(R.id.viewfinder_view);
         this.d.setCameraManager(this.a);
         this.b = null;
-        i();
+        this.d.setVisibility(0);
         SurfaceHolder holder = ((SurfaceView) findViewById(R.id.preview_view)).getHolder();
         if (this.e) {
             a(holder);
@@ -184,7 +179,7 @@ public final class CaptureActivity extends com.baidu.tieba.f implements SurfaceH
     }
 
     @Override // com.baidu.tieba.f, android.app.Activity
-    public void onPause() {
+    public final void onPause() {
         if (this.b != null) {
             this.b.a();
             this.b = null;
@@ -201,7 +196,7 @@ public final class CaptureActivity extends com.baidu.tieba.f implements SurfaceH
     }
 
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
-    public void onDestroy() {
+    public final void onDestroy() {
         TiebaPrepareImageService.a();
         this.f.d();
         if (this.d != null) {
@@ -215,7 +210,7 @@ public final class CaptureActivity extends com.baidu.tieba.f implements SurfaceH
     }
 
     @Override // com.baidu.tieba.f, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+    public final boolean onKeyDown(int i, KeyEvent keyEvent) {
         switch (i) {
             case Im.GroupInfo.ACTIVEDAY_FIELD_NUMBER /* 27 */:
             case com.baidu.loginshare.e.i /* 80 */:
@@ -225,24 +220,10 @@ public final class CaptureActivity extends com.baidu.tieba.f implements SurfaceH
         }
     }
 
-    private void a(Bitmap bitmap, Result result) {
-        if (this.b == null) {
-            this.c = result;
-            return;
-        }
-        if (result != null) {
-            this.c = result;
-        }
-        if (this.c != null) {
-            this.b.sendMessage(Message.obtain(this.b, R.id.decode_succeeded, this.c));
-        }
-        this.c = null;
-    }
-
     @Override // android.view.SurfaceHolder.Callback
-    public void surfaceCreated(SurfaceHolder surfaceHolder) {
+    public final void surfaceCreated(SurfaceHolder surfaceHolder) {
         if (surfaceHolder == null) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "surfaceCreated", "*** WARNING *** surfaceCreated() gave us a null surface!");
+            com.baidu.adp.lib.util.e.b(getClass().getName(), "surfaceCreated", "*** WARNING *** surfaceCreated() gave us a null surface!");
         }
         if (!this.e) {
             this.e = true;
@@ -251,25 +232,18 @@ public final class CaptureActivity extends com.baidu.tieba.f implements SurfaceH
     }
 
     @Override // android.view.SurfaceHolder.Callback
-    public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
+    public final void surfaceDestroyed(SurfaceHolder surfaceHolder) {
         this.e = false;
     }
 
     @Override // android.view.SurfaceHolder.Callback
-    public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
+    public final void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
     }
 
-    public void a(Result result, Bitmap bitmap, float f) {
+    public final void a(Result result, Bitmap bitmap, float f) {
+        ResultPoint[] resultPoints;
         this.f.a();
-        if (bitmap != null) {
-            a(bitmap, f, result);
-        }
-        a(result, bitmap);
-    }
-
-    private void a(Bitmap bitmap, float f, Result result) {
-        ResultPoint[] resultPoints = result.getResultPoints();
-        if (resultPoints != null && resultPoints.length > 0) {
+        if ((bitmap != null) && (resultPoints = result.getResultPoints()) != null && resultPoints.length > 0) {
             Canvas canvas = new Canvas(bitmap);
             Paint paint = new Paint();
             paint.setColor(getResources().getColor(R.color.result_points));
@@ -286,6 +260,11 @@ public final class CaptureActivity extends com.baidu.tieba.f implements SurfaceH
                 }
             }
         }
+        this.d.setVisibility(8);
+        ZxingResult zxingResult = new ZxingResult();
+        zxingResult.a(ResultParser.parseResult(result).getDisplayResult().toString());
+        cb.a(this, "2d_code_scan", "onclick", 1, new Object[0]);
+        a(zxingResult.a());
     }
 
     private static void a(Canvas canvas, Paint paint, ResultPoint resultPoint, ResultPoint resultPoint2, float f) {
@@ -294,20 +273,12 @@ public final class CaptureActivity extends com.baidu.tieba.f implements SurfaceH
         }
     }
 
-    private void a(Result result, Bitmap bitmap) {
-        this.d.setVisibility(8);
-        ZxingResult zxingResult = new ZxingResult();
-        zxingResult.a(ResultParser.parseResult(result).getDisplayResult().toString());
-        cb.a(this, "2d_code_scan", "onclick", 1, new Object[0]);
-        a(zxingResult.a());
-    }
-
     public void a(SurfaceHolder surfaceHolder) {
         if (surfaceHolder == null) {
             throw new IllegalStateException("No SurfaceHolder provided");
         }
         if (this.a.a()) {
-            com.baidu.adp.lib.util.f.c(getClass().getName(), "initCamera", "initCamera() while already open -- late SurfaceView callback?");
+            com.baidu.adp.lib.util.e.c(getClass().getName(), "initCamera", "initCamera() while already open -- late SurfaceView callback?");
             return;
         }
         try {
@@ -315,17 +286,24 @@ public final class CaptureActivity extends com.baidu.tieba.f implements SurfaceH
             if (this.b == null) {
                 this.b = new CaptureActivityHandler(this, null, null, null, this.a);
             }
-            a((Bitmap) null, (Result) null);
+            if (this.b != null) {
+                if (this.c != null) {
+                    this.b.sendMessage(Message.obtain(this.b, R.id.decode_succeeded, this.c));
+                }
+                this.c = null;
+                return;
+            }
+            this.c = null;
         } catch (IOException e) {
-            com.baidu.adp.lib.util.f.c(getClass().getName(), "initCamera", e.toString());
-            h();
+            com.baidu.adp.lib.util.e.c(getClass().getName(), "initCamera", e.toString());
+            e();
         } catch (RuntimeException e2) {
-            com.baidu.adp.lib.util.f.c(getClass().getName(), "initCamera", "Unexpected error initializing camera" + e2.toString());
-            h();
+            com.baidu.adp.lib.util.e.c(getClass().getName(), "initCamera", "Unexpected error initializing camera" + e2.toString());
+            e();
         }
     }
 
-    private void h() {
+    private void e() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(getString(R.string.app_name));
         builder.setMessage(getString(R.string.msg_camera_framework_bug));
@@ -334,17 +312,13 @@ public final class CaptureActivity extends com.baidu.tieba.f implements SurfaceH
         builder.show();
     }
 
-    private void i() {
-        this.d.setVisibility(0);
-    }
-
-    public void d() {
+    public final void d() {
         this.d.c();
     }
 
     @Override // com.baidu.tieba.f
-    public void onChangeSkinType(int i) {
+    public final void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.g.c(i);
+        this.g.b(i);
     }
 }

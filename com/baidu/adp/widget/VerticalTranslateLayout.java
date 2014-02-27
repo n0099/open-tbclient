@@ -13,9 +13,9 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class VerticalTranslateLayout extends FrameLayout {
     static final /* synthetic */ boolean a;
-    private ad A;
-    private aa B;
-    private ae C;
+    private ab A;
+    private z B;
+    private ac C;
     private int b;
     private int c;
     private float d;
@@ -35,12 +35,12 @@ public class VerticalTranslateLayout extends FrameLayout {
     private int r;
     private int s;
     private boolean t;
-    private final x u;
-    private final y v;
-    private final af w;
-    private ac x;
-    private z y;
-    private final List<ab> z;
+    private final w u;
+    private final x v;
+    private final ad w;
+    private aa x;
+    private y y;
+    private final List<OnOpenAnimationListener> z;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
@@ -111,24 +111,24 @@ public class VerticalTranslateLayout extends FrameLayout {
         return this.m;
     }
 
-    public void setTopAnimationListener(ac acVar) {
-        this.x = acVar;
+    public void setTopAnimationListener(aa aaVar) {
+        this.x = aaVar;
     }
 
-    public void setBottomAnimationListener(z zVar) {
-        this.y = zVar;
+    public void setBottomAnimationListener(y yVar) {
+        this.y = yVar;
     }
 
-    public void setTopTrackListener(ad adVar) {
-        this.A = adVar;
+    public void setTopTrackListener(ab abVar) {
+        this.A = abVar;
     }
 
-    public void setBottomTrackListener(aa aaVar) {
-        this.B = aaVar;
+    public void setBottomTrackListener(z zVar) {
+        this.B = zVar;
     }
 
-    public void setVerticalTrackListener(ae aeVar) {
-        this.C = aeVar;
+    public void setVerticalTrackListener(ac acVar) {
+        this.C = acVar;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -169,15 +169,14 @@ public class VerticalTranslateLayout extends FrameLayout {
                 case 2:
                     Log.d("VerticalTranslateLayout", "@interceptInterceptTouchEvent");
                     motionEvent.offsetLocation(0.0f, -this.h);
-                    return a(x, y);
+                    if (x < this.q - this.i || x > this.q + this.i) {
+                        return false;
+                    }
+                    return (y < this.r - this.i || y > this.r + this.i) && this.w.a(y - this.r);
             }
         }
         Log.d("VerticalTranslateLayout", "Intercepted to onTouch()");
         return true;
-    }
-
-    private boolean a(int i, int i2) {
-        return i >= this.q - this.i && i <= this.q + this.i && (i2 < this.r - this.i || i2 > this.r + this.i) && this.w.a(i2 - this.r);
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -194,8 +193,8 @@ public class VerticalTranslateLayout extends FrameLayout {
                     this.t = false;
                     if (this.w.b) {
                         Log.d("VerticalTranslateLayout", "@onTouchEvent tracking");
-                        this.w.a();
-                        af.a(this.w);
+                        this.w.b = false;
+                        ad.a(this.w);
                         return true;
                     }
                     return true;
@@ -234,8 +233,8 @@ public class VerticalTranslateLayout extends FrameLayout {
             case 1:
             case 3:
                 if (this.w.b) {
-                    this.w.a();
-                    af.a(this.w);
+                    this.w.b = false;
+                    ad.a(this.w);
                     return true;
                 }
                 return true;

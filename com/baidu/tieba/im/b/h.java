@@ -3,7 +3,7 @@ package com.baidu.tieba.im.b;
 import com.baidu.tieba.im.net.TiebaSocketLinkService;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements com.baidu.tieba.im.net.j {
+public final class h implements com.baidu.tieba.im.net.j {
     final /* synthetic */ a a;
     private final /* synthetic */ String b;
     private final /* synthetic */ String c;
@@ -18,25 +18,25 @@ public class h implements com.baidu.tieba.im.net.j {
     }
 
     @Override // com.baidu.tieba.im.net.j
-    public void a(boolean z) {
+    public final void a(boolean z) {
         int i;
         int i2;
-        com.baidu.tieba.im.net.f.a().a("ping is succ? " + z + " to: " + this.b + " time: " + System.currentTimeMillis());
+        com.baidu.tieba.im.net.f.a().a(z ? 1 : 0, this.b);
         if (z) {
             this.a.o = 0;
             this.a.p = false;
             TiebaSocketLinkService.c("change ip and stop to restart to reconnet.");
+            this.a.q = true;
             TiebaSocketLinkService.a(this.b);
             TiebaSocketLinkService.a(true, this.c);
             a aVar = this.a;
-            i2 = aVar.r;
-            aVar.r = i2 + 1;
+            i2 = aVar.s;
+            aVar.s = i2 + 1;
             return;
         }
-        com.baidu.tieba.im.net.f.a().c();
         a aVar2 = this.a;
-        i = aVar2.r;
-        aVar2.r = i + 1;
+        i = aVar2.s;
+        aVar2.s = i + 1;
         this.a.a(this.c, this.d);
     }
 }

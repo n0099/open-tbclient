@@ -3,7 +3,7 @@ package com.baidu.tieba.e;
 import com.baidu.tieba.voice.VoiceManager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b extends com.baidu.adp.a.g {
+public final class b extends com.baidu.adp.a.g {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ public class b extends com.baidu.adp.a.g {
     }
 
     @Override // com.baidu.adp.a.g
-    public void a(Object obj) {
+    public final void a(Object obj) {
         boolean z;
         VoiceManager voiceManager;
         VoiceManager voiceManager2;
@@ -25,15 +25,12 @@ public class b extends com.baidu.adp.a.g {
             }
             this.a.i = false;
         }
-        if (!(obj instanceof com.baidu.tieba.model.r)) {
-            if (obj != null) {
-                this.a.b(obj);
-                return;
-            } else {
-                this.a.j();
-                return;
-            }
+        if (obj instanceof com.baidu.tieba.model.r) {
+            a.a(this.a, obj);
+        } else if (obj != null) {
+            a.b(this.a, obj);
+        } else {
+            a.c(this.a);
         }
-        this.a.a(obj);
     }
 }

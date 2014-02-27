@@ -3,7 +3,7 @@ package com.baidu.tieba.im.groupActivity;
 import android.app.TimePickerDialog;
 import android.widget.TimePicker;
 /* loaded from: classes.dex */
-class i implements TimePickerDialog.OnTimeSetListener {
+final class i implements TimePickerDialog.OnTimeSetListener {
     final /* synthetic */ h a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ class i implements TimePickerDialog.OnTimeSetListener {
     }
 
     @Override // android.app.TimePickerDialog.OnTimeSetListener
-    public void onTimeSet(TimePicker timePicker, int i, int i2) {
+    public final void onTimeSet(TimePicker timePicker, int i, int i2) {
         e eVar;
         e eVar2;
         e eVar3;
@@ -27,7 +27,7 @@ class i implements TimePickerDialog.OnTimeSetListener {
         timePickerDialog = eVar3.n;
         timePickerDialog.dismiss();
         eVar4 = this.a.a;
-        eVar4.l();
+        eVar4.j();
         eVar5 = this.a.a;
         eVar5.u = true;
     }

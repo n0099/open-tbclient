@@ -14,9 +14,8 @@ import com.baidu.tieba.im.message.cw;
 import com.baidu.tieba.im.message.cy;
 import com.baidu.tieba.im.model.ao;
 import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k implements com.baidu.tieba.im.messageCenter.g {
+final class k implements com.baidu.tieba.im.messageCenter.g {
     final /* synthetic */ GroupInfoActivity a;
 
     private k(GroupInfoActivity groupInfoActivity) {
@@ -24,12 +23,12 @@ public class k implements com.baidu.tieba.im.messageCenter.g {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ k(GroupInfoActivity groupInfoActivity, k kVar) {
+    public /* synthetic */ k(GroupInfoActivity groupInfoActivity, byte b) {
         this(groupInfoActivity);
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.s sVar) {
+    public final void a(com.baidu.tieba.im.message.s sVar) {
         com.baidu.tieba.im.model.e eVar;
         com.baidu.tieba.im.message.s o;
         com.baidu.tieba.im.model.e eVar2;
@@ -114,7 +113,7 @@ public class k implements com.baidu.tieba.im.messageCenter.g {
                     eVar33.a(d2, eVar35.e());
                     return;
                 }
-                this.a.d();
+                GroupInfoActivity.c(this.a);
                 eVar29 = this.a.g;
                 eVar29.a(caVar);
                 mVar14 = this.a.f;
@@ -138,8 +137,10 @@ public class k implements com.baidu.tieba.im.messageCenter.g {
                 if (caVar2.m() == 2230101) {
                     this.a.showToast(caVar2.n(), false);
                     this.a.finish();
-                } else if (!caVar2.l()) {
-                    this.a.d();
+                } else if (caVar2.l()) {
+                    this.a.showToast(R.string.neterror);
+                } else {
+                    GroupInfoActivity.c(this.a);
                     eVar26 = this.a.g;
                     eVar26.a(caVar2);
                     if (caVar2 == null || caVar2.g()) {
@@ -147,11 +148,9 @@ public class k implements com.baidu.tieba.im.messageCenter.g {
                         mVar13.a(caVar2, false);
                         return;
                     }
-                    String A = TiebaApplication.A();
+                    String v = TiebaApplication.v();
                     eVar27 = this.a.g;
-                    v.a(A, String.valueOf(eVar27.d()), 60000L, new l(this, caVar2));
-                } else {
-                    this.a.showToast(R.string.neterror);
+                    v.a(v, String.valueOf(eVar27.d()), 60000L, new l(this, caVar2));
                 }
             }
         } else if (sVar.w() == 103110) {
@@ -159,12 +158,12 @@ public class k implements com.baidu.tieba.im.messageCenter.g {
                 ak akVar = (ak) sVar;
                 if (!akVar.l() && (o2 = akVar.o()) != null && (o2 instanceof ah)) {
                     eVar23 = this.a.g;
-                    if (((ah) o2).d() == eVar23.d()) {
+                    if (((ah) o2).b() == eVar23.d()) {
                         mVar11 = this.a.f;
                         mVar11.y();
                         eVar24 = this.a.g;
                         eVar24.a(true);
-                        this.a.e();
+                        this.a.c();
                     }
                 }
             }
@@ -179,11 +178,11 @@ public class k implements com.baidu.tieba.im.messageCenter.g {
             if (cwVar.m() != 0) {
                 this.a.showToast(cwVar.n());
             } else if (cwVar.o() instanceof bg) {
-                int f = ((bg) cwVar.o()).f();
+                int i2 = ((bg) cwVar.o()).a;
                 i = this.a.e;
                 switch (i) {
                     case 1:
-                        if (f == 3) {
+                        if (i2 == 3) {
                             eVar21 = this.a.g;
                             eVar21.j();
                             mVar10 = this.a.f;
@@ -193,7 +192,7 @@ public class k implements com.baidu.tieba.im.messageCenter.g {
                         }
                         return;
                     case 2:
-                        if (f == 3) {
+                        if (i2 == 3) {
                             eVar19 = this.a.g;
                             eVar19.i();
                             mVar9 = this.a.f;
@@ -203,7 +202,7 @@ public class k implements com.baidu.tieba.im.messageCenter.g {
                         }
                         return;
                     case 3:
-                        if (f == 4) {
+                        if (i2 == 4) {
                             eVar17 = this.a.g;
                             eVar17.k();
                             mVar8 = this.a.f;
@@ -216,15 +215,15 @@ public class k implements com.baidu.tieba.im.messageCenter.g {
                         eVar9 = this.a.g;
                         GroupData b = eVar9.g().b();
                         aoVar = this.a.h;
-                        b.setFlag(aoVar.h());
+                        b.setFlag(aoVar.c());
                         eVar10 = this.a.g;
                         GroupData b2 = eVar10.g().b();
                         aoVar2 = this.a.h;
-                        b2.setPosition(aoVar2.e());
+                        b2.setPosition(aoVar2.a());
                         eVar11 = this.a.g;
                         GroupData b3 = eVar11.g().b();
                         aoVar3 = this.a.h;
-                        b3.setBusiness(aoVar3.f());
+                        b3.setBusiness(aoVar3.b());
                         eVar12 = this.a.g;
                         if ((eVar12.g().b().getFlag() & 1) == 1) {
                             mVar7 = this.a.f;
@@ -262,7 +261,7 @@ public class k implements com.baidu.tieba.im.messageCenter.g {
                     if (b4 == eVar2.d()) {
                         String c = azVar.c();
                         if (!TextUtils.isEmpty(c) && (split = c.split(",")) != null && split.length != 0) {
-                            String id = TiebaApplication.E().getID();
+                            String id = TiebaApplication.y().getID();
                             if (!TextUtils.isEmpty(id)) {
                                 for (String str : split) {
                                     if (id.equals(str)) {
@@ -275,7 +274,7 @@ public class k implements com.baidu.tieba.im.messageCenter.g {
                                         mVar.a(eVar5.g(), true);
                                         mVar2 = this.a.f;
                                         mVar2.c(str);
-                                        this.a.e();
+                                        this.a.c();
                                         return;
                                     }
                                     eVar6 = this.a.g;
@@ -311,15 +310,15 @@ public class k implements com.baidu.tieba.im.messageCenter.g {
             if (sVar instanceof cy) {
                 cy cyVar = (cy) sVar;
                 if (!cyVar.l() || cyVar.m() == 2230110) {
-                    this.a.c();
+                    this.a.b();
                 }
             }
         } else if (sVar.w() == 103120) {
             if (sVar instanceof bt) {
-                this.a.c();
+                this.a.b();
             }
         } else if (sVar.w() == 103121 && (sVar instanceof bu)) {
-            this.a.c();
+            this.a.b();
         }
     }
 }

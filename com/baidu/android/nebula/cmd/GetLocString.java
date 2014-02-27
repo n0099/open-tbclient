@@ -24,7 +24,7 @@ public class GetLocString implements NoProGuard, n {
     public void execute(com.baidu.android.nebula.a.d dVar, com.baidu.android.nebula.a.a aVar) {
         a.a(System.currentTimeMillis());
         Map a = dVar.a();
-        if (a == null || a.size() < 1) {
+        if (a == null || a.size() <= 0) {
             a.a(-1);
             return;
         }

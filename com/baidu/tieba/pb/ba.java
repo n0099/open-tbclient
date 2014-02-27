@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb;
 /* loaded from: classes.dex */
-class ba implements dy {
+final class ba implements dy {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,7 +9,7 @@ class ba implements dy {
     }
 
     @Override // com.baidu.tieba.pb.dy
-    public void a(com.baidu.tieba.data.av avVar) {
+    public final void a() {
         com.baidu.tieba.model.be beVar;
         com.baidu.tieba.model.be beVar2;
         cu cuVar;
@@ -18,7 +18,7 @@ class ba implements dy {
             beVar2 = this.a.A;
             if (beVar2.h()) {
                 cuVar = this.a.C;
-                cuVar.x();
+                cuVar.v();
             }
         }
     }

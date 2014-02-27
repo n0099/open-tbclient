@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.ReportGroup.ReportGroupReq;
 /* loaded from: classes.dex */
 public final class b extends GeneratedMessageLite.Builder<ReportGroupReq.DataReq, b> implements c {
@@ -11,19 +12,25 @@ public final class b extends GeneratedMessageLite.Builder<ReportGroupReq.DataReq
     private int b;
     private int c;
 
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return ReportGroupReq.DataReq.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return ReportGroupReq.DataReq.getDefaultInstance();
+    }
+
     private b() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static b h() {
+    public static /* synthetic */ b c() {
         return new b();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: d */
     public b clear() {
         super.clear();
         this.b = 0;
@@ -34,20 +41,14 @@ public final class b extends GeneratedMessageLite.Builder<ReportGroupReq.DataReq
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
+    /* renamed from: e */
     public b clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public ReportGroupReq.DataReq getDefaultInstanceForType() {
-        return ReportGroupReq.DataReq.getDefaultInstance();
+        return new b().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: d */
-    public ReportGroupReq.DataReq build() {
+    /* renamed from: a */
+    public final ReportGroupReq.DataReq build() {
         ReportGroupReq.DataReq buildPartial = buildPartial();
         if (!buildPartial.isInitialized()) {
             throw newUninitializedMessageException(buildPartial);
@@ -56,8 +57,8 @@ public final class b extends GeneratedMessageLite.Builder<ReportGroupReq.DataReq
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public ReportGroupReq.DataReq buildPartial() {
+    /* renamed from: b */
+    public final ReportGroupReq.DataReq buildPartial() {
         ReportGroupReq.DataReq dataReq = new ReportGroupReq.DataReq(this, (ReportGroupReq.DataReq) null);
         int i = this.a;
         int i2 = (i & 1) != 1 ? 0 : 1;
@@ -72,7 +73,7 @@ public final class b extends GeneratedMessageLite.Builder<ReportGroupReq.DataReq
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public b mergeFrom(ReportGroupReq.DataReq dataReq) {
+    public final b mergeFrom(ReportGroupReq.DataReq dataReq) {
         if (dataReq != ReportGroupReq.DataReq.getDefaultInstance()) {
             if (dataReq.hasGroupId()) {
                 a(dataReq.getGroupId());
@@ -127,13 +128,13 @@ public final class b extends GeneratedMessageLite.Builder<ReportGroupReq.DataReq
         }
     }
 
-    public b a(int i) {
+    public final b a(int i) {
         this.a |= 1;
         this.b = i;
         return this;
     }
 
-    public b b(int i) {
+    public final b b(int i) {
         this.a |= 2;
         this.c = i;
         return this;

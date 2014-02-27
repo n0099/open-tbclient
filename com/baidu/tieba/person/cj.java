@@ -5,9 +5,8 @@ import android.content.DialogInterface;
 import android.widget.ProgressBar;
 import com.baidu.tieba.view.MultiImageView;
 import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cj implements DialogInterface.OnClickListener {
+final class cj implements DialogInterface.OnClickListener {
     final /* synthetic */ PersonImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,7 +15,7 @@ public class cj implements DialogInterface.OnClickListener {
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
+    public final void onClick(DialogInterface dialogInterface, int i) {
         AlertDialog listMenu;
         MultiImageView multiImageView;
         MultiImageView multiImageView2;
@@ -42,7 +41,7 @@ public class cj implements DialogInterface.OnClickListener {
                         }
                         return;
                     } catch (Exception e) {
-                        com.baidu.adp.lib.util.f.b("PersonImageActivity click save  error" + e.getMessage());
+                        com.baidu.adp.lib.util.e.b("PersonImageActivity click save  error" + e.getMessage());
                         return;
                     }
                 case 1:

@@ -3,7 +3,7 @@ package com.baidu.tieba.im.b;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements com.baidu.tieba.im.net.c {
+public final class g implements com.baidu.tieba.im.net.c {
     final /* synthetic */ a a;
     private final /* synthetic */ String b;
     private final /* synthetic */ int c;
@@ -16,11 +16,11 @@ public class g implements com.baidu.tieba.im.net.c {
     }
 
     @Override // com.baidu.tieba.im.net.c
-    public void a() {
+    public final void a() {
         List list;
-        this.a.r = 0;
-        this.a.s = com.baidu.tieba.im.net.b.a().d();
-        list = this.a.s;
+        this.a.s = 0;
+        this.a.t = com.baidu.tieba.im.net.b.a().c();
+        list = this.a.t;
         if (list == null) {
             this.a.p = false;
         } else {

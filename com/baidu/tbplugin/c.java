@@ -9,7 +9,7 @@ import java.util.zip.ZipInputStream;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
-public class c {
+public final class c {
     private InputStream a;
     private String b;
 
@@ -18,7 +18,7 @@ public class c {
         this.b = str;
     }
 
-    public void a() {
+    public final void a() {
         try {
             ZipInputStream zipInputStream = new ZipInputStream(this.a);
             while (true) {

@@ -1,6 +1,6 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
-public class d {
+public final class d {
     private e a;
     private com.baidu.adp.a.g b;
 
@@ -8,9 +8,9 @@ public class d {
         this.b = gVar;
     }
 
-    public void a(boolean z, String str, String str2) {
+    public final void a(boolean z, String str, String str2) {
         if (this.a == null) {
-            this.a = new e(this, null);
+            this.a = new e(this, (byte) 0);
             this.a.setPriority(2);
             this.a.a(z);
             this.a.a2(str);
@@ -19,7 +19,7 @@ public class d {
         }
     }
 
-    public void a() {
+    public final void a() {
         if (this.a != null) {
             this.a.cancel();
         }

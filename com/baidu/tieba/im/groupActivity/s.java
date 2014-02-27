@@ -5,7 +5,7 @@ import android.view.View;
 import com.baidu.tieba.util.cb;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s implements View.OnClickListener {
+public final class s implements View.OnClickListener {
     final /* synthetic */ r a;
     private final /* synthetic */ GroupActivityActivity b;
 
@@ -16,9 +16,9 @@ public class s implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         Dialog dialog;
-        this.a.i();
+        r.a(this.a);
         dialog = this.a.t;
         dialog.show();
         cb.a(this.b, "group_activity_edit", "groupclick", 1, new Object[0]);

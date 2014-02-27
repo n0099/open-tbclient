@@ -8,7 +8,7 @@ import com.slidingmenu.lib.R;
 import java.text.MessageFormat;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ee implements AdapterView.OnItemClickListener {
+public final class ee implements AdapterView.OnItemClickListener {
     final /* synthetic */ ed a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,7 +17,7 @@ public class ee implements AdapterView.OnItemClickListener {
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+    public final void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         String str;
         SparseArray sparseArray = (SparseArray) view.getTag();
         if (sparseArray != null && (str = (String) sparseArray.get(R.id.tag_photo_username)) != null) {

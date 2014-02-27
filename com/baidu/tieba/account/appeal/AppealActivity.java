@@ -52,10 +52,6 @@ public class AppealActivity extends com.baidu.tieba.f {
         this.d.requestFocus();
         BdUtilHelper.b(this, this.d);
         this.d.addTextChangedListener(this.i);
-        a();
-    }
-
-    private void a() {
         Intent intent = getIntent();
         this.f = intent.getStringExtra("forum_id");
         this.g = intent.getStringExtra(PushConstants.EXTRA_USER_ID);
@@ -63,12 +59,12 @@ public class AppealActivity extends com.baidu.tieba.f {
         j.a(this.f, this.g, new d(this));
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str, boolean z) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(getString(R.string.anti_title));
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(AppealActivity appealActivity, String str, boolean z) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(appealActivity);
+        builder.setTitle(appealActivity.getString(R.string.anti_title));
         builder.setMessage(str);
-        builder.setPositiveButton(getString(R.string.anti_no_chance_pos), new e(this, z));
+        builder.setPositiveButton(appealActivity.getString(R.string.anti_no_chance_pos), new e(appealActivity, z));
         builder.create().show();
     }
 
@@ -79,7 +75,7 @@ public class AppealActivity extends com.baidu.tieba.f {
         boolean z = i == 1;
         getLayoutMode().a(z);
         getLayoutMode().a(findViewById(R.id.root));
-        this.a.c(i);
+        this.a.b(i);
         this.d.setHintTextColor(getResources().getColor(z ? R.color.appeal_hint_1 : R.color.appeal_hint));
     }
 }

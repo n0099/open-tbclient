@@ -5,7 +5,7 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
-public class a implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, View.OnTouchListener {
+public final class a implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, View.OnTouchListener {
     private GestureDetector a = new GestureDetector(this);
     private b b;
     private View c;
@@ -15,7 +15,7 @@ public class a implements GestureDetector.OnDoubleTapListener, GestureDetector.O
     }
 
     @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
+    public final boolean onTouch(View view, MotionEvent motionEvent) {
         this.c = view;
         if (this.a != null) {
             return this.a.onTouchEvent(motionEvent);
@@ -24,54 +24,57 @@ public class a implements GestureDetector.OnDoubleTapListener, GestureDetector.O
     }
 
     @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onDown(MotionEvent motionEvent) {
+    public final boolean onDown(MotionEvent motionEvent) {
         return false;
     }
 
     @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+    public final boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
         return false;
     }
 
     @Override // android.view.GestureDetector.OnGestureListener
-    public void onLongPress(MotionEvent motionEvent) {
+    public final void onLongPress(MotionEvent motionEvent) {
     }
 
     @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+    public final boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
         return false;
     }
 
     @Override // android.view.GestureDetector.OnGestureListener
-    public void onShowPress(MotionEvent motionEvent) {
+    public final void onShowPress(MotionEvent motionEvent) {
     }
 
     @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onSingleTapUp(MotionEvent motionEvent) {
+    public final boolean onSingleTapUp(MotionEvent motionEvent) {
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
-    public boolean onDoubleTap(MotionEvent motionEvent) {
+    public final boolean onDoubleTap(MotionEvent motionEvent) {
         Log.d("testGestureDetector", "onDoubleTap---->处理双击事件");
         if (this.b != null) {
-            return this.b.a(this.c, motionEvent);
+            return this.b.a(this.c);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
-    public boolean onDoubleTapEvent(MotionEvent motionEvent) {
+    public final boolean onDoubleTapEvent(MotionEvent motionEvent) {
         if (this.b != null) {
-            return this.b.b(this.c, motionEvent);
+            b bVar = this.b;
+            View view = this.c;
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
-    public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
+    public final boolean onSingleTapConfirmed(MotionEvent motionEvent) {
         if (this.b != null) {
-            return this.b.c(this.c, motionEvent);
+            b bVar = this.b;
+            View view = this.c;
+            return bVar.a();
         }
         return false;
     }

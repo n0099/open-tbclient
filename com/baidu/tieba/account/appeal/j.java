@@ -1,6 +1,6 @@
 package com.baidu.tieba.account.appeal;
 /* loaded from: classes.dex */
-public class j {
+public final class j {
     private static final String a = String.valueOf(com.baidu.tieba.data.i.a) + "c/u/user/getreason";
 
     public static void a(String str, String str2, l lVar) {

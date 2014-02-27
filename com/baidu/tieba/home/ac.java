@@ -7,7 +7,7 @@ import android.content.Intent;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class ac implements am {
+final class ac implements am {
     final /* synthetic */ SignAllForumActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,12 +16,12 @@ class ac implements am {
     }
 
     @Override // com.baidu.tieba.home.am
-    public void a(String str) {
-        this.a.a(str);
+    public final void a(String str) {
+        SignAllForumActivity.a(this.a, str);
     }
 
     @Override // com.baidu.tieba.home.am
-    public void a(aj ajVar) {
+    public final void a(aj ajVar) {
         as asVar;
         boolean z;
         as asVar2;
@@ -34,10 +34,10 @@ class ac implements am {
         q c = ajVar.c();
         if (c != null && c.a() == 0) {
             asVar = this.a.a;
-            u h = asVar.h();
-            h.a(ajVar);
-            int size = h.j().size();
-            int size2 = h.l().size();
+            u g = asVar.g();
+            g.a(ajVar);
+            int size = g.j().size();
+            int size2 = g.l().size();
             z = this.a.e;
             if (z) {
                 Intent intent = new Intent(this.a, SignAllForumActivity.class);
@@ -50,11 +50,11 @@ class ac implements am {
                 }
             }
             asVar2 = this.a.a;
-            asVar2.i().notifyDataSetChanged();
+            asVar2.h().notifyDataSetChanged();
             asVar3 = this.a.a;
-            asVar3.j().setText(this.a.getString(R.string.signallforum_res, new Object[]{Integer.valueOf(size2), Integer.valueOf(size - size2)}));
+            asVar3.i().setText(this.a.getString(R.string.signallforum_res, new Object[]{Integer.valueOf(size2), Integer.valueOf(size - size2)}));
             asVar4 = this.a.a;
-            ao f = asVar4.f();
+            ao e = asVar4.e();
             if (size != size2) {
                 if (ajVar.a() != 0) {
                     alertDialog = this.a.c;
@@ -70,9 +70,9 @@ class ac implements am {
                     this.a.showToast(R.string.signallforum_error);
                 }
             }
-            f.a();
+            e.a();
             return;
         }
-        this.a.a(c.b());
+        SignAllForumActivity.a(this.a, c.b());
     }
 }

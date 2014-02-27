@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.QueryGroupsByUid.QueryGroupsByUidReq;
 /* loaded from: classes.dex */
 public final class b extends GeneratedMessageLite.Builder<QueryGroupsByUidReq.DataReq, b> implements c {
@@ -11,19 +12,25 @@ public final class b extends GeneratedMessageLite.Builder<QueryGroupsByUidReq.Da
     private int b;
     private int c;
 
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return QueryGroupsByUidReq.DataReq.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return QueryGroupsByUidReq.DataReq.getDefaultInstance();
+    }
+
     private b() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static b h() {
+    public static /* synthetic */ b c() {
         return new b();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: d */
     public b clear() {
         super.clear();
         this.b = 0;
@@ -34,20 +41,14 @@ public final class b extends GeneratedMessageLite.Builder<QueryGroupsByUidReq.Da
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
+    /* renamed from: e */
     public b clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public QueryGroupsByUidReq.DataReq getDefaultInstanceForType() {
-        return QueryGroupsByUidReq.DataReq.getDefaultInstance();
+        return new b().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: d */
-    public QueryGroupsByUidReq.DataReq build() {
+    /* renamed from: a */
+    public final QueryGroupsByUidReq.DataReq build() {
         QueryGroupsByUidReq.DataReq buildPartial = buildPartial();
         if (!buildPartial.isInitialized()) {
             throw newUninitializedMessageException(buildPartial);
@@ -56,8 +57,8 @@ public final class b extends GeneratedMessageLite.Builder<QueryGroupsByUidReq.Da
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public QueryGroupsByUidReq.DataReq buildPartial() {
+    /* renamed from: b */
+    public final QueryGroupsByUidReq.DataReq buildPartial() {
         QueryGroupsByUidReq.DataReq dataReq = new QueryGroupsByUidReq.DataReq(this, (QueryGroupsByUidReq.DataReq) null);
         int i = this.a;
         int i2 = (i & 1) != 1 ? 0 : 1;
@@ -72,7 +73,7 @@ public final class b extends GeneratedMessageLite.Builder<QueryGroupsByUidReq.Da
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public b mergeFrom(QueryGroupsByUidReq.DataReq dataReq) {
+    public final b mergeFrom(QueryGroupsByUidReq.DataReq dataReq) {
         if (dataReq != QueryGroupsByUidReq.DataReq.getDefaultInstance()) {
             if (dataReq.hasWidth()) {
                 a(dataReq.getWidth());
@@ -127,13 +128,13 @@ public final class b extends GeneratedMessageLite.Builder<QueryGroupsByUidReq.Da
         }
     }
 
-    public b a(int i) {
+    public final b a(int i) {
         this.a |= 1;
         this.b = i;
         return this;
     }
 
-    public b b(int i) {
+    public final b b(int i) {
         this.a |= 2;
         this.c = i;
         return this;

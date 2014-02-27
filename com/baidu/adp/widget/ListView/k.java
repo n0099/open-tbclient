@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k implements AbsListView.OnScrollListener {
+public final class k implements AbsListView.OnScrollListener {
     final /* synthetic */ BdListView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ public class k implements AbsListView.OnScrollListener {
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
+    public final void onScrollStateChanged(AbsListView absListView, int i) {
         AbsListView.OnScrollListener onScrollListener;
         r rVar;
         t tVar;
@@ -30,7 +30,7 @@ public class k implements AbsListView.OnScrollListener {
             rVar = this.a.m;
             if (rVar != null && absListView.getLastVisiblePosition() == absListView.getCount() - 1 && absListView.getFirstVisiblePosition() != 0) {
                 rVar2 = this.a.m;
-                rVar2.a();
+                rVar2.b();
             }
             tVar = this.a.k;
             if (tVar != null) {
@@ -38,14 +38,14 @@ public class k implements AbsListView.OnScrollListener {
                 i2 = this.a.l;
                 if (firstVisiblePosition <= i2) {
                     tVar2 = this.a.k;
-                    tVar2.b();
+                    tVar2.a();
                 }
             }
         }
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    public final void onScroll(AbsListView absListView, int i, int i2, int i3) {
         AbsListView.OnScrollListener onScrollListener;
         q qVar;
         long j;

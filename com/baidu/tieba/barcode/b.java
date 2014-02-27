@@ -1,9 +1,9 @@
 package com.baidu.tieba.barcode;
 
 import android.view.View;
-import com.baidu.tieba.write.bz;
+import com.baidu.tieba.write.by;
 /* loaded from: classes.dex */
-class b implements View.OnClickListener {
+final class b implements View.OnClickListener {
     final /* synthetic */ CaptureActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,11 +12,9 @@ class b implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean e;
-        e = this.a.e();
-        if (e) {
-            bz.b(this.a);
+    public final void onClick(View view) {
+        if (CaptureActivity.d(this.a)) {
+            by.b(this.a);
         }
     }
 }

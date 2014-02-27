@@ -26,18 +26,18 @@ public class CompressBitmapTask extends AsyncTask {
     }
 
     private InputStream a(Uri uri) {
+        InputStream inputStream = null;
         try {
+            if (uri.getScheme() == null) {
+                inputStream = new FileInputStream(new File(uri.toString()));
+            } else if ((uri.getScheme().equalsIgnoreCase(PushConstants.EXTRA_CONTENT) || uri.getScheme().equalsIgnoreCase("file")) && this.a != null) {
+                inputStream = this.a.getContentResolver().openInputStream(uri);
+            }
         } catch (IOException e) {
             Log.e("CompressBitmap", "IOexception");
             e.printStackTrace();
         }
-        if (uri.getScheme() == null) {
-            return new FileInputStream(new File(uri.toString()));
-        }
-        if ((uri.getScheme().equalsIgnoreCase(PushConstants.EXTRA_CONTENT) || uri.getScheme().equalsIgnoreCase("file")) && this.a != null) {
-            return this.a.getContentResolver().openInputStream(uri);
-        }
-        return null;
+        return inputStream;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

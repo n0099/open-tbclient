@@ -9,7 +9,7 @@ abstract class e<Params, Result> implements Callable<Result> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ e(e eVar) {
+    public /* synthetic */ e(byte b) {
         this();
     }
 }

@@ -21,7 +21,7 @@ public class WebviewHelper {
                     return true;
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(WebviewHelper.class.getName(), "jumpTiebaNative", e.getMessage());
+                com.baidu.adp.lib.util.e.b(WebviewHelper.class.getName(), "jumpTiebaNative", e.getMessage());
             }
         }
         if (str != null && str.contains("jump=finish_this_page") && (context instanceof com.baidu.tieba.f)) {

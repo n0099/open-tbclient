@@ -65,20 +65,20 @@ final class FormatInformation {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ErrorCorrectionLevel getErrorCorrectionLevel() {
+    public final ErrorCorrectionLevel getErrorCorrectionLevel() {
         return this.errorCorrectionLevel;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public byte getDataMask() {
+    public final byte getDataMask() {
         return this.dataMask;
     }
 
-    public int hashCode() {
+    public final int hashCode() {
         return (this.errorCorrectionLevel.ordinal() << 3) | this.dataMask;
     }
 
-    public boolean equals(Object obj) {
+    public final boolean equals(Object obj) {
         if (obj instanceof FormatInformation) {
             FormatInformation formatInformation = (FormatInformation) obj;
             return this.errorCorrectionLevel == formatInformation.errorCorrectionLevel && this.dataMask == formatInformation.dataMask;

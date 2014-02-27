@@ -36,7 +36,7 @@ public class BestStringsFitTextView extends TextView {
         this.e = false;
     }
 
-    protected void a() {
+    private void a() {
         this.c = (getWidth() - getPaddingLeft()) - getPaddingRight();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < this.a.length; i++) {
@@ -45,7 +45,7 @@ public class BestStringsFitTextView extends TextView {
             }
             sb.append(this.a[i]);
             String sb2 = sb.toString();
-            com.baidu.adp.lib.util.f.d(sb2);
+            com.baidu.adp.lib.util.e.d(sb2);
             if (this.c < getPaint().measureText(sb2)) {
                 break;
             }

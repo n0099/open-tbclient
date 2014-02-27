@@ -4,8 +4,14 @@ import java.io.File;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class TrueFileFilter implements Serializable, IOFileFilter {
-    public static final IOFileFilter TRUE = new TrueFileFilter();
-    public static final IOFileFilter INSTANCE = TRUE;
+    public static final IOFileFilter INSTANCE;
+    public static final IOFileFilter TRUE;
+
+    static {
+        TrueFileFilter trueFileFilter = new TrueFileFilter();
+        TRUE = trueFileFilter;
+        INSTANCE = trueFileFilter;
+    }
 
     protected TrueFileFilter() {
     }

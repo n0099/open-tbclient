@@ -2,44 +2,40 @@ package com.baidu.tieba.im.model;
 
 import com.baidu.tieba.im.message.ba;
 /* loaded from: classes.dex */
-public class al extends com.baidu.adp.a.d {
+public final class al extends com.baidu.adp.a.d {
     private int a;
     private int b;
     private ba c;
 
-    public void a(int i) {
+    public final void a(int i) {
         this.a = i;
     }
 
-    public void b(int i) {
+    public final void b(int i) {
         this.b = i;
     }
 
     @Override // com.baidu.adp.a.d
-    protected boolean LoadData() {
+    protected final boolean LoadData() {
         return false;
     }
 
     @Override // com.baidu.adp.a.d
-    public boolean cancelLoadData() {
+    public final boolean cancelLoadData() {
         return false;
     }
 
-    private ba c() {
+    public final void a() {
         ba baVar = new ba();
         baVar.a(this.a);
         baVar.b(this.b);
-        return baVar;
+        this.c = baVar;
+        com.baidu.tieba.im.messageCenter.d.a().a(this.c);
     }
 
-    public void a() {
-        this.c = c();
-        com.baidu.tieba.im.messageCenter.e.a().a(this.c);
-    }
-
-    public void b() {
+    public final void b() {
         if (this.c != null) {
-            com.baidu.tieba.im.messageCenter.e.a().b(this.c);
+            com.baidu.tieba.im.messageCenter.d.a().b(this.c);
             this.c = null;
         }
     }

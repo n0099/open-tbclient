@@ -14,42 +14,42 @@ public final class BinaryBitmap {
         this.binarizer = binarizer;
     }
 
-    public int getWidth() {
+    public final int getWidth() {
         return this.binarizer.getWidth();
     }
 
-    public int getHeight() {
+    public final int getHeight() {
         return this.binarizer.getHeight();
     }
 
-    public BitArray getBlackRow(int i, BitArray bitArray) {
+    public final BitArray getBlackRow(int i, BitArray bitArray) {
         return this.binarizer.getBlackRow(i, bitArray);
     }
 
-    public BitMatrix getBlackMatrix() {
+    public final BitMatrix getBlackMatrix() {
         if (this.matrix == null) {
             this.matrix = this.binarizer.getBlackMatrix();
         }
         return this.matrix;
     }
 
-    public boolean isCropSupported() {
+    public final boolean isCropSupported() {
         return this.binarizer.getLuminanceSource().isCropSupported();
     }
 
-    public BinaryBitmap crop(int i, int i2, int i3, int i4) {
+    public final BinaryBitmap crop(int i, int i2, int i3, int i4) {
         return new BinaryBitmap(this.binarizer.createBinarizer(this.binarizer.getLuminanceSource().crop(i, i2, i3, i4)));
     }
 
-    public boolean isRotateSupported() {
+    public final boolean isRotateSupported() {
         return this.binarizer.getLuminanceSource().isRotateSupported();
     }
 
-    public BinaryBitmap rotateCounterClockwise() {
+    public final BinaryBitmap rotateCounterClockwise() {
         return new BinaryBitmap(this.binarizer.createBinarizer(this.binarizer.getLuminanceSource().rotateCounterClockwise()));
     }
 
-    public BinaryBitmap rotateCounterClockwise45() {
+    public final BinaryBitmap rotateCounterClockwise45() {
         return new BinaryBitmap(this.binarizer.createBinarizer(this.binarizer.getLuminanceSource().rotateCounterClockwise45()));
     }
 }

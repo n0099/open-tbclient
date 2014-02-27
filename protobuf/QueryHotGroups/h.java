@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -15,19 +16,34 @@ public final class h extends GeneratedMessageLite.Builder<QueryHotGroupsRes.Data
     private List<Im.GroupInfo> b = Collections.emptyList();
     private int c;
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        QueryHotGroupsRes.DataRes buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return QueryHotGroupsRes.DataRes.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return QueryHotGroupsRes.DataRes.getDefaultInstance();
+    }
+
     private h() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static h h() {
+    public static /* synthetic */ h b() {
         return new h();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public h clear() {
         super.clear();
         this.b = Collections.emptyList();
@@ -38,30 +54,14 @@ public final class h extends GeneratedMessageLite.Builder<QueryHotGroupsRes.Data
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public h clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public QueryHotGroupsRes.DataRes getDefaultInstanceForType() {
-        return QueryHotGroupsRes.DataRes.getDefaultInstance();
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public QueryHotGroupsRes.DataRes build() {
-        QueryHotGroupsRes.DataRes buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
+    public h clone() {
+        return new h().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public QueryHotGroupsRes.DataRes buildPartial() {
+    /* renamed from: a */
+    public final QueryHotGroupsRes.DataRes buildPartial() {
         QueryHotGroupsRes.DataRes dataRes = new QueryHotGroupsRes.DataRes(this, (QueryHotGroupsRes.DataRes) null);
         int i = this.a;
         if ((this.a & 1) == 1) {
@@ -77,7 +77,7 @@ public final class h extends GeneratedMessageLite.Builder<QueryHotGroupsRes.Data
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public h mergeFrom(QueryHotGroupsRes.DataRes dataRes) {
+    public final h mergeFrom(QueryHotGroupsRes.DataRes dataRes) {
         List list;
         List list2;
         List<Im.GroupInfo> list3;
@@ -89,14 +89,19 @@ public final class h extends GeneratedMessageLite.Builder<QueryHotGroupsRes.Data
                     this.b = list3;
                     this.a &= -2;
                 } else {
-                    i();
+                    if ((this.a & 1) != 1) {
+                        this.b = new ArrayList(this.b);
+                        this.a |= 1;
+                    }
                     List<Im.GroupInfo> list4 = this.b;
                     list2 = dataRes.groups_;
                     list4.addAll(list2);
                 }
             }
             if (dataRes.hasHasMore()) {
-                a(dataRes.getHasMore());
+                int hasMore = dataRes.getHasMore();
+                this.a |= 2;
+                this.c = hasMore;
             }
         }
         return this;
@@ -143,18 +148,5 @@ public final class h extends GeneratedMessageLite.Builder<QueryHotGroupsRes.Data
                 throw th;
             }
         }
-    }
-
-    private void i() {
-        if ((this.a & 1) != 1) {
-            this.b = new ArrayList(this.b);
-            this.a |= 1;
-        }
-    }
-
-    public h a(int i) {
-        this.a |= 2;
-        this.c = i;
-        return this;
     }
 }

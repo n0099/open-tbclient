@@ -4,25 +4,32 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.CommitPusherCount.CommitPusherCountReq;
 /* loaded from: classes.dex */
 public final class b extends GeneratedMessageLite.Builder<CommitPusherCountReq.CommitPusherCountReqIdl, b> implements c {
     private int a;
     private CommitPusherCountReq.DataReq b = CommitPusherCountReq.DataReq.getDefaultInstance();
 
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return CommitPusherCountReq.CommitPusherCountReqIdl.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return CommitPusherCountReq.CommitPusherCountReqIdl.getDefaultInstance();
+    }
+
     private b() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static b h() {
+    public static /* synthetic */ b b() {
         return new b();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public b clear() {
         super.clear();
         this.b = CommitPusherCountReq.DataReq.getDefaultInstance();
@@ -31,20 +38,14 @@ public final class b extends GeneratedMessageLite.Builder<CommitPusherCountReq.C
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
+    /* renamed from: d */
     public b clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public CommitPusherCountReq.CommitPusherCountReqIdl getDefaultInstanceForType() {
-        return CommitPusherCountReq.CommitPusherCountReqIdl.getDefaultInstance();
+        return new b().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: d */
-    public CommitPusherCountReq.CommitPusherCountReqIdl build() {
+    /* renamed from: a */
+    public final CommitPusherCountReq.CommitPusherCountReqIdl build() {
         CommitPusherCountReq.CommitPusherCountReqIdl buildPartial = buildPartial();
         if (!buildPartial.isInitialized()) {
             throw newUninitializedMessageException(buildPartial);
@@ -64,9 +65,15 @@ public final class b extends GeneratedMessageLite.Builder<CommitPusherCountReq.C
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public b mergeFrom(CommitPusherCountReq.CommitPusherCountReqIdl commitPusherCountReqIdl) {
+    public final b mergeFrom(CommitPusherCountReq.CommitPusherCountReqIdl commitPusherCountReqIdl) {
         if (commitPusherCountReqIdl != CommitPusherCountReq.CommitPusherCountReqIdl.getDefaultInstance() && commitPusherCountReqIdl.hasData()) {
-            b(commitPusherCountReqIdl.getData());
+            CommitPusherCountReq.DataReq data = commitPusherCountReqIdl.getData();
+            if ((this.a & 1) != 1 || this.b == CommitPusherCountReq.DataReq.getDefaultInstance()) {
+                this.b = data;
+            } else {
+                this.b = CommitPusherCountReq.DataReq.newBuilder(this.b).mergeFrom(data).buildPartial();
+            }
+            this.a |= 1;
         }
         return this;
     }
@@ -114,21 +121,11 @@ public final class b extends GeneratedMessageLite.Builder<CommitPusherCountReq.C
         }
     }
 
-    public b a(CommitPusherCountReq.DataReq dataReq) {
+    public final b a(CommitPusherCountReq.DataReq dataReq) {
         if (dataReq != null) {
             this.b = dataReq;
             this.a |= 1;
         }
-        return this;
-    }
-
-    public b b(CommitPusherCountReq.DataReq dataReq) {
-        if ((this.a & 1) == 1 && this.b != CommitPusherCountReq.DataReq.getDefaultInstance()) {
-            this.b = CommitPusherCountReq.DataReq.newBuilder(this.b).mergeFrom(dataReq).buildPartial();
-        } else {
-            this.b = dataReq;
-        }
-        this.a |= 1;
         return this;
     }
 }

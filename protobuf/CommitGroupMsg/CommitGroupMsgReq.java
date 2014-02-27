@@ -19,7 +19,9 @@ public final class CommitGroupMsgReq {
         public static final int DURATION_FIELD_NUMBER = 4;
         public static final int GROUPID_FIELD_NUMBER = 1;
         public static final int MSGTYPE_FIELD_NUMBER = 2;
+        public static Parser<DataReq> PARSER = new d();
         public static final int RECORDID_FIELD_NUMBER = 5;
+        private static final DataReq a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private Object content_;
@@ -29,8 +31,6 @@ public final class CommitGroupMsgReq {
         private int memoizedSerializedSize;
         private int msgType_;
         private long recordId_;
-        public static Parser<DataReq> PARSER = new d();
-        private static final DataReq a = new DataReq(true);
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ DataReq(GeneratedMessageLite.Builder builder, DataReq dataReq) {
@@ -43,7 +43,7 @@ public final class CommitGroupMsgReq {
             this.memoizedSerializedSize = -1;
         }
 
-        private DataReq(boolean z) {
+        private DataReq() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -54,7 +54,7 @@ public final class CommitGroupMsgReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public DataReq getDefaultInstanceForType() {
+        public final DataReq getDefaultInstanceForType() {
             return a;
         }
 
@@ -116,35 +116,37 @@ public final class CommitGroupMsgReq {
         }
 
         static {
-            a.a();
+            DataReq dataReq = new DataReq();
+            a = dataReq;
+            dataReq.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<DataReq> getParserForType() {
+        public final Parser<DataReq> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasGroupId() {
+        public final boolean hasGroupId() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public int getGroupId() {
+        public final int getGroupId() {
             return this.groupId_;
         }
 
-        public boolean hasMsgType() {
+        public final boolean hasMsgType() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public int getMsgType() {
+        public final int getMsgType() {
             return this.msgType_;
         }
 
-        public boolean hasContent() {
+        public final boolean hasContent() {
             return (this.bitField0_ & 4) == 4;
         }
 
-        public String getContent() {
+        public final String getContent() {
             Object obj = this.content_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -157,7 +159,7 @@ public final class CommitGroupMsgReq {
             return stringUtf8;
         }
 
-        public ByteString getContentBytes() {
+        public final ByteString getContentBytes() {
             Object obj = this.content_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -167,19 +169,19 @@ public final class CommitGroupMsgReq {
             return (ByteString) obj;
         }
 
-        public boolean hasDuration() {
+        public final boolean hasDuration() {
             return (this.bitField0_ & 8) == 8;
         }
 
-        public int getDuration() {
+        public final int getDuration() {
             return this.duration_;
         }
 
-        public boolean hasRecordId() {
+        public final boolean hasRecordId() {
             return (this.bitField0_ & 16) == 16;
         }
 
-        public long getRecordId() {
+        public final long getRecordId() {
             return this.recordId_;
         }
 
@@ -202,7 +204,7 @@ public final class CommitGroupMsgReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeInt32(1, this.groupId_);
@@ -222,10 +224,13 @@ public final class CommitGroupMsgReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt32Size(1, this.groupId_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeInt32Size(1, this.groupId_) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeInt32Size(2, this.msgType_);
                 }
@@ -245,7 +250,7 @@ public final class CommitGroupMsgReq {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -290,12 +295,12 @@ public final class CommitGroupMsgReq {
         }
 
         public static e newBuilder() {
-            return e.f();
+            return e.c();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public e newBuilderForType() {
+        public final e newBuilderForType() {
             return newBuilder();
         }
 
@@ -305,7 +310,7 @@ public final class CommitGroupMsgReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public e toBuilder() {
+        public final e toBuilder() {
             return newBuilder(this);
         }
     }
@@ -314,7 +319,7 @@ public final class CommitGroupMsgReq {
     public final class CommitGroupMsgReqIdl extends GeneratedMessageLite implements c {
         public static final int DATA_FIELD_NUMBER = 1;
         public static Parser<CommitGroupMsgReqIdl> PARSER = new a();
-        private static final CommitGroupMsgReqIdl a = new CommitGroupMsgReqIdl(true);
+        private static final CommitGroupMsgReqIdl a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private DataReq data_;
@@ -332,7 +337,7 @@ public final class CommitGroupMsgReq {
             this.memoizedSerializedSize = -1;
         }
 
-        private CommitGroupMsgReqIdl(boolean z) {
+        private CommitGroupMsgReqIdl() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -343,7 +348,7 @@ public final class CommitGroupMsgReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public CommitGroupMsgReqIdl getDefaultInstanceForType() {
+        public final CommitGroupMsgReqIdl getDefaultInstanceForType() {
             return a;
         }
 
@@ -351,7 +356,7 @@ public final class CommitGroupMsgReq {
             e eVar;
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
-            a();
+            this.data_ = DataReq.getDefaultInstance();
             boolean z = false;
             while (!z) {
                 try {
@@ -399,24 +404,22 @@ public final class CommitGroupMsgReq {
         }
 
         static {
-            a.a();
+            CommitGroupMsgReqIdl commitGroupMsgReqIdl = new CommitGroupMsgReqIdl();
+            a = commitGroupMsgReqIdl;
+            commitGroupMsgReqIdl.data_ = DataReq.getDefaultInstance();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<CommitGroupMsgReqIdl> getParserForType() {
+        public final Parser<CommitGroupMsgReqIdl> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasData() {
+        public final boolean hasData() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public DataReq getData() {
+        public final DataReq getData() {
             return this.data_;
-        }
-
-        private void a() {
-            this.data_ = DataReq.getDefaultInstance();
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -430,7 +433,7 @@ public final class CommitGroupMsgReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeMessage(1, this.data_);
@@ -438,10 +441,13 @@ public final class CommitGroupMsgReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeMessageSize(1, this.data_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeMessageSize(1, this.data_) + 0;
+                }
                 this.memoizedSerializedSize = i;
             }
             return i;
@@ -449,7 +455,7 @@ public final class CommitGroupMsgReq {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -494,12 +500,12 @@ public final class CommitGroupMsgReq {
         }
 
         public static b newBuilder() {
-            return b.f();
+            return b.b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public b newBuilderForType() {
+        public final b newBuilderForType() {
             return newBuilder();
         }
 
@@ -509,7 +515,7 @@ public final class CommitGroupMsgReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public b toBuilder() {
+        public final b toBuilder() {
             return newBuilder(this);
         }
     }

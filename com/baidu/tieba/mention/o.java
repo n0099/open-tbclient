@@ -5,7 +5,7 @@ import android.widget.AdapterView;
 import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o implements AdapterView.OnItemClickListener {
+public final class o implements AdapterView.OnItemClickListener {
     final /* synthetic */ l a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,18 +14,18 @@ public class o implements AdapterView.OnItemClickListener {
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+    public final void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         h hVar = (h) ((BdListView) adapterView).getWrappedAdapter();
         long itemId = hVar.getItemId(i);
         if (itemId == -1) {
             this.a.b();
-        } else if (itemId != -2) {
+        } else if (itemId == -2) {
+            l.i(this.a);
+        } else {
             com.baidu.tieba.data.t tVar = (com.baidu.tieba.data.t) hVar.getItem(i);
             if (tVar != null) {
-                this.a.a(tVar);
+                l.a(this.a, tVar);
             }
-        } else {
-            this.a.h();
         }
     }
 }

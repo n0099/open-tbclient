@@ -3,7 +3,7 @@ package com.baidu.tieba.more;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.ba;
 /* loaded from: classes.dex */
-class l extends Thread {
+final class l extends Thread {
     final /* synthetic */ AccountActivity a;
     private String b;
 
@@ -14,14 +14,14 @@ class l extends Thread {
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
+    public final void run() {
         super.run();
         ba baVar = new ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/s/logout");
         baVar.c(false);
         baVar.a(false);
         baVar.a("BDUSS", this.b);
-        baVar.a("channel_id", TiebaApplication.g().aY());
-        baVar.a("channel_uid", TiebaApplication.g().aX());
-        baVar.m();
+        baVar.a("channel_id", TiebaApplication.g().aQ());
+        baVar.a("channel_uid", TiebaApplication.g().aP());
+        baVar.l();
     }
 }

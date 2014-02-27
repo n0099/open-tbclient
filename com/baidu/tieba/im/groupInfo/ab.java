@@ -4,7 +4,7 @@ import android.view.View;
 import com.baidu.tieba.im.data.PhotoUrlData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab implements View.OnClickListener {
+public final class ab implements View.OnClickListener {
     final /* synthetic */ PhotoWallView a;
     private final /* synthetic */ PhotoUrlData b;
     private final /* synthetic */ int c;
@@ -17,7 +17,7 @@ public class ab implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         z zVar;
         z zVar2;
         zVar = this.a.k;

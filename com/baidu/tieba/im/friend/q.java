@@ -5,7 +5,7 @@ import com.baidu.tieba.util.ch;
 import com.baidu.tieba.util.cj;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class q implements com.baidu.tbadk.imageManager.d {
+public final class q implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ o a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ public class q implements com.baidu.tbadk.imageManager.d {
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
         ViewGroup viewGroup;
         ViewGroup viewGroup2;
         viewGroup = this.a.f;

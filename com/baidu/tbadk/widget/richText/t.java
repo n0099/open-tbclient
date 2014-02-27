@@ -3,7 +3,7 @@ package com.baidu.tbadk.widget.richText;
 import com.baidu.location.LocationClientOption;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class t {
+public final class t {
     private String a;
     private int b;
     private int c;
@@ -20,23 +20,23 @@ public class t {
         }
     }
 
-    public String a() {
+    public final String a() {
         return this.a;
     }
 
-    public int b() {
+    public final int b() {
         return this.b;
     }
 
-    public int c() {
+    public final int c() {
         return this.c;
     }
 
-    public Object d() {
+    public final Object d() {
         return this.d;
     }
 
-    public void a(Object obj) {
+    public final void a(Object obj) {
         this.d = obj;
     }
 }

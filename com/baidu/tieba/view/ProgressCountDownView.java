@@ -48,56 +48,49 @@ public class ProgressCountDownView extends FrameLayout {
         this.d = String.valueOf(str) + "： ";
     }
 
-    public void a(long j, long j2, long j3) {
+    public final void a(long j, long j2, long j3) {
         this.h = j;
-        this.i = j3;
-        this.f = new cd(this, j, j2);
+        this.i = 60000L;
+        this.f = new cd(this, j, 500L);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(long j) {
-        long max = (this.c.getMax() * j) / this.h;
-        if (j <= this.i) {
-            if (this.j) {
-                this.c.setSecondaryProgress((int) max);
-                this.j = false;
-            } else {
-                this.c.setSecondaryProgress(0);
-                this.j = true;
-            }
-            this.c.setProgress(0);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(ProgressCountDownView progressCountDownView, long j) {
+        long max = (progressCountDownView.c.getMax() * j) / progressCountDownView.h;
+        if (j > progressCountDownView.i) {
+            progressCountDownView.c.setProgress((int) max);
             return;
         }
-        this.c.setProgress((int) max);
+        if (progressCountDownView.j) {
+            progressCountDownView.c.setSecondaryProgress((int) max);
+            progressCountDownView.j = false;
+        } else {
+            progressCountDownView.c.setSecondaryProgress(0);
+            progressCountDownView.j = true;
+        }
+        progressCountDownView.c.setProgress(0);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(long j) {
-        this.e = String.valueOf(this.d) + c(j);
-        this.b.setText(this.e);
-    }
-
-    private String c(long j) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void b(ProgressCountDownView progressCountDownView, long j) {
         long j2;
         long j3;
-        String str = "";
-        if (j / 60000 < 10) {
-            str = String.valueOf("") + SocialConstants.FALSE;
-        }
-        String str2 = String.valueOf(str) + String.valueOf(j2) + "'";
+        StringBuilder sb = new StringBuilder(String.valueOf(progressCountDownView.d));
+        String str = String.valueOf(j / 60000 < 10 ? String.valueOf("") + SocialConstants.FALSE : "") + String.valueOf(j2) + "'";
         if ((j % 60000) / 1000 < 10) {
-            str2 = String.valueOf(str2) + SocialConstants.FALSE;
+            str = String.valueOf(str) + SocialConstants.FALSE;
         }
-        return String.valueOf(str2) + String.valueOf(j3) + "\"";
+        progressCountDownView.e = sb.append(String.valueOf(str) + String.valueOf(j3) + "\"").toString();
+        progressCountDownView.b.setText(progressCountDownView.e);
     }
 
-    public void a() {
+    public final void a() {
         if (this.f != null) {
             this.f.c();
         }
     }
 
-    public void b() {
+    public final void b() {
         if (this.f != null) {
             this.f.b();
         }

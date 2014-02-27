@@ -7,7 +7,7 @@ import android.widget.EditText;
 import com.baidu.adp.lib.util.BdUtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dp implements DialogInterface.OnKeyListener {
+public final class dp implements DialogInterface.OnKeyListener {
     final /* synthetic */ cu a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,7 +16,7 @@ public class dp implements DialogInterface.OnKeyListener {
     }
 
     @Override // android.content.DialogInterface.OnKeyListener
-    public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
+    public final boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
         NewPbActivity newPbActivity;
         EditText editText;
         Dialog dialog;

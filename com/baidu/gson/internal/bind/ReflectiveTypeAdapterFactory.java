@@ -31,7 +31,7 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
         this.excluder = excluder;
     }
 
-    public boolean excludeField(Field field, boolean z) {
+    public final boolean excludeField(Field field, boolean z) {
         return (this.excluder.excludeClass(field.getType(), z) || this.excluder.excludeField(field, z)) ? false : true;
     }
 
@@ -41,7 +41,7 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
     }
 
     @Override // com.baidu.gson.TypeAdapterFactory
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) {
+    public final <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) {
         Class<? super T> rawType = typeToken.getRawType();
         if (Object.class.isAssignableFrom(rawType)) {
             return new Adapter(this.constructorConstructor.get(typeToken), getBoundFields(gson, typeToken, rawType), null);
@@ -139,7 +139,7 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
         }
 
         @Override // com.baidu.gson.TypeAdapter
-        public T read(JsonReader jsonReader) {
+        public final T read(JsonReader jsonReader) {
             if (jsonReader.peek() == JsonToken.NULL) {
                 jsonReader.nextNull();
                 return null;
@@ -165,7 +165,7 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
         }
 
         @Override // com.baidu.gson.TypeAdapter
-        public void write(JsonWriter jsonWriter, T t) {
+        public final void write(JsonWriter jsonWriter, T t) {
             if (t == null) {
                 jsonWriter.nullValue();
                 return;

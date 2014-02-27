@@ -3,9 +3,8 @@ package com.baidu.tieba.account;
 import android.view.View;
 import android.widget.Button;
 import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ai implements View.OnFocusChangeListener {
+final class ai implements View.OnFocusChangeListener {
     final /* synthetic */ LoginActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +13,7 @@ public class ai implements View.OnFocusChangeListener {
     }
 
     @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view, boolean z) {
+    public final void onFocusChange(View view, boolean z) {
         Button button;
         Button button2;
         Button button3;

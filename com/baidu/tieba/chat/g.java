@@ -5,7 +5,7 @@ import android.widget.AdapterView;
 import com.baidu.tieba.data.chat.ImMessageCenterShowItemData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements AdapterView.OnItemLongClickListener {
+public final class g implements AdapterView.OnItemLongClickListener {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ public class g implements AdapterView.OnItemLongClickListener {
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
+    public final boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
         n nVar;
         n nVar2;
         ImMessageCenterShowItemData imMessageCenterShowItemData;
@@ -27,7 +27,7 @@ public class g implements AdapterView.OnItemLongClickListener {
                 aVar.h = (ImMessageCenterShowItemData) nVar2.getItem(i);
                 a aVar2 = this.a;
                 imMessageCenterShowItemData = this.a.h;
-                aVar2.a(imMessageCenterShowItemData);
+                a.b(aVar2, imMessageCenterShowItemData);
                 if (this.a.b != null) {
                     this.a.b.show();
                 }

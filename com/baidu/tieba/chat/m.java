@@ -1,6 +1,6 @@
 package com.baidu.tieba.chat;
 /* loaded from: classes.dex */
-class m implements com.baidu.tieba.im.a<Void> {
+final class m implements com.baidu.tieba.im.a<Void> {
     final /* synthetic */ l a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,11 +8,11 @@ class m implements com.baidu.tieba.im.a<Void> {
         this.a = lVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // com.baidu.tieba.im.a
-    public void a(Void r2) {
+    public final /* synthetic */ void a(Void r2) {
         a aVar;
         aVar = this.a.a;
-        aVar.g();
+        aVar.b();
     }
 }

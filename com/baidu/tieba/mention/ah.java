@@ -1,9 +1,8 @@
 package com.baidu.tieba.mention;
 
 import java.util.HashMap;
-import java.util.Set;
 /* loaded from: classes.dex */
-public class ah {
+public final class ah {
     private String j;
     private String k;
     private String l;
@@ -26,167 +25,147 @@ public class ah {
     private HashMap<String, String> n = new HashMap<>();
     private HashMap<String, String> o = new HashMap<>();
 
-    public void a() {
-        HashMap<String, String> m = m();
-        Set<String> keySet = m.keySet();
-        if (keySet.size() != 1) {
-            b((String) null);
-        } else {
-            b(m.get(keySet.iterator().next()));
-        }
-    }
-
-    public void b() {
-        HashMap<String, String> r = r();
-        Set<String> keySet = r.keySet();
-        if (keySet.size() != 1) {
-            j(null);
-        } else {
-            j(r.get(keySet.iterator().next()));
-        }
-    }
-
-    public int c() {
+    public final int a() {
         return this.a;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.a = i;
     }
 
-    public int d() {
+    public final int b() {
         return this.c;
     }
 
-    public void b(int i) {
+    public final void b(int i) {
         this.c = i;
     }
 
-    public int e() {
+    public final int c() {
         return this.d;
     }
 
-    public void c(int i) {
+    public final void c(int i) {
         this.d = i;
     }
 
-    public int f() {
+    public final int d() {
         return this.f;
     }
 
-    public void d(int i) {
+    public final void d(int i) {
         this.f = i;
     }
 
-    public int g() {
+    public final int e() {
         return this.b;
     }
 
-    public void e(int i) {
+    public final void e(int i) {
         this.b = i;
     }
 
-    public boolean h() {
+    public final boolean f() {
         return this.i;
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.i = z;
     }
 
-    public String i() {
+    public final String g() {
         return this.j;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.j = str;
     }
 
-    public String j() {
+    public final String h() {
         return this.p;
     }
 
-    public void b(String str) {
+    public final void b(String str) {
         this.p = str;
     }
 
-    public void c(String str) {
+    public final void c(String str) {
         this.q = str;
     }
 
-    public void d(String str) {
+    public final void d(String str) {
         this.r = str;
     }
 
-    public String k() {
+    public final String i() {
         return this.t;
     }
 
-    public void e(String str) {
+    public final void e(String str) {
         this.t = str;
     }
 
-    public String l() {
+    public final String j() {
         return this.u;
     }
 
-    public void f(String str) {
+    public final void f(String str) {
         this.u = str;
     }
 
-    public HashMap<String, String> m() {
+    public final HashMap<String, String> k() {
         return this.n;
     }
 
-    public int n() {
+    public final int l() {
         return this.e;
     }
 
-    public void f(int i) {
+    public final void f(int i) {
         this.e = i;
     }
 
-    public int o() {
+    public final int m() {
         return this.g;
     }
 
-    public void g(int i) {
+    public final void g(int i) {
         this.g = i;
     }
 
-    public void g(String str) {
+    public final void g(String str) {
         this.k = str;
     }
 
-    public void h(String str) {
+    public final void h(String str) {
         this.l = str;
     }
 
-    public int p() {
+    public final int n() {
         return this.h;
     }
 
-    public void h(int i) {
+    public final void h(int i) {
         this.h = i;
     }
 
-    public String q() {
+    public final String o() {
         return this.m;
     }
 
-    public void i(String str) {
+    public final void i(String str) {
         this.m = str;
     }
 
-    public HashMap<String, String> r() {
+    public final HashMap<String, String> p() {
         return this.o;
     }
 
-    public String s() {
+    public final String q() {
         return this.s;
     }
 
-    public void j(String str) {
+    public final void j(String str) {
         this.s = str;
     }
 }

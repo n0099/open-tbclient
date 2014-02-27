@@ -35,23 +35,37 @@ import org.apache.commons.io.filefilter.TrueFileFilter;
 import org.apache.commons.io.output.NullOutputStream;
 /* loaded from: classes.dex */
 public class FileUtils {
+    public static final File[] EMPTY_FILE_ARRAY;
     private static final long FILE_COPY_BUFFER_SIZE = 31457280;
-    public static final long ONE_GB = 1073741824;
-    public static final long ONE_MB = 1048576;
-    public static final long ONE_PB = 1125899906842624L;
-    public static final long ONE_TB = 1099511627776L;
-    public static final long ONE_KB = 1024;
-    public static final BigInteger ONE_KB_BI = BigInteger.valueOf(ONE_KB);
-    public static final BigInteger ONE_MB_BI = ONE_KB_BI.multiply(ONE_KB_BI);
-    public static final BigInteger ONE_GB_BI = ONE_KB_BI.multiply(ONE_MB_BI);
-    public static final BigInteger ONE_TB_BI = ONE_KB_BI.multiply(ONE_GB_BI);
-    public static final BigInteger ONE_PB_BI = ONE_KB_BI.multiply(ONE_TB_BI);
-    public static final BigInteger ONE_EB_BI = ONE_KB_BI.multiply(ONE_PB_BI);
     public static final long ONE_EB = 1152921504606846976L;
-    public static final BigInteger ONE_ZB = BigInteger.valueOf(ONE_KB).multiply(BigInteger.valueOf(ONE_EB));
-    public static final BigInteger ONE_YB = ONE_KB_BI.multiply(ONE_ZB);
-    public static final File[] EMPTY_FILE_ARRAY = new File[0];
-    private static final Charset UTF8 = Charset.forName("UTF-8");
+    public static final BigInteger ONE_EB_BI;
+    public static final long ONE_GB = 1073741824;
+    public static final BigInteger ONE_GB_BI;
+    public static final long ONE_KB = 1024;
+    public static final BigInteger ONE_KB_BI;
+    public static final long ONE_MB = 1048576;
+    public static final BigInteger ONE_MB_BI;
+    public static final long ONE_PB = 1125899906842624L;
+    public static final BigInteger ONE_PB_BI;
+    public static final long ONE_TB = 1099511627776L;
+    public static final BigInteger ONE_TB_BI;
+    public static final BigInteger ONE_YB;
+    public static final BigInteger ONE_ZB;
+    private static final Charset UTF8;
+
+    static {
+        BigInteger valueOf = BigInteger.valueOf(ONE_KB);
+        ONE_KB_BI = valueOf;
+        ONE_MB_BI = valueOf.multiply(ONE_KB_BI);
+        ONE_GB_BI = ONE_KB_BI.multiply(ONE_MB_BI);
+        ONE_TB_BI = ONE_KB_BI.multiply(ONE_GB_BI);
+        ONE_PB_BI = ONE_KB_BI.multiply(ONE_TB_BI);
+        ONE_EB_BI = ONE_KB_BI.multiply(ONE_PB_BI);
+        ONE_ZB = BigInteger.valueOf(ONE_KB).multiply(BigInteger.valueOf(ONE_EB));
+        ONE_YB = ONE_KB_BI.multiply(ONE_ZB);
+        EMPTY_FILE_ARRAY = new File[0];
+        UTF8 = Charset.forName("UTF-8");
+    }
 
     public static File getFile(File file, String... strArr) {
         if (file == null) {
@@ -500,7 +514,6 @@ public class FileUtils {
         FileChannel fileChannel;
         FileOutputStream fileOutputStream;
         FileInputStream fileInputStream;
-        FileChannel channel;
         FileChannel fileChannel2 = null;
         if (file2.exists() && file2.isDirectory()) {
             throw new IOException("Destination '" + file2 + "' exists but is a directory");
@@ -510,41 +523,41 @@ public class FileUtils {
             try {
                 FileOutputStream fileOutputStream2 = new FileOutputStream(file2);
                 try {
-                    FileChannel channel2 = fileInputStream2.getChannel();
+                    FileChannel channel = fileInputStream2.getChannel();
                     try {
-                        channel = fileOutputStream2.getChannel();
-                    } catch (Throwable th) {
-                        th = th;
-                        fileOutputStream = fileOutputStream2;
-                        fileInputStream = fileInputStream2;
-                        fileChannel2 = channel2;
-                        fileChannel = null;
-                    }
-                    try {
-                        long size = channel2.size();
-                        for (long j = 0; j < size; j += channel.transferFrom(channel2, j, size - j > FILE_COPY_BUFFER_SIZE ? 31457280L : size - j)) {
-                        }
-                        IOUtils.closeQuietly(channel);
-                        IOUtils.closeQuietly((OutputStream) fileOutputStream2);
-                        IOUtils.closeQuietly(channel2);
-                        IOUtils.closeQuietly((InputStream) fileInputStream2);
-                        if (file.length() != file2.length()) {
-                            throw new IOException("Failed to copy full contents from '" + file + "' to '" + file2 + "'");
-                        }
-                        if (z) {
-                            file2.setLastModified(file.lastModified());
+                        FileChannel channel2 = fileOutputStream2.getChannel();
+                        try {
+                            long size = channel.size();
+                            for (long j = 0; j < size; j += channel2.transferFrom(channel, j, size - j > FILE_COPY_BUFFER_SIZE ? 31457280L : size - j)) {
+                            }
+                            IOUtils.closeQuietly(channel2);
+                            IOUtils.closeQuietly((OutputStream) fileOutputStream2);
+                            IOUtils.closeQuietly(channel);
+                            IOUtils.closeQuietly((InputStream) fileInputStream2);
+                            if (file.length() != file2.length()) {
+                                throw new IOException("Failed to copy full contents from '" + file + "' to '" + file2 + "'");
+                            }
+                            if (z) {
+                                file2.setLastModified(file.lastModified());
+                            }
+                        } catch (Throwable th) {
+                            fileOutputStream = fileOutputStream2;
+                            fileInputStream = fileInputStream2;
+                            fileChannel = channel2;
+                            th = th;
+                            fileChannel2 = channel;
+                            IOUtils.closeQuietly(fileChannel);
+                            IOUtils.closeQuietly((OutputStream) fileOutputStream);
+                            IOUtils.closeQuietly(fileChannel2);
+                            IOUtils.closeQuietly((InputStream) fileInputStream);
+                            throw th;
                         }
                     } catch (Throwable th2) {
+                        th = th2;
                         fileOutputStream = fileOutputStream2;
                         fileInputStream = fileInputStream2;
-                        fileChannel = channel;
-                        th = th2;
-                        fileChannel2 = channel2;
-                        IOUtils.closeQuietly(fileChannel);
-                        IOUtils.closeQuietly((OutputStream) fileOutputStream);
-                        IOUtils.closeQuietly(fileChannel2);
-                        IOUtils.closeQuietly((InputStream) fileInputStream);
-                        throw th;
+                        fileChannel2 = channel;
+                        fileChannel = null;
                     }
                 } catch (Throwable th3) {
                     th = th3;
@@ -583,7 +596,7 @@ public class FileUtils {
     }
 
     public static void copyDirectory(File file, File file2) {
-        copyDirectory(file, file2, true);
+        copyDirectory(file, file2, null, true);
     }
 
     public static void copyDirectory(File file, File file2, boolean z) {

@@ -8,9 +8,8 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tieba.editortool.EmotionTabHost;
 import com.baidu.tieba.view.KeyboardLayout;
 import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o implements View.OnClickListener {
+final class o implements View.OnClickListener {
     final /* synthetic */ ImagePbActivity a;
     private final /* synthetic */ Handler b;
     private final /* synthetic */ Runnable c;
@@ -23,7 +22,7 @@ public class o implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         EmotionTabHost emotionTabHost;
         KeyboardLayout keyboardLayout;
         EditText editText;

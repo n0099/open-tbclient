@@ -151,7 +151,7 @@ public final class SessionManager {
         return a;
     }
 
-    public Session get(String str) {
+    public final Session get(String str) {
         String string = this.b.getString(str, null);
         if (string == null) {
             return null;
@@ -163,7 +163,7 @@ public final class SessionManager {
         }
     }
 
-    public Map getAll() {
+    public final Map getAll() {
         HashMap hashMap = new HashMap();
         for (Map.Entry<String, ?> entry : this.b.getAll().entrySet()) {
             try {
@@ -174,22 +174,22 @@ public final class SessionManager {
         return hashMap;
     }
 
-    public boolean remove(String str) {
+    public final boolean remove(String str) {
         a();
         return this.b.edit().remove(str).commit();
     }
 
-    public boolean removeAll() {
+    public final boolean removeAll() {
         a();
         return this.b.edit().clear().commit();
     }
 
-    public boolean save(Session session) {
+    public final boolean save(Session session) {
         Validator.notNull(session, "session");
         return this.b.edit().putString(session.getMediaType(), session.toString()).commit();
     }
 
-    public boolean save(JSONObject jSONObject) {
+    public final boolean save(JSONObject jSONObject) {
         Validator.notNull(jSONObject, "session");
         try {
             return save(new Session(jSONObject, true));

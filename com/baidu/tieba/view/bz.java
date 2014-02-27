@@ -1,7 +1,7 @@
 package com.baidu.tieba.view;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bz extends com.baidu.tieba.util.bt {
+public final class bz extends com.baidu.tieba.util.bt {
     final /* synthetic */ NumCountDownView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,18 +12,17 @@ public class bz extends com.baidu.tieba.util.bt {
     }
 
     @Override // com.baidu.tieba.util.bt
-    public void a(long j) {
-        this.a.a(j);
+    public final void a(long j) {
+        NumCountDownView.a(this.a, j);
     }
 
     @Override // com.baidu.tieba.util.bt
-    public void a() {
+    public final void a() {
         ca caVar;
-        ca caVar2;
+        ca unused;
         caVar = this.a.g;
         if (caVar != null) {
-            caVar2 = this.a.g;
-            caVar2.a();
+            unused = this.a.g;
         }
     }
 }

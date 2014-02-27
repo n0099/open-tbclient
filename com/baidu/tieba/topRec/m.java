@@ -5,10 +5,39 @@ import com.baidu.gson.GsonBuilder;
 import com.baidu.tieba.util.ba;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m extends BdAsyncTask<Object, Integer, TRForumListData> {
+public final class m extends BdAsyncTask<Object, Integer, TRForumListData> {
     TRForumListData a;
     final /* synthetic */ l b;
     private ba c;
+
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ TRForumListData a(Object... objArr) {
+        return d();
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ void a(TRForumListData tRForumListData) {
+        boolean z;
+        boolean z2;
+        TRForumListData tRForumListData2 = tRForumListData;
+        super.a((m) tRForumListData2);
+        if (tRForumListData2 != null) {
+            com.baidu.adp.lib.util.e.e(tRForumListData2.toString());
+            if (tRForumListData2.error_code != 0 || tRForumListData2.error == null) {
+                n nVar = this.b.b;
+                z = this.b.c;
+                nVar.a(Boolean.valueOf(z), tRForumListData2, tRForumListData2.error_code, tRForumListData2.error_msg);
+                return;
+            }
+            n nVar2 = this.b.b;
+            z2 = this.b.c;
+            nVar2.a(Boolean.valueOf(z2), tRForumListData2, tRForumListData2.error.errno, tRForumListData2.error.usermsg);
+        }
+    }
 
     private m(l lVar) {
         this.b = lVar;
@@ -17,55 +46,30 @@ public class m extends BdAsyncTask<Object, Integer, TRForumListData> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ m(l lVar, m mVar) {
+    public /* synthetic */ m(l lVar, byte b) {
         this(lVar);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public TRForumListData a(Object... objArr) {
-        String m;
+    private TRForumListData d() {
+        String l;
         try {
             this.c = new ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/f/forum/random_recommend_forum");
             this.c.a("rn", "100");
-            m = this.c.m();
-            com.baidu.adp.lib.util.f.e("TopRecModel", "doInBackground", m);
+            l = this.c.l();
+            com.baidu.adp.lib.util.e.e("TopRecModel", "doInBackground", l);
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.adp.lib.util.e.b(getClass().getName(), "doInBackground", e.getMessage());
         }
-        if (m == null) {
+        if (l == null) {
             return null;
         }
-        if (!this.c.d()) {
+        if (!this.c.c()) {
             this.b.c = false;
         } else {
-            this.a = (TRForumListData) new GsonBuilder().create().fromJson(m, (Class<Object>) TRForumListData.class);
+            this.a = (TRForumListData) new GsonBuilder().create().fromJson(l, (Class<Object>) TRForumListData.class);
             this.b.c = true;
-            com.baidu.adp.lib.util.f.e(this.a.toString());
+            com.baidu.adp.lib.util.e.e(this.a.toString());
         }
         return this.a;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(TRForumListData tRForumListData) {
-        boolean z;
-        boolean z2;
-        super.a((m) tRForumListData);
-        if (tRForumListData != null) {
-            com.baidu.adp.lib.util.f.e(tRForumListData.toString());
-            if (tRForumListData.error_code == 0 && tRForumListData.error != null) {
-                n nVar = this.b.b;
-                z2 = this.b.c;
-                nVar.a(Boolean.valueOf(z2), tRForumListData, tRForumListData.error.errno, tRForumListData.error.usermsg);
-                return;
-            }
-            n nVar2 = this.b.b;
-            z = this.b.c;
-            nVar2.a(Boolean.valueOf(z), tRForumListData, tRForumListData.error_code, tRForumListData.error_msg);
-        }
     }
 }

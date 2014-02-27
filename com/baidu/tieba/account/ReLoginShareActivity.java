@@ -54,16 +54,20 @@ public class ReLoginShareActivity extends com.baidu.tieba.f {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.relogin_activity);
-        a();
-        b();
-        d();
-    }
-
-    private void a() {
         Intent intent = getIntent();
         this.f = intent.getStringExtra("user_name");
         this.g = intent.getStringExtra("bduss");
         this.h = intent.getStringExtra(SapiAccountManager.SESSION_PTOKEN);
+        this.k = (NavigationBar) findViewById(R.id.view_navigation_bar);
+        this.k.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.b = (Button) findViewById(R.id.relogin_retry_button);
+        this.b.setOnClickListener(this.m);
+        this.c = (Button) findViewById(R.id.relogin_cacel_button);
+        this.c.setOnClickListener(this.m);
+        this.e = (ProgressBar) findViewById(R.id.relogin_progressbar);
+        this.d = (TextView) findViewById(R.id.relogin_textview);
+        this.a = (LinearLayout) findViewById(R.id.container);
+        a();
     }
 
     @Override // android.app.Activity
@@ -82,24 +86,12 @@ public class ReLoginShareActivity extends com.baidu.tieba.f {
         bundle.putString(SapiAccountManager.SESSION_PTOKEN, this.h);
     }
 
-    private void b() {
-        this.k = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.k.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.b = (Button) findViewById(R.id.relogin_retry_button);
-        this.b.setOnClickListener(this.m);
-        this.c = (Button) findViewById(R.id.relogin_cacel_button);
-        this.c.setOnClickListener(this.m);
-        this.e = (ProgressBar) findViewById(R.id.relogin_progressbar);
-        this.d = (TextView) findViewById(R.id.relogin_textview);
-        this.a = (LinearLayout) findViewById(R.id.container);
-    }
-
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         a(0, this.f, null);
-        this.k.c(i);
+        this.k.b(i);
         com.baidu.tieba.util.bq.a((TextView) this.c, i);
         com.baidu.tieba.util.bq.a(this.a, i);
         com.baidu.tieba.util.bq.b(this.d, i);
@@ -162,47 +154,48 @@ public class ReLoginShareActivity extends com.baidu.tieba.f {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void c() {
-        if (!TextUtils.isEmpty(TiebaApplication.A())) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void c(ReLoginShareActivity reLoginShareActivity) {
+        if (!TextUtils.isEmpty(TiebaApplication.v())) {
             DatabaseService.i();
-            TiebaApplication.a((AccountData) null, getBaseContext());
+            TiebaApplication.a((AccountData) null, reLoginShareActivity.getBaseContext());
         }
-        finish();
+        reLoginShareActivity.finish();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void d() {
+    public void a() {
         if (this.g != null && this.h != null) {
             this.j = false;
-            ay.b(this.f, this.g, this.h, this.n, true);
+            new ba(this.f, this.g, this.h, this.n, true, true).execute(new String[0]);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(AccountData accountData) {
-        if (!this.j) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(ReLoginShareActivity reLoginShareActivity, AccountData accountData) {
+        if (!reLoginShareActivity.j) {
             DatabaseService.a(accountData);
-            TiebaApplication.a(accountData, getBaseContext());
+            TiebaApplication.a(accountData, reLoginShareActivity.getBaseContext());
         }
-        TiebaApplication.g().z();
+        TiebaApplication.g();
+        TiebaApplication.u();
         if (l != null) {
             l.finish();
         }
-        if (TiebaApplication.g().aE()) {
-            GuideActivity.a(this, "from_logo_page");
+        if (TiebaApplication.g().ax()) {
+            GuideActivity.a(reLoginShareActivity, "from_logo_page");
         } else {
-            int intExtra = getIntent().getIntExtra("locate_type", -1);
-            com.baidu.tieba.mention.v.a().l();
+            int intExtra = reLoginShareActivity.getIntent().getIntExtra("locate_type", -1);
             com.baidu.tieba.mention.v.a().j();
-            if (com.baidu.tieba.mainentrance.f.a() == null) {
-                com.baidu.tieba.mainentrance.f.a(new com.baidu.tieba.mainentrance.g());
+            com.baidu.tieba.mention.v.a().h();
+            if (com.baidu.tieba.mainentrance.d.a() == null) {
+                com.baidu.tieba.mainentrance.d.a(new com.baidu.tieba.mainentrance.e());
             }
-            com.baidu.tieba.mainentrance.f.a(this, intExtra, false);
+            com.baidu.tieba.mainentrance.d.a(reLoginShareActivity, intExtra, false);
         }
-        if (TiebaApplication.g().aq() && TiebaApplication.g().as() != null) {
-            UpdateDialog.a(TiebaApplication.g().b(), TiebaApplication.g().as(), TiebaApplication.g().ar());
+        if (TiebaApplication.g().aj() && TiebaApplication.g().al() != null) {
+            UpdateDialog.a(TiebaApplication.g().b(), TiebaApplication.g().al(), TiebaApplication.g().ak());
         }
-        finish();
+        reLoginShareActivity.finish();
     }
 }

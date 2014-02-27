@@ -3,7 +3,7 @@ package com.baidu.tieba.voice.a;
 import android.content.Context;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class a {
+public final class a {
     private LinkedList<String> a = new LinkedList<>();
     private Context b;
 
@@ -11,7 +11,7 @@ public class a {
         this.b = context;
     }
 
-    public String a(String str, String str2, c cVar) {
+    public final String a(String str, String str2, c cVar) {
         if (!this.a.contains(str)) {
             this.a.add(str);
         }
@@ -22,7 +22,7 @@ public class a {
         return a.b;
     }
 
-    public void a() {
+    public final void a() {
         if (this.a != null) {
             int i = 0;
             while (true) {

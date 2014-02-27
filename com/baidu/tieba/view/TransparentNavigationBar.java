@@ -18,7 +18,7 @@ public class TransparentNavigationBar extends NavigationBar {
     }
 
     @Override // com.baidu.tieba.view.NavigationBar
-    public void c(int i) {
+    public final void b(int i) {
         if (i == 1) {
             setBackgroundColor(getResources().getColor(R.color.navi_transparent_bg_1));
         } else {

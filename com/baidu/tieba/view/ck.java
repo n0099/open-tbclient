@@ -5,7 +5,7 @@ import android.view.View;
 import com.baidu.tieba.mainentrance.SquareSearchActivity;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class ck implements View.OnClickListener {
+final class ck implements View.OnClickListener {
     final /* synthetic */ SearchBoxView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ class ck implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         Activity activity;
         String str;
         Activity activity2;
@@ -23,7 +23,7 @@ class ck implements View.OnClickListener {
             str = this.a.b;
             com.baidu.tieba.util.cb.a(activity, str, "click", 1, new Object[0]);
             activity2 = this.a.a;
-            SquareSearchActivity.a(activity2, "");
+            SquareSearchActivity.a(activity2);
         }
     }
 }

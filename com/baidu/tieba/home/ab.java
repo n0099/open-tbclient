@@ -1,6 +1,6 @@
 package com.baidu.tieba.home;
 /* loaded from: classes.dex */
-class ab implements y {
+final class ab implements y {
     final /* synthetic */ SignAllForumActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,11 +9,11 @@ class ab implements y {
     }
 
     @Override // com.baidu.tieba.home.y
-    public void a(u uVar) {
+    public final void a(u uVar) {
         as asVar;
         as asVar2;
         asVar = this.a.a;
-        asVar.e();
+        asVar.d();
         q k = uVar.k();
         if (k != null && k.a() == 0) {
             asVar2 = this.a.a;
@@ -25,7 +25,7 @@ class ab implements y {
     }
 
     @Override // com.baidu.tieba.home.y
-    public void a(String str) {
+    public final void a(String str) {
         this.a.showToast(str);
         this.a.finish();
     }

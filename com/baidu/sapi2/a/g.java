@@ -72,7 +72,7 @@ public class g extends i {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.sapi2.a.i
     public void a(HttpResponse httpResponse) {
-        byte[] bArr = null;
+        byte[] bArr;
         boolean z = false;
         StatusLine statusLine = httpResponse.getStatusLine();
         Header[] headers = httpResponse.getHeaders("Content-Type");
@@ -95,6 +95,7 @@ public class g extends i {
             bArr = EntityUtils.toByteArray(entity != null ? new BufferedHttpEntity(entity) : null);
         } catch (IOException e) {
             a(e, (byte[]) null);
+            bArr = null;
         }
         if (statusLine.getStatusCode() >= 300) {
             a((Throwable) new HttpResponseException(statusLine.getStatusCode(), statusLine.getReasonPhrase()), bArr);

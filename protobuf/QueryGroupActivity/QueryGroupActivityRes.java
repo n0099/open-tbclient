@@ -24,8 +24,10 @@ public final class QueryGroupActivityRes {
         public static final int GACTIVITYTITLE_FIELD_NUMBER = 4;
         public static final int GROUPID_FIELD_NUMBER = 2;
         public static final int ISEND_FIELD_NUMBER = 8;
+        public static Parser<DataRes> PARSER = new g();
         public static final int USERID_FIELD_NUMBER = 3;
         public static final int USERNAME_FIELD_NUMBER = 10;
+        private static final DataRes a;
         private static final long serialVersionUID = 0;
         private int activityId_;
         private Object activityPortrait_;
@@ -40,8 +42,6 @@ public final class QueryGroupActivityRes {
         private int memoizedSerializedSize;
         private int userId_;
         private Object userName_;
-        public static Parser<DataRes> PARSER = new g();
-        private static final DataRes a = new DataRes(true);
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ DataRes(GeneratedMessageLite.Builder builder, DataRes dataRes) {
@@ -54,7 +54,7 @@ public final class QueryGroupActivityRes {
             this.memoizedSerializedSize = -1;
         }
 
-        private DataRes(boolean z) {
+        private DataRes() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -65,7 +65,7 @@ public final class QueryGroupActivityRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public DataRes getDefaultInstanceForType() {
+        public final DataRes getDefaultInstanceForType() {
             return a;
         }
 
@@ -147,43 +147,45 @@ public final class QueryGroupActivityRes {
         }
 
         static {
-            a.a();
+            DataRes dataRes = new DataRes();
+            a = dataRes;
+            dataRes.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<DataRes> getParserForType() {
+        public final Parser<DataRes> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasActivityId() {
+        public final boolean hasActivityId() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public int getActivityId() {
+        public final int getActivityId() {
             return this.activityId_;
         }
 
-        public boolean hasGroupId() {
+        public final boolean hasGroupId() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public int getGroupId() {
+        public final int getGroupId() {
             return this.groupId_;
         }
 
-        public boolean hasUserId() {
+        public final boolean hasUserId() {
             return (this.bitField0_ & 4) == 4;
         }
 
-        public int getUserId() {
+        public final int getUserId() {
             return this.userId_;
         }
 
-        public boolean hasGActivityTitle() {
+        public final boolean hasGActivityTitle() {
             return (this.bitField0_ & 8) == 8;
         }
 
-        public String getGActivityTitle() {
+        public final String getGActivityTitle() {
             Object obj = this.gActivityTitle_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -196,7 +198,7 @@ public final class QueryGroupActivityRes {
             return stringUtf8;
         }
 
-        public ByteString getGActivityTitleBytes() {
+        public final ByteString getGActivityTitleBytes() {
             Object obj = this.gActivityTitle_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -206,19 +208,19 @@ public final class QueryGroupActivityRes {
             return (ByteString) obj;
         }
 
-        public boolean hasGActivityTime() {
+        public final boolean hasGActivityTime() {
             return (this.bitField0_ & 16) == 16;
         }
 
-        public long getGActivityTime() {
+        public final long getGActivityTime() {
             return this.gActivityTime_;
         }
 
-        public boolean hasGActivityContent() {
+        public final boolean hasGActivityContent() {
             return (this.bitField0_ & 32) == 32;
         }
 
-        public String getGActivityContent() {
+        public final String getGActivityContent() {
             Object obj = this.gActivityContent_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -231,7 +233,7 @@ public final class QueryGroupActivityRes {
             return stringUtf8;
         }
 
-        public ByteString getGActivityContentBytes() {
+        public final ByteString getGActivityContentBytes() {
             Object obj = this.gActivityContent_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -241,11 +243,11 @@ public final class QueryGroupActivityRes {
             return (ByteString) obj;
         }
 
-        public boolean hasGActivityArea() {
+        public final boolean hasGActivityArea() {
             return (this.bitField0_ & 64) == 64;
         }
 
-        public String getGActivityArea() {
+        public final String getGActivityArea() {
             Object obj = this.gActivityArea_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -258,7 +260,7 @@ public final class QueryGroupActivityRes {
             return stringUtf8;
         }
 
-        public ByteString getGActivityAreaBytes() {
+        public final ByteString getGActivityAreaBytes() {
             Object obj = this.gActivityArea_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -268,19 +270,19 @@ public final class QueryGroupActivityRes {
             return (ByteString) obj;
         }
 
-        public boolean hasIsEnd() {
+        public final boolean hasIsEnd() {
             return (this.bitField0_ & 128) == 128;
         }
 
-        public int getIsEnd() {
+        public final int getIsEnd() {
             return this.isEnd_;
         }
 
-        public boolean hasActivityPortrait() {
+        public final boolean hasActivityPortrait() {
             return (this.bitField0_ & 256) == 256;
         }
 
-        public String getActivityPortrait() {
+        public final String getActivityPortrait() {
             Object obj = this.activityPortrait_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -293,7 +295,7 @@ public final class QueryGroupActivityRes {
             return stringUtf8;
         }
 
-        public ByteString getActivityPortraitBytes() {
+        public final ByteString getActivityPortraitBytes() {
             Object obj = this.activityPortrait_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -303,11 +305,11 @@ public final class QueryGroupActivityRes {
             return (ByteString) obj;
         }
 
-        public boolean hasUserName() {
+        public final boolean hasUserName() {
             return (this.bitField0_ & 512) == 512;
         }
 
-        public String getUserName() {
+        public final String getUserName() {
             Object obj = this.userName_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -320,7 +322,7 @@ public final class QueryGroupActivityRes {
             return stringUtf8;
         }
 
-        public ByteString getUserNameBytes() {
+        public final ByteString getUserNameBytes() {
             Object obj = this.userName_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -354,7 +356,7 @@ public final class QueryGroupActivityRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeInt32(1, this.activityId_);
@@ -389,10 +391,13 @@ public final class QueryGroupActivityRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt32Size(1, this.activityId_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeInt32Size(1, this.activityId_) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeInt32Size(2, this.groupId_);
                 }
@@ -427,7 +432,7 @@ public final class QueryGroupActivityRes {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -472,12 +477,12 @@ public final class QueryGroupActivityRes {
         }
 
         public static h newBuilder() {
-            return h.f();
+            return h.b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public h newBuilderForType() {
+        public final h newBuilderForType() {
             return newBuilder();
         }
 
@@ -487,7 +492,7 @@ public final class QueryGroupActivityRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public h toBuilder() {
+        public final h toBuilder() {
             return newBuilder(this);
         }
     }
@@ -497,7 +502,7 @@ public final class QueryGroupActivityRes {
         public static final int DATA_FIELD_NUMBER = 2;
         public static final int ERROR_FIELD_NUMBER = 1;
         public static Parser<QueryGroupActivityResIdl> PARSER = new j();
-        private static final QueryGroupActivityResIdl a = new QueryGroupActivityResIdl(true);
+        private static final QueryGroupActivityResIdl a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private DataRes data_;
@@ -516,7 +521,7 @@ public final class QueryGroupActivityRes {
             this.memoizedSerializedSize = -1;
         }
 
-        private QueryGroupActivityResIdl(boolean z) {
+        private QueryGroupActivityResIdl() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -527,7 +532,7 @@ public final class QueryGroupActivityRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public QueryGroupActivityResIdl getDefaultInstanceForType() {
+        public final QueryGroupActivityResIdl getDefaultInstanceForType() {
             return a;
         }
 
@@ -587,27 +592,29 @@ public final class QueryGroupActivityRes {
         }
 
         static {
-            a.a();
+            QueryGroupActivityResIdl queryGroupActivityResIdl = new QueryGroupActivityResIdl();
+            a = queryGroupActivityResIdl;
+            queryGroupActivityResIdl.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<QueryGroupActivityResIdl> getParserForType() {
+        public final Parser<QueryGroupActivityResIdl> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasError() {
+        public final boolean hasError() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public Im.Error getError() {
+        public final Im.Error getError() {
             return this.error_;
         }
 
-        public boolean hasData() {
+        public final boolean hasData() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public DataRes getData() {
+        public final DataRes getData() {
             return this.data_;
         }
 
@@ -627,7 +634,7 @@ public final class QueryGroupActivityRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeMessage(1, this.error_);
@@ -638,10 +645,13 @@ public final class QueryGroupActivityRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeMessageSize(1, this.error_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeMessageSize(1, this.error_) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeMessageSize(2, this.data_);
                 }
@@ -652,7 +662,7 @@ public final class QueryGroupActivityRes {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -697,12 +707,12 @@ public final class QueryGroupActivityRes {
         }
 
         public static k newBuilder() {
-            return k.f();
+            return k.a();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public k newBuilderForType() {
+        public final k newBuilderForType() {
             return newBuilder();
         }
 
@@ -712,7 +722,7 @@ public final class QueryGroupActivityRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public k toBuilder() {
+        public final k toBuilder() {
             return newBuilder(this);
         }
     }

@@ -55,17 +55,74 @@ public class PersonListActivity extends com.baidu.tieba.f {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.person_list_activity);
-        a(bundle);
-        a();
-        b();
+        this.j = new com.baidu.tieba.model.br();
+        if (bundle != null) {
+            this.j.a(bundle.getBoolean("follow", false));
+            this.j.a(bundle.getString("un"));
+            this.p = bundle.getInt("user_sex");
+            this.j.a(this.p);
+        } else {
+            Intent intent = getIntent();
+            this.j.a(intent.getBooleanExtra("follow", false));
+            this.j.a(intent.getStringExtra("un"));
+            this.p = intent.getIntExtra("user_sex", 0);
+            this.j.a(this.p);
+        }
+        this.m = (RelativeLayout) findViewById(R.id.parent);
+        this.n = (NavigationBar) findViewById(R.id.view_navigation_bar);
+        this.o = this.n.a("");
+        this.n.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f = (ProgressBar) findViewById(R.id.progress);
+        String v = TiebaApplication.v();
+        String a = this.j.a();
+        if (v == null || !v.equals(a)) {
+            if (this.j.c()) {
+                if (this.p == 2) {
+                    this.o.setText(R.string.her_attention_people);
+                } else if (this.p == 1) {
+                    this.o.setText(R.string.his_attention_people);
+                } else {
+                    this.o.setText(R.string.ta_attention_people);
+                }
+            } else if (this.p == 2) {
+                this.o.setText(R.string.attention_to_her);
+            } else if (this.p == 1) {
+                this.o.setText(R.string.attention_to_him);
+            } else {
+                this.o.setText(R.string.attention_to_ta);
+            }
+        } else if (this.j.c()) {
+            this.o.setText(R.string.my_attention);
+        } else {
+            this.o.setText(R.string.fans);
+        }
+        da daVar = new da(this);
+        db dbVar = new db(this);
+        dc dcVar = new dc(this);
+        this.g = new dg(this, getIntent().getBooleanExtra("follow", false), this.j.a() != null && this.j.a().equals(TiebaApplication.v()), this.j.b(), daVar, dbVar, dcVar);
+        this.b = (BdListView) findViewById(R.id.list);
+        this.b.setAdapter((ListAdapter) this.g);
+        this.c = LayoutInflater.from(this).inflate(R.layout.person_list_newheader, (ViewGroup) null);
+        this.d = this.c.findViewById(R.id.newheader_root);
+        this.c.setVisibility(8);
+        this.c.setClickable(false);
+        this.c.setEnabled(false);
+        this.e = (TextView) this.c.findViewById(R.id.person_list_title);
+        this.b.addHeaderView(this.c, null, false);
+        this.k = (LinearLayout) findViewById(R.id.no_data_container);
+        this.l = (TextView) findViewById(R.id.no_data_image_text);
+        this.b.setOnScrollListener(new dd(this));
+        this.b.setOnSrollToBottomListener(new de(this));
+        this.i = new df(this, this.j.a(), this.j.c(), 0, true);
+        this.i.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         getLayoutMode().a(i == 1);
-        getLayoutMode().a((View) this.m);
-        this.n.c(i);
+        getLayoutMode().a(this.m);
+        this.n.b(i);
         this.g.notifyDataSetChanged();
         getLayoutMode().a(i == 1);
         getLayoutMode().a(this.d);
@@ -80,7 +137,7 @@ public class PersonListActivity extends com.baidu.tieba.f {
         if (this.g != null) {
             this.g.a();
             if (this.g.c() != null) {
-                this.g.c().d();
+                this.g.c().c();
             }
             this.g = null;
         }
@@ -91,22 +148,6 @@ public class PersonListActivity extends com.baidu.tieba.f {
         super.onDestroy();
     }
 
-    private void a(Bundle bundle) {
-        this.j = new com.baidu.tieba.model.br();
-        if (bundle != null) {
-            this.j.a(bundle.getBoolean("follow", false));
-            this.j.a(bundle.getString("un"));
-            this.p = bundle.getInt("user_sex");
-            this.j.a(this.p);
-            return;
-        }
-        Intent intent = getIntent();
-        this.j.a(intent.getBooleanExtra("follow", false));
-        this.j.a(intent.getStringExtra("un"));
-        this.p = intent.getIntExtra("user_sex", 0);
-        this.j.a(this.p);
-    }
-
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
@@ -115,86 +156,23 @@ public class PersonListActivity extends com.baidu.tieba.f {
         bundle.putInt("user_sex", this.p);
     }
 
-    private void a() {
-        boolean z = true;
-        this.m = (RelativeLayout) findViewById(R.id.parent);
-        this.n = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.o = this.n.a("");
-        this.n.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f = (ProgressBar) findViewById(R.id.progress);
-        String A = TiebaApplication.A();
-        String a = this.j.a();
-        if (A != null && A.equals(a)) {
-            if (this.j.c()) {
-                this.o.setText(R.string.my_attention);
-            } else {
-                this.o.setText(R.string.fans);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(PersonListActivity personListActivity, boolean z) {
+        if (personListActivity.i == null) {
+            if (personListActivity.g != null) {
+                personListActivity.g.b(true);
+                personListActivity.g.notifyDataSetChanged();
             }
-        } else if (this.j.c()) {
-            if (this.p == 2) {
-                this.o.setText(R.string.her_attention_people);
-            } else if (this.p == 1) {
-                this.o.setText(R.string.his_attention_people);
-            } else {
-                this.o.setText(R.string.ta_attention_people);
-            }
-        } else if (this.p == 2) {
-            this.o.setText(R.string.attention_to_her);
-        } else if (this.p == 1) {
-            this.o.setText(R.string.attention_to_him);
-        } else {
-            this.o.setText(R.string.attention_to_ta);
-        }
-        da daVar = new da(this);
-        db dbVar = new db(this);
-        dc dcVar = new dc(this);
-        if (this.j.a() == null || !this.j.a().equals(TiebaApplication.A())) {
-            z = false;
-        }
-        this.g = new dg(this, getIntent().getBooleanExtra("follow", false), z, this.j.b(), daVar, dbVar, dcVar);
-        this.b = (BdListView) findViewById(R.id.list);
-        this.b.setAdapter((ListAdapter) this.g);
-        this.c = LayoutInflater.from(this).inflate(R.layout.person_list_newheader, (ViewGroup) null);
-        this.d = this.c.findViewById(R.id.newheader_root);
-        this.c.setVisibility(8);
-        this.c.setClickable(false);
-        this.c.setEnabled(false);
-        this.e = (TextView) this.c.findViewById(R.id.person_list_title);
-        this.b.addHeaderView(this.c, null, false);
-        this.k = (LinearLayout) findViewById(R.id.no_data_container);
-        this.l = (TextView) findViewById(R.id.no_data_image_text);
-        this.b.setOnScrollListener(new dd(this));
-        this.b.setOnSrollToBottomListener(new de(this));
-    }
-
-    private void b() {
-        this.i = new df(this, this.j.a(), this.j.c(), 0, true);
-        this.i.execute(new String[0]);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(boolean z) {
-        if (this.i == null) {
-            if (!z) {
-                this.f.setVisibility(0);
-                this.i = new df(this, this.j.a(), this.j.c(), 0);
-                this.i.execute(new String[0]);
-                return;
-            }
-            if (this.g != null) {
-                this.g.b(true);
-                this.g.notifyDataSetChanged();
-            }
-            this.i = new df(this, this.j.a(), this.j.c(), this.j.d().a().d() + 1);
-            this.i.setPriority(3);
-            this.i.execute(new String[0]);
+            personListActivity.i = new df(personListActivity, personListActivity.j.a(), personListActivity.j.c(), personListActivity.j.d().a().d() + 1);
+            personListActivity.i.setPriority(3);
+            personListActivity.i.execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c() {
+    public void a() {
         UserData userData;
-        if (this.g != null && this.g.getItemViewType(this.a) == 0 && (userData = (UserData) this.g.getItem(this.a)) != null && userData.getUserId() != null && userData.getUserName() != null && !userData.getUserId().equals(TiebaApplication.A())) {
+        if (this.g != null && this.g.getItemViewType(this.a) == 0 && (userData = (UserData) this.g.getItem(this.a)) != null && userData.getUserId() != null && userData.getUserName() != null && !userData.getUserId().equals(TiebaApplication.v())) {
             com.baidu.tieba.util.cb.a(this, "enter_chat", "personlistclick", 1, new Object[0]);
             try {
                 com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001002, new com.baidu.tieba.a.c(this, Long.parseLong(userData.getUserId()), userData.getUserName(), userData.getPortrait(), userData.getSex())));
@@ -207,7 +185,7 @@ public class PersonListActivity extends com.baidu.tieba.f {
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
         if (i2 == -1 && i == 11028) {
-            c();
+            a();
         }
     }
 }

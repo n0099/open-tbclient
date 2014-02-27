@@ -11,7 +11,7 @@ import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 import java.util.Date;
 /* loaded from: classes.dex */
-public class f extends com.baidu.adp.a.c<UpdatesItemData> {
+public final class f extends com.baidu.adp.a.c<UpdatesItemData> {
     private View c;
     private HeadImageView d;
     private TextView e;
@@ -27,10 +27,6 @@ public class f extends com.baidu.adp.a.c<UpdatesItemData> {
     public f(UpdatesActivity updatesActivity) {
         super(updatesActivity, R.layout.updates_item);
         this.l = updatesActivity;
-        e();
-    }
-
-    void e() {
         this.c = this.a.findViewById(R.id.root_view);
         this.d = (HeadImageView) this.c.findViewById(R.id.iv_head);
         this.e = (TextView) this.c.findViewById(R.id.tv_group_name);
@@ -52,7 +48,7 @@ public class f extends com.baidu.adp.a.c<UpdatesItemData> {
         this.i.setOnClickListener(new l(this));
     }
 
-    public void f() {
+    public final void d() {
         if (this.m != null) {
             if (this.l.b()) {
                 this.i.setVisibility(0);
@@ -89,7 +85,7 @@ public class f extends com.baidu.adp.a.c<UpdatesItemData> {
             int paddingTop = this.j.getPaddingTop();
             int paddingRight = this.j.getPaddingRight();
             int paddingBottom = this.j.getPaddingBottom();
-            boolean z = TiebaApplication.g().al() == 1;
+            boolean z = TiebaApplication.g().ae() == 1;
             this.l.getLayoutMode().a(z);
             this.l.getLayoutMode().a(this.a);
             this.i.setSelected(this.m.isSelected());
@@ -102,12 +98,7 @@ public class f extends com.baidu.adp.a.c<UpdatesItemData> {
         }
     }
 
-    public void a(UpdatesItemData updatesItemData) {
-        b(updatesItemData);
-        f();
-    }
-
-    public void b(UpdatesItemData updatesItemData) {
+    public final void a(UpdatesItemData updatesItemData) {
         this.m = updatesItemData;
     }
 }

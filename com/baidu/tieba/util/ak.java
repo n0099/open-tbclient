@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak implements com.baidu.tieba.im.messageCenter.g {
+public final class ak implements com.baidu.tieba.im.messageCenter.g {
     final /* synthetic */ ai a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ public class ak implements com.baidu.tieba.im.messageCenter.g {
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.s sVar) {
+    public final void a(com.baidu.tieba.im.message.s sVar) {
         al alVar;
         al alVar2;
         al alVar3;
@@ -41,7 +41,7 @@ public class ak implements com.baidu.tieba.im.messageCenter.g {
                 arrayList.add(b.next());
             }
             String a = crVar.a();
-            if ((a == null || a.equals("")) && arrayList.size() < 1) {
+            if ((a == null || a.equals("")) && arrayList.size() <= 0) {
                 alVar2 = this.a.d;
                 alVar2.a();
                 return;

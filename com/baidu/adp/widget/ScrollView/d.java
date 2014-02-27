@@ -5,7 +5,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d extends TimerTask {
+public final class d extends TimerTask {
     final /* synthetic */ c a;
     private final /* synthetic */ View b;
     private final /* synthetic */ Timer c;
@@ -18,7 +18,7 @@ public class d extends TimerTask {
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
-    public void run() {
+    public final void run() {
         this.b.post(new e(this, this.b, this.c));
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.view;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 /* loaded from: classes.dex */
-class ac extends GestureDetector.SimpleOnGestureListener {
+final class ac extends GestureDetector.SimpleOnGestureListener {
     final /* synthetic */ w a;
 
     private ac(w wVar) {
@@ -11,12 +11,12 @@ class ac extends GestureDetector.SimpleOnGestureListener {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ac(w wVar, ac acVar) {
+    public /* synthetic */ ac(w wVar, byte b) {
         this(wVar);
     }
 
     @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
-    public boolean onDoubleTap(MotionEvent motionEvent) {
+    public final boolean onDoubleTap(MotionEvent motionEvent) {
         if (w.i(this.a) == 1 || w.i(this.a) == 2) {
             return false;
         }

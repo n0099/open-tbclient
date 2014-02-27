@@ -29,7 +29,7 @@ public class GroupAddressLocateActivity extends com.baidu.tieba.f implements Ada
         intent.putExtra("IntentDataOldAddress", str);
         intent.putExtra("IntentDataOldBusiness", str2);
         intent.putExtra("IntentDataIsHiddenAddress", z);
-        activity.startActivityForResult(intent, i);
+        activity.startActivityForResult(intent, 21001);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -53,7 +53,7 @@ public class GroupAddressLocateActivity extends com.baidu.tieba.f implements Ada
     public void onDestroy() {
         super.onDestroy();
         if (this.j != null) {
-            this.j.e();
+            this.j.d();
         }
     }
 
@@ -61,7 +61,7 @@ public class GroupAddressLocateActivity extends com.baidu.tieba.f implements Ada
     @Override // com.baidu.tieba.f, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.j.l();
+        this.j.k();
     }
 
     @Override // com.baidu.tieba.f, android.app.Activity, android.view.KeyEvent.Callback
@@ -75,26 +75,25 @@ public class GroupAddressLocateActivity extends com.baidu.tieba.f implements Ada
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.j.m()) {
+        if (view == this.j.l()) {
             e();
-        } else if (view == this.j.n()) {
+        } else if (view == this.j.m()) {
             if (!d()) {
                 finish();
             }
-        } else if (view == this.j.o()) {
-            this.j.h();
+        } else if (view == this.j.n()) {
             this.j.g();
+            this.j.f();
             this.i = -1;
-        } else if (view == this.j.p()) {
-            switch (this.j.q()) {
+        } else if (view == this.j.o()) {
+            switch (this.j.p()) {
                 case 1:
                     startActivityForResult(new Intent("android.settings.LOCATION_SOURCE_SETTINGS"), 22001);
                     return;
                 case 2:
-                    this.j.i();
+                    this.j.h();
                     this.j.a();
                     return;
-                case 3:
                 default:
                     return;
             }
@@ -105,13 +104,13 @@ public class GroupAddressLocateActivity extends com.baidu.tieba.f implements Ada
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == 22001) {
-            this.j.i();
+            this.j.h();
             this.j.a();
         }
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.c
-    public void a(View view, BdSwitchView.SwitchState switchState) {
+    public final void a(View view, BdSwitchView.SwitchState switchState) {
         if (switchState == BdSwitchView.SwitchState.ON) {
             this.c = true;
         } else {
@@ -121,17 +120,17 @@ public class GroupAddressLocateActivity extends com.baidu.tieba.f implements Ada
 
     @Override // com.baidu.adp.a.a, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        this.j.h();
-        this.j.f();
+        this.j.g();
+        this.j.e();
         this.i = i;
     }
 
-    public int c() {
+    public final int c() {
         return this.i;
     }
 
     @Override // com.baidu.tieba.util.al
-    public void a(String str, List<String> list, double d, double d2) {
+    public final void a(String str, List<String> list, double d, double d2) {
         this.j.b(String.valueOf(d));
         this.j.a(String.valueOf(d2));
         this.h = str;
@@ -154,18 +153,18 @@ public class GroupAddressLocateActivity extends com.baidu.tieba.f implements Ada
     }
 
     @Override // com.baidu.tieba.util.al
-    public void a() {
-        this.j.j();
+    public final void a() {
+        this.j.i();
     }
 
     @Override // com.baidu.tieba.util.al
-    public void b() {
-        this.j.k();
+    public final void b() {
+        this.j.j();
     }
 
     private boolean d() {
-        if (this.c != this.d || this.i > -1) {
-            this.j.r();
+        if (this.c != this.d || this.i >= 0) {
+            this.j.q();
             return true;
         }
         return false;
@@ -175,14 +174,14 @@ public class GroupAddressLocateActivity extends com.baidu.tieba.f implements Ada
     public void e() {
         Intent intent = new Intent();
         if (this.g == null) {
-            if (this.i > -1) {
+            if (this.i >= 0) {
                 intent.putExtra("ResultDataSelectedBusiness", "");
                 intent.putExtra("ResultDataAddress", this.h);
             } else {
                 intent.putExtra("ResultDataSelectedBusiness", this.f);
                 intent.putExtra("ResultDataAddress", this.e);
             }
-        } else if (this.i > -1 && this.i < this.g.length) {
+        } else if (this.i >= 0 && this.i < this.g.length) {
             intent.putExtra("ResultDataSelectedBusiness", this.g[this.i]);
             intent.putExtra("ResultDataAddress", this.h);
         } else {

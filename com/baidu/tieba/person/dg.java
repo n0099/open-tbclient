@@ -14,7 +14,7 @@ import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class dg extends BaseAdapter {
+public final class dg extends BaseAdapter {
     boolean b;
     boolean c;
     private PersonListActivity e;
@@ -29,7 +29,7 @@ public class dg extends BaseAdapter {
     boolean a = false;
     private ArrayList<ProgressBar> i = new ArrayList<>();
 
-    public void a() {
+    public final void a() {
         if (this.i != null) {
             int i = 0;
             while (true) {
@@ -38,7 +38,7 @@ public class dg extends BaseAdapter {
                     try {
                         this.i.get(i2).setVisibility(8);
                     } catch (Exception e) {
-                        com.baidu.adp.lib.util.f.b(getClass().getName(), "releaseProgressBar", e.getMessage());
+                        com.baidu.adp.lib.util.e.b(getClass().getName(), "releaseProgressBar", e.getMessage());
                     }
                     i = i2 + 1;
                 } else {
@@ -49,18 +49,18 @@ public class dg extends BaseAdapter {
         }
     }
 
-    public void b() {
+    public final void b() {
         this.a = false;
         if (this.d != null && this.d.size() == 0) {
             this.a = true;
         }
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.g = z;
     }
 
-    public void b(boolean z) {
+    public final void b(boolean z) {
         this.h = z;
     }
 
@@ -83,16 +83,16 @@ public class dg extends BaseAdapter {
         this.m = onClickListener;
     }
 
-    public com.baidu.tieba.util.i c() {
+    public final com.baidu.tieba.util.i c() {
         return this.f;
     }
 
-    public void a(ArrayList<UserData> arrayList) {
+    public final void a(ArrayList<UserData> arrayList) {
         this.d = arrayList;
     }
 
     @Override // android.widget.Adapter
-    public int getCount() {
+    public final int getCount() {
         if (this.a) {
             return 1;
         }
@@ -107,7 +107,7 @@ public class dg extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public Object getItem(int i) {
+    public final Object getItem(int i) {
         if (this.d == null || i >= this.d.size()) {
             return null;
         }
@@ -115,7 +115,7 @@ public class dg extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    public final long getItemId(int i) {
         if (this.d == null || i >= this.d.size()) {
             return -1L;
         }
@@ -123,13 +123,13 @@ public class dg extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public final View getView(int i, View view, ViewGroup viewGroup) {
         dh dhVar;
         View view2;
         if (this.d != null) {
             if (view == null) {
                 LayoutInflater from = LayoutInflater.from(this.e);
-                dh dhVar2 = new dh(this, null);
+                dh dhVar2 = new dh(this, (byte) 0);
                 if (getItemViewType(i) == 0) {
                     View inflate = from.inflate(R.layout.person_list_item, (ViewGroup) null);
                     dhVar2.a = (HeadImageView) inflate.findViewById(R.id.photo);
@@ -187,10 +187,11 @@ public class dg extends BaseAdapter {
                     dhVar.e.setTag(Integer.valueOf(i));
                     dhVar.g.setVisibility(8);
                     String portrait = this.d.get(i).getPortrait();
-                    com.baidu.adp.widget.ImageView.b c = this.f.c(portrait);
-                    if (c != null) {
+                    com.baidu.tieba.util.i iVar = this.f;
+                    com.baidu.adp.widget.ImageView.b b = com.baidu.tbadk.imageManager.e.a().b(portrait);
+                    if (b != null) {
                         dhVar.a.setTag(null);
-                        c.a(dhVar.a);
+                        b.a(dhVar.a);
                     } else {
                         dhVar.a.setTag(portrait);
                         dhVar.a.setImageBitmap(com.baidu.tieba.util.n.a((int) R.drawable.photo));
@@ -203,18 +204,14 @@ public class dg extends BaseAdapter {
                 dhVar.b.setText(this.e.getString(R.string.loading));
                 dhVar.f.setVisibility(0);
             }
-            a(view);
+            this.e.getLayoutMode().a(TiebaApplication.g().ae() == 1);
+            this.e.getLayoutMode().a(view);
         }
         return view;
     }
 
-    private void a(View view) {
-        this.e.getLayoutMode().a(TiebaApplication.g().al() == 1);
-        this.e.getLayoutMode().a(view);
-    }
-
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
+    public final int getItemViewType(int i) {
         if (this.a) {
             return 0;
         }
@@ -222,12 +219,12 @@ public class dg extends BaseAdapter {
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
+    public final int getViewTypeCount() {
         return 2;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
-    public boolean isEnabled(int i) {
+    public final boolean isEnabled(int i) {
         if (this.a) {
             return false;
         }

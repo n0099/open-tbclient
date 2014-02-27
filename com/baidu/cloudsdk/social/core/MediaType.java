@@ -29,11 +29,13 @@ public enum MediaType {
     COPYLINK("copylink"),
     OTHERS("others");
     
-    private static HashMap a = new HashMap();
+    private static HashMap a;
     private String b;
 
     static {
-        a.put(SINAWEIBO.toString(), SINAWEIBO);
+        HashMap hashMap = new HashMap();
+        a = hashMap;
+        hashMap.put(SINAWEIBO.toString(), SINAWEIBO);
         a.put(QQWEIBO.toString(), QQWEIBO);
         a.put(QZONE.toString(), QZONE);
         a.put(QQFRIEND.toString(), QQFRIEND);
@@ -72,7 +74,7 @@ public enum MediaType {
     }
 
     @Override // java.lang.Enum
-    public String toString() {
+    public final String toString() {
         return this.b;
     }
 }

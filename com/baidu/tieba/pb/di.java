@@ -3,7 +3,7 @@ package com.baidu.tieba.pb;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
-class di implements Runnable {
+final class di implements Runnable {
     final /* synthetic */ dh a;
     private final /* synthetic */ ImageView b;
 
@@ -14,7 +14,7 @@ class di implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         cu cuVar;
         FrameLayout frameLayout;
         cuVar = this.a.a;

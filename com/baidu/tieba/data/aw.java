@@ -5,10 +5,10 @@ import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class aw {
+public final class aw {
     private ArrayList<MetaData> a = new ArrayList<>();
 
-    public void a(JSONObject jSONObject, HashMap<String, String> hashMap) {
+    private void a(JSONObject jSONObject, HashMap<String, String> hashMap) {
         String str;
         try {
             JSONArray optJSONArray = jSONObject.optJSONArray("uname");
@@ -30,19 +30,19 @@ public class aw {
                 }
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("AtListModel", "parserSuggestJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.util.e.b("AtListModel", "parserSuggestJson", "error = " + e.getMessage());
         }
     }
 
-    public void a(String str, HashMap<String, String> hashMap) {
+    public final void a(String str, HashMap<String, String> hashMap) {
         try {
             a(new JSONObject(str), hashMap);
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("AtListModel", "parserSuggestJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.util.e.b("AtListModel", "parserSuggestJson", "error = " + e.getMessage());
         }
     }
 
-    public void a(HashMap<String, String> hashMap) {
+    public final void a(HashMap<String, String> hashMap) {
         if (hashMap != null) {
             int i = 0;
             while (true) {
@@ -58,7 +58,7 @@ public class aw {
         }
     }
 
-    public ArrayList<MetaData> a() {
+    public final ArrayList<MetaData> a() {
         return this.a;
     }
 }

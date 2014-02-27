@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public final class BizcardResultParser extends AbstractDoCoMoResultParser {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.zxing.client.result.ResultParser
-    public AddressBookParsedResult parse(Result result) {
+    public final AddressBookParsedResult parse(Result result) {
         String massagedText = getMassagedText(result);
         if (!massagedText.startsWith("BIZCARD:")) {
             return null;
@@ -39,9 +39,6 @@ public final class BizcardResultParser extends AbstractDoCoMoResultParser {
         if (str == null) {
             return str2;
         }
-        if (str2 != null) {
-            str = String.valueOf(str) + ' ' + str2;
-        }
-        return str;
+        return str2 == null ? str : String.valueOf(str) + ' ' + str2;
     }
 }

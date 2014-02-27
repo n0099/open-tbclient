@@ -5,15 +5,15 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 /* loaded from: classes.dex */
-public class c implements LayoutInflater.Factory {
+public final class c implements LayoutInflater.Factory {
     private e a;
 
-    public void a(e eVar) {
+    public final void a(e eVar) {
         this.a = eVar;
     }
 
     @Override // android.view.LayoutInflater.Factory
-    public View onCreateView(String str, Context context, AttributeSet attributeSet) {
+    public final View onCreateView(String str, Context context, AttributeSet attributeSet) {
         if (this.a == null) {
             this.a = new e();
         }

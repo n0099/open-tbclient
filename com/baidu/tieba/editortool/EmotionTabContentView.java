@@ -38,7 +38,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
     private int m;
     private IndicatorView n;
     private Point o;
-    private z p;
+    private aa p;
     private int q;
     private com.baidu.tieba.util.i r;
     private LinearLayout.LayoutParams s;
@@ -88,7 +88,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
         this.d.format = -3;
         this.d.type = LocationClientOption.MIN_SCAN_SPAN;
         this.d.flags |= 56;
-        if (TiebaApplication.g().bu()) {
+        if (TiebaApplication.g().bm()) {
             this.d.type = LocationClientOption.MIN_SCAN_SPAN;
             this.d.flags = 25165832;
         }
@@ -97,7 +97,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
         this.s = new LinearLayout.LayoutParams(-1, -1);
     }
 
-    public void a(WritableEmotionGroup writableEmotionGroup) {
+    public final void a(WritableEmotionGroup writableEmotionGroup) {
         int i;
         this.b = writableEmotionGroup;
         int d = this.b.d();
@@ -127,20 +127,21 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
                     i = d - ((j * k) * (i3 - 1));
                 }
                 int i5 = i4 * j * k;
-                gridView.setOnItemLongClickListener(new l(this));
-                gridView.setOnItemClickListener(new m(this, i5));
-                gridView.setAdapter((ListAdapter) new o(this, getContext(), i, i5));
+                gridView.setOnItemLongClickListener(new m(this));
+                gridView.setOnItemClickListener(new n(this, i5));
+                getContext();
+                gridView.setAdapter((ListAdapter) new p(this, i, i5));
                 arrayList.add(gridView);
             }
-            this.a.setAdapter(new q(this, arrayList));
+            this.a.setAdapter(new r(this, arrayList));
         }
     }
 
-    public void a(int i, GridView gridView) {
+    public final void a(int i, GridView gridView) {
         if (this.m != i) {
-            String a = this.b.a(((o) gridView.getAdapter()).a() + i);
+            String a = this.b.a(((p) gridView.getAdapter()).a() + i);
             this.e.setTag(a);
-            com.baidu.adp.widget.ImageView.b a2 = this.r.a(a, com.baidu.tieba.util.i.c(), new n(this));
+            com.baidu.adp.widget.ImageView.b a2 = this.r.a(a, com.baidu.tieba.util.i.b(), new o(this));
             if (a2 != null) {
                 this.e.setGif(a2);
             }
@@ -260,7 +261,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
     public void onPageScrollStateChanged(int i) {
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.q = i;
         if (i == 1) {
             this.e.setBackgroundResource(R.drawable.bg_expression_bubble_1);
@@ -270,11 +271,11 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
         setBackgroundColor(getResources().getColor(i == 1 ? R.color.editor_tool_container_bg_1 : R.color.editor_tool_container_bg));
     }
 
-    public void a() {
+    public final void a() {
         b();
     }
 
-    public void setOnDataSelected(z zVar) {
-        this.p = zVar;
+    public void setOnDataSelected(aa aaVar) {
+        this.p = aaVar;
     }
 }

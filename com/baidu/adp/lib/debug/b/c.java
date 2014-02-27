@@ -16,7 +16,7 @@ import com.baidu.adp.lib.debug.service.SwitchDebugService;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
-public class c extends View {
+public final class c extends View {
     ArrayList<HashMap<String, Object>> a;
     String[] b;
     String[] c;
@@ -39,10 +39,6 @@ public class c extends View {
         this.b = new String[]{"当前地址", "线上", "沙盒W", "沙盒C", "QA测试机", "RD测试机", "线上client机器"};
         this.c = new String[]{"current server", "http://c.tieba.baidu.com", "http://ai-forum-shahew.ai01.baidu.com:", "http://ai-forum-shahec.ai01.baidu.com:", "http://cq01-testing-forum56.vm.baidu.com:8666", "http://cq01-forum-rdtest00.vm.baidu.com:8666", "http://ai-forum-client01.ai01.baidu.com:8090"};
         this.k = activity;
-        a();
-    }
-
-    public void a() {
         ((Activity) this.k).setContentView(com.baidu.adp.e.adp_debug_config_activity);
         this.f = (ImageButton) ((Activity) this.k).findViewById(com.baidu.adp.d.close_debug);
         this.g = (LinearLayout) ((Activity) this.k).findViewById(com.baidu.adp.d.switch_monitor_item);
@@ -62,16 +58,16 @@ public class c extends View {
         this.i.setOnClickListener(new h(this));
     }
 
-    public void b() {
+    public final void a() {
         this.k.startService(new Intent(this.k, DebugService.class));
     }
 
-    public void c() {
+    public final void b() {
         this.k.stopService(new Intent(this.k, DebugService.class));
     }
 
-    public void d() {
-        c();
+    public final void c() {
+        b();
         Intent intent = new Intent(this.k, SwitchDebugService.class);
         intent.putExtra("stop", true);
         this.k.startService(intent);

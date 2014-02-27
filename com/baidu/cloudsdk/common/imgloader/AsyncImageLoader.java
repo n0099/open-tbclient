@@ -71,21 +71,20 @@ public class AsyncImageLoader extends AsyncTask {
     }
 
     private InputStream a(Uri uri) {
+        InputStream inputStream = null;
         try {
+            if (uri.getScheme() == null) {
+                inputStream = new FileInputStream(new File(uri.toString()));
+            } else if (uri.getScheme().equalsIgnoreCase("http") || uri.getScheme().equalsIgnoreCase("https")) {
+                inputStream = new URL(uri.toString()).openStream();
+            } else if ((uri.getScheme().equalsIgnoreCase(PushConstants.EXTRA_CONTENT) || uri.getScheme().equalsIgnoreCase("file")) && this.c != null) {
+                inputStream = this.c.getContentResolver().openInputStream(uri);
+            }
         } catch (IOException e) {
             Log.e(b, "IOexception");
             e.printStackTrace();
         }
-        if (uri.getScheme() == null) {
-            return new FileInputStream(new File(uri.toString()));
-        }
-        if (uri.getScheme().equalsIgnoreCase("http") || uri.getScheme().equalsIgnoreCase("https")) {
-            return new URL(uri.toString()).openStream();
-        }
-        if ((uri.getScheme().equalsIgnoreCase(PushConstants.EXTRA_CONTENT) || uri.getScheme().equalsIgnoreCase("file")) && this.c != null) {
-            return this.c.getContentResolver().openInputStream(uri);
-        }
-        return null;
+        return inputStream;
     }
 
     public static int computeSampleSize(BitmapFactory.Options options, int i, int i2) {
@@ -106,7 +105,7 @@ public class AsyncImageLoader extends AsyncTask {
     public Bitmap doInBackground(Uri... uriArr) {
         Uri uri;
         InputStream a2;
-        if (uriArr == null || uriArr.length < 1 || (uri = uriArr[0]) == null || (a2 = a(uri)) == null) {
+        if (uriArr == null || uriArr.length <= 0 || (uri = uriArr[0]) == null || (a2 = a(uri)) == null) {
             return null;
         }
         BitmapFactory.Options options = new BitmapFactory.Options();

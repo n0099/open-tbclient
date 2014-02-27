@@ -1,6 +1,6 @@
 package com.baidu.tbadk.data;
 
-import com.baidu.adp.lib.util.f;
+import com.baidu.adp.lib.util.e;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import java.io.Serializable;
 import org.json.JSONObject;
@@ -55,7 +55,7 @@ public class IconData implements Serializable {
                 this.name = jSONObject.optString(SocialConstants.PARAM_MEDIA_UNAME);
                 this.url = jSONObject.optString(SocialConstants.PARAM_URL);
             } catch (Exception e) {
-                f.b(getClass().getName(), "parserJson", "error=" + e.toString());
+                e.b(getClass().getName(), "parserJson", "error=" + e.toString());
             }
         }
     }

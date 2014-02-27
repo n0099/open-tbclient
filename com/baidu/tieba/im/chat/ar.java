@@ -5,7 +5,7 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.net.TiebaSocketLinkService;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class ar implements DialogInterface.OnClickListener {
+final class ar implements DialogInterface.OnClickListener {
     final /* synthetic */ GroupSettingActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ class ar implements DialogInterface.OnClickListener {
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
+    public final void onClick(DialogInterface dialogInterface, int i) {
         aw awVar;
         aw awVar2;
         aw awVar3;
@@ -32,7 +32,7 @@ class ar implements DialogInterface.OnClickListener {
                 d.a(a);
             }
         }
-        com.baidu.tieba.im.j.a(new as(this), new at(this));
+        com.baidu.tieba.im.i.a(new as(this), new at(this));
         StringBuilder sb = new StringBuilder("clear cache by group:");
         awVar2 = this.a.b;
         TiebaSocketLinkService.a(true, sb.append(awVar2.a()).toString());

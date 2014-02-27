@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class ae extends BaseAdapter implements AbsListView.OnScrollListener, av {
+public final class ae extends BaseAdapter implements AbsListView.OnScrollListener, av {
     private u b;
     private Context c;
     private LayoutInflater d;
@@ -45,29 +45,29 @@ public class ae extends BaseAdapter implements AbsListView.OnScrollListener, av 
         this.f = new com.baidu.tieba.util.i(this.c);
     }
 
-    public void a(u uVar) {
+    public final void a(u uVar) {
         this.b = uVar;
         this.a = uVar.j();
         notifyDataSetChanged();
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
+    public final int getViewTypeCount() {
         return 2;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
+    public final int getItemViewType(int i) {
         return i % 2 == 0 ? 0 : 1;
     }
 
     @Override // android.widget.Adapter
-    public int getCount() {
+    public final int getCount() {
         return this.a.size() * 2;
     }
 
     @Override // android.widget.Adapter
-    public Object getItem(int i) {
+    public final Object getItem(int i) {
         if (i % 2 == 0) {
             return this.a.get(i / 2);
         }
@@ -75,142 +75,142 @@ public class ae extends BaseAdapter implements AbsListView.OnScrollListener, av 
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    public final long getItemId(int i) {
         return i;
     }
 
-    private View a(int i) {
-        if (i == 0) {
-            View inflate = this.d.inflate(R.layout.signallforum_item, (ViewGroup) null);
-            ai aiVar = new ai(this);
-            aiVar.a = (HeadImageView) inflate.findViewById(R.id.signallforum_item_avatar);
-            aiVar.a.setIsRound(false);
-            aiVar.a.setGifIconSupport(false);
-            aiVar.c = (TextView) inflate.findViewById(R.id.signallforum_item_name);
-            aiVar.d = (TextView) inflate.findViewById(R.id.signallforum_item_level);
-            aiVar.e = (TextView) inflate.findViewById(R.id.signallforum_item_exp);
-            aiVar.f = (FrameLayout) inflate.findViewById(R.id.signallforum_item_res_container);
-            aiVar.g = (TextView) inflate.findViewById(R.id.signallforum_item_days);
-            aiVar.h = (RelativeLayout) inflate.findViewById(R.id.signallforum_item_resign_container);
-            aiVar.i = (ImageView) inflate.findViewById(R.id.signallforum_item_resign_icon);
-            aiVar.j = (ProgressBar) inflate.findViewById(R.id.signallforum_item_resign_progress);
-            aiVar.k = (TextView) inflate.findViewById(R.id.signallforum_item_resign_text);
-            aiVar.l = (TextView) inflate.findViewById(R.id.signallforum_item_error);
-            aiVar.b = (LinearLayout) inflate.findViewById(R.id.signallforum_item_level_container);
-            aiVar.m = (TextView) inflate.findViewById(R.id.signallforum_item_increaseexp);
-            inflate.setTag(aiVar);
-            return inflate;
-        }
-        View view = new View(this.c);
-        view.setLayoutParams(new AbsListView.LayoutParams(-1, BdUtilHelper.a(this.c, 1.0f)));
-        return view;
-    }
-
-    private void a(View view, View view2, int i) {
-        com.baidu.tieba.f fVar = (com.baidu.tieba.f) this.c;
-        fVar.getLayoutMode().a(TiebaApplication.g().al() == 1);
-        fVar.getLayoutMode().a(view);
-        ai aiVar = (ai) view.getTag();
-        v vVar = (v) getItem(i);
-        aiVar.c.setText(vVar.b());
-        aiVar.d.setText(new StringBuilder(String.valueOf(vVar.f())).toString());
-        aiVar.d.setBackgroundResource(com.baidu.tieba.util.n.b(vVar.f()));
-        aiVar.e.setText(String.valueOf(vVar.g()) + "/" + vVar.h());
-        aiVar.m.clearAnimation();
-        aiVar.f.clearAnimation();
-        if (vVar.i()) {
-            aiVar.b.setVisibility(0);
-            aiVar.l.setVisibility(8);
-            aiVar.g.setVisibility(0);
-            aiVar.h.setVisibility(8);
-            aiVar.g.setText(String.format(this.c.getString(R.string.signallforum_days), Integer.valueOf(vVar.e())));
-            if (vVar.o()) {
-                aiVar.e.setText(this.c.getString(R.string.signallforum_uplevel));
-                aiVar.m.setVisibility(8);
+    @Override // android.widget.Adapter
+    public final View getView(int i, View view, ViewGroup viewGroup) {
+        View view2;
+        View view3;
+        int itemViewType = getItemViewType(i);
+        if (view == null) {
+            if (itemViewType == 0) {
+                View inflate = this.d.inflate(R.layout.signallforum_item, (ViewGroup) null);
+                ai aiVar = new ai(this);
+                aiVar.a = (HeadImageView) inflate.findViewById(R.id.signallforum_item_avatar);
+                aiVar.a.setIsRound(false);
+                aiVar.a.setGifIconSupport(false);
+                aiVar.c = (TextView) inflate.findViewById(R.id.signallforum_item_name);
+                aiVar.d = (TextView) inflate.findViewById(R.id.signallforum_item_level);
+                aiVar.e = (TextView) inflate.findViewById(R.id.signallforum_item_exp);
+                aiVar.f = (FrameLayout) inflate.findViewById(R.id.signallforum_item_res_container);
+                aiVar.g = (TextView) inflate.findViewById(R.id.signallforum_item_days);
+                aiVar.h = (RelativeLayout) inflate.findViewById(R.id.signallforum_item_resign_container);
+                aiVar.i = (ImageView) inflate.findViewById(R.id.signallforum_item_resign_icon);
+                aiVar.j = (ProgressBar) inflate.findViewById(R.id.signallforum_item_resign_progress);
+                aiVar.k = (TextView) inflate.findViewById(R.id.signallforum_item_resign_text);
+                aiVar.l = (TextView) inflate.findViewById(R.id.signallforum_item_error);
+                aiVar.b = (LinearLayout) inflate.findViewById(R.id.signallforum_item_level_container);
+                aiVar.m = (TextView) inflate.findViewById(R.id.signallforum_item_increaseexp);
+                inflate.setTag(aiVar);
+                view3 = inflate;
             } else {
-                aiVar.e.setText(String.valueOf(vVar.g()) + "/" + vVar.h());
-                aiVar.m.setVisibility(0);
+                view3 = new View(this.c);
+                view3.setLayoutParams(new AbsListView.LayoutParams(-1, BdUtilHelper.a(this.c, 1.0f)));
+            }
+            view2 = view3;
+        } else {
+            view2 = view;
+        }
+        if (itemViewType == 1) {
+            if (TiebaApplication.g().ae() == 1) {
+                view2.setBackgroundDrawable(this.h);
+            } else {
+                view2.setBackgroundDrawable(this.i);
+            }
+            return view2;
+        }
+        com.baidu.tieba.f fVar = (com.baidu.tieba.f) this.c;
+        fVar.getLayoutMode().a(TiebaApplication.g().ae() == 1);
+        fVar.getLayoutMode().a(view2);
+        ai aiVar2 = (ai) view2.getTag();
+        v vVar = (v) getItem(i);
+        aiVar2.c.setText(vVar.b());
+        aiVar2.d.setText(new StringBuilder(String.valueOf(vVar.f())).toString());
+        aiVar2.d.setBackgroundResource(com.baidu.tieba.util.n.b(vVar.f()));
+        aiVar2.e.setText(String.valueOf(vVar.g()) + "/" + vVar.h());
+        aiVar2.m.clearAnimation();
+        aiVar2.f.clearAnimation();
+        if (vVar.i()) {
+            aiVar2.b.setVisibility(0);
+            aiVar2.l.setVisibility(8);
+            aiVar2.g.setVisibility(0);
+            aiVar2.h.setVisibility(8);
+            aiVar2.g.setText(String.format(this.c.getString(R.string.signallforum_days), Integer.valueOf(vVar.e())));
+            if (vVar.o()) {
+                aiVar2.e.setText(this.c.getString(R.string.signallforum_uplevel));
+                aiVar2.m.setVisibility(8);
+            } else {
+                aiVar2.e.setText(String.valueOf(vVar.g()) + "/" + vVar.h());
+                aiVar2.m.setVisibility(0);
             }
             int m = vVar.m();
             if (m > 0) {
-                aiVar.m.setVisibility(0);
-                aiVar.m.setText("+" + m);
+                aiVar2.m.setVisibility(0);
+                aiVar2.m.setText("+" + m);
             } else {
-                aiVar.m.setVisibility(8);
+                aiVar2.m.setVisibility(8);
             }
             if (!vVar.l()) {
-                ah ahVar = new ah(aiVar.f);
+                ah ahVar = new ah(aiVar2.f);
                 ahVar.setDuration(800L);
                 ahVar.setFillAfter(true);
                 ahVar.setInterpolator(new DecelerateInterpolator());
-                aiVar.f.startAnimation(ahVar);
+                aiVar2.f.startAnimation(ahVar);
                 if (m > 0) {
                     AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
                     alphaAnimation.setDuration(800L);
                     alphaAnimation.setFillAfter(true);
                     alphaAnimation.setInterpolator(new DecelerateInterpolator());
-                    aiVar.m.startAnimation(alphaAnimation);
+                    aiVar2.m.startAnimation(alphaAnimation);
                 }
                 vVar.d(true);
             }
         } else if (vVar.j()) {
             String n = vVar.n();
-            if (!TextUtils.isEmpty(n)) {
-                aiVar.b.setVisibility(8);
-                aiVar.l.setVisibility(0);
-                aiVar.m.setVisibility(8);
-                aiVar.l.setText(n);
+            if (TextUtils.isEmpty(n)) {
+                aiVar2.b.setVisibility(0);
+                aiVar2.l.setVisibility(8);
+                aiVar2.m.setVisibility(8);
             } else {
-                aiVar.b.setVisibility(0);
-                aiVar.l.setVisibility(8);
-                aiVar.m.setVisibility(8);
+                aiVar2.b.setVisibility(8);
+                aiVar2.l.setVisibility(0);
+                aiVar2.m.setVisibility(8);
+                aiVar2.l.setText(n);
             }
-            aiVar.g.setVisibility(8);
-            aiVar.h.setVisibility(0);
+            aiVar2.g.setVisibility(8);
+            aiVar2.h.setVisibility(0);
             if (vVar.k()) {
-                aiVar.i.setVisibility(4);
-                aiVar.j.setVisibility(0);
-                aiVar.k.setText(R.string.signallforum_resigning);
+                aiVar2.i.setVisibility(4);
+                aiVar2.j.setVisibility(0);
+                aiVar2.k.setText(R.string.signallforum_resigning);
             } else {
-                aiVar.i.setVisibility(0);
-                aiVar.j.setVisibility(4);
-                aiVar.k.setText(R.string.signallforum_resign);
+                aiVar2.i.setVisibility(0);
+                aiVar2.j.setVisibility(4);
+                aiVar2.k.setText(R.string.signallforum_resign);
             }
-            aiVar.h.setOnClickListener(new af(this, vVar, aiVar));
+            aiVar2.h.setOnClickListener(new af(this, vVar, aiVar2));
         } else {
-            aiVar.g.setVisibility(8);
-            aiVar.h.setVisibility(8);
-            aiVar.m.setVisibility(8);
-            aiVar.b.setVisibility(0);
-            aiVar.l.setVisibility(8);
+            aiVar2.g.setVisibility(8);
+            aiVar2.h.setVisibility(8);
+            aiVar2.m.setVisibility(8);
+            aiVar2.b.setVisibility(0);
+            aiVar2.l.setVisibility(8);
         }
         String c = vVar.c();
-        aiVar.a.setTag(c);
-        if (this.f.d(c) != null) {
-            aiVar.a.invalidate();
+        aiVar2.a.setTag(c);
+        com.baidu.tieba.util.i iVar = this.f;
+        if (com.baidu.tbadk.imageManager.e.a().c(c) != null) {
+            aiVar2.a.invalidate();
         } else if (!this.e) {
-            this.f.b(vVar.c(), new ag(this, view2));
+            this.f.b(vVar.c(), new ag(this, viewGroup));
         }
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        int itemViewType = getItemViewType(i);
-        View a = view == null ? a(itemViewType) : view;
-        if (itemViewType == 1) {
-            if (TiebaApplication.g().al() == 1) {
-                a.setBackgroundDrawable(this.h);
-            } else {
-                a.setBackgroundDrawable(this.i);
-            }
-        } else {
-            a(a, viewGroup, i);
-        }
-        return a;
+        return view2;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
+    public final void onScrollStateChanged(AbsListView absListView, int i) {
         if (i == 0) {
             this.e = false;
             notifyDataSetChanged();
@@ -220,11 +220,11 @@ public class ae extends BaseAdapter implements AbsListView.OnScrollListener, av 
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    public final void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 
     @Override // com.baidu.tieba.home.av
-    public void a(SignData signData) {
+    public final void a(SignData signData) {
         String forumId = signData.getForumId();
         synchronized (this) {
             this.g.remove(forumId);
@@ -233,7 +233,7 @@ public class ae extends BaseAdapter implements AbsListView.OnScrollListener, av 
     }
 
     @Override // com.baidu.tieba.home.av
-    public void a(String str, String str2) {
+    public final void a(String str, String str2) {
         if (!TextUtils.isEmpty(str2)) {
             BdUtilHelper.a(this.c, str2);
         }
@@ -276,7 +276,7 @@ public class ae extends BaseAdapter implements AbsListView.OnScrollListener, av 
         }
     }
 
-    public void a() {
+    public final void a() {
         this.j = true;
         synchronized (this) {
             for (Map.Entry<String, au> entry : this.g.entrySet()) {
@@ -286,9 +286,9 @@ public class ae extends BaseAdapter implements AbsListView.OnScrollListener, av 
         }
     }
 
-    public void b() {
+    public final void b() {
         if (this.f != null) {
-            this.f.d();
+            this.f.c();
         }
     }
 }

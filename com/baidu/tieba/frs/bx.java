@@ -1,5 +1,12 @@
 package com.baidu.tieba.frs;
+
+import android.app.Activity;
 /* loaded from: classes.dex */
-public interface bx {
-    void a(com.baidu.tieba.model.ab abVar, com.baidu.tieba.model.ac acVar);
+public final class bx {
+    Activity a;
+    int b = 0;
+
+    public bx(Activity activity) {
+        this.a = activity;
+    }
 }

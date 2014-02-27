@@ -12,7 +12,7 @@ import com.baidu.tieba.data.ForumData;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class l extends BaseAdapter implements AbsListView.OnScrollListener {
+public final class l extends BaseAdapter implements AbsListView.OnScrollListener {
     private com.baidu.tieba.f a;
     private com.baidu.tieba.model.f b;
     private boolean c = false;
@@ -31,16 +31,16 @@ public class l extends BaseAdapter implements AbsListView.OnScrollListener {
         this.f = new com.baidu.tieba.util.i(fVar);
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.c = z;
     }
 
-    public boolean a() {
+    public final boolean a() {
         return this.c;
     }
 
     @Override // android.widget.Adapter
-    public int getCount() {
+    public final int getCount() {
         if (this.e) {
             return 1;
         }
@@ -50,7 +50,7 @@ public class l extends BaseAdapter implements AbsListView.OnScrollListener {
         return 0;
     }
 
-    public void b() {
+    public final void b() {
         this.e = false;
         if (this.b != null) {
             if (this.b.a() == null || this.b.a().size() == 0) {
@@ -59,12 +59,12 @@ public class l extends BaseAdapter implements AbsListView.OnScrollListener {
         }
     }
 
-    public boolean c() {
+    public final boolean c() {
         return this.e;
     }
 
     @Override // android.widget.Adapter
-    public Object getItem(int i) {
+    public final Object getItem(int i) {
         if (this.b == null || this.b.a() == null || i < 0 || i >= this.b.a().size()) {
             return null;
         }
@@ -72,12 +72,17 @@ public class l extends BaseAdapter implements AbsListView.OnScrollListener {
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    public final long getItemId(int i) {
         return i;
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:30:0x01a4  */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x026c  */
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final View getView(int i, View view, ViewGroup viewGroup) {
         Exception exc;
         View view2;
         n nVar;
@@ -87,7 +92,7 @@ public class l extends BaseAdapter implements AbsListView.OnScrollListener {
             if (view == null) {
                 view3 = LayoutInflater.from(this.a).inflate(R.layout.edit_bar_item, (ViewGroup) null);
                 try {
-                    nVar = new n(this, null);
+                    nVar = new n(this, (byte) 0);
                     nVar.a = (HeadImageView) view3.findViewById(R.id.forum_avatar);
                     nVar.a.setGifIconSupport(false);
                     nVar.b = (TextView) view3.findViewById(R.id.name);
@@ -102,8 +107,9 @@ public class l extends BaseAdapter implements AbsListView.OnScrollListener {
                 } catch (Exception e) {
                     view2 = view3;
                     exc = e;
-                    com.baidu.adp.lib.util.f.b(getClass().getName(), "getView", exc.getMessage());
-                    a(view2);
+                    com.baidu.adp.lib.util.e.b(getClass().getName(), "getView", exc.getMessage());
+                    this.a.getLayoutMode().a(TiebaApplication.g().ae() != 1);
+                    this.a.getLayoutMode().a(view2);
                     return view2;
                 }
             } else {
@@ -142,7 +148,8 @@ public class l extends BaseAdapter implements AbsListView.OnScrollListener {
             } else {
                 String image_url = forumData.getImage_url();
                 nVar.a.setTag(image_url);
-                if (this.f.d(image_url) != null) {
+                com.baidu.tieba.util.i iVar = this.f;
+                if (com.baidu.tbadk.imageManager.e.a().c(image_url) != null) {
                     nVar.a.invalidate();
                 } else if (!this.h) {
                     this.f.f(image_url, new m(this, view3));
@@ -175,12 +182,13 @@ public class l extends BaseAdapter implements AbsListView.OnScrollListener {
             exc = e2;
             view2 = view;
         }
-        a(view2);
+        this.a.getLayoutMode().a(TiebaApplication.g().ae() != 1);
+        this.a.getLayoutMode().a(view2);
         return view2;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
+    public final void onScrollStateChanged(AbsListView absListView, int i) {
         if (i == 0) {
             this.h = false;
             notifyDataSetChanged();
@@ -190,20 +198,15 @@ public class l extends BaseAdapter implements AbsListView.OnScrollListener {
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    public final void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 
-    private void a(View view) {
-        this.a.getLayoutMode().a(TiebaApplication.g().al() == 1);
-        this.a.getLayoutMode().a(view);
-    }
-
-    public void a(View.OnClickListener onClickListener) {
+    public final void a(View.OnClickListener onClickListener) {
         this.d = onClickListener;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
-    public boolean isEnabled(int i) {
+    public final boolean isEnabled(int i) {
         if (this.e) {
             return false;
         }

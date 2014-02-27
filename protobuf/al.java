@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.Im;
 /* loaded from: classes.dex */
 public final class al extends GeneratedMessageLite.Builder<Im.UserPermission, al> implements am {
@@ -11,24 +12,34 @@ public final class al extends GeneratedMessageLite.Builder<Im.UserPermission, al
     private int b;
     private int c;
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        Im.UserPermission buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return Im.UserPermission.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return Im.UserPermission.getDefaultInstance();
+    }
+
     private al() {
-        g();
     }
 
-    private void g() {
-    }
-
-    /* JADX DEBUG: Method not inlined, still used in: [protobuf.Im.UserPermission.newBuilder():protobuf.al] */
-    public static /* synthetic */ al f() {
-        return h();
-    }
-
-    public static al h() {
+    public static /* synthetic */ al b() {
         return new al();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public al clear() {
         super.clear();
         this.b = 0;
@@ -39,30 +50,14 @@ public final class al extends GeneratedMessageLite.Builder<Im.UserPermission, al
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public al clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public Im.UserPermission getDefaultInstanceForType() {
-        return Im.UserPermission.getDefaultInstance();
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public Im.UserPermission build() {
-        Im.UserPermission buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
+    public al clone() {
+        return new al().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public Im.UserPermission buildPartial() {
+    /* renamed from: a */
+    public final Im.UserPermission buildPartial() {
         Im.UserPermission userPermission = new Im.UserPermission(this, (Im.UserPermission) null);
         int i = this.a;
         int i2 = (i & 1) != 1 ? 0 : 1;
@@ -77,13 +72,17 @@ public final class al extends GeneratedMessageLite.Builder<Im.UserPermission, al
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public al mergeFrom(Im.UserPermission userPermission) {
+    public final al mergeFrom(Im.UserPermission userPermission) {
         if (userPermission != Im.UserPermission.getDefaultInstance()) {
             if (userPermission.hasIsGroupOwner()) {
-                a(userPermission.getIsGroupOwner());
+                int isGroupOwner = userPermission.getIsGroupOwner();
+                this.a |= 1;
+                this.b = isGroupOwner;
             }
             if (userPermission.hasIsGroupManager()) {
-                b(userPermission.getIsGroupManager());
+                int isGroupManager = userPermission.getIsGroupManager();
+                this.a |= 2;
+                this.c = isGroupManager;
             }
         }
         return this;
@@ -130,17 +129,5 @@ public final class al extends GeneratedMessageLite.Builder<Im.UserPermission, al
                 throw th;
             }
         }
-    }
-
-    public al a(int i) {
-        this.a |= 1;
-        this.b = i;
-        return this;
-    }
-
-    public al b(int i) {
-        this.a |= 2;
-        this.c = i;
-        return this;
     }
 }

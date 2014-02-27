@@ -2,7 +2,7 @@ package com.baidu.tieba.model;
 
 import com.baidu.tieba.data.PersonChangeData;
 /* loaded from: classes.dex */
-public class MoreModel extends com.baidu.adp.a.d {
+public final class MoreModel extends com.baidu.adp.a.d {
     private PersonChangeData a;
     private boolean b = false;
 
@@ -30,29 +30,29 @@ public class MoreModel extends com.baidu.adp.a.d {
         }
     }
 
-    public void a(PersonChangeData personChangeData) {
+    public final void a(PersonChangeData personChangeData) {
         this.a = personChangeData;
     }
 
-    public void a(boolean z) {
-        this.b = z;
+    public final void a(boolean z) {
+        this.b = true;
     }
 
-    public boolean a() {
+    public final boolean a() {
         return this.b;
     }
 
     @Override // com.baidu.adp.a.d
-    protected boolean LoadData() {
+    protected final boolean LoadData() {
         return false;
     }
 
     @Override // com.baidu.adp.a.d
-    public boolean cancelLoadData() {
+    public final boolean cancelLoadData() {
         return false;
     }
 
-    public PersonChangeData b() {
+    public final PersonChangeData b() {
         return this.a;
     }
 }

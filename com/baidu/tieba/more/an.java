@@ -4,21 +4,20 @@ import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Scroller;
 /* loaded from: classes.dex */
-public class an {
+public final class an {
     private View a;
     private Scroller b;
     private int c;
     private int d;
-    private int e;
     private boolean f;
     private Runnable g = new ao(this);
+    private int e = 500;
 
     public an(View view, int i) {
         this.a = view;
         this.b = new Scroller(view.getContext(), new DecelerateInterpolator());
         this.c = view.getPaddingTop();
         this.d = -view.getMeasuredHeight();
-        this.e = i;
         if (view.getVisibility() != 0) {
             this.f = false;
         } else {
@@ -26,7 +25,7 @@ public class an {
         }
     }
 
-    public void a() {
+    public final void a() {
         if (!this.f) {
             this.f = true;
             int paddingLeft = this.a.getPaddingLeft();
@@ -45,7 +44,7 @@ public class an {
         }
     }
 
-    public void b() {
+    public final void b() {
         if (this.f) {
             this.f = false;
             if (!this.b.isFinished()) {

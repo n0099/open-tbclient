@@ -1,16 +1,16 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
-public class ap extends com.baidu.adp.a.d {
+public final class ap extends com.baidu.adp.a.d {
     private aq a = null;
     private String b = null;
 
-    public boolean a(String str) {
+    public final boolean a(String str) {
         this.b = str;
         return LoadData();
     }
 
     @Override // com.baidu.adp.a.d
-    protected boolean LoadData() {
+    protected final boolean LoadData() {
         if (this.a != null) {
             this.a.cancel();
         }
@@ -20,7 +20,7 @@ public class ap extends com.baidu.adp.a.d {
     }
 
     @Override // com.baidu.adp.a.d
-    public boolean cancelLoadData() {
+    public final boolean cancelLoadData() {
         if (this.a != null) {
             this.a.cancel();
             return true;

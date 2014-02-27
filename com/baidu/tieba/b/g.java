@@ -4,11 +4,11 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.ba;
 /* loaded from: classes.dex */
-public class g {
+public final class g {
     private static final String a = String.valueOf(com.baidu.tieba.data.i.a) + "c/f/pb/floor";
     private ba b = null;
 
-    public String a(String str, String str2, int i, String str3, int i2) {
+    public final String a(String str, String str2, int i, String str3, int i2) {
         if (str == null || str3 == null) {
             return null;
         }
@@ -35,33 +35,33 @@ public class g {
                 this.b.a("spid", str3);
                 break;
         }
-        return this.b.m();
+        return this.b.l();
     }
 
-    public boolean a() {
+    public final boolean a() {
         if (this.b == null) {
             return false;
         }
-        return this.b.d();
+        return this.b.c();
     }
 
-    public String b() {
+    public final String b() {
         if (this.b == null) {
             return null;
         }
-        return this.b.j();
+        return this.b.i();
     }
 
-    public int c() {
+    public final int c() {
         if (this.b == null) {
             return 0;
         }
-        return this.b.f();
+        return this.b.e();
     }
 
-    public void d() {
+    public final void d() {
         if (this.b != null) {
-            this.b.k();
+            this.b.j();
         }
         this.b = null;
     }

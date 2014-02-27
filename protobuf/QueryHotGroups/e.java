@@ -4,25 +4,32 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.QueryHotGroups.QueryHotGroupsReq;
 /* loaded from: classes.dex */
 public final class e extends GeneratedMessageLite.Builder<QueryHotGroupsReq.QueryHotGroupsReqIdl, e> implements f {
     private int a;
     private QueryHotGroupsReq.DataReq b = QueryHotGroupsReq.DataReq.getDefaultInstance();
 
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return QueryHotGroupsReq.QueryHotGroupsReqIdl.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return QueryHotGroupsReq.QueryHotGroupsReqIdl.getDefaultInstance();
+    }
+
     private e() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static e h() {
+    public static /* synthetic */ e b() {
         return new e();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public e clear() {
         super.clear();
         this.b = QueryHotGroupsReq.DataReq.getDefaultInstance();
@@ -31,20 +38,14 @@ public final class e extends GeneratedMessageLite.Builder<QueryHotGroupsReq.Quer
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
+    /* renamed from: d */
     public e clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public QueryHotGroupsReq.QueryHotGroupsReqIdl getDefaultInstanceForType() {
-        return QueryHotGroupsReq.QueryHotGroupsReqIdl.getDefaultInstance();
+        return new e().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: d */
-    public QueryHotGroupsReq.QueryHotGroupsReqIdl build() {
+    /* renamed from: a */
+    public final QueryHotGroupsReq.QueryHotGroupsReqIdl build() {
         QueryHotGroupsReq.QueryHotGroupsReqIdl buildPartial = buildPartial();
         if (!buildPartial.isInitialized()) {
             throw newUninitializedMessageException(buildPartial);
@@ -64,9 +65,15 @@ public final class e extends GeneratedMessageLite.Builder<QueryHotGroupsReq.Quer
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public e mergeFrom(QueryHotGroupsReq.QueryHotGroupsReqIdl queryHotGroupsReqIdl) {
+    public final e mergeFrom(QueryHotGroupsReq.QueryHotGroupsReqIdl queryHotGroupsReqIdl) {
         if (queryHotGroupsReqIdl != QueryHotGroupsReq.QueryHotGroupsReqIdl.getDefaultInstance() && queryHotGroupsReqIdl.hasData()) {
-            b(queryHotGroupsReqIdl.getData());
+            QueryHotGroupsReq.DataReq data = queryHotGroupsReqIdl.getData();
+            if ((this.a & 1) != 1 || this.b == QueryHotGroupsReq.DataReq.getDefaultInstance()) {
+                this.b = data;
+            } else {
+                this.b = QueryHotGroupsReq.DataReq.newBuilder(this.b).mergeFrom(data).buildPartial();
+            }
+            this.a |= 1;
         }
         return this;
     }
@@ -114,21 +121,11 @@ public final class e extends GeneratedMessageLite.Builder<QueryHotGroupsReq.Quer
         }
     }
 
-    public e a(QueryHotGroupsReq.DataReq dataReq) {
+    public final e a(QueryHotGroupsReq.DataReq dataReq) {
         if (dataReq != null) {
             this.b = dataReq;
             this.a |= 1;
         }
-        return this;
-    }
-
-    public e b(QueryHotGroupsReq.DataReq dataReq) {
-        if ((this.a & 1) == 1 && this.b != QueryHotGroupsReq.DataReq.getDefaultInstance()) {
-            this.b = QueryHotGroupsReq.DataReq.newBuilder(this.b).mergeFrom(dataReq).buildPartial();
-        } else {
-            this.b = dataReq;
-        }
-        this.a |= 1;
         return this;
     }
 }

@@ -208,7 +208,7 @@ public final class StatisticManager implements NoProGuard {
         }
     }
 
-    public void handleAction(String str) {
+    public final void handleAction(String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }

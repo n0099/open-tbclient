@@ -3,7 +3,7 @@ package com.baidu.tieba.more;
 import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements DialogInterface.OnClickListener {
+public final class x implements DialogInterface.OnClickListener {
     final /* synthetic */ v a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ public class x implements DialogInterface.OnClickListener {
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
+    public final void onClick(DialogInterface dialogInterface, int i) {
         switch (i) {
             case 0:
                 com.baidu.tieba.h.a.a().a(true);
@@ -30,7 +30,7 @@ public class x implements DialogInterface.OnClickListener {
                 com.baidu.tieba.h.a.a().a(false);
                 break;
         }
-        this.a.B();
-        this.a.q();
+        this.a.p();
+        this.a.m();
     }
 }

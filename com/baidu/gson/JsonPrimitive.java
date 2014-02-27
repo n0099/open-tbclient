@@ -33,11 +33,11 @@ public final class JsonPrimitive extends JsonElement {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.gson.JsonElement
-    public JsonPrimitive deepCopy() {
+    public final JsonPrimitive deepCopy() {
         return this;
     }
 
-    void setValue(Object obj) {
+    final void setValue(Object obj) {
         if (obj instanceof Character) {
             this.value = String.valueOf(((Character) obj).charValue());
             return;
@@ -46,35 +46,35 @@ public final class JsonPrimitive extends JsonElement {
         this.value = obj;
     }
 
-    public boolean isBoolean() {
+    public final boolean isBoolean() {
         return this.value instanceof Boolean;
     }
 
     @Override // com.baidu.gson.JsonElement
-    Boolean getAsBooleanWrapper() {
+    final Boolean getAsBooleanWrapper() {
         return (Boolean) this.value;
     }
 
     @Override // com.baidu.gson.JsonElement
-    public boolean getAsBoolean() {
+    public final boolean getAsBoolean() {
         return isBoolean() ? getAsBooleanWrapper().booleanValue() : Boolean.parseBoolean(getAsString());
     }
 
-    public boolean isNumber() {
+    public final boolean isNumber() {
         return this.value instanceof Number;
     }
 
     @Override // com.baidu.gson.JsonElement
-    public Number getAsNumber() {
+    public final Number getAsNumber() {
         return this.value instanceof String ? new LazilyParsedNumber((String) this.value) : (Number) this.value;
     }
 
-    public boolean isString() {
+    public final boolean isString() {
         return this.value instanceof String;
     }
 
     @Override // com.baidu.gson.JsonElement
-    public String getAsString() {
+    public final String getAsString() {
         if (isNumber()) {
             return getAsNumber().toString();
         }
@@ -85,47 +85,47 @@ public final class JsonPrimitive extends JsonElement {
     }
 
     @Override // com.baidu.gson.JsonElement
-    public double getAsDouble() {
+    public final double getAsDouble() {
         return isNumber() ? getAsNumber().doubleValue() : Double.parseDouble(getAsString());
     }
 
     @Override // com.baidu.gson.JsonElement
-    public BigDecimal getAsBigDecimal() {
+    public final BigDecimal getAsBigDecimal() {
         return this.value instanceof BigDecimal ? (BigDecimal) this.value : new BigDecimal(this.value.toString());
     }
 
     @Override // com.baidu.gson.JsonElement
-    public BigInteger getAsBigInteger() {
+    public final BigInteger getAsBigInteger() {
         return this.value instanceof BigInteger ? (BigInteger) this.value : new BigInteger(this.value.toString());
     }
 
     @Override // com.baidu.gson.JsonElement
-    public float getAsFloat() {
+    public final float getAsFloat() {
         return isNumber() ? getAsNumber().floatValue() : Float.parseFloat(getAsString());
     }
 
     @Override // com.baidu.gson.JsonElement
-    public long getAsLong() {
+    public final long getAsLong() {
         return isNumber() ? getAsNumber().longValue() : Long.parseLong(getAsString());
     }
 
     @Override // com.baidu.gson.JsonElement
-    public short getAsShort() {
+    public final short getAsShort() {
         return isNumber() ? getAsNumber().shortValue() : Short.parseShort(getAsString());
     }
 
     @Override // com.baidu.gson.JsonElement
-    public int getAsInt() {
+    public final int getAsInt() {
         return isNumber() ? getAsNumber().intValue() : Integer.parseInt(getAsString());
     }
 
     @Override // com.baidu.gson.JsonElement
-    public byte getAsByte() {
+    public final byte getAsByte() {
         return isNumber() ? getAsNumber().byteValue() : Byte.parseByte(getAsString());
     }
 
     @Override // com.baidu.gson.JsonElement
-    public char getAsCharacter() {
+    public final char getAsCharacter() {
         return getAsString().charAt(0);
     }
 
@@ -142,7 +142,7 @@ public final class JsonPrimitive extends JsonElement {
         return false;
     }
 
-    public int hashCode() {
+    public final int hashCode() {
         if (this.value == null) {
             return 31;
         }
@@ -157,7 +157,7 @@ public final class JsonPrimitive extends JsonElement {
         }
     }
 
-    public boolean equals(Object obj) {
+    public final boolean equals(Object obj) {
         if (this == obj) {
             return true;
         }

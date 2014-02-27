@@ -38,14 +38,10 @@ public class JigsawAlbumListActivity extends com.baidu.tieba.f implements AbsLis
     private boolean p = false;
     private Handler s = new m(this);
 
-    public boolean a() {
-        return q;
-    }
-
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        if (a() || this.a.b() == 0) {
+        if (q || this.a.b() == 0) {
             q = false;
             finish();
         }
@@ -72,7 +68,7 @@ public class JigsawAlbumListActivity extends com.baidu.tieba.f implements AbsLis
         ((Button) this.l.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_textbtn, new o(this))).setText(R.string.jigsaw_start);
         this.m = (LinearLayout) findViewById(R.id.selected_ll);
         this.n = (HorizontalScrollView) findViewById(R.id.hsv);
-        this.l.a(this.a.d());
+        this.l.a(this.a.e());
     }
 
     @Override // com.baidu.tieba.f, android.app.Activity
@@ -84,13 +80,13 @@ public class JigsawAlbumListActivity extends com.baidu.tieba.f implements AbsLis
         Thread thread = new Thread(this.c);
         thread.setDaemon(true);
         thread.start();
-        this.o.setText(this.a.e(this));
-        d();
+        this.o.setText(this.a.c(this));
+        c();
     }
 
     @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
-        this.l.c(i);
+        this.l.b(i);
     }
 
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
@@ -99,36 +95,36 @@ public class JigsawAlbumListActivity extends com.baidu.tieba.f implements AbsLis
         super.onDestroy();
     }
 
-    private void d() {
+    private void c() {
         this.m.removeAllViews();
-        for (Uri uri : this.a.c(this)) {
-            x xVar = new x(this);
+        for (Uri uri : this.a.d()) {
+            w wVar = new w(this);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams((int) getResources().getDimension(R.dimen.jigsawSelectedWidth), (int) getResources().getDimension(R.dimen.jigsawSelectedHeight));
             layoutParams.setMargins(0, 0, 0, 0);
-            xVar.setLayoutParams(layoutParams);
-            if (xVar.a(uri)) {
-                this.m.addView(xVar);
-                xVar.setOnClickListener(new p(this, xVar));
+            wVar.setLayoutParams(layoutParams);
+            if (wVar.a(uri)) {
+                this.m.addView(wVar);
+                wVar.setOnClickListener(new p(this, wVar));
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(Uri uri) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(JigsawAlbumListActivity jigsawAlbumListActivity, Uri uri) {
         a aVar;
         if (uri != null) {
-            for (int i = 0; i < this.m.getChildCount(); i++) {
-                View childAt = this.m.getChildAt(i);
-                if ((childAt instanceof x) && uri.equals(((x) childAt).getUri())) {
-                    this.m.removeView(childAt);
+            for (int i = 0; i < jigsawAlbumListActivity.m.getChildCount(); i++) {
+                View childAt = jigsawAlbumListActivity.m.getChildAt(i);
+                if ((childAt instanceof w) && uri.equals(((w) childAt).getUri())) {
+                    jigsawAlbumListActivity.m.removeView(childAt);
                 }
             }
-            int a = this.a.a(uri);
-            if (a >= 0 && (aVar = (a) this.h.get((Object) Integer.valueOf(a))) != null) {
+            int a = jigsawAlbumListActivity.a.a(uri);
+            if (a >= 0 && (aVar = (a) jigsawAlbumListActivity.h.get((Object) Integer.valueOf(a))) != null) {
                 aVar.setIsSelected(false);
             }
-            this.a.b(this, uri);
-            this.o.setText(this.a.e(this));
+            jigsawAlbumListActivity.a.b(jigsawAlbumListActivity, uri);
+            jigsawAlbumListActivity.o.setText(jigsawAlbumListActivity.a.c(jigsawAlbumListActivity));
         }
     }
 
@@ -136,28 +132,6 @@ public class JigsawAlbumListActivity extends com.baidu.tieba.f implements AbsLis
     public void onPause() {
         super.onPause();
         this.c.a();
-        e();
-        System.gc();
-        if (this.c != null) {
-            this.c.a();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i, Bitmap bitmap) {
-        ImageView imageView;
-        if (this.h.containsKey(Integer.valueOf(i))) {
-            imageView = this.h.get((Object) Integer.valueOf(i));
-            this.h.get((Object) Integer.valueOf(i)).setImageBitmap(bitmap);
-        } else {
-            imageView = new ImageView(this);
-            imageView.setImageBitmap(bitmap);
-            this.h.put(Integer.valueOf(i), imageView);
-        }
-        imageView.setTag("bitmap");
-    }
-
-    private void e() {
         int b = j + 20 > this.a.b() ? this.a.b() - j : 20;
         if (this.h.size() != 0) {
             for (int i = j; i < j + b; i++) {
@@ -167,20 +141,35 @@ public class JigsawAlbumListActivity extends com.baidu.tieba.f implements AbsLis
                 }
             }
         }
+        System.gc();
+        if (this.c != null) {
+            this.c.a();
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void f() {
-        if (u.a().c(this).size() >= 2) {
-            if (r) {
-                r = false;
-                setResult(2);
-                finish();
-                return;
-            }
-            return;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(JigsawAlbumListActivity jigsawAlbumListActivity, int i, Bitmap bitmap) {
+        ImageView imageView;
+        if (jigsawAlbumListActivity.h.containsKey(Integer.valueOf(i))) {
+            imageView = jigsawAlbumListActivity.h.get((Object) Integer.valueOf(i));
+            jigsawAlbumListActivity.h.get((Object) Integer.valueOf(i)).setImageBitmap(bitmap);
+        } else {
+            imageView = new ImageView(jigsawAlbumListActivity);
+            imageView.setImageBitmap(bitmap);
+            jigsawAlbumListActivity.h.put(Integer.valueOf(i), imageView);
         }
-        y.a(R.string.jigsaw_2_least);
+        imageView.setTag("bitmap");
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void g(JigsawAlbumListActivity jigsawAlbumListActivity) {
+        if (u.a().d().size() < 2) {
+            x.a(R.string.jigsaw_2_least);
+        } else if (r) {
+            r = false;
+            jigsawAlbumListActivity.setResult(2);
+            jigsawAlbumListActivity.finish();
+        }
     }
 
     @Override // android.widget.AbsListView.OnScrollListener

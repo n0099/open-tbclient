@@ -29,7 +29,7 @@ public class FatalErrorService extends Service {
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
         if (this.a == null) {
-            this.a = new d(this, null);
+            this.a = new d(this, (byte) 0);
             this.a.execute(new String[0]);
         }
     }

@@ -5,7 +5,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-public class al {
+public final class al {
     public LinearLayout a;
     public RelativeLayout b;
     public TextView c;

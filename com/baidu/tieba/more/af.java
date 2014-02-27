@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 /* loaded from: classes.dex */
-class af extends BroadcastReceiver {
+final class af extends BroadcastReceiver {
     final /* synthetic */ MoreActivity a;
 
     private af(MoreActivity moreActivity) {
@@ -12,12 +12,12 @@ class af extends BroadcastReceiver {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ af(MoreActivity moreActivity, af afVar) {
+    public /* synthetic */ af(MoreActivity moreActivity, byte b) {
         this(moreActivity);
     }
 
     @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        MoreActivity.a(this.a).f();
+    public final void onReceive(Context context, Intent intent) {
+        MoreActivity.a(this.a).d();
     }
 }

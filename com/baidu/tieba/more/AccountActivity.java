@@ -34,31 +34,7 @@ public class AccountActivity extends com.baidu.tieba.f {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.account_activity);
-        a();
-        b();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
-    public void onDestroy() {
-        super.onDestroy();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.e.c(i);
-        getLayoutMode().a(i == 1);
-        getLayoutMode().a((View) this.d);
-        this.b.notifyDataSetChanged();
-    }
-
-    private void a() {
         this.a = DatabaseService.j();
-    }
-
-    private void b() {
         this.d = (RelativeLayout) findViewById(R.id.account_container);
         this.g = new f(this);
         this.e = (NavigationBar) findViewById(R.id.view_navigation_bar);
@@ -71,5 +47,21 @@ public class AccountActivity extends com.baidu.tieba.f {
         this.c = (ListView) findViewById(R.id.list);
         this.c.setAdapter((ListAdapter) this.b);
         this.c.setOnItemClickListener(new i(this));
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.f
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        this.e.b(i);
+        getLayoutMode().a(i == 1);
+        getLayoutMode().a(this.d);
+        this.b.notifyDataSetChanged();
     }
 }

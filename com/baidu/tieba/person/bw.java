@@ -5,7 +5,7 @@ import android.content.DialogInterface;
 import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bw implements DialogInterface.OnClickListener {
+public final class bw implements DialogInterface.OnClickListener {
     final /* synthetic */ PersonChangeActivity a;
     private final /* synthetic */ String b;
     private final /* synthetic */ String c;
@@ -18,7 +18,7 @@ public class bw implements DialogInterface.OnClickListener {
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
+    public final void onClick(DialogInterface dialogInterface, int i) {
         TextView textView;
         Dialog dialog;
         TextView textView2;
@@ -31,7 +31,7 @@ public class bw implements DialogInterface.OnClickListener {
             textView = this.a.l;
             textView.setText(this.c);
         }
-        this.a.c();
+        this.a.b();
         dialog = this.a.E;
         dialog.dismiss();
     }

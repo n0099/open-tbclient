@@ -59,24 +59,20 @@ public class TiebaPrepareImageService extends Service {
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
         if (intent != null) {
-            a(intent);
-        }
-    }
-
-    private void a(Intent intent) {
-        if (this.d != null) {
-            this.d.cancel();
-        }
-        this.c = intent.getData();
-        this.b = intent.getIntExtra(SocialConstants.PARAM_REQUEST_CODE, 0);
-        this.f = intent.getIntExtra("max_size", 750);
-        this.g = intent.getIntExtra("display_size", 0);
-        TiebaApplication.g().a((com.baidu.tieba.f) null);
-        if (!a) {
+            if (this.d != null) {
+                this.d.cancel();
+            }
+            this.c = intent.getData();
+            this.b = intent.getIntExtra(SocialConstants.PARAM_REQUEST_CODE, 0);
+            this.f = intent.getIntExtra("max_size", 750);
+            this.g = intent.getIntExtra("display_size", 0);
+            TiebaApplication.g().a((com.baidu.tieba.f) null);
+            if (a) {
+                this.e.postDelayed(this.h, 1000L);
+                return;
+            }
             this.d = new o(this, this.b, this.c);
             this.d.execute(new Object[0]);
-            return;
         }
-        this.e.postDelayed(this.h, 1000L);
     }
 }

@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
 /* loaded from: classes.dex */
-class q extends Handler {
+final class q extends Handler {
     final /* synthetic */ RecordVoiceBnt a;
 
     private q(RecordVoiceBnt recordVoiceBnt) {
@@ -12,12 +12,12 @@ class q extends Handler {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ q(RecordVoiceBnt recordVoiceBnt, q qVar) {
+    public /* synthetic */ q(RecordVoiceBnt recordVoiceBnt, byte b) {
         this(recordVoiceBnt);
     }
 
     @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    public final void handleMessage(Message message) {
         if (message.what == 1) {
             if (RecordVoiceBnt.a(this.a) < 360.0f) {
                 long uptimeMillis = SystemClock.uptimeMillis();

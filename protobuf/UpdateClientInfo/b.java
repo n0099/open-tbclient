@@ -5,6 +5,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.UpdateClientInfo.UpdateClientInfoReq;
 /* loaded from: classes.dex */
 public final class b extends GeneratedMessageLite.Builder<UpdateClientInfoReq.DataReq, b> implements c {
@@ -18,19 +19,25 @@ public final class b extends GeneratedMessageLite.Builder<UpdateClientInfoReq.Da
     private int h;
     private int i;
 
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return UpdateClientInfoReq.DataReq.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return UpdateClientInfoReq.DataReq.getDefaultInstance();
+    }
+
     private b() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static b h() {
+    public static /* synthetic */ b c() {
         return new b();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: d */
     public b clear() {
         super.clear();
         this.b = "";
@@ -53,20 +60,14 @@ public final class b extends GeneratedMessageLite.Builder<UpdateClientInfoReq.Da
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
+    /* renamed from: e */
     public b clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public UpdateClientInfoReq.DataReq getDefaultInstanceForType() {
-        return UpdateClientInfoReq.DataReq.getDefaultInstance();
+        return new b().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: d */
-    public UpdateClientInfoReq.DataReq build() {
+    /* renamed from: a */
+    public final UpdateClientInfoReq.DataReq build() {
         UpdateClientInfoReq.DataReq buildPartial = buildPartial();
         if (!buildPartial.isInitialized()) {
             throw newUninitializedMessageException(buildPartial);
@@ -75,8 +76,8 @@ public final class b extends GeneratedMessageLite.Builder<UpdateClientInfoReq.Da
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public UpdateClientInfoReq.DataReq buildPartial() {
+    /* renamed from: b */
+    public final UpdateClientInfoReq.DataReq buildPartial() {
         UpdateClientInfoReq.DataReq dataReq = new UpdateClientInfoReq.DataReq(this, (UpdateClientInfoReq.DataReq) null);
         int i = this.a;
         int i2 = (i & 1) != 1 ? 0 : 1;
@@ -115,7 +116,7 @@ public final class b extends GeneratedMessageLite.Builder<UpdateClientInfoReq.Da
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public b mergeFrom(UpdateClientInfoReq.DataReq dataReq) {
+    public final b mergeFrom(UpdateClientInfoReq.DataReq dataReq) {
         Object obj;
         Object obj2;
         if (dataReq != UpdateClientInfoReq.DataReq.getDefaultInstance()) {
@@ -145,7 +146,9 @@ public final class b extends GeneratedMessageLite.Builder<UpdateClientInfoReq.Da
                 b(dataReq.getHeight());
             }
             if (dataReq.hasUnreadMsg()) {
-                c(dataReq.getUnreadMsg());
+                int unreadMsg = dataReq.getUnreadMsg();
+                this.a |= 128;
+                this.i = unreadMsg;
             }
         }
         return this;
@@ -194,7 +197,7 @@ public final class b extends GeneratedMessageLite.Builder<UpdateClientInfoReq.Da
         }
     }
 
-    public b a(String str) {
+    public final b a(String str) {
         if (str != null) {
             this.a |= 1;
             this.b = str;
@@ -202,7 +205,7 @@ public final class b extends GeneratedMessageLite.Builder<UpdateClientInfoReq.Da
         return this;
     }
 
-    public b b(String str) {
+    public final b b(String str) {
         if (str != null) {
             this.a |= 2;
             this.c = str;
@@ -210,7 +213,7 @@ public final class b extends GeneratedMessageLite.Builder<UpdateClientInfoReq.Da
         return this;
     }
 
-    public b a(ByteString byteString) {
+    public final b a(ByteString byteString) {
         if (byteString != null) {
             this.a |= 4;
             this.d = byteString;
@@ -218,33 +221,27 @@ public final class b extends GeneratedMessageLite.Builder<UpdateClientInfoReq.Da
         return this;
     }
 
-    public b a(double d) {
+    public final b a(double d) {
         this.a |= 8;
         this.e = d;
         return this;
     }
 
-    public b b(double d) {
+    public final b b(double d) {
         this.a |= 16;
         this.f = d;
         return this;
     }
 
-    public b a(int i) {
+    public final b a(int i) {
         this.a |= 32;
         this.g = i;
         return this;
     }
 
-    public b b(int i) {
+    public final b b(int i) {
         this.a |= 64;
         this.h = i;
-        return this;
-    }
-
-    public b c(int i) {
-        this.a |= 128;
-        this.i = i;
         return this;
     }
 }

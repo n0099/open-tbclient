@@ -22,14 +22,14 @@ public class VoiceBnt extends ImageView {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         VoiceManager voiceManager = getVoiceManager();
         if (motionEvent.getAction() == 0) {
-            if (voiceManager == null || !voiceManager.i()) {
+            if (voiceManager == null || !voiceManager.k()) {
                 return false;
             }
             this.b = voiceManager.a(this.a, -1);
             setPressed(true);
         } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
             if (this.b && voiceManager != null) {
-                voiceManager.f();
+                voiceManager.e();
             }
             setPressed(false);
         }
@@ -39,7 +39,7 @@ public class VoiceBnt extends ImageView {
     public VoiceManager getVoiceManager() {
         Context context = getContext();
         if (context instanceof af) {
-            return ((af) context).h();
+            return ((af) context).c_();
         }
         return null;
     }

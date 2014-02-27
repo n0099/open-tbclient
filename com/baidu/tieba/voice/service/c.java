@@ -3,7 +3,7 @@ package com.baidu.tieba.voice.service;
 import android.content.Intent;
 import android.os.Handler;
 /* loaded from: classes.dex */
-class c implements Runnable {
+final class c implements Runnable {
     final /* synthetic */ MediaService a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ class c implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         Handler handler;
         g gVar;
         int i;

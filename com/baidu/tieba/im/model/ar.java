@@ -3,20 +3,15 @@ package com.baidu.tieba.im.model;
 import android.app.Activity;
 import android.content.Intent;
 import android.util.Pair;
-import com.baidu.tieba.data.UserData;
 import com.baidu.tieba.im.data.RandChatRoomData;
 import com.baidu.tieba.im.message.ay;
 import com.baidu.tieba.im.message.bc;
-import com.baidu.tieba.im.message.bn;
 import com.baidu.tieba.im.randchat.WaitingTipView;
 import com.slidingmenu.lib.R;
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Random;
-import protobuf.Im;
 /* loaded from: classes.dex */
-public class ar extends com.baidu.adp.a.d {
+public final class ar extends com.baidu.adp.a.d {
     private Activity a;
     private RandChatRoomData c;
     private int d;
@@ -29,7 +24,7 @@ public class ar extends com.baidu.adp.a.d {
     private boolean j = false;
     private boolean k = false;
 
-    public LinkedList<Pair<WaitingTipView.Type, Object[]>> a() {
+    public final LinkedList<Pair<WaitingTipView.Type, Object[]>> a() {
         return this.b;
     }
 
@@ -39,53 +34,53 @@ public class ar extends com.baidu.adp.a.d {
         this.g[1] = this.a.getString(R.string.rand_chat_waiting_wait_time_no2);
     }
 
-    public String b() {
+    public final String b() {
         return this.g[new Random().nextInt(2)];
     }
 
-    public int c() {
+    public final int c() {
         return this.e;
     }
 
-    public int d() {
+    public final int d() {
         return this.d;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.d = i;
     }
 
-    public boolean e() {
+    public final boolean e() {
         return this.k;
     }
 
-    public void a(boolean z) {
-        this.k = z;
+    public final void a(boolean z) {
+        this.k = true;
     }
 
-    public RandChatRoomData f() {
+    public final RandChatRoomData f() {
         return this.c;
     }
 
-    public void a(RandChatRoomData randChatRoomData) {
+    public final void a(RandChatRoomData randChatRoomData) {
         this.c = randChatRoomData;
     }
 
-    public int g() {
+    public final int g() {
         return this.f;
     }
 
     @Override // com.baidu.adp.a.d
-    protected boolean LoadData() {
+    protected final boolean LoadData() {
         return false;
     }
 
     @Override // com.baidu.adp.a.d
-    public boolean cancelLoadData() {
+    public final boolean cancelLoadData() {
         return false;
     }
 
-    public void a(Intent intent) {
+    public final void a(Intent intent) {
         this.c = (RandChatRoomData) intent.getParcelableExtra("randChatRoomData");
         this.f = intent.getIntExtra("startCount", 0);
         this.e = this.c.f();
@@ -94,7 +89,7 @@ public class ar extends com.baidu.adp.a.d {
         this.i = this.c.b();
     }
 
-    public void b(RandChatRoomData randChatRoomData) {
+    public final void b(RandChatRoomData randChatRoomData) {
         this.c = randChatRoomData;
         this.e = randChatRoomData.f();
         this.d = randChatRoomData.e();
@@ -102,53 +97,41 @@ public class ar extends com.baidu.adp.a.d {
         this.i = this.c.b();
     }
 
-    private ay a(int i, int i2, int i3) {
-        return new ay(i, i2, i3);
+    public final void a(int i, boolean z, int i2) {
+        com.baidu.tieba.im.messageCenter.d.a().a(new ay(i, z ? 1 : 0, i2));
     }
 
-    public void a(int i, boolean z, int i2) {
-        com.baidu.tieba.im.messageCenter.e.a().a(a(i, z ? 1 : 0, i2));
+    public static void a(com.baidu.tieba.im.messageCenter.g gVar) {
+        com.baidu.tieba.im.messageCenter.d.a().a(106102, gVar);
+        com.baidu.tieba.im.messageCenter.d.a().a(106001, gVar);
+        com.baidu.tieba.im.messageCenter.d.a().a(-119, gVar);
+        com.baidu.tieba.im.messageCenter.d.a().a(106103, gVar);
     }
 
-    public void a(com.baidu.tieba.im.messageCenter.g gVar) {
-        com.baidu.tieba.im.messageCenter.e.a().a(106102, gVar);
-        com.baidu.tieba.im.messageCenter.e.a().a(106001, gVar);
-        com.baidu.tieba.im.messageCenter.e.a().a(-119, gVar);
-        com.baidu.tieba.im.messageCenter.e.a().a(106103, gVar);
+    public static void b(com.baidu.tieba.im.messageCenter.g gVar) {
+        com.baidu.tieba.im.messageCenter.d.a().a(gVar);
+        com.baidu.tieba.im.messageCenter.d.a().a(gVar);
+        com.baidu.tieba.im.messageCenter.d.a().a(gVar);
+        com.baidu.tieba.im.messageCenter.d.a().a(gVar);
     }
 
-    public void b(com.baidu.tieba.im.messageCenter.g gVar) {
-        com.baidu.tieba.im.messageCenter.e.a().a(gVar);
-        com.baidu.tieba.im.messageCenter.e.a().a(gVar);
-        com.baidu.tieba.im.messageCenter.e.a().a(gVar);
-        com.baidu.tieba.im.messageCenter.e.a().a(gVar);
-    }
-
-    private bc a(int i, String str, String str2) {
-        bc bcVar = new bc();
-        bcVar.a(i);
-        bcVar.a(str);
-        bcVar.b(str2);
-        return bcVar;
-    }
-
-    public void a(String str) {
+    public final void a(String str) {
         this.h = str;
     }
 
-    public void b(String str) {
+    public final void b(String str) {
         this.i = str;
     }
 
-    public String h() {
+    public final String h() {
         return this.h;
     }
 
-    public String i() {
+    public final String i() {
         return this.i;
     }
 
-    public void a(int i, String str, String str2, boolean z) {
+    public final void a(int i, String str, String str2, boolean z) {
         this.j = z;
         if (this.j) {
             this.h = null;
@@ -157,38 +140,20 @@ public class ar extends com.baidu.adp.a.d {
             this.h = str;
             this.i = str2;
         }
-        com.baidu.tieba.im.messageCenter.e.a().a(a(i, this.h, this.i));
+        com.baidu.tieba.im.messageCenter.d a = com.baidu.tieba.im.messageCenter.d.a();
+        String str3 = this.h;
+        String str4 = this.i;
+        bc bcVar = new bc();
+        bcVar.a(i);
+        bcVar.a(str3);
+        bcVar.b(str4);
+        a.a(bcVar);
     }
 
-    private com.baidu.tieba.im.message.ae c(int i) {
+    public final void b(int i) {
+        com.baidu.tieba.im.messageCenter.d a = com.baidu.tieba.im.messageCenter.d.a();
         com.baidu.tieba.im.message.ae aeVar = new com.baidu.tieba.im.message.ae();
         aeVar.a(i);
-        return aeVar;
-    }
-
-    public void b(int i) {
-        com.baidu.tieba.im.messageCenter.e.a().a(c(i));
-    }
-
-    public List<UserData> a(bn bnVar) {
-        if (bnVar == null || bnVar.a() == null) {
-            return null;
-        }
-        ArrayList arrayList = new ArrayList();
-        for (Im.UserInfo userInfo : bnVar.a()) {
-            UserData userData = new UserData();
-            userData.setInTime(userInfo.getInTime());
-            userData.setLastReplyTime(userInfo.getLastReplyTime());
-            userData.setLat(String.valueOf(userInfo.getLat()));
-            userData.setLng(String.valueOf(userInfo.getLng()));
-            userData.setLoginTime(userInfo.getLoginTime());
-            userData.setPortrait(userInfo.getPortrait());
-            userData.setPosition(userInfo.getPosition());
-            userData.setSex(userInfo.getSex());
-            userData.setUserIdLong(userInfo.getUserId());
-            userData.setUserName(userInfo.getUserName());
-            arrayList.add(userData);
-        }
-        return arrayList;
+        a.a(aeVar);
     }
 }

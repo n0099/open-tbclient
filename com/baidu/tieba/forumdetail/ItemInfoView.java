@@ -49,7 +49,7 @@ public class ItemInfoView extends RelativeLayout {
         a(context);
     }
 
-    public void a(Context context) {
+    private void a(Context context) {
         this.a = context;
         ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.forum_detail_info, (ViewGroup) this, true);
         this.b = (ViewGroup) findViewById(R.id.info_brief_box);
@@ -63,7 +63,7 @@ public class ItemInfoView extends RelativeLayout {
         this.j = (ViewGroup) findViewById(R.id.info_badge_box);
     }
 
-    public boolean a(ForumDetailData forumDetailData, com.baidu.tieba.f fVar) {
+    public final boolean a(ForumDetailData forumDetailData, com.baidu.tieba.f fVar) {
         boolean z;
         if (forumDetailData == null || (forumDetailData.forumInfo != null && forumDetailData.forumInfo.contents.length == 0 && bs.c(forumDetailData.forumInfo.slogan) && forumDetailData.badges.length == 0 && forumDetailData.forumDir == null)) {
             return false;
@@ -98,7 +98,27 @@ public class ItemInfoView extends RelativeLayout {
             z = false;
         }
         if (forumDetailData.forumInfo.contents.length > 0 || !bs.c(forumDetailData.forumInfo.slogan)) {
-            this.c.setText(a(forumDetailData.forumInfo.contents, forumDetailData.forumInfo.slogan));
+            TextView textView = this.c;
+            ForumDetailData.ForumContent[] forumContentArr = forumDetailData.forumInfo.contents;
+            String str3 = forumDetailData.forumInfo.slogan;
+            ad adVar = new ad();
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(String.valueOf(str3) + IOUtils.LINE_SEPARATOR_UNIX);
+            int length = forumContentArr.length;
+            for (int i = 0; i < length; i++) {
+                if (forumContentArr[i].type == 2) {
+                    Bitmap a = com.baidu.tieba.util.n.a(adVar.a(forumContentArr[i].text));
+                    if (a != null) {
+                        BitmapDrawable bitmapDrawable = new BitmapDrawable(a);
+                        bitmapDrawable.setBounds(0, 0, a.getWidth(), a.getHeight());
+                        ImageSpan imageSpan = new ImageSpan(bitmapDrawable, 0);
+                        int length2 = spannableStringBuilder.length() - 1;
+                        spannableStringBuilder.setSpan(imageSpan, length2, length2 + 1, 33);
+                    }
+                } else {
+                    spannableStringBuilder.append((CharSequence) forumContentArr[i].text);
+                }
+            }
+            textView.setText(spannableStringBuilder);
             this.b.setVisibility(0);
             z = true;
         } else if (this.d.getVisibility() == 0) {
@@ -114,27 +134,6 @@ public class ItemInfoView extends RelativeLayout {
             return true;
         }
         return z;
-    }
-
-    private SpannableStringBuilder a(ForumDetailData.ForumContent[] forumContentArr, String str) {
-        ad adVar = new ad();
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(String.valueOf(str) + IOUtils.LINE_SEPARATOR_UNIX);
-        int length = forumContentArr.length;
-        for (int i = 0; i < length; i++) {
-            if (forumContentArr[i].type == 2) {
-                Bitmap a = com.baidu.tieba.util.n.a(adVar.a(forumContentArr[i].text));
-                if (a != null) {
-                    BitmapDrawable bitmapDrawable = new BitmapDrawable(a);
-                    bitmapDrawable.setBounds(0, 0, a.getWidth(), a.getHeight());
-                    ImageSpan imageSpan = new ImageSpan(bitmapDrawable, 0);
-                    int length2 = spannableStringBuilder.length() - 1;
-                    spannableStringBuilder.setSpan(imageSpan, length2, length2 + 1, 33);
-                }
-            } else {
-                spannableStringBuilder.append((CharSequence) forumContentArr[i].text);
-            }
-        }
-        return spannableStringBuilder;
     }
 
     private void a(ForumDetailData forumDetailData) {
@@ -159,13 +158,13 @@ public class ItemInfoView extends RelativeLayout {
         this.d.setOnClickListener(onClickListener);
     }
 
-    public void a(com.baidu.tieba.f fVar, int i) {
+    public final void a(com.baidu.tieba.f fVar, int i) {
         if (i == 1) {
             this.c.setTextColor(getResources().getColor(R.color.forum_detail_brief_txt_color_1));
         } else {
             this.c.setTextColor(getResources().getColor(R.color.forum_detail_brief_txt_color));
         }
         fVar.getLayoutMode().a(i == 1);
-        fVar.getLayoutMode().a((View) this);
+        fVar.getLayoutMode().a(this);
     }
 }

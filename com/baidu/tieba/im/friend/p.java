@@ -3,7 +3,7 @@ package com.baidu.tieba.im.friend;
 import android.view.View;
 import com.baidu.tieba.view.TbCheckBox;
 /* loaded from: classes.dex */
-class p implements View.OnClickListener {
+final class p implements View.OnClickListener {
     final /* synthetic */ o a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,11 +12,11 @@ class p implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         Object tag = view.getTag();
         if (tag != null && (tag instanceof s)) {
             TbCheckBox tbCheckBox = ((s) tag).d;
-            tbCheckBox.setChecked(!tbCheckBox.b());
+            tbCheckBox.setChecked(!tbCheckBox.a());
         }
     }
 }

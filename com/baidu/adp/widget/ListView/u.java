@@ -5,7 +5,7 @@ import android.view.View;
 import java.security.InvalidParameterException;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u {
+public final class u {
     private static float b = 3.0f;
     private d c;
     private BdListView f;
@@ -27,38 +27,38 @@ public class u {
         }
         this.c = dVar;
         this.f = bdListView;
-        View i = this.c.i();
-        i.setPadding(0, -this.c.k(), 0, 0);
-        i.invalidate();
-        this.f.a(i);
+        View h = this.c.h();
+        h.setPadding(0, -this.c.j(), 0, 0);
+        h.invalidate();
+        this.f.a(h);
     }
 
-    public d a() {
+    public final d a() {
         return this.c;
     }
 
-    public void b() {
+    public final void b() {
         this.a = 3;
-        this.c.a(0, -this.c.k(), 0, 0);
+        this.c.a(0, -this.c.j(), 0, 0);
         this.c.b(true);
         if (this.h != null) {
             this.h.a(false);
         }
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.a = 2;
         this.c.a(0, 0, 0, 0);
         this.c.f();
         this.c.c(z);
     }
 
-    public void a(s sVar) {
+    public final void a(s sVar) {
         this.h = sVar;
     }
 
-    public void a(MotionEvent motionEvent, int i) {
-        if (motionEvent.getAction() == 0 && a().j()) {
+    public final void a(MotionEvent motionEvent, int i) {
+        if (motionEvent.getAction() == 0 && this.c.i()) {
             this.d = false;
             this.g = false;
             if (i == 0 && !this.d) {
@@ -68,14 +68,14 @@ public class u {
         }
     }
 
-    public void b(MotionEvent motionEvent, int i) {
-        if (a().j()) {
+    public final void b(MotionEvent motionEvent, int i) {
+        if (this.c.i()) {
             switch (motionEvent.getAction()) {
                 case 1:
                     if (this.a != 2) {
                         if (this.a == 1) {
                             this.a = 3;
-                            this.c.a(0, -this.c.k(), 0, 0);
+                            this.c.a(0, -this.c.j(), 0, 0);
                             this.c.b(false);
                             if (this.h != null) {
                                 this.h.a(true);
@@ -106,7 +106,7 @@ public class u {
                     if (this.a != 2 && this.d) {
                         if (this.a == 0) {
                             this.f.setSelection(0);
-                            if (((int) ((y - this.e) / b)) < this.c.k() && y - this.e > 0) {
+                            if (((int) ((y - this.e) / b)) < this.c.j() && y - this.e > 0) {
                                 this.a = 1;
                                 this.c.a(this.g.booleanValue());
                                 this.g = false;
@@ -115,7 +115,7 @@ public class u {
                                 }
                             } else if (y - this.e <= 0) {
                                 this.a = 3;
-                                this.c.a(0, -this.c.k(), 0, 0);
+                                this.c.a(0, -this.c.j(), 0, 0);
                                 this.c.b(false);
                                 if (this.h != null) {
                                     this.h.a(true);
@@ -123,7 +123,7 @@ public class u {
                             }
                         } else if (this.a == 1) {
                             this.f.setSelection(0);
-                            if (((int) ((y - this.e) / b)) >= this.c.k()) {
+                            if (((int) ((y - this.e) / b)) >= this.c.j()) {
                                 this.a = 0;
                                 this.g = true;
                                 this.c.e();
@@ -132,7 +132,7 @@ public class u {
                                 }
                             } else if (y - this.e <= 0) {
                                 this.a = 3;
-                                this.c.a(0, -this.c.k(), 0, 0);
+                                this.c.a(0, -this.c.j(), 0, 0);
                                 this.c.b(false);
                                 if (this.h != null) {
                                     this.h.a(true);
@@ -151,7 +151,7 @@ public class u {
                             }
                         }
                         if (this.a == 1 || this.a == 0) {
-                            this.c.a(0, ((int) ((y - this.e) / b)) - this.c.k(), 0, 0);
+                            this.c.a(0, ((int) ((y - this.e) / b)) - this.c.j(), 0, 0);
                             return;
                         }
                         return;
@@ -163,21 +163,15 @@ public class u {
         }
     }
 
-    /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.ListView.BdListView.a():void] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void a(u uVar) {
-        uVar.c();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void c() {
-        View i;
-        d a = a();
-        if (a != null && (i = a.i()) != null) {
-            w wVar = new w(i.getContext(), 0, -a.k(), this.i);
-            wVar.a(new v(this));
-            wVar.a(i);
+        View h;
+        d dVar = uVar.c;
+        if (dVar == null || (h = dVar.h()) == null) {
+            return;
         }
+        w wVar = new w(h.getContext(), 0, -dVar.j(), uVar.i);
+        wVar.a(new v(uVar));
+        wVar.a(h);
     }
 }

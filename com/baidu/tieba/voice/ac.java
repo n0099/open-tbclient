@@ -6,27 +6,32 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac extends BdAsyncTask<Void, Void, Void> {
+public final class ac extends BdAsyncTask<Void, Void, Void> {
     final /* synthetic */ VoiceManager a;
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ Void a(Void... voidArr) {
+        return d();
+    }
 
     private ac(VoiceManager voiceManager) {
         this.a = voiceManager;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ac(VoiceManager voiceManager, ac acVar) {
+    public /* synthetic */ ac(VoiceManager voiceManager, byte b) {
         this(voiceManager);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1904=4, 1905=4] */
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x00a7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1904=4] */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x00a5 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public Void a(Void... voidArr) {
+    private Void d() {
         FileReader fileReader;
         FileReader fileReader2 = null;
         try {
@@ -36,13 +41,11 @@ public class ac extends BdAsyncTask<Void, Void, Void> {
                     char[] cArr = new char[1024];
                     this.a.l = Integer.valueOf(new String(cArr, 0, fileReader.read(cArr, 0, 1024)).trim()).intValue() != 0;
                     if (this.a.l) {
-                        this.a.d(false);
+                        this.a.c(false);
                     }
-                    if (fileReader != null) {
-                        try {
-                            fileReader.close();
-                        } catch (Exception e) {
-                        }
+                    try {
+                        fileReader.close();
+                    } catch (Exception e) {
                     }
                 } catch (FileNotFoundException e2) {
                     e = e2;

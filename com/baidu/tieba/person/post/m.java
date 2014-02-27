@@ -1,7 +1,7 @@
 package com.baidu.tieba.person.post;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements f {
+public final class m implements f {
     final /* synthetic */ l a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,7 +10,7 @@ public class m implements f {
     }
 
     @Override // com.baidu.tieba.person.post.f
-    public void a(PersonPostReplyModel personPostReplyModel, boolean z) {
+    public final void a(PersonPostReplyModel personPostReplyModel, boolean z) {
         PersonPostReplyModel personPostReplyModel2;
         PersonPostReplyModel personPostReplyModel3;
         o oVar;

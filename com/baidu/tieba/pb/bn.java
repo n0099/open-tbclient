@@ -4,9 +4,8 @@ import android.content.DialogInterface;
 import com.baidu.tieba.album.AlbumActivity;
 import com.baidu.tieba.img.WriteImagesInfo;
 import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bn implements DialogInterface.OnClickListener {
+final class bn implements DialogInterface.OnClickListener {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +14,7 @@ public class bn implements DialogInterface.OnClickListener {
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
+    public final void onClick(DialogInterface dialogInterface, int i) {
         WriteImagesInfo writeImagesInfo;
         WriteImagesInfo writeImagesInfo2;
         String str;
@@ -35,7 +34,7 @@ public class bn implements DialogInterface.OnClickListener {
             this.a.n = String.valueOf(System.currentTimeMillis());
             NewPbActivity newPbActivity = this.a;
             str = this.a.n;
-            com.baidu.tieba.write.bz.a(newPbActivity, str);
+            com.baidu.tieba.write.by.a(newPbActivity, str);
         } else if (i == 1) {
             NewPbActivity newPbActivity2 = this.a;
             writeImagesInfo = this.a.m;

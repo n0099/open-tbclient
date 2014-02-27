@@ -4,25 +4,32 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.SearchGroup.SearchGroupReq;
 /* loaded from: classes.dex */
 public final class e extends GeneratedMessageLite.Builder<SearchGroupReq.SearchGroupReqIdl, e> implements f {
     private int a;
     private SearchGroupReq.DataReq b = SearchGroupReq.DataReq.getDefaultInstance();
 
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return SearchGroupReq.SearchGroupReqIdl.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return SearchGroupReq.SearchGroupReqIdl.getDefaultInstance();
+    }
+
     private e() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static e h() {
+    public static /* synthetic */ e b() {
         return new e();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public e clear() {
         super.clear();
         this.b = SearchGroupReq.DataReq.getDefaultInstance();
@@ -31,20 +38,14 @@ public final class e extends GeneratedMessageLite.Builder<SearchGroupReq.SearchG
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
+    /* renamed from: d */
     public e clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public SearchGroupReq.SearchGroupReqIdl getDefaultInstanceForType() {
-        return SearchGroupReq.SearchGroupReqIdl.getDefaultInstance();
+        return new e().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: d */
-    public SearchGroupReq.SearchGroupReqIdl build() {
+    /* renamed from: a */
+    public final SearchGroupReq.SearchGroupReqIdl build() {
         SearchGroupReq.SearchGroupReqIdl buildPartial = buildPartial();
         if (!buildPartial.isInitialized()) {
             throw newUninitializedMessageException(buildPartial);
@@ -64,9 +65,15 @@ public final class e extends GeneratedMessageLite.Builder<SearchGroupReq.SearchG
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public e mergeFrom(SearchGroupReq.SearchGroupReqIdl searchGroupReqIdl) {
+    public final e mergeFrom(SearchGroupReq.SearchGroupReqIdl searchGroupReqIdl) {
         if (searchGroupReqIdl != SearchGroupReq.SearchGroupReqIdl.getDefaultInstance() && searchGroupReqIdl.hasData()) {
-            b(searchGroupReqIdl.getData());
+            SearchGroupReq.DataReq data = searchGroupReqIdl.getData();
+            if ((this.a & 1) != 1 || this.b == SearchGroupReq.DataReq.getDefaultInstance()) {
+                this.b = data;
+            } else {
+                this.b = SearchGroupReq.DataReq.newBuilder(this.b).mergeFrom(data).buildPartial();
+            }
+            this.a |= 1;
         }
         return this;
     }
@@ -114,21 +121,11 @@ public final class e extends GeneratedMessageLite.Builder<SearchGroupReq.SearchG
         }
     }
 
-    public e a(SearchGroupReq.DataReq dataReq) {
+    public final e a(SearchGroupReq.DataReq dataReq) {
         if (dataReq != null) {
             this.b = dataReq;
             this.a |= 1;
         }
-        return this;
-    }
-
-    public e b(SearchGroupReq.DataReq dataReq) {
-        if ((this.a & 1) == 1 && this.b != SearchGroupReq.DataReq.getDefaultInstance()) {
-            this.b = SearchGroupReq.DataReq.newBuilder(this.b).mergeFrom(dataReq).buildPartial();
-        } else {
-            this.b = dataReq;
-        }
-        this.a |= 1;
         return this;
     }
 }

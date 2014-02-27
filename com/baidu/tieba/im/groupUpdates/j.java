@@ -4,7 +4,7 @@ import android.view.View;
 import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j implements View.OnClickListener {
+public final class j implements View.OnClickListener {
     final /* synthetic */ f a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,13 +13,13 @@ public class j implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         UpdatesActivity updatesActivity;
-        View view2;
         UpdatesItemData updatesItemData;
+        View unused;
         updatesActivity = this.a.l;
-        view2 = this.a.c;
+        unused = this.a.c;
         updatesItemData = this.a.m;
-        updatesActivity.a(view2, SocialAPIErrorCodes.ERROR_INVALID_CLIENT_ID, 0, 0L, updatesItemData);
+        updatesActivity.a(SocialAPIErrorCodes.ERROR_INVALID_CLIENT_ID, updatesItemData);
     }
 }

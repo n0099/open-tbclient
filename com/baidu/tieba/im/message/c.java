@@ -1,17 +1,17 @@
 package com.baidu.tieba.im.message;
 /* loaded from: classes.dex */
-public class c extends da {
+public final class c extends da {
     private String a;
 
     public c() {
         e(-119);
     }
 
-    public String a() {
+    public final String a() {
         return this.a;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.a = str;
     }
 }

@@ -61,7 +61,7 @@ public enum Mode {
         }
     }
 
-    public int getCharacterCountBits(Version version) {
+    public final int getCharacterCountBits(Version version) {
         char c;
         int versionNumber = version.getVersionNumber();
         if (versionNumber <= 9) {
@@ -74,7 +74,7 @@ public enum Mode {
         return this.characterCountBitsForVersions[c];
     }
 
-    public int getBits() {
+    public final int getBits() {
         return this.bits;
     }
 }

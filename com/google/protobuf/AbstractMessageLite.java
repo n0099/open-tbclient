@@ -173,12 +173,12 @@ public abstract class AbstractMessageLite implements MessageLite {
             }
 
             @Override // java.io.FilterInputStream, java.io.InputStream
-            public int available() {
+            public final int available() {
                 return Math.min(super.available(), this.limit);
             }
 
             @Override // java.io.FilterInputStream, java.io.InputStream
-            public int read() {
+            public final int read() {
                 if (this.limit <= 0) {
                     return -1;
                 }
@@ -191,7 +191,7 @@ public abstract class AbstractMessageLite implements MessageLite {
             }
 
             @Override // java.io.FilterInputStream, java.io.InputStream
-            public int read(byte[] bArr, int i, int i2) {
+            public final int read(byte[] bArr, int i, int i2) {
                 if (this.limit <= 0) {
                     return -1;
                 }
@@ -204,7 +204,7 @@ public abstract class AbstractMessageLite implements MessageLite {
             }
 
             @Override // java.io.FilterInputStream, java.io.InputStream
-            public long skip(long j) {
+            public final long skip(long j) {
                 long skip = super.skip(Math.min(j, this.limit));
                 if (skip >= 0) {
                     this.limit = (int) (this.limit - skip);

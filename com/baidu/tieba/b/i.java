@@ -14,7 +14,7 @@ import com.baidu.tieba.util.cb;
 import com.slidingmenu.lib.R;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class i {
+public final class i {
     private static final String a = String.valueOf(com.baidu.tieba.data.i.a) + "c/c/thread/add";
     private static final String b = String.valueOf(com.baidu.tieba.data.i.a) + "c/c/post/add";
     private ba c = null;
@@ -27,8 +27,11 @@ public class i {
         this.d = new ErrorData();
     }
 
-    public String a(WriteData writeData, boolean z) {
-        String str = null;
+    public final String a(WriteData writeData, boolean z) {
+        ba baVar;
+        String str;
+        String str2;
+        String str3 = null;
         if (writeData == null) {
             return null;
         }
@@ -47,8 +50,8 @@ public class i {
             if (a3 != null && a3.b()) {
                 com.baidu.tieba.data.f a4 = a3.a();
                 if (a4 != null) {
-                    str = a4.a();
-                    com.baidu.tieba.voice.a.e.a(writeData.getVoice(), str);
+                    str3 = a4.a();
+                    com.baidu.tieba.voice.a.e.a(writeData.getVoice(), str3);
                 } else {
                     ae aeVar = new ae();
                     aeVar.a("ErrCode", Integer.valueOf(a3.c()));
@@ -67,15 +70,15 @@ public class i {
         this.c.e(true);
         this.c.a("anonymous", SocialConstants.TRUE);
         this.c.a("fid", writeData.getForumId());
-        if (str != null) {
-            this.c.a("voice_md5", str);
+        if (str3 != null) {
+            this.c.a("voice_md5", str3);
             this.c.a("during_time", String.valueOf(voiceDuringTime));
         }
         String imagesCodeForPost = writeData.getImagesCodeForPost();
         if (writeData.getVcode() != null && writeData.getVcode().length() > 0) {
             this.c.a("vcode", writeData.getVcode());
         }
-        if (TiebaApplication.g().ao() < 3) {
+        if (TiebaApplication.g().ah() < 3) {
             this.c.a("vcode_tag", "11");
         }
         Address b2 = com.baidu.adp.lib.c.a.a().b(false);
@@ -86,8 +89,11 @@ public class i {
                 this.c.a(a);
                 this.c.a("kw", writeData.getForumName());
                 this.c.a("title", writeData.getTitle());
-                if (b2 != null && TiebaApplication.g().t() && !com.baidu.tieba.data.i.s().equals(writeData.getForumId())) {
-                    this.c.a("lbs", String.valueOf(String.valueOf(b2.getLatitude())) + "," + String.valueOf(b2.getLongitude()));
+                if (b2 != null && TiebaApplication.g().o() && !com.baidu.tieba.data.i.s().equals(writeData.getForumId())) {
+                    baVar = this.c;
+                    str = "lbs";
+                    str2 = String.valueOf(String.valueOf(b2.getLatitude())) + "," + String.valueOf(b2.getLongitude());
+                    baVar.a(str, str2);
                     break;
                 }
                 break;
@@ -103,48 +109,51 @@ public class i {
                 this.c.a("kw", writeData.getForumName());
                 this.c.a("quote_id", String.valueOf(writeData.getFloor()));
                 this.c.a("floor_num", String.valueOf(writeData.getFloorNum()));
-                this.c.a("is_ad", writeData.getIsAd() ? SocialConstants.TRUE : SocialConstants.FALSE);
+                baVar = this.c;
+                str = "is_ad";
+                str2 = writeData.getIsAd() ? SocialConstants.TRUE : SocialConstants.FALSE;
+                baVar.a(str, str2);
                 break;
         }
-        String m = this.c.m();
-        if (this.c.d()) {
-            this.d.parserJson(m);
+        String l = this.c.l();
+        if (this.c.c()) {
+            this.d.parserJson(l);
         } else {
-            this.d.setError_code(this.c.e() ? this.c.f() : this.c.g());
-            this.d.setError_msg(this.c.j());
+            this.d.setError_code(this.c.d() ? this.c.e() : this.c.f());
+            this.d.setError_msg(this.c.i());
         }
-        if (this.d.error_code != 0 && writeData.isHasImages() && com.baidu.adp.lib.util.h.b(String.valueOf(writeData.getContent()) + imagesCodeForPost)) {
+        if (this.d.error_code != 0 && writeData.isHasImages() && com.baidu.adp.lib.util.g.b(String.valueOf(writeData.getContent()) + imagesCodeForPost)) {
             this.d.setError_msg(TiebaApplication.g().b().getString(R.string.img_upload_error));
         }
         try {
             this.e = new AntiData();
-            this.e.parserJson(new JSONObject(m).optJSONObject("anti_stat"));
+            this.e.parserJson(new JSONObject(l).optJSONObject("anti_stat"));
         } catch (Exception e) {
         }
-        return m;
+        return l;
     }
 
-    public boolean a() {
+    public final boolean a() {
         if (this.c == null) {
             return false;
         }
-        return this.c.d();
+        return this.c.c();
     }
 
-    public void b() {
+    public final void b() {
         if (this.c != null) {
-            this.c.k();
+            this.c.j();
         }
         if (this.f != null) {
             this.f.a();
         }
     }
 
-    public AntiData c() {
+    public final AntiData c() {
         return this.e;
     }
 
-    public ErrorData d() {
+    public final ErrorData d() {
         return this.d;
     }
 }

@@ -29,7 +29,7 @@ public class f extends Thread {
             return;
         }
         this.b = context;
-        d();
+        this.c = true;
         start();
     }
 

@@ -1,7 +1,7 @@
 package com.baidu.tieba.view;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bc implements Runnable {
+public final class bc implements Runnable {
     final /* synthetic */ HaloView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,7 +10,7 @@ public class bc implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         boolean z;
         boolean z2;
         int i;

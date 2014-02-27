@@ -2,34 +2,34 @@ package com.baidu.tieba.data;
 
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class ba {
+public final class ba {
     private String a = null;
     private String d = null;
     private String b = null;
     private int c = 0;
     private be e = new be();
 
-    public String a() {
+    public final String a() {
         return this.d;
     }
 
-    public be b() {
+    public final be b() {
         return this.e;
     }
 
-    public String c() {
+    public final String c() {
         return this.b;
     }
 
-    public String d() {
+    public final String d() {
         return this.a;
     }
 
-    public int e() {
+    public final int e() {
         return this.c;
     }
 
-    public void a(JSONObject jSONObject) {
+    public final void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 this.a = jSONObject.optString("tid");
@@ -41,7 +41,7 @@ public class ba {
                 }
                 this.e.a(jSONObject.optJSONObject("photo"));
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b("HotspotData", "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.util.e.b("HotspotData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

@@ -3,7 +3,7 @@ package com.baidu.tieba.person;
 import android.content.Context;
 import android.support.v4.view.ViewPager;
 /* loaded from: classes.dex */
-public class bh implements ViewPager.OnPageChangeListener {
+public final class bh implements ViewPager.OnPageChangeListener {
     final /* synthetic */ bg a;
 
     public bh(bg bgVar) {
@@ -11,7 +11,7 @@ public class bh implements ViewPager.OnPageChangeListener {
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageSelected(int i) {
+    public final void onPageSelected(int i) {
         com.baidu.tieba.model.bp bpVar;
         com.baidu.tieba.model.bp bpVar2;
         Context context;
@@ -38,10 +38,10 @@ public class bh implements ViewPager.OnPageChangeListener {
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrolled(int i, float f, int i2) {
+    public final void onPageScrolled(int i, float f, int i2) {
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrollStateChanged(int i) {
+    public final void onPageScrollStateChanged(int i) {
     }
 }

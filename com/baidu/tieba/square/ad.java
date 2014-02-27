@@ -5,7 +5,7 @@ import android.view.View;
 import com.baidu.tieba.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ad implements View.OnClickListener {
+public final class ad implements View.OnClickListener {
     final /* synthetic */ ac a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ public class ad implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         Context context;
         af afVar = view.getTag() instanceof af ? (af) view.getTag() : null;
         String a = am.a("forum_list_recommend", afVar.c());

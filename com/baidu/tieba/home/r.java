@@ -13,7 +13,7 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tieba.util.cb;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class r extends com.baidu.adp.a.e {
+public final class r extends com.baidu.adp.a.e {
     private Activity a;
     private View c;
     private LinearLayout d;
@@ -22,14 +22,6 @@ public class r extends com.baidu.adp.a.e {
     private Button g;
     private Button h;
     private int i;
-
-    public void a(int i) {
-        this.i = i;
-    }
-
-    public int a() {
-        return this.i;
-    }
 
     public r(Activity activity, String str, String str2, int i) {
         super(activity);
@@ -51,21 +43,20 @@ public class r extends com.baidu.adp.a.e {
         this.d.setPadding(a, a2, a, a2);
     }
 
-    public View e() {
+    public final View a() {
         cb.a(this.a, "home_login_show", "loginshow", 1, new Object[0]);
         return this.c;
     }
 
-    private boolean c(int i) {
-        if (i == a()) {
-            return false;
+    public final void a(int i) {
+        boolean z;
+        if (i == this.i) {
+            z = false;
+        } else {
+            this.i = i;
+            z = true;
         }
-        a(i);
-        return true;
-    }
-
-    public void b(int i) {
-        if (c(i)) {
+        if (z) {
             if (i == 1) {
                 this.e.setTextColor(-11444363);
                 this.f.setBackgroundResource(R.drawable.pic_inset_login_1);

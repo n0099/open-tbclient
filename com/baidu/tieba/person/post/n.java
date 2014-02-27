@@ -7,7 +7,7 @@ import com.baidu.tieba.pb.NewPbActivity;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n implements c {
+public final class n implements c {
     final /* synthetic */ l a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,16 +16,16 @@ public class n implements c {
     }
 
     @Override // com.baidu.tieba.person.post.c
-    public void a(View view) {
+    public final void a(View view) {
         Activity activity;
         Activity activity2;
         switch (view.getId()) {
-            case R.id.portrait /* 2131099912 */:
+            case R.id.portrait /* 2131099906 */:
                 activity2 = this.a.e;
                 activity2.finish();
                 return;
-            case R.id.item_header /* 2131100302 */:
-            case R.id.original_post_title /* 2131101411 */:
+            case R.id.item_header /* 2131100295 */:
+            case R.id.original_post_title /* 2131101340 */:
                 String[] strArr = (String[]) view.getTag();
                 if (strArr != null) {
                     if (SocialConstants.FALSE.equals(strArr[2]) || strArr[1] == null) {
@@ -37,7 +37,7 @@ public class n implements c {
                     }
                 }
                 return;
-            case R.id.username /* 2131101415 */:
+            case R.id.username /* 2131101344 */:
                 activity = this.a.e;
                 activity.finish();
                 return;

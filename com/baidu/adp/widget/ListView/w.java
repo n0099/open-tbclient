@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.view.View;
 /* loaded from: classes.dex */
-public class w {
+public final class w {
     y a;
     int b;
     View c;
@@ -17,7 +17,7 @@ public class w {
 
     public w(Context context, int i, int i2, int i3) {
         this.i = true;
-        int abs = Math.abs(i - i2);
+        int abs = Math.abs(0 - i2);
         this.g = i2;
         if (abs < this.f) {
             this.i = false;
@@ -26,11 +26,11 @@ public class w {
         this.b = i3;
     }
 
-    public void a(com.baidu.adp.widget.ScrollView.i iVar) {
+    public final void a(com.baidu.adp.widget.ScrollView.i iVar) {
         this.h = iVar;
     }
 
-    public void a(View view) {
+    public final void a(View view) {
         if (this.i && this.a != null) {
             this.c = view;
             this.a.a(Math.abs(this.g), this.b);
@@ -38,15 +38,15 @@ public class w {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean a(int i) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ boolean a(w wVar, int i) {
         boolean z = true;
-        int paddingTop = this.c.getPaddingTop() - Math.abs(i);
-        if (paddingTop <= this.g) {
-            paddingTop = this.g;
+        int paddingTop = wVar.c.getPaddingTop() - Math.abs(i);
+        if (paddingTop <= wVar.g) {
+            paddingTop = wVar.g;
             z = false;
         }
-        this.c.setPadding(this.c.getPaddingLeft(), paddingTop, this.c.getPaddingRight(), this.c.getPaddingBottom());
+        wVar.c.setPadding(wVar.c.getPaddingLeft(), paddingTop, wVar.c.getPaddingRight(), wVar.c.getPaddingBottom());
         return z;
     }
 }

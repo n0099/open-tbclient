@@ -139,7 +139,7 @@ public class BdListView extends ListView {
         try {
             super.dispatchDraw(canvas);
         } catch (NullPointerException e) {
-            com.baidu.adp.lib.util.f.b(e.getMessage());
+            com.baidu.adp.lib.util.e.b(e.getMessage());
             if (getContext() instanceof Activity) {
                 ((Activity) getContext()).finish();
             }
@@ -164,9 +164,9 @@ public class BdListView extends ListView {
         this.m = rVar;
     }
 
-    public void a(q qVar, long j) {
+    public final void a(q qVar, long j) {
         this.h = qVar;
-        this.j = j;
+        this.j = 300L;
     }
 
     @Override // android.widget.AdapterView
@@ -236,7 +236,7 @@ public class BdListView extends ListView {
         this.a.a(view, getHeaderIndex());
     }
 
-    public void a(View view) {
+    public final void a(View view) {
         this.a.a(view, null, false, 0);
     }
 
@@ -319,7 +319,7 @@ public class BdListView extends ListView {
             getHandler().removeCallbacks(this.r);
             getHandler().removeCallbacks(this.y);
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(BdListView.class.getSimpleName(), "onDetachedFromWindow", e.getMessage());
+            com.baidu.adp.lib.util.e.b(BdListView.class.getSimpleName(), "onDetachedFromWindow", e.getMessage());
         }
     }
 
@@ -341,7 +341,7 @@ public class BdListView extends ListView {
                 this.s = true;
                 this.v = i4;
                 if (this.x != null) {
-                    this.x.a(-1);
+                    p pVar = this.x;
                 }
             } else {
                 this.v = this.v < i4 ? i4 : this.v;
@@ -349,7 +349,7 @@ public class BdListView extends ListView {
             if (this.s && this.v > i4 && i4 != this.w) {
                 this.t = true;
                 if (this.x != null) {
-                    this.x.a(-3);
+                    p pVar2 = this.x;
                 }
                 if (this.u && lastVisiblePosition >= getCount() - 1) {
                     getHandler().postDelayed(this.y, 1L);
@@ -358,12 +358,12 @@ public class BdListView extends ListView {
             if (this.s && this.t && this.v == i4) {
                 this.t = false;
                 if (this.x != null) {
-                    this.x.a(-2);
+                    p pVar3 = this.x;
                 }
             }
             this.w = i4;
         } catch (Throwable th) {
-            com.baidu.adp.lib.util.f.b(th.getMessage());
+            com.baidu.adp.lib.util.e.b(th.getMessage());
             if (getContext() instanceof Activity) {
                 ((Activity) getContext()).finish();
             }
@@ -372,7 +372,7 @@ public class BdListView extends ListView {
 
     public void setPullRefresh(d dVar) {
         if (this.z != null) {
-            removeHeaderView(this.z.a().i());
+            removeHeaderView(this.z.a().h());
         }
         this.z = null;
         if (dVar != null) {
@@ -381,13 +381,13 @@ public class BdListView extends ListView {
         }
     }
 
-    public void a() {
+    public final void a() {
         if (this.z != null) {
             u.a(this.z);
         }
     }
 
-    public void b() {
+    public final void b() {
         if (this.z != null) {
             setSelection(0);
             this.z.a(true);
@@ -410,7 +410,7 @@ public class BdListView extends ListView {
         try {
             return super.onTouchEvent(motionEvent);
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(e.getMessage());
+            com.baidu.adp.lib.util.e.b(e.getMessage());
             return false;
         }
     }

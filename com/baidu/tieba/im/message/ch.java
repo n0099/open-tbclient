@@ -13,22 +13,18 @@ public class ch extends da implements com.baidu.tieba.im.coder.f {
         super(1001);
     }
 
-    public List<GroupUpdateMessage> a() {
+    public final List<GroupUpdateMessage> a() {
         return this.a;
     }
 
-    public void a(List<GroupUpdateMessage> list) {
-        this.a = list;
-    }
-
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<s> linkedList, byte[] bArr, int i) {
+    public final void a(LinkedList<s> linkedList, byte[] bArr, int i) {
         UpdateClientInfoRes.UpdateClientInfoResIdl parseFrom = UpdateClientInfoRes.UpdateClientInfoResIdl.parseFrom(bArr);
         g(parseFrom.getError().getErrorno());
         c(parseFrom.getError().getUsermsg());
         linkedList.add(this);
         if (!l()) {
-            a(new ArrayList());
+            this.a = new ArrayList();
             int groupInfoCount = parseFrom.getData().getGroupInfoCount();
             for (int i2 = 0; i2 < groupInfoCount; i2++) {
                 Im.GroupInfo groupInfo = parseFrom.getData().getGroupInfo(i2);
@@ -42,7 +38,7 @@ public class ch extends da implements com.baidu.tieba.im.coder.f {
                 groupUpdateMessage.setAuthorId(String.valueOf(groupInfo.getAuthorId()));
                 groupUpdateMessage.setAuthorName(groupInfo.getAuthorName());
                 groupUpdateMessage.setForumId(String.valueOf(groupInfo.getForumId()));
-                a().add(groupUpdateMessage);
+                this.a.add(groupUpdateMessage);
             }
             Im.UserInfo userInfo = parseFrom.getData().getUserInfo();
             if (userInfo != null) {

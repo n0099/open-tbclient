@@ -16,15 +16,15 @@ public final class QueryGroupCountRes {
     /* loaded from: classes.dex */
     public final class Banner extends GeneratedMessageLite implements i {
         public static final int LINK_FIELD_NUMBER = 1;
+        public static Parser<Banner> PARSER = new g();
         public static final int PICURL_FIELD_NUMBER = 2;
+        private static final Banner a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private Object link_;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
         private Object picUrl_;
-        public static Parser<Banner> PARSER = new g();
-        private static final Banner a = new Banner(true);
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ Banner(GeneratedMessageLite.Builder builder, Banner banner) {
@@ -37,7 +37,7 @@ public final class QueryGroupCountRes {
             this.memoizedSerializedSize = -1;
         }
 
-        private Banner(boolean z) {
+        private Banner() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -48,7 +48,7 @@ public final class QueryGroupCountRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public Banner getDefaultInstanceForType() {
+        public final Banner getDefaultInstanceForType() {
             return a;
         }
 
@@ -98,19 +98,21 @@ public final class QueryGroupCountRes {
         }
 
         static {
-            a.a();
+            Banner banner = new Banner();
+            a = banner;
+            banner.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<Banner> getParserForType() {
+        public final Parser<Banner> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasLink() {
+        public final boolean hasLink() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public String getLink() {
+        public final String getLink() {
             Object obj = this.link_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -123,7 +125,7 @@ public final class QueryGroupCountRes {
             return stringUtf8;
         }
 
-        public ByteString getLinkBytes() {
+        public final ByteString getLinkBytes() {
             Object obj = this.link_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -133,11 +135,11 @@ public final class QueryGroupCountRes {
             return (ByteString) obj;
         }
 
-        public boolean hasPicUrl() {
+        public final boolean hasPicUrl() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public String getPicUrl() {
+        public final String getPicUrl() {
             Object obj = this.picUrl_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -150,7 +152,7 @@ public final class QueryGroupCountRes {
             return stringUtf8;
         }
 
-        public ByteString getPicUrlBytes() {
+        public final ByteString getPicUrlBytes() {
             Object obj = this.picUrl_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -176,7 +178,7 @@ public final class QueryGroupCountRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeBytes(1, getLinkBytes());
@@ -187,10 +189,13 @@ public final class QueryGroupCountRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getLinkBytes()) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeBytesSize(1, getLinkBytes()) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeBytesSize(2, getPicUrlBytes());
                 }
@@ -201,7 +206,7 @@ public final class QueryGroupCountRes {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -246,12 +251,12 @@ public final class QueryGroupCountRes {
         }
 
         public static h newBuilder() {
-            return h.f();
+            return h.b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public h newBuilderForType() {
+        public final h newBuilderForType() {
             return newBuilder();
         }
 
@@ -261,7 +266,7 @@ public final class QueryGroupCountRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public h toBuilder() {
+        public final h toBuilder() {
             return newBuilder(this);
         }
     }
@@ -270,7 +275,9 @@ public final class QueryGroupCountRes {
     public final class DataRes extends GeneratedMessageLite implements l {
         public static final int BANNER_FIELD_NUMBER = 3;
         public static final int LOCALGROUPCOUNT_FIELD_NUMBER = 2;
+        public static Parser<DataRes> PARSER = new j();
         public static final int USERGROUPCOUNT_FIELD_NUMBER = 1;
+        private static final DataRes a;
         private static final long serialVersionUID = 0;
         private Banner banner_;
         private int bitField0_;
@@ -278,8 +285,6 @@ public final class QueryGroupCountRes {
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
         private int userGroupCount_;
-        public static Parser<DataRes> PARSER = new j();
-        private static final DataRes a = new DataRes(true);
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ DataRes(GeneratedMessageLite.Builder builder, DataRes dataRes) {
@@ -292,7 +297,7 @@ public final class QueryGroupCountRes {
             this.memoizedSerializedSize = -1;
         }
 
-        private DataRes(boolean z) {
+        private DataRes() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -303,7 +308,7 @@ public final class QueryGroupCountRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public DataRes getDefaultInstanceForType() {
+        public final DataRes getDefaultInstanceForType() {
             return a;
         }
 
@@ -367,35 +372,37 @@ public final class QueryGroupCountRes {
         }
 
         static {
-            a.a();
+            DataRes dataRes = new DataRes();
+            a = dataRes;
+            dataRes.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<DataRes> getParserForType() {
+        public final Parser<DataRes> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasUserGroupCount() {
+        public final boolean hasUserGroupCount() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public int getUserGroupCount() {
+        public final int getUserGroupCount() {
             return this.userGroupCount_;
         }
 
-        public boolean hasLocalGroupCount() {
+        public final boolean hasLocalGroupCount() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public int getLocalGroupCount() {
+        public final int getLocalGroupCount() {
             return this.localGroupCount_;
         }
 
-        public boolean hasBanner() {
+        public final boolean hasBanner() {
             return (this.bitField0_ & 4) == 4;
         }
 
-        public Banner getBanner() {
+        public final Banner getBanner() {
             return this.banner_;
         }
 
@@ -416,7 +423,7 @@ public final class QueryGroupCountRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeInt32(1, this.userGroupCount_);
@@ -430,10 +437,13 @@ public final class QueryGroupCountRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt32Size(1, this.userGroupCount_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeInt32Size(1, this.userGroupCount_) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeInt32Size(2, this.localGroupCount_);
                 }
@@ -447,7 +457,7 @@ public final class QueryGroupCountRes {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -492,12 +502,12 @@ public final class QueryGroupCountRes {
         }
 
         public static k newBuilder() {
-            return k.f();
+            return k.b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public k newBuilderForType() {
+        public final k newBuilderForType() {
             return newBuilder();
         }
 
@@ -507,7 +517,7 @@ public final class QueryGroupCountRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public k toBuilder() {
+        public final k toBuilder() {
             return newBuilder(this);
         }
     }
@@ -517,7 +527,7 @@ public final class QueryGroupCountRes {
         public static final int DATA_FIELD_NUMBER = 2;
         public static final int ERROR_FIELD_NUMBER = 1;
         public static Parser<QueryGroupCountResIdl> PARSER = new m();
-        private static final QueryGroupCountResIdl a = new QueryGroupCountResIdl(true);
+        private static final QueryGroupCountResIdl a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private DataRes data_;
@@ -536,7 +546,7 @@ public final class QueryGroupCountRes {
             this.memoizedSerializedSize = -1;
         }
 
-        private QueryGroupCountResIdl(boolean z) {
+        private QueryGroupCountResIdl() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -547,7 +557,7 @@ public final class QueryGroupCountRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public QueryGroupCountResIdl getDefaultInstanceForType() {
+        public final QueryGroupCountResIdl getDefaultInstanceForType() {
             return a;
         }
 
@@ -607,27 +617,29 @@ public final class QueryGroupCountRes {
         }
 
         static {
-            a.a();
+            QueryGroupCountResIdl queryGroupCountResIdl = new QueryGroupCountResIdl();
+            a = queryGroupCountResIdl;
+            queryGroupCountResIdl.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<QueryGroupCountResIdl> getParserForType() {
+        public final Parser<QueryGroupCountResIdl> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasError() {
+        public final boolean hasError() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public Im.Error getError() {
+        public final Im.Error getError() {
             return this.error_;
         }
 
-        public boolean hasData() {
+        public final boolean hasData() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public DataRes getData() {
+        public final DataRes getData() {
             return this.data_;
         }
 
@@ -647,7 +659,7 @@ public final class QueryGroupCountRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeMessage(1, this.error_);
@@ -658,10 +670,13 @@ public final class QueryGroupCountRes {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeMessageSize(1, this.error_) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeMessageSize(1, this.error_) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeMessageSize(2, this.data_);
                 }
@@ -672,7 +687,7 @@ public final class QueryGroupCountRes {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -717,12 +732,12 @@ public final class QueryGroupCountRes {
         }
 
         public static n newBuilder() {
-            return n.f();
+            return n.a();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public n newBuilderForType() {
+        public final n newBuilderForType() {
             return newBuilder();
         }
 
@@ -732,7 +747,7 @@ public final class QueryGroupCountRes {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public n toBuilder() {
+        public final n toBuilder() {
             return newBuilder(this);
         }
     }

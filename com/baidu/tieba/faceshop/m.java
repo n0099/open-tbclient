@@ -3,7 +3,7 @@ package com.baidu.tieba.faceshop;
 import android.webkit.URLUtil;
 import com.baidu.tieba.view.BaseWebView;
 /* loaded from: classes.dex */
-class m implements Runnable {
+final class m implements Runnable {
     final /* synthetic */ FaceBuyWebViewActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ class m implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         String str;
         BaseWebView baseWebView;
         str = this.a.c;

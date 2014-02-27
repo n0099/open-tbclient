@@ -3,7 +3,7 @@ package com.baidu.tieba.util;
 import com.baidu.tieba.TiebaApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab implements aa {
+public final class ab implements aa {
     final /* synthetic */ DatabaseService a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,9 +12,9 @@ public class ab implements aa {
     }
 
     @Override // com.baidu.tieba.util.aa
-    public void a() {
+    public final void a() {
         try {
-            TiebaApplication.g().I();
+            TiebaApplication.g().C();
         } catch (Exception e) {
         }
     }

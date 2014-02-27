@@ -17,8 +17,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
-public class d {
-    private static final HashMap<Integer, Integer[]> m = new HashMap<>(2);
+public final class d {
+    private static final HashMap<Integer, Integer[]> m;
     private String a;
     private List<Object> b;
     private f c;
@@ -33,7 +33,9 @@ public class d {
     private AlertDialog l;
 
     static {
-        m.put(0, new Integer[]{Integer.valueOf((int) R.drawable.dialg_alert_btn_bg), Integer.valueOf((int) R.drawable.dialog_bdalert_button_textcolor_pressed)});
+        HashMap<Integer, Integer[]> hashMap = new HashMap<>(2);
+        m = hashMap;
+        hashMap.put(0, new Integer[]{Integer.valueOf((int) R.drawable.dialg_alert_btn_bg), Integer.valueOf((int) R.drawable.dialog_bdalert_button_textcolor_pressed)});
         m.put(1, new Integer[]{Integer.valueOf((int) R.drawable.btn_blue_square), Integer.valueOf((int) R.color.share_copy_pb_url)});
     }
 
@@ -45,16 +47,10 @@ public class d {
         this.g = (ViewGroup) this.f.findViewById(R.id.dialog_content);
     }
 
-    public d a(Object[] objArr, f fVar) {
-        if (objArr != null && objArr.length > 0) {
-            return a(Arrays.asList(objArr), fVar);
-        }
-        return this;
-    }
-
-    public d a(List<Object> list, f fVar) {
-        if (list != null && list.size() > 0) {
-            this.b = list;
+    public final d a(Object[] objArr, f fVar) {
+        List<Object> asList;
+        if (objArr != null && objArr.length > 0 && (asList = Arrays.asList(objArr)) != null && asList.size() > 0) {
+            this.b = asList;
             if (fVar != null) {
                 this.c = fVar;
             }
@@ -62,20 +58,29 @@ public class d {
         return this;
     }
 
-    public d a(int i) {
-        this.i = i;
+    public final d a(int i) {
+        this.i = R.style.dialog_ani_b2t;
         return this;
     }
 
-    public d b(int i) {
-        this.j = i;
+    public final d b(int i) {
+        this.j = 80;
         return this;
     }
 
-    public d a() {
+    public final d a() {
         if (!this.k) {
             this.k = true;
-            d();
+            int ae = TiebaApplication.g().ae();
+            if (this.e instanceof com.baidu.tieba.f) {
+                com.baidu.tieba.f fVar = (com.baidu.tieba.f) this.e;
+                fVar.getLayoutMode().a(ae == 1);
+                fVar.getLayoutMode().a(this.f);
+            } else if (this.e instanceof k) {
+                k kVar = (k) this.e;
+                kVar.a().a(ae == 1);
+                kVar.a().a(this.f);
+            }
             if (!TextUtils.isEmpty(this.a)) {
                 this.h.setText(this.a);
                 this.h.setVisibility(0);
@@ -94,7 +99,7 @@ public class d {
         return this;
     }
 
-    public d b() {
+    public final d b() {
         if (!this.k) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
@@ -119,20 +124,7 @@ public class d {
         return this;
     }
 
-    private void d() {
-        int al = TiebaApplication.g().al();
-        if (this.e instanceof com.baidu.tieba.f) {
-            com.baidu.tieba.f fVar = (com.baidu.tieba.f) this.e;
-            fVar.getLayoutMode().a(al == 1);
-            fVar.getLayoutMode().a((View) this.f);
-        } else if (this.e instanceof k) {
-            k kVar = (k) this.e;
-            kVar.a().a(al == 1);
-            kVar.a().a((View) this.f);
-        }
-    }
-
-    public void c() {
+    public final void c() {
         if (this.l != null) {
             this.l.dismiss();
         }
@@ -207,14 +199,10 @@ public class d {
         return inflate;
     }
 
-    public View c(int i) {
-        if (this.g == null) {
-            return null;
+    public final View c(int i) {
+        if (this.g != null && 1 <= this.g.getChildCount() - 1) {
+            return this.g.getChildAt(1);
         }
-        int childCount = this.g.getChildCount();
-        if (i < 0 || i > childCount - 1) {
-            return null;
-        }
-        return this.g.getChildAt(i);
+        return null;
     }
 }

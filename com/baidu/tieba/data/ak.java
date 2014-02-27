@@ -2,7 +2,7 @@ package com.baidu.tieba.data;
 
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class ak {
+public final class ak {
     private String a = null;
     private ap b = null;
     private ap c = null;
@@ -13,7 +13,7 @@ public class ak {
     private long h = 0;
     private int i = 0;
 
-    public void a(JSONObject jSONObject) {
+    public final void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 this.a = jSONObject.optString("pk_id", null);
@@ -27,7 +27,7 @@ public class ak {
                 this.d = jSONObject.optString("title");
                 this.i = jSONObject.optInt("status", 0);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b("PKInfoData", "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.util.e.b("PKInfoData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

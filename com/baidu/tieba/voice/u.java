@@ -1,7 +1,7 @@
 package com.baidu.tieba.voice;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u implements Runnable {
+public final class u implements Runnable {
     final /* synthetic */ VoiceManager a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,11 +10,11 @@ public class u implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
-        ad m;
-        m = this.a.m();
-        if (m != null) {
-            this.a.b(m);
+    public final void run() {
+        ad o;
+        o = this.a.o();
+        if (o != null) {
+            this.a.b(o);
         }
     }
 }

@@ -6,7 +6,7 @@ import com.baidu.adp.widget.IndicatorView;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa implements ViewPager.OnPageChangeListener {
+public final class aa implements ViewPager.OnPageChangeListener {
     final /* synthetic */ v a;
 
     private aa(v vVar) {
@@ -14,12 +14,12 @@ public class aa implements ViewPager.OnPageChangeListener {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ aa(v vVar, aa aaVar) {
+    public /* synthetic */ aa(v vVar, byte b) {
         this(vVar);
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrolled(int i, float f, int i2) {
+    public final void onPageScrolled(int i, float f, int i2) {
         IndicatorView indicatorView;
         y yVar;
         ArrayList arrayList;
@@ -51,11 +51,11 @@ public class aa implements ViewPager.OnPageChangeListener {
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageSelected(int i) {
+    public final void onPageSelected(int i) {
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrollStateChanged(int i) {
+    public final void onPageScrollStateChanged(int i) {
         ViewPager viewPager;
         y yVar;
         ViewPager viewPager2;
@@ -83,7 +83,7 @@ public class aa implements ViewPager.OnPageChangeListener {
                     if (arrayList.size() > 1) {
                         viewPager4 = this.a.c;
                         int currentItem = viewPager4.getCurrentItem();
-                        if (currentItem < 1) {
+                        if (currentItem <= 0) {
                             viewPager7 = this.a.c;
                             yVar3 = this.a.e;
                             viewPager7.setCurrentItem(yVar3.getCount() - 2, false);

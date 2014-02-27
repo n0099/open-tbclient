@@ -382,9 +382,62 @@ public class JsonReader implements Closeable {
         return i;
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:111:?, code lost:
+        return 15;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:112:?, code lost:
+        return 16;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x0045, code lost:
+        if (isLiteral(r3) == false) goto L10;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x0047, code lost:
+        return 0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:69:0x00ec, code lost:
+        if (r4 != 2) goto L21;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:70:0x00ee, code lost:
+        if (r5 == false) goto L21;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:72:0x00f4, code lost:
+        if (r7 != Long.MIN_VALUE) goto L16;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:73:0x00f6, code lost:
+        if (r6 == false) goto L21;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:74:0x00f8, code lost:
+        if (r6 == false) goto L20;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:75:0x00fa, code lost:
+        r19.peekedLong = r7;
+        r19.pos += r11;
+        r19.peeked = 15;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:76:0x010f, code lost:
+        r7 = -r7;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:78:0x0112, code lost:
+        if (r4 == 2) goto L28;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:80:0x0115, code lost:
+        if (r4 == 4) goto L28;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:82:0x0118, code lost:
+        if (r4 != 7) goto L27;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:83:0x011a, code lost:
+        r19.peekedNumberLength = r11;
+        r19.peeked = 16;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:84:0x0126, code lost:
+        return 0;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     private int peekNumber() {
         char c;
-        char c2;
         boolean z;
         boolean z2;
         long j;
@@ -393,7 +446,7 @@ public class JsonReader implements Closeable {
         long j2 = 0;
         boolean z3 = false;
         boolean z4 = true;
-        char c3 = 0;
+        char c2 = 0;
         int i2 = 0;
         int i3 = this.limit;
         int i4 = i;
@@ -407,11 +460,11 @@ public class JsonReader implements Closeable {
                     i3 = this.limit;
                 }
             }
-            c = cArr[i4 + i2];
-            switch (c) {
+            char c3 = cArr[i4 + i2];
+            switch (c3) {
                 case '+':
-                    if (c3 == 5) {
-                        c2 = 6;
+                    if (c2 == 5) {
+                        c = 6;
                         z = z4;
                         z2 = z3;
                         j = j2;
@@ -420,15 +473,15 @@ public class JsonReader implements Closeable {
                         return 0;
                     }
                 case '-':
-                    if (c3 == 0) {
-                        c2 = 1;
+                    if (c2 == 0) {
+                        c = 1;
                         boolean z5 = z4;
                         z2 = true;
                         z = z5;
                         j = j2;
                         break;
-                    } else if (c3 == 5) {
-                        c2 = 6;
+                    } else if (c2 == 5) {
+                        c = 6;
                         z = z4;
                         z2 = z3;
                         j = j2;
@@ -437,8 +490,8 @@ public class JsonReader implements Closeable {
                         return 0;
                     }
                 case '.':
-                    if (c3 == 2) {
-                        c2 = 3;
+                    if (c2 == 2) {
+                        c = 3;
                         z = z4;
                         z2 = z3;
                         j = j2;
@@ -448,8 +501,8 @@ public class JsonReader implements Closeable {
                     }
                 case 'E':
                 case SocialAPIErrorCodes.ERROR_INVALID_CLIENT_ID /* 101 */:
-                    if (c3 == 2 || c3 == 4) {
-                        c2 = 5;
+                    if (c2 == 2 || c2 == 4) {
+                        c = 5;
                         z = z4;
                         z2 = z3;
                         j = j2;
@@ -458,44 +511,44 @@ public class JsonReader implements Closeable {
                         return 0;
                     }
                 default:
-                    if (c >= '0' && c <= '9') {
-                        if (c3 != 1 && c3 != 0) {
-                            if (c3 == 2) {
+                    if (c3 >= '0' && c3 <= '9') {
+                        if (c2 != 1 && c2 != 0) {
+                            if (c2 == 2) {
                                 if (j2 == 0) {
                                     return 0;
                                 }
-                                long j3 = (10 * j2) - (c - '0');
+                                long j3 = (10 * j2) - (c3 - '0');
                                 boolean z6 = (j2 > MIN_INCOMPLETE_INTEGER || (j2 == MIN_INCOMPLETE_INTEGER && j3 < j2)) & z4;
                                 z2 = z3;
                                 j = j3;
-                                char c4 = c3;
+                                char c4 = c2;
                                 z = z6;
-                                c2 = c4;
+                                c = c4;
                                 break;
-                            } else if (c3 != 3) {
-                                if (c3 != 5 && c3 != 6) {
-                                    c2 = c3;
+                            } else if (c2 != 3) {
+                                if (c2 != 5 && c2 != 6) {
+                                    c = c2;
                                     z = z4;
                                     z2 = z3;
                                     j = j2;
                                     break;
                                 } else {
-                                    c2 = 7;
+                                    c = 7;
                                     z = z4;
                                     z2 = z3;
                                     j = j2;
                                     break;
                                 }
                             } else {
-                                c2 = 4;
+                                c = 4;
                                 z = z4;
                                 z2 = z3;
                                 j = j2;
                                 break;
                             }
                         } else {
-                            long j4 = -(c - '0');
-                            c2 = 2;
+                            long j4 = -(c3 - '0');
+                            c = 2;
                             z = z4;
                             z2 = z3;
                             j = j4;
@@ -506,29 +559,11 @@ public class JsonReader implements Closeable {
             }
             i2++;
             boolean z7 = z;
-            c3 = c2;
+            c2 = c;
             boolean z8 = z2;
             z4 = z7;
             j2 = j;
             z3 = z8;
-        }
-        if (isLiteral(c)) {
-            return 0;
-        }
-        if (c3 == 2 && z4 && (j2 != Long.MIN_VALUE || z3)) {
-            if (!z3) {
-                j2 = -j2;
-            }
-            this.peekedLong = j2;
-            this.pos += i2;
-            this.peeked = 15;
-            return 15;
-        } else if (c3 == 2 || c3 == 4 || c3 == 7) {
-            this.peekedNumberLength = i2;
-            this.peeked = 16;
-            return 16;
-        } else {
-            return 0;
         }
     }
 
@@ -732,14 +767,12 @@ public class JsonReader implements Closeable {
     }
 
     private String nextUnquotedValue() {
-        StringBuilder sb;
-        int i;
-        String sb2;
-        StringBuilder sb3 = null;
-        int i2 = 0;
+        String sb;
+        StringBuilder sb2 = null;
+        int i = 0;
         while (true) {
-            if (this.pos + i2 < this.limit) {
-                switch (this.buffer[this.pos + i2]) {
+            if (this.pos + i < this.limit) {
+                switch (this.buffer[this.pos + i]) {
                     case '\t':
                     case '\n':
                     case '\f':
@@ -760,42 +793,32 @@ public class JsonReader implements Closeable {
                         checkLenient();
                         break;
                     default:
-                        i2++;
+                        i++;
                 }
-            } else if (i2 < this.buffer.length) {
-                if (fillBuffer(i2 + 1)) {
-                    int i3 = i2;
-                    sb = sb3;
-                    i = i3;
-                    int i4 = i;
-                    sb3 = sb;
-                    i2 = i4;
+            } else if (i < this.buffer.length) {
+                if (!fillBuffer(i + 1)) {
                 }
             } else {
-                if (sb3 == null) {
-                    sb3 = new StringBuilder();
+                if (sb2 == null) {
+                    sb2 = new StringBuilder();
                 }
-                sb3.append(this.buffer, this.pos, i2);
-                this.pos = i2 + this.pos;
+                sb2.append(this.buffer, this.pos, i);
+                this.pos = i + this.pos;
                 if (fillBuffer(1)) {
-                    sb = sb3;
                     i = 0;
-                    int i42 = i;
-                    sb3 = sb;
-                    i2 = i42;
                 } else {
-                    i2 = 0;
+                    i = 0;
                 }
             }
         }
-        if (sb3 == null) {
-            sb2 = new String(this.buffer, this.pos, i2);
+        if (sb2 == null) {
+            sb = new String(this.buffer, this.pos, i);
         } else {
-            sb3.append(this.buffer, this.pos, i2);
-            sb2 = sb3.toString();
+            sb2.append(this.buffer, this.pos, i);
+            sb = sb2.toString();
         }
-        this.pos = i2 + this.pos;
-        return sb2;
+        this.pos = i + this.pos;
+        return sb;
     }
 
     private void skipQuotedValue(char c) {
@@ -1008,9 +1031,7 @@ public class JsonReader implements Closeable {
                 this.lineNumber++;
                 this.lineStart = i3;
                 i = i3;
-            } else if (c == ' ' || c == '\r') {
-                i = i3;
-            } else if (c == '\t') {
+            } else if (c == ' ' || c == '\r' || c == '\t') {
                 i = i3;
             } else if (c == '/') {
                 this.pos = i3;

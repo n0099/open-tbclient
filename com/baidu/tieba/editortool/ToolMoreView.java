@@ -72,44 +72,40 @@ public class ToolMoreView extends FrameLayout {
         }
     }
 
-    public TextView a(boolean z) {
+    private TextView b(boolean z) {
         TextView textView = new TextView(this.b);
         textView.setTextSize(1, 10.0f);
-        boolean z2 = TiebaApplication.g().al() == 1;
+        boolean z2 = TiebaApplication.g().ae() == 1;
         textView.setTextColor(this.b.getResources().getColor(z2 ? R.color.top_msg_num_night : R.color.top_msg_num_day));
         textView.setGravity(17);
-        if (z) {
-            textView.setBackgroundResource(z2 ? R.drawable.icon_news_head_prompt_one_1 : R.drawable.icon_news_head_prompt_one);
-        } else {
-            textView.setBackgroundResource(z2 ? R.drawable.icon_news_list_prompt_1 : R.drawable.icon_news_list_prompt);
-        }
+        textView.setBackgroundResource(z2 ? R.drawable.icon_news_head_prompt_one_1 : R.drawable.icon_news_head_prompt_one);
         addView(textView, new FrameLayout.LayoutParams(-2, -2));
         return textView;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         if (this.o == null) {
-            this.o = a(true);
+            this.o = b(true);
         }
         this.o.setVisibility(0);
         this.o.setText(str);
     }
 
-    public void a() {
+    public final void a() {
         if (this.o != null) {
             this.o.setVisibility(8);
         }
     }
 
-    public void b(String str) {
+    private void b(String str) {
         if (this.p == null) {
-            this.p = a(true);
+            this.p = b(true);
         }
         this.p.setVisibility(0);
         this.p.setText(str);
     }
 
-    public void b() {
+    private void c() {
         if (this.p != null) {
             this.p.setVisibility(8);
         }
@@ -128,10 +124,10 @@ public class ToolMoreView extends FrameLayout {
         this.h.setDrawBorder(false);
         this.i = (FrameLayout) findViewById(R.id.lay_tool_camera);
         this.j = (Button) findViewById(R.id.btn_tool_at);
-        if (TiebaApplication.g().bj()) {
+        if (TiebaApplication.g().bb()) {
             b("N");
         } else {
-            b();
+            c();
         }
     }
 
@@ -222,7 +218,7 @@ public class ToolMoreView extends FrameLayout {
         this.a = i;
     }
 
-    public void b(boolean z) {
+    public final void a(boolean z) {
         if (z) {
             this.f.setVisibility(4);
             this.i.setVisibility(4);
@@ -245,17 +241,17 @@ public class ToolMoreView extends FrameLayout {
         this.i.setVisibility(0);
     }
 
-    public void c() {
+    public final void b() {
         this.j.setVisibility(4);
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
         super.setVisibility(i);
-        if (TiebaApplication.g().bj()) {
+        if (TiebaApplication.g().bb()) {
             b("N");
         } else {
-            b();
+            c();
         }
     }
 
@@ -271,7 +267,7 @@ public class ToolMoreView extends FrameLayout {
         return this.g;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         int i2 = i == 1 ? R.drawable.selector_editor_more_btn_1 : R.drawable.selector_editor_more_btn;
         int color = getResources().getColor(i == 1 ? R.color.editor_more_btn_text_1 : R.color.editor_more_btn_text);
         int i3 = i == 1 ? R.drawable.btn_pb_add_photo_n_1 : R.drawable.btn_pb_add_photo_n;

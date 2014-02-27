@@ -4,7 +4,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.af;
 import com.baidu.tieba.model.ar;
 /* loaded from: classes.dex */
-class c extends com.baidu.adp.a.g {
+final class c extends com.baidu.adp.a.g {
     final /* synthetic */ TopRecActivity a;
     private final /* synthetic */ int b;
     private final /* synthetic */ int c;
@@ -17,7 +17,7 @@ class c extends com.baidu.adp.a.g {
     }
 
     @Override // com.baidu.adp.a.g
-    public void a(Object obj) {
+    public final void a(Object obj) {
         TRForumListData tRForumListData;
         TRForumListData tRForumListData2;
         ar arVar;
@@ -32,19 +32,18 @@ class c extends com.baidu.adp.a.g {
                 arVar = this.a.d;
                 if (arVar.getErrorCode() != 22) {
                     arVar2 = this.a.d;
-                    if (arVar2.getErrorCode() != 0) {
-                        this.a.b(this.b, this.c);
-                        return;
-                    } else if (((af) obj) == null) {
-                        this.a.b(this.b, this.c);
-                        return;
-                    } else {
-                        this.a.c();
+                    if (arVar2.getErrorCode() == 0 && ((af) obj) != null) {
+                        this.a.a();
                         TiebaApplication g = TiebaApplication.g();
                         tRForumListData3 = this.a.f;
                         g.e(tRForumListData3.forum_list[this.b].forum_name);
                         return;
                     }
+                    TopRecActivity topRecActivity = this.a;
+                    int i = this.b;
+                    int i2 = this.c;
+                    topRecActivity.b(i);
+                    return;
                 }
                 tRForumListData4 = this.a.f;
                 tRForumListData4.forum_list[this.b].is_like = 1;

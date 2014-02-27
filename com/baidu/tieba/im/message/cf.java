@@ -13,24 +13,20 @@ import protobuf.QueryGroupUserList.QueryGroupUserListRes;
 public class cf extends da implements com.baidu.tieba.im.coder.f {
     private MembersData a;
 
-    public MembersData a() {
+    public final MembersData a() {
         return this.a;
     }
 
-    public void a(MembersData membersData) {
-        this.a = membersData;
-    }
-
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<s> linkedList, byte[] bArr, int i) {
+    public final void a(LinkedList<s> linkedList, byte[] bArr, int i) {
         QueryGroupUserListRes.QueryGroupUserListResIdl parseFrom = QueryGroupUserListRes.QueryGroupUserListResIdl.parseFrom(bArr);
         e(i);
         g(parseFrom.getError().getErrorno());
         c(parseFrom.getError().getUsermsg());
         linkedList.add(this);
         if (!l()) {
-            a(new MembersData());
-            a().setUsers(new ArrayList());
+            this.a = new MembersData();
+            this.a.setUsers(new ArrayList());
             int userListCount = parseFrom.getData().getUserListCount();
             for (int i2 = 0; i2 < userListCount; i2++) {
                 Im.UserInfo userList = parseFrom.getData().getUserList(i2);
@@ -65,13 +61,13 @@ public class cf extends da implements com.baidu.tieba.im.coder.f {
                 permission2.setIsGroupManager(permission.getIsGroupManager());
                 permission2.setIsGroupOwner(permission.getIsGroupOwner());
                 userData.setPermission(permission2);
-                a().getUsers().add(userData);
+                this.a.getUsers().add(userData);
             }
             Im.UserPermission permission3 = parseFrom.getData().getPermission();
             UserData.Permission permission4 = new UserData.Permission();
             permission4.setIsGroupManager(permission3.getIsGroupManager());
             permission4.setIsGroupOwner(permission3.getIsGroupOwner());
-            a().setPermission(permission4);
+            this.a.setPermission(permission4);
         }
     }
 }

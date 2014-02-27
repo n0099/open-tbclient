@@ -1,7 +1,6 @@
 package com.baidu.tieba.chat;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c implements Runnable {
+final class c implements Runnable {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,11 +9,11 @@ public class c implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         try {
-            this.a.f();
+            a.k(this.a);
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("ChatListFragment", "mLoadImageRunnable.run", "error = " + e.getMessage());
+            com.baidu.adp.lib.util.e.b("ChatListFragment", "mLoadImageRunnable.run", "error = " + e.getMessage());
         }
     }
 }

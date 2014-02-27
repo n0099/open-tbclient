@@ -4,9 +4,8 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class a implements View.OnClickListener {
+final class a implements View.OnClickListener {
     final /* synthetic */ CreateBarActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +14,7 @@ public class a implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         RelativeLayout relativeLayout;
         FrameLayout frameLayout;
         ImageView imageView;
@@ -30,9 +29,9 @@ public class a implements View.OnClickListener {
                 }
                 return;
             }
-            this.a.c();
+            CreateBarActivity.c(this.a);
             return;
         }
-        this.a.d();
+        CreateBarActivity.g(this.a);
     }
 }

@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dd implements com.baidu.adp.lib.d.c<TbImageView> {
+public final class dd implements com.baidu.adp.lib.d.c<TbImageView> {
     private final /* synthetic */ Context a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,35 +12,38 @@ public class dd implements com.baidu.adp.lib.d.c<TbImageView> {
         this.a = context;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // com.baidu.adp.lib.d.c
-    /* renamed from: b */
-    public TbImageView a() {
+    public final /* synthetic */ TbImageView a() {
         return new TbImageView(this.a);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // com.baidu.adp.lib.d.c
-    public void a(TbImageView tbImageView) {
-        tbImageView.setBackgroundResource(0);
-        tbImageView.setImageDrawable(null);
-        tbImageView.setTag(null);
-        tbImageView.setOnClickListener(null);
+    public final /* synthetic */ void a(TbImageView tbImageView) {
+        TbImageView tbImageView2 = tbImageView;
+        tbImageView2.setBackgroundResource(0);
+        tbImageView2.setImageDrawable(null);
+        tbImageView2.setTag(null);
+        tbImageView2.setOnClickListener(null);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // com.baidu.adp.lib.d.c
-    public TbImageView b(TbImageView tbImageView) {
+    public final /* bridge */ /* synthetic */ TbImageView b(TbImageView tbImageView) {
         return tbImageView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // com.baidu.adp.lib.d.c
-    public TbImageView c(TbImageView tbImageView) {
-        tbImageView.setBackgroundResource(0);
-        tbImageView.setImageDrawable(null);
-        tbImageView.setTag(null);
-        tbImageView.setOnClickListener(null);
-        return tbImageView;
+    public final /* synthetic */ TbImageView c(TbImageView tbImageView) {
+        TbImageView tbImageView2 = tbImageView;
+        tbImageView2.setBackgroundResource(0);
+        tbImageView2.setImageDrawable(null);
+        tbImageView2.setTag(null);
+        tbImageView2.setOnClickListener(null);
+        return tbImageView2;
     }
 }

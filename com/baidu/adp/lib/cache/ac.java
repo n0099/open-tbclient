@@ -4,30 +4,21 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 /* loaded from: classes.dex */
-public class ac extends c<String> {
+public final class ac extends c<String> {
     public ac(com.baidu.adp.a.h hVar) {
         super(hVar);
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    public String a(String str) {
+    public final String a(String str) {
         String str2 = "cache_kv_t" + Math.abs(str.hashCode());
         this.a.a(this.a.a(), "CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
         return str2;
     }
 
-    @Override // com.baidu.adp.lib.cache.c
-    public void a(String str, String str2, int i, int i2) {
-    }
-
-    @Override // com.baidu.adp.lib.cache.c
-    public int a() {
-        return 1;
-    }
-
     /* JADX WARN: Type inference failed for: r2v15, types: [T, java.lang.String] */
     @Override // com.baidu.adp.lib.cache.c
-    protected m<String> a(SQLiteDatabase sQLiteDatabase, String str) {
+    protected final m<String> a(SQLiteDatabase sQLiteDatabase, String str) {
         Cursor cursor;
         Throwable th;
         m<String> mVar = null;
@@ -58,7 +49,7 @@ public class ac extends c<String> {
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    protected ContentValues a(m<String> mVar) {
+    protected final ContentValues a(m<String> mVar) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("m_key", mVar.a);
         contentValues.put("m_value", mVar.b);
@@ -69,12 +60,12 @@ public class ac extends c<String> {
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    public Cursor b(SQLiteDatabase sQLiteDatabase, String str) {
+    public final Cursor b(SQLiteDatabase sQLiteDatabase, String str) {
         return sQLiteDatabase.rawQuery("select * from " + this.b, new String[0]);
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    protected boolean b(String str) {
+    protected final boolean b(String str) {
         this.a.a(this.a.a(), "DROP TABLE IF EXISTS " + this.b);
         return true;
     }

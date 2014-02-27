@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.CommitGroupMsg.CommitGroupMsgReq;
 /* loaded from: classes.dex */
 public final class e extends GeneratedMessageLite.Builder<CommitGroupMsgReq.DataReq, e> implements f {
@@ -14,19 +15,25 @@ public final class e extends GeneratedMessageLite.Builder<CommitGroupMsgReq.Data
     private int e;
     private long f;
 
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return CommitGroupMsgReq.DataReq.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return CommitGroupMsgReq.DataReq.getDefaultInstance();
+    }
+
     private e() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static e h() {
+    public static /* synthetic */ e c() {
         return new e();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: d */
     public e clear() {
         super.clear();
         this.b = 0;
@@ -43,20 +50,14 @@ public final class e extends GeneratedMessageLite.Builder<CommitGroupMsgReq.Data
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
+    /* renamed from: e */
     public e clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public CommitGroupMsgReq.DataReq getDefaultInstanceForType() {
-        return CommitGroupMsgReq.DataReq.getDefaultInstance();
+        return new e().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: d */
-    public CommitGroupMsgReq.DataReq build() {
+    /* renamed from: a */
+    public final CommitGroupMsgReq.DataReq build() {
         CommitGroupMsgReq.DataReq buildPartial = buildPartial();
         if (!buildPartial.isInitialized()) {
             throw newUninitializedMessageException(buildPartial);
@@ -65,8 +66,8 @@ public final class e extends GeneratedMessageLite.Builder<CommitGroupMsgReq.Data
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public CommitGroupMsgReq.DataReq buildPartial() {
+    /* renamed from: b */
+    public final CommitGroupMsgReq.DataReq buildPartial() {
         CommitGroupMsgReq.DataReq dataReq = new CommitGroupMsgReq.DataReq(this, (CommitGroupMsgReq.DataReq) null);
         int i = this.a;
         int i2 = (i & 1) != 1 ? 0 : 1;
@@ -93,7 +94,7 @@ public final class e extends GeneratedMessageLite.Builder<CommitGroupMsgReq.Data
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public e mergeFrom(CommitGroupMsgReq.DataReq dataReq) {
+    public final e mergeFrom(CommitGroupMsgReq.DataReq dataReq) {
         Object obj;
         if (dataReq != CommitGroupMsgReq.DataReq.getDefaultInstance()) {
             if (dataReq.hasGroupId()) {
@@ -108,7 +109,9 @@ public final class e extends GeneratedMessageLite.Builder<CommitGroupMsgReq.Data
                 this.d = obj;
             }
             if (dataReq.hasDuration()) {
-                c(dataReq.getDuration());
+                int duration = dataReq.getDuration();
+                this.a |= 8;
+                this.e = duration;
             }
             if (dataReq.hasRecordId()) {
                 a(dataReq.getRecordId());
@@ -160,19 +163,19 @@ public final class e extends GeneratedMessageLite.Builder<CommitGroupMsgReq.Data
         }
     }
 
-    public e a(int i) {
+    public final e a(int i) {
         this.a |= 1;
         this.b = i;
         return this;
     }
 
-    public e b(int i) {
+    public final e b(int i) {
         this.a |= 2;
         this.c = i;
         return this;
     }
 
-    public e a(String str) {
+    public final e a(String str) {
         if (str != null) {
             this.a |= 4;
             this.d = str;
@@ -180,13 +183,7 @@ public final class e extends GeneratedMessageLite.Builder<CommitGroupMsgReq.Data
         return this;
     }
 
-    public e c(int i) {
-        this.a |= 8;
-        this.e = i;
-        return this;
-    }
-
-    public e a(long j) {
+    public final e a(long j) {
         this.a |= 16;
         this.f = j;
         return this;

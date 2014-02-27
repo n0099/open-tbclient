@@ -6,6 +6,7 @@ import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.LazyStringArrayList;
 import com.google.protobuf.LazyStringList;
+import com.google.protobuf.MessageLite;
 import com.google.protobuf.UnmodifiableLazyStringList;
 import protobuf.QueryGroupLocation.QueryGroupLocationRes;
 /* loaded from: classes.dex */
@@ -14,19 +15,34 @@ public final class h extends GeneratedMessageLite.Builder<QueryGroupLocationRes.
     private Object b = "";
     private LazyStringList c = LazyStringArrayList.EMPTY;
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        QueryGroupLocationRes.DataRes buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return QueryGroupLocationRes.DataRes.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return QueryGroupLocationRes.DataRes.getDefaultInstance();
+    }
+
     private h() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static h h() {
+    public static /* synthetic */ h b() {
         return new h();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public h clear() {
         super.clear();
         this.b = "";
@@ -37,30 +53,14 @@ public final class h extends GeneratedMessageLite.Builder<QueryGroupLocationRes.
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public h clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public QueryGroupLocationRes.DataRes getDefaultInstanceForType() {
-        return QueryGroupLocationRes.DataRes.getDefaultInstance();
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public QueryGroupLocationRes.DataRes build() {
-        QueryGroupLocationRes.DataRes buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
+    public h clone() {
+        return new h().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public QueryGroupLocationRes.DataRes buildPartial() {
+    /* renamed from: a */
+    public final QueryGroupLocationRes.DataRes buildPartial() {
         QueryGroupLocationRes.DataRes dataRes = new QueryGroupLocationRes.DataRes(this, (QueryGroupLocationRes.DataRes) null);
         int i = (this.a & 1) != 1 ? 0 : 1;
         dataRes.position_ = this.b;
@@ -75,7 +75,7 @@ public final class h extends GeneratedMessageLite.Builder<QueryGroupLocationRes.
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public h mergeFrom(QueryGroupLocationRes.DataRes dataRes) {
+    public final h mergeFrom(QueryGroupLocationRes.DataRes dataRes) {
         LazyStringList lazyStringList;
         LazyStringList lazyStringList2;
         LazyStringList lazyStringList3;
@@ -93,7 +93,10 @@ public final class h extends GeneratedMessageLite.Builder<QueryGroupLocationRes.
                     this.c = lazyStringList3;
                     this.a &= -3;
                 } else {
-                    i();
+                    if ((this.a & 2) != 2) {
+                        this.c = new LazyStringArrayList(this.c);
+                        this.a |= 2;
+                    }
                     LazyStringList lazyStringList4 = this.c;
                     lazyStringList2 = dataRes.business_;
                     lazyStringList4.addAll(lazyStringList2);
@@ -143,13 +146,6 @@ public final class h extends GeneratedMessageLite.Builder<QueryGroupLocationRes.
                 }
                 throw th;
             }
-        }
-    }
-
-    private void i() {
-        if ((this.a & 2) != 2) {
-            this.c = new LazyStringArrayList(this.c);
-            this.a |= 2;
         }
     }
 }

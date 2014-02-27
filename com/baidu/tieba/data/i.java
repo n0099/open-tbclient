@@ -9,7 +9,7 @@ import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
-public class i {
+public final class i {
     public static String a = "http://c.tieba.baidu.com/";
     public static String b = "http://tieba.baidu.com/";
     public static final Long c = 3600000L;
@@ -27,7 +27,7 @@ public class i {
     private static String p = null;
     private static int q = 300;
     private static String r = "http://tb.himg.baidu.com/sys/portraitn/item/";
-    private static String s = r;
+    private static String s = "http://tb.himg.baidu.com/sys/portraitn/item/";
     private static int t = 80;
     private static int u = AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START;
     private static int v = 1024;
@@ -159,14 +159,6 @@ public class i {
         }
     }
 
-    public static int a(Context context) {
-        int a2 = BdUtilHelper.a(context, 427.0f);
-        int i2 = a2 <= 640 ? a2 : 640;
-        v = (int) (i2 * i2 * 1.6f * 2.0f);
-        com.baidu.adp.lib.util.f.e("BIG_IMAGE_SIZE = " + v);
-        return v;
-    }
-
     public static int x() {
         return v;
     }
@@ -175,15 +167,20 @@ public class i {
         return 230400;
     }
 
-    public static void b(Context context) {
-        u = a(context) * 13;
-        if (u < UtilHelper.a(context) * 0.28d) {
+    public static void a(Context context) {
+        int a2 = BdUtilHelper.a(context, 427.0f);
+        int i2 = a2 <= 640 ? a2 : 640;
+        v = (int) (i2 * i2 * 1.6f * 2.0f);
+        com.baidu.adp.lib.util.e.e("BIG_IMAGE_SIZE = " + v);
+        int i3 = v * 13;
+        u = i3;
+        if (i3 < UtilHelper.a(context) * 0.28d) {
             u = (int) (UtilHelper.a(context) * 0.28d);
         }
-        com.baidu.adp.lib.util.f.e("BIG_IMAGE_MAX_USED_MEMORY = " + u);
+        com.baidu.adp.lib.util.e.e("BIG_IMAGE_MAX_USED_MEMORY = " + u);
     }
 
-    public static void c(Context context) {
+    public static void b(Context context) {
         if (context != null && context.getResources() != null) {
             if (context.getResources().getDisplayMetrics().density < 1.0f) {
                 s = r;
@@ -215,7 +212,7 @@ public class i {
         }
     }
 
-    public static void d(Context context) {
+    public static void c(Context context) {
         int sqrt = (int) Math.sqrt(BdUtilHelper.b(context) * BdUtilHelper.c(context));
         if (sqrt > z) {
             z = sqrt;
@@ -237,7 +234,7 @@ public class i {
     }
 
     public static int B() {
-        switch (TiebaApplication.g().ah()) {
+        switch (TiebaApplication.g().aa()) {
             case 1:
                 return 18;
             case 2:
@@ -256,7 +253,7 @@ public class i {
     }
 
     public static int E() {
-        switch (TiebaApplication.g().ah()) {
+        switch (TiebaApplication.g().aa()) {
             case 1:
                 return 13;
             case 2:

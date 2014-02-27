@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.chat;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t implements com.baidu.tieba.im.a<Boolean> {
+public final class t implements com.baidu.tieba.im.a<Boolean> {
     final /* synthetic */ q a;
     private final /* synthetic */ com.baidu.tieba.im.message.da b;
 
@@ -11,9 +11,9 @@ public class t implements com.baidu.tieba.im.a<Boolean> {
         this.b = daVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // com.baidu.tieba.im.a
-    public void a(Boolean bool) {
+    public final /* bridge */ /* synthetic */ void a(Boolean bool) {
         this.a.a((com.baidu.tieba.im.message.s) this.b);
     }
 }

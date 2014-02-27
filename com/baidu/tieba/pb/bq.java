@@ -4,7 +4,7 @@ import android.content.Intent;
 import com.baidu.tieba.data.MarkData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bq implements com.baidu.tieba.view.dialog.c {
+public final class bq implements com.baidu.tieba.view.dialog.c {
     final /* synthetic */ NewPbActivity a;
     private final /* synthetic */ MarkData b;
 
@@ -15,10 +15,10 @@ public class bq implements com.baidu.tieba.view.dialog.c {
     }
 
     @Override // com.baidu.tieba.view.dialog.c
-    public void onClick(com.baidu.tieba.view.dialog.a aVar) {
+    public final void onClick(com.baidu.tieba.view.dialog.a aVar) {
         Intent intent = new Intent();
         intent.putExtra("mark", this.b);
         this.a.setResult(-1, intent);
-        this.a.s();
+        super/*com.baidu.tieba.f*/.closeActivity();
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.forumdetail;
 
 import com.baidu.tieba.view.HeadImageView;
 /* loaded from: classes.dex */
-class n implements com.baidu.tbadk.imageManager.d {
+final class n implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ ItemInfoView a;
     private final /* synthetic */ HeadImageView b;
 
@@ -13,7 +13,7 @@ class n implements com.baidu.tbadk.imageManager.d {
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
         if (bVar != null) {
             this.b.setImageBitmap(bVar.h());
             this.b.invalidate();

@@ -4,7 +4,7 @@ import android.app.Application;
 import android.os.Build;
 import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
-public class ak {
+public final class ak {
     private static final String[] a = new String[0];
     private static final String[] b = {"meizu"};
 

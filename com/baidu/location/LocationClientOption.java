@@ -92,125 +92,125 @@ public final class LocationClientOption {
         this.f46for = locationClientOption.f46for;
     }
 
-    public void disableCache(boolean z) {
+    public final void disableCache(boolean z) {
         this.f46for = z;
     }
 
-    public boolean equals(LocationClientOption locationClientOption) {
+    public final boolean equals(LocationClientOption locationClientOption) {
         return this.f52try.equals(locationClientOption.f52try) && this.f43char.equals(locationClientOption.f43char) && this.f42case == locationClientOption.f42case && this.f49int == locationClientOption.f49int && this.f50long == locationClientOption.f50long && this.f51new.equals(locationClientOption.f51new) && this.f53void == locationClientOption.f53void && this.f47goto == locationClientOption.f47goto && this.a == locationClientOption.a && this.f48if == locationClientOption.f48if && this.f44do == locationClientOption.f44do && this.f46for == locationClientOption.f46for;
     }
 
-    public String getAddrType() {
+    public final String getAddrType() {
         return this.f43char;
     }
 
-    public String getCoorType() {
+    public final String getCoorType() {
         return this.f52try;
     }
 
-    public float getPoiDistance() {
+    public final float getPoiDistance() {
         return this.f44do;
     }
 
-    public boolean getPoiExtranInfo() {
+    public final boolean getPoiExtranInfo() {
         return this.f48if;
     }
 
-    public int getPoiNumber() {
+    public final int getPoiNumber() {
         return this.a;
     }
 
-    public int getPriority() {
+    public final int getPriority() {
         return this.f47goto;
     }
 
-    public String getProdName() {
+    public final String getProdName() {
         return this.f51new;
     }
 
-    public int getScanSpan() {
+    public final int getScanSpan() {
         return this.f49int;
     }
 
-    public String getServiceName() {
+    public final String getServiceName() {
         return this.f41byte;
     }
 
-    public int getTimeOut() {
+    public final int getTimeOut() {
         return this.f50long;
     }
 
-    public boolean isDisableCache() {
+    public final boolean isDisableCache() {
         return this.f46for;
     }
 
-    public boolean isLocationNotify() {
+    public final boolean isLocationNotify() {
         return this.f53void;
     }
 
-    public boolean isOpenGps() {
+    public final boolean isOpenGps() {
         return this.f42case;
     }
 
-    public void setAddrType(String str) {
+    public final void setAddrType(String str) {
         if (str.length() > 32) {
             str = str.substring(0, 32);
         }
         this.f43char = str;
     }
 
-    public void setCoorType(String str) {
+    public final void setCoorType(String str) {
         String lowerCase = str.toLowerCase();
         if (lowerCase.equals("gcj02") || lowerCase.equals("bd09") || lowerCase.equals("bd09ll")) {
             this.f52try = lowerCase;
         }
     }
 
-    public void setLocationNotify(boolean z) {
+    public final void setLocationNotify(boolean z) {
         this.f53void = z;
     }
 
-    public void setOpenGps(boolean z) {
+    public final void setOpenGps(boolean z) {
         this.f42case = z;
     }
 
-    public void setPoiDistance(float f) {
+    public final void setPoiDistance(float f) {
         this.f44do = f;
     }
 
-    public void setPoiExtraInfo(boolean z) {
+    public final void setPoiExtraInfo(boolean z) {
         this.f48if = z;
     }
 
-    public void setPoiNumber(int i) {
+    public final void setPoiNumber(int i) {
         if (i > 10) {
             i = 10;
         }
         this.a = i;
     }
 
-    public void setPriority(int i) {
+    public final void setPriority(int i) {
         if (i == 1 || i == 2) {
             this.f47goto = i;
         }
     }
 
-    public void setProdName(String str) {
+    public final void setProdName(String str) {
         if (str.length() > 64) {
             str = str.substring(0, 64);
         }
         this.f51new = str;
     }
 
-    public void setScanSpan(int i) {
+    public final void setScanSpan(int i) {
         this.f49int = i;
     }
 
-    public void setServiceName(String str) {
+    public final void setServiceName(String str) {
         this.f41byte = str;
     }
 
-    public void setTimeOut(int i) {
+    public final void setTimeOut(int i) {
         this.f50long = i;
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.message;
 /* loaded from: classes.dex */
-public class v extends da {
+public final class v extends da {
     private int a = 0;
     private int b = 0;
     private int c = 0;
@@ -11,43 +11,43 @@ public class v extends da {
         super.e(-124);
     }
 
-    public int a() {
+    public final int a() {
         return this.a;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.a = i;
     }
 
-    public int b() {
+    public final int b() {
         return this.b;
     }
 
-    public void b(int i) {
+    public final void b(int i) {
         this.b = i;
     }
 
-    public int c() {
+    public final int c() {
         return this.c;
     }
 
-    public void c(int i) {
+    public final void c(int i) {
         this.c = i;
     }
 
-    public int d() {
+    public final int d() {
         return this.d;
     }
 
-    public void d(int i) {
+    public final void d(int i) {
         this.d = i;
     }
 
-    public int e() {
+    public final int e() {
         return this.e;
     }
 
-    public void f(int i) {
+    public final void f(int i) {
         this.e = i;
     }
 }

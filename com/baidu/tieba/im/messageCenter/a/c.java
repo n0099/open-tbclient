@@ -6,13 +6,13 @@ import com.baidu.tieba.im.message.da;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class c extends com.baidu.tieba.im.messageCenter.d {
-    @Override // com.baidu.tieba.im.messageCenter.d
-    public da a(com.baidu.tieba.im.message.s sVar) {
+public class c extends com.baidu.tieba.im.messageCenter.c {
+    @Override // com.baidu.tieba.im.messageCenter.c
+    public final da a(com.baidu.tieba.im.message.s sVar) {
         LinkedList<CommonMsgPojo> a;
         if (sVar == null || !(sVar instanceof com.baidu.tieba.im.message.q)) {
-            com.baidu.adp.lib.util.f.b("message error");
-            return a(SapiErrorCode.GET_CERT_FAIL);
+            com.baidu.adp.lib.util.e.b("message error");
+            return a((int) SapiErrorCode.GET_CERT_FAIL);
         }
         com.baidu.tieba.im.message.q qVar = (com.baidu.tieba.im.message.q) sVar;
         com.baidu.tieba.im.message.r rVar = new com.baidu.tieba.im.message.r();
@@ -23,7 +23,7 @@ public class c extends com.baidu.tieba.im.messageCenter.d {
         }
         LinkedList linkedList = new LinkedList();
         if (a == null) {
-            com.baidu.adp.lib.util.f.b("read DB error");
+            com.baidu.adp.lib.util.e.b("read DB error");
             return a(qVar.w());
         }
         Iterator<CommonMsgPojo> it = a.iterator();
@@ -42,7 +42,7 @@ public class c extends com.baidu.tieba.im.messageCenter.d {
         return rVar;
     }
 
-    private com.baidu.tieba.im.message.r a(int i) {
+    private static com.baidu.tieba.im.message.r a(int i) {
         com.baidu.tieba.im.message.r rVar = new com.baidu.tieba.im.message.r();
         rVar.e(i);
         rVar.g(-18);

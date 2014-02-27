@@ -53,47 +53,37 @@ public class FragmentTabHost extends LinearLayout implements r {
         this.f = null;
     }
 
-    private void b() {
+    public void setup(FragmentManager fragmentManager) {
         this.c = (FrameLayout) findViewById(R.id.content);
         this.d = (FragmentTabWidget) findViewById(R.id.tabcontainer);
         this.d.setTabSelectionListener(this);
-        this.k = TiebaApplication.g().bu();
+        this.k = TiebaApplication.g().bm();
         if (this.k) {
             this.d.setVisibility(8);
         } else {
             this.d.setVisibility(0);
         }
-    }
-
-    public void setup(FragmentManager fragmentManager) {
-        b();
         this.g = fragmentManager;
     }
 
-    public void a(p pVar) {
-        a(pVar, -1);
-    }
-
-    public void a(p pVar, int i) {
+    public final void a(p pVar) {
         if (pVar.b == null) {
             throw new IllegalArgumentException("you must create the tab indicator.");
         }
         if (pVar.c == null) {
             throw new IllegalArgumentException("you must create the tab content");
         }
-        if (!this.h.contains(pVar)) {
-            if (!this.k) {
-                this.d.addView(pVar.b, i);
-            }
-            if (i == -1) {
-                this.h.add(pVar);
-            } else {
-                this.h.add(i, pVar);
-            }
-            if (this.e != -1 && i <= this.e) {
-                this.e++;
-            }
+        if (this.h.contains(pVar)) {
+            return;
         }
+        if (!this.k) {
+            this.d.addView(pVar.b, -1);
+        }
+        this.h.add(pVar);
+        if (this.e == -1 || -1 > this.e) {
+            return;
+        }
+        this.e++;
     }
 
     public void setTabChangeListener(o oVar) {
@@ -121,7 +111,9 @@ public class FragmentTabHost extends LinearLayout implements r {
             this.g.executePendingTransactions();
             this.d.setCurrentTab(i);
             if (this.j != null) {
-                this.j.a(i, this.e);
+                o oVar = this.j;
+                int i2 = this.e;
+                oVar.a(i);
             }
             this.e = i;
             this.f = pVar2;
@@ -154,7 +146,7 @@ public class FragmentTabHost extends LinearLayout implements r {
     }
 
     @Override // com.baidu.tieba.r
-    public void a(int i, boolean z) {
+    public final void a(int i) {
         setCurrentTab(i);
     }
 
@@ -180,7 +172,7 @@ public class FragmentTabHost extends LinearLayout implements r {
         return null;
     }
 
-    public p a(int i) {
+    public final p b(int i) {
         for (p pVar : this.h) {
             if (i == pVar.a) {
                 return pVar;
@@ -189,16 +181,16 @@ public class FragmentTabHost extends LinearLayout implements r {
         return null;
     }
 
-    public boolean b(int i) {
+    public final boolean c(int i) {
         for (p pVar : this.h) {
-            if (i == pVar.a) {
+            if (1 == pVar.a) {
                 return this.i.contains(pVar);
             }
         }
         return false;
     }
 
-    public void a() {
+    public final void a() {
         FragmentTransaction beginTransaction = this.g.beginTransaction();
         Iterator<p> it = this.i.iterator();
         while (it.hasNext()) {
@@ -215,7 +207,7 @@ public class FragmentTabHost extends LinearLayout implements r {
         }
     }
 
-    public void c(int i) {
+    public final void d(int i) {
         if (i == 1) {
             for (p pVar : this.h) {
                 pVar.b.a(i);

@@ -6,7 +6,6 @@ import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -82,7 +81,7 @@ public class GroupTabWidget extends RelativeLayout {
         } else {
             this.g[1] = this.g[0];
         }
-        if (1 == TiebaApplication.g().al()) {
+        if (1 == TiebaApplication.g().ae()) {
             this.d.setImageResource(this.g[1]);
         } else {
             this.d.setImageResource(this.g[0]);
@@ -96,7 +95,7 @@ public class GroupTabWidget extends RelativeLayout {
         this.e.setText(str);
     }
 
-    public void a(String str, int i, int i2) {
+    public final void a(String str, int i, int i2) {
         boolean z;
         this.a = true;
         this.b = i;
@@ -116,7 +115,7 @@ public class GroupTabWidget extends RelativeLayout {
         this.e.setText(spannableStringBuilder);
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         if (1 == i) {
             this.d.setImageResource(this.g[1]);
         } else {
@@ -124,9 +123,9 @@ public class GroupTabWidget extends RelativeLayout {
         }
         Context context = getContext();
         if (context instanceof com.baidu.tieba.f) {
-            ((com.baidu.tieba.f) context).getLayoutMode().a((View) this);
+            ((com.baidu.tieba.f) context).getLayoutMode().a(this);
         } else if (context instanceof k) {
-            ((k) getContext()).a().a((View) this);
+            ((k) getContext()).a().a(this);
         }
         if (this.a) {
             a(this.e.getText().toString(), this.b, this.c);

@@ -3,12 +3,12 @@ package com.baidu.tieba.im.data;
 public class h {
     private int a = 1;
 
-    public int b() {
+    public final int b() {
         return this.a;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(int i) {
+    public final void a(int i) {
         this.a = i;
     }
 }

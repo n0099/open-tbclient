@@ -8,19 +8,19 @@ public class Voice implements Parcelable {
     private String a;
     private int b;
 
-    public String a() {
+    public final String a() {
         return this.a;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.a = str;
     }
 
-    public int b() {
+    public final int b() {
         return this.b;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.b = i;
     }
 

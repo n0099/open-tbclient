@@ -107,7 +107,7 @@ public class SwitchButton extends CheckBox {
         }
 
         @Override // java.lang.Runnable
-        public void run() {
+        public final void run() {
             SwitchButton.this.performClick();
         }
     }
@@ -123,7 +123,7 @@ public class SwitchButton extends CheckBox {
         }
 
         @Override // java.lang.Runnable
-        public void run() {
+        public final void run() {
             if (SwitchButton.this.E) {
                 SwitchButton.this.c();
                 a.a(this);
@@ -208,11 +208,11 @@ public class SwitchButton extends CheckBox {
     public void c() {
         this.H += (this.I * 16.0f) / 1000.0f;
         if (this.H <= this.p) {
-            b();
+            this.E = false;
             this.H = this.p;
             a(false);
         } else if (this.H >= this.o) {
-            b();
+            this.E = false;
             this.H = this.o;
             a(true);
         }
@@ -273,7 +273,8 @@ public class SwitchButton extends CheckBox {
                 }
                 break;
             case 2:
-                float eventTime2 = (float) (motionEvent.getEventTime() - motionEvent.getDownTime());
+                motionEvent.getEventTime();
+                motionEvent.getDownTime();
                 this.n = (this.t + motionEvent.getX()) - this.l;
                 if (this.n <= this.p) {
                     this.n = this.p;

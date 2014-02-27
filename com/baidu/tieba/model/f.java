@@ -6,32 +6,32 @@ import java.util.Date;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class f {
+public final class f {
     private ArrayList<ForumData> a = new ArrayList<>();
     private com.baidu.tieba.data.al b = new com.baidu.tieba.data.al();
     private Date c = null;
     private boolean d = true;
 
-    public ArrayList<ForumData> a() {
+    public final ArrayList<ForumData> a() {
         return this.a;
     }
 
-    public void a(ArrayList<ForumData> arrayList) {
+    public final void a(ArrayList<ForumData> arrayList) {
         this.a = arrayList;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         if (str != null) {
             try {
                 a(new JSONObject(str));
             } catch (Exception e) {
                 this.d = false;
-                com.baidu.adp.lib.util.f.b("BarlistModel", "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.util.e.b("BarlistModel", "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    private void a(JSONObject jSONObject) {
         try {
             JSONArray optJSONArray = jSONObject.optJSONArray("forum_list");
             if (optJSONArray != null) {
@@ -50,7 +50,7 @@ public class f {
             }
         } catch (Exception e) {
             this.d = false;
-            com.baidu.adp.lib.util.f.b("BarlistModel", "parserJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.util.e.b("BarlistModel", "parserJson", "error = " + e.getMessage());
         }
     }
 }

@@ -6,7 +6,7 @@ import com.baidu.tieba.data.UserData;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class be implements com.baidu.tieba.util.cj {
+public final class be implements com.baidu.tieba.util.cj {
     final /* synthetic */ HorizontalPanelView a;
     private final /* synthetic */ UserData b;
 
@@ -17,7 +17,7 @@ public class be implements com.baidu.tieba.util.cj {
     }
 
     @Override // com.baidu.tieba.util.cj
-    public boolean a(View view) {
+    public final boolean a(View view) {
         List list;
         LinearLayout linearLayout;
         if (view != null && (view instanceof HeadImageView)) {

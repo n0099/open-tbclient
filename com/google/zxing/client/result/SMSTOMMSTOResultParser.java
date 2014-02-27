@@ -5,7 +5,7 @@ import com.google.zxing.Result;
 public final class SMSTOMMSTOResultParser extends ResultParser {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.zxing.client.result.ResultParser
-    public SMSParsedResult parse(Result result) {
+    public final SMSParsedResult parse(Result result) {
         String str;
         String massagedText = getMassagedText(result);
         if (massagedText.startsWith("smsto:") || massagedText.startsWith("SMSTO:") || massagedText.startsWith("mmsto:") || massagedText.startsWith("MMSTO:")) {

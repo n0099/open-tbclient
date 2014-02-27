@@ -3,9 +3,8 @@ package com.baidu.tieba.person;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bv implements DialogInterface.OnClickListener {
+final class bv implements DialogInterface.OnClickListener {
     final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +13,7 @@ public class bv implements DialogInterface.OnClickListener {
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
+    public final void onClick(DialogInterface dialogInterface, int i) {
         Dialog dialog;
         com.baidu.tieba.model.bo boVar;
         Boolean bool;

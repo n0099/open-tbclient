@@ -5,7 +5,7 @@ import com.baidu.tieba.util.cb;
 import com.baidu.tieba.voice.VoiceManager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ag implements j {
+public final class ag implements j {
     final /* synthetic */ VoiceManager a;
 
     private ag(VoiceManager voiceManager) {
@@ -13,22 +13,22 @@ public class ag implements j {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ag(VoiceManager voiceManager, ag agVar) {
+    public /* synthetic */ ag(VoiceManager voiceManager, byte b) {
         this(voiceManager);
     }
 
     @Override // com.baidu.adp.lib.voice.b
-    public void a(String str, int i) {
+    public final void a(int i) {
         ad adVar;
         VoiceManager.VoiceModel voiceModel;
         boolean z;
-        ad m;
+        ad o;
         boolean z2;
         Handler handler;
         Handler handler2;
         Handler handler3;
         VoiceManager.VoiceModel voiceModel2;
-        com.baidu.adp.lib.util.f.a("VoiceManager", "Voice-Play-Succ", "");
+        com.baidu.adp.lib.util.e.a("VoiceManager", "Voice-Play-Succ", "");
         adVar = this.a.y;
         if (adVar != null) {
             voiceModel = this.a.v;
@@ -43,10 +43,10 @@ public class ag implements j {
                 this.a.y = null;
             }
             this.a.v = null;
-            m = this.a.m();
+            o = this.a.o();
             z2 = this.a.M;
-            if (z2 && m != null) {
-                VoiceManager.VoiceModel voiceModel3 = m.getVoiceModel();
+            if (z2 && o != null) {
+                VoiceManager.VoiceModel voiceModel3 = o.getVoiceModel();
                 if (voiceModel3 != null && i >= 0) {
                     voiceModel3.curr_time = i;
                 }
@@ -65,12 +65,12 @@ public class ag implements j {
     }
 
     @Override // com.baidu.adp.lib.voice.b
-    public void a(int i, String str) {
+    public final void a(int i, String str) {
         ad adVar;
         ad adVar2;
         VoiceManager.VoiceModel voiceModel;
         VoiceManager.VoiceModel voiceModel2;
-        com.baidu.adp.lib.util.f.b("VoiceManager", "Voice-Play-Fail", " " + i + " " + str);
+        com.baidu.adp.lib.util.e.b("VoiceManager", "Voice-Play-Fail", " " + i + " " + str);
         cb.b("", i, str, "");
         adVar = this.a.y;
         if (adVar != null) {
@@ -88,13 +88,13 @@ public class ag implements j {
     }
 
     @Override // com.baidu.tieba.voice.j
-    public void a(int i) {
-        ad m;
+    public final void b(int i) {
+        ad o;
         VoiceManager.VoiceModel voiceModel;
         VoiceManager.VoiceModel voiceModel2;
-        m = this.a.m();
-        if (m != null) {
-            m.c(i);
+        o = this.a.o();
+        if (o != null) {
+            o.a(i);
         }
         voiceModel = this.a.v;
         if (voiceModel != null) {

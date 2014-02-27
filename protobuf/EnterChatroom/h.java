@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.EnterChatroom.EnterChatroomRes;
 /* loaded from: classes.dex */
 public final class h extends GeneratedMessageLite.Builder<EnterChatroomRes.ChatroomTopic, h> implements i {
@@ -11,19 +12,34 @@ public final class h extends GeneratedMessageLite.Builder<EnterChatroomRes.Chatr
     private Object b = "";
     private Object c = "";
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        EnterChatroomRes.ChatroomTopic buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return EnterChatroomRes.ChatroomTopic.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return EnterChatroomRes.ChatroomTopic.getDefaultInstance();
+    }
+
     private h() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static h h() {
+    public static /* synthetic */ h a() {
         return new h();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: b */
     public h clear() {
         super.clear();
         this.b = "";
@@ -34,29 +50,13 @@ public final class h extends GeneratedMessageLite.Builder<EnterChatroomRes.Chatr
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public h clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
     /* renamed from: c */
-    public EnterChatroomRes.ChatroomTopic getDefaultInstanceForType() {
-        return EnterChatroomRes.ChatroomTopic.getDefaultInstance();
+    public h clone() {
+        return new h().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public EnterChatroomRes.ChatroomTopic build() {
-        EnterChatroomRes.ChatroomTopic buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
     public EnterChatroomRes.ChatroomTopic buildPartial() {
         EnterChatroomRes.ChatroomTopic chatroomTopic = new EnterChatroomRes.ChatroomTopic(this, (EnterChatroomRes.ChatroomTopic) null);
         int i = this.a;
@@ -72,7 +72,7 @@ public final class h extends GeneratedMessageLite.Builder<EnterChatroomRes.Chatr
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public h mergeFrom(EnterChatroomRes.ChatroomTopic chatroomTopic) {
+    public final h mergeFrom(EnterChatroomRes.ChatroomTopic chatroomTopic) {
         Object obj;
         Object obj2;
         if (chatroomTopic != EnterChatroomRes.ChatroomTopic.getDefaultInstance()) {

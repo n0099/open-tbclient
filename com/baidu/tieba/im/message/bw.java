@@ -16,37 +16,33 @@ public class bw extends da implements com.baidu.tieba.im.coder.f {
         super(106101);
     }
 
-    public RandChatRoomData a() {
+    public final RandChatRoomData a() {
         return this.a;
     }
 
-    public void a(RandChatRoomData randChatRoomData) {
-        this.a = randChatRoomData;
-    }
-
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<s> linkedList, byte[] bArr, int i) {
+    public final void a(LinkedList<s> linkedList, byte[] bArr, int i) {
         EnterChatroomRes.EnterChatroomResIdl parseFrom = EnterChatroomRes.EnterChatroomResIdl.parseFrom(bArr);
         e(i);
         g(parseFrom.getError().getErrorno());
         c(parseFrom.getError().getUsermsg());
         linkedList.add(this);
         if (!l()) {
-            a(new RandChatRoomData());
+            this.a = new RandChatRoomData();
             EnterChatroomRes.DataRes data = parseFrom.getData();
             if (data != null) {
-                a().a(data.getGroupId());
-                a().c(data.getMaxUserNum());
-                a().b(data.getUserNum());
-                a().a(data.getDurationTime());
-                a().c(data.getAverageWaitTime());
-                a().b(data.getSilenceTime());
-                a().d(data.getLastMsgId());
-                a().b(new ArrayList());
+                this.a.a(data.getGroupId());
+                this.a.c(data.getMaxUserNum());
+                this.a.b(data.getUserNum());
+                this.a.a(data.getDurationTime());
+                this.a.c(data.getAverageWaitTime());
+                this.a.b(data.getSilenceTime());
+                this.a.d(data.getLastMsgId());
+                this.a.b(new ArrayList());
                 ChatRoomTopicData chatRoomTopicData = new ChatRoomTopicData();
                 chatRoomTopicData.setTitle(data.getTitle());
                 chatRoomTopicData.setContent(data.getContent());
-                a().a(chatRoomTopicData);
+                this.a.a(chatRoomTopicData);
                 ArrayList arrayList = new ArrayList();
                 for (EnterChatroomRes.ChatroomTopic chatroomTopic : data.getTopicListList()) {
                     ChatRoomTopicData chatRoomTopicData2 = new ChatRoomTopicData();
@@ -54,7 +50,7 @@ public class bw extends da implements com.baidu.tieba.im.coder.f {
                     chatRoomTopicData2.setContent(chatroomTopic.getContent());
                     arrayList.add(chatRoomTopicData2);
                 }
-                a().a(arrayList);
+                this.a.a(arrayList);
                 List<Im.UserInfo> userListList = data.getUserListList();
                 if (userListList != null) {
                     for (Im.UserInfo userInfo : userListList) {
@@ -69,7 +65,7 @@ public class bw extends da implements com.baidu.tieba.im.coder.f {
                         userData.setSex(userInfo.getSex());
                         userData.setUserIdLong(userInfo.getUserId());
                         userData.setUserName(userInfo.getUserName());
-                        a().j().add(userData);
+                        this.a.j().add(userData);
                     }
                 }
             }

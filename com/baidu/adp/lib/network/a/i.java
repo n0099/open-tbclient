@@ -1,7 +1,7 @@
 package com.baidu.adp.lib.network.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements Runnable {
+public final class i implements Runnable {
     final /* synthetic */ h a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,7 +10,7 @@ public class i implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
-        this.a.m();
+    public final void run() {
+        h.a(this.a);
     }
 }

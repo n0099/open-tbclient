@@ -104,7 +104,7 @@ public class NavigationBar extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a() {
+    public final void a() {
         setPadding(BdUtilHelper.a(this.f, getResources().getDimension(R.dimen.navi_padding_left)), BdUtilHelper.a(this.f, getResources().getDimension(R.dimen.navi_padding_top)), BdUtilHelper.a(this.f, getResources().getDimension(R.dimen.navi_padding_right)), BdUtilHelper.a(this.f, getResources().getDimension(R.dimen.navi_padding_bottom)));
     }
 
@@ -122,41 +122,41 @@ public class NavigationBar extends RelativeLayout {
         this.c.layout(this.i, this.c.getTop(), this.j - this.i, this.c.getBottom());
     }
 
-    public TextView a(String str) {
+    public final TextView a(String str) {
         if (this.h == null) {
-            this.h = (TextView) b(R.layout.widget_nb_item_title);
+            this.h = (TextView) c(R.layout.widget_nb_item_title);
             this.c.addView(this.h);
         }
         this.h.setText(str);
         return this.h;
     }
 
-    public TextView a(int i) {
+    public final TextView a(int i) {
         return a(this.f.getString(i));
     }
 
-    public View a(int i, View.OnClickListener onClickListener) {
-        return a(ControlAlign.HORIZONTAL_CENTER, b(i), onClickListener);
+    public final View a(int i, View.OnClickListener onClickListener) {
+        return a(ControlAlign.HORIZONTAL_CENTER, c(i), (View.OnClickListener) null);
     }
 
-    public ImageView a(ControlAlign controlAlign, ControlType controlType) {
+    public final ImageView a(ControlAlign controlAlign, ControlType controlType) {
         return a(controlAlign, controlType, this.k);
     }
 
-    public ImageView a(ControlAlign controlAlign, ControlType controlType, View.OnClickListener onClickListener) {
+    public final ImageView a(ControlAlign controlAlign, ControlType controlType, View.OnClickListener onClickListener) {
         ImageView imageView = null;
         if (controlType == ControlType.BACK_BUTTON) {
-            imageView = (ImageView) b(R.layout.widget_nb_item_back);
+            imageView = (ImageView) c(R.layout.widget_nb_item_back);
         } else if (controlType == ControlType.HOME_BUTTON) {
-            imageView = (ImageView) b(R.layout.widget_nb_item_home);
+            imageView = (ImageView) c(R.layout.widget_nb_item_home);
         } else if (controlType == ControlType.ADD_CHAT) {
-            imageView = (ImageView) b(R.layout.widget_nb_item_addchat);
+            imageView = (ImageView) c(R.layout.widget_nb_item_addchat);
         } else if (controlType == ControlType.EDIT_BUTTON) {
-            imageView = (ImageView) b(R.layout.widget_nb_item_edit);
+            imageView = (ImageView) c(R.layout.widget_nb_item_edit);
         } else if (controlType == ControlType.MORE_BUTTON) {
-            imageView = (ImageView) b(R.layout.widget_nb_item_more);
+            imageView = (ImageView) c(R.layout.widget_nb_item_more);
         } else if (controlType == ControlType.CAMERA_BUTTON) {
-            imageView = (ImageView) b(R.layout.widget_nb_item_pb_camera);
+            imageView = (ImageView) c(R.layout.widget_nb_item_pb_camera);
         }
         if (imageView != null) {
             a(controlAlign).addView(imageView);
@@ -167,12 +167,12 @@ public class NavigationBar extends RelativeLayout {
         return imageView;
     }
 
-    public TextView a(ControlAlign controlAlign, String str) {
+    public final TextView a(ControlAlign controlAlign, String str) {
         return a(controlAlign, str, (View.OnClickListener) null);
     }
 
-    public TextView a(ControlAlign controlAlign, View.OnClickListener onClickListener) {
-        TextView textView = (TextView) b(R.layout.widget_nb_item_create_group);
+    public final TextView a(ControlAlign controlAlign, View.OnClickListener onClickListener) {
+        TextView textView = (TextView) c(R.layout.widget_nb_item_create_group);
         if (ControlAlign.HORIZONTAL_RIGHT == controlAlign) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
             int dimension = (int) getResources().getDimension(R.dimen.navi_btn_margin_right);
@@ -190,8 +190,8 @@ public class NavigationBar extends RelativeLayout {
         this.a = z;
     }
 
-    public TextView a(ControlAlign controlAlign, String str, View.OnClickListener onClickListener) {
-        TextView textView = (TextView) b(R.layout.widget_nb_item_textbtn);
+    public final TextView a(ControlAlign controlAlign, String str, View.OnClickListener onClickListener) {
+        TextView textView = (TextView) c(R.layout.widget_nb_item_textbtn);
         textView.setText(str);
         if (ControlAlign.HORIZONTAL_RIGHT == controlAlign) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
@@ -211,7 +211,7 @@ public class NavigationBar extends RelativeLayout {
         return textView;
     }
 
-    public View a(ControlAlign controlAlign, View view, View.OnClickListener onClickListener) {
+    public final View a(ControlAlign controlAlign, View view, View.OnClickListener onClickListener) {
         a(controlAlign).addView(view);
         if (onClickListener != null) {
             view.setOnClickListener(onClickListener);
@@ -219,19 +219,19 @@ public class NavigationBar extends RelativeLayout {
         return view;
     }
 
-    public View a(ControlAlign controlAlign, int i, View.OnClickListener onClickListener) {
-        return a(controlAlign, b(i), onClickListener);
+    public final View a(ControlAlign controlAlign, int i, View.OnClickListener onClickListener) {
+        return a(controlAlign, c(i), onClickListener);
     }
 
     private ViewGroup a(ControlAlign controlAlign) {
         return controlAlign == ControlAlign.HORIZONTAL_LEFT ? this.b : controlAlign == ControlAlign.HORIZONTAL_CENTER ? this.c : this.d;
     }
 
-    public View b(int i) {
+    private View c(int i) {
         return this.g.inflate(i, (ViewGroup) this, false);
     }
 
-    public void c(int i) {
+    public void b(int i) {
         if (i == 1) {
             setBackgroundColor(getResources().getColor(R.color.navi_bg_1));
             this.e.setBackgroundColor(getResources().getColor(R.color.navi_line_1));
@@ -243,11 +243,11 @@ public class NavigationBar extends RelativeLayout {
         if (this.f instanceof com.baidu.tieba.f) {
             com.baidu.tieba.f fVar = (com.baidu.tieba.f) this.f;
             fVar.getLayoutMode().a(i == 1);
-            fVar.getLayoutMode().a((View) this);
+            fVar.getLayoutMode().a(this);
         } else if (this.f instanceof com.baidu.tieba.k) {
             com.baidu.tieba.k kVar = (com.baidu.tieba.k) this.f;
             kVar.a().a(i == 1);
-            kVar.a().a((View) this);
+            kVar.a().a(this);
         }
     }
 }

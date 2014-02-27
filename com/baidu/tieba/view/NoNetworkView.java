@@ -51,7 +51,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
         a(context, null);
     }
 
-    public void a(Context context, AttributeSet attributeSet) {
+    private void a(Context context, AttributeSet attributeSet) {
         this.g = context;
         ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.no_network_view, this);
         this.c = (ImageView) findViewById(R.id.no_network_icon);
@@ -74,17 +74,17 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
             setVisible(true);
             setIsHasNetwork(false);
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(NoNetworkView.class.getName(), "init", e.getMessage());
+            com.baidu.adp.lib.util.e.b(NoNetworkView.class.getName(), "init", e.getMessage());
         }
     }
 
-    public void a(by byVar) {
+    public final void a(by byVar) {
         if (byVar != null && !this.j.contains(byVar)) {
             this.j.add(byVar);
         }
     }
 
-    public void b(by byVar) {
+    public final void b(by byVar) {
         if (byVar != null && this.j.contains(byVar)) {
             this.j.remove(byVar);
         }
@@ -92,7 +92,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
 
     public static void setIsHasNetwork(boolean z) {
         f = z;
-        if (f) {
+        if (z) {
             Iterator<NoNetworkView> it = a.iterator();
             while (it.hasNext()) {
                 it.next().setVisible(false);
@@ -171,7 +171,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
         this.j.clear();
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         if (i == 1) {
             this.c.setImageResource(R.drawable.icon_error_1);
             setBackgroundResource(R.drawable.bg_no_network_1);

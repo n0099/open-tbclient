@@ -4,25 +4,32 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.QuitChatroom.QuitChatroomReq;
 /* loaded from: classes.dex */
 public final class e extends GeneratedMessageLite.Builder<QuitChatroomReq.QuitChatroomReqIdl, e> implements f {
     private int a;
     private QuitChatroomReq.DataReq b = QuitChatroomReq.DataReq.getDefaultInstance();
 
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return QuitChatroomReq.QuitChatroomReqIdl.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return QuitChatroomReq.QuitChatroomReqIdl.getDefaultInstance();
+    }
+
     private e() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static e h() {
+    public static /* synthetic */ e b() {
         return new e();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public e clear() {
         super.clear();
         this.b = QuitChatroomReq.DataReq.getDefaultInstance();
@@ -31,20 +38,14 @@ public final class e extends GeneratedMessageLite.Builder<QuitChatroomReq.QuitCh
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
+    /* renamed from: d */
     public e clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public QuitChatroomReq.QuitChatroomReqIdl getDefaultInstanceForType() {
-        return QuitChatroomReq.QuitChatroomReqIdl.getDefaultInstance();
+        return new e().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: d */
-    public QuitChatroomReq.QuitChatroomReqIdl build() {
+    /* renamed from: a */
+    public final QuitChatroomReq.QuitChatroomReqIdl build() {
         QuitChatroomReq.QuitChatroomReqIdl buildPartial = buildPartial();
         if (!buildPartial.isInitialized()) {
             throw newUninitializedMessageException(buildPartial);
@@ -64,9 +65,15 @@ public final class e extends GeneratedMessageLite.Builder<QuitChatroomReq.QuitCh
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public e mergeFrom(QuitChatroomReq.QuitChatroomReqIdl quitChatroomReqIdl) {
+    public final e mergeFrom(QuitChatroomReq.QuitChatroomReqIdl quitChatroomReqIdl) {
         if (quitChatroomReqIdl != QuitChatroomReq.QuitChatroomReqIdl.getDefaultInstance() && quitChatroomReqIdl.hasData()) {
-            b(quitChatroomReqIdl.getData());
+            QuitChatroomReq.DataReq data = quitChatroomReqIdl.getData();
+            if ((this.a & 1) != 1 || this.b == QuitChatroomReq.DataReq.getDefaultInstance()) {
+                this.b = data;
+            } else {
+                this.b = QuitChatroomReq.DataReq.newBuilder(this.b).mergeFrom(data).buildPartial();
+            }
+            this.a |= 1;
         }
         return this;
     }
@@ -114,21 +121,11 @@ public final class e extends GeneratedMessageLite.Builder<QuitChatroomReq.QuitCh
         }
     }
 
-    public e a(QuitChatroomReq.DataReq dataReq) {
+    public final e a(QuitChatroomReq.DataReq dataReq) {
         if (dataReq != null) {
             this.b = dataReq;
             this.a |= 1;
         }
-        return this;
-    }
-
-    public e b(QuitChatroomReq.DataReq dataReq) {
-        if ((this.a & 1) == 1 && this.b != QuitChatroomReq.DataReq.getDefaultInstance()) {
-            this.b = QuitChatroomReq.DataReq.newBuilder(this.b).mergeFrom(dataReq).buildPartial();
-        } else {
-            this.b = dataReq;
-        }
-        this.a |= 1;
         return this;
     }
 }

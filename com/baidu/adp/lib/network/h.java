@@ -1,6 +1,6 @@
 package com.baidu.adp.lib.network;
 /* loaded from: classes.dex */
-public class h {
+public final class h {
     public int a = 0;
     public int b = 0;
     public long c = 0;

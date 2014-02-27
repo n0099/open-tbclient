@@ -16,11 +16,11 @@ import com.baidu.tieba.switchs.SwitchKey;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class WriteMultiImgsActivity extends com.baidu.tieba.f implements CompoundButton.OnCheckedChangeListener, ab {
+public class WriteMultiImgsActivity extends com.baidu.tieba.f implements CompoundButton.OnCheckedChangeListener, aa {
     private WriteImagesInfo a = null;
     private View b = null;
     private ViewPager c = null;
-    private aa d = null;
+    private z d = null;
     private LinearLayout e = null;
     private RadioButton f = null;
     private RadioButton g = null;
@@ -39,10 +39,10 @@ public class WriteMultiImgsActivity extends com.baidu.tieba.f implements Compoun
     public static void a(com.baidu.tieba.f fVar, int i, WriteImagesInfo writeImagesInfo, int i2) {
         int size;
         Intent intent = new Intent(fVar, WriteMultiImgsActivity.class);
-        if (writeImagesInfo != null && writeImagesInfo.getChosedFiles() != null && (size = writeImagesInfo.getChosedFiles().size()) >= 1 && i2 >= 0 && i2 < size) {
+        if (writeImagesInfo != null && writeImagesInfo.getChosedFiles() != null && (size = writeImagesInfo.getChosedFiles().size()) > 0 && i2 >= 0 && i2 < size) {
             intent.putExtra("WriteImgsInfoJsonStr", writeImagesInfo.toJsonString());
             intent.putExtra("CurrentImgIndex", i2);
-            fVar.startActivityForResult(intent, i);
+            fVar.startActivityForResult(intent, 12012);
         }
     }
 
@@ -54,7 +54,8 @@ public class WriteMultiImgsActivity extends com.baidu.tieba.f implements Compoun
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         int i;
-        int i2 = 1;
+        int i2;
+        int i3 = 1;
         super.onCreate(bundle);
         int b = com.baidu.adp.lib.a.d.a().b(SwitchKey.MOTU);
         if (Build.VERSION.SDK_INT < 7 || b == 1) {
@@ -63,28 +64,6 @@ public class WriteMultiImgsActivity extends com.baidu.tieba.f implements Compoun
             this.q = true;
         }
         setContentView(R.layout.write_multi_imgs_activity);
-        d();
-        a(bundle);
-        if (this.q) {
-            if (this.a != null) {
-                i = this.a.size();
-                i2 = this.a.size();
-            } else {
-                i = 1;
-            }
-            a(i, i2);
-        }
-    }
-
-    @Override // android.app.Activity
-    protected void onSaveInstanceState(Bundle bundle) {
-        bundle.putInt("OutState_Current_Index", this.d.a());
-        this.d.b();
-        bundle.putString("OutState_Write_Img_Info", this.a.toJsonString());
-        super.onSaveInstanceState(bundle);
-    }
-
-    private void d() {
         this.m = getResources().getString(R.string.beautify);
         this.n = getResources().getString(R.string.rotate);
         this.o = this.m;
@@ -105,14 +84,14 @@ public class WriteMultiImgsActivity extends com.baidu.tieba.f implements Compoun
         button2.setTag(1);
         button3.setTag(2);
         button4.setTag(3);
-        bw bwVar = new bw(this);
-        button.setOnClickListener(bwVar);
-        button2.setOnClickListener(bwVar);
-        button3.setOnClickListener(bwVar);
-        button4.setOnClickListener(bwVar);
+        bv bvVar = new bv(this);
+        button.setOnClickListener(bvVar);
+        button2.setOnClickListener(bvVar);
+        button3.setOnClickListener(bvVar);
+        button4.setOnClickListener(bvVar);
         this.j = (NavigationBar) findViewById(R.id.write_multi_imgs_navibar);
-        this.j.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new bx(this));
-        this.l = this.j.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.done), new by(this));
+        this.j.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new bw(this));
+        this.l = this.j.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.done), new bx(this));
         this.k = this.j.a(getString(R.string.beautify));
         this.f.setChecked(true);
         if (!this.q) {
@@ -121,10 +100,6 @@ public class WriteMultiImgsActivity extends com.baidu.tieba.f implements Compoun
             this.h.setVisibility(8);
             this.f.setVisibility(8);
         }
-    }
-
-    private void a(Bundle bundle) {
-        int i;
         String str = null;
         if (bundle != null) {
             str = bundle.getString("OutState_Write_Img_Info");
@@ -135,13 +110,13 @@ public class WriteMultiImgsActivity extends com.baidu.tieba.f implements Compoun
                 str = intent.getStringExtra("WriteImgsInfoJsonStr");
                 i = intent.getIntExtra("CurrentImgIndex", 0);
             } else {
-                i = -1;
+                i = 0;
             }
         }
         if (str != null && i != -1) {
             this.a = new WriteImagesInfo();
             this.a.parseJson(str);
-            this.d = new aa(this, this.c, this.a.getChosedFiles(), i, this);
+            this.d = new z(this, this.c, this.a.getChosedFiles(), i, this);
             this.c.setAdapter(this.d);
             this.c.setCurrentItem(i, true);
             if (i == 0) {
@@ -149,10 +124,27 @@ public class WriteMultiImgsActivity extends com.baidu.tieba.f implements Compoun
             }
             this.e.setVisibility(0);
         }
+        if (this.q) {
+            if (this.a != null) {
+                i3 = this.a.size();
+                i2 = this.a.size();
+            } else {
+                i2 = 1;
+            }
+            a(i3, i2);
+        }
     }
 
-    @Override // com.baidu.tieba.write.ab
-    public void a() {
+    @Override // android.app.Activity
+    protected void onSaveInstanceState(Bundle bundle) {
+        bundle.putInt("OutState_Current_Index", this.d.a());
+        this.d.b();
+        bundle.putString("OutState_Write_Img_Info", this.a.toJsonString());
+        super.onSaveInstanceState(bundle);
+    }
+
+    @Override // com.baidu.tieba.write.aa
+    public final void a() {
         if (this.j.getVisibility() == 0) {
             this.j.setVisibility(8);
             this.e.setVisibility(8);
@@ -162,31 +154,31 @@ public class WriteMultiImgsActivity extends com.baidu.tieba.f implements Compoun
         this.e.setVisibility(0);
     }
 
-    @Override // com.baidu.tieba.write.ab
-    public void a(v vVar, int i) {
+    @Override // com.baidu.tieba.write.aa
+    public final void a(v vVar, int i) {
         this.h.removeAllViews();
         this.h.addView(vVar);
         this.p = "（" + (i + 1) + "/" + this.a.size() + "）";
         this.k.setText(String.valueOf(this.o) + this.p);
     }
 
-    @Override // com.baidu.tieba.write.ab
-    public void c() {
+    @Override // com.baidu.tieba.write.aa
+    public final void c() {
         this.r--;
     }
 
-    @Override // com.baidu.tieba.write.ab
-    public void b() {
+    @Override // com.baidu.tieba.write.aa
+    public final void b() {
         this.r++;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void e() {
-        this.d.b();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void b(WriteMultiImgsActivity writeMultiImgsActivity) {
+        writeMultiImgsActivity.d.b();
         Intent intent = new Intent();
-        intent.putExtra("album_result", this.a.toJsonString());
-        setResult(-1, intent);
-        finish();
+        intent.putExtra("album_result", writeMultiImgsActivity.a.toJsonString());
+        writeMultiImgsActivity.setResult(-1, intent);
+        writeMultiImgsActivity.finish();
     }
 
     @Override // android.app.Activity
@@ -218,7 +210,7 @@ public class WriteMultiImgsActivity extends com.baidu.tieba.f implements Compoun
     public void onChangeSkinType(int i) {
         getLayoutMode().a(i == 1);
         getLayoutMode().a(this.b);
-        this.j.c(i);
+        this.j.b(i);
         if (i == 1) {
             if (this.l.isEnabled()) {
                 com.baidu.tieba.util.bq.e((View) this.l, (int) R.drawable.navi_done_text_bg_1);

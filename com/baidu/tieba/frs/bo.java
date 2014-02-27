@@ -1,21 +1,9 @@
 package com.baidu.tieba.frs;
+
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-class bo implements com.baidu.tieba.im.messageCenter.g {
-    final /* synthetic */ FrsImageActivity a;
+public interface bo {
+    void a();
 
-    private bo(FrsImageActivity frsImageActivity) {
-        this.a = frsImageActivity;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bo(FrsImageActivity frsImageActivity, bo boVar) {
-        this(frsImageActivity);
-    }
-
-    @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.s sVar) {
-        if (sVar != null && sVar.w() == -124) {
-            FrsImageActivity.a(this.a, sVar);
-        }
-    }
+    void a(int i, JSONObject jSONObject, com.baidu.tieba.model.an anVar);
 }

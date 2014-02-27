@@ -4,25 +4,41 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.ClearClientInfo.ClearClientInfoReq;
 /* loaded from: classes.dex */
 public final class b extends GeneratedMessageLite.Builder<ClearClientInfoReq.ClearClientInfoReqIdl, b> implements c {
     private int a;
     private ClearClientInfoReq.DataReq b = ClearClientInfoReq.DataReq.getDefaultInstance();
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        ClearClientInfoReq.ClearClientInfoReqIdl buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return ClearClientInfoReq.ClearClientInfoReqIdl.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return ClearClientInfoReq.ClearClientInfoReqIdl.getDefaultInstance();
+    }
+
     private b() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static b h() {
+    public static /* synthetic */ b a() {
         return new b();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: b */
     public b clear() {
         super.clear();
         this.b = ClearClientInfoReq.DataReq.getDefaultInstance();
@@ -31,29 +47,13 @@ public final class b extends GeneratedMessageLite.Builder<ClearClientInfoReq.Cle
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public b clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
     /* renamed from: c */
-    public ClearClientInfoReq.ClearClientInfoReqIdl getDefaultInstanceForType() {
-        return ClearClientInfoReq.ClearClientInfoReqIdl.getDefaultInstance();
+    public b clone() {
+        return new b().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public ClearClientInfoReq.ClearClientInfoReqIdl build() {
-        ClearClientInfoReq.ClearClientInfoReqIdl buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
     public ClearClientInfoReq.ClearClientInfoReqIdl buildPartial() {
         ClearClientInfoReq.ClearClientInfoReqIdl clearClientInfoReqIdl = new ClearClientInfoReq.ClearClientInfoReqIdl(this, (ClearClientInfoReq.ClearClientInfoReqIdl) null);
         int i = (this.a & 1) != 1 ? 0 : 1;
@@ -64,9 +64,15 @@ public final class b extends GeneratedMessageLite.Builder<ClearClientInfoReq.Cle
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public b mergeFrom(ClearClientInfoReq.ClearClientInfoReqIdl clearClientInfoReqIdl) {
+    public final b mergeFrom(ClearClientInfoReq.ClearClientInfoReqIdl clearClientInfoReqIdl) {
         if (clearClientInfoReqIdl != ClearClientInfoReq.ClearClientInfoReqIdl.getDefaultInstance() && clearClientInfoReqIdl.hasData()) {
-            a(clearClientInfoReqIdl.getData());
+            ClearClientInfoReq.DataReq data = clearClientInfoReqIdl.getData();
+            if ((this.a & 1) != 1 || this.b == ClearClientInfoReq.DataReq.getDefaultInstance()) {
+                this.b = data;
+            } else {
+                this.b = ClearClientInfoReq.DataReq.newBuilder(this.b).mergeFrom(data).buildPartial();
+            }
+            this.a |= 1;
         }
         return this;
     }
@@ -112,15 +118,5 @@ public final class b extends GeneratedMessageLite.Builder<ClearClientInfoReq.Cle
                 throw th;
             }
         }
-    }
-
-    public b a(ClearClientInfoReq.DataReq dataReq) {
-        if ((this.a & 1) == 1 && this.b != ClearClientInfoReq.DataReq.getDefaultInstance()) {
-            this.b = ClearClientInfoReq.DataReq.newBuilder(this.b).mergeFrom(dataReq).buildPartial();
-        } else {
-            this.b = dataReq;
-        }
-        this.a |= 1;
-        return this;
     }
 }

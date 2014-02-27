@@ -8,7 +8,7 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
-public class as {
+public final class as {
     public static void a(String str, String str2, at atVar) {
         au auVar = new au(str, str2, atVar);
         auVar.setPriority(3);
@@ -25,9 +25,10 @@ public class as {
             arrayList.add(new BasicNameValuePair("un", str));
             arrayList.add(new BasicNameValuePair("passwd", str2));
             arrayList.add(new BasicNameValuePair("isphone", SocialConstants.FALSE));
-            arrayList.add(new BasicNameValuePair("channel_id", TiebaApplication.g().aY()));
-            arrayList.add(new BasicNameValuePair("channel_uid", TiebaApplication.g().aX()));
-            com.baidu.tieba.util.an a = com.baidu.tieba.util.bf.a().a(new com.baidu.tieba.util.bj());
+            arrayList.add(new BasicNameValuePair("channel_id", TiebaApplication.g().aQ()));
+            arrayList.add(new BasicNameValuePair("channel_uid", TiebaApplication.g().aP()));
+            com.baidu.tieba.util.bf.a();
+            com.baidu.tieba.util.an a = com.baidu.tieba.util.bf.a(new com.baidu.tieba.util.bj());
             if (a == null) {
                 return null;
             }
@@ -76,7 +77,7 @@ public class as {
                 return null;
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("LoginModel".toString(), "login", e.getMessage());
+            com.baidu.adp.lib.util.e.b("LoginModel".toString(), "login", e.getMessage());
             return null;
         }
     }

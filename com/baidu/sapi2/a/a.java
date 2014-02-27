@@ -58,7 +58,7 @@ public class a {
 
     public a() {
         BasicHttpParams basicHttpParams = new BasicHttpParams();
-        ConnManagerParams.setTimeout(basicHttpParams, (long) b);
+        ConnManagerParams.setTimeout(basicHttpParams, 30000L);
         ConnManagerParams.setMaxConnectionsPerRoute(basicHttpParams, new ConnPerRouteBean(10));
         ConnManagerParams.setMaxTotalConnections(basicHttpParams, 10);
         HttpConnectionParams.setSoTimeout(basicHttpParams, b);

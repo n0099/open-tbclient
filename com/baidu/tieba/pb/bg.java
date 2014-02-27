@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb;
 /* loaded from: classes.dex */
-class bg implements com.baidu.tieba.view.by {
+final class bg implements com.baidu.tieba.view.by {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,7 +9,7 @@ class bg implements com.baidu.tieba.view.by {
     }
 
     @Override // com.baidu.tieba.view.by
-    public void a(boolean z) {
+    public final void a(boolean z) {
         boolean z2;
         com.baidu.tieba.model.bb bbVar;
         com.baidu.tieba.model.bb bbVar2;
@@ -17,11 +17,11 @@ class bg implements com.baidu.tieba.view.by {
         z2 = this.a.d;
         if (!z2 && z) {
             bbVar = this.a.w;
-            if (!bbVar.k()) {
+            if (!bbVar.o()) {
                 bbVar2 = this.a.w;
-                if (bbVar2.p()) {
+                if (bbVar2.t()) {
                     cuVar = this.a.C;
-                    cuVar.q();
+                    cuVar.o();
                 }
             }
         }

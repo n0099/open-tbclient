@@ -1,7 +1,8 @@
 package com.baidu.tieba.im.db.pojo;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.f;
+import com.baidu.adp.lib.util.e;
+import com.baidu.adp.lib.util.g;
 import com.baidu.gson.Gson;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.UserData;
@@ -164,37 +165,45 @@ public class ImMessageCenterPojo implements Serializable {
     }
 
     public static ImMessageCenterPojo fromCommonMsg(CommonMsgPojo commonMsgPojo) {
+        OldUserData oldUserData;
+        OldUserData oldUserData2;
         if (commonMsgPojo == null) {
-            f.e("see init cmpojo is null");
+            e.e("see init cmpojo is null");
             return null;
         }
-        String A = TiebaApplication.A();
-        if (TextUtils.isEmpty(A)) {
-            f.e("see init not login:");
+        String v = TiebaApplication.v();
+        if (TextUtils.isEmpty(v)) {
+            e.e("see init not login:");
             return null;
         }
-        f.e("see init private cmpojo:" + commonMsgPojo);
+        e.e("see init private cmpojo:" + commonMsgPojo);
         String gid = commonMsgPojo.getGid();
         if (TextUtils.isEmpty(gid)) {
-            f.b("see init private uid  is null uid:" + gid);
+            e.b("see init private uid  is null uid:" + gid);
             return null;
         }
         ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
         imMessageCenterPojo.setGid(gid);
         UserData userData = (UserData) new Gson().fromJson(commonMsgPojo.getUser_info(), (Class<Object>) UserData.class);
         if (userData == null) {
-            f.e("see init private userinfo:" + commonMsgPojo.getUser_info());
+            e.e("see init private userinfo:" + commonMsgPojo.getUser_info());
             return null;
         }
+        if (g.b(userData.getUserId()) && (oldUserData2 = (OldUserData) new Gson().fromJson(commonMsgPojo.getUser_info(), (Class<Object>) OldUserData.class)) != null) {
+            oldUserData2.setToUserData(userData);
+        }
         String toUid = commonMsgPojo.getToUid();
-        if (!TextUtils.isEmpty(toUid) && toUid.equals(gid) && A.equals(gid)) {
-            f.b("see init private : send msg to self");
+        if (!TextUtils.isEmpty(toUid) && toUid.equals(gid) && v.equals(gid)) {
+            e.b("see init private : send msg to self");
             return null;
         }
         String uid = commonMsgPojo.getUid();
-        if (A.equals(uid)) {
+        if (v.equals(uid)) {
             UserData userData2 = (UserData) new Gson().fromJson(commonMsgPojo.getToUser_info(), (Class<Object>) UserData.class);
             if (userData2 != null) {
+                if (g.b(userData2.getUserId()) && (oldUserData = (OldUserData) new Gson().fromJson(commonMsgPojo.getToUser_info(), (Class<Object>) OldUserData.class)) != null) {
+                    oldUserData.setToUserData(userData2);
+                }
                 imMessageCenterPojo.setGroup_name(userData2.getUserName());
                 imMessageCenterPojo.setGroup_head(userData2.getPortrait());
             }
@@ -203,13 +212,13 @@ public class ImMessageCenterPojo implements Serializable {
             imMessageCenterPojo.setGroup_head(userData.getPortrait());
         }
         imMessageCenterPojo.setGroup_type(6);
-        if (A.equals(uid)) {
-            imMessageCenterPojo.setLast_content(l.h(commonMsgPojo.toChatMessage()));
+        if (v.equals(uid)) {
+            imMessageCenterPojo.setLast_content(l.g(commonMsgPojo.toChatMessage()));
         } else {
-            imMessageCenterPojo.setLast_content(String.valueOf(userData.getUserName()) + ":" + l.h(commonMsgPojo.toChatMessage()));
+            imMessageCenterPojo.setLast_content(String.valueOf(userData.getUserName()) + ":" + l.g(commonMsgPojo.toChatMessage()));
         }
         imMessageCenterPojo.setLast_content_time(commonMsgPojo.getCreate_time() * 1000);
-        f.e("see convert " + imMessageCenterPojo + "ori:" + commonMsgPojo);
+        e.e("see convert " + imMessageCenterPojo + "ori:" + commonMsgPojo);
         return imMessageCenterPojo;
     }
 }

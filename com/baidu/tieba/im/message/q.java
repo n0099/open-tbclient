@@ -2,7 +2,7 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.sapi2.shell.SapiErrorCode;
 /* loaded from: classes.dex */
-public class q extends s {
+public final class q extends s {
     private String a;
     private String b;
     private int c;
@@ -14,51 +14,51 @@ public class q extends s {
         e(SapiErrorCode.GET_CERT_FAIL);
     }
 
-    public String a() {
+    public final String a() {
         return this.b;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.b = str;
     }
 
-    public String b() {
+    public final String b() {
         return this.a;
     }
 
-    public void b(String str) {
+    public final void b(String str) {
         this.a = str;
     }
 
-    public int c() {
+    public final int c() {
         return this.c;
     }
 
-    public void a(int i) {
-        this.c = i;
+    public final void a(int i) {
+        this.c = 20;
     }
 
-    public String d() {
+    public final String d() {
         return this.d;
     }
 
-    public void c(String str) {
+    public final void c(String str) {
         this.d = str;
     }
 
-    public long e() {
+    public final long e() {
         return this.e;
     }
 
-    public void a(long j) {
+    public final void a(long j) {
         this.e = j;
     }
 
-    public int f() {
+    public final int f() {
         return this.f;
     }
 
-    public void b(int i) {
+    public final void b(int i) {
         this.f = i;
     }
 }

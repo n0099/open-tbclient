@@ -13,16 +13,16 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class e extends BaseAdapter {
+public final class e extends BaseAdapter {
     private Activity a;
     private com.baidu.tieba.util.i b;
     private List<BaseGroupData> c = new ArrayList();
 
-    public com.baidu.tieba.util.i a() {
+    public final com.baidu.tieba.util.i a() {
         return this.b;
     }
 
-    public void a(List<BaseGroupData> list) {
+    public final void a(List<BaseGroupData> list) {
         this.c = list;
         notifyDataSetChanged();
     }
@@ -30,22 +30,22 @@ public class e extends BaseAdapter {
     public e(Activity activity) {
         this.a = activity;
         this.b = new com.baidu.tieba.util.i(activity);
-        this.b.d(true);
+        this.b.a(true);
     }
 
-    public boolean a(int i) {
+    public final boolean a(int i) {
         return this.c != null && i >= 0 && i < this.c.size();
     }
 
     @Override // android.widget.Adapter
-    public int getCount() {
+    public final int getCount() {
         return this.c.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: b */
-    public BaseGroupData getItem(int i) {
+    public final BaseGroupData getItem(int i) {
         int itemId = (int) getItemId(i);
         if (itemId < 0 || itemId >= this.c.size()) {
             return null;
@@ -54,12 +54,12 @@ public class e extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    public final long getItemId(int i) {
         return i;
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public final View getView(int i, View view, ViewGroup viewGroup) {
         f fVar;
         if (view == null || view.getTag() == null) {
             view = LayoutInflater.from(this.a).inflate(R.layout.im_search_group_list_item, viewGroup, false);

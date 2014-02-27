@@ -18,7 +18,7 @@ public final class HybridBinarizer extends GlobalHistogramBinarizer {
     }
 
     @Override // com.google.zxing.common.GlobalHistogramBinarizer, com.google.zxing.Binarizer
-    public BitMatrix getBlackMatrix() {
+    public final BitMatrix getBlackMatrix() {
         if (this.matrix != null) {
             return this.matrix;
         }
@@ -46,7 +46,7 @@ public final class HybridBinarizer extends GlobalHistogramBinarizer {
     }
 
     @Override // com.google.zxing.common.GlobalHistogramBinarizer, com.google.zxing.Binarizer
-    public Binarizer createBinarizer(LuminanceSource luminanceSource) {
+    public final Binarizer createBinarizer(LuminanceSource luminanceSource) {
         return new HybridBinarizer(luminanceSource);
     }
 
@@ -113,12 +113,11 @@ public final class HybridBinarizer extends GlobalHistogramBinarizer {
                 int i14 = 0;
                 int i15 = MotionEventCompat.ACTION_MASK;
                 int i16 = 0;
-                int i17 = 0;
-                int i18 = (i10 * i3) + i13;
-                while (i17 < 8) {
+                int i17 = (i10 * i3) + i13;
+                for (int i18 = 0; i18 < 8; i18 = i5 + 1) {
                     int i19 = 0;
                     while (i19 < 8) {
-                        int i20 = bArr[i18 + i19] & 255;
+                        int i20 = bArr[i17 + i19] & 255;
                         int i21 = i14 + i20;
                         int i22 = i20 < i15 ? i20 : i15;
                         if (i20 <= i16) {
@@ -130,38 +129,35 @@ public final class HybridBinarizer extends GlobalHistogramBinarizer {
                         i14 = i21;
                     }
                     if (i16 - i15 > 24) {
-                        i5 = i18 + i3;
-                        i6 = i17 + 1;
-                        while (true) {
-                            i7 = i14;
-                            if (i6 >= 8) {
-                                break;
+                        i5 = i18 + 1;
+                        int i23 = i14;
+                        i7 = i17 + i3;
+                        i6 = i23;
+                        while (i5 < 8) {
+                            int i24 = i6;
+                            for (int i25 = 0; i25 < 8; i25++) {
+                                i24 += bArr[i7 + i25] & 255;
                             }
-                            i14 = i7;
-                            for (int i23 = 0; i23 < 8; i23++) {
-                                i14 += bArr[i5 + i23] & 255;
-                            }
-                            i6++;
-                            i5 += i3;
+                            i5++;
+                            i7 += i3;
+                            i6 = i24;
                         }
                     } else {
                         i5 = i18;
-                        i6 = i17;
-                        i7 = i14;
+                        i6 = i14;
+                        i7 = i17;
                     }
-                    int i24 = i6 + 1;
-                    i18 = i5 + i3;
-                    i14 = i7;
-                    i17 = i24;
+                    i17 = i7 + i3;
+                    i14 = i6;
                 }
-                int i25 = i14 >> 6;
+                int i26 = i14 >> 6;
                 if (i16 - i15 <= 24) {
-                    int i26 = i15 >> 1;
-                    if (i8 <= 0 || i11 <= 0 || i15 >= (i25 = ((iArr[i8 - 1][i11] + (iArr[i8][i11 - 1] * 2)) + iArr[i8 - 1][i11 - 1]) >> 2)) {
-                        i25 = i26;
+                    int i27 = i15 >> 1;
+                    if (i8 <= 0 || i11 <= 0 || i15 >= (i26 = ((iArr[i8 - 1][i11] + (iArr[i8][i11 - 1] * 2)) + iArr[i8 - 1][i11 - 1]) >> 2)) {
+                        i26 = i27;
                     }
                 }
-                iArr[i8][i11] = i25;
+                iArr[i8][i11] = i26;
             }
         }
         return iArr;

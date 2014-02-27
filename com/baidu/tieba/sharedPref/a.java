@@ -2,7 +2,7 @@ package com.baidu.tieba.sharedPref;
 
 import com.baidu.cloudsdk.social.core.SocialConstants;
 /* loaded from: classes.dex */
-public class a {
+public final class a {
     public static String a = "com.baidu.tieba";
     public static String b = "com.baidu.tieba:remote";
     public static String c = "com.baidu.tieba:bdservice_v1";

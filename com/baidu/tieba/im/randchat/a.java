@@ -11,7 +11,7 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class a extends View {
+public final class a extends View {
     private Context a;
     private int b;
     private int c;
@@ -38,10 +38,6 @@ public class a extends View {
     public a(Context context) {
         super(context);
         this.v = new b(this);
-        a(context);
-    }
-
-    private void a(Context context) {
         this.a = context;
         this.d = BdUtilHelper.c(context, R.dimen.loading_circle_radius);
         this.e = BdUtilHelper.c(context, R.dimen.loading_circle_stroke);
@@ -63,7 +59,7 @@ public class a extends View {
     }
 
     @Override // android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    protected final void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         this.b = getWidth();
         this.c = getHeight();
@@ -71,7 +67,7 @@ public class a extends View {
         this.r.set(((this.b / 2) - this.d) + this.e, ((this.c / 2) - this.d) + this.e, ((this.b / 2) + this.d) - this.e, ((this.c / 2) + this.d) - this.e);
     }
 
-    public void a(c cVar) {
+    public final void a(c cVar) {
         this.u = cVar;
         this.v.removeMessages(0);
         this.s = 3;
@@ -79,18 +75,18 @@ public class a extends View {
         this.v.sendEmptyMessageDelayed(1, 1000L);
     }
 
-    public void a() {
+    public final void a() {
         this.v.removeMessages(0);
         this.v.removeMessages(1);
     }
 
-    public void b() {
+    public final void b() {
         this.v.removeMessages(0);
         this.v.sendEmptyMessageDelayed(0, 800L);
     }
 
     @Override // android.view.View
-    protected void onDraw(Canvas canvas) {
+    protected final void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if (this.s != 3) {
             this.p.setColor(this.j);

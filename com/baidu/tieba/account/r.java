@@ -6,7 +6,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class r implements TextWatcher {
+final class r implements TextWatcher {
     final /* synthetic */ ActivationActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +15,7 @@ class r implements TextWatcher {
     }
 
     @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
+    public final void afterTextChanged(Editable editable) {
         RelativeLayout relativeLayout;
         int i;
         LinearLayout linearLayout;
@@ -43,10 +43,10 @@ class r implements TextWatcher {
     }
 
     @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    public final void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 
     @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    public final void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 }

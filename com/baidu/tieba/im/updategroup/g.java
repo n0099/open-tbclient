@@ -11,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.util.p;
 import com.baidu.tieba.util.bq;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
@@ -34,37 +33,37 @@ public abstract class g extends com.baidu.adp.a.e implements a {
     private DialogInterface.OnClickListener p;
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public void a(DialogInterface.OnClickListener onClickListener) {
+    public final void a(DialogInterface.OnClickListener onClickListener) {
         this.a = onClickListener;
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public void b(DialogInterface.OnClickListener onClickListener) {
+    public final void b(DialogInterface.OnClickListener onClickListener) {
         this.p = onClickListener;
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public View e() {
+    public final View e() {
         return this.n;
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public View d_() {
+    public final View d_() {
         return this.f;
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public View d() {
+    public final View d() {
         return this.g;
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public void f() {
+    public final void f() {
         this.c.setText("");
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public boolean i() {
+    public final boolean i() {
         return this.m;
     }
 
@@ -89,33 +88,34 @@ public abstract class g extends com.baidu.adp.a.e implements a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void c(int i) {
+    public final void c(int i) {
         this.h.setContentView(i);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public void a(int i) {
+    public final void a(int i) {
         this.l = i;
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public int h() {
+    public final int h() {
         return this.l;
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public void a(String str) {
+    public final void a(String str) {
         this.j = str;
-        b(str);
+        this.c.setText(str);
+        this.c.setSelection(this.c.getText().toString().length());
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public String e_() {
+    public final String e_() {
         return this.j;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void d(int i) {
+    public final void d(int i) {
         this.e = this.h.findViewById(R.id.parent);
         this.d = (NavigationBar) this.h.findViewById(R.id.view_navigation_bar);
         this.d.a(this.h.getResources().getString(i));
@@ -129,39 +129,30 @@ public abstract class g extends com.baidu.adp.a.e implements a {
         this.f.setOnClickListener(this.h);
     }
 
-    protected void b(boolean z) {
+    private void b(boolean z) {
         this.m = z;
         this.f.setEnabled(z);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public boolean l() {
-        return p.b(this.c) || this.c.length() >= 3;
-    }
-
-    protected void m() {
-        if (TiebaApplication.g().al() == 1) {
-            if (this.m) {
-                bq.e((View) this.f, (int) R.drawable.navi_done_text_bg_1);
-                this.f.setTextColor(this.h.getResources().getColorStateList(R.color.navi_done_text_1));
-                return;
-            }
-            bq.e((View) this.f, (int) R.drawable.btn_titlebar_finish_d_1);
-            this.f.setTextColor(this.h.getResources().getColor(R.color.navi_done_text_d_1));
-        } else if (this.m) {
-            bq.e((View) this.f, (int) R.drawable.navi_done_text_bg);
-            this.f.setTextColor(this.h.getResources().getColorStateList(R.color.navi_done_text));
+    public final boolean l() {
+        boolean z;
+        EditText editText = this.c;
+        String editable = editText.getText().toString();
+        int length = editable.length();
+        String trim = editable.trim();
+        if (trim.length() < length) {
+            editText.setText(trim);
+            z = false;
         } else {
-            bq.e((View) this.f, (int) R.drawable.btn_titlebar_finish_d);
-            this.f.setTextColor(this.h.getResources().getColor(R.color.navi_done_text_d));
+            z = true;
         }
+        return z || this.c.length() >= 3;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(int i, int i2, int i3, int i4) {
-        if (i == 1) {
-            b(false);
-        } else if (i2 >= i3 && i2 <= i4) {
+        if (i != 1 && i2 >= i3 && i2 <= i4) {
             b(true);
         } else {
             b(false);
@@ -169,13 +160,27 @@ public abstract class g extends com.baidu.adp.a.e implements a {
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public void b(int i) {
+    public final void b(int i) {
         this.h.getLayoutMode().a(i == 1);
         this.h.getLayoutMode().a(this.e);
-        this.d.c(i);
+        this.d.b(i);
         bq.b(this.e, i);
         bq.h(this.f, i);
-        m();
+        if (TiebaApplication.g().ae() == 1) {
+            if (this.m) {
+                bq.e((View) this.f, (int) R.drawable.navi_done_text_bg_1);
+                this.f.setTextColor(this.h.getResources().getColorStateList(R.color.navi_done_text_1));
+            } else {
+                bq.e((View) this.f, (int) R.drawable.btn_titlebar_finish_d_1);
+                this.f.setTextColor(this.h.getResources().getColor(R.color.navi_done_text_d_1));
+            }
+        } else if (this.m) {
+            bq.e((View) this.f, (int) R.drawable.navi_done_text_bg);
+            this.f.setTextColor(this.h.getResources().getColorStateList(R.color.navi_done_text));
+        } else {
+            bq.e((View) this.f, (int) R.drawable.btn_titlebar_finish_d);
+            this.f.setTextColor(this.h.getResources().getColor(R.color.navi_done_text_d));
+        }
         if (i == 1) {
             this.c.setHintTextColor(this.h.getResources().getColor(R.color.create_group_input_hintcolor_1));
             this.e.setBackgroundResource(R.color.create_group_pages_background_1);
@@ -186,23 +191,18 @@ public abstract class g extends com.baidu.adp.a.e implements a {
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public String k() {
+    public final String k() {
         return this.c.getText().toString();
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.k = z;
         this.i.setVisibility(z ? 0 : 8);
     }
 
-    public void b(String str) {
-        this.c.setText(str);
-        this.c.setSelection(this.c.getText().toString().length());
-    }
-
     @Override // com.baidu.tieba.im.updategroup.a
-    public void a() {
+    public final void a() {
         new AlertDialog.Builder(this.h).setTitle(R.string.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(R.string.group_update_alert_save).setPositiveButton(R.string.group_update_canel, new i(this)).setNegativeButton(R.string.group_update_done, new j(this)).create().show();
     }
 }

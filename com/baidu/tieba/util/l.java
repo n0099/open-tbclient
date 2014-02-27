@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import java.util.HashSet;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class l {
+public final class l {
     public HashSet<com.baidu.tbadk.imageManager.d> b;
     public String c;
     public volatile int d;
@@ -24,12 +24,12 @@ public class l {
     public boolean n = false;
     private boolean r = false;
 
-    public boolean a() {
+    public final boolean a() {
         return this.r;
     }
 
-    public void a(boolean z) {
-        this.r = z;
+    public final void a(boolean z) {
+        this.r = true;
     }
 
     public l(String str, int i, com.baidu.tbadk.imageManager.d dVar, boolean z, boolean z2, boolean z3, Map<String, Object> map) {
@@ -51,26 +51,8 @@ public class l {
         this.q = map;
     }
 
-    public String b() {
+    public final String b() {
         Object obj;
         return (this.d != 6 || this.q == null || (obj = this.q.get("em_sharp_text")) == null) ? this.c : obj.toString();
-    }
-
-    public void a(com.baidu.tbadk.imageManager.d dVar) {
-        if (this.b == null) {
-            this.b = new HashSet<>();
-        }
-        this.b.add(dVar);
-    }
-
-    public void c() {
-        this.n = true;
-        if (this.a != null) {
-            this.a.k();
-        }
-    }
-
-    public String d() {
-        return this.c;
     }
 }

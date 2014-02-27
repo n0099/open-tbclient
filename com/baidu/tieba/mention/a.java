@@ -11,11 +11,11 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.aj;
-import com.baidu.tieba.view.ct;
+import com.baidu.tieba.view.cs;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class a extends com.baidu.tieba.j implements com.baidu.adp.widget.ListView.b {
-    private ct d;
+public final class a extends com.baidu.tieba.j implements com.baidu.adp.widget.ListView.b {
+    private cs d;
     private LinearLayout e;
     private com.baidu.tieba.home.r f;
     private aj g;
@@ -24,9 +24,9 @@ public class a extends com.baidu.tieba.j implements com.baidu.adp.widget.ListVie
     private boolean h = false;
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+    public final View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.at_me_activity, viewGroup, false);
-        this.d = new ct(getActivity());
+        this.d = new cs(getActivity());
         this.d.a(this);
         this.c = (BdListView) inflate.findViewById(R.id.atme_lv);
         this.c.setPullRefresh(this.d);
@@ -41,7 +41,7 @@ public class a extends com.baidu.tieba.j implements com.baidu.adp.widget.ListVie
     }
 
     @Override // com.baidu.tieba.j
-    public void c(int i) {
+    public final void c(int i) {
         super.c(i);
         if (isAdded()) {
             if (i == 1) {
@@ -66,7 +66,7 @@ public class a extends com.baidu.tieba.j implements com.baidu.adp.widget.ListVie
                 this.d.a(i);
             }
             if (this.f != null) {
-                this.f.b(i);
+                this.f.a(i);
             }
             if (this.b != null) {
                 this.b.g();
@@ -75,21 +75,21 @@ public class a extends com.baidu.tieba.j implements com.baidu.adp.widget.ListVie
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onStop() {
+    public final void onStop() {
         super.onStop();
         this.g.b();
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onStart() {
+    public final void onStart() {
         super.onStart();
         this.g.a();
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onResume() {
+    public final void onResume() {
         super.onResume();
-        if (TiebaApplication.B()) {
+        if (TiebaApplication.w()) {
             this.c.setVisibility(0);
             this.e.setVisibility(8);
             if (this.h) {
@@ -100,19 +100,19 @@ public class a extends com.baidu.tieba.j implements com.baidu.adp.widget.ListVie
             return;
         }
         this.g.b(8);
-        d();
+        b();
     }
 
-    public void a() {
+    public final void a() {
         if (this.b == null) {
             this.h = true;
             return;
         }
         this.h = false;
-        if (TiebaApplication.B()) {
+        if (TiebaApplication.w()) {
             this.c.setVisibility(0);
             this.e.setVisibility(8);
-            if (v.a().n() > 0) {
+            if (v.a().l() > 0) {
                 this.b.a(2);
             } else {
                 this.b.a(1);
@@ -121,25 +121,25 @@ public class a extends com.baidu.tieba.j implements com.baidu.adp.widget.ListVie
             this.b.e();
             return;
         }
-        d();
+        b();
     }
 
-    private void d() {
+    private void b() {
         if (this.f == null) {
             this.f = new com.baidu.tieba.home.r(getActivity(), getString(R.string.login_msg_tab), getString(R.string.login_msg_form), 3);
-            this.e.addView(this.f.e());
-            this.f.b(TiebaApplication.g().al());
+            this.e.addView(this.f.a());
+            this.f.a(TiebaApplication.g().ae());
         } else {
-            ((ViewGroup) this.f.e().getParent()).removeAllViews();
-            this.e.addView(this.f.e());
-            this.f.b(TiebaApplication.g().al());
+            ((ViewGroup) this.f.a().getParent()).removeAllViews();
+            this.e.addView(this.f.a());
+            this.f.a(TiebaApplication.g().ae());
         }
         this.c.setVisibility(8);
         this.e.setVisibility(0);
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onDestroy() {
+    public final void onDestroy() {
         super.onDestroy();
         try {
             if (this.b != null) {
@@ -148,18 +148,14 @@ public class a extends com.baidu.tieba.j implements com.baidu.adp.widget.ListVie
             }
             System.gc();
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "onDestroy", e.toString());
+            com.baidu.adp.lib.util.e.b(getClass().getName(), "onDestroy", e.toString());
         }
     }
 
-    public void c() {
-        this.b.b();
-    }
-
     @Override // com.baidu.adp.widget.ListView.b
-    public void a(boolean z) {
+    public final void a(boolean z) {
         if (!z) {
-            c();
+            this.b.b();
         }
     }
 }

@@ -13,16 +13,6 @@ public class SingleMyPersonInfoActivity extends com.baidu.tieba.k {
     @Override // com.baidu.tieba.k, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        Bundle a = a(bundle);
-        FragmentManager supportFragmentManager = getSupportFragmentManager();
-        this.d = new cm();
-        this.d.setArguments(a);
-        FragmentTransaction beginTransaction = supportFragmentManager.beginTransaction();
-        beginTransaction.add(16908290, this.d);
-        beginTransaction.commitAllowingStateLoss();
-    }
-
-    private Bundle a(Bundle bundle) {
         Bundle bundle2 = new Bundle();
         if (bundle != null) {
             bundle2.putAll(bundle);
@@ -32,11 +22,16 @@ public class SingleMyPersonInfoActivity extends com.baidu.tieba.k {
                 bundle2.putAll(intent.getExtras());
             }
         }
-        return bundle2;
+        FragmentManager supportFragmentManager = getSupportFragmentManager();
+        this.d = new cm();
+        this.d.setArguments(bundle2);
+        FragmentTransaction beginTransaction = supportFragmentManager.beginTransaction();
+        beginTransaction.add(16908290, this.d);
+        beginTransaction.commitAllowingStateLoss();
     }
 
     @Override // com.baidu.tieba.k
-    protected void b(int i) {
+    protected final void b(int i) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

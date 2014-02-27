@@ -4,25 +4,32 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.DelGroupMsgs.DelGroupMsgsReq;
 /* loaded from: classes.dex */
 public final class e extends GeneratedMessageLite.Builder<DelGroupMsgsReq.DelGroupMsgsReqIdl, e> implements f {
     private int a;
     private DelGroupMsgsReq.DataReq b = DelGroupMsgsReq.DataReq.getDefaultInstance();
 
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return DelGroupMsgsReq.DelGroupMsgsReqIdl.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return DelGroupMsgsReq.DelGroupMsgsReqIdl.getDefaultInstance();
+    }
+
     private e() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static e h() {
+    public static /* synthetic */ e b() {
         return new e();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public e clear() {
         super.clear();
         this.b = DelGroupMsgsReq.DataReq.getDefaultInstance();
@@ -31,20 +38,14 @@ public final class e extends GeneratedMessageLite.Builder<DelGroupMsgsReq.DelGro
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
+    /* renamed from: d */
     public e clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public DelGroupMsgsReq.DelGroupMsgsReqIdl getDefaultInstanceForType() {
-        return DelGroupMsgsReq.DelGroupMsgsReqIdl.getDefaultInstance();
+        return new e().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: d */
-    public DelGroupMsgsReq.DelGroupMsgsReqIdl build() {
+    /* renamed from: a */
+    public final DelGroupMsgsReq.DelGroupMsgsReqIdl build() {
         DelGroupMsgsReq.DelGroupMsgsReqIdl buildPartial = buildPartial();
         if (!buildPartial.isInitialized()) {
             throw newUninitializedMessageException(buildPartial);
@@ -64,9 +65,15 @@ public final class e extends GeneratedMessageLite.Builder<DelGroupMsgsReq.DelGro
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public e mergeFrom(DelGroupMsgsReq.DelGroupMsgsReqIdl delGroupMsgsReqIdl) {
+    public final e mergeFrom(DelGroupMsgsReq.DelGroupMsgsReqIdl delGroupMsgsReqIdl) {
         if (delGroupMsgsReqIdl != DelGroupMsgsReq.DelGroupMsgsReqIdl.getDefaultInstance() && delGroupMsgsReqIdl.hasData()) {
-            b(delGroupMsgsReqIdl.getData());
+            DelGroupMsgsReq.DataReq data = delGroupMsgsReqIdl.getData();
+            if ((this.a & 1) != 1 || this.b == DelGroupMsgsReq.DataReq.getDefaultInstance()) {
+                this.b = data;
+            } else {
+                this.b = DelGroupMsgsReq.DataReq.newBuilder(this.b).mergeFrom(data).buildPartial();
+            }
+            this.a |= 1;
         }
         return this;
     }
@@ -114,21 +121,11 @@ public final class e extends GeneratedMessageLite.Builder<DelGroupMsgsReq.DelGro
         }
     }
 
-    public e a(DelGroupMsgsReq.DataReq dataReq) {
+    public final e a(DelGroupMsgsReq.DataReq dataReq) {
         if (dataReq != null) {
             this.b = dataReq;
             this.a |= 1;
         }
-        return this;
-    }
-
-    public e b(DelGroupMsgsReq.DataReq dataReq) {
-        if ((this.a & 1) == 1 && this.b != DelGroupMsgsReq.DataReq.getDefaultInstance()) {
-            this.b = DelGroupMsgsReq.DataReq.newBuilder(this.b).mergeFrom(dataReq).buildPartial();
-        } else {
-            this.b = dataReq;
-        }
-        this.a |= 1;
         return this;
     }
 }

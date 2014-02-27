@@ -6,7 +6,7 @@ import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c extends BitmapDrawable {
+public final class c extends BitmapDrawable {
     final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,7 +17,7 @@ public class c extends BitmapDrawable {
     }
 
     @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
-    public void draw(Canvas canvas) {
+    public final void draw(Canvas canvas) {
         Bitmap bitmap;
         Bitmap bitmap2;
         Bitmap bitmap3;

@@ -1,29 +1,21 @@
 package com.baidu.tieba.im.chat;
 
 import android.view.View;
-import com.baidu.adp.widget.ImageView.BDImageView2;
+import android.view.ViewGroup;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cu implements com.baidu.tieba.util.cj {
-    final /* synthetic */ ct a;
-    private final /* synthetic */ String b;
-    private final /* synthetic */ com.baidu.adp.widget.ImageView.b c;
+public final class cu implements com.baidu.tbadk.imageManager.d {
+    private final /* synthetic */ View a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cu(ct ctVar, String str, com.baidu.adp.widget.ImageView.b bVar) {
-        this.a = ctVar;
-        this.b = str;
-        this.c = bVar;
+    public cu(View view) {
+        this.a = view;
     }
 
-    @Override // com.baidu.tieba.util.cj
-    public boolean a(View view) {
-        if ((view instanceof BDImageView2) && this.b.equals(view.getTag())) {
-            view.setTag(null);
-            BDImageView2 bDImageView2 = (BDImageView2) view;
-            bDImageView2.a();
-            this.c.a(bDImageView2);
-            return false;
+    @Override // com.baidu.tbadk.imageManager.d
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        if (bVar != null && this.a != null && (this.a instanceof ViewGroup)) {
+            com.baidu.tieba.util.ch.a((ViewGroup) this.a, false, (com.baidu.tieba.util.cj) new cv(this, str, bVar));
         }
-        return false;
     }
 }

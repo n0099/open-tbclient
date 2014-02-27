@@ -2,7 +2,7 @@ package com.baidu.tieba.data;
 
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class al {
+public final class al {
     private int a = 0;
     private int b = 0;
     private int d = 0;
@@ -11,59 +11,59 @@ public class al {
     private int g = 0;
     private int c = 0;
 
-    public int a() {
+    public final int a() {
         return this.a;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.a = i;
     }
 
-    public int b() {
+    public final int b() {
         return this.b;
     }
 
-    public void b(int i) {
+    public final void b(int i) {
         this.b = i;
     }
 
-    public int c() {
+    public final int c() {
         return this.c;
     }
 
-    public int d() {
+    public final int d() {
         return this.d;
     }
 
-    public void c(int i) {
+    public final void c(int i) {
         this.d = i;
     }
 
-    public int e() {
+    public final int e() {
         return this.e;
     }
 
-    public void d(int i) {
+    public final void d(int i) {
         this.e = i;
     }
 
-    public void e(int i) {
+    public final void e(int i) {
         this.f = i;
     }
 
-    public int f() {
+    public final int f() {
         return this.f;
     }
 
-    public void f(int i) {
+    public final void f(int i) {
         this.g = i;
     }
 
-    public int g() {
+    public final int g() {
         return this.g;
     }
 
-    public void a(JSONObject jSONObject) {
+    public final void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 this.a = jSONObject.optInt("total_page", 0);
@@ -74,7 +74,7 @@ public class al {
                 this.f = jSONObject.optInt("has_more", 0);
                 this.g = jSONObject.optInt("has_prev", 0);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b("PageData", "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.util.e.b("PageData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

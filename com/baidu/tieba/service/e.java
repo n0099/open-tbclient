@@ -9,11 +9,11 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.util.bv;
 import com.baidu.tieba.view.NoNetworkView;
 /* loaded from: classes.dex */
-public class e extends BroadcastReceiver {
+public final class e extends BroadcastReceiver {
     public int a = -1;
 
     @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
+    public final void onReceive(Context context, Intent intent) {
         try {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
             boolean z = activeNetworkInfo != null && activeNetworkInfo.isAvailable();
@@ -22,19 +22,19 @@ public class e extends BroadcastReceiver {
                 if (activeNetworkInfo.getTypeName().equalsIgnoreCase("WIFI")) {
                     if (this.a != 1) {
                         if (this.a != -1) {
-                            bv.a().b(true);
+                            bv.a().a(true);
                             com.baidu.tieba.im.message.u uVar = new com.baidu.tieba.im.message.u(-121);
                             uVar.a(1);
-                            com.baidu.tieba.im.messageCenter.e.a().d(uVar);
+                            com.baidu.tieba.im.messageCenter.d.a().d(uVar);
                         }
                         this.a = 1;
                     }
                 } else if (this.a != 2) {
                     if (this.a != -1) {
-                        bv.a().b(false);
+                        bv.a().a(false);
                         com.baidu.tieba.im.message.u uVar2 = new com.baidu.tieba.im.message.u(-121);
                         uVar2.a(2);
-                        com.baidu.tieba.im.messageCenter.e.a().d(uVar2);
+                        com.baidu.tieba.im.messageCenter.d.a().d(uVar2);
                     }
                     this.a = 2;
                 }
@@ -42,11 +42,11 @@ public class e extends BroadcastReceiver {
                 this.a = 0;
                 com.baidu.tieba.im.message.u uVar3 = new com.baidu.tieba.im.message.u(-121);
                 uVar3.a(0);
-                com.baidu.tieba.im.messageCenter.e.a().d(uVar3);
+                com.baidu.tieba.im.messageCenter.d.a().d(uVar3);
             }
             CompatibleUtile.dealWebView();
-        } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("NetworkChangeReceiver", "onReceiver", e.getMessage());
+        } catch (Throwable th) {
+            com.baidu.adp.lib.util.e.b("NetworkChangeReceiver", "onReceiver", th.getMessage());
         }
     }
 }

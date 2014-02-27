@@ -5,7 +5,7 @@ import com.baidu.tieba.faceshop.FacePackageDetailActivity;
 import protobuf.QueryPrize.QueryPrizeRes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements com.baidu.tieba.view.dialog.c {
+public final class d implements com.baidu.tieba.view.dialog.c {
     private final /* synthetic */ Activity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ public class d implements com.baidu.tieba.view.dialog.c {
     }
 
     @Override // com.baidu.tieba.view.dialog.c
-    public void onClick(com.baidu.tieba.view.dialog.a aVar) {
+    public final void onClick(com.baidu.tieba.view.dialog.a aVar) {
         QueryPrizeRes.PrizeInfo prizeInfo;
         QueryPrizeRes.PrizeInfo prizeInfo2;
         com.baidu.tieba.view.dialog.a aVar2;

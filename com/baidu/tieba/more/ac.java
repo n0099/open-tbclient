@@ -1,7 +1,6 @@
 package com.baidu.tieba.more;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac implements ab {
+final class ac implements ab {
     final /* synthetic */ MoreActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,46 +9,39 @@ public class ac implements ab {
     }
 
     @Override // com.baidu.tieba.more.ab
-    public void a(int i) {
-        if (i != 0) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            if (i != 6) {
-                                if (i != 7) {
-                                    if (i != 8) {
-                                        if (i == 5) {
-                                            SystemHelpSettingActivity.a(this.a);
-                                            return;
-                                        } else if (i != 9) {
-                                            return;
-                                        } else {
-                                            this.a.m();
-                                            return;
-                                        }
-                                    }
-                                    this.a.f();
-                                    return;
-                                }
-                                this.a.e();
-                                return;
-                            }
-                            this.a.g();
+    public final void a(int i) {
+        if (i == 0) {
+            MoreActivity.b(this.a);
+        } else if (i == 1) {
+            MoreActivity.c(this.a);
+        } else if (i == 2) {
+            MoreActivity.d(this.a);
+        } else if (i != 3) {
+            if (i != 4) {
+                if (i != 6) {
+                    if (i != 7) {
+                        if (i == 8) {
+                            MoreActivity.i(this.a);
+                            return;
+                        } else if (i == 5) {
+                            SystemHelpSettingActivity.a(this.a);
+                            return;
+                        } else if (i != 9) {
+                            return;
+                        } else {
+                            SecretSettingActivity.a(this.a);
                             return;
                         }
-                        this.a.l();
-                        return;
                     }
-                    this.a.h();
+                    this.a.b();
                     return;
                 }
-                this.a.i();
+                AboutActivity.a(this.a);
                 return;
             }
-            this.a.j();
-            return;
+            MsgRemindActivity.a(this.a);
+        } else {
+            BrowseSettingActivity.a(this.a);
         }
-        this.a.k();
     }
 }

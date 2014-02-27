@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -15,19 +16,34 @@ public final class h extends GeneratedMessageLite.Builder<QueryGroupsByUidRes.Da
     private List<Im.GroupInfo> b = Collections.emptyList();
     private Im.GroupPermission c = Im.GroupPermission.getDefaultInstance();
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        QueryGroupsByUidRes.DataRes buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return QueryGroupsByUidRes.DataRes.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return QueryGroupsByUidRes.DataRes.getDefaultInstance();
+    }
+
     private h() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static h h() {
+    public static /* synthetic */ h b() {
         return new h();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public h clear() {
         super.clear();
         this.b = Collections.emptyList();
@@ -38,30 +54,14 @@ public final class h extends GeneratedMessageLite.Builder<QueryGroupsByUidRes.Da
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public h clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public QueryGroupsByUidRes.DataRes getDefaultInstanceForType() {
-        return QueryGroupsByUidRes.DataRes.getDefaultInstance();
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public QueryGroupsByUidRes.DataRes build() {
-        QueryGroupsByUidRes.DataRes buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
+    public h clone() {
+        return new h().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public QueryGroupsByUidRes.DataRes buildPartial() {
+    /* renamed from: a */
+    public final QueryGroupsByUidRes.DataRes buildPartial() {
         QueryGroupsByUidRes.DataRes dataRes = new QueryGroupsByUidRes.DataRes(this, (QueryGroupsByUidRes.DataRes) null);
         int i = this.a;
         if ((this.a & 1) == 1) {
@@ -77,7 +77,7 @@ public final class h extends GeneratedMessageLite.Builder<QueryGroupsByUidRes.Da
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public h mergeFrom(QueryGroupsByUidRes.DataRes dataRes) {
+    public final h mergeFrom(QueryGroupsByUidRes.DataRes dataRes) {
         List list;
         List list2;
         List<Im.GroupInfo> list3;
@@ -89,14 +89,23 @@ public final class h extends GeneratedMessageLite.Builder<QueryGroupsByUidRes.Da
                     this.b = list3;
                     this.a &= -2;
                 } else {
-                    i();
+                    if ((this.a & 1) != 1) {
+                        this.b = new ArrayList(this.b);
+                        this.a |= 1;
+                    }
                     List<Im.GroupInfo> list4 = this.b;
                     list2 = dataRes.groups_;
                     list4.addAll(list2);
                 }
             }
             if (dataRes.hasGroupPerm()) {
-                a(dataRes.getGroupPerm());
+                Im.GroupPermission groupPerm = dataRes.getGroupPerm();
+                if ((this.a & 2) != 2 || this.c == Im.GroupPermission.getDefaultInstance()) {
+                    this.c = groupPerm;
+                } else {
+                    this.c = Im.GroupPermission.newBuilder(this.c).mergeFrom(groupPerm).buildPartial();
+                }
+                this.a |= 2;
             }
         }
         return this;
@@ -143,22 +152,5 @@ public final class h extends GeneratedMessageLite.Builder<QueryGroupsByUidRes.Da
                 throw th;
             }
         }
-    }
-
-    private void i() {
-        if ((this.a & 1) != 1) {
-            this.b = new ArrayList(this.b);
-            this.a |= 1;
-        }
-    }
-
-    public h a(Im.GroupPermission groupPermission) {
-        if ((this.a & 2) == 2 && this.c != Im.GroupPermission.getDefaultInstance()) {
-            this.c = Im.GroupPermission.newBuilder(this.c).mergeFrom(groupPermission).buildPartial();
-        } else {
-            this.c = groupPermission;
-        }
-        this.a |= 2;
-        return this;
     }
 }

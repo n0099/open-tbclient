@@ -3,7 +3,7 @@ package com.baidu.tieba.im.frsgroup;
 import android.content.DialogInterface;
 import java.util.List;
 /* loaded from: classes.dex */
-class v implements DialogInterface.OnClickListener {
+final class v implements DialogInterface.OnClickListener {
     final /* synthetic */ u a;
     private final /* synthetic */ List b;
 
@@ -14,13 +14,13 @@ class v implements DialogInterface.OnClickListener {
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
+    public final void onClick(DialogInterface dialogInterface, int i) {
         MembersActivity membersActivity;
         MembersActivity membersActivity2;
         com.baidu.tieba.im.model.l lVar;
         membersActivity = this.a.a;
         membersActivity2 = this.a.a;
         lVar = membersActivity2.c;
-        membersActivity.a(lVar.f(), this.b);
+        MembersActivity.a(membersActivity, lVar.f(), this.b);
     }
 }

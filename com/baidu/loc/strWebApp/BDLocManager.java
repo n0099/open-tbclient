@@ -48,7 +48,7 @@ public class BDLocManager {
 
         /* JADX INFO: Access modifiers changed from: private */
         public boolean isValid() {
-            return this.mLac > -1 && this.mCid > 0;
+            return this.mLac >= 0 && this.mCid > 0;
         }
 
         public String toString() {
@@ -87,11 +87,11 @@ public class BDLocManager {
 
         private void sort() {
             boolean z;
-            if (size() < 1) {
+            if (size() <= 0) {
                 return;
             }
             boolean z2 = true;
-            for (int size = this._WifiList.size() - 1; size >= 1 && z2; size--) {
+            for (int size = this._WifiList.size() - 1; size > 0 && z2; size--) {
                 int i = 0;
                 z2 = false;
                 while (i < size) {
@@ -115,15 +115,15 @@ public class BDLocManager {
             return this._WifiList.size();
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:31:0x0068 A[EDGE_INSN: B:31:0x0068->B:21:0x0068 ?: BREAK  , SYNTHETIC] */
-        /* JADX WARN: Removed duplicated region for block: B:36:0x002a A[SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:30:0x0093 A[EDGE_INSN: B:30:0x0093->B:25:0x0093 ?: BREAK  , SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:32:0x005e A[SYNTHETIC] */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public String toString(int i) {
             int i2;
             int i3 = 1;
-            if (size() < 1) {
+            if (size() <= 0) {
                 return null;
             }
             StringBuffer stringBuffer = new StringBuffer(512);
@@ -131,33 +131,33 @@ public class BDLocManager {
             int i4 = 0;
             boolean z = true;
             while (i4 < size) {
-                if (this._WifiList.get(i4).level == 0) {
-                    i2 = i3;
-                } else if (z) {
-                    String replace = this._WifiList.get(i4).BSSID.replace(":", "");
-                    if (BDLocManager.this.connectWifi == null || !replace.equals(BDLocManager.this.connectWifi)) {
-                        stringBuffer.append("h");
-                        stringBuffer.append(replace);
-                        z = false;
-                        i2 = i3 + 1;
-                        if (i2 <= i) {
-                            break;
+                if (this._WifiList.get(i4).level != 0) {
+                    if (z) {
+                        String replace = this._WifiList.get(i4).BSSID.replace(":", "");
+                        if (BDLocManager.this.connectWifi == null || !replace.equals(BDLocManager.this.connectWifi)) {
+                            stringBuffer.append("h");
+                            stringBuffer.append(replace);
+                            z = false;
+                            i2 = i3 + 1;
+                            if (i2 <= i) {
+                                break;
+                            }
+                            i4++;
+                            z = z;
+                            i3 = i2;
                         }
                     } else {
-                        i2 = i3;
-                    }
-                } else {
-                    String replace2 = this._WifiList.get(i4).BSSID.replace(":", "");
-                    if (BDLocManager.this.connectWifi == null || !replace2.equals(BDLocManager.this.connectWifi)) {
-                        stringBuffer.append("h");
-                        stringBuffer.append(replace2);
-                        i2 = i3 + 1;
-                        if (i2 <= i) {
+                        String replace2 = this._WifiList.get(i4).BSSID.replace(":", "");
+                        if (BDLocManager.this.connectWifi == null || !replace2.equals(BDLocManager.this.connectWifi)) {
+                            stringBuffer.append("h");
+                            stringBuffer.append(replace2);
+                            i2 = i3 + 1;
+                            if (i2 <= i) {
+                            }
                         }
-                    } else {
-                        i2 = i3;
                     }
                 }
+                i2 = i3;
                 i4++;
                 z = z;
                 i3 = i2;
@@ -193,8 +193,12 @@ public class BDLocManager {
         }
     }
 
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r3v0 char)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: char : 0x0013: CAST (r1v5 char A[REMOVE]) = (char) (wrap: int : 0x0011: ARITH  (r1v4 int A[REMOVE]) = (wrap: int : 0x000f: ARITH  (r1v3 int A[REMOVE]) = (wrap: int : ?: ARITH  null = (r3v0 char) - ('/' char)) * (2 int)) + (97 int)))] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: char : 0x0042: CAST (r1v1 char A[REMOVE]) = (char) (wrap: int : ?: ARITH  null = (r3v0 char) - (' ' char)))] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : ?: CAST (int) (r3v0 char))] */
     private String encryptChar(char c) {
-        return (c >= ':' || c <= '/') ? (c >= '[' || c <= '@') ? (c >= '{' || c <= '`') ? c + "" : ((char) (c - ' ')) + "" : ((int) c) + "" : ((char) (((c - '/') * 2) + 97)) + "";
+        return (c >= ':' || c <= '/') ? (c >= '[' || c <= '@') ? (c >= '{' || c <= '`') ? new StringBuilder().append(c).toString() : new StringBuilder().append((char) (c - ' ')).toString() : new StringBuilder().append((int) c).toString() : new StringBuilder().append((char) (((c - '/') * 2) + 97)).toString();
     }
 
     private String getApinfo() {
@@ -233,33 +237,30 @@ public class BDLocManager {
     }
 
     private String getLocStringData(int i) {
-        String str;
         setCellInfo(this.mTeleman.getCellLocation());
         String cellInfo = this.mCellInfo.toString();
         if (cellInfo == null) {
             cellInfo = "Z";
         }
-        if (i < 1) {
+        if (i <= 0) {
             i = 1;
         }
         String connectWifiMac = getConnectWifiMac();
         if (connectWifiMac != null) {
-            str = cellInfo + connectWifiMac;
+            cellInfo = cellInfo + connectWifiMac;
             i--;
-        } else {
-            str = cellInfo;
         }
         if (this.mWifiList == null || this.mWifiList.NeedToFresh()) {
             this.mWifiList = new WifiList(this.mWifiman.getScanResults());
         }
         String wifiList = this.mWifiList.toString(i);
         if (wifiList != null) {
-            str = str + wifiList;
+            cellInfo = cellInfo + wifiList;
         }
-        if (str.equals("Z")) {
+        if (cellInfo.equals("Z")) {
             return null;
         }
-        return str;
+        return cellInfo;
     }
 
     private void setCellInfo(CellLocation cellLocation) {
@@ -301,8 +302,9 @@ public class BDLocManager {
             cellInfo.mNetworkType = 'w';
             if (mCdmaClass == null) {
                 try {
-                    mCdmaClass = Class.forName("android.telephony.cdma.CdmaCellLocation");
-                    mMethodCid = mCdmaClass.getMethod("getBaseStationId", new Class[0]);
+                    Class<?> cls = Class.forName("android.telephony.cdma.CdmaCellLocation");
+                    mCdmaClass = cls;
+                    mMethodCid = cls.getMethod("getBaseStationId", new Class[0]);
                     mMethodLac = mCdmaClass.getMethod("getNetworkId", new Class[0]);
                     mMethodSid = mCdmaClass.getMethod("getSystemId", new Class[0]);
                 } catch (Exception e2) {

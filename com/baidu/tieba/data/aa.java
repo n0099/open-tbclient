@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class aa {
+public final class aa {
     private aq e;
     private ArrayList<k> f;
     private Context n;
@@ -32,47 +32,47 @@ public class aa {
         this.f = new ArrayList<>();
     }
 
-    public aq a() {
+    public final aq a() {
         return this.e;
     }
 
-    public String b() {
+    public final String b() {
         return this.b;
     }
 
-    public String c() {
+    public final String c() {
         return this.a;
     }
 
-    public String d() {
+    public final String d() {
         return this.i;
     }
 
-    public String e() {
+    public final String e() {
         return this.k;
     }
 
-    public int f() {
+    public final int f() {
         return this.g;
     }
 
-    public int g() {
+    public final int g() {
         return this.h;
     }
 
-    public int h() {
+    public final int h() {
         return this.m;
     }
 
-    public String i() {
+    public final String i() {
         return this.l;
     }
 
-    public String j() {
+    public final String j() {
         return this.d;
     }
 
-    public void a(JSONObject jSONObject) {
+    public final void a(JSONObject jSONObject) {
         JSONObject optJSONObject;
         try {
             this.i = jSONObject.optString("post_id");
@@ -105,7 +105,7 @@ public class aa {
                 this.e.b(this.n);
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "paserJson", e.toString());
+            com.baidu.adp.lib.util.e.b(getClass().getName(), "paserJson", e.toString());
         }
     }
 }

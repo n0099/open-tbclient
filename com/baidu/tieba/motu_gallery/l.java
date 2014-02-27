@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l extends Thread {
+public final class l extends Thread {
     final /* synthetic */ JigsawAlbumActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,26 +15,25 @@ public class l extends Thread {
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
+    public final void run() {
         byte[] bArr;
         ArrayList arrayList;
-        c b;
         Map map;
-        u uVar;
         Map map2;
+        u unused;
         bArr = this.a.s;
         synchronized (bArr) {
             try {
                 arrayList = this.a.f;
                 Iterator it = arrayList.iterator();
                 while (it.hasNext()) {
-                    b = this.a.b(((c) it.next()).a);
+                    c a = JigsawAlbumActivity.a(this.a, ((c) it.next()).a);
                     map = this.a.h;
-                    if (!map.containsKey(b.b)) {
-                        uVar = this.a.k;
-                        Bitmap a = uVar.a(this.a, b, this.a.a(70.0f));
+                    if (!map.containsKey(a.b)) {
+                        unused = this.a.k;
+                        Bitmap a2 = u.a(this.a, a, this.a.a(70.0f));
                         map2 = this.a.h;
-                        map2.put(b.b, a);
+                        map2.put(a.b, a2);
                     }
                 }
             } catch (Exception e) {

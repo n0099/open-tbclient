@@ -1,40 +1,40 @@
 package com.baidu.tieba.pb;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cl implements com.baidu.tieba.editortool.z {
+public final class cl implements com.baidu.tieba.editortool.aa {
     final /* synthetic */ PbEditor a;
-    private final /* synthetic */ com.baidu.tieba.editortool.z b;
+    private final /* synthetic */ com.baidu.tieba.editortool.aa b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cl(PbEditor pbEditor, com.baidu.tieba.editortool.z zVar) {
+    public cl(PbEditor pbEditor, com.baidu.tieba.editortool.aa aaVar) {
         this.a = pbEditor;
-        this.b = zVar;
+        this.b = aaVar;
     }
 
-    @Override // com.baidu.tieba.editortool.z
-    public void a(int i, Object obj) {
+    @Override // com.baidu.tieba.editortool.aa
+    public final void a(int i, Object obj) {
         if (i == 2) {
             this.a.b(i);
         } else if (i == 3) {
-            this.a.k();
+            this.a.j();
         } else if (i == 5) {
             this.a.b(i);
         } else if (i == 6) {
-            this.a.k();
+            this.a.j();
         } else if (i == 8) {
             this.a.b(i);
         } else if (i == 9) {
-            this.a.k();
+            this.a.j();
         } else if (i != 0) {
             if (i == 18) {
                 if (this.a.c()) {
-                    this.a.b.e();
+                    this.a.b.d();
                 } else {
-                    this.a.b.f();
+                    this.a.b.e();
                 }
             } else if (i == 12) {
                 this.b.a(35, obj);
-                this.a.b.k();
+                this.a.b.j();
                 this.a.c.c(this.a.b.getEditText());
             } else if (i == 38) {
                 this.a.b(i);

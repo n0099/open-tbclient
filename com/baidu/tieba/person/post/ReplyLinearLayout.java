@@ -42,11 +42,33 @@ public class ReplyLinearLayout extends LinearLayout {
         while (i2 < this.a.size()) {
             TextView textView2 = this.a.get(i2);
             if (i2 < size) {
-                CharSequence[] charSequenceArr = (String[]) arrayList.get(i2 == 0 ? i2 : (i2 / 2) + (i2 % 2));
-                textView2.setText((i2 == 0 || i2 % 2 == 1) ? charSequenceArr[0] : charSequenceArr[4]);
-                textView2.setTag(charSequenceArr);
+                String[] strArr = arrayList.get(i2 == 0 ? i2 : (i2 / 2) + (i2 % 2));
+                textView2.setText((i2 == 0 || i2 % 2 == 1) ? strArr[0] : strArr[4]);
+                textView2.setTag(strArr);
                 textView2.setOnClickListener(this.c);
-                a(textView2, i2);
+                if (TiebaApplication.g().ae() == 1) {
+                    if (i2 == 0) {
+                        textView2.setTextColor(getResources().getColor(R.color.person_post_content_main_1));
+                        textView2.setPadding(0, BdUtilHelper.a(getContext(), 10.0f), 0, BdUtilHelper.a(getContext(), 10.0f));
+                    } else if (i2 % 2 == 1) {
+                        textView2.setTextColor(getResources().getColor(R.color.person_post_content_sub_1));
+                        textView2.setBackgroundResource(R.drawable.person_post_sep_line_1);
+                        textView2.setPadding(0, BdUtilHelper.a(getContext(), 10.0f), 0, BdUtilHelper.a(getContext(), 2.0f));
+                    } else {
+                        textView2.setTextColor(getResources().getColor(R.color.person_post_header_time_1));
+                        textView2.setPadding(0, BdUtilHelper.a(getContext(), 2.0f), 0, BdUtilHelper.a(getContext(), 10.0f));
+                    }
+                } else if (i2 == 0) {
+                    textView2.setTextColor(getResources().getColor(R.color.person_post_content_main));
+                    textView2.setPadding(0, BdUtilHelper.a(getContext(), 10.0f), 0, BdUtilHelper.a(getContext(), 10.0f));
+                } else if (i2 % 2 == 1) {
+                    textView2.setTextColor(getResources().getColor(R.color.person_post_content_sub));
+                    textView2.setBackgroundResource(R.drawable.person_post_sep_line);
+                    textView2.setPadding(0, BdUtilHelper.a(getContext(), 10.0f), 0, BdUtilHelper.a(getContext(), 2.0f));
+                } else {
+                    textView2.setTextColor(getResources().getColor(R.color.person_post_header_time));
+                    textView2.setPadding(0, BdUtilHelper.a(getContext(), 2.0f), 0, BdUtilHelper.a(getContext(), 10.0f));
+                }
                 textView2.setLayoutParams(b);
                 if (i2 == 0) {
                     textView2.setTextSize(17.0f);
@@ -62,32 +84,6 @@ public class ReplyLinearLayout extends LinearLayout {
                 textView2.setVisibility(8);
             }
             i2++;
-        }
-    }
-
-    private void a(TextView textView, int i) {
-        if (TiebaApplication.g().al() == 1) {
-            if (i == 0) {
-                textView.setTextColor(getResources().getColor(R.color.person_post_content_main_1));
-                textView.setPadding(0, BdUtilHelper.a(getContext(), 10.0f), 0, BdUtilHelper.a(getContext(), 10.0f));
-            } else if (i % 2 == 1) {
-                textView.setTextColor(getResources().getColor(R.color.person_post_content_sub_1));
-                textView.setBackgroundResource(R.drawable.person_post_sep_line_1);
-                textView.setPadding(0, BdUtilHelper.a(getContext(), 10.0f), 0, BdUtilHelper.a(getContext(), 2.0f));
-            } else {
-                textView.setTextColor(getResources().getColor(R.color.person_post_header_time_1));
-                textView.setPadding(0, BdUtilHelper.a(getContext(), 2.0f), 0, BdUtilHelper.a(getContext(), 10.0f));
-            }
-        } else if (i == 0) {
-            textView.setTextColor(getResources().getColor(R.color.person_post_content_main));
-            textView.setPadding(0, BdUtilHelper.a(getContext(), 10.0f), 0, BdUtilHelper.a(getContext(), 10.0f));
-        } else if (i % 2 == 1) {
-            textView.setTextColor(getResources().getColor(R.color.person_post_content_sub));
-            textView.setBackgroundResource(R.drawable.person_post_sep_line);
-            textView.setPadding(0, BdUtilHelper.a(getContext(), 10.0f), 0, BdUtilHelper.a(getContext(), 2.0f));
-        } else {
-            textView.setTextColor(getResources().getColor(R.color.person_post_header_time));
-            textView.setPadding(0, BdUtilHelper.a(getContext(), 2.0f), 0, BdUtilHelper.a(getContext(), 10.0f));
         }
     }
 }

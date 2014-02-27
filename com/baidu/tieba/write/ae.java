@@ -1,35 +1,58 @@
 package com.baidu.tieba.write;
 
-import com.baidu.tbadk.widget.TbImageView;
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.WriteData;
 /* loaded from: classes.dex */
-public class ae implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ ac a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(ac acVar) {
-        this.a = acVar;
-    }
-
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        TbImageView tbImageView;
-        TbImageView tbImageView2;
-        TbImageView tbImageView3;
-        TbImageView tbImageView4;
-        this.a.a(true);
-        if (bVar != null) {
-            tbImageView3 = this.a.c;
-            if (str.equals(tbImageView3.getTag())) {
-                tbImageView4 = this.a.c;
-                tbImageView4.invalidate();
+public final class ae {
+    public static void a(String str, af afVar) {
+        if (com.baidu.tieba.util.bs.c(str)) {
+            if (afVar != null) {
+                afVar.a(null);
                 return;
             }
+            return;
         }
-        tbImageView = this.a.c;
-        tbImageView.setDefaultResource(R.drawable.image_group_load_f);
-        tbImageView2 = this.a.c;
-        tbImageView2.setNightDefaultResource(R.drawable.image_group_load_f);
+        new ag(a(str), afVar).execute(new String[0]);
+    }
+
+    public static void b(String str, af afVar) {
+        if (com.baidu.tieba.util.bs.c(str)) {
+            if (afVar != null) {
+                afVar.a(null);
+                return;
+            }
+            return;
+        }
+        new ag(b(str), afVar).execute(new String[0]);
+    }
+
+    public static void a(String str, WriteData writeData) {
+        if (!com.baidu.tieba.util.bs.c(str)) {
+            com.baidu.adp.lib.cache.s<String> d = com.baidu.tieba.c.a.a().d();
+            if (writeData != null && writeData.hasContentToSave()) {
+                d.b(b(str), writeData.toDraftString(), 604800000L);
+            } else {
+                d.d(b(str));
+            }
+        }
+    }
+
+    public static void b(String str, WriteData writeData) {
+        if (!com.baidu.tieba.util.bs.c(str)) {
+            com.baidu.adp.lib.cache.s<String> d = com.baidu.tieba.c.a.a().d();
+            if (writeData != null && writeData.hasContentToSave()) {
+                d.b(a(str), writeData.toDraftString(), 604800000L);
+            } else {
+                d.d(a(str));
+            }
+        }
+    }
+
+    private static String a(String str) {
+        return String.valueOf(TiebaApplication.v()) + "@pb" + str;
+    }
+
+    private static String b(String str) {
+        return String.valueOf(TiebaApplication.v()) + "@frs" + str;
     }
 }

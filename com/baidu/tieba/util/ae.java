@@ -1,6 +1,6 @@
 package com.baidu.tieba.util;
 /* loaded from: classes.dex */
-public class ae {
+public final class ae {
     private StringBuilder a;
 
     public ae() {
@@ -8,7 +8,7 @@ public class ae {
         this.a = null;
     }
 
-    public void a(String str, Object obj) {
+    public final void a(String str, Object obj) {
         if (!bs.c(str) && obj != null) {
             try {
                 if (this.a == null) {
@@ -23,12 +23,12 @@ public class ae {
                     this.a.append(obj.toString());
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b("FieldBuilder", "append", e.getMessage());
+                com.baidu.adp.lib.util.e.b("FieldBuilder", "append", e.getMessage());
             }
         }
     }
 
-    public void a(ae aeVar) {
+    public final void a(ae aeVar) {
         if (aeVar != null) {
             if (this.a == null) {
                 this.a = new StringBuilder();
@@ -40,7 +40,7 @@ public class ae {
         }
     }
 
-    public String toString() {
+    public final String toString() {
         return this.a != null ? this.a.toString() : "";
     }
 }

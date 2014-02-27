@@ -20,7 +20,7 @@ public class FileDownloader extends Service {
 
     public static void a(Context context, String str, String str2, String str3) {
         Intent intent = new Intent(context, FileDownloader.class);
-        intent.putExtra("file", str2);
+        intent.putExtra("file", (String) null);
         intent.putExtra(SocialConstants.PARAM_URL, str);
         intent.putExtra("info", str3);
         context.startService(intent);
@@ -35,20 +35,16 @@ public class FileDownloader extends Service {
     public void onCreate() {
         super.onCreate();
         this.a = (NotificationManager) getSystemService("notification");
-        this.b = a();
-        if (this.a == null) {
-            stopSelf();
-        }
-    }
-
-    public Notification a() {
         PendingIntent activity = PendingIntent.getActivity(TiebaApplication.g().b(), 0, new Intent(), 0);
         Notification notification = new Notification(17301633, null, System.currentTimeMillis());
         notification.contentView = new RemoteViews(TiebaApplication.g().b().getPackageName(), (int) R.layout.notify_item);
         notification.contentView.setProgressBar(R.id.progress, 100, 0, false);
         notification.contentIntent = activity;
         notification.flags = 32;
-        return notification;
+        this.b = notification;
+        if (this.a == null) {
+            stopSelf();
+        }
     }
 
     @Override // android.app.Service
@@ -66,37 +62,29 @@ public class FileDownloader extends Service {
 
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
-        String a;
+        String str;
         if (intent != null) {
             String stringExtra = intent.getStringExtra("info");
             String stringExtra2 = intent.getStringExtra(SocialConstants.PARAM_URL);
             this.b.contentView.setTextViewText(R.id.info, stringExtra);
             this.b.contentView.setTextViewText(R.id.schedule, "0/0");
             if (intent.getStringExtra("file") != null) {
-                a = intent.getStringExtra("file");
+                str = intent.getStringExtra("file");
+            } else if (stringExtra2 == null || stringExtra2.length() == 0) {
+                str = null;
             } else {
-                a = a(stringExtra2);
+                String[] split = (stringExtra2.contains("?") ? stringExtra2.substring(0, stringExtra2.indexOf("?")) : stringExtra2).split("/");
+                str = split[split.length - 1];
             }
-            if (com.baidu.tieba.util.af.d(a) != null) {
-                this.d.sendMessageDelayed(this.d.obtainMessage(1, a), 100L);
+            if (com.baidu.tieba.util.af.d(str) != null) {
+                this.d.sendMessageDelayed(this.d.obtainMessage(1, str), 100L);
             } else if (this.c == null) {
-                this.c = new n(this, stringExtra2, a);
+                this.c = new n(this, stringExtra2, str);
                 this.c.execute(new String[0]);
                 this.b.contentView.setProgressBar(R.id.progress, 100, 0, false);
                 this.a.notify(10, this.b);
             }
         }
         super.onStart(intent, i);
-    }
-
-    private String a(String str) {
-        if (str == null || str.length() == 0) {
-            return null;
-        }
-        if (str.contains("?")) {
-            str = str.substring(0, str.indexOf("?"));
-        }
-        String[] split = str.split("/");
-        return split[split.length - 1];
     }
 }

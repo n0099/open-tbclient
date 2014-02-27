@@ -19,8 +19,9 @@ public class RequestCodeManager {
     public static synchronized int nextCode(String str) {
         int i;
         synchronized (RequestCodeManager.class) {
-            b++;
-            if (b == 6656) {
+            int i2 = b + 1;
+            b = i2;
+            if (i2 == 6656) {
                 b = 5656;
             }
             a.put(str, Integer.valueOf(b));

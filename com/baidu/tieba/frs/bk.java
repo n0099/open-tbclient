@@ -3,7 +3,7 @@ package com.baidu.tieba.frs;
 import android.view.View;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-class bk implements com.baidu.tbadk.imageManager.d {
+final class bk implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ FrsImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,16 +12,16 @@ class bk implements com.baidu.tbadk.imageManager.d {
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        bp bpVar;
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        bq bqVar;
         try {
-            bpVar = this.a.l;
-            View findViewWithTag = bpVar.e().a(2).findViewWithTag(str);
+            bqVar = this.a.l;
+            View findViewWithTag = bqVar.e().a(1).findViewWithTag(str);
             if (findViewWithTag != null && (findViewWithTag instanceof TbImageView)) {
                 findViewWithTag.invalidate();
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "imageLoaded", e.getMessage());
+            com.baidu.adp.lib.util.e.b(getClass().getName(), "imageLoaded", e.getMessage());
         }
     }
 }

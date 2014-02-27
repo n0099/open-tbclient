@@ -3,20 +3,18 @@ package com.baidu.tieba.img;
 import android.os.Parcel;
 import android.os.Parcelable;
 /* loaded from: classes.dex */
-class j implements Parcelable.Creator<WriteImagesInfo> {
-    /* JADX DEBUG: Method merged with bridge method */
+final class j implements Parcelable.Creator<WriteImagesInfo> {
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // android.os.Parcelable.Creator
-    /* renamed from: a */
-    public WriteImagesInfo createFromParcel(Parcel parcel) {
+    public final /* synthetic */ WriteImagesInfo createFromParcel(Parcel parcel) {
         WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
         writeImagesInfo.parseJson(parcel.readString());
         return writeImagesInfo;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
     @Override // android.os.Parcelable.Creator
-    /* renamed from: a */
-    public WriteImagesInfo[] newArray(int i) {
+    public final /* bridge */ /* synthetic */ WriteImagesInfo[] newArray(int i) {
         return new WriteImagesInfo[i];
     }
 }

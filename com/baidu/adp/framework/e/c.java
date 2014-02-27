@@ -29,23 +29,23 @@ public class c extends d {
         this.b = 3;
     }
 
-    public k b() {
+    public final k b() {
         return this.h;
     }
 
-    public String c() {
+    public final String c() {
         return this.d;
     }
 
-    public String d() {
+    public final String d() {
         return this.e;
     }
 
-    public String[] e() {
+    public final String[] e() {
         return this.f;
     }
 
-    public List<BasicNameValuePair> f() {
+    public final List<BasicNameValuePair> f() {
         return this.g;
     }
 }

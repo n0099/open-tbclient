@@ -3,11 +3,11 @@ package com.baidu.tieba.im.nearbygroups;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import com.baidu.adp.widget.s;
+import com.baidu.adp.widget.r;
 import com.baidu.tieba.im.data.NearbyGroupsData;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public class f extends s {
+public final class f extends r {
     private NearbyGroupsActivity a;
     private com.baidu.tieba.util.i d;
     private a f;
@@ -20,18 +20,18 @@ public class f extends s {
         this.d = null;
         this.a = nearbyGroupsActivity;
         this.d = new com.baidu.tieba.util.i(this.a);
-        this.d.d(true);
+        this.d.a(true);
     }
 
-    public NearbyGroupsData d() {
+    public final NearbyGroupsData d() {
         return this.b;
     }
 
-    public com.baidu.tieba.util.i e() {
+    public final com.baidu.tieba.util.i e() {
         return this.d;
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.c = z;
         if (!this.c) {
             this.b = null;
@@ -39,7 +39,7 @@ public class f extends s {
         a();
     }
 
-    public void b(boolean z) {
+    public final void b(boolean z) {
         this.e = z;
         if (this.e) {
             this.b = null;
@@ -47,7 +47,7 @@ public class f extends s {
         a();
     }
 
-    public void a(NearbyGroupsData nearbyGroupsData) {
+    public final void a(NearbyGroupsData nearbyGroupsData) {
         boolean z = false;
         if (nearbyGroupsData != null && this.b != null && nearbyGroupsData.getOffset() != 0) {
             z = true;
@@ -73,7 +73,7 @@ public class f extends s {
     }
 
     @Override // android.widget.Adapter
-    public int getCount() {
+    public final int getCount() {
         if (this.b == null) {
             return (this.e || !this.c) ? 1 : 0;
         }
@@ -85,7 +85,7 @@ public class f extends s {
     }
 
     @Override // android.widget.Adapter
-    public int getItemViewType(int i) {
+    public final int getItemViewType(int i) {
         if (this.b == null) {
             if (!this.c) {
                 return 0;
@@ -105,12 +105,12 @@ public class f extends s {
     }
 
     @Override // android.widget.Adapter
-    public int getViewTypeCount() {
+    public final int getViewTypeCount() {
         return 6;
     }
 
     @Override // android.widget.Adapter
-    public Object getItem(int i) {
+    public final Object getItem(int i) {
         if (this.b == null || this.b.size() <= 0) {
             return null;
         }
@@ -118,12 +118,12 @@ public class f extends s {
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    public final long getItemId(int i) {
         return i;
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public final View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         int itemViewType = getItemViewType(i);
         if (view == null) {
@@ -139,28 +139,28 @@ public class f extends s {
             }
         }
         if (aVar != null) {
-            aVar.a(i, getItem(i));
+            aVar.a(getItem(i));
         }
         return view;
     }
 
-    @Override // com.baidu.adp.widget.s
-    public int b() {
+    @Override // com.baidu.adp.widget.r
+    public final int b() {
         return 4;
     }
 
-    @Override // com.baidu.adp.widget.s
-    public View c() {
+    @Override // com.baidu.adp.widget.r
+    public final View c() {
         if (this.f == null) {
             this.f = g.a(this.a, 4);
         }
         return this.f.a();
     }
 
-    @Override // com.baidu.adp.widget.s
-    public void a(View view, AdapterView adapterView, int i) {
+    @Override // com.baidu.adp.widget.r
+    public final void a(View view, AdapterView adapterView, int i) {
         if (this.f != null) {
-            this.f.a(i, getItem(i));
+            this.f.a(getItem(i));
         }
     }
 }

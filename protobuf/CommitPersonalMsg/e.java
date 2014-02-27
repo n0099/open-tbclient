@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.CommitPersonalMsg.CommitPersonalMsgReq;
 /* loaded from: classes.dex */
 public final class e extends GeneratedMessageLite.Builder<CommitPersonalMsgReq.DataReq, e> implements f {
@@ -15,19 +16,25 @@ public final class e extends GeneratedMessageLite.Builder<CommitPersonalMsgReq.D
     private int f;
     private long g;
 
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return CommitPersonalMsgReq.DataReq.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return CommitPersonalMsgReq.DataReq.getDefaultInstance();
+    }
+
     private e() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static e h() {
+    public static /* synthetic */ e c() {
         return new e();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: d */
     public e clear() {
         super.clear();
         this.b = 0;
@@ -46,20 +53,14 @@ public final class e extends GeneratedMessageLite.Builder<CommitPersonalMsgReq.D
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
+    /* renamed from: e */
     public e clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public CommitPersonalMsgReq.DataReq getDefaultInstanceForType() {
-        return CommitPersonalMsgReq.DataReq.getDefaultInstance();
+        return new e().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: d */
-    public CommitPersonalMsgReq.DataReq build() {
+    /* renamed from: a */
+    public final CommitPersonalMsgReq.DataReq build() {
         CommitPersonalMsgReq.DataReq buildPartial = buildPartial();
         if (!buildPartial.isInitialized()) {
             throw newUninitializedMessageException(buildPartial);
@@ -68,8 +69,8 @@ public final class e extends GeneratedMessageLite.Builder<CommitPersonalMsgReq.D
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public CommitPersonalMsgReq.DataReq buildPartial() {
+    /* renamed from: b */
+    public final CommitPersonalMsgReq.DataReq buildPartial() {
         CommitPersonalMsgReq.DataReq dataReq = new CommitPersonalMsgReq.DataReq(this, (CommitPersonalMsgReq.DataReq) null);
         int i = this.a;
         int i2 = (i & 1) != 1 ? 0 : 1;
@@ -100,7 +101,7 @@ public final class e extends GeneratedMessageLite.Builder<CommitPersonalMsgReq.D
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public e mergeFrom(CommitPersonalMsgReq.DataReq dataReq) {
+    public final e mergeFrom(CommitPersonalMsgReq.DataReq dataReq) {
         Object obj;
         if (dataReq != CommitPersonalMsgReq.DataReq.getDefaultInstance()) {
             if (dataReq.hasGroupId()) {
@@ -118,7 +119,9 @@ public final class e extends GeneratedMessageLite.Builder<CommitPersonalMsgReq.D
                 this.e = obj;
             }
             if (dataReq.hasDuration()) {
-                c(dataReq.getDuration());
+                int duration = dataReq.getDuration();
+                this.a |= 16;
+                this.f = duration;
             }
             if (dataReq.hasRecordId()) {
                 b(dataReq.getRecordId());
@@ -170,25 +173,25 @@ public final class e extends GeneratedMessageLite.Builder<CommitPersonalMsgReq.D
         }
     }
 
-    public e a(int i) {
+    public final e a(int i) {
         this.a |= 1;
         this.b = i;
         return this;
     }
 
-    public e a(long j) {
+    public final e a(long j) {
         this.a |= 2;
         this.c = j;
         return this;
     }
 
-    public e b(int i) {
+    public final e b(int i) {
         this.a |= 4;
         this.d = i;
         return this;
     }
 
-    public e a(String str) {
+    public final e a(String str) {
         if (str != null) {
             this.a |= 8;
             this.e = str;
@@ -196,13 +199,7 @@ public final class e extends GeneratedMessageLite.Builder<CommitPersonalMsgReq.D
         return this;
     }
 
-    public e c(int i) {
-        this.a |= 16;
-        this.f = i;
-        return this;
-    }
-
-    public e b(long j) {
+    public final e b(long j) {
         this.a |= 32;
         this.g = j;
         return this;

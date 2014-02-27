@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.c;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements com.baidu.tieba.im.a<Void> {
+final class m implements com.baidu.tieba.im.a<Void> {
     final /* synthetic */ l a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,11 +8,10 @@ public class m implements com.baidu.tieba.im.a<Void> {
         this.a = lVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // com.baidu.tieba.im.a
-    public void a(Void r2) {
-        j jVar;
-        jVar = this.a.a;
-        jVar.d();
+    public final /* synthetic */ void a(Void r2) {
+        j jVar = this.a.a;
+        j.d();
     }
 }

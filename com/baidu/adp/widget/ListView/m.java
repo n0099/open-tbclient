@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 /* loaded from: classes.dex */
-class m implements AdapterView.OnItemSelectedListener {
+final class m implements AdapterView.OnItemSelectedListener {
     final /* synthetic */ BdListView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ class m implements AdapterView.OnItemSelectedListener {
     }
 
     @Override // android.widget.AdapterView.OnItemSelectedListener
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long j) {
+    public final void onItemSelected(AdapterView<?> adapterView, View view, int i, long j) {
         e eVar;
         e eVar2;
         AdapterView.OnItemSelectedListener onItemSelectedListener;
@@ -35,7 +35,7 @@ class m implements AdapterView.OnItemSelectedListener {
     }
 
     @Override // android.widget.AdapterView.OnItemSelectedListener
-    public void onNothingSelected(AdapterView<?> adapterView) {
+    public final void onNothingSelected(AdapterView<?> adapterView) {
         AdapterView.OnItemSelectedListener onItemSelectedListener;
         AdapterView.OnItemSelectedListener onItemSelectedListener2;
         onItemSelectedListener = this.a.d;

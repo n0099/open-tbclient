@@ -11,7 +11,7 @@ import com.slidingmenu.lib.R;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements com.baidu.tieba.im.messageCenter.g {
+public final class e implements com.baidu.tieba.im.messageCenter.g {
     final /* synthetic */ c a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -20,7 +20,7 @@ public class e implements com.baidu.tieba.im.messageCenter.g {
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.s sVar) {
+    public final void a(com.baidu.tieba.im.message.s sVar) {
         i iVar;
         com.baidu.tieba.im.model.d dVar;
         com.baidu.tieba.im.model.d dVar2;
@@ -52,9 +52,9 @@ public class e implements com.baidu.tieba.im.messageCenter.g {
         bx bxVar = (bx) sVar;
         com.baidu.tieba.im.message.s o = bxVar.o();
         if (o != null && (o instanceof al)) {
-            String e = ((al) o).e();
+            String c = ((al) o).c();
             dVar10 = this.a.c;
-            if (!e.equals(String.valueOf(dVar10.g()))) {
+            if (!c.equals(String.valueOf(dVar10.g()))) {
                 return;
             }
         }
@@ -71,12 +71,12 @@ public class e implements com.baidu.tieba.im.messageCenter.g {
                 groupListAdapter11.a(a);
                 groupListAdapter12 = this.a.i;
                 groupListAdapter12.notifyDataSetChanged();
-                this.a.k();
+                c.d(this.a);
             }
             this.a.a(true);
             return;
         }
-        this.a.i();
+        c.e(this.a);
         iVar = this.a.d;
         iVar.b(true);
         dVar = this.a.c;
@@ -106,7 +106,7 @@ public class e implements com.baidu.tieba.im.messageCenter.g {
             this.a.k = BdUtilHelper.a();
             int size = a2.size();
             dVar4 = this.a.c;
-            if (size != dVar4.l()) {
+            if (size != dVar4.k()) {
                 dVar7 = this.a.c;
                 if (!dVar7.h()) {
                     groupListAdapter5 = this.a.i;
@@ -114,7 +114,7 @@ public class e implements com.baidu.tieba.im.messageCenter.g {
                 } else if (a2.size() == 0) {
                     groupListAdapter7 = this.a.i;
                     groupListAdapter7.b(false);
-                    this.a.l();
+                    c.g(this.a);
                     return;
                 } else {
                     groupListAdapter6 = this.a.i;
@@ -124,7 +124,7 @@ public class e implements com.baidu.tieba.im.messageCenter.g {
                 groupListAdapter = this.a.i;
                 groupListAdapter.a(GroupListAdapter.BOTTOM_TYPE.HAVE_MORE);
             }
-            this.a.j();
+            c.h(this.a);
             groupListAdapter2 = this.a.i;
             groupListAdapter2.b(true);
             dVar5 = this.a.c;
@@ -135,7 +135,7 @@ public class e implements com.baidu.tieba.im.messageCenter.g {
             groupListAdapter3.a(a2);
             groupListAdapter4 = this.a.i;
             groupListAdapter4.notifyDataSetChanged();
-            this.a.k();
+            c.d(this.a);
         }
     }
 }

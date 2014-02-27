@@ -39,16 +39,16 @@ public final class i {
 
     public static void c() {
         if (a != null) {
-            a.b();
+            a.b = null;
         }
         a = null;
     }
 
-    public ArrayList a() {
+    public final ArrayList a() {
         return this.b;
     }
 
-    public void b() {
+    public final void b() {
         this.b = null;
     }
 }

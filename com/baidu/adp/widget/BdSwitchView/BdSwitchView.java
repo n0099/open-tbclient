@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.baidu.adp.d;
 import com.baidu.adp.e;
-import com.baidu.adp.lib.util.f;
 /* loaded from: classes.dex */
 public class BdSwitchView extends FrameLayout {
     FrameLayout a;
@@ -109,7 +108,7 @@ public class BdSwitchView extends FrameLayout {
             this.b.setLayoutParams(layoutParams);
             return;
         }
-        f.b("mSwitchImage is null or mSwitchImage.getBackground() is null");
+        com.baidu.adp.lib.util.e.b("mSwitchImage is null or mSwitchImage.getBackground() is null");
     }
 
     @Override // android.view.View
@@ -196,27 +195,27 @@ public class BdSwitchView extends FrameLayout {
         }
     }
 
-    public void a() {
+    public final void a() {
         a(false);
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         if (this.d != SwitchState.ON) {
             c(z);
         }
     }
 
-    public void b() {
+    public final void b() {
         b(false);
     }
 
-    public void b(boolean z) {
+    public final void b(boolean z) {
         if (this.d != SwitchState.OFF) {
             c(z);
         }
     }
 
-    public boolean c() {
+    public final boolean c() {
         return this.d == SwitchState.ON;
     }
 

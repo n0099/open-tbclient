@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
-class p implements com.baidu.tieba.view.by {
+final class p implements com.baidu.tieba.view.by {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,21 +9,21 @@ class p implements com.baidu.tieba.view.by {
     }
 
     @Override // com.baidu.tieba.view.by
-    public void a(boolean z) {
-        br brVar;
+    public final void a(boolean z) {
+        bs bsVar;
         com.baidu.tieba.model.z zVar;
         com.baidu.tieba.model.z zVar2;
         if (z) {
-            brVar = this.a.p;
-            if (!brVar.m()) {
+            bsVar = this.a.p;
+            if (!bsVar.l()) {
                 zVar = this.a.A;
                 if (zVar != null) {
                     zVar2 = this.a.A;
-                    if (zVar2.c().size() != 0) {
+                    if (zVar2.g().size() != 0) {
                         return;
                     }
                 }
-                this.a.C();
+                this.a.n();
             }
         }
     }

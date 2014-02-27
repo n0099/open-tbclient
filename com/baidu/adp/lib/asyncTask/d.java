@@ -4,21 +4,21 @@ import android.os.Handler;
 import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d extends Handler {
+public final class d extends Handler {
     private d() {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ d(d dVar) {
+    public /* synthetic */ d(byte b) {
         this();
     }
 
     @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    public final void handleMessage(Message message) {
         c cVar = (c) message.obj;
         switch (message.what) {
             case 1:
-                cVar.a.d(cVar.b[0]);
+                BdAsyncTask.a(cVar.a, cVar.b[0]);
                 return;
             case 2:
                 cVar.a.b((Object[]) cVar.b);

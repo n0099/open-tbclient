@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
-class bg implements View.OnClickListener {
+final class bg implements View.OnClickListener {
     final /* synthetic */ Register2Activity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,7 +16,7 @@ class bg implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         ImageView imageView;
         TextView textView;
         TextView textView2;
@@ -83,7 +83,7 @@ class bg implements View.OnClickListener {
                                 blVar4 = this.a.N;
                                 blVar4.cancel();
                             }
-                            this.a.O = new bm(this.a, null);
+                            this.a.O = new bm(this.a, (byte) 0);
                             bmVar2 = this.a.O;
                             bmVar2.setPriority(3);
                             bmVar3 = this.a.O;
@@ -96,7 +96,7 @@ class bg implements View.OnClickListener {
                     editText2.setText((CharSequence) null);
                     return;
                 }
-                this.a.g();
+                this.a.f();
                 return;
             }
         }
@@ -105,6 +105,6 @@ class bg implements View.OnClickListener {
             this.a.setResult(0);
         }
         this.a.finish();
-        com.baidu.adp.lib.util.f.a("Register2Activity", "mButtonBack", "onClick");
+        com.baidu.adp.lib.util.e.a("Register2Activity", "mButtonBack", "onClick");
     }
 }

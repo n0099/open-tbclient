@@ -7,7 +7,7 @@ import java.util.HashMap;
 public final class ExpandedProductResultParser extends ResultParser {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.zxing.client.result.ResultParser
-    public ExpandedProductParsedResult parse(Result result) {
+    public final ExpandedProductParsedResult parse(Result result) {
         String massagedText;
         if (result.getBarcodeFormat() != BarcodeFormat.RSS_EXPANDED || (massagedText = getMassagedText(result)) == null) {
             return null;

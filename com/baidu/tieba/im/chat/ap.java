@@ -2,7 +2,7 @@ package com.baidu.tieba.im.chat;
 
 import android.content.DialogInterface;
 /* loaded from: classes.dex */
-class ap implements DialogInterface.OnClickListener {
+final class ap implements DialogInterface.OnClickListener {
     final /* synthetic */ GroupSettingActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +11,7 @@ class ap implements DialogInterface.OnClickListener {
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
+    public final void onClick(DialogInterface dialogInterface, int i) {
         com.baidu.tieba.im.model.al alVar;
         com.baidu.tieba.im.model.al alVar2;
         aw awVar;

@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class PbListView extends com.baidu.adp.widget.ListView.c {
+public final class PbListView extends com.baidu.adp.widget.ListView.c {
     private Context a;
     private TextView b;
     private ProgressBar c;
@@ -56,7 +56,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
     }
 
     @Override // com.baidu.adp.widget.ListView.c
-    public View a() {
+    public final View a() {
         this.e = LayoutInflater.from(this.a).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
         this.g = (LinearLayout) this.e.findViewById(R.id.pb_more_view);
         this.b = (TextView) this.e.findViewById(R.id.pb_more_text);
@@ -64,70 +64,70 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
         return this.e;
     }
 
-    public void c() {
+    public final void c() {
         this.c.setVisibility(0);
         this.b.setText(this.a.getText(R.string.loading));
-        d(TiebaApplication.g().al());
+        c(TiebaApplication.g().ae());
     }
 
-    public void d() {
+    public final void d() {
         this.c.setVisibility(8);
         if (this.f != null) {
             this.b.setText(this.f);
         } else {
             this.b.setText(this.a.getText(R.string.pb_load_more));
         }
-        d(TiebaApplication.g().al());
+        c(TiebaApplication.g().ae());
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.g.setBackgroundResource(i);
     }
 
-    public void b(int i) {
+    public final void b(int i) {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.g.getLayoutParams());
         layoutParams.height = i;
         this.g.setLayoutParams(layoutParams);
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.f = str;
         this.b.setText(str);
-        d(TiebaApplication.g().al());
+        c(TiebaApplication.g().ae());
     }
 
-    public void c(int i) {
+    private void d(int i) {
         this.b.setTextColor(this.a.getResources().getColor(i));
     }
 
-    public void a(View.OnClickListener onClickListener) {
+    public final void a(View.OnClickListener onClickListener) {
         this.d = onClickListener;
     }
 
     @Override // com.baidu.adp.widget.ListView.c
-    public void onClick() {
+    public final void onClick() {
         if (this.d != null) {
             this.d.onClick(this.e);
         }
     }
 
-    public void d(int i) {
+    public final void c(int i) {
         String charSequence = this.b.getText().toString();
         if (this.e != null && charSequence != null) {
             if (i == 1) {
                 if (charSequence.equals(this.a.getText(R.string.pb_load_more))) {
-                    c(R.color.pb_more_txt_1);
+                    d(R.color.pb_more_txt_1);
                 } else if (charSequence.equals(this.a.getText(R.string.loading))) {
-                    c(R.color.pb_more_txt_1);
+                    d(R.color.pb_more_txt_1);
                 } else if (charSequence.equals(this.a.getText(R.string.no_more_to_load))) {
-                    c(R.color.pb_list_morebutton_nomore_text_1);
+                    d(R.color.pb_list_morebutton_nomore_text_1);
                 }
             } else if (charSequence.equals(this.a.getText(R.string.pb_load_more))) {
-                c(R.color.pb_more_txt);
+                d(R.color.pb_more_txt);
             } else if (charSequence.equals(this.a.getText(R.string.loading))) {
-                c(R.color.pb_more_txt);
+                d(R.color.pb_more_txt);
             } else if (charSequence.equals(this.a.getText(R.string.no_more_to_load))) {
-                c(R.color.pb_list_morebutton_nomore_text);
+                d(R.color.pb_list_morebutton_nomore_text);
             }
         }
     }

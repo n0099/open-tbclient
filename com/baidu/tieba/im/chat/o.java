@@ -5,7 +5,7 @@ import android.text.TextWatcher;
 import android.widget.Button;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o implements TextWatcher {
+public final class o implements TextWatcher {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,17 +14,17 @@ public class o implements TextWatcher {
     }
 
     @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    public final void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 
     @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    public final void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 
     @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
+    public final void afterTextChanged(Editable editable) {
         Button button;
-        boolean ab;
+        boolean V;
         Button button2;
         Button button3;
         if (editable == null || editable.length() <= 0) {
@@ -32,8 +32,8 @@ public class o implements TextWatcher {
             button.setEnabled(false);
             return;
         }
-        ab = this.a.ab();
-        if (ab) {
+        V = this.a.V();
+        if (V) {
             button3 = this.a.F;
             button3.setEnabled(true);
             return;

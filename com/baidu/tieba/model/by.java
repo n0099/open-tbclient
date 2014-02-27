@@ -1,7 +1,7 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
 public interface by {
-    void a(String str, long j);
+    void a();
 
-    void b(String str, long j);
+    void a(String str, long j);
 }

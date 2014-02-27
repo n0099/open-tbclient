@@ -27,24 +27,25 @@ public final class b extends f {
 
     public b(Cursor cursor) {
         super(cursor);
+        String str;
+        String str2;
         this.o = 5;
         String string = cursor.getString(cursor.getColumnIndex("dnpath"));
         String string2 = cursor.getString(cursor.getColumnIndex("downame"));
         try {
-            string = TextUtils.isEmpty(string) ? string : com.baidu.android.systemmonitor.security.a.b(string);
-            if (!TextUtils.isEmpty(string2)) {
-                string2 = com.baidu.android.systemmonitor.security.a.b(string2);
-            }
+            String b = TextUtils.isEmpty(string) ? string : com.baidu.android.systemmonitor.security.a.b(string);
+            str2 = TextUtils.isEmpty(string2) ? string2 : com.baidu.android.systemmonitor.security.a.b(string2);
+            str = b;
         } catch (Exception e) {
-            string = "";
-            string2 = "";
+            str = "";
+            str2 = "";
         }
-        this.a = string;
-        this.b = string2;
+        this.a = str;
+        this.b = str2;
     }
 
     @Override // com.baidu.android.systemmonitor.devicestatistic.a.f
-    public String toString() {
+    public final String toString() {
         return "ApkDownloadEvent : downloadPath =" + this.a + " apkName = " + this.b + " StartStamp = " + this.n;
     }
 }

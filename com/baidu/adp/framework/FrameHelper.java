@@ -1,9 +1,8 @@
 package com.baidu.adp.framework;
 
-import com.baidu.adp.lib.util.f;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class FrameHelper {
+public final class FrameHelper {
 
     /* loaded from: classes.dex */
     public enum TYPE {
@@ -32,7 +31,7 @@ public class FrameHelper {
         if (i >= 2001000 && i < 3001000) {
             return TYPE.CUSTOM;
         }
-        f.b("cmd invalid");
+        com.baidu.adp.lib.util.e.b("cmd invalid");
         return null;
     }
 
@@ -48,18 +47,15 @@ public class FrameHelper {
         return i >= 2001000 && i < 3001000;
     }
 
-    public static <T extends d> int a(LinkedList<T> linkedList, int i) {
-        int size = linkedList.size();
-        int i2 = 0;
-        while (i2 < size && linkedList.get(i2).a() <= i) {
-            i2++;
-        }
-        return i2;
-    }
-
     public static <T extends d> void a(LinkedList<T> linkedList, T t) {
         if (t != null && !linkedList.contains(t)) {
-            linkedList.add(a(linkedList, t.a()), t);
+            int a = t.a();
+            int size = linkedList.size();
+            int i = 0;
+            while (i < size && linkedList.get(i).a() <= a) {
+                i++;
+            }
+            linkedList.add(i, t);
         }
     }
 }

@@ -32,7 +32,7 @@ public class ViewDragHelper {
     private static final String TAG = "ViewDragHelper";
     private static final Interpolator sInterpolator = new Interpolator() { // from class: android.support.v4.widget.ViewDragHelper.1
         @Override // android.animation.TimeInterpolator
-        public float getInterpolation(float f) {
+        public final float getInterpolation(float f) {
             float f2 = f - 1.0f;
             return (f2 * f2 * f2 * f2 * f2) + 1.0f;
         }

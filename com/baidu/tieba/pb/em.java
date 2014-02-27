@@ -1,7 +1,7 @@
 package com.baidu.tieba.pb;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class em implements com.baidu.tbadk.imageManager.d {
+public final class em implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ ed a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,7 +10,7 @@ public class em implements com.baidu.tbadk.imageManager.d {
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
         if (bVar != null) {
             bVar.a(this.a.g);
         }

@@ -40,7 +40,7 @@ public final class CodedInputStream {
         }
     }
 
-    public int readTag() {
+    public final int readTag() {
         if (isAtEnd()) {
             this.lastTag = 0;
             return 0;
@@ -52,13 +52,13 @@ public final class CodedInputStream {
         return this.lastTag;
     }
 
-    public void checkLastTagWas(int i) {
+    public final void checkLastTagWas(int i) {
         if (this.lastTag != i) {
             throw InvalidProtocolBufferException.invalidEndTag();
         }
     }
 
-    public boolean skipField(int i) {
+    public final boolean skipField(int i) {
         switch (WireFormat.getTagWireType(i)) {
             case 0:
                 readInt32();
@@ -83,7 +83,7 @@ public final class CodedInputStream {
         }
     }
 
-    public void skipMessage() {
+    public final void skipMessage() {
         int readTag;
         do {
             readTag = readTag();
@@ -93,39 +93,39 @@ public final class CodedInputStream {
         } while (skipField(readTag));
     }
 
-    public double readDouble() {
+    public final double readDouble() {
         return Double.longBitsToDouble(readRawLittleEndian64());
     }
 
-    public float readFloat() {
+    public final float readFloat() {
         return Float.intBitsToFloat(readRawLittleEndian32());
     }
 
-    public long readUInt64() {
+    public final long readUInt64() {
         return readRawVarint64();
     }
 
-    public long readInt64() {
+    public final long readInt64() {
         return readRawVarint64();
     }
 
-    public int readInt32() {
+    public final int readInt32() {
         return readRawVarint32();
     }
 
-    public long readFixed64() {
+    public final long readFixed64() {
         return readRawLittleEndian64();
     }
 
-    public int readFixed32() {
+    public final int readFixed32() {
         return readRawLittleEndian32();
     }
 
-    public boolean readBool() {
+    public final boolean readBool() {
         return readRawVarint32() != 0;
     }
 
-    public String readString() {
+    public final String readString() {
         int readRawVarint32 = readRawVarint32();
         if (readRawVarint32 > this.bufferSize - this.bufferPos || readRawVarint32 <= 0) {
             return new String(readRawBytes(readRawVarint32), "UTF-8");
@@ -135,7 +135,7 @@ public final class CodedInputStream {
         return str;
     }
 
-    public void readGroup(int i, MessageLite.Builder builder, ExtensionRegistryLite extensionRegistryLite) {
+    public final void readGroup(int i, MessageLite.Builder builder, ExtensionRegistryLite extensionRegistryLite) {
         if (this.recursionDepth >= this.recursionLimit) {
             throw InvalidProtocolBufferException.recursionLimitExceeded();
         }
@@ -145,7 +145,7 @@ public final class CodedInputStream {
         this.recursionDepth--;
     }
 
-    public <T extends MessageLite> T readGroup(int i, Parser<T> parser, ExtensionRegistryLite extensionRegistryLite) {
+    public final <T extends MessageLite> T readGroup(int i, Parser<T> parser, ExtensionRegistryLite extensionRegistryLite) {
         if (this.recursionDepth >= this.recursionLimit) {
             throw InvalidProtocolBufferException.recursionLimitExceeded();
         }
@@ -157,11 +157,11 @@ public final class CodedInputStream {
     }
 
     @Deprecated
-    public void readUnknownGroup(int i, MessageLite.Builder builder) {
+    public final void readUnknownGroup(int i, MessageLite.Builder builder) {
         readGroup(i, builder, (ExtensionRegistryLite) null);
     }
 
-    public void readMessage(MessageLite.Builder builder, ExtensionRegistryLite extensionRegistryLite) {
+    public final void readMessage(MessageLite.Builder builder, ExtensionRegistryLite extensionRegistryLite) {
         int readRawVarint32 = readRawVarint32();
         if (this.recursionDepth >= this.recursionLimit) {
             throw InvalidProtocolBufferException.recursionLimitExceeded();
@@ -174,7 +174,7 @@ public final class CodedInputStream {
         popLimit(pushLimit);
     }
 
-    public <T extends MessageLite> T readMessage(Parser<T> parser, ExtensionRegistryLite extensionRegistryLite) {
+    public final <T extends MessageLite> T readMessage(Parser<T> parser, ExtensionRegistryLite extensionRegistryLite) {
         int readRawVarint32 = readRawVarint32();
         if (this.recursionDepth >= this.recursionLimit) {
             throw InvalidProtocolBufferException.recursionLimitExceeded();
@@ -188,7 +188,7 @@ public final class CodedInputStream {
         return parsePartialFrom;
     }
 
-    public ByteString readBytes() {
+    public final ByteString readBytes() {
         int readRawVarint32 = readRawVarint32();
         if (readRawVarint32 == 0) {
             return ByteString.EMPTY;
@@ -201,31 +201,31 @@ public final class CodedInputStream {
         return ByteString.copyFrom(readRawBytes(readRawVarint32));
     }
 
-    public int readUInt32() {
+    public final int readUInt32() {
         return readRawVarint32();
     }
 
-    public int readEnum() {
+    public final int readEnum() {
         return readRawVarint32();
     }
 
-    public int readSFixed32() {
+    public final int readSFixed32() {
         return readRawLittleEndian32();
     }
 
-    public long readSFixed64() {
+    public final long readSFixed64() {
         return readRawLittleEndian64();
     }
 
-    public int readSInt32() {
+    public final int readSInt32() {
         return decodeZigZag32(readRawVarint32());
     }
 
-    public long readSInt64() {
+    public final long readSInt64() {
         return decodeZigZag64(readRawVarint64());
     }
 
-    public int readRawVarint32() {
+    public final int readRawVarint32() {
         byte readRawByte = readRawByte();
         if (readRawByte < 0) {
             int i = readRawByte & Byte.MAX_VALUE;
@@ -299,7 +299,7 @@ public final class CodedInputStream {
         return i;
     }
 
-    public long readRawVarint64() {
+    public final long readRawVarint64() {
         long j = 0;
         for (int i = 0; i < 64; i += 7) {
             byte readRawByte = readRawByte();
@@ -311,11 +311,11 @@ public final class CodedInputStream {
         throw InvalidProtocolBufferException.malformedVarint();
     }
 
-    public int readRawLittleEndian32() {
+    public final int readRawLittleEndian32() {
         return (readRawByte() & 255) | ((readRawByte() & 255) << 8) | ((readRawByte() & 255) << 16) | ((readRawByte() & 255) << 24);
     }
 
-    public long readRawLittleEndian64() {
+    public final long readRawLittleEndian64() {
         byte readRawByte = readRawByte();
         byte readRawByte2 = readRawByte();
         return ((readRawByte2 & 255) << 8) | (readRawByte & 255) | ((readRawByte() & 255) << 16) | ((readRawByte() & 255) << 24) | ((readRawByte() & 255) << 32) | ((readRawByte() & 255) << 40) | ((readRawByte() & 255) << 48) | ((readRawByte() & 255) << 56);
@@ -351,7 +351,7 @@ public final class CodedInputStream {
         this.input = inputStream;
     }
 
-    public int setRecursionLimit(int i) {
+    public final int setRecursionLimit(int i) {
         if (i < 0) {
             throw new IllegalArgumentException("Recursion limit cannot be negative: " + i);
         }
@@ -360,7 +360,7 @@ public final class CodedInputStream {
         return i2;
     }
 
-    public int setSizeLimit(int i) {
+    public final int setSizeLimit(int i) {
         if (i < 0) {
             throw new IllegalArgumentException("Size limit cannot be negative: " + i);
         }
@@ -369,11 +369,11 @@ public final class CodedInputStream {
         return i2;
     }
 
-    public void resetSizeCounter() {
+    public final void resetSizeCounter() {
         this.totalBytesRetired = -this.bufferPos;
     }
 
-    public int pushLimit(int i) {
+    public final int pushLimit(int i) {
         if (i < 0) {
             throw InvalidProtocolBufferException.negativeSize();
         }
@@ -398,23 +398,23 @@ public final class CodedInputStream {
         this.bufferSizeAfterLimit = 0;
     }
 
-    public void popLimit(int i) {
+    public final void popLimit(int i) {
         this.currentLimit = i;
         recomputeBufferSizeAfterLimit();
     }
 
-    public int getBytesUntilLimit() {
+    public final int getBytesUntilLimit() {
         if (this.currentLimit == Integer.MAX_VALUE) {
             return -1;
         }
         return this.currentLimit - (this.totalBytesRetired + this.bufferPos);
     }
 
-    public boolean isAtEnd() {
+    public final boolean isAtEnd() {
         return this.bufferPos == this.bufferSize && !refillBuffer(false);
     }
 
-    public int getTotalBytesRead() {
+    public final int getTotalBytesRead() {
         return this.totalBytesRetired + this.bufferPos;
     }
 
@@ -449,7 +449,7 @@ public final class CodedInputStream {
         return true;
     }
 
-    public byte readRawByte() {
+    public final byte readRawByte() {
         if (this.bufferPos == this.bufferSize) {
             refillBuffer(true);
         }
@@ -459,7 +459,7 @@ public final class CodedInputStream {
         return bArr[i];
     }
 
-    public byte[] readRawBytes(int i) {
+    public final byte[] readRawBytes(int i) {
         if (i < 0) {
             throw InvalidProtocolBufferException.negativeSize();
         }
@@ -524,7 +524,7 @@ public final class CodedInputStream {
         }
     }
 
-    public void skipRawBytes(int i) {
+    public final void skipRawBytes(int i) {
         if (i < 0) {
             throw InvalidProtocolBufferException.negativeSize();
         }

@@ -2,7 +2,7 @@ package com.baidu.tieba.util;
 
 import android.view.View;
 /* loaded from: classes.dex */
-class ar implements cj {
+final class ar implements cj {
     final /* synthetic */ aq a;
     private final /* synthetic */ String b;
 
@@ -13,7 +13,7 @@ class ar implements cj {
     }
 
     @Override // com.baidu.tieba.util.cj
-    public boolean a(View view) {
+    public final boolean a(View view) {
         if (this.b.equals(view.getTag())) {
             view.invalidate();
             return false;

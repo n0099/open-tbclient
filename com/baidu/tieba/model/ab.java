@@ -1,6 +1,6 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
-public class ab {
+public final class ab {
     public boolean a = false;
     public boolean b = false;
     public int c = -1;

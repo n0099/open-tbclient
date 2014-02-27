@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb;
 /* loaded from: classes.dex */
-class at implements cc {
+final class at implements cc {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,7 +9,7 @@ class at implements cc {
     }
 
     @Override // com.baidu.tieba.pb.cc
-    public void a(boolean z) {
+    public final void a(boolean z) {
         com.baidu.tieba.model.bb bbVar;
         com.baidu.tieba.model.bb bbVar2;
         com.baidu.tieba.model.bb bbVar3;
@@ -22,12 +22,12 @@ class at implements cc {
             return;
         }
         bbVar = this.a.w;
-        int d = bbVar.n().d();
+        int d = bbVar.r().d();
         bbVar2 = this.a.w;
-        if (d < bbVar2.n().a()) {
+        if (d < bbVar2.r().a()) {
             bbVar4 = this.a.w;
             bbVar5 = this.a.w;
-            bbVar4.c(bbVar5.n().d() + 1);
+            bbVar4.c(bbVar5.r().d() + 1);
             return;
         }
         bbVar3 = this.a.w;

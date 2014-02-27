@@ -15,34 +15,26 @@ public class cd extends da implements com.baidu.tieba.im.coder.f {
         super.e(103012);
     }
 
-    public List<GroupInfoData> a() {
+    public final List<GroupInfoData> a() {
         return this.a;
     }
 
-    public void a(List<GroupInfoData> list) {
-        this.a = list;
-    }
-
-    public boolean b() {
+    public final boolean b() {
         return this.b;
     }
 
-    public void a(boolean z) {
-        this.b = z;
-    }
-
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<s> linkedList, byte[] bArr, int i) {
+    public final void a(LinkedList<s> linkedList, byte[] bArr, int i) {
         QueryHotGroupsRes.QueryHotGroupsResIdl parseFrom = QueryHotGroupsRes.QueryHotGroupsResIdl.parseFrom(bArr);
         g(parseFrom.getError().getErrorno());
         c(parseFrom.getError().getUsermsg());
         linkedList.add(this);
         if (!l()) {
-            a(new ArrayList());
+            this.a = new ArrayList();
             int groupsCount = parseFrom.getData().getGroupsCount();
             for (int i2 = 0; i2 < groupsCount; i2++) {
                 GroupInfoData groupInfoData = new GroupInfoData();
-                a().add(groupInfoData);
+                this.a.add(groupInfoData);
                 Im.GroupInfo groups = parseFrom.getData().getGroups(i2);
                 groupInfoData.setGroupId(groups.getGroupId());
                 groupInfoData.setForumId(groups.getForumId());
@@ -59,9 +51,9 @@ public class cd extends da implements com.baidu.tieba.im.coder.f {
                 groupInfoData.setMemGroup(groups.getIsMemberGroup() == 1);
             }
             if (parseFrom.getData().getHasMore() == 1) {
-                a(true);
+                this.b = true;
             } else {
-                a(false);
+                this.b = false;
             }
         }
     }

@@ -5,7 +5,7 @@ import android.view.MotionEvent;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y extends GestureDetector.SimpleOnGestureListener {
+public final class y extends GestureDetector.SimpleOnGestureListener {
     final /* synthetic */ w a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ public class y extends GestureDetector.SimpleOnGestureListener {
     }
 
     @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+    public final boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
         z zVar;
         z zVar2;
         if (Math.abs(f) > 200.0f || Math.abs(f2) > 200.0f) {
@@ -28,7 +28,7 @@ public class y extends GestureDetector.SimpleOnGestureListener {
     }
 
     @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-    public boolean onSingleTapUp(MotionEvent motionEvent) {
+    public final boolean onSingleTapUp(MotionEvent motionEvent) {
         View.OnClickListener onClickListener;
         boolean z;
         View.OnClickListener onClickListener2;
@@ -48,7 +48,7 @@ public class y extends GestureDetector.SimpleOnGestureListener {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+    public final boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
         int i;
         float f3;
         int i2;
@@ -141,7 +141,7 @@ public class y extends GestureDetector.SimpleOnGestureListener {
     }
 
     @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-    public void onLongPress(MotionEvent motionEvent) {
+    public final void onLongPress(MotionEvent motionEvent) {
         View.OnLongClickListener onLongClickListener;
         boolean z;
         View.OnLongClickListener onLongClickListener2;

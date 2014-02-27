@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.model;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p implements com.baidu.tieba.im.a<Boolean> {
+public final class p implements com.baidu.tieba.im.a<Boolean> {
     final /* synthetic */ MsglistModel a;
     private final /* synthetic */ com.baidu.tieba.im.message.w b;
     private final /* synthetic */ String c;
@@ -15,9 +15,9 @@ public class p implements com.baidu.tieba.im.a<Boolean> {
         this.d = bVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // com.baidu.tieba.im.a
-    public void a(Boolean bool) {
+    public final /* bridge */ /* synthetic */ void a(Boolean bool) {
         this.a.a(this.b, this.c, this.d);
     }
 }

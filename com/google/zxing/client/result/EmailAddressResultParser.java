@@ -6,7 +6,7 @@ import java.util.Map;
 public final class EmailAddressResultParser extends ResultParser {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.zxing.client.result.ResultParser
-    public EmailAddressParsedResult parse(Result result) {
+    public final EmailAddressParsedResult parse(Result result) {
         String str;
         String str2;
         String str3 = null;

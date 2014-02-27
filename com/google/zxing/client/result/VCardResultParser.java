@@ -25,7 +25,7 @@ public final class VCardResultParser extends ResultParser {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.zxing.client.result.ResultParser
-    public AddressBookParsedResult parse(Result result) {
+    public final AddressBookParsedResult parse(Result result) {
         String massagedText = getMassagedText(result);
         Matcher matcher = BEGIN_VCARD.matcher(massagedText);
         if (!matcher.find() || matcher.start() != 0) {
@@ -126,7 +126,7 @@ public final class VCardResultParser extends ResultParser {
                     break;
                 } else if (indexOf < str.length() - 1 && (str.charAt(indexOf + 1) == ' ' || str.charAt(indexOf + 1) == '\t')) {
                     i3 = indexOf + 2;
-                } else if (!z4 || ((indexOf < 1 || str.charAt(indexOf - 1) != '=') && (indexOf < 2 || str.charAt(indexOf - 2) != '='))) {
+                } else if (!z4 || ((indexOf <= 0 || str.charAt(indexOf - 1) != '=') && (indexOf < 2 || str.charAt(indexOf - 2) != '='))) {
                     break;
                 } else {
                     i3 = indexOf + 1;
@@ -136,7 +136,7 @@ public final class VCardResultParser extends ResultParser {
                 if (arrayList2 == null) {
                     arrayList2 = new ArrayList(1);
                 }
-                if (indexOf >= 1 && str.charAt(indexOf - 1) == '\r') {
+                if (indexOf > 0 && str.charAt(indexOf - 1) == '\r') {
                     indexOf--;
                 }
                 String substring = str.substring(end, indexOf);

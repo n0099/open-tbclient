@@ -17,7 +17,7 @@ import com.baidu.tieba.pb.NewPbActivity;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
-public class l {
+public final class l {
     private Fragment b;
     private Activity c;
     private int i;
@@ -47,69 +47,69 @@ public class l {
         this.j = sVar;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.n = i;
     }
 
-    public void a(BdListView bdListView) {
+    public final void a(BdListView bdListView) {
         this.e = bdListView;
     }
 
-    public void a(ViewGroup viewGroup) {
+    public final void a(ViewGroup viewGroup) {
         this.d = viewGroup;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.o = str;
     }
 
-    public void a(aj ajVar) {
+    public final void a(aj ajVar) {
         this.m = ajVar;
     }
 
-    public void a() {
+    public final void a() {
         this.f.a();
     }
 
-    public void b() {
+    public final void b() {
         this.h = 1;
         this.n = 3;
         d();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(com.baidu.tieba.data.t tVar) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(l lVar, com.baidu.tieba.data.t tVar) {
         if (tVar != null) {
-            if (tVar.j()) {
-                if (this.i == 2) {
-                    ai.a(this.c, "new_at_me_visit_post");
-                } else if (this.i == 1) {
-                    ai.a(this.c, "new_my_reply_visit_post");
+            if (!tVar.j()) {
+                if (lVar.i == 2) {
+                    ai.a(lVar.c, "new_at_me_visit_pb");
+                } else if (lVar.i == 1) {
+                    ai.a(lVar.c, "new_my_reply_visit_pb");
                 }
-                b(tVar);
+                NewPbActivity.a(lVar.c, tVar.g(), tVar.h(), "mention");
                 return;
             }
-            if (this.i == 2) {
-                ai.a(this.c, "new_at_me_visit_pb");
-            } else if (this.i == 1) {
-                ai.a(this.c, "new_my_reply_visit_pb");
+            if (lVar.i == 2) {
+                ai.a(lVar.c, "new_at_me_visit_post");
+            } else if (lVar.i == 1) {
+                ai.a(lVar.c, "new_my_reply_visit_post");
             }
-            NewPbActivity.a(this.c, tVar.g(), tVar.h(), "mention");
+            NewPbActivity.b(lVar.c, tVar.g(), tVar.h(), "mention");
         }
     }
 
-    public void c() {
+    public final void c() {
         this.h = 1;
         this.f = new h(this.c, null);
         this.f.a(this.i);
-        this.f.b(TiebaApplication.g().ah());
+        this.f.b(TiebaApplication.g().aa());
         this.e.setAdapter((ListAdapter) this.f);
         this.e.setOnItemClickListener(new o(this));
         this.e.setOnScrollListener(new p(this));
         this.e.setOnSrollToBottomListener(new q(this));
     }
 
-    public void d() {
+    public final void d() {
         boolean z;
         ArrayList<com.baidu.tieba.data.t> b;
         switch (this.n) {
@@ -143,13 +143,13 @@ public class l {
         stringBuffer.append(com.baidu.tieba.data.i.a);
         stringBuffer.append(this.o);
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new BasicNameValuePair(SapiAccountManager.SESSION_UID, TiebaApplication.A()));
+        arrayList.add(new BasicNameValuePair(SapiAccountManager.SESSION_UID, TiebaApplication.v()));
         arrayList.add(new BasicNameValuePair("pn", String.valueOf(this.h)));
         if (this.n == 4 && this.g != null && (b = this.g.b()) != null && b.size() > 0) {
             com.baidu.tieba.data.t tVar = b.get(b.size() - 1);
             arrayList.add(new BasicNameValuePair("ids", String.format("%s,%s", tVar.g(), tVar.h())));
         }
-        i();
+        h();
         if (this.k != null) {
             this.k.cancel();
             this.k = null;
@@ -159,13 +159,14 @@ public class l {
         this.k.execute(stringBuffer.toString(), arrayList);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void h() {
-        if (this.g != null && this.g.c().f() == 1) {
-            this.h++;
-            this.n = 4;
-            d();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void i(l lVar) {
+        if (lVar.g == null || lVar.g.c().f() != 1) {
+            return;
         }
+        lVar.h++;
+        lVar.n = 4;
+        lVar.d();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -176,10 +177,8 @@ public class l {
                 b.addAll(ayVar.b());
                 ayVar.a(b);
                 this.g = null;
-                this.g = ayVar;
-            } else {
-                this.g = ayVar;
             }
+            this.g = ayVar;
             if (this.g != null) {
                 if (this.g.c().f() == 1) {
                     this.f.a(true);
@@ -203,42 +202,37 @@ public class l {
                     }
                     if (this.b.isAdded()) {
                         if (this.b instanceof a) {
-                            ((a) this.b).c(TiebaApplication.g().al());
+                            ((a) this.b).c(TiebaApplication.g().ae());
                         } else if (this.b instanceof af) {
-                            ((af) this.b).c(TiebaApplication.g().al());
+                            ((af) this.b).c(TiebaApplication.g().ae());
                         }
                     }
                 }
             }
             c cVar = (c) this.b.getParentFragment();
             if (cVar != null) {
-                if (this.n == 3 || this.n == 2) {
-                    if (z) {
-                        cVar.a(this.i, false);
-                        return;
-                    } else {
-                        cVar.a(this.i, true);
-                        return;
-                    }
+                if ((this.n == 3 || this.n == 2) && !z) {
+                    cVar.a(this.i, true);
+                } else {
+                    cVar.a(this.i, false);
                 }
-                cVar.a(this.i, false);
             }
         }
     }
 
-    public void e() {
-        if (this.f != null && this.f.d() != TiebaApplication.g().ah()) {
-            this.f.b(TiebaApplication.g().ah());
+    public final void e() {
+        if (this.f != null && this.f.d() != TiebaApplication.g().aa()) {
+            this.f.b(TiebaApplication.g().aa());
             this.f.notifyDataSetChanged();
         }
     }
 
-    public void f() {
-        j();
-        i();
+    public final void f() {
+        this.p.removeCallbacks(this.q);
+        h();
     }
 
-    private void i() {
+    private void h() {
         if (this.k != null) {
             this.k.cancel();
             this.k = null;
@@ -252,15 +246,7 @@ public class l {
         this.f.notifyDataSetChanged();
     }
 
-    private void j() {
-        this.p.removeCallbacks(this.q);
-    }
-
-    private void b(com.baidu.tieba.data.t tVar) {
-        NewPbActivity.b(this.c, tVar.g(), tVar.h(), "mention");
-    }
-
-    public void g() {
+    public final void g() {
         if (this.f != null) {
             this.f.notifyDataSetChanged();
         }

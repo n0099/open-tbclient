@@ -2,15 +2,14 @@ package com.baidu.adp.framework.a;
 
 import com.baidu.adp.framework.message.HttpMessage;
 /* loaded from: classes.dex */
-class e extends com.baidu.adp.framework.message.c {
+final class e extends com.baidu.adp.framework.message.c {
+    @Override // com.baidu.adp.framework.message.d
+    public final /* bridge */ /* synthetic */ void a(int i, Object obj) {
+    }
+
     public e(int i, HttpMessage httpMessage) {
         super(i);
         a(-1002);
         a(httpMessage);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.d
-    public void a(int i, byte[] bArr) {
     }
 }

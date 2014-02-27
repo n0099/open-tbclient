@@ -39,7 +39,7 @@ public final class MatrixUtil {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void buildMatrix(BitArray bitArray, ErrorCorrectionLevel errorCorrectionLevel, Version version, int i, ByteMatrix byteMatrix) {
-        clearMatrix(byteMatrix);
+        byteMatrix.clear((byte) -1);
         embedBasicPatterns(version, byteMatrix);
         embedTypeInfo(errorCorrectionLevel, i, byteMatrix);
         maybeEmbedVersionInfo(version, byteMatrix);

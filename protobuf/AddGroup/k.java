@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.AddGroup.AddGroupRes;
 import protobuf.Im;
 /* loaded from: classes.dex */
@@ -11,19 +12,34 @@ public final class k extends GeneratedMessageLite.Builder<AddGroupRes.DataRes, k
     private int a;
     private Im.GroupInfo b = Im.GroupInfo.getDefaultInstance();
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        AddGroupRes.DataRes buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return AddGroupRes.DataRes.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return AddGroupRes.DataRes.getDefaultInstance();
+    }
+
     private k() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static k h() {
+    public static /* synthetic */ k b() {
         return new k();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public k clear() {
         super.clear();
         this.b = Im.GroupInfo.getDefaultInstance();
@@ -32,30 +48,14 @@ public final class k extends GeneratedMessageLite.Builder<AddGroupRes.DataRes, k
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public k clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public AddGroupRes.DataRes getDefaultInstanceForType() {
-        return AddGroupRes.DataRes.getDefaultInstance();
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public AddGroupRes.DataRes build() {
-        AddGroupRes.DataRes buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
+    public k clone() {
+        return new k().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public AddGroupRes.DataRes buildPartial() {
+    /* renamed from: a */
+    public final AddGroupRes.DataRes buildPartial() {
         AddGroupRes.DataRes dataRes = new AddGroupRes.DataRes(this, (AddGroupRes.DataRes) null);
         int i = (this.a & 1) != 1 ? 0 : 1;
         dataRes.group_ = this.b;
@@ -65,9 +65,15 @@ public final class k extends GeneratedMessageLite.Builder<AddGroupRes.DataRes, k
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public k mergeFrom(AddGroupRes.DataRes dataRes) {
+    public final k mergeFrom(AddGroupRes.DataRes dataRes) {
         if (dataRes != AddGroupRes.DataRes.getDefaultInstance() && dataRes.hasGroup()) {
-            a(dataRes.getGroup());
+            Im.GroupInfo group = dataRes.getGroup();
+            if ((this.a & 1) != 1 || this.b == Im.GroupInfo.getDefaultInstance()) {
+                this.b = group;
+            } else {
+                this.b = Im.GroupInfo.newBuilder(this.b).mergeFrom(group).buildPartial();
+            }
+            this.a |= 1;
         }
         return this;
     }
@@ -113,15 +119,5 @@ public final class k extends GeneratedMessageLite.Builder<AddGroupRes.DataRes, k
                 throw th;
             }
         }
-    }
-
-    public k a(Im.GroupInfo groupInfo) {
-        if ((this.a & 1) == 1 && this.b != Im.GroupInfo.getDefaultInstance()) {
-            this.b = Im.GroupInfo.newBuilder(this.b).mergeFrom(groupInfo).buildPartial();
-        } else {
-            this.b = groupInfo;
-        }
-        this.a |= 1;
-        return this;
     }
 }

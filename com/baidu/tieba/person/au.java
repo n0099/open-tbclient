@@ -3,7 +3,7 @@ package com.baidu.tieba.person;
 import android.view.View;
 import com.baidu.tieba.pb.NewPbActivity;
 /* loaded from: classes.dex */
-class au implements View.OnClickListener {
+final class au implements View.OnClickListener {
     final /* synthetic */ as a;
     private final /* synthetic */ com.baidu.tieba.model.ba b;
 
@@ -14,7 +14,7 @@ class au implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         if (this.b.a() == 2) {
             NewPbActivity.a(this.a.a, this.b.g(), (String) null, "");
         } else if (this.b.i()) {

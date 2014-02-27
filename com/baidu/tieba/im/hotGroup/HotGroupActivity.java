@@ -16,7 +16,7 @@ public class HotGroupActivity extends k implements View.OnClickListener {
     }
 
     @Override // com.baidu.tieba.k
-    protected void b(int i) {
+    protected final void b(int i) {
         if (this.d != null) {
             this.d.a(i);
         }

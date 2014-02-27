@@ -2,7 +2,7 @@ package com.baidu.tbplugin.app;
 
 import android.widget.TextView;
 /* loaded from: classes.dex */
-class b {
+final class b {
     TextView a;
     TextView b;
     TextView c;
@@ -13,7 +13,7 @@ class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ b(b bVar) {
+    public /* synthetic */ b(byte b) {
         this();
     }
 }

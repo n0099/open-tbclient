@@ -33,31 +33,28 @@ public final class d {
     }
 
     private String b(Context context) {
-        long j;
         String str;
-        long j2 = -1;
+        long j = -1;
         String str2 = null;
         for (ResolveInfo resolveInfo : com.baidu.android.moplus.util.b.g(context)) {
             try {
                 String str3 = resolveInfo.activityInfo.packageName;
-                j = context.createPackageContext(str3, 0).getSharedPreferences(str3 + ".share_list", 1).getLong("up_stamp", -1L);
-                if (j > j2) {
+                long j2 = context.createPackageContext(str3, 0).getSharedPreferences(str3 + ".share_list", 1).getLong("up_stamp", -1L);
+                if (j2 > j) {
                     str = str3;
                 } else {
-                    j = j2;
+                    j2 = j;
                     str = str2;
                 }
-            } catch (PackageManager.NameNotFoundException e) {
+                str2 = str;
                 j = j2;
-                str = str2;
+            } catch (PackageManager.NameNotFoundException e) {
             }
-            str2 = str;
-            j2 = j;
         }
         return str2;
     }
 
-    public j a() {
+    public final j a() {
         j jVar = new j();
         String b = b(this.b);
         if (!TextUtils.isEmpty(b)) {
@@ -78,11 +75,11 @@ public final class d {
         return jVar;
     }
 
-    public void a(List list) {
+    public final void a(List list) {
         this.d.submit(new o(this, list));
     }
 
-    public void b() {
+    public final void b() {
         SharedPreferences.Editor edit = this.b.getSharedPreferences(".share_list", 1).edit();
         edit.putString("up_list", "");
         edit.putLong("up_stamp", -1L);

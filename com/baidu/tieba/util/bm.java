@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.text.TextUtils;
 import com.baidu.tieba.im.chat.LocalViewSize;
 /* loaded from: classes.dex */
-public class bm {
+public final class bm {
     private static bm a;
 
     public static synchronized bm a() {
@@ -18,19 +18,28 @@ public class bm {
         return bmVar;
     }
 
-    public void a(String str, String str2, boolean z, boolean z2, boolean z3) {
+    public final void a(String str, String str2, boolean z, boolean z2, boolean z3) {
         if (str2 != null && str != null) {
             String f = bs.f(str);
             br.a().a(str2, f);
             if (z || z2 || z3) {
                 synchronized (n.a) {
                     int c = br.a().c(f);
-                    if (c > 0) {
-                        if (z) {
-                            Bitmap a2 = br.a().a(f);
-                            com.baidu.tbadk.imageManager.e.a().c(c);
-                            if (a2 != null) {
-                                a(str, a2, z2, br.a().b(f), z3, f);
+                    if (c <= 0) {
+                        return;
+                    }
+                    if (z) {
+                        Bitmap a2 = br.a().a(f);
+                        com.baidu.tbadk.imageManager.e.a().b(c);
+                        if (a2 != null) {
+                            boolean b = br.a().b(f);
+                            try {
+                                Bitmap a3 = a(a2, z2, z3, f);
+                                if (a3 != null) {
+                                    com.baidu.tbadk.imageManager.e.a().c(str, new com.baidu.adp.widget.ImageView.b(a3, b));
+                                }
+                            } catch (Exception e) {
+                                cb.a("", -1006, "addPicMemoryCache error: " + e.toString(), str);
                             }
                         }
                     }
@@ -39,17 +48,9 @@ public class bm {
         }
     }
 
-    public void b(String str, String str2, boolean z, boolean z2, boolean z3) {
-        new bn(this, str2, str2, z3, z3, z3).execute(new String[0]);
-    }
-
-    public Bitmap a(Bitmap bitmap) {
-        return a(bitmap, true);
-    }
-
-    public Bitmap a(Bitmap bitmap, boolean z) {
+    public final Bitmap a(Bitmap bitmap, boolean z) {
         try {
-            com.baidu.tieba.util.a.c a2 = a(bitmap.getWidth(), bitmap.getHeight(), z);
+            com.baidu.tieba.util.a.c a2 = a(bitmap.getWidth(), bitmap.getHeight(), true);
             int i = a2.b;
             int i2 = a2.c;
             if (i != bitmap.getWidth() || i2 != bitmap.getHeight()) {
@@ -70,13 +71,9 @@ public class bm {
         }
     }
 
-    private static void a(String str, com.baidu.adp.widget.ImageView.b bVar) {
-        com.baidu.tbadk.imageManager.e.a().b(str, bVar);
-    }
-
-    public Bitmap a(Bitmap bitmap, boolean z, boolean z2, String str) {
+    public final Bitmap a(Bitmap bitmap, boolean z, boolean z2, String str) {
         Bitmap bitmap2;
-        Bitmap a2 = z2 ? a(bitmap) : bitmap;
+        Bitmap a2 = z2 ? a(bitmap, true) : bitmap;
         if (!z || a2 == null) {
             bitmap2 = a2;
         } else {
@@ -89,18 +86,7 @@ public class bm {
         return bitmap2;
     }
 
-    private void a(String str, Bitmap bitmap, boolean z, boolean z2, boolean z3, String str2) {
-        try {
-            Bitmap a2 = a(bitmap, z, z3, str2);
-            if (a2 != null) {
-                a(str, new com.baidu.adp.widget.ImageView.b(a2, z2));
-            }
-        } catch (Exception e) {
-            cb.a("", -1006, "addPicMemoryCache error: " + e.toString(), str);
-        }
-    }
-
-    public com.baidu.tieba.util.a.c a(int i, int i2, boolean z) {
+    public static com.baidu.tieba.util.a.c a(int i, int i2, boolean z) {
         boolean z2;
         int i3;
         int i4;

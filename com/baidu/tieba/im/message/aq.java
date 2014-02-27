@@ -3,7 +3,7 @@ package com.baidu.tieba.im.message;
 import com.google.protobuf.MessageLite;
 import protobuf.QueryHotGroups.QueryHotGroupsReq;
 /* loaded from: classes.dex */
-public class aq extends s implements com.baidu.tieba.im.coder.g {
+public final class aq extends s implements com.baidu.tieba.im.coder.g {
     private int a;
     private int b;
     private int c;
@@ -17,28 +17,12 @@ public class aq extends s implements com.baidu.tieba.im.coder.g {
         this.d = i4;
     }
 
-    public int b() {
-        return this.c;
-    }
-
-    public int c() {
-        return this.a;
-    }
-
-    public int d() {
-        return this.b;
-    }
-
-    public int e() {
-        return this.d;
-    }
-
-    public boolean f() {
+    public final boolean b() {
         return this.d == 0;
     }
 
     @Override // com.baidu.tieba.im.coder.g
-    public MessageLite a() {
-        return QueryHotGroupsReq.QueryHotGroupsReqIdl.newBuilder().a(QueryHotGroupsReq.DataReq.newBuilder().c(d()).a(e()).b(b()).d(c()).build()).build();
+    public final MessageLite a() {
+        return QueryHotGroupsReq.QueryHotGroupsReqIdl.newBuilder().a(QueryHotGroupsReq.DataReq.newBuilder().c(this.b).a(this.d).b(this.c).d(this.a).build()).build();
     }
 }

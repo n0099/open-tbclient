@@ -1,9 +1,8 @@
 package com.baidu.tieba.im.coder;
 
 import android.util.SparseArray;
-import com.baidu.tieba.im.h;
 import com.baidu.tieba.im.message.s;
-import com.baidu.tieba.im.util.n;
+import com.baidu.tieba.im.util.m;
 import com.baidu.tieba.util.am;
 import com.baidu.tieba.util.r;
 import com.google.protobuf.MessageLite;
@@ -35,7 +34,7 @@ public class c {
         this.b = new SparseArray<>();
     }
 
-    public byte[] a(s sVar, int i, boolean z) {
+    public final byte[] a(s sVar, int i, boolean z) {
         MessageLite messageLite = null;
         try {
             if (sVar instanceof g) {
@@ -47,29 +46,29 @@ public class c {
             }
             boolean b = e.a().b(sVar.w());
             if (byteArray != null && b) {
-                byteArray = n.a(e.a().c(), byteArray);
+                byteArray = m.a(e.a().c(), byteArray);
             }
             return b.a(b, z, sVar.w(), i, byteArray);
         } catch (Exception e) {
-            throw new CoderException(h.l);
+            throw new CoderException(com.baidu.tieba.im.g.l);
         }
     }
 
-    public d a(d dVar) {
+    public final d a(d dVar) {
         if (dVar == null || dVar.a == null || dVar.b == null) {
-            throw new CoderException(h.b);
+            throw new CoderException(com.baidu.tieba.im.g.b);
         }
         b bVar = dVar.a;
         if (bVar.d()) {
             if (e.a().c() == null) {
-                throw new CoderException(h.i);
+                throw new CoderException(com.baidu.tieba.im.g.i);
             }
             try {
-                dVar.b = n.a(e.a().c(), dVar.b, dVar.c, dVar.d);
+                dVar.b = m.a(e.a().c(), dVar.b, dVar.c, dVar.d);
                 dVar.c = 0;
                 dVar.d = dVar.b.length;
             } catch (Exception e) {
-                throw new CoderException(h.k);
+                throw new CoderException(com.baidu.tieba.im.g.k);
             }
         }
         if (bVar.b()) {
@@ -78,48 +77,48 @@ public class c {
                 dVar.c = 0;
                 dVar.d = dVar.b.length;
             } catch (Exception e2) {
-                throw new CoderException(h.h);
+                throw new CoderException(com.baidu.tieba.im.g.h);
             }
         }
         return dVar;
     }
 
-    public d a(byte[] bArr) {
-        int a2 = b.a();
-        if (bArr == null || bArr.length < a2) {
-            throw new CoderException(h.b);
+    public static d a(byte[] bArr) {
+        b.a();
+        if (bArr == null || bArr.length < 9) {
+            throw new CoderException(com.baidu.tieba.im.g.b);
         }
-        b a3 = b.a(bArr);
-        if (a3 == null) {
-            throw new CoderException(h.b);
+        b a2 = b.a(bArr);
+        if (a2 == null) {
+            throw new CoderException(com.baidu.tieba.im.g.b);
         }
         d dVar = new d();
-        dVar.a = a3;
+        dVar.a = a2;
         dVar.b = bArr;
-        dVar.c = a2;
-        dVar.d = bArr.length - a2;
+        dVar.c = 9;
+        dVar.d = bArr.length - 9;
         return dVar;
     }
 
-    public List<s> a(int i, byte[] bArr, int i2, int i3) {
+    public final List<s> a(int i, byte[] bArr, int i2, int i3) {
         Class<?> cls = this.b.get(i);
         if (cls == null) {
-            throw new CoderException(h.c);
+            throw new CoderException(com.baidu.tieba.im.g.c);
         }
         if (i2 != 0 || i3 != bArr.length) {
             bArr = ByteBuffer.wrap(bArr, i2, i3).array();
         }
         try {
             LinkedList<s> linkedList = new LinkedList<>();
-            com.baidu.adp.lib.util.f.e("decode cmd:" + i);
+            com.baidu.adp.lib.util.e.e("decode cmd:" + i);
             ((f) cls.newInstance()).a(linkedList, bArr, i);
             return linkedList;
         } catch (Exception e) {
-            throw new CoderException(h.e);
+            throw new CoderException(com.baidu.tieba.im.g.e);
         }
     }
 
-    protected byte[] a(byte[] bArr, int i, int i2) {
+    private static byte[] a(byte[] bArr, int i, int i2) {
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try {
@@ -132,8 +131,8 @@ public class c {
         }
     }
 
-    protected byte[] b(byte[] bArr, int i, int i2) {
-        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
+    private static byte[] b(byte[] bArr, int i, int i2) {
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, 0, i2);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try {
             am.a(byteArrayInputStream, byteArrayOutputStream);
@@ -145,7 +144,7 @@ public class c {
         }
     }
 
-    public void a(int i, Class<?> cls) {
+    public final void a(int i, Class<?> cls) {
         if (cls != null) {
             this.b.put(i, cls);
         }

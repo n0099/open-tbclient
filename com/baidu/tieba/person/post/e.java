@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 /* loaded from: classes.dex */
-public class e extends FragmentPagerAdapter {
+public final class e extends FragmentPagerAdapter {
     w a;
     q b;
 
@@ -12,8 +12,8 @@ public class e extends FragmentPagerAdapter {
         super(personPostActivity.getSupportFragmentManager());
         Bundle bundle = new Bundle();
         bundle.putString("key_uid", personPostActivity.e());
-        bundle.putString("key_portrait_url", personPostActivity.g());
-        bundle.putString("key_empty_view_text", personPostActivity.h());
+        bundle.putString("key_portrait_url", personPostActivity.f());
+        bundle.putString("key_empty_view_text", personPostActivity.g());
         this.b = new q();
         this.b.setArguments(bundle);
         this.a = new w();
@@ -21,7 +21,7 @@ public class e extends FragmentPagerAdapter {
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
-    public Fragment getItem(int i) {
+    public final Fragment getItem(int i) {
         switch (i) {
             case 0:
                 return this.a;
@@ -33,10 +33,10 @@ public class e extends FragmentPagerAdapter {
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public int getCount() {
+    public final int getCount() {
         return 2;
     }
 
-    public void a(int i) {
+    public static void a() {
     }
 }

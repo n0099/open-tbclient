@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.gson.GsonBuilder;
 import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
-public class v extends com.baidu.adp.a.d {
+public final class v extends com.baidu.adp.a.d {
     private boolean a;
     private int b;
     private String c;
@@ -29,59 +29,59 @@ public class v extends com.baidu.adp.a.d {
         this.l = c.getResources().getDisplayMetrics().density;
     }
 
-    public FacePackageDetailData a() {
+    public final FacePackageDetailData a() {
         return this.h;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.e = str;
     }
 
-    public String b() {
+    public final String b() {
         return this.e;
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.a = z;
     }
 
-    public boolean c() {
+    public final boolean c() {
         return this.a;
     }
 
-    public int d() {
+    public final int d() {
         return this.b;
     }
 
-    public void b(String str) {
+    public final void b(String str) {
         this.d = str;
     }
 
-    public String e() {
+    public final String e() {
         return this.d;
     }
 
-    public void c(String str) {
+    public final void c(String str) {
         this.c = str;
     }
 
-    public void d(String str) {
+    public final void d(String str) {
         this.f = str;
     }
 
-    public String f() {
+    public final String f() {
         return this.f;
     }
 
-    public void g() {
+    public final void g() {
         if (this.i == null) {
-            this.i = new w(this, null);
+            this.i = new w(this, (byte) 0);
             this.i.setPriority(3);
             this.i.execute(new Object[0]);
         }
     }
 
-    public void a(FacePackageData facePackageData) {
+    public final void a(FacePackageData facePackageData) {
         if (facePackageData != null) {
             int i = facePackageData.buyStatus;
             int i2 = facePackageData.canDownload;
@@ -108,12 +108,12 @@ public class v extends com.baidu.adp.a.d {
     }
 
     @Override // com.baidu.adp.a.d
-    protected boolean LoadData() {
+    protected final boolean LoadData() {
         return false;
     }
 
     @Override // com.baidu.adp.a.d
-    public boolean cancelLoadData() {
+    public final boolean cancelLoadData() {
         if (this.i != null) {
             this.i.cancel();
             return true;
@@ -121,7 +121,7 @@ public class v extends com.baidu.adp.a.d {
         return true;
     }
 
-    public void a(com.baidu.tieba.i iVar) {
+    public final void a(com.baidu.tieba.i iVar) {
         this.m = iVar;
     }
 }

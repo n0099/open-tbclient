@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class bh extends PagerAdapter {
+public final class bh extends PagerAdapter {
     private Context a;
     private ArrayList<String> b;
     private aa f;
@@ -32,30 +32,30 @@ public class bh extends PagerAdapter {
         this.b = null;
         this.f = null;
         this.a = context;
-        this.b = arrayList;
+        this.b = null;
         this.f = aaVar;
     }
 
-    public void a(ArrayList<String> arrayList) {
+    public final void a(ArrayList<String> arrayList) {
         this.b = arrayList;
         notifyDataSetChanged();
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.i = str;
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.h = z;
         notifyDataSetChanged();
     }
 
-    public boolean a() {
+    public final boolean a() {
         return this.h;
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public int getCount() {
+    public final int getCount() {
         int i = 0;
         if (this.b != null) {
             i = this.b.size();
@@ -66,42 +66,42 @@ public class bh extends PagerAdapter {
         return i + this.j;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.j = i;
         notifyDataSetChanged();
     }
 
-    public void a(View.OnClickListener onClickListener) {
+    public final void a(View.OnClickListener onClickListener) {
         this.c = onClickListener;
     }
 
-    public void a(View.OnLongClickListener onLongClickListener) {
+    public final void a(View.OnLongClickListener onLongClickListener) {
         this.d = onLongClickListener;
     }
 
-    public void b(int i) {
+    public final void b(int i) {
         this.g = i;
     }
 
-    public void a(ab abVar) {
+    public final void a(ab abVar) {
         this.e = abVar;
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public boolean isViewFromObject(View view, Object obj) {
+    public final boolean isViewFromObject(View view, Object obj) {
         return view.equals(obj);
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+    public final void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         ((ViewPager) viewGroup).removeView((View) obj);
-        if (obj instanceof cx) {
-            ((cx) obj).c();
+        if (obj instanceof cw) {
+            ((cw) obj).a();
         }
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public Object instantiateItem(ViewGroup viewGroup, int i) {
+    public final Object instantiateItem(ViewGroup viewGroup, int i) {
         if (i == this.b.size()) {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.big_image_next, (ViewGroup) null);
             ((TextView) inflate.findViewById(R.id.thread_name)).setText(this.i);
@@ -110,28 +110,28 @@ public class bh extends PagerAdapter {
             inflate.setOnLongClickListener(this.d);
             return inflate;
         }
-        cx cxVar = new cx(this.a);
+        cw cwVar = new cw(this.a);
         String str = i < this.b.size() ? this.b.get(i) : null;
-        cxVar.setLayoutParams(new Gallery.LayoutParams(-1, -1));
-        cxVar.setImageOnClickListener(this.c);
-        cxVar.setImageOnLongClickListener(this.d);
-        cxVar.setIsCdn(this.k);
-        cxVar.setOnSizeChangedListener(this.e);
-        ((ViewPager) viewGroup).addView(cxVar, 0);
-        cxVar.a(str, this.l);
-        cxVar.setGifMaxUseableMem(this.g);
-        cxVar.setTag(String.valueOf(i));
-        cxVar.setGifSetListener(this.f);
-        cxVar.setHeadImage(this.m);
-        return cxVar;
+        cwVar.setLayoutParams(new Gallery.LayoutParams(-1, -1));
+        cwVar.setImageOnClickListener(this.c);
+        cwVar.setImageOnLongClickListener(this.d);
+        cwVar.setIsCdn(this.k);
+        cwVar.setOnSizeChangedListener(this.e);
+        ((ViewPager) viewGroup).addView(cwVar, 0);
+        cwVar.a(str, this.l);
+        cwVar.setGifMaxUseableMem(this.g);
+        cwVar.setTag(String.valueOf(i));
+        cwVar.setGifSetListener(this.f);
+        cwVar.setHeadImage(this.m);
+        return cwVar;
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
+    public final void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         super.setPrimaryItem(viewGroup, i, obj);
-        if (obj instanceof cx) {
+        if (obj instanceof cw) {
             av avVar = (av) viewGroup;
-            w imageView = ((cx) obj).getImageView();
+            w imageView = ((cw) obj).getImageView();
             if (avVar.getSelectedView() == null) {
                 avVar.setSelectedView(imageView);
                 ViewParent parent = avVar.getParent();
@@ -142,26 +142,26 @@ public class bh extends PagerAdapter {
             w currentView = avVar.getCurrentView();
             if (imageView != currentView) {
                 if (currentView != null) {
-                    currentView.o();
+                    currentView.n();
                 }
-                ((cx) obj).a(this.l);
+                ((cw) obj).a(this.l);
                 avVar.setCurrentView(imageView);
-                if (((cx) obj).getImageType() == 1) {
+                if (((cw) obj).getImageType() == 1) {
                     this.f.a(imageView);
                 }
             }
         }
     }
 
-    public void b(boolean z) {
+    public final void b(boolean z) {
         this.l = z;
     }
 
-    public void c(boolean z) {
+    public final void c(boolean z) {
         this.k = z;
     }
 
-    public void d(boolean z) {
+    public final void d(boolean z) {
         this.m = z;
     }
 }

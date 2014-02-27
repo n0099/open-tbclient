@@ -26,7 +26,7 @@ public final class CertVerifier {
     private CertVerifier() {
     }
 
-    public void verify(Context context, ResultListener resultListener) {
+    public final void verify(Context context, ResultListener resultListener) {
         N.a(context, resultListener);
     }
 }

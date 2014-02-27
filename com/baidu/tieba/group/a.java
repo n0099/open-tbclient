@@ -11,7 +11,6 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.ai;
 import com.baidu.tieba.barcode.CaptureActivity;
-import com.baidu.tieba.im.chat.be;
 import com.baidu.tieba.im.creategroup.CreateGroupStepActivity;
 import com.baidu.tieba.im.data.GroupPermData;
 import com.baidu.tieba.im.data.RandChatRoomData;
@@ -30,20 +29,17 @@ import com.baidu.tieba.k;
 import com.baidu.tieba.util.cb;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class a extends j implements com.baidu.tieba.im.a.d, com.baidu.tieba.im.messageCenter.g {
+public final class a extends j implements com.baidu.tieba.im.a.d, com.baidu.tieba.im.messageCenter.g {
     private g b;
     private com.baidu.tieba.im.a.a c;
     private com.baidu.tieba.im.model.c d;
     private k e;
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onActivityCreated(Bundle bundle) {
+    public final void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        e();
-        d();
-    }
-
-    private void d() {
+        this.e = (k) getActivity();
+        this.b = new g(this.e, this);
         this.c = new com.baidu.tieba.im.a.a();
         this.c.c();
         this.c.a(this);
@@ -51,31 +47,26 @@ public class a extends j implements com.baidu.tieba.im.a.d, com.baidu.tieba.im.m
         this.d = new com.baidu.tieba.im.model.c();
     }
 
-    private void e() {
-        this.e = (k) getActivity();
-        this.b = new g(this.e, this);
-    }
-
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+    public final View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         return layoutInflater.inflate(R.layout.group_activity, (ViewGroup) null);
     }
 
     @Override // com.baidu.tieba.j
-    public void c(int i) {
+    public final void c(int i) {
         super.c(i);
         ((k) getActivity()).a().a(i == 1);
         this.b.a(i);
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onPause() {
+    public final void onPause() {
         super.onPause();
-        com.baidu.tieba.im.messageCenter.e.a().a(this);
+        com.baidu.tieba.im.messageCenter.d.a().a(this);
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onDestroy() {
+    public final void onDestroy() {
         super.onDestroy();
         if (this.c != null) {
             this.c.d();
@@ -84,30 +75,31 @@ public class a extends j implements com.baidu.tieba.im.a.d, com.baidu.tieba.im.m
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onResume() {
+    public final void onResume() {
         super.onResume();
         if (com.baidu.tieba.im.a.a.a) {
             this.b.b();
         }
-        com.baidu.tieba.im.messageCenter.e.a().a(this);
-        com.baidu.tieba.im.messageCenter.e.a().a(103008, this);
-        this.d.a(this);
+        com.baidu.tieba.im.messageCenter.d.a().a(this);
+        com.baidu.tieba.im.messageCenter.d.a().a(103008, this);
+        com.baidu.tieba.im.model.c cVar = this.d;
+        com.baidu.tieba.im.model.c.a(this);
     }
 
-    private void f() {
+    private void b() {
         this.d.a(this.d.a());
     }
 
     @Override // com.baidu.tieba.j, android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         if (view == this.b.a) {
-            if (!TiebaApplication.B()) {
+            if (!TiebaApplication.w()) {
                 LoginActivity.a((Activity) getActivity(), "", true, 1);
                 return;
             }
             bl blVar = new bl();
             blVar.a(0L);
-            com.baidu.tieba.im.messageCenter.e.a().a(blVar);
+            com.baidu.tieba.im.messageCenter.d.a().a(blVar);
         } else if (view.getTag() != null) {
             switch (((Integer) view.getTag()).intValue()) {
                 case 1:
@@ -120,7 +112,7 @@ public class a extends j implements com.baidu.tieba.im.a.d, com.baidu.tieba.im.m
                     HotGroupActivity.a(getActivity());
                     return;
                 case 3:
-                    if (TextUtils.isEmpty(TiebaApplication.A())) {
+                    if (TextUtils.isEmpty(TiebaApplication.v())) {
                         LoginActivity.a((Activity) getActivity(), "", true, 1);
                         return;
                     }
@@ -137,15 +129,15 @@ public class a extends j implements com.baidu.tieba.im.a.d, com.baidu.tieba.im.m
                     return;
                 case 6:
                     ai.a(this.e, "rand_chat_enter_button");
-                    if (!TiebaApplication.B()) {
+                    if (!TiebaApplication.w()) {
                         LoginActivity.a((Activity) getActivity(), "", true, 2);
                         return;
-                    } else if (g() > 0) {
-                        a(getString(R.string.group_tab_enterchatroom_freeze, new StringBuilder(String.valueOf(g())).toString()));
+                    } else if (c() > 0) {
+                        a(getString(R.string.group_tab_enterchatroom_freeze, new StringBuilder(String.valueOf(c())).toString()));
                         return;
                     } else {
                         this.e.a(this.e.getString(R.string.group_tab_enterchatroom_loading), new c(this));
-                        f();
+                        b();
                         return;
                     }
                 default:
@@ -155,31 +147,27 @@ public class a extends j implements com.baidu.tieba.im.a.d, com.baidu.tieba.im.m
     }
 
     @Override // com.baidu.tieba.im.a.d
-    public void a() {
-    }
-
-    @Override // com.baidu.tieba.im.a.d
-    public void b(String str) {
+    public final void b(String str) {
         a(str);
     }
 
     @Override // com.baidu.tieba.im.a.d
-    public void c() {
+    public final void a() {
         if (this.b != null) {
             this.b.a();
         }
     }
 
     @Override // com.baidu.tieba.im.a.d
-    public void a(int i, int i2, String str, String str2) {
+    public final void a(int i, String str, String str2) {
         if (this.b != null) {
-            this.b.b(i2);
+            this.b.b(i);
             this.b.a(str, str2);
         }
     }
 
     @Override // android.support.v4.app.Fragment
-    public void onActivityResult(int i, int i2, Intent intent) {
+    public final void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         switch (i) {
             case 1:
@@ -190,12 +178,12 @@ public class a extends j implements com.baidu.tieba.im.a.d, com.baidu.tieba.im.m
                 return;
             case 2:
                 if (i2 == -1) {
-                    if (g() > 0) {
-                        a(getString(R.string.group_tab_enterchatroom_freeze, new StringBuilder(String.valueOf(g())).toString()));
+                    if (c() > 0) {
+                        a(getString(R.string.group_tab_enterchatroom_freeze, new StringBuilder(String.valueOf(c())).toString()));
                         return;
                     }
                     this.e.a(this.e.getString(R.string.group_tab_enterchatroom_loading), new d(this));
-                    f();
+                    b();
                     return;
                 }
                 return;
@@ -204,7 +192,7 @@ public class a extends j implements com.baidu.tieba.im.a.d, com.baidu.tieba.im.m
         }
     }
 
-    private int g() {
+    private static int c() {
         String[] split;
         String a = com.baidu.tieba.sharedPref.b.a().a("chat_room_cool_down", "");
         if (TextUtils.isEmpty(a) || (split = a.split("_")) == null || split.length != 2) {
@@ -212,8 +200,8 @@ public class a extends j implements com.baidu.tieba.im.a.d, com.baidu.tieba.im.m
         }
         String str = split[0];
         String str2 = split[1];
-        String A = TiebaApplication.A();
-        if (TextUtils.isEmpty(A) || !A.equals(str)) {
+        String v = TiebaApplication.v();
+        if (TextUtils.isEmpty(v) || !v.equals(str)) {
             return 0;
         }
         long a2 = com.baidu.adp.lib.f.b.a(str2, 0L) - System.currentTimeMillis();
@@ -228,7 +216,7 @@ public class a extends j implements com.baidu.tieba.im.a.d, com.baidu.tieba.im.m
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(s sVar) {
+    public final void a(s sVar) {
         if (sVar.w() == 103008) {
             if (sVar instanceof cz) {
                 try {
@@ -270,7 +258,7 @@ public class a extends j implements com.baidu.tieba.im.a.d, com.baidu.tieba.im.m
             if (a2 != null && a2.e() > 0) {
                 ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
                 imMessageCenterPojo.setGid(String.valueOf(a2.d()));
-                imMessageCenterPojo.setPulled_msgId(be.b(a2.k()));
+                imMessageCenterPojo.setPulled_msgId(a2.k() * 100);
                 imMessageCenterPojo.setGroup_type(7);
                 imMessageCenterPojo.setGroup_name("聊天室");
                 imMessageCenterPojo.setIs_delete(0);

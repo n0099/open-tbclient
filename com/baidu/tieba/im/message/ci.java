@@ -6,7 +6,7 @@ import protobuf.GetPeerInfo.GetPeerInfoRes;
 public class ci extends da implements com.baidu.tieba.im.coder.f {
     private int a = 1;
 
-    public boolean a() {
+    public final boolean a() {
         return this.a != 0;
     }
 
@@ -15,7 +15,7 @@ public class ci extends da implements com.baidu.tieba.im.coder.f {
     }
 
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<s> linkedList, byte[] bArr, int i) {
+    public final void a(LinkedList<s> linkedList, byte[] bArr, int i) {
         GetPeerInfoRes.GetPeerInfoResIdl parseFrom = GetPeerInfoRes.GetPeerInfoResIdl.parseFrom(bArr);
         g(parseFrom.getError().getErrorno());
         c(parseFrom.getError().getUsermsg());

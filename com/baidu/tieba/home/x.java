@@ -5,54 +5,35 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x extends BdAsyncTask<Object, Integer, u> {
+public final class x extends BdAsyncTask<Object, Integer, u> {
     final /* synthetic */ w a;
     private z b = null;
 
-    public x(w wVar) {
-        this.a = wVar;
-        setPriority(3);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public u a(Object... objArr) {
+    public final /* synthetic */ u a(Object... objArr) {
         u uVar;
+        u uVar2 = null;
         this.b = new z();
         if (UtilHelper.h(TiebaApplication.g().b().getApplicationContext()) != UtilHelper.NetworkStateInfo.UNAVAIL) {
-            this.a.b = e();
+            w wVar = this.a;
+            String a = this.b.a();
+            if (this.b.c()) {
+                uVar2 = new u();
+                uVar2.a(a);
+            }
+            wVar.b = uVar2;
             uVar = this.a.b;
             return uVar;
         }
         return null;
     }
 
-    private u e() {
-        String a = this.b.a();
-        if (this.b.c()) {
-            u uVar = new u();
-            uVar.a(a);
-            return uVar;
-        }
-        return null;
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        super.cancel();
-        if (this.b != null) {
-            this.b.b();
-        }
-        this.b = null;
-        this.a.a = null;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(u uVar) {
+    public final /* synthetic */ void a(u uVar) {
         y yVar;
         u uVar2;
         y yVar2;
@@ -72,5 +53,20 @@ public class x extends BdAsyncTask<Object, Integer, u> {
             yVar2 = this.a.c;
             yVar2.a(d);
         }
+    }
+
+    public x(w wVar) {
+        this.a = wVar;
+        setPriority(3);
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final void cancel() {
+        super.cancel();
+        if (this.b != null) {
+            this.b.b();
+        }
+        this.b = null;
+        this.a.a = null;
     }
 }

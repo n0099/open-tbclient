@@ -61,7 +61,7 @@ public class VersionData implements Serializable {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
+            com.baidu.adp.lib.util.e.b(getClass().getName(), "parserJson", e.getMessage());
         }
     }
 
@@ -82,16 +82,16 @@ public class VersionData implements Serializable {
                     this.new_file = "tieba_" + this.new_ver + ".apk";
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }
 
     public void logPrint() {
-        com.baidu.adp.lib.util.f.d("VersionData", "logPrint", "force_update = " + String.valueOf(this.force_update));
-        com.baidu.adp.lib.util.f.d("VersionData", "logPrint", "new_ver = " + this.new_ver);
-        com.baidu.adp.lib.util.f.d("VersionData", "logPrint", "has_new_ver = " + String.valueOf(this.has_new_ver));
-        com.baidu.adp.lib.util.f.d("VersionData", "logPrint", "url = " + this.url);
+        com.baidu.adp.lib.util.e.d("VersionData", "logPrint", "force_update = " + String.valueOf(this.force_update));
+        com.baidu.adp.lib.util.e.d("VersionData", "logPrint", "new_ver = " + this.new_ver);
+        com.baidu.adp.lib.util.e.d("VersionData", "logPrint", "has_new_ver = " + String.valueOf(this.has_new_ver));
+        com.baidu.adp.lib.util.e.d("VersionData", "logPrint", "url = " + this.url);
     }
 
     public void setClient_id(String str) {

@@ -56,15 +56,12 @@ public final class a {
         u = null;
         v = null;
         File file = new File(Environment.getExternalStorageDirectory(), "sysmonitor.cfg");
-        if (file.exists()) {
-            Properties properties = new Properties();
-            try {
-                fileInputStream = new FileInputStream(file);
-            } catch (Exception e2) {
-                fileInputStream = null;
-            } catch (Throwable th) {
-                th = th;
-            }
+        if (!file.exists()) {
+            return;
+        }
+        Properties properties = new Properties();
+        try {
+            fileInputStream = new FileInputStream(file);
             try {
                 properties.load(fileInputStream);
                 if (properties.getProperty("uefilesize") != null) {
@@ -133,30 +130,32 @@ public final class a {
                 if (properties.getProperty("moplus_enable") != null) {
                     r = Integer.valueOf(properties.getProperty("moplus_enable")).intValue();
                 }
+                try {
+                    fileInputStream.close();
+                } catch (IOException e2) {
+                }
+            } catch (Exception e3) {
                 if (fileInputStream != null) {
                     try {
                         fileInputStream.close();
-                    } catch (IOException e3) {
+                    } catch (IOException e4) {
                     }
                 }
-            } catch (Exception e4) {
-                if (fileInputStream != null) {
-                    try {
-                        fileInputStream.close();
-                    } catch (IOException e5) {
-                    }
-                }
-            } catch (Throwable th2) {
+            } catch (Throwable th) {
                 fileInputStream2 = fileInputStream;
-                th = th2;
+                th = th;
                 if (fileInputStream2 != null) {
                     try {
                         fileInputStream2.close();
-                    } catch (IOException e6) {
+                    } catch (IOException e5) {
                     }
                 }
                 throw th;
             }
+        } catch (Exception e6) {
+            fileInputStream = null;
+        } catch (Throwable th2) {
+            th = th2;
         }
     }
 

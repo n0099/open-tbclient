@@ -1,17 +1,16 @@
 package com.baidu.adp.lib.f;
 
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import com.baidu.adp.lib.util.f;
+import com.baidu.adp.lib.util.e;
 import java.io.Closeable;
 /* loaded from: classes.dex */
-public class a {
+public final class a {
     public static void a(Closeable closeable) {
         if (closeable != null) {
             try {
                 closeable.close();
             } catch (Throwable th) {
-                f.b("adp_util_close", "error on close the Closeable.", th.getMessage());
+                e.b("adp_util_close", "error on close the Closeable.", th.getMessage());
             }
         }
     }
@@ -21,17 +20,7 @@ public class a {
             try {
                 cursor.close();
             } catch (Exception e) {
-                f.b("adp_util_close", "error on close android.database.Cursor.", e.getMessage());
-            }
-        }
-    }
-
-    public static void a(SQLiteDatabase sQLiteDatabase) {
-        if (sQLiteDatabase != null) {
-            try {
-                sQLiteDatabase.close();
-            } catch (Exception e) {
-                f.b("adp_util_close", "error on close android.database.SQLiteDatabase.", e.getMessage());
+                e.b("adp_util_close", "error on close android.database.Cursor.", e.getMessage());
             }
         }
     }

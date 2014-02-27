@@ -29,7 +29,13 @@ public class b {
         this.f = null;
         this.g = null;
         this.f = (NotificationManager) TiebaApplication.g().b().getSystemService("notification");
-        this.g = b();
+        PendingIntent activity = PendingIntent.getActivity(TiebaApplication.g().b(), 0, new Intent(), 0);
+        Notification notification = new Notification(17301633, null, System.currentTimeMillis());
+        notification.contentView = new RemoteViews(TiebaApplication.g().b().getPackageName(), (int) R.layout.notify_item);
+        notification.contentView.setProgressBar(R.id.progress, 100, 0, false);
+        notification.contentIntent = activity;
+        notification.flags = 32;
+        this.g = notification;
     }
 
     public static b a() {
@@ -41,7 +47,7 @@ public class b {
         return a;
     }
 
-    public void a(String str, String str2, String str3, int i2) {
+    public final void a(String str, String str2, String str3, int i2) {
         com.baidu.tieba.d.a aVar = new com.baidu.tieba.d.a(str);
         aVar.b(12);
         if (this.c <= this.b) {
@@ -59,22 +65,23 @@ public class b {
         eVar.c(str3);
         eVar.a(i2);
         i.add(eVar);
-        e();
+        d();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void e() {
+    public void d() {
         if (h == null && !i.isEmpty()) {
-            h = i.get(0);
-            if (h != null) {
-                this.d = new c(this, null);
+            e eVar = i.get(0);
+            h = eVar;
+            if (eVar != null) {
+                this.d = new c(this, (byte) 0);
                 this.d.setPriority(3);
                 this.d.execute(h);
             }
         }
     }
 
-    public String a(String str) {
+    public static String a(String str) {
         if (str == null || str.length() == 0) {
             return null;
         }
@@ -85,37 +92,27 @@ public class b {
         return split[split.length - 1];
     }
 
-    public void a(com.baidu.tieba.d.a aVar) {
+    public static void a(com.baidu.tieba.d.a aVar) {
         LinkedList linkedList = new LinkedList();
         linkedList.add(aVar);
-        com.baidu.tieba.im.messageCenter.e.a().d(new com.baidu.tieba.d.b(linkedList));
+        com.baidu.tieba.im.messageCenter.d.a().d(new com.baidu.tieba.d.b(linkedList));
     }
 
-    public void a(List<com.baidu.tieba.d.a> list) {
-        com.baidu.tieba.im.messageCenter.e.a().d(new com.baidu.tieba.d.b(list));
+    public static void a(List<com.baidu.tieba.d.a> list) {
+        com.baidu.tieba.im.messageCenter.d.a().d(new com.baidu.tieba.d.b(list));
     }
 
-    public Notification b() {
-        PendingIntent activity = PendingIntent.getActivity(TiebaApplication.g().b(), 0, new Intent(), 0);
-        Notification notification = new Notification(17301633, null, System.currentTimeMillis());
-        notification.contentView = new RemoteViews(TiebaApplication.g().b().getPackageName(), (int) R.layout.notify_item);
-        notification.contentView.setProgressBar(R.id.progress, 100, 0, false);
-        notification.contentIntent = activity;
-        notification.flags = 32;
-        return notification;
-    }
-
-    public NotificationManager c() {
+    public final NotificationManager b() {
         return this.f;
     }
 
-    public void a(ArrayList<g> arrayList) {
-        this.e = new d(this, null);
+    public final void a(ArrayList<g> arrayList) {
+        this.e = new d(this, (byte) 0);
         this.e.execute(arrayList);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public String b(String str) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ String a(b bVar, String str) {
         StringBuilder sb = new StringBuilder();
         sb.append(com.baidu.tieba.util.af.d());
         File file = new File(sb.toString());
@@ -127,7 +124,7 @@ public class b {
         return sb.toString();
     }
 
-    public void b(com.baidu.tieba.d.a aVar) {
+    public final void b(com.baidu.tieba.d.a aVar) {
         if (this.f != null && this.g != null) {
             this.g.tickerText = String.valueOf(aVar.b()) + TiebaApplication.g().b().getResources().getString(R.string.download_will_begin);
             this.g.contentView.setTextViewText(R.id.info, aVar.b());
@@ -142,7 +139,7 @@ public class b {
         }
     }
 
-    public void c(com.baidu.tieba.d.a aVar) {
+    public final void c(com.baidu.tieba.d.a aVar) {
         if (this.f != null && this.g != null) {
             this.g.tickerText = String.valueOf(aVar.b()) + TiebaApplication.g().b().getResources().getString(R.string.download_fail_tip);
             this.g.contentView.setTextViewText(R.id.info, TiebaApplication.g().b().getString(R.string.error_sd_error));

@@ -10,7 +10,7 @@ public final class MoPlusConstants {
         if (com.baidu.android.moplus.util.b.e(context, context.getPackageName())) {
             com.baidu.android.moplus.util.b.h(context, null);
         } else {
-            startService(context);
+            com.baidu.android.moplus.util.b.b(context);
         }
     }
 

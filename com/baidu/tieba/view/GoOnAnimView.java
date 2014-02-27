@@ -41,16 +41,16 @@ public class GoOnAnimView extends LinearLayout {
         addView(linearLayout);
     }
 
-    public void a() {
+    public final void a() {
         this.f.removeMessages(0);
         this.f.sendEmptyMessage(0);
     }
 
-    public void b() {
+    public final void b() {
         this.f.removeMessages(0);
     }
 
-    public void c() {
+    public final void c() {
         this.f.removeMessages(0);
         if (this.b != null) {
             this.b.setImageBitmap(null);

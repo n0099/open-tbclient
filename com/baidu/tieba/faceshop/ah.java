@@ -2,7 +2,7 @@ package com.baidu.tieba.faceshop;
 
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class ah extends com.baidu.adp.a.g {
+final class ah extends com.baidu.adp.a.g {
     final /* synthetic */ FacePurchaseRecordsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +11,7 @@ class ah extends com.baidu.adp.a.g {
     }
 
     @Override // com.baidu.adp.a.g
-    public void a(Object obj) {
+    public final void a(Object obj) {
         ao aoVar;
         ao aoVar2;
         ao aoVar3;

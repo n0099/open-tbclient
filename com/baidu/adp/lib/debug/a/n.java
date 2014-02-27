@@ -1,7 +1,7 @@
 package com.baidu.adp.lib.debug.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n implements com.baidu.adp.lib.debug.a {
+public final class n implements com.baidu.adp.lib.debug.a {
     final /* synthetic */ m a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,7 +10,7 @@ public class n implements com.baidu.adp.lib.debug.a {
     }
 
     @Override // com.baidu.adp.lib.debug.a
-    public void a(String str) {
+    public final void a(String str) {
         String[] strArr;
         String[] strArr2;
         String[] strArr3;

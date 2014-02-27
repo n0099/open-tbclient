@@ -151,7 +151,7 @@ public class ai extends ag {
         try {
             String[] split = this.mContext.getPackageManager().getPackageInfo(MobileQQ.PACKAGE_NAME, 0).versionName.split("\\.");
             int parseInt = Integer.parseInt(split[0]);
-            return parseInt > 4 || (parseInt == 4 && Integer.parseInt(split[1]) >= 1);
+            return parseInt > 4 || (parseInt == 4 && Integer.parseInt(split[1]) > 0);
         } catch (PackageManager.NameNotFoundException e) {
             return false;
         }

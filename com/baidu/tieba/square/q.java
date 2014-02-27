@@ -10,7 +10,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.ch;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class q extends BaseAdapter {
+public final class q extends BaseAdapter {
     View.OnClickListener a = new r(this);
     private Activity b;
     private final t c;
@@ -24,12 +24,12 @@ public class q extends BaseAdapter {
         this.c = tVar;
     }
 
-    public t a() {
+    public final t a() {
         return this.c;
     }
 
     @Override // android.widget.Adapter
-    public int getCount() {
+    public final int getCount() {
         ab d = this.c.d();
         if (d == null || d.e == null) {
             return 0;
@@ -38,15 +38,27 @@ public class q extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public final View getView(int i, View view, ViewGroup viewGroup) {
+        View view2;
         int itemViewType = getItemViewType(i);
         if (view == null) {
-            view = a(viewGroup, itemViewType);
-            ch.b(view);
+            LayoutInflater from = LayoutInflater.from(this.b);
+            if (itemViewType == 3) {
+                view2 = from.inflate(R.layout.bar_home_list_line, viewGroup, false);
+            } else {
+                View inflate = from.inflate(R.layout.bar_folder_second_dir_item, viewGroup, false);
+                inflate.setOnClickListener(this.a);
+                s sVar = new s();
+                sVar.a = (TextView) inflate.findViewById(R.id.name);
+                inflate.setTag(sVar);
+                view2 = inflate;
+            }
+            ch.b(view2);
+            view = view2;
         }
         ch.a(view);
         if (itemViewType != 3) {
-            int al = TiebaApplication.g().al();
+            int ae = TiebaApplication.g().ae();
             View findViewById = view.findViewById(R.id.container);
             View findViewById2 = view.findViewById(R.id.item_up);
             View findViewById3 = view.findViewById(R.id.item_down);
@@ -60,48 +72,32 @@ public class q extends BaseAdapter {
                 findViewById2.setVisibility(8);
                 findViewById3.setVisibility(8);
             }
-            ch.a(findViewById, itemViewType, al);
-            a(viewGroup, (s) view.getTag(), i);
+            ch.a(findViewById, itemViewType, ae);
+            s sVar2 = (s) view.getTag();
+            ab abVar = this.c.d().e.get(i / 2);
+            sVar2.b = abVar;
+            sVar2.a.setText(abVar.b);
         }
         return view;
     }
 
-    private View a(ViewGroup viewGroup, int i) {
-        LayoutInflater from = LayoutInflater.from(this.b);
-        if (i == 3) {
-            return from.inflate(R.layout.bar_home_list_line, viewGroup, false);
-        }
-        View inflate = from.inflate(R.layout.bar_folder_second_dir_item, viewGroup, false);
-        inflate.setOnClickListener(this.a);
-        s sVar = new s();
-        sVar.a = (TextView) inflate.findViewById(R.id.name);
-        inflate.setTag(sVar);
-        return inflate;
-    }
-
-    private void a(ViewGroup viewGroup, s sVar, int i) {
-        ab abVar = this.c.d().e.get(i / 2);
-        sVar.b = abVar;
-        sVar.a.setText(abVar.b);
-    }
-
     @Override // android.widget.Adapter
-    public Object getItem(int i) {
+    public final Object getItem(int i) {
         return null;
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    public final long getItemId(int i) {
         return 0L;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
+    public final int getViewTypeCount() {
         return 4;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
+    public final int getItemViewType(int i) {
         if (i == 0) {
             return 0;
         }
@@ -115,7 +111,7 @@ public class q extends BaseAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Activity b() {
+    public final Activity b() {
         return this.b;
     }
 }

@@ -13,7 +13,7 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import java.util.Date;
 /* loaded from: classes.dex */
-public class ak extends BaseAdapter {
+public final class ak extends BaseAdapter {
     private Context a;
     private FacePurchaseRecordsData b = null;
     private com.baidu.tieba.util.i c;
@@ -24,17 +24,17 @@ public class ak extends BaseAdapter {
         this.c.a(context.getResources().getDimensionPixelSize(R.dimen.faceshop_purchase_cover_width), context.getResources().getDimensionPixelSize(R.dimen.faceshop_purchase_cover_height));
     }
 
-    public void a(FacePurchaseRecordsData facePurchaseRecordsData) {
+    public final void a(FacePurchaseRecordsData facePurchaseRecordsData) {
         this.b = facePurchaseRecordsData;
         notifyDataSetChanged();
     }
 
-    public com.baidu.tieba.util.i a() {
+    public final com.baidu.tieba.util.i a() {
         return this.c;
     }
 
     @Override // android.widget.Adapter
-    public int getCount() {
+    public final int getCount() {
         if (this.b == null || this.b.packList == null) {
             return 0;
         }
@@ -42,7 +42,7 @@ public class ak extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public Object getItem(int i) {
+    public final Object getItem(int i) {
         if (this.b == null || this.b.packList == null) {
             return null;
         }
@@ -54,46 +54,37 @@ public class ak extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    public final long getItemId(int i) {
         return i;
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        int al = TiebaApplication.g().al();
+    public final View getView(int i, View view, ViewGroup viewGroup) {
+        int ae = TiebaApplication.g().ae();
         if (view == null) {
-            view = b();
+            LayoutInflater from = LayoutInflater.from(this.a);
+            al alVar = new al(this, (byte) 0);
+            view = from.inflate(R.layout.face_purchase_record_item, (ViewGroup) null);
+            alVar.a = (TbImageView) view.findViewById(R.id.cover);
+            alVar.b = (TextView) view.findViewById(R.id.title);
+            alVar.c = (TextView) view.findViewById(R.id.time);
+            alVar.d = (TextView) view.findViewById(R.id.price);
+            view.setTag(alVar);
         }
-        al alVar = (al) view.getTag();
+        al alVar2 = (al) view.getTag();
         if (this.a instanceof com.baidu.tieba.f) {
-            ((com.baidu.tieba.f) this.a).getLayoutMode().a(al == 1);
+            ((com.baidu.tieba.f) this.a).getLayoutMode().a(ae == 1);
             ((com.baidu.tieba.f) this.a).getLayoutMode().a(view);
         }
-        a(i, alVar);
-        return view;
-    }
-
-    private View b() {
-        LayoutInflater from = LayoutInflater.from(this.a);
-        al alVar = new al(this, null);
-        View inflate = from.inflate(R.layout.face_purchase_record_item, (ViewGroup) null);
-        alVar.a = (TbImageView) inflate.findViewById(R.id.cover);
-        alVar.b = (TextView) inflate.findViewById(R.id.title);
-        alVar.c = (TextView) inflate.findViewById(R.id.time);
-        alVar.d = (TextView) inflate.findViewById(R.id.price);
-        inflate.setTag(alVar);
-        return inflate;
-    }
-
-    private void a(int i, al alVar) {
         FacePurchasePackageData facePurchasePackageData = (FacePurchasePackageData) getItem(i);
         if (facePurchasePackageData != null) {
-            alVar.a.setTag(facePurchasePackageData.coverUrl);
-            alVar.d.setText(facePurchasePackageData.price);
-            alVar.b.setText(facePurchasePackageData.pname);
+            alVar2.a.setTag(facePurchasePackageData.coverUrl);
+            alVar2.d.setText(facePurchasePackageData.price);
+            alVar2.b.setText(facePurchasePackageData.pname);
             Date date = new Date();
             date.setTime(facePurchasePackageData.puyTime * 1000);
-            alVar.c.setText(bs.c(date));
+            alVar2.c.setText(bs.c(date));
         }
+        return view;
     }
 }

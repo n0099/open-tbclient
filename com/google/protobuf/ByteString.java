@@ -190,7 +190,7 @@ public abstract class ByteString implements Iterable<Byte> {
     }
 
     private static ByteString balancedConcat(Iterator<ByteString> it, int i) {
-        if ($assertionsDisabled || i >= 1) {
+        if ($assertionsDisabled || i > 0) {
             if (i == 1) {
                 return it.next();
             }
@@ -267,7 +267,7 @@ public abstract class ByteString implements Iterable<Byte> {
         }
 
         @Override // java.io.OutputStream
-        public synchronized void write(int i) {
+        public final synchronized void write(int i) {
             if (this.bufferPos == this.buffer.length) {
                 flushFullBuffer(1);
             }
@@ -278,7 +278,7 @@ public abstract class ByteString implements Iterable<Byte> {
         }
 
         @Override // java.io.OutputStream
-        public synchronized void write(byte[] bArr, int i, int i2) {
+        public final synchronized void write(byte[] bArr, int i, int i2) {
             if (i2 <= this.buffer.length - this.bufferPos) {
                 System.arraycopy(bArr, i, this.buffer, this.bufferPos, i2);
                 this.bufferPos += i2;
@@ -293,7 +293,7 @@ public abstract class ByteString implements Iterable<Byte> {
             }
         }
 
-        public synchronized ByteString toByteString() {
+        public final synchronized ByteString toByteString() {
             flushLastBuffer();
             return ByteString.copyFrom(this.flushedBuffers);
         }
@@ -304,7 +304,7 @@ public abstract class ByteString implements Iterable<Byte> {
             return bArr2;
         }
 
-        public void writeTo(OutputStream outputStream) {
+        public final void writeTo(OutputStream outputStream) {
             ByteString[] byteStringArr;
             byte[] bArr;
             int i;
@@ -319,17 +319,17 @@ public abstract class ByteString implements Iterable<Byte> {
             outputStream.write(copyArray(bArr, i));
         }
 
-        public synchronized int size() {
+        public final synchronized int size() {
             return this.flushedBuffersTotalBytes + this.bufferPos;
         }
 
-        public synchronized void reset() {
+        public final synchronized void reset() {
             this.flushedBuffers.clear();
             this.flushedBuffersTotalBytes = 0;
             this.bufferPos = 0;
         }
 
-        public String toString() {
+        public final String toString() {
             return String.format("<ByteString.Output@%s size=%d>", Integer.toHexString(System.identityHashCode(this)), Integer.valueOf(size()));
         }
 
@@ -369,12 +369,12 @@ public abstract class ByteString implements Iterable<Byte> {
             this.output = CodedOutputStream.newInstance(this.buffer);
         }
 
-        public ByteString build() {
+        public final ByteString build() {
             this.output.checkNoSpaceLeft();
             return new LiteralByteString(this.buffer);
         }
 
-        public CodedOutputStream getCodedOutput() {
+        public final CodedOutputStream getCodedOutput() {
             return this.output;
         }
     }

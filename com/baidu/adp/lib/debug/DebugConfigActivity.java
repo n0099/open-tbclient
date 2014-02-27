@@ -11,16 +11,12 @@ public class DebugConfigActivity extends Activity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         b.c = true;
-        a(new c(this));
+        this.a = new c(this);
     }
 
     @Override // android.app.Activity
     protected void onDestroy() {
         b.c = false;
         super.onDestroy();
-    }
-
-    public void a(c cVar) {
-        this.a = cVar;
     }
 }

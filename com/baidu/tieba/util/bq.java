@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class bq {
+public final class bq {
     private static String a = "skinType not support";
 
     public static void a(TextView textView, int i) {
@@ -130,13 +130,9 @@ public class bq {
 
     public static void g(TextView textView, int i) {
         if (textView != null) {
-            if (i == 1) {
-                e((View) textView, (int) R.drawable.title_comm_hilite_1);
-            } else {
-                e((View) textView, (int) R.drawable.title_comm_hilite);
-            }
+            e((View) textView, (int) R.drawable.title_comm_hilite);
         }
-        e(textView, i);
+        e(textView, 0);
     }
 
     public static void h(TextView textView, int i) {
@@ -147,21 +143,17 @@ public class bq {
                 e((View) textView, (int) R.drawable.navi_done_text_bg);
             }
         }
-        i(textView, i);
-    }
-
-    public static void i(TextView textView, int i) {
         if (textView != null) {
             Application b = TiebaApplication.g().b();
-            if (i == 1) {
-                textView.setTextColor(b.getResources().getColorStateList(R.color.navi_done_text_1));
-            } else {
+            if (i != 1) {
                 textView.setTextColor(b.getResources().getColorStateList(R.color.navi_done_text));
+            } else {
+                textView.setTextColor(b.getResources().getColorStateList(R.color.navi_done_text_1));
             }
         }
     }
 
-    public static void j(TextView textView, int i) {
+    public static void i(TextView textView, int i) {
         if (textView != null) {
             if (i == 1) {
                 e((View) textView, (int) R.drawable.navi_op_text_bg_1);
@@ -169,21 +161,17 @@ public class bq {
                 e((View) textView, (int) R.drawable.navi_op_text_bg);
             }
         }
-        k(textView, i);
-    }
-
-    public static void k(TextView textView, int i) {
         if (textView != null) {
             Application b = TiebaApplication.g().b();
-            if (i == 1) {
-                textView.setTextColor(b.getResources().getColorStateList(R.color.navi_op_text_1));
-            } else {
+            if (i != 1) {
                 textView.setTextColor(b.getResources().getColorStateList(R.color.navi_op_text));
+            } else {
+                textView.setTextColor(b.getResources().getColorStateList(R.color.navi_op_text_1));
             }
         }
     }
 
-    public static void l(TextView textView, int i) {
+    public static void j(TextView textView, int i) {
         if (textView != null) {
             if (i == 1) {
                 e((View) textView, (int) R.drawable.navi_del_text_bg_1);
@@ -191,16 +179,12 @@ public class bq {
                 e((View) textView, (int) R.drawable.navi_del_text_bg);
             }
         }
-        m(textView, i);
-    }
-
-    public static void m(TextView textView, int i) {
         if (textView != null) {
             Application b = TiebaApplication.g().b();
-            if (i == 1) {
-                textView.setTextColor(b.getResources().getColorStateList(R.color.navi_del_text_1));
-            } else {
+            if (i != 1) {
                 textView.setTextColor(b.getResources().getColorStateList(R.color.navi_del_text));
+            } else {
+                textView.setTextColor(b.getResources().getColorStateList(R.color.navi_del_text_1));
             }
         }
     }
@@ -288,7 +272,7 @@ public class bq {
         if (i != 0 && (resourceName = context.getResources().getResourceName(i)) != null) {
             int identifier = context.getResources().getIdentifier(String.valueOf(resourceName) + "_1", null, null);
             if (identifier == 0) {
-                com.baidu.adp.lib.util.f.b("cannot find res:" + resourceName + "_1");
+                com.baidu.adp.lib.util.e.b("cannot find res:" + resourceName + "_1");
                 return i;
             }
             return identifier;
@@ -298,7 +282,7 @@ public class bq {
 
     public static void d(ImageView imageView, int i) {
         if (imageView != null) {
-            if (TiebaApplication.g().al() == 1) {
+            if (TiebaApplication.g().ae() == 1) {
                 i = a(imageView.getContext(), i);
             }
             imageView.setImageResource(i);
@@ -311,7 +295,7 @@ public class bq {
             int paddingRight = view.getPaddingRight();
             int paddingTop = view.getPaddingTop();
             int paddingBottom = view.getPaddingBottom();
-            if (TiebaApplication.g().al() == 1) {
+            if (TiebaApplication.g().ae() == 1) {
                 view.setBackgroundResource(a(view.getContext(), i));
             } else {
                 view.setBackgroundResource(i);
@@ -324,7 +308,7 @@ public class bq {
 
     public static void a(View view, int i, int i2) {
         if (view != null) {
-            if (TiebaApplication.g().al() == 1) {
+            if (TiebaApplication.g().ae() == 1) {
                 i = a(view.getContext(), i);
             }
             ColorStateList colorStateList = TiebaApplication.g().b().getResources().getColorStateList(i);

@@ -1,9 +1,9 @@
 package com.baidu.tieba.im.message;
 /* loaded from: classes.dex */
-public class u extends da {
+public final class u extends da {
     private int a;
 
-    public void a(int i) {
+    public final void a(int i) {
         this.a = i;
     }
 
@@ -11,6 +11,6 @@ public class u extends da {
     }
 
     public u(int i) {
-        super(i);
+        super(-121);
     }
 }

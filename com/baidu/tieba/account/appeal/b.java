@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.TextView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class b implements View.OnClickListener {
+final class b implements View.OnClickListener {
     final /* synthetic */ AppealActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ class b implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         TextView textView;
         String str;
         String str2;

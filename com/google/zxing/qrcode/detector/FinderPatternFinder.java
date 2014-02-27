@@ -44,52 +44,56 @@ public class FinderPatternFinder {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final FinderPatternInfo find(Map<DecodeHintType, ?> map) {
-        int i;
-        int i2;
         boolean z;
-        boolean z2 = map != null && map.containsKey(DecodeHintType.TRY_HARDER);
+        int i;
+        int findRowSkip;
+        int i2;
+        int i3;
+        boolean z2;
+        boolean z3 = map != null && map.containsKey(DecodeHintType.TRY_HARDER);
         int height = this.image.getHeight();
         int width = this.image.getWidth();
-        int i3 = (height * 3) / 228;
-        int i4 = (i3 < 3 || z2) ? 3 : i3;
-        boolean z3 = false;
+        int i4 = (height * 3) / 228;
+        int i5 = (i4 < 3 || z3) ? 3 : i4;
+        boolean z4 = false;
         int[] iArr = new int[5];
-        int i5 = i4 - 1;
-        int i6 = i4;
-        while (i5 < height && !z3) {
+        int i6 = i5 - 1;
+        int i7 = i5;
+        while (i6 < height && !z4) {
             iArr[0] = 0;
             iArr[1] = 0;
             iArr[2] = 0;
             iArr[3] = 0;
             iArr[4] = 0;
-            int i7 = 0;
             int i8 = 0;
-            while (i8 < width) {
-                if (this.image.get(i8, i5)) {
-                    if ((i7 & 1) == 1) {
-                        i7++;
+            int i9 = 0;
+            while (i9 < width) {
+                if (this.image.get(i9, i6)) {
+                    if ((i8 & 1) == 1) {
+                        i8++;
                     }
-                    iArr[i7] = iArr[i7] + 1;
-                } else if ((i7 & 1) == 0) {
-                    if (i7 == 4) {
+                    iArr[i8] = iArr[i8] + 1;
+                    int i10 = i7;
+                    z = z4;
+                    i = i10;
+                } else if ((i8 & 1) == 0) {
+                    if (i8 == 4) {
                         if (foundPatternCross(iArr)) {
-                            if (handlePossibleCenter(iArr, i5, i8)) {
-                                i6 = 2;
+                            if (handlePossibleCenter(iArr, i6, i9)) {
                                 if (this.hasSkipped) {
-                                    int i9 = i8;
-                                    i2 = i5;
-                                    z = haveMultiplyConfirmedCenters();
-                                    i = i9;
+                                    int i11 = i9;
+                                    i3 = i6;
+                                    z2 = haveMultiplyConfirmedCenters();
+                                    i2 = i11;
                                 } else {
-                                    int findRowSkip = findRowSkip();
-                                    if (findRowSkip > iArr[2]) {
-                                        i2 = i5 + ((findRowSkip - iArr[2]) - 2);
-                                        i = width - 1;
-                                        z = z3;
+                                    if (findRowSkip() > iArr[2]) {
+                                        i3 = i6 + ((findRowSkip - iArr[2]) - 2);
+                                        i2 = width - 1;
+                                        z2 = z4;
                                     } else {
-                                        i = i8;
-                                        i2 = i5;
-                                        z = z3;
+                                        i2 = i9;
+                                        i3 = i6;
+                                        z2 = z4;
                                     }
                                 }
                                 iArr[0] = 0;
@@ -97,18 +101,22 @@ public class FinderPatternFinder {
                                 iArr[2] = 0;
                                 iArr[3] = 0;
                                 iArr[4] = 0;
-                                int i10 = i;
-                                i7 = 0;
-                                z3 = z;
-                                i5 = i2;
-                                i8 = i10;
+                                int i12 = i2;
+                                i8 = 0;
+                                i = 2;
+                                z = z2;
+                                i6 = i3;
+                                i9 = i12;
                             } else {
                                 iArr[0] = iArr[2];
                                 iArr[1] = iArr[3];
                                 iArr[2] = iArr[4];
                                 iArr[3] = 1;
                                 iArr[4] = 0;
-                                i7 = 3;
+                                i8 = 3;
+                                int i13 = i7;
+                                z = z4;
+                                i = i13;
                             }
                         } else {
                             iArr[0] = iArr[2];
@@ -116,24 +124,36 @@ public class FinderPatternFinder {
                             iArr[2] = iArr[4];
                             iArr[3] = 1;
                             iArr[4] = 0;
-                            i7 = 3;
+                            i8 = 3;
+                            int i14 = i7;
+                            z = z4;
+                            i = i14;
                         }
                     } else {
-                        i7++;
-                        iArr[i7] = iArr[i7] + 1;
+                        i8++;
+                        iArr[i8] = iArr[i8] + 1;
+                        int i15 = i7;
+                        z = z4;
+                        i = i15;
                     }
                 } else {
-                    iArr[i7] = iArr[i7] + 1;
+                    iArr[i8] = iArr[i8] + 1;
+                    int i16 = i7;
+                    z = z4;
+                    i = i16;
                 }
-                i8++;
+                i9++;
+                int i17 = i;
+                z4 = z;
+                i7 = i17;
             }
-            if (foundPatternCross(iArr) && handlePossibleCenter(iArr, i5, width)) {
-                i6 = iArr[0];
+            if (foundPatternCross(iArr) && handlePossibleCenter(iArr, i6, width)) {
+                i7 = iArr[0];
                 if (this.hasSkipped) {
-                    z3 = haveMultiplyConfirmedCenters();
+                    z4 = haveMultiplyConfirmedCenters();
                 }
             }
-            i5 += i6;
+            i6 += i7;
         }
         FinderPattern[] selectBestPatterns = selectBestPatterns();
         ResultPoint.orderBestPatterns(selectBestPatterns);
@@ -493,6 +513,7 @@ public class FinderPatternFinder {
     }
 
     private FinderPattern[] selectBestPatterns() {
+        int i;
         float f = 0.0f;
         int size = this.possibleCenters.size();
         if (size < 3) {
@@ -509,13 +530,15 @@ public class FinderPatternFinder {
             float f4 = f3 / size;
             Collections.sort(this.possibleCenters, new FurthestFromAverageComparator(f4, null));
             float max = Math.max(0.2f * f4, (float) Math.sqrt((f2 / size) - (f4 * f4)));
-            int i = 0;
-            while (i < this.possibleCenters.size() && this.possibleCenters.size() > 3) {
-                if (Math.abs(this.possibleCenters.get(i).getEstimatedModuleSize() - f4) > max) {
-                    this.possibleCenters.remove(i);
-                    i--;
+            int i2 = 0;
+            while (i2 < this.possibleCenters.size() && this.possibleCenters.size() > 3) {
+                if (Math.abs(this.possibleCenters.get(i2).getEstimatedModuleSize() - f4) > max) {
+                    this.possibleCenters.remove(i2);
+                    i = i2 - 1;
+                } else {
+                    i = i2;
                 }
-                i++;
+                i2 = i + 1;
             }
         }
         if (this.possibleCenters.size() > 3) {
@@ -543,7 +566,7 @@ public class FinderPatternFinder {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
-        public int compare(FinderPattern finderPattern, FinderPattern finderPattern2) {
+        public final int compare(FinderPattern finderPattern, FinderPattern finderPattern2) {
             float abs = Math.abs(finderPattern2.getEstimatedModuleSize() - this.average);
             float abs2 = Math.abs(finderPattern.getEstimatedModuleSize() - this.average);
             if (abs < abs2) {
@@ -568,7 +591,7 @@ public class FinderPatternFinder {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
-        public int compare(FinderPattern finderPattern, FinderPattern finderPattern2) {
+        public final int compare(FinderPattern finderPattern, FinderPattern finderPattern2) {
             if (finderPattern2.getCount() == finderPattern.getCount()) {
                 float abs = Math.abs(finderPattern2.getEstimatedModuleSize() - this.average);
                 float abs2 = Math.abs(finderPattern.getEstimatedModuleSize() - this.average);

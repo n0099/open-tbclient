@@ -6,11 +6,11 @@ import android.os.Parcelable;
 public class ZxingResult implements Parcelable {
     private String a;
 
-    public String a() {
+    public final String a() {
         return this.a;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.a = str;
     }
 

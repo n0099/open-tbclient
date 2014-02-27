@@ -3,7 +3,7 @@ package com.baidu.tieba.faceshop;
 import android.widget.TextView;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-class al {
+final class al {
     TbImageView a;
     TextView b;
     TextView c;
@@ -15,7 +15,7 @@ class al {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ al(ak akVar, al alVar) {
+    public /* synthetic */ al(ak akVar, byte b) {
         this(akVar);
     }
 }

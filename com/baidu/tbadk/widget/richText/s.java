@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s implements AbsListView.RecyclerListener {
+public final class s implements AbsListView.RecyclerListener {
     private int a;
 
     public s(int i) {
@@ -13,7 +13,7 @@ public class s implements AbsListView.RecyclerListener {
     }
 
     @Override // android.widget.AbsListView.RecyclerListener
-    public void onMovedToScrapHeap(View view) {
+    public final void onMovedToScrapHeap(View view) {
         View findViewById = view.findViewById(this.a);
         if (findViewById != null && (findViewById instanceof TbRichTextView)) {
             ((TbRichTextView) findViewById).setText(null);

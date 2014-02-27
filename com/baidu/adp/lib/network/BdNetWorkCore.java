@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Pattern;
 import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
-public class BdNetWorkCore {
+public final class BdNetWorkCore {
     private static String a = IOUtils.LINE_SEPARATOR_WINDOWS;
     private static String b = "--";
     private static String c = "--------7da3d81520810*";

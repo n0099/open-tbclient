@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.Im;
 /* loaded from: classes.dex */
 public final class af extends GeneratedMessageLite.Builder<Im.TshowInfo, af> implements ag {
@@ -12,24 +13,34 @@ public final class af extends GeneratedMessageLite.Builder<Im.TshowInfo, af> imp
     private Object c = "";
     private Object d = "";
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        Im.TshowInfo buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return Im.TshowInfo.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return Im.TshowInfo.getDefaultInstance();
+    }
+
     private af() {
-        g();
     }
 
-    private void g() {
-    }
-
-    /* JADX DEBUG: Method not inlined, still used in: [protobuf.Im.TshowInfo.newBuilder():protobuf.af] */
-    public static /* synthetic */ af f() {
-        return h();
-    }
-
-    public static af h() {
+    public static /* synthetic */ af a() {
         return new af();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: b */
     public af clear() {
         super.clear();
         this.b = "";
@@ -42,29 +53,13 @@ public final class af extends GeneratedMessageLite.Builder<Im.TshowInfo, af> imp
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public af clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
     /* renamed from: c */
-    public Im.TshowInfo getDefaultInstanceForType() {
-        return Im.TshowInfo.getDefaultInstance();
+    public af clone() {
+        return new af().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public Im.TshowInfo build() {
-        Im.TshowInfo buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
     public Im.TshowInfo buildPartial() {
         Im.TshowInfo tshowInfo = new Im.TshowInfo(this, (Im.TshowInfo) null);
         int i = this.a;
@@ -84,7 +79,7 @@ public final class af extends GeneratedMessageLite.Builder<Im.TshowInfo, af> imp
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public af mergeFrom(Im.TshowInfo tshowInfo) {
+    public final af mergeFrom(Im.TshowInfo tshowInfo) {
         Object obj;
         Object obj2;
         Object obj3;

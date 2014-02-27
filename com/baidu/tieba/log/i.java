@@ -2,14 +2,15 @@ package com.baidu.tieba.log;
 
 import java.util.Hashtable;
 /* loaded from: classes.dex */
-public class i {
+public final class i {
     private static Hashtable<Integer, String> a;
 
     static {
         a = null;
-        if (a == null) {
-            a = new Hashtable<>();
-            a.put(1001, "上线");
+        if (0 == 0) {
+            Hashtable<Integer, String> hashtable = new Hashtable<>();
+            a = hashtable;
+            hashtable.put(1001, "上线");
             a.put(1002, "GROUP_UPDATE");
             a.put(1003, "PING");
             a.put(202003, "MESSAGE_SYNC");

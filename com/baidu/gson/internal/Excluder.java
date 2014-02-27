@@ -29,7 +29,7 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     /* renamed from: clone */
-    public Excluder m1clone() {
+    public final Excluder m1clone() {
         try {
             return (Excluder) super.clone();
         } catch (CloneNotSupportedException e) {
@@ -37,13 +37,13 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
         }
     }
 
-    public Excluder withVersion(double d) {
+    public final Excluder withVersion(double d) {
         Excluder m1clone = m1clone();
         m1clone.version = d;
         return m1clone;
     }
 
-    public Excluder withModifiers(int... iArr) {
+    public final Excluder withModifiers(int... iArr) {
         Excluder m1clone = m1clone();
         m1clone.modifiers = 0;
         for (int i : iArr) {
@@ -52,19 +52,19 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
         return m1clone;
     }
 
-    public Excluder disableInnerClassSerialization() {
+    public final Excluder disableInnerClassSerialization() {
         Excluder m1clone = m1clone();
         m1clone.serializeInnerClasses = false;
         return m1clone;
     }
 
-    public Excluder excludeFieldsWithoutExposeAnnotation() {
+    public final Excluder excludeFieldsWithoutExposeAnnotation() {
         Excluder m1clone = m1clone();
         m1clone.requireExpose = true;
         return m1clone;
     }
 
-    public Excluder withExclusionStrategy(ExclusionStrategy exclusionStrategy, boolean z, boolean z2) {
+    public final Excluder withExclusionStrategy(ExclusionStrategy exclusionStrategy, boolean z, boolean z2) {
         Excluder m1clone = m1clone();
         if (z) {
             m1clone.serializationStrategies = new ArrayList(this.serializationStrategies);
@@ -78,7 +78,7 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
     }
 
     @Override // com.baidu.gson.TypeAdapterFactory
-    public <T> TypeAdapter<T> create(final Gson gson, final TypeToken<T> typeToken) {
+    public final <T> TypeAdapter<T> create(final Gson gson, final TypeToken<T> typeToken) {
         Class<? super T> rawType = typeToken.getRawType();
         final boolean excludeClass = excludeClass(rawType, true);
         final boolean excludeClass2 = excludeClass(rawType, false);
@@ -119,7 +119,7 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
         return null;
     }
 
-    public boolean excludeField(Field field, boolean z) {
+    public final boolean excludeField(Field field, boolean z) {
         Expose expose;
         if ((this.modifiers & field.getModifiers()) != 0) {
             return true;
@@ -145,7 +145,7 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
         return true;
     }
 
-    public boolean excludeClass(Class<?> cls, boolean z) {
+    public final boolean excludeClass(Class<?> cls, boolean z) {
         if (this.version == IGNORE_VERSIONS || isValidVersion((Since) cls.getAnnotation(Since.class), (Until) cls.getAnnotation(Until.class))) {
             if ((this.serializeInnerClasses || !isInnerClass(cls)) && !isAnonymousOrLocal(cls)) {
                 for (ExclusionStrategy exclusionStrategy : z ? this.serializationStrategies : this.deserializationStrategies) {

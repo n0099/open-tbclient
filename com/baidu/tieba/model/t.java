@@ -4,7 +4,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t extends BdAsyncTask<String, Integer, String> {
+public final class t extends BdAsyncTask<String, Integer, String> {
     final /* synthetic */ s a;
     private com.baidu.tieba.util.ba b = null;
     private String c;
@@ -15,29 +15,13 @@ public class t extends BdAsyncTask<String, Integer, String> {
     private int h;
     private boolean i;
 
-    public t(s sVar, String str, String str2, String str3, String str4, int i, int i2, boolean z) {
-        this.a = sVar;
-        this.c = str;
-        this.d = str2;
-        this.e = str3;
-        this.f = str4;
-        this.g = i;
-        this.h = i2;
-        this.i = z;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public String a(String... strArr) {
-        String str;
-        String str2 = com.baidu.tieba.data.i.a;
-        if (this.g == 0) {
-            str = String.valueOf(str2) + "c/c/bawu/delthread";
-        } else {
-            str = String.valueOf(str2) + "c/c/bawu/delpost";
-        }
-        this.b = new com.baidu.tieba.util.ba(str);
+    public final /* synthetic */ String a(String... strArr) {
+        String str = com.baidu.tieba.data.i.a;
+        this.b = new com.baidu.tieba.util.ba(this.g == 0 ? String.valueOf(str) + "c/c/bawu/delthread" : String.valueOf(str) + "c/c/bawu/delpost");
         this.b.a("fid", this.c);
         this.b.a("word", this.d);
         this.b.a("z", this.e);
@@ -60,38 +44,27 @@ public class t extends BdAsyncTask<String, Integer, String> {
                 this.b.a("delete_my_post", SocialConstants.TRUE);
             }
         }
-        if (this.h == 0 && !this.i) {
-            this.b.a("is_vipdel", SocialConstants.TRUE);
-        } else {
+        if (this.h != 0 || this.i) {
             this.b.a("is_vipdel", SocialConstants.FALSE);
+        } else {
+            this.b.a("is_vipdel", SocialConstants.TRUE);
         }
         this.b.e(true);
-        this.b.m();
-        if (this.b.d()) {
+        this.b.l();
+        if (this.b.c()) {
             return null;
         }
-        return this.b.j();
+        return this.b.i();
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        com.baidu.adp.a.g gVar;
-        if (this.b != null) {
-            this.b.k();
-        }
-        this.a.a = null;
-        super.cancel(true);
-        gVar = this.a.mLoadDataCallBack;
-        gVar.a(null);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(String str) {
+    public final /* synthetic */ void a(String str) {
         com.baidu.adp.a.g gVar;
         com.baidu.adp.a.g gVar2;
-        super.a((t) str);
+        String str2 = str;
+        super.a((t) str2);
         this.a.a = null;
         if (this.b == null) {
             gVar2 = this.a.mLoadDataCallBack;
@@ -101,13 +74,36 @@ public class t extends BdAsyncTask<String, Integer, String> {
         u uVar = new u(this.a);
         uVar.c = this.g;
         uVar.d = this.f;
-        uVar.b = str;
-        if (str == null) {
+        uVar.b = str2;
+        if (str2 == null) {
             uVar.a = true;
         } else {
             uVar.a = false;
         }
         gVar = this.a.mLoadDataCallBack;
         gVar.a(uVar);
+    }
+
+    public t(s sVar, String str, String str2, String str3, String str4, int i, int i2, boolean z) {
+        this.a = sVar;
+        this.c = str;
+        this.d = str2;
+        this.e = str3;
+        this.f = str4;
+        this.g = i;
+        this.h = i2;
+        this.i = z;
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final void cancel() {
+        com.baidu.adp.a.g gVar;
+        if (this.b != null) {
+            this.b.j();
+        }
+        this.a.a = null;
+        super.cancel(true);
+        gVar = this.a.mLoadDataCallBack;
+        gVar.a(null);
     }
 }

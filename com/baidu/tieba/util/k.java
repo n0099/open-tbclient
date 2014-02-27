@@ -3,7 +3,7 @@ package com.baidu.tieba.util;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k {
+public final class k {
     String a;
     int b;
     com.baidu.tbadk.imageManager.d c;
@@ -20,7 +20,7 @@ public class k {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ k(i iVar, k kVar) {
+    public /* synthetic */ k(i iVar, byte b) {
         this(iVar);
     }
 }

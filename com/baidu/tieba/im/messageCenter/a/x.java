@@ -8,7 +8,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class x extends com.baidu.tieba.im.messageCenter.a {
     @Override // com.baidu.tieba.im.messageCenter.a
-    public com.baidu.tieba.im.message.s a(com.baidu.tieba.im.message.s sVar, com.baidu.tieba.im.coder.d dVar) {
+    public final com.baidu.tieba.im.message.s a(com.baidu.tieba.im.message.s sVar, com.baidu.tieba.im.coder.d dVar) {
         if (sVar == null || !(sVar instanceof ct)) {
             return null;
         }

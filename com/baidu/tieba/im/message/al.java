@@ -3,7 +3,7 @@ package com.baidu.tieba.im.message;
 import com.google.protobuf.MessageLite;
 import protobuf.QueryGroupsByFid.QueryGroupsByFidReq;
 /* loaded from: classes.dex */
-public class al extends s implements com.baidu.tieba.im.coder.g {
+public final class al extends s implements com.baidu.tieba.im.coder.g {
     private String a;
     private String b;
     private String c;
@@ -15,56 +15,40 @@ public class al extends s implements com.baidu.tieba.im.coder.g {
         e(103002);
     }
 
-    public int b() {
-        return this.e;
-    }
-
-    public void a(int i) {
+    public final void a(int i) {
         this.e = i;
     }
 
-    public int c() {
-        return this.f;
-    }
-
-    public void b(int i) {
+    public final void b(int i) {
         this.f = i;
     }
 
-    public String d() {
+    public final String b() {
         return this.a;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.a = str;
     }
 
-    public String e() {
+    public final String c() {
         return this.b;
     }
 
-    public void b(String str) {
+    public final void b(String str) {
         this.b = str;
     }
 
-    public String f() {
-        return this.c;
-    }
-
-    public void c(String str) {
+    public final void c(String str) {
         this.c = str;
     }
 
-    public String g() {
-        return this.d;
-    }
-
-    public void d(String str) {
+    public final void d(String str) {
         this.d = str;
     }
 
     @Override // com.baidu.tieba.im.coder.g
-    public MessageLite a() {
-        return QueryGroupsByFidReq.QueryGroupsByFidReqIdl.newBuilder().a(QueryGroupsByFidReq.DataReq.newBuilder().a(com.baidu.adp.lib.f.b.a(d(), 0)).c(com.baidu.adp.lib.f.b.a(f(), 0)).d(com.baidu.adp.lib.f.b.a(g(), 0)).b(com.baidu.adp.lib.f.b.a(e(), 0)).f(b()).e(c()).build()).build();
+    public final MessageLite a() {
+        return QueryGroupsByFidReq.QueryGroupsByFidReqIdl.newBuilder().a(QueryGroupsByFidReq.DataReq.newBuilder().a(com.baidu.adp.lib.f.b.a(this.a, 0)).c(com.baidu.adp.lib.f.b.a(this.c, 0)).d(com.baidu.adp.lib.f.b.a(this.d, 0)).b(com.baidu.adp.lib.f.b.a(this.b, 0)).f(this.e).e(this.f).build()).build();
     }
 }

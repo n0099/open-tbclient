@@ -9,7 +9,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class g {
+public final class g {
     private boolean h;
     private i b = null;
     private j c = null;
@@ -24,73 +24,81 @@ public class g {
         this.h = true;
     }
 
-    public int a() {
+    public final int a() {
         if (this.e == null) {
             return 0;
         }
         return this.e.size();
     }
 
-    public int b() {
+    public final int b() {
         return this.g;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.g = i;
     }
 
-    public boolean c() {
+    public final boolean c() {
         return this.f >= 20;
     }
 
-    public void d() {
+    public final void d() {
         this.g = 0;
         this.f = 0;
         this.h = true;
     }
 
-    public boolean e() {
+    public final boolean e() {
         return this.h;
     }
 
-    public ArrayList<MarkData> f() {
+    public final ArrayList<MarkData> f() {
         return this.e;
     }
 
-    public void a(ArrayList<MarkData> arrayList) {
+    public final void a(ArrayList<MarkData> arrayList) {
         this.e = arrayList;
     }
 
-    public void b(ArrayList<MarkData> arrayList) {
+    public final void b(ArrayList<MarkData> arrayList) {
         if (this.e != null && arrayList != null) {
             this.e.addAll(arrayList);
-            m();
+            if (this.e != null) {
+                HashSet hashSet = new HashSet();
+                Iterator<MarkData> it = this.e.iterator();
+                while (it.hasNext()) {
+                    if (!hashSet.add(it.next().getId())) {
+                        it.remove();
+                    }
+                }
+            }
         }
     }
 
-    public void a(MarkData markData) {
+    public final void a(MarkData markData) {
         this.e.add(markData);
     }
 
-    public int g() {
+    public final int g() {
         if (this.e == null) {
             return 0;
         }
         return this.e.size();
     }
 
-    public int h() {
+    public final int h() {
         return this.f;
     }
 
-    public void i() {
+    public final void i() {
         ArrayList<MarkData> q = DatabaseService.q();
         if (q != null) {
-            a(q);
+            this.e = q;
         }
     }
 
-    public String a(int i, int i2) {
+    public final String a(int i, int i2) {
         JSONArray jSONArray;
         int i3;
         if (this.e == null) {
@@ -122,7 +130,7 @@ public class g {
                     i5--;
                     i4 = i3;
                 } catch (Exception e) {
-                    com.baidu.adp.lib.util.f.b(getClass().getName(), "toJson", e.toString());
+                    com.baidu.adp.lib.util.e.b(getClass().getName(), "toJson", e.toString());
                     jSONArray = null;
                 }
             }
@@ -133,22 +141,14 @@ public class g {
         return jSONArray.toString();
     }
 
-    public void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.toString());
-        }
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
-    public ArrayList<MarkData> b(String str) {
+    public ArrayList<MarkData> a(String str) {
         JSONObject jSONObject;
         ArrayList<MarkData> arrayList = new ArrayList<>();
         try {
             jSONObject = new JSONObject(str);
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.adp.lib.util.e.b(getClass().getName(), "parserJson", e.toString());
             arrayList = null;
         }
         if (jSONObject.optJSONObject("error").optString("errno").equals(SocialConstants.FALSE)) {
@@ -163,7 +163,7 @@ public class g {
         return null;
     }
 
-    public void a(JSONObject jSONObject) {
+    public final void a(JSONObject jSONObject) {
         try {
             if (jSONObject.optJSONObject("error").optString("errno").equals(SocialConstants.FALSE)) {
                 JSONArray optJSONArray = jSONObject.optJSONArray("store_thread");
@@ -174,11 +174,11 @@ public class g {
                 }
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.adp.lib.util.e.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
-    public void a(Boolean bool) {
+    public final void a(Boolean bool) {
         if (this.b != null) {
             this.b.cancel();
         }
@@ -187,16 +187,16 @@ public class g {
         this.b.execute(bool);
     }
 
-    public void j() {
+    public final void j() {
         if (this.c != null) {
             this.c.cancel();
         }
-        this.c = new j(this, null);
+        this.c = new j(this, (byte) 0);
         this.c.setPriority(2);
         this.c.execute(new g[0]);
     }
 
-    public boolean b(int i) {
+    public final boolean b(int i) {
         if (this.d != null) {
             this.d.cancel();
         }
@@ -209,15 +209,11 @@ public class g {
         return true;
     }
 
-    public int k() {
+    public static int k() {
         return com.baidu.tieba.sharedPref.b.a().a("uploac_mark_offset", 399);
     }
 
-    public void c(int i) {
-        com.baidu.tieba.sharedPref.b.a().b("uploac_mark_offset", i);
-    }
-
-    public void l() {
+    public final void l() {
         if (this.b != null) {
             this.b.cancel();
         }
@@ -229,19 +225,7 @@ public class g {
         }
     }
 
-    public void a(com.baidu.tieba.i iVar) {
+    public final void a(com.baidu.tieba.i iVar) {
         this.a = iVar;
-    }
-
-    private void m() {
-        if (this.e != null) {
-            HashSet hashSet = new HashSet();
-            Iterator<MarkData> it = this.e.iterator();
-            while (it.hasNext()) {
-                if (!hashSet.add(it.next().getId())) {
-                    it.remove();
-                }
-            }
-        }
     }
 }

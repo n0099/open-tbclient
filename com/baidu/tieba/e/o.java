@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 /* loaded from: classes.dex */
-class o implements View.OnClickListener {
+final class o implements View.OnClickListener {
     final /* synthetic */ n a;
     private final /* synthetic */ Context b;
 
@@ -15,7 +15,7 @@ class o implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         this.b.sendBroadcast(new Intent("com.baidu.tieba.SHOWSQUARE"));
     }
 }

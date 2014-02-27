@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.CommitGroupMsg.CommitGroupMsgRes;
 import protobuf.Im;
 /* loaded from: classes.dex */
@@ -12,19 +13,34 @@ public final class h extends GeneratedMessageLite.Builder<CommitGroupMsgRes.Comm
     private Im.Error b = Im.Error.getDefaultInstance();
     private CommitGroupMsgRes.DataRes c = CommitGroupMsgRes.DataRes.getDefaultInstance();
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        CommitGroupMsgRes.CommitGroupMsgResIdl buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return CommitGroupMsgRes.CommitGroupMsgResIdl.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return CommitGroupMsgRes.CommitGroupMsgResIdl.getDefaultInstance();
+    }
+
     private h() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static h h() {
+    public static /* synthetic */ h a() {
         return new h();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: b */
     public h clear() {
         super.clear();
         this.b = Im.Error.getDefaultInstance();
@@ -35,29 +51,13 @@ public final class h extends GeneratedMessageLite.Builder<CommitGroupMsgRes.Comm
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public h clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
     /* renamed from: c */
-    public CommitGroupMsgRes.CommitGroupMsgResIdl getDefaultInstanceForType() {
-        return CommitGroupMsgRes.CommitGroupMsgResIdl.getDefaultInstance();
+    public h clone() {
+        return new h().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public CommitGroupMsgRes.CommitGroupMsgResIdl build() {
-        CommitGroupMsgRes.CommitGroupMsgResIdl buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
     public CommitGroupMsgRes.CommitGroupMsgResIdl buildPartial() {
         CommitGroupMsgRes.CommitGroupMsgResIdl commitGroupMsgResIdl = new CommitGroupMsgRes.CommitGroupMsgResIdl(this, (CommitGroupMsgRes.CommitGroupMsgResIdl) null);
         int i = this.a;
@@ -73,13 +73,25 @@ public final class h extends GeneratedMessageLite.Builder<CommitGroupMsgRes.Comm
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public h mergeFrom(CommitGroupMsgRes.CommitGroupMsgResIdl commitGroupMsgResIdl) {
+    public final h mergeFrom(CommitGroupMsgRes.CommitGroupMsgResIdl commitGroupMsgResIdl) {
         if (commitGroupMsgResIdl != CommitGroupMsgRes.CommitGroupMsgResIdl.getDefaultInstance()) {
             if (commitGroupMsgResIdl.hasError()) {
-                a(commitGroupMsgResIdl.getError());
+                Im.Error error = commitGroupMsgResIdl.getError();
+                if ((this.a & 1) != 1 || this.b == Im.Error.getDefaultInstance()) {
+                    this.b = error;
+                } else {
+                    this.b = Im.Error.newBuilder(this.b).mergeFrom(error).buildPartial();
+                }
+                this.a |= 1;
             }
             if (commitGroupMsgResIdl.hasData()) {
-                a(commitGroupMsgResIdl.getData());
+                CommitGroupMsgRes.DataRes data = commitGroupMsgResIdl.getData();
+                if ((this.a & 2) != 2 || this.c == CommitGroupMsgRes.DataRes.getDefaultInstance()) {
+                    this.c = data;
+                } else {
+                    this.c = CommitGroupMsgRes.DataRes.newBuilder(this.c).mergeFrom(data).buildPartial();
+                }
+                this.a |= 2;
             }
         }
         return this;
@@ -126,25 +138,5 @@ public final class h extends GeneratedMessageLite.Builder<CommitGroupMsgRes.Comm
                 throw th;
             }
         }
-    }
-
-    public h a(Im.Error error) {
-        if ((this.a & 1) == 1 && this.b != Im.Error.getDefaultInstance()) {
-            this.b = Im.Error.newBuilder(this.b).mergeFrom(error).buildPartial();
-        } else {
-            this.b = error;
-        }
-        this.a |= 1;
-        return this;
-    }
-
-    public h a(CommitGroupMsgRes.DataRes dataRes) {
-        if ((this.a & 2) == 2 && this.c != CommitGroupMsgRes.DataRes.getDefaultInstance()) {
-            this.c = CommitGroupMsgRes.DataRes.newBuilder(this.c).mergeFrom(dataRes).buildPartial();
-        } else {
-            this.c = dataRes;
-        }
-        this.a |= 2;
-        return this;
     }
 }

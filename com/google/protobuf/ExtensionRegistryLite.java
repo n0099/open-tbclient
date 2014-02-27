@@ -64,11 +64,11 @@ public class ExtensionRegistryLite {
             this.number = i;
         }
 
-        public int hashCode() {
+        public final int hashCode() {
             return (System.identityHashCode(this.object) * 65535) + this.number;
         }
 
-        public boolean equals(Object obj) {
+        public final boolean equals(Object obj) {
             if (obj instanceof ObjectIntPair) {
                 ObjectIntPair objectIntPair = (ObjectIntPair) obj;
                 return this.object == objectIntPair.object && this.number == objectIntPair.number;

@@ -3,7 +3,7 @@ package com.baidu.tieba.motu_gallery;
 import android.widget.ImageView;
 import android.widget.TextView;
 /* loaded from: classes.dex */
-public class k {
+public final class k {
     public String a;
     ImageView b;
     TextView c;

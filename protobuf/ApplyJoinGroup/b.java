@@ -4,25 +4,32 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.ApplyJoinGroup.ApplyJoinGroupReq;
 /* loaded from: classes.dex */
 public final class b extends GeneratedMessageLite.Builder<ApplyJoinGroupReq.ApplyJoinGroupReqIdl, b> implements c {
     private int a;
     private ApplyJoinGroupReq.DataReq b = ApplyJoinGroupReq.DataReq.getDefaultInstance();
 
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return ApplyJoinGroupReq.ApplyJoinGroupReqIdl.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return ApplyJoinGroupReq.ApplyJoinGroupReqIdl.getDefaultInstance();
+    }
+
     private b() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static b h() {
+    public static /* synthetic */ b b() {
         return new b();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public b clear() {
         super.clear();
         this.b = ApplyJoinGroupReq.DataReq.getDefaultInstance();
@@ -31,20 +38,14 @@ public final class b extends GeneratedMessageLite.Builder<ApplyJoinGroupReq.Appl
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
+    /* renamed from: d */
     public b clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public ApplyJoinGroupReq.ApplyJoinGroupReqIdl getDefaultInstanceForType() {
-        return ApplyJoinGroupReq.ApplyJoinGroupReqIdl.getDefaultInstance();
+        return new b().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: d */
-    public ApplyJoinGroupReq.ApplyJoinGroupReqIdl build() {
+    /* renamed from: a */
+    public final ApplyJoinGroupReq.ApplyJoinGroupReqIdl build() {
         ApplyJoinGroupReq.ApplyJoinGroupReqIdl buildPartial = buildPartial();
         if (!buildPartial.isInitialized()) {
             throw newUninitializedMessageException(buildPartial);
@@ -64,9 +65,15 @@ public final class b extends GeneratedMessageLite.Builder<ApplyJoinGroupReq.Appl
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public b mergeFrom(ApplyJoinGroupReq.ApplyJoinGroupReqIdl applyJoinGroupReqIdl) {
+    public final b mergeFrom(ApplyJoinGroupReq.ApplyJoinGroupReqIdl applyJoinGroupReqIdl) {
         if (applyJoinGroupReqIdl != ApplyJoinGroupReq.ApplyJoinGroupReqIdl.getDefaultInstance() && applyJoinGroupReqIdl.hasData()) {
-            b(applyJoinGroupReqIdl.getData());
+            ApplyJoinGroupReq.DataReq data = applyJoinGroupReqIdl.getData();
+            if ((this.a & 1) != 1 || this.b == ApplyJoinGroupReq.DataReq.getDefaultInstance()) {
+                this.b = data;
+            } else {
+                this.b = ApplyJoinGroupReq.DataReq.newBuilder(this.b).mergeFrom(data).buildPartial();
+            }
+            this.a |= 1;
         }
         return this;
     }
@@ -114,21 +121,11 @@ public final class b extends GeneratedMessageLite.Builder<ApplyJoinGroupReq.Appl
         }
     }
 
-    public b a(ApplyJoinGroupReq.DataReq dataReq) {
+    public final b a(ApplyJoinGroupReq.DataReq dataReq) {
         if (dataReq != null) {
             this.b = dataReq;
             this.a |= 1;
         }
-        return this;
-    }
-
-    public b b(ApplyJoinGroupReq.DataReq dataReq) {
-        if ((this.a & 1) == 1 && this.b != ApplyJoinGroupReq.DataReq.getDefaultInstance()) {
-            this.b = ApplyJoinGroupReq.DataReq.newBuilder(this.b).mergeFrom(dataReq).buildPartial();
-        } else {
-            this.b = dataReq;
-        }
-        this.a |= 1;
         return this;
     }
 }

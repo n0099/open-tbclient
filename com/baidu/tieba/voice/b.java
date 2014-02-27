@@ -4,25 +4,25 @@ import android.os.Handler;
 import android.os.Message;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class b implements Handler.Callback {
+final class b implements Handler.Callback {
     @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
+    public final boolean handleMessage(Message message) {
         j jVar;
         j jVar2;
         j jVar3;
         j jVar4;
         j jVar5;
         j jVar6;
-        String str;
         j jVar7;
         j jVar8;
+        String unused;
         switch (message.what) {
             case 0:
                 jVar5 = a.d;
                 if (jVar5 != null) {
                     jVar6 = a.d;
-                    str = a.c;
-                    jVar6.a(str, message.arg1);
+                    unused = a.c;
+                    jVar6.a(message.arg1);
                     break;
                 }
                 break;
@@ -38,7 +38,7 @@ class b implements Handler.Callback {
                 jVar = a.d;
                 if (jVar != null) {
                     jVar2 = a.d;
-                    jVar2.a(message.arg1);
+                    jVar2.b(message.arg1);
                 }
                 return true;
             default:

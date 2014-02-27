@@ -12,11 +12,11 @@ public abstract class c extends f<byte[]> {
         this.b = null;
     }
 
-    public boolean a() {
+    public final boolean a() {
         return this.a == 200;
     }
 
-    public void a(int i, String str) {
+    public final void a(int i, String str) {
         this.a = i;
         if (!a()) {
             a(-1);

@@ -9,25 +9,47 @@ import com.baidu.tieba.flist.ForumListModel;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v extends BdAsyncTask<Void, Void, ForumListModel> {
+public final class v extends BdAsyncTask<Void, Void, ForumListModel> {
     ForumListModel a;
     final /* synthetic */ t b;
 
-    private v(t tVar) {
-        this.b = tVar;
-        this.a = new ForumListModel();
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ v(t tVar, v vVar) {
-        this(tVar);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a  reason: avoid collision after fix types in other method */
-    public void b(Void... voidArr) {
+    public final /* synthetic */ ForumListModel a(Void... voidArr) {
+        return d();
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ void a(ForumListModel forumListModel) {
+        u uVar;
+        Context context;
+        boolean z;
+        u uVar2;
+        boolean z2;
+        ForumListModel forumListModel2 = forumListModel;
+        if (forumListModel2 == null || !forumListModel2.isOk()) {
+            uVar = this.b.c;
+            context = this.b.a;
+            String string = context.getString(R.string.neterror);
+            z = this.b.f;
+            uVar.a(false, 0, forumListModel2, string, z);
+            return;
+        }
+        uVar2 = this.b.c;
+        int errorCode = forumListModel2.getErrorCode();
+        String errorString = forumListModel2.getErrorString();
+        z2 = this.b.f;
+        uVar2.a(true, errorCode, forumListModel2, errorString, z2);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ void b(Void... voidArr) {
         u uVar;
         boolean z;
         super.b((Object[]) voidArr);
@@ -41,11 +63,17 @@ public class v extends BdAsyncTask<Void, Void, ForumListModel> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b  reason: avoid collision after fix types in other method */
-    public ForumListModel a(Void... voidArr) {
+    private v(t tVar) {
+        this.b = tVar;
+        this.a = new ForumListModel();
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ v(t tVar, byte b) {
+        this(tVar);
+    }
+
+    private ForumListModel d() {
         boolean z;
         Context context;
         ForumListModel.RequestParams requestParams;
@@ -56,7 +84,7 @@ public class v extends BdAsyncTask<Void, Void, ForumListModel> {
             if (z) {
                 com.baidu.adp.lib.cache.s<String> m = com.baidu.tieba.c.a.a().m();
                 if (m != null) {
-                    StringBuilder append = new StringBuilder(String.valueOf(TiebaApplication.A())).append("_");
+                    StringBuilder append = new StringBuilder(String.valueOf(TiebaApplication.v())).append("_");
                     requestParams2 = this.b.b;
                     str = m.a(append.append(requestParams2.menu_name).append("_list").toString());
                 } else {
@@ -75,32 +103,8 @@ public class v extends BdAsyncTask<Void, Void, ForumListModel> {
             requestParams = this.b.b;
             return ForumListModel.new_fetch(context, requestParams);
         } catch (JsonParseException e) {
-            com.baidu.adp.lib.util.f.e("ForumListDetailModel", "ForumListTask", e.getMessage());
+            com.baidu.adp.lib.util.e.e("ForumListDetailModel", "ForumListTask", e.getMessage());
             return null;
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(ForumListModel forumListModel) {
-        u uVar;
-        Context context;
-        boolean z;
-        u uVar2;
-        boolean z2;
-        if (forumListModel == null || !forumListModel.isOk()) {
-            uVar = this.b.c;
-            context = this.b.a;
-            String string = context.getString(R.string.neterror);
-            z = this.b.f;
-            uVar.a(false, 0, forumListModel, string, z);
-            return;
-        }
-        uVar2 = this.b.c;
-        int errorCode = forumListModel.getErrorCode();
-        String errorString = forumListModel.getErrorString();
-        z2 = this.b.f;
-        uVar2.a(true, errorCode, forumListModel, errorString, z2);
     }
 }

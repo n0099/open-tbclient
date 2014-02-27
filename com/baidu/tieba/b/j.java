@@ -7,7 +7,7 @@ import com.baidu.tieba.util.ba;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class j {
+public final class j {
     private static final String d = String.valueOf(com.baidu.tieba.data.i.a) + "c/f/forum/threadrecommend";
     private int a = -1;
     private ba b = null;
@@ -17,7 +17,7 @@ public class j {
         this.c = z;
     }
 
-    public String a(String str, String str2) {
+    public final String a(String str, String str2) {
         this.b = new ba();
         this.b.a(d);
         this.b.c(false);
@@ -30,30 +30,30 @@ public class j {
         if (str2 != null) {
             this.b.a(w.a, str2);
         }
-        String m = this.b.m();
-        if (m != null) {
+        String l = this.b.l();
+        if (l != null) {
             try {
-                this.a = new JSONObject(m).optInt(SocialConstants.PARAM_ERROR_CODE);
+                this.a = new JSONObject(l).optInt(SocialConstants.PARAM_ERROR_CODE);
             } catch (JSONException e) {
             }
         }
-        return m;
+        return l;
     }
 
-    public void a() {
+    public final void a() {
         if (this.b != null) {
-            this.b.k();
+            this.b.j();
         }
     }
 
-    public boolean b() {
+    public final boolean b() {
         if (this.b != null) {
-            return this.b.d();
+            return this.b.c();
         }
         return false;
     }
 
-    public int c() {
+    public final int c() {
         return this.a;
     }
 }

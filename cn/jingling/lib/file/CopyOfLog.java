@@ -15,8 +15,9 @@ public class CopyOfLog {
         if (Environment.getExternalStorageState().equals("mounted")) {
             try {
                 SDFile = Environment.getExternalStorageDirectory();
-                logFile = new File(String.valueOf(SDFile.getAbsolutePath()) + File.separator + "myMatrix.txt");
-                if (!logFile.exists()) {
+                File file = new File(String.valueOf(SDFile.getAbsolutePath()) + File.separator + "myMatrix.txt");
+                logFile = file;
+                if (!file.exists()) {
                     logFile.createNewFile();
                 }
                 fos = new FileOutputStream(logFile);

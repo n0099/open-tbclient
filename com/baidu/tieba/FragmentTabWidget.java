@@ -33,17 +33,17 @@ public class FragmentTabWidget extends LinearLayout {
     public void addView(View view) {
         a(view);
         super.addView(view);
-        view.setOnClickListener(new s(this, getChildCount() - 1, null));
+        view.setOnClickListener(new s(this, getChildCount() - 1, (byte) 0));
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view, int i) {
         a(view);
         super.addView(view, i);
-        view.setOnClickListener(new s(this, getChildCount() - 1, null));
+        view.setOnClickListener(new s(this, getChildCount() - 1, (byte) 0));
     }
 
-    private void a(View view) {
+    private static void a(View view) {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -1, 1.0f);
         layoutParams.setMargins(0, 0, 0, 0);
         view.setLayoutParams(layoutParams);
@@ -56,7 +56,7 @@ public class FragmentTabWidget extends LinearLayout {
         this.b = rVar;
     }
 
-    public void a() {
+    public final void a() {
         removeAllViews();
         this.a = -1;
     }

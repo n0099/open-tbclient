@@ -13,7 +13,7 @@ import com.baidu.tieba.view.NoNetworkView;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class f extends com.baidu.adp.a.e {
+public final class f extends com.baidu.adp.a.e {
     private IMBlackListActivity a;
     private NoNetworkView c;
     private NavigationBar d;
@@ -29,44 +29,6 @@ public class f extends com.baidu.adp.a.e {
         super(iMBlackListActivity);
         this.k = new g(this);
         this.a = iMBlackListActivity;
-        h();
-    }
-
-    public void a() {
-        this.j.setVisibility(0);
-    }
-
-    public void e() {
-        this.j.setVisibility(8);
-    }
-
-    public void a(com.baidu.tieba.im.data.a aVar) {
-        this.h.a(aVar);
-        if (this.h.getCount() <= 0) {
-            this.g.setVisibility(8);
-            this.i.setVisibility(0);
-            return;
-        }
-        this.g.setVisibility(0);
-        this.i.setVisibility(8);
-        this.h.notifyDataSetChanged();
-        f();
-    }
-
-    public void a(ArrayList<com.baidu.tieba.im.data.a> arrayList) {
-        if (arrayList == null || arrayList.size() <= 0) {
-            this.g.setVisibility(8);
-            this.i.setVisibility(0);
-            return;
-        }
-        this.g.setVisibility(0);
-        this.i.setVisibility(8);
-        this.h.a(arrayList);
-        this.h.notifyDataSetChanged();
-        f();
-    }
-
-    private void h() {
         this.a.setContentView(R.layout.im_black_list);
         this.e = this.a.findViewById(R.id.root_view);
         this.c = (NoNetworkView) this.e.findViewById(R.id.view_no_network);
@@ -78,22 +40,48 @@ public class f extends com.baidu.adp.a.e {
         this.j = (ProgressBar) this.e.findViewById(R.id.progress);
         this.h = new c(this.a);
         this.g.setAdapter((ListAdapter) this.h);
-        g();
-        i();
-    }
-
-    private void i() {
-        int al = TiebaApplication.g().al();
-        this.a.getLayoutMode().a(al == 1);
-        this.a.getLayoutMode().a(this.e);
-        this.d.c(al);
-    }
-
-    public void f() {
-        ap.a(this.g, this.h.a(), null, this.k, null, 0, 1);
-    }
-
-    public void g() {
         this.g.setOnScrollListener(new h(this));
+        int ae = TiebaApplication.g().ae();
+        this.a.getLayoutMode().a(ae == 1);
+        this.a.getLayoutMode().a(this.e);
+        this.d.b(ae);
+    }
+
+    public final void a() {
+        this.j.setVisibility(0);
+    }
+
+    public final void d() {
+        this.j.setVisibility(8);
+    }
+
+    public final void a(com.baidu.tieba.im.data.a aVar) {
+        this.h.a(aVar);
+        if (this.h.getCount() <= 0) {
+            this.g.setVisibility(8);
+            this.i.setVisibility(0);
+            return;
+        }
+        this.g.setVisibility(0);
+        this.i.setVisibility(8);
+        this.h.notifyDataSetChanged();
+        e();
+    }
+
+    public final void a(ArrayList<com.baidu.tieba.im.data.a> arrayList) {
+        if (arrayList == null || arrayList.size() <= 0) {
+            this.g.setVisibility(8);
+            this.i.setVisibility(0);
+            return;
+        }
+        this.g.setVisibility(0);
+        this.i.setVisibility(8);
+        this.h.a(arrayList);
+        this.h.notifyDataSetChanged();
+        e();
+    }
+
+    public final void e() {
+        ap.a(this.g, this.h.a(), null, this.k, null, 0, 1);
     }
 }

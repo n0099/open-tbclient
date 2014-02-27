@@ -1,9 +1,8 @@
 package com.baidu.tieba.im.chat;
 
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bz implements View.OnLongClickListener {
+final class bz implements View.OnClickListener {
     final /* synthetic */ MsgleftView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,11 +10,8 @@ public class bz implements View.OnLongClickListener {
         this.a = msgleftView;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
-        TouchType touchType;
-        touchType = this.a.v;
-        touchType.set(true);
-        return true;
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        this.a.c.a(view, 2, this.a.f);
     }
 }

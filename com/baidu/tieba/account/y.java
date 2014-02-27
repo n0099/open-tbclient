@@ -16,7 +16,7 @@ import com.baidu.tieba.data.AccountData;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class y {
+public final class y {
     private com.baidu.tieba.f j;
     private View a = null;
     private Dialog b = null;
@@ -45,23 +45,23 @@ public class y {
         this.j = fVar;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.s = str;
     }
 
-    public void a(AccountData accountData) {
+    public final void a(AccountData accountData) {
         this.t = accountData;
     }
 
-    public void a(ad adVar) {
+    public final void a(ad adVar) {
         this.u = adVar;
     }
 
-    public void b(ad adVar) {
+    public final void b(ad adVar) {
         this.v = adVar;
     }
 
-    public void a() {
+    public final void a() {
         if (this.b == null) {
             this.a = this.j.getLayoutInflater().inflate(R.layout.main_input_username, (ViewGroup) null);
             this.c = (EditText) this.a.findViewById(R.id.account);
@@ -114,14 +114,14 @@ public class y {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void f() {
-        if (this.v != null) {
-            this.v.a(null);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void h(y yVar) {
+        if (yVar.v != null) {
+            yVar.v.a(null);
         }
     }
 
-    public void a(ArrayList<String> arrayList) {
+    public final void a(ArrayList<String> arrayList) {
         int size;
         if (arrayList != null && (size = arrayList.size()) > 0) {
             this.d.setVisibility(0);
@@ -140,7 +140,7 @@ public class y {
         }
     }
 
-    public void b() {
+    public final void b() {
         if (this.l != null) {
             this.l.cancel();
             this.l = null;
@@ -152,11 +152,11 @@ public class y {
         e();
     }
 
-    public boolean c() {
+    public final boolean c() {
         return this.b != null && this.b.isShowing();
     }
 
-    public void d() {
+    public final void d() {
         this.d.setVisibility(8);
         this.d.clearCheck();
         this.f.setVisibility(8);
@@ -167,7 +167,7 @@ public class y {
         this.h.setChecked(false);
     }
 
-    public void e() {
+    public final void e() {
         if (this.b != null && this.b.isShowing()) {
             this.b.dismiss();
         }

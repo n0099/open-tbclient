@@ -3,7 +3,7 @@ package com.baidu.adp.lib.cache;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
-class k implements h {
+final class k implements h {
     private final int a;
     private HashMap<String, Long> b = new HashMap<>();
 
@@ -12,16 +12,16 @@ class k implements h {
     }
 
     @Override // com.baidu.adp.lib.cache.f
-    public int a() {
+    public final int a() {
         return this.a;
     }
 
     @Override // com.baidu.adp.lib.cache.f
-    public boolean b() {
+    public final boolean b() {
         return true;
     }
 
-    public String a(String str) {
+    private String a(String str) {
         String str2;
         if (!this.b.containsKey(str) && this.b.size() >= this.a) {
             synchronized (this) {
@@ -44,7 +44,7 @@ class k implements h {
     }
 
     @Override // com.baidu.adp.lib.cache.h
-    public String a(m<?> mVar) {
+    public final String a(m<?> mVar) {
         String a = a(mVar.a);
         synchronized (this) {
             this.b.put(mVar.a, Long.valueOf(mVar.e));
@@ -53,20 +53,12 @@ class k implements h {
     }
 
     @Override // com.baidu.adp.lib.cache.h
-    public void c() {
-    }
-
-    @Override // com.baidu.adp.lib.cache.h
-    public String b(m<?> mVar) {
+    public final String b(m<?> mVar) {
         return mVar.f < System.currentTimeMillis() ? mVar.a : a(mVar);
     }
 
     @Override // com.baidu.adp.lib.cache.h
-    public void d() {
-    }
-
-    @Override // com.baidu.adp.lib.cache.h
-    public void e() {
+    public final void c() {
         synchronized (this) {
             this.b.clear();
         }

@@ -5,7 +5,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.view.ImagePbImageView;
 /* loaded from: classes.dex */
-class ak {
+final class ak {
     TextView a;
     TextView b;
     TextView c;
@@ -25,7 +25,7 @@ class ak {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ak(ah ahVar, ak akVar) {
+    public /* synthetic */ ak(ah ahVar, byte b) {
         this(ahVar);
     }
 }

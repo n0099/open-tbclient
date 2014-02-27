@@ -3,7 +3,7 @@ package com.baidu.tieba.square;
 import com.baidu.tieba.view.by;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ao implements by {
+public final class ao implements by {
     final /* synthetic */ am a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ public class ao implements by {
     }
 
     @Override // com.baidu.tieba.view.by
-    public void a(boolean z) {
+    public final void a(boolean z) {
         if (!z) {
             return;
         }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class ax {
+public final class ax {
     private boolean a = false;
     private String b = null;
     private String c = null;
@@ -17,7 +17,7 @@ public class ax {
     private String j = null;
     private ArrayList<ak> k = new ArrayList<>();
 
-    public void a(JSONObject jSONObject) {
+    public final void a(JSONObject jSONObject) {
         try {
             if (jSONObject == null) {
                 this.a = false;
@@ -34,8 +34,8 @@ public class ax {
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("media");
             if (optJSONObject2 != null) {
-                a(optJSONObject2.optInt("has_audio", 0));
-                b(optJSONObject2.optInt("has_video", 0));
+                this.g = optJSONObject2.optInt("has_audio", 0);
+                this.h = optJSONObject2.optInt("has_video", 0);
                 this.i = optJSONObject2.optString("audio_url", null);
                 this.j = optJSONObject2.optString("video_url", null);
             }
@@ -49,15 +49,7 @@ public class ax {
                 }
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("SupperBoyData", "parserJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.util.e.b("SupperBoyData", "parserJson", "error = " + e.getMessage());
         }
-    }
-
-    public void a(int i) {
-        this.g = i;
-    }
-
-    public void b(int i) {
-        this.h = i;
     }
 }

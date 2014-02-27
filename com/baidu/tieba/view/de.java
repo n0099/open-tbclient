@@ -2,8 +2,9 @@ package com.baidu.tieba.view;
 
 import android.view.View;
 import android.widget.AbsListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class de implements AbsListView.RecyclerListener {
+public final class de implements AbsListView.RecyclerListener {
     private int a;
 
     public de(int i) {
@@ -12,7 +13,7 @@ class de implements AbsListView.RecyclerListener {
     }
 
     @Override // android.widget.AbsListView.RecyclerListener
-    public void onMovedToScrapHeap(View view) {
+    public final void onMovedToScrapHeap(View view) {
         View findViewById = view.findViewById(this.a);
         if (findViewById != null && (findViewById instanceof UserIconBox)) {
             ((UserIconBox) findViewById).a(null, 0, 0, 0, 0);

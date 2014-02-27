@@ -21,11 +21,11 @@ public final class SapiAccountService {
         this.c = new a(context);
     }
 
-    public String getLoginUrl() {
+    public final String getLoginUrl() {
         return this.c.a() + "?" + a();
     }
 
-    String a() {
+    final String a() {
         if (this.b == null) {
             throw new IllegalStateException(SapiAccountManager.class.getSimpleName() + " have not been initialized");
         }
@@ -43,62 +43,64 @@ public final class SapiAccountService {
         return SapiUtils.createRequestParams(arrayList);
     }
 
-    public String getUrlBind(SocialType socialType, String str, String str2) {
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x002e: INVOKE  (r4v0 int A[REMOVE]) = (r6v0 com.baidu.sapi2.utils.enums.SocialType) type: VIRTUAL call: com.baidu.sapi2.utils.enums.SocialType.getType():int)] */
+    public final String getUrlBind(SocialType socialType, String str, String str2) {
         if (this.b == null) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("tpl", this.b.tpl));
         arrayList.add(new BasicNameValuePair(SocialConstants.PARAM_DISPLAY, a));
-        arrayList.add(new BasicNameValuePair("type", socialType.getType() + ""));
+        arrayList.add(new BasicNameValuePair("type", new StringBuilder().append(socialType.getType()).toString()));
         arrayList.add(new BasicNameValuePair("act", this.b.socialBindType.getName()));
         arrayList.add(new BasicNameValuePair("access_token", str));
         arrayList.add(new BasicNameValuePair("osuid", str2));
         return this.c.c() + "?" + SapiUtils.createRequestParams(arrayList);
     }
 
-    public String getUrlSSOFinish() {
+    public final String getUrlSSOFinish() {
         if (this.b == null) {
             return null;
         }
         return this.c.d();
     }
 
-    public String getUrlBind(SocialType socialType) {
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x002e: INVOKE  (r4v0 int A[REMOVE]) = (r6v0 com.baidu.sapi2.utils.enums.SocialType) type: VIRTUAL call: com.baidu.sapi2.utils.enums.SocialType.getType():int)] */
+    public final String getUrlBind(SocialType socialType) {
         if (this.b == null) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("tpl", this.b.tpl));
         arrayList.add(new BasicNameValuePair(SocialConstants.PARAM_DISPLAY, a));
-        arrayList.add(new BasicNameValuePair("type", socialType.getType() + ""));
+        arrayList.add(new BasicNameValuePair("type", new StringBuilder().append(socialType.getType()).toString()));
         arrayList.add(new BasicNameValuePair("act", this.b.socialBindType.getName()));
         return this.c.e() + "?" + SapiUtils.createRequestParams(arrayList);
     }
 
-    public String getUrlAfterAuth() {
+    public final String getUrlAfterAuth() {
         if (this.b == null) {
             return null;
         }
         return this.c.f();
     }
 
-    public String getUrlFinishBind() {
+    public final String getUrlFinishBind() {
         if (this.b == null) {
             return null;
         }
         return this.c.g();
     }
 
-    public boolean fastReg(FastRegCallBack fastRegCallBack, String str) {
+    public final boolean fastReg(FastRegCallBack fastRegCallBack, String str) {
         return this.c.a(fastRegCallBack, str);
     }
 
-    public boolean getDynamicPwd(GetDynamicPwdCallBack getDynamicPwdCallBack, String str) {
+    public final boolean getDynamicPwd(GetDynamicPwdCallBack getDynamicPwdCallBack, String str) {
         return this.c.a(getDynamicPwdCallBack, str);
     }
 
-    public boolean dynamicPwdLogin(LoginCallBack loginCallBack, String str, String str2) {
+    public final boolean dynamicPwdLogin(LoginCallBack loginCallBack, String str, String str2) {
         return this.c.a(loginCallBack, str, str2);
     }
 }

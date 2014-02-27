@@ -4,7 +4,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.util.DatabaseService;
 /* loaded from: classes.dex */
-class e extends BdAsyncTask<Void, Void, Void> {
+final class e extends BdAsyncTask<Void, Void, Void> {
     final /* synthetic */ d a;
     private final /* synthetic */ AccountData b;
 
@@ -14,10 +14,11 @@ class e extends BdAsyncTask<Void, Void, Void> {
         this.b = accountData;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void a(Void... voidArr) {
+    public final /* synthetic */ Void a(Void... voidArr) {
         DatabaseService.a(this.b);
         DatabaseService.b(this.b);
         return null;

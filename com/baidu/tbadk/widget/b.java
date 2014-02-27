@@ -23,10 +23,10 @@ public class b extends TbImageView {
     @Override // com.baidu.tbadk.widget.TbImageView, android.widget.ImageView, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        f();
+        d();
     }
 
-    public void f() {
+    public void d() {
         setTag(null);
         a listViewActivity = getListViewActivity();
         if (listViewActivity != null) {

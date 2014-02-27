@@ -3,7 +3,7 @@ package com.baidu.tieba.im.chat.snapGroup;
 import android.view.View;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class b implements View.OnClickListener {
+final class b implements View.OnClickListener {
     final /* synthetic */ SnapGroupChatActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ class b implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         this.a.showToast(this.a.getString(R.string.snap_group_chat_change_group_limit_tip));
     }
 }

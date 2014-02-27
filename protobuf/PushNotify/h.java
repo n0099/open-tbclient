@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.Im;
 import protobuf.PushNotify.PushNotifyRes;
 /* loaded from: classes.dex */
@@ -12,19 +13,34 @@ public final class h extends GeneratedMessageLite.Builder<PushNotifyRes.PusherMs
     private int b;
     private Im.PusherMsgInfo c = Im.PusherMsgInfo.getDefaultInstance();
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        PushNotifyRes.PusherMsg buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return PushNotifyRes.PusherMsg.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return PushNotifyRes.PusherMsg.getDefaultInstance();
+    }
+
     private h() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static h h() {
+    public static /* synthetic */ h a() {
         return new h();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: b */
     public h clear() {
         super.clear();
         this.b = 0;
@@ -35,29 +51,13 @@ public final class h extends GeneratedMessageLite.Builder<PushNotifyRes.PusherMs
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public h clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
     /* renamed from: c */
-    public PushNotifyRes.PusherMsg getDefaultInstanceForType() {
-        return PushNotifyRes.PusherMsg.getDefaultInstance();
+    public h clone() {
+        return new h().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public PushNotifyRes.PusherMsg build() {
-        PushNotifyRes.PusherMsg buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
     public PushNotifyRes.PusherMsg buildPartial() {
         PushNotifyRes.PusherMsg pusherMsg = new PushNotifyRes.PusherMsg(this, (PushNotifyRes.PusherMsg) null);
         int i = this.a;
@@ -73,13 +73,21 @@ public final class h extends GeneratedMessageLite.Builder<PushNotifyRes.PusherMs
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public h mergeFrom(PushNotifyRes.PusherMsg pusherMsg) {
+    public final h mergeFrom(PushNotifyRes.PusherMsg pusherMsg) {
         if (pusherMsg != PushNotifyRes.PusherMsg.getDefaultInstance()) {
             if (pusherMsg.hasCmd()) {
-                a(pusherMsg.getCmd());
+                int cmd = pusherMsg.getCmd();
+                this.a |= 1;
+                this.b = cmd;
             }
             if (pusherMsg.hasData()) {
-                a(pusherMsg.getData());
+                Im.PusherMsgInfo data = pusherMsg.getData();
+                if ((this.a & 2) != 2 || this.c == Im.PusherMsgInfo.getDefaultInstance()) {
+                    this.c = data;
+                } else {
+                    this.c = Im.PusherMsgInfo.newBuilder(this.c).mergeFrom(data).buildPartial();
+                }
+                this.a |= 2;
             }
         }
         return this;
@@ -126,21 +134,5 @@ public final class h extends GeneratedMessageLite.Builder<PushNotifyRes.PusherMs
                 throw th;
             }
         }
-    }
-
-    public h a(int i) {
-        this.a |= 1;
-        this.b = i;
-        return this;
-    }
-
-    public h a(Im.PusherMsgInfo pusherMsgInfo) {
-        if ((this.a & 2) == 2 && this.c != Im.PusherMsgInfo.getDefaultInstance()) {
-            this.c = Im.PusherMsgInfo.newBuilder(this.c).mergeFrom(pusherMsgInfo).buildPartial();
-        } else {
-            this.c = pusherMsgInfo;
-        }
-        this.a |= 2;
-        return this;
     }
 }

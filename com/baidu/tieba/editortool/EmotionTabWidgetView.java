@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -15,8 +14,7 @@ import java.util.ArrayList;
 public class EmotionTabWidgetView extends LinearLayout {
     private EmotionTabHorizonScrollView a;
     private ImageView b;
-    private View c;
-    private z d;
+    private aa c;
 
     public EmotionTabWidgetView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -33,8 +31,7 @@ public class EmotionTabWidgetView extends LinearLayout {
         ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.emotion_tab_widget, (ViewGroup) this, true);
         this.a = (EmotionTabHorizonScrollView) findViewById(R.id.face_tab_scroll_view);
         this.b = (ImageView) findViewById(R.id.face_tab_delete);
-        this.b.setOnClickListener(new x(this));
-        this.c = findViewById(R.id.face_tab_zhanwei);
+        this.b.setOnClickListener(new y(this));
     }
 
     public void setFrom(int i) {
@@ -47,7 +44,7 @@ public class EmotionTabWidgetView extends LinearLayout {
         this.a.setDatas(arrayList);
     }
 
-    public void a(WritableEmotionGroup writableEmotionGroup) {
+    public final void a(WritableEmotionGroup writableEmotionGroup) {
         this.a.a(writableEmotionGroup);
     }
 
@@ -55,18 +52,17 @@ public class EmotionTabWidgetView extends LinearLayout {
         this.a.setCurrentTab(i);
     }
 
-    public void setOnTabSelectedListener(y yVar) {
-        this.a.setOnTabSelectedListener(yVar);
+    public void setOnTabSelectedListener(z zVar) {
+        this.a.setOnTabSelectedListener(zVar);
     }
 
-    public void a() {
-        this.a.b();
+    public final void a() {
+        this.a.a();
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         setBackgroundColor(getResources().getColor(i == 1 ? R.color.editor_tool_container_bg_1 : R.color.editor_tool_container_bg));
         Resources resources = getContext().getResources();
-        this.c.setBackgroundResource(i == 1 ? R.drawable.bg_expression_bar_n_1 : R.drawable.bg_expression_bar_n);
         this.a.a(i);
         int i2 = i == 1 ? R.drawable.but_face_close_1 : R.drawable.but_face_close;
         int i3 = i == 1 ? R.color.emotion_delete_bg_1 : R.color.emotion_delete_bg;
@@ -82,11 +78,11 @@ public class EmotionTabWidgetView extends LinearLayout {
         }
     }
 
-    public void a(int i, boolean z) {
+    public final void a(int i, boolean z) {
         this.a.a(i, z);
     }
 
-    public void setOnDataSelected(z zVar) {
-        this.d = zVar;
+    public void setOnDataSelected(aa aaVar) {
+        this.c = aaVar;
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.tieba.util.bq;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class j implements ViewPager.OnPageChangeListener {
+public final class j implements ViewPager.OnPageChangeListener {
     public FrameLayout a;
     public ViewPager b;
     public TextView c;
@@ -32,14 +32,14 @@ public class j implements ViewPager.OnPageChangeListener {
         this.b.setOnPageChangeListener(this);
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         bq.b(this.a, i);
-        this.f.c(i);
+        this.f.b(i);
         b(this.e);
     }
 
-    public void b(int i) {
-        boolean z = TiebaApplication.g().al() == 1;
+    public final void b(int i) {
+        boolean z = TiebaApplication.g().ae() == 1;
         switch (i) {
             case 1:
                 if (z) {
@@ -69,11 +69,11 @@ public class j implements ViewPager.OnPageChangeListener {
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrolled(int i, float f, int i2) {
+    public final void onPageScrolled(int i, float f, int i2) {
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageSelected(int i) {
+    public final void onPageSelected(int i) {
         this.e = i + 1;
         if (this.e == 1) {
             b(1);
@@ -83,13 +83,13 @@ public class j implements ViewPager.OnPageChangeListener {
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrollStateChanged(int i) {
+    public final void onPageScrollStateChanged(int i) {
         if (i == 0 && this.g != null) {
             this.g.a(this.e - 1);
         }
     }
 
-    public void a(k kVar) {
+    public final void a(k kVar) {
         this.g = kVar;
     }
 }

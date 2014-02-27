@@ -3,7 +3,7 @@ package com.baidu.tieba.pb;
 import android.view.View;
 import com.baidu.tieba.view.HeadImageView;
 /* loaded from: classes.dex */
-class ca implements View.OnClickListener {
+final class ca implements View.OnClickListener {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ class ca implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         String str;
         if (view instanceof HeadImageView) {
             str = ((HeadImageView) view).getUserId();

@@ -13,12 +13,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
-public class u {
+public final class u {
     private static u a = null;
-    private List<c> b = new ArrayList();
-    private List<Uri> c;
     private String d;
-    private boolean e;
+    private List<c> b = new ArrayList();
+    private List<Uri> c = new ArrayList();
+    private boolean e = false;
 
     public static u a() {
         if (a == null) {
@@ -28,15 +28,13 @@ public class u {
     }
 
     private u() {
-        a(new ArrayList());
-        this.e = false;
     }
 
-    public int b() {
+    public final int b() {
         return this.b.size();
     }
 
-    public int a(Uri uri) {
+    public final int a(Uri uri) {
         if (uri == null || this.b == null) {
             return -1;
         }
@@ -54,23 +52,23 @@ public class u {
         }
     }
 
-    public void a(c cVar) {
+    public final void a(c cVar) {
         this.b.add(cVar);
     }
 
-    public void c() {
+    public final void c() {
         this.b.clear();
     }
 
-    public c a(int i) {
+    public final c a(int i) {
         return this.b.get(i);
     }
 
-    public int a(Context context) {
-        return c(context).size();
+    public final int a(Context context) {
+        return d().size();
     }
 
-    public boolean a(Context context, Uri uri) {
+    public final boolean a(Context context, Uri uri) {
         boolean z;
         if (a(context) >= 10) {
             return false;
@@ -78,10 +76,10 @@ public class u {
         try {
             int dimension = (int) context.getResources().getDimension(R.dimen.jigsawSelectedImageWidth);
             if (b.b(context, uri, dimension, dimension) == null) {
-                y.a(R.string.open_error);
+                x.a(R.string.open_error);
                 return false;
             }
-            Iterator<Uri> it = c(context).iterator();
+            Iterator<Uri> it = d().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -94,59 +92,53 @@ public class u {
             if (z) {
                 return false;
             }
-            c(context).add(uri);
+            d().add(uri);
             return true;
         } catch (OtherException e) {
             e.printStackTrace();
-            y.a(R.string.open_error);
+            x.a(R.string.open_error);
             return false;
         } catch (FileNotFoundException e2) {
             e2.printStackTrace();
-            y.a(R.string.open_error);
+            x.a(R.string.open_error);
             return false;
         } catch (OutOfMemoryError e3) {
             e3.printStackTrace();
-            y.a(R.string.open_error);
+            x.a(R.string.open_error);
             return false;
         }
     }
 
-    public void b(Context context, Uri uri) {
-        c(context).remove(uri);
-        f(context);
+    public final void b(Context context, Uri uri) {
+        d().remove(uri);
     }
 
-    public void b(Context context) {
-        c(context).clear();
-        f(context);
+    public final void b(Context context) {
+        d().clear();
     }
 
-    private void a(List<Uri> list) {
-        this.c = list;
-    }
-
-    public List<Uri> c(Context context) {
+    public final List<Uri> d() {
         this.c.size();
         return this.c;
     }
 
-    public int d(Context context) {
-        return c(context).size();
+    private int d(Context context) {
+        return d().size();
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.d = str;
     }
 
-    public String d() {
+    public final String e() {
         return this.d;
     }
 
-    public String e(Context context) {
+    public final String c(Context context) {
         return String.format(context.getResources().getString(R.string.jigsaw_selected_text), Integer.valueOf(d(context)), Integer.valueOf(10 - d(context)));
     }
 
-    public Bitmap a(Context context, c cVar, int i) {
+    public static Bitmap a(Context context, c cVar, int i) {
         Bitmap bitmap;
         Bitmap bitmap2;
         Uri parse = Uri.parse(String.valueOf(String.valueOf(MediaStore.Images.Media.EXTERNAL_CONTENT_URI)) + "/" + String.valueOf(cVar.c));
@@ -156,7 +148,7 @@ public class u {
                 return null;
             }
             try {
-                int a3 = w.a(context, parse, false);
+                int a3 = v.a(context, parse);
                 if (a3 != 0) {
                     Matrix matrix = new Matrix();
                     matrix.setRotate(a3);
@@ -179,16 +171,13 @@ public class u {
         }
     }
 
-    public boolean e() {
+    public final boolean f() {
         boolean z = this.e;
         this.e = false;
         return z;
     }
 
-    private void f(Context context) {
-    }
-
-    public boolean b(Uri uri) {
+    public final boolean b(Uri uri) {
         for (Uri uri2 : this.c) {
             if (uri2.equals(uri)) {
                 return true;
@@ -197,7 +186,7 @@ public class u {
         return false;
     }
 
-    public Intent f() {
+    public final Intent g() {
         Intent intent = new Intent();
         new Bundle();
         ArrayList<String> arrayList = new ArrayList<>();

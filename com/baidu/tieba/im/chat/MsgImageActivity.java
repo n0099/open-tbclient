@@ -31,7 +31,7 @@ public class MsgImageActivity extends com.baidu.tieba.f {
     private ProgressBar a = null;
     private ArrayList<String> b = null;
     private int c = 0;
-    private bp d = null;
+    private bo d = null;
     private TextView e = null;
     private ImageView f = null;
     private TextView h = null;
@@ -53,7 +53,7 @@ public class MsgImageActivity extends com.baidu.tieba.f {
             intent.putExtra("current_url", str);
             intent.putExtra("id", String.valueOf(j));
             intent.putExtra("chat_mode", 0);
-            intent.putExtra("isSingle", z);
+            intent.putExtra("isSingle", false);
             context.startActivity(intent);
         }
     }
@@ -69,21 +69,82 @@ public class MsgImageActivity extends com.baidu.tieba.f {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x012f, code lost:
+        if (r6.c < 0) goto L19;
+     */
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        TiebaApplication.g().a((com.baidu.tieba.f) this);
+        TiebaApplication.g().a(this);
         setContentView(R.layout.image_activity_2);
-        a(bundle);
+        Intent intent = getIntent();
+        if (intent != null) {
+            this.r = intent.getStringExtra("current_url");
+            this.s = intent.getStringExtra("id");
+            this.w = intent.getBooleanExtra("isSingle", false);
+            this.b = new ArrayList<>();
+            this.b.add(this.r);
+            this.v = intent.getIntExtra("chat_mode", 0);
+            this.c = 0;
+            com.baidu.adp.lib.util.e.e("curImgUrl:" + this.r + " groupId:" + this.s);
+        } else if (bundle != null) {
+            com.baidu.adp.lib.util.e.e(" have savedInstanceState");
+            this.b = bundle.getStringArrayList(SocialConstants.PARAM_URL);
+            this.c = bundle.getInt("index", -1);
+            this.s = bundle.getString("id");
+            this.v = bundle.getInt("chat_mode", 0);
+            this.w = bundle.getBoolean("isSingle", false);
+        } else {
+            com.baidu.adp.lib.util.e.e(" not have savedInstanceState");
+        }
+        this.u = new HashMap<>();
+        this.k = new bj(this);
+        this.m = new bl(this);
+        this.l = new bm(this);
+        this.i = (NavigationBar) findViewById(R.id.navigation_bar);
+        this.g = (FrameLayout) this.i.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.image_activity_save_button, this.k);
+        if (this.w) {
+            this.g.setVisibility(8);
+        }
+        this.a = (ProgressBar) findViewById(R.id.progress);
+        this.e = (TextView) findViewById(R.id.save);
+        this.f = this.i.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.k);
+        this.h = this.i.a("");
+        this.e.setClickable(false);
+        this.j = (MultiImageView) findViewById(R.id.viewpager);
+        this.j.setPageMargin(BdUtilHelper.a((Context) this, 8.0f));
+        this.j.a(2, com.baidu.tieba.data.i.t() * com.baidu.tieba.data.i.t());
+        this.j.setOnPageChangeListener(this.m);
+        this.j.setItemOnclickListener(this.k);
+        MultiImageView multiImageView = this.j;
+        if (this.b != null && this.b.size() > 0) {
+            int size = this.b.size();
+            if (this.c >= size) {
+                this.c = size - 1;
+            }
+        }
+        this.c = 0;
+        multiImageView.a(this.c, false);
+        this.j.setOnScrollOutListener(this.l);
+        this.j.setHasNext(false);
+        this.j.setNextTitle("mNextTitle");
+        this.j.setIsFromCDN(true);
+        this.j.setAllowLocalUrl(true);
+        int i = this.c;
+        int i2 = this.c;
+        a(i);
+        this.h.setVisibility(4);
         a();
-        d();
     }
 
     @Override // android.app.Activity
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-        d();
+        a();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -95,7 +156,7 @@ public class MsgImageActivity extends com.baidu.tieba.f {
         } else {
             this.j.setBackgroundColor(-16777216);
         }
-        this.i.c(i);
+        this.i.b(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -121,7 +182,9 @@ public class MsgImageActivity extends com.baidu.tieba.f {
     @Override // com.baidu.tieba.f, android.app.Activity
     public void onStop() {
         super.onStop();
-        a(this.c, this.c);
+        int i = this.c;
+        int i2 = this.c;
+        a(i);
         this.j.c();
         if (this.d != null) {
             this.d.cancel();
@@ -135,7 +198,7 @@ public class MsgImageActivity extends com.baidu.tieba.f {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
-        TiebaApplication.g().b((com.baidu.tieba.f) this);
+        TiebaApplication.g().b(this);
         super.onDestroy();
     }
 
@@ -151,100 +214,32 @@ public class MsgImageActivity extends com.baidu.tieba.f {
         return super.onKeyDown(i, keyEvent);
     }
 
-    private void a() {
-        this.k = new bk(this);
-        this.m = new bm(this);
-        this.l = new bn(this);
-        this.i = (NavigationBar) findViewById(R.id.navigation_bar);
-        this.g = (FrameLayout) this.i.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.image_activity_save_button, this.k);
-        if (this.w) {
-            this.g.setVisibility(8);
-        }
-        this.a = (ProgressBar) findViewById(R.id.progress);
-        this.e = (TextView) findViewById(R.id.save);
-        this.f = this.i.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.k);
-        this.h = this.i.a("");
-        this.e.setClickable(false);
-        this.j = (MultiImageView) findViewById(R.id.viewpager);
-        this.j.setPageMargin(BdUtilHelper.a((Context) this, 8.0f));
-        this.j.a(2, com.baidu.tieba.data.i.t() * com.baidu.tieba.data.i.t());
-        this.j.setOnPageChangeListener(this.m);
-        this.j.setItemOnclickListener(this.k);
-        this.j.a(c(), false);
-        this.j.setOnScrollOutListener(this.l);
-        this.j.setHasNext(false);
-        this.j.setNextTitle("mNextTitle");
-        this.j.setIsFromCDN(true);
-        this.j.setAllowLocalUrl(true);
-        a(this.c, this.c);
-        this.h.setVisibility(4);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b() {
-        if (this.b != null) {
-            String valueOf = String.valueOf(this.c + 1);
-            if (this.q > 0) {
-                valueOf = String.valueOf(String.valueOf(valueOf) + "/") + this.q;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void l(MsgImageActivity msgImageActivity) {
+        if (msgImageActivity.b != null) {
+            String valueOf = String.valueOf(msgImageActivity.c + 1);
+            if (msgImageActivity.q > 0) {
+                valueOf = String.valueOf(String.valueOf(valueOf) + "/") + msgImageActivity.q;
             }
-            if (this.j.getHasNext() && this.c == this.j.getItemNum() - 1) {
-                this.h.setText(getString(R.string.image_recommend));
-                this.e.setVisibility(4);
+            if (msgImageActivity.j.getHasNext() && msgImageActivity.c == msgImageActivity.j.getItemNum() - 1) {
+                msgImageActivity.h.setText(msgImageActivity.getString(R.string.image_recommend));
+                msgImageActivity.e.setVisibility(4);
                 return;
             }
-            this.h.setText(valueOf);
-            this.e.setVisibility(0);
+            msgImageActivity.h.setText(valueOf);
+            msgImageActivity.e.setVisibility(0);
         }
     }
 
-    private int c() {
-        if (this.b != null && this.b.size() > 0) {
-            int size = this.b.size();
-            if (this.c >= size) {
-                this.c = size - 1;
-            }
-            if (this.c < 0) {
-                this.c = 0;
-            }
-        } else {
-            this.c = 0;
-        }
-        return this.c;
-    }
-
-    private void a(Bundle bundle) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            this.r = intent.getStringExtra("current_url");
-            this.s = intent.getStringExtra("id");
-            this.w = intent.getBooleanExtra("isSingle", false);
-            this.b = new ArrayList<>();
-            this.b.add(this.r);
-            this.v = intent.getIntExtra("chat_mode", 0);
-            this.c = 0;
-            com.baidu.adp.lib.util.f.e("curImgUrl:" + this.r + " groupId:" + this.s);
-        } else if (bundle != null) {
-            com.baidu.adp.lib.util.f.e(" have savedInstanceState");
-            this.b = bundle.getStringArrayList(SocialConstants.PARAM_URL);
-            this.c = bundle.getInt("index", -1);
-            this.s = bundle.getString("id");
-            this.v = bundle.getInt("chat_mode", 0);
-            this.w = bundle.getBoolean("isSingle", false);
-        } else {
-            com.baidu.adp.lib.util.f.e(" not have savedInstanceState");
-        }
-        this.u = new HashMap<>();
-    }
-
-    private void d() {
+    private void a() {
         if (TextUtils.isEmpty(this.s)) {
             finish();
         }
-        bo boVar = new bo(this);
+        bn bnVar = new bn(this);
         if (this.v == 0 || this.v == 2) {
-            q.b().a(this.s, boVar);
+            q.b().a(this.s, bnVar);
         } else {
-            q.b().b(this.s, boVar);
+            q.b().b(this.s, bnVar);
         }
     }
 
@@ -265,7 +260,7 @@ public class MsgImageActivity extends com.baidu.tieba.f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i, int i2) {
+    public void a(int i) {
         synchronized (this.u) {
             if (System.nanoTime() - this.t > 300000000 && this.b != null && i < this.b.size()) {
                 this.u.put(this.b.get(i), true);

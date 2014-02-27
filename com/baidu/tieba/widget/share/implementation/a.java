@@ -14,7 +14,7 @@ import com.baidu.cloudsdk.social.share.ShareContent;
 import com.baidu.cloudsdk.social.share.SocialShare;
 import com.baidu.tieba.widget.share.f;
 /* loaded from: classes.dex */
-public class a implements com.baidu.tieba.widget.share.b {
+public final class a implements com.baidu.tieba.widget.share.b {
     private Context a;
     private SocialShare b;
     private String c;
@@ -29,7 +29,7 @@ public class a implements com.baidu.tieba.widget.share.b {
     }
 
     @Override // com.baidu.tieba.widget.share.b
-    public void a(f fVar, int i, boolean z) {
+    public final void a(f fVar, int i, boolean z) {
         MediaType mediaType;
         switch (i) {
             case 2:

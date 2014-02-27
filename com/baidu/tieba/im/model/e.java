@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
-public class e extends com.baidu.adp.a.d {
+public final class e extends com.baidu.adp.a.d {
     private long a;
     private int b;
     private int c;
@@ -24,41 +24,41 @@ public class e extends com.baidu.adp.a.d {
     private PhotoUrlData i;
     private boolean j;
 
-    public void a(PhotoUrlData photoUrlData) {
+    public final void a(PhotoUrlData photoUrlData) {
         this.i = photoUrlData;
     }
 
-    public int a() {
+    public final int a() {
         return this.c;
     }
 
-    public long b() {
+    public final long b() {
         return this.d;
     }
 
-    public String c() {
+    public final String c() {
         return this.e;
     }
 
-    public long d() {
+    public final long d() {
         return this.a;
     }
 
-    public int e() {
+    public final int e() {
         return this.b;
     }
 
     @Override // com.baidu.adp.a.d
-    protected boolean LoadData() {
+    protected final boolean LoadData() {
         return false;
     }
 
     @Override // com.baidu.adp.a.d
-    public boolean cancelLoadData() {
+    public final boolean cancelLoadData() {
         return false;
     }
 
-    public void a(Intent intent) {
+    public final void a(Intent intent) {
         this.a = intent.getLongExtra("group_id", 0L);
         this.b = intent.getIntExtra("activity_from", 0);
         this.c = intent.getIntExtra("join_type", 0);
@@ -66,7 +66,7 @@ public class e extends com.baidu.adp.a.d {
         this.e = intent.getStringExtra("default_invite_msg");
     }
 
-    public void a(Bundle bundle) {
+    public final void a(Bundle bundle) {
         this.a = bundle.getLong("group_id", 0L);
         this.b = bundle.getInt("activity_from", 0);
         this.c = bundle.getInt("join_type");
@@ -74,7 +74,7 @@ public class e extends com.baidu.adp.a.d {
         this.e = bundle.getString("default_invite_msg");
     }
 
-    private com.baidu.tieba.im.message.ao c(long j, int i) {
+    private static com.baidu.tieba.im.message.ao c(long j, int i) {
         com.baidu.tieba.im.message.ao aoVar = new com.baidu.tieba.im.message.ao();
         aoVar.a(j);
         LocalViewSize.ImageSize c = LocalViewSize.a().c();
@@ -101,21 +101,21 @@ public class e extends com.baidu.adp.a.d {
         return aoVar;
     }
 
-    public void a(long j, int i) {
+    public final void a(long j, int i) {
         this.g = c(j, i);
-        com.baidu.tieba.im.messageCenter.e.a().a(this.g);
+        com.baidu.tieba.im.messageCenter.d.a().a(this.g);
     }
 
-    public void f() {
+    public final void f() {
         if (this.g != null) {
-            com.baidu.tieba.im.messageCenter.e.a().b(this.g);
+            com.baidu.tieba.im.messageCenter.d.a().b(this.g);
         }
         if (this.h != null) {
-            com.baidu.tieba.im.messageCenter.e.a().b(this.h);
+            com.baidu.tieba.im.messageCenter.d.a().b(this.h);
         }
     }
 
-    public void b(Bundle bundle) {
+    public final void b(Bundle bundle) {
         bundle.putLong("group_id", this.a);
         bundle.putInt("activity_from", this.b);
         bundle.putInt("join_type", this.c);
@@ -123,16 +123,16 @@ public class e extends com.baidu.adp.a.d {
         bundle.putString("default_invite_msg", this.e);
     }
 
-    public void a(ca caVar) {
+    public final void a(ca caVar) {
         this.i = null;
         this.f = caVar;
     }
 
-    public ca g() {
+    public final ca g() {
         return this.f;
     }
 
-    public ArrayList<String> h() {
+    public final ArrayList<String> h() {
         if (this.f == null || this.f.d() == null || this.f.d().size() <= 0) {
             return null;
         }
@@ -145,7 +145,7 @@ public class e extends com.baidu.adp.a.d {
         return arrayList;
     }
 
-    public String b(PhotoUrlData photoUrlData) {
+    public final String b(PhotoUrlData photoUrlData) {
         String str;
         String str2 = "";
         if (photoUrlData == null) {
@@ -163,9 +163,7 @@ public class e extends com.baidu.adp.a.d {
         List<PhotoUrlData> d = this.f.d();
         int i = 1;
         while (i < size) {
-            if (d.get(i) == null) {
-                str = str2;
-            } else if (d.get(i).getPicId().equals(picId)) {
+            if (d.get(i) == null || d.get(i).getPicId().equals(picId)) {
                 str = str2;
             } else {
                 str = String.valueOf(str2) + d.get(i).getPicId();
@@ -179,7 +177,7 @@ public class e extends com.baidu.adp.a.d {
         return str2;
     }
 
-    public String c(PhotoUrlData photoUrlData) {
+    public final String c(PhotoUrlData photoUrlData) {
         if (photoUrlData == null) {
             return null;
         }
@@ -202,7 +200,7 @@ public class e extends com.baidu.adp.a.d {
         return String.valueOf(str) + picId;
     }
 
-    public void i() {
+    public final void i() {
         if (this.f != null && this.f.d() != null && this.f.d().size() > 0 && this.i != null) {
             for (PhotoUrlData photoUrlData : this.f.d()) {
                 if (photoUrlData != null && photoUrlData.getPicId().equals(this.i.getPicId())) {
@@ -213,12 +211,12 @@ public class e extends com.baidu.adp.a.d {
         }
     }
 
-    public void j() {
+    public final void j() {
         if (this.f != null && this.i != null) {
             if (this.f.d() == null) {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(this.i);
-                this.f.b(arrayList);
+                this.f.a(arrayList);
                 return;
             }
             if (this.f.d().size() > 0 && this.f.d().get(0) != null && TextUtils.isEmpty(this.f.d().get(0).getPicId())) {
@@ -232,7 +230,7 @@ public class e extends com.baidu.adp.a.d {
         }
     }
 
-    public void k() {
+    public final void k() {
         if (this.f != null && this.f.d() != null && this.f.d().size() > 0 && this.i != null) {
             Iterator<PhotoUrlData> it = this.f.d().iterator();
             while (true) {
@@ -256,13 +254,13 @@ public class e extends com.baidu.adp.a.d {
         }
     }
 
-    public void b(long j, int i) {
+    public final void b(long j, int i) {
         this.h = c(j, i);
         this.h.e(SapiErrorCode.NOT_INIT);
-        com.baidu.tieba.im.messageCenter.e.a().a(this.h);
+        com.baidu.tieba.im.messageCenter.d.a().a(this.h);
     }
 
-    public boolean a(String str) {
+    public final boolean a(String str) {
         if (str != null && this.f != null && this.f.c() != null && this.f.c().size() > 0) {
             for (MemberData memberData : this.f.c()) {
                 if (str.equals(String.valueOf(memberData.getUserId()))) {
@@ -274,25 +272,19 @@ public class e extends com.baidu.adp.a.d {
         return false;
     }
 
-    public com.baidu.tieba.im.message.s l() {
+    public final com.baidu.tieba.im.message.s l() {
         return this.h;
     }
 
-    public com.baidu.tieba.im.message.s m() {
+    public final com.baidu.tieba.im.message.s m() {
         return this.g;
     }
 
-    public boolean n() {
+    public final boolean n() {
         return this.j;
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.j = z;
-    }
-
-    public void b(String str) {
-        com.baidu.tieba.im.message.d dVar = new com.baidu.tieba.im.message.d();
-        dVar.a(str);
-        com.baidu.tieba.im.messageCenter.e.a().a(dVar);
     }
 }

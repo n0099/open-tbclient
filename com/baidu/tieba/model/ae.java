@@ -1,40 +1,32 @@
 package com.baidu.tieba.model;
-
-import android.content.Context;
 /* loaded from: classes.dex */
-public class ae {
-    private long a;
-    private long b;
-    private long c;
+public final class ae {
+    private long a = 0;
+    private long b = 0;
+    private long c = 0;
     private long d;
 
-    public ae(Context context) {
-        a(0L);
-        b(0L);
-        c(0L);
-    }
-
-    public void a(long j) {
+    public final void a(long j) {
         this.a = j;
     }
 
-    public void b(long j) {
+    public final void b(long j) {
         this.b = j;
     }
 
-    public long a() {
+    public final long a() {
         return this.b + this.c;
     }
 
-    public void c(long j) {
+    public final void c(long j) {
         this.c = j;
     }
 
-    public long b() {
+    public final long b() {
         return this.d;
     }
 
-    public void d(long j) {
+    public final void d(long j) {
         this.d = j;
     }
 }

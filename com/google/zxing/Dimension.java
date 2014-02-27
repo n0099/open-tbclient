@@ -12,15 +12,15 @@ public final class Dimension {
         this.height = i2;
     }
 
-    public int getWidth() {
+    public final int getWidth() {
         return this.width;
     }
 
-    public int getHeight() {
+    public final int getHeight() {
         return this.height;
     }
 
-    public boolean equals(Object obj) {
+    public final boolean equals(Object obj) {
         if (obj instanceof Dimension) {
             Dimension dimension = (Dimension) obj;
             return this.width == dimension.width && this.height == dimension.height;
@@ -28,11 +28,11 @@ public final class Dimension {
         return false;
     }
 
-    public int hashCode() {
+    public final int hashCode() {
         return (this.width * 32713) + this.height;
     }
 
-    public String toString() {
+    public final String toString() {
         return String.valueOf(this.width) + "x" + this.height;
     }
 }

@@ -4,7 +4,7 @@ import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.tieba.switchs.SwitchKey;
 import java.util.HashMap;
 /* loaded from: classes.dex */
-public class l {
+public final class l {
     private static l c;
     private HashMap<String, m> a = new HashMap<>();
     private HashMap<String, n> b = new HashMap<>();
@@ -21,14 +21,14 @@ public class l {
     }
 
     public l() {
-        n nVar = new n(this, null);
+        n nVar = new n(this, (byte) 0);
         nVar.a(3000);
         nVar.b(120000);
         nVar.c(SocialAPIErrorCodes.ERROR_INVALID_AUTHORIZED_CODE);
         this.b.put(com.baidu.loginshare.e.e, nVar);
         this.b.put("op", nVar);
         this.b.put("stat", nVar);
-        n nVar2 = new n(this, null);
+        n nVar2 = new n(this, (byte) 0);
         nVar2.a(60000);
         nVar2.b(120000);
         nVar2.c(10);
@@ -38,7 +38,7 @@ public class l {
         this.b.put(SwitchKey.VOICE, nVar2);
     }
 
-    public boolean a(String str) {
+    public final boolean a(String str) {
         n nVar = this.b.get(str);
         if (nVar == null) {
             return false;
@@ -46,7 +46,7 @@ public class l {
         m mVar = this.a.get(str);
         long currentTimeMillis = System.currentTimeMillis();
         if (mVar == null) {
-            mVar = new m(this, null);
+            mVar = new m(this, (byte) 0);
             mVar.b(false);
             mVar.a(false);
             mVar.b(currentTimeMillis);
@@ -67,15 +67,12 @@ public class l {
             }
             mVar.b(false);
             mVar.a(0);
-            mVar.b(currentTimeMillis);
-            return false;
         } else if (currentTimeMillis - mVar.d() < nVar.a()) {
             mVar.b(true);
             mVar.a(currentTimeMillis);
             return false;
-        } else {
-            mVar.b(currentTimeMillis);
-            return false;
         }
+        mVar.b(currentTimeMillis);
+        return false;
     }
 }

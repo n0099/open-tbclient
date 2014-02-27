@@ -31,7 +31,7 @@ public class CompositeFileComparator extends AbstractFileComparator implements S
         System.arraycopy(comparatorArr, 0, this.delegates, 0, comparatorArr.length);
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v8, resolved type: java.util.Comparator<?>[] */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v7, resolved type: java.util.Comparator<?>[] */
     /* JADX WARN: Multi-variable type inference failed */
     public CompositeFileComparator(Iterable<Comparator<File>> iterable) {
         if (iterable == null) {

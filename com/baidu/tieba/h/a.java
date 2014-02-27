@@ -28,7 +28,7 @@ public class a {
     private a() {
     }
 
-    public void b() {
+    public final void b() {
         this.d = b.a().a("image_quality", 0);
         this.b = b.a().a("new_display_photo", 1);
         this.c = b.a().a("new_abstract_state", 0);
@@ -36,16 +36,16 @@ public class a {
         this.e = b.a().a("show_images", true);
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.b = i;
         b.a().b("new_display_photo", i);
     }
 
-    public int c() {
+    public final int c() {
         return this.b;
     }
 
-    public boolean d() {
+    public final boolean d() {
         if (this.b == 0) {
             if (bv.a().c()) {
                 return true;
@@ -56,30 +56,30 @@ public class a {
         return false;
     }
 
-    public void b(int i) {
+    public final void b(int i) {
         if (this.d != i) {
             this.d = i;
             b.a().b("image_quality", i);
         }
     }
 
-    public int e() {
+    public final int e() {
         this.d = b.a().a("image_quality", 0);
         return this.d;
     }
 
-    public boolean f() {
+    public final boolean f() {
         return this.e;
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         if (this.e != z) {
             this.e = z;
             b.a().b("show_images", z);
         }
     }
 
-    public void c(int i) {
+    public final void c(int i) {
         if (this.f != i) {
             this.f = i;
             b.a().b("view_image_quality", i);
@@ -88,11 +88,11 @@ public class a {
         }
     }
 
-    public int g() {
+    public final int g() {
         return this.f;
     }
 
-    public void b(boolean z) {
+    public final void b(boolean z) {
         if (z) {
             a(0);
             b(0);
@@ -106,7 +106,7 @@ public class a {
         c(1);
     }
 
-    public boolean h() {
+    public final boolean h() {
         return this.b == 0 || this.d == 0 || this.f == 0;
     }
 }

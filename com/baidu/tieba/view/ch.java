@@ -3,7 +3,7 @@ package com.baidu.tieba.view;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ch implements View.OnClickListener {
+public final class ch implements View.OnClickListener {
     final /* synthetic */ SearchBar a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ public class ch implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         ci ciVar;
         ci ciVar2;
         ciVar = this.a.e;

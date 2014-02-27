@@ -3,7 +3,7 @@ package com.baidu.tieba.data;
 import com.baidu.android.pushservice.PushConstants;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class at {
+public final class at {
     private long a;
     private String b;
     private String c;
@@ -24,50 +24,47 @@ public class at {
         this.c = null;
         this.d = null;
         this.e = "";
-        this.a = j;
+        this.a = -1L;
         this.b = str;
         this.c = str2;
     }
 
-    public String a() {
+    public final String a() {
         return this.e;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("MssageData", "parserJson", "error = " + e.getMessage());
-        }
-    }
-
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optLong("message_id");
-                this.b = jSONObject.optString("link");
-                this.c = jSONObject.optString(PushConstants.EXTRA_CONTENT);
-                this.d = jSONObject.optString("to");
-                this.e = jSONObject.optString("stat");
-            } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b("MssageData", "parserJson", "error = " + e.getMessage());
+            JSONObject jSONObject = new JSONObject(str);
+            if (jSONObject != null) {
+                try {
+                    this.a = jSONObject.optLong("message_id");
+                    this.b = jSONObject.optString("link");
+                    this.c = jSONObject.optString(PushConstants.EXTRA_CONTENT);
+                    this.d = jSONObject.optString("to");
+                    this.e = jSONObject.optString("stat");
+                } catch (Exception e) {
+                    com.baidu.adp.lib.util.e.b("MssageData", "parserJson", "error = " + e.getMessage());
+                }
             }
+        } catch (Exception e2) {
+            com.baidu.adp.lib.util.e.b("MssageData", "parserJson", "error = " + e2.getMessage());
         }
     }
 
-    public long b() {
+    public final long b() {
         return this.a;
     }
 
-    public String c() {
+    public final String c() {
         return this.b;
     }
 
-    public String d() {
+    public final String d() {
         return this.c;
     }
 
-    public String e() {
+    public final String e() {
         return this.d;
     }
 }

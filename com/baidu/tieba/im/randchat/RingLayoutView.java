@@ -43,10 +43,6 @@ public class RingLayoutView extends RelativeLayout {
         return this.m;
     }
 
-    private double a(double d) {
-        return d * d;
-    }
-
     public int getRadius() {
         return this.b;
     }
@@ -110,15 +106,15 @@ public class RingLayoutView extends RelativeLayout {
         this.m = this.k.y + this.b + (BdUtilHelper.c(this.a, R.dimen.wait_chat_person_circle_height) / 2) + BdUtilHelper.c(this.a, R.dimen.wait_chat_large_circle_marginbottom);
     }
 
-    public void a(c cVar) {
+    public final void a(c cVar) {
         this.i.a(cVar);
     }
 
-    public void a() {
+    public final void a() {
         this.i.a();
     }
 
-    public void b() {
+    public final void b() {
         this.i.b();
     }
 
@@ -143,59 +139,55 @@ public class RingLayoutView extends RelativeLayout {
     }
 
     private void a(Point point, Point[] pointArr, int i) {
+        double d;
+        Point point2;
         if (pointArr != null && pointArr.length >= i) {
             for (int i2 = 0; i2 < i; i2++) {
                 pointArr[i2].x = (int) (this.b * Math.cos((i2 / i) * 2.0d * 3.141592653d));
                 pointArr[i2].y = (int) (this.b * Math.sin((i2 / i) * 2.0d * 3.141592653d));
             }
-            double e = e();
-            for (int i3 = 0; i3 < i; i3++) {
-                a(pointArr[i3], e);
+            if (this.g == null || this.g.length == 0) {
+                d = 0.0d;
+            } else {
+                Point point3 = this.g[0];
+                int i3 = 0;
+                while (true) {
+                    if (i3 >= this.f) {
+                        point2 = point3;
+                        break;
+                    }
+                    if (this.g[i3].x < 0 && this.g[i3].y <= 0) {
+                        Point point4 = this.g[i3];
+                        this.d = i3;
+                        point2 = point4;
+                        break;
+                    }
+                    i3++;
+                }
+                double d2 = point2.x;
+                double d3 = point2.y + this.b;
+                double d4 = this.b;
+                d = Math.acos(((2.0d * (d4 * d4)) - ((d2 * d2) + (d3 * d3))) / ((this.b * 2) * this.b));
             }
             for (int i4 = 0; i4 < i; i4++) {
-                pointArr[i4].x += point.x;
-                pointArr[i4].y += point.y;
+                Point point5 = pointArr[i4];
+                point5.x = (int) ((point5.x * Math.cos(d)) - (point5.y * Math.sin(d)));
+                point5.y = (int) ((point5.x * Math.sin(d)) + (point5.y * Math.cos(d)));
+            }
+            for (int i5 = 0; i5 < i; i5++) {
+                pointArr[i5].x += point.x;
+                pointArr[i5].y += point.y;
             }
         }
     }
 
-    private void a(Point point, double d) {
-        point.x = (int) ((point.x * Math.cos(d)) - (point.y * Math.sin(d)));
-        point.y = (int) ((point.x * Math.sin(d)) + (point.y * Math.cos(d)));
-    }
-
-    private double e() {
-        Point point;
-        int i = 0;
-        if (this.g == null || this.g.length == 0) {
-            return 0.0d;
-        }
-        Point point2 = this.g[0];
-        while (true) {
-            if (i < this.f) {
-                if (this.g[i].x >= 0 || this.g[i].y > 0) {
-                    i++;
-                } else {
-                    Point point3 = this.g[i];
-                    this.d = i;
-                    point = point3;
-                    break;
-                }
-            } else {
-                point = point2;
-                break;
-            }
-        }
-        return Math.acos(((2.0d * a(this.b)) - (a(point.x) + a(point.y + this.b))) / ((this.b * 2) * this.b));
-    }
-
-    public void c() {
+    public final void c() {
         for (int i = 0; i < this.f; i++) {
             a(i, (String) null, (e) null);
         }
     }
 
-    public void a(int i, String str, e eVar) {
+    public final void a(int i, String str, e eVar) {
         if (i >= 0 && i < this.f) {
             this.h[i].setImageResource(R.drawable.pic_default_head);
             this.h[i].setTag(null);
@@ -324,7 +316,7 @@ public class RingLayoutView extends RelativeLayout {
         return this.i;
     }
 
-    public void d() {
+    public final void d() {
         if (this.i != null) {
             this.i.a();
         }

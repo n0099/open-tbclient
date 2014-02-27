@@ -1,17 +1,22 @@
 package com.baidu.tieba.mainentrance;
 
+import android.widget.LinearLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
-class j {
+final class j {
     TextView a;
-    final /* synthetic */ i b;
+    TextView b;
+    TextView c;
+    TextView d;
+    LinearLayout e;
+    final /* synthetic */ h f;
 
-    private j(i iVar) {
-        this.b = iVar;
+    private j(h hVar) {
+        this.f = hVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ j(i iVar, j jVar) {
-        this(iVar);
+    public /* synthetic */ j(h hVar, byte b) {
+        this(hVar);
     }
 }

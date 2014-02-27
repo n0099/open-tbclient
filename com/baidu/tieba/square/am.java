@@ -13,46 +13,51 @@ import com.baidu.tieba.view.by;
 import com.slidingmenu.lib.R;
 import java.net.URLEncoder;
 /* loaded from: classes.dex */
-public class am extends com.baidu.tieba.j implements AbsListView.OnScrollListener, com.baidu.tbadk.imageManager.d {
+public final class am extends com.baidu.tieba.j implements AbsListView.OnScrollListener, com.baidu.tbadk.imageManager.d {
     public static boolean b = false;
-    private com.baidu.tieba.k g;
+    private com.baidu.tieba.k h;
     private ba c = null;
     private aw d = null;
     private boolean e = false;
     private boolean f = false;
-    private Handler h = null;
-    private Runnable i = null;
-    private ax j = new an(this);
-    private by k = new ao(this);
-    private View.OnKeyListener l = new ap(this);
-    private com.baidu.adp.widget.ListView.b m = new aq(this);
+    private long g = -1;
+    private Handler i = null;
+    private Runnable j = null;
+    private ax k = new an(this);
+    private by l = new ao(this);
+    private View.OnKeyListener m = new ap(this);
+    private com.baidu.adp.widget.ListView.b n = new aq(this);
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onAttach(Activity activity) {
+    public final void onAttach(Activity activity) {
         super.onAttach(activity);
-        this.g = (com.baidu.tieba.k) activity;
+        this.h = (com.baidu.tieba.k) activity;
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        return a(layoutInflater);
+    public final View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        return layoutInflater.inflate(R.layout.square_view, (ViewGroup) null);
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onCreate(Bundle bundle) {
+    public final void onCreate(Bundle bundle) {
         super.onCreate(bundle);
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onActivityCreated(Bundle bundle) {
+    public final void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        a();
-        c();
-        d();
-    }
-
-    private View a(LayoutInflater layoutInflater) {
-        return layoutInflater.inflate(R.layout.square_view, (ViewGroup) null);
+        this.g = System.currentTimeMillis();
+        this.i = new Handler();
+        this.j = new ar(this);
+        this.c = new ba(this.h, this, this.m);
+        ba baVar = this.c;
+        baVar.a.a(this.n);
+        this.c.e().setClickStatKey("sq_tb_search");
+        this.d = new aw();
+        this.d.a(this.k);
+        this.f = true;
+        a(this.f);
     }
 
     public static String a(String str, String str2) {
@@ -68,94 +73,66 @@ public class am extends com.baidu.tieba.j implements AbsListView.OnScrollListene
         return sb.toString();
     }
 
-    private void c() {
-        this.c = new ba(this.g, this, this.l);
-        this.c.a(this.m);
-        this.c.f().setClickStatKey("sq_tb_search");
-    }
-
-    private void d() {
-        this.d = new aw();
-        this.d.a(this.j);
-        this.f = true;
-        a(this.f);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void e() {
-        this.c.a(this.k);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void f() {
-        this.c.b(this.k);
-    }
-
-    public void a() {
-        this.h = new Handler();
-        this.i = new ar(this);
-    }
-
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onStop() {
-        this.c.j();
+    public final void onStop() {
+        this.c.i();
         super.onStop();
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onResume() {
+    public final void onResume() {
         super.onResume();
-        if (b()) {
+        if (d()) {
             if (b) {
                 a(true);
                 b = false;
             }
-            if (this.h != null && !this.f) {
-                this.h.removeCallbacks(this.i);
-                this.h.postDelayed(this.i, 0L);
-                this.c.k();
+            if (this.i != null && !this.f) {
+                this.i.removeCallbacks(this.j);
+                this.i.postDelayed(this.j, 0L);
+                this.c.j();
             }
         }
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onPause() {
+    public final void onPause() {
         super.onPause();
-        if (this.h != null) {
-            this.h.removeCallbacks(this.i);
+        if (this.i != null) {
+            this.i.removeCallbacks(this.j);
         }
-        this.c.l();
+        this.c.k();
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onDestroy() {
-        if (this.h != null) {
-            this.h.removeCallbacks(this.i);
+    public final void onDestroy() {
+        if (this.i != null) {
+            this.i.removeCallbacks(this.j);
         }
-        this.c.m();
-        g();
+        ba baVar = this.c;
+        a();
         super.onDestroy();
     }
 
     @Override // com.baidu.tieba.j, android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
+    public final boolean onLongClick(View view) {
         return true;
     }
 
     @Override // com.baidu.tieba.j, android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+    public final void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         super.onItemClick(adapterView, view, i, j);
     }
 
     @Override // com.baidu.tieba.j
-    public void c(int i) {
+    public final void c(int i) {
         super.c(i);
         if (this.c != null) {
             this.c.a(i);
         }
     }
 
-    private void g() {
+    private void a() {
         this.d.cancelLoadData();
     }
 
@@ -163,48 +140,46 @@ public class am extends com.baidu.tieba.j implements AbsListView.OnScrollListene
     public void a(boolean z) {
         boolean z2;
         boolean z3;
-        boolean z4 = true;
-        boolean z5 = false;
         if (this.d != null) {
-            boolean z6 = this.d.a() == null || this.d.a().g();
-            boolean z7 = z;
+            boolean z4 = this.d.e() == null || this.d.e().g();
+            boolean z5 = z;
             if (UtilHelper.b()) {
-                boolean z8 = z6;
-                z2 = z7;
-                z3 = z8;
+                boolean z6 = z4;
+                z2 = z5;
+                z3 = z6;
             } else {
                 this.f = false;
                 z3 = true;
                 z2 = false;
             }
-            if (!this.f) {
-                z4 = z3;
-                z5 = z2;
+            if (this.f) {
+                z3 = true;
+                z2 = false;
             }
-            if (z4 || z5) {
-                g();
-                if (z5) {
-                    this.d.b();
+            if (z3 || z2) {
+                a();
+                if (z2) {
+                    this.d.a(1);
                 } else {
-                    this.d.c();
+                    this.d.a(0);
                 }
             }
         }
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
         if (bVar == null) {
         }
     }
 
     @Override // com.baidu.tieba.j, android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        this.h.removeCallbacks(this.i);
-        this.h.postDelayed(this.i, 300L);
+    public final void onScrollStateChanged(AbsListView absListView, int i) {
+        this.i.removeCallbacks(this.j);
+        this.i.postDelayed(this.j, 300L);
     }
 
     @Override // com.baidu.tieba.j, android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    public final void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 }

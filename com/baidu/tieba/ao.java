@@ -3,7 +3,7 @@ package com.baidu.tieba;
 import android.view.View;
 import com.baidu.tieba.util.cb;
 /* loaded from: classes.dex */
-class ao implements View.OnClickListener {
+final class ao implements View.OnClickListener {
     final /* synthetic */ an a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ class ao implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         aq aqVar;
         boolean isChecked = this.a.e.isChecked();
         cb.a(this.a.getContext(), "upgrade_channel", isChecked ? "withOtherApp" : "withoutOtherApp", 1, new Object[0]);

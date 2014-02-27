@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.GetMaskInfo.GetMaskInfoRes;
 /* loaded from: classes.dex */
 public final class n extends GeneratedMessageLite.Builder<GetMaskInfoRes.UserInfo, n> implements o {
@@ -12,19 +13,34 @@ public final class n extends GeneratedMessageLite.Builder<GetMaskInfoRes.UserInf
     private Object c = "";
     private int d;
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        GetMaskInfoRes.UserInfo buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return GetMaskInfoRes.UserInfo.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return GetMaskInfoRes.UserInfo.getDefaultInstance();
+    }
+
     private n() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static n h() {
+    public static /* synthetic */ n a() {
         return new n();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: b */
     public n clear() {
         super.clear();
         this.b = "";
@@ -37,29 +53,13 @@ public final class n extends GeneratedMessageLite.Builder<GetMaskInfoRes.UserInf
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public n clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
     /* renamed from: c */
-    public GetMaskInfoRes.UserInfo getDefaultInstanceForType() {
-        return GetMaskInfoRes.UserInfo.getDefaultInstance();
+    public n clone() {
+        return new n().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public GetMaskInfoRes.UserInfo build() {
-        GetMaskInfoRes.UserInfo buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
     public GetMaskInfoRes.UserInfo buildPartial() {
         GetMaskInfoRes.UserInfo userInfo = new GetMaskInfoRes.UserInfo(this, (GetMaskInfoRes.UserInfo) null);
         int i = this.a;
@@ -79,7 +79,7 @@ public final class n extends GeneratedMessageLite.Builder<GetMaskInfoRes.UserInf
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public n mergeFrom(GetMaskInfoRes.UserInfo userInfo) {
+    public final n mergeFrom(GetMaskInfoRes.UserInfo userInfo) {
         Object obj;
         Object obj2;
         if (userInfo != GetMaskInfoRes.UserInfo.getDefaultInstance()) {
@@ -94,7 +94,9 @@ public final class n extends GeneratedMessageLite.Builder<GetMaskInfoRes.UserInf
                 this.c = obj;
             }
             if (userInfo.hasUid()) {
-                a(userInfo.getUid());
+                int uid = userInfo.getUid();
+                this.a |= 4;
+                this.d = uid;
             }
         }
         return this;
@@ -141,11 +143,5 @@ public final class n extends GeneratedMessageLite.Builder<GetMaskInfoRes.UserInf
                 throw th;
             }
         }
-    }
-
-    public n a(int i) {
-        this.a |= 4;
-        this.d = i;
-        return this;
     }
 }

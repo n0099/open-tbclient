@@ -2,7 +2,7 @@ package com.baidu.tieba.account.appeal;
 
 import com.baidu.gson.annotations.SerializedName;
 /* loaded from: classes.dex */
-public class i {
+public final class i {
     @SerializedName("errno")
     public int a = 0;
     @SerializedName("errmsg")

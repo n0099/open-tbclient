@@ -6,7 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x extends BdAsyncTask<String, String, Boolean> {
+public final class x extends BdAsyncTask<String, String, Boolean> {
     ArrayList<com.baidu.tieba.data.z> a;
     String b;
     final /* synthetic */ s c;
@@ -15,6 +15,31 @@ public class x extends BdAsyncTask<String, String, Boolean> {
     private String f;
     private String g;
     private int h;
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ void a(Boolean bool) {
+        com.baidu.adp.a.g gVar;
+        com.baidu.adp.a.g gVar2;
+        Boolean bool2 = bool;
+        super.a((x) bool2);
+        this.c.c = null;
+        if (this.d == null) {
+            gVar2 = this.c.mLoadDataCallBack;
+            gVar2.a(null);
+            return;
+        }
+        y yVar = new y(this.c);
+        yVar.a = bool2.booleanValue();
+        if (!bool2.booleanValue()) {
+            yVar.b = this.d.i();
+        } else if (this.h == 6) {
+            yVar.c = this.a;
+        }
+        gVar = this.c.mLoadDataCallBack;
+        gVar.a(yVar);
+    }
 
     public x(s sVar, String str, String str2, String str3, int i, String str4) {
         this.c = sVar;
@@ -29,7 +54,7 @@ public class x extends BdAsyncTask<String, String, Boolean> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
+    /* JADX INFO: Access modifiers changed from: private */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Boolean a(String... strArr) {
         this.d = new com.baidu.tieba.util.ba(strArr[0]);
@@ -39,9 +64,7 @@ public class x extends BdAsyncTask<String, String, Boolean> {
             this.d.a("z", this.g);
             if (this.h == 4) {
                 this.d.a("ntn", "set");
-            } else if (this.h == 5) {
-                this.d.a("ntn", "");
-            } else if (this.h == 2) {
+            } else if (this.h != 5 && this.h == 2) {
                 this.d.a("ntn", "set");
                 this.d.a("cid", this.b);
             } else {
@@ -49,18 +72,18 @@ public class x extends BdAsyncTask<String, String, Boolean> {
             }
         }
         this.d.e(true);
-        String m = this.d.m();
-        if (this.d.d()) {
+        String l = this.d.l();
+        if (this.d.c()) {
             if (this.h == 6) {
                 try {
-                    JSONArray optJSONArray = new JSONObject(m).optJSONArray("cates");
+                    JSONArray optJSONArray = new JSONObject(l).optJSONArray("cates");
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         com.baidu.tieba.data.z zVar = new com.baidu.tieba.data.z();
                         zVar.a(optJSONArray.optJSONObject(i));
                         this.a.add(zVar);
                     }
                 } catch (Exception e) {
-                    com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.getMessage());
+                    com.baidu.adp.lib.util.e.b(getClass().getName(), "doInBackground", e.getMessage());
                     return false;
                 }
             }
@@ -69,37 +92,11 @@ public class x extends BdAsyncTask<String, String, Boolean> {
         return false;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Boolean bool) {
-        com.baidu.adp.a.g gVar;
-        com.baidu.adp.a.g gVar2;
-        super.a((x) bool);
-        this.c.c = null;
-        if (this.d == null) {
-            gVar2 = this.c.mLoadDataCallBack;
-            gVar2.a(null);
-            return;
-        }
-        y yVar = new y(this.c);
-        yVar.a = bool.booleanValue();
-        if (bool.booleanValue()) {
-            if (this.h == 6) {
-                yVar.c = this.a;
-            }
-        } else {
-            yVar.b = this.d.j();
-        }
-        gVar = this.c.mLoadDataCallBack;
-        gVar.a(yVar);
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
+    public final void cancel() {
         com.baidu.adp.a.g gVar;
         if (this.d != null) {
-            this.d.k();
+            this.d.j();
         }
         this.c.c = null;
         super.cancel(true);

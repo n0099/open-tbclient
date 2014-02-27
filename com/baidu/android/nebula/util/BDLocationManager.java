@@ -39,7 +39,7 @@ public final class BDLocationManager {
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:18:0x006b, code lost:
-            if (android.text.TextUtils.equals(r1, r2) == false) goto L35;
+            if (android.text.TextUtils.equals(r1, r2) == false) goto L34;
          */
         @Override // com.baidu.location.BDLocationListener
         /*
@@ -225,7 +225,7 @@ public final class BDLocationManager {
         this.n.schedule(new b(this), 1800000L);
     }
 
-    public void a(e eVar) {
+    public final void a(e eVar) {
         synchronized (this.f) {
             if (!this.f.contains(eVar)) {
                 this.f.add(eVar);
@@ -233,7 +233,7 @@ public final class BDLocationManager {
         }
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         if (this.d == null) {
             return;
         }
@@ -242,7 +242,7 @@ public final class BDLocationManager {
         this.d.setLocOption(f);
     }
 
-    public c b() {
+    public final c b() {
         long j;
         g();
         c cVar = this.c;
@@ -257,13 +257,13 @@ public final class BDLocationManager {
         return cVar;
     }
 
-    public void b(e eVar) {
+    public final void b(e eVar) {
         synchronized (this.f) {
             this.f.remove(eVar);
         }
     }
 
-    public void c() {
+    public final void c() {
         if (!this.j) {
             a(0L);
             return;

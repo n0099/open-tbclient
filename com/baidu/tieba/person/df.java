@@ -13,25 +13,74 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class df extends BdAsyncTask<String, com.baidu.tieba.data.ao, com.baidu.tieba.data.ao> {
+public final class df extends BdAsyncTask<String, com.baidu.tieba.data.ao, com.baidu.tieba.data.ao> {
     final /* synthetic */ PersonListActivity a;
     private final String b;
     private final boolean c;
     private final int d;
-    private com.baidu.tieba.util.ba e = null;
+    private com.baidu.tieba.util.ba e;
     private boolean f;
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ com.baidu.tieba.data.ao a(String... strArr) {
+        return d();
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ void a(com.baidu.tieba.data.ao aoVar) {
+        ProgressBar progressBar;
+        com.baidu.tieba.data.ao aoVar2 = aoVar;
+        progressBar = this.a.f;
+        progressBar.setVisibility(8);
+        this.a.i = null;
+        if (this.e != null) {
+            if (this.e.c()) {
+                a(aoVar2, false);
+            } else {
+                a(aoVar2, true);
+                this.a.showToast(this.e.i());
+            }
+            super.a((df) aoVar2);
+        }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ void b(com.baidu.tieba.data.ao... aoVarArr) {
+        ProgressBar progressBar;
+        ArrayList<UserData> b;
+        com.baidu.tieba.data.ao[] aoVarArr2 = aoVarArr;
+        super.b((Object[]) aoVarArr2);
+        if (aoVarArr2.length <= 0) {
+            return;
+        }
+        com.baidu.tieba.data.ao aoVar = aoVarArr2[0];
+        if (aoVar != null && (b = aoVar.b()) != null && b.size() > 0) {
+            a(aoVar, true);
+        }
+        progressBar = this.a.f;
+        progressBar.setVisibility(0);
+    }
 
     public df(PersonListActivity personListActivity, String str, boolean z, int i, boolean z2) {
         this.a = personListActivity;
+        this.e = null;
         this.f = false;
         this.b = str;
         this.c = z;
-        this.d = i;
-        this.f = z2;
+        this.d = 0;
+        this.f = true;
     }
 
     public df(PersonListActivity personListActivity, String str, boolean z, int i) {
         this.a = personListActivity;
+        this.e = null;
         this.f = false;
         this.b = str;
         this.c = z;
@@ -40,13 +89,13 @@ public class df extends BdAsyncTask<String, com.baidu.tieba.data.ao, com.baidu.t
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
+    public final void cancel() {
         dg dgVar;
         ProgressBar progressBar;
         dg dgVar2;
         dg dgVar3;
         if (this.e != null) {
-            this.e.k();
+            this.e.j();
         }
         dgVar = this.a.g;
         if (dgVar != null) {
@@ -61,10 +110,7 @@ public class df extends BdAsyncTask<String, com.baidu.tieba.data.ao, com.baidu.t
         super.cancel(true);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public com.baidu.tieba.data.ao a(String... strArr) {
+    private com.baidu.tieba.data.ao d() {
         com.baidu.tieba.model.br brVar;
         com.baidu.tieba.model.br brVar2;
         com.baidu.tieba.model.br brVar3;
@@ -84,66 +130,29 @@ public class df extends BdAsyncTask<String, com.baidu.tieba.data.ao, com.baidu.t
         } else {
             this.e.a(String.valueOf(com.baidu.tieba.data.i.a) + "c/u/fans/page");
         }
-        if (this.b != null && !this.b.equals(TiebaApplication.A())) {
+        if (this.b != null && !this.b.equals(TiebaApplication.v())) {
             this.e.a(SapiAccountManager.SESSION_UID, this.b);
         }
         if (this.d != 0) {
             this.e.a("pn", String.valueOf(this.d));
         }
-        String m = this.e.m();
-        if (this.e.d()) {
+        String l = this.e.l();
+        if (this.e.c()) {
             aoVar = new com.baidu.tieba.data.ao();
-            aoVar.a(m);
+            aoVar.a(l);
             if (aoVar.a().d() == 1) {
                 brVar = this.a.j;
                 if (brVar != null) {
                     brVar2 = this.a.j;
-                    brVar2.a(m, this.c);
+                    brVar2.a(l, this.c);
                 }
             }
         }
         return aoVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void b(com.baidu.tieba.data.ao... aoVarArr) {
-        ProgressBar progressBar;
-        ArrayList<UserData> b;
-        super.b((Object[]) aoVarArr);
-        if (aoVarArr.length >= 1) {
-            com.baidu.tieba.data.ao aoVar = aoVarArr[0];
-            if (aoVar != null && (b = aoVar.b()) != null && b.size() > 0) {
-                a(aoVar, true);
-            }
-            progressBar = this.a.f;
-            progressBar.setVisibility(0);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(com.baidu.tieba.data.ao aoVar) {
-        ProgressBar progressBar;
-        progressBar = this.a.f;
-        progressBar.setVisibility(8);
-        this.a.i = null;
-        if (this.e != null) {
-            if (this.e.d()) {
-                a(aoVar, false);
-            } else {
-                a(aoVar, true);
-                this.a.showToast(this.e.j());
-            }
-            super.a((df) aoVar);
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x0055, code lost:
-        if (r0.b().size() > 0) goto L19;
+    /* JADX WARN: Code restructure failed: missing block: B:81:0x0300, code lost:
+        if (r0.b().size() > 0) goto L77;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -155,7 +164,50 @@ public class df extends BdAsyncTask<String, com.baidu.tieba.data.ao, com.baidu.t
         com.baidu.tieba.data.ao aoVar4;
         com.baidu.tieba.data.ao aoVar5;
         com.baidu.tieba.data.ao aoVar6;
+        View view;
+        BdListView bdListView;
+        LinearLayout linearLayout;
         com.baidu.tieba.model.br brVar2;
+        int i;
+        int i2;
+        TextView textView;
+        TextView textView2;
+        TextView textView3;
+        com.baidu.tieba.model.br brVar3;
+        TextView textView4;
+        com.baidu.tieba.model.br brVar4;
+        int i3;
+        int i4;
+        TextView textView5;
+        TextView textView6;
+        TextView textView7;
+        com.baidu.tieba.model.br brVar5;
+        TextView textView8;
+        View view2;
+        BdListView bdListView2;
+        LinearLayout linearLayout2;
+        com.baidu.tieba.model.br brVar6;
+        String string;
+        int i5;
+        int i6;
+        String string2;
+        TextView textView9;
+        TextView textView10;
+        TextView textView11;
+        com.baidu.tieba.model.br brVar7;
+        TextView textView12;
+        TextView textView13;
+        com.baidu.tieba.model.br brVar8;
+        int i7;
+        int i8;
+        TextView textView14;
+        TextView textView15;
+        TextView textView16;
+        com.baidu.tieba.model.br brVar9;
+        TextView textView17;
+        com.baidu.tieba.model.br brVar10;
+        com.baidu.tieba.model.br brVar11;
+        com.baidu.tieba.model.br brVar12;
         brVar = this.a.j;
         if (brVar != null) {
             if (aoVar == null) {
@@ -167,208 +219,154 @@ public class df extends BdAsyncTask<String, com.baidu.tieba.data.ao, com.baidu.t
                     }
                 }
                 aoVar3 = this.a.q;
-                d(aoVar3);
+                a2(aoVar3);
             } else {
                 if (z) {
                     aoVar6 = aoVar;
                 } else {
-                    b(aoVar);
-                    brVar2 = this.a.j;
-                    aoVar6 = brVar2.d();
+                    brVar10 = this.a.j;
+                    brVar10.d().b().addAll(aoVar.b());
+                    brVar11 = this.a.j;
+                    brVar11.d().a(aoVar.a());
+                    brVar12 = this.a.j;
+                    aoVar6 = brVar12.d();
                 }
                 this.a.q = aoVar6;
-                d(aoVar6);
+                a2(aoVar6);
                 if (!this.c) {
                     com.baidu.tieba.mention.v.a().d(0);
                 }
-                c(aoVar);
-            }
-        }
-    }
-
-    private void b(com.baidu.tieba.data.ao aoVar) {
-        com.baidu.tieba.model.br brVar;
-        com.baidu.tieba.model.br brVar2;
-        brVar = this.a.j;
-        brVar.d().b().addAll(aoVar.b());
-        brVar2 = this.a.j;
-        brVar2.d().a(aoVar.a());
-    }
-
-    private void c(com.baidu.tieba.data.ao aoVar) {
-        View view;
-        BdListView bdListView;
-        LinearLayout linearLayout;
-        com.baidu.tieba.model.br brVar;
-        int i;
-        int i2;
-        TextView textView;
-        TextView textView2;
-        TextView textView3;
-        com.baidu.tieba.model.br brVar2;
-        TextView textView4;
-        com.baidu.tieba.model.br brVar3;
-        int i3;
-        int i4;
-        TextView textView5;
-        TextView textView6;
-        TextView textView7;
-        com.baidu.tieba.model.br brVar4;
-        TextView textView8;
-        View view2;
-        BdListView bdListView2;
-        LinearLayout linearLayout2;
-        com.baidu.tieba.model.br brVar5;
-        String string;
-        int i5;
-        int i6;
-        String string2;
-        TextView textView9;
-        TextView textView10;
-        TextView textView11;
-        com.baidu.tieba.model.br brVar6;
-        TextView textView12;
-        TextView textView13;
-        com.baidu.tieba.model.br brVar7;
-        int i7;
-        int i8;
-        String string3;
-        TextView textView14;
-        TextView textView15;
-        TextView textView16;
-        com.baidu.tieba.model.br brVar8;
-        TextView textView17;
-        if (this.d == 0) {
-            if (aoVar.a().c() > 0) {
-                view2 = this.a.c;
-                view2.setVisibility(0);
-                bdListView2 = this.a.b;
-                bdListView2.setVisibility(0);
-                linearLayout2 = this.a.k;
-                linearLayout2.setVisibility(8);
-                if (this.c) {
-                    brVar7 = this.a.j;
-                    if (brVar7.a() != null) {
-                        brVar8 = this.a.j;
-                        if (brVar8.a().equals(TiebaApplication.A())) {
-                            string = this.a.getString(R.string.my_attention_prefix);
+                if (this.d == 0) {
+                    if (aoVar.a().c() > 0) {
+                        view2 = this.a.c;
+                        view2.setVisibility(0);
+                        bdListView2 = this.a.b;
+                        bdListView2.setVisibility(0);
+                        linearLayout2 = this.a.k;
+                        linearLayout2.setVisibility(8);
+                        if (this.c) {
+                            brVar8 = this.a.j;
+                            if (brVar8.a() != null) {
+                                brVar9 = this.a.j;
+                                if (brVar9.a().equals(TiebaApplication.v())) {
+                                    string = this.a.getString(R.string.my_attention_prefix);
+                                    string2 = this.a.getString(R.string.person);
+                                    textView17 = this.a.l;
+                                    textView17.setText(R.string.not_have_attention);
+                                }
+                            }
+                            i7 = this.a.p;
+                            if (i7 == 2) {
+                                string = this.a.getString(R.string.she_attention_prefix);
+                                textView16 = this.a.l;
+                                textView16.setText(R.string.her_no_attention_other);
+                            } else {
+                                i8 = this.a.p;
+                                if (i8 == 1) {
+                                    string = this.a.getString(R.string.he_attention_prefix);
+                                    textView15 = this.a.l;
+                                    textView15.setText(R.string.him_no_attention_other);
+                                } else {
+                                    string = this.a.getString(R.string.its_attention_prefix);
+                                    textView14 = this.a.l;
+                                    textView14.setText(R.string.no_attention_other);
+                                }
+                            }
                             string2 = this.a.getString(R.string.person);
-                            textView17 = this.a.l;
-                            textView17.setText(R.string.not_have_attention);
-                        }
-                    }
-                    i7 = this.a.p;
-                    if (i7 != 2) {
-                        i8 = this.a.p;
-                        if (i8 == 1) {
-                            string3 = this.a.getString(R.string.he_attention_prefix);
-                            textView15 = this.a.l;
-                            textView15.setText(R.string.him_no_attention_other);
                         } else {
-                            string3 = this.a.getString(R.string.its_attention_prefix);
-                            textView14 = this.a.l;
-                            textView14.setText(R.string.no_attention_other);
+                            brVar6 = this.a.j;
+                            if (brVar6.a() != null) {
+                                brVar7 = this.a.j;
+                                if (brVar7.a().equals(TiebaApplication.v())) {
+                                    string = this.a.getString(R.string.my_fans_prefix);
+                                    string2 = this.a.getString(R.string.my_fans_suffix);
+                                    textView12 = this.a.l;
+                                    textView12.setText(R.string.not_have_fans);
+                                }
+                            }
+                            string = this.a.getString(R.string.its_fans_prefix);
+                            i5 = this.a.p;
+                            if (i5 == 2) {
+                                string2 = this.a.getString(R.string.her_fans_suffix);
+                                textView11 = this.a.l;
+                                textView11.setText(R.string.her_no_fan_other);
+                            } else {
+                                i6 = this.a.p;
+                                if (i6 == 1) {
+                                    string2 = this.a.getString(R.string.his_fans_suffix);
+                                    textView10 = this.a.l;
+                                    textView10.setText(R.string.him_no_fan_other);
+                                } else {
+                                    string2 = this.a.getString(R.string.its_fans_suffix);
+                                    textView9 = this.a.l;
+                                    textView9.setText(R.string.no_fan_other);
+                                }
+                            }
                         }
+                        textView13 = this.a.e;
+                        textView13.setText(String.valueOf(string) + String.valueOf(aoVar.a().c()) + string2);
                     } else {
-                        string3 = this.a.getString(R.string.she_attention_prefix);
-                        textView16 = this.a.l;
-                        textView16.setText(R.string.her_no_attention_other);
-                    }
-                    string = string3;
-                    string2 = this.a.getString(R.string.person);
-                } else {
-                    brVar5 = this.a.j;
-                    if (brVar5.a() != null) {
-                        brVar6 = this.a.j;
-                        if (brVar6.a().equals(TiebaApplication.A())) {
-                            string = this.a.getString(R.string.my_fans_prefix);
-                            string2 = this.a.getString(R.string.my_fans_suffix);
-                            textView12 = this.a.l;
-                            textView12.setText(R.string.not_have_fans);
-                        }
-                    }
-                    string = this.a.getString(R.string.its_fans_prefix);
-                    i5 = this.a.p;
-                    if (i5 != 2) {
-                        i6 = this.a.p;
-                        if (i6 == 1) {
-                            string2 = this.a.getString(R.string.his_fans_suffix);
-                            textView10 = this.a.l;
-                            textView10.setText(R.string.him_no_fan_other);
+                        view = this.a.c;
+                        view.setVisibility(8);
+                        bdListView = this.a.b;
+                        bdListView.setVisibility(8);
+                        linearLayout = this.a.k;
+                        linearLayout.setVisibility(0);
+                        if (this.c) {
+                            brVar4 = this.a.j;
+                            if (brVar4.a() != null) {
+                                brVar5 = this.a.j;
+                                if (brVar5.a().equals(TiebaApplication.v())) {
+                                    textView8 = this.a.l;
+                                    textView8.setText(R.string.not_have_attention);
+                                }
+                            }
+                            i3 = this.a.p;
+                            if (i3 == 2) {
+                                textView7 = this.a.l;
+                                textView7.setText(R.string.her_no_attention_other);
+                            } else {
+                                i4 = this.a.p;
+                                if (i4 == 1) {
+                                    textView6 = this.a.l;
+                                    textView6.setText(R.string.him_no_attention_other);
+                                } else {
+                                    textView5 = this.a.l;
+                                    textView5.setText(R.string.no_attention_other);
+                                }
+                            }
                         } else {
-                            string2 = this.a.getString(R.string.its_fans_suffix);
-                            textView9 = this.a.l;
-                            textView9.setText(R.string.no_fan_other);
+                            brVar2 = this.a.j;
+                            if (brVar2.a() != null) {
+                                brVar3 = this.a.j;
+                                if (brVar3.a().equals(TiebaApplication.v())) {
+                                    textView4 = this.a.l;
+                                    textView4.setText(R.string.not_have_fans);
+                                }
+                            }
+                            i = this.a.p;
+                            if (i == 2) {
+                                textView3 = this.a.l;
+                                textView3.setText(R.string.her_no_fan_other);
+                            } else {
+                                i2 = this.a.p;
+                                if (i2 == 1) {
+                                    textView2 = this.a.l;
+                                    textView2.setText(R.string.him_no_fan_other);
+                                } else {
+                                    textView = this.a.l;
+                                    textView.setText(R.string.no_fan_other);
+                                }
+                            }
                         }
-                    } else {
-                        string2 = this.a.getString(R.string.her_fans_suffix);
-                        textView11 = this.a.l;
-                        textView11.setText(R.string.her_no_fan_other);
                     }
                 }
-                textView13 = this.a.e;
-                textView13.setText(String.valueOf(string) + String.valueOf(aoVar.a().c()) + string2);
-                return;
             }
-            view = this.a.c;
-            view.setVisibility(8);
-            bdListView = this.a.b;
-            bdListView.setVisibility(8);
-            linearLayout = this.a.k;
-            linearLayout.setVisibility(0);
-            if (this.c) {
-                brVar3 = this.a.j;
-                if (brVar3.a() != null) {
-                    brVar4 = this.a.j;
-                    if (brVar4.a().equals(TiebaApplication.A())) {
-                        textView8 = this.a.l;
-                        textView8.setText(R.string.not_have_attention);
-                        return;
-                    }
-                }
-                i3 = this.a.p;
-                if (i3 == 2) {
-                    textView7 = this.a.l;
-                    textView7.setText(R.string.her_no_attention_other);
-                    return;
-                }
-                i4 = this.a.p;
-                if (i4 == 1) {
-                    textView6 = this.a.l;
-                    textView6.setText(R.string.him_no_attention_other);
-                    return;
-                }
-                textView5 = this.a.l;
-                textView5.setText(R.string.no_attention_other);
-                return;
-            }
-            brVar = this.a.j;
-            if (brVar.a() != null) {
-                brVar2 = this.a.j;
-                if (brVar2.a().equals(TiebaApplication.A())) {
-                    textView4 = this.a.l;
-                    textView4.setText(R.string.not_have_fans);
-                    return;
-                }
-            }
-            i = this.a.p;
-            if (i == 2) {
-                textView3 = this.a.l;
-                textView3.setText(R.string.her_no_fan_other);
-                return;
-            }
-            i2 = this.a.p;
-            if (i2 == 1) {
-                textView2 = this.a.l;
-                textView2.setText(R.string.him_no_fan_other);
-                return;
-            }
-            textView = this.a.l;
-            textView.setText(R.string.no_fan_other);
         }
     }
 
-    private void d(com.baidu.tieba.data.ao aoVar) {
+    /* renamed from: a  reason: avoid collision after fix types in other method */
+    private void a2(com.baidu.tieba.data.ao aoVar) {
         dg dgVar;
         dg dgVar2;
         dg dgVar3;

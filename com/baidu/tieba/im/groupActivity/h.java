@@ -4,7 +4,7 @@ import android.app.TimePickerDialog;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements View.OnClickListener {
+public final class h implements View.OnClickListener {
     final /* synthetic */ e a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ public class h implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         TimePickerDialog timePickerDialog;
         TimePickerDialog timePickerDialog2;
         int i;

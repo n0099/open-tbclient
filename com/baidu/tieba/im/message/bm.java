@@ -12,16 +12,12 @@ public class bm extends da implements com.baidu.tieba.im.coder.f {
         e(103101);
     }
 
-    public AddGroupInfoData a() {
+    public final AddGroupInfoData a() {
         return this.a;
     }
 
-    public void a(AddGroupInfoData addGroupInfoData) {
-        this.a = addGroupInfoData;
-    }
-
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<s> linkedList, byte[] bArr, int i) {
+    public final void a(LinkedList<s> linkedList, byte[] bArr, int i) {
         AddGroupRes.AddGroupResIdl parseFrom = AddGroupRes.AddGroupResIdl.parseFrom(bArr);
         g(parseFrom.getError().getErrorno());
         c(parseFrom.getError().getUsermsg());
@@ -46,7 +42,7 @@ public class bm extends da implements com.baidu.tieba.im.coder.f {
             addGroupInfoData.setMaxMemberNum(group.getMaxMemberNum());
             addGroupInfoData.setMemberNum(group.getMemberNum());
             addGroupInfoData.setGroupType(group.getGroupType());
-            a(addGroupInfoData);
+            this.a = addGroupInfoData;
         }
     }
 }

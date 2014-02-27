@@ -6,7 +6,7 @@ import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.data.MsgLocalData;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public abstract class b extends s implements com.baidu.tieba.im.coder.g, com.baidu.tieba.im.messageCenter.c {
+public abstract class b extends s implements com.baidu.tieba.im.coder.g, com.baidu.tieba.im.messageCenter.b {
     public boolean a;
     private long b;
     private int c;
@@ -29,161 +29,161 @@ public abstract class b extends s implements com.baidu.tieba.im.coder.g, com.bai
     private boolean r = true;
     private boolean s = false;
 
-    public long b() {
+    public final long b() {
         return this.b;
     }
 
-    public void a(long j) {
+    public final void a(long j) {
         this.b = j;
     }
 
-    public long c() {
+    public final long c() {
         return this.q;
     }
 
-    public void b(long j) {
+    public final void b(long j) {
         this.q = j;
     }
 
-    public boolean d() {
+    public final boolean d() {
         return this.s;
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.s = z;
     }
 
-    public int e() {
+    public final int e() {
         return this.p;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.p = i;
     }
 
-    public Object f() {
+    public final Object f() {
         return this.d;
     }
 
-    public void a(Object obj) {
+    public final void a(Object obj) {
         this.d = obj;
     }
 
-    public UserData g() {
+    public final UserData g() {
         return this.l;
     }
 
-    public void a(UserData userData) {
+    public final void a(UserData userData) {
         this.l = userData;
     }
 
-    public UserData h() {
+    public final UserData h() {
         return this.m;
     }
 
-    public void b(UserData userData) {
+    public final void b(UserData userData) {
         this.m = userData;
     }
 
-    public int i() {
+    public final int i() {
         return this.c;
     }
 
-    public void b(int i) {
+    public final void b(int i) {
         this.c = i;
     }
 
-    public long j() {
+    public final long j() {
         return this.f;
     }
 
-    public void c(long j) {
+    public final void c(long j) {
         this.f = j;
     }
 
-    public String k() {
+    public final String k() {
         return this.e;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.e = str;
     }
 
-    public long l() {
+    public final long l() {
         return this.g;
     }
 
-    public void d(long j) {
+    public final void d(long j) {
         this.g = j;
     }
 
-    public long m() {
+    public final long m() {
         return this.k;
     }
 
-    public void e(long j) {
+    public final void e(long j) {
         this.k = j;
     }
 
-    public MsgLocalData n() {
+    public final MsgLocalData n() {
         return this.n;
     }
 
-    public void a(MsgLocalData msgLocalData) {
+    public final void a(MsgLocalData msgLocalData) {
         this.n = msgLocalData;
     }
 
-    public MsgCacheData o() {
+    public final MsgCacheData o() {
         return this.o;
     }
 
-    public void a(MsgCacheData msgCacheData) {
+    public final void a(MsgCacheData msgCacheData) {
         this.o = msgCacheData;
     }
 
-    public long p() {
+    public final long p() {
         return this.h;
     }
 
-    public void f(long j) {
+    public final void f(long j) {
         this.h = j;
     }
 
-    public int q() {
+    public final int q() {
         return this.i;
     }
 
-    public void c(int i) {
+    public final void c(int i) {
         this.i = i;
     }
 
-    public int r() {
+    public final int r() {
         return this.j;
     }
 
-    public void d(int i) {
+    public final void d(int i) {
         this.j = i;
     }
 
-    public boolean s() {
+    public final boolean s() {
         return this.r;
     }
 
-    public void b(boolean z) {
+    public final void b(boolean z) {
         this.r = z;
     }
 
-    public long t() {
+    public final long t() {
         return this.t;
     }
 
-    public void g(long j) {
+    public final void g(long j) {
         this.t = j;
     }
 
-    @Override // com.baidu.tieba.im.messageCenter.c
-    public boolean a(s sVar) {
-        return sVar != null && (sVar instanceof b) && ((b) sVar).j() == this.f;
+    @Override // com.baidu.tieba.im.messageCenter.b
+    public final boolean a(s sVar) {
+        return sVar != null && (sVar instanceof b) && ((b) sVar).f == this.f;
     }
 
     public String toString() {

@@ -2,7 +2,7 @@ package com.baidu.tieba.model;
 
 import com.baidu.tieba.data.MarkData;
 /* loaded from: classes.dex */
-public class av extends com.baidu.adp.a.d {
+public final class av extends com.baidu.adp.a.d {
     private MarkData b;
     private boolean a = false;
     private aw c = null;
@@ -13,34 +13,34 @@ public class av extends com.baidu.adp.a.d {
         this.b = new MarkData();
     }
 
-    public boolean a() {
+    public final boolean a() {
         return this.a;
     }
 
-    public MarkData b() {
+    public final MarkData b() {
         return this.b;
     }
 
-    public void a(ax axVar) {
+    public final void a(ax axVar) {
         this.d = axVar;
     }
 
-    public void a(MarkData markData) {
+    public final void a(MarkData markData) {
         this.b = markData;
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.a = z;
     }
 
-    public String c() {
+    public final String c() {
         if (this.b != null) {
             return this.b.getPostId();
         }
         return null;
     }
 
-    public void d() {
+    public final void d() {
         if (this.c != null) {
             this.c.cancel();
         }
@@ -49,7 +49,7 @@ public class av extends com.baidu.adp.a.d {
         this.c.execute(new Boolean[0]);
     }
 
-    public void e() {
+    public final void e() {
         if (this.c != null) {
             this.c.cancel();
         }
@@ -59,12 +59,12 @@ public class av extends com.baidu.adp.a.d {
     }
 
     @Override // com.baidu.adp.a.d
-    protected boolean LoadData() {
+    protected final boolean LoadData() {
         return false;
     }
 
     @Override // com.baidu.adp.a.d
-    public boolean cancelLoadData() {
+    public final boolean cancelLoadData() {
         if (this.c != null) {
             this.c.cancel();
             return false;

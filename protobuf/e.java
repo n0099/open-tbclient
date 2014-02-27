@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.Im;
 /* loaded from: classes.dex */
 public final class e extends GeneratedMessageLite.Builder<Im.Error, e> implements f {
@@ -11,24 +12,34 @@ public final class e extends GeneratedMessageLite.Builder<Im.Error, e> implement
     private int b;
     private Object c = "";
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        Im.Error buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return Im.Error.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return Im.Error.getDefaultInstance();
+    }
+
     private e() {
-        g();
     }
 
-    private void g() {
-    }
-
-    /* JADX DEBUG: Method not inlined, still used in: [protobuf.Im.Error.newBuilder():protobuf.e] */
-    public static /* synthetic */ e f() {
-        return h();
-    }
-
-    public static e h() {
+    public static /* synthetic */ e b() {
         return new e();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public e clear() {
         super.clear();
         this.b = 0;
@@ -39,30 +50,14 @@ public final class e extends GeneratedMessageLite.Builder<Im.Error, e> implement
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public e clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public Im.Error getDefaultInstanceForType() {
-        return Im.Error.getDefaultInstance();
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public Im.Error build() {
-        Im.Error buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
+    public e clone() {
+        return new e().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public Im.Error buildPartial() {
+    /* renamed from: a */
+    public final Im.Error buildPartial() {
         Im.Error error = new Im.Error(this, (Im.Error) null);
         int i = this.a;
         int i2 = (i & 1) != 1 ? 0 : 1;
@@ -77,11 +72,13 @@ public final class e extends GeneratedMessageLite.Builder<Im.Error, e> implement
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public e mergeFrom(Im.Error error) {
+    public final e mergeFrom(Im.Error error) {
         Object obj;
         if (error != Im.Error.getDefaultInstance()) {
             if (error.hasErrorno()) {
-                a(error.getErrorno());
+                int errorno = error.getErrorno();
+                this.a |= 1;
+                this.b = errorno;
             }
             if (error.hasUsermsg()) {
                 this.a |= 2;
@@ -133,11 +130,5 @@ public final class e extends GeneratedMessageLite.Builder<Im.Error, e> implement
                 throw th;
             }
         }
-    }
-
-    public e a(int i) {
-        this.a |= 1;
-        this.b = i;
-        return this;
     }
 }

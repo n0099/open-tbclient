@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import com.baidu.tieba.data.emotions.WritableEmotionGroup;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class e extends WritableEmotionGroup {
+public final class e extends WritableEmotionGroup {
     private String a;
     private String b;
     private int c;
@@ -37,7 +37,7 @@ public class e extends WritableEmotionGroup {
     }
 
     @Override // com.baidu.tieba.data.emotions.WritableEmotionGroup
-    public String a(int i) {
+    public final String a(int i) {
         if (i >= this.e.size()) {
             return null;
         }
@@ -45,17 +45,17 @@ public class e extends WritableEmotionGroup {
     }
 
     @Override // com.baidu.tieba.data.emotions.WritableEmotionGroup
-    public boolean a(String str) {
+    public final boolean a(String str) {
         return this.e.contains(str);
     }
 
     @Override // com.baidu.tieba.data.emotions.WritableEmotionGroup
-    public WritableEmotionGroup.EmotionGroupType c() {
+    public final WritableEmotionGroup.EmotionGroupType c() {
         return WritableEmotionGroup.EmotionGroupType.BIG_EMOTION;
     }
 
     @Override // com.baidu.tieba.data.emotions.WritableEmotionGroup
-    public com.baidu.adp.widget.ImageView.b b(String str) {
+    public final com.baidu.adp.widget.ImageView.b b(String str) {
         Bitmap a = d.a(this.a, d.a(str, false));
         if (a == null) {
             return null;
@@ -64,32 +64,32 @@ public class e extends WritableEmotionGroup {
     }
 
     @Override // com.baidu.tieba.data.emotions.WritableEmotionGroup
-    public com.baidu.adp.widget.ImageView.b c(String str) {
+    public final com.baidu.adp.widget.ImageView.b c(String str) {
         return d.b(this.a, d.a(str, true));
     }
 
     @Override // com.baidu.tieba.data.emotions.WritableEmotionGroup
-    public int d() {
+    public final int d() {
         return this.e.size();
     }
 
     @Override // com.baidu.tieba.data.emotions.WritableEmotionGroup
-    public String e() {
+    public final String e() {
         return this.a;
     }
 
     @Override // com.baidu.tieba.data.emotions.WritableEmotionGroup
-    public String f() {
+    public final String f() {
         return this.b;
     }
 
     @Override // com.baidu.tieba.data.emotions.WritableEmotionGroup
-    public int g() {
+    public final int g() {
         return this.c;
     }
 
     @Override // com.baidu.tieba.data.emotions.WritableEmotionGroup
-    public int h() {
+    public final int h() {
         return this.d;
     }
 }

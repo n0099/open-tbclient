@@ -5,17 +5,17 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.message.l;
 import com.baidu.tieba.im.message.m;
 /* loaded from: classes.dex */
-public class h {
+public final class h {
     private boolean c = false;
     public int a = BdUtilHelper.a(TiebaApplication.g().c(), 70.0f);
     public int b = BdUtilHelper.a(TiebaApplication.g().c(), 70.0f);
 
-    public void a() {
+    public final void a() {
         if (this.c) {
-            com.baidu.tieba.im.messageCenter.e.a().a(new m(this.a, this.b));
+            com.baidu.tieba.im.messageCenter.d.a().a(new m(this.a, this.b));
             return;
         }
         this.c = true;
-        com.baidu.tieba.im.messageCenter.e.a().a(new l());
+        com.baidu.tieba.im.messageCenter.d.a().a(new l());
     }
 }

@@ -176,7 +176,8 @@ public class PersonPostReplyModel extends com.baidu.adp.a.d implements Serializa
         if (sFetchReplyAsyncTask != null && sFetchReplyAsyncTask.getStatus() != BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
             sFetchReplyAsyncTask.cancel();
         }
-        sFetchReplyAsyncTask = new g(fVar, z);
-        sFetchReplyAsyncTask.execute(new Void[0]);
+        g gVar = new g(fVar, z);
+        sFetchReplyAsyncTask = gVar;
+        gVar.execute(new Void[0]);
     }
 }

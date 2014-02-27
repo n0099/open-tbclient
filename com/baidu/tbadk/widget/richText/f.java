@@ -8,7 +8,7 @@ import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 /* loaded from: classes.dex */
-public class f extends BitmapDrawable {
+public final class f extends BitmapDrawable {
     private int a;
     private Context b;
     private String d;
@@ -25,27 +25,27 @@ public class f extends BitmapDrawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setBounds(int i, int i2, int i3, int i4) {
+    public final void setBounds(int i, int i2, int i3, int i4) {
         this.c = new Rect(i, i2, i3, i4);
         this.e = null;
         super.setBounds(i, i2, i3, i4);
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setBounds(Rect rect) {
+    public final void setBounds(Rect rect) {
         this.c = new Rect(rect);
         this.e = null;
         super.setBounds(rect);
     }
 
-    public void a(int i, int i2) {
+    public final void a(int i, int i2) {
         if (this.c != null) {
-            super.setBounds(this.c.left, this.c.top, this.c.right + i, this.c.bottom + i2);
+            super.setBounds(this.c.left, this.c.top, this.c.right + 0, this.c.bottom + i2);
         }
     }
 
     @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
-    public void draw(Canvas canvas) {
+    public final void draw(Canvas canvas) {
         com.baidu.adp.widget.ImageView.b bVar;
         if (this.a > 0 && this.b != null) {
             com.baidu.tbadk.imageManager.e a = com.baidu.tbadk.imageManager.e.a();
@@ -56,7 +56,7 @@ public class f extends BitmapDrawable {
                     c = new com.baidu.adp.widget.ImageView.b(decodeResource, false, null);
                 }
                 if (a != null && c != null && this.d != null) {
-                    a.b(this.d, c);
+                    a.c(this.d, c);
                 }
                 bVar = c;
             } else {

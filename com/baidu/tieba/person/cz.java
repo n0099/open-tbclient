@@ -3,7 +3,7 @@ package com.baidu.tieba.person;
 import android.widget.ImageView;
 import com.baidu.adp.widget.ListView.BdListView;
 /* loaded from: classes.dex */
-class cz implements com.baidu.tbadk.imageManager.d {
+final class cz implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ cy a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ class cz implements com.baidu.tbadk.imageManager.d {
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
         PersonListActivity personListActivity;
         BdListView bdListView;
         personListActivity = this.a.a;

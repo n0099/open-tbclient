@@ -5,9 +5,8 @@ import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.bq;
 import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements View.OnClickListener {
+final class h implements View.OnClickListener {
     final /* synthetic */ AccountActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,7 +15,7 @@ public class h implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         p pVar;
         p pVar2;
         TextView textView;
@@ -33,7 +32,7 @@ public class h implements View.OnClickListener {
             textView3 = this.a.f;
             textView3.setText(R.string.done);
             textView4 = this.a.f;
-            bq.h(textView4, TiebaApplication.g().al());
+            bq.h(textView4, TiebaApplication.g().ae());
             pVar5 = this.a.b;
             pVar5.notifyDataSetChanged();
             return;
@@ -43,7 +42,7 @@ public class h implements View.OnClickListener {
         textView = this.a.f;
         textView.setText(R.string.edit);
         textView2 = this.a.f;
-        bq.j(textView2, TiebaApplication.g().al());
+        bq.i(textView2, TiebaApplication.g().ae());
         pVar3 = this.a.b;
         pVar3.notifyDataSetChanged();
     }

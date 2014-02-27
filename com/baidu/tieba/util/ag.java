@@ -3,14 +3,14 @@ package com.baidu.tieba.util;
 import com.baidu.tieba.TiebaApplication;
 import java.io.File;
 /* loaded from: classes.dex */
-public class ag {
+public final class ag {
     public static final String a = TiebaApplication.g().b().getFileStreamPath("").getAbsolutePath();
 
     public static boolean a(String str) {
         try {
             return new File(new StringBuilder(String.valueOf(a)).append("/").append(str).toString()).exists();
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("FileHelper", "checkFile", "error = " + e.getMessage());
+            com.baidu.adp.lib.util.e.b("FileHelper", "checkFile", "error = " + e.getMessage());
             cb.a(e, "FileHelper.checkFile " + str);
             return false;
         }
@@ -24,13 +24,13 @@ public class ag {
             }
             return file.createNewFile();
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("FileHelper", "createFile", "error = " + e.getMessage());
+            com.baidu.adp.lib.util.e.b("FileHelper", "createFile", "error = " + e.getMessage());
             cb.a(e, "FileHelper.createFile " + str);
             return false;
         }
     }
 
-    public static void a(File file) {
+    private static void a(File file) {
         try {
             if (file.exists()) {
                 if (file.isDirectory()) {
@@ -47,7 +47,7 @@ public class ag {
                 file.delete();
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("FileHelper", "deleteFileOrDir", "error = " + e.getMessage());
+            com.baidu.adp.lib.util.e.b("FileHelper", "deleteFileOrDir", "error = " + e.getMessage());
             cb.a(e, "FileHelper.deleteFileOrDir");
         }
     }
@@ -63,7 +63,7 @@ public class ag {
             }
             return file.mkdirs();
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("FileHelper", "cleanDirectory", "error = " + e.getMessage());
+            com.baidu.adp.lib.util.e.b("FileHelper", "cleanDirectory", "error = " + e.getMessage());
             cb.a(e, "FileHelper.cleanDirectory " + str);
             return false;
         }
@@ -75,8 +75,8 @@ public class ag {
             File file = new File(String.valueOf(a) + "/" + str);
             if (file.exists() && file.isDirectory()) {
                 File[] listFiles = file.listFiles();
-                int length = listFiles.length;
                 long j = 0;
+                int length = listFiles.length;
                 for (int i = 0; i < length; i++) {
                     if (j > listFiles[i].lastModified()) {
                         j = listFiles[i].lastModified();
@@ -85,7 +85,7 @@ public class ag {
                 }
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("FileHelper", "getLatestFileName", "error = " + e.getMessage());
+            com.baidu.adp.lib.util.e.b("FileHelper", "getLatestFileName", "error = " + e.getMessage());
             cb.a(e, "FileHelper.getLatestFileName " + str);
         }
         return str2;

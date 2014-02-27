@@ -21,80 +21,51 @@ public class df extends s implements com.baidu.tieba.im.coder.g, IDuplicateProce
     public df() {
         e(1001);
         try {
-            if (TiebaApplication.g().bd()) {
-                this.a = com.baidu.adp.lib.f.b.a(TiebaApplication.g().bc(), 0.0d);
-                this.b = com.baidu.adp.lib.f.b.a(TiebaApplication.g().be(), 0.0d);
+            if (TiebaApplication.g().aV()) {
+                this.a = com.baidu.adp.lib.f.b.a(TiebaApplication.g().aU(), 0.0d);
+                this.b = com.baidu.adp.lib.f.b.a(TiebaApplication.g().aW(), 0.0d);
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(df.class.getName(), "ctor()", e.getMessage());
+            com.baidu.adp.lib.util.e.b(df.class.getName(), "ctor()", e.getMessage());
         }
     }
 
-    public double b() {
-        return this.a;
-    }
-
-    public double c() {
-        return this.b;
-    }
-
-    public byte[] d() {
-        return this.g;
-    }
-
-    public void a(byte[] bArr) {
+    public final void a(byte[] bArr) {
         this.g = bArr;
     }
 
-    public String e() {
-        return this.c;
-    }
-
-    public void a(String str) {
+    public final void a(String str) {
         this.c = str;
     }
 
-    public void a(String str, String str2) {
+    public final void a(String str, String str2) {
         this.f.put(str, str2);
     }
 
-    public String f() {
+    private String b() {
         try {
             return new Gson().toJson(this.f);
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(df.class.getName(), "getDevice", e.getMessage());
+            com.baidu.adp.lib.util.e.b(df.class.getName(), "getDevice", e.getMessage());
             return null;
         }
     }
 
     @Override // com.baidu.tieba.im.messageCenter.IDuplicateProcess
-    public IDuplicateProcess.RemoveState h() {
+    public final IDuplicateProcess.RemoveState c() {
         return IDuplicateProcess.RemoveState.REMOVE_ME;
     }
 
-    @Override // com.baidu.tieba.im.messageCenter.IDuplicateProcess
-    public boolean a(s sVar) {
-        return true;
-    }
-
-    public int g() {
-        return this.d;
-    }
-
-    public void a(int i) {
+    public final void a(int i) {
         this.d = i;
     }
 
-    public int i() {
-        return this.e;
-    }
-
-    public void b(int i) {
+    public final void b(int i) {
         this.e = i;
     }
 
     @Override // com.baidu.tieba.im.coder.g
-    public MessageLite a() {
-        return UpdateClientInfoReq.UpdateClientInfoReqIdl.newBuilder().a(com.baidu.tieba.im.f.a()).a(UpdateClientInfoReq.DataReq.newBuilder().a(e()).b(f()).a(ByteString.copyFrom(d())).b(i()).a(g()).a(b()).b(c()).build()).build();
+    public final MessageLite a() {
+        return UpdateClientInfoReq.UpdateClientInfoReqIdl.newBuilder().a(com.baidu.tieba.im.e.b()).a(UpdateClientInfoReq.DataReq.newBuilder().a(this.c).b(b()).a(ByteString.copyFrom(this.g)).b(this.e).a(this.d).a(this.a).b(this.b).build()).build();
     }
 }

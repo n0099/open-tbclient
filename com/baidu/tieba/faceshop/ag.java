@@ -2,7 +2,7 @@ package com.baidu.tieba.faceshop;
 
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-class ag {
+final class ag {
     TbImageView a;
     final /* synthetic */ ae b;
 
@@ -11,7 +11,7 @@ class ag {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ag(ae aeVar, ag agVar) {
+    public /* synthetic */ ag(ae aeVar, byte b) {
         this(aeVar);
     }
 }

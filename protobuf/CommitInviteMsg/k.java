@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.CommitInviteMsg.CommitInviteMsgRes;
 /* loaded from: classes.dex */
 public final class k extends GeneratedMessageLite.Builder<CommitInviteMsgRes.DataRes, k> implements l {
@@ -12,19 +13,34 @@ public final class k extends GeneratedMessageLite.Builder<CommitInviteMsgRes.Dat
     private int c;
     private long d;
 
+    @Override // com.google.protobuf.MessageLite.Builder
+    public final /* synthetic */ MessageLite build() {
+        CommitInviteMsgRes.DataRes buildPartial = buildPartial();
+        if (buildPartial.isInitialized()) {
+            return buildPartial;
+        }
+        throw newUninitializedMessageException(buildPartial);
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return CommitInviteMsgRes.DataRes.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return CommitInviteMsgRes.DataRes.getDefaultInstance();
+    }
+
     private k() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static k h() {
+    public static /* synthetic */ k b() {
         return new k();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public k clear() {
         super.clear();
         this.b = 0L;
@@ -37,30 +53,14 @@ public final class k extends GeneratedMessageLite.Builder<CommitInviteMsgRes.Dat
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
-    public k clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public CommitInviteMsgRes.DataRes getDefaultInstanceForType() {
-        return CommitInviteMsgRes.DataRes.getDefaultInstance();
-    }
-
-    @Override // com.google.protobuf.MessageLite.Builder
     /* renamed from: d */
-    public CommitInviteMsgRes.DataRes build() {
-        CommitInviteMsgRes.DataRes buildPartial = buildPartial();
-        if (!buildPartial.isInitialized()) {
-            throw newUninitializedMessageException(buildPartial);
-        }
-        return buildPartial;
+    public k clone() {
+        return new k().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public CommitInviteMsgRes.DataRes buildPartial() {
+    /* renamed from: a */
+    public final CommitInviteMsgRes.DataRes buildPartial() {
         CommitInviteMsgRes.DataRes dataRes = new CommitInviteMsgRes.DataRes(this, (CommitInviteMsgRes.DataRes) null);
         int i = this.a;
         int i2 = (i & 1) != 1 ? 0 : 1;
@@ -79,16 +79,22 @@ public final class k extends GeneratedMessageLite.Builder<CommitInviteMsgRes.Dat
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public k mergeFrom(CommitInviteMsgRes.DataRes dataRes) {
+    public final k mergeFrom(CommitInviteMsgRes.DataRes dataRes) {
         if (dataRes != CommitInviteMsgRes.DataRes.getDefaultInstance()) {
             if (dataRes.hasMsgId()) {
-                a(dataRes.getMsgId());
+                long msgId = dataRes.getMsgId();
+                this.a |= 1;
+                this.b = msgId;
             }
             if (dataRes.hasGroupId()) {
-                a(dataRes.getGroupId());
+                int groupId = dataRes.getGroupId();
+                this.a |= 2;
+                this.c = groupId;
             }
             if (dataRes.hasRecordId()) {
-                b(dataRes.getRecordId());
+                long recordId = dataRes.getRecordId();
+                this.a |= 4;
+                this.d = recordId;
             }
         }
         return this;
@@ -135,23 +141,5 @@ public final class k extends GeneratedMessageLite.Builder<CommitInviteMsgRes.Dat
                 throw th;
             }
         }
-    }
-
-    public k a(long j) {
-        this.a |= 1;
-        this.b = j;
-        return this;
-    }
-
-    public k a(int i) {
-        this.a |= 2;
-        this.c = i;
-        return this;
-    }
-
-    public k b(long j) {
-        this.a |= 4;
-        this.d = j;
-        return this;
     }
 }

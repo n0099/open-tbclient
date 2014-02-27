@@ -8,7 +8,7 @@ import com.baidu.tieba.ai;
 import com.baidu.tieba.data.InterestFrsData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p implements View.OnClickListener {
+public final class p implements View.OnClickListener {
     final /* synthetic */ o a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,32 +17,43 @@ public class p implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         Button button;
         NewUserGuideActivity newUserGuideActivity;
         NewUserGuideActivity newUserGuideActivity2;
         boolean z;
         NewUserGuideActivity newUserGuideActivity3;
+        boolean z2;
         NewUserGuideActivity newUserGuideActivity4;
         NewUserGuideActivity newUserGuideActivity5;
-        if (view.getTag() != null && (view.getTag() instanceof InterestFrsData.Tag)) {
-            newUserGuideActivity4 = this.a.n;
-            ai.a(newUserGuideActivity4, "newUserInterestSelect");
-            newUserGuideActivity5 = this.a.n;
-            new u(newUserGuideActivity5, (InterestFrsData.Tag) view.getTag()).a();
+        View view2;
+        if (view.getTag() == null || !(view.getTag() instanceof InterestFrsData.Tag)) {
+            button = this.a.q;
+            if (view == button) {
+                newUserGuideActivity = this.a.o;
+                if (newUserGuideActivity.e()) {
+                    TiebaApplication.g().g(true);
+                }
+                newUserGuideActivity2 = this.a.o;
+                z = this.a.r;
+                MainTabActivity.a(newUserGuideActivity2, 1, z);
+                newUserGuideActivity3 = this.a.o;
+                newUserGuideActivity3.finish();
+                return;
+            }
             return;
         }
-        button = this.a.p;
-        if (view == button) {
-            newUserGuideActivity = this.a.n;
-            if (newUserGuideActivity.e()) {
-                TiebaApplication.g().h(true);
-            }
-            newUserGuideActivity2 = this.a.n;
-            z = this.a.q;
-            MainTabActivity.a(newUserGuideActivity2, 1, z);
-            newUserGuideActivity3 = this.a.n;
-            newUserGuideActivity3.finish();
+        z2 = this.a.t;
+        if (z2) {
+            this.a.t = false;
+            newUserGuideActivity4 = this.a.o;
+            ai.a(newUserGuideActivity4, "newUserInterestSelect");
+            newUserGuideActivity5 = this.a.o;
+            w wVar = new w(newUserGuideActivity5, (InterestFrsData.Tag) view.getTag(), new q(this));
+            view2 = this.a.c;
+            view2.setVisibility(0);
+            wVar.a();
+            this.a.t = true;
         }
     }
 }

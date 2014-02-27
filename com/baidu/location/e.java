@@ -118,11 +118,11 @@ public class e {
 
         private void a() {
             boolean z;
-            if (m141new() < 1) {
+            if (m141new() <= 0) {
                 return;
             }
             boolean z2 = true;
-            for (int size = this.f126do.size() - 1; size >= 1 && z2; size--) {
+            for (int size = this.f126do.size() - 1; size > 0 && z2; size--) {
                 int i = 0;
                 z2 = false;
                 while (i < size) {
@@ -140,9 +140,9 @@ public class e {
         }
 
         public String a(int i) {
-            int i2;
             boolean z;
-            if (m141new() < 1) {
+            int i2;
+            if (m141new() <= 0) {
                 return null;
             }
             StringBuffer stringBuffer = new StringBuffer(512);
@@ -151,56 +151,56 @@ public class e {
             if (size <= i) {
                 i = size;
             }
-            int i3 = 0;
             boolean z2 = true;
+            int i3 = 0;
             int i4 = 0;
             int i5 = 0;
-            while (i3 < i) {
-                if (((ScanResult) this.f126do.get(i3)).level == 0) {
+            while (i5 < i) {
+                if (((ScanResult) this.f126do.get(i5)).level == 0) {
                     z = z2;
-                    i2 = i5;
+                    i2 = i4;
                 } else if (z2) {
                     stringBuffer.append("&wf=");
-                    String replace = ((ScanResult) this.f126do.get(i3)).BSSID.replace(":", "");
+                    String replace = ((ScanResult) this.f126do.get(i5)).BSSID.replace(":", "");
                     stringBuffer.append(replace);
-                    int i6 = ((ScanResult) this.f126do.get(i3)).level;
+                    int i6 = ((ScanResult) this.f126do.get(i5)).level;
                     if (i6 < 0) {
                         i6 = -i6;
                     }
                     stringBuffer.append(String.format(";%d;", Integer.valueOf(i6)));
-                    i2 = i5 + 1;
-                    i4 = (m126char == null || !m126char.equals(replace)) ? i4 : i2;
+                    i2 = i4 + 1;
+                    i3 = (m126char == null || !m126char.equals(replace)) ? i3 : i2;
                     z = false;
                 } else {
                     stringBuffer.append("|");
-                    String replace2 = ((ScanResult) this.f126do.get(i3)).BSSID.replace(":", "");
+                    String replace2 = ((ScanResult) this.f126do.get(i5)).BSSID.replace(":", "");
                     stringBuffer.append(replace2);
-                    int i7 = ((ScanResult) this.f126do.get(i3)).level;
+                    int i7 = ((ScanResult) this.f126do.get(i5)).level;
                     if (i7 < 0) {
                         i7 = -i7;
                     }
                     stringBuffer.append(String.format(";%d;", Integer.valueOf(i7)));
-                    int i8 = i5 + 1;
+                    int i8 = i4 + 1;
                     if (m126char == null || !m126char.equals(replace2)) {
                         boolean z3 = z2;
                         i2 = i8;
                         z = z3;
                     } else {
-                        i4 = i8;
+                        i3 = i8;
                         boolean z4 = z2;
                         i2 = i8;
                         z = z4;
                     }
                 }
-                i3++;
-                i5 = i2;
+                i5++;
+                i4 = i2;
                 z2 = z;
             }
             if (z2) {
                 return null;
             }
-            j.a(e.f114try, m126char + i4);
-            stringBuffer.append("&wf_n=" + i4);
+            j.a(e.f114try, m126char + i3);
+            stringBuffer.append("&wf_n=" + i3);
             stringBuffer.append("&wf_st=");
             stringBuffer.append(this.f128if);
             stringBuffer.append("&wf_et=");
@@ -239,21 +239,14 @@ public class e {
             while (i2 < size) {
                 String str = ((ScanResult) list.get(i2)).BSSID;
                 if (str != null) {
-                    int i4 = 0;
-                    while (true) {
-                        if (i4 >= size2) {
-                            i = i3;
-                            break;
-                        } else if (str.equals(((ScanResult) list2.get(i4)).BSSID)) {
+                    for (int i4 = 0; i4 < size2; i4++) {
+                        if (str.equals(((ScanResult) list2.get(i4)).BSSID)) {
                             i = i3 + 1;
                             break;
-                        } else {
-                            i4++;
                         }
                     }
-                } else {
-                    i = i3;
                 }
+                i = i3;
                 i2++;
                 i3 = i;
             }
@@ -275,7 +268,7 @@ public class e {
             boolean z;
             StringBuffer stringBuffer = new StringBuffer(512);
             stringBuffer.append("wifi info:");
-            if (m141new() < 1) {
+            if (m141new() <= 0) {
                 return stringBuffer.toString();
             }
             int size = this.f126do.size();
@@ -285,19 +278,21 @@ public class e {
             int i = 0;
             boolean z2 = true;
             while (i < size) {
-                if (((ScanResult) this.f126do.get(i)).level == 0) {
-                    z = z2;
-                } else if (z2) {
-                    stringBuffer.append("wifi=");
-                    stringBuffer.append(((ScanResult) this.f126do.get(i)).BSSID.replace(":", ""));
-                    stringBuffer.append(String.format(";%d;", Integer.valueOf(((ScanResult) this.f126do.get(i)).level)));
-                    z = false;
-                } else {
-                    stringBuffer.append(";");
-                    stringBuffer.append(((ScanResult) this.f126do.get(i)).BSSID.replace(":", ""));
-                    stringBuffer.append(String.format(",%d;", Integer.valueOf(((ScanResult) this.f126do.get(i)).level)));
-                    z = z2;
+                if (((ScanResult) this.f126do.get(i)).level != 0) {
+                    if (z2) {
+                        stringBuffer.append("wifi=");
+                        stringBuffer.append(((ScanResult) this.f126do.get(i)).BSSID.replace(":", ""));
+                        stringBuffer.append(String.format(";%d;", Integer.valueOf(((ScanResult) this.f126do.get(i)).level)));
+                        z = false;
+                        i++;
+                        z2 = z;
+                    } else {
+                        stringBuffer.append(";");
+                        stringBuffer.append(((ScanResult) this.f126do.get(i)).BSSID.replace(":", ""));
+                        stringBuffer.append(String.format(",%d;", Integer.valueOf(((ScanResult) this.f126do.get(i)).level)));
+                    }
                 }
+                z = z2;
                 i++;
                 z2 = z;
             }
@@ -345,7 +340,7 @@ public class e {
         /* renamed from: if  reason: not valid java name */
         public String m137if(int i) {
             int i2 = 0;
-            if (i == 0 || m141new() < 1) {
+            if (i == 0 || m141new() <= 0) {
                 return null;
             }
             StringBuffer stringBuffer = new StringBuffer(256);

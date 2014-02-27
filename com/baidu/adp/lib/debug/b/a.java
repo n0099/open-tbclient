@@ -1,40 +1,40 @@
 package com.baidu.adp.lib.debug.b;
 /* loaded from: classes.dex */
-public class a {
+public final class a {
     private String a;
     private String[] b;
     private String c;
     private String d;
 
-    public String a() {
+    public final String a() {
         return this.a;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.a = str;
     }
 
-    public String[] b() {
+    public final String[] b() {
         return this.b;
     }
 
-    public void a(String[] strArr) {
+    public final void a(String[] strArr) {
         this.b = strArr;
     }
 
-    public String c() {
+    public final String c() {
         return this.c;
     }
 
-    public void b(String str) {
+    public final void b(String str) {
         this.c = str;
     }
 
-    public String d() {
+    public final String d() {
         return this.d;
     }
 
-    public void c(String str) {
+    public final void c(String str) {
         this.d = str;
     }
 }

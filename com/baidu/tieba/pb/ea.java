@@ -11,14 +11,14 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class ea extends ed {
+public final class ea extends ed {
     private TextView O;
     private SubPbLoadPreviousView P;
     private NavigationBar Q;
     private ImageView R;
 
     public ea(com.baidu.tieba.f fVar, boolean z, View.OnClickListener onClickListener, View.OnClickListener onClickListener2, View.OnClickListener onClickListener3, View.OnClickListener onClickListener4, View.OnClickListener onClickListener5) {
-        super(fVar, z, onClickListener, onClickListener2, onClickListener3, onClickListener4, onClickListener5);
+        super(fVar, onClickListener, onClickListener2, onClickListener3, onClickListener4, onClickListener5);
         this.O = null;
         this.P = null;
         this.Q = null;
@@ -30,10 +30,10 @@ public class ea extends ed {
     }
 
     @Override // com.baidu.tieba.pb.ed
-    public boolean a() {
-        if (this.L.o()) {
+    public final boolean a() {
+        if (this.L.n()) {
             this.L.f();
-            this.L.n();
+            this.L.m();
             this.q.setEnabled(true);
         } else {
             this.e.finish();
@@ -43,12 +43,12 @@ public class ea extends ed {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.pb.ed
-    public void a(int i, View view) {
+    public final void a(int i, View view) {
         new Handler().postDelayed(new eb(this, i, view), 300L);
     }
 
     @Override // com.baidu.tieba.pb.ed
-    protected void b() {
+    protected final void b() {
         this.L = (PbEditor) this.a.findViewById(R.id.sub_pb_editor);
         this.L.a(true);
         this.L.e();
@@ -56,89 +56,90 @@ public class ea extends ed {
     }
 
     @Override // com.baidu.tieba.pb.ed
-    public void a(com.baidu.tieba.editortool.z zVar) {
-        if (zVar != null) {
-            this.L.setOnActionListener(new ec(this, zVar));
+    public final void a(com.baidu.tieba.editortool.aa aaVar) {
+        if (aaVar != null) {
+            this.L.setOnActionListener(new ec(this, aaVar));
         }
     }
 
-    public TextView c() {
+    public final TextView c() {
         return this.O;
     }
 
-    private NavigationBar F() {
-        this.Q = (NavigationBar) this.a.findViewById(R.id.view_navigation_bar);
-        return this.Q;
-    }
-
-    private SubPbLoadPreviousView G() {
+    private SubPbLoadPreviousView C() {
         this.P = (SubPbLoadPreviousView) this.b.findViewById(R.id.sub_pb_load_previous);
         return this.P;
     }
 
-    public void d() {
-        G().a();
+    public final void d() {
+        C().a();
     }
 
-    public void e() {
-        G().b();
+    public final void e() {
+        C().b();
     }
 
-    public void f() {
-        G().c();
+    public final void f() {
+        C().d();
         this.b.setPadding(0, 0, 0, 0);
-        ((ch) this.d).c(false);
+        ((ch) this.d).b(false);
     }
 
-    public void g() {
-        G().d();
+    public final void g() {
+        C().e();
         this.b.setPadding(0, 0, 0, 0);
-        ((ch) this.d).c(true);
+        ((ch) this.d).b(true);
     }
 
     @Override // com.baidu.tieba.pb.ed
-    protected void a(View.OnClickListener onClickListener) {
+    protected final void a(View.OnClickListener onClickListener) {
         this.d = new ch(this.e, onClickListener);
         this.d.a(this.y);
         this.c.setAdapter((ListAdapter) this.d);
     }
 
     @Override // com.baidu.tieba.pb.ed
-    public void a(int i) {
+    public final void a(int i) {
         super.a(i);
-        F().c(i);
-        G().a(i);
+        this.Q = (NavigationBar) this.a.findViewById(R.id.view_navigation_bar);
+        this.Q.b(i);
+        C();
+        SubPbLoadPreviousView.c();
     }
 
     @Override // com.baidu.tieba.pb.ed
-    protected void h() {
+    protected final void h() {
         LayoutInflater from = LayoutInflater.from(this.e);
         this.a = from.inflate(R.layout.new_sub_pb_reply_layout, (ViewGroup) null);
         this.b = from.inflate(R.layout.new_sub_pb_reply_head, (ViewGroup) null);
-        G().setOnClickListener(this.w);
+        C().setOnClickListener(this.w);
     }
 
     @Override // com.baidu.tieba.pb.ed
-    protected int a(com.baidu.tieba.data.av avVar) {
-        int e = avVar.e() - (avVar.g() * avVar.f());
-        if (e < 0) {
+    protected final int a(com.baidu.tieba.data.av avVar) {
+        int d = avVar.d() - (avVar.f() * avVar.e());
+        if (d < 0) {
             return 0;
         }
-        return e;
+        return d;
     }
 
     @Override // com.baidu.tieba.pb.ed
-    public void a(String str) {
+    public final void a(String str) {
         ch chVar;
         int a;
-        if ((this.d instanceof ch) && (a = (chVar = (ch) this.d).a(str)) > -1) {
+        if ((this.d instanceof ch) && (a = (chVar = (ch) this.d).a(str)) >= 0) {
             this.c.setSelection(a + 1);
             com.baidu.tieba.data.aq aqVar = (com.baidu.tieba.data.aq) chVar.getItem(a);
             if (aqVar != null) {
-                this.L.getEditText().setText(this.e.getResources().getString(R.string.reply_sub_floor).replace("%s", aqVar.g().getUserName()));
+                String userName = aqVar.g().getUserName();
+                if (userName == null) {
+                    userName = "";
+                }
+                this.L.getEditText().setText(this.e.getResources().getString(R.string.reply_sub_floor).replace("%s", userName));
                 this.L.getEditText().setSelection(this.L.getEditText().getText().length());
             }
-            if (TiebaApplication.g().al() == 1) {
+            if (TiebaApplication.g().ae() == 1) {
                 chVar.a(str, this.e.getResources().getColor(R.color.c_393d47));
             } else {
                 chVar.a(str, this.e.getResources().getColor(R.color.c_fdfdf1));

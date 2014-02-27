@@ -59,7 +59,7 @@ public class MyAudioRecorder implements h {
                 while (true) {
                     myAudioRecorder = new MyAudioRecorder(true, 1, a[i], 2, 2);
                     int i2 = i - 1;
-                    if (!(myAudioRecorder.d() != State.INITIALIZING) || !(i2 >= 0)) {
+                    if (!(myAudioRecorder.i != State.INITIALIZING) || !(i2 >= 0)) {
                         break;
                     }
                     i = i2;
@@ -71,46 +71,36 @@ public class MyAudioRecorder implements h {
         return myAudioRecorder;
     }
 
-    public State d() {
-        return this.i;
-    }
-
-    public MyAudioRecorder(boolean z, int i, int i2, int i3, int i4) {
+    private MyAudioRecorder(boolean z, int i, int i2, int i3, int i4) {
         this.g = 0;
         this.h = null;
         try {
             this.d = z;
             if (this.d) {
-                if (i4 == 2) {
-                    this.m = (short) 16;
-                } else {
-                    this.m = (short) 8;
-                }
-                if (i3 == 2) {
-                    this.k = (short) 1;
-                } else {
-                    this.k = (short) 2;
-                }
-                this.o = i;
+                this.m = (short) 16;
+                this.k = (short) 1;
+                this.o = 1;
                 this.l = i2;
-                this.p = i4;
+                this.p = 2;
                 this.q = (i2 * SocialAPIErrorCodes.ERROR_INVALID_AUTHORIZED_CODE) / LocationClientOption.MIN_SCAN_SPAN;
                 this.n = (((this.q * 2) * this.m) * this.k) / 8;
-                if (this.n < AudioRecord.getMinBufferSize(i2, i3, i4)) {
-                    this.n = AudioRecord.getMinBufferSize(i2, i3, i4);
+                if (this.n < AudioRecord.getMinBufferSize(i2, 2, 2)) {
+                    this.n = AudioRecord.getMinBufferSize(i2, 2, 2);
                     this.q = this.n / (((this.m * 2) * this.k) / 8);
                     Log.w(MyAudioRecorder.class.getName(), "Increasing buffer size to " + Integer.toString(this.n));
                 }
-                e = new AudioRecord(i, i2, i3, i4, this.n);
-                if (e.getRecordingState() == 3) {
+                AudioRecord audioRecord = new AudioRecord(1, i2, 2, 2, this.n);
+                e = audioRecord;
+                if (audioRecord.getRecordingState() == 3) {
                     e.stop();
                 }
                 if (e.getState() != 1) {
                     throw new Exception("AudioRecord initialization failed");
                 }
             } else {
-                f = new MediaRecorder();
-                f.setAudioSource(1);
+                MediaRecorder mediaRecorder = new MediaRecorder();
+                f = mediaRecorder;
+                mediaRecorder.setAudioSource(1);
                 f.setOutputFormat(1);
                 f.setAudioEncoder(1);
             }
@@ -127,7 +117,7 @@ public class MyAudioRecorder implements h {
         }
     }
 
-    public boolean b(String str) {
+    private boolean b(String str) {
         try {
             if (this.i == State.INITIALIZING) {
                 this.h = str;
@@ -147,7 +137,7 @@ public class MyAudioRecorder implements h {
         }
     }
 
-    public boolean e() {
+    private boolean d() {
         try {
             if (this.i == State.INITIALIZING) {
                 if (this.d) {
@@ -185,7 +175,7 @@ public class MyAudioRecorder implements h {
                 return true;
             }
             Log.e(MyAudioRecorder.class.getName(), "prepare() method called on illegal state");
-            f();
+            e();
             this.i = State.ERROR;
             return false;
         } catch (Exception e2) {
@@ -199,9 +189,9 @@ public class MyAudioRecorder implements h {
         }
     }
 
-    public void f() {
+    private void e() {
         if (this.i == State.RECORDING) {
-            h();
+            f();
         } else {
             if ((this.i == State.READY) & this.d) {
                 try {
@@ -221,23 +211,7 @@ public class MyAudioRecorder implements h {
         }
     }
 
-    public void g() {
-        if (this.i == State.READY) {
-            if (this.d) {
-                this.s = 0;
-                e.startRecording();
-                e.read(this.r, 0, this.r.length);
-            } else {
-                f.start();
-            }
-            this.i = State.RECORDING;
-            return;
-        }
-        Log.e(MyAudioRecorder.class.getName(), "start() called on illegal state");
-        this.i = State.ERROR;
-    }
-
-    public void h() {
+    private void f() {
         Log.e(MyAudioRecorder.class.getName(), "audioRecorder.stop()");
         e.stop();
         try {
@@ -254,20 +228,16 @@ public class MyAudioRecorder implements h {
         this.i = State.STOPPED;
     }
 
-    private short a(byte b2, byte b3) {
-        return (short) ((b3 << 8) | b2);
-    }
-
     @Override // com.baidu.tieba.voice.service.h
-    public boolean a(String str) {
+    public final boolean a(String str) {
         if (b(str)) {
-            return e();
+            return d();
         }
         return false;
     }
 
     @Override // com.baidu.tieba.voice.service.h
-    public boolean a() {
+    public final boolean a() {
         synchronized (b) {
             if (this.c == null || !this.c.isAlive()) {
                 this.c = new Thread(new f(this));
@@ -278,45 +248,57 @@ public class MyAudioRecorder implements h {
     }
 
     @Override // com.baidu.tieba.voice.service.h
-    public void b() {
+    public final void b() {
         this.i = State.STOPPED;
     }
 
     @Override // com.baidu.tieba.voice.service.h
-    public boolean c() {
+    public final boolean c() {
         return this.i == State.RECORDING;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void i() {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(MyAudioRecorder myAudioRecorder) {
         if (e != null) {
             try {
-                g();
-                while (c()) {
-                    e.read(this.r, 0, this.r.length);
+                if (myAudioRecorder.i == State.READY) {
+                    if (myAudioRecorder.d) {
+                        myAudioRecorder.s = 0;
+                        e.startRecording();
+                        e.read(myAudioRecorder.r, 0, myAudioRecorder.r.length);
+                    } else {
+                        f.start();
+                    }
+                    myAudioRecorder.i = State.RECORDING;
+                } else {
+                    Log.e(MyAudioRecorder.class.getName(), "start() called on illegal state");
+                    myAudioRecorder.i = State.ERROR;
+                }
+                while (myAudioRecorder.c()) {
+                    e.read(myAudioRecorder.r, 0, myAudioRecorder.r.length);
                     try {
-                        System.out.println(this.r);
-                        this.j.write(this.r);
-                        this.s += this.r.length;
-                        if (this.m == 16) {
-                            for (int i = 0; i < this.r.length / 2; i++) {
-                                short a2 = a(this.r[i * 2], this.r[(i * 2) + 1]);
-                                if (a2 > this.g) {
-                                    this.g = a2;
+                        System.out.println(myAudioRecorder.r);
+                        myAudioRecorder.j.write(myAudioRecorder.r);
+                        myAudioRecorder.s += myAudioRecorder.r.length;
+                        if (myAudioRecorder.m == 16) {
+                            for (int i = 0; i < myAudioRecorder.r.length / 2; i++) {
+                                short s = (short) (myAudioRecorder.r[i * 2] | (myAudioRecorder.r[(i * 2) + 1] << 8));
+                                if (s > myAudioRecorder.g) {
+                                    myAudioRecorder.g = s;
                                 }
                             }
                         } else {
-                            for (int i2 = 0; i2 < this.r.length; i2++) {
-                                if (this.r[i2] > this.g) {
-                                    this.g = this.r[i2];
+                            for (int i2 = 0; i2 < myAudioRecorder.r.length; i2++) {
+                                if (myAudioRecorder.r[i2] > myAudioRecorder.g) {
+                                    myAudioRecorder.g = myAudioRecorder.r[i2];
                                 }
                             }
                         }
                     } catch (IOException e2) {
                     }
                 }
-                h();
-                f();
+                myAudioRecorder.f();
+                myAudioRecorder.e();
             } catch (Throwable th) {
                 Log.e("AudioRecord", "Recording Failed");
             }

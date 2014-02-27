@@ -3,9 +3,8 @@ package com.baidu.tieba.account;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aj implements TextView.OnEditorActionListener {
+final class aj implements TextView.OnEditorActionListener {
     final /* synthetic */ LoginActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +13,7 @@ public class aj implements TextView.OnEditorActionListener {
     }
 
     @Override // android.widget.TextView.OnEditorActionListener
-    public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+    public final boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
         View view;
         View view2;
         view = this.a.B;
@@ -24,7 +23,7 @@ public class aj implements TextView.OnEditorActionListener {
                 return false;
             }
         }
-        this.a.g();
+        LoginActivity.t(this.a);
         return true;
     }
 }

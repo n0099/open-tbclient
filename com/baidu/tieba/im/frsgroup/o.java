@@ -8,7 +8,7 @@ import com.baidu.tieba.im.message.cf;
 import com.slidingmenu.lib.R;
 import java.util.List;
 /* loaded from: classes.dex */
-class o implements com.baidu.tieba.im.messageCenter.g {
+final class o implements com.baidu.tieba.im.messageCenter.g {
     final /* synthetic */ MembersActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,19 +17,19 @@ class o implements com.baidu.tieba.im.messageCenter.g {
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.s sVar) {
+    public final void a(com.baidu.tieba.im.message.s sVar) {
         ae aeVar;
         as asVar;
         com.baidu.tieba.im.model.l lVar;
-        boolean i;
-        boolean i2;
+        boolean e;
+        boolean e2;
         com.baidu.tieba.im.model.l lVar2;
         com.baidu.tieba.im.model.l lVar3;
         com.baidu.tieba.im.model.l lVar4;
-        boolean i3;
+        boolean e3;
         aeVar = this.a.b;
-        aa i4 = aeVar.i();
-        this.a.h();
+        aa h = aeVar.h();
+        MembersActivity.b(this.a);
         if (sVar == null || !(sVar instanceof cf)) {
             this.a.showToast(R.string.neterror);
             return;
@@ -57,33 +57,33 @@ class o implements com.baidu.tieba.im.messageCenter.g {
         MembersData a = cfVar.a();
         List<UserData> users = a.getUsers();
         if (users != null) {
-            i = this.a.i();
-            if (i) {
-                this.a.a(a.getPermission());
+            e = this.a.e();
+            if (e) {
+                MembersActivity.a(this.a, a.getPermission());
             }
-            i2 = this.a.i();
-            if (i2) {
-                i4.a(true);
+            e2 = this.a.e();
+            if (e2) {
+                h.a(true);
             }
             int size = users.size();
             lVar2 = this.a.c;
             if (size != lVar2.e()) {
-                i4.b(false);
-                i4.c(false);
-                i3 = this.a.i();
-                if (i3 && users.size() == 0) {
-                    this.a.j();
+                h.b(false);
+                h.c(false);
+                e3 = this.a.e();
+                if (e3 && users.size() == 0) {
+                    MembersActivity.e(this.a);
                     return;
                 }
             } else {
-                i4.c(true);
+                h.c(true);
             }
             lVar3 = this.a.c;
             lVar3.c(users.size());
             lVar4 = this.a.c;
             lVar4.d(20);
-            i4.a(users);
-            i4.notifyDataSetChanged();
+            h.a(users);
+            h.notifyDataSetChanged();
             this.a.c();
         }
     }

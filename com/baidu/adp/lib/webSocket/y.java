@@ -1,9 +1,7 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
-public class y extends aa {
-    public Exception a;
-
-    public y(Exception exc) {
-        this.a = exc;
+public final class y extends ag {
+    public y(d dVar) {
+        super(dVar);
     }
 }

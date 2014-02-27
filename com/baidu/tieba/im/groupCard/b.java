@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import com.baidu.tieba.im.chat.LocalViewSize;
 import com.baidu.tieba.util.i;
 /* loaded from: classes.dex */
-public class b extends com.baidu.adp.a.d {
+public final class b extends com.baidu.adp.a.d {
     private static Long f = 0L;
     private static final Long g = 300000L;
     private long a;
@@ -27,27 +27,27 @@ public class b extends com.baidu.adp.a.d {
     }
 
     @Override // com.baidu.adp.a.d
-    protected boolean LoadData() {
+    protected final boolean LoadData() {
         return false;
     }
 
     @Override // com.baidu.adp.a.d
-    public boolean cancelLoadData() {
+    public final boolean cancelLoadData() {
         return false;
     }
 
-    public com.baidu.adp.widget.ImageView.b a(Activity activity, int i, int i2, com.baidu.tbadk.imageManager.d dVar) {
+    public final com.baidu.adp.widget.ImageView.b a(Activity activity, int i, int i2, com.baidu.tbadk.imageManager.d dVar) {
         this.c = new i(activity);
         if (System.currentTimeMillis() - f.longValue() > g.longValue()) {
             f = Long.valueOf(System.currentTimeMillis());
         }
-        this.c.b("&t=" + f);
-        this.c.b(true);
+        this.c.f = "&t=" + f;
+        this.c.e = true;
         this.c.a(i, i2);
         return this.c.a(this.e, dVar, false);
     }
 
-    public void a(Bitmap bitmap) {
+    public final void a(Bitmap bitmap) {
         this.d = new c(this, bitmap);
         this.d.execute(new String[0]);
     }

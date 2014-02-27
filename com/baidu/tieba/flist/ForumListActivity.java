@@ -66,43 +66,43 @@ public class ForumListActivity extends com.baidu.tieba.f implements ViewPager.On
     private Runnable P = new j(this);
     private AbsListView.OnScrollListener Q = new k(this);
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str) {
-        com.baidu.tieba.square.ab a = this.c.x.a();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(ForumListActivity forumListActivity, String str) {
+        com.baidu.tieba.square.ab a = forumListActivity.c.x.a();
         if (a != null) {
             ArrayList<com.baidu.tieba.square.ab> arrayList = a.e;
             int size = arrayList.size();
             for (int i = 0; i < size; i++) {
                 if (arrayList.get(i).b.equals(str)) {
-                    this.t = i;
-                    this.c.x.a(this.t);
+                    forumListActivity.t = i;
+                    forumListActivity.c.x.a(forumListActivity.t);
                     return;
                 }
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str, String str2, String str3) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(ForumListActivity forumListActivity, String str, String str2, String str3) {
         try {
-            this.A.menu_id = Integer.valueOf(str2).intValue();
-            this.A.menu_name = str;
-            this.A.menu_type = Integer.valueOf(str3).intValue();
-            this.A.parent_menu_id = Integer.valueOf(getIntent().getStringExtra("parent_menu_id")).intValue();
-            this.A.parent_menu_name = getIntent().getStringExtra("parent_menu_name");
-            this.A.offset = 0;
-            this.A.rn = 10;
-            com.baidu.adp.lib.util.f.e("ForumListActivity", "onCreate", this.A.toString());
+            forumListActivity.A.menu_id = Integer.valueOf(str2).intValue();
+            forumListActivity.A.menu_name = str;
+            forumListActivity.A.menu_type = Integer.valueOf(str3).intValue();
+            forumListActivity.A.parent_menu_id = Integer.valueOf(forumListActivity.getIntent().getStringExtra("parent_menu_id")).intValue();
+            forumListActivity.A.parent_menu_name = forumListActivity.getIntent().getStringExtra("parent_menu_name");
+            forumListActivity.A.offset = 0;
+            forumListActivity.A.rn = 10;
+            com.baidu.adp.lib.util.e.e("ForumListActivity", "onCreate", forumListActivity.A.toString());
         } catch (NullPointerException e) {
-            finish();
+            forumListActivity.finish();
         }
-        this.v = this.A.recommend_type;
-        this.w = this.A.rn;
-        this.A.recommend_type = 0;
-        this.A.rn = 200;
-        this.u = true;
-        this.G.a(this.A);
-        this.G.LoadData();
+        forumListActivity.v = forumListActivity.A.recommend_type;
+        forumListActivity.w = forumListActivity.A.rn;
+        forumListActivity.A.recommend_type = 0;
+        forumListActivity.A.rn = 200;
+        forumListActivity.u = true;
+        forumListActivity.G.a(forumListActivity.A);
+        forumListActivity.G.LoadData();
     }
 
     public static void a(Context context, String str, String str2, String str3, String str4, String str5) {
@@ -137,8 +137,14 @@ public class ForumListActivity extends com.baidu.tieba.f implements ViewPager.On
         super.onCreate(bundle);
         setContentView(R.layout.forum_list_activity);
         this.c = new w(this);
-        this.c.h = (BdListView) a();
-        this.c.i = (BdListView) c();
+        w wVar = this.c;
+        this.c.h = a();
+        this.c.l.setOnClickListener(new l(this));
+        wVar.h = this.c.h;
+        w wVar2 = this.c;
+        this.c.i = a();
+        this.c.o.setOnClickListener(new m(this));
+        wVar2.i = this.c.i;
         this.c.A.setVisibility(0);
         this.c.y.setOnClickListener(null);
         this.c.y.setClickable(false);
@@ -147,31 +153,31 @@ public class ForumListActivity extends com.baidu.tieba.f implements ViewPager.On
         this.c.h.setAdapter((ListAdapter) this.D);
         this.E = new r(this, 1);
         this.c.i.setAdapter((ListAdapter) this.E);
-        b(getIntent().getStringExtra("parent_menu_name"), getIntent().getStringExtra("parent_menu_id"), getIntent().getStringExtra("menu_type"), getIntent().getStringExtra("level_2_menu_name"));
-    }
-
-    private void b(String str, String str2, String str3, String str4) {
+        String stringExtra = getIntent().getStringExtra("parent_menu_name");
+        String stringExtra2 = getIntent().getStringExtra("level_2_menu_name");
+        String stringExtra3 = getIntent().getStringExtra("parent_menu_id");
+        String stringExtra4 = getIntent().getStringExtra("menu_type");
         this.e = new Handler();
-        if (bs.c(str4)) {
-            str4 = str;
+        if (bs.c(stringExtra2)) {
+            stringExtra2 = stringExtra;
         }
-        this.c.g.setText(str4);
+        this.c.g.setText(stringExtra2);
         this.r = new com.baidu.tieba.util.i(this);
         this.A = new ForumListModel.RequestParams();
         try {
-            this.A.menu_id = Integer.valueOf(str2).intValue();
-            this.A.menu_name = str4;
-            this.A.menu_type = Integer.valueOf(str3).intValue();
-            this.A.parent_menu_id = Integer.valueOf(str2).intValue();
-            this.A.parent_menu_name = str;
+            this.A.menu_id = Integer.valueOf(stringExtra3).intValue();
+            this.A.menu_name = stringExtra2;
+            this.A.menu_type = Integer.valueOf(stringExtra4).intValue();
+            this.A.parent_menu_id = Integer.valueOf(stringExtra3).intValue();
+            this.A.parent_menu_name = stringExtra;
             this.A.offset = 0;
             this.A.rn = 10;
-            com.baidu.adp.lib.util.f.e("ForumListActivity", "onCreate", this.A.toString());
+            com.baidu.adp.lib.util.e.e("ForumListActivity", "onCreate", this.A.toString());
         } catch (NullPointerException e) {
             finish();
         }
         if (this.A.menu_id != 0) {
-            this.c.b();
+            this.c.e.setVisibility(8);
             this.s = true;
             this.y = false;
             this.D.a(Boolean.valueOf(this.y));
@@ -179,7 +185,7 @@ public class ForumListActivity extends com.baidu.tieba.f implements ViewPager.On
         } else {
             this.y = true;
             this.D.a(Boolean.valueOf(this.y));
-            this.c.a();
+            this.c.e.setVisibility(0);
         }
         this.a = new ForumListModel.List();
         this.b = new ForumListModel.List();
@@ -189,12 +195,12 @@ public class ForumListActivity extends com.baidu.tieba.f implements ViewPager.On
         this.c.i.setPullRefresh(this.c.s);
         this.c.r.a(this.K);
         this.c.s.a(this.K);
-        if (str3.equals("2")) {
-            com.baidu.adp.lib.util.f.e("ForumListActivity", "OnCreate", "from frs");
+        if (stringExtra4.equals("2")) {
+            com.baidu.adp.lib.util.e.e("ForumListActivity", "OnCreate", "from frs");
             this.c.z.setVisibility(8);
-            this.c.d();
+            this.c.b();
         } else {
-            this.F = new c(this, str, str3, str2);
+            this.F = new c(stringExtra, stringExtra4, stringExtra3);
             this.F.a(this.I);
             this.F.LoadData();
         }
@@ -220,8 +226,8 @@ public class ForumListActivity extends com.baidu.tieba.f implements ViewPager.On
             a(this, L, N, M, O);
             return;
         }
-        String A = TiebaApplication.A();
-        if (A != null && A.length() > 0) {
+        String v = TiebaApplication.v();
+        if (v != null && v.length() > 0) {
             if (this.D != null) {
                 this.D.b();
                 this.D.notifyDataSetChanged();
@@ -240,7 +246,7 @@ public class ForumListActivity extends com.baidu.tieba.f implements ViewPager.On
     public void onPause() {
         super.onPause();
         this.e.removeCallbacks(this.P);
-        this.r.d();
+        this.r.c();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -263,16 +269,16 @@ public class ForumListActivity extends com.baidu.tieba.f implements ViewPager.On
             this.G.cancelLoadData();
         }
         this.e.removeCallbacks(this.P);
-        this.r.d();
+        this.r.c();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         getLayoutMode().a(i == 1);
-        getLayoutMode().a((View) this.c.a);
-        this.c.f.c(i);
-        if (TiebaApplication.g().al() == 1) {
+        getLayoutMode().a(this.c.a);
+        this.c.f.b(i);
+        if (TiebaApplication.g().ae() == 1) {
             this.D.a(true);
             this.E.a(true);
         } else {
@@ -364,17 +370,17 @@ public class ForumListActivity extends com.baidu.tieba.f implements ViewPager.On
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.tab_recommends /* 2131100368 */:
+            case R.id.tab_recommends /* 2131100361 */:
                 this.c.d.setCurrentItem(0);
                 this.p = 0;
                 cb.a(view.getContext(), "recommend_list_click", "click", 1, new Object[0]);
                 return;
-            case R.id.tab_hot /* 2131100369 */:
+            case R.id.tab_hot /* 2131100362 */:
                 this.c.d.setCurrentItem(1);
                 this.p = 1;
                 cb.a(view.getContext(), "hot_list_click", "click", 1, new Object[0]);
                 return;
-            case R.id.title_menu /* 2131101118 */:
+            case R.id.title_menu /* 2131101111 */:
                 this.c.a(this.J);
                 return;
             default:
@@ -382,59 +388,47 @@ public class ForumListActivity extends com.baidu.tieba.f implements ViewPager.On
         }
     }
 
-    private View a() {
-        this.c.h = e();
-        this.c.l.setOnClickListener(new l(this));
-        return this.c.h;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b() {
-        if (this.B) {
-            int min = Math.min(this.D.getCount(), 200);
-            this.n = 200;
-            ForumInfoData[] forumInfoDataArr = new ForumInfoData[min];
-            System.arraycopy(this.D.a(), 0, forumInfoDataArr, 0, min);
-            this.D.a(min);
-            this.D.a(forumInfoDataArr);
-            this.B = false;
-            this.c.m.setText(getString(R.string.flist_expand_list));
-            this.c.n.setImageResource(this.l);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void v(ForumListActivity forumListActivity) {
+        if (!forumListActivity.B) {
+            forumListActivity.n = 50;
+            q qVar = new q(forumListActivity, (byte) 0);
+            qVar.a(true);
+            qVar.execute(new Void[0]);
             return;
         }
-        this.n = 50;
-        q qVar = new q(this, null);
-        qVar.a(true);
-        qVar.execute(new Void[0]);
+        int min = Math.min(forumListActivity.D.getCount(), 200);
+        forumListActivity.n = 200;
+        ForumInfoData[] forumInfoDataArr = new ForumInfoData[min];
+        System.arraycopy(forumListActivity.D.a(), 0, forumInfoDataArr, 0, min);
+        forumListActivity.D.a(min);
+        forumListActivity.D.a(forumInfoDataArr);
+        forumListActivity.B = false;
+        forumListActivity.c.m.setText(forumListActivity.getString(R.string.flist_expand_list));
+        forumListActivity.c.n.setImageResource(forumListActivity.l);
     }
 
-    private View c() {
-        this.c.i = e();
-        this.c.o.setOnClickListener(new m(this));
-        return this.c.i;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void d() {
-        if (this.C) {
-            int min = Math.min(this.E.getCount(), 200);
-            this.o = 200;
-            ForumInfoData[] forumInfoDataArr = new ForumInfoData[min];
-            System.arraycopy(this.E.a(), 0, forumInfoDataArr, 0, min);
-            this.E.a(min);
-            this.E.a(forumInfoDataArr);
-            this.C = false;
-            this.c.p.setText(getString(R.string.flist_expand_list));
-            this.c.q.setImageResource(this.l);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void w(ForumListActivity forumListActivity) {
+        if (!forumListActivity.C) {
+            forumListActivity.o = 50;
+            p pVar = new p(forumListActivity, (byte) 0);
+            pVar.a(true);
+            pVar.execute(new Void[0]);
             return;
         }
-        this.o = 50;
-        p pVar = new p(this, null);
-        pVar.a(true);
-        pVar.execute(new Void[0]);
+        int min = Math.min(forumListActivity.E.getCount(), 200);
+        forumListActivity.o = 200;
+        ForumInfoData[] forumInfoDataArr = new ForumInfoData[min];
+        System.arraycopy(forumListActivity.E.a(), 0, forumInfoDataArr, 0, min);
+        forumListActivity.E.a(min);
+        forumListActivity.E.a(forumInfoDataArr);
+        forumListActivity.C = false;
+        forumListActivity.c.p.setText(forumListActivity.getString(R.string.flist_expand_list));
+        forumListActivity.c.q.setImageResource(forumListActivity.l);
     }
 
-    private BdListView e() {
+    private BdListView a() {
         BdListView bdListView = new BdListView(this);
         bdListView.setScrollingCacheEnabled(false);
         bdListView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));

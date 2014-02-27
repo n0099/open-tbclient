@@ -1,6 +1,6 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
-public class bn {
+public final class bn {
     private com.baidu.tieba.data.am a = null;
     private boolean d = true;
     private boolean c = true;
@@ -18,15 +18,15 @@ public class bn {
     private int o = 1;
     private boolean p = false;
 
-    public void a(com.baidu.tieba.data.am amVar) {
+    public final void a(com.baidu.tieba.data.am amVar) {
         this.a = amVar;
     }
 
-    public com.baidu.tieba.data.am a() {
+    public final com.baidu.tieba.data.am a() {
         return this.a;
     }
 
-    public boolean b() {
+    public final boolean b() {
         return this.d;
     }
 }

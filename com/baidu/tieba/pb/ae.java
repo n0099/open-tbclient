@@ -4,9 +4,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.cloudsdk.social.core.SocialConstants;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ae extends BroadcastReceiver {
+final class ae extends BroadcastReceiver {
     final /* synthetic */ ImagePbActivity a;
 
     private ae(ImagePbActivity imagePbActivity) {
@@ -14,12 +13,12 @@ public class ae extends BroadcastReceiver {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ae(ImagePbActivity imagePbActivity, ae aeVar) {
+    public /* synthetic */ ae(ImagePbActivity imagePbActivity, byte b) {
         this(imagePbActivity);
     }
 
     @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
+    public final void onReceive(Context context, Intent intent) {
         int i;
         int i2;
         com.baidu.tieba.data.ab abVar;
@@ -75,6 +74,6 @@ public class ae extends BroadcastReceiver {
         }
         int intExtra2 = intent.getIntExtra(SocialConstants.PARAM_STATE, -1);
         this.a.a(intExtra2);
-        com.baidu.adp.lib.util.f.a(getClass().getName(), "find_bug_onReceive", "state=" + String.valueOf(intExtra2));
+        com.baidu.adp.lib.util.e.a(getClass().getName(), "find_bug_onReceive", "state=" + String.valueOf(intExtra2));
     }
 }

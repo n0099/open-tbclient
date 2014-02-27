@@ -5,7 +5,7 @@ import android.view.View;
 import com.baidu.tieba.flist.ForumListActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements View.OnClickListener {
+public final class m implements View.OnClickListener {
     final /* synthetic */ ItemInfoView a;
     private final /* synthetic */ boolean b;
     private final /* synthetic */ String c;
@@ -26,7 +26,7 @@ public class m implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         Context context;
         if (!this.b) {
             context = this.a.a;

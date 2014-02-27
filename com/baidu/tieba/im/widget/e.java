@@ -8,7 +8,7 @@ import com.slidingmenu.lib.R;
 import protobuf.QueryPrize.QueryPrizeRes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements com.baidu.tieba.view.dialog.c {
+public final class e implements com.baidu.tieba.view.dialog.c {
     private final /* synthetic */ Activity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,7 +17,7 @@ public class e implements com.baidu.tieba.view.dialog.c {
     }
 
     @Override // com.baidu.tieba.view.dialog.c
-    public void onClick(com.baidu.tieba.view.dialog.a aVar) {
+    public final void onClick(com.baidu.tieba.view.dialog.a aVar) {
         QueryPrizeRes.PrizeInfo prizeInfo;
         QueryPrizeRes.PrizeInfo prizeInfo2;
         QueryPrizeRes.PrizeInfo prizeInfo3;

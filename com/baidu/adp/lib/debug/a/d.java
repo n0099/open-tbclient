@@ -5,7 +5,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
-public class d extends a implements Runnable {
+public final class d extends a implements Runnable {
     private String a;
 
     public d(Context context) {
@@ -14,7 +14,7 @@ public class d extends a implements Runnable {
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:25:0x0091 -> B:5:0x001e). Please submit an issue!!! */
-    public String d() {
+    public final String d() {
         try {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("top -n 1").getInputStream()));
             while (true) {
@@ -41,7 +41,7 @@ public class d extends a implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         super.b();
         while (true) {
             try {

@@ -8,13 +8,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 /* loaded from: classes.dex */
-public class r {
+public final class r {
     public static void a(InputStream inputStream) {
         if (inputStream != null) {
             try {
                 inputStream.close();
             } catch (IOException e) {
-                com.baidu.adp.lib.util.f.b("CloseUtil", "error on close the inputstream.", e.getMessage());
+                com.baidu.adp.lib.util.e.b("CloseUtil", "error on close the inputstream.", e.getMessage());
             }
         }
     }
@@ -24,7 +24,7 @@ public class r {
             try {
                 closeable.close();
             } catch (Throwable th) {
-                com.baidu.adp.lib.util.f.b("CloseUtil", "error on close the Closeable.", th.getMessage());
+                com.baidu.adp.lib.util.e.b("CloseUtil", "error on close the Closeable.", th.getMessage());
             }
         }
     }
@@ -34,7 +34,7 @@ public class r {
             try {
                 outputStream.close();
             } catch (IOException e) {
-                com.baidu.adp.lib.util.f.b("CloseUtil", "error on close the outputstream.", e.getMessage());
+                com.baidu.adp.lib.util.e.b("CloseUtil", "error on close the outputstream.", e.getMessage());
             }
         }
     }
@@ -45,7 +45,7 @@ public class r {
                 cursor.close();
             } catch (Exception e) {
                 cb.a(e, "close cursor", new Object[0]);
-                com.baidu.adp.lib.util.f.b("CloseUtil", "error on close android.database.Cursor.", e.getMessage());
+                com.baidu.adp.lib.util.e.b("CloseUtil", "error on close android.database.Cursor.", e.getMessage());
             }
         }
     }
@@ -56,7 +56,7 @@ public class r {
                 sQLiteDatabase.close();
             } catch (Exception e) {
                 cb.a(e, "close db", new Object[0]);
-                com.baidu.adp.lib.util.f.b("CloseUtil", "error on close android.database.SQLiteDatabase.", e.getMessage());
+                com.baidu.adp.lib.util.e.b("CloseUtil", "error on close android.database.SQLiteDatabase.", e.getMessage());
             }
         }
     }
@@ -67,7 +67,7 @@ public class r {
                 sQLiteStatement.close();
             } catch (Exception e) {
                 cb.a(e, "close SQLiteStatement", new Object[0]);
-                com.baidu.adp.lib.util.f.b("CloseUtil", "error on close android.database.SQLiteDatabase.", e.getMessage());
+                com.baidu.adp.lib.util.e.b("CloseUtil", "error on close android.database.SQLiteDatabase.", e.getMessage());
             }
         }
     }

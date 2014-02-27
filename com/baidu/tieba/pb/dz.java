@@ -2,7 +2,7 @@ package com.baidu.tieba.pb;
 
 import android.view.View;
 /* loaded from: classes.dex */
-class dz {
+final class dz {
     int a;
     View b;
 
@@ -12,7 +12,7 @@ class dz {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ dz(int i, View view, dz dzVar) {
+    public /* synthetic */ dz(int i, View view, byte b) {
         this(i, view);
     }
 }

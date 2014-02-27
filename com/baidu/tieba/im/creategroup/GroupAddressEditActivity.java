@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+import com.baidu.tieba.util.bq;
+import com.slidingmenu.lib.R;
 import java.util.List;
 /* loaded from: classes.dex */
 public class GroupAddressEditActivity extends com.baidu.tieba.f implements AdapterView.OnItemClickListener, com.baidu.adp.widget.BdSwitchView.c {
@@ -17,20 +19,13 @@ public class GroupAddressEditActivity extends com.baidu.tieba.f implements Adapt
     public static void a(Activity activity, int i, List<String> list, int i2, boolean z) {
         Intent intent = new Intent(activity, GroupAddressEditActivity.class);
         String[] strArr = new String[list.size()];
-        int i3 = 0;
-        while (true) {
-            int i4 = i3;
-            if (i4 < list.size()) {
-                strArr[i4] = list.get(i4);
-                i3 = i4 + 1;
-            } else {
-                intent.putExtra("GroupAdressList", strArr);
-                intent.putExtra("HiddenAddress", z);
-                intent.putExtra("IntentSelectedIndex", i2);
-                activity.startActivityForResult(intent, i);
-                return;
-            }
+        for (int i3 = 0; i3 < list.size(); i3++) {
+            strArr[i3] = list.get(i3);
         }
+        intent.putExtra("GroupAdressList", strArr);
+        intent.putExtra("HiddenAddress", false);
+        intent.putExtra("IntentSelectedIndex", i2);
+        activity.startActivityForResult(intent, 21001);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -50,15 +45,24 @@ public class GroupAddressEditActivity extends com.baidu.tieba.f implements Adapt
     @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.a.a(i);
+        p pVar = this.a;
+        pVar.d.getLayoutMode().a(i == 1);
+        pVar.d.getLayoutMode().a(pVar.c);
+        bq.b(pVar.c, i);
+        pVar.a.b(i);
+        if (i == 1) {
+            pVar.c.setBackgroundResource(R.color.group_info_bg_1);
+        } else {
+            pVar.c.setBackgroundResource(R.color.group_info_bg);
+        }
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.a.a() || view == this.a.e()) {
+        if (view == this.a.e || view == this.a.a()) {
             Intent intent = new Intent();
-            if (this.d > -1 && this.d < this.b.length) {
+            if (this.d >= 0 && this.d < this.b.length) {
                 intent.putExtra("Selected_Business", this.b[this.d]);
             }
             intent.putExtra("Hidden_Address_Flag", this.c);
@@ -68,7 +72,7 @@ public class GroupAddressEditActivity extends com.baidu.tieba.f implements Adapt
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.c
-    public void a(View view, BdSwitchView.SwitchState switchState) {
+    public final void a(View view, BdSwitchView.SwitchState switchState) {
         if (switchState == BdSwitchView.SwitchState.ON) {
             this.c = true;
         } else {
@@ -76,13 +80,13 @@ public class GroupAddressEditActivity extends com.baidu.tieba.f implements Adapt
         }
     }
 
-    public int a() {
+    public final int a() {
         return this.d;
     }
 
     @Override // com.baidu.adp.a.a, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         this.d = i;
-        this.a.f();
+        this.a.g.notifyDataSetChanged();
     }
 }

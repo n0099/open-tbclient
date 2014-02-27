@@ -5,7 +5,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
-class ah {
+final class ah {
     ImageView a;
     TextView b;
     LinearLayout c;
@@ -21,7 +21,7 @@ class ah {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ah(af afVar, ah ahVar) {
+    public /* synthetic */ ah(af afVar, byte b) {
         this(afVar);
     }
 }

@@ -7,6 +7,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.Im;
 /* loaded from: classes.dex */
 public final class k extends GeneratedMessageLite.Builder<Im.GroupInfo, k> implements l {
@@ -47,24 +48,28 @@ public final class k extends GeneratedMessageLite.Builder<Im.GroupInfo, k> imple
     private Object B = "";
     private Object G = "";
 
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return Im.GroupInfo.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return Im.GroupInfo.getDefaultInstance();
+    }
+
     private k() {
-        g();
     }
 
-    private void g() {
-    }
-
-    /* JADX DEBUG: Method not inlined, still used in: [protobuf.Im.GroupInfo.newBuilder():protobuf.k] */
-    public static /* synthetic */ k f() {
-        return h();
-    }
-
-    public static k h() {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ k c() {
         return new k();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: private */
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: d */
     public k clear() {
         super.clear();
         this.c = 0;
@@ -138,21 +143,18 @@ public final class k extends GeneratedMessageLite.Builder<Im.GroupInfo, k> imple
         return this;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: private */
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
+    /* renamed from: e */
     public k clone() {
-        return h().mergeFrom(buildPartial());
+        return new k().mergeFrom(buildPartial());
     }
 
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public Im.GroupInfo getDefaultInstanceForType() {
-        return Im.GroupInfo.getDefaultInstance();
-    }
-
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: d */
-    public Im.GroupInfo build() {
+    /* renamed from: a */
+    public final Im.GroupInfo build() {
         Im.GroupInfo buildPartial = buildPartial();
         if (!buildPartial.isInitialized()) {
             throw newUninitializedMessageException(buildPartial);
@@ -160,9 +162,10 @@ public final class k extends GeneratedMessageLite.Builder<Im.GroupInfo, k> imple
         return buildPartial;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public Im.GroupInfo buildPartial() {
+    /* renamed from: b */
+    public final Im.GroupInfo buildPartial() {
         Im.GroupInfo groupInfo = new Im.GroupInfo(this, (Im.GroupInfo) null);
         int i = this.a;
         int i2 = this.b;
@@ -303,147 +306,164 @@ public final class k extends GeneratedMessageLite.Builder<Im.GroupInfo, k> imple
         return groupInfo;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public k mergeFrom(Im.GroupInfo groupInfo) {
-        Object obj;
-        Object obj2;
-        Object obj3;
-        Object obj4;
-        Object obj5;
-        Object obj6;
-        Object obj7;
-        Object obj8;
-        Object obj9;
-        Object obj10;
-        Object obj11;
-        Object obj12;
+    public final k mergeFrom(Im.GroupInfo groupInfo) {
         if (groupInfo != Im.GroupInfo.getDefaultInstance()) {
             if (groupInfo.hasGroupId()) {
                 a(groupInfo.getGroupId());
             }
             if (groupInfo.hasForumId()) {
-                b(groupInfo.getForumId());
+                int forumId = groupInfo.getForumId();
+                this.a |= 2;
+                this.d = forumId;
             }
             if (groupInfo.hasName()) {
                 this.a |= 4;
-                obj12 = groupInfo.name_;
-                this.e = obj12;
+                this.e = groupInfo.name_;
             }
             if (groupInfo.hasIntro()) {
                 this.a |= 8;
-                obj11 = groupInfo.intro_;
-                this.f = obj11;
+                this.f = groupInfo.intro_;
             }
             if (groupInfo.hasPortrait()) {
                 this.a |= 16;
-                obj10 = groupInfo.portrait_;
-                this.g = obj10;
+                this.g = groupInfo.portrait_;
             }
             if (groupInfo.hasPosition()) {
                 this.a |= 32;
-                obj9 = groupInfo.position_;
-                this.h = obj9;
+                this.h = groupInfo.position_;
             }
             if (groupInfo.hasBusiness()) {
                 this.a |= 64;
-                obj8 = groupInfo.business_;
-                this.i = obj8;
+                this.i = groupInfo.business_;
             }
             if (groupInfo.hasLng()) {
-                a(groupInfo.getLng());
+                double lng = groupInfo.getLng();
+                this.a |= 128;
+                this.j = lng;
             }
             if (groupInfo.hasLat()) {
-                b(groupInfo.getLat());
+                double lat = groupInfo.getLat();
+                this.a |= 256;
+                this.k = lat;
             }
             if (groupInfo.hasNotice()) {
                 this.a |= 512;
-                obj7 = groupInfo.notice_;
-                this.l = obj7;
+                this.l = groupInfo.notice_;
             }
             if (groupInfo.hasAlbum()) {
                 this.a |= 1024;
-                obj6 = groupInfo.album_;
-                this.m = obj6;
+                this.m = groupInfo.album_;
             }
             if (groupInfo.hasStatus()) {
-                c(groupInfo.getStatus());
+                int status = groupInfo.getStatus();
+                this.a |= 2048;
+                this.n = status;
             }
             if (groupInfo.hasFlag()) {
-                d(groupInfo.getFlag());
+                b(groupInfo.getFlag());
             }
             if (groupInfo.hasAuthorId()) {
-                e(groupInfo.getAuthorId());
+                int authorId = groupInfo.getAuthorId();
+                this.a |= 8192;
+                this.p = authorId;
             }
             if (groupInfo.hasAuthorName()) {
                 this.a |= 16384;
-                obj5 = groupInfo.authorName_;
-                this.q = obj5;
+                this.q = groupInfo.authorName_;
             }
             if (groupInfo.hasAuthorPortrait()) {
                 this.a |= 32768;
-                obj4 = groupInfo.authorPortrait_;
-                this.r = obj4;
+                this.r = groupInfo.authorPortrait_;
             }
             if (groupInfo.hasCreateTime()) {
-                f(groupInfo.getCreateTime());
+                int createTime = groupInfo.getCreateTime();
+                this.a |= AccessibilityEventCompat.TYPE_VIEW_ACCESSIBILITY_FOCUS_CLEARED;
+                this.s = createTime;
             }
             if (groupInfo.hasMaxMemberNum()) {
-                g(groupInfo.getMaxMemberNum());
+                int maxMemberNum = groupInfo.getMaxMemberNum();
+                this.a |= AccessibilityEventCompat.TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY;
+                this.t = maxMemberNum;
             }
             if (groupInfo.hasMemberNum()) {
-                h(groupInfo.getMemberNum());
+                int memberNum = groupInfo.getMemberNum();
+                this.a |= AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START;
+                this.u = memberNum;
             }
             if (groupInfo.hasGroupType()) {
-                i(groupInfo.getGroupType());
+                int groupType = groupInfo.getGroupType();
+                this.a |= AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
+                this.v = groupType;
             }
             if (groupInfo.hasLastMsgId()) {
-                a(groupInfo.getLastMsgId());
+                long lastMsgId = groupInfo.getLastMsgId();
+                this.a |= AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START;
+                this.w = lastMsgId;
             }
             if (groupInfo.hasGrade()) {
-                j(groupInfo.getGrade());
+                int grade = groupInfo.getGrade();
+                this.a |= AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_END;
+                this.x = grade;
             }
             if (groupInfo.hasDistance()) {
-                k(groupInfo.getDistance());
+                int distance = groupInfo.getDistance();
+                this.a |= 4194304;
+                this.y = distance;
             }
             if (groupInfo.hasIsHidePosition()) {
-                l(groupInfo.getIsHidePosition());
+                int isHidePosition = groupInfo.getIsHidePosition();
+                this.a |= GravityCompat.RELATIVE_LAYOUT_DIRECTION;
+                this.z = isHidePosition;
             }
             if (groupInfo.hasForumName()) {
                 this.a |= 16777216;
-                obj3 = groupInfo.forumName_;
-                this.A = obj3;
+                this.A = groupInfo.forumName_;
             }
             if (groupInfo.hasNickName()) {
                 this.a |= 33554432;
-                obj2 = groupInfo.nickName_;
-                this.B = obj2;
+                this.B = groupInfo.nickName_;
             }
             if (groupInfo.hasActiveDay()) {
-                m(groupInfo.getActiveDay());
+                int activeDay = groupInfo.getActiveDay();
+                this.a |= 67108864;
+                this.C = activeDay;
             }
             if (groupInfo.hasIsGroupManager()) {
-                n(groupInfo.getIsGroupManager());
+                int isGroupManager = groupInfo.getIsGroupManager();
+                this.a |= 134217728;
+                this.D = isGroupManager;
             }
             if (groupInfo.hasAuthorIsMeizhi()) {
-                o(groupInfo.getAuthorIsMeizhi());
+                int authorIsMeizhi = groupInfo.getAuthorIsMeizhi();
+                this.a |= 268435456;
+                this.E = authorIsMeizhi;
             }
             if (groupInfo.hasLastMsgTime()) {
-                p(groupInfo.getLastMsgTime());
+                int lastMsgTime = groupInfo.getLastMsgTime();
+                this.a |= 536870912;
+                this.F = lastMsgTime;
             }
             if (groupInfo.hasForumShowName()) {
                 this.a |= 1073741824;
-                obj = groupInfo.forumShowName_;
-                this.G = obj;
+                this.G = groupInfo.forumShowName_;
             }
             if (groupInfo.hasIsNewlyCreate()) {
-                q(groupInfo.getIsNewlyCreate());
+                int isNewlyCreate = groupInfo.getIsNewlyCreate();
+                this.a |= Integer.MIN_VALUE;
+                this.H = isNewlyCreate;
             }
             if (groupInfo.hasIsRecentlyReply()) {
-                r(groupInfo.getIsRecentlyReply());
+                int isRecentlyReply = groupInfo.getIsRecentlyReply();
+                this.b |= 1;
+                this.I = isRecentlyReply;
             }
             if (groupInfo.hasIsMemberGroup()) {
-                s(groupInfo.getIsMemberGroup());
+                int isMemberGroup = groupInfo.getIsMemberGroup();
+                this.b |= 2;
+                this.J = isMemberGroup;
             }
         }
         return this;
@@ -454,7 +474,9 @@ public final class k extends GeneratedMessageLite.Builder<Im.GroupInfo, k> imple
         return true;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:36:0x001e  */
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: private */
+    /* JADX WARN: Removed duplicated region for block: B:14:0x001e  */
     @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
     /* renamed from: a */
     /*
@@ -492,19 +514,13 @@ public final class k extends GeneratedMessageLite.Builder<Im.GroupInfo, k> imple
         }
     }
 
-    public k a(int i) {
+    public final k a(int i) {
         this.a |= 1;
         this.c = i;
         return this;
     }
 
-    public k b(int i) {
-        this.a |= 2;
-        this.d = i;
-        return this;
-    }
-
-    public k a(String str) {
+    public final k a(String str) {
         if (str != null) {
             this.a |= 4;
             this.e = str;
@@ -512,7 +528,7 @@ public final class k extends GeneratedMessageLite.Builder<Im.GroupInfo, k> imple
         return this;
     }
 
-    public k b(String str) {
+    public final k b(String str) {
         if (str != null) {
             this.a |= 8;
             this.f = str;
@@ -520,7 +536,7 @@ public final class k extends GeneratedMessageLite.Builder<Im.GroupInfo, k> imple
         return this;
     }
 
-    public k c(String str) {
+    public final k c(String str) {
         if (str != null) {
             this.a |= 16;
             this.g = str;
@@ -528,7 +544,7 @@ public final class k extends GeneratedMessageLite.Builder<Im.GroupInfo, k> imple
         return this;
     }
 
-    public k d(String str) {
+    public final k d(String str) {
         if (str != null) {
             this.a |= 32;
             this.h = str;
@@ -536,7 +552,7 @@ public final class k extends GeneratedMessageLite.Builder<Im.GroupInfo, k> imple
         return this;
     }
 
-    public k e(String str) {
+    public final k e(String str) {
         if (str != null) {
             this.a |= 64;
             this.i = str;
@@ -544,19 +560,7 @@ public final class k extends GeneratedMessageLite.Builder<Im.GroupInfo, k> imple
         return this;
     }
 
-    public k a(double d) {
-        this.a |= 128;
-        this.j = d;
-        return this;
-    }
-
-    public k b(double d) {
-        this.a |= 256;
-        this.k = d;
-        return this;
-    }
-
-    public k f(String str) {
+    public final k f(String str) {
         if (str != null) {
             this.a |= 1024;
             this.m = str;
@@ -564,111 +568,9 @@ public final class k extends GeneratedMessageLite.Builder<Im.GroupInfo, k> imple
         return this;
     }
 
-    public k c(int i) {
-        this.a |= 2048;
-        this.n = i;
-        return this;
-    }
-
-    public k d(int i) {
+    public final k b(int i) {
         this.a |= 4096;
         this.o = i;
-        return this;
-    }
-
-    public k e(int i) {
-        this.a |= 8192;
-        this.p = i;
-        return this;
-    }
-
-    public k f(int i) {
-        this.a |= AccessibilityEventCompat.TYPE_VIEW_ACCESSIBILITY_FOCUS_CLEARED;
-        this.s = i;
-        return this;
-    }
-
-    public k g(int i) {
-        this.a |= AccessibilityEventCompat.TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY;
-        this.t = i;
-        return this;
-    }
-
-    public k h(int i) {
-        this.a |= AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START;
-        this.u = i;
-        return this;
-    }
-
-    public k i(int i) {
-        this.a |= AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
-        this.v = i;
-        return this;
-    }
-
-    public k a(long j) {
-        this.a |= AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START;
-        this.w = j;
-        return this;
-    }
-
-    public k j(int i) {
-        this.a |= AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_END;
-        this.x = i;
-        return this;
-    }
-
-    public k k(int i) {
-        this.a |= 4194304;
-        this.y = i;
-        return this;
-    }
-
-    public k l(int i) {
-        this.a |= GravityCompat.RELATIVE_LAYOUT_DIRECTION;
-        this.z = i;
-        return this;
-    }
-
-    public k m(int i) {
-        this.a |= 67108864;
-        this.C = i;
-        return this;
-    }
-
-    public k n(int i) {
-        this.a |= 134217728;
-        this.D = i;
-        return this;
-    }
-
-    public k o(int i) {
-        this.a |= 268435456;
-        this.E = i;
-        return this;
-    }
-
-    public k p(int i) {
-        this.a |= 536870912;
-        this.F = i;
-        return this;
-    }
-
-    public k q(int i) {
-        this.a |= Integer.MIN_VALUE;
-        this.H = i;
-        return this;
-    }
-
-    public k r(int i) {
-        this.b |= 1;
-        this.I = i;
-        return this;
-    }
-
-    public k s(int i) {
-        this.b |= 2;
-        this.J = i;
         return this;
     }
 }

@@ -4,25 +4,32 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.CheckMaskUser.CheckMaskUserReq;
 /* loaded from: classes.dex */
 public final class e extends GeneratedMessageLite.Builder<CheckMaskUserReq.DataReq, e> implements f {
     private int a;
     private int b;
 
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return CheckMaskUserReq.DataReq.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return CheckMaskUserReq.DataReq.getDefaultInstance();
+    }
+
     private e() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static e h() {
+    public static /* synthetic */ e c() {
         return new e();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: d */
     public e clear() {
         super.clear();
         this.b = 0;
@@ -31,20 +38,14 @@ public final class e extends GeneratedMessageLite.Builder<CheckMaskUserReq.DataR
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
+    /* renamed from: e */
     public e clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public CheckMaskUserReq.DataReq getDefaultInstanceForType() {
-        return CheckMaskUserReq.DataReq.getDefaultInstance();
+        return new e().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: d */
-    public CheckMaskUserReq.DataReq build() {
+    /* renamed from: a */
+    public final CheckMaskUserReq.DataReq build() {
         CheckMaskUserReq.DataReq buildPartial = buildPartial();
         if (!buildPartial.isInitialized()) {
             throw newUninitializedMessageException(buildPartial);
@@ -53,8 +54,8 @@ public final class e extends GeneratedMessageLite.Builder<CheckMaskUserReq.DataR
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public CheckMaskUserReq.DataReq buildPartial() {
+    /* renamed from: b */
+    public final CheckMaskUserReq.DataReq buildPartial() {
         CheckMaskUserReq.DataReq dataReq = new CheckMaskUserReq.DataReq(this, (CheckMaskUserReq.DataReq) null);
         int i = (this.a & 1) != 1 ? 0 : 1;
         dataReq.uid_ = this.b;
@@ -64,7 +65,7 @@ public final class e extends GeneratedMessageLite.Builder<CheckMaskUserReq.DataR
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public e mergeFrom(CheckMaskUserReq.DataReq dataReq) {
+    public final e mergeFrom(CheckMaskUserReq.DataReq dataReq) {
         if (dataReq != CheckMaskUserReq.DataReq.getDefaultInstance() && dataReq.hasUid()) {
             a(dataReq.getUid());
         }
@@ -114,7 +115,7 @@ public final class e extends GeneratedMessageLite.Builder<CheckMaskUserReq.DataR
         }
     }
 
-    public e a(int i) {
+    public final e a(int i) {
         this.a |= 1;
         this.b = i;
         return this;

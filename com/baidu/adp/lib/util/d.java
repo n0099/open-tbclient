@@ -1,31 +1,37 @@
 package com.baidu.adp.lib.util;
 
-import android.content.ActivityNotFoundException;
-import android.content.Context;
-import android.content.Intent;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.zip.GZIPInputStream;
+import java.util.zip.GZIPOutputStream;
 /* loaded from: classes.dex */
-public class d {
-    Context a;
-
-    public d(Context context) {
-        a(context);
+public final class d {
+    public static void a(InputStream inputStream, OutputStream outputStream) {
+        GZIPInputStream gZIPInputStream = new GZIPInputStream(inputStream);
+        byte[] bArr = new byte[1024];
+        while (true) {
+            int read = gZIPInputStream.read(bArr, 0, 1024);
+            if (read != -1) {
+                outputStream.write(bArr, 0, read);
+            } else {
+                gZIPInputStream.close();
+                return;
+            }
+        }
     }
 
-    private void a(Context context) {
-        this.a = context;
-    }
-
-    public void a() {
-        Intent intent = new Intent();
-        intent.setAction("android.settings.LOCATION_SOURCE_SETTINGS");
-        intent.setFlags(268435456);
-        try {
-            this.a.startActivity(intent);
-        } catch (ActivityNotFoundException e) {
-            intent.setAction("android.settings.SETTINGS");
-            try {
-                this.a.startActivity(intent);
-            } catch (Exception e2) {
+    public static void b(InputStream inputStream, OutputStream outputStream) {
+        GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
+        byte[] bArr = new byte[1024];
+        while (true) {
+            int read = inputStream.read(bArr, 0, 1024);
+            if (read != -1) {
+                gZIPOutputStream.write(bArr, 0, read);
+            } else {
+                gZIPOutputStream.flush();
+                gZIPOutputStream.finish();
+                gZIPOutputStream.close();
+                return;
             }
         }
     }

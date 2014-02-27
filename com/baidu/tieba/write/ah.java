@@ -1,39 +1,31 @@
 package com.baidu.tieba.write;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.data.WriteData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.data.AntiData;
 /* loaded from: classes.dex */
-public class ah extends BdAsyncTask<String, String, WriteData> {
-    private final ag a;
-    private final String b;
+public final class ah {
+    final int a;
+    final String b;
+    final AntiData c;
 
-    public ah(String str, ag agVar) {
-        setPriority(3);
-        this.a = agVar;
+    public ah(int i, String str, AntiData antiData) {
+        this.a = i;
         this.b = str;
+        this.c = antiData;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public WriteData a(String... strArr) {
-        String str;
-        try {
-            str = com.baidu.tieba.c.a.a().d().a(this.b);
-        } catch (Exception e) {
-            str = null;
-        }
-        return WriteData.fromDraftString(str);
+    public final boolean a() {
+        return this.a != 0;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(WriteData writeData) {
-        super.a((ah) writeData);
-        if (this.a != null) {
-            this.a.a(writeData);
-        }
+    public final boolean b() {
+        return this.a == 5 || this.a == 6;
+    }
+
+    public final String c() {
+        return this.b;
+    }
+
+    public final AntiData d() {
+        return this.c;
     }
 }

@@ -4,7 +4,7 @@ import android.content.DialogInterface;
 import com.baidu.tieba.img.WriteImagesInfo;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class ay implements DialogInterface.OnClickListener {
+final class ay implements DialogInterface.OnClickListener {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ class ay implements DialogInterface.OnClickListener {
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
+    public final void onClick(DialogInterface dialogInterface, int i) {
         cu cuVar;
         cu cuVar2;
         WriteImagesInfo writeImagesInfo;
@@ -22,9 +22,9 @@ class ay implements DialogInterface.OnClickListener {
         WriteImagesInfo writeImagesInfo3;
         NewPbActivity newPbActivity = this.a;
         cuVar = this.a.C;
-        newPbActivity.D = cuVar.ad();
+        newPbActivity.D = cuVar.V();
         cuVar2 = this.a.C;
-        cuVar2.j();
+        cuVar2.h();
         if (i == 0) {
             writeImagesInfo = this.a.m;
             if (writeImagesInfo.getChosedFiles() != null) {
@@ -39,9 +39,9 @@ class ay implements DialogInterface.OnClickListener {
             this.a.n = String.valueOf(System.currentTimeMillis());
             NewPbActivity newPbActivity2 = this.a;
             str = this.a.n;
-            com.baidu.tieba.write.bz.a(newPbActivity2, str);
+            com.baidu.tieba.write.by.a(newPbActivity2, str);
         } else if (i == 1) {
-            com.baidu.tieba.write.bz.b(this.a);
+            com.baidu.tieba.write.by.b(this.a);
         }
     }
 }

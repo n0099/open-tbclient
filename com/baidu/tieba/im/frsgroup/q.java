@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.tieba.im.message.cp;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class q implements com.baidu.tieba.im.messageCenter.g {
+final class q implements com.baidu.tieba.im.messageCenter.g {
     final /* synthetic */ MembersActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ class q implements com.baidu.tieba.im.messageCenter.g {
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.s sVar) {
+    public final void a(com.baidu.tieba.im.message.s sVar) {
         ae aeVar;
         ae aeVar2;
         com.baidu.tieba.im.model.l lVar;
@@ -39,12 +39,12 @@ class q implements com.baidu.tieba.im.messageCenter.g {
         }
         this.a.showToast(R.string.members_delete_success);
         aeVar2 = this.a.b;
-        aa i = aeVar2.i();
+        aa h = aeVar2.h();
         lVar = this.a.c;
-        i.b(lVar.c());
+        h.b(lVar.c());
         aeVar3 = this.a.b;
-        aeVar3.j();
+        aeVar3.i();
         aeVar4 = this.a.b;
-        aeVar4.i().a();
+        aeVar4.h().a();
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.util.DatabaseService;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ao implements ad {
+public final class ao implements ad {
     final /* synthetic */ LoginActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ public class ao implements ad {
     }
 
     @Override // com.baidu.tieba.account.ad
-    public void a(AccountData accountData) {
+    public final void a(AccountData accountData) {
         DatabaseService.a(accountData);
         TiebaApplication.a(accountData, this.a.getBaseContext());
         this.a.a();

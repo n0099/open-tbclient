@@ -9,7 +9,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class ch {
+public final class ch {
     private static int a = -1;
     private static int b = -1;
     private static boolean c = false;
@@ -21,13 +21,6 @@ public class ch {
         c = true;
     }
 
-    private static void a() {
-        if (e != null && e.getResources() != null) {
-            b = e.getResources().getColor(R.color.more_color);
-            a = e.getResources().getColor(R.color.skin_1_common_color);
-        }
-    }
-
     private static int a(int i) {
         return b(i == 1);
     }
@@ -36,14 +29,17 @@ public class ch {
     public static int b(boolean z) {
         if (c) {
             c = false;
-            a();
+            if (e != null && e.getResources() != null) {
+                b = e.getResources().getColor(R.color.more_color);
+                a = e.getResources().getColor(R.color.skin_1_common_color);
+            }
         }
         return z ? a : b;
     }
 
     public static void a(View view) {
         if (view instanceof ViewGroup) {
-            a((ViewGroup) view, TiebaApplication.g().al());
+            a((ViewGroup) view, TiebaApplication.g().ae());
         }
     }
 
@@ -57,37 +53,31 @@ public class ch {
         int identityHashCode = System.identityHashCode(viewGroup);
         Integer a2 = d.a((com.baidu.adp.lib.d.a<Integer, Integer>) Integer.valueOf(identityHashCode));
         if (a2 == null || i != a2.intValue()) {
-            b(viewGroup, i);
+            a(viewGroup, true, (cj) new ci(i, i == 1));
             d.a(Integer.valueOf(identityHashCode), Integer.valueOf(i));
         }
     }
 
     public static void a(ViewGroup viewGroup, boolean z, cj cjVar) {
-        if (!z || !cjVar.a(viewGroup)) {
-            LinkedList linkedList = new LinkedList();
-            while (true) {
-                int childCount = viewGroup.getChildCount();
-                for (int i = 0; i < childCount; i++) {
-                    View childAt = viewGroup.getChildAt(i);
-                    if (!cjVar.a(childAt)) {
-                        if (childAt instanceof ViewGroup) {
-                            linkedList.addLast((ViewGroup) childAt);
-                        }
-                    } else {
-                        return;
-                    }
-                }
-                if (!linkedList.isEmpty()) {
-                    viewGroup = (ViewGroup) linkedList.removeFirst();
-                } else {
-                    return;
+        if (z) {
+            cjVar.a(viewGroup);
+        }
+        LinkedList linkedList = new LinkedList();
+        while (true) {
+            int childCount = viewGroup.getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                View childAt = viewGroup.getChildAt(i);
+                cjVar.a(childAt);
+                if (childAt instanceof ViewGroup) {
+                    linkedList.addLast((ViewGroup) childAt);
                 }
             }
+            if (!linkedList.isEmpty()) {
+                viewGroup = (ViewGroup) linkedList.removeFirst();
+            } else {
+                return;
+            }
         }
-    }
-
-    private static void b(ViewGroup viewGroup, int i) {
-        a(viewGroup, true, (cj) new ci(i, i == 1));
     }
 
     public static void a(View view, int i) {

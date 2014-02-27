@@ -15,7 +15,7 @@ import java.util.Iterator;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class bt {
+public final class bt {
     public static o a(o oVar) {
         o oVar2;
         String[] a;
@@ -25,23 +25,24 @@ public class bt {
         try {
             a = a();
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(e.getMessage());
+            com.baidu.adp.lib.util.e.b(e.getMessage());
         }
         if (a != null) {
             ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
             arrayList.add(new BasicNameValuePair("crypttype", SocialConstants.TRUE));
             arrayList.add(new BasicNameValuePair("tpl", "tb"));
             arrayList.add(new BasicNameValuePair("appid", SocialConstants.TRUE));
-            arrayList.add(new BasicNameValuePair("clientip", b()));
+            arrayList.add(new BasicNameValuePair("clientip", com.baidu.adp.lib.network.i.a() ? UtilHelper.i(TiebaApplication.g().b()) : UtilHelper.c()));
             arrayList.add(new BasicNameValuePair("cert_id", a[0]));
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("bduss", oVar.a);
             jSONObject.put(SapiAccountManager.SESSION_PTOKEN, oVar.b);
             jSONObject.put(SocialConstants.PARAM_CUID, DeviceId.getDeviceID(TiebaApplication.g().b()));
-            jSONObject.put("clientid", TiebaApplication.g().p());
+            jSONObject.put("clientid", TiebaApplication.g().k());
             arrayList.add(new BasicNameValuePair("userinfo", new com.baidu.tieba.util.ac().a(a[1], jSONObject.toString())));
             arrayList.add(new BasicNameValuePair("sig", a(arrayList, "6e93e7659ae637845c7f83abee68a740")));
-            com.baidu.tieba.util.an a2 = com.baidu.tieba.util.bf.a().a(new com.baidu.tieba.util.bj());
+            com.baidu.tieba.util.bf.a();
+            com.baidu.tieba.util.an a2 = com.baidu.tieba.util.bf.a(new com.baidu.tieba.util.bj());
             if (a2 != null) {
                 a2.b("http://passport.baidu.com/v2/sapi/bdusslogin");
                 a2.a(arrayList);
@@ -68,7 +69,8 @@ public class bt {
 
     private static String[] a() {
         try {
-            com.baidu.tieba.util.an a = com.baidu.tieba.util.bf.a().a(new com.baidu.tieba.util.bj());
+            com.baidu.tieba.util.bf.a();
+            com.baidu.tieba.util.an a = com.baidu.tieba.util.bf.a(new com.baidu.tieba.util.bj());
             if (a == null) {
                 return null;
             }
@@ -78,13 +80,6 @@ public class bt {
         } catch (Exception e) {
             return null;
         }
-    }
-
-    private static String b() {
-        if (com.baidu.adp.lib.network.i.a()) {
-            return UtilHelper.i(TiebaApplication.g().b());
-        }
-        return UtilHelper.c();
     }
 
     private static String a(ArrayList<BasicNameValuePair> arrayList, String str) {
@@ -108,7 +103,7 @@ public class bt {
                     stringBuffer.append(URLEncoder.encode(str3, "UTF-8"));
                 }
             } catch (UnsupportedEncodingException e) {
-                com.baidu.adp.lib.util.f.b(e.getMessage());
+                com.baidu.adp.lib.util.e.b(e.getMessage());
             }
             stringBuffer.append("&");
         }

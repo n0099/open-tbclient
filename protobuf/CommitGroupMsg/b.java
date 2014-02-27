@@ -4,25 +4,32 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.CommitGroupMsg.CommitGroupMsgReq;
 /* loaded from: classes.dex */
 public final class b extends GeneratedMessageLite.Builder<CommitGroupMsgReq.CommitGroupMsgReqIdl, b> implements c {
     private int a;
     private CommitGroupMsgReq.DataReq b = CommitGroupMsgReq.DataReq.getDefaultInstance();
 
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return CommitGroupMsgReq.CommitGroupMsgReqIdl.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return CommitGroupMsgReq.CommitGroupMsgReqIdl.getDefaultInstance();
+    }
+
     private b() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static b h() {
+    public static /* synthetic */ b b() {
         return new b();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public b clear() {
         super.clear();
         this.b = CommitGroupMsgReq.DataReq.getDefaultInstance();
@@ -31,20 +38,14 @@ public final class b extends GeneratedMessageLite.Builder<CommitGroupMsgReq.Comm
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
+    /* renamed from: d */
     public b clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public CommitGroupMsgReq.CommitGroupMsgReqIdl getDefaultInstanceForType() {
-        return CommitGroupMsgReq.CommitGroupMsgReqIdl.getDefaultInstance();
+        return new b().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: d */
-    public CommitGroupMsgReq.CommitGroupMsgReqIdl build() {
+    /* renamed from: a */
+    public final CommitGroupMsgReq.CommitGroupMsgReqIdl build() {
         CommitGroupMsgReq.CommitGroupMsgReqIdl buildPartial = buildPartial();
         if (!buildPartial.isInitialized()) {
             throw newUninitializedMessageException(buildPartial);
@@ -64,9 +65,15 @@ public final class b extends GeneratedMessageLite.Builder<CommitGroupMsgReq.Comm
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public b mergeFrom(CommitGroupMsgReq.CommitGroupMsgReqIdl commitGroupMsgReqIdl) {
+    public final b mergeFrom(CommitGroupMsgReq.CommitGroupMsgReqIdl commitGroupMsgReqIdl) {
         if (commitGroupMsgReqIdl != CommitGroupMsgReq.CommitGroupMsgReqIdl.getDefaultInstance() && commitGroupMsgReqIdl.hasData()) {
-            b(commitGroupMsgReqIdl.getData());
+            CommitGroupMsgReq.DataReq data = commitGroupMsgReqIdl.getData();
+            if ((this.a & 1) != 1 || this.b == CommitGroupMsgReq.DataReq.getDefaultInstance()) {
+                this.b = data;
+            } else {
+                this.b = CommitGroupMsgReq.DataReq.newBuilder(this.b).mergeFrom(data).buildPartial();
+            }
+            this.a |= 1;
         }
         return this;
     }
@@ -114,21 +121,11 @@ public final class b extends GeneratedMessageLite.Builder<CommitGroupMsgReq.Comm
         }
     }
 
-    public b a(CommitGroupMsgReq.DataReq dataReq) {
+    public final b a(CommitGroupMsgReq.DataReq dataReq) {
         if (dataReq != null) {
             this.b = dataReq;
             this.a |= 1;
         }
-        return this;
-    }
-
-    public b b(CommitGroupMsgReq.DataReq dataReq) {
-        if ((this.a & 1) == 1 && this.b != CommitGroupMsgReq.DataReq.getDefaultInstance()) {
-            this.b = CommitGroupMsgReq.DataReq.newBuilder(this.b).mergeFrom(dataReq).buildPartial();
-        } else {
-            this.b = dataReq;
-        }
-        this.a |= 1;
         return this;
     }
 }

@@ -7,11 +7,12 @@ import com.baidu.tieba.data.an;
 import com.baidu.tieba.util.ba;
 import com.baidu.tieba.util.bv;
 /* loaded from: classes.dex */
-public class f {
+public final class f {
     private static final String a = String.valueOf(com.baidu.tieba.data.i.a) + "c/f/pb/page";
     private ba b = null;
 
-    public String a(String str, String str2, String str3, int i, int i2, boolean z, boolean z2, int i3, int i4, int i5, boolean z3, long j, boolean z4, an anVar) {
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public final String a(String str, String str2, String str3, int i, int i2, boolean z, boolean z2, int i3, int i4, int i5, boolean z3, long j, boolean z4, an anVar) {
         if (str == null || str.length() == 0) {
             return null;
         }
@@ -110,47 +111,61 @@ public class f {
                 this.b.a("back", SocialConstants.FALSE);
                 break;
         }
-        return this.b.m();
+        return this.b.l();
     }
 
-    public void a() {
+    public final void a() {
         if (this.b != null) {
-            this.b.k();
+            this.b.j();
         }
     }
 
-    public boolean b() {
+    public final boolean b() {
+        if (this.b == null) {
+            return false;
+        }
+        return this.b.c();
+    }
+
+    public final boolean c() {
         if (this.b == null) {
             return false;
         }
         return this.b.d();
     }
 
-    public boolean c() {
+    public final int d() {
         if (this.b == null) {
-            return false;
+            return 0;
+        }
+        return this.b.b();
+    }
+
+    public final String e() {
+        if (this.b == null) {
+            return null;
+        }
+        return this.b.i();
+    }
+
+    public final int f() {
+        if (this.b == null) {
+            return 0;
         }
         return this.b.e();
     }
 
-    public int d() {
-        if (this.b == null) {
-            return 0;
+    public final long g() {
+        if (this.b != null) {
+            return this.b.p();
         }
-        return this.b.c();
+        return 0L;
     }
 
-    public String e() {
-        if (this.b == null) {
-            return null;
+    public final long h() {
+        if (this.b != null) {
+            return this.b.q();
         }
-        return this.b.j();
-    }
-
-    public int f() {
-        if (this.b == null) {
-            return 0;
-        }
-        return this.b.f();
+        return 0L;
     }
 }

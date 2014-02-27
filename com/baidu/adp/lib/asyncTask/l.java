@@ -9,7 +9,7 @@ public abstract class l<V> extends FutureTask<V> {
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void a();
 
-    public BdAsyncTask<?, ?, ?> b() {
+    public final BdAsyncTask<?, ?, ?> b() {
         return this.a;
     }
 

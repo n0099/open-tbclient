@@ -33,25 +33,16 @@ public class FaceShopActivity extends com.baidu.tieba.f implements com.baidu.tie
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
+        String stringExtra;
         super.onCreate(bundle);
-        b();
-        a(bundle);
-        a(true);
-    }
-
-    private void b() {
         this.a = new be(this);
         this.a.a(new at(this));
         this.a.a(new au(this));
         this.a.a(this);
-        d();
-        com.baidu.tieba.im.messageCenter.e.a().a(-122, this);
-        com.baidu.tieba.im.messageCenter.e.a().a(-120, this);
+        this.a.a(this.e);
+        com.baidu.tieba.im.messageCenter.d.a().a(-122, this);
+        com.baidu.tieba.im.messageCenter.d.a().a(-120, this);
         com.baidu.tieba.d.d.a();
-    }
-
-    private void a(Bundle bundle) {
-        String stringExtra;
         this.b = new bc();
         if (bundle != null) {
             stringExtra = bundle.getString("st_type");
@@ -61,6 +52,7 @@ public class FaceShopActivity extends com.baidu.tieba.f implements com.baidu.tie
         }
         this.b.a(stringExtra);
         this.b.setLoadDataCallBack(this.f);
+        a(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -75,20 +67,13 @@ public class FaceShopActivity extends com.baidu.tieba.f implements com.baidu.tie
         this.a.b();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void c() {
-        if (this.b != null && this.a != null && this.b.b()) {
-            this.a.c();
-            this.b.a(2);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void c(FaceShopActivity faceShopActivity) {
+        if (faceShopActivity.b == null || faceShopActivity.a == null || !faceShopActivity.b.b()) {
+            return;
         }
-    }
-
-    private void d() {
-        this.a.a(this.e);
-    }
-
-    private void e() {
-        this.a.b(this.e);
+        faceShopActivity.a.c();
+        faceShopActivity.b.a(2);
     }
 
     @Override // com.baidu.adp.a.a, android.widget.AdapterView.OnItemClickListener
@@ -106,8 +91,8 @@ public class FaceShopActivity extends com.baidu.tieba.f implements com.baidu.tie
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.a != null) {
-            if (view == this.a.m()) {
-                if (!TiebaApplication.B()) {
+            if (view == this.a.k()) {
+                if (!TiebaApplication.w()) {
                     LoginActivity.a((Activity) this, (String) null, true, 11037);
                     return;
                 }
@@ -125,21 +110,21 @@ public class FaceShopActivity extends com.baidu.tieba.f implements com.baidu.tie
             this.b.cancelLoadData();
         }
         if (this.a != null) {
-            this.a.l();
+            this.a.g();
             this.a.a().c();
         }
         if (this.c != null) {
             this.c.cancelLoadData();
         }
-        e();
-        com.baidu.tieba.im.messageCenter.e.a().a(this);
+        this.a.b(this.e);
+        com.baidu.tieba.im.messageCenter.d.a().a(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.f, android.app.Activity
     public void onStop() {
         if (this.a != null) {
-            this.a.h();
+            this.a.g();
         }
         super.onStop();
     }
@@ -162,10 +147,10 @@ public class FaceShopActivity extends com.baidu.tieba.f implements com.baidu.tie
         }
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         FacePackageData facePackageData;
         if (this.a != null && this.a.a() != null && (facePackageData = (FacePackageData) this.a.a().getItem(i)) != null) {
-            this.a.k();
+            this.a.j();
             facePackageData.buyStatus = 1;
             facePackageData.canDownload = 1;
             this.a.a().notifyDataSetChanged();
@@ -173,8 +158,8 @@ public class FaceShopActivity extends com.baidu.tieba.f implements com.baidu.tie
         }
     }
 
-    public void a() {
-        this.a.j();
+    public final void a() {
+        this.a.i();
     }
 
     @Override // android.app.Activity
@@ -187,7 +172,7 @@ public class FaceShopActivity extends com.baidu.tieba.f implements com.baidu.tie
                 FacePackageData facePackageData = (FacePackageData) this.a.a().getItem(intExtra);
                 if (facePackageData != null) {
                     String str = bs.c(stringExtra) ? facePackageData.orderId : stringExtra;
-                    this.a.i();
+                    this.a.h();
                     this.c = new j();
                     this.c.setLoadDataCallBack(new av(this, intExtra));
                     this.c.b(str);
@@ -209,7 +194,7 @@ public class FaceShopActivity extends com.baidu.tieba.f implements com.baidu.tie
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.s sVar) {
+    public final void a(com.baidu.tieba.im.message.s sVar) {
         FaceShopData a;
         aw a2;
         if (this.b != null && this.a != null && (a = this.b.a()) != null && a.packList != null) {
@@ -249,7 +234,7 @@ public class FaceShopActivity extends com.baidu.tieba.f implements com.baidu.tie
                     }
                 }
             } else if (sVar.w() == -120) {
-                ArrayList<String> arrayList = new ArrayList<>();
+                ArrayList arrayList = new ArrayList();
                 Iterator<FacePackageData> it2 = a.packList.iterator();
                 while (it2.hasNext()) {
                     FacePackageData next2 = it2.next();
@@ -258,7 +243,8 @@ public class FaceShopActivity extends com.baidu.tieba.f implements com.baidu.tie
                     }
                     arrayList.add(String.valueOf(next2.pid));
                 }
-                this.a.a(arrayList);
+                be beVar = this.a;
+                be.a(arrayList);
             }
         }
     }

@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
-public class bs {
+public final class bs {
     private static bs a;
     private com.baidu.adp.lib.d.a<String, String> b;
 
@@ -24,17 +24,17 @@ public class bs {
         return bsVar;
     }
 
-    public void a(String str, Long l) {
+    public final void a(String str, Long l) {
         if (str != null && str.length() > 0) {
-            this.b.a(String.valueOf(TiebaApplication.A()) + str, String.valueOf(l));
+            this.b.a(String.valueOf(TiebaApplication.v()) + str, String.valueOf(l));
         }
     }
 
-    public boolean a(String str) {
+    public final boolean a(String str) {
         if (str == null || str.length() <= 0) {
             return false;
         }
-        String a2 = this.b.a((com.baidu.adp.lib.d.a<String, String>) (String.valueOf(TiebaApplication.A()) + str));
+        String a2 = this.b.a((com.baidu.adp.lib.d.a<String, String>) (String.valueOf(TiebaApplication.v()) + str));
         if (TextUtils.isEmpty(a2)) {
             return false;
         }

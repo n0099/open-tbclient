@@ -6,9 +6,8 @@ import com.baidu.tieba.img.WriteImagesInfo;
 import com.baidu.tieba.write.AtListActivity;
 import com.baidu.tieba.write.WriteMultiImgsActivity;
 import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bi implements com.baidu.tieba.editortool.z {
+final class bi implements com.baidu.tieba.editortool.aa {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,8 +15,8 @@ public class bi implements com.baidu.tieba.editortool.z {
         this.a = newPbActivity;
     }
 
-    @Override // com.baidu.tieba.editortool.z
-    public void a(int i, Object obj) {
+    @Override // com.baidu.tieba.editortool.aa
+    public final void a(int i, Object obj) {
         WriteImagesInfo writeImagesInfo;
         AlertDialog alertDialog;
         AlertDialog alertDialog2;
@@ -44,14 +43,14 @@ public class bi implements com.baidu.tieba.editortool.z {
             if (i != 26) {
                 if (i == 10) {
                     bbVar = this.a.w;
-                    if (bbVar.m() == null) {
+                    if (bbVar.q() == null) {
                         return;
                     }
                     a2 = this.a.a(11001);
                     if (!a2) {
                         return;
                     }
-                    this.a.a((String) null);
+                    this.a.d((String) null);
                     return;
                 } else if (i != 27) {
                     if (i == 4) {
@@ -82,7 +81,7 @@ public class bi implements com.baidu.tieba.editortool.z {
                             this.a.n = String.valueOf(System.currentTimeMillis());
                             NewPbActivity newPbActivity2 = this.a;
                             str = this.a.n;
-                            com.baidu.tieba.write.bz.a(newPbActivity2, str);
+                            com.baidu.tieba.write.by.a(newPbActivity2, str);
                             return;
                         }
                         this.a.showToast(String.format(this.a.getString(R.string.editor_mutiiamge_max), 10));
@@ -117,7 +116,7 @@ public class bi implements com.baidu.tieba.editortool.z {
                     a = this.a.a(11027);
                     if (a) {
                         cuVar5 = this.a.C;
-                        this.a.a(cuVar5.K());
+                        this.a.d(cuVar5.G());
                         return;
                     }
                     return;
@@ -127,7 +126,7 @@ public class bi implements com.baidu.tieba.editortool.z {
             if (a3) {
                 NewPbActivity newPbActivity5 = this.a;
                 cuVar6 = this.a.C;
-                newPbActivity5.D = cuVar6.ad();
+                newPbActivity5.D = cuVar6.V();
                 AtListActivity.a(this.a, 12005, true);
                 return;
             }
@@ -137,7 +136,7 @@ public class bi implements com.baidu.tieba.editortool.z {
         if (a4) {
             NewPbActivity newPbActivity6 = this.a;
             cuVar7 = this.a.C;
-            newPbActivity6.D = cuVar7.ad();
+            newPbActivity6.D = cuVar7.V();
             AtListActivity.a(this.a, 12004, true);
         }
     }

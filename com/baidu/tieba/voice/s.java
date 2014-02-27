@@ -3,7 +3,7 @@ package com.baidu.tieba.voice;
 import com.baidu.tieba.voice.VoiceManager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s implements Runnable {
+public final class s implements Runnable {
     final /* synthetic */ VoiceManager a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ public class s implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         VoiceManager.VoiceModel voiceModel;
         ad adVar;
         VoiceManager.VoiceModel voiceModel2;

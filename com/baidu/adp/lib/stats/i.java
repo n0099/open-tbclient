@@ -5,7 +5,7 @@ import android.os.Looper;
 import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i extends Handler {
+public final class i extends Handler {
     final /* synthetic */ g a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -15,7 +15,7 @@ public class i extends Handler {
     }
 
     @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    public final void handleMessage(Message message) {
         e eVar;
         c cVar;
         a aVar;
@@ -50,26 +50,26 @@ public class i extends Handler {
             case 1:
                 g gVar = this.a;
                 cVar6 = this.a.v;
-                gVar.b(cVar6);
+                g.a(gVar, cVar6);
                 return;
             case 2:
                 g gVar2 = this.a;
                 aVar6 = this.a.u;
-                gVar2.b(aVar6);
+                g.a(gVar2, aVar6);
                 return;
             case 3:
                 g gVar3 = this.a;
                 eVar6 = this.a.t;
-                gVar3.b(eVar6);
+                g.a(gVar3, eVar6);
                 return;
             case 4:
                 cVar3 = this.a.v;
                 if (cVar3 != null) {
                     cVar4 = this.a.v;
-                    if (!cVar4.i()) {
+                    if (!cVar4.h()) {
                         g gVar4 = this.a;
                         cVar5 = this.a.v;
-                        gVar4.a(cVar5);
+                        g.b(gVar4, cVar5);
                         return;
                     }
                     return;
@@ -79,10 +79,10 @@ public class i extends Handler {
                 aVar3 = this.a.u;
                 if (aVar3 != null) {
                     aVar4 = this.a.u;
-                    if (!aVar4.i()) {
+                    if (!aVar4.h()) {
                         g gVar5 = this.a;
                         aVar5 = this.a.u;
-                        gVar5.a(aVar5);
+                        g.b(gVar5, aVar5);
                         return;
                     }
                     return;
@@ -92,10 +92,10 @@ public class i extends Handler {
                 eVar3 = this.a.t;
                 if (eVar3 != null) {
                     eVar4 = this.a.t;
-                    if (!eVar4.i()) {
+                    if (!eVar4.h()) {
                         g gVar6 = this.a;
                         eVar5 = this.a.t;
-                        gVar6.a(eVar5);
+                        g.b(gVar6, eVar5);
                         return;
                     }
                     return;
@@ -160,8 +160,8 @@ public class i extends Handler {
                     aVar2 = this.a.u;
                     aVar2.a(b);
                 }
-                this.a.h();
-                this.a.g();
+                g.g(this.a);
+                g.a(this.a);
                 return;
             default:
                 return;

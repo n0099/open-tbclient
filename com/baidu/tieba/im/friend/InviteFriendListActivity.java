@@ -16,7 +16,7 @@ public class InviteFriendListActivity extends com.baidu.tieba.f implements View.
 
     public static void a(Context context, int i, int i2) {
         Intent intent = new Intent(context, InviteFriendListActivity.class);
-        intent.putExtra(PushConstants.EXTRA_GID, i);
+        intent.putExtra(PushConstants.EXTRA_GID, 0);
         intent.putExtra("groupid", i2);
         context.startActivity(intent);
     }
@@ -25,16 +25,20 @@ public class InviteFriendListActivity extends com.baidu.tieba.f implements View.
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        com.baidu.tieba.im.messageCenter.e.a().a(205002, this);
+        com.baidu.tieba.im.messageCenter.d.a().a(205002, this);
         Intent intent = getIntent();
-        b();
+        this.b = new com.baidu.tieba.im.model.h();
+        this.b.setLoadDataCallBack(this.c);
         if (intent != null) {
             this.b.a(intent);
         } else {
             this.b.a(bundle);
         }
-        c();
-        d();
+        this.a = new u(this);
+        this.a.a(100);
+        this.a.a(new l(this));
+        this.b.a((String) null);
+        this.a.j();
     }
 
     @Override // android.app.Activity
@@ -47,46 +51,30 @@ public class InviteFriendListActivity extends com.baidu.tieba.f implements View.
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        com.baidu.tieba.im.messageCenter.e.a().a(this);
+        com.baidu.tieba.im.messageCenter.d.a().a(this);
         this.b.cancelLoadData();
-    }
-
-    private void b() {
-        this.b = new com.baidu.tieba.im.model.h();
-        this.b.setLoadDataCallBack(this.c);
-    }
-
-    private void c() {
-        this.a = new u(this);
-        this.a.a(100);
-        this.a.a(new l(this));
-    }
-
-    private void d() {
-        this.b.a((String) null);
-        this.a.l();
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.a != null) {
-            this.a.k();
-            if (view.getId() == this.a.g()) {
+            this.a.i();
+            if (view.getId() == this.a.e()) {
                 a();
-                this.b.b(this.a.j());
-            } else if (view.getId() == this.a.h()) {
-                this.b.a(this.a.i());
+                this.b.b(this.a.h());
+            } else if (view.getId() == this.a.f()) {
+                this.b.a(this.a.g());
                 a();
             }
         }
     }
 
-    public void a() {
+    public final void a() {
         showLoadingDialog(null, new m(this));
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.s sVar) {
+    public final void a(com.baidu.tieba.im.message.s sVar) {
         closeLoadingDialog();
         if (sVar != null && sVar.w() == 205002 && (sVar instanceof bq)) {
             try {

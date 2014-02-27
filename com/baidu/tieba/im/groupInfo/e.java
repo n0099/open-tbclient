@@ -3,7 +3,7 @@ package com.baidu.tieba.im.groupInfo;
 import android.view.animation.Animation;
 import com.baidu.tieba.view.NavigationBar;
 /* loaded from: classes.dex */
-class e implements Animation.AnimationListener {
+final class e implements Animation.AnimationListener {
     final /* synthetic */ d a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ class e implements Animation.AnimationListener {
     }
 
     @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
+    public final void onAnimationEnd(Animation animation) {
         GroupImageActivity groupImageActivity;
         GroupImageActivity groupImageActivity2;
         boolean z;
@@ -33,10 +33,10 @@ class e implements Animation.AnimationListener {
     }
 
     @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
+    public final void onAnimationRepeat(Animation animation) {
     }
 
     @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
+    public final void onAnimationStart(Animation animation) {
     }
 }

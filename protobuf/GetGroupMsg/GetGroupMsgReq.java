@@ -20,10 +20,12 @@ public final class GetGroupMsgReq {
     public final class DataReq extends GeneratedMessageLite implements c {
         public static final int GROUPMIDS_FIELD_NUMBER = 6;
         public static final int HEIGHT_FIELD_NUMBER = 2;
+        public static Parser<DataReq> PARSER = new a();
         public static final int PUSHTIMES_FIELD_NUMBER = 5;
         public static final int SMALLHEIGHT_FIELD_NUMBER = 4;
         public static final int SMALLWIDTH_FIELD_NUMBER = 3;
         public static final int WIDTH_FIELD_NUMBER = 1;
+        private static final DataReq a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private List<Im.GroupLastId> groupMids_;
@@ -34,8 +36,6 @@ public final class GetGroupMsgReq {
         private int smallHeight_;
         private int smallWidth_;
         private int width_;
-        public static Parser<DataReq> PARSER = new a();
-        private static final DataReq a = new DataReq(true);
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ DataReq(GeneratedMessageLite.Builder builder, DataReq dataReq) {
@@ -48,7 +48,7 @@ public final class GetGroupMsgReq {
             this.memoizedSerializedSize = -1;
         }
 
-        private DataReq(boolean z) {
+        private DataReq() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -59,7 +59,7 @@ public final class GetGroupMsgReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public DataReq getDefaultInstanceForType() {
+        public final DataReq getDefaultInstanceForType() {
             return a;
         }
 
@@ -132,51 +132,53 @@ public final class GetGroupMsgReq {
         }
 
         static {
-            a.a();
+            DataReq dataReq = new DataReq();
+            a = dataReq;
+            dataReq.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<DataReq> getParserForType() {
+        public final Parser<DataReq> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasWidth() {
+        public final boolean hasWidth() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public int getWidth() {
+        public final int getWidth() {
             return this.width_;
         }
 
-        public boolean hasHeight() {
+        public final boolean hasHeight() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public int getHeight() {
+        public final int getHeight() {
             return this.height_;
         }
 
-        public boolean hasSmallWidth() {
+        public final boolean hasSmallWidth() {
             return (this.bitField0_ & 4) == 4;
         }
 
-        public int getSmallWidth() {
+        public final int getSmallWidth() {
             return this.smallWidth_;
         }
 
-        public boolean hasSmallHeight() {
+        public final boolean hasSmallHeight() {
             return (this.bitField0_ & 8) == 8;
         }
 
-        public int getSmallHeight() {
+        public final int getSmallHeight() {
             return this.smallHeight_;
         }
 
-        public boolean hasPushTimes() {
+        public final boolean hasPushTimes() {
             return (this.bitField0_ & 16) == 16;
         }
 
-        public String getPushTimes() {
+        public final String getPushTimes() {
             Object obj = this.pushTimes_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -189,7 +191,7 @@ public final class GetGroupMsgReq {
             return stringUtf8;
         }
 
-        public ByteString getPushTimesBytes() {
+        public final ByteString getPushTimesBytes() {
             Object obj = this.pushTimes_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -199,23 +201,23 @@ public final class GetGroupMsgReq {
             return (ByteString) obj;
         }
 
-        public List<Im.GroupLastId> getGroupMidsList() {
+        public final List<Im.GroupLastId> getGroupMidsList() {
             return this.groupMids_;
         }
 
-        public List<? extends protobuf.o> getGroupMidsOrBuilderList() {
+        public final List<? extends protobuf.o> getGroupMidsOrBuilderList() {
             return this.groupMids_;
         }
 
-        public int getGroupMidsCount() {
+        public final int getGroupMidsCount() {
             return this.groupMids_.size();
         }
 
-        public Im.GroupLastId getGroupMids(int i) {
+        public final Im.GroupLastId getGroupMids(int i) {
             return this.groupMids_.get(i);
         }
 
-        public protobuf.o getGroupMidsOrBuilder(int i) {
+        public final protobuf.o getGroupMidsOrBuilder(int i) {
             return this.groupMids_.get(i);
         }
 
@@ -239,7 +241,7 @@ public final class GetGroupMsgReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeInt32(1, this.width_);
@@ -269,7 +271,7 @@ public final class GetGroupMsgReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = 0;
             int i2 = this.memoizedSerializedSize;
             if (i2 == -1) {
@@ -301,7 +303,7 @@ public final class GetGroupMsgReq {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -346,12 +348,12 @@ public final class GetGroupMsgReq {
         }
 
         public static b newBuilder() {
-            return b.f();
+            return b.c();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public b newBuilderForType() {
+        public final b newBuilderForType() {
             return newBuilder();
         }
 
@@ -361,7 +363,7 @@ public final class GetGroupMsgReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public b toBuilder() {
+        public final b toBuilder() {
             return newBuilder(this);
         }
     }
@@ -371,7 +373,7 @@ public final class GetGroupMsgReq {
         public static final int CUID_FIELD_NUMBER = 1;
         public static final int DATA_FIELD_NUMBER = 2;
         public static Parser<GetGroupMsgReqIdl> PARSER = new d();
-        private static final GetGroupMsgReqIdl a = new GetGroupMsgReqIdl(true);
+        private static final GetGroupMsgReqIdl a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
         private Object cuid_;
@@ -390,7 +392,7 @@ public final class GetGroupMsgReq {
             this.memoizedSerializedSize = -1;
         }
 
-        private GetGroupMsgReqIdl(boolean z) {
+        private GetGroupMsgReqIdl() {
             this.memoizedIsInitialized = (byte) -1;
             this.memoizedSerializedSize = -1;
         }
@@ -401,7 +403,7 @@ public final class GetGroupMsgReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
-        public GetGroupMsgReqIdl getDefaultInstanceForType() {
+        public final GetGroupMsgReqIdl getDefaultInstanceForType() {
             return a;
         }
 
@@ -461,19 +463,21 @@ public final class GetGroupMsgReq {
         }
 
         static {
-            a.a();
+            GetGroupMsgReqIdl getGroupMsgReqIdl = new GetGroupMsgReqIdl();
+            a = getGroupMsgReqIdl;
+            getGroupMsgReqIdl.a();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
-        public Parser<GetGroupMsgReqIdl> getParserForType() {
+        public final Parser<GetGroupMsgReqIdl> getParserForType() {
             return PARSER;
         }
 
-        public boolean hasCuid() {
+        public final boolean hasCuid() {
             return (this.bitField0_ & 1) == 1;
         }
 
-        public String getCuid() {
+        public final String getCuid() {
             Object obj = this.cuid_;
             if (obj instanceof String) {
                 return (String) obj;
@@ -486,7 +490,7 @@ public final class GetGroupMsgReq {
             return stringUtf8;
         }
 
-        public ByteString getCuidBytes() {
+        public final ByteString getCuidBytes() {
             Object obj = this.cuid_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
@@ -496,11 +500,11 @@ public final class GetGroupMsgReq {
             return (ByteString) obj;
         }
 
-        public boolean hasData() {
+        public final boolean hasData() {
             return (this.bitField0_ & 2) == 2;
         }
 
-        public DataReq getData() {
+        public final DataReq getData() {
             return this.data_;
         }
 
@@ -520,7 +524,7 @@ public final class GetGroupMsgReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public void writeTo(CodedOutputStream codedOutputStream) {
+        public final void writeTo(CodedOutputStream codedOutputStream) {
             getSerializedSize();
             if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeBytes(1, getCuidBytes());
@@ -531,10 +535,13 @@ public final class GetGroupMsgReq {
         }
 
         @Override // com.google.protobuf.MessageLite
-        public int getSerializedSize() {
+        public final int getSerializedSize() {
             int i = this.memoizedSerializedSize;
             if (i == -1) {
-                i = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getCuidBytes()) : 0;
+                i = 0;
+                if ((this.bitField0_ & 1) == 1) {
+                    i = CodedOutputStream.computeBytesSize(1, getCuidBytes()) + 0;
+                }
                 if ((this.bitField0_ & 2) == 2) {
                     i += CodedOutputStream.computeMessageSize(2, this.data_);
                 }
@@ -545,7 +552,7 @@ public final class GetGroupMsgReq {
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public Object writeReplace() {
+        public final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -590,12 +597,12 @@ public final class GetGroupMsgReq {
         }
 
         public static e newBuilder() {
-            return e.f();
+            return e.b();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public e newBuilderForType() {
+        public final e newBuilderForType() {
             return newBuilder();
         }
 
@@ -605,7 +612,7 @@ public final class GetGroupMsgReq {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
-        public e toBuilder() {
+        public final e toBuilder() {
             return newBuilder(this);
         }
     }

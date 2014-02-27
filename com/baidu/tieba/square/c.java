@@ -14,13 +14,13 @@ import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class c extends BaseAdapter {
+public final class c extends BaseAdapter {
     View.OnClickListener a = new d(this);
     private Activity b;
     private ArrayList<ab> c;
     private com.baidu.tieba.util.i d;
 
-    public c(Activity activity, h hVar, boolean z) {
+    public c(Activity activity, h hVar) {
         this.b = activity;
         this.c = hVar.d();
         this.d = new com.baidu.tieba.util.i(activity);
@@ -28,16 +28,16 @@ public class c extends BaseAdapter {
         this.d.a(a, a);
     }
 
-    public ArrayList<ab> a() {
+    public final ArrayList<ab> a() {
         return this.c;
     }
 
-    public void a(ArrayList<ab> arrayList) {
+    public final void a(ArrayList<ab> arrayList) {
         this.c = arrayList;
     }
 
     @Override // android.widget.Adapter
-    public int getCount() {
+    public final int getCount() {
         if (this.c == null) {
             return 0;
         }
@@ -45,90 +45,85 @@ public class c extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public final View getView(int i, View view, ViewGroup viewGroup) {
+        View view2;
+        int i2 = 0;
         int itemViewType = getItemViewType(i);
         if (view == null) {
-            view = a(viewGroup, itemViewType);
-            ch.b(view);
+            LayoutInflater from = LayoutInflater.from(this.b);
+            if (itemViewType == 3) {
+                view2 = from.inflate(R.layout.bar_home_list_line, viewGroup, false);
+            } else if (itemViewType == 2) {
+                view2 = from.inflate(R.layout.bar_folder_first_dir_bottom_item, viewGroup, false);
+            } else {
+                View inflate = from.inflate(R.layout.bar_folder_first_dir_item, viewGroup, false);
+                inflate.setOnClickListener(this.a);
+                g gVar = new g();
+                gVar.a = (HeadImageView) inflate.findViewById(R.id.portrait);
+                gVar.b = (TextView) inflate.findViewById(R.id.name);
+                gVar.c = (BestStringsFitTextView) inflate.findViewById(R.id.description);
+                inflate.setTag(gVar);
+                view2 = inflate;
+            }
+            ch.b(view2);
+            view = view2;
         }
         ch.a(view);
         if (itemViewType != 3) {
-            int al = TiebaApplication.g().al();
+            int ae = TiebaApplication.g().ae();
             View findViewById = view.findViewById(R.id.container);
-            ch.a(findViewById, 1, al);
+            ch.a(findViewById, 1, ae);
             if (itemViewType == 2) {
                 if (getCount() > 1) {
                     findViewById.setVisibility(0);
                 }
             } else if (itemViewType == 1) {
-                a(viewGroup, (g) view.getTag(), i);
+                g gVar2 = (g) view.getTag();
+                ab abVar = this.c.get(i / 2);
+                gVar2.d = abVar;
+                gVar2.b.setText(abVar.b);
+                if (abVar.e != null) {
+                    gVar2.c.setVisibility(0);
+                    String[] strArr = new String[abVar.e.size()];
+                    while (true) {
+                        int i3 = i2;
+                        if (i3 >= abVar.e.size()) {
+                            break;
+                        }
+                        strArr[i3] = abVar.e.get(i3).b;
+                        i2 = i3 + 1;
+                    }
+                    gVar2.c.setTextArray(strArr);
+                } else {
+                    gVar2.c.setVisibility(8);
+                }
+                if (abVar.d != null) {
+                    gVar2.a.setImageBitmap(null);
+                    gVar2.a.setTag(abVar.d);
+                    this.d.b(abVar.d, new e(this, viewGroup));
+                }
             }
         }
         return view;
     }
 
-    private View a(ViewGroup viewGroup, int i) {
-        LayoutInflater from = LayoutInflater.from(this.b);
-        if (i == 3) {
-            return from.inflate(R.layout.bar_home_list_line, viewGroup, false);
-        }
-        if (i == 2) {
-            return from.inflate(R.layout.bar_folder_first_dir_bottom_item, viewGroup, false);
-        }
-        View inflate = from.inflate(R.layout.bar_folder_first_dir_item, viewGroup, false);
-        inflate.setOnClickListener(this.a);
-        g gVar = new g();
-        gVar.a = (HeadImageView) inflate.findViewById(R.id.portrait);
-        gVar.b = (TextView) inflate.findViewById(R.id.name);
-        gVar.c = (BestStringsFitTextView) inflate.findViewById(R.id.description);
-        inflate.setTag(gVar);
-        return inflate;
-    }
-
-    private void a(ViewGroup viewGroup, g gVar, int i) {
-        int i2 = 0;
-        ab abVar = this.c.get(i / 2);
-        gVar.d = abVar;
-        gVar.b.setText(abVar.b);
-        if (abVar.e != null) {
-            gVar.c.setVisibility(0);
-            String[] strArr = new String[abVar.e.size()];
-            while (true) {
-                int i3 = i2;
-                if (i3 >= abVar.e.size()) {
-                    break;
-                }
-                strArr[i3] = abVar.e.get(i3).b;
-                i2 = i3 + 1;
-            }
-            gVar.c.setTextArray(strArr);
-        } else {
-            gVar.c.setVisibility(8);
-        }
-        if (abVar.d != null) {
-            gVar.a.setImageBitmap(null);
-            gVar.a.setTag(abVar.d);
-            this.d.b(abVar.d, new e(this, viewGroup));
-        }
-    }
-
     @Override // android.widget.Adapter
-    public Object getItem(int i) {
+    public final Object getItem(int i) {
         return null;
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    public final long getItemId(int i) {
         return 0L;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
+    public final int getViewTypeCount() {
         return 4;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
+    public final int getItemViewType(int i) {
         if (i == getCount() - 1) {
             return 2;
         }
@@ -139,7 +134,7 @@ public class c extends BaseAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Activity b() {
+    public final Activity b() {
         return this.b;
     }
 }

@@ -2,27 +2,27 @@ package com.baidu.tieba.im.data;
 
 import com.baidu.tieba.im.message.s;
 /* loaded from: classes.dex */
-public class c extends s {
+public final class c extends s {
     private GroupIdTypeData a;
     private f b;
 
     public c(int i) {
-        super.e(i);
+        super.e(-100);
     }
 
-    public GroupIdTypeData a() {
+    public final GroupIdTypeData a() {
         return this.a;
     }
 
-    public void a(GroupIdTypeData groupIdTypeData) {
+    public final void a(GroupIdTypeData groupIdTypeData) {
         this.a = groupIdTypeData;
     }
 
-    public f b() {
+    public final f b() {
         return this.b;
     }
 
-    public void a(f fVar) {
+    public final void a(f fVar) {
         this.b = fVar;
     }
 }

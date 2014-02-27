@@ -5,7 +5,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.util.DatabaseService;
 /* loaded from: classes.dex */
-class bo extends BdAsyncTask<Void, Void, Void> {
+final class bo extends BdAsyncTask<Void, Void, Void> {
     final /* synthetic */ bn a;
     private final /* synthetic */ AccountData b;
 
@@ -15,30 +15,25 @@ class bo extends BdAsyncTask<Void, Void, Void> {
         this.b = accountData;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void a(Void... voidArr) {
+    public final /* synthetic */ Void a(Void... voidArr) {
         DatabaseService.a(this.b);
         DatabaseService.b(this.b);
         return null;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Void r4) {
-        SapiFastRegActivity sapiFastRegActivity;
+    public final /* synthetic */ void a(Void r4) {
         String str;
-        SapiFastRegActivity sapiFastRegActivity2;
-        SapiFastRegActivity sapiFastRegActivity3;
         Intent intent = new Intent();
-        sapiFastRegActivity = this.a.a;
-        str = sapiFastRegActivity.b;
+        str = this.a.a.b;
         intent.putExtra("fast_reg_user_type", str);
-        sapiFastRegActivity2 = this.a.a;
-        sapiFastRegActivity2.setResult(-1, intent);
-        sapiFastRegActivity3 = this.a.a;
-        sapiFastRegActivity3.finish();
+        this.a.a.setResult(-1, intent);
+        this.a.a.finish();
     }
 }

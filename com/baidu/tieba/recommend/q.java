@@ -1,6 +1,6 @@
 package com.baidu.tieba.recommend;
 /* loaded from: classes.dex */
-public class q {
+public final class q {
     public int a;
     public Object b;
     public String c;

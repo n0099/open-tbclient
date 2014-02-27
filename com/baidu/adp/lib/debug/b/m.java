@@ -3,7 +3,7 @@ package com.baidu.adp.lib.debug.b;
 import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
-class m implements View.OnTouchListener {
+final class m implements View.OnTouchListener {
     final /* synthetic */ j a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ class m implements View.OnTouchListener {
     }
 
     @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
+    public final boolean onTouch(View view, MotionEvent motionEvent) {
         i.a(motionEvent, this.a.a);
         return true;
     }

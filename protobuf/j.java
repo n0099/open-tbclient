@@ -5,11 +5,9 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import protobuf.Im;
 /* loaded from: classes.dex */
-class j extends AbstractParser<Im.GroupInfo> {
-    /* JADX DEBUG: Method merged with bridge method */
+final class j extends AbstractParser<Im.GroupInfo> {
     @Override // com.google.protobuf.Parser
-    /* renamed from: a */
-    public Im.GroupInfo parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
+    public final /* synthetic */ Object parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
         return new Im.GroupInfo(codedInputStream, extensionRegistryLite, null);
     }
 }

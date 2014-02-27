@@ -15,36 +15,19 @@ public abstract class bg extends s implements com.baidu.tieba.im.coder.g, IDupli
         e(103102);
     }
 
-    public int e() {
-        return this.b;
-    }
-
-    public void a(int i) {
+    public final void a(int i) {
         this.b = i;
     }
 
-    public int f() {
-        return this.a;
-    }
-
-    public void b(int i) {
-        this.a = i;
-    }
-
     @Override // com.baidu.tieba.im.messageCenter.IDuplicateProcess
-    public IDuplicateProcess.RemoveState h() {
+    public final IDuplicateProcess.RemoveState c() {
         return IDuplicateProcess.RemoveState.REMOVE_ME;
     }
 
-    @Override // com.baidu.tieba.im.messageCenter.IDuplicateProcess
-    public boolean a(s sVar) {
-        return true;
-    }
-
     @Override // com.baidu.tieba.im.coder.g
-    public MessageLite a() {
+    public final MessageLite a() {
         protobuf.k newBuilder = Im.GroupInfo.newBuilder();
-        newBuilder.a(e());
+        newBuilder.a(this.b);
         a(newBuilder);
         return UpdateGroupReq.UpdateGroupReqIdl.newBuilder().a(newBuilder.build()).build();
     }

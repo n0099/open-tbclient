@@ -1,9 +1,10 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
-public class ac extends aa {
+public final class ac extends z {
     public byte[] a;
 
-    ac() {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ac() {
         this.a = null;
     }
 

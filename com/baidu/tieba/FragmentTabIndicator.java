@@ -25,7 +25,7 @@ public class FragmentTabIndicator extends TextView {
         super(context, attributeSet);
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         if (i == 1) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, getResources().getDrawable(this.b), (Drawable) null, (Drawable) null);
             setBackgroundResource(this.d);

@@ -4,9 +4,8 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements n {
+final class d implements n {
     final /* synthetic */ ForbidActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +14,7 @@ public class d implements n {
     }
 
     @Override // com.baidu.tieba.account.forbid.n
-    public void a(ForbidTplData forbidTplData) {
+    public final void a(ForbidTplData forbidTplData) {
         TextView textView;
         String str;
         BdListView bdListView;
@@ -34,7 +33,7 @@ public class d implements n {
     }
 
     @Override // com.baidu.tieba.account.forbid.n
-    public void b(ForbidTplData forbidTplData) {
+    public final void b(ForbidTplData forbidTplData) {
         this.a.showToast(forbidTplData.error.b);
     }
 }

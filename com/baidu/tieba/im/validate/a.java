@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.validate;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class a implements com.baidu.tieba.im.a<Boolean> {
+final class a implements com.baidu.tieba.im.a<Boolean> {
     final /* synthetic */ ValidateActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,9 +8,9 @@ public class a implements com.baidu.tieba.im.a<Boolean> {
         this.a = validateActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // com.baidu.tieba.im.a
-    public void a(Boolean bool) {
+    public final /* synthetic */ void a(Boolean bool) {
         boolean z;
         r rVar;
         z = this.a.i;

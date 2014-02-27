@@ -5,14 +5,14 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class h {
+public final class h {
     private ArrayList<g> a = new ArrayList<>();
 
-    public ArrayList<g> a() {
+    public final ArrayList<g> a() {
         return this.a;
     }
 
-    public void a(JSONObject jSONObject) {
+    public final void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 JSONArray optJSONArray = jSONObject.optJSONArray(PushConstants.EXTRA_APP);
@@ -24,7 +24,7 @@ public class h {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
             }
         }
     }

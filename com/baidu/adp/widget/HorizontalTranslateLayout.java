@@ -33,12 +33,12 @@ public class HorizontalTranslateLayout extends FrameLayout {
     private boolean r;
     private final f s;
     private final g t;
-    private final n u;
+    private final m u;
     private i v;
-    private l w;
-    private final List<k> x;
+    private k w;
+    private final List<OnOpenAnimationListener> x;
     private j y;
-    private m z;
+    private l z;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
@@ -113,16 +113,16 @@ public class HorizontalTranslateLayout extends FrameLayout {
         this.v = iVar;
     }
 
-    public void setRightAnimationListener(l lVar) {
-        this.w = lVar;
+    public void setRightAnimationListener(k kVar) {
+        this.w = kVar;
     }
 
     public void setLeftTrackListener(j jVar) {
         this.y = jVar;
     }
 
-    public void setRightTrackListener(m mVar) {
-        this.z = mVar;
+    public void setRightTrackListener(l lVar) {
+        this.z = lVar;
     }
 
     public void setHorizontalTrackListener(h hVar) {
@@ -167,15 +167,14 @@ public class HorizontalTranslateLayout extends FrameLayout {
                 case 2:
                     Log.d("HorizontalTranslateLayout", "@interceptInterceptTouchEvent");
                     motionEvent.offsetLocation(-this.f, 0.0f);
-                    return a(x, y);
+                    if (y < this.p - this.g || y > this.p + this.g) {
+                        return false;
+                    }
+                    return (x < this.o - this.g || x > this.o + this.g) && this.u.a(x - this.o);
             }
         }
         Log.d("HorizontalTranslateLayout", "Intercepted to onTouch()");
         return true;
-    }
-
-    private boolean a(int i, int i2) {
-        return i2 >= this.p - this.g && i2 <= this.p + this.g && (i < this.o - this.g || i > this.o + this.g) && this.u.a(i - this.o);
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -192,8 +191,8 @@ public class HorizontalTranslateLayout extends FrameLayout {
                     this.r = false;
                     if (this.u.b) {
                         Log.d("HorizontalTranslateLayout", "@onTouchEvent tracking");
-                        this.u.a();
-                        n.a(this.u);
+                        this.u.b = false;
+                        m.a(this.u);
                         return true;
                     }
                     return true;
@@ -235,8 +234,8 @@ public class HorizontalTranslateLayout extends FrameLayout {
             case 1:
             case 3:
                 if (this.u.b) {
-                    this.u.a();
-                    n.a(this.u);
+                    this.u.b = false;
+                    m.a(this.u);
                     return true;
                 }
                 return true;

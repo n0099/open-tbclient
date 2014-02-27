@@ -4,25 +4,32 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.ReportGroup.ReportGroupReq;
 /* loaded from: classes.dex */
 public final class e extends GeneratedMessageLite.Builder<ReportGroupReq.ReportGroupReqIdl, e> implements f {
     private int a;
     private ReportGroupReq.DataReq b = ReportGroupReq.DataReq.getDefaultInstance();
 
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return ReportGroupReq.ReportGroupReqIdl.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return ReportGroupReq.ReportGroupReqIdl.getDefaultInstance();
+    }
+
     private e() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static e h() {
+    public static /* synthetic */ e b() {
         return new e();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public e clear() {
         super.clear();
         this.b = ReportGroupReq.DataReq.getDefaultInstance();
@@ -31,20 +38,14 @@ public final class e extends GeneratedMessageLite.Builder<ReportGroupReq.ReportG
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
+    /* renamed from: d */
     public e clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public ReportGroupReq.ReportGroupReqIdl getDefaultInstanceForType() {
-        return ReportGroupReq.ReportGroupReqIdl.getDefaultInstance();
+        return new e().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: d */
-    public ReportGroupReq.ReportGroupReqIdl build() {
+    /* renamed from: a */
+    public final ReportGroupReq.ReportGroupReqIdl build() {
         ReportGroupReq.ReportGroupReqIdl buildPartial = buildPartial();
         if (!buildPartial.isInitialized()) {
             throw newUninitializedMessageException(buildPartial);
@@ -64,9 +65,15 @@ public final class e extends GeneratedMessageLite.Builder<ReportGroupReq.ReportG
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public e mergeFrom(ReportGroupReq.ReportGroupReqIdl reportGroupReqIdl) {
+    public final e mergeFrom(ReportGroupReq.ReportGroupReqIdl reportGroupReqIdl) {
         if (reportGroupReqIdl != ReportGroupReq.ReportGroupReqIdl.getDefaultInstance() && reportGroupReqIdl.hasData()) {
-            b(reportGroupReqIdl.getData());
+            ReportGroupReq.DataReq data = reportGroupReqIdl.getData();
+            if ((this.a & 1) != 1 || this.b == ReportGroupReq.DataReq.getDefaultInstance()) {
+                this.b = data;
+            } else {
+                this.b = ReportGroupReq.DataReq.newBuilder(this.b).mergeFrom(data).buildPartial();
+            }
+            this.a |= 1;
         }
         return this;
     }
@@ -114,21 +121,11 @@ public final class e extends GeneratedMessageLite.Builder<ReportGroupReq.ReportG
         }
     }
 
-    public e a(ReportGroupReq.DataReq dataReq) {
+    public final e a(ReportGroupReq.DataReq dataReq) {
         if (dataReq != null) {
             this.b = dataReq;
             this.a |= 1;
         }
-        return this;
-    }
-
-    public e b(ReportGroupReq.DataReq dataReq) {
-        if ((this.a & 1) == 1 && this.b != ReportGroupReq.DataReq.getDefaultInstance()) {
-            this.b = ReportGroupReq.DataReq.newBuilder(this.b).mergeFrom(dataReq).buildPartial();
-        } else {
-            this.b = dataReq;
-        }
-        this.a |= 1;
         return this;
     }
 }

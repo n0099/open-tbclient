@@ -18,24 +18,20 @@ public class ct extends da implements com.baidu.tieba.im.coder.f {
         this.c = new ArrayList();
     }
 
-    public List<BaseGroupData> a() {
+    public final List<BaseGroupData> a() {
         return this.b;
     }
 
-    public void a(List<BaseGroupData> list) {
-        this.b = list;
-    }
-
-    public void b(List<com.baidu.adp.lib.cache.t<String>> list) {
+    public final void a(List<com.baidu.adp.lib.cache.t<String>> list) {
         this.c = list;
     }
 
-    public void a(long j) {
+    public final void a(long j) {
         this.a = j;
     }
 
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<s> linkedList, byte[] bArr, int i) {
+    public final void a(LinkedList<s> linkedList, byte[] bArr, int i) {
         SearchGroupRes.SearchGroupResIdl parseFrom = SearchGroupRes.SearchGroupResIdl.parseFrom(bArr);
         g(parseFrom.getError().getErrorno());
         c(parseFrom.getError().getUsermsg());
@@ -64,7 +60,7 @@ public class ct extends da implements com.baidu.tieba.im.coder.f {
                 baseGroupData.setForumId(group.getForumId());
                 linkedList2.add(baseGroupData);
             }
-            a(linkedList2);
+            this.b = linkedList2;
         }
     }
 }

@@ -6,7 +6,7 @@ import java.util.List;
 public final class VEventResultParser extends ResultParser {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.zxing.client.result.ResultParser
-    public CalendarParsedResult parse(Result result) {
+    public final CalendarParsedResult parse(Result result) {
         double parseDouble;
         double d = Double.NaN;
         String massagedText = getMassagedText(result);

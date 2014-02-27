@@ -5,7 +5,7 @@ import android.os.Message;
 import com.baidu.location.LocationClientOption;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g extends Handler {
+public final class g extends Handler {
     final /* synthetic */ f a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ public class g extends Handler {
     }
 
     @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    public final void handleMessage(Message message) {
         Handler handler;
         int i;
         int i2;
@@ -34,7 +34,7 @@ public class g extends Handler {
                 handler.removeMessages(1);
                 StringBuilder sb = new StringBuilder("this is reconn time:");
                 i = this.a.b;
-                com.baidu.adp.lib.util.f.d(sb.append(i).toString());
+                com.baidu.adp.lib.util.e.d(sb.append(i).toString());
                 a.a(true, "time to reconnStragety");
                 f fVar = this.a;
                 i2 = fVar.b;
@@ -47,7 +47,7 @@ public class g extends Handler {
                         StringBuilder sb2 = new StringBuilder("Next will be delay:");
                         iArr3 = this.a.c;
                         i4 = this.a.b;
-                        com.baidu.adp.lib.util.f.d(sb2.append(iArr3[i4]).toString());
+                        com.baidu.adp.lib.util.e.d(sb2.append(iArr3[i4]).toString());
                         handler2 = this.a.d;
                         handler3 = this.a.d;
                         Message obtainMessage = handler3.obtainMessage(1);
@@ -57,7 +57,7 @@ public class g extends Handler {
                         return;
                     }
                 }
-                this.a.b("reconnStragety to the end");
+                this.a.b();
                 return;
             default:
                 return;

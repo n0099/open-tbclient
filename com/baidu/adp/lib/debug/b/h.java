@@ -8,7 +8,7 @@ import android.widget.Toast;
 import com.baidu.adp.lib.debug.service.SwitchDebugService;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements View.OnClickListener {
+public final class h implements View.OnClickListener {
     final /* synthetic */ c a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,7 +17,7 @@ public class h implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         Context context;
         Context context2;
         String str = (String) SwitchDebugService.a.get("update_package_address");

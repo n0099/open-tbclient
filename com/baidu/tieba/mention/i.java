@@ -4,19 +4,17 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.tieba.person.cm;
 /* loaded from: classes.dex */
-class i implements View.OnClickListener {
+final class i implements View.OnClickListener {
     final /* synthetic */ h a;
-    private String b;
-    private String c;
+    private String b = null;
+    private String c = null;
 
     public i(h hVar) {
         this.a = hVar;
-        b(null);
-        a(null);
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         Context context;
         if (this.b != null && this.b.length() > 0) {
             context = this.a.a;
@@ -24,11 +22,11 @@ class i implements View.OnClickListener {
         }
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.c = str;
     }
 
-    public void b(String str) {
+    public final void b(String str) {
         this.b = str;
     }
 }

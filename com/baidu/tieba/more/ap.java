@@ -3,7 +3,7 @@ package com.baidu.tieba.more;
 import com.baidu.tieba.model.MoreModel;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class ap extends com.baidu.tieba.i {
+final class ap extends com.baidu.tieba.i {
     final /* synthetic */ SystemHelpSettingActivity b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ class ap extends com.baidu.tieba.i {
     }
 
     @Override // com.baidu.tieba.i
-    public void a(Object... objArr) {
+    public final void a(Object... objArr) {
         ay ayVar;
         ay ayVar2;
         Object obj = objArr[0];
@@ -22,11 +22,11 @@ class ap extends com.baidu.tieba.i {
             if (obj == MoreModel.TaskType.DO_CLEAR) {
                 this.b.closeLoadingDialog();
                 ayVar2 = this.b.a;
-                ayVar2.f().setTip("");
+                ayVar2.e().setTip("");
                 this.b.showToast(R.string.image_cash_del_suc);
             } else if (obj == MoreModel.TaskType.GET_SIZE) {
                 ayVar = this.b.a;
-                ayVar.f().setTip((String) objArr[1]);
+                ayVar.e().setTip((String) objArr[1]);
             }
         }
     }

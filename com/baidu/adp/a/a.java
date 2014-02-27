@@ -70,7 +70,7 @@ public class a extends Activity implements DialogInterface.OnClickListener, View
     @Override // android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        com.baidu.adp.framework.c.a().f(this.mId);
-        com.baidu.adp.framework.c.a().d(this.mId);
+        com.baidu.adp.framework.c.a().c(this.mId);
+        com.baidu.adp.framework.c.a().a(this.mId);
     }
 }

@@ -4,7 +4,7 @@ package com.baidu.adp.lib.asyncTask;
 public abstract class j implements Runnable {
     private l<?> a;
 
-    public int a() {
+    public final int a() {
         try {
             return this.a.b().getTaskMaxTime();
         } catch (Exception e) {
@@ -20,7 +20,7 @@ public abstract class j implements Runnable {
         this.a = lVar;
     }
 
-    public void b() {
+    public final void b() {
         if (this.a != null) {
             try {
                 this.a.run();
@@ -31,20 +31,20 @@ public abstract class j implements Runnable {
         }
     }
 
-    public void c() {
+    public final void c() {
         if (this.a != null) {
             this.a.a();
         }
     }
 
-    public BdAsyncTask<?, ?, ?> d() {
+    public final BdAsyncTask<?, ?, ?> d() {
         if (this.a != null) {
             return this.a.b();
         }
         return null;
     }
 
-    public int e() {
+    public final int e() {
         try {
             return this.a.b().getPriority();
         } catch (Exception e) {
@@ -52,7 +52,7 @@ public abstract class j implements Runnable {
         }
     }
 
-    public boolean f() {
+    public final boolean f() {
         try {
             return this.a.b().getNeedImmediatelyCancel();
         } catch (Exception e) {
@@ -60,14 +60,14 @@ public abstract class j implements Runnable {
         }
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         try {
-            this.a.b().setIsTimeout(z);
+            this.a.b().setIsTimeout(true);
         } catch (Exception e) {
         }
     }
 
-    public int g() {
+    public final int g() {
         try {
             return this.a.b().getTag();
         } catch (Exception e) {
@@ -75,7 +75,7 @@ public abstract class j implements Runnable {
         }
     }
 
-    public int h() {
+    public final int h() {
         try {
             return this.a.b().getParallelTag();
         } catch (Exception e) {
@@ -83,7 +83,7 @@ public abstract class j implements Runnable {
         }
     }
 
-    public String i() {
+    public final String i() {
         try {
             return this.a.b().getKey();
         } catch (Exception e) {
@@ -91,7 +91,7 @@ public abstract class j implements Runnable {
         }
     }
 
-    public BdAsyncTaskParallelType j() {
+    public final BdAsyncTaskParallelType j() {
         try {
             return this.a.b().getType();
         } catch (Exception e) {
@@ -99,7 +99,7 @@ public abstract class j implements Runnable {
         }
     }
 
-    public boolean k() {
+    public final boolean k() {
         try {
             return this.a.b().isSelfExecute();
         } catch (Exception e) {
@@ -107,7 +107,7 @@ public abstract class j implements Runnable {
         }
     }
 
-    public boolean l() {
+    public final boolean l() {
         try {
             return this.a.b().isImmediatelyExecut();
         } catch (Exception e) {

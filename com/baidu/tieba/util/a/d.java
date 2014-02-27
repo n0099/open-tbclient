@@ -19,14 +19,14 @@ import com.baidu.tieba.util.l;
 import com.baidu.tieba.util.n;
 import com.baidu.tieba.util.o;
 /* loaded from: classes.dex */
-public class d extends a {
+public final class d extends a {
     @Override // com.baidu.tieba.util.a.a
-    public Object a(String str, i iVar) {
+    public final Object a(String str, i iVar) {
         return com.baidu.tbadk.imageManager.e.a().c(iVar.a(str));
     }
 
     @Override // com.baidu.tieba.util.a.a
-    public Object a(String str, com.baidu.adp.lib.e.e eVar, i iVar, l lVar) {
+    public final Object a(String str, com.baidu.adp.lib.e.e eVar, i iVar, l lVar) {
         if (lVar.g) {
             String f = bs.f(str);
             String str2 = iVar.f != null ? String.valueOf(f) + iVar.f : f;
@@ -34,14 +34,14 @@ public class d extends a {
             synchronized (n.a) {
                 if (str2 != null) {
                     if (lVar.d == 5) {
-                        f b = DatabaseService.b(a);
-                        if (b != null) {
-                            lVar.e = b.a;
+                        f a2 = DatabaseService.a(a);
+                        if (a2 != null) {
+                            lVar.e = a2.a;
                         }
                     } else {
                         int c = br.a().c(str2);
                         if (c > 0) {
-                            com.baidu.tbadk.imageManager.e.a().c(c);
+                            com.baidu.tbadk.imageManager.e.a().b(c);
                             lVar.e = br.a().a(str2);
                             if (lVar.e != null) {
                                 s<String> w = com.baidu.tieba.c.a.a().w();
@@ -62,7 +62,7 @@ public class d extends a {
                     return null;
                 }
                 lVar.i = new com.baidu.adp.widget.ImageView.b(lVar.e, lVar.h, str);
-                com.baidu.tbadk.imageManager.e.a().b(a, lVar.i);
+                com.baidu.tbadk.imageManager.e.a().c(a, lVar.i);
                 if (eVar.isCancelled()) {
                     return null;
                 }
@@ -76,14 +76,14 @@ public class d extends a {
         return null;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:120:0x0494  */
-    /* JADX WARN: Removed duplicated region for block: B:123:0x04ae A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:124:0x04b1  */
+    /* JADX WARN: Removed duplicated region for block: B:120:0x0495  */
+    /* JADX WARN: Removed duplicated region for block: B:123:0x04af A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:124:0x04b2  */
     @Override // com.baidu.tieba.util.a.a
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public Object b(String str, com.baidu.adp.lib.e.e eVar, i iVar, l lVar) {
+    public final Object b(String str, com.baidu.adp.lib.e.e eVar, i iVar, l lVar) {
         String f;
         int i;
         int i2;
@@ -115,8 +115,8 @@ public class d extends a {
         }
         aeVar.a("picW", Integer.valueOf(i));
         aeVar.a("picH", Integer.valueOf(i2));
-        boolean e = iVar.e();
-        if (e) {
+        boolean d = iVar.d();
+        if (d) {
             sb = str;
         } else {
             StringBuilder sb2 = new StringBuilder(100);
@@ -144,14 +144,14 @@ public class d extends a {
         if (sb.contains(".gif")) {
             i4 = 2;
         }
-        lVar.a.a(iVar.f(), i4);
-        if (e) {
+        lVar.a.a(iVar.e(), i4);
+        if (d) {
             lVar.a.d(false);
         } else {
             lVar.a.d(true);
         }
-        lVar.a.f(e);
-        if (iVar.h != null && !e) {
+        lVar.a.f(d);
+        if (iVar.h != null && !d) {
             int i5 = 0;
             while (true) {
                 int i6 = i5;
@@ -163,10 +163,10 @@ public class d extends a {
             }
         }
         long currentTimeMillis = System.currentTimeMillis();
-        byte[] l = lVar.a.l();
-        if ((l == null || !lVar.a.d()) && !lVar.n) {
-            if (e) {
-                o.a().a(lVar.a.g());
+        byte[] k = lVar.a.k();
+        if ((k == null || !lVar.a.c()) && !lVar.n) {
+            if (d) {
+                o.a().a(lVar.a.f());
             }
             boolean a2 = com.baidu.adp.lib.network.i.a();
             String str2 = "";
@@ -179,85 +179,85 @@ public class d extends a {
             int indexOf2 = sb.indexOf("hiphotos.baidu.com");
             if (indexOf2 > 0) {
                 str3 = String.valueOf(sb.substring(0, indexOf2).replace(com.baidu.loginshare.e.f, "")) + "hiphotos.baidu.com";
-                str2 = UtilHelper.c(str3);
+                str2 = UtilHelper.b(str3);
             }
             String str4 = String.valueOf(str3) + "=" + str2;
             StringBuilder sb3 = new StringBuilder();
             sb3.append("IS_CDN=");
-            sb3.append(e);
+            sb3.append(d);
             sb3.append("|download error|iswifi=");
             sb3.append(a2 ? 1 : 0);
             sb3.append("|local_ip=");
             sb3.append(c);
             sb3.append("|");
             sb3.append(str4);
-            com.baidu.tieba.log.a.b(j.a(sb, String.valueOf(System.currentTimeMillis() - currentTimeMillis), String.valueOf(lVar.a.c()), String.valueOf(lVar.a.g()) + ":" + lVar.a.h(), sb3.toString()));
+            com.baidu.tieba.log.a.b(j.a(sb, String.valueOf(System.currentTimeMillis() - currentTimeMillis), String.valueOf(lVar.a.b()), String.valueOf(lVar.a.f()) + ":" + lVar.a.g(), sb3.toString()));
             ae aeVar2 = new ae();
-            aeVar2.a("IS_CDN", Boolean.valueOf(e));
+            aeVar2.a("IS_CDN", Boolean.valueOf(d));
             aeVar2.a("iswifi", Integer.valueOf(a2 ? 1 : 0));
             aeVar2.a("local_ip", c);
             aeVar2.a("host", str4);
             if (lVar != null && lVar.a != null) {
                 aeVar2.a("cost", Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                aeVar2.a("datasize", Integer.valueOf(lVar.a.c()));
-                int f3 = lVar.a.f();
-                if (f3 == 0) {
-                    f3 = -1001;
+                aeVar2.a("datasize", Integer.valueOf(lVar.a.b()));
+                int e = lVar.a.e();
+                if (e == 0) {
+                    e = -1001;
                 }
                 aeVar2.a(aeVar);
-                cb.a(lVar.a.a(), f3, lVar.a.j(), aeVar2.toString());
+                cb.a(lVar.a.a(), e, lVar.a.i(), aeVar2.toString());
             }
             if (indexOf2 > 0) {
                 lVar.a.a(sb);
                 long currentTimeMillis2 = System.currentTimeMillis();
-                byte[] l2 = lVar.a.l();
+                byte[] k2 = lVar.a.k();
                 if (!lVar.n) {
-                    if ((l2 == null || !lVar.a.d()) && e) {
-                        o.a().a(lVar.a.g());
+                    if ((k2 == null || !lVar.a.c()) && d) {
+                        o.a().a(lVar.a.f());
                     }
                     StringBuilder sb4 = new StringBuilder();
                     sb4.append("downsize=");
-                    sb4.append(l2 != null ? l2.length : 0);
+                    sb4.append(k2 != null ? k2.length : 0);
                     sb4.append("|try download result:");
-                    sb4.append(lVar.a.d() ? "succ" : "fail");
+                    sb4.append(lVar.a.c() ? "succ" : "fail");
                     sb4.append("|iswifi=");
                     sb4.append(a2 ? 1 : 0);
                     sb4.append("|local_ip=");
                     sb4.append(c);
                     sb4.append("|");
                     sb4.append(str4);
-                    com.baidu.tieba.log.a.b(j.a(sb, String.valueOf(System.currentTimeMillis() - currentTimeMillis2), String.valueOf(lVar.a.c()), String.valueOf(lVar.a.g()) + ":" + lVar.a.h(), sb4.toString()));
+                    com.baidu.tieba.log.a.b(j.a(sb, String.valueOf(System.currentTimeMillis() - currentTimeMillis2), String.valueOf(lVar.a.b()), String.valueOf(lVar.a.f()) + ":" + lVar.a.g(), sb4.toString()));
                     ae aeVar3 = new ae();
-                    aeVar3.a("IS_CDN", Boolean.valueOf(e));
+                    aeVar3.a("IS_CDN", Boolean.valueOf(d));
                     aeVar3.a("iswifi", Integer.valueOf(a2 ? 1 : 0));
                     aeVar3.a("local_ip", c);
                     aeVar3.a("host", str4);
-                    aeVar3.a("downsize", Integer.valueOf(l2 != null ? l2.length : 0));
-                    aeVar3.a("try download result", lVar.a.d() ? "succ" : "fail");
+                    aeVar3.a("downsize", Integer.valueOf(k2 != null ? k2.length : 0));
+                    aeVar3.a("try download result", lVar.a.c() ? "succ" : "fail");
                     if (lVar != null && lVar.a != null) {
                         aeVar3.a("cost", Long.valueOf(System.currentTimeMillis() - currentTimeMillis2));
-                        aeVar3.a("datasize", Integer.valueOf(lVar.a.c()));
-                        int f4 = lVar.a.f();
-                        if (f4 == 0) {
-                            f4 = -1001;
+                        aeVar3.a("datasize", Integer.valueOf(lVar.a.b()));
+                        int e2 = lVar.a.e();
+                        if (e2 == 0) {
+                            e2 = -1001;
                         }
                         aeVar3.a(aeVar);
-                        cb.a(lVar.a.a(), f4, lVar.a.j(), aeVar3.toString());
+                        cb.a(lVar.a.a(), e2, lVar.a.i(), aeVar3.toString());
                     }
                 }
-                bArr = l2;
+                bArr = k2;
                 j = currentTimeMillis2;
                 if (bArr != null || lVar.n) {
                     return null;
                 }
-                if (e) {
+                if (d) {
                     o.a().a(System.currentTimeMillis() - j);
                 }
                 String a3 = iVar.a(str);
                 if (!lVar.n) {
                     return null;
                 }
-                com.baidu.tbadk.imageManager.e.a().c(com.baidu.tieba.data.i.x() + bArr.length);
+                com.baidu.tbadk.imageManager.e.a().b(com.baidu.tieba.data.i.x() + bArr.length);
                 lVar.e = n.a(bArr);
                 lVar.j = bArr;
                 if (lVar.e == null) {
@@ -272,51 +272,51 @@ public class d extends a {
                         }
                         if (sb.indexOf("hiphotos.baidu.com") > 0) {
                             str6 = String.valueOf(sb.substring(0, indexOf).replace(com.baidu.loginshare.e.f, "")) + "hiphotos.baidu.com";
-                            str5 = UtilHelper.c(str6);
+                            str5 = UtilHelper.b(str6);
                         }
                         String str7 = String.valueOf(str6) + "=" + str5;
                         StringBuilder sb5 = new StringBuilder();
                         sb5.append("IS_CDN=");
-                        sb5.append(e);
+                        sb5.append(d);
                         sb5.append("|decode error|iswifi=");
                         sb5.append(a4 ? 1 : 0);
                         sb5.append("|local_ip=");
                         sb5.append(c2);
                         sb5.append("|");
                         sb5.append(str7);
-                        com.baidu.tieba.log.a.b(j.a(sb, String.valueOf(System.currentTimeMillis() - j), String.valueOf(lVar.a.c()), String.valueOf(lVar.a.g()) + ":" + lVar.a.h(), sb5.toString()));
+                        com.baidu.tieba.log.a.b(j.a(sb, String.valueOf(System.currentTimeMillis() - j), String.valueOf(lVar.a.b()), String.valueOf(lVar.a.f()) + ":" + lVar.a.g(), sb5.toString()));
                         ae aeVar4 = new ae();
-                        aeVar4.a("IS_CDN", Boolean.valueOf(e));
+                        aeVar4.a("IS_CDN", Boolean.valueOf(d));
                         aeVar4.a("iswifi", Integer.valueOf(a4 ? 1 : 0));
                         aeVar4.a("local_ip", c2);
                         aeVar4.a("host", str7);
                         if (lVar != null && lVar.a != null) {
                             aeVar4.a("cost", Long.valueOf(System.currentTimeMillis() - j));
-                            aeVar4.a("datasize", Integer.valueOf(lVar.a.c()));
-                            int f5 = lVar.a.f();
-                            if (f5 == 0) {
-                                f5 = -1001;
+                            aeVar4.a("datasize", Integer.valueOf(lVar.a.b()));
+                            int e3 = lVar.a.e();
+                            if (e3 == 0) {
+                                e3 = -1001;
                             }
                             aeVar4.a(aeVar);
-                            cb.a(lVar.a.a(), f5, lVar.a.j(), aeVar4.toString());
+                            cb.a(lVar.a.a(), e3, lVar.a.i(), aeVar4.toString());
                         }
                     }
                     return null;
                 }
-                lVar.h = lVar.a.p() || BdUtilHelper.a(bArr);
+                lVar.h = lVar.a.o() || BdUtilHelper.a(bArr);
                 if (lVar.n) {
                     return null;
                 }
                 if (lVar.e.getWidth() > i || lVar.e.getHeight() > i2) {
-                    com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", "Pb_image_too_big:" + String.valueOf(String.valueOf(lVar.e.getWidth()) + "*" + String.valueOf(lVar.e.getHeight())));
-                    com.baidu.tbadk.imageManager.e.a().c(n.a(lVar.e) * 2);
+                    com.baidu.adp.lib.util.e.b(getClass().getName(), "doInBackground", "Pb_image_too_big:" + String.valueOf(String.valueOf(lVar.e.getWidth()) + "*" + String.valueOf(lVar.e.getHeight())));
+                    com.baidu.tbadk.imageManager.e.a().b(n.a(lVar.e) * 2);
                     lVar.e = n.a(lVar.e, i, i2, true);
                 }
                 if (lVar.n) {
                     return null;
                 }
                 if (i3 == 4) {
-                    com.baidu.tbadk.imageManager.e.a().c(n.a(lVar.e) * 2);
+                    com.baidu.tbadk.imageManager.e.a().b(n.a(lVar.e) * 2);
                     lVar.e = n.a(lVar.e, 7.0f, true);
                 }
                 if (lVar.n) {
@@ -326,7 +326,7 @@ public class d extends a {
                     lVar.e = a;
                 }
                 lVar.i = new com.baidu.adp.widget.ImageView.b(lVar.e, lVar.h, str);
-                com.baidu.tbadk.imageManager.e.a().b(a3, lVar.i);
+                com.baidu.tbadk.imageManager.e.a().c(a3, lVar.i);
                 if (lVar.n) {
                     return null;
                 }
@@ -341,12 +341,12 @@ public class d extends a {
                 return lVar.i;
             }
         }
-        bArr = l;
         j = currentTimeMillis;
+        bArr = k;
         if (bArr != null) {
             return null;
         }
-        if (e) {
+        if (d) {
         }
         String a32 = iVar.a(str);
         if (!lVar.n) {

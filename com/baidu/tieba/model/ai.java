@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ai implements com.baidu.tieba.im.a<Void> {
+public final class ai implements com.baidu.tieba.im.a<Void> {
     final /* synthetic */ ag a;
     private final /* synthetic */ String b;
     private final /* synthetic */ com.baidu.tieba.im.a c;
@@ -17,9 +17,9 @@ public class ai implements com.baidu.tieba.im.a<Void> {
         this.c = aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // com.baidu.tieba.im.a
-    public void a(Void r6) {
+    public final /* synthetic */ void a(Void r6) {
         List list;
         ImMessageCenterShowItemData imMessageCenterShowItemData;
         List list2;
@@ -39,7 +39,7 @@ public class ai implements com.baidu.tieba.im.a<Void> {
             list2 = this.a.b;
             list2.remove(imMessageCenterShowItemData);
         }
-        com.baidu.tieba.im.c.a.f().b(this.b);
-        com.baidu.tieba.im.c.a.f().b(false, this.c);
+        com.baidu.tieba.im.c.a.d().b(this.b);
+        com.baidu.tieba.im.c.a.d().b(false, this.c);
     }
 }

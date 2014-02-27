@@ -4,25 +4,32 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.QueryGroupGrade.QueryGroupGradeReq;
 /* loaded from: classes.dex */
 public final class e extends GeneratedMessageLite.Builder<QueryGroupGradeReq.QueryGroupGradeReqIdl, e> implements f {
     private int a;
     private QueryGroupGradeReq.DataReq b = QueryGroupGradeReq.DataReq.getDefaultInstance();
 
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return QueryGroupGradeReq.QueryGroupGradeReqIdl.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return QueryGroupGradeReq.QueryGroupGradeReqIdl.getDefaultInstance();
+    }
+
     private e() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static e h() {
+    public static /* synthetic */ e b() {
         return new e();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public e clear() {
         super.clear();
         this.b = QueryGroupGradeReq.DataReq.getDefaultInstance();
@@ -31,20 +38,14 @@ public final class e extends GeneratedMessageLite.Builder<QueryGroupGradeReq.Que
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
+    /* renamed from: d */
     public e clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public QueryGroupGradeReq.QueryGroupGradeReqIdl getDefaultInstanceForType() {
-        return QueryGroupGradeReq.QueryGroupGradeReqIdl.getDefaultInstance();
+        return new e().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: d */
-    public QueryGroupGradeReq.QueryGroupGradeReqIdl build() {
+    /* renamed from: a */
+    public final QueryGroupGradeReq.QueryGroupGradeReqIdl build() {
         QueryGroupGradeReq.QueryGroupGradeReqIdl buildPartial = buildPartial();
         if (!buildPartial.isInitialized()) {
             throw newUninitializedMessageException(buildPartial);
@@ -64,9 +65,15 @@ public final class e extends GeneratedMessageLite.Builder<QueryGroupGradeReq.Que
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public e mergeFrom(QueryGroupGradeReq.QueryGroupGradeReqIdl queryGroupGradeReqIdl) {
+    public final e mergeFrom(QueryGroupGradeReq.QueryGroupGradeReqIdl queryGroupGradeReqIdl) {
         if (queryGroupGradeReqIdl != QueryGroupGradeReq.QueryGroupGradeReqIdl.getDefaultInstance() && queryGroupGradeReqIdl.hasData()) {
-            b(queryGroupGradeReqIdl.getData());
+            QueryGroupGradeReq.DataReq data = queryGroupGradeReqIdl.getData();
+            if ((this.a & 1) != 1 || this.b == QueryGroupGradeReq.DataReq.getDefaultInstance()) {
+                this.b = data;
+            } else {
+                this.b = QueryGroupGradeReq.DataReq.newBuilder(this.b).mergeFrom(data).buildPartial();
+            }
+            this.a |= 1;
         }
         return this;
     }
@@ -114,21 +121,11 @@ public final class e extends GeneratedMessageLite.Builder<QueryGroupGradeReq.Que
         }
     }
 
-    public e a(QueryGroupGradeReq.DataReq dataReq) {
+    public final e a(QueryGroupGradeReq.DataReq dataReq) {
         if (dataReq != null) {
             this.b = dataReq;
             this.a |= 1;
         }
-        return this;
-    }
-
-    public e b(QueryGroupGradeReq.DataReq dataReq) {
-        if ((this.a & 1) == 1 && this.b != QueryGroupGradeReq.DataReq.getDefaultInstance()) {
-            this.b = QueryGroupGradeReq.DataReq.newBuilder(this.b).mergeFrom(dataReq).buildPartial();
-        } else {
-            this.b = dataReq;
-        }
-        this.a |= 1;
         return this;
     }
 }

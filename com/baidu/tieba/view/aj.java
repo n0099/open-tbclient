@@ -7,7 +7,7 @@ import com.baidu.tieba.pb.NewPbActivity;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aj implements View.OnClickListener {
+public final class aj implements View.OnClickListener {
     final /* synthetic */ ai a;
     private final /* synthetic */ Context b;
 
@@ -18,7 +18,7 @@ public class aj implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         Context context;
         Context context2;
         if (view.getId() == R.id.textHomeListFrsName) {

@@ -7,12 +7,8 @@ import protobuf.DelGroupActivity.DelGroupActivityRes;
 public class bu extends da implements com.baidu.tieba.im.coder.f {
     private GroupActivityData a;
 
-    public void a(GroupActivityData groupActivityData) {
-        this.a = groupActivityData;
-    }
-
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<s> linkedList, byte[] bArr, int i) {
+    public final void a(LinkedList<s> linkedList, byte[] bArr, int i) {
         DelGroupActivityRes.DelGroupActivityResIdl parseFrom = DelGroupActivityRes.DelGroupActivityResIdl.parseFrom(bArr);
         e(i);
         g(parseFrom.getError().getErrorno());
@@ -25,7 +21,7 @@ public class bu extends da implements com.baidu.tieba.im.coder.f {
             groupActivityData.setGroupName(data.getGroupName());
             groupActivityData.setActivityId(data.getActivityId());
             groupActivityData.setIsEnd(data.getIsEnd());
-            a(groupActivityData);
+            this.a = groupActivityData;
         }
     }
 }

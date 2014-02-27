@@ -2,9 +2,8 @@ package com.baidu.tieba.pb;
 
 import com.baidu.tieba.editortool.EmotionTabHost;
 import com.baidu.tieba.view.KeyboardLayout;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n implements Runnable {
+final class n implements Runnable {
     final /* synthetic */ ImagePbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +12,7 @@ public class n implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         EmotionTabHost emotionTabHost;
         KeyboardLayout keyboardLayout;
         com.baidu.tieba.view.bo boVar;

@@ -21,12 +21,7 @@ public class DailyRecommendActivity extends com.baidu.tieba.f {
     private com.baidu.adp.widget.ListView.r h = new d(this);
     private com.baidu.adp.widget.ListView.b i = new e(this);
 
-    public void a() {
-        this.e = new Handler();
-        this.f = new f(this);
-    }
-
-    public void b() {
+    public final void a() {
         try {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
             a(true, simpleDateFormat.format(new Date(simpleDateFormat.parse(this.g).getTime() - 86400000)));
@@ -35,26 +30,9 @@ public class DailyRecommendActivity extends com.baidu.tieba.f {
         }
     }
 
-    private void a(Bundle bundle) {
-        this.d = new w(this);
-        if (bundle != null) {
-            this.d.a(bundle);
-        } else {
-            this.d.a(getIntent());
-        }
-        this.d.a(new g(this));
-        a(false, (String) null);
-    }
-
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a
     public void showToast(String str) {
         BdUtilHelper.a((Context) this, str);
-    }
-
-    private void d() {
-        this.c = new z(this, this.h, this.a);
-        this.c.a(this.i);
-        this.c.e();
     }
 
     @Override // com.baidu.tieba.f, android.app.Activity
@@ -64,12 +42,12 @@ public class DailyRecommendActivity extends com.baidu.tieba.f {
             this.e.removeCallbacks(this.f);
             this.e.postDelayed(this.f, 300L);
         }
-        this.c.i();
+        z zVar = this.c;
         cb.a(this, "recommend_feature", "visit", 1, new Object[0]);
     }
 
-    public void a(boolean z, String str) {
-        c();
+    public final void a(boolean z, String str) {
+        b();
         if (str == null && z) {
             cb.a(this.c.b(), "recommend_pull", "pull");
             this.d.a();
@@ -81,7 +59,7 @@ public class DailyRecommendActivity extends com.baidu.tieba.f {
         }
     }
 
-    public void c() {
+    private void b() {
         this.d.cancelLoadData();
     }
 
@@ -99,8 +77,8 @@ public class DailyRecommendActivity extends com.baidu.tieba.f {
         if (this.e != null) {
             this.e.removeCallbacks(this.f);
         }
-        this.c.f();
-        c();
+        this.c.e();
+        b();
         super.onDestroy();
     }
 
@@ -108,9 +86,19 @@ public class DailyRecommendActivity extends com.baidu.tieba.f {
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        a();
-        d();
-        a(bundle);
+        this.e = new Handler();
+        this.f = new f(this);
+        this.c = new z(this, this.h, this.a);
+        this.c.a(this.i);
+        this.c.d();
+        this.d = new w();
+        if (bundle != null) {
+            this.d.a(bundle);
+        } else {
+            this.d.a(getIntent());
+        }
+        this.d.a(new g(this));
+        a(false, (String) null);
     }
 
     @Override // com.baidu.tieba.f

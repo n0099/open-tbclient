@@ -4,18 +4,18 @@ import android.view.MotionEvent;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cp implements View.OnTouchListener {
+public final class cp implements View.OnTouchListener {
     final /* synthetic */ PbEditorToolView a;
-    private final /* synthetic */ com.baidu.tieba.editortool.z b;
+    private final /* synthetic */ com.baidu.tieba.editortool.aa b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cp(PbEditorToolView pbEditorToolView, com.baidu.tieba.editortool.z zVar) {
+    public cp(PbEditorToolView pbEditorToolView, com.baidu.tieba.editortool.aa aaVar) {
         this.a = pbEditorToolView;
-        this.b = zVar;
+        this.b = aaVar;
     }
 
     @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
+    public final boolean onTouch(View view, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 1) {
             this.a.c.requestFocus();
             this.b.a(12, null);

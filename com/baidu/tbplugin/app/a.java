@@ -13,7 +13,7 @@ import com.baidu.tbplugin.n;
 import java.util.List;
 import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
-class a extends BaseAdapter {
+final class a extends BaseAdapter {
     final /* synthetic */ PluginsActivity a;
     private List<Class<?>> b;
 
@@ -23,27 +23,27 @@ class a extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public int getCount() {
+    public final int getCount() {
         return this.b.size();
     }
 
     @Override // android.widget.Adapter
-    public Object getItem(int i) {
+    public final Object getItem(int i) {
         return this.b.get(i);
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    public final long getItemId(int i) {
         return i;
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public final View getView(int i, View view, ViewGroup viewGroup) {
         com.baidu.tbplugin.a.a aVar;
         d dVar;
         if (view == null) {
             view = View.inflate(this.a, n.plugin_item, null);
-            b bVar = new b(null);
+            b bVar = new b((byte) 0);
             bVar.a = (TextView) view.findViewById(m.name);
             bVar.b = (TextView) view.findViewById(m.version);
             bVar.c = (TextView) view.findViewById(m.jar);

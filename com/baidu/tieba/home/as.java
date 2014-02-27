@@ -13,11 +13,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.view.NavigationBar;
-import com.baidu.tieba.view.ct;
+import com.baidu.tieba.view.cs;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class as extends com.baidu.adp.a.e {
+public final class as extends com.baidu.adp.a.e {
     public static int a;
     private com.baidu.tieba.f c;
     private NavigationBar d;
@@ -25,7 +25,7 @@ public class as extends com.baidu.adp.a.e {
     private ao f;
     private ProgressBar g;
     private BdListView h;
-    private ct i;
+    private cs i;
     private ae j;
     private u k;
     private View l;
@@ -44,7 +44,7 @@ public class as extends com.baidu.adp.a.e {
         this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new at(this));
         this.h = (BdListView) this.c.findViewById(R.id.signallforum_list);
         this.h.setOnItemClickListener(fVar);
-        this.i = new ct(fVar);
+        this.i = new cs(fVar);
         this.h.setPullRefresh(this.i);
         this.o = (TextView) this.c.getLayoutInflater().inflate(R.layout.signallforum_maxcount_warning, (ViewGroup) null);
         this.h.addFooterView(this.o);
@@ -63,17 +63,17 @@ public class as extends com.baidu.adp.a.e {
         this.h.setOnScrollListener(this.j);
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         Resources resources = this.c.getResources();
         this.c.getLayoutMode().a(i == 1);
-        this.c.getLayoutMode().a((View) this.e);
+        this.c.getLayoutMode().a(this.e);
         this.c.getLayoutMode().a(this.o);
         if (i == 1) {
             this.e.setBackgroundColor(-13618114);
         } else {
             this.e.setBackgroundColor(-197380);
         }
-        this.d.c(i);
+        this.d.b(i);
         this.i.a(i);
         int i2 = i == 1 ? R.drawable.bg_ba_catalogue_1 : R.drawable.bg_ba_catalogue;
         int i3 = i == 1 ? R.color.forum_detail_ht_title_color_1 : R.color.forum_detail_ht_title_color;
@@ -83,20 +83,8 @@ public class as extends com.baidu.adp.a.e {
         this.j.notifyDataSetChanged();
     }
 
-    public void a(u uVar) {
+    public final void a(u uVar) {
         this.k = uVar;
-        k();
-        ArrayList<v> j = uVar.j();
-        this.j.a(this.k);
-        if (j.size() == a) {
-            this.o.setVisibility(0);
-            this.o.setText(uVar.f());
-            return;
-        }
-        this.o.setVisibility(8);
-    }
-
-    private void k() {
         if (this.k.i() == 0 || this.k.l().size() == this.k.j().size()) {
             this.f.a();
             int size = this.k.j().size();
@@ -115,41 +103,49 @@ public class as extends com.baidu.adp.a.e {
         this.m.setText(this.k.a());
         this.l.setVisibility(0);
         this.f.setVisibility(0);
+        ArrayList<v> j = uVar.j();
+        this.j.a(this.k);
+        if (j.size() == a) {
+            this.o.setVisibility(0);
+            this.o.setText(uVar.f());
+            return;
+        }
+        this.o.setVisibility(8);
     }
 
-    public void a() {
+    public final void a() {
         this.h.b();
     }
 
-    public void e() {
+    public final void d() {
         this.h.a();
     }
 
-    public void a(com.baidu.adp.widget.ListView.b bVar) {
+    public final void a(com.baidu.adp.widget.ListView.b bVar) {
         this.i.a(bVar);
     }
 
-    public void a(AdapterView.OnItemClickListener onItemClickListener) {
+    public final void a(AdapterView.OnItemClickListener onItemClickListener) {
         this.h.setOnItemClickListener(onItemClickListener);
     }
 
-    public ao f() {
+    public final ao e() {
         return this.f;
     }
 
-    public ProgressBar g() {
+    public final ProgressBar f() {
         return this.g;
     }
 
-    public u h() {
+    public final u g() {
         return this.k;
     }
 
-    public ae i() {
+    public final ae h() {
         return this.j;
     }
 
-    public TextView j() {
+    public final TextView i() {
         return this.n;
     }
 }

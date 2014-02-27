@@ -88,22 +88,25 @@ public class EditHeadActivity extends com.baidu.tieba.f {
         } else {
             this.A = true;
         }
-        TiebaApplication.g().a((com.baidu.tieba.f) this);
+        TiebaApplication.g().a(this);
         setContentView(R.layout.edit_head_activity);
         Intent intent = getIntent();
         this.i = intent.getIntExtra("edit_type", 0);
         this.E = intent.getIntExtra("request", 0);
         if (this.E == 12002 || this.E == 12001) {
-            e();
+            c();
             if (intent.getData() != null) {
                 TiebaPrepareImageService.a(this.E, intent.getData(), com.baidu.tieba.util.bv.a().e());
             } else {
                 TiebaPrepareImageService.a(this.E, null, com.baidu.tieba.util.bv.a().e());
             }
-            f();
+            this.x = new z(this, (byte) 0);
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction(com.baidu.tieba.data.i.b());
+            registerReceiver(this.x, intentFilter);
         } else {
-            e();
             c();
+            b();
         }
         f = getResources().getStringArray(R.array.fiter_name);
         if (this.A) {
@@ -116,7 +119,7 @@ public class EditHeadActivity extends com.baidu.tieba.f {
         super.onResume();
         Drawable drawable = this.g.getDrawable();
         if (drawable != null && (drawable instanceof BitmapDrawable) && ((BitmapDrawable) drawable).getBitmap() == null && this.o == null) {
-            this.o = new y(this, null);
+            this.o = new y(this, (byte) 0);
             this.o.execute(new Object[0]);
         }
     }
@@ -124,7 +127,7 @@ public class EditHeadActivity extends com.baidu.tieba.f {
     @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.H.c(i);
+        this.H.b(i);
     }
 
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a
@@ -133,10 +136,6 @@ public class EditHeadActivity extends com.baidu.tieba.f {
             this.o.cancel();
         }
         this.g.setImageBitmap(null);
-        b();
-    }
-
-    private void b() {
         if (this.G != null) {
             for (Map.Entry<String, ImageView> entry : this.G.entrySet()) {
                 ImageView value = entry.getValue();
@@ -159,11 +158,11 @@ public class EditHeadActivity extends com.baidu.tieba.f {
         }
     }
 
-    public void c() {
+    public void b() {
         if (this.o != null) {
             this.o.cancel();
         }
-        this.o = new y(this, null);
+        this.o = new y(this, (byte) 0);
         this.o.execute(new Object[0]);
         AccountData accountData = (AccountData) getIntent().getSerializableExtra("account_data");
         if (accountData != null) {
@@ -175,7 +174,7 @@ public class EditHeadActivity extends com.baidu.tieba.f {
     public void onDestroy() {
         releaseResouce();
         super.onDestroy();
-        this.g.j();
+        this.g.i();
         if (this.h != null && !this.h.isRecycled()) {
             this.h.recycle();
             this.h = null;
@@ -195,18 +194,18 @@ public class EditHeadActivity extends com.baidu.tieba.f {
         if (this.E == 12002 || this.E == 12001) {
             unregisterReceiver(this.x);
         }
-        TiebaApplication.g().b((com.baidu.tieba.f) this);
+        TiebaApplication.g().b(this);
     }
 
-    public void d() {
-        if (this.u != null) {
-            this.u.cancel();
+    public static /* synthetic */ void o(EditHeadActivity editHeadActivity) {
+        if (editHeadActivity.u != null) {
+            editHeadActivity.u.cancel();
         }
-        this.u = new aa(this, null);
-        this.u.execute(new String[0]);
+        editHeadActivity.u = new aa(editHeadActivity, (byte) 0);
+        editHeadActivity.u.execute(new String[0]);
     }
 
-    private void e() {
+    private void c() {
         this.H = (NavigationBar) findViewById(R.id.navigation_bar);
         this.n = (ProgressBar) findViewById(R.id.progress);
         this.n.setVisibility(8);
@@ -251,12 +250,12 @@ public class EditHeadActivity extends com.baidu.tieba.f {
         button4.setOnClickListener(uVar);
     }
 
-    public void a(String str) {
-        if (this.p != null) {
-            this.p.cancel();
+    public static /* synthetic */ void a(EditHeadActivity editHeadActivity, String str) {
+        if (editHeadActivity.p != null) {
+            editHeadActivity.p.cancel();
         }
-        this.p = new x(this, null);
-        this.p.execute(str);
+        editHeadActivity.p = new x(editHeadActivity, (byte) 0);
+        editHeadActivity.p.execute(str);
     }
 
     public boolean a(String str, Bitmap bitmap) {
@@ -267,64 +266,68 @@ public class EditHeadActivity extends com.baidu.tieba.f {
             }
             return true;
         } catch (Exception e2) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "saveFile", e2.toString());
+            com.baidu.adp.lib.util.e.b(getClass().getName(), "saveFile", e2.toString());
             return false;
         }
     }
 
-    public void a(String[] strArr) {
-        if (this.F != null && strArr != null) {
-            this.C.removeAllViews();
-            View inflate = getLayoutInflater().inflate(R.layout.filter_item, (ViewGroup) null);
-            ImageView imageView = (ImageView) inflate.findViewById(R.id.filter_immage);
-            TextView textView = (TextView) inflate.findViewById(R.id.filter_text);
-            int length = strArr.length;
-            int i = 0;
-            int i2 = 0;
-            while (i < length) {
-                String str = strArr[i];
-                String substring = str.substring(0, str.indexOf("|"));
-                String substring2 = str.substring(str.indexOf("|") + 1);
-                View inflate2 = getLayoutInflater().inflate(R.layout.filter_item, (ViewGroup) null);
-                ImageView imageView2 = (ImageView) inflate2.findViewById(R.id.filter_immage);
-                ((TextView) inflate2.findViewById(R.id.filter_text)).setText(substring2);
-                imageView2.setImageBitmap(this.F.get(substring));
-                int i3 = i2 + 1;
-                if (substring.equals("normal")) {
-                    imageView2.setOnClickListener(new v(this, substring, i2));
-                } else {
-                    imageView2.setOnClickListener(new w(this, substring, i2));
-                }
-                this.C.addView(inflate2);
-                this.G.put(substring, imageView2);
-                i++;
-                i2 = i3;
-            }
-            b("normal");
+    public static /* synthetic */ void a(EditHeadActivity editHeadActivity, String[] strArr) {
+        if (editHeadActivity.F == null || strArr == null) {
+            return;
         }
+        editHeadActivity.C.removeAllViews();
+        View inflate = editHeadActivity.getLayoutInflater().inflate(R.layout.filter_item, (ViewGroup) null);
+        inflate.findViewById(R.id.filter_immage);
+        inflate.findViewById(R.id.filter_text);
+        int length = strArr.length;
+        int i = 0;
+        int i2 = 0;
+        while (i < length) {
+            String str = strArr[i];
+            String substring = str.substring(0, str.indexOf("|"));
+            String substring2 = str.substring(str.indexOf("|") + 1);
+            View inflate2 = editHeadActivity.getLayoutInflater().inflate(R.layout.filter_item, (ViewGroup) null);
+            ImageView imageView = (ImageView) inflate2.findViewById(R.id.filter_immage);
+            TextView textView = (TextView) inflate2.findViewById(R.id.filter_text);
+            textView.setText(substring2);
+            imageView.setImageResource(com.baidu.tieba.write.v.a(substring));
+            imageView.setTag(textView);
+            int i3 = i2 + 1;
+            if (substring.equals("normal")) {
+                imageView.setOnClickListener(new v(editHeadActivity, substring, i2));
+            } else {
+                imageView.setOnClickListener(new w(editHeadActivity, substring, i2));
+            }
+            editHeadActivity.C.addView(inflate2);
+            editHeadActivity.G.put(substring, imageView);
+            i++;
+            i2 = i3;
+        }
+        editHeadActivity.a("normal");
     }
 
-    public void b(String str) {
+    public void a(String str) {
         ImageView imageView;
         if (str != null) {
             if (this.B != null && (imageView = this.G.get(this.B)) != null) {
                 imageView.setBackgroundDrawable(null);
                 imageView.setPadding(this.y, this.y, this.y, this.y);
+                Object tag = imageView.getTag();
+                if (tag instanceof TextView) {
+                    ((TextView) tag).setSelected(false);
+                }
             }
             ImageView imageView2 = this.G.get(str);
             if (imageView2 != null) {
                 imageView2.setBackgroundResource(R.drawable.round_corner);
                 imageView2.setPadding(this.y, this.y, this.y, this.y);
+                Object tag2 = imageView2.getTag();
+                if (tag2 instanceof TextView) {
+                    ((TextView) tag2).setSelected(true);
+                }
             }
             this.B = str;
         }
-    }
-
-    private void f() {
-        this.x = new z(this, null);
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(com.baidu.tieba.data.i.b());
-        registerReceiver(this.x, intentFilter);
     }
 
     @Override // com.baidu.tieba.f, android.app.Activity, android.view.KeyEvent.Callback

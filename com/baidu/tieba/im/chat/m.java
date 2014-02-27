@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements View.OnClickListener {
+public final class m implements View.OnClickListener {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,9 +13,9 @@ public class m implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         ImageView imageView;
-        this.a.R();
+        r0.a(this.a.G);
         imageView = this.a.E;
         imageView.postDelayed(new n(this), 100L);
     }

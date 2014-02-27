@@ -7,7 +7,7 @@ import com.baidu.tieba.util.bs;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab implements View.OnClickListener {
+public final class ab implements View.OnClickListener {
     final /* synthetic */ PostActivity a;
     private ArrayList<com.baidu.tieba.data.k> b;
     private int c;
@@ -19,7 +19,7 @@ public class ab implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         bn bnVar;
         try {
             ArrayList arrayList = new ArrayList();
@@ -45,7 +45,7 @@ public class ab implements View.OnClickListener {
                 }
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("PbAdapter", "ImageOnClickListener", "error = " + e.getMessage());
+            com.baidu.adp.lib.util.e.b("PbAdapter", "ImageOnClickListener", "error = " + e.getMessage());
         }
     }
 }

@@ -5,27 +5,19 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class p {
+public final class p {
     private ArrayList<o> a = new ArrayList<>();
     private ArrayList<r> b = new ArrayList<>();
 
-    public ArrayList<o> a() {
+    public final ArrayList<o> a() {
         return this.a;
     }
 
-    public ArrayList<r> b() {
+    public final ArrayList<r> b() {
         return this.b;
     }
 
-    public void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.toString());
-        }
-    }
-
-    public void a(JSONObject jSONObject) {
+    public final void a(JSONObject jSONObject) {
         try {
             JSONArray optJSONArray = jSONObject.optJSONArray("banner");
             if (optJSONArray != null) {
@@ -46,13 +38,13 @@ public class p {
                 }
             }
         } catch (JSONException e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.adp.lib.util.e.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
-    public void a(p pVar) {
+    public final void a(p pVar) {
         if (pVar != null) {
-            this.b.addAll(pVar.b());
+            this.b.addAll(pVar.b);
         }
     }
 }

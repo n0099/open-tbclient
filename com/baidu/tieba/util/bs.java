@@ -1,6 +1,5 @@
 package com.baidu.tieba.util;
 
-import android.graphics.Color;
 import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 import java.io.ByteArrayInputStream;
@@ -18,7 +17,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
-public class bs {
+public final class bs {
     private static SimpleDateFormat a = new SimpleDateFormat("yyyy-MM-dd HH:mm");
     private static SimpleDateFormat b = new SimpleDateFormat("yyyy年");
     private static SimpleDateFormat c = new SimpleDateFormat("HH:mm");
@@ -120,54 +119,23 @@ public class bs {
     }
 
     public static String d(Date date) {
-        return date == null ? "" : a(new Date(), date);
-    }
-
-    public static String a(Date date, Date date2) {
-        if (date2 == null) {
+        if (date == null) {
             return "";
         }
-        int day = date.getDay() - date2.getDay();
-        long time = date.getTime() - date2.getTime();
-        if (time < 0) {
-            if (time > -120000) {
-                return "刚刚";
-            }
-            return c(date2);
-        } else if (time >= 30000) {
-            long j2 = 30000 * 2;
-            if (time < j2) {
-                return "半分钟前";
-            }
-            long j3 = j2 * 60;
-            if (time < j3) {
-                return String.valueOf(String.valueOf((time * 60) / j3)) + "分钟前";
-            }
-            long j4 = j3 * 24;
-            if (time < j4) {
-                if (day == 0) {
-                    return b(date2);
-                }
-                return "1天前";
-            }
-            long j5 = j4 * 31;
-            if (time < j5) {
-                return String.valueOf(String.valueOf((time * 31) / j5)) + "天前";
-            }
-            if (time < j5 + 86400000) {
-                return "1个月前";
-            }
-            return c(date2);
-        } else {
-            return "刚刚";
+        Date date2 = new Date();
+        if (date == null) {
+            return "";
         }
+        int day = date2.getDay() - date.getDay();
+        long time = date2.getTime() - date.getTime();
+        return time < 0 ? time > -120000 ? "刚刚" : c(date) : time < 30000 ? "刚刚" : time < 60000 ? "半分钟前" : time < 3600000 ? String.valueOf(String.valueOf((time * 60) / 3600000)) + "分钟前" : time < 86400000 ? day == 0 ? b(date) : "1天前" : time < 2678400000L ? String.valueOf(String.valueOf((time * 31) / 2678400000L)) + "天前" : time < 2764800000L ? "1个月前" : c(date);
     }
 
     public static String e(Date date) {
-        return b(new Date(), date);
+        return a(new Date(), date);
     }
 
-    public static String b(Date date, Date date2) {
+    private static String a(Date date, Date date2) {
         String format;
         String format2;
         if (date2 == null) {
@@ -180,54 +148,38 @@ public class bs {
                 return "刚刚";
             }
             return c(date2);
-        } else if (time >= 30000) {
-            long j2 = 30000 * 2;
-            if (time < j2) {
+        } else if (time < 30000) {
+            return "刚刚";
+        } else {
+            if (time < 60000) {
                 return "半分钟前";
             }
-            long j3 = j2 * 60;
-            if (time < j3) {
-                return String.valueOf(String.valueOf((time * 60) / j3)) + "分钟前";
+            if (time < 3600000) {
+                return String.valueOf(String.valueOf((time * 60) / 3600000)) + "分钟前";
             }
-            long j4 = j3 * 24;
-            if (time < j4) {
+            if (time < 86400000) {
                 if (day == 0) {
                     return b(date2);
                 }
                 return "1天前";
-            }
-            long j5 = j4 * 31;
-            if (time < j5) {
-                return String.valueOf(String.valueOf((time * 31) / j5)) + "天前";
-            }
-            if (time < j5 + 86400000) {
-                return "1个月前";
-            }
-            if (date.getYear() == date2.getYear()) {
-                synchronized (j) {
-                    format2 = j.format(date2);
+            } else if (time < 2678400000L) {
+                return String.valueOf(String.valueOf((time * 31) / 2678400000L)) + "天前";
+            } else {
+                if (time < 2764800000L) {
+                    return "1个月前";
                 }
-                return format2;
+                if (date.getYear() == date2.getYear()) {
+                    synchronized (j) {
+                        format2 = j.format(date2);
+                    }
+                    return format2;
+                }
+                synchronized (f) {
+                    format = f.format(date2);
+                }
+                return format;
             }
-            synchronized (f) {
-                format = f.format(date2);
-            }
-            return format;
-        } else {
-            return "刚刚";
         }
-    }
-
-    public static String a(byte[] bArr) {
-        if (bArr == null) {
-            return null;
-        }
-        StringBuilder sb = new StringBuilder(bArr.length * 2);
-        for (int i2 = 0; i2 < bArr.length; i2++) {
-            sb.append(t[(bArr[i2] & 240) >>> 4]);
-            sb.append(t[bArr[i2] & 15]);
-        }
-        return sb.toString();
     }
 
     public static String a(InputStream inputStream) {
@@ -243,9 +195,17 @@ public class bs {
                     }
                     messageDigest.update(bArr, 0, read);
                 }
-                str = a(messageDigest.digest());
+                byte[] digest = messageDigest.digest();
+                if (digest != null) {
+                    StringBuilder sb = new StringBuilder(digest.length * 2);
+                    for (int i2 = 0; i2 < digest.length; i2++) {
+                        sb.append(t[(digest[i2] & 240) >>> 4]);
+                        sb.append(t[digest[i2] & 15]);
+                    }
+                    str = sb.toString();
+                }
             } catch (Exception e2) {
-                com.baidu.adp.lib.util.f.a("StringHelper", "ToMd5", e2.toString());
+                com.baidu.adp.lib.util.e.a("StringHelper", "ToMd5", e2.toString());
             } finally {
                 r.a(inputStream);
             }
@@ -259,11 +219,6 @@ public class bs {
         } catch (Exception e2) {
             return null;
         }
-    }
-
-    public static boolean a(char c2) {
-        Character.UnicodeBlock of = Character.UnicodeBlock.of(c2);
-        return of == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS || of == Character.UnicodeBlock.CJK_COMPATIBILITY_IDEOGRAPHS || of == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A || of == Character.UnicodeBlock.GENERAL_PUNCTUATION || of == Character.UnicodeBlock.CJK_SYMBOLS_AND_PUNCTUATION || of == Character.UnicodeBlock.HALFWIDTH_AND_FULLWIDTH_FORMS;
     }
 
     public static boolean b(String str) {
@@ -296,30 +251,33 @@ public class bs {
     }
 
     public static String a(String str, int i2) {
-        if (str == null || i2 <= 0) {
+        int i3;
+        if (str == null) {
             return String.valueOf("");
         }
         int length = str.length();
-        int i3 = 0;
         int i4 = 0;
-        while (i3 < length) {
-            if (a(str.charAt(i3))) {
-                i4 += 2;
+        int i5 = 0;
+        while (i4 < length) {
+            Character.UnicodeBlock of = Character.UnicodeBlock.of(str.charAt(i4));
+            if (of == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS || of == Character.UnicodeBlock.CJK_COMPATIBILITY_IDEOGRAPHS || of == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A || of == Character.UnicodeBlock.GENERAL_PUNCTUATION || of == Character.UnicodeBlock.CJK_SYMBOLS_AND_PUNCTUATION || of == Character.UnicodeBlock.HALFWIDTH_AND_FULLWIDTH_FORMS) {
+                i3 = i5 + 2;
             } else {
-                i4++;
+                i3 = i5 + 1;
             }
-            if (i4 >= i2) {
+            if (i3 >= 12) {
                 break;
             }
-            i3++;
+            i4++;
+            i5 = i3;
         }
-        if (i3 < length) {
-            return String.valueOf(str.substring(0, i3 + 1)) + "...";
+        if (i4 < length) {
+            return String.valueOf(str.substring(0, i4 + 1)) + "...";
         }
         return str;
     }
 
-    public static String b(byte[] bArr) {
+    public static String a(byte[] bArr) {
         int length = bArr.length;
         int i2 = 0;
         StringBuilder sb = new StringBuilder(length / 2);
@@ -358,7 +316,7 @@ public class bs {
         return a(str);
     }
 
-    public static String a(String str, Color color) {
+    public static String g(String str) {
         String str2;
         Exception exc;
         if (str == null) {
@@ -371,7 +329,7 @@ public class bs {
             } catch (Exception e2) {
                 str2 = replaceAll;
                 exc = e2;
-                com.baidu.adp.lib.util.f.a("StringHelper", "getHighLightString", exc.toString());
+                com.baidu.adp.lib.util.e.a("StringHelper", "getHighLightString", exc.toString());
                 return str2;
             }
         } catch (Exception e3) {
@@ -381,32 +339,21 @@ public class bs {
     }
 
     public static String a(long j2) {
-        String f2;
+        String c2;
         synchronized (r) {
             r.setTime(j2);
-            f2 = f(r);
-        }
-        return f2;
-    }
-
-    private static String f(Date date) {
-        if (date == null) {
-            return "";
-        }
-        long time = new Date().getTime() - date.getTime();
-        if (time < k && time > 0) {
-            if (time < l) {
-                if (time < m) {
-                    return String.valueOf(String.valueOf(time / n)) + q;
-                }
-                return String.valueOf(String.valueOf(time / m)) + p;
+            Date date = r;
+            if (date == null) {
+                c2 = "";
+            } else {
+                long time = new Date().getTime() - date.getTime();
+                c2 = (time >= k || time <= 0) ? c(date) : time < l ? time < m ? String.valueOf(String.valueOf(time / n)) + q : String.valueOf(String.valueOf(time / m)) + p : String.valueOf(String.valueOf(time / l)) + o;
             }
-            return String.valueOf(String.valueOf(time / l)) + o;
         }
-        return c(date);
+        return c2;
     }
 
-    public static int g(String str) {
+    public static int h(String str) {
         int i2 = 0;
         if (str != null && str.length() != 0) {
             Matcher matcher = s.matcher(str);

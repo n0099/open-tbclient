@@ -45,7 +45,7 @@ public class CreateBarActivity extends com.baidu.tieba.f {
         if (str != null && str.length() > 0) {
             Intent intent = new Intent(context, CreateBarActivity.class);
             intent.putExtra("barname", str);
-            intent.putExtra("isvalid", z);
+            intent.putExtra("isvalid", true);
             context.startActivity(intent);
         }
     }
@@ -55,58 +55,12 @@ public class CreateBarActivity extends com.baidu.tieba.f {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.create_bar_activity);
-        b();
-        e();
-        a();
-    }
-
-    private void a() {
-        if (this.p == null) {
-            this.p = new d(this, null);
-            this.p.execute(new String[0]);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
-    public void onDestroy() {
-        super.onDestroy();
-        if (this.o != null) {
-            this.o.cancel();
-        }
-        if (this.p != null) {
-            this.p.cancel();
-        }
-    }
-
-    private void b() {
         Intent intent = getIntent();
         this.u = intent.getStringExtra("barname");
         this.v = intent.getBooleanExtra("isvalid", false);
         if (this.u == null) {
             this.u = "";
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void c() {
-        if (this.p == null && this.o == null) {
-            this.p = new d(this, null);
-            this.p.setPriority(3);
-            this.p.execute(new String[0]);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void d() {
-        if (this.o == null) {
-            this.o = new c(this, this.g.getText().toString().trim(), this.h.getText().toString().trim());
-            this.o.setPriority(3);
-            this.o.execute(new String[0]);
-        }
-    }
-
-    private void e() {
         this.q = new a(this);
         this.r = new b(this);
         this.a = (RelativeLayout) findViewById(R.id.container);
@@ -138,6 +92,40 @@ public class CreateBarActivity extends com.baidu.tieba.f {
         this.n = (ProgressBar) findViewById(R.id.progress_image);
         if (this.v) {
             this.h.requestFocus();
+        }
+        if (this.p == null) {
+            this.p = new d(this, (byte) 0);
+            this.p.execute(new String[0]);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    public void onDestroy() {
+        super.onDestroy();
+        if (this.o != null) {
+            this.o.cancel();
+        }
+        if (this.p != null) {
+            this.p.cancel();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void c(CreateBarActivity createBarActivity) {
+        if (createBarActivity.p == null && createBarActivity.o == null) {
+            createBarActivity.p = new d(createBarActivity, (byte) 0);
+            createBarActivity.p.setPriority(3);
+            createBarActivity.p.execute(new String[0]);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void g(CreateBarActivity createBarActivity) {
+        if (createBarActivity.o == null) {
+            createBarActivity.o = new c(createBarActivity, createBarActivity.g.getText().toString().trim(), createBarActivity.h.getText().toString().trim());
+            createBarActivity.o.setPriority(3);
+            createBarActivity.o.execute(new String[0]);
         }
     }
 

@@ -25,11 +25,20 @@ public class PersonalTalkSettingActivity extends com.baidu.tieba.f implements co
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        b();
-        a(bundle);
-        com.baidu.tieba.im.messageCenter.e.a().a(205003, this.b);
-        com.baidu.tieba.im.messageCenter.e.a().a(104102, this.b);
-        com.baidu.tieba.im.messageCenter.e.a().a(-118, this.b);
+        this.a = new p(this);
+        p pVar = this.a;
+        if (pVar.b != null) {
+            pVar.b.setSwitchStateChangeListener(this);
+        }
+        if (bundle == null) {
+            this.c = getIntent().getLongExtra("userId", 0L);
+        } else {
+            this.c = bundle.getLong("userId");
+        }
+        this.b = new l(this, this, this.c);
+        com.baidu.tieba.im.messageCenter.d.a().a(205003, this.b);
+        com.baidu.tieba.im.messageCenter.d.a().a(104102, this.b);
+        com.baidu.tieba.im.messageCenter.d.a().a(-118, this.b);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -37,27 +46,13 @@ public class PersonalTalkSettingActivity extends com.baidu.tieba.f implements co
     public void onDestroy() {
         super.onDestroy();
         this.b.g();
-        com.baidu.tieba.im.messageCenter.e.a().a(this.b);
+        com.baidu.tieba.im.messageCenter.d.a().a(this.b);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         bundle.putLong("userId", this.c);
-    }
-
-    private void a(Bundle bundle) {
-        if (bundle == null) {
-            this.c = getIntent().getLongExtra("userId", 0L);
-        } else {
-            this.c = bundle.getLong("userId");
-        }
-        this.b = new l(this, this, this.c);
-    }
-
-    private void b() {
-        this.a = new p(this);
-        this.a.a(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -87,15 +82,36 @@ public class PersonalTalkSettingActivity extends com.baidu.tieba.f implements co
     }
 
     @Override // com.baidu.tieba.im.chat.personaltalk.o
-    public void a() {
+    public final void a() {
+        String portrait;
         closeLoadingDialog();
         if (this.a != null && this.b != null) {
-            this.a.a(this.b);
+            p pVar = this.a;
+            l lVar = this.b;
+            if (lVar != null) {
+                boolean d = lVar.d();
+                int sex = lVar.b().getSex();
+                if (d) {
+                    pVar.a.setSex(sex);
+                    pVar.a.setVisibility(0);
+                    pVar.b.setVisibility(8);
+                } else {
+                    pVar.b.setVisibility(0);
+                    pVar.a.setVisibility(8);
+                }
+                pVar.b.b(lVar.c());
+                pVar.b.a(lVar.a());
+                pVar.a(lVar.b());
+                if (lVar == null || lVar.b() == null || (portrait = lVar.b().getPortrait()) == null || portrait.length() <= 0) {
+                    return;
+                }
+                lVar.f().c(portrait, new q(pVar));
+            }
         }
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.c
-    public void a(View view, BdSwitchView.SwitchState switchState) {
+    public final void a(View view, BdSwitchView.SwitchState switchState) {
         this.b.a(switchState == BdSwitchView.SwitchState.ON);
         new k(this, switchState).execute(new Void[0]);
     }

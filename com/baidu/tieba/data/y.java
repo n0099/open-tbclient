@@ -2,7 +2,7 @@ package com.baidu.tieba.data;
 
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class y {
+public final class y {
     private int a = 0;
     private int b = 0;
     private String c = null;
@@ -17,55 +17,55 @@ public class y {
     private long l = 0;
     private ax m = new ax();
 
-    public int a() {
+    public final int a() {
         return this.a;
     }
 
-    public String b() {
+    public final String b() {
         return this.c;
     }
 
-    public String c() {
+    public final String c() {
         return this.d;
     }
 
-    public int d() {
+    public final int d() {
         return this.g;
     }
 
-    public int e() {
+    public final int e() {
         return this.h;
     }
 
-    public int f() {
+    public final int f() {
         return this.b;
     }
 
-    public void a(int i) {
-        this.b = i;
+    public final void a(int i) {
+        this.b = 1;
     }
 
-    public long g() {
+    public final long g() {
         return this.k;
     }
 
-    public void b(int i) {
-        this.e = i;
+    public final void b(int i) {
+        this.e = 1;
     }
 
-    public int h() {
+    public final int h() {
         return this.e;
     }
 
-    public void c(int i) {
+    public final void c(int i) {
         this.f = i;
     }
 
-    public int i() {
+    public final int i() {
         return this.f;
     }
 
-    public void a(JSONObject jSONObject) {
+    public final void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 this.a = jSONObject.optInt("has_frs_star", 0);
@@ -86,12 +86,12 @@ public class y {
                     this.j = optJSONObject3.optInt("height", 0);
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b("FrsStarData", "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.util.e.b("FrsStarData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
-    public ax j() {
+    public final ax j() {
         return this.m;
     }
 }

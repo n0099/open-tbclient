@@ -3,7 +3,7 @@ package com.baidu.tieba.barcode;
 import android.os.Handler;
 import android.os.Message;
 /* loaded from: classes.dex */
-class s extends Handler {
+final class s extends Handler {
     final /* synthetic */ ViewfinderView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ class s extends Handler {
     }
 
     @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    public final void handleMessage(Message message) {
         Handler handler;
         Handler handler2;
         Handler handler3;

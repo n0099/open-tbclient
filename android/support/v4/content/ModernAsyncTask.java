@@ -28,7 +28,7 @@ abstract class ModernAsyncTask<Params, Progress, Result> {
         private final AtomicInteger mCount = new AtomicInteger(1);
 
         @Override // java.util.concurrent.ThreadFactory
-        public Thread newThread(Runnable runnable) {
+        public final Thread newThread(Runnable runnable) {
             return new Thread(runnable, "ModernAsyncTask #" + this.mCount.getAndIncrement());
         }
     };

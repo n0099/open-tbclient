@@ -6,14 +6,14 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class g extends a<com.baidu.adp.framework.message.g, com.baidu.adp.framework.task.c> implements com.baidu.adp.lib.network.a.d, com.baidu.adp.lib.network.a.e {
+public final class g extends a<com.baidu.adp.framework.message.g, com.baidu.adp.framework.task.c> implements com.baidu.adp.lib.network.a.d, com.baidu.adp.lib.network.a.e {
     private com.baidu.adp.lib.network.a.d b;
     private final LinkedList<com.baidu.adp.lib.network.a.h> c;
     private final LinkedList<com.baidu.adp.lib.network.a.h> d;
     private final LinkedList<com.baidu.adp.lib.network.a.h> e;
     private boolean f;
 
-    public boolean a(int i) {
+    public final boolean a(int i) {
         boolean z = a(i, this.c);
         if (a(i, this.d)) {
             z = true;
@@ -24,14 +24,14 @@ public class g extends a<com.baidu.adp.framework.message.g, com.baidu.adp.framew
         return z;
     }
 
-    public com.baidu.adp.framework.message.g a(l lVar) {
+    public final com.baidu.adp.framework.message.g a(l lVar) {
         com.baidu.adp.lib.network.a.h a = a(lVar, this.c);
         if (a != null) {
-            return a.g();
+            return a.f();
         }
         com.baidu.adp.lib.network.a.h a2 = a(lVar, this.e);
         if (a2 != null) {
-            return a2.g();
+            return a2.f();
         }
         return null;
     }
@@ -48,18 +48,28 @@ public class g extends a<com.baidu.adp.framework.message.g, com.baidu.adp.framew
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.a
-    public void a(com.baidu.adp.framework.message.g gVar, com.baidu.adp.framework.task.c cVar) {
-        a(new com.baidu.adp.lib.network.a.h(gVar, cVar.a(), cVar.l(), cVar.c(), this, cVar.j(), cVar.k()), this.d);
-        a();
+    public final void a(com.baidu.adp.framework.message.g gVar, com.baidu.adp.framework.task.c cVar) {
+        int i;
+        int i2;
+        com.baidu.adp.lib.network.a.h hVar = new com.baidu.adp.lib.network.a.h(gVar, cVar.a(), cVar.l(), cVar.c(), this, cVar.j(), cVar.k());
+        LinkedList<com.baidu.adp.lib.network.a.h> linkedList = this.d;
+        if (hVar != null && linkedList != null) {
+            while (true) {
+                i2 = i;
+                i = (i2 < linkedList.size() && (linkedList.get(i2) == null || linkedList.get(i2).e() <= hVar.e())) ? i2 + 1 : 0;
+            }
+            linkedList.add(i2, hVar);
+        }
+        b();
     }
 
-    private void a() {
+    private void b() {
         com.baidu.adp.lib.network.a.h first;
         if (!this.d.isEmpty() && (first = this.d.getFirst()) != null) {
             if (com.baidu.adp.lib.network.a.a.a()) {
                 com.baidu.adp.lib.network.a.a.a(false, "send message");
             } else if (this.f) {
-                com.baidu.adp.lib.util.f.e("The message quene is locked!");
+                com.baidu.adp.lib.util.e.e("The message quene is locked!");
             } else {
                 com.baidu.adp.lib.network.a.a.a(first);
             }
@@ -68,27 +78,18 @@ public class g extends a<com.baidu.adp.framework.message.g, com.baidu.adp.framew
 
     private static com.baidu.adp.lib.network.a.h a(l lVar, List<com.baidu.adp.lib.network.a.h> list) {
         for (com.baidu.adp.lib.network.a.h hVar : list) {
-            if (hVar != null && lVar.a(hVar.g())) {
-                return hVar;
+            if (hVar != null) {
+                hVar.f();
+                if (lVar.a()) {
+                    return hVar;
+                }
             }
         }
         return null;
     }
 
-    private static void a(com.baidu.adp.lib.network.a.h hVar, LinkedList<com.baidu.adp.lib.network.a.h> linkedList) {
-        int i;
-        int i2;
-        if (hVar != null && linkedList != null) {
-            while (true) {
-                i2 = i;
-                i = (i2 < linkedList.size() && (linkedList.get(i2) == null || linkedList.get(i2).f() <= hVar.f())) ? i2 + 1 : 0;
-            }
-            linkedList.add(i2, hVar);
-        }
-    }
-
     @Override // com.baidu.adp.lib.network.a.d
-    public boolean a(int i, String str) {
+    public final boolean a(int i, String str) {
         a(true);
         if (this.b != null) {
             this.b.a(i, str);
@@ -98,7 +99,7 @@ public class g extends a<com.baidu.adp.framework.message.g, com.baidu.adp.framew
     }
 
     @Override // com.baidu.adp.lib.network.a.d
-    public void a(Map<String, String> map) {
+    public final void a(Map<String, String> map) {
         a(false);
         if (this.b != null) {
             this.b.a(map);
@@ -106,7 +107,7 @@ public class g extends a<com.baidu.adp.framework.message.g, com.baidu.adp.framew
     }
 
     @Override // com.baidu.adp.lib.network.a.d
-    public void a(byte[] bArr) {
+    public final void a(byte[] bArr) {
         new h(this, bArr).execute(new byte[0]);
         if (this.b != null) {
             this.b.a(bArr);
@@ -114,81 +115,81 @@ public class g extends a<com.baidu.adp.framework.message.g, com.baidu.adp.framew
     }
 
     @Override // com.baidu.adp.lib.network.a.d
-    public void a(com.baidu.adp.lib.webSocket.d dVar) {
-        a();
+    public final void a(com.baidu.adp.lib.webSocket.d dVar) {
+        b();
         if (this.b != null) {
             this.b.a(dVar);
         }
     }
 
     @Override // com.baidu.adp.lib.network.a.d
-    public void a(String str) {
+    public final void a(String str) {
         if (this.b != null) {
             this.b.a(str);
         }
     }
 
-    public void a(boolean z) {
+    private void a(boolean z) {
         boolean z2 = this.f;
         this.f = z;
         if (!this.f && z2) {
-            a();
+            b();
         }
     }
 
     @Override // com.baidu.adp.lib.network.a.e
-    public void a(int i, com.baidu.adp.lib.network.a.h hVar) {
-        d(hVar);
+    public final void a(int i, com.baidu.adp.lib.network.a.h hVar) {
+        c(hVar);
         a(hVar, i, "");
-        a();
+        b();
     }
 
     @Override // com.baidu.adp.lib.network.a.e
-    public void a(com.baidu.adp.lib.network.a.h hVar) {
-        if (hVar != null && hVar.i() < hVar.k()) {
+    public final void a(com.baidu.adp.lib.network.a.h hVar) {
+        if (hVar != null && hVar.h() < hVar.j()) {
             a(hVar, this.c, this.e);
             return;
         }
-        d(hVar);
+        c(hVar);
         a(hVar, -2001001, "发送超时！");
-        a();
+        b();
     }
 
-    private void d(com.baidu.adp.lib.network.a.h hVar) {
-        a(hVar, (List<com.baidu.adp.lib.network.a.h>) this.c);
-        a(hVar, (List<com.baidu.adp.lib.network.a.h>) this.e);
-        a(hVar, (List<com.baidu.adp.lib.network.a.h>) this.d);
+    private void c(com.baidu.adp.lib.network.a.h hVar) {
+        a(hVar, this.c);
+        a(hVar, this.e);
+        a(hVar, this.d);
     }
 
     private void a(com.baidu.adp.lib.network.a.h hVar, int i, String str) {
-        com.baidu.adp.framework.message.g g;
-        if (hVar != null && (g = hVar.g()) != null) {
+        com.baidu.adp.framework.message.g f;
+        if (hVar != null && (f = hVar.f()) != null) {
             try {
-                com.baidu.adp.framework.message.h newInstance = ((com.baidu.adp.framework.task.c) this.a.e(g.d())).d().newInstance();
+                com.baidu.adp.framework.message.h newInstance = ((com.baidu.adp.framework.task.c) this.a.b(f.d())).d().newInstance();
                 newInstance.a(i);
                 newInstance.a(str);
-                newInstance.a(g);
+                newInstance.a(f);
                 this.a.a(newInstance);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(e.toString());
+                com.baidu.adp.lib.util.e.b(e.toString());
             }
         }
     }
 
     @Override // com.baidu.adp.lib.network.a.e
-    public void b(com.baidu.adp.lib.network.a.h hVar) {
-        a();
+    public final void a() {
+        b();
     }
 
     @Override // com.baidu.adp.lib.network.a.e
-    public void c(com.baidu.adp.lib.network.a.h hVar) {
+    public final void b(com.baidu.adp.lib.network.a.h hVar) {
         if (hVar != null) {
-            if (hVar.e()) {
-                hVar.j();
+            if (hVar.d()) {
+                hVar.i();
                 a(hVar, this.d, this.c);
                 return;
             }
-            a(hVar, (List<com.baidu.adp.lib.network.a.h>) this.d);
+            a(hVar, this.d);
         }
     }
 
@@ -197,18 +198,18 @@ public class g extends a<com.baidu.adp.framework.message.g, com.baidu.adp.framew
         boolean z = false;
         while (it.hasNext()) {
             com.baidu.adp.lib.network.a.h next = it.next();
-            if (next != null && next.g() != null && next.g().e() == i) {
+            if (next != null && next.f() != null && next.f().e() == i) {
                 it.remove();
-                next.b();
+                next.a();
                 z = true;
             }
         }
         return z;
     }
 
-    public static void a(com.baidu.adp.lib.network.a.h hVar, List<com.baidu.adp.lib.network.a.h> list) {
+    private static void a(com.baidu.adp.lib.network.a.h hVar, List<com.baidu.adp.lib.network.a.h> list) {
         a(hVar, list, (List<com.baidu.adp.lib.network.a.h>) null);
-        hVar.b();
+        hVar.a();
     }
 
     private static void a(com.baidu.adp.lib.network.a.h hVar, List<com.baidu.adp.lib.network.a.h> list, List<com.baidu.adp.lib.network.a.h> list2) {

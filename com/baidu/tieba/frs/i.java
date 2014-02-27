@@ -4,12 +4,11 @@ import android.widget.AdapterView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.util.LimitList;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.cb;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-class i implements by {
+final class i implements bz {
     final /* synthetic */ FrsActivity a;
     private long b = 0;
 
@@ -18,183 +17,199 @@ class i implements by {
         this.a = frsActivity;
     }
 
-    @Override // com.baidu.tieba.frs.by
-    public void a(int i) {
-        br brVar;
-        br brVar2;
-        br brVar3;
-        br brVar4;
-        br brVar5;
+    @Override // com.baidu.tieba.frs.bz
+    public final void a(int i) {
+        bs bsVar;
+        bs bsVar2;
+        bs bsVar3;
+        bs bsVar4;
+        bs bsVar5;
         this.b = System.nanoTime();
         switch (i) {
             case 1:
-                brVar3 = this.a.p;
-                brVar3.c(true);
-                brVar4 = this.a.p;
-                brVar4.r();
+                bsVar3 = this.a.p;
+                bsVar3.d(true);
+                bsVar4 = this.a.p;
+                bsVar4.q();
                 return;
             case 2:
-                brVar = this.a.p;
-                brVar.d(true);
-                brVar2 = this.a.p;
-                brVar2.r();
+                bsVar = this.a.p;
+                bsVar.e(true);
+                bsVar2 = this.a.p;
+                bsVar2.q();
                 return;
             case 3:
-                brVar5 = this.a.p;
-                brVar5.b(true);
+                bsVar5 = this.a.p;
+                bsVar5.c(true);
                 return;
             default:
                 return;
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:100:0x0385  */
-    /* JADX WARN: Removed duplicated region for block: B:98:0x035f  */
-    @Override // com.baidu.tieba.frs.by
+    /* JADX WARN: Removed duplicated region for block: B:100:0x040b  */
+    /* JADX WARN: Removed duplicated region for block: B:98:0x03e4  */
+    @Override // com.baidu.tieba.frs.bz
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(int i, JSONObject jSONObject, com.baidu.tieba.model.ac acVar) {
-        br brVar;
-        br brVar2;
-        br brVar3;
-        br brVar4;
-        br brVar5;
-        br brVar6;
+    public final void a(int i, JSONObject jSONObject, com.baidu.tieba.model.ac acVar) {
+        bs bsVar;
+        bs bsVar2;
+        bs bsVar3;
+        bs bsVar4;
+        bs bsVar5;
+        bs bsVar6;
         long j;
         long j2;
         com.baidu.tieba.model.z zVar;
-        boolean z;
+        long j3;
         com.baidu.tieba.model.z zVar2;
+        com.baidu.tieba.model.z zVar3;
+        com.baidu.tieba.model.z zVar4;
+        com.baidu.tieba.model.z zVar5;
+        boolean z;
+        com.baidu.tieba.model.z zVar6;
         boolean z2;
         String str;
         String str2;
         String str3;
-        br brVar7;
-        com.baidu.tieba.model.z zVar3;
-        AdapterView.OnItemClickListener onItemClickListener;
-        br brVar8;
-        com.baidu.tieba.model.z zVar4;
-        com.baidu.tieba.model.z zVar5;
-        br brVar9;
-        com.baidu.tieba.model.z zVar6;
-        br brVar10;
-        br brVar11;
-        br brVar12;
-        br brVar13;
+        bs bsVar7;
         com.baidu.tieba.model.z zVar7;
+        AdapterView.OnItemClickListener onItemClickListener;
+        bs bsVar8;
         com.baidu.tieba.model.z zVar8;
-        br brVar14;
         com.baidu.tieba.model.z zVar9;
+        bs bsVar9;
         com.baidu.tieba.model.z zVar10;
-        int i2;
-        int i3;
-        long j3;
-        long j4;
-        int i4;
-        br brVar15;
-        br brVar16;
+        bs bsVar10;
+        bs bsVar11;
+        bs bsVar12;
+        bs bsVar13;
         com.baidu.tieba.model.z zVar11;
-        String str4;
         com.baidu.tieba.model.z zVar12;
-        String str5;
+        bs bsVar14;
         com.baidu.tieba.model.z zVar13;
         com.baidu.tieba.model.z zVar14;
+        int i2;
+        int i3;
+        long j4;
+        long j5;
         com.baidu.tieba.model.z zVar15;
+        long j6;
+        com.baidu.tieba.model.z zVar16;
+        com.baidu.tieba.model.z zVar17;
+        com.baidu.tieba.model.z zVar18;
+        int i4;
+        bs bsVar15;
+        bs bsVar16;
+        com.baidu.tieba.model.z zVar19;
+        String str4;
+        com.baidu.tieba.model.z zVar20;
+        String str5;
+        com.baidu.tieba.model.z zVar21;
+        com.baidu.tieba.model.z zVar22;
+        com.baidu.tieba.model.z zVar23;
         String str6;
         String str7;
         String str8;
-        com.baidu.tieba.model.z zVar16;
-        com.baidu.tieba.model.z zVar17;
+        com.baidu.tieba.model.z zVar24;
+        com.baidu.tieba.model.z zVar25;
         boolean z3;
-        br brVar17;
-        com.baidu.tieba.model.z zVar18;
-        br brVar18;
-        br brVar19;
+        bs bsVar17;
+        com.baidu.tieba.model.z zVar26;
+        bs bsVar18;
+        bs bsVar19;
         if (UtilHelper.h(this.a) == UtilHelper.NetworkStateInfo.UNAVAIL) {
-            brVar19 = this.a.p;
-            brVar19.h();
+            bsVar19 = this.a.p;
+            bsVar19.h();
         } else {
-            brVar = this.a.p;
-            brVar.i();
+            bsVar = this.a.p;
+            bsVar.i();
         }
         if (acVar != null && acVar.b) {
-            brVar18 = this.a.p;
-            brVar18.n().a(com.baidu.tieba.util.bv.a().b());
+            bsVar18 = this.a.p;
+            bsVar18.m().a(com.baidu.tieba.util.bv.a().b());
             FrsActivity.s = 0L;
             FrsActivity.t = 0L;
             FrsActivity.u = 0;
         } else {
             FrsActivity.u = 1;
         }
-        brVar2 = this.a.p;
-        brVar2.b(false);
+        bsVar2 = this.a.p;
+        bsVar2.c(false);
         switch (i) {
             case 1:
-                brVar5 = this.a.p;
-                brVar5.c(false);
-                brVar6 = this.a.p;
-                brVar6.r();
+                bsVar5 = this.a.p;
+                bsVar5.d(false);
+                bsVar6 = this.a.p;
+                bsVar6.q();
                 break;
             case 2:
-                brVar3 = this.a.p;
-                brVar3.d(false);
-                brVar4 = this.a.p;
-                brVar4.r();
+                bsVar3 = this.a.p;
+                bsVar3.e(false);
+                bsVar4 = this.a.p;
+                bsVar4.q();
                 break;
         }
         if (jSONObject != null && (acVar == null || acVar.c == 0)) {
-            zVar = this.a.A;
-            if (zVar != null) {
-                zVar16 = this.a.A;
-                if (zVar16.g().a() == 1) {
+            zVar5 = this.a.A;
+            if (zVar5 != null) {
+                zVar24 = this.a.A;
+                if (zVar24.k().a() == 1) {
                     this.a.G = "frs_page";
                 } else {
                     this.a.G = "normal_page";
                 }
                 FrsActivity frsActivity = this.a;
-                zVar17 = this.a.A;
-                frsActivity.g = zVar17.b().getName();
+                zVar25 = this.a.A;
+                frsActivity.g = zVar25.f().getName();
                 z3 = this.a.w;
                 if (z3) {
                     this.a.G = "good_page";
                 }
-                brVar17 = this.a.p;
-                zVar18 = this.a.A;
-                brVar17.a(zVar18.b());
+                bsVar17 = this.a.p;
+                zVar26 = this.a.A;
+                bsVar17.a(zVar26.f());
             }
             z = this.a.y;
             if (z) {
-                LimitList br = TiebaApplication.g().br();
+                LimitList bj = TiebaApplication.g().bj();
                 str4 = this.a.g;
-                if (!br.contains(str4)) {
+                if (!bj.contains(str4)) {
                     FrsActivity frsActivity2 = this.a;
-                    zVar12 = this.a.A;
-                    frsActivity2.a(zVar12);
+                    zVar20 = this.a.A;
+                    frsActivity2.a(zVar20);
                     this.a.y = false;
-                    LimitList br2 = TiebaApplication.g().br();
+                    LimitList bj2 = TiebaApplication.g().bj();
                     str5 = this.a.g;
-                    br2.add(str5);
-                    zVar13 = this.a.A;
-                    if (zVar13 != null) {
-                        zVar14 = this.a.A;
-                        if (zVar14.b() != null) {
-                            zVar15 = this.a.A;
-                            h bannerListData = zVar15.b().getBannerListData();
+                    bj2.add(str5);
+                    zVar21 = this.a.A;
+                    if (zVar21 != null) {
+                        zVar22 = this.a.A;
+                        if (zVar22.f() != null) {
+                            zVar23 = this.a.A;
+                            h bannerListData = zVar23.f().getBannerListData();
                             if (bannerListData != null && bannerListData.a() != null) {
-                                for (int i5 = 0; i5 < bannerListData.a().size(); i5++) {
-                                    FrsActivity frsActivity3 = this.a;
-                                    str7 = frsActivity3.R;
-                                    frsActivity3.R = String.valueOf(str7) + bannerListData.a().get(i5).y();
-                                    if (i5 < bannerListData.a().size() - 1) {
-                                        FrsActivity frsActivity4 = this.a;
-                                        str8 = frsActivity4.R;
-                                        frsActivity4.R = String.valueOf(str8) + "|";
+                                int i5 = 0;
+                                while (true) {
+                                    int i6 = i5;
+                                    if (i6 < bannerListData.a().size()) {
+                                        FrsActivity frsActivity3 = this.a;
+                                        str7 = frsActivity3.S;
+                                        frsActivity3.S = String.valueOf(str7) + bannerListData.a().get(i6).v();
+                                        if (i6 < bannerListData.a().size() - 1) {
+                                            FrsActivity frsActivity4 = this.a;
+                                            str8 = frsActivity4.S;
+                                            frsActivity4.S = String.valueOf(str8) + "|";
+                                        }
+                                        i5 = i6 + 1;
+                                    } else {
+                                        FrsActivity frsActivity5 = this.a;
+                                        str6 = this.a.S;
+                                        com.baidu.tieba.util.cb.a(frsActivity5, "frs_show_app", "frs_recommend_app", 1, "app_name", str6);
                                     }
                                 }
-                                FrsActivity frsActivity5 = this.a;
-                                str6 = this.a.R;
-                                cb.a(frsActivity5, "frs_show_app", "frs_recommend_app", 1, "app_name", str6);
                             }
                         } else {
                             return;
@@ -204,40 +219,40 @@ class i implements by {
                     }
                 }
             }
-            zVar2 = this.a.A;
-            com.baidu.tieba.data.bb top_notice_data = zVar2.b().getTop_notice_data();
+            zVar6 = this.a.A;
+            com.baidu.tieba.data.bb top_notice_data = zVar6.f().getTop_notice_data();
             if (top_notice_data != null && top_notice_data.a() != null) {
                 com.baidu.tieba.data.az azVar = new com.baidu.tieba.data.az();
                 azVar.c(top_notice_data.a());
                 azVar.a(2);
                 azVar.b(top_notice_data.b());
-                azVar.t();
-                zVar11 = this.a.A;
-                zVar11.c().add(0, azVar);
+                azVar.q();
+                zVar19 = this.a.A;
+                zVar19.g().add(0, azVar);
             }
             z2 = this.a.x;
             if (z2) {
-                brVar16 = this.a.p;
-                brVar16.B();
+                bsVar16 = this.a.p;
+                bsVar16.z();
                 this.a.x = false;
             }
             str = this.a.G;
             if (str.equals("frs_page")) {
-                brVar15 = this.a.p;
-                brVar15.t();
+                bsVar15 = this.a.p;
+                bsVar15.s();
             } else {
                 str2 = this.a.G;
                 if (str2.equals("normal_page")) {
-                    brVar8 = this.a.p;
-                    brVar8.s();
+                    bsVar8 = this.a.p;
+                    bsVar8.r();
                 } else {
                     str3 = this.a.G;
                     if (str3.equals("good_page")) {
-                        brVar7 = this.a.p;
-                        zVar3 = this.a.A;
-                        ArrayList<com.baidu.tieba.data.z> good_classify = zVar3.b().getGood_classify();
-                        onItemClickListener = this.a.aj;
-                        brVar7.a(good_classify, onItemClickListener);
+                        bsVar7 = this.a.p;
+                        zVar7 = this.a.A;
+                        ArrayList<com.baidu.tieba.data.z> good_classify = zVar7.f().getGood_classify();
+                        onItemClickListener = this.a.al;
+                        bsVar7.a(good_classify, onItemClickListener);
                     }
                 }
             }
@@ -245,12 +260,12 @@ class i implements by {
             if (acVar != null) {
                 FrsActivity.t = acVar.e;
             }
-            zVar4 = this.a.A;
-            if (zVar4 != null) {
-                zVar9 = this.a.A;
-                if (zVar9.c() != null) {
-                    zVar10 = this.a.A;
-                    if (zVar10.c().size() == 0) {
+            zVar8 = this.a.A;
+            if (zVar8 != null) {
+                zVar13 = this.a.A;
+                if (zVar13.g() != null) {
+                    zVar14 = this.a.A;
+                    if (zVar14.g().size() == 0) {
                         i2 = this.a.f;
                         if (i2 == 1) {
                             this.a.showToast(this.a.getString(R.string.no_more_to_load));
@@ -260,11 +275,20 @@ class i implements by {
                                 i4 = frsActivity6.j;
                                 frsActivity6.j = i4 - 1;
                             }
-                            j3 = this.a.P;
-                            if (j3 > -1) {
+                            j4 = this.a.P;
+                            if (j4 > -1) {
                                 long currentTimeMillis = System.currentTimeMillis();
-                                j4 = this.a.P;
-                                cb.a("op_frs_enter", currentTimeMillis - j4);
+                                j5 = this.a.P;
+                                zVar15 = this.a.A;
+                                long d = zVar15.d();
+                                j6 = this.a.P;
+                                long j7 = d - j6;
+                                zVar16 = this.a.A;
+                                long b = zVar16.b();
+                                zVar17 = this.a.A;
+                                long c = zVar17.c();
+                                zVar18 = this.a.A;
+                                com.baidu.tieba.util.cb.a("op_frs_enter", currentTimeMillis - j5, j7, b, c, currentTimeMillis - zVar18.a());
                                 this.a.P = -1L;
                                 return;
                             }
@@ -273,52 +297,61 @@ class i implements by {
                     }
                 }
             }
-            zVar5 = this.a.A;
-            if (zVar5 != null) {
-                zVar7 = this.a.A;
-                if (zVar7.d() != null) {
-                    zVar8 = this.a.A;
-                    if (zVar8.d().getIsManager()) {
-                        brVar14 = this.a.p;
-                        brVar14.f(true);
-                        this.a.F();
-                        zVar6 = this.a.A;
-                        if (!zVar6.a()) {
-                            brVar12 = this.a.p;
-                            brVar12.o().j();
-                            brVar13 = this.a.p;
-                            brVar13.p().i();
+            zVar9 = this.a.A;
+            if (zVar9 != null) {
+                zVar11 = this.a.A;
+                if (zVar11.h() != null) {
+                    zVar12 = this.a.A;
+                    if (zVar12.h().getIsManager()) {
+                        bsVar14 = this.a.p;
+                        bsVar14.g(true);
+                        FrsActivity.m(this.a);
+                        zVar10 = this.a.A;
+                        if (!zVar10.e()) {
+                            bsVar12 = this.a.p;
+                            bsVar12.n().j();
+                            bsVar13 = this.a.p;
+                            bsVar13.o().i();
                         } else {
-                            brVar10 = this.a.p;
-                            brVar10.o().i();
-                            brVar11 = this.a.p;
-                            brVar11.p().h();
+                            bsVar10 = this.a.p;
+                            bsVar10.n().i();
+                            bsVar11 = this.a.p;
+                            bsVar11.o().h();
                         }
                     }
                 }
             }
-            brVar9 = this.a.p;
-            brVar9.f(false);
-            this.a.F();
-            zVar6 = this.a.A;
-            if (!zVar6.a()) {
+            bsVar9 = this.a.p;
+            bsVar9.g(false);
+            FrsActivity.m(this.a);
+            zVar10 = this.a.A;
+            if (!zVar10.e()) {
             }
         } else {
-            this.a.a(acVar);
+            FrsActivity.a(this.a, acVar);
         }
         this.a.q = null;
         j = this.a.P;
         if (j > -1) {
             long currentTimeMillis2 = System.currentTimeMillis();
             j2 = this.a.P;
-            cb.a("op_frs_enter", currentTimeMillis2 - j2);
+            zVar = this.a.A;
+            long d2 = zVar.d();
+            j3 = this.a.P;
+            long j8 = d2 - j3;
+            zVar2 = this.a.A;
+            long b2 = zVar2.b();
+            zVar3 = this.a.A;
+            long c2 = zVar3.c();
+            zVar4 = this.a.A;
+            com.baidu.tieba.util.cb.a("op_frs_enter", currentTimeMillis2 - j2, j8, b2, c2, currentTimeMillis2 - zVar4.a());
             this.a.P = -1L;
         }
         System.gc();
     }
 
-    @Override // com.baidu.tieba.frs.by
-    public void a(com.baidu.tieba.model.z zVar) {
+    @Override // com.baidu.tieba.frs.bz
+    public final void a(com.baidu.tieba.model.z zVar) {
         String str;
         String str2;
         if (zVar != null) {
@@ -329,7 +362,7 @@ class i implements by {
                     return;
                 }
             }
-            this.a.b(zVar);
+            FrsActivity.b(this.a, zVar);
         }
     }
 }

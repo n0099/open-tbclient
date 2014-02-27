@@ -4,7 +4,7 @@ import com.baidu.tieba.im.message.cy;
 import com.baidu.tieba.im.message.da;
 import com.baidu.tieba.im.message.s;
 /* loaded from: classes.dex */
-class d implements com.baidu.tieba.im.messageCenter.g {
+final class d implements com.baidu.tieba.im.messageCenter.g {
     final /* synthetic */ MyGroupFragment a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ class d implements com.baidu.tieba.im.messageCenter.g {
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(s sVar) {
+    public final void a(s sVar) {
         switch (sVar.w()) {
             case -109:
             case 103101:

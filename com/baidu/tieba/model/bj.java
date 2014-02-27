@@ -3,7 +3,7 @@ package com.baidu.tieba.model;
 import com.baidu.tieba.data.InterestFrsData;
 /* loaded from: classes.dex */
 public interface bj {
-    void a(InterestFrsData interestFrsData);
+    void a();
 
-    void b(InterestFrsData interestFrsData);
+    void a(InterestFrsData interestFrsData);
 }

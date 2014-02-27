@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
-class af implements com.baidu.adp.widget.ListView.t {
+final class af implements com.baidu.adp.widget.ListView.t {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,6 +9,6 @@ class af implements com.baidu.adp.widget.ListView.t {
     }
 
     @Override // com.baidu.adp.widget.ListView.t
-    public void b() {
+    public final void a() {
     }
 }

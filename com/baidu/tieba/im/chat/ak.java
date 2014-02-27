@@ -9,11 +9,13 @@ import com.baidu.tbadk.imageManager.TbFaceManager;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
-public class ak {
-    private static final HashMap<String, String> a = new HashMap<>();
+public final class ak {
+    private static final HashMap<String, String> a;
 
     static {
-        a.put("#(蹦蹦跳跳)", "10th_001");
+        HashMap<String, String> hashMap = new HashMap<>();
+        a = hashMap;
+        hashMap.put("#(蹦蹦跳跳)", "10th_001");
         a.put("#(晃悠)", "10th_002");
         a.put("#(摇摇摆摆)", "10th_003");
         a.put("#(大撒花)", "10th_004");
@@ -278,11 +280,10 @@ public class ak {
         a.put("#(抓狂~)", "B_0022");
     }
 
-    private static String a(String str) {
-        return a.get(str);
-    }
-
     public static ArrayList<com.baidu.tbadk.widget.richText.c> a(Context context, String str) {
+        SpannableString b;
+        String str2;
+        SpannableString spannableString;
         ArrayList<com.baidu.tbadk.widget.richText.c> arrayList = new ArrayList<>();
         if (TextUtils.isEmpty(str)) {
             return arrayList;
@@ -290,79 +291,83 @@ public class ak {
         com.baidu.tbadk.widget.richText.c cVar = new com.baidu.tbadk.widget.richText.c(1);
         arrayList.add(cVar);
         try {
-            String str2 = "";
+            String str3 = "";
             int length = str.length();
             int i = 0;
             while (i < str.length()) {
                 char charAt = str.charAt(i);
                 if (charAt == '#' && i < length - 1 && str.charAt(i + 1) == '(') {
-                    String str3 = "#(";
-                    i += 2;
-                    while (i < length) {
-                        char charAt2 = str.charAt(i);
-                        str3 = String.valueOf(str3) + charAt2;
-                        if (charAt2 == ')' || (i + 1 < length && str.charAt(i + 1) == '#')) {
+                    int i2 = i + 2;
+                    String str4 = "#(";
+                    while (i2 < length) {
+                        char charAt2 = str.charAt(i2);
+                        str4 = String.valueOf(str4) + charAt2;
+                        if (charAt2 == ')' || (i2 + 1 < length && str.charAt(i2 + 1) == '#')) {
                             break;
                         }
-                        i++;
+                        i2++;
                     }
-                    String a2 = a(str3);
-                    if (TextUtils.isEmpty(a2)) {
-                        str2 = String.valueOf(str2) + str3;
+                    String str5 = str4;
+                    String str6 = a.get(str5);
+                    if (TextUtils.isEmpty(str6)) {
+                        int i3 = i2;
+                        str2 = String.valueOf(str3) + str5;
+                        i = i3;
                     } else {
-                        if (!TextUtils.isEmpty(str2)) {
-                            SpannableString b = b(context, str2);
-                            if (b != null) {
-                                cVar.a(b);
+                        if (!TextUtils.isEmpty(str3)) {
+                            SpannableString b2 = b(context, str3);
+                            if (b2 != null) {
+                                cVar.a(b2);
                             }
-                            str2 = "";
+                            str3 = "";
                         }
-                        SpannableString a3 = a(context, cVar.b(), a2, str3);
-                        if (a3 != null) {
-                            cVar.a(a3);
+                        ArrayList<com.baidu.tbadk.widget.richText.f> b3 = cVar.b();
+                        int b4 = TbFaceManager.a().b(str6);
+                        if (b4 != 0) {
+                            SpannableString spannableString2 = new SpannableString(String.valueOf(str5) + " ");
+                            com.baidu.tbadk.widget.richText.f fVar = new com.baidu.tbadk.widget.richText.f(context, b4);
+                            if (b3 != null) {
+                                b3.add(fVar);
+                            }
+                            com.baidu.tbadk.imageManager.c c = TbFaceManager.a().c(str6);
+                            if (c != null) {
+                                fVar.setBounds(new Rect(0, 0, c.a(), c.b()));
+                            } else {
+                                fVar.setBounds(new Rect(0, 0, 0, 0));
+                            }
+                            spannableString2.setSpan(new ImageSpan(fVar, 0), 0, str5.length(), 33);
+                            spannableString = spannableString2;
+                        } else {
+                            spannableString = null;
+                        }
+                        if (spannableString != null) {
+                            cVar.a(spannableString);
+                            i = i2;
+                            str2 = str3;
+                        } else {
+                            i = i2;
+                            str2 = str3;
                         }
                     }
                 } else {
-                    str2 = String.valueOf(str2) + charAt;
+                    str2 = String.valueOf(str3) + charAt;
                 }
                 i++;
+                str3 = str2;
             }
-            if (!TextUtils.isEmpty(str2)) {
-                SpannableString b2 = b(context, str2);
-                if (b2 != null) {
-                    cVar.a(b2);
-                }
+            if (!TextUtils.isEmpty(str3) && (b = b(context, str3)) != null) {
+                cVar.a(b);
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b("error = " + e.getMessage());
+            com.baidu.adp.lib.util.e.b("error = " + e.getMessage());
         }
         return arrayList;
-    }
-
-    private static SpannableString a(Context context, ArrayList<com.baidu.tbadk.widget.richText.f> arrayList, String str, String str2) {
-        SpannableString spannableString = null;
-        int b = TbFaceManager.a().b(str);
-        if (b != 0) {
-            spannableString = new SpannableString(String.valueOf(str2) + " ");
-            com.baidu.tbadk.widget.richText.f fVar = new com.baidu.tbadk.widget.richText.f(context, b);
-            if (arrayList != null) {
-                arrayList.add(fVar);
-            }
-            com.baidu.tbadk.imageManager.c c = TbFaceManager.a().c(str);
-            if (c != null) {
-                fVar.setBounds(new Rect(0, 0, c.a(), c.b()));
-            } else {
-                fVar.setBounds(new Rect(0, 0, 0, 0));
-            }
-            spannableString.setSpan(new ImageSpan(fVar, 0), 0, str2.length(), 33);
-        }
-        return spannableString;
     }
 
     private static SpannableString b(Context context, String str) {
         if (str == null) {
             return null;
         }
-        return com.baidu.tieba.im.util.q.a(context, str);
+        return com.baidu.tieba.im.util.p.a(context, str);
     }
 }

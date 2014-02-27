@@ -22,7 +22,7 @@ public class ImageOperation implements Serializable {
             jSONObject.put("actionParam", this.actionParam);
             return jSONObject;
         } catch (JSONException e) {
-            com.baidu.adp.lib.util.f.b(e.getMessage());
+            com.baidu.adp.lib.util.e.b(e.getMessage());
             return null;
         }
     }

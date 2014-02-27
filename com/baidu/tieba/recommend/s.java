@@ -3,7 +3,7 @@ package com.baidu.tieba.recommend;
 import android.widget.ImageView;
 import android.widget.TextView;
 /* loaded from: classes.dex */
-class s {
+final class s {
     TextView a;
     TextView b;
     ImageView c;
@@ -14,7 +14,7 @@ class s {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ s(h hVar, s sVar) {
+    public /* synthetic */ s(h hVar, byte b) {
         this(hVar);
     }
 }

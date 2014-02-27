@@ -3,9 +3,8 @@ package com.baidu.tieba.account.appeal;
 import android.widget.TextView;
 import com.baidu.tieba.util.bs;
 import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements l {
+final class d implements l {
     final /* synthetic */ AppealActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +13,7 @@ public class d implements l {
     }
 
     @Override // com.baidu.tieba.account.appeal.l
-    public void a(ForbidReasonData forbidReasonData) {
+    public final void a(ForbidReasonData forbidReasonData) {
         TextView textView;
         String str;
         TextView textView2;
@@ -26,7 +25,7 @@ public class d implements l {
     }
 
     @Override // com.baidu.tieba.account.appeal.l
-    public void b(ForbidReasonData forbidReasonData) {
+    public final void b(ForbidReasonData forbidReasonData) {
         this.a.showToast(forbidReasonData.error.b);
     }
 }

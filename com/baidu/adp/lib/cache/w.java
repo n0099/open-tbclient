@@ -1,6 +1,6 @@
 package com.baidu.adp.lib.cache;
 /* loaded from: classes.dex */
-class w implements Runnable {
+final class w implements Runnable {
     final /* synthetic */ v a;
     private final /* synthetic */ String b;
     private final /* synthetic */ Object c;
@@ -15,7 +15,7 @@ class w implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         this.a.a(this.b, this.c, this.d);
     }
 }

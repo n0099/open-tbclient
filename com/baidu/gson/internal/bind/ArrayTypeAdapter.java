@@ -34,7 +34,7 @@ public final class ArrayTypeAdapter<E> extends TypeAdapter<Object> {
     }
 
     @Override // com.baidu.gson.TypeAdapter
-    public Object read(JsonReader jsonReader) {
+    public final Object read(JsonReader jsonReader) {
         if (jsonReader.peek() == JsonToken.NULL) {
             jsonReader.nextNull();
             return null;
@@ -55,7 +55,7 @@ public final class ArrayTypeAdapter<E> extends TypeAdapter<Object> {
     /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: com.baidu.gson.TypeAdapter<E> */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // com.baidu.gson.TypeAdapter
-    public void write(JsonWriter jsonWriter, Object obj) {
+    public final void write(JsonWriter jsonWriter, Object obj) {
         if (obj == null) {
             jsonWriter.nullValue();
             return;

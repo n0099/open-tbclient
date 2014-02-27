@@ -1,7 +1,7 @@
 package com.baidu.tieba.view;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bs implements ab {
+public final class bs implements ab {
     final /* synthetic */ MultiImageView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,7 +10,7 @@ public class bs implements ab {
     }
 
     @Override // com.baidu.tieba.view.ab
-    public void a(w wVar, boolean z, boolean z2) {
+    public final void a(w wVar) {
         av avVar;
         avVar = this.a.e;
         if (avVar.getSelectedView() == wVar) {

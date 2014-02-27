@@ -65,12 +65,12 @@ public class ForumListModel extends com.baidu.adp.a.d implements Serializable {
         baVar.a("recommend_type", String.valueOf(requestParams.recommend_type));
         baVar.a("menu_name", requestParams.menu_name);
         baVar.a("menu_type", String.valueOf(i));
-        String m2 = baVar.m();
-        a = baVar.e();
-        com.baidu.adp.lib.util.f.e("DataProvider", "fetch", "fetched raw string\n" + m2);
-        ForumListModel forumListModel = (ForumListModel) new GsonBuilder().create().fromJson(m2, (Class<Object>) ForumListModel.class);
+        String l = baVar.l();
+        a = baVar.d();
+        com.baidu.adp.lib.util.e.e("DataProvider", "fetch", "fetched raw string\n" + l);
+        ForumListModel forumListModel = (ForumListModel) new GsonBuilder().create().fromJson(l, (Class<Object>) ForumListModel.class);
         if (requestParams.rn == 200 && requestParams.recommend_type == 0 && ((i == 9 || i == 136 || requestParams.menu_type == 2) && forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null && (m = com.baidu.tieba.c.a.a().m()) != null)) {
-            m.a(String.valueOf(TiebaApplication.A()) + "_" + b + "_list", m2, 86400000L);
+            m.a(String.valueOf(TiebaApplication.v()) + "_" + b + "_list", l, 86400000L);
         }
         return forumListModel;
     }

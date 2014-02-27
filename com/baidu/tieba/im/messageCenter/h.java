@@ -6,13 +6,26 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h {
+public final class h {
     public static boolean a(p pVar, LinkedList<p> linkedList) {
-        int c;
-        if (pVar == null || linkedList == null || (c = c(pVar, linkedList)) < 0 || c > linkedList.size()) {
+        int i;
+        if (pVar == null || linkedList == null) {
             return false;
         }
-        linkedList.add(c, pVar);
+        if (pVar == null || linkedList == null) {
+            i = -1;
+        } else {
+            int size = linkedList.size();
+            int i2 = 0;
+            while (i2 < size && linkedList.get(i2).h() <= pVar.h()) {
+                i2++;
+            }
+            i = i2;
+        }
+        if (i < 0 || i > linkedList.size()) {
+            return false;
+        }
+        linkedList.add(i, pVar);
         return true;
     }
 
@@ -30,74 +43,11 @@ public class h {
         }
     }
 
-    public static int a(LinkedList<p> linkedList) {
-        if (linkedList == null) {
-            return 0;
-        }
-        return linkedList.size();
-    }
-
-    public static p b(LinkedList<p> linkedList) {
-        if (linkedList == null) {
-            return null;
-        }
-        Iterator<p> it = linkedList.iterator();
-        while (it.hasNext()) {
-            p next = it.next();
-            if (next != null && !next.m()) {
-                it.remove();
-                return next;
-            }
-        }
-        return null;
-    }
-
     public static boolean b(p pVar, LinkedList<p> linkedList) {
         if (pVar == null || linkedList == null) {
             return false;
         }
         return linkedList.remove(pVar);
-    }
-
-    public static p a(s sVar, LinkedList<p> linkedList) {
-        if (sVar == null || linkedList == null) {
-            return null;
-        }
-        Iterator<p> it = linkedList.iterator();
-        while (it.hasNext()) {
-            p next = it.next();
-            if (next != null && next.i() == sVar) {
-                linkedList.remove(next);
-                return next;
-            }
-        }
-        return null;
-    }
-
-    public static int c(p pVar, LinkedList<p> linkedList) {
-        if (pVar == null || linkedList == null) {
-            return -1;
-        }
-        int size = linkedList.size();
-        int i = 0;
-        while (i < size && linkedList.get(i).g() <= pVar.g()) {
-            i++;
-        }
-        return i;
-    }
-
-    public static p c(LinkedList<p> linkedList) {
-        if (linkedList == null || linkedList.size() <= 0) {
-            return null;
-        }
-        return linkedList.peek();
-    }
-
-    public static p d(LinkedList<p> linkedList) {
-        if (linkedList == null || linkedList.size() <= 0) {
-            return null;
-        }
-        return linkedList.poll();
     }
 
     public static boolean a(LinkedList<p> linkedList, LinkedList<p> linkedList2, p pVar) {
@@ -108,7 +58,7 @@ public class h {
         return true;
     }
 
-    public static boolean e(LinkedList<p> linkedList) {
+    public static boolean a(LinkedList<p> linkedList) {
         if (linkedList == null) {
             return false;
         }
@@ -125,18 +75,6 @@ public class h {
         return false;
     }
 
-    public static void f(LinkedList<p> linkedList) {
-        if (linkedList != null) {
-            Iterator<p> it = linkedList.iterator();
-            while (it.hasNext()) {
-                p next = it.next();
-                if (next != null) {
-                    next.a();
-                }
-            }
-        }
-    }
-
     public static p a(int i, LinkedList<p> linkedList) {
         if (linkedList == null) {
             return null;
@@ -144,9 +82,9 @@ public class h {
         Iterator<p> it = linkedList.iterator();
         while (it.hasNext()) {
             p next = it.next();
-            if (next != null && next.k() == i) {
+            if (next != null && next.l() == i) {
                 it.remove();
-                next.b();
+                next.d();
                 return next;
             }
         }
@@ -161,7 +99,7 @@ public class h {
         Iterator<p> it = linkedList.iterator();
         while (it.hasNext()) {
             p next = it.next();
-            if (next != null && (i2 = next.i()) != null && i2.w() == i && iDuplicateProcess.a(i2)) {
+            if (next != null && (i2 = next.i()) != null && i2.w() == i) {
                 return true;
             }
         }
@@ -174,23 +112,23 @@ public class h {
             Iterator<p> it = linkedList.iterator();
             while (it.hasNext()) {
                 p next = it.next();
-                if (next != null && (i2 = next.i()) != null && i2.w() == i && iDuplicateProcess.a(i2)) {
+                if (next != null && (i2 = next.i()) != null && i2.w() == i) {
                     it.remove();
-                    cb.a(i, next.k(), "duplicate remove from queue", "MessageQueue: Message throwed", null, 0, null);
+                    cb.a(i, next.l(), "duplicate remove from queue", "MessageQueue: Message throwed", null, 0, null);
                 }
             }
         }
     }
 
-    public static boolean a(LinkedList<p> linkedList, c cVar, int i) {
+    public static boolean a(LinkedList<p> linkedList, b bVar, int i) {
         s i2;
-        if (cVar == null) {
+        if (bVar == null) {
             return false;
         }
         Iterator<p> it = linkedList.iterator();
         while (it.hasNext()) {
             p next = it.next();
-            if (next != null && (i2 = next.i()) != null && i2.w() == i && cVar.a(i2)) {
+            if (next != null && (i2 = next.i()) != null && i2.w() == i && bVar.a(i2)) {
                 return true;
             }
         }

@@ -7,7 +7,7 @@ import com.baidu.adp.widget.ColumnLayout;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.view.HeadImageView;
 /* loaded from: classes.dex */
-public class cg {
+public final class cg {
     public View a;
     public ColumnLayout b;
     public HeadImageView c;

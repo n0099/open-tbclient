@@ -3,7 +3,7 @@ package com.baidu.tieba.im.message;
 import com.google.protobuf.MessageLite;
 import protobuf.QuitChatroom.QuitChatroomReq;
 /* loaded from: classes.dex */
-public class ay extends s implements com.baidu.tieba.im.coder.g {
+public final class ay extends s implements com.baidu.tieba.im.coder.g {
     private int a;
     private int b;
     private int c;
@@ -15,12 +15,12 @@ public class ay extends s implements com.baidu.tieba.im.coder.g {
         this.c = i3;
     }
 
-    public int b() {
+    public final int b() {
         return this.c;
     }
 
     @Override // com.baidu.tieba.im.coder.g
-    public MessageLite a() {
+    public final MessageLite a() {
         return QuitChatroomReq.QuitChatroomReqIdl.newBuilder().a(QuitChatroomReq.DataReq.newBuilder().a(this.a).b(this.b).build()).build();
     }
 }

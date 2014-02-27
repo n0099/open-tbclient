@@ -7,7 +7,7 @@ import com.baidu.tieba.switchs.SwitchKey;
 import com.baidu.tieba.util.cb;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements View.OnClickListener {
+public final class g implements View.OnClickListener {
     final /* synthetic */ ItemFootNavView a;
     private final /* synthetic */ com.baidu.tieba.f b;
     private final /* synthetic */ String c;
@@ -20,7 +20,7 @@ public class g implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         Context context;
         boolean z;
         context = this.a.a;

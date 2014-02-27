@@ -14,15 +14,11 @@ public abstract class c<T> {
     protected LinkedList<String> f = new LinkedList<>();
     private Object g = new Object();
 
-    public abstract int a();
-
     protected abstract ContentValues a(m<T> mVar);
 
     protected abstract m<T> a(SQLiteDatabase sQLiteDatabase, String str);
 
     public abstract String a(String str);
-
-    public abstract void a(String str, String str2, int i, int i2);
 
     public abstract Cursor b(SQLiteDatabase sQLiteDatabase, String str);
 
@@ -32,7 +28,7 @@ public abstract class c<T> {
         this.a = hVar;
     }
 
-    public void a(f fVar, String str) {
+    public final void a(f fVar, String str) {
         this.b = str;
         if (fVar instanceof h) {
             this.c = (h) fVar;
@@ -42,17 +38,17 @@ public abstract class c<T> {
         }
     }
 
-    public m<T> c(String str) {
+    public final m<T> c(String str) {
         try {
             return a(this.a.a(), str);
         } catch (Throwable th) {
-            this.a.a(th);
-            com.baidu.adp.lib.util.f.a(getClass(), str, th);
+            this.a.b();
+            com.baidu.adp.lib.util.e.a(getClass(), str, th);
             return null;
         }
     }
 
-    public void b(m<T> mVar) {
+    public final void b(m<T> mVar) {
         String a;
         try {
             synchronized (this.g) {
@@ -62,60 +58,61 @@ public abstract class c<T> {
             if (this.a.a().update(this.b, a2, "m_key = ?", new String[]{mVar.a}) == 0) {
                 this.a.a().insert(this.b, null, a2);
                 if (this.d != null) {
-                    b();
+                    c();
                 }
             }
             if (this.c != null && (a = this.c.a(mVar)) != null) {
                 d(a);
             }
         } catch (Throwable th) {
-            this.a.a(th);
-            com.baidu.adp.lib.util.f.a(getClass(), "failed to insert " + mVar.a + " to db.", th);
+            this.a.b();
+            com.baidu.adp.lib.util.e.a(getClass(), "failed to insert " + mVar.a + " to db.", th);
         }
     }
 
-    protected void b() {
+    private void c() {
         if (this.d != null) {
             this.e++;
             if (this.e >= ((int) Math.min(this.d.a() * 0.2d, 5.0d))) {
                 this.e = 0;
-                com.baidu.adp.lib.f.d.a().a(new d(this));
+                com.baidu.adp.lib.f.d.a();
+                com.baidu.adp.lib.f.d.a(new d(this));
             }
         }
     }
 
-    public int d(String str) {
+    public final int d(String str) {
         try {
             return this.a.a().delete(this.b, "m_key = ?", new String[]{str});
         } catch (Throwable th) {
-            this.a.a(th);
-            com.baidu.adp.lib.util.f.a(getClass(), "failed to delete " + str + " from db.", th);
+            this.a.b();
+            com.baidu.adp.lib.util.e.a(getClass(), "failed to delete " + str + " from db.", th);
             return 0;
         }
     }
 
-    public void e(String str) {
+    public final void e(String str) {
         this.e = 0;
         synchronized (this.g) {
             this.f.clear();
         }
         if (b(str)) {
-            BdCacheService.c().d().b(str);
+            BdCacheService.a().b().b(str);
         }
     }
 
-    public synchronized void a(String str, boolean z) {
+    public final synchronized void a(String str, boolean z) {
         synchronized (this.g) {
             if (!this.f.contains(str)) {
                 this.f.addLast(str);
                 if (z) {
-                    b();
+                    c();
                 }
             }
         }
     }
 
-    public void f(String str) {
+    public final void f(String str) {
         if (this.d != null) {
             Cursor cursor = null;
             try {
@@ -132,11 +129,11 @@ public abstract class c<T> {
                         a(a, false);
                     }
                 }
-                c();
+                a();
             } catch (Throwable th) {
                 try {
-                    this.a.a(th);
-                    com.baidu.adp.lib.util.f.a(getClass(), "performEvict", th);
+                    this.a.b();
+                    com.baidu.adp.lib.util.e.a(getClass(), "performEvict", th);
                 } finally {
                     com.baidu.adp.lib.f.a.a(cursor);
                     this.d.d();
@@ -145,11 +142,11 @@ public abstract class c<T> {
         }
     }
 
-    public void g(String str) {
+    public final void g(String str) {
         if (this.c != null) {
             Cursor cursor = null;
             try {
-                this.c.c();
+                h hVar = this.c;
                 cursor = b(this.a.a(), str);
                 while (cursor.moveToNext()) {
                     m<?> mVar = new m<>();
@@ -162,21 +159,21 @@ public abstract class c<T> {
                         a(b, false);
                     }
                 }
-                c();
+                a();
             } catch (Throwable th) {
                 try {
-                    this.a.a(th);
-                    com.baidu.adp.lib.util.f.a(getClass(), "performPump", th);
+                    this.a.b();
+                    com.baidu.adp.lib.util.e.a(getClass(), "performPump", th);
                 } finally {
                     com.baidu.adp.lib.f.a.a(cursor);
-                    this.c.d();
+                    h hVar2 = this.c;
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void c() {
+    public final void a() {
         String removeFirst;
         if (!this.f.isEmpty()) {
             SQLiteDatabase a = this.a.a();
@@ -195,7 +192,7 @@ public abstract class c<T> {
                     a.delete(this.b, "m_key = ?", new String[]{String.valueOf(removeFirst)});
                 } catch (Throwable th) {
                     try {
-                        this.a.a(th);
+                        this.a.b();
                         return;
                     } finally {
                         a.endTransaction();
@@ -205,7 +202,7 @@ public abstract class c<T> {
         }
     }
 
-    public com.baidu.adp.a.h d() {
+    public final com.baidu.adp.a.h b() {
         return this.a;
     }
 }

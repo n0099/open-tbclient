@@ -3,7 +3,7 @@ package com.baidu.tieba.person;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.data.UserData;
 /* loaded from: classes.dex */
-class cy implements Runnable {
+final class cy implements Runnable {
     final /* synthetic */ PersonListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ class cy implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         BdListView bdListView;
         BdListView bdListView2;
         dg dgVar;
@@ -37,7 +37,7 @@ class cy implements Runnable {
                 }
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "mGetImageRunnble.run", e.getMessage());
+            com.baidu.adp.lib.util.e.b(getClass().getName(), "mGetImageRunnble.run", e.getMessage());
         }
     }
 }

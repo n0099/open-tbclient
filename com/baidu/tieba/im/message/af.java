@@ -3,7 +3,7 @@ package com.baidu.tieba.im.message;
 import com.google.protobuf.MessageLite;
 import protobuf.CheckMaskUser.CheckMaskUserReq;
 /* loaded from: classes.dex */
-public class af extends s implements com.baidu.tieba.im.coder.g {
+public final class af extends s implements com.baidu.tieba.im.coder.g {
     private int a;
 
     public af() {
@@ -11,15 +11,11 @@ public class af extends s implements com.baidu.tieba.im.coder.g {
     }
 
     @Override // com.baidu.tieba.im.coder.g
-    public MessageLite a() {
-        return CheckMaskUserReq.CheckMaskUserIdl.newBuilder().a(CheckMaskUserReq.DataReq.newBuilder().a(b()).build()).build();
+    public final MessageLite a() {
+        return CheckMaskUserReq.CheckMaskUserIdl.newBuilder().a(CheckMaskUserReq.DataReq.newBuilder().a(this.a).build()).build();
     }
 
-    public int b() {
-        return this.a;
-    }
-
-    public void a(int i) {
+    public final void a(int i) {
         this.a = i;
     }
 }

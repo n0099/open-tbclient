@@ -4,31 +4,31 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class ao {
+public final class ao {
     private ArrayList<UserData> a = new ArrayList<>();
     private al b = new al();
 
-    public void a(al alVar) {
+    public final void a(al alVar) {
         this.b = alVar;
     }
 
-    public al a() {
+    public final al a() {
         return this.b;
     }
 
-    public ArrayList<UserData> b() {
+    public final ArrayList<UserData> b() {
         return this.a;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
+            com.baidu.adp.lib.util.e.b(getClass().getName(), "parserJson", e.getMessage());
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    private void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
@@ -41,7 +41,7 @@ public class ao {
                 }
                 this.b.a(jSONObject.optJSONObject("page"));
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }

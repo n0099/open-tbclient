@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.TextView;
 import java.util.List;
 /* loaded from: classes.dex */
-class a implements View.OnClickListener {
+final class a implements View.OnClickListener {
     final /* synthetic */ EmotionManageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ class a implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         TextView textView;
         TextView textView2;
         TextView textView3;
@@ -27,7 +27,7 @@ class a implements View.OnClickListener {
                 textView3 = this.a.m;
                 if (view == textView3) {
                     FacePurchaseRecordsActivity.a(this.a, "emotion_manage");
-                    this.a.e();
+                    this.a.b();
                     this.a.a(true);
                     return;
                 }
@@ -35,9 +35,9 @@ class a implements View.OnClickListener {
             }
             z = this.a.p;
             if (!z) {
-                this.a.d();
+                EmotionManageActivity.g(this.a);
             } else {
-                this.a.e();
+                this.a.b();
                 list = this.a.b;
                 list.clear();
             }
@@ -45,6 +45,6 @@ class a implements View.OnClickListener {
             dVar.notifyDataSetChanged();
             return;
         }
-        this.a.g();
+        EmotionManageActivity.b(this.a);
     }
 }

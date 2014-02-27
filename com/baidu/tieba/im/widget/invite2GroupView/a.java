@@ -7,7 +7,7 @@ import com.baidu.tieba.im.data.InviteMsgData;
 import com.baidu.tieba.im.groupInfo.ApplyJoinGroupActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class a implements View.OnClickListener {
+public final class a implements View.OnClickListener {
     final /* synthetic */ Invite2GroupView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,7 +16,7 @@ public class a implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         Button button;
         InviteMsgData inviteMsgData;
         InviteMsgData inviteMsgData2;

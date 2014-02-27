@@ -1,9 +1,9 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.TiebaApplication;
+import android.text.TextUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cd extends com.baidu.tieba.im.c<Boolean> {
+public final class cd implements com.baidu.tieba.im.a<Boolean> {
     final /* synthetic */ MsglistActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,10 +11,24 @@ public class cd extends com.baidu.tieba.im.c<Boolean> {
         this.a = msglistActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.c
-    /* renamed from: a */
-    public Boolean b() {
-        return Boolean.valueOf(com.baidu.tieba.im.groupInfo.v.b(TiebaApplication.A(), String.valueOf(this.a.e.a().getGroupId())));
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.baidu.tieba.im.a
+    public final /* synthetic */ void a(Boolean bool) {
+        Boolean bool2 = bool;
+        if (bool2 != null) {
+            if (bool2.booleanValue()) {
+                this.a.d.H();
+            } else {
+                this.a.d.I();
+            }
+            if (this.a.e == null || this.a.e.a() == null) {
+                return;
+            }
+            String name = this.a.e.a().getName();
+            if (TextUtils.isEmpty(name)) {
+                return;
+            }
+            this.a.d.a(name);
+        }
     }
 }

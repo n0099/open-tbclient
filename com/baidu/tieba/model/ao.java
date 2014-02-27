@@ -4,10 +4,41 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ao extends BdAsyncTask<Object, Integer, JSONObject> {
+public final class ao extends BdAsyncTask<Object, Integer, JSONObject> {
     final /* synthetic */ al a;
     private int b;
     private com.baidu.tieba.util.ba c = null;
+
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ JSONObject a(Object... objArr) {
+        return d();
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ void a(JSONObject jSONObject) {
+        com.baidu.tieba.frs.bo boVar;
+        com.baidu.tieba.frs.bo boVar2;
+        JSONObject jSONObject2 = jSONObject;
+        super.a((ao) jSONObject2);
+        this.a.l = null;
+        boVar = this.a.n;
+        if (boVar != null) {
+            an anVar = new an(this.a);
+            if (this.c != null) {
+                anVar.a = true;
+                anVar.b = this.c.d();
+                anVar.c = this.c.e();
+                anVar.d = this.c.i();
+                anVar.e = this.c.b();
+            }
+            boVar2 = this.a.n;
+            boVar2.a(this.b, jSONObject2, anVar);
+        }
+    }
 
     public ao(al alVar, int i) {
         this.a = alVar;
@@ -18,11 +49,7 @@ public class ao extends BdAsyncTask<Object, Integer, JSONObject> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public JSONObject a(Object... objArr) {
+    private JSONObject d() {
         String str;
         try {
             this.c = new com.baidu.tieba.util.ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/f/frs/photo");
@@ -40,54 +67,31 @@ public class ao extends BdAsyncTask<Object, Integer, JSONObject> {
             com.baidu.tieba.util.ba baVar = this.c;
             str = this.a.j;
             baVar.a("kw", str);
-            return new JSONObject(this.c.m());
+            return new JSONObject(this.c.l());
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.adp.lib.util.e.b(getClass().getName(), "doInBackground", e.getMessage());
             return null;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(JSONObject jSONObject) {
-        com.baidu.tieba.frs.bn bnVar;
-        com.baidu.tieba.frs.bn bnVar2;
-        super.a((ao) jSONObject);
-        this.a.l = null;
-        bnVar = this.a.n;
-        if (bnVar != null) {
-            an anVar = new an(this.a);
-            if (this.c != null) {
-                anVar.a = true;
-                anVar.b = this.c.e();
-                anVar.c = this.c.f();
-                anVar.d = this.c.j();
-                anVar.e = this.c.c();
-            }
-            bnVar2 = this.a.n;
-            bnVar2.a(this.b, jSONObject, anVar);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void b() {
-        com.baidu.tieba.frs.bn bnVar;
-        com.baidu.tieba.frs.bn bnVar2;
+    public final void b() {
+        com.baidu.tieba.frs.bo boVar;
+        com.baidu.tieba.frs.bo boVar2;
         super.b();
-        bnVar = this.a.n;
-        if (bnVar != null) {
-            bnVar2 = this.a.n;
-            bnVar2.a(0);
+        boVar = this.a.n;
+        if (boVar != null) {
+            boVar2 = this.a.n;
+            boVar2.a();
         }
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
+    public final void cancel() {
         super.cancel(true);
         if (this.c != null) {
-            this.c.k();
+            this.c.j();
             this.c = null;
         }
         this.a.l = null;

@@ -10,7 +10,7 @@ import com.baidu.tieba.data.WriteData;
 import java.util.ArrayList;
 import java.util.Date;
 /* loaded from: classes.dex */
-public class bb extends com.baidu.adp.a.d {
+public final class bb extends com.baidu.adp.a.d {
     private static final int b = com.baidu.tieba.data.i.n() / 30;
     private static com.baidu.tieba.data.an x = new com.baidu.tieba.data.an();
     private com.baidu.tieba.data.am v;
@@ -40,6 +40,26 @@ public class bb extends com.baidu.adp.a.d {
     private com.baidu.adp.lib.cache.s<String> B = null;
     private com.baidu.adp.lib.cache.s<String> C = null;
     protected com.baidu.tieba.util.i a = null;
+    private long D = 0;
+    private long E = 0;
+    private long F = 0;
+    private long G = 0;
+
+    public final long a() {
+        return this.G;
+    }
+
+    public final long b() {
+        return this.E;
+    }
+
+    public final long c() {
+        return this.F;
+    }
+
+    public final long d() {
+        return this.D;
+    }
 
     public bb(Context context) {
         this.v = null;
@@ -50,7 +70,7 @@ public class bb extends com.baidu.adp.a.d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void y() {
+    public void B() {
         if (this.B == null) {
             this.B = com.baidu.tieba.c.a.a().b();
         }
@@ -59,7 +79,7 @@ public class bb extends com.baidu.adp.a.d {
         }
     }
 
-    public void a(Intent intent) {
+    public final void a(Intent intent) {
         this.d = intent.getStringExtra("thread_id");
         this.e = intent.getStringExtra("post_id");
         this.f = intent.getBooleanExtra("host_only", false);
@@ -77,7 +97,7 @@ public class bb extends com.baidu.adp.a.d {
         this.u = intent.getStringExtra("forum_name");
     }
 
-    public void a(Bundle bundle) {
+    public final void a(Bundle bundle) {
         this.d = bundle.getString("thread_id");
         this.e = bundle.getString("post_id");
         this.f = bundle.getBoolean("host_only", false);
@@ -95,7 +115,7 @@ public class bb extends com.baidu.adp.a.d {
         this.u = bundle.getString("forum_name");
     }
 
-    public void b(Bundle bundle) {
+    public final void b(Bundle bundle) {
         bundle.putString("thread_id", this.d);
         bundle.putString("post_id", this.e);
         bundle.putBoolean("host_only", this.f);
@@ -112,7 +132,7 @@ public class bb extends com.baidu.adp.a.d {
         bundle.putLong("msg_id", this.s);
     }
 
-    public String a() {
+    public final String e() {
         StringBuilder sb = new StringBuilder(20);
         sb.append(this.d);
         sb.append(this.e);
@@ -132,70 +152,70 @@ public class bb extends com.baidu.adp.a.d {
         return sb.toString();
     }
 
-    public String b() {
+    public final String f() {
         return this.u;
     }
 
-    public String c() {
+    public final String g() {
         return this.d;
     }
 
-    public boolean d() {
+    public final boolean h() {
         return this.f;
     }
 
-    public boolean e() {
+    public final boolean i() {
         return this.g;
     }
 
-    public boolean f() {
+    public final boolean j() {
         return this.q;
     }
 
-    public boolean g() {
+    public final boolean k() {
         return this.r;
     }
 
-    public int h() {
+    public final int l() {
         return this.h;
     }
 
-    public int i() {
+    public final int m() {
         return this.i;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.h = i;
     }
 
-    public void b(int i) {
+    public final void b(int i) {
         this.i = i;
     }
 
-    public boolean j() {
+    public final boolean n() {
         return this.p;
     }
 
-    public boolean k() {
+    public final boolean o() {
         if (this.v == null) {
             return false;
         }
         return this.v.a();
     }
 
-    public String l() {
+    public final String p() {
         if (this.v == null || !this.v.i()) {
             return null;
         }
         return this.v.j();
     }
 
-    public boolean c(int i) {
+    public final boolean c(int i) {
         this.k = i;
         if (this.k > this.v.f().a()) {
             this.k = this.v.f().a();
         }
-        if (this.k < 1) {
+        if (this.k <= 0) {
             this.k = 1;
         }
         if (this.d == null) {
@@ -210,13 +230,13 @@ public class bb extends com.baidu.adp.a.d {
         return true;
     }
 
-    public void d(int i) {
+    public final void d(int i) {
         this.k = i;
         this.l = i;
         this.m = i;
     }
 
-    public void e(int i) {
+    public final void e(int i) {
         if (this.l < i) {
             this.l = i;
             if (this.l - this.m >= b) {
@@ -231,18 +251,18 @@ public class bb extends com.baidu.adp.a.d {
         }
     }
 
-    public com.baidu.tieba.data.am m() {
+    public final com.baidu.tieba.data.am q() {
         return this.v;
     }
 
-    public com.baidu.tieba.data.al n() {
+    public final com.baidu.tieba.data.al r() {
         if (this.v == null) {
             return null;
         }
         return this.v.f();
     }
 
-    public boolean o() {
+    public final boolean s() {
         if (this.g) {
             if (this.v.f().f() == 0) {
                 a(true);
@@ -256,7 +276,7 @@ public class bb extends com.baidu.adp.a.d {
     }
 
     @Override // com.baidu.adp.a.d
-    protected boolean LoadData() {
+    protected final boolean LoadData() {
         if (this.d == null) {
             return false;
         }
@@ -270,40 +290,39 @@ public class bb extends com.baidu.adp.a.d {
     }
 
     @Override // com.baidu.adp.a.d
-    public boolean cancelLoadData() {
+    public final boolean cancelLoadData() {
         if (this.w != null) {
             this.w.cancel();
         }
         if (this.a != null) {
-            this.a.d();
+            this.a.c();
             this.a = null;
             return true;
         }
         return true;
     }
 
-    public boolean p() {
-        return (this.e == null || this.e.equals(SocialConstants.FALSE)) ? LoadData() : q();
+    public final boolean t() {
+        if (this.e != null && !this.e.equals(SocialConstants.FALSE)) {
+            if (this.d == null || this.e == null) {
+                return false;
+            }
+            if (this.w != null) {
+                this.w.cancel();
+            }
+            if (this.r) {
+                this.w = new bd(this, 4);
+            } else {
+                this.w = new bd(this, 6);
+            }
+            this.w.setPriority(3);
+            this.w.execute(new Object[0]);
+            return true;
+        }
+        return LoadData();
     }
 
-    public boolean q() {
-        if (this.d == null || this.e == null) {
-            return false;
-        }
-        if (this.w != null) {
-            this.w.cancel();
-        }
-        if (this.r) {
-            this.w = new bd(this, 4);
-        } else {
-            this.w = new bd(this, 6);
-        }
-        this.w.setPriority(3);
-        this.w.execute(new Object[0]);
-        return true;
-    }
-
-    public boolean a(boolean z) {
+    public final boolean a(boolean z) {
         if (this.d == null || this.v == null) {
             return false;
         }
@@ -316,20 +335,17 @@ public class bb extends com.baidu.adp.a.d {
         return false;
     }
 
-    public boolean b(boolean z) {
-        if (this.d == null || this.v == null) {
+    public final boolean b(boolean z) {
+        if (this.d == null || this.v == null || this.v.e() == null || this.v.e().size() <= 0 || this.w != null) {
             return false;
         }
-        if ((z || this.v.f().g() != 0) && this.v.e() != null && this.v.e().size() >= 1 && this.w == null) {
-            this.w = new bd(this, 2);
-            this.w.setPriority(3);
-            this.w.execute(new Object[0]);
-            return true;
-        }
-        return false;
+        this.w = new bd(this, 2);
+        this.w.setPriority(3);
+        this.w.execute(new Object[0]);
+        return true;
     }
 
-    public boolean r() {
+    public final boolean u() {
         this.f = !this.f;
         if (this.f) {
             this.g = true;
@@ -338,7 +354,7 @@ public class bb extends com.baidu.adp.a.d {
         return true;
     }
 
-    public boolean s() {
+    public final boolean v() {
         this.g = !this.g;
         if (!this.g) {
             this.f = false;
@@ -347,18 +363,18 @@ public class bb extends com.baidu.adp.a.d {
         return true;
     }
 
-    public boolean t() {
+    public final boolean w() {
         return (this.v == null || this.v.c() == null || this.v.d() == null) ? false : true;
     }
 
-    public boolean u() {
+    public final boolean x() {
         if (this.v == null) {
             return false;
         }
         return this.v.i();
     }
 
-    public WriteData a(String str) {
+    public final WriteData a(String str) {
         if (this.v == null) {
             return null;
         }
@@ -377,7 +393,7 @@ public class bb extends com.baidu.adp.a.d {
         return writeData;
     }
 
-    public com.baidu.tieba.data.av a(com.baidu.tieba.data.aq aqVar) {
+    public final com.baidu.tieba.data.av a(com.baidu.tieba.data.aq aqVar) {
         if (aqVar == null) {
             return null;
         }
@@ -386,10 +402,10 @@ public class bb extends com.baidu.adp.a.d {
         avVar.a(this.v.d());
         avVar.a(aqVar);
         avVar.a(aqVar.a());
-        avVar.c(aqVar.j());
+        avVar.b(aqVar.j());
         String j = this.v.j();
         String d = aqVar.d();
-        if (u() && j != null && d != null && j.equals(d)) {
+        if (x() && j != null && d != null && j.equals(d)) {
             avVar.a(true);
             return avVar;
         }
@@ -397,7 +413,7 @@ public class bb extends com.baidu.adp.a.d {
         return avVar;
     }
 
-    public MarkData f(int i) {
+    public final MarkData f(int i) {
         if (i < 0) {
             i = 0;
         }
@@ -414,10 +430,10 @@ public class bb extends com.baidu.adp.a.d {
         return b(e.get(i));
     }
 
-    public MarkData v() {
+    public final MarkData y() {
         MarkData markData = new MarkData();
         Date date = new Date();
-        markData.setAccount(TiebaApplication.A());
+        markData.setAccount(TiebaApplication.v());
         markData.setThreadId(this.d);
         markData.setPostId(this.v.j());
         markData.setTime(date.getTime());
@@ -427,10 +443,10 @@ public class bb extends com.baidu.adp.a.d {
         return markData;
     }
 
-    public MarkData b(com.baidu.tieba.data.aq aqVar) {
+    public final MarkData b(com.baidu.tieba.data.aq aqVar) {
         MarkData markData = new MarkData();
         Date date = new Date();
-        markData.setAccount(TiebaApplication.A());
+        markData.setAccount(TiebaApplication.v());
         markData.setThreadId(this.d);
         markData.setPostId(aqVar.d());
         markData.setTime(date.getTime());
@@ -441,20 +457,20 @@ public class bb extends com.baidu.adp.a.d {
         return markData;
     }
 
-    public void w() {
-        y();
-        String z = z();
+    public final void z() {
+        B();
+        String C = C();
         if (this.r) {
-            if (this.B != null && z != null) {
-                this.B.b(z, "", 0L);
+            if (this.B != null && C != null) {
+                this.B.b(C, "", 0L);
             }
-        } else if (this.C != null && z != null) {
-            this.C.b(z, "", 0L);
+        } else if (this.C != null && C != null) {
+            this.C.b(C, "", 0L);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String z() {
+    public String C() {
         String str = this.d;
         if (this.f) {
             str = String.valueOf(str) + "_host";
@@ -462,19 +478,19 @@ public class bb extends com.baidu.adp.a.d {
         if (!this.g) {
             str = String.valueOf(str) + "_rev";
         }
-        if (TiebaApplication.A() != null) {
-            return String.valueOf(str) + TiebaApplication.A();
+        if (TiebaApplication.v() != null) {
+            return String.valueOf(str) + TiebaApplication.v();
         }
         return str;
     }
 
-    public void c(boolean z) {
+    public final void c(boolean z) {
         if (this.v != null) {
             this.v.a(z);
         }
     }
 
-    public void a(bc bcVar) {
+    public final void a(bc bcVar) {
         this.z = bcVar;
     }
 }

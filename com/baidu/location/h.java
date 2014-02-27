@@ -154,9 +154,8 @@ class h {
             if (randomAccessFile.length() < 1) {
                 randomAccessFile.writeInt(0);
             }
-            int size = f172int.size() - 1;
             int i = 0;
-            while (size >= 0) {
+            for (int size = f172int.size() - 1; size >= 0; size--) {
                 a aVar = (a) f172int.get(size);
                 if (aVar != null) {
                     randomAccessFile.seek(f174try + (f173new * (size % a)));
@@ -169,7 +168,6 @@ class h {
                     randomAccessFile.writeInt(aVar.f180try);
                     j.a(f171if, "add a new cell loc into file ...");
                 }
-                size--;
                 i++;
             }
             randomAccessFile.seek(0L);
@@ -183,13 +181,13 @@ class h {
     /* renamed from: if  reason: not valid java name */
     private static a m219if(int i, int i2, int i3) {
         try {
-            if (f172int == null || f172int.size() < 1) {
+            if (f172int == null || f172int.size() <= 0) {
                 a();
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if (f172int == null || f172int.size() < 1) {
+        if (f172int == null || f172int.size() <= 0) {
             return null;
         }
         for (int size = f172int.size() - 1; size >= 0; size--) {

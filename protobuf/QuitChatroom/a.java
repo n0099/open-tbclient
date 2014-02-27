@@ -5,11 +5,9 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import protobuf.QuitChatroom.QuitChatroomReq;
 /* loaded from: classes.dex */
-class a extends AbstractParser<QuitChatroomReq.DataReq> {
-    /* JADX DEBUG: Method merged with bridge method */
+final class a extends AbstractParser<QuitChatroomReq.DataReq> {
     @Override // com.google.protobuf.Parser
-    /* renamed from: a */
-    public QuitChatroomReq.DataReq parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
+    public final /* synthetic */ Object parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) {
         return new QuitChatroomReq.DataReq(codedInputStream, extensionRegistryLite, null);
     }
 }

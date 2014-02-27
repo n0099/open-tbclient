@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.QueryGroupsByLocation.QueryGroupsByLocationReq;
 /* loaded from: classes.dex */
 public final class b extends GeneratedMessageLite.Builder<QueryGroupsByLocationReq.DataReq, b> implements c {
@@ -16,19 +17,25 @@ public final class b extends GeneratedMessageLite.Builder<QueryGroupsByLocationR
     private int g;
     private int h;
 
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return QueryGroupsByLocationReq.DataReq.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return QueryGroupsByLocationReq.DataReq.getDefaultInstance();
+    }
+
     private b() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static b h() {
+    public static /* synthetic */ b c() {
         return new b();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: d */
     public b clear() {
         super.clear();
         this.b = 0.0d;
@@ -49,20 +56,14 @@ public final class b extends GeneratedMessageLite.Builder<QueryGroupsByLocationR
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
+    /* renamed from: e */
     public b clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public QueryGroupsByLocationReq.DataReq getDefaultInstanceForType() {
-        return QueryGroupsByLocationReq.DataReq.getDefaultInstance();
+        return new b().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: d */
-    public QueryGroupsByLocationReq.DataReq build() {
+    /* renamed from: a */
+    public final QueryGroupsByLocationReq.DataReq build() {
         QueryGroupsByLocationReq.DataReq buildPartial = buildPartial();
         if (!buildPartial.isInitialized()) {
             throw newUninitializedMessageException(buildPartial);
@@ -71,8 +72,8 @@ public final class b extends GeneratedMessageLite.Builder<QueryGroupsByLocationR
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: e */
-    public QueryGroupsByLocationReq.DataReq buildPartial() {
+    /* renamed from: b */
+    public final QueryGroupsByLocationReq.DataReq buildPartial() {
         QueryGroupsByLocationReq.DataReq dataReq = new QueryGroupsByLocationReq.DataReq(this, (QueryGroupsByLocationReq.DataReq) null);
         int i = this.a;
         int i2 = (i & 1) != 1 ? 0 : 1;
@@ -107,7 +108,7 @@ public final class b extends GeneratedMessageLite.Builder<QueryGroupsByLocationR
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public b mergeFrom(QueryGroupsByLocationReq.DataReq dataReq) {
+    public final b mergeFrom(QueryGroupsByLocationReq.DataReq dataReq) {
         if (dataReq != QueryGroupsByLocationReq.DataReq.getDefaultInstance()) {
             if (dataReq.hasLat()) {
                 a(dataReq.getLat());
@@ -177,43 +178,43 @@ public final class b extends GeneratedMessageLite.Builder<QueryGroupsByLocationR
         }
     }
 
-    public b a(double d) {
+    public final b a(double d) {
         this.a |= 1;
         this.b = d;
         return this;
     }
 
-    public b b(double d) {
+    public final b b(double d) {
         this.a |= 2;
         this.c = d;
         return this;
     }
 
-    public b a(int i) {
+    public final b a(int i) {
         this.a |= 4;
         this.d = i;
         return this;
     }
 
-    public b b(int i) {
+    public final b b(int i) {
         this.a |= 8;
         this.e = i;
         return this;
     }
 
-    public b c(int i) {
+    public final b c(int i) {
         this.a |= 16;
         this.f = i;
         return this;
     }
 
-    public b d(int i) {
+    public final b d(int i) {
         this.a |= 32;
         this.g = i;
         return this;
     }
 
-    public b e(int i) {
+    public final b e(int i) {
         this.a |= 64;
         this.h = i;
         return this;

@@ -106,12 +106,11 @@ public class CloudBatchShareHandler implements ISocialShareHandler {
         Uri imageUri = shareContent.getImageUri();
         if (imageUri != null && Utils.isUrl(imageUri)) {
             multipartRequestParams.put(PARAM_PIC_URL, imageUri.toString());
-            a(getShareUrl(), multipartRequestParams, iBaiduListener);
         } else if (imageUri != null) {
             a(imageUri, multipartRequestParams, iBaiduListener);
-        } else {
-            a(getShareUrl(), multipartRequestParams, iBaiduListener);
+            return;
         }
+        a(getShareUrl(), multipartRequestParams, iBaiduListener);
     }
 
     public String getShareUploadUrl() {

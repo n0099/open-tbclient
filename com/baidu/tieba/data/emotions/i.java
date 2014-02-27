@@ -2,9 +2,8 @@ package com.baidu.tieba.data.emotions;
 
 import android.view.View;
 import com.baidu.tieba.faceshop.FacePackageDetailActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements View.OnClickListener {
+final class i implements View.OnClickListener {
     final /* synthetic */ EmotionImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +12,7 @@ public class i implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         int i;
         String str;
         String str2;

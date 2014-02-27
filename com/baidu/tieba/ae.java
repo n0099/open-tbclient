@@ -3,7 +3,7 @@ package com.baidu.tieba;
 import android.os.Handler;
 import com.baidu.tieba.util.DatabaseService;
 /* loaded from: classes.dex */
-class ae extends Thread {
+final class ae extends Thread {
     final /* synthetic */ LogoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ class ae extends Thread {
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
+    public final void run() {
         Handler handler;
         Handler handler2;
         super.run();

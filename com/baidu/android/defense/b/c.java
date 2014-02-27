@@ -5,23 +5,23 @@ public final class c {
     private String b;
     private int c;
 
-    public String a() {
+    public final String a() {
         return this.b;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.c = i;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.b = str;
     }
 
-    public int b() {
+    public final int b() {
         return this.c;
     }
 
-    public String toString() {
+    public final String toString() {
         return "ManageItem: mPackageName =" + this.b + " mVersionCode =" + this.c + " mApkPath =" + this.a;
     }
 }

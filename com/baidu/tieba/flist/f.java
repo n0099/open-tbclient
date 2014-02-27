@@ -7,7 +7,7 @@ import com.baidu.tieba.flist.ForumListModel;
 import com.baidu.tieba.model.ar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class f implements u {
+final class f implements u {
     final /* synthetic */ ForumListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,7 +16,7 @@ class f implements u {
     }
 
     @Override // com.baidu.tieba.flist.u
-    public void a(boolean z, int i, ForumListModel forumListModel, String str, boolean z2) {
+    public final void a(boolean z, int i, ForumListModel forumListModel, String str, boolean z2) {
         ForumListModel.RequestParams requestParams;
         ForumListModel.RequestParams requestParams2;
         int i2;
@@ -41,14 +41,14 @@ class f implements u {
         int i6;
         r rVar7;
         ForumListModel.RequestParams requestParams5;
-        com.baidu.adp.lib.util.f.e("ForunListActivity", "ForumListDetailCallBack", "callback start");
+        com.baidu.adp.lib.util.e.e("ForunListActivity", "ForumListDetailCallBack", "callback start");
         if (!z) {
             rVar7 = this.a.D;
             if (rVar7.a() == null) {
-                com.baidu.adp.lib.util.f.e("ForunListActivity", "ForumListDetailCallBack", "isOk == false");
+                com.baidu.adp.lib.util.e.e("ForunListActivity", "ForumListDetailCallBack", "isOk == false");
                 this.a.showToast(str);
-                this.a.c.d();
-                this.a.c.c();
+                this.a.c.b();
+                this.a.c.a();
                 requestParams5 = this.a.A;
                 if (requestParams5.menu_type == 2 && !z2) {
                     this.a.finish();
@@ -58,14 +58,14 @@ class f implements u {
             }
         }
         if (forumListModel == null || forumListModel.recommend_list_left == null || forumListModel.recommend_list_right == null || forumListModel.editor_recommend == null || forumListModel.forum_class == null) {
-            com.baidu.adp.lib.util.f.e("ForunListActivity", "ForumListDetailCallBack", "data null ec:" + i);
+            com.baidu.adp.lib.util.e.e("ForunListActivity", "ForumListDetailCallBack", "data null ec:" + i);
             requestParams = this.a.A;
             if (requestParams.menu_type == 2 && !z2) {
                 this.a.showToast(this.a.getString(R.string.no_forum_data));
                 this.a.finish();
             } else {
                 this.a.showToast(str);
-                this.a.c.c();
+                this.a.c.a();
                 requestParams2 = this.a.A;
                 i2 = this.a.v;
                 requestParams2.recommend_type = i2;
@@ -128,7 +128,7 @@ class f implements u {
         }
         this.a.c.k.setText(forumListModel.forum_class[1]);
         this.a.findViewById(R.id.item_root).setVisibility(0);
-        this.a.c.c();
+        this.a.c.a();
         if (this.a.c.x.getCount() > 0) {
             this.a.c.y.setClickable(true);
             this.a.c.y.setOnClickListener(this.a);

@@ -6,10 +6,23 @@ import com.baidu.gson.GsonBuilder;
 import com.baidu.tieba.util.bs;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k extends BdAsyncTask<Object, FaceBuyQueryData, FaceBuyQueryData> {
+public final class k extends BdAsyncTask<Object, FaceBuyQueryData, FaceBuyQueryData> {
     final /* synthetic */ j a;
     private com.baidu.tieba.util.ba b;
     private volatile boolean c;
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* bridge */ /* synthetic */ void a(FaceBuyQueryData faceBuyQueryData) {
+        com.baidu.adp.a.g gVar;
+        FaceBuyQueryData faceBuyQueryData2 = faceBuyQueryData;
+        super.a((k) faceBuyQueryData2);
+        this.a.b = null;
+        this.c = true;
+        gVar = this.a.mLoadDataCallBack;
+        gVar.a(faceBuyQueryData2);
+    }
 
     private k(j jVar) {
         this.a = jVar;
@@ -17,12 +30,12 @@ public class k extends BdAsyncTask<Object, FaceBuyQueryData, FaceBuyQueryData> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ k(j jVar, k kVar) {
+    public /* synthetic */ k(j jVar, byte b) {
         this(jVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
+    /* JADX INFO: Access modifiers changed from: private */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: d */
     public FaceBuyQueryData a(Object... objArr) {
@@ -39,7 +52,7 @@ public class k extends BdAsyncTask<Object, FaceBuyQueryData, FaceBuyQueryData> {
                 if (i2 >= i) {
                     break;
                 }
-                faceBuyQueryData = (FaceBuyQueryData) create.fromJson(this.b.m(), (Class<Object>) FaceBuyQueryData.class);
+                faceBuyQueryData = (FaceBuyQueryData) create.fromJson(this.b.l(), (Class<Object>) FaceBuyQueryData.class);
                 if (faceBuyQueryData != null && faceBuyQueryData.buyResult != null) {
                     if (faceBuyQueryData.buyResult.status == 2) {
                         break;
@@ -47,14 +60,14 @@ public class k extends BdAsyncTask<Object, FaceBuyQueryData, FaceBuyQueryData> {
                     try {
                         Thread.sleep(3000L);
                     } catch (InterruptedException e) {
-                        com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.toString());
+                        com.baidu.adp.lib.util.e.b(getClass().getName(), "doInBackground", e.toString());
                     }
                     i2++;
                 } else {
                     try {
                         Thread.sleep(3000L);
                     } catch (InterruptedException e2) {
-                        com.baidu.adp.lib.util.f.b(getClass().getName(), "FaceBuyQueryTask doInBackground", e2.toString());
+                        com.baidu.adp.lib.util.e.b(getClass().getName(), "FaceBuyQueryTask doInBackground", e2.toString());
                     }
                     i2++;
                 }
@@ -63,24 +76,12 @@ public class k extends BdAsyncTask<Object, FaceBuyQueryData, FaceBuyQueryData> {
         return faceBuyQueryData;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(FaceBuyQueryData faceBuyQueryData) {
-        com.baidu.adp.a.g gVar;
-        super.a((k) faceBuyQueryData);
-        this.a.b = null;
-        this.c = true;
-        gVar = this.a.mLoadDataCallBack;
-        gVar.a(faceBuyQueryData);
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
+    public final void cancel() {
         com.baidu.adp.a.g gVar;
         super.cancel(true);
         if (this.b != null) {
-            this.b.k();
+            this.b.j();
         }
         this.a.b = null;
         gVar = this.a.mLoadDataCallBack;

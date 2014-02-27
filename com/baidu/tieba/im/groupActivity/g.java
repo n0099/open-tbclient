@@ -5,7 +5,7 @@ import android.widget.DatePicker;
 import com.slidingmenu.lib.R;
 import java.util.Calendar;
 /* loaded from: classes.dex */
-class g implements DatePickerDialog.OnDateSetListener {
+final class g implements DatePickerDialog.OnDateSetListener {
     final /* synthetic */ f a;
     private final /* synthetic */ Calendar b;
 
@@ -16,7 +16,7 @@ class g implements DatePickerDialog.OnDateSetListener {
     }
 
     @Override // android.app.DatePickerDialog.OnDateSetListener
-    public void onDateSet(DatePicker datePicker, int i, int i2, int i3) {
+    public final void onDateSet(DatePicker datePicker, int i, int i2, int i3) {
         e eVar;
         CreateGroupActivityActivity createGroupActivityActivity;
         e eVar2;
@@ -45,7 +45,7 @@ class g implements DatePickerDialog.OnDateSetListener {
         datePickerDialog = eVar5.m;
         datePickerDialog.dismiss();
         eVar6 = this.a.a;
-        eVar6.m();
+        eVar6.k();
         eVar7 = this.a.a;
         eVar7.u = true;
     }

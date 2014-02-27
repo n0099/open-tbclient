@@ -5,7 +5,7 @@ import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ay extends com.baidu.adp.a.g {
+public final class ay extends com.baidu.adp.a.g {
     final /* synthetic */ aw a;
     private final /* synthetic */ FacePackageData b;
 
@@ -16,7 +16,7 @@ public class ay extends com.baidu.adp.a.g {
     }
 
     @Override // com.baidu.adp.a.g
-    public void a(Object obj) {
+    public final void a(Object obj) {
         Context context;
         Context context2;
         Context context3;

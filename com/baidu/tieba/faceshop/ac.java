@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
-public class ac extends com.baidu.adp.a.d {
+public final class ac extends com.baidu.adp.a.d {
     private int c;
     private int d;
     private float e;
@@ -20,7 +20,7 @@ public class ac extends com.baidu.adp.a.d {
         this.e = c.getResources().getDisplayMetrics().density;
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         if (this.a == null) {
             this.a = new ad(this, str);
             this.a.setPriority(3);
@@ -29,12 +29,12 @@ public class ac extends com.baidu.adp.a.d {
     }
 
     @Override // com.baidu.adp.a.d
-    protected boolean LoadData() {
+    protected final boolean LoadData() {
         return false;
     }
 
     @Override // com.baidu.adp.a.d
-    public boolean cancelLoadData() {
+    public final boolean cancelLoadData() {
         if (this.a != null) {
             this.a.cancel();
             return false;

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
-public class bj {
+public final class bj {
     protected boolean j;
     protected boolean i = true;
     protected String k = "UTF-8";

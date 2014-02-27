@@ -1,9 +1,10 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
+import com.baidu.tieba.frs.FrsImageActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class az implements View.OnClickListener {
+public final class az implements View.OnClickListener {
     final /* synthetic */ FrsImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,14 +13,14 @@ public class az implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
+        FrsImageActivity.FooterType footerType;
         int i;
-        int i2;
-        i = this.a.i;
-        if (i > 240) {
+        footerType = this.a.g;
+        if (footerType == FrsImageActivity.FooterType.NEXT) {
             FrsImageActivity frsImageActivity = this.a;
-            i2 = this.a.i;
-            frsImageActivity.c(i2 - 240);
+            i = this.a.i;
+            frsImageActivity.b(i + 240);
         }
     }
 }

@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
-class bi implements View.OnFocusChangeListener {
+final class bi implements View.OnFocusChangeListener {
     final /* synthetic */ Register2Activity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ class bi implements View.OnFocusChangeListener {
     }
 
     @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view, boolean z) {
+    public final void onFocusChange(View view, boolean z) {
         EditText editText;
         EditText editText2;
         ImageView imageView = null;

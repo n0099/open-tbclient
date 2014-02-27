@@ -6,9 +6,8 @@ import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import com.baidu.tieba.recommend.WebviewHelper;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class er extends WebViewClient {
+final class er extends WebViewClient {
     final /* synthetic */ WebActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,7 +16,7 @@ public class er extends WebViewClient {
     }
 
     @Override // android.webkit.WebViewClient
-    public void onPageFinished(WebView webView, String str) {
+    public final void onPageFinished(WebView webView, String str) {
         ImageView imageView;
         ImageView imageView2;
         ProgressBar progressBar;
@@ -46,7 +45,7 @@ public class er extends WebViewClient {
     }
 
     @Override // android.webkit.WebViewClient
-    public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
+    public final void onPageStarted(WebView webView, String str, Bitmap bitmap) {
         ImageView imageView;
         ImageView imageView2;
         ProgressBar progressBar;
@@ -75,8 +74,8 @@ public class er extends WebViewClient {
     }
 
     @Override // android.webkit.WebViewClient
-    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        if ((this.a.f == null || !this.a.f.a(str)) && !WebviewHelper.commonJumpHelper(this.a, str)) {
+    public final boolean shouldOverrideUrlLoading(WebView webView, String str) {
+        if ((this.a.f == null || !this.a.f.a()) && !WebviewHelper.commonJumpHelper(this.a, str)) {
             return super.shouldOverrideUrlLoading(webView, str);
         }
         return true;

@@ -3,7 +3,7 @@ package com.baidu.tieba.person;
 import android.widget.ImageView;
 import android.widget.TextView;
 /* loaded from: classes.dex */
-class ax {
+final class ax {
     ImageView a;
     TextView b;
     final /* synthetic */ as c;

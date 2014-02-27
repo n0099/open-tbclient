@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.TiebaApplication;
@@ -13,13 +14,14 @@ import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.account.SapiFastRegActivity;
 import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.util.cb;
+import com.baidu.tieba.view.NoNetworkView;
 import com.baidu.tieba.view.UserIconBox;
 import com.baidu.tieba.view.df;
 import com.baidu.tieba.voice.VoiceManager;
 import com.baidu.tieba.voice.af;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class a extends com.baidu.tieba.j implements df {
+public final class a extends com.baidu.tieba.j implements df {
     private VoiceManager b;
     private com.baidu.tieba.model.p c;
     private i d;
@@ -33,48 +35,51 @@ public class a extends com.baidu.tieba.j implements df {
     private Boolean l = null;
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onAttach(Activity activity) {
+    public final void onAttach(Activity activity) {
         super.onAttach(activity);
         this.g = (com.baidu.tieba.k) activity;
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onCreate(Bundle bundle) {
+    public final void onCreate(Bundle bundle) {
         super.onCreate(bundle);
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        return a(layoutInflater);
+    public final View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        FrameLayout frameLayout = new FrameLayout(this.g);
+        this.h = layoutInflater.inflate(R.layout.forum_feed_view, (ViewGroup) null);
+        frameLayout.addView(this.h);
+        return frameLayout;
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onActivityCreated(Bundle bundle) {
+    public final void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.f = k();
+        this.f = g();
         e();
         this.l = null;
         if (this.g instanceof af) {
-            this.b = ((af) this.g).h();
+            this.b = ((af) this.g).c_();
         }
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onDestroy() {
+    public final void onDestroy() {
         super.onDestroy();
         if (this.c != null) {
             this.c.cancelLoadData();
         }
         if (this.d != null) {
-            this.d.j();
+            this.d.i();
         }
         this.l = null;
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onResume() {
+    public final void onResume() {
         super.onResume();
-        if (b()) {
+        if (d()) {
             this.k = false;
             if (this.l == null) {
                 this.l = Boolean.valueOf(com.baidu.tieba.h.a.a().f());
@@ -82,39 +87,39 @@ public class a extends com.baidu.tieba.j implements df {
                 this.k = this.l.booleanValue() ^ com.baidu.tieba.h.a.a().f();
                 this.l = Boolean.valueOf(com.baidu.tieba.h.a.a().f());
             }
-            boolean k = k();
-            if (this.f != k) {
-                this.f = k;
+            boolean g = g();
+            if (this.f != g) {
+                this.f = g;
                 e();
                 return;
             }
             if (this.k) {
-                m();
+                h();
             }
             if (this.d != null) {
-                this.d.k();
+                this.d.j();
             }
             if (this.b != null) {
-                this.b.c(this.g);
+                this.b.b(this.g);
             }
         }
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onStart() {
+    public final void onStart() {
         super.onStart();
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onStop() {
+    public final void onStop() {
         super.onStop();
         if (this.d != null) {
-            this.d.j();
+            this.d.i();
         }
     }
 
     @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public void onPause() {
+    public final void onPause() {
         super.onPause();
         if (this.b != null) {
             this.b.h();
@@ -122,18 +127,18 @@ public class a extends com.baidu.tieba.j implements df {
     }
 
     @Override // com.baidu.tieba.j, android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (view.getId() == g.a()) {
+    public final void onClick(View view) {
+        if (view.getId() == R.id.login_btn) {
             LoginActivity.a(this.g, 0, getString(R.string.forum_feed_login_tip), 11003);
-        } else if (view.getId() == g.b()) {
+        } else if (view.getId() == R.id.reg_btn) {
             SapiFastRegActivity.a(this.g, 22002);
-        } else if (view.getId() == g.c()) {
-            com.baidu.tieba.mainentrance.f.a(this.g, 2);
+        } else if (view.getId() == R.id.btn_go) {
+            com.baidu.tieba.mainentrance.d.a(this.g, 2);
         }
     }
 
     @Override // com.baidu.tieba.j
-    public void c(int i) {
+    public final void c(int i) {
         super.c(i);
         if (this.d != null) {
             this.d.a(i);
@@ -144,159 +149,144 @@ public class a extends com.baidu.tieba.j implements df {
     }
 
     private void e() {
-        if (k()) {
+        if (g()) {
             FrameLayout frameLayout = (FrameLayout) getView();
             if (this.e != null) {
                 frameLayout.removeView(this.e);
                 this.e = null;
             }
             this.h.setVisibility(0);
-            l();
-            g();
+            this.d = new i(this.g, this);
+            this.d.a(new c(this));
+            this.d.a(new d(this));
+            this.d.a(new e(this));
             f();
+            this.c.e();
             return;
         }
-        p();
-    }
-
-    private View a(LayoutInflater layoutInflater) {
-        FrameLayout frameLayout = new FrameLayout(this.g);
-        this.h = layoutInflater.inflate(R.layout.forum_feed_view, (ViewGroup) null);
-        frameLayout.addView(this.h);
-        return frameLayout;
+        FrameLayout frameLayout2 = (FrameLayout) getView();
+        if (this.e != null) {
+            frameLayout2.removeView(this.e);
+        }
+        int ae = TiebaApplication.g().ae();
+        String string = getResources().getString(R.string.forum_feed_login_tip);
+        com.baidu.tieba.k kVar = this.g;
+        h hVar = new h((byte) 0);
+        View inflate = LinearLayout.inflate(kVar, R.layout.forum_feed_guide, null);
+        hVar.a = (LinearLayout) inflate.findViewById(R.id.forum_feed_login_container);
+        hVar.c = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
+        hVar.b = new com.baidu.tieba.home.r(kVar, string, string, 0);
+        hVar.a.addView(hVar.b.a());
+        inflate.setTag(hVar);
+        g.a(kVar, inflate, ae);
+        this.e = inflate;
+        this.h.setVisibility(8);
+        frameLayout2.addView(this.e);
     }
 
     private void f() {
-        h();
-    }
-
-    private void g() {
         this.c = new com.baidu.tieba.model.p();
-        this.c.setLoadDataCallBack(i());
+        this.c.setLoadDataCallBack(new b(this));
     }
 
-    private void h() {
-        this.c.g();
-    }
-
-    private com.baidu.adp.a.g i() {
-        return new b(this);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(Object obj) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(a aVar, Object obj) {
         com.baidu.tieba.model.r rVar = (com.baidu.tieba.model.r) obj;
         if (rVar != null && rVar.a != null && rVar.a.b() != null && rVar.a.b().size() > 0) {
-            this.d.a(rVar.a);
-            this.c.a(true);
+            aVar.d.a(rVar.a);
+            aVar.c.a(true);
         }
-        this.d.a();
+        aVar.d.a();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(Object obj) {
-        if (this.c != null && this.c.e()) {
-            this.d.a(this.c.j());
-            if (this.c.a() && this.d != null) {
-                this.d.f();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void b(a aVar, Object obj) {
+        if (aVar.c != null && aVar.c.c()) {
+            aVar.d.a(aVar.c.h());
+            if (aVar.c.a() && aVar.d != null) {
+                aVar.d.e();
             }
-            this.c.a(false);
-            if (!this.c.f() && this.d != null) {
-                this.d.i();
+            aVar.c.a(false);
+            if (!aVar.c.d() && aVar.d != null) {
+                aVar.d.h();
             }
-            if (this.c.i() == 1) {
-                cb.a(this.g, "forum_feed_refresh", "refresh", 1, new Object[0]);
-            } else if (this.c.i() == 2) {
-                cb.a(this.g, "forum_feed_loadmore", "load_more", 1, new Object[0]);
+            if (aVar.c.g() == 1) {
+                cb.a(aVar.g, "forum_feed_refresh", "refresh", 1, new Object[0]);
+            } else if (aVar.c.g() == 2) {
+                cb.a(aVar.g, "forum_feed_loadmore", "load_more", 1, new Object[0]);
             }
-        } else if (this.d != null) {
-            this.d.g();
-            this.d.e();
+        } else if (aVar.d != null) {
+            aVar.d.f();
+            aVar.d.d();
         }
-        if (this.c != null) {
-            this.c.a(false);
+        if (aVar.c != null) {
+            aVar.c.a(false);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void j() {
-        if (this.c != null) {
-            int errorCode = this.c.getErrorCode();
-            String errorString = this.c.getErrorString();
-            if (this.d != null) {
-                this.d.g();
-                if (!this.c.e()) {
-                    this.d.e();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void c(a aVar) {
+        if (aVar.c != null) {
+            int errorCode = aVar.c.getErrorCode();
+            String errorString = aVar.c.getErrorString();
+            if (aVar.d != null) {
+                aVar.d.f();
+                if (!aVar.c.c()) {
+                    aVar.d.d();
                 }
             }
-            if (errorCode != 0 && errorString != "" && o()) {
-                this.g.a(errorString);
+            if (errorCode == 0 || errorString == "" || !aVar.i()) {
+                return;
             }
+            aVar.g.a(errorString);
         }
     }
 
-    private boolean k() {
-        return (TiebaApplication.A() == null || TiebaApplication.F() == null) ? false : true;
-    }
-
-    private void l() {
-        this.d = new i(this.g, this);
-        this.d.a(new c(this));
-        this.d.a(new d(this));
-        this.d.a(new e(this));
+    private static boolean g() {
+        return (TiebaApplication.v() == null || TiebaApplication.z() == null) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void m() {
+    public void h() {
         this.i = true;
         if (this.c == null) {
-            g();
+            f();
         }
-        if (o()) {
+        if (i()) {
             this.c.a(1);
         } else {
-            this.d.g();
+            this.d.f();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void n() {
-        if (this.c.b() && this.c.f() && o()) {
-            this.d.h();
-            this.c.a(2);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void e(a aVar) {
+        if (aVar.c.b() && aVar.c.d() && aVar.i()) {
+            aVar.d.g();
+            aVar.c.a(2);
         }
     }
 
-    private boolean o() {
+    private boolean i() {
         return UtilHelper.h(this.g.getApplicationContext()) != UtilHelper.NetworkStateInfo.UNAVAIL;
     }
 
-    private void p() {
-        FrameLayout frameLayout = (FrameLayout) getView();
-        if (this.e != null) {
-            frameLayout.removeView(this.e);
-        }
-        int al = TiebaApplication.g().al();
-        this.e = g.a(this.g, getResources().getString(R.string.forum_feed_login_tip), al, this);
-        this.h.setVisibility(8);
-        frameLayout.addView(this.e);
+    @Override // com.baidu.tieba.view.df
+    public final ListView c() {
+        return this.d.l();
     }
 
     @Override // com.baidu.tieba.view.df
-    public ListView c() {
-        return this.d.m();
-    }
-
-    @Override // com.baidu.tieba.view.df
-    public int a() {
+    public final int a() {
         if (this.d == null) {
             return 0;
         }
-        return this.d.n();
+        i iVar = this.d;
+        return R.id.user_icon_box;
     }
 
     @Override // com.baidu.tieba.view.df
-    public com.baidu.adp.lib.d.b<TbImageView> g_() {
+    public final com.baidu.adp.lib.d.b<TbImageView> b() {
         return this.j;
     }
 }

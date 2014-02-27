@@ -1,7 +1,7 @@
 package com.baidu.tieba.home;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j implements com.baidu.adp.widget.ListView.b {
+public final class j implements com.baidu.adp.widget.ListView.b {
     final /* synthetic */ f a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,7 +10,7 @@ public class j implements com.baidu.adp.widget.ListView.b {
     }
 
     @Override // com.baidu.adp.widget.ListView.b
-    public void a(boolean z) {
+    public final void a(boolean z) {
         com.baidu.tieba.model.k kVar;
         Boolean bool;
         kVar = this.a.d;

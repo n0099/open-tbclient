@@ -4,7 +4,7 @@ import android.view.View;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dn implements View.OnClickListener {
+public final class dn implements View.OnClickListener {
     final /* synthetic */ cu a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ public class dn implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         View view2;
         view2 = this.a.l;
         View findViewById = view2.findViewById(R.id.manage_bottom_bar);
@@ -23,7 +23,7 @@ public class dn implements View.OnClickListener {
             } else {
                 findViewById.setVisibility(0);
             }
-            this.a.ai();
+            this.a.Z();
         }
     }
 }

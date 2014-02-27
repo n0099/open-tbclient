@@ -10,19 +10,19 @@ public class g extends b {
         e(202001);
     }
 
-    public String u() {
+    public final String u() {
         return this.b;
     }
 
-    public void b(String str) {
+    public final void b(String str) {
         this.b = str;
     }
 
     public MessageLite a() {
         try {
-            return CommitGroupMsgReq.CommitGroupMsgReqIdl.newBuilder().a(CommitGroupMsgReq.DataReq.newBuilder().a(k()).a(Integer.valueOf(u()).intValue()).b(i()).a(j()).build()).build();
+            return CommitGroupMsgReq.CommitGroupMsgReqIdl.newBuilder().a(CommitGroupMsgReq.DataReq.newBuilder().a(k()).a(Integer.valueOf(this.b).intValue()).b(i()).a(j()).build()).build();
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.e("data convert error");
+            com.baidu.adp.lib.util.e.e("data convert error");
             return null;
         }
     }

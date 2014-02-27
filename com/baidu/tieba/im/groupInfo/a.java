@@ -4,7 +4,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class a implements TextWatcher {
+final class a implements TextWatcher {
     final /* synthetic */ ApplyJoinGroupActivity a;
     private CharSequence b;
 
@@ -14,16 +14,16 @@ class a implements TextWatcher {
     }
 
     @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    public final void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 
     @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    public final void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         this.b = charSequence;
     }
 
     @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
+    public final void afterTextChanged(Editable editable) {
         if (editable != null) {
             int selectionStart = this.a.b.getSelectionStart();
             int selectionEnd = this.a.b.getSelectionEnd();
@@ -31,7 +31,7 @@ class a implements TextWatcher {
             if (30 < length) {
                 this.a.f.setEnabled(false);
                 editable.delete(selectionStart - 1, selectionEnd);
-                com.baidu.adp.lib.util.f.e("start:" + selectionStart + " end:" + selectionEnd);
+                com.baidu.adp.lib.util.e.e("start:" + selectionStart + " end:" + selectionEnd);
                 this.a.b.setText(editable);
                 this.a.b.setSelection(selectionStart);
                 length = 30;

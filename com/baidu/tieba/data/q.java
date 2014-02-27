@@ -2,7 +2,7 @@ package com.baidu.tieba.data;
 
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class q {
+public final class q {
     private String a;
     private String b;
     private String c;
@@ -13,39 +13,39 @@ public class q {
     private String h;
     private String i;
 
-    public String a() {
+    public final String a() {
         return this.a;
     }
 
-    public String b() {
+    public final String b() {
         return this.b;
     }
 
-    public String c() {
+    public final String c() {
         return this.c;
     }
 
-    public String d() {
+    public final String d() {
         return this.d;
     }
 
-    public String e() {
+    public final String e() {
         return this.e;
     }
 
-    public String f() {
+    public final String f() {
         return this.g;
     }
 
-    public String g() {
+    public final String g() {
         return this.f;
     }
 
-    public String h() {
+    public final String h() {
         return this.h;
     }
 
-    public void a(JSONObject jSONObject) {
+    public final void a(JSONObject jSONObject) {
         this.a = jSONObject.optString("link");
         this.b = jSONObject.optString("title");
         this.c = jSONObject.optString("abstract");

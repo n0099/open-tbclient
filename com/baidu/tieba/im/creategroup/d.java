@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class d implements x {
+public final class d implements x {
     private CreateGroupStepActivity a;
     private int b;
     private View c;
@@ -24,52 +24,52 @@ public class d implements x {
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
-    public void h() {
+    public final void g() {
         this.d.setBackgroundDrawable(null);
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
-    public void i() {
-        this.a.getLayoutMode().a(TiebaApplication.g().al() == 1);
+    public final void h() {
+        this.a.getLayoutMode().a(TiebaApplication.g().ae() == 1);
         this.a.getLayoutMode().a(this.c);
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
-    public View a() {
+    public final View a() {
         return this.c;
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
-    public int b() {
+    public final int b() {
         return this.b;
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
-    public String j() {
+    public final String i() {
         return this.a.getString(R.string.group_create_tips_lbs);
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
-    public String k() {
+    public final String j() {
         return "";
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
-    public boolean l() {
+    public final boolean k() {
         return false;
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
-    public String m() {
+    public final String l() {
         return null;
     }
 
-    public Button c() {
+    public final Button c() {
         return this.e;
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
-    public boolean n() {
+    public final boolean m() {
         return false;
     }
 }

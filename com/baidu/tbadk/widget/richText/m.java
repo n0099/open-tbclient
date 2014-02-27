@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.baidu.tbadk.gif.GifView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements ViewGroup.OnHierarchyChangeListener {
+public final class m implements ViewGroup.OnHierarchyChangeListener {
     final /* synthetic */ TbRichTextView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -24,7 +24,7 @@ public class m implements ViewGroup.OnHierarchyChangeListener {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onChildViewRemoved(View view, View view2) {
+    public final void onChildViewRemoved(View view, View view2) {
         com.baidu.adp.lib.d.b bVar;
         com.baidu.adp.lib.d.b bVar2;
         com.baidu.adp.lib.d.b bVar3;
@@ -37,7 +37,7 @@ public class m implements ViewGroup.OnHierarchyChangeListener {
         com.baidu.adp.lib.d.b bVar10;
         com.baidu.adp.lib.d.b bVar11;
         com.baidu.adp.lib.d.b bVar12;
-        com.baidu.adp.lib.util.f.e("pool return child");
+        com.baidu.adp.lib.util.e.e("pool return child");
         if (view2 instanceof GifView) {
             bVar11 = this.a.f;
             if (bVar11 != null) {
@@ -100,6 +100,6 @@ public class m implements ViewGroup.OnHierarchyChangeListener {
     }
 
     @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewAdded(View view, View view2) {
+    public final void onChildViewAdded(View view, View view2) {
     }
 }

@@ -51,16 +51,13 @@ public class SwitchDebugService extends Service implements SensorEventListener {
             this.p = true;
             this.g.registerListener(this, this.g.getDefaultSensor(1), 3);
         }
-        a(getApplicationContext().getAssets());
-    }
-
-    private static void a(AssetManager assetManager) {
+        AssetManager assets = getApplicationContext().getAssets();
         if (a == null) {
             synchronized (SwitchDebugService.class) {
                 if (a == null) {
                     a = new Properties();
                     try {
-                        a.load(assetManager.open("debug/debug_ascii.conf"));
+                        a.load(assets.open("debug/debug_ascii.conf"));
                     } catch (IOException e2) {
                         a = null;
                         e2.printStackTrace();

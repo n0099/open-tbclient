@@ -1,12 +1,11 @@
 package com.baidu.tieba.im.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g extends com.baidu.tieba.im.c<Void> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.c
-    /* renamed from: a */
-    public Void b() {
-        a.e();
+public final class g extends com.baidu.tieba.im.b<Void> {
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.b
+    public final /* synthetic */ Void a() {
+        a.c();
         return null;
     }
 }

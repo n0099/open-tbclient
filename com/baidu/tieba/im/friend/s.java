@@ -5,7 +5,7 @@ import android.widget.TextView;
 import com.baidu.tieba.view.HeadImageView;
 import com.baidu.tieba.view.TbCheckBox;
 /* loaded from: classes.dex */
-class s {
+final class s {
     public View a;
     public HeadImageView b;
     public TextView c;
@@ -17,7 +17,7 @@ class s {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ s(o oVar, s sVar) {
+    public /* synthetic */ s(o oVar, byte b) {
         this(oVar);
     }
 }

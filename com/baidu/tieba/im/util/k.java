@@ -1,9 +1,8 @@
 package com.baidu.tieba.im.util;
 
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k implements com.baidu.tieba.im.a<Void> {
+final class k implements com.baidu.tieba.im.a<Void> {
     private final /* synthetic */ String a;
     private final /* synthetic */ String b;
 
@@ -13,9 +12,9 @@ public class k implements com.baidu.tieba.im.a<Void> {
         this.b = str2;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // com.baidu.tieba.im.a
-    public void a(Void r3) {
+    public final /* synthetic */ void a(Void r3) {
         ImMessageCenterPojo a = com.baidu.tieba.im.db.h.a().d().a(this.a);
         if (a != null) {
             a.setGroup_head(this.b);

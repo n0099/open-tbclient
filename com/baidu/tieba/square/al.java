@@ -3,9 +3,8 @@ package com.baidu.tieba.square;
 import android.content.Context;
 import android.view.View;
 import com.baidu.tieba.pb.NewPbActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al implements View.OnClickListener {
+final class al implements View.OnClickListener {
     final /* synthetic */ aj a;
     private final /* synthetic */ int b;
     private final /* synthetic */ String c;
@@ -18,7 +17,7 @@ public class al implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         Context context;
         String a = am.a("post_recommend", String.valueOf(this.b));
         context = this.a.b;

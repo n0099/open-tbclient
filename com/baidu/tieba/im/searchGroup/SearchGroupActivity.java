@@ -23,21 +23,21 @@ public class SearchGroupActivity extends com.baidu.tieba.f implements View.OnCli
         super.onCreate(bundle);
         this.b = new g(this);
         this.a = new an();
-        com.baidu.tieba.im.messageCenter.e.a().a(103007, this.c);
+        com.baidu.tieba.im.messageCenter.d.a().a(103007, this.c);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        com.baidu.tieba.im.messageCenter.e.a().a(this.c);
+        com.baidu.tieba.im.messageCenter.d.a().a(this.c);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.b.a(i);
+        this.b.b();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -51,13 +51,10 @@ public class SearchGroupActivity extends com.baidu.tieba.f implements View.OnCli
     @Override // com.baidu.tieba.f, android.app.Activity
     public void onStop() {
         super.onStop();
-        b();
-    }
-
-    private void b() {
-        if (this.b != null && this.b.a() != null && this.b.a().a() != null) {
-            this.b.a().a().d();
+        if (this.b == null || this.b.a() == null || this.b.a().a() == null) {
+            return;
         }
+        this.b.a().a().c();
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
@@ -67,16 +64,17 @@ public class SearchGroupActivity extends com.baidu.tieba.f implements View.OnCli
         }
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         if (!TextUtils.isEmpty(str) && TextUtils.isDigitsOnly(str)) {
             try {
-                this.b.d();
+                this.b.e();
                 this.b.a((ct) null);
-                this.a.a(Integer.parseInt(str));
+                an anVar = this.a;
+                an.a(Integer.parseInt(str));
                 return;
             } catch (NumberFormatException e) {
                 e.printStackTrace();
-                this.b.b();
+                this.b.c();
                 showToast(R.string.groupid_error);
                 return;
             }
@@ -94,7 +92,7 @@ public class SearchGroupActivity extends com.baidu.tieba.f implements View.OnCli
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a() {
+    public final void a() {
         if (this.b != null && this.b.a() != null) {
             ap.a(this.b.a, this.b.a().a(), 0, -1);
         }

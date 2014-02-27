@@ -5,7 +5,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
-class q implements View.OnClickListener {
+final class q implements View.OnClickListener {
     final /* synthetic */ ActivationActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ class q implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         ImageView imageView;
         RelativeLayout relativeLayout;
         RelativeLayout relativeLayout2;
@@ -49,7 +49,7 @@ class q implements View.OnClickListener {
                     if (uVar == null) {
                         tVar = this.a.m;
                         if (tVar == null) {
-                            this.a.l = new u(this.a, null);
+                            this.a.l = new u(this.a, (byte) 0);
                             uVar2 = this.a.l;
                             uVar2.setPriority(3);
                             uVar3 = this.a.l;
@@ -66,7 +66,7 @@ class q implements View.OnClickListener {
             if (tVar2 == null) {
                 uVar4 = this.a.l;
                 if (uVar4 == null) {
-                    this.a.m = new t(this.a, null);
+                    this.a.m = new t(this.a, (byte) 0);
                     tVar3 = this.a.m;
                     tVar3.setPriority(3);
                     tVar4 = this.a.m;
@@ -79,6 +79,6 @@ class q implements View.OnClickListener {
         }
         this.a.setResult(0);
         this.a.finish();
-        com.baidu.adp.lib.util.f.a("ActivationActivity", "mBack", "onClick");
+        com.baidu.adp.lib.util.e.a("ActivationActivity", "mBack", "onClick");
     }
 }

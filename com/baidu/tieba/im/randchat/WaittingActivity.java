@@ -1,12 +1,13 @@
 package com.baidu.tieba.im.randchat;
 
+import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
@@ -39,10 +40,10 @@ public class WaittingActivity extends com.baidu.tieba.f {
     private com.baidu.tieba.view.i d = null;
     private boolean g = false;
     private WaitingTipView.Type h = WaitingTipView.Type.ORIGINAL_ENTER;
-    private com.baidu.tieba.im.messageCenter.g i = new g(this);
-    private BroadcastReceiver j = new m(this);
+    private com.baidu.tieba.im.messageCenter.g i = new h(this);
+    private BroadcastReceiver j = new o(this);
 
-    static /* synthetic */ int[] a() {
+    private static /* synthetic */ int[] e() {
         int[] iArr = k;
         if (iArr == null) {
             iArr = new int[WaitingTipView.Type.valuesCustom().length];
@@ -98,91 +99,73 @@ public class WaittingActivity extends com.baidu.tieba.f {
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        g();
-        h();
-        i();
-        o();
-        n();
-        j();
-        this.b.a(this.i);
-        this.c.a(this.i);
+        this.b = new ar(this);
+        this.b.a(getIntent());
+        this.c = new com.baidu.tieba.im.model.c();
+        this.a = new f(this);
+        b();
+        this.e = new m(this, 120000L, 120000L);
+        this.e.b();
+        this.e.c();
+        this.f = new l(this, 100000000L, 1000L);
+        c();
+        ar arVar = this.b;
+        ar.a(this.i);
+        com.baidu.tieba.im.model.c cVar = this.c;
+        com.baidu.tieba.im.model.c.a(this.i);
         ai.b(this, "rand_chat_wait_page_start");
     }
 
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        b();
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+        registerReceiver(this.j, intentFilter);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.f, android.app.Activity
     public void onStop() {
         super.onStop();
-        c();
-    }
-
-    private void b() {
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-        registerReceiver(this.j, intentFilter);
-    }
-
-    private void c() {
         unregisterReceiver(this.j);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void d() {
-        ai.a(this, "rand_chat_wait_page_quit");
-        this.a.a().a();
-        showLoadingDialog(getString(R.string.rand_chat_waiting_quit_loading));
-        this.b.a(this.b.f().d(), false, 0);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void f(WaittingActivity waittingActivity) {
+        ai.a(waittingActivity, "rand_chat_wait_page_quit");
+        waittingActivity.a.d().a();
+        waittingActivity.showLoadingDialog(waittingActivity.getString(R.string.rand_chat_waiting_quit_loading));
+        waittingActivity.b.a(waittingActivity.b.f().d(), false, 0);
     }
 
-    private void e() {
+    private void a() {
         this.b.b(this.b.f().d());
     }
 
-    private void f() {
-        com.baidu.tieba.im.util.d.a(String.valueOf(this.b.f().d()));
-        showLoadingDialog(getString(R.string.group_tab_enterchatroom_loading));
-        this.c.a(this.b.f().d());
-    }
-
-    private void g() {
-        this.b = new ar(this);
-        this.b.a(getIntent());
-        this.c = new com.baidu.tieba.im.model.c();
-    }
-
-    private void h() {
-        this.a = new f(this);
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
-    public void i() {
-        this.a.a().setShapeType(this.b.c());
-        int bottomP = this.a.a().getBottomP();
+    public void b() {
+        this.a.d().setShapeType(this.b.c());
+        int bottomP = this.a.d().getBottomP();
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.a.g().getLayoutParams();
         layoutParams.topMargin = bottomP;
         this.d = new com.baidu.tieba.view.i(this, R.style.NobackDialog);
-        this.d.a(new n(this));
+        this.d.a(new p(this));
         a(this.b.f(), false);
         this.a.a(this);
         this.a.g().setLayoutParams(layoutParams);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean a(RandChatRoomData randChatRoomData) {
+    public static boolean a(RandChatRoomData randChatRoomData) {
         UserData userData;
-        return (randChatRoomData == null || randChatRoomData.j() == null || randChatRoomData.j().size() <= 0 || (userData = randChatRoomData.j().get(0)) == null || TiebaApplication.A() == null || !TiebaApplication.A().equals(String.valueOf(userData.getUserId()))) ? false : true;
+        return (randChatRoomData == null || randChatRoomData.j() == null || randChatRoomData.j().size() <= 0 || (userData = randChatRoomData.j().get(0)) == null || TiebaApplication.v() == null || !TiebaApplication.v().equals(String.valueOf(userData.getUserId()))) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(RandChatRoomData randChatRoomData, boolean z) {
-        a loadingView = this.a.a().getLoadingView();
-        com.baidu.tieba.view.p chatterboxView = this.a.a().getChatterboxView();
+        a loadingView = this.a.d().getLoadingView();
+        com.baidu.tieba.view.p chatterboxView = this.a.d().getChatterboxView();
         if (this.h == WaitingTipView.Type.PERSONS_READY) {
             if (loadingView != null) {
                 loadingView.setVisibility(0);
@@ -228,7 +211,7 @@ public class WaittingActivity extends com.baidu.tieba.f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void j() {
+    public void c() {
         List<UserData> j;
         this.b.a().clear();
         RandChatRoomData f = this.b.f();
@@ -236,7 +219,7 @@ public class WaittingActivity extends com.baidu.tieba.f {
             int size = j.size();
             if (size <= this.b.c()) {
                 for (int i = 0; i < size; i++) {
-                    this.a.a().a(i, j.get(i).getPortrait(), (e) null);
+                    this.a.d().a(i, j.get(i).getPortrait(), (e) null);
                 }
                 a(WaitingTipView.Type.ORIGINAL_ENTER, new Object[]{Integer.valueOf(this.b.c() - this.b.d())});
                 long i2 = f.i();
@@ -247,90 +230,14 @@ public class WaittingActivity extends com.baidu.tieba.f {
                 }
             }
             if (this.b.d() == this.b.c()) {
-                b((String) null);
+                a((String) null);
             }
         }
     }
 
-    private void a(UserData userData) {
-        RandChatRoomData f;
-        List<UserData> j;
-        boolean z;
-        if (userData != null && (f = this.b.f()) != null && (j = f.j()) != null) {
-            int size = j.size();
-            int i = 0;
-            boolean z2 = false;
-            while (i < size) {
-                UserData userData2 = j.get(i);
-                if (userData2 == null || userData.getUserId() != userData2.getUserId()) {
-                    z = z2;
-                } else if (i != 0) {
-                    j.set(i, null);
-                    int d = this.b.d();
-                    this.b.a(d + (-1) >= 0 ? d - 1 : 0);
-                    this.a.a().a(i, (String) null, (e) null);
-                    a(WaitingTipView.Type.PERSON_LEAVE, new Object[]{userData.getUserName(), userData.getPortrait()});
-                    z = z2;
-                } else {
-                    z = true;
-                }
-                i++;
-                z2 = z;
-            }
-            if (z2) {
-                j.remove(0);
-                int d2 = this.b.d();
-                this.b.a(d2 + (-1) >= 0 ? d2 - 1 : 0);
-                this.a.a().c();
-                Iterator<UserData> it = j.iterator();
-                while (it.hasNext() && it.next() == null) {
-                    it.remove();
-                }
-                int size2 = j.size();
-                for (int i2 = 0; i2 < size2; i2++) {
-                    UserData userData3 = j.get(i2);
-                    if (userData3 != null) {
-                        this.a.a().a(i2, userData3.getPortrait(), (e) null);
-                    }
-                }
-                a(WaitingTipView.Type.PERSON_LEAVE, new Object[]{userData.getUserName(), userData.getPortrait()});
-            }
-        }
-    }
-
-    private void a(UserData userData, String str) {
-        RandChatRoomData f;
-        List<UserData> j;
-        if (userData != null && (f = this.b.f()) != null && (j = f.j()) != null) {
-            int size = j.size();
-            for (int i = 0; i < size; i++) {
-                if (j.get(i) == null) {
-                    j.set(i, userData);
-                    int d = this.b.d();
-                    this.b.a(d + 1 <= this.b.c() ? d + 1 : this.b.c());
-                    this.a.a().a(i, userData.getPortrait(), new o(this));
-                    if (this.b.d() < this.b.c()) {
-                        a(WaitingTipView.Type.PERSON_ENTER, new Object[]{Integer.valueOf(this.b.c() - this.b.d()), userData.getUserName(), userData.getPortrait()});
-                        return;
-                    }
-                    return;
-                }
-            }
-            if (size <= this.b.c() - 1) {
-                j.add(userData);
-                int d2 = this.b.d();
-                this.b.a(d2 + 1 <= this.b.c() ? d2 + 1 : this.b.c());
-                this.a.a().a(size, userData.getPortrait(), new p(this));
-                if (this.b.d() < this.b.c()) {
-                    a(WaitingTipView.Type.PERSON_ENTER, new Object[]{Integer.valueOf(this.b.c() - this.b.d()), userData.getUserName(), userData.getPortrait()});
-                }
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str) {
-        WaitingTipView g = this.a.g();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(WaittingActivity waittingActivity, String str) {
+        WaitingTipView g = waittingActivity.a.g();
         Object tag = g.getTag();
         if (tag != null && (tag instanceof String) && ((String) tag).equals(str)) {
             HeadImageView tipImageHead = g.getTipImageHead();
@@ -341,50 +248,117 @@ public class WaittingActivity extends com.baidu.tieba.f {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(com.baidu.tieba.im.data.b bVar) {
-        RandChatRoomData f = this.b.f();
-        if (bVar.b == f.d() && bVar.g == this.b.c()) {
-            List<UserData> j = f.j();
-            if (j != null) {
-                int size = j.size();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(WaittingActivity waittingActivity, com.baidu.tieba.im.data.b bVar) {
+        RandChatRoomData f;
+        List<UserData> j;
+        RandChatRoomData f2 = waittingActivity.b.f();
+        if (bVar.b == f2.d() && bVar.g == waittingActivity.b.c()) {
+            List<UserData> j2 = f2.j();
+            if (j2 != null) {
+                int size = j2.size();
                 for (int i = 0; i < size; i++) {
-                    UserData userData = j.get(i);
+                    UserData userData = j2.get(i);
                     if (userData != null && userData.getUserIdLong() == bVar.c) {
                         return;
                     }
                 }
             }
-            if (bVar.f == this.b.d() + 1) {
-                a(d(bVar), bVar.a);
-                if (this.b.d() == this.b.c()) {
-                    b((String) null);
-                    return;
-                }
+            if (bVar.f != waittingActivity.b.d() + 1) {
+                waittingActivity.a();
                 return;
             }
-            e();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(com.baidu.tieba.im.data.b bVar) {
-        RandChatRoomData f = this.b.f();
-        if (bVar.b == f.d()) {
-            if (bVar.g == this.b.c()) {
-                if (bVar.f == this.b.d() - 1) {
-                    a(d(bVar));
-                } else {
-                    e();
+            UserData a = a(bVar);
+            String str = bVar.a;
+            if (a != null && (f = waittingActivity.b.f()) != null && (j = f.j()) != null) {
+                int size2 = j.size();
+                int i2 = 0;
+                while (true) {
+                    if (i2 >= size2) {
+                        if (size2 <= waittingActivity.b.c() - 1) {
+                            j.add(a);
+                            int d = waittingActivity.b.d();
+                            waittingActivity.b.a(d + 1 <= waittingActivity.b.c() ? d + 1 : waittingActivity.b.c());
+                            waittingActivity.a.d().a(size2, a.getPortrait(), new r(waittingActivity));
+                            if (waittingActivity.b.d() < waittingActivity.b.c()) {
+                                waittingActivity.a(WaitingTipView.Type.PERSON_ENTER, new Object[]{Integer.valueOf(waittingActivity.b.c() - waittingActivity.b.d()), a.getUserName(), a.getPortrait()});
+                            }
+                        }
+                    } else if (j.get(i2) == null) {
+                        j.set(i2, a);
+                        int d2 = waittingActivity.b.d();
+                        waittingActivity.b.a(d2 + 1 <= waittingActivity.b.c() ? d2 + 1 : waittingActivity.b.c());
+                        waittingActivity.a.d().a(i2, a.getPortrait(), new q(waittingActivity));
+                        if (waittingActivity.b.d() < waittingActivity.b.c()) {
+                            waittingActivity.a(WaitingTipView.Type.PERSON_ENTER, new Object[]{Integer.valueOf(waittingActivity.b.c() - waittingActivity.b.d()), a.getUserName(), a.getPortrait()});
+                        }
+                    } else {
+                        i2++;
+                    }
                 }
             }
-            a(f, true);
+            if (waittingActivity.b.d() == waittingActivity.b.c()) {
+                waittingActivity.a((String) null);
+            }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void c(com.baidu.tieba.im.data.b bVar) {
-        b(bVar.a);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void b(WaittingActivity waittingActivity, com.baidu.tieba.im.data.b bVar) {
+        RandChatRoomData f;
+        List<UserData> j;
+        boolean z;
+        RandChatRoomData f2 = waittingActivity.b.f();
+        if (bVar.b == f2.d()) {
+            if (bVar.g == waittingActivity.b.c()) {
+                if (bVar.f == waittingActivity.b.d() - 1) {
+                    UserData a = a(bVar);
+                    if (a != null && (f = waittingActivity.b.f()) != null && (j = f.j()) != null) {
+                        int size = j.size();
+                        int i = 0;
+                        boolean z2 = false;
+                        while (i < size) {
+                            UserData userData = j.get(i);
+                            if (userData == null || a.getUserId() != userData.getUserId()) {
+                                z = z2;
+                            } else if (i != 0) {
+                                j.set(i, null);
+                                int d = waittingActivity.b.d();
+                                waittingActivity.b.a(d + (-1) >= 0 ? d - 1 : 0);
+                                waittingActivity.a.d().a(i, (String) null, (e) null);
+                                waittingActivity.a(WaitingTipView.Type.PERSON_LEAVE, new Object[]{a.getUserName(), a.getPortrait()});
+                                z = z2;
+                            } else {
+                                z = true;
+                            }
+                            i++;
+                            z2 = z;
+                        }
+                        if (z2) {
+                            j.remove(0);
+                            int d2 = waittingActivity.b.d();
+                            waittingActivity.b.a(d2 + (-1) >= 0 ? d2 - 1 : 0);
+                            waittingActivity.a.d().c();
+                            Iterator<UserData> it = j.iterator();
+                            while (it.hasNext() && it.next() == null) {
+                                it.remove();
+                            }
+                            int size2 = j.size();
+                            for (int i2 = 0; i2 < size2; i2++) {
+                                UserData userData2 = j.get(i2);
+                                if (userData2 != null) {
+                                    waittingActivity.a.d().a(i2, userData2.getPortrait(), (e) null);
+                                }
+                            }
+                            waittingActivity.a(WaitingTipView.Type.PERSON_LEAVE, new Object[]{a.getUserName(), a.getPortrait()});
+                        }
+                    }
+                } else {
+                    waittingActivity.a();
+                }
+            }
+            waittingActivity.a(f2, true);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -397,11 +371,11 @@ public class WaittingActivity extends com.baidu.tieba.f {
         TextView tipImageText = g.getTipImageText();
         Button waitButton = g.getWaitButton();
         Button quitButton = g.getQuitButton();
-        quitButton.setOnClickListener(new q(this));
-        waitButton.setOnClickListener(new r(this));
+        quitButton.setOnClickListener(new s(this));
+        waitButton.setOnClickListener(new t(this));
         g.setVisibility(0);
         this.h = type;
-        switch (a()[type.ordinal()]) {
+        switch (e()[type.ordinal()]) {
             case 1:
                 tipText.setText(getString(R.string.rand_chat_waiting_update_topic));
                 tipImageHead.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.icon_choice_join));
@@ -544,14 +518,17 @@ public class WaittingActivity extends com.baidu.tieba.f {
     @Override // com.baidu.tieba.f, android.app.Activity
     public void onResume() {
         super.onResume();
+        new Handler().postDelayed(new u(this), 50L);
     }
 
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         this.a.i();
-        this.b.b(this.i);
-        this.c.b(this.i);
+        ar arVar = this.b;
+        ar.b(this.i);
+        com.baidu.tieba.im.model.c cVar = this.c;
+        com.baidu.tieba.im.messageCenter.d.a().a(this.i);
         if (this.e != null) {
             this.e.b();
         }
@@ -563,10 +540,11 @@ public class WaittingActivity extends com.baidu.tieba.f {
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.a.h()) {
-            k();
+            d();
         } else if (view == this.a.f()) {
             ai.a(this, "rand_chat_wait_page_changebtn");
-            l();
+            j jVar = new j(this);
+            new AlertDialog.Builder(this).setMessage(R.string.rand_chat_waiting_change_dialog).setPositiveButton(R.string.alert_yes_btn, jVar).setNeutralButton(R.string.alert_no_button, new k(this)).create().show();
         } else {
             com.baidu.tieba.view.p e = this.a.e();
             if (e != null && e.a(view) && this.d != null) {
@@ -577,7 +555,7 @@ public class WaittingActivity extends com.baidu.tieba.f {
         }
     }
 
-    public void a(WaitingTipView.Type type, Object[] objArr) {
+    public final void a(WaitingTipView.Type type, Object[] objArr) {
         LinkedList<Pair<WaitingTipView.Type, Object[]>> a = this.b.a();
         boolean isEmpty = a.isEmpty();
         a.addLast(new Pair<>(type, objArr));
@@ -587,25 +565,24 @@ public class WaittingActivity extends com.baidu.tieba.f {
         }
     }
 
-    private void k() {
-        com.baidu.tieba.im.util.b.a((Context) this, (DialogInterface.OnClickListener) new s(this), (DialogInterface.OnClickListener) new t(this));
+    private void d() {
+        v vVar = new v(this);
+        new AlertDialog.Builder(this).setTitle(R.string.del_post_tip).setMessage(R.string.rand_chat_waiting_quit_message).setPositiveButton(R.string.rand_chat_waiting_quit_yes, vVar).setNegativeButton(R.string.rand_chat_waiting_quit_no, new i(this)).create().show();
     }
 
-    private void l() {
-        com.baidu.tieba.im.util.b.b((Context) this, (DialogInterface.OnClickListener) new h(this), (DialogInterface.OnClickListener) new i(this));
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void m() {
-        if (this.e != null) {
-            this.e.b();
-            this.e.c();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void g(WaittingActivity waittingActivity) {
+        if (waittingActivity.e != null) {
+            waittingActivity.e.b();
+            waittingActivity.e.c();
         }
-        this.a.a().a();
-        this.a.a().b();
-        this.a.a().c();
-        b(WaitingTipView.Type.CLEAR, (Object[]) null);
-        f();
+        waittingActivity.a.d().a();
+        waittingActivity.a.d().b();
+        waittingActivity.a.d().c();
+        waittingActivity.b(WaitingTipView.Type.CLEAR, (Object[]) null);
+        com.baidu.tieba.im.util.d.a(String.valueOf(waittingActivity.b.f().d()));
+        waittingActivity.showLoadingDialog(waittingActivity.getString(R.string.group_tab_enterchatroom_loading));
+        waittingActivity.c.a(waittingActivity.b.f().d());
     }
 
     @Override // com.baidu.tieba.f
@@ -613,17 +590,8 @@ public class WaittingActivity extends com.baidu.tieba.f {
         this.a.a(i);
     }
 
-    private void n() {
-        this.f = new j(this, 100000000L, 1000L);
-    }
-
-    private void o() {
-        this.e = new k(this, 120000L, 120000L);
-        this.e.b();
-        this.e.c();
-    }
-
-    private void b(String str) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(String str) {
         if (this.e != null) {
             this.e.b();
         }
@@ -634,24 +602,24 @@ public class WaittingActivity extends com.baidu.tieba.f {
         this.a.f().setEnabled(false);
         this.a.h().setEnabled(false);
         this.a.g().getQuitButton().setEnabled(false);
-        this.a.a().getLoadingView().setVisibility(0);
-        this.a.a().getChatterboxView().setVisibility(8);
+        this.a.d().getLoadingView().setVisibility(0);
+        this.a.d().getChatterboxView().setVisibility(8);
         b(WaitingTipView.Type.PERSONS_READY, (Object[]) null);
-        this.a.a().a(new l(this, str));
+        this.a.d().a(new n(this, str));
     }
 
     @Override // com.baidu.tieba.f, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
             if (!this.b.e()) {
-                k();
+                d();
             }
             return true;
         }
         return super.onKeyDown(i, keyEvent);
     }
 
-    private UserData d(com.baidu.tieba.im.data.b bVar) {
+    private static UserData a(com.baidu.tieba.im.data.b bVar) {
         if (bVar == null) {
             return null;
         }

@@ -5,7 +5,7 @@ import com.google.zxing.Result;
 public final class WifiResultParser extends ResultParser {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.zxing.client.result.ResultParser
-    public WifiParsedResult parse(Result result) {
+    public final WifiParsedResult parse(Result result) {
         String matchSinglePrefixedField;
         String massagedText = getMassagedText(result);
         if (!massagedText.startsWith("WIFI:") || (matchSinglePrefixedField = matchSinglePrefixedField("S:", massagedText, ';', false)) == null || matchSinglePrefixedField.length() == 0) {

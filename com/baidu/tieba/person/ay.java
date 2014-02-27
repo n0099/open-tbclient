@@ -13,7 +13,7 @@ import com.baidu.tieba.person.PersonPostListData;
 import com.slidingmenu.lib.R;
 import java.util.List;
 /* loaded from: classes.dex */
-public class ay extends BaseAdapter {
+public final class ay extends BaseAdapter {
     private PersonPostListData a;
     private Context b;
     private az c;
@@ -29,7 +29,7 @@ public class ay extends BaseAdapter {
     private float i = 0.4f;
     private boolean j = false;
 
-    public void a(PersonPostListData personPostListData, com.baidu.tieba.model.bp bpVar) {
+    public final void a(PersonPostListData personPostListData, com.baidu.tieba.model.bp bpVar) {
         a(com.baidu.tieba.util.bv.a().b());
         this.a = personPostListData;
         this.k = bpVar;
@@ -49,7 +49,7 @@ public class ay extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public int getCount() {
+    public final int getCount() {
         List<PersonPostListData.PostList> list;
         if (!this.d) {
             return 1;
@@ -61,7 +61,7 @@ public class ay extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public Object getItem(int i) {
+    public final Object getItem(int i) {
         if (!this.d || this.a == null || this.a.post_list == null) {
             return null;
         }
@@ -73,42 +73,79 @@ public class ay extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    public final long getItemId(int i) {
         return 0L;
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public final View getView(int i, View view, ViewGroup viewGroup) {
         PersonPostListData.PostList postList;
         if (!this.d) {
-            return a(TiebaApplication.g().al(), this.k);
+            int ae = TiebaApplication.g().ae();
+            com.baidu.tieba.model.bp bpVar = this.k;
+            if (this.l == null) {
+                this.l = (LinearLayout) View.inflate(this.b, R.layout.person_center_list_no_data_view, null);
+                this.m = (ImageView) this.l.findViewById(R.id.person_center_list_no_data_iv);
+                this.m.setVisibility(8);
+                this.n = (TextView) this.l.findViewById(R.id.person_center_list_no_data_txt);
+            }
+            if (1 == ae && this.l != null) {
+                this.l.setBackgroundColor(this.b.getResources().getColor(R.color.person_center_list_no_data_bg_color_1));
+                this.m.setBackgroundResource(R.drawable.pic_blank_page_search_1);
+                this.n.setTextColor(this.b.getResources().getColor(R.color.person_center_list_no_data_text_color_1));
+            } else if (this.l != null) {
+                this.l.setBackgroundColor(this.b.getResources().getColor(R.color.person_center_list_no_data_bg_color));
+                this.m.setBackgroundResource(R.drawable.pic_blank_page_search);
+                this.n.setTextColor(this.b.getResources().getColor(R.color.person_center_list_no_data_text_color));
+            }
+            if (bpVar != null && bpVar.f() != null) {
+                this.m.setVisibility(0);
+                if (bpVar.a() != null && bpVar.a().hide_post != 0) {
+                    this.n.setText(this.b.getResources().getString(R.string.his_post_not_available));
+                } else if (bpVar.a() == null || bpVar.a().post_list.size() == 0) {
+                    if (bpVar.e()) {
+                        this.n.setText(this.b.getResources().getString(R.string.no_post_info));
+                    } else if (bpVar.f().getSex() == 1) {
+                        this.n.setText(this.b.getResources().getString(R.string.he_no_post_info));
+                    } else if (bpVar.f().getSex() == 2) {
+                        this.n.setText(this.b.getResources().getString(R.string.she_no_post_info));
+                    } else {
+                        this.n.setText(this.b.getResources().getString(R.string.ta_no_post_info));
+                    }
+                }
+            }
+            return this.l;
         }
         if (this.c == null) {
             this.c = new az(this.b);
         }
-        this.c.a(this.f, this.h, this.i);
-        this.c.a(this.j);
+        az azVar = this.c;
+        int i2 = this.f;
+        boolean z = this.h;
+        float f = this.i;
+        azVar.a(z);
+        this.c.b(this.j);
         View a = (view == null || view.getTag() == null) ? this.c.a() : view;
         a.setPadding(0, i == 0 ? this.b.getResources().getDimensionPixelSize(R.dimen.forumfeed_first_item_margin_top) : 0, 0, 0);
-        int al = TiebaApplication.g().al();
+        int ae2 = TiebaApplication.g().ae();
         List<PersonPostListData.PostList> list = this.a.post_list;
         if (list != null && (postList = list.get(i)) != null) {
             this.c.a(a, postList);
-            this.c.a(al, a);
+            this.c.a(ae2, a);
         }
         com.baidu.tieba.k kVar = (com.baidu.tieba.k) this.b;
-        kVar.a().a(al == 1);
+        kVar.a().a(ae2 == 1);
         kVar.a().a(a);
         return a;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
+    public final int getViewTypeCount() {
         return 6;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
+    public final int getItemViewType(int i) {
         PersonPostListData.PostList postList;
         PersonPostListData.Media[] mediaArr;
         if (this.d && this.a != null) {
@@ -128,46 +165,7 @@ public class ay extends BaseAdapter {
         return 0;
     }
 
-    public View a(int i, com.baidu.tieba.model.bp bpVar) {
-        if (this.l == null) {
-            this.l = (LinearLayout) View.inflate(this.b, R.layout.person_center_list_no_data_view, null);
-            this.m = (ImageView) this.l.findViewById(R.id.person_center_list_no_data_iv);
-            this.m.setVisibility(8);
-            this.n = (TextView) this.l.findViewById(R.id.person_center_list_no_data_txt);
-        }
-        a(i);
-        if (bpVar != null && bpVar.f() != null) {
-            this.m.setVisibility(0);
-            if (bpVar.a() != null && bpVar.a().hide_post != 0) {
-                this.n.setText(this.b.getResources().getString(R.string.his_post_not_available));
-            } else if (bpVar.a() == null || bpVar.a().post_list.size() == 0) {
-                if (bpVar.e()) {
-                    this.n.setText(this.b.getResources().getString(R.string.no_post_info));
-                } else if (bpVar.f().getSex() == 1) {
-                    this.n.setText(this.b.getResources().getString(R.string.he_no_post_info));
-                } else if (bpVar.f().getSex() == 2) {
-                    this.n.setText(this.b.getResources().getString(R.string.she_no_post_info));
-                } else {
-                    this.n.setText(this.b.getResources().getString(R.string.ta_no_post_info));
-                }
-            }
-        }
-        return this.l;
-    }
-
-    private void a(int i) {
-        if (1 == i && this.l != null) {
-            this.l.setBackgroundColor(this.b.getResources().getColor(R.color.person_center_list_no_data_bg_color_1));
-            this.m.setBackgroundResource(R.drawable.pic_blank_page_search_1);
-            this.n.setTextColor(this.b.getResources().getColor(R.color.person_center_list_no_data_text_color_1));
-        } else if (this.l != null) {
-            this.l.setBackgroundColor(this.b.getResources().getColor(R.color.person_center_list_no_data_bg_color));
-            this.m.setBackgroundResource(R.drawable.pic_blank_page_search);
-            this.n.setTextColor(this.b.getResources().getColor(R.color.person_center_list_no_data_text_color));
-        }
-    }
-
-    public void a(boolean z) {
+    private void a(boolean z) {
         this.h = z;
         this.g = this.f;
         if (this.h) {
@@ -177,7 +175,7 @@ public class ay extends BaseAdapter {
             if (this.g > BdUtilHelper.a(this.b, 320.0f)) {
                 this.g = BdUtilHelper.a(this.b, 320.0f);
             }
-            this.e.b("_small");
+            this.e.f = "_small";
         } else {
             if (this.g > this.i * 480.0f) {
                 this.g = (int) (this.i * 480.0f);
@@ -185,12 +183,12 @@ public class ay extends BaseAdapter {
             if (this.g > BdUtilHelper.a(this.b, 320.0f) * this.i) {
                 this.g = (int) (BdUtilHelper.a(this.b, 320.0f) * this.i);
             }
-            this.e.b("_mobile");
+            this.e.f = "_mobile";
         }
         this.e.a(this.g, this.g);
     }
 
-    public com.baidu.tieba.util.i a() {
+    public final com.baidu.tieba.util.i a() {
         return this.e;
     }
 }

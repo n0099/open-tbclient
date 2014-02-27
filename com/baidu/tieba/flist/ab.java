@@ -3,7 +3,7 @@ package com.baidu.tieba.flist;
 import com.baidu.tieba.util.au;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-class ab extends au {
+final class ab extends au {
     final /* synthetic */ ForumRankActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ class ab extends au {
     }
 
     @Override // com.baidu.tieba.util.au, com.baidu.tieba.util.aw
-    public LinkedList<String> getImageUrl() {
+    public final LinkedList<String> getImageUrl() {
         String str;
         String str2;
         str = this.a.m;

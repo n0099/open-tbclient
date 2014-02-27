@@ -22,10 +22,6 @@ public class a extends f {
     @Override // android.app.Activity
     public void setContentView(int i) {
         super.setContentView(i);
-        a();
-    }
-
-    protected void a() {
         if (this.a == null) {
             this.a = (ViewGroup) findViewById(R.id.container);
             if (this.a == null) {
@@ -66,7 +62,7 @@ public class a extends f {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void b() {
+    public void a() {
         finish();
     }
 }

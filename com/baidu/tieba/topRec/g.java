@@ -3,7 +3,7 @@ package com.baidu.tieba.topRec;
 import android.widget.ImageView;
 import android.widget.TextView;
 /* loaded from: classes.dex */
-class g {
+final class g {
     ImageView a;
     TextView b;
     TextView c;

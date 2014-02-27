@@ -23,24 +23,24 @@ public class SettingTextSwitchView extends FrameLayout {
     public SettingTextSwitchView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.b = context;
-        d();
+        c();
         a(attributeSet);
-        a(TiebaApplication.g().al());
+        a(TiebaApplication.g().ae());
     }
 
     public SettingTextSwitchView(Context context) {
         super(context);
         this.b = context;
-        d();
-        a(TiebaApplication.g().al());
+        c();
+        a(TiebaApplication.g().ae());
     }
 
     public SettingTextSwitchView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.b = context;
-        d();
+        c();
         a(attributeSet);
-        a(TiebaApplication.g().al());
+        a(TiebaApplication.g().ae());
     }
 
     @Override // android.view.View
@@ -56,7 +56,7 @@ public class SettingTextSwitchView extends FrameLayout {
         return this.c;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         if (i == 1) {
             this.d.setTextColor(this.b.getResources().getColor(R.color.about_tip_color_1));
             this.e.setSwitchStyle(BdSwitchView.SwitchStyle.NIGHT);
@@ -73,19 +73,19 @@ public class SettingTextSwitchView extends FrameLayout {
         }
     }
 
-    public void a() {
+    public final void a() {
         a(false);
     }
 
-    public void b() {
+    public final void b() {
         b(false);
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.e.b(z);
     }
 
-    public void b(boolean z) {
+    public final void b(boolean z) {
         this.e.a(z);
     }
 
@@ -97,7 +97,7 @@ public class SettingTextSwitchView extends FrameLayout {
         this.e.setOnSwitchStateChangeListener(cVar);
     }
 
-    private void d() {
+    private void c() {
         LayoutInflater.from(this.b).inflate(R.layout.setting_text_switch_view, (ViewGroup) this, true);
         this.c = (LinearLayout) findViewById(R.id.container);
         this.d = (TextView) findViewById(R.id.text);
@@ -119,14 +119,14 @@ public class SettingTextSwitchView extends FrameLayout {
         if (this.a != null && string2 != null) {
             this.a.setVisibility(0);
             this.a.setText(string2);
-            if (color2 > -1) {
+            if (color2 >= 0) {
                 this.a.setTextColor(color2);
             }
         }
         if (string != null) {
             this.d.setText(string);
         }
-        if (color > -1) {
+        if (color >= 0) {
             this.d.setTextColor(color);
         }
         if (dimension > -1.0f) {
@@ -139,14 +139,14 @@ public class SettingTextSwitchView extends FrameLayout {
 
     public void setTip(String str) {
         if (str != null && this.a != null) {
-            c();
+            d();
             this.a.setText(str);
         }
     }
 
     public void setTip(int i) {
         if (i != -1 && this.a != null) {
-            c();
+            d();
             this.a.setText(i);
         }
     }
@@ -157,7 +157,7 @@ public class SettingTextSwitchView extends FrameLayout {
         }
     }
 
-    public void c() {
+    private void d() {
         if (this.a != null) {
             this.a.setVisibility(8);
         }

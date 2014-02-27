@@ -3,9 +3,8 @@ package com.baidu.tieba.pb;
 import android.content.DialogInterface;
 import com.baidu.tieba.FileDownloader;
 import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class br implements DialogInterface.OnClickListener {
+final class br implements DialogInterface.OnClickListener {
     final /* synthetic */ NewPbActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +13,7 @@ public class br implements DialogInterface.OnClickListener {
     }
 
     @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
+    public final void onClick(DialogInterface dialogInterface, int i) {
         if (!com.baidu.tieba.util.af.a()) {
             this.a.showToast(com.baidu.tieba.util.af.b());
         } else {

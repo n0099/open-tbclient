@@ -21,12 +21,10 @@ public class r extends x {
 
     @Override // com.v
     public void a() {
-        if (!SocialConfig.getInstance(this.a).getSsoMediaTypes().contains(MediaType.QZONE)) {
-            f();
-        } else if (g()) {
-        } else {
-            f();
+        if (SocialConfig.getInstance(this.a).getSsoMediaTypes().contains(MediaType.QZONE) && g()) {
+            return;
         }
+        f();
     }
 
     @Override // com.v

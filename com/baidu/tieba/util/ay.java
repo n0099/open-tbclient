@@ -5,7 +5,7 @@ import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.text.TextUtils;
 /* loaded from: classes.dex */
-public class ay implements MediaScannerConnection.MediaScannerConnectionClient {
+public final class ay implements MediaScannerConnection.MediaScannerConnectionClient {
     private MediaScannerConnection a;
     private Context b;
     private String c;
@@ -21,7 +21,7 @@ public class ay implements MediaScannerConnection.MediaScannerConnectionClient {
         this.a = new MediaScannerConnection(this.b, this);
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.c = str;
         String substring = this.c.substring(this.c.lastIndexOf("."));
         this.d = "image/jpeg";
@@ -32,7 +32,7 @@ public class ay implements MediaScannerConnection.MediaScannerConnectionClient {
     }
 
     @Override // android.media.MediaScannerConnection.MediaScannerConnectionClient
-    public void onMediaScannerConnected() {
+    public final void onMediaScannerConnected() {
         if (!TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.d)) {
             this.a.scanFile(this.c, this.d);
         }
@@ -45,7 +45,7 @@ public class ay implements MediaScannerConnection.MediaScannerConnectionClient {
     }
 
     @Override // android.media.MediaScannerConnection.OnScanCompletedListener
-    public void onScanCompleted(String str, Uri uri) {
+    public final void onScanCompleted(String str, Uri uri) {
         if (!TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.d) && str.equals(this.c)) {
             this.a.disconnect();
             this.c = null;
@@ -63,7 +63,7 @@ public class ay implements MediaScannerConnection.MediaScannerConnectionClient {
             }
         }
         if (this.h && this.i != null) {
-            this.i.a();
+            az azVar = this.i;
         }
     }
 }

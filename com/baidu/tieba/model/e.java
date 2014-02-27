@@ -4,12 +4,36 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.im.message.de;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e extends BdAsyncTask<Integer, Integer, String> {
+public final class e extends BdAsyncTask<Integer, Integer, String> {
     final /* synthetic */ d a;
     private com.baidu.tieba.util.ba b;
     private boolean c;
     private String d;
     private String e;
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ String a(Integer... numArr) {
+        return d();
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ void a(String str) {
+        super.a((e) str);
+        this.a.a = null;
+        if (this.b != null) {
+            de deVar = new de();
+            deVar.a(this.b.c());
+            deVar.a(this.b.i());
+            deVar.b(this.c);
+            deVar.b(this.e);
+            com.baidu.tieba.im.messageCenter.d.a().e(deVar);
+        }
+    }
 
     private e(d dVar) {
         this.a = dVar;
@@ -17,27 +41,24 @@ public class e extends BdAsyncTask<Integer, Integer, String> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ e(d dVar, e eVar) {
+    public /* synthetic */ e(d dVar, byte b) {
         this(dVar);
     }
 
     /* renamed from: a  reason: avoid collision after fix types in other method */
-    public void a2(String str) {
+    public final void a2(String str) {
         this.d = str;
     }
 
-    public void b(String str) {
+    public final void b(String str) {
         this.e = str;
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.c = z;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public String a(Integer... numArr) {
+    private String d() {
         try {
             if (this.d != null) {
                 this.b = new com.baidu.tieba.util.ba();
@@ -48,40 +69,23 @@ public class e extends BdAsyncTask<Integer, Integer, String> {
                 }
                 this.b.a("portrait", this.d);
                 this.b.e(true);
-                this.b.m();
+                this.b.l();
                 return null;
             }
             return null;
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.adp.lib.util.e.b(getClass().getName(), "doInBackground", e.getMessage());
             return null;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: c */
-    public void a(String str) {
-        super.a((e) str);
-        this.a.a = null;
-        if (this.b != null) {
-            de deVar = new de();
-            deVar.a(this.b.d());
-            deVar.a(this.b.j());
-            deVar.b(this.c);
-            deVar.b(this.e);
-            com.baidu.tieba.im.messageCenter.e.a().e(deVar);
-        }
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
+    public final void cancel() {
         com.baidu.adp.a.g gVar;
         com.baidu.adp.a.g gVar2;
         super.cancel(true);
         if (this.b != null) {
-            this.b.k();
+            this.b.j();
             this.b = null;
         }
         this.a.a = null;

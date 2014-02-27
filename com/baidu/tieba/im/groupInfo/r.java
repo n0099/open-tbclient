@@ -3,7 +3,7 @@ package com.baidu.tieba.im.groupInfo;
 import com.baidu.tieba.view.HeadImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r implements com.baidu.tbadk.imageManager.d {
+public final class r implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ m a;
     private final /* synthetic */ HeadImageView b;
 
@@ -14,7 +14,7 @@ public class r implements com.baidu.tbadk.imageManager.d {
     }
 
     @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
         if (bVar != null) {
             bVar.a(this.b);
         }

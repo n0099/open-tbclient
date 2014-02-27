@@ -17,11 +17,11 @@ public class SettingTextFunctionIntroView extends SettingTextTipView {
         super(context, attributeSet);
     }
 
-    public void a() {
+    public final void a() {
         boolean z = true;
-        boolean z2 = TiebaApplication.g().al() == 1;
-        VersionData as = TiebaApplication.g().as();
-        if (as == null || as.getHas_new_ver() != 1) {
+        boolean z2 = TiebaApplication.g().ae() == 1;
+        VersionData al = TiebaApplication.g().al();
+        if (al == null || al.getHas_new_ver() != 1) {
             z = false;
         }
         boolean a2 = com.baidu.tieba.sharedPref.b.a().a(a, false);

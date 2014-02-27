@@ -12,7 +12,7 @@ public enum BindType {
         this.a = str;
     }
 
-    public String getName() {
+    public final String getName() {
         return this.a;
     }
 }

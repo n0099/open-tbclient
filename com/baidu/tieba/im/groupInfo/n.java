@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n extends Handler {
+public final class n extends Handler {
     int a = 0;
     final /* synthetic */ m b;
 
@@ -14,21 +14,20 @@ public class n extends Handler {
     }
 
     @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    public final void handleMessage(Message message) {
         Handler handler;
         Handler handler2;
         super.handleMessage(message);
         if (message.what == 0) {
-            if (this.a != 0) {
-                if (this.a >= 3) {
-                    this.b.C();
-                    handler = this.b.ai;
-                    handler.removeMessages(0);
-                    return;
-                }
-            } else {
-                this.b.B();
-                this.b.A();
+            if (this.a == 0) {
+                m.a(this.b);
+                m mVar = this.b;
+                com.baidu.tieba.sharedPref.b.a().b("has_shown_activity_guide_toast", true);
+            } else if (this.a >= 3) {
+                this.b.z();
+                handler = this.b.ai;
+                handler.removeMessages(0);
+                return;
             }
             this.a++;
             handler2 = this.b.ai;

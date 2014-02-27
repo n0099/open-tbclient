@@ -11,7 +11,7 @@ import com.baidu.tieba.util.r;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class k {
+public final class k {
     private static k a;
 
     public static synchronized k a() {
@@ -28,7 +28,7 @@ public class k {
     private k() {
     }
 
-    public synchronized boolean a(ImMessageCenterPojo imMessageCenterPojo) {
+    public final synchronized boolean a(ImMessageCenterPojo imMessageCenterPojo) {
         boolean z = false;
         synchronized (this) {
             try {
@@ -58,7 +58,7 @@ public class k {
         return z;
     }
 
-    public boolean a(String str) {
+    public static boolean a(String str) {
         try {
             SQLiteDatabase a2 = g.a();
             if (a2 != null) {
@@ -73,7 +73,7 @@ public class k {
         }
     }
 
-    public LinkedList<ImMessageCenterPojo> b() {
+    public static LinkedList<ImMessageCenterPojo> b() {
         Cursor cursor;
         Throwable th;
         LinkedList<ImMessageCenterPojo> linkedList = new LinkedList<>();
@@ -126,7 +126,7 @@ public class k {
         }
     }
 
-    public synchronized void a(LinkedList<ImMessageCenterPojo> linkedList) {
+    public final synchronized void a(LinkedList<ImMessageCenterPojo> linkedList) {
         SQLiteDatabase a2 = g.a();
         if (a2 != null && linkedList != null && linkedList.size() > 0) {
             try {
@@ -144,15 +144,15 @@ public class k {
                     contentValues.put("is_delete", Integer.valueOf(next.getIs_delete()));
                     contentValues.put("type", Integer.valueOf(next.getType()));
                     contentValues.put("orderCol", Long.valueOf(next.getOrderCol()));
-                    com.baidu.adp.lib.util.f.e(" update recent group chat gid:" + next.getGid());
+                    com.baidu.adp.lib.util.e.e(" update recent group chat gid:" + next.getGid());
                     if (a2.update("tb_message_center", contentValues, "gid=?", new String[]{next.getGid()}) == 0) {
                         if (a2.insert("tb_message_center", null, contentValues) == 0) {
-                            com.baidu.adp.lib.util.f.e("表：tb_message_center[insert error] " + next);
+                            com.baidu.adp.lib.util.e.e("表：tb_message_center[insert error] " + next);
                         } else {
-                            com.baidu.adp.lib.util.f.e("表：tb_message_center[insert] " + next);
+                            com.baidu.adp.lib.util.e.e("表：tb_message_center[insert] " + next);
                         }
                     } else {
-                        com.baidu.adp.lib.util.f.e("表：tb_message_center[update] " + next);
+                        com.baidu.adp.lib.util.e.e("表：tb_message_center[update] " + next);
                     }
                 }
                 a2.setTransactionSuccessful();
@@ -165,7 +165,7 @@ public class k {
         }
     }
 
-    public void a(String str, boolean z) {
+    public static void a(String str, boolean z) {
         SQLiteDatabase a2;
         try {
             if (!TextUtils.isEmpty(str) && (a2 = g.a()) != null) {
@@ -182,7 +182,7 @@ public class k {
         }
     }
 
-    public void a(String str, String str2) {
+    public static void a(String str, String str2) {
         SQLiteDatabase a2;
         try {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && (a2 = g.a()) != null) {
@@ -196,7 +196,7 @@ public class k {
         }
     }
 
-    public void b(String str, String str2) {
+    public static void b(String str, String str2) {
         SQLiteDatabase a2;
         try {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && (a2 = g.a()) != null) {
@@ -210,12 +210,12 @@ public class k {
         }
     }
 
-    public void b(String str, boolean z) {
+    public static void b(String str, boolean z) {
         SQLiteDatabase a2;
         try {
             if (!TextUtils.isEmpty(str) && (a2 = g.a()) != null) {
                 ContentValues contentValues = new ContentValues();
-                contentValues.put("is_delete", Integer.valueOf(z ? 1 : 0));
+                contentValues.put("is_delete", (Integer) 1);
                 a2.update("tb_message_center", contentValues, "gid=?", new String[]{str});
             }
         } catch (Exception e) {

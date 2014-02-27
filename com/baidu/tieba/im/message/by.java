@@ -7,16 +7,12 @@ import protobuf.QueryGroupActivity.QueryGroupActivityRes;
 public class by extends da implements com.baidu.tieba.im.coder.f {
     private GroupActivityData a;
 
-    public GroupActivityData a() {
+    public final GroupActivityData a() {
         return this.a;
     }
 
-    public void a(GroupActivityData groupActivityData) {
-        this.a = groupActivityData;
-    }
-
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<s> linkedList, byte[] bArr, int i) {
+    public final void a(LinkedList<s> linkedList, byte[] bArr, int i) {
         QueryGroupActivityRes.QueryGroupActivityResIdl parseFrom = QueryGroupActivityRes.QueryGroupActivityResIdl.parseFrom(bArr);
         e(i);
         g(parseFrom.getError().getErrorno());
@@ -35,7 +31,7 @@ public class by extends da implements com.baidu.tieba.im.coder.f {
             groupActivityData.setUserId(data.getUserId());
             groupActivityData.setUserName(data.getUserName());
             groupActivityData.setIsEnd(data.getIsEnd());
-            a(groupActivityData);
+            this.a = groupActivityData;
         }
     }
 }

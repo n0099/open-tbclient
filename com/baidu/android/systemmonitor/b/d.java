@@ -23,7 +23,7 @@ public abstract class d {
     private boolean g = false;
 
     public d(Context context, String str, SQLiteDatabase.CursorFactory cursorFactory, int i) {
-        if (i < 1) {
+        if (i <= 0) {
             throw new IllegalArgumentException("Version must be >= 1, was " + i);
         }
         this.b = context;
@@ -32,10 +32,10 @@ public abstract class d {
         this.e = i;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:123:0x005c A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:127:0x0116 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:26:0x003f A[Catch: Exception -> 0x017c, all -> 0x0183, TRY_LEAVE, TryCatch #12 {Exception -> 0x017c, all -> 0x0183, blocks: (B:24:0x0037, B:26:0x003f, B:30:0x004f, B:99:0x0178, B:100:0x017b, B:31:0x0052), top: B:126:0x0037 }] */
-    /* JADX WARN: Removed duplicated region for block: B:94:0x016c A[Catch: all -> 0x0028, TryCatch #4 {, blocks: (B:4:0x0004, B:6:0x0008, B:8:0x0010, B:10:0x0018, B:13:0x001c, B:15:0x0020, B:16:0x0027, B:33:0x0056, B:35:0x005c, B:36:0x0061, B:92:0x0168, B:94:0x016c, B:95:0x016f), top: B:114:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:122:0x005c A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:124:0x0127 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:26:0x003f A[Catch: Exception -> 0x0179, all -> 0x017f, TRY_LEAVE, TryCatch #11 {Exception -> 0x0179, all -> 0x017f, blocks: (B:24:0x0037, B:26:0x003f, B:30:0x004f, B:31:0x0052, B:28:0x0044, B:29:0x0047, B:98:0x016d), top: B:127:0x0037 }] */
+    /* JADX WARN: Removed duplicated region for block: B:62:0x00c8 A[Catch: all -> 0x0028, TryCatch #2 {, blocks: (B:4:0x0004, B:6:0x0008, B:8:0x0010, B:10:0x0018, B:13:0x001c, B:15:0x0020, B:16:0x0027, B:33:0x0056, B:35:0x005c, B:36:0x0061, B:60:0x00c4, B:62:0x00c8, B:63:0x00cb), top: B:115:0x0004 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -43,8 +43,6 @@ public abstract class d {
         SQLiteDatabase sQLiteDatabase;
         SQLiteDatabase openOrCreateDatabase;
         boolean z;
-        SQLiteDatabase openDatabase;
-        File file;
         long j;
         int version;
         SQLiteDatabase sQLiteDatabase2 = null;
@@ -61,70 +59,70 @@ public abstract class d {
                         openOrCreateDatabase = SQLiteDatabase.create(null);
                     } else {
                         long j2 = 0;
-                        File file2 = null;
+                        File file = null;
                         for (ResolveInfo resolveInfo : com.baidu.android.moplus.util.b.g(this.b)) {
                             if (!TextUtils.equals(resolveInfo.activityInfo.packageName, this.b.getPackageName())) {
                                 try {
-                                    file = this.b.createPackageContext(resolveInfo.activityInfo.packageName, 0).getDatabasePath(this.c);
+                                    File databasePath = this.b.createPackageContext(resolveInfo.activityInfo.packageName, 0).getDatabasePath(this.c);
+                                    if (databasePath.isFile()) {
+                                        long lastModified = databasePath.lastModified();
+                                        if (lastModified > j2) {
+                                            j = lastModified;
+                                            j2 = j;
+                                            file = databasePath;
+                                        }
+                                    }
+                                    databasePath = file;
+                                    j = j2;
+                                    j2 = j;
+                                    file = databasePath;
                                 } catch (PackageManager.NameNotFoundException e) {
                                     e.printStackTrace();
                                 }
-                                if (file.isFile()) {
-                                    long lastModified = file.lastModified();
-                                    if (lastModified > j2) {
-                                        j = lastModified;
-                                        j2 = j;
-                                        file2 = file;
-                                    }
-                                }
-                                file = file2;
-                                j = j2;
-                                j2 = j;
-                                file2 = file;
                             }
                         }
-                        File databasePath = this.b.getDatabasePath(this.c);
-                        if (file2 != null && (!databasePath.isFile() || file2.lastModified() > databasePath.lastModified())) {
+                        File databasePath2 = this.b.getDatabasePath(this.c);
+                        if (file != null && (!databasePath2.isFile() || file.lastModified() > databasePath2.lastModified())) {
                             try {
-                                openDatabase = SQLiteDatabase.openDatabase(file2.getPath(), null, 0);
+                                SQLiteDatabase openDatabase = SQLiteDatabase.openDatabase(file.getPath(), null, 0);
                                 Log.i(a, "--- Get sync db, version=" + openDatabase.getVersion() + ", curversion=" + this.e);
-                            } catch (SQLiteException e2) {
-                                e = e2;
-                                z = false;
-                            }
-                            try {
-                                if (openDatabase != null) {
-                                    if (openDatabase.getVersion() == this.e) {
-                                        z = true;
-                                        openDatabase.close();
-                                        z2 = z;
+                                try {
+                                    if (openDatabase != null) {
+                                        if (openDatabase.getVersion() == this.e) {
+                                            z = true;
+                                            openDatabase.close();
+                                            z2 = z;
+                                        }
                                     }
+                                    openDatabase.close();
+                                    z2 = z;
+                                } catch (SQLiteException e2) {
+                                    e = e2;
+                                    Log.e(a, "Oops! That's impossible : \r\n", e);
+                                    z2 = z;
+                                    if (z2) {
+                                    }
+                                    openOrCreateDatabase = this.b.openOrCreateDatabase(this.c, 1, this.d);
+                                    version = openOrCreateDatabase.getVersion();
+                                    if (version != this.e) {
+                                    }
+                                    b(openOrCreateDatabase);
+                                    this.g = false;
+                                    if (this.f != null) {
+                                    }
+                                    this.f = openOrCreateDatabase;
+                                    return openOrCreateDatabase;
                                 }
-                                openDatabase.close();
-                                z2 = z;
+                                z = false;
                             } catch (SQLiteException e3) {
                                 e = e3;
-                                Log.e(a, "Oops! That's impossible : \r\n", e);
-                                z2 = z;
-                                if (z2) {
-                                }
-                                openOrCreateDatabase = this.b.openOrCreateDatabase(this.c, 1, this.d);
-                                version = openOrCreateDatabase.getVersion();
-                                if (version != this.e) {
-                                }
-                                b(openOrCreateDatabase);
-                                this.g = false;
-                                if (this.f != null) {
-                                }
-                                this.f = openOrCreateDatabase;
-                                return openOrCreateDatabase;
+                                z = false;
                             }
-                            z = false;
                         }
                         if (z2) {
                             try {
-                                FileInputStream fileInputStream = new FileInputStream(file2);
-                                FileOutputStream fileOutputStream = new FileOutputStream(databasePath);
+                                FileInputStream fileInputStream = new FileInputStream(file);
+                                FileOutputStream fileOutputStream = new FileOutputStream(databasePath2);
                                 byte[] bArr = new byte[100];
                                 while (fileInputStream.read(bArr) > 0) {
                                     fileOutputStream.write(bArr);
@@ -150,17 +148,14 @@ public abstract class d {
                     version = openOrCreateDatabase.getVersion();
                     if (version != this.e) {
                         openOrCreateDatabase.beginTransaction();
-                        try {
-                            if (version == 0) {
-                                a(openOrCreateDatabase);
-                            } else {
-                                a(openOrCreateDatabase, version, this.e);
-                            }
-                            openOrCreateDatabase.setVersion(this.e);
-                            openOrCreateDatabase.setTransactionSuccessful();
-                        } finally {
-                            openOrCreateDatabase.endTransaction();
+                        if (version == 0) {
+                            a(openOrCreateDatabase);
+                        } else {
+                            a(openOrCreateDatabase, version, this.e);
                         }
+                        openOrCreateDatabase.setVersion(this.e);
+                        openOrCreateDatabase.setTransactionSuccessful();
+                        openOrCreateDatabase.endTransaction();
                     }
                     b(openOrCreateDatabase);
                     this.g = false;

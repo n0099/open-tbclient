@@ -1,11 +1,10 @@
 package com.baidu.tieba.data;
 
-import android.graphics.Color;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tieba.util.bs;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class au {
+public final class au {
     private String d;
     private String a = null;
     private String b = null;
@@ -16,35 +15,35 @@ public class au {
     private String g = null;
     private boolean i = true;
 
-    public boolean a() {
+    public final boolean a() {
         return this.i;
     }
 
-    public String b() {
+    public final String b() {
         return this.b;
     }
 
-    public String c() {
+    public final String c() {
         return this.a;
     }
 
-    public String d() {
+    public final String d() {
         return this.d;
     }
 
-    public String e() {
+    public final String e() {
         return this.c;
     }
 
-    public String f() {
+    public final String f() {
         return this.g;
     }
 
-    public long g() {
+    public final long g() {
         return this.e;
     }
 
-    public void a(JSONObject jSONObject) {
+    public final void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 this.a = jSONObject.optString("tid");
@@ -55,14 +54,14 @@ public class au {
                 this.f.parserJson(jSONObject.optJSONObject("author"));
                 this.g = jSONObject.optString(PushConstants.EXTRA_CONTENT);
                 this.d = jSONObject.optString("fname");
-                this.c = bs.a(this.c, (Color) null);
-                String a = bs.a(this.g, (Color) null);
-                if (!a.equals(this.g)) {
-                    this.g = a;
+                this.c = bs.g(this.c);
+                String g = bs.g(this.g);
+                if (!g.equals(this.g)) {
+                    this.g = g;
                     this.i = false;
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b("PostData", "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.util.e.b("PostData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

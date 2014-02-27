@@ -1,40 +1,40 @@
 package com.baidu.tieba.im.randchat;
 
-import com.baidu.tieba.im.chat.snapGroup.SnapGroupChatActivity;
-import com.baidu.tieba.im.data.RandChatRoomData;
+import android.util.Pair;
 import com.baidu.tieba.im.model.ar;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.im.randchat.WaitingTipView;
+import com.baidu.tieba.util.bt;
 /* loaded from: classes.dex */
-public class l implements c {
+final class l extends bt {
     final /* synthetic */ WaittingActivity a;
-    private final /* synthetic */ String b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(WaittingActivity waittingActivity, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public l(WaittingActivity waittingActivity, long j, long j2) {
+        super(100000000L, 1000L);
         this.a = waittingActivity;
-        this.b = str;
     }
 
-    @Override // com.baidu.tieba.im.randchat.c
-    public void a() {
-        boolean z;
+    @Override // com.baidu.tieba.util.bt
+    public final void a(long j) {
         ar arVar;
+        bt btVar;
         ar arVar2;
-        ar arVar3;
-        ar arVar4;
-        z = this.a.g;
-        if (!z) {
-            arVar = this.a.b;
-            RandChatRoomData f = arVar.f();
+        arVar = this.a.b;
+        if (!arVar.a().isEmpty()) {
             arVar2 = this.a.b;
-            int g = arVar2.g();
-            WaittingActivity waittingActivity = this.a;
-            arVar3 = this.a.b;
-            String h = arVar3.h();
-            arVar4 = this.a.b;
-            SnapGroupChatActivity.a(waittingActivity, f, h, arVar4.i(), this.b, g);
-            this.a.finish();
-            this.a.g = true;
+            Pair<WaitingTipView.Type, Object[]> removeFirst = arVar2.a().removeFirst();
+            if (removeFirst != null) {
+                this.a.b((WaitingTipView.Type) removeFirst.first, (Object[]) removeFirst.second);
+                return;
+            }
+            return;
         }
+        btVar = this.a.f;
+        btVar.b();
+    }
+
+    @Override // com.baidu.tieba.util.bt
+    public final void a() {
     }
 }

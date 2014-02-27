@@ -3,7 +3,7 @@ package com.baidu.adp.framework;
 public abstract class d {
     private int a = 0;
 
-    public int a() {
+    public final int a() {
         return this.a;
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.person.post;
 /* loaded from: classes.dex */
-class s implements com.baidu.adp.widget.ListView.b {
+final class s implements com.baidu.adp.widget.ListView.b {
     final /* synthetic */ q a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,7 +9,7 @@ class s implements com.baidu.adp.widget.ListView.b {
     }
 
     @Override // com.baidu.adp.widget.ListView.b
-    public void a(boolean z) {
+    public final void a(boolean z) {
         l lVar;
         lVar = this.a.d;
         lVar.a(true);

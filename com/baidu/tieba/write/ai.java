@@ -1,35 +1,17 @@
 package com.baidu.tieba.write;
 
-import com.baidu.tieba.data.AntiData;
+import android.view.View;
 /* loaded from: classes.dex */
-public class ai {
-    final int a;
-    final String b;
-    final AntiData c;
+final class ai implements View.OnClickListener {
+    final /* synthetic */ VcodeActivity a;
 
-    public ai(int i, String str, AntiData antiData) {
-        this.a = i;
-        this.b = str;
-        this.c = antiData;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ai(VcodeActivity vcodeActivity) {
+        this.a = vcodeActivity;
     }
 
-    public boolean a() {
-        return this.a != 0;
-    }
-
-    public boolean b() {
-        return this.a == 5 || this.a == 6;
-    }
-
-    public int c() {
-        return this.a;
-    }
-
-    public String d() {
-        return this.b;
-    }
-
-    public AntiData e() {
-        return this.c;
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        this.a.finish();
     }
 }

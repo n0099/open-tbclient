@@ -1,6 +1,6 @@
 package com.baidu.adp.gif;
 /* loaded from: classes.dex */
-public class b implements a {
+public final class b implements a {
     private static a a;
     private int b;
     private g c = new g();
@@ -27,12 +27,12 @@ public class b implements a {
     }
 
     @Override // com.baidu.adp.gif.a
-    public com.baidu.adp.widget.ImageView.b a(String str) {
+    public final com.baidu.adp.widget.ImageView.b a(String str) {
         if (this.b == 0) {
             try {
                 return this.c.a(str);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.e("GifFactory", "get", "failed to create native gif");
+                com.baidu.adp.lib.util.e.e("GifFactory", "get", "failed to create native gif");
                 return null;
             }
         } else if (this.b != 1) {
@@ -41,7 +41,7 @@ public class b implements a {
             try {
                 return this.d.a(str);
             } catch (Exception e2) {
-                com.baidu.adp.lib.util.f.e("GifFactory", "get", "failed to create movie gif");
+                com.baidu.adp.lib.util.e.e("GifFactory", "get", "failed to create movie gif");
                 return null;
             }
         }

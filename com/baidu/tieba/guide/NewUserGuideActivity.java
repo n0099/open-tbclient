@@ -22,11 +22,11 @@ public class NewUserGuideActivity extends com.baidu.tieba.k {
     private boolean h = false;
     private bj j = new b(this);
 
-    public void a(boolean z) {
-        this.h = z;
+    public final void a(boolean z) {
+        this.h = true;
     }
 
-    public boolean e() {
+    public final boolean e() {
         return this.h;
     }
 
@@ -37,7 +37,7 @@ public class NewUserGuideActivity extends com.baidu.tieba.k {
         context.startActivity(intent);
     }
 
-    public RightSlideViewPager f() {
+    public final RightSlideViewPager f() {
         return this.i;
     }
 
@@ -45,36 +45,37 @@ public class NewUserGuideActivity extends com.baidu.tieba.k {
     @Override // com.baidu.tieba.k, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        l();
+        if (Build.VERSION.SDK_INT >= 11) {
+            try {
+                Field declaredField = WindowManager.LayoutParams.class.getDeclaredField("FLAG_HARDWARE_ACCELERATED");
+                declaredField.setAccessible(true);
+                int i = declaredField.getInt(null);
+                Window.class.getMethod("setFlags", Integer.TYPE, Integer.TYPE).invoke(getWindow(), Integer.valueOf(i), Integer.valueOf(i));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         setContentView(R.layout.guide_activity_interestfrs);
-        k();
-        j();
-    }
-
-    public void b(boolean z) {
-        this.f = z;
-    }
-
-    private void j() {
+        this.i = (RightSlideViewPager) findViewById(R.id.guide_viewPager);
+        this.i.setAdapter(new t(getSupportFragmentManager()));
+        this.i.setTag("canScroll");
+        this.i.setOnPageChangeListener(new c(this));
         this.g = getIntent().getBooleanExtra("is_new_user", false);
         this.f = getIntent().getBooleanExtra("has_like_bar", false);
-        int i = this.g ? 1 : 2;
+        int i2 = this.g ? 1 : 2;
         this.d = new bh();
-        this.d.a(i, 0, 100, this.j);
+        this.d.a(i2, 0, 100, this.j);
     }
 
-    public com.baidu.tieba.util.i g() {
+    public final void b(boolean z) {
+        this.f = true;
+    }
+
+    public final com.baidu.tieba.util.i g() {
         if (this.e == null) {
             this.e = new com.baidu.tieba.util.i(this);
         }
         return this.e;
-    }
-
-    private void k() {
-        this.i = (RightSlideViewPager) findViewById(R.id.guide_viewPager);
-        this.i.setAdapter(new r(getSupportFragmentManager()));
-        this.i.setTag("canScroll");
-        this.i.setOnPageChangeListener(new c(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -91,32 +92,19 @@ public class NewUserGuideActivity extends com.baidu.tieba.k {
             this.d.c();
         }
         if (this.e != null) {
-            this.e.d();
+            this.e.c();
         }
     }
 
-    public bh h() {
+    public final bh h() {
         return this.d;
     }
 
     @Override // com.baidu.tieba.k
-    protected void b(int i) {
+    protected final void b(int i) {
     }
 
-    private void l() {
-        if (Build.VERSION.SDK_INT >= 11) {
-            try {
-                Field declaredField = WindowManager.LayoutParams.class.getDeclaredField("FLAG_HARDWARE_ACCELERATED");
-                declaredField.setAccessible(true);
-                int i = declaredField.getInt(null);
-                Window.class.getMethod("setFlags", Integer.TYPE, Integer.TYPE).invoke(getWindow(), Integer.valueOf(i), Integer.valueOf(i));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void i() {
+    public final void i() {
         MainTabActivity.a(this, 1, this.g);
         finish();
     }

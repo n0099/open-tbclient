@@ -1,6 +1,6 @@
 package com.baidu.tieba.home;
 /* loaded from: classes.dex */
-public class w extends com.baidu.adp.a.d {
+public final class w extends com.baidu.adp.a.d {
     private u b;
     private x a = null;
     private y c = null;
@@ -10,13 +10,13 @@ public class w extends com.baidu.adp.a.d {
         this.b = new u();
     }
 
-    public void a(y yVar) {
+    public final void a(y yVar) {
         this.c = yVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.a.d
-    public boolean LoadData() {
+    public final boolean LoadData() {
         if (this.a != null) {
             return false;
         }
@@ -26,7 +26,7 @@ public class w extends com.baidu.adp.a.d {
     }
 
     @Override // com.baidu.adp.a.d
-    public boolean cancelLoadData() {
+    public final boolean cancelLoadData() {
         if (this.a != null) {
             this.a.cancel();
             return true;

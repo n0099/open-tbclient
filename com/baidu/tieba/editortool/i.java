@@ -7,7 +7,7 @@ import com.baidu.tieba.img.ImageFileInfo;
 import com.slidingmenu.lib.R;
 import java.io.File;
 /* loaded from: classes.dex */
-class i implements View.OnClickListener {
+final class i implements View.OnClickListener {
     final /* synthetic */ g a;
     private final /* synthetic */ ViewGroup b;
 
@@ -17,29 +17,38 @@ class i implements View.OnClickListener {
         this.b = viewGroup;
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:12:0x002f  */
+    /* JADX WARN: Removed duplicated region for block: B:14:0x0040  */
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void onClick(View view) {
         boolean z;
         EditorToolComponetContainer editorToolComponetContainer;
-        z zVar;
+        aa aaVar;
         EditorToolComponetContainer editorToolComponetContainer2;
         int indexOfChild = this.b.indexOfChild(view);
         if (indexOfChild >= 0) {
             ImageFileInfo imageFileInfo = (ImageFileInfo) this.a.getItem(indexOfChild);
-            if (imageFileInfo == null) {
-                z = false;
-            } else {
+            if (imageFileInfo != null) {
                 File file = new File(imageFileInfo.getFilePath());
-                z = file.exists() && file.length() != 0;
+                if (file.exists() && file.length() != 0) {
+                    z = true;
+                    if (z) {
+                        editorToolComponetContainer2 = this.a.a;
+                        BdUtilHelper.b(editorToolComponetContainer2.getContext(), (int) R.string.editor_mutiiamge_image_error);
+                        return;
+                    }
+                    editorToolComponetContainer = this.a.a;
+                    aaVar = editorToolComponetContainer.r;
+                    aaVar.a(42, Integer.valueOf(indexOfChild));
+                    return;
+                }
             }
-            if (!z) {
-                editorToolComponetContainer2 = this.a.a;
-                BdUtilHelper.b(editorToolComponetContainer2.getContext(), (int) R.string.editor_mutiiamge_image_error);
-                return;
+            z = false;
+            if (z) {
             }
-            editorToolComponetContainer = this.a.a;
-            zVar = editorToolComponetContainer.r;
-            zVar.a(42, Integer.valueOf(indexOfChild));
         }
     }
 }

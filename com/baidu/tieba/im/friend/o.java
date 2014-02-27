@@ -8,15 +8,15 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tieba.view.HeadImageView;
 import com.baidu.tieba.view.TbCheckBox;
-import com.baidu.tieba.view.cr;
+import com.baidu.tieba.view.cq;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class o extends BaseAdapter {
+public final class o extends BaseAdapter {
     private final Context a;
     private com.baidu.tieba.util.i b;
     private ArrayList<com.baidu.tieba.im.data.d> c;
-    private cr d;
+    private cq d;
     private t e = null;
     private ViewGroup f = null;
     private final View.OnClickListener g = new p(this);
@@ -27,20 +27,20 @@ public class o extends BaseAdapter {
         this.b = new com.baidu.tieba.util.i(context);
     }
 
-    public void a(t tVar) {
+    public final void a(t tVar) {
         this.e = tVar;
     }
 
-    public void a(ArrayList<com.baidu.tieba.im.data.d> arrayList) {
+    public final void a(ArrayList<com.baidu.tieba.im.data.d> arrayList) {
         this.c = arrayList;
     }
 
-    public void a(cr crVar) {
-        this.d = crVar;
+    public final void a(cq cqVar) {
+        this.d = cqVar;
     }
 
     @Override // android.widget.Adapter
-    public int getCount() {
+    public final int getCount() {
         if (this.c == null) {
             return 0;
         }
@@ -48,7 +48,7 @@ public class o extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public Object getItem(int i) {
+    public final Object getItem(int i) {
         if (this.c == null) {
             return null;
         }
@@ -56,23 +56,55 @@ public class o extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    public final long getItemId(int i) {
         return 0L;
     }
 
-    public com.baidu.tieba.util.i a() {
+    public final com.baidu.tieba.util.i a() {
         return this.b;
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public final View getView(int i, View view, ViewGroup viewGroup) {
         s sVar;
         if (this.f == null) {
             this.f = viewGroup;
         }
         com.baidu.tieba.im.data.d dVar = (com.baidu.tieba.im.data.d) getItem(i);
         if (dVar != null) {
-            sVar = a(view != null ? view.getTag() : null, dVar);
+            Object tag = view != null ? view.getTag() : null;
+            if (tag == null) {
+                s sVar2 = new s(this, (byte) 0);
+                sVar2.a = LayoutInflater.from(this.a).inflate(R.layout.invite_friend_list_item, (ViewGroup) null);
+                sVar2.b = (HeadImageView) sVar2.a.findViewById(R.id.photo);
+                sVar2.b.setIsRound(true);
+                sVar2.c = (TextView) sVar2.a.findViewById(R.id.txt_user_name);
+                sVar2.d = (TbCheckBox) sVar2.a.findViewById(R.id.ckb_select);
+                sVar2.a.setOnClickListener(this.g);
+                if (this.d != null) {
+                    sVar2.d.setStatedChangedListener(this.d);
+                }
+                sVar2.a.setTag(sVar2);
+                sVar = sVar2;
+            } else {
+                sVar = (s) tag;
+            }
+            if (this.e != null) {
+                t tVar = this.e;
+                View view2 = sVar.a;
+                tVar.a(dVar);
+            }
+            String c = dVar.c();
+            if (dVar != null) {
+                sVar.b.setImageBitmap(null);
+                sVar.b.setTag(c);
+                this.b.c(c, new q(this));
+            }
+            sVar.c.setText(dVar.b());
+            sVar.d.setTagData(dVar);
+            if (this.a instanceof InviteFriendListActivity) {
+                ((InviteFriendListActivity) this.a).getLayoutMode().a(sVar.a);
+            }
         } else {
             sVar = null;
         }
@@ -80,47 +112,5 @@ public class o extends BaseAdapter {
             return sVar.a;
         }
         return null;
-    }
-
-    private s a(Object obj, com.baidu.tieba.im.data.d dVar) {
-        s sVar;
-        if (obj == null) {
-            sVar = b();
-        } else {
-            sVar = (s) obj;
-        }
-        if (this.e != null) {
-            this.e.a(sVar.a, dVar);
-        }
-        a(dVar, sVar, dVar.c());
-        sVar.c.setText(dVar.b());
-        sVar.d.setTagData(dVar);
-        if (this.a instanceof InviteFriendListActivity) {
-            ((InviteFriendListActivity) this.a).getLayoutMode().a(sVar.a);
-        }
-        return sVar;
-    }
-
-    private void a(com.baidu.tieba.im.data.d dVar, s sVar, String str) {
-        if (dVar != null) {
-            sVar.b.setImageBitmap(null);
-            sVar.b.setTag(str);
-            this.b.c(str, new q(this));
-        }
-    }
-
-    private s b() {
-        s sVar = new s(this, null);
-        sVar.a = LayoutInflater.from(this.a).inflate(R.layout.invite_friend_list_item, (ViewGroup) null);
-        sVar.b = (HeadImageView) sVar.a.findViewById(R.id.photo);
-        sVar.b.setIsRound(true);
-        sVar.c = (TextView) sVar.a.findViewById(R.id.txt_user_name);
-        sVar.d = (TbCheckBox) sVar.a.findViewById(R.id.ckb_select);
-        sVar.a.setOnClickListener(this.g);
-        if (this.d != null) {
-            sVar.d.setStatedChangedListener(this.d);
-        }
-        sVar.a.setTag(sVar);
-        return sVar;
     }
 }

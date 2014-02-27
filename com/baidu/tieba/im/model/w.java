@@ -6,7 +6,7 @@ import com.baidu.tieba.util.cb;
 import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w implements com.baidu.tieba.img.d {
+public final class w implements com.baidu.tieba.img.d {
     final /* synthetic */ MsglistModel a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +15,7 @@ public class w implements com.baidu.tieba.img.d {
     }
 
     @Override // com.baidu.tieba.img.d
-    public synchronized void a(String str, ImageUploadResult imageUploadResult) {
+    public final synchronized void a(String str, ImageUploadResult imageUploadResult) {
         HashMap hashMap;
         com.baidu.tieba.img.a aVar;
         com.baidu.tieba.im.message.b bVar;
@@ -30,7 +30,7 @@ public class w implements com.baidu.tieba.img.d {
                 hashMap = this.a.l;
                 aVar = (com.baidu.tieba.img.a) hashMap.remove(str);
             }
-            if (aVar != null && (bVar = (com.baidu.tieba.im.message.b) aVar.c()) != null) {
+            if (aVar != null && (bVar = (com.baidu.tieba.im.message.b) aVar.a) != null) {
                 if (imageUploadResult == null || imageUploadResult.error_code != 0 || imageUploadResult.picInfo == null) {
                     long currentTimeMillis = System.currentTimeMillis() - bVar.t();
                     if (imageUploadResult != null) {
@@ -38,11 +38,11 @@ public class w implements com.baidu.tieba.img.d {
                     } else {
                         cb.a(bVar.w(), 0, "", "", "upload pic http fail", -1, "resutl is null", currentTimeMillis);
                     }
-                    this.a.c(bVar);
+                    this.a.b(bVar);
                     if (bVar instanceof com.baidu.tieba.im.message.g) {
-                        com.baidu.tieba.im.j.a(new x(this, (com.baidu.tieba.im.message.g) bVar), null);
+                        com.baidu.tieba.im.i.a(new x(this, (com.baidu.tieba.im.message.g) bVar), null);
                     } else if (bVar instanceof com.baidu.tieba.im.message.w) {
-                        com.baidu.tieba.im.j.a(new y(this, (com.baidu.tieba.im.message.w) bVar), null);
+                        com.baidu.tieba.im.i.a(new y(this, (com.baidu.tieba.im.message.w) bVar), null);
                     }
                 } else {
                     long currentTimeMillis2 = System.currentTimeMillis() - bVar.t();
@@ -63,13 +63,14 @@ public class w implements com.baidu.tieba.img.d {
                         i = 0;
                         str3 = null;
                     }
-                    bVar.a(this.a.a(str4, str3, i2, i));
+                    MsglistModel msglistModel = this.a;
+                    bVar.a(MsglistModel.a(str4, str3, i2, i));
                     com.baidu.tieba.im.chat.q.b().a(bVar);
                     ajVar = this.a.q;
                     if (ajVar != null) {
-                        com.baidu.adp.lib.util.f.e("simon", "send callback", "picture");
+                        com.baidu.adp.lib.util.e.e("simon", "send callback", "picture");
                         ajVar2 = this.a.q;
-                        ajVar2.a(1);
+                        ajVar2.o();
                     }
                 }
             }

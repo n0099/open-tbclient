@@ -54,36 +54,28 @@ public final class a {
                 switch (c.a[((n) it.next()).ordinal()]) {
                     case 1:
                         jSONObject2.put("apptrace", d());
-                        z = z2;
-                        break;
+                        continue;
                     case 2:
                         jSONObject2.put("appchange", c());
-                        z = z2;
-                        break;
+                        continue;
                     case 3:
                         jSONObject2.put("event_active", b());
-                        z = z2;
-                        break;
+                        continue;
                     case 4:
                         jSONObject2.put("operationevent_power", d(j));
-                        z = z2;
-                        break;
+                        continue;
                     case 5:
                         jSONObject2.put("operationevent_charge", c(j));
-                        z = z2;
-                        break;
+                        continue;
                     case 6:
                         jSONObject2.put("storeinformation", b(j));
-                        z = z2;
-                        break;
+                        continue;
                     case 7:
                         jSONObject2.put("operationevent_network", a(j));
-                        z = z2;
-                        break;
+                        continue;
                     case 8:
                         jSONObject2.put("operationevent_apkdownload", e(j));
-                        z = z2;
-                        break;
+                        continue;
                     case 9:
                         z = true;
                         break;
@@ -111,12 +103,12 @@ public final class a {
 
     public static void g() {
         if (a != null) {
-            a.f();
+            a aVar = a;
             a = null;
         }
     }
 
-    public JSONArray a(long j) {
+    public final JSONArray a(long j) {
         JSONArray jSONArray = new JSONArray();
         ArrayList a2 = com.baidu.android.systemmonitor.devicestatistic.d.a(this.b).a(3, j);
         try {
@@ -136,7 +128,7 @@ public final class a {
         return jSONArray;
     }
 
-    public JSONObject a() {
+    public final JSONObject a() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("vername", com.baidu.android.nebula.util.d.a(this.b).c());
@@ -147,11 +139,11 @@ public final class a {
         return jSONObject;
     }
 
-    public void a(ArrayList arrayList) {
+    public final void a(ArrayList arrayList) {
         new b(this, arrayList, System.currentTimeMillis()).start();
     }
 
-    public JSONArray b(long j) {
+    public final JSONArray b(long j) {
         JSONArray jSONArray = new JSONArray();
         ArrayList a2 = com.baidu.android.systemmonitor.devicestatistic.d.a(this.b).a(4, j);
         try {
@@ -181,7 +173,7 @@ public final class a {
         return jSONArray;
     }
 
-    public JSONObject b() {
+    public final JSONObject b() {
         String a2 = com.baidu.android.systemmonitor.c.b.a(this.b);
         if (!TextUtils.isEmpty(a2)) {
             try {
@@ -215,7 +207,7 @@ public final class a {
         }
     }
 
-    public JSONArray c() {
+    public final JSONArray c() {
         JSONArray jSONArray = new JSONArray();
         ArrayList f = e.a(this.b).f();
         try {
@@ -244,7 +236,7 @@ public final class a {
         return jSONArray;
     }
 
-    public JSONArray c(long j) {
+    public final JSONArray c(long j) {
         JSONArray jSONArray = new JSONArray();
         ArrayList a2 = com.baidu.android.systemmonitor.devicestatistic.d.a(this.b).a(2, j);
         try {
@@ -267,7 +259,7 @@ public final class a {
         return jSONArray;
     }
 
-    public JSONArray d(long j) {
+    public final JSONArray d(long j) {
         JSONArray jSONArray = new JSONArray();
         ArrayList a2 = com.baidu.android.systemmonitor.devicestatistic.d.a(this.b).a(1, j);
         try {
@@ -285,7 +277,7 @@ public final class a {
         return jSONArray;
     }
 
-    public JSONObject d() {
+    public final JSONObject d() {
         System.currentTimeMillis();
         JSONObject jSONObject = new JSONObject();
         try {
@@ -380,7 +372,7 @@ public final class a {
         return jSONObject;
     }
 
-    public JSONArray e(long j) {
+    public final JSONArray e(long j) {
         JSONArray jSONArray = new JSONArray();
         ArrayList a2 = com.baidu.android.systemmonitor.devicestatistic.d.a(this.b).a(5, j);
         try {
@@ -399,7 +391,7 @@ public final class a {
         return jSONArray;
     }
 
-    public void e() {
+    public final void e() {
         new com.baidu.android.a.e(this.b).a();
         if (j.a(this.b).a()) {
             ArrayList arrayList = new ArrayList();
@@ -413,6 +405,6 @@ public final class a {
         this.c.postDelayed(this.d, 30000L);
     }
 
-    public void f() {
+    public final void f() {
     }
 }

@@ -1,10 +1,9 @@
 package com.baidu.tieba.mainentrance;
 
-import com.baidu.tieba.util.DatabaseService;
-import java.util.ArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.EditText;
+import com.baidu.adp.lib.util.BdUtilHelper;
 /* loaded from: classes.dex */
-public class y extends com.baidu.tieba.im.c<ArrayList<String>> {
+final class y implements Runnable {
     final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,10 +11,14 @@ public class y extends com.baidu.tieba.im.c<ArrayList<String>> {
         this.a = squareSearchActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.c
-    /* renamed from: a */
-    public ArrayList<String> b() {
-        return DatabaseService.n();
+    @Override // java.lang.Runnable
+    public final void run() {
+        EditText editText;
+        EditText editText2;
+        editText = this.a.c;
+        editText.requestFocus();
+        SquareSearchActivity squareSearchActivity = this.a;
+        editText2 = this.a.c;
+        BdUtilHelper.b(squareSearchActivity, editText2);
     }
 }

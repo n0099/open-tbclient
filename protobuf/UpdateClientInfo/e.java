@@ -4,6 +4,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.ExtensionRegistryLite;
 import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.MessageLite;
 import protobuf.UpdateClientInfo.UpdateClientInfoReq;
 /* loaded from: classes.dex */
 public final class e extends GeneratedMessageLite.Builder<UpdateClientInfoReq.UpdateClientInfoReqIdl, e> implements f {
@@ -11,19 +12,25 @@ public final class e extends GeneratedMessageLite.Builder<UpdateClientInfoReq.Up
     private Object b = "";
     private UpdateClientInfoReq.DataReq c = UpdateClientInfoReq.DataReq.getDefaultInstance();
 
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
+        return UpdateClientInfoReq.UpdateClientInfoReqIdl.getDefaultInstance();
+    }
+
+    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+    public final /* synthetic */ MessageLite getDefaultInstanceForType() {
+        return UpdateClientInfoReq.UpdateClientInfoReqIdl.getDefaultInstance();
+    }
+
     private e() {
-        g();
     }
 
-    private void g() {
-    }
-
-    public static e h() {
+    public static /* synthetic */ e b() {
         return new e();
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: a */
+    /* renamed from: c */
     public e clear() {
         super.clear();
         this.b = "";
@@ -34,20 +41,14 @@ public final class e extends GeneratedMessageLite.Builder<UpdateClientInfoReq.Up
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-    /* renamed from: b */
+    /* renamed from: d */
     public e clone() {
-        return h().mergeFrom(buildPartial());
-    }
-
-    @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
-    /* renamed from: c */
-    public UpdateClientInfoReq.UpdateClientInfoReqIdl getDefaultInstanceForType() {
-        return UpdateClientInfoReq.UpdateClientInfoReqIdl.getDefaultInstance();
+        return new e().mergeFrom(buildPartial());
     }
 
     @Override // com.google.protobuf.MessageLite.Builder
-    /* renamed from: d */
-    public UpdateClientInfoReq.UpdateClientInfoReqIdl build() {
+    /* renamed from: a */
+    public final UpdateClientInfoReq.UpdateClientInfoReqIdl build() {
         UpdateClientInfoReq.UpdateClientInfoReqIdl buildPartial = buildPartial();
         if (!buildPartial.isInitialized()) {
             throw newUninitializedMessageException(buildPartial);
@@ -72,7 +73,7 @@ public final class e extends GeneratedMessageLite.Builder<UpdateClientInfoReq.Up
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder
     /* renamed from: a */
-    public e mergeFrom(UpdateClientInfoReq.UpdateClientInfoReqIdl updateClientInfoReqIdl) {
+    public final e mergeFrom(UpdateClientInfoReq.UpdateClientInfoReqIdl updateClientInfoReqIdl) {
         Object obj;
         if (updateClientInfoReqIdl != UpdateClientInfoReq.UpdateClientInfoReqIdl.getDefaultInstance()) {
             if (updateClientInfoReqIdl.hasCuid()) {
@@ -81,7 +82,13 @@ public final class e extends GeneratedMessageLite.Builder<UpdateClientInfoReq.Up
                 this.b = obj;
             }
             if (updateClientInfoReqIdl.hasData()) {
-                b(updateClientInfoReqIdl.getData());
+                UpdateClientInfoReq.DataReq data = updateClientInfoReqIdl.getData();
+                if ((this.a & 2) != 2 || this.c == UpdateClientInfoReq.DataReq.getDefaultInstance()) {
+                    this.c = data;
+                } else {
+                    this.c = UpdateClientInfoReq.DataReq.newBuilder(this.c).mergeFrom(data).buildPartial();
+                }
+                this.a |= 2;
             }
         }
         return this;
@@ -130,7 +137,7 @@ public final class e extends GeneratedMessageLite.Builder<UpdateClientInfoReq.Up
         }
     }
 
-    public e a(String str) {
+    public final e a(String str) {
         if (str != null) {
             this.a |= 1;
             this.b = str;
@@ -138,21 +145,11 @@ public final class e extends GeneratedMessageLite.Builder<UpdateClientInfoReq.Up
         return this;
     }
 
-    public e a(UpdateClientInfoReq.DataReq dataReq) {
+    public final e a(UpdateClientInfoReq.DataReq dataReq) {
         if (dataReq != null) {
             this.c = dataReq;
             this.a |= 2;
         }
-        return this;
-    }
-
-    public e b(UpdateClientInfoReq.DataReq dataReq) {
-        if ((this.a & 2) == 2 && this.c != UpdateClientInfoReq.DataReq.getDefaultInstance()) {
-            this.c = UpdateClientInfoReq.DataReq.newBuilder(this.c).mergeFrom(dataReq).buildPartial();
-        } else {
-            this.c = dataReq;
-        }
-        this.a |= 2;
         return this;
     }
 }

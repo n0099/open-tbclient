@@ -3,7 +3,7 @@ package com.baidu.tieba.util;
 import java.util.ArrayList;
 import java.util.Hashtable;
 /* loaded from: classes.dex */
-public class ah extends Thread {
+public final class ah extends Thread {
     private int a;
     private String b;
     private Hashtable<String, Integer> c;
@@ -25,7 +25,7 @@ public class ah extends Thread {
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
+    public final void run() {
         ArrayList<String> v;
         super.run();
         try {
@@ -37,12 +37,12 @@ public class ah extends Thread {
                     }
                 }
             } else if (this.a == 2) {
-                DatabaseService.p(this.b);
+                DatabaseService.n(this.b);
             } else if (this.a == 1) {
-                DatabaseService.o(this.b);
+                DatabaseService.m(this.b);
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "run", e.getMessage());
+            com.baidu.adp.lib.util.e.b(getClass().getName(), "run", e.getMessage());
         }
     }
 }

@@ -28,7 +28,8 @@ import com.baidu.tieba.im.updategroup.UpdateGroupActivity;
 import com.baidu.tieba.person.EditHeadActivity;
 import com.baidu.tieba.person.cm;
 import com.baidu.tieba.util.bm;
-import com.baidu.tieba.write.bz;
+import com.baidu.tieba.util.bn;
+import com.baidu.tieba.write.by;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import org.json.JSONException;
@@ -60,7 +61,7 @@ public class GroupInfoActivity extends com.baidu.tieba.f implements View.OnClick
     public static void a(Context context, long j, int i, String str, long j2) {
         Intent intent = new Intent(context, GroupInfoActivity.class);
         intent.putExtra("group_id", j);
-        intent.putExtra("activity_from", i);
+        intent.putExtra("activity_from", 7);
         intent.putExtra("default_invite_msg", str);
         intent.putExtra("inviter_user_id", j2);
         intent.putExtra("join_type", ApplyJoinGroupActivity.q);
@@ -74,36 +75,32 @@ public class GroupInfoActivity extends com.baidu.tieba.f implements View.OnClick
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        a();
+        this.i = new k(this, (byte) 0);
+        com.baidu.tieba.im.messageCenter.d.a().a(103004, this.i);
+        com.baidu.tieba.im.messageCenter.d.a().a(SapiErrorCode.NOT_INIT, this.i);
+        com.baidu.tieba.im.messageCenter.d.a().a(103102, this.i);
+        com.baidu.tieba.im.messageCenter.d.a().a(103112, this.i);
+        com.baidu.tieba.im.messageCenter.d.a().a(103110, this.i);
+        com.baidu.tieba.im.messageCenter.d.a().a(103120, this.i);
+        com.baidu.tieba.im.messageCenter.d.a().a(103121, this.i);
+        com.baidu.tieba.im.messageCenter.d.a().a(-132, this);
+        com.baidu.tieba.im.messageCenter.d.a().a(-130, this);
+        com.baidu.tieba.im.messageCenter.d.a().a(-134, this);
+        com.baidu.tieba.im.messageCenter.d.a().a(103104, this.i);
+        com.baidu.tieba.im.messageCenter.d.a().a(-141, this);
+        com.baidu.tieba.im.messageCenter.d.a().a(-139, this);
+        com.baidu.tieba.im.messageCenter.d.a().a(103105, this.i);
         a(bundle, (Intent) null);
+        a();
         b();
-        c();
     }
 
     @Override // android.app.Activity
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         a((Bundle) null, intent);
+        a();
         b();
-        c();
-    }
-
-    private void a() {
-        this.i = new k(this, null);
-        com.baidu.tieba.im.messageCenter.e.a().a(103004, this.i);
-        com.baidu.tieba.im.messageCenter.e.a().a(SapiErrorCode.NOT_INIT, this.i);
-        com.baidu.tieba.im.messageCenter.e.a().a(103102, this.i);
-        com.baidu.tieba.im.messageCenter.e.a().a(103112, this.i);
-        com.baidu.tieba.im.messageCenter.e.a().a(103110, this.i);
-        com.baidu.tieba.im.messageCenter.e.a().a(103120, this.i);
-        com.baidu.tieba.im.messageCenter.e.a().a(103121, this.i);
-        com.baidu.tieba.im.messageCenter.e.a().a(-132, this);
-        com.baidu.tieba.im.messageCenter.e.a().a(-130, this);
-        com.baidu.tieba.im.messageCenter.e.a().a(-134, this);
-        com.baidu.tieba.im.messageCenter.e.a().a(103104, this.i);
-        com.baidu.tieba.im.messageCenter.e.a().a(-141, this);
-        com.baidu.tieba.im.messageCenter.e.a().a(-139, this);
-        com.baidu.tieba.im.messageCenter.e.a().a(103105, this.i);
     }
 
     @Override // android.app.Activity
@@ -123,26 +120,35 @@ public class GroupInfoActivity extends com.baidu.tieba.f implements View.OnClick
     public void onDestroy() {
         super.onDestroy();
         this.g.f();
-        com.baidu.tieba.im.messageCenter.e.a().a(this.i);
-        com.baidu.tieba.im.messageCenter.e.a().a(this);
+        com.baidu.tieba.im.messageCenter.d.a().a(this.i);
+        com.baidu.tieba.im.messageCenter.d.a().a(this);
         if (this.f != null) {
             this.f.x();
         }
     }
 
-    private void b() {
+    private void a() {
         this.f = new m(this);
         this.f.a(this.j);
         this.f.a(this.k);
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.f, android.app.Activity
+    public void onPause() {
+        super.onPause();
+        if (this.f != null) {
+            this.f.a();
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
-    public void c() {
+    public void b() {
         this.f.s();
         this.g.b(this.g.d(), this.g.e());
     }
 
-    public void a(Bundle bundle, Intent intent) {
+    private void a(Bundle bundle, Intent intent) {
         this.g = new com.baidu.tieba.im.model.e();
         if (bundle == null) {
             com.baidu.tieba.im.model.e eVar = this.g;
@@ -156,8 +162,8 @@ public class GroupInfoActivity extends com.baidu.tieba.f implements View.OnClick
         this.h = new ao();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void d() {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void c(GroupInfoActivity groupInfoActivity) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -197,8 +203,8 @@ public class GroupInfoActivity extends com.baidu.tieba.f implements View.OnClick
         } else if (view == this.f.o()) {
             GroupLevelActivity.a(this, this.g.d());
         } else if (view == this.f.m()) {
-            com.baidu.adp.lib.util.f.e("botton click");
-            if (TextUtils.isEmpty(TiebaApplication.A())) {
+            com.baidu.adp.lib.util.e.e("botton click");
+            if (TextUtils.isEmpty(TiebaApplication.v())) {
                 LoginActivity.a((Activity) this, "", true, 3);
             } else if (this.g.g() != null) {
                 if (this.g.g().g()) {
@@ -237,7 +243,7 @@ public class GroupInfoActivity extends com.baidu.tieba.f implements View.OnClick
             MembersActivity.a(this, this.g.d());
         } else if (view == this.f.h()) {
             InviteFriendListActivity.a(this, 0, (int) this.g.d());
-        } else if (view == this.f.k() && this.g.g() != null) {
+        } else if (view == this.f.k() && this.g.g() != null && this.g.g().g()) {
             GroupActivityData a = this.g.g().a();
             if (a != null) {
                 GroupActivityActivity.a(this, a.getActivityId(), this.g.d(), 0);
@@ -255,13 +261,13 @@ public class GroupInfoActivity extends com.baidu.tieba.f implements View.OnClick
     }
 
     @Override // com.baidu.tieba.im.groupInfo.aa
-    public void a(View view, Object obj, int i) {
+    public final void a(Object obj, int i) {
         this.f.a(obj, i);
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnLongClickListener
     public boolean onLongClick(View view) {
-        if (view == this.f.a()) {
+        if (view == this.f.d()) {
             if (this.g.g() == null || this.g.g().b() == null) {
                 return false;
             }
@@ -321,7 +327,7 @@ public class GroupInfoActivity extends com.baidu.tieba.f implements View.OnClick
                     }
                     return;
                 case 3:
-                    c();
+                    b();
                     return;
                 case 4:
                     if (intent != null) {
@@ -334,11 +340,11 @@ public class GroupInfoActivity extends com.baidu.tieba.f implements View.OnClick
                     }
                     return;
                 case 12001:
-                    EditHeadActivity.a(this, 12001, 12010, null, TiebaApplication.E(), 2);
+                    EditHeadActivity.a(this, 12001, 12010, null, TiebaApplication.y(), 2);
                     return;
                 case 12002:
                     if (intent != null) {
-                        EditHeadActivity.a(this, 12002, 12009, intent.getData(), TiebaApplication.E(), 2);
+                        EditHeadActivity.a(this, 12002, 12009, intent.getData(), TiebaApplication.y(), 2);
                         return;
                     }
                     return;
@@ -346,52 +352,53 @@ public class GroupInfoActivity extends com.baidu.tieba.f implements View.OnClick
                 case 12010:
                     PhotoUrlData photoUrlData = (PhotoUrlData) intent.getSerializableExtra(EditHeadActivity.b);
                     if (photoUrlData != null) {
-                        bm.a().b(photoUrlData.getSmallurl(), com.baidu.tieba.util.af.c("tieba_group_image"), true, false, true);
+                        bm a = bm.a();
+                        photoUrlData.getSmallurl();
+                        String c = com.baidu.tieba.util.af.c("tieba_group_image");
+                        new bn(a, c, c, true, true, true).execute(new String[0]);
                     }
-                    b(photoUrlData);
+                    this.e = 1;
+                    if (photoUrlData != null) {
+                        String c2 = this.g.c(photoUrlData);
+                        if (!TextUtils.isEmpty(c2)) {
+                            a(c2);
+                            return;
+                        }
+                        return;
+                    }
                     return;
                 case 21001:
-                    a(intent.getBooleanExtra("ResultDataIsHiddenAddress", true) ? 1 : 0, intent.getStringExtra("ResultDataAddress"), intent.getStringExtra("ResultDataSelectedBusiness"));
+                    int i3 = intent.getBooleanExtra("ResultDataIsHiddenAddress", true) ? 1 : 0;
+                    String stringExtra3 = intent.getStringExtra("ResultDataSelectedBusiness");
+                    String stringExtra4 = intent.getStringExtra("ResultDataAddress");
+                    this.e = 4;
+                    if (this.h != null) {
+                        this.h.a(this.g.d());
+                        this.h.b(i3);
+                        this.h.d(stringExtra4);
+                        this.h.e(stringExtra3);
+                        this.h.c(5);
+                        this.f.s();
+                        return;
+                    }
                     return;
                 default:
                     return;
             }
         } else if (i2 == 0) {
             if (i == 12010) {
-                bz.a(this);
+                by.a(this);
             } else if (i == 12009) {
-                bz.b(this);
+                by.b(this);
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(PhotoUrlData photoUrlData) {
-        this.e = 2;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(GroupInfoActivity groupInfoActivity, PhotoUrlData photoUrlData) {
+        groupInfoActivity.e = 2;
         if (photoUrlData != null) {
-            a(this.g.b(photoUrlData));
-        }
-    }
-
-    private void b(PhotoUrlData photoUrlData) {
-        this.e = 1;
-        if (photoUrlData != null) {
-            String c = this.g.c(photoUrlData);
-            if (!TextUtils.isEmpty(c)) {
-                a(c);
-            }
-        }
-    }
-
-    private void a(int i, String str, String str2) {
-        this.e = 4;
-        if (this.h != null) {
-            this.h.a(this.g.d());
-            this.h.b(i);
-            this.h.d(str);
-            this.h.e(str2);
-            this.h.c(5);
-            this.f.s();
+            groupInfoActivity.a(groupInfoActivity.g.b(photoUrlData));
         }
     }
 
@@ -404,91 +411,21 @@ public class GroupInfoActivity extends com.baidu.tieba.f implements View.OnClick
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(Object obj) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(GroupInfoActivity groupInfoActivity, Object obj) {
         com.baidu.tieba.im.groupCard.b.a();
-        this.e = 3;
-        if (obj != null && (obj instanceof PhotoUrlData)) {
-            PhotoUrlData photoUrlData = (PhotoUrlData) obj;
-            this.g.a(photoUrlData);
-            String picId = photoUrlData.getPicId();
-            if (this.h != null) {
-                this.h.a(this.g.d());
-                this.h.c(picId);
-                this.h.c(4);
-                this.f.s();
-            }
+        groupInfoActivity.e = 3;
+        if (obj == null || !(obj instanceof PhotoUrlData)) {
+            return;
         }
-    }
-
-    public void a(GroupNewsPojo groupNewsPojo) {
-        if (groupNewsPojo != null && this.g != null && this.g.g() != null) {
-            try {
-                JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
-                String string = jSONObject.getJSONObject("eventParam").getString("groupId");
-                if (jSONObject.getString("eventId").equals("003") && string.equals(String.valueOf(this.g.d())) && this.g.g().g()) {
-                    this.g.g().a(false);
-                    GroupData b = this.g.g().b();
-                    if (b != null && b.getMemberNum() > 1) {
-                        b.setMemberNum(b.getMemberNum() - 1);
-                    }
-                    this.f.a(this.g.g(), true);
-                    e();
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void b(GroupNewsPojo groupNewsPojo) {
-        try {
-            String optString = new JSONObject(groupNewsPojo.getContent()).optJSONObject("eventParam").optString("groupId");
-            if (!TextUtils.isEmpty(optString) && this.g != null && optString.equals(String.valueOf(this.g.d())) && this.g.g() != null) {
-                this.g.g().a(true);
-                if (this.f != null) {
-                    this.f.u();
-                    e();
-                }
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void c(GroupNewsPojo groupNewsPojo) {
-        if (groupNewsPojo != null && this.g != null && this.g.g() != null) {
-            try {
-                JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
-                JSONObject jSONObject2 = jSONObject.getJSONObject("eventParam");
-                String string = jSONObject2.getString("groupId");
-                if (jSONObject.getString("eventId").equals("101") && string.equals(String.valueOf(this.g.d()))) {
-                    String string2 = jSONObject2.getString("groupName");
-                    if (!TextUtils.isEmpty(string2)) {
-                        this.f.a(string2);
-                        if (this.g.g() != null && this.g.g().b() != null) {
-                            this.g.g().b().setName(string2);
-                        }
-                    }
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    private void d(GroupNewsPojo groupNewsPojo) {
-        if (groupNewsPojo != null && this.g != null) {
-            try {
-                JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
-                String string = jSONObject.getJSONObject("eventParam").getString("groupId");
-                if (jSONObject.getString("eventId").equals("107") && string.equals(String.valueOf(this.g.d()))) {
-                    finish();
-                    com.baidu.adp.lib.util.f.e("dismiss suc");
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+        PhotoUrlData photoUrlData = (PhotoUrlData) obj;
+        groupInfoActivity.g.a(photoUrlData);
+        String picId = photoUrlData.getPicId();
+        if (groupInfoActivity.h != null) {
+            groupInfoActivity.h.a(groupInfoActivity.g.d());
+            groupInfoActivity.h.c(picId);
+            groupInfoActivity.h.c(4);
+            groupInfoActivity.f.s();
         }
     }
 
@@ -502,28 +439,95 @@ public class GroupInfoActivity extends com.baidu.tieba.f implements View.OnClick
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void e() {
+    public void c() {
         if (this.g != null) {
-            this.g.b(String.valueOf(this.g.d()));
+            com.baidu.tieba.im.model.e eVar = this.g;
+            String valueOf = String.valueOf(this.g.d());
+            com.baidu.tieba.im.message.d dVar = new com.baidu.tieba.im.message.d();
+            dVar.a(valueOf);
+            com.baidu.tieba.im.messageCenter.d.a().a(dVar);
         }
     }
 
     @Override // com.baidu.tieba.im.messageCenter.g
-    public void a(com.baidu.tieba.im.message.s sVar) {
+    public final void a(com.baidu.tieba.im.message.s sVar) {
         GroupNewsPojo a;
         if (sVar != null && (sVar instanceof com.baidu.tieba.im.message.aa) && (a = ((com.baidu.tieba.im.message.aa) sVar).a()) != null) {
             String cmd = a.getCmd();
             if (!TextUtils.isEmpty(cmd)) {
                 if (cmd.equals("apply_join_success")) {
-                    b(a);
+                    try {
+                        String optString = new JSONObject(a.getContent()).optJSONObject("eventParam").optString("groupId");
+                        if (TextUtils.isEmpty(optString) || this.g == null || !optString.equals(String.valueOf(this.g.d())) || this.g.g() == null) {
+                            return;
+                        }
+                        this.g.g().a(true);
+                        if (this.f != null) {
+                            this.f.u();
+                            c();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 } else if (cmd.equals("kick_out")) {
-                    a(a);
+                    if (a == null || this.g == null || this.g.g() == null) {
+                        return;
+                    }
+                    try {
+                        JSONObject jSONObject = new JSONObject(a.getContent());
+                        String string = jSONObject.getJSONObject("eventParam").getString("groupId");
+                        if (!jSONObject.getString("eventId").equals("003") || !string.equals(String.valueOf(this.g.d())) || !this.g.g().g()) {
+                            return;
+                        }
+                        this.g.g().a(false);
+                        GroupData b = this.g.g().b();
+                        if (b != null && b.getMemberNum() > 1) {
+                            b.setMemberNum(b.getMemberNum() - 1);
+                        }
+                        this.f.a(this.g.g(), true);
+                        c();
+                    } catch (JSONException e2) {
+                        e2.printStackTrace();
+                    }
                 } else if (cmd.equals("group_name_change")) {
-                    c(a);
+                    if (a == null || this.g == null || this.g.g() == null) {
+                        return;
+                    }
+                    try {
+                        JSONObject jSONObject2 = new JSONObject(a.getContent());
+                        JSONObject jSONObject3 = jSONObject2.getJSONObject("eventParam");
+                        String string2 = jSONObject3.getString("groupId");
+                        if (jSONObject2.getString("eventId").equals("101") && string2.equals(String.valueOf(this.g.d()))) {
+                            String string3 = jSONObject3.getString("groupName");
+                            if (TextUtils.isEmpty(string3)) {
+                                return;
+                            }
+                            this.f.a(string3);
+                            if (this.g.g() == null || this.g.g().b() == null) {
+                                return;
+                            }
+                            this.g.g().b().setName(string3);
+                        }
+                    } catch (JSONException e3) {
+                        e3.printStackTrace();
+                    }
                 } else if (cmd.equals("dismiss_group")) {
-                    d(a);
+                    if (a == null || this.g == null) {
+                        return;
+                    }
+                    try {
+                        JSONObject jSONObject4 = new JSONObject(a.getContent());
+                        String string4 = jSONObject4.getJSONObject("eventParam").getString("groupId");
+                        if (!jSONObject4.getString("eventId").equals("107") || !string4.equals(String.valueOf(this.g.d()))) {
+                            return;
+                        }
+                        finish();
+                        com.baidu.adp.lib.util.e.e("dismiss suc");
+                    } catch (JSONException e4) {
+                        e4.printStackTrace();
+                    }
                 } else if (cmd.equals("group_activitys_change")) {
-                    c();
+                    b();
                 }
             }
         }

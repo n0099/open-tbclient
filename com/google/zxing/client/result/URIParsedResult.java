@@ -14,20 +14,20 @@ public final class URIParsedResult extends ParsedResult {
         this.title = str2;
     }
 
-    public String getURI() {
+    public final String getURI() {
         return this.uri;
     }
 
-    public String getTitle() {
+    public final String getTitle() {
         return this.title;
     }
 
-    public boolean isPossiblyMaliciousURI() {
+    public final boolean isPossiblyMaliciousURI() {
         return USER_IN_HOST.matcher(this.uri).find();
     }
 
     @Override // com.google.zxing.client.result.ParsedResult
-    public String getDisplayResult() {
+    public final String getDisplayResult() {
         StringBuilder sb = new StringBuilder(30);
         maybeAppend(this.title, sb);
         maybeAppend(this.uri, sb);

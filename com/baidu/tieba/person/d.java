@@ -3,7 +3,7 @@ package com.baidu.tieba.person;
 import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements Runnable {
+public final class d implements Runnable {
     final /* synthetic */ BdCenterListView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,7 +12,7 @@ public class d implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
+    public final void run() {
         ImageView imageView;
         ImageView imageView2;
         this.a.u = null;

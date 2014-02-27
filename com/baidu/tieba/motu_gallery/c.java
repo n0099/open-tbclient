@@ -3,7 +3,7 @@ package com.baidu.tieba.motu_gallery;
 import android.net.Uri;
 import android.provider.MediaStore;
 /* loaded from: classes.dex */
-public class c {
+public final class c {
     public int a;
     public String b;
     public int c;

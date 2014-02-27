@@ -10,12 +10,12 @@ public class cn extends da implements com.baidu.tieba.im.coder.f {
         e(205003);
     }
 
-    public QueryUserInfosRes.DataRes a() {
+    public final QueryUserInfosRes.DataRes a() {
         return this.a;
     }
 
     @Override // com.baidu.tieba.im.coder.f
-    public void a(LinkedList<s> linkedList, byte[] bArr, int i) {
+    public final void a(LinkedList<s> linkedList, byte[] bArr, int i) {
         QueryUserInfosRes.QueryUserInfosResIdl parseFrom = QueryUserInfosRes.QueryUserInfosResIdl.parseFrom(bArr);
         g(parseFrom.getError().getErrorno());
         c(parseFrom.getError().getUsermsg());

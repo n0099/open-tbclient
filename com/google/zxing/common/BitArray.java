@@ -16,11 +16,11 @@ public final class BitArray {
         this.bits = makeArray(i);
     }
 
-    public int getSize() {
+    public final int getSize() {
         return this.size;
     }
 
-    public int getSizeInBytes() {
+    public final int getSizeInBytes() {
         return (this.size + 7) >> 3;
     }
 
@@ -32,23 +32,23 @@ public final class BitArray {
         }
     }
 
-    public boolean get(int i) {
+    public final boolean get(int i) {
         return (this.bits[i >> 5] & (1 << (i & 31))) != 0;
     }
 
-    public void set(int i) {
+    public final void set(int i) {
         int[] iArr = this.bits;
         int i2 = i >> 5;
         iArr[i2] = iArr[i2] | (1 << (i & 31));
     }
 
-    public void flip(int i) {
+    public final void flip(int i) {
         int[] iArr = this.bits;
         int i2 = i >> 5;
         iArr[i2] = iArr[i2] ^ (1 << (i & 31));
     }
 
-    public int getNextSet(int i) {
+    public final int getNextSet(int i) {
         if (i >= this.size) {
             return this.size;
         }
@@ -65,7 +65,7 @@ public final class BitArray {
         return numberOfTrailingZeros > this.size ? this.size : numberOfTrailingZeros;
     }
 
-    public int getNextUnset(int i) {
+    public final int getNextUnset(int i) {
         if (i >= this.size) {
             return this.size;
         }
@@ -82,11 +82,11 @@ public final class BitArray {
         return numberOfTrailingZeros > this.size ? this.size : numberOfTrailingZeros;
     }
 
-    public void setBulk(int i, int i2) {
+    public final void setBulk(int i, int i2) {
         this.bits[i >> 5] = i2;
     }
 
-    public void setRange(int i, int i2) {
+    public final void setRange(int i, int i2) {
         int i3;
         if (i2 < i) {
             throw new IllegalArgumentException();
@@ -102,12 +102,9 @@ public final class BitArray {
                 if (i8 == 0 && i9 == 31) {
                     i3 = -1;
                 } else {
-                    int i10 = i8;
                     i3 = 0;
-                    while (i10 <= i9) {
-                        int i11 = (1 << i10) | i3;
-                        i10++;
-                        i3 = i11;
+                    for (int i10 = i8; i10 <= i9; i10++) {
+                        i3 |= 1 << i10;
                     }
                 }
                 int[] iArr = this.bits;
@@ -117,14 +114,14 @@ public final class BitArray {
         }
     }
 
-    public void clear() {
+    public final void clear() {
         int length = this.bits.length;
         for (int i = 0; i < length; i++) {
             this.bits[i] = 0;
         }
     }
 
-    public boolean isRange(int i, int i2, boolean z) {
+    public final boolean isRange(int i, int i2, boolean z) {
         int i3;
         if (i2 < i) {
             throw new IllegalArgumentException();
@@ -142,19 +139,16 @@ public final class BitArray {
             if (i8 == 0 && i9 == 31) {
                 i3 = -1;
             } else {
-                int i10 = i8;
                 i3 = 0;
-                while (i10 <= i9) {
-                    int i11 = (1 << i10) | i3;
-                    i10++;
-                    i3 = i11;
+                for (int i10 = i8; i10 <= i9; i10++) {
+                    i3 |= 1 << i10;
                 }
             }
-            int i12 = this.bits[i7] & i3;
+            int i11 = this.bits[i7] & i3;
             if (!z) {
                 i3 = 0;
             }
-            if (i12 != i3) {
+            if (i11 != i3) {
                 return false;
             }
             i7++;
@@ -162,7 +156,7 @@ public final class BitArray {
         return true;
     }
 
-    public void appendBit(boolean z) {
+    public final void appendBit(boolean z) {
         ensureCapacity(this.size + 1);
         if (z) {
             int[] iArr = this.bits;
@@ -172,7 +166,7 @@ public final class BitArray {
         this.size++;
     }
 
-    public void appendBits(int i, int i2) {
+    public final void appendBits(int i, int i2) {
         if (i2 < 0 || i2 > 32) {
             throw new IllegalArgumentException("Num bits must be between 0 and 32");
         }
@@ -183,7 +177,7 @@ public final class BitArray {
         }
     }
 
-    public void appendBitArray(BitArray bitArray) {
+    public final void appendBitArray(BitArray bitArray) {
         int i = bitArray.size;
         ensureCapacity(this.size + i);
         for (int i2 = 0; i2 < i; i2++) {
@@ -191,7 +185,7 @@ public final class BitArray {
         }
     }
 
-    public void xor(BitArray bitArray) {
+    public final void xor(BitArray bitArray) {
         if (this.bits.length != bitArray.bits.length) {
             throw new IllegalArgumentException("Sizes don't match");
         }
@@ -201,7 +195,7 @@ public final class BitArray {
         }
     }
 
-    public void toBytes(int i, byte[] bArr, int i2, int i3) {
+    public final void toBytes(int i, byte[] bArr, int i2, int i3) {
         int i4 = 0;
         int i5 = i;
         while (i4 < i3) {
@@ -219,11 +213,11 @@ public final class BitArray {
         }
     }
 
-    public int[] getBitArray() {
+    public final int[] getBitArray() {
         return this.bits;
     }
 
-    public void reverse() {
+    public final void reverse() {
         int[] iArr = new int[this.bits.length];
         int i = this.size;
         for (int i2 = 0; i2 < i; i2++) {
@@ -239,7 +233,7 @@ public final class BitArray {
         return new int[(i + 31) >> 5];
     }
 
-    public String toString() {
+    public final String toString() {
         StringBuilder sb = new StringBuilder(this.size);
         for (int i = 0; i < this.size; i++) {
             if ((i & 7) == 0) {

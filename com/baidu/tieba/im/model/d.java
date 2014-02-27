@@ -10,7 +10,7 @@ import com.baidu.tieba.im.message.bl;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class d extends com.baidu.adp.a.d {
+public final class d extends com.baidu.adp.a.d {
     private String a;
     private boolean b;
     private int c;
@@ -22,113 +22,109 @@ public class d extends com.baidu.adp.a.d {
     private GroupPermData i;
     private final Map<String, Boolean> j = new HashMap();
 
-    public void a(String str) {
+    public final void a(String str) {
         this.j.put(str, true);
     }
 
-    public boolean b(String str) {
+    public final boolean b(String str) {
         Boolean bool = this.j.get(str);
         return bool != null && bool.booleanValue();
     }
 
-    public boolean a() {
+    public final boolean a() {
         return this.b;
     }
 
-    public int b() {
+    public final int b() {
         return this.g;
     }
 
-    public int c() {
+    public final int c() {
         return this.h;
     }
 
-    public GroupPermData d() {
+    public final GroupPermData d() {
         return this.i;
     }
 
-    public void a(GroupPermData groupPermData) {
+    public final void a(GroupPermData groupPermData) {
         this.i = groupPermData;
     }
 
-    public boolean e() {
+    public final boolean e() {
         return this.f;
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.f = z;
     }
 
-    public void f() {
+    public final void f() {
         this.i = null;
     }
 
-    public void a(Activity activity) {
+    public final void a(Activity activity) {
         this.g = BdUtilHelper.a((Context) activity, 70.0f);
         this.h = BdUtilHelper.a((Context) activity, 70.0f);
     }
 
-    public int g() {
+    public final int g() {
         return this.c;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.c = i;
     }
 
-    public boolean h() {
-        return l() == 50;
+    public final boolean h() {
+        return this.e == 50;
     }
 
-    public boolean i() {
-        return g() == 2;
-    }
-
-    public int j() {
+    public final int i() {
         return this.c;
     }
 
-    public int k() {
+    public final int j() {
         return this.d;
     }
 
-    public void b(int i) {
-        this.d = i;
+    public final void b(int i) {
+        this.d = 0;
     }
 
-    public void c(int i) {
+    public final void c(int i) {
         this.d += i;
     }
 
-    public int l() {
+    public final int k() {
         return this.e;
     }
 
-    public void d(int i) {
+    public final void d(int i) {
         this.e = i;
     }
 
-    public String m() {
+    public final String l() {
         return this.a;
     }
 
     @Override // com.baidu.adp.a.d
-    protected boolean LoadData() {
+    protected final boolean LoadData() {
         return false;
     }
 
     @Override // com.baidu.adp.a.d
-    public boolean cancelLoadData() {
+    public final boolean cancelLoadData() {
         return false;
     }
 
-    public void a(Intent intent) {
+    public final void a(Intent intent) {
         this.a = intent.getStringExtra("forum_id");
         this.b = intent.getBooleanExtra("show_recommend", true);
         this.c = this.b ? 1 : 2;
     }
 
-    public void a(Bundle bundle) {
+    public final void a(Bundle bundle) {
         this.a = bundle.getString("forum_id");
         this.b = bundle.getBoolean("show_recommend");
         this.c = bundle.getInt("card_type");
@@ -137,7 +133,7 @@ public class d extends com.baidu.adp.a.d {
         this.i = (GroupPermData) bundle.getSerializable("group_perm");
     }
 
-    private com.baidu.tieba.im.message.al c(String str, int i, int i2, int i3, int i4, int i5) {
+    private static com.baidu.tieba.im.message.al c(String str, int i, int i2, int i3, int i4, int i5) {
         com.baidu.tieba.im.message.al alVar = new com.baidu.tieba.im.message.al();
         alVar.a(str);
         alVar.b(String.valueOf(i));
@@ -148,26 +144,22 @@ public class d extends com.baidu.adp.a.d {
         return alVar;
     }
 
-    public void a(String str, int i, int i2, int i3, int i4, int i5) {
-        com.baidu.tieba.im.messageCenter.e.a().a(c(str, i, i2, i3, i4, i5));
+    public final void a(String str, int i, int i2, int i3, int i4, int i5) {
+        com.baidu.tieba.im.messageCenter.d.a().a(c(str, i, i2, i3, i4, i5));
     }
 
-    public void a(com.baidu.tieba.im.messageCenter.g gVar) {
-        com.baidu.tieba.im.messageCenter.e.a().a(103002, gVar);
-        com.baidu.tieba.im.messageCenter.e.a().a(-201, gVar);
+    public static void a(com.baidu.tieba.im.messageCenter.g gVar) {
+        com.baidu.tieba.im.messageCenter.d.a().a(103002, gVar);
+        com.baidu.tieba.im.messageCenter.d.a().a(-201, gVar);
     }
 
-    public void b(com.baidu.tieba.im.messageCenter.g gVar) {
-        com.baidu.tieba.im.messageCenter.e.a().a(gVar);
-    }
-
-    public void b(String str, int i, int i2, int i3, int i4, int i5) {
+    public final void b(String str, int i, int i2, int i3, int i4, int i5) {
         com.baidu.tieba.im.message.al c = c(str, i, i2, i3, i4, i5);
         c.e(-201);
-        com.baidu.tieba.im.messageCenter.e.a().a(c);
+        com.baidu.tieba.im.messageCenter.d.a().a(c);
     }
 
-    private bl d(String str) {
+    private static bl d(String str) {
         long j = 0;
         try {
             j = Long.parseLong(str);
@@ -179,19 +171,11 @@ public class d extends com.baidu.adp.a.d {
         return blVar;
     }
 
-    public void c(String str) {
-        com.baidu.tieba.im.messageCenter.e.a().a(d(str));
+    public final void c(String str) {
+        com.baidu.tieba.im.messageCenter.d.a().a(d(str));
     }
 
-    public void c(com.baidu.tieba.im.messageCenter.g gVar) {
-        com.baidu.tieba.im.messageCenter.e.a().a(103008, gVar);
-    }
-
-    public void d(com.baidu.tieba.im.messageCenter.g gVar) {
-        com.baidu.tieba.im.messageCenter.e.a().a(gVar);
-    }
-
-    public void b(Bundle bundle) {
+    public final void b(Bundle bundle) {
         bundle.putString("forum_id", this.a);
         bundle.putBoolean("show_recommend", this.b);
         bundle.putInt("card_type", this.c);

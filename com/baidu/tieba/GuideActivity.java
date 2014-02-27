@@ -49,7 +49,7 @@ public class GuideActivity extends f {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.guide_activity);
-        this.h = new z(this, null);
+        this.h = new z(this, (byte) 0);
         this.i = (BaseViewPager) findViewById(R.id.guide_pager);
         this.i.setAdapter(this.h);
         this.i.setOnScrollOutListener(this.n);
@@ -75,15 +75,16 @@ public class GuideActivity extends f {
         } else {
             this.e = getIntent().getStringExtra(l);
         }
-        if (TiebaApplication.g().s()) {
+        ai.a(this, "new_user_guide_pv");
+        if (TiebaApplication.g().n()) {
             try {
                 StatService.setAppChannel(com.baidu.tieba.data.i.l());
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "onCreate", e.getMessage());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "onCreate", e.getMessage());
             }
         }
         if (this.e.equals("from_logo_page")) {
-            this.d = new y(this, null);
+            this.d = new y(this, (byte) 0);
             this.d.setSelfExecute(true);
             this.d.execute(new String[0]);
             return;
@@ -122,11 +123,11 @@ public class GuideActivity extends f {
     @Override // com.baidu.tieba.f, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (TiebaApplication.g().s()) {
+        if (TiebaApplication.g().n()) {
             try {
                 StatService.onResume(this);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "onResume", e.getMessage());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "onResume", e.getMessage());
             }
         }
     }
@@ -134,11 +135,11 @@ public class GuideActivity extends f {
     @Override // com.baidu.tieba.f, android.app.Activity
     public void onPause() {
         super.onPause();
-        if (TiebaApplication.g().s()) {
+        if (TiebaApplication.g().n()) {
             try {
                 StatService.onPause(this);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "onPause", e.getMessage());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "onPause", e.getMessage());
             }
         }
     }
@@ -159,16 +160,17 @@ public class GuideActivity extends f {
 
     public void a() {
         if (this.m) {
-            boolean aE = TiebaApplication.g().aE();
-            com.baidu.tieba.mention.v.a().l();
+            boolean ax = TiebaApplication.g().ax();
             com.baidu.tieba.mention.v.a().j();
-            if (!aE) {
+            com.baidu.tieba.mention.v.a().h();
+            if (!ax) {
                 MainTabActivity.a(this, 1);
             } else {
                 MainTabActivity.d(2);
                 MainTabActivity.a(this, 2);
-                if (aE) {
-                    TiebaApplication.g().aF();
+                if (ax) {
+                    TiebaApplication.g();
+                    TiebaApplication.ay();
                 }
             }
             finish();
@@ -176,21 +178,21 @@ public class GuideActivity extends f {
         }
     }
 
-    public void b() {
+    public static /* synthetic */ void f(GuideActivity guideActivity) {
         Intent intent = new Intent();
         intent.addCategory("android.intent.category.LAUNCHER");
         intent.setAction("android.intent.action.MAIN");
         intent.setFlags(270532608);
-        intent.setComponent(new ComponentName(getPackageName(), String.valueOf(getPackageName()) + ".LogoActivity"));
+        intent.setComponent(new ComponentName(guideActivity.getPackageName(), String.valueOf(guideActivity.getPackageName()) + ".LogoActivity"));
         Intent intent2 = new Intent("com.android.launcher.action.INSTALL_SHORTCUT");
         intent2.putExtra("duplicate", false);
-        intent2.putExtra("android.intent.extra.shortcut.NAME", getString(R.string.app_name));
+        intent2.putExtra("android.intent.extra.shortcut.NAME", guideActivity.getString(R.string.app_name));
         intent2.putExtra("android.intent.extra.shortcut.INTENT", intent);
-        intent2.putExtra("android.intent.extra.shortcut.ICON_RESOURCE", Intent.ShortcutIconResource.fromContext(this, R.drawable.icon));
-        sendBroadcast(intent2);
+        intent2.putExtra("android.intent.extra.shortcut.ICON_RESOURCE", Intent.ShortcutIconResource.fromContext(guideActivity, R.drawable.icon));
+        guideActivity.sendBroadcast(intent2);
     }
 
-    public boolean c() {
+    public boolean b() {
         String str;
         try {
             ContentResolver contentResolver = getContentResolver();
@@ -206,7 +208,7 @@ public class GuideActivity extends f {
                 }
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.a(getClass().getName(), "checkShortCut", e.toString());
+            com.baidu.adp.lib.util.e.a(getClass().getName(), "checkShortCut", e.toString());
         }
         return false;
     }

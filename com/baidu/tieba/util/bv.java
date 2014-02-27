@@ -5,7 +5,7 @@ import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
 public class bv {
     private static bv a = null;
-    private boolean b = false;
+    private boolean b;
     private boolean c = false;
     private int d = 600;
     private String e = String.valueOf(45);
@@ -20,7 +20,8 @@ public class bv {
     }
 
     public bv() {
-        j();
+        this.b = false;
+        this.b = UtilHelper.h(TiebaApplication.g().b().getApplicationContext()) == UtilHelper.NetworkStateInfo.WIFI;
         i();
     }
 
@@ -30,48 +31,40 @@ public class bv {
         h();
     }
 
-    public void a(boolean z) {
-        this.c = z;
-    }
-
-    public boolean b() {
+    public final boolean b() {
         return this.c;
     }
 
-    public void b(boolean z) {
+    public final void a(boolean z) {
         this.b = z;
         i();
     }
 
-    private void j() {
-        this.b = UtilHelper.h(TiebaApplication.g().b().getApplicationContext()) == UtilHelper.NetworkStateInfo.WIFI;
-    }
-
-    public boolean c() {
+    public final boolean c() {
         return this.b;
     }
 
-    public String d() {
+    public final String d() {
         return this.e;
     }
 
-    public int e() {
+    public final int e() {
         h();
         return this.d;
     }
 
-    public void f() {
+    public final void f() {
         boolean z = true;
         if (com.baidu.tieba.h.a.a().g() != 0 ? com.baidu.tieba.h.a.a().g() != 1 : !this.b) {
             z = false;
         }
-        a(z);
+        this.c = z;
     }
 
-    public void g() {
+    public final void g() {
         String valueOf = String.valueOf(45);
         if (com.baidu.tieba.h.a.a().g() == 0) {
-            if (c()) {
+            if (this.b) {
                 valueOf = String.valueOf(80);
             }
         } else if (com.baidu.tieba.h.a.a().g() == 1) {
@@ -80,11 +73,11 @@ public class bv {
         this.e = valueOf;
     }
 
-    public void h() {
+    public final void h() {
         int i = 900;
         switch (com.baidu.tieba.h.a.a().e()) {
             case 0:
-                if (!c()) {
+                if (!this.b) {
                     i = 600;
                     break;
                 }

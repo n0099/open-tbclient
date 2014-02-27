@@ -8,7 +8,7 @@ import com.baidu.adp.lib.voice.Amrnb;
 import java.io.File;
 import java.io.FileInputStream;
 /* loaded from: classes.dex */
-public class c implements Runnable {
+public final class c implements Runnable {
     private static volatile int a = 0;
     private static Object g = new Object();
     private AudioTrack b;
@@ -23,7 +23,7 @@ public class c implements Runnable {
     private Runnable k = new d(this);
     private Runnable m = new e(this);
 
-    public int a() {
+    public final int a() {
         if (this.b == null) {
             return 0;
         }
@@ -58,21 +58,11 @@ public class c implements Runnable {
         }
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.l = i;
     }
 
-    private void d() {
-        try {
-            this.b = new AudioTrack(VoiceManager.i, 8000, 2, 2, Math.min(AudioTrack.getMinBufferSize(8000, 2, 2) * 8, 4096), 1);
-        } catch (IllegalArgumentException e) {
-            this.b = null;
-            com.baidu.adp.lib.util.f.b("AmrAudioPlayerRunnable", "init new AudioTrack", "error = " + e.getMessage());
-        }
-        a = 1;
-    }
-
-    public void b() {
+    public final void b() {
         int i;
         this.f.removeCallbacks(this.m);
         synchronized (g) {
@@ -104,15 +94,15 @@ public class c implements Runnable {
         a = 0;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:40:0x00bc  */
-    /* JADX WARN: Removed duplicated region for block: B:88:0x0180  */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x00f4  */
+    /* JADX WARN: Removed duplicated region for block: B:88:0x01b3  */
     @Override // java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void run() {
-        FileInputStream fileInputStream;
+    public final void run() {
         boolean z;
+        FileInputStream fileInputStream;
         Process.setThreadPriority(-19);
         if (this.e == null) {
             if (this.f != null) {
@@ -124,14 +114,20 @@ public class c implements Runnable {
             }
         } else {
             File file = new File(this.c);
-            if (file == null || !file.exists()) {
+            if (!file.exists()) {
                 if (this.f != null) {
                     this.f.sendMessage(this.f.obtainMessage(1));
                     return;
                 }
                 return;
             }
-            d();
+            try {
+                this.b = new AudioTrack(VoiceManager.i, 8000, 2, 2, Math.min(AudioTrack.getMinBufferSize(8000, 2, 2) * 8, 4096), 1);
+            } catch (IllegalArgumentException e) {
+                this.b = null;
+                com.baidu.adp.lib.util.e.b("AmrAudioPlayerRunnable", "init new AudioTrack", "error = " + e.getMessage());
+            }
+            a = 1;
             if (this.b == null || this.b.getState() == 0) {
                 if (this.f != null) {
                     this.f.sendMessage(this.f.obtainMessage(3));
@@ -147,7 +143,7 @@ public class c implements Runnable {
             a = 2;
             this.j.post(this.k);
             try {
-                FileInputStream fileInputStream2 = new FileInputStream(file);
+                fileInputStream = new FileInputStream(file);
                 try {
                     Boolean bool = true;
                     byte[] bArr = new byte[32];
@@ -155,26 +151,17 @@ public class c implements Runnable {
                     short[] sArr = new short[160];
                     while (a == 2) {
                         if (bool.booleanValue()) {
-                            if (fileInputStream2.read(bArr, 0, 6) == 6) {
-                                if (bArr[0] != 35 || bArr[1] != 33 || bArr[2] != 65 || bArr[3] != 77 || bArr[4] != 82) {
-                                    break;
-                                } else if (bArr[5] != 10) {
-                                    z = false;
-                                    break;
-                                } else {
-                                    bool = false;
-                                }
-                            } else {
-                                z = false;
+                            if (fileInputStream.read(bArr, 0, 6) != 6 || bArr[0] != 35 || bArr[1] != 33 || bArr[2] != 65 || bArr[3] != 77 || bArr[4] != 82 || bArr[5] != 10) {
                                 break;
                             }
+                            bool = false;
                         }
-                        if (fileInputStream2.read(bArr, 0, 1) <= 0) {
+                        if (fileInputStream.read(bArr, 0, 1) <= 0) {
                             z = true;
                             break;
                         }
                         short s = this.d[(bArr[0] >> 3) & 15];
-                        if (fileInputStream2.read(bArr, 1, s) != s) {
+                        if (fileInputStream.read(bArr, 1, s) != s) {
                             z = true;
                             break;
                         }
@@ -187,32 +174,30 @@ public class c implements Runnable {
                     }
                     z = false;
                     try {
-                        fileInputStream2.close();
+                        fileInputStream.close();
                         this.e.decoderDeinit();
-                        com.baidu.adp.lib.util.f.d("-----gf : decoderDeinit");
-                    } catch (Exception e) {
-                        fileInputStream = fileInputStream2;
+                        com.baidu.adp.lib.util.e.d("-----gf : decoderDeinit");
+                    } catch (Exception e2) {
                         if (this.f != null) {
                             this.f.sendMessage(this.f.obtainMessage(5));
                         }
                         if (fileInputStream != null) {
                             try {
                                 fileInputStream.close();
-                            } catch (Exception e2) {
-                                com.baidu.adp.lib.util.f.b("AudioPlayer", "play", "error = " + e2.getMessage());
+                            } catch (Exception e3) {
+                                com.baidu.adp.lib.util.e.b("AudioPlayer", "play", "error = " + e3.getMessage());
                             }
                         }
                         a = 3;
                         if (!z) {
                         }
                     }
-                } catch (Exception e3) {
+                } catch (Exception e4) {
                     z = false;
-                    fileInputStream = fileInputStream2;
                 }
-            } catch (Exception e4) {
-                fileInputStream = null;
+            } catch (Exception e5) {
                 z = false;
+                fileInputStream = null;
             }
             a = 3;
             if (!z) {
@@ -223,11 +208,11 @@ public class c implements Runnable {
         }
     }
 
-    public void a(String str) {
+    public final void a(String str) {
         this.c = str;
     }
 
-    public void c() {
+    public final void c() {
         a = 3;
         b();
     }

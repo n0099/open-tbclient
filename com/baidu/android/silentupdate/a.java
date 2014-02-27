@@ -23,34 +23,36 @@ public final class a {
             bArr2[i5] = a[((bArr[i4] & 3) << 4) | ((bArr[i4 + 1] & 255) >> 4)];
             int i7 = i6 + 1;
             bArr2[i6] = a[((bArr[i4 + 1] & 15) << 2) | ((bArr[i4 + 2] & 255) >> 6)];
-            i3 = i7 + 1;
+            int i8 = i7 + 1;
             bArr2[i7] = a[bArr[i4 + 2] & 63];
-            if ((i3 - i2) % 76 == 0 && i3 != 0) {
-                bArr2[i3] = 10;
+            if ((i8 - i2) % 76 != 0 || i8 == 0) {
+                i3 = i8;
+            } else {
+                i3 = i8 + 1;
+                bArr2[i8] = 10;
                 i2++;
-                i3++;
             }
         }
         switch (bArr.length % 3) {
             case 1:
-                int i8 = i3 + 1;
+                int i9 = i3 + 1;
                 bArr2[i3] = a[(bArr[length2] & 255) >> 2];
-                int i9 = i8 + 1;
-                bArr2[i8] = a[(bArr[length2] & 3) << 4];
                 int i10 = i9 + 1;
-                bArr2[i9] = 61;
-                i = i10 + 1;
+                bArr2[i9] = a[(bArr[length2] & 3) << 4];
+                int i11 = i10 + 1;
                 bArr2[i10] = 61;
+                i = i11 + 1;
+                bArr2[i11] = 61;
                 break;
             case 2:
-                int i11 = i3 + 1;
+                int i12 = i3 + 1;
                 bArr2[i3] = a[(bArr[length2] & 255) >> 2];
-                int i12 = i11 + 1;
-                bArr2[i11] = a[((bArr[length2] & 3) << 4) | ((bArr[length2 + 1] & 255) >> 4)];
                 int i13 = i12 + 1;
-                bArr2[i12] = a[(bArr[length2 + 1] & 15) << 2];
-                i = i13 + 1;
-                bArr2[i13] = 61;
+                bArr2[i12] = a[((bArr[length2] & 3) << 4) | ((bArr[length2 + 1] & 255) >> 4)];
+                int i14 = i13 + 1;
+                bArr2[i13] = a[(bArr[length2 + 1] & 15) << 2];
+                i = i14 + 1;
+                bArr2[i14] = 61;
                 break;
             default:
                 i = i3;
@@ -91,15 +93,7 @@ public final class a {
         int i12 = 0;
         while (i9 < i) {
             byte b2 = bArr[i9];
-            if (b2 == 10 || b2 == 13) {
-                i2 = i10;
-                i3 = i12;
-                i4 = i11;
-            } else if (b2 == 32) {
-                i2 = i10;
-                i3 = i12;
-                i4 = i11;
-            } else if (b2 == 9) {
+            if (b2 == 10 || b2 == 13 || b2 == 32 || b2 == 9) {
                 i2 = i10;
                 i3 = i12;
                 i4 = i11;

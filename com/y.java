@@ -10,7 +10,7 @@ public final class y implements Parcelable.Creator {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public ShareContent createFromParcel(Parcel parcel) {
+    public final ShareContent createFromParcel(Parcel parcel) {
         String readString = parcel.readString();
         String readString2 = parcel.readString();
         String readString3 = parcel.readString();
@@ -40,7 +40,7 @@ public final class y implements Parcelable.Creator {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public ShareContent[] newArray(int i) {
+    public final ShareContent[] newArray(int i) {
         return new ShareContent[i];
     }
 }

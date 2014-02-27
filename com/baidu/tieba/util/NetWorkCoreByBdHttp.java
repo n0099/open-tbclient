@@ -15,6 +15,7 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.ErrorData;
 import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
+import java.io.File;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.util.ArrayList;
@@ -54,7 +55,7 @@ public class NetWorkCoreByBdHttp implements an {
         }
     }
 
-    static /* synthetic */ int[] E() {
+    private static /* synthetic */ int[] E() {
         int[] iArr = k;
         if (iArr == null) {
             iArr = new int[UtilHelper.NetworkStateInfo.valuesCustom().length];
@@ -80,52 +81,53 @@ public class NetWorkCoreByBdHttp implements an {
     }
 
     public NetWorkCoreByBdHttp(bj bjVar) {
-        F();
+        this.a = null;
         this.a = TiebaApplication.g().b();
         this.d = bjVar;
-        com.baidu.adp.lib.network.e.a().b("BaiduTieba for Android " + com.baidu.tieba.data.i.u());
+        com.baidu.adp.lib.network.e.a();
+        com.baidu.adp.lib.network.b.c = "BaiduTieba for Android " + com.baidu.tieba.data.i.u();
         if (Integer.parseInt(Build.VERSION.SDK) < 8) {
             System.setProperty("http.keepAlive", "false");
         }
     }
 
     @Override // com.baidu.tieba.util.an
-    public long e() {
+    public final long e() {
         return this.j.a;
     }
 
     @Override // com.baidu.tieba.util.an
-    public long f() {
+    public final long f() {
         return this.j.b;
     }
 
     @Override // com.baidu.tieba.util.an
-    public long g() {
+    public final long g() {
         return this.j.c;
     }
 
     @Override // com.baidu.tieba.util.an
-    public long j() {
+    public final long j() {
         return this.j.d;
     }
 
     @Override // com.baidu.tieba.util.an
-    public long h() {
+    public final long h() {
         return this.j.g;
     }
 
     @Override // com.baidu.tieba.util.an
-    public int i() {
+    public final int i() {
         return this.j.e;
     }
 
     @Override // com.baidu.tieba.util.an
-    public int n() {
+    public final int n() {
         return this.j.b;
     }
 
     @Override // com.baidu.tieba.util.an
-    public String d() {
+    public final String d() {
         if (this.d.a == null) {
             return null;
         }
@@ -141,11 +143,11 @@ public class NetWorkCoreByBdHttp implements an {
     }
 
     @Override // com.baidu.tieba.util.an
-    public long c() {
+    public final long c() {
         return this.j.f;
     }
 
-    private int a(UtilHelper.NetworkStateInfo networkStateInfo) {
+    private static int a(UtilHelper.NetworkStateInfo networkStateInfo) {
         switch (E()[networkStateInfo.ordinal()]) {
             case 2:
                 return 1;
@@ -158,17 +160,13 @@ public class NetWorkCoreByBdHttp implements an {
         }
     }
 
-    private void F() {
-        this.a = null;
-    }
-
     @Override // com.baidu.tieba.util.an
-    public void c(boolean z) {
+    public final void c(boolean z) {
         this.d.j = z;
     }
 
     @Override // com.baidu.tieba.util.an
-    public String o() {
+    public final String o() {
         try {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) this.a.getSystemService("connectivity")).getActiveNetworkInfo();
             if (activeNetworkInfo.isAvailable()) {
@@ -190,94 +188,91 @@ public class NetWorkCoreByBdHttp implements an {
     }
 
     @Override // com.baidu.tieba.util.an
-    public void a(Boolean bool) {
+    public final void a(Boolean bool) {
         this.d.g = bool.booleanValue();
     }
 
     @Override // com.baidu.tieba.util.an
-    public void b(String str) {
+    public final void b(String str) {
         this.d.a = str;
     }
 
-    public String D() {
-        return this.d.a;
-    }
-
     @Override // com.baidu.tieba.util.an
-    public boolean p() {
+    public final boolean p() {
         return this.d.b == 200 && this.d.c == 0;
     }
 
     @Override // com.baidu.tieba.util.an
-    public boolean q() {
+    public final boolean q() {
         return this.d.b == 200;
     }
 
     @Override // com.baidu.tieba.util.an
-    public int k() {
+    public final int k() {
         return this.d.c;
     }
 
     @Override // com.baidu.tieba.util.an
-    public int A() {
+    public final int A() {
         return this.d.b;
     }
 
     @Override // com.baidu.tieba.util.an
-    public String r() {
+    public final String r() {
         return this.d.d;
     }
 
     @Override // com.baidu.tieba.util.an
-    public void v() {
+    public final void v() {
         this.d.d = "";
     }
 
     @Override // com.baidu.tieba.util.an
-    public void c(String str) {
+    public final void c(String str) {
         this.d.d = str;
     }
 
     @Override // com.baidu.tieba.util.an
-    public boolean t() {
+    public final boolean t() {
         return this.b.c();
     }
 
     @Override // com.baidu.tieba.util.an
-    public void s() {
+    public final void s() {
         this.b.a();
         try {
-            int a = bg.a(D());
+            int a = bg.a(this.d.a);
             if (a > 0) {
                 bg.a().a(a, 1);
             }
         } catch (Throwable th) {
-            com.baidu.adp.lib.util.f.b(th.getMessage());
+            com.baidu.adp.lib.util.e.b(th.getMessage());
         }
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [690=12] */
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r3v61 long)] */
-    /* JADX WARN: Removed duplicated region for block: B:135:0x05d5  */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x00f9  */
+    /* JADX WARN: Removed duplicated region for block: B:135:0x05d2  */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x00f7  */
     @Override // com.baidu.tieba.util.an
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public byte[] w() {
+    public final byte[] w() {
         com.baidu.adp.lib.network.f fVar;
         com.baidu.adp.lib.network.f fVar2;
         String str;
         boolean z;
         String str2;
-        com.baidu.adp.lib.network.e.a().c(TiebaApplication.A());
+        com.baidu.adp.lib.network.e.a();
+        com.baidu.adp.lib.network.b.d = TiebaApplication.v();
         try {
             int a = bg.a(this.d.a);
             if (a > 0) {
                 bg.a().a(a);
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.f.b(e.getMessage());
+            com.baidu.adp.lib.util.e.b(e.getMessage());
         }
         try {
             try {
@@ -302,7 +297,7 @@ public class NetWorkCoreByBdHttp implements an {
                     str = sb.toString();
                 }
                 if (com.baidu.tieba.data.i.F()) {
-                    com.baidu.adp.lib.util.f.e(getClass().getName(), "getNetData", str);
+                    com.baidu.adp.lib.util.e.e(getClass().getName(), "getNetData", str);
                 }
                 z = (this.d.g && !this.d.h) || this.e;
             } finally {
@@ -314,16 +309,16 @@ public class NetWorkCoreByBdHttp implements an {
         } catch (BdHttpErrorException e3) {
             e = e3;
             fVar = null;
-        } catch (Exception e4) {
+        } catch (OutOfMemoryError e4) {
             e = e4;
             fVar = null;
-        } catch (OutOfMemoryError e5) {
+        } catch (SocketException e5) {
             e = e5;
             fVar = null;
-        } catch (SocketException e6) {
+        } catch (SocketTimeoutException e6) {
             e = e6;
             fVar = null;
-        } catch (SocketTimeoutException e7) {
+        } catch (Exception e7) {
             e = e7;
             fVar = null;
         }
@@ -331,7 +326,8 @@ public class NetWorkCoreByBdHttp implements an {
             throw new BdHttpCancelException();
         }
         long time = new Date().getTime();
-        fVar = com.baidu.adp.lib.network.e.a().a(str, z, 5, 100, -1, new bc(this, str, time), this.b, G());
+        com.baidu.adp.lib.network.e.a();
+        fVar = com.baidu.adp.lib.network.e.a(str, z, 5, 100, -1, new bc(this, str, time), this.b, D());
         if (fVar != null) {
             try {
                 if (fVar.c != null) {
@@ -360,7 +356,7 @@ public class NetWorkCoreByBdHttp implements an {
                 this.d.d = this.a.getResources().getString(R.string.memoryerror);
                 this.d.l = String.valueOf(String.valueOf(this.d.b)) + "|retryCount:" + (this.j == null ? -1 : this.j.e) + "|" + e.getClass() + "|" + e.getMessage();
                 this.d.b = -15;
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "getNetData", " 内存溢出！error = " + e.getMessage());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "getNetData", " 内存溢出！error = " + e.getMessage());
                 cb.a(this);
                 bg.c(this.d.a);
                 if (fVar != null) {
@@ -388,7 +384,7 @@ public class NetWorkCoreByBdHttp implements an {
                 this.d.d = this.a.getResources().getString(R.string.neterror);
                 this.d.l = String.valueOf(String.valueOf(this.d.b)) + "|retryCount:" + (this.j != null ? this.j.e : -1) + "|" + e.getClass() + "|" + e.getMessage();
                 this.d.b = -10;
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "getNetData", "error = " + e.getMessage());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "getNetData", "error = " + e.getMessage());
                 cb.a(this);
                 bg.c(this.d.a);
                 if (fVar != null) {
@@ -407,7 +403,7 @@ public class NetWorkCoreByBdHttp implements an {
             bg.c(this.d.a);
             return null;
         }
-        if (TiebaApplication.g().q() && (str2 = fVar.b) != null) {
+        if (TiebaApplication.g().l() && (str2 = fVar.b) != null) {
             try {
                 int parseInt = Integer.parseInt(str2);
                 if (parseInt > c) {
@@ -418,11 +414,11 @@ public class NetWorkCoreByBdHttp implements an {
                 }
                 int i2 = parseInt * 10;
                 if (i2 > 0) {
-                    if (com.baidu.adp.lib.util.f.a()) {
-                        com.baidu.adp.lib.util.f.e("pre-free memory for downloaded image:[" + this.d.a + "], size:" + i2);
+                    if (com.baidu.adp.lib.util.e.a()) {
+                        com.baidu.adp.lib.util.e.e("pre-free memory for downloaded image:[" + this.d.a + "], size:" + i2);
                     }
-                    if (!com.baidu.tbadk.imageManager.e.a().c(i2)) {
-                        com.baidu.adp.lib.util.f.e("Image download cacelled. out of memory. url:[" + this.d.a + "], size:" + i2);
+                    if (!com.baidu.tbadk.imageManager.e.a().b(i2)) {
+                        com.baidu.adp.lib.util.e.e("Image download cacelled. out of memory. url:[" + this.d.a + "], size:" + i2);
                         this.d.b = -16;
                         cb.a(this);
                         bg.c(this.d.a);
@@ -430,7 +426,7 @@ public class NetWorkCoreByBdHttp implements an {
                     }
                 }
             } catch (Throwable th) {
-                com.baidu.adp.lib.util.f.e(NetWorkCoreByBdHttp.class.getName(), "getNetData", th.getMessage());
+                com.baidu.adp.lib.util.e.e(NetWorkCoreByBdHttp.class.getName(), "getNetData", th.getMessage());
             }
         }
         long time2 = new Date().getTime() - time;
@@ -443,7 +439,7 @@ public class NetWorkCoreByBdHttp implements an {
         bk.a(blVar);
         bk.a.set(this.j.e);
         if (time2 > 5000) {
-            com.baidu.tieba.log.a.a(com.baidu.tieba.log.j.a(str, new StringBuilder().append(time2).toString(), new StringBuilder(String.valueOf(blVar.c)).toString(), "download OK,|DNS Time" + h() + "|ConnectTime" + g() + "|current ip" + UtilHelper.c(UtilHelper.d(str)) + " retryCount: " + blVar.d, ""));
+            com.baidu.tieba.log.a.a(com.baidu.tieba.log.j.a(str, new StringBuilder().append(time2).toString(), new StringBuilder(String.valueOf(blVar.c)).toString(), "download OK,|DNS Time" + this.j.g + "|ConnectTime" + this.j.c + "|current ip" + UtilHelper.b(UtilHelper.c(str)) + " retryCount: " + blVar.d, ""));
         }
         cb.a(this);
         if (fVar != null) {
@@ -453,7 +449,7 @@ public class NetWorkCoreByBdHttp implements an {
         return null;
     }
 
-    public void d(String str) {
+    private void d(String str) {
         this.d.c = -1;
         if (str != null) {
             try {
@@ -466,14 +462,14 @@ public class NetWorkCoreByBdHttp implements an {
                     this.d.d = errorData.getError_msg();
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.f.b("NetWork", "parseServerCode", "error = " + e.getMessage());
+                com.baidu.adp.lib.util.e.b("NetWork", "parseServerCode", "error = " + e.getMessage());
                 this.d.d = this.a.getString(R.string.error_unkown_try_again);
             }
         }
     }
 
     @Override // com.baidu.tieba.util.an
-    public String x() {
+    public final String x() {
         String str;
         OutOfMemoryError e;
         Exception e2;
@@ -489,11 +485,11 @@ public class NetWorkCoreByBdHttp implements an {
                 return str;
             } catch (Exception e3) {
                 e2 = e3;
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "getNetString", "error = " + e2.getMessage());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "getNetString", "error = " + e2.getMessage());
                 return str;
             } catch (OutOfMemoryError e4) {
                 e = e4;
-                com.baidu.adp.lib.util.f.b(getClass().getName(), "getNetString", " 内存溢出！error = " + e.getMessage());
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "getNetString", " 内存溢出！error = " + e.getMessage());
                 return str;
             }
         } catch (Exception e5) {
@@ -507,13 +503,13 @@ public class NetWorkCoreByBdHttp implements an {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [926=12] */
     @Override // com.baidu.tieba.util.an
-    public String u() {
+    public final String u() {
         Throwable th;
         String str;
-        SocketException e;
-        OutOfMemoryError e2;
-        Exception e3;
-        SocketTimeoutException e4;
+        SocketTimeoutException e;
+        SocketException e2;
+        OutOfMemoryError e3;
+        Exception e4;
         BdHttpErrorException e5;
         BdHttpCancelException e6;
         StringBuilder sb = new StringBuilder(1024);
@@ -524,7 +520,7 @@ public class NetWorkCoreByBdHttp implements an {
                 bg.a().a(a);
             }
         } catch (Exception e7) {
-            com.baidu.adp.lib.util.f.b(e7.getMessage());
+            com.baidu.adp.lib.util.e.b(e7.getMessage());
         }
         int i = 0;
         while (true) {
@@ -558,7 +554,7 @@ public class NetWorkCoreByBdHttp implements an {
         }
         String sb3 = sb.toString();
         if (com.baidu.tieba.data.i.F()) {
-            com.baidu.adp.lib.util.f.e(getClass().getName(), "postNetData", String.valueOf(this.d.a) + "?" + sb3);
+            com.baidu.adp.lib.util.e.e(getClass().getName(), "postNetData", String.valueOf(this.d.a) + "?" + sb3);
         }
         try {
             try {
@@ -566,7 +562,8 @@ public class NetWorkCoreByBdHttp implements an {
                     bg.c(this.d.a);
                     return null;
                 }
-                com.baidu.adp.lib.network.f a3 = com.baidu.adp.lib.network.e.a().a(this.d.a, sb3.getBytes(), this.d.g, 5, -1, (com.baidu.adp.lib.network.d) null, this.b, G());
+                com.baidu.adp.lib.network.e.a();
+                com.baidu.adp.lib.network.f a3 = com.baidu.adp.lib.network.e.a(this.d.a, sb3.getBytes(), this.d.g, 5, -1, (com.baidu.adp.lib.network.d) null, this.b, D());
                 if (a3 == null) {
                     throw new BdHttpCancelException();
                 }
@@ -583,8 +580,8 @@ public class NetWorkCoreByBdHttp implements an {
                     bg.c(this.d.a);
                     return null;
                 } else {
-                    com.baidu.adp.lib.util.f.a(getClass().getName(), "postNetData", "time = " + String.valueOf(this.j.f) + "ms");
-                    com.baidu.adp.lib.util.f.a(getClass().getName(), "postNetData", "Get data.zise = " + String.valueOf(this.j.b));
+                    com.baidu.adp.lib.util.e.a(getClass().getName(), "postNetData", "time = " + String.valueOf(this.j.f) + "ms");
+                    com.baidu.adp.lib.util.e.a(getClass().getName(), "postNetData", "Get data.zise = " + String.valueOf(this.j.b));
                     str = new String(a3.d, "utf-8");
                     try {
                         if (this.d.i && this.d.j) {
@@ -613,39 +610,39 @@ public class NetWorkCoreByBdHttp implements an {
                         this.d.b = e5.getHttpResponseCode();
                         cb.a(this);
                         return str;
-                    } catch (OutOfMemoryError e10) {
-                        e2 = e10;
-                        this.d.b = -15;
-                        this.d.d = this.a.getResources().getString(R.string.memoryerror);
-                        com.baidu.adp.lib.util.f.b(getClass().getName(), "postNetData", " 内存溢出！error = " + e2.getMessage());
-                        cb.a(this);
-                        return str;
-                    } catch (SocketException e11) {
-                        e = e11;
-                        this.d.b = -12;
-                        this.d.d = this.a.getResources().getString(R.string.neterror);
-                        com.baidu.adp.lib.util.f.b(getClass().getName(), "postNetData", "SocketException " + e.getMessage());
-                        cb.a(this);
-                        return str;
-                    } catch (SocketTimeoutException e12) {
-                        e4 = e12;
+                    } catch (SocketTimeoutException e10) {
+                        e = e10;
                         this.d.b = -13;
                         this.d.d = this.a.getResources().getString(R.string.neterror);
-                        com.baidu.adp.lib.util.f.b(getClass().getName(), "postNetData", "SocketTimeoutException " + e4.getMessage());
+                        com.baidu.adp.lib.util.e.b(getClass().getName(), "postNetData", "SocketTimeoutException " + e.getMessage());
                         cb.a(this);
                         return str;
-                    } catch (Exception e13) {
-                        e3 = e13;
+                    } catch (Exception e11) {
+                        e4 = e11;
                         this.d.b = -10;
                         this.d.d = this.a.getResources().getString(R.string.neterror);
-                        com.baidu.adp.lib.util.f.b(getClass().getName(), "postNetData", e3.getMessage());
+                        com.baidu.adp.lib.util.e.b(getClass().getName(), "postNetData", e4.getMessage());
+                        cb.a(this);
+                        return str;
+                    } catch (OutOfMemoryError e12) {
+                        e3 = e12;
+                        this.d.b = -15;
+                        this.d.d = this.a.getResources().getString(R.string.memoryerror);
+                        com.baidu.adp.lib.util.e.b(getClass().getName(), "postNetData", " 内存溢出！error = " + e3.getMessage());
+                        cb.a(this);
+                        return str;
+                    } catch (SocketException e13) {
+                        e2 = e13;
+                        this.d.b = -12;
+                        this.d.d = this.a.getResources().getString(R.string.neterror);
+                        com.baidu.adp.lib.util.e.b(getClass().getName(), "postNetData", "SocketException " + e2.getMessage());
                         cb.a(this);
                         return str;
                     } catch (Throwable th2) {
                         th = th2;
                         this.d.b = -10;
                         this.d.d = this.a.getResources().getString(R.string.neterror);
-                        com.baidu.adp.lib.util.f.b(getClass().getName(), "postNetData", th.getMessage());
+                        com.baidu.adp.lib.util.e.b(getClass().getName(), "postNetData", th.getMessage());
                         cb.a(this);
                         return str;
                     }
@@ -659,16 +656,16 @@ public class NetWorkCoreByBdHttp implements an {
         } catch (BdHttpErrorException e15) {
             e5 = e15;
             str = null;
-        } catch (SocketTimeoutException e16) {
+        } catch (Exception e16) {
             e4 = e16;
             str = null;
-        } catch (Exception e17) {
+        } catch (OutOfMemoryError e17) {
             e3 = e17;
             str = null;
-        } catch (OutOfMemoryError e18) {
+        } catch (SocketException e18) {
             e2 = e18;
             str = null;
-        } catch (SocketException e19) {
+        } catch (SocketTimeoutException e19) {
             e = e19;
             str = null;
         } catch (Throwable th3) {
@@ -679,7 +676,7 @@ public class NetWorkCoreByBdHttp implements an {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1032=9] */
     @Override // com.baidu.tieba.util.an
-    public String y() {
+    public final String y() {
         String str;
         OutOfMemoryError e;
         Exception e2;
@@ -690,9 +687,10 @@ public class NetWorkCoreByBdHttp implements an {
                 if (this.b.c()) {
                     throw new BdHttpCancelException();
                 }
-                com.baidu.adp.lib.network.f a = com.baidu.adp.lib.network.e.a().a(this.d.a, this.d.g, this.d.e, this.d.f, 5, -1, null, this.b, null, G());
+                com.baidu.adp.lib.network.e.a();
+                com.baidu.adp.lib.network.f a = com.baidu.adp.lib.network.e.a(this.d.a, this.d.g, this.d.e, this.d.f, 5, -1, null, this.b, D());
                 this.d.b = a.a;
-                new Timer().schedule(new be(this, null), 45000L);
+                new Timer().schedule(new be(this, (byte) 0), 45000L);
                 if (this.d.b != 200) {
                     this.d.l = String.valueOf(String.valueOf(this.d.b)) + "|retryCount:" + (this.j == null ? -1 : this.j.e);
                     cb.a(this);
@@ -718,34 +716,34 @@ public class NetWorkCoreByBdHttp implements an {
                         this.d.b = e3.getHttpResponseCode();
                         cb.a(this);
                         return str;
-                    } catch (Exception e7) {
-                        e2 = e7;
-                        this.d.b = -10;
-                        this.d.d = this.a.getResources().getString(R.string.neterror);
-                        com.baidu.adp.lib.util.f.b("NetWork", "postMultiNetData", "error = " + e2.getMessage());
-                        cb.a(this);
-                        return str;
-                    } catch (OutOfMemoryError e8) {
-                        e = e8;
+                    } catch (OutOfMemoryError e7) {
+                        e = e7;
                         this.d.b = -15;
                         this.d.d = this.a.getResources().getString(R.string.memoryerror);
-                        com.baidu.adp.lib.util.f.b(getClass().getName(), "postMultiNetData", " 内存溢出！error = " + e.getMessage());
+                        com.baidu.adp.lib.util.e.b(getClass().getName(), "postMultiNetData", " 内存溢出！error = " + e.getMessage());
                         cb.a(this);
                         return str;
-                    } catch (SocketException e9) {
+                    } catch (SocketException e8) {
                         this.d.b = -12;
                         this.d.d = this.a.getResources().getString(R.string.neterror);
                         cb.a(this);
                         return str;
-                    } catch (SocketTimeoutException e10) {
+                    } catch (SocketTimeoutException e9) {
                         this.d.b = -13;
                         this.d.d = this.a.getResources().getString(R.string.neterror);
+                        cb.a(this);
+                        return str;
+                    } catch (Exception e10) {
+                        e2 = e10;
+                        this.d.b = -10;
+                        this.d.d = this.a.getResources().getString(R.string.neterror);
+                        com.baidu.adp.lib.util.e.b("NetWork", "postMultiNetData", "error = " + e2.getMessage());
                         cb.a(this);
                         return str;
                     }
                 }
             } finally {
-                new Timer().schedule(new be(this, null), 0L);
+                new Timer().schedule(new be(this, (byte) 0), 0L);
             }
         } catch (BdHttpCancelException e11) {
             e4 = e11;
@@ -767,52 +765,58 @@ public class NetWorkCoreByBdHttp implements an {
     }
 
     @Override // com.baidu.tieba.util.an
-    public boolean z() {
+    public final boolean z() {
         return this.d.b == 200 || this.d.b == 206;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1119=5] */
     @Override // com.baidu.tieba.util.an
-    public boolean a(String str, Handler handler, int i, int i2, int i3) {
+    public final boolean a(String str, Handler handler, int i, int i2, int i3) {
+        boolean z;
         try {
-            if (this.b.c()) {
+            try {
+            } catch (Exception e) {
+                this.d.b = -10;
+                this.d.d = this.a.getResources().getString(R.string.neterror);
+                com.baidu.adp.lib.util.e.b("NetWork", "downloadFile", "error = " + e.getMessage());
                 cb.a(this);
+                z = false;
+            } catch (OutOfMemoryError e2) {
+                this.d.b = -15;
+                this.d.d = this.a.getResources().getString(R.string.memoryerror);
+                com.baidu.adp.lib.util.e.b(getClass().getName(), "downloadFile", "error = " + e2.getMessage());
+                cb.a(this);
+                z = false;
+            }
+            if (this.b.c()) {
                 return false;
             }
-            return com.baidu.adp.lib.network.e.a().a(this.d.a, af.g(str).getAbsolutePath(), false, i2, i3, -1, new bd(this, handler, i), this.b, G());
-        } catch (Exception e) {
-            this.d.b = -10;
-            this.d.d = this.a.getResources().getString(R.string.neterror);
-            com.baidu.adp.lib.util.f.b("NetWork", "downloadFile", "error = " + e.getMessage());
-            return false;
-        } catch (OutOfMemoryError e2) {
-            this.d.b = -15;
-            this.d.d = this.a.getResources().getString(R.string.memoryerror);
-            com.baidu.adp.lib.util.f.b(getClass().getName(), "downloadFile", "error = " + e2.getMessage());
-            return false;
+            File g = af.g(str);
+            com.baidu.adp.lib.network.e.a();
+            z = com.baidu.adp.lib.network.b.a(this.d.a, g.getAbsolutePath(), false, i2, i3, -1, (com.baidu.adp.lib.network.d) new bd(this, handler, i), this.b, D());
+            return z;
         } finally {
             cb.a(this);
         }
-        cb.a(this);
     }
 
     @Override // com.baidu.tieba.util.an
-    public void a(Context context) {
+    public final void a(Context context) {
         this.a = context;
     }
 
     @Override // com.baidu.tieba.util.an
-    public Context l() {
+    public final Context l() {
         return this.a;
     }
 
     @Override // com.baidu.tieba.util.an
-    public ArrayList<BasicNameValuePair> m() {
+    public final ArrayList<BasicNameValuePair> m() {
         return this.d.e;
     }
 
     @Override // com.baidu.tieba.util.an
-    public void a(ArrayList<BasicNameValuePair> arrayList) {
+    public final void a(ArrayList<BasicNameValuePair> arrayList) {
         if (this.d.e != null) {
             this.d.e.clear();
         }
@@ -829,12 +833,12 @@ public class NetWorkCoreByBdHttp implements an {
     }
 
     @Override // com.baidu.tieba.util.an
-    public void a(String str, String str2) {
+    public final void a(String str, String str2) {
         a(new BasicNameValuePair(str, str2));
     }
 
     @Override // com.baidu.tieba.util.an
-    public void a(String str, byte[] bArr) {
+    public final void a(String str, byte[] bArr) {
         if (this.d.f == null) {
             this.d.f = new HashMap<>();
         }
@@ -842,7 +846,7 @@ public class NetWorkCoreByBdHttp implements an {
     }
 
     @Override // com.baidu.tieba.util.an
-    public void a(BasicNameValuePair basicNameValuePair) {
+    public final void a(BasicNameValuePair basicNameValuePair) {
         if (basicNameValuePair != null && basicNameValuePair.getName() != null) {
             if (this.d.e == null) {
                 this.d.e = new ArrayList<>();
@@ -861,7 +865,7 @@ public class NetWorkCoreByBdHttp implements an {
         }
     }
 
-    private int a(ArrayList<BasicNameValuePair> arrayList, String str) {
+    private static int a(ArrayList<BasicNameValuePair> arrayList, String str) {
         int i = 0;
         if (arrayList == null || str == null) {
             return -1;
@@ -887,51 +891,51 @@ public class NetWorkCoreByBdHttp implements an {
     }
 
     @Override // com.baidu.tieba.util.an
-    public void d(boolean z) {
+    public final void d(boolean z) {
         this.d.h = z;
     }
 
     @Override // com.baidu.tieba.util.an
-    public void e(boolean z) {
-        this.d.i = z;
+    public final void e(boolean z) {
+        this.d.i = false;
     }
 
     @Override // com.baidu.tieba.util.an
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.e = z;
     }
 
     @Override // com.baidu.tieba.util.an
-    public boolean a() {
+    public final boolean a() {
         return this.f;
     }
 
     @Override // com.baidu.tieba.util.an
-    public boolean b() {
+    public final boolean b() {
         return this.h;
     }
 
     @Override // com.baidu.tieba.util.an
-    public void b(boolean z) {
-        this.h = z;
+    public final void b(boolean z) {
+        this.h = true;
     }
 
     @Override // com.baidu.tieba.util.an
-    public void a(int i) {
+    public final void a(int i) {
         this.i = i;
     }
 
     @Override // com.baidu.tieba.util.an
-    public void a(String str) {
+    public final void a(String str) {
         this.g = str;
     }
 
     @Override // com.baidu.tieba.util.an
-    public String B() {
+    public final String B() {
         return this.d.l;
     }
 
-    private LinkedList<BasicNameValuePair> G() {
+    private LinkedList<BasicNameValuePair> D() {
         if (this.d != null) {
             LinkedList<BasicNameValuePair> linkedList = new LinkedList<>();
             if (!TextUtils.isEmpty(this.d.m)) {
@@ -947,7 +951,7 @@ public class NetWorkCoreByBdHttp implements an {
     }
 
     @Override // com.baidu.tieba.util.an
-    public String C() {
+    public final String C() {
         if (this.d != null) {
             return this.d.m;
         }

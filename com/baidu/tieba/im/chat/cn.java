@@ -1,26 +1,23 @@
 package com.baidu.tieba.im.chat;
 
+import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.UserData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cn implements com.baidu.tieba.im.a<Void> {
-    final /* synthetic */ cl a;
-    private final /* synthetic */ com.baidu.adp.framework.message.a b;
+public final class cn extends com.baidu.tieba.im.b<Void> {
+    final /* synthetic */ PersonalChatActivity a;
+    private final /* synthetic */ UserData c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cn(cl clVar, com.baidu.adp.framework.message.a aVar) {
-        this.a = clVar;
-        this.b = aVar;
+    public cn(PersonalChatActivity personalChatActivity, UserData userData) {
+        this.a = personalChatActivity;
+        this.c = userData;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Void r6) {
-        ((com.baidu.tieba.a.c) this.b.a()).d().setClass(((com.baidu.tieba.a.c) this.b.a()).c(), PersonalChatActivity.class);
-        UserData a = ((com.baidu.tieba.a.c) this.b.a()).a();
-        if (a.getUserIdLong() == 0) {
-            com.baidu.adp.lib.util.f.e("userid = " + a.getUserId());
-        } else {
-            ((com.baidu.tieba.a.c) this.b.a()).e();
-        }
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.b
+    public final /* synthetic */ Void a() {
+        com.baidu.tieba.im.chat.personaltalk.a.a(TiebaApplication.v(), PersonalChatActivity.b, this.c);
+        return null;
     }
 }

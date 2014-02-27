@@ -8,7 +8,7 @@ import com.baidu.tieba.util.cb;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements com.baidu.tieba.view.r {
+public final class i implements com.baidu.tieba.view.r {
     final /* synthetic */ h a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,7 +17,7 @@ public class i implements com.baidu.tieba.view.r {
     }
 
     @Override // com.baidu.tieba.view.r
-    public void a() {
+    public final void a() {
         t tVar;
         t tVar2;
         com.baidu.tieba.view.q qVar;

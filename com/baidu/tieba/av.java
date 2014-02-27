@@ -4,7 +4,7 @@ import android.app.Application;
 import com.baidu.tieba.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class av implements Runnable {
+public final class av implements Runnable {
     private final /* synthetic */ AccountData a;
     private final /* synthetic */ Application b;
 
@@ -15,7 +15,7 @@ public class av implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
-        TiebaApplication.b(this.a, this.b);
+    public final void run() {
+        TiebaApplication.a(this.a, this.b);
     }
 }

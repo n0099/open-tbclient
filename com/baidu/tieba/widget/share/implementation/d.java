@@ -5,7 +5,7 @@ import com.baidu.cloudsdk.IBaiduListener;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-class d implements IBaiduListener {
+final class d implements IBaiduListener {
     private com.baidu.tieba.widget.share.a a;
     private boolean b = true;
     private c c;
@@ -14,11 +14,11 @@ class d implements IBaiduListener {
         this.a = aVar;
     }
 
-    public void a(boolean z) {
+    public final void a(boolean z) {
         this.b = z;
     }
 
-    public void a(c cVar) {
+    public final void a(c cVar) {
         this.c = cVar;
     }
 
@@ -28,35 +28,35 @@ class d implements IBaiduListener {
             this.c.a();
             return;
         }
-        this.a.c();
-    }
-
-    @Override // com.baidu.cloudsdk.IBaiduListener
-    public void onComplete() {
-        a();
-    }
-
-    @Override // com.baidu.cloudsdk.IBaiduListener
-    public void onComplete(JSONObject jSONObject) {
-        a();
-    }
-
-    @Override // com.baidu.cloudsdk.IBaiduListener
-    public void onComplete(JSONArray jSONArray) {
-        a();
-    }
-
-    @Override // com.baidu.cloudsdk.IBaiduListener
-    public void onCancel() {
         this.a.b();
     }
 
     @Override // com.baidu.cloudsdk.IBaiduListener
-    public void onError(BaiduException baiduException) {
+    public final void onComplete() {
+        a();
+    }
+
+    @Override // com.baidu.cloudsdk.IBaiduListener
+    public final void onComplete(JSONObject jSONObject) {
+        a();
+    }
+
+    @Override // com.baidu.cloudsdk.IBaiduListener
+    public final void onComplete(JSONArray jSONArray) {
+        a();
+    }
+
+    @Override // com.baidu.cloudsdk.IBaiduListener
+    public final void onCancel() {
+        com.baidu.tieba.widget.share.a aVar = this.a;
+    }
+
+    @Override // com.baidu.cloudsdk.IBaiduListener
+    public final void onError(BaiduException baiduException) {
         if (this.b) {
-            this.a.d();
+            com.baidu.tieba.widget.share.a aVar = this.a;
         } else {
-            this.a.d();
+            com.baidu.tieba.widget.share.a aVar2 = this.a;
         }
     }
 }

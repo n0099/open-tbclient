@@ -59,10 +59,7 @@ public class SapiUtils {
 
     public static boolean hasActiveNetwork(Context context) {
         ConnectivityManager connectivityManager;
-        if (context == null || (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) == null) {
-            return false;
-        }
-        return connectivityManager.getActiveNetworkInfo() != null;
+        return (context == null || (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) == null || connectivityManager.getActiveNetworkInfo() == null) ? false : true;
     }
 
     public static int readNetworkOperatorType(Context context) {

@@ -1,7 +1,6 @@
 package com.baidu.tieba.faceshop;
 
 import android.os.Handler;
-import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
@@ -11,16 +10,16 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.view.NavigationBar;
 import com.baidu.tieba.view.NoNetworkView;
 import com.baidu.tieba.view.by;
-import com.baidu.tieba.view.ct;
+import com.baidu.tieba.view.cs;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class ao {
+public final class ao {
     private com.baidu.tieba.f b;
     private LinearLayout c;
     private NavigationBar d;
     private NoNetworkView e;
     private BdListView f;
-    private ct g;
+    private cs g;
     private TextView h;
     private ak i;
     private Handler j;
@@ -38,13 +37,13 @@ public class ao {
         this.e = (NoNetworkView) this.c.findViewById(R.id.view_no_network);
         this.h = (TextView) this.c.findViewById(R.id.empty);
         this.f = (BdListView) this.c.findViewById(R.id.purchase_record_list);
-        this.g = new ct(fVar);
+        this.g = new cs(fVar);
         this.f.setPullRefresh(this.g);
         this.f.setOnScrollListener(this.a);
         this.j = new Handler();
     }
 
-    public void a(FacePurchaseRecordsData facePurchaseRecordsData) {
+    public final void a(FacePurchaseRecordsData facePurchaseRecordsData) {
         if (this.i == null) {
             this.i = new ak(this.b);
             this.f.setAdapter((ListAdapter) this.i);
@@ -54,67 +53,54 @@ public class ao {
         if (facePurchaseRecordsData == null || facePurchaseRecordsData.packList == null || facePurchaseRecordsData.packList.size() == 0) {
             c();
         }
-        d();
-        b();
-    }
-
-    public ak a() {
-        return this.i;
-    }
-
-    public void b() {
+        if (this.j != null) {
+            this.j.removeCallbacks(this.l);
+            this.j.postDelayed(this.l, 300L);
+        }
         this.f.a();
     }
 
-    public void c() {
+    public final ak a() {
+        return this.i;
+    }
+
+    public final void b() {
+        this.f.a();
+    }
+
+    public final void c() {
         if (this.f != null) {
             this.f.setEmptyView(this.h);
         }
     }
 
-    public void a(AdapterView.OnItemClickListener onItemClickListener) {
+    public final void a(AdapterView.OnItemClickListener onItemClickListener) {
         this.f.setOnItemClickListener(onItemClickListener);
     }
 
-    public void a(com.baidu.adp.widget.ListView.b bVar) {
+    public final void a(com.baidu.adp.widget.ListView.b bVar) {
         this.g.a(bVar);
     }
 
-    public void d() {
-        if (this.j != null) {
-            this.j.removeCallbacks(this.l);
-            this.j.postDelayed(this.l, 300L);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void f() {
-        com.baidu.tieba.util.ap.a(this.f, this.i.a(), 0, -1);
-    }
-
-    private void g() {
+    public final void d() {
         if (this.k != null) {
             this.k.a();
-            this.k.d();
+            this.k.c();
         }
     }
 
-    public void e() {
-        g();
-    }
-
-    public void a(by byVar) {
+    public final void a(by byVar) {
         this.e.a(byVar);
     }
 
-    public void b(by byVar) {
+    public final void b(by byVar) {
         this.e.b(byVar);
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         this.b.getLayoutMode().a(i == 1);
-        this.b.getLayoutMode().a((View) this.c);
-        this.d.c(i);
+        this.b.getLayoutMode().a(this.c);
+        this.d.b(i);
         this.e.a(i);
         this.g.a(i);
     }

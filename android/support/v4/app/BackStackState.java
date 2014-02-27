@@ -13,14 +13,14 @@ public final class BackStackState implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public BackStackState createFromParcel(Parcel parcel) {
+        public final BackStackState createFromParcel(Parcel parcel) {
             return new BackStackState(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public BackStackState[] newArray(int i) {
+        public final BackStackState[] newArray(int i) {
             return new BackStackState[i];
         }
     };
@@ -97,7 +97,7 @@ public final class BackStackState implements Parcelable {
         this.mBreadCrumbShortTitleText = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(parcel);
     }
 
-    public BackStackRecord instantiate(FragmentManagerImpl fragmentManagerImpl) {
+    public final BackStackRecord instantiate(FragmentManagerImpl fragmentManagerImpl) {
         BackStackRecord backStackRecord = new BackStackRecord(fragmentManagerImpl);
         int i = 0;
         int i2 = 0;
@@ -155,12 +155,12 @@ public final class BackStackState implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public int describeContents() {
+    public final int describeContents() {
         return 0;
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public final void writeToParcel(Parcel parcel, int i) {
         parcel.writeIntArray(this.mOps);
         parcel.writeInt(this.mTransition);
         parcel.writeInt(this.mTransitionStyle);

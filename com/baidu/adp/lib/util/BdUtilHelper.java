@@ -21,7 +21,7 @@ import java.lang.reflect.Field;
 import java.util.Calendar;
 import java.util.Locale;
 /* loaded from: classes.dex */
-public class BdUtilHelper {
+public final class BdUtilHelper {
     private static float b;
     private static int c;
     private static int d;
@@ -29,7 +29,7 @@ public class BdUtilHelper {
     private static boolean a = false;
     private static Toast e = null;
     private static Handler g = new Handler();
-    private static Runnable h = new i();
+    private static Runnable h = new h();
 
     /* loaded from: classes.dex */
     public enum NetworkStateInfo {
@@ -87,7 +87,7 @@ public class BdUtilHelper {
         return b;
     }
 
-    public static void a(Context context, String str, int i) {
+    private static void a(Context context, String str, int i) {
         if (!TextUtils.isEmpty(str)) {
             g.removeCallbacks(h);
             if (e == null) {
@@ -125,7 +125,7 @@ public class BdUtilHelper {
                     ((InputMethodManager) context.getSystemService("input_method")).hideSoftInputFromWindow(view.getWindowToken(), 2);
                 }
             } catch (Throwable th) {
-                f.b("UtilHelper", "hideSoftKeyPad", "error = " + th.getMessage());
+                e.b("UtilHelper", "hideSoftKeyPad", "error = " + th.getMessage());
             }
         }
     }
@@ -134,7 +134,7 @@ public class BdUtilHelper {
         try {
             ((InputMethodManager) context.getSystemService("input_method")).showSoftInput(view, 0);
         } catch (Throwable th) {
-            f.b("UtilHelper", "showSoftKeyPad", "error = " + th.getMessage());
+            e.b("UtilHelper", "showSoftKeyPad", "error = " + th.getMessage());
         }
     }
 
@@ -212,22 +212,12 @@ public class BdUtilHelper {
         return ellipsize.toString();
     }
 
-    public static TextPaint a(Context context, TextPaint textPaint, float f2) {
-        Resources resources;
-        if (context == null) {
-            resources = Resources.getSystem();
-        } else {
-            resources = context.getResources();
-        }
-        if (resources != null) {
-            textPaint.setTextSize(TypedValue.applyDimension(2, f2, resources.getDisplayMetrics()));
-        }
-        return textPaint;
-    }
-
     public static int b(Context context, float f2) {
         TextPaint textPaint = new TextPaint();
-        a(context, textPaint, f2);
+        Resources system = context == null ? Resources.getSystem() : context.getResources();
+        if (system != null) {
+            textPaint.setTextSize(TypedValue.applyDimension(2, 15.0f, system.getDisplayMetrics()));
+        }
         Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
         return (int) Math.ceil(fontMetrics.descent - fontMetrics.ascent);
     }
@@ -302,12 +292,12 @@ public class BdUtilHelper {
                 networkStateInfo = NetworkStateInfo.UNAVAIL;
                 try {
                     e2 = "NetWorkCore";
-                    f.a("NetWorkCore", "NetworkStateInfo", "UNAVAIL");
+                    e.a("NetWorkCore", "NetworkStateInfo", "UNAVAIL");
                 } catch (Exception e3) {
                     e2 = e3;
                 }
             } else if (activeNetworkInfo.getType() == 1) {
-                f.a("NetWorkCore", "NetworkStateInfo", "WIFI");
+                e.a("NetWorkCore", "NetworkStateInfo", "WIFI");
                 networkStateInfo = NetworkStateInfo.WIFI;
             } else {
                 switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
@@ -317,7 +307,7 @@ public class BdUtilHelper {
                     case 4:
                     case 7:
                     case 11:
-                        f.a("NetWorkCore", "NetworkStateInfo", "TwoG");
+                        e.a("NetWorkCore", "NetworkStateInfo", "TwoG");
                         networkStateInfo = NetworkStateInfo.TwoG;
                         break;
                     case 3:
@@ -330,11 +320,11 @@ public class BdUtilHelper {
                     case 13:
                     case 14:
                     case 15:
-                        f.a("NetWorkCore", "NetworkStateInfo", "ThreeG");
+                        e.a("NetWorkCore", "NetworkStateInfo", "ThreeG");
                         networkStateInfo = NetworkStateInfo.ThreeG;
                         break;
                     default:
-                        f.a("NetWorkCore", "NetworkStateInfo-default", "TwoG");
+                        e.a("NetWorkCore", "NetworkStateInfo-default", "TwoG");
                         networkStateInfo = NetworkStateInfo.TwoG;
                         break;
                 }

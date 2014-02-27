@@ -1,9 +1,6 @@
 package com.baidu.tieba.frs;
-
-import com.baidu.tieba.util.cb;
-import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
-class ax implements SlidingMenu.OnOpenedListener {
+final class ax implements com.baidu.adp.widget.ScrollView.m {
     final /* synthetic */ FrsImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,8 +8,11 @@ class ax implements SlidingMenu.OnOpenedListener {
         this.a = frsImageActivity;
     }
 
-    @Override // com.slidingmenu.lib.SlidingMenu.OnOpenedListener
-    public void onOpened() {
-        cb.a(this.a, "frs_total_more", "frsclick", 1, new Object[0]);
+    @Override // com.baidu.adp.widget.ScrollView.m
+    public final void a() {
+        com.baidu.tieba.util.cb.a(this.a, "frs_pulldown", "frsclick", 1, new Object[0]);
+        this.a.q = null;
+        this.a.p = true;
+        this.a.b(1);
     }
 }

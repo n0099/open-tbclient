@@ -52,7 +52,7 @@ public final class WireFormat {
             this.defaultDefault = obj;
         }
 
-        Object getDefaultDefault() {
+        final Object getDefaultDefault() {
             return this.defaultDefault;
         }
     }
@@ -69,25 +69,25 @@ public final class WireFormat {
         BOOL(JavaType.BOOLEAN, 0),
         STRING(JavaType.STRING, 2) { // from class: com.google.protobuf.WireFormat.FieldType.1
             @Override // com.google.protobuf.WireFormat.FieldType
-            public boolean isPackable() {
+            public final boolean isPackable() {
                 return false;
             }
         },
         GROUP(JavaType.MESSAGE, 3) { // from class: com.google.protobuf.WireFormat.FieldType.2
             @Override // com.google.protobuf.WireFormat.FieldType
-            public boolean isPackable() {
+            public final boolean isPackable() {
                 return false;
             }
         },
         MESSAGE(JavaType.MESSAGE, 2) { // from class: com.google.protobuf.WireFormat.FieldType.3
             @Override // com.google.protobuf.WireFormat.FieldType
-            public boolean isPackable() {
+            public final boolean isPackable() {
                 return false;
             }
         },
         BYTES(JavaType.BYTE_STRING, 2) { // from class: com.google.protobuf.WireFormat.FieldType.4
             @Override // com.google.protobuf.WireFormat.FieldType
-            public boolean isPackable() {
+            public final boolean isPackable() {
                 return false;
             }
         },

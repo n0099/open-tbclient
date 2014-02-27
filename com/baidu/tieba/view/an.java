@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class an {
+public final class an {
     private View a;
     private GoodGridView b;
     private ImageView c;
@@ -26,19 +26,19 @@ public class an {
         this.c = (ImageView) this.a.findViewById(R.id.divider_line);
     }
 
-    public void a(com.baidu.tieba.frs.at atVar) {
-        this.b.setAdapter((ListAdapter) atVar);
+    public final void a(com.baidu.tieba.frs.au auVar) {
+        this.b.setAdapter((ListAdapter) auVar);
     }
 
-    public void a(AdapterView.OnItemClickListener onItemClickListener) {
+    public final void a(AdapterView.OnItemClickListener onItemClickListener) {
         this.b.setOnItemClickListener(onItemClickListener);
     }
 
-    public View a() {
+    public final View a() {
         return this.a;
     }
 
-    public void a(int i) {
+    public final void a(int i) {
         if (i == 1) {
             this.b.setBackgroundResource(R.color.frs_goodheader_bg_1);
             this.c.setBackgroundResource(R.color.frs_goodheader_line_end_1);

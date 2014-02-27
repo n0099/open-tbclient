@@ -2,7 +2,7 @@ package com.baidu.tieba.util;
 
 import android.view.View;
 /* loaded from: classes.dex */
-class bx implements View.OnClickListener {
+final class bx implements View.OnClickListener {
     final /* synthetic */ TbWebViewActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +11,7 @@ class bx implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public final void onClick(View view) {
         this.a.a();
     }
 }

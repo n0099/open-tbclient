@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 /* loaded from: classes.dex */
-class i extends BroadcastReceiver {
+final class i extends BroadcastReceiver {
     final /* synthetic */ ImageActivity a;
 
     private i(ImageActivity imageActivity) {
@@ -13,12 +13,12 @@ class i extends BroadcastReceiver {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ i(ImageActivity imageActivity, i iVar) {
+    public /* synthetic */ i(ImageActivity imageActivity, byte b) {
         this(imageActivity);
     }
 
     @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
+    public final void onReceive(Context context, Intent intent) {
         ImageActivity.a(this.a, intent.getBooleanExtra("hasnext", false));
         ImageActivity.a(this.a, intent.getStringExtra("nexttitle"));
         ImageActivity.a(this.a, intent.getStringArrayListExtra(SocialConstants.PARAM_URL));

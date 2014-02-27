@@ -4,7 +4,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 /* loaded from: classes.dex */
-class bj implements RadioGroup.OnCheckedChangeListener {
+final class bj implements RadioGroup.OnCheckedChangeListener {
     final /* synthetic */ Register2Activity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,7 +13,7 @@ class bj implements RadioGroup.OnCheckedChangeListener {
     }
 
     @Override // android.widget.RadioGroup.OnCheckedChangeListener
-    public void onCheckedChanged(RadioGroup radioGroup, int i) {
+    public final void onCheckedChanged(RadioGroup radioGroup, int i) {
         EditText editText;
         if (i > 0) {
             RadioButton radioButton = (RadioButton) this.a.findViewById(i);

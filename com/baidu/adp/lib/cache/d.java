@@ -1,6 +1,6 @@
 package com.baidu.adp.lib.cache;
 /* loaded from: classes.dex */
-class d implements Runnable {
+final class d implements Runnable {
     final /* synthetic */ c a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,7 +9,7 @@ class d implements Runnable {
     }
 
     @Override // java.lang.Runnable
-    public void run() {
-        this.a.c();
+    public final void run() {
+        this.a.a();
     }
 }

@@ -95,17 +95,18 @@ public class TripleTbImageView extends ViewGroup {
         invalidate();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(TbImageView tbImageView, com.baidu.adp.widget.ImageView.b bVar) {
-        if (this.e != null && bVar != null && tbImageView != null) {
-            int length = (int) (h / this.e.length);
-            if (bVar.c() < length * 0.3f || bVar.d() < length * a[this.e.length - 1] * 0.3f) {
-                tbImageView.setScaleType(ImageView.ScaleType.FIT_START);
-            } else {
-                tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            }
-            tbImageView.invalidate();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(TripleTbImageView tripleTbImageView, TbImageView tbImageView, com.baidu.adp.widget.ImageView.b bVar) {
+        if (tripleTbImageView.e == null || bVar == null || tbImageView == null) {
+            return;
         }
+        int length = (int) (h / tripleTbImageView.e.length);
+        if (bVar.c() < length * 0.3f || bVar.d() < length * a[tripleTbImageView.e.length - 1] * 0.3f) {
+            tbImageView.setScaleType(ImageView.ScaleType.FIT_START);
+        } else {
+            tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        }
+        tbImageView.invalidate();
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
