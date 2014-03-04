@@ -137,7 +137,7 @@ public class k extends com.baidu.tieba.im.b<l> {
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 s sVar = list.get(i);
-                a a = d.a().a(sVar.w());
+                a a = d.a().a(sVar.v());
                 if (a != null) {
                     a.a(sVar, dVar);
                 }

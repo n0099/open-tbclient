@@ -13,7 +13,7 @@ import android.util.SparseArray;
 import android.view.animation.AlphaAnimation;
 import android.widget.ImageView;
 import com.baidu.adp.g;
-import com.baidu.adp.lib.e.h;
+import com.baidu.adp.lib.e.f;
 import java.lang.ref.SoftReference;
 /* loaded from: classes.dex */
 public class BDImageView extends ImageView {
@@ -29,7 +29,7 @@ public class BDImageView extends ImageView {
     private int i;
     private boolean j;
     private boolean k;
-    private h l;
+    private f l;
     private Rect m;
     private boolean n;
     private ColorFilter o;
@@ -295,13 +295,13 @@ public class BDImageView extends ImageView {
     }
 
     public final void a(String str, int i) {
-        h hVar = this.l;
+        f fVar = this.l;
         this.h = str;
         if (this.h != null) {
             this.i = 1;
-            this.l = hVar;
+            this.l = fVar;
             try {
-                com.baidu.adp.lib.e.c.a().a(this.h, this.i, new a(this), getContext(), hVar);
+                com.baidu.adp.lib.e.c.a().a(this.h, this.i, new a(this), getContext(), fVar);
             } catch (Exception e) {
                 e.printStackTrace();
             }

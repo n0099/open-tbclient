@@ -22,7 +22,7 @@ public final class j implements com.baidu.tieba.im.messageCenter.g {
     @Override // com.baidu.tieba.im.messageCenter.g
     public final void a(com.baidu.tieba.im.message.s sVar) {
         boolean z;
-        if (sVar != null && sVar.w() == 103101) {
+        if (sVar != null && sVar.v() == 103101) {
             this.a.a(false);
             if (!(sVar instanceof bm)) {
                 this.a.showToast(R.string.group_create_fail);

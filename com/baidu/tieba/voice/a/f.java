@@ -1,7 +1,6 @@
 package com.baidu.tieba.voice.a;
 
 import android.content.Context;
-import com.baidu.adp.lib.e.h;
 /* loaded from: classes.dex */
 public final class f {
     private static f a;
@@ -28,9 +27,9 @@ public final class f {
 
     public final d a(Context context, String str, String str2, com.baidu.adp.lib.e.b<d> bVar) {
         try {
-            h hVar = new h();
-            hVar.a("from", str2);
-            return (d) this.b.a(str, 273, bVar, context, hVar);
+            com.baidu.adp.lib.e.f fVar = new com.baidu.adp.lib.e.f();
+            fVar.a("from", str2);
+            return (d) this.b.a(str, 273, bVar, context, fVar);
         } catch (Exception e) {
             e.printStackTrace();
             return null;

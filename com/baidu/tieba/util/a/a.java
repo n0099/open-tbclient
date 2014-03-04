@@ -1,23 +1,23 @@
 package com.baidu.tieba.util.a;
 
-import com.baidu.adp.lib.e.h;
-import com.baidu.adp.lib.e.i;
+import com.baidu.tieba.util.cb;
+import com.baidu.tieba.util.i;
 import com.baidu.tieba.util.l;
 /* loaded from: classes.dex */
-public abstract class a implements i {
-    protected abstract Object a(String str, com.baidu.adp.lib.e.e eVar, com.baidu.tieba.util.i iVar, l lVar);
+public abstract class a implements com.baidu.adp.lib.e.g {
+    protected abstract Object a(String str, com.baidu.adp.lib.e.e eVar, i iVar, l lVar);
 
-    protected abstract Object a(String str, com.baidu.tieba.util.i iVar);
+    protected abstract Object a(String str, i iVar);
 
-    protected abstract Object b(String str, com.baidu.adp.lib.e.e eVar, com.baidu.tieba.util.i iVar, l lVar);
+    protected abstract Object b(String str, com.baidu.adp.lib.e.e eVar, i iVar, l lVar);
 
-    @Override // com.baidu.adp.lib.e.i
-    public final Object a(String str, h hVar) {
-        if (hVar == null) {
+    @Override // com.baidu.adp.lib.e.g
+    public final Object a(String str, com.baidu.adp.lib.e.f fVar) {
+        if (fVar == null) {
             return null;
         }
-        com.baidu.tieba.util.i iVar = (com.baidu.tieba.util.i) hVar.a("AsyncImageLoader");
-        l lVar = (l) hVar.a("ImageAsyncTaskInfo");
+        i iVar = (i) fVar.a("AsyncImageLoader");
+        l lVar = (l) fVar.a("ImageAsyncTaskInfo");
         if (iVar == null || lVar == null) {
             return null;
         }
@@ -27,31 +27,38 @@ public abstract class a implements i {
         return a(str, iVar);
     }
 
-    @Override // com.baidu.adp.lib.e.i
+    @Override // com.baidu.adp.lib.e.g
     public final Object a(String str, com.baidu.adp.lib.e.e eVar) {
-        h e = eVar.e();
-        if (e == null) {
+        com.baidu.adp.lib.e.f d = eVar.d();
+        if (d == null) {
             return null;
         }
-        com.baidu.tieba.util.i iVar = (com.baidu.tieba.util.i) e.a("AsyncImageLoader");
-        l lVar = (l) e.a("ImageAsyncTaskInfo");
+        i iVar = (i) d.a("AsyncImageLoader");
+        l lVar = (l) d.a("ImageAsyncTaskInfo");
         if (iVar == null || lVar == null) {
             return null;
         }
         if (lVar.g && !lVar.n) {
-            return a(str, eVar, iVar, lVar);
+            long currentTimeMillis = System.currentTimeMillis();
+            Object a = a(str, eVar, iVar, lVar);
+            long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+            if (currentTimeMillis2 >= 300) {
+                cb.a("", -1114, "load local pic : " + currentTimeMillis2, str);
+                return a;
+            }
+            return a;
         }
         return null;
     }
 
-    @Override // com.baidu.adp.lib.e.i
+    @Override // com.baidu.adp.lib.e.g
     public final Object b(String str, com.baidu.adp.lib.e.e eVar) {
-        h e = eVar.e();
-        if (e == null) {
+        com.baidu.adp.lib.e.f d = eVar.d();
+        if (d == null) {
             return null;
         }
-        com.baidu.tieba.util.i iVar = (com.baidu.tieba.util.i) e.a("AsyncImageLoader");
-        l lVar = (l) e.a("ImageAsyncTaskInfo");
+        i iVar = (i) d.a("AsyncImageLoader");
+        l lVar = (l) d.a("ImageAsyncTaskInfo");
         if (iVar == null || lVar == null) {
             return null;
         }

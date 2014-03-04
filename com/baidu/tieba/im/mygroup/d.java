@@ -14,7 +14,7 @@ final class d implements com.baidu.tieba.im.messageCenter.g {
 
     @Override // com.baidu.tieba.im.messageCenter.g
     public final void a(s sVar) {
-        switch (sVar.w()) {
+        switch (sVar.v()) {
             case -109:
             case 103101:
             case 103102:

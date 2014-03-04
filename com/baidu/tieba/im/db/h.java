@@ -29,6 +29,8 @@ public final class h {
 
     public final synchronized void c() {
         ImMessageCenterPojo a2;
+        String str;
+        OldUserData oldUserData;
         this.b.set(false);
         this.c.a();
         k.a();
@@ -44,9 +46,16 @@ public final class h {
                     d.checkRidAndSelf();
                     String h = com.baidu.tieba.im.util.l.h(d.toChatMessage());
                     UserData userData = (UserData) new Gson().fromJson(d.getUser_info(), (Class<Object>) UserData.class);
-                    String userName = userData != null ? userData.getUserName() : "";
+                    if (userData != null) {
+                        if (com.baidu.adp.lib.util.g.b(userData.getUserId()) && (oldUserData = (OldUserData) new Gson().fromJson(d.getUser_info(), (Class<Object>) OldUserData.class)) != null) {
+                            oldUserData.setToUserData(userData);
+                        }
+                        str = userData.getUserName();
+                    } else {
+                        str = "";
+                    }
                     next.setLast_content(h);
-                    next.setLast_user_name(userName);
+                    next.setLast_user_name(str);
                     next.setLast_rid(d.getRid());
                     next.setLast_content_time(d.getCreate_time() * 1000);
                 } else {
@@ -64,30 +73,30 @@ public final class h {
         imMessageCenterPojo.setGid(String.valueOf(com.baidu.tieba.im.chat.q.a));
         imMessageCenterPojo.setGroup_type(6);
         q.a();
-        for (String str : q.c()) {
-            com.baidu.adp.lib.util.e.e("see init private chat id:" + str);
-            if (!TextUtils.isEmpty(str)) {
-                long b2 = q.a().b(str);
+        for (String str2 : q.c()) {
+            com.baidu.adp.lib.util.e.e("see init private chat id:" + str2);
+            if (!TextUtils.isEmpty(str2)) {
+                long b2 = q.a().b(str2);
                 if (b2 > imMessageCenterPojo.getPulled_msgId()) {
                     imMessageCenterPojo.setPulled_msgId(b2);
                 }
-                CommonMsgPojo c = q.a().c(str);
+                CommonMsgPojo c = q.a().c(str2);
                 if (c == null) {
-                    com.baidu.adp.lib.util.e.e("see init private chat cmpojo null id:" + str);
+                    com.baidu.adp.lib.util.e.e("see init private chat cmpojo null id:" + str2);
                 } else {
                     ImMessageCenterPojo fromCommonMsg = ImMessageCenterPojo.fromCommonMsg(c);
                     if (fromCommonMsg == null) {
-                        com.baidu.adp.lib.util.e.e("see init private chat person null id:" + str);
+                        com.baidu.adp.lib.util.e.e("see init private chat person null id:" + str2);
                     } else {
-                        this.c.a(fromCommonMsg);
                         if (c.getRid() > imMessageCenterPojo.getLast_rid()) {
                             imMessageCenterPojo.setLast_rid(c.getRid());
                         }
-                        String b3 = k.b(str);
+                        String b3 = k.b(str2);
                         if (b3 != null && (a2 = this.c.a(b3)) != null) {
                             imMessageCenterPojo.setIs_hidden(a2.getIs_hidden());
                             fromCommonMsg.setIs_hidden(a2.getIs_hidden());
                         }
+                        this.c.a(fromCommonMsg);
                     }
                 }
             }
@@ -110,8 +119,9 @@ public final class h {
         this.c.a();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:20:0x009a  */
-    /* JADX WARN: Removed duplicated region for block: B:36:0x016b  */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x006a  */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x00a0  */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x0171  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -133,8 +143,10 @@ public final class h {
                     String v = TiebaApplication.v();
                     if (!TextUtils.isEmpty(v) && v.equals(String.valueOf(userData.getUserId()))) {
                         z = true;
-                        com.baidu.adp.lib.util.e.e("see gid:" + str + " content:" + h);
-                        com.baidu.adp.lib.util.e.e("see pojo1:" + commonMsgPojo);
+                        if (com.baidu.adp.lib.util.e.a()) {
+                            com.baidu.adp.lib.util.e.e("see gid:" + str + " content:" + h);
+                            com.baidu.adp.lib.util.e.e("see pojo1:" + commonMsgPojo);
+                        }
                         a2 = this.c.a(str);
                         if (a2 == null) {
                             if (a2.getGroup_type() == 6) {
@@ -197,8 +209,8 @@ public final class h {
                 }
             }
             z = false;
-            com.baidu.adp.lib.util.e.e("see gid:" + str + " content:" + h);
-            com.baidu.adp.lib.util.e.e("see pojo1:" + commonMsgPojo);
+            if (com.baidu.adp.lib.util.e.a()) {
+            }
             a2 = this.c.a(str);
             if (a2 == null) {
             }

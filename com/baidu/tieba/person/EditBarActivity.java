@@ -100,6 +100,15 @@ public class EditBarActivity extends com.baidu.tieba.f {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.f, android.app.Activity
+    public void onResume() {
+        super.onResume();
+        if (this.i != null) {
+            this.i.notifyDataSetChanged();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         if (this.k != null) {

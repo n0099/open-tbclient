@@ -290,7 +290,7 @@ public final class bc extends RelativeLayout {
             if (this.y != null && this.y.isShown()) {
                 this.y.a(iconInfo, iconInfo.size(), this.a.getResources().getDimensionPixelSize(R.dimen.person_icon_width), this.a.getResources().getDimensionPixelSize(R.dimen.person_icon_height), this.a.getResources().getDimensionPixelSize(R.dimen.person_icon_margin));
             } else if (this.u != null && this.u.isShown()) {
-                this.y.a(iconInfo, iconInfo.size(), this.a.getResources().getDimensionPixelSize(R.dimen.person_icon_width), this.a.getResources().getDimensionPixelSize(R.dimen.person_icon_height), this.a.getResources().getDimensionPixelSize(R.dimen.person_icon_margin));
+                this.u.a(iconInfo, iconInfo.size(), this.a.getResources().getDimensionPixelSize(R.dimen.person_icon_width), this.a.getResources().getDimensionPixelSize(R.dimen.person_icon_height), this.a.getResources().getDimensionPixelSize(R.dimen.person_icon_margin));
             }
         }
     }

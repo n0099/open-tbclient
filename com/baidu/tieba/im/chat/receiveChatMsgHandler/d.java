@@ -15,7 +15,7 @@ public abstract class d implements com.baidu.tieba.im.messageCenter.g {
 
     @Override // com.baidu.tieba.im.messageCenter.g
     public final void a(s sVar) {
-        if (sVar != null && -100 == sVar.w()) {
+        if (sVar != null && -100 == sVar.v()) {
             com.baidu.tieba.im.data.c cVar = (com.baidu.tieba.im.data.c) sVar;
             if (cVar.a() != null && this.a == cVar.a().getGroupType()) {
                 a((com.baidu.tieba.im.data.c) sVar);

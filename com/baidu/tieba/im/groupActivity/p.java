@@ -35,7 +35,7 @@ public final class p implements com.baidu.tieba.im.messageCenter.g {
         if (sVar == null) {
             this.a.hideProgressBar();
             this.a.showToast(R.string.neterror);
-        } else if (sVar.w() == -127) {
+        } else if (sVar.v() == -127) {
             if (!(sVar instanceof by)) {
                 qVar10 = this.a.b;
                 qVar11 = this.a.b;
@@ -59,7 +59,7 @@ public final class p implements com.baidu.tieba.im.messageCenter.g {
                 qVar9 = this.a.b;
                 qVar8.c(qVar9.b());
             }
-        } else if (sVar.w() == 103015) {
+        } else if (sVar.v() == 103015) {
             this.a.hideProgressBar();
             if (!(sVar instanceof by)) {
                 this.a.showToast(R.string.neterror);
@@ -80,7 +80,7 @@ public final class p implements com.baidu.tieba.im.messageCenter.g {
                     this.a.showToast(R.string.neterror);
                 }
             }
-        } else if (sVar.w() == 103121) {
+        } else if (sVar.v() == 103121) {
             this.a.hideProgressBar();
             if (!(sVar instanceof bu)) {
                 this.a.showToast(R.string.neterror);

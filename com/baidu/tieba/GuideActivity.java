@@ -30,10 +30,10 @@ public class GuideActivity extends f {
     private List<Bitmap> k;
     private y d = null;
     private String e = null;
-    private int[] f = {R.drawable.image_bootpage01, R.drawable.image_bootpage02};
+    private final int[] f = {R.drawable.image_bootpage01, R.drawable.image_bootpage02};
     private Button j = null;
     private boolean m = true;
-    private com.baidu.tieba.view.a n = new t(this);
+    private final com.baidu.tieba.view.a n = new t(this);
     public View.OnClickListener a = new u(this);
     public View.OnClickListener b = new v(this);
     public View.OnClickListener c = new w(this);
@@ -83,7 +83,7 @@ public class GuideActivity extends f {
                 com.baidu.adp.lib.util.e.b(getClass().getName(), "onCreate", e.getMessage());
             }
         }
-        if (this.e.equals("from_logo_page")) {
+        if (this.e != null && this.e.equals("from_logo_page")) {
             this.d = new y(this, (byte) 0);
             this.d.setSelfExecute(true);
             this.d.execute(new String[0]);

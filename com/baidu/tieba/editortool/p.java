@@ -97,7 +97,7 @@ public final class p extends BaseAdapter {
             String a3 = writableEmotionGroup5.a(i7);
             if (!TextUtils.isEmpty(a3)) {
                 i3 = this.a.q;
-                int color = i3 == 1 ? this.a.getResources().getColor(R.color.pb_listitem_content_1) : this.a.getResources().getColor(R.color.pb_listitem_content);
+                int color = i3 == 1 ? this.a.getResources().getColor(R.color.pb_emotion_content_1) : this.a.getResources().getColor(R.color.pb_emotion_content);
                 textView.setVisibility(0);
                 textView.setTextColor(color);
                 textView.setText(a3.substring(a3.lastIndexOf("_") + 1, a3.length() - 1));

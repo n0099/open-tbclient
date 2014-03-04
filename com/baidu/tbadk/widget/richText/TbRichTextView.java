@@ -178,9 +178,9 @@ public class TbRichTextView extends LinearLayout {
         a(aVar, false);
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:132:0x0019 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:133:0x0019 */
     /* JADX WARN: Code restructure failed: missing block: B:38:0x008e, code lost:
-        if (r2 != null) goto L117;
+        if (r2 != null) goto L118;
      */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r1v19, types: [android.widget.LinearLayout] */
@@ -307,6 +307,8 @@ public class TbRichTextView extends LinearLayout {
                             gifView3.setTbRichTextEmotionInfo(next.g());
                             if (this.G) {
                                 next.g().k = false;
+                            } else {
+                                next.g().k = true;
                             }
                             gifView3.a(next.g().k, this.H);
                             com.baidu.adp.lib.util.e.e("TbRichTextView", "initGifView", "c:" + next.g());

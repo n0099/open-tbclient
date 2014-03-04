@@ -67,7 +67,7 @@ public final class i implements com.baidu.tieba.im.net.a {
     public final boolean a(s sVar) {
         if (sVar != null && (sVar instanceof b)) {
             b bVar = (b) sVar;
-            if (h.a(this.c, bVar, sVar.w()) || h.a(this.b, bVar, sVar.w()) || h.a(this.d, bVar, sVar.w())) {
+            if (h.a(this.c, bVar, sVar.v()) || h.a(this.b, bVar, sVar.v()) || h.a(this.d, bVar, sVar.v())) {
                 return true;
             }
         }
@@ -80,7 +80,7 @@ public final class i implements com.baidu.tieba.im.net.a {
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     /* JADX WARN: Removed duplicated region for block: B:12:0x0027  */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x007a  */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x0074  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -89,38 +89,38 @@ public final class i implements com.baidu.tieba.im.net.a {
         BdUtilHelper.b();
         if (sVar != null) {
             if (sVar != null && (sVar instanceof IDuplicateProcess)) {
-                int w = sVar.w();
+                int v = sVar.v();
                 IDuplicateProcess iDuplicateProcess = (IDuplicateProcess) sVar;
                 switch (b()[iDuplicateProcess.c().ordinal()]) {
                     case 2:
-                        if (h.a(this.c, iDuplicateProcess, w) || h.a(this.b, iDuplicateProcess, w) || h.a(this.d, iDuplicateProcess, w)) {
+                        if (h.a(this.c, iDuplicateProcess, v) || h.a(this.b, iDuplicateProcess, v) || h.a(this.d, iDuplicateProcess, v)) {
                             z4 = true;
                             break;
                         }
                         break;
                     case 3:
-                        h.b(this.c, iDuplicateProcess, w);
+                        h.b(this.c, iDuplicateProcess, v);
                         break;
                     case 4:
-                        h.b(this.c, iDuplicateProcess, w);
-                        h.b(this.b, iDuplicateProcess, w);
-                        h.b(this.d, iDuplicateProcess, w);
+                        h.b(this.c, iDuplicateProcess, v);
+                        h.b(this.b, iDuplicateProcess, v);
+                        h.b(this.d, iDuplicateProcess, v);
                         break;
                 }
                 if (!z4) {
-                    cb.a("sandMessage", sVar.w(), sVar.v(), "duplicate remove", 0);
-                    cb.a(sVar.w(), sVar.v(), "duplicate remove", "MessageQueue: Message throwed", null, 0, null);
+                    cb.a("sandMessage", sVar.v(), 0, "duplicate remove", 0);
+                    cb.a(sVar.v(), 0, "duplicate remove", "MessageQueue: Message throwed", null, 0, null);
                     return;
                 }
                 p pVar = new p(sVar, true, i2, false, this, i3, z3);
                 if (this.h) {
-                    cb.a("sandMessage", sVar.w(), sVar.v(), "MessageQueueManager.sendMessage:isOfflineBlock", 0);
-                    cb.a(sVar.w(), sVar.v(), "can't send Message, beacuse of online error", "call onSendError", null, 0, null);
+                    cb.a("sandMessage", sVar.v(), 0, "MessageQueueManager.sendMessage:isOfflineBlock", 0);
+                    cb.a(sVar.v(), 0, "can't send Message, beacuse of online error", "call onSendError", null, 0, null);
                     pVar.a(1);
                     return;
                 }
                 cb.a(TiebaApplication.g().b().getApplicationContext(), "send_msg_time", "send", 1, new Object[0]);
-                cb.a(sVar.w(), sVar.v(), null, "MessageQueue: send Message", null, 0, null, 0L, 0, null);
+                cb.a(sVar.v(), 0, null, "MessageQueue: send Message", null, 0, null, 0L, 0, null);
                 h.a(pVar, this.c);
                 a();
                 return;
@@ -140,9 +140,9 @@ public final class i implements com.baidu.tieba.im.net.a {
             } else if (list == null || list.size() <= 0) {
             } else {
                 s sVar = list.get(0);
-                int w = sVar != null ? sVar.w() : 0;
-                com.baidu.adp.lib.util.e.e("onReceiveCmd:" + w);
-                cb.a(w, 0, "unpack succ", "MessageQueue: dispatchMessage", null, 0, null);
+                int v = sVar != null ? sVar.v() : 0;
+                com.baidu.adp.lib.util.e.e("onReceiveCmd:" + v);
+                cb.a(v, 0, "unpack succ", "MessageQueue: dispatchMessage", null, 0, null);
                 if (iVar.e != null && list != null) {
                     iVar.e.a(list);
                 }
@@ -198,7 +198,7 @@ public final class i implements com.baidu.tieba.im.net.a {
 
     private void a(p pVar, int i2, String str) {
         if (pVar != null && pVar.i() != null) {
-            cb.a(pVar.i().w(), pVar.l(), "message send  error", "MessageQueue: onMessageSendFail", null, i2, str);
+            cb.a(pVar.i().v(), pVar.l(), "message send  error", "MessageQueue: onMessageSendFail", null, i2, str);
             s i3 = pVar.i();
             if (this.e == null || i3 == null) {
                 return;

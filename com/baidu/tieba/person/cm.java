@@ -172,7 +172,6 @@ public final class cm extends com.baidu.tieba.j implements com.baidu.tieba.im.me
         com.baidu.tieba.im.messageCenter.d.a().a(-124, this.j);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void d(cm cmVar) {
         cmVar.o = null;
         cmVar.o = new ArrayList();
@@ -221,7 +220,6 @@ public final class cm extends com.baidu.tieba.j implements com.baidu.tieba.im.me
     public final void onResume() {
         boolean z = false;
         super.onResume();
-        this.q.a();
         if (s) {
             e();
             s = false;
@@ -235,8 +233,11 @@ public final class cm extends com.baidu.tieba.j implements com.baidu.tieba.im.me
                     this.c.c(TiebaApplication.z());
                     f();
                     e();
+                    return;
                 }
-            } else if (this.e.booleanValue()) {
+                return;
+            }
+            if (this.e.booleanValue()) {
                 if (com.baidu.tieba.mention.v.a().m() != this.c.j()) {
                     this.c.a(com.baidu.tieba.mention.v.a().m());
                     z = true;
@@ -244,10 +245,11 @@ public final class cm extends com.baidu.tieba.j implements com.baidu.tieba.im.me
                 if (z && this.c.j() > 0) {
                     this.c.a(this.c.j());
                     this.p.a(true);
-                    this.p.a();
-                    this.m.g();
                 }
             }
+            this.q.a();
+            this.p.a();
+            this.m.g();
         }
     }
 
@@ -259,7 +261,6 @@ public final class cm extends com.baidu.tieba.j implements com.baidu.tieba.im.me
         this.r.a(i);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void g(cm cmVar) {
         String userName = cmVar.c.f() != null ? cmVar.c.f().getUserName() : null;
         if (userName != null) {
@@ -274,7 +275,6 @@ public final class cm extends com.baidu.tieba.j implements com.baidu.tieba.im.me
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void g() {
         if (this.c != null && this.c.f() != null) {
             String portraitH = this.c.f().getPortraitH();
@@ -368,7 +368,7 @@ public final class cm extends com.baidu.tieba.j implements com.baidu.tieba.im.me
             this.l = false;
             return;
         }
-        if (sVar.w() == 104102 && (sVar instanceof com.baidu.tieba.im.message.cx)) {
+        if (sVar.v() == 104102 && (sVar instanceof com.baidu.tieba.im.message.cx)) {
             com.baidu.tieba.im.message.cx cxVar = (com.baidu.tieba.im.message.cx) sVar;
             com.baidu.tieba.im.message.s o = cxVar.o();
             if (o != null && (o instanceof com.baidu.tieba.im.message.bj)) {
@@ -397,7 +397,7 @@ public final class cm extends com.baidu.tieba.j implements com.baidu.tieba.im.me
             } else {
                 return;
             }
-        } else if (sVar.w() == 104104 && (sVar instanceof com.baidu.tieba.im.message.bo)) {
+        } else if (sVar.v() == 104104 && (sVar instanceof com.baidu.tieba.im.message.bo)) {
             this.d.b(((com.baidu.tieba.im.message.bo) sVar).a() ? 1 : 0);
             if (this.l) {
                 this.i = new com.baidu.tieba.view.dialog.d(this.f);
@@ -408,7 +408,6 @@ public final class cm extends com.baidu.tieba.j implements com.baidu.tieba.im.me
         this.l = false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void a(cm cmVar, com.baidu.tieba.im.message.s sVar) {
         if (sVar != null) {
             if (!(sVar instanceof com.baidu.tieba.im.message.v)) {

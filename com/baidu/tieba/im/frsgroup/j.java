@@ -17,7 +17,7 @@ final class j implements com.baidu.tieba.view.dialog.c {
         fVar = this.a.a;
         bkVar.a(fVar.a());
         bkVar.a(true);
-        com.baidu.adp.lib.util.e.e("send upgrade mem group msg:" + bkVar.w() + " gid:" + bkVar.b());
+        com.baidu.adp.lib.util.e.e("send upgrade mem group msg:" + bkVar.v() + " gid:" + bkVar.b());
         com.baidu.tieba.im.messageCenter.d.a().a(bkVar);
     }
 }

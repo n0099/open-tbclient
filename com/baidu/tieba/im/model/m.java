@@ -33,7 +33,7 @@ public final class m extends com.baidu.adp.a.g {
                             f.setVoice_md5(value);
                             a.a("[" + new Gson().toJson(f) + "]");
                         }
-                        cb.a(a.w(), 0, "", "", "upload voice http suc vid = " + value, 0, "upload voice http success ", System.currentTimeMillis() - a.t());
+                        cb.a(a.v(), 0, "", "", "upload voice http suc vid = " + value, 0, "upload voice http success ", System.currentTimeMillis() - a.t());
                         com.baidu.tieba.im.chat.q.b().a(a);
                         ajVar = this.a.q;
                         if (ajVar != null) {
@@ -44,7 +44,7 @@ public final class m extends com.baidu.adp.a.g {
                         }
                         return;
                     }
-                    cb.a(a.w(), 0, "", "", "", -1, "upload voice http fail", System.currentTimeMillis() - a.t());
+                    cb.a(a.v(), 0, "", "", "", -1, "upload voice http fail", System.currentTimeMillis() - a.t());
                     this.a.b(a);
                     if (a instanceof com.baidu.tieba.im.message.g) {
                         com.baidu.tieba.im.i.a(new n(this, (com.baidu.tieba.im.message.g) a), null);

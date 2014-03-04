@@ -5,8 +5,9 @@ import android.database.sqlite.SQLiteDatabase;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import java.util.ArrayList;
 import java.util.Iterator;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class d extends com.baidu.android.systemmonitor.b.a {
+public class d extends com.baidu.android.systemmonitor.b.a {
     final /* synthetic */ ArrayList a;
     final /* synthetic */ int b;
     final /* synthetic */ o c;

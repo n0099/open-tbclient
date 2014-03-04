@@ -28,7 +28,7 @@ public final class o implements com.baidu.tieba.im.messageCenter.g {
         s o;
         String[] split;
         if (sVar != null) {
-            if (sVar.w() == 103112) {
+            if (sVar.v() == 103112) {
                 if (sVar instanceof cp) {
                     cp cpVar = (cp) sVar;
                     if (!cpVar.l() && (o = cpVar.o()) != null && (o instanceof az)) {
@@ -48,7 +48,7 @@ public final class o implements com.baidu.tieba.im.messageCenter.g {
                         }
                     }
                 }
-            } else if (sVar.w() == 103101 && (sVar instanceof bm)) {
+            } else if (sVar.v() == 103101 && (sVar instanceof bm)) {
                 bm bmVar = (bm) sVar;
                 if (!bmVar.l()) {
                     ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();

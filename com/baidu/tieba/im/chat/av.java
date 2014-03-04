@@ -11,7 +11,7 @@ public final class av implements com.baidu.tieba.im.messageCenter.g {
 
     @Override // com.baidu.tieba.im.messageCenter.g
     public final void a(com.baidu.tieba.im.message.s sVar) {
-        if (sVar != null && sVar.w() == 103103) {
+        if (sVar != null && sVar.v() == 103103) {
             if (!(sVar instanceof com.baidu.tieba.im.message.cq)) {
                 this.a.showToast(R.string.group_report_fail);
                 return;

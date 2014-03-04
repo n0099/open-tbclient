@@ -24,7 +24,7 @@ public class c extends com.baidu.tieba.im.messageCenter.c {
         LinkedList linkedList = new LinkedList();
         if (a == null) {
             com.baidu.adp.lib.util.e.b("read DB error");
-            return a(qVar.w());
+            return a(qVar.v());
         }
         Iterator<CommonMsgPojo> it = a.iterator();
         while (it.hasNext()) {

@@ -1,7 +1,6 @@
 package com.baidu.tieba.person;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class cw implements com.baidu.tieba.im.messageCenter.g {
+final class cw implements com.baidu.tieba.im.messageCenter.g {
     final /* synthetic */ cm a;
 
     private cw(cm cmVar) {
@@ -15,7 +14,7 @@ public final class cw implements com.baidu.tieba.im.messageCenter.g {
 
     @Override // com.baidu.tieba.im.messageCenter.g
     public final void a(com.baidu.tieba.im.message.s sVar) {
-        if (sVar != null && sVar.w() == -124) {
+        if (sVar != null && sVar.v() == -124) {
             cm.a(this.a, sVar);
         }
     }

@@ -78,7 +78,7 @@ public final class ah implements bc {
         MsgPageData msgPageData15;
         boolean n3;
         if (sVar != null) {
-            if (sVar.w() == -100) {
+            if (sVar.v() == -100) {
                 com.baidu.tieba.im.data.c cVar = (com.baidu.tieba.im.data.c) sVar;
                 com.baidu.tieba.im.data.f fVar = null;
                 m3 = this.a.m();
@@ -139,10 +139,10 @@ public final class ah implements bc {
                 }
                 if (fVar == null) {
                 }
-            } else if (sVar.w() == 202001 || sVar.w() == 205001) {
+            } else if (sVar.v() == 202001 || sVar.v() == 205001) {
                 if ((sVar instanceof br) && (brVar = (br) sVar) != null) {
                     if (brVar.o() == null || !(brVar.o() instanceof com.baidu.tieba.im.message.b)) {
-                        cb.a(brVar.w(), 0, "chatResMessage.getOrginalMessage()==null", "return", null, 0, null);
+                        cb.a(brVar.v(), 0, "chatResMessage.getOrginalMessage()==null", "return", null, 0, null);
                         return;
                     }
                     if ((brVar instanceof bs) && brVar.m() == 2230303) {
@@ -150,28 +150,28 @@ public final class ah implements bc {
                     }
                     com.baidu.tieba.im.message.b bVar2 = (com.baidu.tieba.im.message.b) brVar.o();
                     if (brVar.l()) {
-                        cb.a(brVar.w(), 0, "", "", String.valueOf(MsglistModel.b(this.a, bVar2)) + "rid" + bVar2.j(), brVar.m(), brVar.n(), System.currentTimeMillis() - bVar2.t());
+                        cb.a(brVar.v(), 0, "", "", String.valueOf(MsglistModel.b(this.a, bVar2)) + "rid" + bVar2.j(), brVar.m(), brVar.n(), System.currentTimeMillis() - bVar2.t());
                         this.a.b(bVar2);
                         if (brVar.m() > 0) {
                             msglistActivity = this.a.p;
                             msglistActivity.showToast(brVar.n());
                             if (bVar2.j() != brVar.b()) {
                                 brVar.b(bVar2.j());
-                                cb.a(brVar.w(), 0, "orginalRecordId != serverRecordId", "", null, brVar.m(), brVar.n());
+                                cb.a(brVar.v(), 0, "orginalRecordId != serverRecordId", "", null, brVar.m(), brVar.n());
                                 return;
                             }
                             return;
                         }
                         return;
                     }
-                    cb.a(brVar.w(), 0, "", "", "rid = " + brVar.b() + "msgId = " + brVar.a() + MsglistModel.b(this.a, bVar2), brVar.m(), brVar.n(), System.currentTimeMillis() - bVar2.t());
+                    cb.a(brVar.v(), 0, "", "", "rid = " + brVar.b() + "msgId = " + brVar.a() + MsglistModel.b(this.a, bVar2), brVar.m(), brVar.n(), System.currentTimeMillis() - bVar2.t());
                     if (bVar2.j() != brVar.b()) {
                         brVar.b(bVar2.j());
-                        cb.a(brVar.w(), 0, "orginalRecordId != serverRecordId", "", null, brVar.m(), brVar.n());
+                        cb.a(brVar.v(), 0, "orginalRecordId != serverRecordId", "", null, brVar.m(), brVar.n());
                     }
                     MsglistModel.a(this.a, brVar);
                 }
-            } else if (sVar.w() == -103) {
+            } else if (sVar.v() == -103) {
                 if (!(sVar instanceof com.baidu.tieba.im.message.p)) {
                     com.baidu.adp.lib.util.e.b("transform to LoadDraftResponsedMessage error");
                     return;
@@ -213,7 +213,7 @@ public final class ah implements bc {
                 this.a.mLoadDataMode = 8;
                 gVar3 = this.a.mLoadDataCallBack;
                 gVar3.a(pVar.a());
-            } else if (sVar.w() == -105) {
+            } else if (sVar.v() == -105) {
                 if (!(sVar instanceof com.baidu.tieba.im.message.r)) {
                     com.baidu.adp.lib.util.e.b("transform to LoadHistoryResponsedMessage error");
                     return;

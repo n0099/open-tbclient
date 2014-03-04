@@ -282,7 +282,7 @@ public final class cb {
     public static synchronized void a(int i, long j, int i2, int i3, String str) {
         synchronized (cb.class) {
             try {
-                com.baidu.adp.lib.stats.g.a().a("op_im_send_msg_cost", String.valueOf(i), (String) null, j, i3, str, "msgtype", Integer.valueOf(i2));
+                com.baidu.adp.lib.stats.g.a().a("op_im_send_msg_cost", String.valueOf(0), (String) null, j, i3, str, "msgtype", Integer.valueOf(i2));
             } catch (Exception e) {
                 com.baidu.adp.lib.util.e.b(e.toString());
             }

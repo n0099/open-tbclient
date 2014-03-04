@@ -49,7 +49,7 @@ final class h implements com.baidu.tieba.im.messageCenter.g {
         this.a.closeLoadingDialog();
         if (sVar == null) {
             this.a.showToast(R.string.neterror);
-        } else if (sVar.w() == 106103) {
+        } else if (sVar.v() == 106103) {
             if ((sVar instanceof cv) && !((cv) sVar).l()) {
                 type2 = this.a.h;
                 if (type2 == WaitingTipView.Type.PERSONS_READY) {
@@ -64,7 +64,7 @@ final class h implements com.baidu.tieba.im.messageCenter.g {
                 fVar7 = this.a.a;
                 fVar7.d().getLoadingView().setVisibility(8);
             }
-        } else if (sVar.w() == 106102) {
+        } else if (sVar.v() == 106102) {
             if (!(sVar instanceof co)) {
                 this.a.showToast(R.string.neterror);
             }
@@ -84,7 +84,7 @@ final class h implements com.baidu.tieba.im.messageCenter.g {
                 com.baidu.tieba.im.util.d.a(String.valueOf(arVar6.f().d()));
                 this.a.finish();
             }
-        } else if (sVar != null && sVar.w() == 106101) {
+        } else if (sVar != null && sVar.v() == 106101) {
             if (!(sVar instanceof bw)) {
                 this.a.showToast(R.string.neterror);
                 return;
@@ -115,7 +115,7 @@ final class h implements com.baidu.tieba.im.messageCenter.g {
             arVar5.b(a3);
             this.a.b();
             this.a.c();
-        } else if (sVar.w() == -119) {
+        } else if (sVar.v() == -119) {
             if (sVar instanceof com.baidu.tieba.im.message.c) {
                 String a4 = ((com.baidu.tieba.im.message.c) sVar).a();
                 if (!TextUtils.isEmpty(a4) && (a = com.baidu.tieba.im.data.b.a(a4)) != null) {
@@ -163,7 +163,7 @@ final class h implements com.baidu.tieba.im.messageCenter.g {
                     }
                 }
             }
-        } else if (sVar.w() == 106001 && (sVar instanceof bn)) {
+        } else if (sVar.v() == 106001 && (sVar instanceof bn)) {
             bn bnVar = (bn) sVar;
             arVar = this.a.b;
             RandChatRoomData f = arVar.f();

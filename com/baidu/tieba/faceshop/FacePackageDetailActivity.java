@@ -215,7 +215,7 @@ public class FacePackageDetailActivity extends com.baidu.tieba.f implements com.
     public final void a(com.baidu.tieba.im.message.s sVar) {
         List<com.baidu.tieba.d.a> a;
         com.baidu.tieba.d.a aVar;
-        if (this.a != null && this.a.a() != null && this.b != null && sVar.w() == -122 && (sVar instanceof com.baidu.tieba.d.b) && (a = ((com.baidu.tieba.d.b) sVar).a()) != null) {
+        if (this.a != null && this.a.a() != null && this.b != null && sVar.v() == -122 && (sVar instanceof com.baidu.tieba.d.b) && (a = ((com.baidu.tieba.d.b) sVar).a()) != null) {
             FacePackageData facePackageData = this.a.a().facePackage;
             if (a.size() > 0 && (aVar = a.get(0)) != null && aVar.a().equals(this.a.e())) {
                 int f = aVar.f();

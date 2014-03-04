@@ -44,11 +44,11 @@ public class c {
             if (byteArray != null && z) {
                 byteArray = b(byteArray, 0, byteArray.length);
             }
-            boolean b = e.a().b(sVar.w());
+            boolean b = e.a().b(sVar.v());
             if (byteArray != null && b) {
                 byteArray = m.a(e.a().c(), byteArray);
             }
-            return b.a(b, z, sVar.w(), i, byteArray);
+            return b.a(b, z, sVar.v(), i, byteArray);
         } catch (Exception e) {
             throw new CoderException(com.baidu.tieba.im.g.l);
         }

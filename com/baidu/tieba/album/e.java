@@ -2,6 +2,7 @@ package com.baidu.tieba.album;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.webkit.MimeTypeMap;
 /* loaded from: classes.dex */
 public class e {
     private final String a = e.class.getName();
@@ -48,5 +49,13 @@ public class e {
             this.d.cancel();
             this.d = null;
         }
+    }
+
+    public static String a(String str) {
+        String fileExtensionFromUrl = MimeTypeMap.getFileExtensionFromUrl(str);
+        if (fileExtensionFromUrl == null) {
+            return null;
+        }
+        return MimeTypeMap.getSingleton().getMimeTypeFromExtension(fileExtensionFromUrl);
     }
 }

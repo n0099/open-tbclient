@@ -23,7 +23,7 @@ public final class c implements com.baidu.tieba.im.messageCenter.g {
         this.a.d();
         if (sVar == null) {
             this.a.c(R.string.neterror);
-        } else if (sVar.w() == 103120) {
+        } else if (sVar.v() == 103120) {
             if (sVar instanceof bt) {
                 bt btVar = (bt) sVar;
                 if (btVar.m() == 0) {

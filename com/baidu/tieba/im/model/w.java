@@ -34,9 +34,9 @@ public final class w implements com.baidu.tieba.img.d {
                 if (imageUploadResult == null || imageUploadResult.error_code != 0 || imageUploadResult.picInfo == null) {
                     long currentTimeMillis = System.currentTimeMillis() - bVar.t();
                     if (imageUploadResult != null) {
-                        cb.a(bVar.w(), 0, "", "", "upload pic http fail", imageUploadResult.error_code, imageUploadResult.error_msg, currentTimeMillis);
+                        cb.a(bVar.v(), 0, "", "", "upload pic http fail", imageUploadResult.error_code, imageUploadResult.error_msg, currentTimeMillis);
                     } else {
-                        cb.a(bVar.w(), 0, "", "", "upload pic http fail", -1, "resutl is null", currentTimeMillis);
+                        cb.a(bVar.v(), 0, "", "", "upload pic http fail", -1, "resutl is null", currentTimeMillis);
                     }
                     this.a.b(bVar);
                     if (bVar instanceof com.baidu.tieba.im.message.g) {
@@ -51,7 +51,7 @@ public final class w implements com.baidu.tieba.img.d {
                     } else {
                         str2 = imageUploadResult.picInfo.bigPic.picUrl;
                     }
-                    cb.a(bVar.w(), 0, "", "", "upload pic http suc bigUrl: " + str2, imageUploadResult.error_code, imageUploadResult.error_msg, currentTimeMillis2);
+                    cb.a(bVar.v(), 0, "", "", "upload pic http suc bigUrl: " + str2, imageUploadResult.error_code, imageUploadResult.error_msg, currentTimeMillis2);
                     String str4 = imageUploadResult.picInfo.bigPic == null ? null : imageUploadResult.picInfo.bigPic.picUrl;
                     if (imageUploadResult.picInfo.smallPic != null) {
                         str3 = imageUploadResult.picInfo.smallPic.picUrl;

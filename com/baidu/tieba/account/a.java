@@ -16,10 +16,10 @@ public final class a {
     private boolean e = false;
     private int g = 0;
     private boolean h = false;
-    private az i = new b(this);
-    private at j = new d(this);
-    private at k = new f(this);
-    private az l = new h(this);
+    private final az i = new b(this);
+    private final at j = new d(this);
+    private final at k = new f(this);
+    private final az l = new h(this);
 
     public final void a(k kVar) {
         this.d = kVar;
@@ -91,7 +91,7 @@ public final class a {
     public boolean b() {
         l lVar;
         o a2;
-        while (this.g < this.f.size()) {
+        while (this.f != null && this.g < this.f.size()) {
             ArrayList<AccountData> arrayList = this.f;
             int i = this.g;
             this.g = i + 1;

@@ -15,7 +15,7 @@ public final class j implements com.baidu.tieba.im.messageCenter.g {
 
     @Override // com.baidu.tieba.im.messageCenter.g
     public final void a(s sVar) {
-        if (sVar != null && sVar.w() == 103104 && (sVar instanceof bv)) {
+        if (sVar != null && sVar.v() == 103104 && (sVar instanceof bv)) {
             bv bvVar = (bv) sVar;
             if (bvVar.m() > 0) {
                 this.a.a(bvVar.n());

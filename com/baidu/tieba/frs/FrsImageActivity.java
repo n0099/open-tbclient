@@ -110,6 +110,7 @@ public class FrsImageActivity extends com.baidu.tieba.f implements com.baidu.adp
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
@@ -177,12 +178,14 @@ public class FrsImageActivity extends com.baidu.tieba.f implements com.baidu.adp
         this.l.e().a();
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.l.a(i);
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.f, android.app.Activity
     public void onResume() {
         super.onResume();
@@ -195,6 +198,7 @@ public class FrsImageActivity extends com.baidu.tieba.f implements com.baidu.adp
         c();
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.f, android.app.Activity
     public void onPause() {
         super.onPause();
@@ -367,6 +371,7 @@ public class FrsImageActivity extends com.baidu.tieba.f implements com.baidu.adp
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();

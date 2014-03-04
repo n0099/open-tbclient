@@ -14,10 +14,10 @@ final class ao implements AbsListView.OnScrollListener {
     @Override // android.widget.AbsListView.OnScrollListener
     public final void onScrollStateChanged(AbsListView absListView, int i) {
         Handler handler;
-        cu cuVar;
         Handler handler2;
         Handler handler3;
         Handler handler4;
+        cu cuVar;
         Handler handler5;
         handler = this.a.v;
         if (handler != null) {
@@ -25,7 +25,7 @@ final class ao implements AbsListView.OnScrollListener {
             handler5.removeMessages(0);
         }
         this.a.N = i;
-        if (i == 0) {
+        if (i == 0 || i == 1) {
             handler2 = this.a.v;
             if (handler2 != null) {
                 handler3 = this.a.v;

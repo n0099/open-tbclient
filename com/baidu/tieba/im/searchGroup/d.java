@@ -21,7 +21,7 @@ final class d implements com.baidu.tieba.im.messageCenter.g {
         gVar.c();
         if (sVar == null) {
             this.a.showToast(R.string.neterror);
-        } else if (sVar.w() == 103007) {
+        } else if (sVar.v() == 103007) {
             try {
                 if (sVar instanceof ct) {
                     ct ctVar = (ct) sVar;

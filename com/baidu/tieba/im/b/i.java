@@ -35,12 +35,12 @@ public final class i implements com.baidu.tieba.im.messageCenter.g {
         long j;
         long j2;
         if (sVar != null) {
-            if (sVar.w() == 1003) {
+            if (sVar.v() == 1003) {
                 if (!(sVar instanceof da) || ((da) sVar).l()) {
                     return;
                 }
                 this.a.m();
-            } else if (sVar.w() == 202003) {
+            } else if (sVar.v() == 202003) {
                 this.a.j = System.currentTimeMillis();
                 j = this.a.j;
                 j2 = this.a.g;
@@ -58,14 +58,14 @@ public final class i implements com.baidu.tieba.im.messageCenter.g {
                 } else {
                     this.a.l();
                 }
-            } else if (sVar.w() == 1001) {
+            } else if (sVar.v() == 1001) {
                 if (!(sVar instanceof ch)) {
-                    a.a(this.a, sVar.w(), -1, null);
+                    a.a(this.a, sVar.v(), -1, null);
                     return;
                 }
                 ch chVar = (ch) sVar;
                 if (chVar.l()) {
-                    a.a(this.a, sVar.w(), chVar.m(), chVar.n());
+                    a.a(this.a, sVar.v(), chVar.m(), chVar.n());
                     return;
                 }
                 LinkedList linkedList = new LinkedList();
@@ -124,7 +124,7 @@ public final class i implements com.baidu.tieba.im.messageCenter.g {
                     handler2 = this.a.u;
                     handler.sendMessage(handler2.obtainMessage(3));
                 }
-            } else if (sVar.w() == -11 && (sVar instanceof com.baidu.tieba.im.message.a)) {
+            } else if (sVar.v() == -11 && (sVar instanceof com.baidu.tieba.im.message.a)) {
                 if (((com.baidu.tieba.im.message.a) sVar).a()) {
                     this.a.h();
                 } else {

@@ -21,7 +21,7 @@ public final class bp extends BdAsyncTask<String, String, String> {
         setType(BdAsyncTaskParallelType.SERIAL);
     }
 
-    /* JADX WARN: Type inference failed for: r5v0, types: [java.lang.String, byte[]] */
+    /* JADX WARN: Type inference failed for: r5v0, types: [byte[], java.lang.String] */
     private String d() {
         try {
             if (!this.a.p) {

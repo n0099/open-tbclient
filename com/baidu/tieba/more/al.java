@@ -24,7 +24,7 @@ final class al implements com.baidu.tieba.im.messageCenter.g {
         am amVar6;
         amVar = this.a.b;
         amVar.f();
-        if (sVar.w() == 104103) {
+        if (sVar.v() == 104103) {
             if (!(sVar instanceof bz)) {
                 this.a.showToast(R.string.neterror);
                 return;
@@ -53,7 +53,7 @@ final class al implements com.baidu.tieba.im.messageCenter.g {
                 amVar5 = this.a.b;
                 amVar5.h().a();
             }
-        } else if (sVar.w() == 104102) {
+        } else if (sVar.v() == 104102) {
             if (!(sVar instanceof cx)) {
                 this.a.showToast(R.string.neterror);
                 return;

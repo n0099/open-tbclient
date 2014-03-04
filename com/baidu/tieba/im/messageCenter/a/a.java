@@ -24,14 +24,14 @@ public class a extends com.baidu.tieba.im.messageCenter.c {
             GroupSettingItemData a = com.baidu.tieba.im.groupInfo.v.a(str, oVar.a());
             if (a == null) {
                 com.baidu.adp.lib.util.e.b("read DB error");
-                return a(oVar.w());
+                return a(oVar.v());
             }
             draft = a.getDraft();
         } else {
             PersonalSettingItemData a2 = com.baidu.tieba.im.chat.personaltalk.a.a(str, oVar.a());
             if (a2 == null) {
                 com.baidu.adp.lib.util.e.b("read DB error");
-                return a(oVar.w());
+                return a(oVar.v());
             }
             draft = a2.getDraft();
         }

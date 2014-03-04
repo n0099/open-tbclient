@@ -76,7 +76,7 @@ public class InviteFriendListActivity extends com.baidu.tieba.f implements View.
     @Override // com.baidu.tieba.im.messageCenter.g
     public final void a(com.baidu.tieba.im.message.s sVar) {
         closeLoadingDialog();
-        if (sVar != null && sVar.w() == 205002 && (sVar instanceof bq)) {
+        if (sVar != null && sVar.v() == 205002 && (sVar instanceof bq)) {
             try {
                 bq bqVar = (bq) sVar;
                 if (bqVar.l()) {

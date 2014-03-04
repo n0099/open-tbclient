@@ -97,7 +97,7 @@ public class ItemInfoView extends RelativeLayout {
         } else {
             z = false;
         }
-        if (forumDetailData.forumInfo.contents.length > 0 || !bs.c(forumDetailData.forumInfo.slogan)) {
+        if ((forumDetailData.forumInfo != null && forumDetailData.forumInfo.contents != null && forumDetailData.forumInfo.contents.length > 0) || !bs.c(forumDetailData.forumInfo.slogan)) {
             TextView textView = this.c;
             ForumDetailData.ForumContent[] forumContentArr = forumDetailData.forumInfo.contents;
             String str3 = forumDetailData.forumInfo.slogan;

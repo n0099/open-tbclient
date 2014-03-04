@@ -7,9 +7,10 @@ import android.provider.MediaStore;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.img.ImageFileInfo;
 import java.io.File;
-import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class f extends BdAsyncTask<Object, Integer, List<a>> {
@@ -53,26 +54,28 @@ public final class f extends BdAsyncTask<Object, Integer, List<a>> {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:49:0x0122 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:48:0x0124 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v3, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r1v4 */
-    /* JADX WARN: Type inference failed for: r1v6, types: [android.database.Cursor] */
+    /* JADX WARN: Type inference failed for: r2v4, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r2v5 */
+    /* JADX WARN: Type inference failed for: r2v7, types: [android.database.Cursor] */
     private List<a> a(Context context, List<a> list, Uri uri) {
         Cursor cursor;
         String str;
         String str2;
         File[] listFiles;
+        Matcher matcher;
         if (context == null) {
             return null;
         }
+        Pattern compile = Pattern.compile("image\\/\\w+", 2);
         if (list == null) {
             list = new ArrayList<>();
         }
-        ?? r1 = "count(*)";
+        ?? r2 = "count(*)";
         try {
             try {
-                cursor = context.getContentResolver().query(uri, new String[]{"bucket_id", "bucket_display_name", "_data", "count(*)"}, "mime_type = 'image/jpeg' OR mime_type = 'image/png' OR mime_type = 'image/gif') GROUP BY 1,(2", null, "datetaken DESC");
+                cursor = context.getContentResolver().query(uri, new String[]{"bucket_id", "bucket_display_name", "_data", "count(*)"}, "mime_type like 'image/%') GROUP BY 1,(2", null, "datetaken DESC");
                 try {
                     if (cursor.moveToFirst()) {
                         int columnIndex = cursor.getColumnIndex("bucket_id");
@@ -88,8 +91,9 @@ public final class f extends BdAsyncTask<Object, Integer, List<a>> {
                             File file = new File(string3.substring(0, string3.lastIndexOf("/")));
                             if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
                                 for (File file2 : listFiles) {
-                                    String guessContentTypeFromName = URLConnection.guessContentTypeFromName(file2.getAbsolutePath());
-                                    if (guessContentTypeFromName != null && (guessContentTypeFromName.equalsIgnoreCase("image/png") || guessContentTypeFromName.equalsIgnoreCase("image/jpeg") || guessContentTypeFromName.equalsIgnoreCase("image/gif"))) {
+                                    e eVar = this.a;
+                                    String a = e.a(file2.getAbsolutePath());
+                                    if (a != null && (matcher = compile.matcher(a)) != null && matcher.matches()) {
                                         i++;
                                     }
                                 }
@@ -126,7 +130,7 @@ public final class f extends BdAsyncTask<Object, Integer, List<a>> {
                 }
             } catch (Throwable th) {
                 th = th;
-                com.baidu.adp.lib.f.a.a((Cursor) r1);
+                com.baidu.adp.lib.f.a.a((Cursor) r2);
                 throw th;
             }
         } catch (Exception e2) {
@@ -134,8 +138,8 @@ public final class f extends BdAsyncTask<Object, Integer, List<a>> {
             cursor = null;
         } catch (Throwable th2) {
             th = th2;
-            r1 = 0;
-            com.baidu.adp.lib.f.a.a((Cursor) r1);
+            r2 = 0;
+            com.baidu.adp.lib.f.a.a((Cursor) r2);
             throw th;
         }
     }

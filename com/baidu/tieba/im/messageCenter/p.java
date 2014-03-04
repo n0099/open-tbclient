@@ -69,7 +69,7 @@ public final class p extends com.baidu.adp.lib.webSocket.d {
 
     @Override // com.baidu.adp.lib.webSocket.ao
     public final void b() {
-        cb.a(this.e.w(), this.f, "socket", "SenderData: start send", null, 0, null, 0L, k() != null ? k().length : 0, null);
+        cb.a(this.e.v(), this.f, "socket", "SenderData: start send", null, 0, null, 0L, k() != null ? k().length : 0, null);
         a.removeCallbacks(r());
         if (this.b > 0) {
             a.postDelayed(r(), this.b);
@@ -93,7 +93,7 @@ public final class p extends com.baidu.adp.lib.webSocket.d {
 
     @Override // com.baidu.adp.lib.webSocket.ao
     public final void c() {
-        cb.a(this.e.w(), this.f, "socket", "SenderData: finish send", null, 0, null, 0L, k() != null ? k().length : 0, null);
+        cb.a(this.e.v(), this.f, "socket", "SenderData: finish send", null, 0, null, 0L, k() != null ? k().length : 0, null);
         if (!this.d) {
             a.removeCallbacks(r());
         }
@@ -123,7 +123,7 @@ public final class p extends com.baidu.adp.lib.webSocket.d {
     protected final byte[] g() {
         this.c = null;
         com.baidu.tieba.im.coder.c a2 = com.baidu.tieba.im.coder.c.a();
-        this.f = this.e.v();
+        this.f = r.a().b();
         try {
             return a2.a(this.e, this.f, this.h);
         } catch (CoderException e) {
@@ -134,7 +134,7 @@ public final class p extends com.baidu.adp.lib.webSocket.d {
 
     public final int j() {
         if (this.e != null) {
-            return this.e.w();
+            return this.e.v();
         }
         return 0;
     }

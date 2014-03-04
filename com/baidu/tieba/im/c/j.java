@@ -53,12 +53,12 @@ public final class j implements com.baidu.tieba.im.messageCenter.g {
     @Override // com.baidu.tieba.im.messageCenter.g
     public final void a(s sVar) {
         if (sVar != null) {
-            com.baidu.adp.lib.util.e.e("cmd:" + sVar.w());
-            switch (sVar.w()) {
+            com.baidu.adp.lib.util.e.e("cmd:" + sVar.v());
+            switch (sVar.v()) {
                 case 202006:
                     o oVar = (o) sVar;
                     if (oVar != null) {
-                        com.baidu.adp.lib.util.e.e("cmd: " + oVar.w() + "groupId: " + oVar.d());
+                        com.baidu.adp.lib.util.e.e("cmd: " + oVar.v() + "groupId: " + oVar.d());
                         if (oVar.a() == 3) {
                             TiebaApplication.g();
                             TiebaApplication.be();
@@ -86,7 +86,7 @@ public final class j implements com.baidu.tieba.im.messageCenter.g {
     public final void a(CommonMsgPojo commonMsgPojo) {
         boolean z = true;
         if (commonMsgPojo != null) {
-            com.baidu.tieba.im.message.g chatMessage = commonMsgPojo.toChatMessage();
+            com.baidu.tieba.im.message.b chatMessage = commonMsgPojo.toChatMessage();
             if (chatMessage != null) {
                 SystemMsgData i = com.baidu.tieba.im.util.l.i(chatMessage);
                 if (i != null && !i.getIsSelf()) {

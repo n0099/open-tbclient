@@ -36,7 +36,7 @@ public final class l {
         synchronized (this) {
             if (commonMsgPojo != null) {
                 boolean z2 = true;
-                com.baidu.tieba.im.message.g chatMessage = commonMsgPojo.toChatMessage();
+                com.baidu.tieba.im.message.b chatMessage = commonMsgPojo.toChatMessage();
                 if (chatMessage != null) {
                     SystemMsgData i = com.baidu.tieba.im.util.l.i(chatMessage);
                     if (i != null && !i.getIsSelf()) {

@@ -122,15 +122,15 @@ public class NearbyGroupsActivity extends com.baidu.tieba.f implements com.baidu
         if (sVar == null) {
             return;
         }
-        if (sVar.w() == 103105) {
+        if (sVar.v() == 103105) {
             if (sVar instanceof cy) {
                 cy cyVar = (cy) sVar;
                 if (!cyVar.l() || cyVar.m() == 2230110) {
                     this.c.d();
                 }
             }
-        } else if (sVar.w() != 103009 && sVar.w() != -115) {
-            if (sVar.w() == 103008 && (sVar instanceof cz)) {
+        } else if (sVar.v() != 103009 && sVar.v() != -115) {
+            if (sVar.v() == 103008 && (sVar instanceof cz)) {
                 try {
                     cz czVar = (cz) sVar;
                     if (czVar.l() && czVar.m() > 0) {
@@ -156,7 +156,7 @@ public class NearbyGroupsActivity extends com.baidu.tieba.f implements com.baidu
                 this.b.g();
                 return;
             }
-            if (sVar.w() != -115) {
+            if (sVar.v() != -115) {
                 TiebaApplication.g().d(System.currentTimeMillis());
             } else if (UtilHelper.b()) {
                 if (a(TiebaApplication.g().aR())) {

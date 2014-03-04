@@ -71,14 +71,14 @@ public class IMBlackListActivity extends com.baidu.tieba.f implements com.baidu.
         this.b.d();
         closeLoadingDialog();
         if (sVar != null) {
-            if (sVar.w() == 104103 && (sVar instanceof bz)) {
+            if (sVar.v() == 104103 && (sVar instanceof bz)) {
                 bz bzVar = (bz) sVar;
                 if (bzVar.l()) {
                     showToast(bzVar.n());
                 } else {
                     this.b.a(bzVar.b());
                 }
-            } else if (sVar.w() == 104102 && (sVar instanceof cx) && (o = (cxVar = (cx) sVar).o()) != null && (o instanceof bj) && ((bj) o).b() == 10) {
+            } else if (sVar.v() == 104102 && (sVar instanceof cx) && (o = (cxVar = (cx) sVar).o()) != null && (o instanceof bj) && ((bj) o).b() == 10) {
                 if (cxVar.l()) {
                     showToast(cxVar.n());
                     return;

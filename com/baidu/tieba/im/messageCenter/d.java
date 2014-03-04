@@ -58,7 +58,7 @@ public class d {
 
     public final void a(s sVar) {
         if (sVar != null) {
-            Class<? extends c> cls = this.c.get(sVar.w());
+            Class<? extends c> cls = this.c.get(sVar.v());
             if (cls == null) {
                 this.h.a(sVar, true, 0, false, 0, true);
                 return;
@@ -144,7 +144,7 @@ public class d {
         if (sVar == null) {
             return null;
         }
-        da daVar = new da(sVar.w());
+        da daVar = new da(sVar.v());
         daVar.a(sVar);
         daVar.g(i);
         daVar.c(str);
@@ -183,10 +183,10 @@ public class d {
                     if (sVar instanceof da) {
                         da daVar = (da) sVar;
                         if (daVar.m() != 0) {
-                            cb.a("dispatchMessage", daVar.w(), daVar.v(), daVar.n(), daVar.m());
+                            cb.a("dispatchMessage", daVar.v(), 0, daVar.n(), daVar.m());
                         }
                     }
-                    LinkedList<WeakReference<g>> linkedList = this.f.get(sVar.w());
+                    LinkedList<WeakReference<g>> linkedList = this.f.get(sVar.v());
                     if (linkedList != null && !linkedList.isEmpty()) {
                         Iterator<WeakReference<g>> it = linkedList.iterator();
                         while (it.hasNext()) {
@@ -205,13 +205,13 @@ public class d {
     public final void a(s sVar, int i, String str) {
         da b2;
         if (sVar != null) {
-            Class<? extends da> cls = this.e.get(sVar.w());
+            Class<? extends da> cls = this.e.get(sVar.v());
             if (cls == null) {
                 b2 = b(sVar, i, str);
             } else {
                 try {
                     b2 = cls.newInstance();
-                    b2.e(sVar.w());
+                    b2.e(sVar.v());
                     b2.g(i);
                     b2.c(str);
                     b2.a(sVar);

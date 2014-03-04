@@ -300,8 +300,8 @@ public class UpdatesActivity extends com.baidu.tieba.f implements AbsListView.On
     public final void a(s sVar) {
         this.b.a(false);
         if (sVar != null && (sVar instanceof da)) {
-            int w = sVar.w();
-            if (202004 == w) {
+            int v = sVar.v();
+            if (202004 == v) {
                 aj ajVar = (aj) sVar;
                 ag agVar = (ag) ajVar.o();
                 if (ajVar.l()) {
@@ -323,7 +323,7 @@ public class UpdatesActivity extends com.baidu.tieba.f implements AbsListView.On
                 }
                 com.baidu.tieba.im.validate.l.a(Shared.INFINITY, 0, this.d);
                 com.baidu.tieba.im.c.a.a(false, (com.baidu.tieba.im.a<Void>) null);
-            } else if (-136 == w || -137 == w || -134 == w || -133 == w || -141 == w) {
+            } else if (-136 == v || -137 == v || -134 == v || -133 == v || -141 == v) {
                 m.a(this.d);
             }
         }

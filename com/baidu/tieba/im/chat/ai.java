@@ -17,17 +17,17 @@ public final class ai implements com.baidu.tieba.im.messageCenter.g {
     public final void a(com.baidu.tieba.im.message.s sVar) {
         if (sVar == null) {
             com.baidu.adp.lib.util.e.b("msg == null");
-        } else if (sVar.w() == 205001) {
+        } else if (sVar.v() == 205001) {
             b(sVar);
             q.a(this.a, sVar);
-        } else if (sVar.w() == 202001) {
+        } else if (sVar.v() == 202001) {
             b(sVar);
             q.b(this.a, sVar);
-        } else if (sVar.w() == -103) {
+        } else if (sVar.v() == -103) {
             if (sVar instanceof com.baidu.tieba.im.message.p) {
                 this.a.a(sVar);
             }
-        } else if (sVar.w() == -105) {
+        } else if (sVar.v() == -105) {
             if (sVar instanceof com.baidu.tieba.im.message.r) {
                 this.a.a(sVar);
             }
@@ -44,7 +44,7 @@ public final class ai implements com.baidu.tieba.im.messageCenter.g {
                 com.baidu.tieba.im.message.b bVar = (com.baidu.tieba.im.message.b) o;
                 long b = bVar.b();
                 if (b != 0) {
-                    com.baidu.tieba.util.cb.a(sVar.v(), System.currentTimeMillis() - b, bVar.i(), daVar.m(), daVar.n());
+                    com.baidu.tieba.util.cb.a(0, System.currentTimeMillis() - b, bVar.i(), daVar.m(), daVar.n());
                 }
             }
         }

@@ -56,10 +56,14 @@ public class p {
     }
 
     public final int d() {
-        int i = 0;
-        this.c.get(this.b);
-        Integer num = 15000;
-        if (num != null) {
+        int i;
+        Integer num;
+        if (this.c == null) {
+            return 20000;
+        }
+        if (this.b == null || (num = this.c.get(this.b)) == null) {
+            i = 0;
+        } else {
             i = num.intValue();
         }
         if (i < 5000) {

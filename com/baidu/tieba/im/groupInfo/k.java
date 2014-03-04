@@ -93,7 +93,7 @@ final class k implements com.baidu.tieba.im.messageCenter.g {
             mVar15 = this.a.f;
             mVar15.r();
             this.a.showToast(R.string.neterror);
-        } else if (sVar.w() == -102) {
+        } else if (sVar.v() == -102) {
             if (!(sVar instanceof ca)) {
                 eVar36 = this.a.g;
                 eVar37 = this.a.g;
@@ -124,7 +124,7 @@ final class k implements com.baidu.tieba.im.messageCenter.g {
                 eVar32 = this.a.g;
                 eVar30.a(d3, eVar32.e());
             }
-        } else if (sVar.w() == 103004) {
+        } else if (sVar.v() == 103004) {
             mVar12 = this.a.f;
             mVar12.r();
             if (!(sVar instanceof ca)) {
@@ -153,7 +153,7 @@ final class k implements com.baidu.tieba.im.messageCenter.g {
                     v.a(v, String.valueOf(eVar27.d()), 60000L, new l(this, caVar2));
                 }
             }
-        } else if (sVar.w() == 103110) {
+        } else if (sVar.v() == 103110) {
             if (sVar instanceof ak) {
                 ak akVar = (ak) sVar;
                 if (!akVar.l() && (o2 = akVar.o()) != null && (o2 instanceof ah)) {
@@ -167,7 +167,7 @@ final class k implements com.baidu.tieba.im.messageCenter.g {
                     }
                 }
             }
-        } else if (sVar.w() == 103102) {
+        } else if (sVar.v() == 103102) {
             mVar5 = this.a.f;
             mVar5.r();
             if (!(sVar instanceof cw)) {
@@ -251,7 +251,7 @@ final class k implements com.baidu.tieba.im.messageCenter.g {
                         return;
                 }
             }
-        } else if (sVar.w() == 103112) {
+        } else if (sVar.v() == 103112) {
             if (sVar instanceof cp) {
                 cp cpVar = (cp) sVar;
                 if (!cpVar.l() && (o = cpVar.o()) != null && (o instanceof az)) {
@@ -296,7 +296,7 @@ final class k implements com.baidu.tieba.im.messageCenter.g {
                     }
                 }
             }
-        } else if (sVar.w() == 103104) {
+        } else if (sVar.v() == 103104) {
             if (sVar instanceof bv) {
                 bv bvVar = (bv) sVar;
                 if (!bvVar.l()) {
@@ -306,18 +306,18 @@ final class k implements com.baidu.tieba.im.messageCenter.g {
                     }
                 }
             }
-        } else if (sVar.w() == 103105) {
+        } else if (sVar.v() == 103105) {
             if (sVar instanceof cy) {
                 cy cyVar = (cy) sVar;
                 if (!cyVar.l() || cyVar.m() == 2230110) {
                     this.a.b();
                 }
             }
-        } else if (sVar.w() == 103120) {
+        } else if (sVar.v() == 103120) {
             if (sVar instanceof bt) {
                 this.a.b();
             }
-        } else if (sVar.w() == 103121 && (sVar instanceof bu)) {
+        } else if (sVar.v() == 103121 && (sVar instanceof bu)) {
             this.a.b();
         }
     }

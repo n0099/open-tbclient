@@ -45,14 +45,14 @@ public final class b implements g {
                 this.a.e = clVar.d();
                 this.a.f = clVar.b();
                 this.a.g = clVar.a();
-                if (sVar.w() == 103011) {
+                if (sVar.v() == 103011) {
                     a.a = false;
                     dVar3 = this.a.h;
                     if (dVar3 != null) {
                         dVar4 = this.a.h;
                         dVar4.a();
                     }
-                } else if (sVar.w() == -114) {
+                } else if (sVar.v() == -114) {
                     this.a.a();
                 }
                 dVar = this.a.h;

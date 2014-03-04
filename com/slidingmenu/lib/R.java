@@ -17039,1075 +17039,1079 @@ public final class R {
         /* JADX INFO: Added by JADX */
         public static final int pb_listitem_content_1 = 0x7f0b028b;
         /* JADX INFO: Added by JADX */
-        public static final int pb_listitem_reply_text = 0x7f0b028c;
+        public static final int pb_emotion_content = 0x7f0b028c;
         /* JADX INFO: Added by JADX */
-        public static final int pb_listitem_reply_text_1 = 0x7f0b028d;
+        public static final int pb_emotion_content_1 = 0x7f0b028d;
         /* JADX INFO: Added by JADX */
-        public static final int pb_more_txt = 0x7f0b028e;
+        public static final int pb_listitem_reply_text = 0x7f0b028e;
         /* JADX INFO: Added by JADX */
-        public static final int pb_more_txt_1 = 0x7f0b028f;
+        public static final int pb_listitem_reply_text_1 = 0x7f0b028f;
         /* JADX INFO: Added by JADX */
-        public static final int pb_editor_edittext_hint_text = 0x7f0b0290;
+        public static final int pb_more_txt = 0x7f0b0290;
         /* JADX INFO: Added by JADX */
-        public static final int pb_editor_edittext_hint_text_1 = 0x7f0b0291;
+        public static final int pb_more_txt_1 = 0x7f0b0291;
         /* JADX INFO: Added by JADX */
-        public static final int pb_goto_live_post_text = 0x7f0b0292;
+        public static final int pb_editor_edittext_hint_text = 0x7f0b0292;
         /* JADX INFO: Added by JADX */
-        public static final int pb_goto_live_post_text_1 = 0x7f0b0293;
+        public static final int pb_editor_edittext_hint_text_1 = 0x7f0b0293;
         /* JADX INFO: Added by JADX */
-        public static final int pb_list_morebutton_nomore_text = 0x7f0b0294;
+        public static final int pb_goto_live_post_text = 0x7f0b0294;
         /* JADX INFO: Added by JADX */
-        public static final int pb_list_morebutton_nomore_text_1 = 0x7f0b0295;
+        public static final int pb_goto_live_post_text_1 = 0x7f0b0295;
         /* JADX INFO: Added by JADX */
-        public static final int pb_user_name_text = 0x7f0b0296;
+        public static final int pb_list_morebutton_nomore_text = 0x7f0b0296;
         /* JADX INFO: Added by JADX */
-        public static final int pb_user_name_text_1 = 0x7f0b0297;
+        public static final int pb_list_morebutton_nomore_text_1 = 0x7f0b0297;
         /* JADX INFO: Added by JADX */
-        public static final int pb_header_goto_frs_text_color = 0x7f0b0298;
+        public static final int pb_user_name_text = 0x7f0b0298;
         /* JADX INFO: Added by JADX */
-        public static final int pb_header_goto_frs_text_color_1 = 0x7f0b0299;
+        public static final int pb_user_name_text_1 = 0x7f0b0299;
         /* JADX INFO: Added by JADX */
-        public static final int sub_pb_layout_bg = 0x7f0b029a;
+        public static final int pb_header_goto_frs_text_color = 0x7f0b029a;
         /* JADX INFO: Added by JADX */
-        public static final int sub_pb_layout_bg_1 = 0x7f0b029b;
+        public static final int pb_header_goto_frs_text_color_1 = 0x7f0b029b;
         /* JADX INFO: Added by JADX */
-        public static final int sub_pb_packup_divider_bg = 0x7f0b029c;
+        public static final int sub_pb_layout_bg = 0x7f0b029c;
         /* JADX INFO: Added by JADX */
-        public static final int sub_pb_packup_divider_bg_1 = 0x7f0b029d;
+        public static final int sub_pb_layout_bg_1 = 0x7f0b029d;
         /* JADX INFO: Added by JADX */
-        public static final int sub_pb_packup_bg = 0x7f0b029e;
+        public static final int sub_pb_packup_divider_bg = 0x7f0b029e;
         /* JADX INFO: Added by JADX */
-        public static final int sub_pb_packup_bg_1 = 0x7f0b029f;
+        public static final int sub_pb_packup_divider_bg_1 = 0x7f0b029f;
         /* JADX INFO: Added by JADX */
-        public static final int sub_pb_more_text = 0x7f0b02a0;
+        public static final int sub_pb_packup_bg = 0x7f0b02a0;
         /* JADX INFO: Added by JADX */
-        public static final int sub_pb_more_text_1 = 0x7f0b02a1;
+        public static final int sub_pb_packup_bg_1 = 0x7f0b02a1;
         /* JADX INFO: Added by JADX */
-        public static final int c_f6f7f7 = 0x7f0b02a2;
+        public static final int sub_pb_more_text = 0x7f0b02a2;
         /* JADX INFO: Added by JADX */
-        public static final int enter_forum_name_txt = 0x7f0b02a3;
+        public static final int sub_pb_more_text_1 = 0x7f0b02a3;
         /* JADX INFO: Added by JADX */
-        public static final int enter_forum_name_txt_1 = 0x7f0b02a4;
+        public static final int c_f6f7f7 = 0x7f0b02a4;
         /* JADX INFO: Added by JADX */
-        public static final int enter_forum_num_txt = 0x7f0b02a5;
+        public static final int enter_forum_name_txt = 0x7f0b02a5;
         /* JADX INFO: Added by JADX */
-        public static final int enter_forum_num_txt_1 = 0x7f0b02a6;
+        public static final int enter_forum_name_txt_1 = 0x7f0b02a6;
         /* JADX INFO: Added by JADX */
-        public static final int enter_forum_introduce_txt = 0x7f0b02a7;
+        public static final int enter_forum_num_txt = 0x7f0b02a7;
         /* JADX INFO: Added by JADX */
-        public static final int enter_forum_introduce_txt_1 = 0x7f0b02a8;
+        public static final int enter_forum_num_txt_1 = 0x7f0b02a8;
         /* JADX INFO: Added by JADX */
-        public static final int enter_forum_tab_txt = 0x7f0b02a9;
+        public static final int enter_forum_introduce_txt = 0x7f0b02a9;
         /* JADX INFO: Added by JADX */
-        public static final int enter_forum_tab_txt_1 = 0x7f0b02aa;
+        public static final int enter_forum_introduce_txt_1 = 0x7f0b02aa;
         /* JADX INFO: Added by JADX */
-        public static final int enter_forum_create_group = 0x7f0b02ab;
+        public static final int enter_forum_tab_txt = 0x7f0b02ab;
         /* JADX INFO: Added by JADX */
-        public static final int enter_forum_create_group_1 = 0x7f0b02ac;
+        public static final int enter_forum_tab_txt_1 = 0x7f0b02ac;
         /* JADX INFO: Added by JADX */
-        public static final int enter_forum_is_group_manager = 0x7f0b02ad;
+        public static final int enter_forum_create_group = 0x7f0b02ad;
         /* JADX INFO: Added by JADX */
-        public static final int enter_forum_is_group_manager_1 = 0x7f0b02ae;
+        public static final int enter_forum_create_group_1 = 0x7f0b02ae;
         /* JADX INFO: Added by JADX */
-        public static final int group_name_txt = 0x7f0b02af;
+        public static final int enter_forum_is_group_manager = 0x7f0b02af;
         /* JADX INFO: Added by JADX */
-        public static final int group_name_txt_1 = 0x7f0b02b0;
+        public static final int enter_forum_is_group_manager_1 = 0x7f0b02b0;
         /* JADX INFO: Added by JADX */
-        public static final int group_desc = 0x7f0b02b1;
+        public static final int group_name_txt = 0x7f0b02b1;
         /* JADX INFO: Added by JADX */
-        public static final int group_desc_1 = 0x7f0b02b2;
+        public static final int group_name_txt_1 = 0x7f0b02b2;
         /* JADX INFO: Added by JADX */
-        public static final int c_7b8591 = 0x7f0b02b3;
+        public static final int group_desc = 0x7f0b02b3;
         /* JADX INFO: Added by JADX */
-        public static final int c_acc5e0 = 0x7f0b02b4;
+        public static final int group_desc_1 = 0x7f0b02b4;
         /* JADX INFO: Added by JADX */
-        public static final int c_262626 = 0x7f0b02b5;
+        public static final int c_7b8591 = 0x7f0b02b5;
         /* JADX INFO: Added by JADX */
-        public static final int c_ffffff = 0x7f0b02b6;
+        public static final int c_acc5e0 = 0x7f0b02b6;
         /* JADX INFO: Added by JADX */
-        public static final int c_969ca5 = 0x7f0b02b7;
+        public static final int c_262626 = 0x7f0b02b7;
         /* JADX INFO: Added by JADX */
-        public static final int c_abb3c5 = 0x7f0b02b8;
+        public static final int c_ffffff = 0x7f0b02b8;
         /* JADX INFO: Added by JADX */
-        public static final int c_8e8e8e = 0x7f0b02b9;
+        public static final int c_969ca5 = 0x7f0b02b9;
         /* JADX INFO: Added by JADX */
-        public static final int c_555d68 = 0x7f0b02ba;
+        public static final int c_abb3c5 = 0x7f0b02ba;
         /* JADX INFO: Added by JADX */
-        public static final int c_f15a23 = 0x7f0b02bb;
+        public static final int c_8e8e8e = 0x7f0b02bb;
         /* JADX INFO: Added by JADX */
-        public static final int c_msg_prompt_new_1 = 0x7f0b02bc;
+        public static final int c_555d68 = 0x7f0b02bc;
         /* JADX INFO: Added by JADX */
-        public static final int c_msg_prompt_new = 0x7f0b02bd;
+        public static final int c_f15a23 = 0x7f0b02bd;
         /* JADX INFO: Added by JADX */
-        public static final int c_e3e6e8 = 0x7f0b02be;
+        public static final int c_msg_prompt_new_1 = 0x7f0b02be;
         /* JADX INFO: Added by JADX */
-        public static final int color_fff600 = 0x7f0b02bf;
+        public static final int c_msg_prompt_new = 0x7f0b02bf;
         /* JADX INFO: Added by JADX */
-        public static final int c_777777 = 0x7f0b02c0;
+        public static final int c_e3e6e8 = 0x7f0b02c0;
         /* JADX INFO: Added by JADX */
-        public static final int c_6697d4 = 0x7f0b02c1;
+        public static final int color_fff600 = 0x7f0b02c1;
         /* JADX INFO: Added by JADX */
-        public static final int c_b2b6ba = 0x7f0b02c2;
+        public static final int c_777777 = 0x7f0b02c2;
         /* JADX INFO: Added by JADX */
-        public static final int c_515865 = 0x7f0b02c3;
+        public static final int c_6697d4 = 0x7f0b02c3;
         /* JADX INFO: Added by JADX */
-        public static final int c_738199 = 0x7f0b02c4;
+        public static final int c_b2b6ba = 0x7f0b02c4;
         /* JADX INFO: Added by JADX */
-        public static final int c_608abf = 0x7f0b02c5;
+        public static final int c_515865 = 0x7f0b02c5;
         /* JADX INFO: Added by JADX */
-        public static final int c_40464f = 0x7f0b02c6;
+        public static final int c_738199 = 0x7f0b02c6;
         /* JADX INFO: Added by JADX */
-        public static final int widget_nb_txtbtn_color_n = 0x7f0b02c7;
+        public static final int c_608abf = 0x7f0b02c7;
         /* JADX INFO: Added by JADX */
-        public static final int widget_nb_txtbtn_color_n_1 = 0x7f0b02c8;
+        public static final int c_40464f = 0x7f0b02c8;
         /* JADX INFO: Added by JADX */
-        public static final int widget_nb_txtbtn_color = 0x7f0b02c9;
+        public static final int widget_nb_txtbtn_color_n = 0x7f0b02c9;
         /* JADX INFO: Added by JADX */
-        public static final int widget_nb_txtbtn_color_1 = 0x7f0b02ca;
+        public static final int widget_nb_txtbtn_color_n_1 = 0x7f0b02ca;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_step_color = 0x7f0b02cb;
+        public static final int widget_nb_txtbtn_color = 0x7f0b02cb;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_step_color_1 = 0x7f0b02cc;
+        public static final int widget_nb_txtbtn_color_1 = 0x7f0b02cc;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_color_hint = 0x7f0b02cd;
+        public static final int group_create_step_color = 0x7f0b02cd;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_color_hint_1 = 0x7f0b02ce;
+        public static final int group_create_step_color_1 = 0x7f0b02ce;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_color_text = 0x7f0b02cf;
+        public static final int group_create_color_hint = 0x7f0b02cf;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_color_text_1 = 0x7f0b02d0;
+        public static final int group_create_color_hint_1 = 0x7f0b02d0;
         /* JADX INFO: Added by JADX */
-        public static final int p2p_setting_black_desc = 0x7f0b02d1;
+        public static final int group_create_color_text = 0x7f0b02d1;
         /* JADX INFO: Added by JADX */
-        public static final int p2p_setting_black_desc_1 = 0x7f0b02d2;
+        public static final int group_create_color_text_1 = 0x7f0b02d2;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_info_count_color = 0x7f0b02d3;
+        public static final int p2p_setting_black_desc = 0x7f0b02d3;
         /* JADX INFO: Added by JADX */
-        public static final int search_group_list_item_count = 0x7f0b02d4;
+        public static final int p2p_setting_black_desc_1 = 0x7f0b02d4;
         /* JADX INFO: Added by JADX */
-        public static final int search_group_list_item_count_1 = 0x7f0b02d5;
+        public static final int group_create_info_count_color = 0x7f0b02d5;
         /* JADX INFO: Added by JADX */
-        public static final int more_page_bg = 0x7f0b02d6;
+        public static final int search_group_list_item_count = 0x7f0b02d6;
         /* JADX INFO: Added by JADX */
-        public static final int more_page_bg_1 = 0x7f0b02d7;
+        public static final int search_group_list_item_count_1 = 0x7f0b02d7;
         /* JADX INFO: Added by JADX */
-        public static final int more_widget_bg = 0x7f0b02d8;
+        public static final int more_page_bg = 0x7f0b02d8;
         /* JADX INFO: Added by JADX */
-        public static final int more_widget_bg_1 = 0x7f0b02d9;
+        public static final int more_page_bg_1 = 0x7f0b02d9;
         /* JADX INFO: Added by JADX */
-        public static final int more_widget_new = 0x7f0b02da;
+        public static final int more_widget_bg = 0x7f0b02da;
         /* JADX INFO: Added by JADX */
-        public static final int more_widget_new_1 = 0x7f0b02db;
+        public static final int more_widget_bg_1 = 0x7f0b02db;
         /* JADX INFO: Added by JADX */
-        public static final int more_widget_title = 0x7f0b02dc;
+        public static final int more_widget_new = 0x7f0b02dc;
         /* JADX INFO: Added by JADX */
-        public static final int more_widget_title_1 = 0x7f0b02dd;
+        public static final int more_widget_new_1 = 0x7f0b02dd;
         /* JADX INFO: Added by JADX */
-        public static final int more_widget_text = 0x7f0b02de;
+        public static final int more_widget_title = 0x7f0b02de;
         /* JADX INFO: Added by JADX */
-        public static final int more_widget_text_1 = 0x7f0b02df;
+        public static final int more_widget_title_1 = 0x7f0b02df;
         /* JADX INFO: Added by JADX */
-        public static final int im_frsgroup_bg = 0x7f0b02e0;
+        public static final int more_widget_text = 0x7f0b02e0;
         /* JADX INFO: Added by JADX */
-        public static final int im_frsgroup_bg_1 = 0x7f0b02e1;
+        public static final int more_widget_text_1 = 0x7f0b02e1;
         /* JADX INFO: Added by JADX */
-        public static final int im_frsgroup_tab_checked = 0x7f0b02e2;
+        public static final int im_frsgroup_bg = 0x7f0b02e2;
         /* JADX INFO: Added by JADX */
-        public static final int im_frsgroup_tab_checked_1 = 0x7f0b02e3;
+        public static final int im_frsgroup_bg_1 = 0x7f0b02e3;
         /* JADX INFO: Added by JADX */
-        public static final int im_frsgroup_tab_unchecked = 0x7f0b02e4;
+        public static final int im_frsgroup_tab_checked = 0x7f0b02e4;
         /* JADX INFO: Added by JADX */
-        public static final int im_frsgroup_tab_unchecked_1 = 0x7f0b02e5;
+        public static final int im_frsgroup_tab_checked_1 = 0x7f0b02e5;
         /* JADX INFO: Added by JADX */
-        public static final int im_frsgroup_tab_bg = 0x7f0b02e6;
+        public static final int im_frsgroup_tab_unchecked = 0x7f0b02e6;
         /* JADX INFO: Added by JADX */
-        public static final int im_frsgroup_tab_bg_1 = 0x7f0b02e7;
+        public static final int im_frsgroup_tab_unchecked_1 = 0x7f0b02e7;
         /* JADX INFO: Added by JADX */
-        public static final int im_frsgroup_tab_middle_line_bg = 0x7f0b02e8;
+        public static final int im_frsgroup_tab_bg = 0x7f0b02e8;
         /* JADX INFO: Added by JADX */
-        public static final int im_frsgroup_tab_middle_line_bg_1 = 0x7f0b02e9;
+        public static final int im_frsgroup_tab_bg_1 = 0x7f0b02e9;
         /* JADX INFO: Added by JADX */
-        public static final int im_frsgroup_tab_bottom_line_bg = 0x7f0b02ea;
+        public static final int im_frsgroup_tab_middle_line_bg = 0x7f0b02ea;
         /* JADX INFO: Added by JADX */
-        public static final int im_frsgroup_tab_bottom_line_bg_1 = 0x7f0b02eb;
+        public static final int im_frsgroup_tab_middle_line_bg_1 = 0x7f0b02eb;
         /* JADX INFO: Added by JADX */
-        public static final int im_frsgroup_listitem_name = 0x7f0b02ec;
+        public static final int im_frsgroup_tab_bottom_line_bg = 0x7f0b02ec;
         /* JADX INFO: Added by JADX */
-        public static final int im_frsgroup_listitem_name_1 = 0x7f0b02ed;
+        public static final int im_frsgroup_tab_bottom_line_bg_1 = 0x7f0b02ed;
         /* JADX INFO: Added by JADX */
-        public static final int im_frsgroup_listitem_meizi_text = 0x7f0b02ee;
+        public static final int im_frsgroup_listitem_name = 0x7f0b02ee;
         /* JADX INFO: Added by JADX */
-        public static final int im_frsgroup_listitem_meizi_text_1 = 0x7f0b02ef;
+        public static final int im_frsgroup_listitem_name_1 = 0x7f0b02ef;
         /* JADX INFO: Added by JADX */
-        public static final int im_members_bg = 0x7f0b02f0;
+        public static final int im_frsgroup_listitem_meizi_text = 0x7f0b02f0;
         /* JADX INFO: Added by JADX */
-        public static final int im_members_bg_1 = 0x7f0b02f1;
+        public static final int im_frsgroup_listitem_meizi_text_1 = 0x7f0b02f1;
         /* JADX INFO: Added by JADX */
-        public static final int im_members_bottom_delete_text = 0x7f0b02f2;
+        public static final int im_members_bg = 0x7f0b02f2;
         /* JADX INFO: Added by JADX */
-        public static final int im_members_bottom_delete_text_1 = 0x7f0b02f3;
+        public static final int im_members_bg_1 = 0x7f0b02f3;
         /* JADX INFO: Added by JADX */
-        public static final int im_members_list_commen_bg = 0x7f0b02f4;
+        public static final int im_members_bottom_delete_text = 0x7f0b02f4;
         /* JADX INFO: Added by JADX */
-        public static final int im_members_list_commen_bg_1 = 0x7f0b02f5;
+        public static final int im_members_bottom_delete_text_1 = 0x7f0b02f5;
         /* JADX INFO: Added by JADX */
-        public static final int im_members_list_line = 0x7f0b02f6;
+        public static final int im_members_list_commen_bg = 0x7f0b02f6;
         /* JADX INFO: Added by JADX */
-        public static final int im_members_list_line_1 = 0x7f0b02f7;
+        public static final int im_members_list_commen_bg_1 = 0x7f0b02f7;
         /* JADX INFO: Added by JADX */
-        public static final int im_members_list_press_bg = 0x7f0b02f8;
+        public static final int im_members_list_line = 0x7f0b02f8;
         /* JADX INFO: Added by JADX */
-        public static final int im_members_list_press_bg_1 = 0x7f0b02f9;
+        public static final int im_members_list_line_1 = 0x7f0b02f9;
         /* JADX INFO: Added by JADX */
-        public static final int im_members_list_title = 0x7f0b02fa;
+        public static final int im_members_list_press_bg = 0x7f0b02fa;
         /* JADX INFO: Added by JADX */
-        public static final int im_members_list_title_1 = 0x7f0b02fb;
+        public static final int im_members_list_press_bg_1 = 0x7f0b02fb;
         /* JADX INFO: Added by JADX */
-        public static final int im_members_list_time = 0x7f0b02fc;
+        public static final int im_members_list_title = 0x7f0b02fc;
         /* JADX INFO: Added by JADX */
-        public static final int im_members_list_time_1 = 0x7f0b02fd;
+        public static final int im_members_list_title_1 = 0x7f0b02fd;
         /* JADX INFO: Added by JADX */
-        public static final int setting_text_1 = 0x7f0b02fe;
+        public static final int im_members_list_time = 0x7f0b02fe;
         /* JADX INFO: Added by JADX */
-        public static final int setting_text = 0x7f0b02ff;
+        public static final int im_members_list_time_1 = 0x7f0b02ff;
         /* JADX INFO: Added by JADX */
-        public static final int group_updates_time_1 = 0x7f0b0300;
+        public static final int setting_text_1 = 0x7f0b0300;
         /* JADX INFO: Added by JADX */
-        public static final int group_updates_time = 0x7f0b0301;
+        public static final int setting_text = 0x7f0b0301;
         /* JADX INFO: Added by JADX */
-        public static final int group_updates_title_1 = 0x7f0b0302;
+        public static final int group_updates_time_1 = 0x7f0b0302;
         /* JADX INFO: Added by JADX */
-        public static final int group_updates_title = 0x7f0b0303;
+        public static final int group_updates_time = 0x7f0b0303;
         /* JADX INFO: Added by JADX */
-        public static final int validate_item_background = 0x7f0b0304;
+        public static final int group_updates_title_1 = 0x7f0b0304;
         /* JADX INFO: Added by JADX */
-        public static final int validate_item_background_1 = 0x7f0b0305;
+        public static final int group_updates_title = 0x7f0b0305;
         /* JADX INFO: Added by JADX */
-        public static final int validate_item_background_sean = 0x7f0b0306;
+        public static final int validate_item_background = 0x7f0b0306;
         /* JADX INFO: Added by JADX */
-        public static final int validate_item_background_sean_1 = 0x7f0b0307;
+        public static final int validate_item_background_1 = 0x7f0b0307;
         /* JADX INFO: Added by JADX */
-        public static final int validate_item_user_name = 0x7f0b0308;
+        public static final int validate_item_background_sean = 0x7f0b0308;
         /* JADX INFO: Added by JADX */
-        public static final int validate_item_user_name_1 = 0x7f0b0309;
+        public static final int validate_item_background_sean_1 = 0x7f0b0309;
         /* JADX INFO: Added by JADX */
-        public static final int validate_item_reason = 0x7f0b030a;
+        public static final int validate_item_user_name = 0x7f0b030a;
         /* JADX INFO: Added by JADX */
-        public static final int validate_item_reason_1 = 0x7f0b030b;
+        public static final int validate_item_user_name_1 = 0x7f0b030b;
         /* JADX INFO: Added by JADX */
-        public static final int validate_item_btn_pass = 0x7f0b030c;
+        public static final int validate_item_reason = 0x7f0b030c;
         /* JADX INFO: Added by JADX */
-        public static final int validate_item_btn_pass_1 = 0x7f0b030d;
+        public static final int validate_item_reason_1 = 0x7f0b030d;
         /* JADX INFO: Added by JADX */
-        public static final int validate_item_btn_pass_disable = 0x7f0b030e;
+        public static final int validate_item_btn_pass = 0x7f0b030e;
         /* JADX INFO: Added by JADX */
-        public static final int validate_item_btn_pass_disable_1 = 0x7f0b030f;
+        public static final int validate_item_btn_pass_1 = 0x7f0b030f;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_bg = 0x7f0b0310;
+        public static final int validate_item_btn_pass_disable = 0x7f0b0310;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_bg_1 = 0x7f0b0311;
+        public static final int validate_item_btn_pass_disable_1 = 0x7f0b0311;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_item_s = 0x7f0b0312;
+        public static final int group_info_bg = 0x7f0b0312;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_item_s_1 = 0x7f0b0313;
+        public static final int group_info_bg_1 = 0x7f0b0313;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_item_n = 0x7f0b0314;
+        public static final int group_info_item_s = 0x7f0b0314;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_item_n_1 = 0x7f0b0315;
+        public static final int group_info_item_s_1 = 0x7f0b0315;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_line = 0x7f0b0316;
+        public static final int group_info_item_n = 0x7f0b0316;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_line_1 = 0x7f0b0317;
+        public static final int group_info_item_n_1 = 0x7f0b0317;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_main_text = 0x7f0b0318;
+        public static final int group_info_line = 0x7f0b0318;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_main_text_1 = 0x7f0b0319;
+        public static final int group_info_line_1 = 0x7f0b0319;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_group_num = 0x7f0b031a;
+        public static final int group_info_main_text = 0x7f0b031a;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_group_num_1 = 0x7f0b031b;
+        public static final int group_info_main_text_1 = 0x7f0b031b;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_light_text = 0x7f0b031c;
+        public static final int group_info_group_num = 0x7f0b031c;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_light_text_1 = 0x7f0b031d;
+        public static final int group_info_group_num_1 = 0x7f0b031d;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_join_disable_color = 0x7f0b031e;
+        public static final int group_info_light_text = 0x7f0b031e;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_join_disable_color_1 = 0x7f0b031f;
+        public static final int group_info_light_text_1 = 0x7f0b031f;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_join_resuse_color = 0x7f0b0320;
+        public static final int group_info_join_disable_color = 0x7f0b0320;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_join_resuse_color_1 = 0x7f0b0321;
+        public static final int group_info_join_disable_color_1 = 0x7f0b0321;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_intro_more = 0x7f0b0322;
+        public static final int group_info_join_resuse_color = 0x7f0b0322;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_intro_more_1 = 0x7f0b0323;
+        public static final int group_info_join_resuse_color_1 = 0x7f0b0323;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_bottom_text = 0x7f0b0324;
+        public static final int group_info_intro_more = 0x7f0b0324;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_bottom_text_1 = 0x7f0b0325;
+        public static final int group_info_intro_more_1 = 0x7f0b0325;
         /* JADX INFO: Added by JADX */
-        public static final int btn_attention_remove = 0x7f0b0326;
+        public static final int group_info_bottom_text = 0x7f0b0326;
         /* JADX INFO: Added by JADX */
-        public static final int btn_attention_remove_1 = 0x7f0b0327;
+        public static final int group_info_bottom_text_1 = 0x7f0b0327;
         /* JADX INFO: Added by JADX */
-        public static final int btn_attention_add = 0x7f0b0328;
+        public static final int btn_attention_remove = 0x7f0b0328;
         /* JADX INFO: Added by JADX */
-        public static final int btn_attention_add_1 = 0x7f0b0329;
+        public static final int btn_attention_remove_1 = 0x7f0b0329;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_photo_wall_text = 0x7f0b032a;
+        public static final int btn_attention_add = 0x7f0b032a;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_photo_wall_text_1 = 0x7f0b032b;
+        public static final int btn_attention_add_1 = 0x7f0b032b;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_activity_doing = 0x7f0b032c;
+        public static final int group_info_photo_wall_text = 0x7f0b032c;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_activity_doing_1 = 0x7f0b032d;
+        public static final int group_info_photo_wall_text_1 = 0x7f0b032d;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_activity_finish = 0x7f0b032e;
+        public static final int group_info_activity_doing = 0x7f0b032e;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_activity_finish_1 = 0x7f0b032f;
+        public static final int group_info_activity_doing_1 = 0x7f0b032f;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_activity_guide_toast = 0x7f0b0330;
+        public static final int group_info_activity_finish = 0x7f0b0330;
         /* JADX INFO: Added by JADX */
-        public static final int group_info_activity_guide_toast_1 = 0x7f0b0331;
+        public static final int group_info_activity_finish_1 = 0x7f0b0331;
         /* JADX INFO: Added by JADX */
-        public static final int group_chat_button_textcolor = 0x7f0b0332;
+        public static final int group_info_activity_guide_toast = 0x7f0b0332;
         /* JADX INFO: Added by JADX */
-        public static final int group_chat_button_textcolor_1 = 0x7f0b0333;
+        public static final int group_info_activity_guide_toast_1 = 0x7f0b0333;
         /* JADX INFO: Added by JADX */
-        public static final int group_chat_button_shadowcolor = 0x7f0b0334;
+        public static final int group_chat_button_textcolor = 0x7f0b0334;
         /* JADX INFO: Added by JADX */
-        public static final int group_chat_button_shadowcolor_1 = 0x7f0b0335;
+        public static final int group_chat_button_textcolor_1 = 0x7f0b0335;
         /* JADX INFO: Added by JADX */
-        public static final int group_chat_tip_textcolor = 0x7f0b0336;
+        public static final int group_chat_button_shadowcolor = 0x7f0b0336;
         /* JADX INFO: Added by JADX */
-        public static final int group_chat_tip_textcolor_1 = 0x7f0b0337;
+        public static final int group_chat_button_shadowcolor_1 = 0x7f0b0337;
         /* JADX INFO: Added by JADX */
-        public static final int wait_chat_large_circle_stroke_color = 0x7f0b0338;
+        public static final int group_chat_tip_textcolor = 0x7f0b0338;
         /* JADX INFO: Added by JADX */
-        public static final int loading_circle_color = 0x7f0b0339;
+        public static final int group_chat_tip_textcolor_1 = 0x7f0b0339;
         /* JADX INFO: Added by JADX */
-        public static final int loading_stroke_color = 0x7f0b033a;
+        public static final int wait_chat_large_circle_stroke_color = 0x7f0b033a;
         /* JADX INFO: Added by JADX */
-        public static final int loading_circle_common_color = 0x7f0b033b;
+        public static final int loading_circle_color = 0x7f0b033b;
         /* JADX INFO: Added by JADX */
-        public static final int loading_circle_light_color = 0x7f0b033c;
+        public static final int loading_stroke_color = 0x7f0b033c;
         /* JADX INFO: Added by JADX */
-        public static final int tip_view_button_pressed = 0x7f0b033d;
+        public static final int loading_circle_common_color = 0x7f0b033d;
         /* JADX INFO: Added by JADX */
-        public static final int tip_view_button_normal = 0x7f0b033e;
+        public static final int loading_circle_light_color = 0x7f0b033e;
         /* JADX INFO: Added by JADX */
-        public static final int tip_view_text_name_color = 0x7f0b033f;
+        public static final int tip_view_button_pressed = 0x7f0b033f;
         /* JADX INFO: Added by JADX */
-        public static final int create_group_private_tip = 0x7f0b0340;
+        public static final int tip_view_button_normal = 0x7f0b0340;
         /* JADX INFO: Added by JADX */
-        public static final int create_group_private_tip_1 = 0x7f0b0341;
+        public static final int tip_view_text_name_color = 0x7f0b0341;
         /* JADX INFO: Added by JADX */
-        public static final int text_no_data = 0x7f0b0342;
+        public static final int create_group_private_tip = 0x7f0b0342;
         /* JADX INFO: Added by JADX */
-        public static final int text_no_data_1 = 0x7f0b0343;
+        public static final int create_group_private_tip_1 = 0x7f0b0343;
         /* JADX INFO: Added by JADX */
-        public static final int group_apply_bg = 0x7f0b0344;
+        public static final int text_no_data = 0x7f0b0344;
         /* JADX INFO: Added by JADX */
-        public static final int group_apply_bg_1 = 0x7f0b0345;
+        public static final int text_no_data_1 = 0x7f0b0345;
         /* JADX INFO: Added by JADX */
-        public static final int group_apply_edittext_text = 0x7f0b0346;
+        public static final int group_apply_bg = 0x7f0b0346;
         /* JADX INFO: Added by JADX */
-        public static final int group_apply_edittext_text_1 = 0x7f0b0347;
+        public static final int group_apply_bg_1 = 0x7f0b0347;
         /* JADX INFO: Added by JADX */
-        public static final int edit_normal = 0x7f0b0348;
+        public static final int group_apply_edittext_text = 0x7f0b0348;
         /* JADX INFO: Added by JADX */
-        public static final int edit_normal_1 = 0x7f0b0349;
+        public static final int group_apply_edittext_text_1 = 0x7f0b0349;
         /* JADX INFO: Added by JADX */
-        public static final int edit_exceed = 0x7f0b034a;
+        public static final int edit_normal = 0x7f0b034a;
         /* JADX INFO: Added by JADX */
-        public static final int edit_exceed_1 = 0x7f0b034b;
+        public static final int edit_normal_1 = 0x7f0b034b;
         /* JADX INFO: Added by JADX */
-        public static final int edit_hint = 0x7f0b034c;
+        public static final int edit_exceed = 0x7f0b034c;
         /* JADX INFO: Added by JADX */
-        public static final int edit_hint_1 = 0x7f0b034d;
+        public static final int edit_exceed_1 = 0x7f0b034d;
         /* JADX INFO: Added by JADX */
-        public static final int image_not_color = 0x7f0b034e;
+        public static final int edit_hint = 0x7f0b034e;
         /* JADX INFO: Added by JADX */
-        public static final int pb_img_text_tip = 0x7f0b034f;
+        public static final int edit_hint_1 = 0x7f0b034f;
         /* JADX INFO: Added by JADX */
-        public static final int frsgroup_container_bg = 0x7f0b0350;
+        public static final int image_not_color = 0x7f0b0350;
         /* JADX INFO: Added by JADX */
-        public static final int frsgruop_title = 0x7f0b0351;
+        public static final int pb_img_text_tip = 0x7f0b0351;
         /* JADX INFO: Added by JADX */
-        public static final int frsgruop_container_bg_1 = 0x7f0b0352;
+        public static final int frsgroup_container_bg = 0x7f0b0352;
         /* JADX INFO: Added by JADX */
-        public static final int editor_tool_container_bg = 0x7f0b0353;
+        public static final int frsgruop_title = 0x7f0b0353;
         /* JADX INFO: Added by JADX */
-        public static final int editor_tool_container_bg_1 = 0x7f0b0354;
+        public static final int frsgruop_container_bg_1 = 0x7f0b0354;
         /* JADX INFO: Added by JADX */
-        public static final int editor_tool_container_extern_bg = 0x7f0b0355;
+        public static final int editor_tool_container_bg = 0x7f0b0355;
         /* JADX INFO: Added by JADX */
-        public static final int editor_tool_container_extern_bg_1 = 0x7f0b0356;
+        public static final int editor_tool_container_bg_1 = 0x7f0b0356;
         /* JADX INFO: Added by JADX */
-        public static final int editor_tool_post_disable_text = 0x7f0b0357;
+        public static final int editor_tool_container_extern_bg = 0x7f0b0357;
         /* JADX INFO: Added by JADX */
-        public static final int editor_tool_post_disable_text_1 = 0x7f0b0358;
+        public static final int editor_tool_container_extern_bg_1 = 0x7f0b0358;
         /* JADX INFO: Added by JADX */
-        public static final int editor_tool_post_enable_text = 0x7f0b0359;
+        public static final int editor_tool_post_disable_text = 0x7f0b0359;
         /* JADX INFO: Added by JADX */
-        public static final int editor_tool_post_enable_text_1 = 0x7f0b035a;
+        public static final int editor_tool_post_disable_text_1 = 0x7f0b035a;
         /* JADX INFO: Added by JADX */
-        public static final int emotion_delete_bg = 0x7f0b035b;
+        public static final int editor_tool_post_enable_text = 0x7f0b035b;
         /* JADX INFO: Added by JADX */
-        public static final int emotion_delete_bg_1 = 0x7f0b035c;
+        public static final int editor_tool_post_enable_text_1 = 0x7f0b035c;
         /* JADX INFO: Added by JADX */
-        public static final int emotion_widget_bg = 0x7f0b035d;
+        public static final int emotion_delete_bg = 0x7f0b035d;
         /* JADX INFO: Added by JADX */
-        public static final int emotion_widget_bg_1 = 0x7f0b035e;
+        public static final int emotion_delete_bg_1 = 0x7f0b035e;
         /* JADX INFO: Added by JADX */
-        public static final int editor_more_btn_text = 0x7f0b035f;
+        public static final int emotion_widget_bg = 0x7f0b035f;
         /* JADX INFO: Added by JADX */
-        public static final int editor_more_btn_text_1 = 0x7f0b0360;
+        public static final int emotion_widget_bg_1 = 0x7f0b0360;
         /* JADX INFO: Added by JADX */
-        public static final int editor_shadow_1 = 0x7f0b0361;
+        public static final int editor_more_btn_text = 0x7f0b0361;
         /* JADX INFO: Added by JADX */
-        public static final int editor_shadow = 0x7f0b0362;
+        public static final int editor_more_btn_text_1 = 0x7f0b0362;
         /* JADX INFO: Added by JADX */
-        public static final int search_box_bg = 0x7f0b0363;
+        public static final int editor_shadow_1 = 0x7f0b0363;
         /* JADX INFO: Added by JADX */
-        public static final int search_box_bg_1 = 0x7f0b0364;
+        public static final int editor_shadow = 0x7f0b0364;
         /* JADX INFO: Added by JADX */
-        public static final int search_box_line = 0x7f0b0365;
+        public static final int search_box_bg = 0x7f0b0365;
         /* JADX INFO: Added by JADX */
-        public static final int search_box_line_1 = 0x7f0b0366;
+        public static final int search_box_bg_1 = 0x7f0b0366;
         /* JADX INFO: Added by JADX */
-        public static final int search_box_item_bg_s = 0x7f0b0367;
+        public static final int search_box_line = 0x7f0b0367;
         /* JADX INFO: Added by JADX */
-        public static final int search_box_item_bg_s_1 = 0x7f0b0368;
+        public static final int search_box_line_1 = 0x7f0b0368;
         /* JADX INFO: Added by JADX */
-        public static final int search_button_cancel_text = 0x7f0b0369;
+        public static final int search_box_item_bg_s = 0x7f0b0369;
         /* JADX INFO: Added by JADX */
-        public static final int search_button_cancel_text_1 = 0x7f0b036a;
+        public static final int search_box_item_bg_s_1 = 0x7f0b036a;
         /* JADX INFO: Added by JADX */
-        public static final int search_button_search_text = 0x7f0b036b;
+        public static final int search_button_cancel_text = 0x7f0b036b;
         /* JADX INFO: Added by JADX */
-        public static final int search_button_search_text_1 = 0x7f0b036c;
+        public static final int search_button_cancel_text_1 = 0x7f0b036c;
         /* JADX INFO: Added by JADX */
-        public static final int create_group_pages_background = 0x7f0b036d;
+        public static final int search_button_search_text = 0x7f0b036d;
         /* JADX INFO: Added by JADX */
-        public static final int create_group_pages_background_1 = 0x7f0b036e;
+        public static final int search_button_search_text_1 = 0x7f0b036e;
         /* JADX INFO: Added by JADX */
-        public static final int create_group_pages_textcolor_hint = 0x7f0b036f;
+        public static final int create_group_pages_background = 0x7f0b036f;
         /* JADX INFO: Added by JADX */
-        public static final int create_group_pages_textcolor_hint_1 = 0x7f0b0370;
+        public static final int create_group_pages_background_1 = 0x7f0b0370;
         /* JADX INFO: Added by JADX */
-        public static final int create_group_input_hintcolor = 0x7f0b0371;
+        public static final int create_group_pages_textcolor_hint = 0x7f0b0371;
         /* JADX INFO: Added by JADX */
-        public static final int create_group_input_hintcolor_1 = 0x7f0b0372;
+        public static final int create_group_pages_textcolor_hint_1 = 0x7f0b0372;
         /* JADX INFO: Added by JADX */
-        public static final int group_address_item_background_normal = 0x7f0b0373;
+        public static final int create_group_input_hintcolor = 0x7f0b0373;
         /* JADX INFO: Added by JADX */
-        public static final int group_address_item_background_normal_1 = 0x7f0b0374;
+        public static final int create_group_input_hintcolor_1 = 0x7f0b0374;
         /* JADX INFO: Added by JADX */
-        public static final int group_address_item_background_pressed = 0x7f0b0375;
+        public static final int group_address_item_background_normal = 0x7f0b0375;
         /* JADX INFO: Added by JADX */
-        public static final int group_address_item_background_pressed_1 = 0x7f0b0376;
+        public static final int group_address_item_background_normal_1 = 0x7f0b0376;
         /* JADX INFO: Added by JADX */
-        public static final int group_address_item_linecolor = 0x7f0b0377;
+        public static final int group_address_item_background_pressed = 0x7f0b0377;
         /* JADX INFO: Added by JADX */
-        public static final int group_address_item_linecolor_1 = 0x7f0b0378;
+        public static final int group_address_item_background_pressed_1 = 0x7f0b0378;
         /* JADX INFO: Added by JADX */
-        public static final int contents_text = 0x7f0b0379;
+        public static final int group_address_item_linecolor = 0x7f0b0379;
         /* JADX INFO: Added by JADX */
-        public static final int encode_view = 0x7f0b037a;
+        public static final int group_address_item_linecolor_1 = 0x7f0b037a;
         /* JADX INFO: Added by JADX */
-        public static final int possible_result_points = 0x7f0b037b;
+        public static final int contents_text = 0x7f0b037b;
         /* JADX INFO: Added by JADX */
-        public static final int result_points = 0x7f0b037c;
+        public static final int encode_view = 0x7f0b037c;
         /* JADX INFO: Added by JADX */
-        public static final int result_view = 0x7f0b037d;
+        public static final int possible_result_points = 0x7f0b037d;
         /* JADX INFO: Added by JADX */
-        public static final int status_text = 0x7f0b037e;
+        public static final int result_points = 0x7f0b037e;
         /* JADX INFO: Added by JADX */
-        public static final int transparent = 0x7f0b037f;
+        public static final int result_view = 0x7f0b037f;
         /* JADX INFO: Added by JADX */
-        public static final int viewfinder_laser = 0x7f0b0380;
+        public static final int status_text = 0x7f0b0380;
         /* JADX INFO: Added by JADX */
-        public static final int viewfinder_mask = 0x7f0b0381;
+        public static final int transparent = 0x7f0b0381;
         /* JADX INFO: Added by JADX */
-        public static final int viewfinder_tip_text = 0x7f0b0382;
+        public static final int viewfinder_laser = 0x7f0b0382;
         /* JADX INFO: Added by JADX */
-        public static final int im_group_list_group_bg = 0x7f0b0383;
+        public static final int viewfinder_mask = 0x7f0b0383;
         /* JADX INFO: Added by JADX */
-        public static final int im_group_list_group_bg_1 = 0x7f0b0384;
+        public static final int viewfinder_tip_text = 0x7f0b0384;
         /* JADX INFO: Added by JADX */
-        public static final int im_group_list_group_item_line = 0x7f0b0385;
+        public static final int im_group_list_group_bg = 0x7f0b0385;
         /* JADX INFO: Added by JADX */
-        public static final int im_group_list_group_item_line_1 = 0x7f0b0386;
+        public static final int im_group_list_group_bg_1 = 0x7f0b0386;
         /* JADX INFO: Added by JADX */
-        public static final int im_group_list_group_line = 0x7f0b0387;
+        public static final int im_group_list_group_item_line = 0x7f0b0387;
         /* JADX INFO: Added by JADX */
-        public static final int im_group_list_group_line_1 = 0x7f0b0388;
+        public static final int im_group_list_group_item_line_1 = 0x7f0b0388;
         /* JADX INFO: Added by JADX */
-        public static final int im_group_vip_text = 0x7f0b0389;
+        public static final int im_group_list_group_line = 0x7f0b0389;
         /* JADX INFO: Added by JADX */
-        public static final int im_group_vip_text_1 = 0x7f0b038a;
+        public static final int im_group_list_group_line_1 = 0x7f0b038a;
         /* JADX INFO: Added by JADX */
-        public static final int divier_color = 0x7f0b038b;
+        public static final int im_group_vip_text = 0x7f0b038b;
         /* JADX INFO: Added by JADX */
-        public static final int divier_color_1 = 0x7f0b038c;
+        public static final int im_group_vip_text_1 = 0x7f0b038c;
         /* JADX INFO: Added by JADX */
-        public static final int enter_forum_header_item_s = 0x7f0b038d;
+        public static final int divier_color = 0x7f0b038d;
         /* JADX INFO: Added by JADX */
-        public static final int enter_forum_header_item_s_1 = 0x7f0b038e;
+        public static final int divier_color_1 = 0x7f0b038e;
         /* JADX INFO: Added by JADX */
-        public static final int enter_forum_header_divier = 0x7f0b038f;
+        public static final int enter_forum_header_item_s = 0x7f0b038f;
         /* JADX INFO: Added by JADX */
-        public static final int enter_forum_header_divier_1 = 0x7f0b0390;
+        public static final int enter_forum_header_item_s_1 = 0x7f0b0390;
         /* JADX INFO: Added by JADX */
-        public static final int im_near_group_count = 0x7f0b0391;
+        public static final int enter_forum_header_divier = 0x7f0b0391;
         /* JADX INFO: Added by JADX */
-        public static final int im_near_group_count_1 = 0x7f0b0392;
+        public static final int enter_forum_header_divier_1 = 0x7f0b0392;
         /* JADX INFO: Added by JADX */
-        public static final int group_level_promote_1 = 0x7f0b0393;
+        public static final int im_near_group_count = 0x7f0b0393;
         /* JADX INFO: Added by JADX */
-        public static final int group_level_active_day_total = 0x7f0b0394;
+        public static final int im_near_group_count_1 = 0x7f0b0394;
         /* JADX INFO: Added by JADX */
-        public static final int group_level_active_day_total_1 = 0x7f0b0395;
+        public static final int group_level_promote_1 = 0x7f0b0395;
         /* JADX INFO: Added by JADX */
-        public static final int group_level_secondtitle_text = 0x7f0b0396;
+        public static final int group_level_active_day_total = 0x7f0b0396;
         /* JADX INFO: Added by JADX */
-        public static final int group_level_secondtitle_text_1 = 0x7f0b0397;
+        public static final int group_level_active_day_total_1 = 0x7f0b0397;
         /* JADX INFO: Added by JADX */
-        public static final int group_level_active_condition = 0x7f0b0398;
+        public static final int group_level_secondtitle_text = 0x7f0b0398;
         /* JADX INFO: Added by JADX */
-        public static final int group_level_active_condition_1 = 0x7f0b0399;
+        public static final int group_level_secondtitle_text_1 = 0x7f0b0399;
         /* JADX INFO: Added by JADX */
-        public static final int group_level_level_intro = 0x7f0b039a;
+        public static final int group_level_active_condition = 0x7f0b039a;
         /* JADX INFO: Added by JADX */
-        public static final int group_level_level_intro_1 = 0x7f0b039b;
+        public static final int group_level_active_condition_1 = 0x7f0b039b;
         /* JADX INFO: Added by JADX */
-        public static final int group_level_member_limit = 0x7f0b039c;
+        public static final int group_level_level_intro = 0x7f0b039c;
         /* JADX INFO: Added by JADX */
-        public static final int group_level_member_limit_1 = 0x7f0b039d;
+        public static final int group_level_level_intro_1 = 0x7f0b039d;
         /* JADX INFO: Added by JADX */
-        public static final int group_level_intro_background = 0x7f0b039e;
+        public static final int group_level_member_limit = 0x7f0b039e;
         /* JADX INFO: Added by JADX */
-        public static final int group_level_intro_background_1 = 0x7f0b039f;
+        public static final int group_level_member_limit_1 = 0x7f0b039f;
         /* JADX INFO: Added by JADX */
-        public static final int group_level_intro_text_background = 0x7f0b03a0;
+        public static final int group_level_intro_background = 0x7f0b03a0;
         /* JADX INFO: Added by JADX */
-        public static final int group_level_intro_text_background_1 = 0x7f0b03a1;
+        public static final int group_level_intro_background_1 = 0x7f0b03a1;
         /* JADX INFO: Added by JADX */
-        public static final int group_level_intro_line = 0x7f0b03a2;
+        public static final int group_level_intro_text_background = 0x7f0b03a2;
         /* JADX INFO: Added by JADX */
-        public static final int group_level_intro_line_1 = 0x7f0b03a3;
+        public static final int group_level_intro_text_background_1 = 0x7f0b03a3;
         /* JADX INFO: Added by JADX */
-        public static final int group_level_container_bg = 0x7f0b03a4;
+        public static final int group_level_intro_line = 0x7f0b03a4;
         /* JADX INFO: Added by JADX */
-        public static final int group_level_container_bg_1 = 0x7f0b03a5;
+        public static final int group_level_intro_line_1 = 0x7f0b03a5;
         /* JADX INFO: Added by JADX */
-        public static final int enter_forum_header_txt = 0x7f0b03a6;
+        public static final int group_level_container_bg = 0x7f0b03a6;
         /* JADX INFO: Added by JADX */
-        public static final int enter_forum_header_txt_1 = 0x7f0b03a7;
+        public static final int group_level_container_bg_1 = 0x7f0b03a7;
         /* JADX INFO: Added by JADX */
-        public static final int enter_forum_nodata = 0x7f0b03a8;
+        public static final int enter_forum_header_txt = 0x7f0b03a8;
         /* JADX INFO: Added by JADX */
-        public static final int enter_forum_nodata_1 = 0x7f0b03a9;
+        public static final int enter_forum_header_txt_1 = 0x7f0b03a9;
         /* JADX INFO: Added by JADX */
-        public static final int im_group_item_iscreator = 0x7f0b03aa;
+        public static final int enter_forum_nodata = 0x7f0b03aa;
         /* JADX INFO: Added by JADX */
-        public static final int im_group_item_iscreator_1 = 0x7f0b03ab;
+        public static final int enter_forum_nodata_1 = 0x7f0b03ab;
         /* JADX INFO: Added by JADX */
-        public static final int group_level_promote = 0x7f0b03ac;
+        public static final int im_group_item_iscreator = 0x7f0b03ac;
         /* JADX INFO: Added by JADX */
-        public static final int image_uploading_cover = 0x7f0b03ad;
+        public static final int im_group_item_iscreator_1 = 0x7f0b03ad;
         /* JADX INFO: Added by JADX */
-        public static final int enter_group_my_forum = 0x7f0b03ae;
+        public static final int group_level_promote = 0x7f0b03ae;
         /* JADX INFO: Added by JADX */
-        public static final int enter_group_my_forum_1 = 0x7f0b03af;
+        public static final int image_uploading_cover = 0x7f0b03af;
         /* JADX INFO: Added by JADX */
-        public static final int search_from_qr_color = 0x7f0b03b0;
+        public static final int enter_group_my_forum = 0x7f0b03b0;
         /* JADX INFO: Added by JADX */
-        public static final int search_from_qr_color_1 = 0x7f0b03b1;
+        public static final int enter_group_my_forum_1 = 0x7f0b03b1;
         /* JADX INFO: Added by JADX */
-        public static final int night_divider = 0x7f0b03b2;
+        public static final int search_from_qr_color = 0x7f0b03b2;
         /* JADX INFO: Added by JADX */
-        public static final int day_divider = 0x7f0b03b3;
+        public static final int search_from_qr_color_1 = 0x7f0b03b3;
         /* JADX INFO: Added by JADX */
-        public static final int update_bg = 0x7f0b03b4;
+        public static final int night_divider = 0x7f0b03b4;
         /* JADX INFO: Added by JADX */
-        public static final int update_bg_1 = 0x7f0b03b5;
+        public static final int day_divider = 0x7f0b03b5;
         /* JADX INFO: Added by JADX */
-        public static final int im_msg_bg = 0x7f0b03b6;
+        public static final int update_bg = 0x7f0b03b6;
         /* JADX INFO: Added by JADX */
-        public static final int im_msg_more_view_bg = 0x7f0b03b7;
+        public static final int update_bg_1 = 0x7f0b03b7;
         /* JADX INFO: Added by JADX */
-        public static final int im_msg_more_btn_text = 0x7f0b03b8;
+        public static final int im_msg_bg = 0x7f0b03b8;
         /* JADX INFO: Added by JADX */
-        public static final int im_msg_last_msg_bg = 0x7f0b03b9;
+        public static final int im_msg_more_view_bg = 0x7f0b03b9;
         /* JADX INFO: Added by JADX */
-        public static final int im_msg_send_voice_text = 0x7f0b03ba;
+        public static final int im_msg_more_btn_text = 0x7f0b03ba;
         /* JADX INFO: Added by JADX */
-        public static final int im_msg_send_text_hint = 0x7f0b03bb;
+        public static final int im_msg_last_msg_bg = 0x7f0b03bb;
         /* JADX INFO: Added by JADX */
-        public static final int im_msg_send_voice_cancel_text = 0x7f0b03bc;
+        public static final int im_msg_send_voice_text = 0x7f0b03bc;
         /* JADX INFO: Added by JADX */
-        public static final int im_msg_send_btn_disable = 0x7f0b03bd;
+        public static final int im_msg_send_text_hint = 0x7f0b03bd;
         /* JADX INFO: Added by JADX */
-        public static final int im_msg_send_btn_enable = 0x7f0b03be;
+        public static final int im_msg_send_voice_cancel_text = 0x7f0b03be;
         /* JADX INFO: Added by JADX */
-        public static final int hot_group_group_name = 0x7f0b03bf;
+        public static final int im_msg_send_btn_disable = 0x7f0b03bf;
         /* JADX INFO: Added by JADX */
-        public static final int hot_group_group_name_1 = 0x7f0b03c0;
+        public static final int im_msg_send_btn_enable = 0x7f0b03c0;
         /* JADX INFO: Added by JADX */
-        public static final int hot_group_group_intro = 0x7f0b03c1;
+        public static final int hot_group_group_name = 0x7f0b03c1;
         /* JADX INFO: Added by JADX */
-        public static final int hot_group_group_intro_1 = 0x7f0b03c2;
+        public static final int hot_group_group_name_1 = 0x7f0b03c2;
         /* JADX INFO: Added by JADX */
-        public static final int hot_group_bg = 0x7f0b03c3;
+        public static final int hot_group_group_intro = 0x7f0b03c3;
         /* JADX INFO: Added by JADX */
-        public static final int hot_group_bg_1 = 0x7f0b03c4;
+        public static final int hot_group_group_intro_1 = 0x7f0b03c4;
         /* JADX INFO: Added by JADX */
-        public static final int group_list_item_bg_n = 0x7f0b03c5;
+        public static final int hot_group_bg = 0x7f0b03c5;
         /* JADX INFO: Added by JADX */
-        public static final int group_list_item_bg_n_1 = 0x7f0b03c6;
+        public static final int hot_group_bg_1 = 0x7f0b03c6;
         /* JADX INFO: Added by JADX */
-        public static final int group_list_item_bg_s = 0x7f0b03c7;
+        public static final int group_list_item_bg_n = 0x7f0b03c7;
         /* JADX INFO: Added by JADX */
-        public static final int group_list_item_bg_s_1 = 0x7f0b03c8;
+        public static final int group_list_item_bg_n_1 = 0x7f0b03c8;
         /* JADX INFO: Added by JADX */
-        public static final int group_list_item_divider_top_bg = 0x7f0b03c9;
+        public static final int group_list_item_bg_s = 0x7f0b03c9;
         /* JADX INFO: Added by JADX */
-        public static final int group_list_item_divider_bottom_bg = 0x7f0b03ca;
+        public static final int group_list_item_bg_s_1 = 0x7f0b03ca;
         /* JADX INFO: Added by JADX */
-        public static final int group_list_item_divider_top_bg_1 = 0x7f0b03cb;
+        public static final int group_list_item_divider_top_bg = 0x7f0b03cb;
         /* JADX INFO: Added by JADX */
-        public static final int group_list_item_divider_bottom_bg_1 = 0x7f0b03cc;
+        public static final int group_list_item_divider_bottom_bg = 0x7f0b03cc;
         /* JADX INFO: Added by JADX */
-        public static final int group_list_group_intro = 0x7f0b03cd;
+        public static final int group_list_item_divider_top_bg_1 = 0x7f0b03cd;
         /* JADX INFO: Added by JADX */
-        public static final int group_list_group_intro_1 = 0x7f0b03ce;
+        public static final int group_list_item_divider_bottom_bg_1 = 0x7f0b03ce;
         /* JADX INFO: Added by JADX */
-        public static final int group_list_item_distance = 0x7f0b03cf;
+        public static final int group_list_group_intro = 0x7f0b03cf;
         /* JADX INFO: Added by JADX */
-        public static final int group_list_item_distance_1 = 0x7f0b03d0;
+        public static final int group_list_group_intro_1 = 0x7f0b03d0;
         /* JADX INFO: Added by JADX */
-        public static final int group_list_nearby_group_text = 0x7f0b03d1;
+        public static final int group_list_item_distance = 0x7f0b03d1;
         /* JADX INFO: Added by JADX */
-        public static final int group_list_nearby_group_text_1 = 0x7f0b03d2;
+        public static final int group_list_item_distance_1 = 0x7f0b03d2;
         /* JADX INFO: Added by JADX */
-        public static final int im_add_group_page_backgroundcolor = 0x7f0b03d3;
+        public static final int group_list_nearby_group_text = 0x7f0b03d3;
         /* JADX INFO: Added by JADX */
-        public static final int im_add_group_page_backgroundcolor_1 = 0x7f0b03d4;
+        public static final int group_list_nearby_group_text_1 = 0x7f0b03d4;
         /* JADX INFO: Added by JADX */
-        public static final int im_add_group_input_textcolor = 0x7f0b03d5;
+        public static final int im_add_group_page_backgroundcolor = 0x7f0b03d5;
         /* JADX INFO: Added by JADX */
-        public static final int im_add_group_input_textcolor_1 = 0x7f0b03d6;
+        public static final int im_add_group_page_backgroundcolor_1 = 0x7f0b03d6;
         /* JADX INFO: Added by JADX */
-        public static final int im_add_group_title_textcolor = 0x7f0b03d7;
+        public static final int im_add_group_input_textcolor = 0x7f0b03d7;
         /* JADX INFO: Added by JADX */
-        public static final int im_add_group_title_textcolor_1 = 0x7f0b03d8;
+        public static final int im_add_group_input_textcolor_1 = 0x7f0b03d8;
         /* JADX INFO: Added by JADX */
-        public static final int im_add_group_searchbtn_textcolor = 0x7f0b03d9;
+        public static final int im_add_group_title_textcolor = 0x7f0b03d9;
         /* JADX INFO: Added by JADX */
-        public static final int im_add_group_searchbtn_textcolor_1 = 0x7f0b03da;
+        public static final int im_add_group_title_textcolor_1 = 0x7f0b03da;
         /* JADX INFO: Added by JADX */
-        public static final int faceshop_page_bg = 0x7f0b03db;
+        public static final int im_add_group_searchbtn_textcolor = 0x7f0b03db;
         /* JADX INFO: Added by JADX */
-        public static final int faceshop_page_bg_1 = 0x7f0b03dc;
+        public static final int im_add_group_searchbtn_textcolor_1 = 0x7f0b03dc;
         /* JADX INFO: Added by JADX */
-        public static final int faceshop_title_color = 0x7f0b03dd;
+        public static final int faceshop_page_bg = 0x7f0b03dd;
         /* JADX INFO: Added by JADX */
-        public static final int faceshop_title_color_1 = 0x7f0b03de;
+        public static final int faceshop_page_bg_1 = 0x7f0b03de;
         /* JADX INFO: Added by JADX */
-        public static final int faceshop_intro_color = 0x7f0b03df;
+        public static final int faceshop_title_color = 0x7f0b03df;
         /* JADX INFO: Added by JADX */
-        public static final int faceshop_intro_color_1 = 0x7f0b03e0;
+        public static final int faceshop_title_color_1 = 0x7f0b03e0;
         /* JADX INFO: Added by JADX */
-        public static final int faceshop_btn_color = 0x7f0b03e1;
+        public static final int faceshop_intro_color = 0x7f0b03e1;
         /* JADX INFO: Added by JADX */
-        public static final int faceshop_btn_color_1 = 0x7f0b03e2;
+        public static final int faceshop_intro_color_1 = 0x7f0b03e2;
         /* JADX INFO: Added by JADX */
-        public static final int faceshop_downloaded_text = 0x7f0b03e3;
+        public static final int faceshop_btn_color = 0x7f0b03e3;
         /* JADX INFO: Added by JADX */
-        public static final int faceshop_downloaded_text_1 = 0x7f0b03e4;
+        public static final int faceshop_btn_color_1 = 0x7f0b03e4;
         /* JADX INFO: Added by JADX */
-        public static final int faceshop_package_title_text = 0x7f0b03e5;
+        public static final int faceshop_downloaded_text = 0x7f0b03e5;
         /* JADX INFO: Added by JADX */
-        public static final int faceshop_package_title_text_1 = 0x7f0b03e6;
+        public static final int faceshop_downloaded_text_1 = 0x7f0b03e6;
         /* JADX INFO: Added by JADX */
-        public static final int faceshop_package_price_text = 0x7f0b03e7;
+        public static final int faceshop_package_title_text = 0x7f0b03e7;
         /* JADX INFO: Added by JADX */
-        public static final int faceshop_package_price_text_1 = 0x7f0b03e8;
+        public static final int faceshop_package_title_text_1 = 0x7f0b03e8;
         /* JADX INFO: Added by JADX */
-        public static final int faceshop_package_status_text = 0x7f0b03e9;
+        public static final int faceshop_package_price_text = 0x7f0b03e9;
         /* JADX INFO: Added by JADX */
-        public static final int faceshop_package_status_text_1 = 0x7f0b03ea;
+        public static final int faceshop_package_price_text_1 = 0x7f0b03ea;
         /* JADX INFO: Added by JADX */
-        public static final int faceshop_package_btn_text = 0x7f0b03eb;
+        public static final int faceshop_package_status_text = 0x7f0b03eb;
         /* JADX INFO: Added by JADX */
-        public static final int faceshop_package_btn_text_1 = 0x7f0b03ec;
+        public static final int faceshop_package_status_text_1 = 0x7f0b03ec;
         /* JADX INFO: Added by JADX */
-        public static final int faceshop_package_line_bg = 0x7f0b03ed;
+        public static final int faceshop_package_btn_text = 0x7f0b03ed;
         /* JADX INFO: Added by JADX */
-        public static final int faceshop_package_line_bg_1 = 0x7f0b03ee;
+        public static final int faceshop_package_btn_text_1 = 0x7f0b03ee;
         /* JADX INFO: Added by JADX */
-        public static final int faceshop_package_info_text = 0x7f0b03ef;
+        public static final int faceshop_package_line_bg = 0x7f0b03ef;
         /* JADX INFO: Added by JADX */
-        public static final int faceshop_package_info_text_1 = 0x7f0b03f0;
+        public static final int faceshop_package_line_bg_1 = 0x7f0b03f0;
         /* JADX INFO: Added by JADX */
-        public static final int faceshop_package_divider_bg = 0x7f0b03f1;
+        public static final int faceshop_package_info_text = 0x7f0b03f1;
         /* JADX INFO: Added by JADX */
-        public static final int faceshop_package_divider_bg_1 = 0x7f0b03f2;
+        public static final int faceshop_package_info_text_1 = 0x7f0b03f2;
         /* JADX INFO: Added by JADX */
-        public static final int faceshop_purchase_price_text = 0x7f0b03f3;
+        public static final int faceshop_package_divider_bg = 0x7f0b03f3;
         /* JADX INFO: Added by JADX */
-        public static final int faceshop_purchase_price_text_1 = 0x7f0b03f4;
+        public static final int faceshop_package_divider_bg_1 = 0x7f0b03f4;
         /* JADX INFO: Added by JADX */
-        public static final int emotion_manage_bg = 0x7f0b03f5;
+        public static final int faceshop_purchase_price_text = 0x7f0b03f5;
         /* JADX INFO: Added by JADX */
-        public static final int emotion_manage_bg_1 = 0x7f0b03f6;
+        public static final int faceshop_purchase_price_text_1 = 0x7f0b03f6;
         /* JADX INFO: Added by JADX */
-        public static final int emotion_manage_title_text = 0x7f0b03f7;
+        public static final int emotion_manage_bg = 0x7f0b03f7;
         /* JADX INFO: Added by JADX */
-        public static final int emotion_manage_title_text_1 = 0x7f0b03f8;
+        public static final int emotion_manage_bg_1 = 0x7f0b03f8;
         /* JADX INFO: Added by JADX */
-        public static final int emotion_manage_main_text = 0x7f0b03f9;
+        public static final int emotion_manage_title_text = 0x7f0b03f9;
         /* JADX INFO: Added by JADX */
-        public static final int emotion_manage_main_text_1 = 0x7f0b03fa;
+        public static final int emotion_manage_title_text_1 = 0x7f0b03fa;
         /* JADX INFO: Added by JADX */
-        public static final int emotion_manage_list_line = 0x7f0b03fb;
+        public static final int emotion_manage_main_text = 0x7f0b03fb;
         /* JADX INFO: Added by JADX */
-        public static final int emotion_manage_list_line_1 = 0x7f0b03fc;
+        public static final int emotion_manage_main_text_1 = 0x7f0b03fc;
         /* JADX INFO: Added by JADX */
-        public static final int emotion_manage_del_disable = 0x7f0b03fd;
+        public static final int emotion_manage_list_line = 0x7f0b03fd;
         /* JADX INFO: Added by JADX */
-        public static final int emotion_manage_del_disable_1 = 0x7f0b03fe;
+        public static final int emotion_manage_list_line_1 = 0x7f0b03fe;
         /* JADX INFO: Added by JADX */
-        public static final int emotion_manage_del_enable = 0x7f0b03ff;
+        public static final int emotion_manage_del_disable = 0x7f0b03ff;
         /* JADX INFO: Added by JADX */
-        public static final int emotion_manage_del_enable_1 = 0x7f0b0400;
+        public static final int emotion_manage_del_disable_1 = 0x7f0b0400;
         /* JADX INFO: Added by JADX */
-        public static final int invite_friend_list_item_divier = 0x7f0b0401;
+        public static final int emotion_manage_del_enable = 0x7f0b0401;
         /* JADX INFO: Added by JADX */
-        public static final int invite_friend_list_item_divier_1 = 0x7f0b0402;
+        public static final int emotion_manage_del_enable_1 = 0x7f0b0402;
         /* JADX INFO: Added by JADX */
-        public static final int invite_friend_list_item_text = 0x7f0b0403;
+        public static final int invite_friend_list_item_divier = 0x7f0b0403;
         /* JADX INFO: Added by JADX */
-        public static final int invite_friend_list_item_text_1 = 0x7f0b0404;
+        public static final int invite_friend_list_item_divier_1 = 0x7f0b0404;
         /* JADX INFO: Added by JADX */
-        public static final int invite_friend_list_search_text_hint = 0x7f0b0405;
+        public static final int invite_friend_list_item_text = 0x7f0b0405;
         /* JADX INFO: Added by JADX */
-        public static final int invite_friend_list_search_text_hint_1 = 0x7f0b0406;
+        public static final int invite_friend_list_item_text_1 = 0x7f0b0406;
         /* JADX INFO: Added by JADX */
-        public static final int invite_friend_list_search_text = 0x7f0b0407;
+        public static final int invite_friend_list_search_text_hint = 0x7f0b0407;
         /* JADX INFO: Added by JADX */
-        public static final int invite_friend_list_search_text_1 = 0x7f0b0408;
+        public static final int invite_friend_list_search_text_hint_1 = 0x7f0b0408;
         /* JADX INFO: Added by JADX */
-        public static final int invite_friend_list_search_button_text = 0x7f0b0409;
+        public static final int invite_friend_list_search_text = 0x7f0b0409;
         /* JADX INFO: Added by JADX */
-        public static final int invite_friend_list_search_button_text_1 = 0x7f0b040a;
+        public static final int invite_friend_list_search_text_1 = 0x7f0b040a;
         /* JADX INFO: Added by JADX */
-        public static final int invite_friend_list_item_bg_n = 0x7f0b040b;
+        public static final int invite_friend_list_search_button_text = 0x7f0b040b;
         /* JADX INFO: Added by JADX */
-        public static final int invite_friend_list_item_bg_n_1 = 0x7f0b040c;
+        public static final int invite_friend_list_search_button_text_1 = 0x7f0b040c;
         /* JADX INFO: Added by JADX */
-        public static final int invite_friend_list_item_bg_s = 0x7f0b040d;
+        public static final int invite_friend_list_item_bg_n = 0x7f0b040d;
         /* JADX INFO: Added by JADX */
-        public static final int invite_friend_list_item_bg_s_1 = 0x7f0b040e;
+        public static final int invite_friend_list_item_bg_n_1 = 0x7f0b040e;
         /* JADX INFO: Added by JADX */
-        public static final int invite_friend_nodata_text = 0x7f0b040f;
+        public static final int invite_friend_list_item_bg_s = 0x7f0b040f;
         /* JADX INFO: Added by JADX */
-        public static final int invite_friend_nodata_text_1 = 0x7f0b0410;
+        public static final int invite_friend_list_item_bg_s_1 = 0x7f0b0410;
         /* JADX INFO: Added by JADX */
-        public static final int search_bar_edit_text = 0x7f0b0411;
+        public static final int invite_friend_nodata_text = 0x7f0b0411;
         /* JADX INFO: Added by JADX */
-        public static final int search_bar_edit_text_1 = 0x7f0b0412;
+        public static final int invite_friend_nodata_text_1 = 0x7f0b0412;
         /* JADX INFO: Added by JADX */
-        public static final int invite_friend_list_post_button_text_d = 0x7f0b0413;
+        public static final int search_bar_edit_text = 0x7f0b0413;
         /* JADX INFO: Added by JADX */
-        public static final int invite_friend_list_post_button_text_n = 0x7f0b0414;
+        public static final int search_bar_edit_text_1 = 0x7f0b0414;
         /* JADX INFO: Added by JADX */
-        public static final int invite_friend_list_post_button_text_d_1 = 0x7f0b0415;
+        public static final int invite_friend_list_post_button_text_d = 0x7f0b0415;
         /* JADX INFO: Added by JADX */
-        public static final int invite_friend_list_post_button_text_n_1 = 0x7f0b0416;
+        public static final int invite_friend_list_post_button_text_n = 0x7f0b0416;
         /* JADX INFO: Added by JADX */
-        public static final int invite_msg_desc_color = 0x7f0b0417;
+        public static final int invite_friend_list_post_button_text_d_1 = 0x7f0b0417;
         /* JADX INFO: Added by JADX */
-        public static final int dialog_bdalert_title = 0x7f0b0418;
+        public static final int invite_friend_list_post_button_text_n_1 = 0x7f0b0418;
         /* JADX INFO: Added by JADX */
-        public static final int dialog_bdalert_title_1 = 0x7f0b0419;
+        public static final int invite_msg_desc_color = 0x7f0b0419;
         /* JADX INFO: Added by JADX */
-        public static final int dialog_bdalert_message = 0x7f0b041a;
+        public static final int dialog_bdalert_title = 0x7f0b041a;
         /* JADX INFO: Added by JADX */
-        public static final int dialog_bdalert_message_1 = 0x7f0b041b;
+        public static final int dialog_bdalert_title_1 = 0x7f0b041b;
         /* JADX INFO: Added by JADX */
-        public static final int secret_activity_bg = 0x7f0b041c;
+        public static final int dialog_bdalert_message = 0x7f0b041c;
         /* JADX INFO: Added by JADX */
-        public static final int secret_activity_bg_1 = 0x7f0b041d;
+        public static final int dialog_bdalert_message_1 = 0x7f0b041d;
         /* JADX INFO: Added by JADX */
-        public static final int secret_chat_set_title = 0x7f0b041e;
+        public static final int secret_activity_bg = 0x7f0b041e;
         /* JADX INFO: Added by JADX */
-        public static final int secret_chat_set_title_1 = 0x7f0b041f;
+        public static final int secret_activity_bg_1 = 0x7f0b041f;
         /* JADX INFO: Added by JADX */
-        public static final int only_send_me_text = 0x7f0b0420;
+        public static final int secret_chat_set_title = 0x7f0b0420;
         /* JADX INFO: Added by JADX */
-        public static final int only_send_me_text_1 = 0x7f0b0421;
+        public static final int secret_chat_set_title_1 = 0x7f0b0421;
         /* JADX INFO: Added by JADX */
-        public static final int only_send_me_bg = 0x7f0b0422;
+        public static final int only_send_me_text = 0x7f0b0422;
         /* JADX INFO: Added by JADX */
-        public static final int only_send_me_bg_1 = 0x7f0b0423;
+        public static final int only_send_me_text_1 = 0x7f0b0423;
         /* JADX INFO: Added by JADX */
-        public static final int secret_chat_set_temp_title = 0x7f0b0424;
+        public static final int only_send_me_bg = 0x7f0b0424;
         /* JADX INFO: Added by JADX */
-        public static final int secret_chat_set_temp_title_1 = 0x7f0b0425;
+        public static final int only_send_me_bg_1 = 0x7f0b0425;
         /* JADX INFO: Added by JADX */
-        public static final int blacklist_remove_button_text = 0x7f0b0426;
+        public static final int secret_chat_set_temp_title = 0x7f0b0426;
         /* JADX INFO: Added by JADX */
-        public static final int blacklist_remove_button_text_1 = 0x7f0b0427;
+        public static final int secret_chat_set_temp_title_1 = 0x7f0b0427;
         /* JADX INFO: Added by JADX */
-        public static final int mark_item_title = 0x7f0b0428;
+        public static final int blacklist_remove_button_text = 0x7f0b0428;
         /* JADX INFO: Added by JADX */
-        public static final int mark_item_title_1 = 0x7f0b0429;
+        public static final int blacklist_remove_button_text_1 = 0x7f0b0429;
         /* JADX INFO: Added by JADX */
-        public static final int mark_item_content = 0x7f0b042a;
+        public static final int mark_item_title = 0x7f0b042a;
         /* JADX INFO: Added by JADX */
-        public static final int mark_item_content_1 = 0x7f0b042b;
+        public static final int mark_item_title_1 = 0x7f0b042b;
         /* JADX INFO: Added by JADX */
-        public static final int mark_item_del = 0x7f0b042c;
+        public static final int mark_item_content = 0x7f0b042c;
         /* JADX INFO: Added by JADX */
-        public static final int mark_item_del_1 = 0x7f0b042d;
+        public static final int mark_item_content_1 = 0x7f0b042d;
         /* JADX INFO: Added by JADX */
-        public static final int mark_item_bg = 0x7f0b042e;
+        public static final int mark_item_del = 0x7f0b042e;
         /* JADX INFO: Added by JADX */
-        public static final int mark_item_bg_1 = 0x7f0b042f;
+        public static final int mark_item_del_1 = 0x7f0b042f;
         /* JADX INFO: Added by JADX */
-        public static final int mark_item_divider = 0x7f0b0430;
+        public static final int mark_item_bg = 0x7f0b0430;
         /* JADX INFO: Added by JADX */
-        public static final int mark_item_divider_1 = 0x7f0b0431;
+        public static final int mark_item_bg_1 = 0x7f0b0431;
         /* JADX INFO: Added by JADX */
-        public static final int mark_item_s = 0x7f0b0432;
+        public static final int mark_item_divider = 0x7f0b0432;
         /* JADX INFO: Added by JADX */
-        public static final int mark_item_s_1 = 0x7f0b0433;
+        public static final int mark_item_divider_1 = 0x7f0b0433;
         /* JADX INFO: Added by JADX */
-        public static final int mark_item_n = 0x7f0b0434;
+        public static final int mark_item_s = 0x7f0b0434;
         /* JADX INFO: Added by JADX */
-        public static final int mark_item_n_1 = 0x7f0b0435;
+        public static final int mark_item_s_1 = 0x7f0b0435;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_tips_normal = 0x7f0b0436;
+        public static final int mark_item_n = 0x7f0b0436;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_tips_normal_1 = 0x7f0b0437;
+        public static final int mark_item_n_1 = 0x7f0b0437;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_tips_highlight = 0x7f0b0438;
+        public static final int group_create_tips_normal = 0x7f0b0438;
         /* JADX INFO: Added by JADX */
-        public static final int group_create_tips_highlight_1 = 0x7f0b0439;
+        public static final int group_create_tips_normal_1 = 0x7f0b0439;
         /* JADX INFO: Added by JADX */
-        public static final int record_voice_tip_up_text = 0x7f0b043a;
+        public static final int group_create_tips_highlight = 0x7f0b043a;
         /* JADX INFO: Added by JADX */
-        public static final int record_voice_tip_up_text_1 = 0x7f0b043b;
+        public static final int group_create_tips_highlight_1 = 0x7f0b043b;
         /* JADX INFO: Added by JADX */
-        public static final int record_voice_tip_down_text = 0x7f0b043c;
+        public static final int record_voice_tip_up_text = 0x7f0b043c;
         /* JADX INFO: Added by JADX */
-        public static final int record_voice_tip_down_text_1 = 0x7f0b043d;
+        public static final int record_voice_tip_up_text_1 = 0x7f0b043d;
         /* JADX INFO: Added by JADX */
-        public static final int record_voice_play_text = 0x7f0b043e;
+        public static final int record_voice_tip_down_text = 0x7f0b043e;
         /* JADX INFO: Added by JADX */
-        public static final int record_voice_play_text_1 = 0x7f0b043f;
+        public static final int record_voice_tip_down_text_1 = 0x7f0b043f;
         /* JADX INFO: Added by JADX */
-        public static final int record_voice_play_shadow = 0x7f0b0440;
+        public static final int record_voice_play_text = 0x7f0b0440;
         /* JADX INFO: Added by JADX */
-        public static final int record_voice_play_shadow_1 = 0x7f0b0441;
+        public static final int record_voice_play_text_1 = 0x7f0b0441;
         /* JADX INFO: Added by JADX */
-        public static final int record_voice_progress_start = 0x7f0b0442;
+        public static final int record_voice_play_shadow = 0x7f0b0442;
         /* JADX INFO: Added by JADX */
-        public static final int record_voice_progress_start_1 = 0x7f0b0443;
+        public static final int record_voice_play_shadow_1 = 0x7f0b0443;
         /* JADX INFO: Added by JADX */
-        public static final int record_voice_progress_end = 0x7f0b0444;
+        public static final int record_voice_progress_start = 0x7f0b0444;
         /* JADX INFO: Added by JADX */
-        public static final int record_voice_progress_end_1 = 0x7f0b0445;
+        public static final int record_voice_progress_start_1 = 0x7f0b0445;
         /* JADX INFO: Added by JADX */
-        public static final int progress_count_down_text_warn = 0x7f0b0446;
+        public static final int record_voice_progress_end = 0x7f0b0446;
         /* JADX INFO: Added by JADX */
-        public static final int progress_count_down_text_normal = 0x7f0b0447;
+        public static final int record_voice_progress_end_1 = 0x7f0b0447;
         /* JADX INFO: Added by JADX */
-        public static final int progress_count_down_text_nobar = 0x7f0b0448;
+        public static final int progress_count_down_text_warn = 0x7f0b0448;
         /* JADX INFO: Added by JADX */
-        public static final int num_count_down_num_text = 0x7f0b0449;
+        public static final int progress_count_down_text_normal = 0x7f0b0449;
         /* JADX INFO: Added by JADX */
-        public static final int num_count_down_notice_text = 0x7f0b044a;
+        public static final int progress_count_down_text_nobar = 0x7f0b044a;
         /* JADX INFO: Added by JADX */
-        public static final int record_voice_container_bg = 0x7f0b044b;
+        public static final int num_count_down_num_text = 0x7f0b044b;
         /* JADX INFO: Added by JADX */
-        public static final int record_voice_container_bg_1 = 0x7f0b044c;
+        public static final int num_count_down_notice_text = 0x7f0b044c;
         /* JADX INFO: Added by JADX */
-        public static final int chatroom_topic = 0x7f0b044d;
+        public static final int record_voice_container_bg = 0x7f0b044d;
         /* JADX INFO: Added by JADX */
-        public static final int chatroom_title = 0x7f0b044e;
+        public static final int record_voice_container_bg_1 = 0x7f0b044e;
         /* JADX INFO: Added by JADX */
-        public static final int egg_breaker_tip_sfc = 0x7f0b044f;
+        public static final int chatroom_topic = 0x7f0b044f;
         /* JADX INFO: Added by JADX */
-        public static final int egg_breaker_tip_main_tip = 0x7f0b0450;
+        public static final int chatroom_title = 0x7f0b0450;
         /* JADX INFO: Added by JADX */
-        public static final int egg_breaker_tip_down_tip = 0x7f0b0451;
+        public static final int egg_breaker_tip_sfc = 0x7f0b0451;
         /* JADX INFO: Added by JADX */
-        public static final int upgrade_mem_group_btn_text = 0x7f0b0452;
+        public static final int egg_breaker_tip_main_tip = 0x7f0b0452;
         /* JADX INFO: Added by JADX */
-        public static final int upgrade_mem_group_btn_text_1 = 0x7f0b0453;
+        public static final int egg_breaker_tip_down_tip = 0x7f0b0453;
         /* JADX INFO: Added by JADX */
-        public static final int upgrade_mem_group_btn_cannotup_text = 0x7f0b0454;
+        public static final int upgrade_mem_group_btn_text = 0x7f0b0454;
         /* JADX INFO: Added by JADX */
-        public static final int upgrade_mem_group_btn_cannotup_text_1 = 0x7f0b0455;
+        public static final int upgrade_mem_group_btn_text_1 = 0x7f0b0455;
         /* JADX INFO: Added by JADX */
-        public static final int upgrade_mem_group_tip_text = 0x7f0b0456;
+        public static final int upgrade_mem_group_btn_cannotup_text = 0x7f0b0456;
         /* JADX INFO: Added by JADX */
-        public static final int upgrade_mem_group_tip_text_1 = 0x7f0b0457;
+        public static final int upgrade_mem_group_btn_cannotup_text_1 = 0x7f0b0457;
         /* JADX INFO: Added by JADX */
-        public static final int frs_fu_color = 0x7f0b0458;
+        public static final int upgrade_mem_group_tip_text = 0x7f0b0458;
         /* JADX INFO: Added by JADX */
-        public static final int frs_fu_color_1 = 0x7f0b0459;
+        public static final int upgrade_mem_group_tip_text_1 = 0x7f0b0459;
         /* JADX INFO: Added by JADX */
-        public static final int album_item_bg = 0x7f0b045a;
+        public static final int frs_fu_color = 0x7f0b045a;
         /* JADX INFO: Added by JADX */
-        public static final int album_item_bg_1 = 0x7f0b045b;
+        public static final int frs_fu_color_1 = 0x7f0b045b;
         /* JADX INFO: Added by JADX */
-        public static final int album_item_bg_click = 0x7f0b045c;
+        public static final int album_item_bg = 0x7f0b045c;
         /* JADX INFO: Added by JADX */
-        public static final int album_item_bg_click_1 = 0x7f0b045d;
+        public static final int album_item_bg_1 = 0x7f0b045d;
         /* JADX INFO: Added by JADX */
-        public static final int album_item_name = 0x7f0b045e;
+        public static final int album_item_bg_click = 0x7f0b045e;
         /* JADX INFO: Added by JADX */
-        public static final int album_item_name_1 = 0x7f0b045f;
+        public static final int album_item_bg_click_1 = 0x7f0b045f;
         /* JADX INFO: Added by JADX */
-        public static final int album_divider = 0x7f0b0460;
+        public static final int album_item_name = 0x7f0b0460;
         /* JADX INFO: Added by JADX */
-        public static final int album_divider_1 = 0x7f0b0461;
+        public static final int album_item_name_1 = 0x7f0b0461;
         /* JADX INFO: Added by JADX */
-        public static final int album_finish_text_n = 0x7f0b0462;
+        public static final int album_divider = 0x7f0b0462;
         /* JADX INFO: Added by JADX */
-        public static final int album_finish_text_n_1 = 0x7f0b0463;
+        public static final int album_divider_1 = 0x7f0b0463;
         /* JADX INFO: Added by JADX */
-        public static final int album_finish_text_d = 0x7f0b0464;
+        public static final int album_finish_text_n = 0x7f0b0464;
         /* JADX INFO: Added by JADX */
-        public static final int album_finish_text_d_1 = 0x7f0b0465;
+        public static final int album_finish_text_n_1 = 0x7f0b0465;
         /* JADX INFO: Added by JADX */
-        public static final int bg_image_foreground = 0x7f0b0466;
+        public static final int album_finish_text_d = 0x7f0b0466;
         /* JADX INFO: Added by JADX */
-        public static final int bg_image_foreground_1 = 0x7f0b0467;
+        public static final int album_finish_text_d_1 = 0x7f0b0467;
         /* JADX INFO: Added by JADX */
-        public static final int album_big_bg = 0x7f0b0468;
+        public static final int bg_image_foreground = 0x7f0b0468;
         /* JADX INFO: Added by JADX */
-        public static final int album_image_item_bg = 0x7f0b0469;
+        public static final int bg_image_foreground_1 = 0x7f0b0469;
         /* JADX INFO: Added by JADX */
-        public static final int album_image_item_bg_1 = 0x7f0b046a;
+        public static final int album_big_bg = 0x7f0b046a;
         /* JADX INFO: Added by JADX */
-        public static final int adp_pullview_day = 0x7f0b046b;
+        public static final int album_image_item_bg = 0x7f0b046b;
         /* JADX INFO: Added by JADX */
-        public static final int adp_pullview_night = 0x7f0b046c;
+        public static final int album_image_item_bg_1 = 0x7f0b046c;
         /* JADX INFO: Added by JADX */
-        public static final int motu_tab_text_color_uncheck = 0x7f0b046d;
+        public static final int adp_pullview_day = 0x7f0b046d;
         /* JADX INFO: Added by JADX */
-        public static final int motu_tab_text_color_checked = 0x7f0b046e;
+        public static final int adp_pullview_night = 0x7f0b046e;
         /* JADX INFO: Added by JADX */
-        public static final int motu_image_bg = 0x7f0b046f;
+        public static final int motu_tab_text_color_uncheck = 0x7f0b046f;
         /* JADX INFO: Added by JADX */
-        public static final int group_activity_bg = 0x7f0b0470;
+        public static final int motu_tab_text_color_checked = 0x7f0b0470;
         /* JADX INFO: Added by JADX */
-        public static final int group_activity_bg_1 = 0x7f0b0471;
+        public static final int motu_image_bg = 0x7f0b0471;
         /* JADX INFO: Added by JADX */
-        public static final int commit_btn_text_disable = 0x7f0b0472;
+        public static final int group_activity_bg = 0x7f0b0472;
         /* JADX INFO: Added by JADX */
-        public static final int commit_btn_text_disable_1 = 0x7f0b0473;
+        public static final int group_activity_bg_1 = 0x7f0b0473;
         /* JADX INFO: Added by JADX */
-        public static final int commit_btn_text_enable_1 = 0x7f0b0474;
+        public static final int commit_btn_text_disable = 0x7f0b0474;
         /* JADX INFO: Added by JADX */
-        public static final int group_activity_main_text = 0x7f0b0475;
+        public static final int commit_btn_text_disable_1 = 0x7f0b0475;
         /* JADX INFO: Added by JADX */
-        public static final int group_activity_main_text_1 = 0x7f0b0476;
+        public static final int commit_btn_text_enable_1 = 0x7f0b0476;
         /* JADX INFO: Added by JADX */
-        public static final int group_activity_group_author = 0x7f0b0477;
+        public static final int group_activity_main_text = 0x7f0b0477;
         /* JADX INFO: Added by JADX */
-        public static final int group_activity_group_author_1 = 0x7f0b0478;
+        public static final int group_activity_main_text_1 = 0x7f0b0478;
         /* JADX INFO: Added by JADX */
-        public static final int group_activity_group_author_icon = 0x7f0b0479;
+        public static final int group_activity_group_author = 0x7f0b0479;
         /* JADX INFO: Added by JADX */
-        public static final int group_activity_group_author_icon_1 = 0x7f0b047a;
+        public static final int group_activity_group_author_1 = 0x7f0b047a;
         /* JADX INFO: Added by JADX */
-        public static final int group_activity_end = 0x7f0b047b;
+        public static final int group_activity_group_author_icon = 0x7f0b047b;
         /* JADX INFO: Added by JADX */
-        public static final int group_activity_end_1 = 0x7f0b047c;
+        public static final int group_activity_group_author_icon_1 = 0x7f0b047c;
         /* JADX INFO: Added by JADX */
-        public static final int guide_description_color = 0x7f0b047d;
+        public static final int group_activity_end = 0x7f0b047d;
         /* JADX INFO: Added by JADX */
-        public static final int guide_subtitle_color = 0x7f0b047e;
+        public static final int group_activity_end_1 = 0x7f0b047e;
         /* JADX INFO: Added by JADX */
-        public static final int guide_item_color = 0x7f0b047f;
+        public static final int guide_description_color = 0x7f0b047f;
         /* JADX INFO: Added by JADX */
-        public static final int guide_subitem_color = 0x7f0b0480;
+        public static final int guide_subtitle_color = 0x7f0b0480;
         /* JADX INFO: Added by JADX */
-        public static final int guide_subsubitem_color = 0x7f0b0481;
+        public static final int guide_item_color = 0x7f0b0481;
         /* JADX INFO: Added by JADX */
-        public static final int setting_tip_color = 0x7f0b0482;
+        public static final int guide_subitem_color = 0x7f0b0482;
         /* JADX INFO: Added by JADX */
-        public static final int setting_tip_color_1 = 0x7f0b0483;
+        public static final int guide_subsubitem_color = 0x7f0b0483;
         /* JADX INFO: Added by JADX */
-        public static final int setting_subtip_color = 0x7f0b0484;
+        public static final int setting_tip_color = 0x7f0b0484;
         /* JADX INFO: Added by JADX */
-        public static final int setting_subtip_color_1 = 0x7f0b0485;
+        public static final int setting_tip_color_1 = 0x7f0b0485;
         /* JADX INFO: Added by JADX */
-        public static final int about_tip_color = 0x7f0b0486;
+        public static final int setting_subtip_color = 0x7f0b0486;
         /* JADX INFO: Added by JADX */
-        public static final int about_tip_color_1 = 0x7f0b0487;
+        public static final int setting_subtip_color_1 = 0x7f0b0487;
         /* JADX INFO: Added by JADX */
-        public static final int new_user_line_color = 0x7f0b0488;
+        public static final int about_tip_color = 0x7f0b0488;
         /* JADX INFO: Added by JADX */
-        public static final int album_nodata_text = 0x7f0b0489;
+        public static final int about_tip_color_1 = 0x7f0b0489;
         /* JADX INFO: Added by JADX */
-        public static final int album_nodata_text_1 = 0x7f0b048a;
+        public static final int new_user_line_color = 0x7f0b048a;
         /* JADX INFO: Added by JADX */
-        public static final int sapi_background_color = 0x7f0b048b;
+        public static final int album_nodata_text = 0x7f0b048b;
         /* JADX INFO: Added by JADX */
-        public static final int album_finish_btn_text = 0x7f0b048c;
+        public static final int album_nodata_text_1 = 0x7f0b048c;
         /* JADX INFO: Added by JADX */
-        public static final int album_finish_btn_text_1 = 0x7f0b048d;
+        public static final int sapi_background_color = 0x7f0b048d;
         /* JADX INFO: Added by JADX */
-        public static final int btn_delete_groupupdates = 0x7f0b048e;
+        public static final int album_finish_btn_text = 0x7f0b048e;
         /* JADX INFO: Added by JADX */
-        public static final int btn_delete_groupupdates_1 = 0x7f0b048f;
+        public static final int album_finish_btn_text_1 = 0x7f0b048f;
         /* JADX INFO: Added by JADX */
-        public static final int frs_good_text_color = 0x7f0b0490;
+        public static final int btn_delete_groupupdates = 0x7f0b0490;
         /* JADX INFO: Added by JADX */
-        public static final int main_bottom_button_color = 0x7f0b0491;
+        public static final int btn_delete_groupupdates_1 = 0x7f0b0491;
         /* JADX INFO: Added by JADX */
-        public static final int main_bottom_button_color_1 = 0x7f0b0492;
+        public static final int frs_good_text_color = 0x7f0b0492;
         /* JADX INFO: Added by JADX */
-        public static final int navi_del_text = 0x7f0b0493;
+        public static final int main_bottom_button_color = 0x7f0b0493;
         /* JADX INFO: Added by JADX */
-        public static final int navi_del_text_1 = 0x7f0b0494;
+        public static final int main_bottom_button_color_1 = 0x7f0b0494;
         /* JADX INFO: Added by JADX */
-        public static final int navi_done_text = 0x7f0b0495;
+        public static final int navi_del_text = 0x7f0b0495;
         /* JADX INFO: Added by JADX */
-        public static final int navi_done_text_1 = 0x7f0b0496;
+        public static final int navi_del_text_1 = 0x7f0b0496;
         /* JADX INFO: Added by JADX */
-        public static final int navi_op_text = 0x7f0b0497;
+        public static final int navi_done_text = 0x7f0b0497;
         /* JADX INFO: Added by JADX */
-        public static final int navi_op_text_1 = 0x7f0b0498;
+        public static final int navi_done_text_1 = 0x7f0b0498;
         /* JADX INFO: Added by JADX */
-        public static final int post_button_text_color = 0x7f0b0499;
+        public static final int navi_op_text = 0x7f0b0499;
         /* JADX INFO: Added by JADX */
-        public static final int post_image_btn_color = 0x7f0b049a;
+        public static final int navi_op_text_1 = 0x7f0b049a;
         /* JADX INFO: Added by JADX */
-        public static final int post_image_btn_color_1 = 0x7f0b049b;
+        public static final int post_button_text_color = 0x7f0b049b;
         /* JADX INFO: Added by JADX */
-        public static final int search_tab_btn_color = 0x7f0b049c;
+        public static final int post_image_btn_color = 0x7f0b049c;
         /* JADX INFO: Added by JADX */
-        public static final int search_tab_btn_color_1 = 0x7f0b049d;
+        public static final int post_image_btn_color_1 = 0x7f0b049d;
         /* JADX INFO: Added by JADX */
-        public static final int text_black_white_color = 0x7f0b049e;
+        public static final int search_tab_btn_color = 0x7f0b049e;
         /* JADX INFO: Added by JADX */
-        public static final int text_blue_selector_color = 0x7f0b049f;
+        public static final int search_tab_btn_color_1 = 0x7f0b049f;
         /* JADX INFO: Added by JADX */
-        public static final int text_blue_selector_color_1 = 0x7f0b04a0;
+        public static final int text_black_white_color = 0x7f0b04a0;
         /* JADX INFO: Added by JADX */
-        public static final int text_white_selector_color = 0x7f0b04a1;
+        public static final int text_blue_selector_color = 0x7f0b04a1;
         /* JADX INFO: Added by JADX */
-        public static final int validate_btn_selector_color = 0x7f0b04a2;
+        public static final int text_blue_selector_color_1 = 0x7f0b04a2;
+        /* JADX INFO: Added by JADX */
+        public static final int text_white_selector_color = 0x7f0b04a3;
+        /* JADX INFO: Added by JADX */
+        public static final int validate_btn_selector_color = 0x7f0b04a4;
     }
 
     /* JADX INFO: Added by JADX */

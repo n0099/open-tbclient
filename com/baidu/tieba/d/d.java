@@ -25,7 +25,7 @@ public final class d implements com.baidu.tieba.im.messageCenter.g {
 
     @Override // com.baidu.tieba.im.messageCenter.g
     public final void a(s sVar) {
-        if (sVar.w() == -123 && (sVar instanceof j)) {
+        if (sVar.v() == -123 && (sVar instanceof j)) {
             this.c = ((j) sVar).a();
             List<String> list = this.c;
             this.b = new e(this);

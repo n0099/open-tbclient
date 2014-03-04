@@ -120,9 +120,8 @@ public final class c implements com.baidu.tieba.im.a<com.baidu.tieba.im.db.d> {
                     sb2.append(groupMidData.getLastMsgId());
                     sb2.append("|");
                 }
-                int v = j9.v();
                 str = this.a.i;
-                cb.a(202003, v, str, "MessageSync-send-pullmsg", "succ", 0, "", 0L, 0, sb2.toString());
+                cb.a(202003, 0, str, "MessageSync-send-pullmsg", "succ", 0, "", 0L, 0, sb2.toString());
                 com.baidu.adp.lib.util.e.e(sb2.toString());
                 com.baidu.tieba.im.messageCenter.d.a().a(j9);
             } else {

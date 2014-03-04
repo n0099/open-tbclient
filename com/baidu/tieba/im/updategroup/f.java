@@ -15,9 +15,8 @@ public final class f extends g {
         this.c.setFilters(new InputFilter[]{new com.baidu.tieba.im.util.a(20)});
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.updategroup.g
-    public final void a(int i, int i2, int i3, int i4) {
+    protected final void a(int i, int i2, int i3, int i4) {
         super.a(i, i2, i3, i4);
         if (i <= 0) {
             this.g.setVisibility(8);

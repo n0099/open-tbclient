@@ -19,7 +19,7 @@ final class a implements com.baidu.tieba.im.messageCenter.g {
         b bVar;
         bVar = this.a.a;
         bVar.a(false);
-        if (sVar != null && sVar.w() == 103007) {
+        if (sVar != null && sVar.v() == 103007) {
             if (sVar instanceof ct) {
                 ct ctVar = (ct) sVar;
                 if (ctVar.l()) {

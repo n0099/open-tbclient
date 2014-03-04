@@ -131,7 +131,7 @@ public class EmotionTabHost extends LinearLayout implements z, com.baidu.tieba.i
 
     @Override // com.baidu.tieba.im.messageCenter.g
     public final void a(com.baidu.tieba.im.message.s sVar) {
-        switch (sVar.w()) {
+        switch (sVar.v()) {
             case -120:
                 this.e = -1;
                 this.d.clear();

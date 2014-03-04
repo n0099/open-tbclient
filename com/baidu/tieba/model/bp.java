@@ -208,7 +208,7 @@ public final class bp extends com.baidu.adp.a.d implements com.baidu.tieba.im.me
     @Override // com.baidu.tieba.im.messageCenter.g
     public final void a(com.baidu.tieba.im.message.s sVar) {
         if (sVar != null) {
-            switch (sVar.w()) {
+            switch (sVar.v()) {
                 case -118:
                     if ((sVar instanceof de) && this.k != null) {
                         de deVar = (de) sVar;

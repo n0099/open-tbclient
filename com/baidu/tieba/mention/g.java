@@ -14,7 +14,7 @@ final class g implements com.baidu.tieba.im.messageCenter.g {
 
     @Override // com.baidu.tieba.im.messageCenter.g
     public final void a(com.baidu.tieba.im.message.s sVar) {
-        if (sVar != null && sVar.w() == -124) {
+        if (sVar != null && sVar.v() == -124) {
             c.a(this.a, sVar);
         }
     }

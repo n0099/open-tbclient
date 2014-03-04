@@ -217,7 +217,7 @@ public final class a extends j implements com.baidu.tieba.im.a.d, com.baidu.tieb
 
     @Override // com.baidu.tieba.im.messageCenter.g
     public final void a(s sVar) {
-        if (sVar.w() == 103008) {
+        if (sVar.v() == 103008) {
             if (sVar instanceof cz) {
                 try {
                     cz czVar = (cz) sVar;
@@ -236,7 +236,7 @@ public final class a extends j implements com.baidu.tieba.im.a.d, com.baidu.tieb
                 } catch (Exception e) {
                 }
             }
-        } else if (sVar.w() == 106101) {
+        } else if (sVar.v() == 106101) {
             this.e.b();
             if (!(sVar instanceof bw)) {
                 a(R.string.neterror);

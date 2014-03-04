@@ -32,7 +32,7 @@ final class l implements com.baidu.tieba.im.messageCenter.g {
             this.a.showToast(R.string.neterror);
             return;
         }
-        com.baidu.adp.lib.util.e.e("msg:" + sVar.w());
+        com.baidu.adp.lib.util.e.e("msg:" + sVar.v());
         if (sVar instanceof cb) {
             cb cbVar = (cb) sVar;
             if (cbVar.l()) {
@@ -89,7 +89,7 @@ final class l implements com.baidu.tieba.im.messageCenter.g {
             }
         } else if (sVar instanceof cy) {
             cy cyVar = (cy) sVar;
-            com.baidu.adp.lib.util.e.e("get upgrade mem group msg:" + cyVar.w() + " err:" + String.valueOf(cyVar.m()));
+            com.baidu.adp.lib.util.e.e("get upgrade mem group msg:" + cyVar.v() + " err:" + String.valueOf(cyVar.m()));
             if (!cyVar.l()) {
                 this.a.a();
             } else if (cyVar.m() == 2230110) {

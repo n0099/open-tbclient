@@ -15,9 +15,9 @@ public final class n implements g {
     @Override // com.baidu.tieba.im.messageCenter.g
     public final void a(s sVar) {
         if (sVar != null) {
-            if (sVar.w() == -11 && (sVar instanceof com.baidu.tieba.im.message.a)) {
+            if (sVar.v() == -11 && (sVar instanceof com.baidu.tieba.im.message.a)) {
                 m.a(this.a, (com.baidu.tieba.im.message.a) sVar);
-            } else if (sVar.w() == 1003 && (sVar instanceof da)) {
+            } else if (sVar.v() == 1003 && (sVar instanceof da)) {
                 m.a(this.a, (da) sVar);
             }
         }

@@ -1,5 +1,6 @@
 package com.baidu.adp.lib.voice;
 
+import com.baidu.adp.lib.stats.g;
 import com.baidu.adp.lib.util.e;
 import java.io.File;
 /* loaded from: classes.dex */
@@ -37,17 +38,21 @@ public class Amrnb {
             }
             if (str != null) {
                 System.load(str);
+                g.a().a("loadVoiceSoLocal", "", 1, new Object[0]);
             } else {
                 System.loadLibrary("amrnb");
+                g.a().a("loadVoiceSoSystem", "", 1, new Object[0]);
             }
             bLoadLibrary = true;
         } catch (Throwable th) {
             e.d("----load amrnb so failed.");
             try {
                 System.loadLibrary("amrnb");
+                g.a().a("loadVoiceSoSystem", "", 1, new Object[0]);
                 bLoadLibrary = true;
             } catch (Throwable th2) {
                 bLoadLibrary = false;
+                g.a().a("loadVoiceSoFail", "", 1, new Object[0]);
                 e.d("----load amrnb so failed2.");
             }
         }

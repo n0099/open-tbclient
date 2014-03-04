@@ -19,17 +19,17 @@ public final class ai implements com.baidu.tieba.im.messageCenter.g {
     public final void a(com.baidu.tieba.im.message.s sVar) {
         if (sVar == null) {
             com.baidu.adp.lib.util.e.b("msg == null");
-        } else if (sVar.w() == 103112) {
+        } else if (sVar.v() == 103112) {
             MsglistModel.a(this.a, sVar);
-        } else if (sVar.w() == 103102) {
+        } else if (sVar.v() == 103102) {
             MsglistModel.b(this.a, sVar);
-        } else if (sVar.w() == 202003) {
+        } else if (sVar.v() == 202003) {
             MsglistModel.c(this.a, sVar);
-        } else if (sVar.w() == -113) {
+        } else if (sVar.v() == -113) {
             MsglistModel.k(this.a);
-        } else if (sVar.w() == 205004) {
+        } else if (sVar.v() == 205004) {
             MsglistModel.d(this.a, sVar);
-        } else if (sVar.w() == -126) {
+        } else if (sVar.v() == -126) {
             com.baidu.adp.lib.util.e.e("simon", "onMessage", "msg = " + sVar);
             if (sVar instanceof da) {
                 MsglistModel.e(this.a).getChatMessages().add((com.baidu.tieba.im.message.b) ((da) sVar).o());

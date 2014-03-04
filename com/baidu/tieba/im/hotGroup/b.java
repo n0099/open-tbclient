@@ -64,7 +64,7 @@ final class b implements g {
                     cd cdVar = (cd) sVar;
                     cVar2 = this.a.g;
                     cVar2.c(false);
-                    if (sVar.w() == 103012) {
+                    if (sVar.v() == 103012) {
                         bdListView2 = this.a.b;
                         bdListView2.a();
                         if (cdVar.l()) {
@@ -107,7 +107,7 @@ final class b implements g {
                                 }
                             }
                         }
-                    } else if (sVar.w() == -116) {
+                    } else if (sVar.v() == -116) {
                         List<GroupInfoData> a2 = cdVar.a();
                         if (a2 != null) {
                             hotGroupAdapter = this.a.f;

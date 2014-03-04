@@ -14,11 +14,11 @@ public abstract class b<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(String str, h hVar, boolean z) {
+    public void a(String str, f fVar) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(T t, String str, h hVar) {
+    public void a(T t, String str, f fVar) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -26,6 +26,6 @@ public abstract class b<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(String str, h hVar) {
+    public void b(String str, f fVar) {
     }
 }

@@ -32,7 +32,7 @@ final class a implements com.baidu.tieba.im.messageCenter.g {
         UserData userData;
         com.baidu.tieba.im.chat.a aVar;
         ArrayList arrayList = null;
-        switch (sVar.w()) {
+        switch (sVar.v()) {
             case -119:
                 if (sVar instanceof com.baidu.tieba.im.message.c) {
                     String a2 = ((com.baidu.tieba.im.message.c) sVar).a();

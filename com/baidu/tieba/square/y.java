@@ -133,7 +133,7 @@ public final class y extends PagerAdapter implements com.baidu.tbadk.imageManage
     @Override // com.baidu.tbadk.imageManager.d
     public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
         HeadImageView headImageView;
-        if (this.l != null && (headImageView = (HeadImageView) this.l.findViewWithTag(str)) != null) {
+        if (this.l != null && (headImageView = (HeadImageView) this.l.findViewWithTag(str)) != null && bVar != null) {
             headImageView.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
             headImageView.invalidate();
         }

@@ -1,6 +1,6 @@
 package com.baidu.adp.widget.ImageView;
 
-import com.baidu.adp.lib.e.h;
+import com.baidu.adp.lib.e.f;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class a extends com.baidu.adp.lib.e.b {
@@ -13,7 +13,7 @@ public final class a extends com.baidu.adp.lib.e.b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.e.b
-    public final void a(Object obj, String str, h hVar) {
+    public final void a(Object obj, String str, f fVar) {
         this.a.invalidate();
     }
 }

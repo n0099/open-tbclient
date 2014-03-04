@@ -14,15 +14,15 @@ public final class j extends com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageVie
         this.b = lVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.String, com.baidu.adp.lib.e.h] */
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.String, com.baidu.adp.lib.e.f] */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.e.b
-    public final /* synthetic */ void a(com.baidu.adp.widget.ImageView.b bVar, String str, com.baidu.adp.lib.e.h hVar) {
+    public final /* synthetic */ void a(com.baidu.adp.widget.ImageView.b bVar, String str, com.baidu.adp.lib.e.f fVar) {
         LinkedList linkedList;
         LinkedList linkedList2;
         LinkedList linkedList3;
         com.baidu.adp.widget.ImageView.b bVar2 = bVar;
-        super.a((j) bVar2, str, hVar);
+        super.a(bVar2, str, fVar);
         linkedList = this.a.k;
         linkedList.remove(this.b);
         if (!this.b.o && !this.b.a() && this.b.b != null) {
@@ -52,12 +52,10 @@ public final class j extends com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageVie
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.e.b
-    public final void a(String str, com.baidu.adp.lib.e.h hVar, boolean z) {
-        super.a(str, hVar, z);
+    public final void a(String str, com.baidu.adp.lib.e.f fVar) {
+        super.a(str, fVar);
         l lVar = this.b;
-        if (z) {
-            lVar.n = true;
-        }
+        lVar.n = true;
         if (lVar.a != null) {
             lVar.a.j();
         }
@@ -65,11 +63,11 @@ public final class j extends com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageVie
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.e.b
-    public final void a(String str, com.baidu.adp.lib.e.h hVar) {
+    public final void b(String str, com.baidu.adp.lib.e.f fVar) {
         LinkedList linkedList;
         LinkedList linkedList2;
         LinkedList linkedList3;
-        super.a(str, hVar);
+        super.b(str, fVar);
         linkedList = this.a.k;
         linkedList.remove(this.b);
         linkedList2 = this.a.l;

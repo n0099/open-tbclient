@@ -539,7 +539,7 @@ public final class a implements com.baidu.tieba.im.messageCenter.g {
 
     @Override // com.baidu.tieba.im.messageCenter.g
     public final void a(s sVar) {
-        switch (sVar.w()) {
+        switch (sVar.v()) {
             case -128:
                 if (sVar instanceof com.baidu.tieba.im.message.n) {
                     String a2 = ((com.baidu.tieba.im.message.n) sVar).a();

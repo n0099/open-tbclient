@@ -215,8 +215,8 @@ public class ValidateActivity extends com.baidu.tieba.f implements AbsListView.O
         this.b.a(false);
         this.i = false;
         if (sVar != null && (sVar instanceof da)) {
-            int w = sVar.w();
-            if (w == 103111) {
+            int v = sVar.v();
+            if (v == 103111) {
                 da daVar = (da) sVar;
                 af afVar = (af) daVar.o();
                 if (daVar.l()) {
@@ -255,7 +255,7 @@ public class ValidateActivity extends com.baidu.tieba.f implements AbsListView.O
                     this.b.e().notifyDataSetChanged();
                     com.baidu.adp.lib.util.e.e("apply add group" + sVar.toString());
                 }
-            } else if (202004 == w) {
+            } else if (202004 == v) {
                 aj ajVar = (aj) sVar;
                 ag agVar = (ag) ajVar.o();
                 if (ajVar.l()) {
@@ -275,7 +275,7 @@ public class ValidateActivity extends com.baidu.tieba.f implements AbsListView.O
                 e.b().remove(this.f);
                 e.notifyDataSetChanged();
                 com.baidu.tieba.im.c.a.a((com.baidu.tieba.im.a<Void>) null);
-            } else if (-129 == w && (sVar instanceof aa)) {
+            } else if (-129 == v && (sVar instanceof aa)) {
                 GroupNewsPojo a4 = ((aa) sVar).a();
                 this.l++;
                 this.j++;

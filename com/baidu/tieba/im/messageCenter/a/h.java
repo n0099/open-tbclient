@@ -12,7 +12,7 @@ public class h extends com.baidu.tieba.im.messageCenter.c {
             return a(103004, sVar);
         }
         ao aoVar = (ao) sVar;
-        int w = aoVar.w();
+        int v = aoVar.v();
         String str = "";
         if (TiebaApplication.y() != null) {
             str = TiebaApplication.y().getID();
@@ -21,13 +21,13 @@ public class h extends com.baidu.tieba.im.messageCenter.c {
         if (a != null) {
             da a2 = n.a(103004, a);
             if (a2 == null) {
-                return a(w, sVar);
+                return a(v, sVar);
             }
-            a2.e(w);
+            a2.e(v);
             a2.a(sVar);
             return a2;
         }
-        return a(w, sVar);
+        return a(v, sVar);
     }
 
     private static ca a(int i, com.baidu.tieba.im.message.s sVar) {

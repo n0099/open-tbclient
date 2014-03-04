@@ -33,7 +33,7 @@ public class GroupChatActivity extends MsglistActivity {
     @Override // com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.messageCenter.g
     public final void a(com.baidu.tieba.im.message.s sVar) {
         super.a(sVar);
-        switch (sVar.w()) {
+        switch (sVar.v()) {
             case -125:
                 if (TiebaApplication.g().aK() && this.i == 0) {
                     this.d.O().setVisibility(0);

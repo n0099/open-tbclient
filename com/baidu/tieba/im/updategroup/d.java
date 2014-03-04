@@ -16,7 +16,7 @@ public final class d implements com.baidu.tieba.im.messageCenter.g {
     public final void a(s sVar) {
         a aVar;
         a aVar2;
-        if (sVar != null && sVar.w() == 103102) {
+        if (sVar != null && sVar.v() == 103102) {
             aVar = this.a.c;
             aVar.a(false);
             if (!(sVar instanceof cw)) {

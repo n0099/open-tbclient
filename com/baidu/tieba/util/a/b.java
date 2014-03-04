@@ -1,20 +1,19 @@
 package com.baidu.tieba.util.a;
 
-import com.baidu.adp.lib.e.h;
-import com.baidu.adp.lib.e.i;
 import com.baidu.tieba.log.j;
 import com.baidu.tieba.util.ba;
+import com.baidu.tieba.util.i;
 import com.baidu.tieba.util.l;
 import com.baidu.tieba.util.n;
 import com.baidu.tieba.util.r;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 /* loaded from: classes.dex */
-public final class b implements i {
-    @Override // com.baidu.adp.lib.e.i
-    public final Object a(String str, h hVar) {
+public final class b implements com.baidu.adp.lib.e.g {
+    @Override // com.baidu.adp.lib.e.g
+    public final Object a(String str, com.baidu.adp.lib.e.f fVar) {
         l lVar;
-        if (hVar != null && (lVar = (l) hVar.a("ImageAsyncTaskInfo")) != null) {
+        if (fVar != null && (lVar = (l) fVar.a("ImageAsyncTaskInfo")) != null) {
             com.baidu.adp.widget.ImageView.b c = com.baidu.tbadk.imageManager.e.a().c(str);
             if (c != null) {
                 lVar.i = c;
@@ -24,15 +23,15 @@ public final class b implements i {
         return null;
     }
 
-    @Override // com.baidu.adp.lib.e.i
+    @Override // com.baidu.adp.lib.e.g
     public final Object a(String str, com.baidu.adp.lib.e.e eVar) {
         com.baidu.adp.widget.ImageView.b a;
-        h e = eVar.e();
-        if (e != null && ((com.baidu.tieba.util.i) e.a("AsyncImageLoader")) != null) {
-            l lVar = (l) e.a("ImageAsyncTaskInfo");
-            String str2 = (String) e.a("em_group_id");
-            String str3 = (String) e.a("em_sharp_text");
-            Boolean bool = (Boolean) e.a("em_load_gif");
+        com.baidu.adp.lib.e.f d = eVar.d();
+        if (d != null && ((i) d.a("AsyncImageLoader")) != null) {
+            l lVar = (l) d.a("ImageAsyncTaskInfo");
+            String str2 = (String) d.a("em_group_id");
+            String str3 = (String) d.a("em_sharp_text");
+            Boolean bool = (Boolean) d.a("em_load_gif");
             if (lVar == null || str3 == null || bool == null) {
                 return null;
             }
@@ -50,18 +49,18 @@ public final class b implements i {
         return null;
     }
 
-    @Override // com.baidu.adp.lib.e.i
+    @Override // com.baidu.adp.lib.e.g
     public final Object b(String str, com.baidu.adp.lib.e.e eVar) {
-        com.baidu.tieba.util.i iVar;
-        h e = eVar.e();
-        if (e == null || (iVar = (com.baidu.tieba.util.i) e.a("AsyncImageLoader")) == null) {
+        i iVar;
+        com.baidu.adp.lib.e.f d = eVar.d();
+        if (d == null || (iVar = (i) d.a("AsyncImageLoader")) == null) {
             return null;
         }
-        l lVar = (l) e.a("ImageAsyncTaskInfo");
-        String str2 = (String) e.a("em_group_id");
-        String str3 = (String) e.a("em_sharp_text");
-        Boolean bool = (Boolean) e.a("em_load_gif");
-        String str4 = (String) e.a("em_img_url");
+        l lVar = (l) d.a("ImageAsyncTaskInfo");
+        String str2 = (String) d.a("em_group_id");
+        String str3 = (String) d.a("em_sharp_text");
+        Boolean bool = (Boolean) d.a("em_load_gif");
+        String str4 = (String) d.a("em_img_url");
         if (str2 == null || lVar == null || str3 == null || bool == null || str4 == null || lVar.n) {
             return null;
         }

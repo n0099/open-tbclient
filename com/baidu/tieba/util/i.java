@@ -208,13 +208,13 @@ public final class i {
             if (lVar != lVar3) {
                 this.k.add(lVar3);
             }
-            com.baidu.adp.lib.e.h hVar = new com.baidu.adp.lib.e.h();
-            hVar.a("ImageAsyncTaskInfo", lVar3);
-            hVar.a("AsyncImageLoader", this);
-            hVar.a("param_immediatelyExecut", Boolean.valueOf(z2));
+            com.baidu.adp.lib.e.f fVar = new com.baidu.adp.lib.e.f();
+            fVar.a("ImageAsyncTaskInfo", lVar3);
+            fVar.a("AsyncImageLoader", this);
+            fVar.a("param_immediatelyExecut", Boolean.valueOf(z2));
             if (map != null) {
                 for (Map.Entry<String, Object> entry : map.entrySet()) {
-                    hVar.a(entry.getKey(), entry.getValue());
+                    fVar.a(entry.getKey(), entry.getValue());
                 }
             }
             int i4 = 2;
@@ -224,7 +224,7 @@ public final class i {
             } else if (i == 6) {
                 i5 = 3;
             }
-            Object a = com.baidu.adp.lib.e.c.a().a(str, i5, new j(this, lVar3), TiebaApplication.g().b(), hVar, (i == 0 || i == 6) ? 1 : 1);
+            Object a = com.baidu.adp.lib.e.c.a().a(str, i5, new j(this, lVar3), TiebaApplication.g().b(), fVar, (i == 0 || i == 6) ? 1 : 1);
             if (a != null && (a instanceof com.baidu.adp.widget.ImageView.b)) {
                 return (com.baidu.adp.widget.ImageView.b) a;
             }

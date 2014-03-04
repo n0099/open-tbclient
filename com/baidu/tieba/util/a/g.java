@@ -1,6 +1,4 @@
 package com.baidu.tieba.util.a;
-
-import com.baidu.adp.lib.e.i;
 /* loaded from: classes.dex */
 public final class g implements com.baidu.adp.lib.e.a {
     private static g a = null;
@@ -16,7 +14,7 @@ public final class g implements com.baidu.adp.lib.e.a {
     }
 
     @Override // com.baidu.adp.lib.e.a
-    public final i a(int i) {
+    public final com.baidu.adp.lib.e.g a(int i) {
         switch (i) {
             case 1:
                 return new e();

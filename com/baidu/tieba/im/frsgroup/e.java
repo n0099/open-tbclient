@@ -58,7 +58,7 @@ public final class e implements com.baidu.tieba.im.messageCenter.g {
                 return;
             }
         }
-        if (bxVar.w() == -201) {
+        if (bxVar.v() == -201) {
             dVar8 = this.a.c;
             if (!dVar8.e() && (a = bxVar.a()) != null && !a.isEmpty()) {
                 dVar9 = this.a.c;

@@ -99,7 +99,7 @@ public final class h {
         Iterator<p> it = linkedList.iterator();
         while (it.hasNext()) {
             p next = it.next();
-            if (next != null && (i2 = next.i()) != null && i2.w() == i) {
+            if (next != null && (i2 = next.i()) != null && i2.v() == i) {
                 return true;
             }
         }
@@ -112,7 +112,7 @@ public final class h {
             Iterator<p> it = linkedList.iterator();
             while (it.hasNext()) {
                 p next = it.next();
-                if (next != null && (i2 = next.i()) != null && i2.w() == i) {
+                if (next != null && (i2 = next.i()) != null && i2.v() == i) {
                     it.remove();
                     cb.a(i, next.l(), "duplicate remove from queue", "MessageQueue: Message throwed", null, 0, null);
                 }
@@ -128,7 +128,7 @@ public final class h {
         Iterator<p> it = linkedList.iterator();
         while (it.hasNext()) {
             p next = it.next();
-            if (next != null && (i2 = next.i()) != null && i2.w() == i && bVar.a(i2)) {
+            if (next != null && (i2 = next.i()) != null && i2.v() == i && bVar.a(i2)) {
                 return true;
             }
         }
@@ -140,7 +140,7 @@ public final class h {
         Iterator<p> it = linkedList.iterator();
         while (it.hasNext()) {
             p next = it.next();
-            if (next != null && (i2 = next.i()) != null && i2.w() == i) {
+            if (next != null && (i2 = next.i()) != null && i2.v() == i) {
                 return true;
             }
         }

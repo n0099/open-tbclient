@@ -214,7 +214,7 @@ public class EmotionManageActivity extends com.baidu.tieba.f implements com.baid
 
     @Override // com.baidu.tieba.im.messageCenter.g
     public final void a(com.baidu.tieba.im.message.s sVar) {
-        if (sVar.w() == -120) {
+        if (sVar.v() == -120) {
             this.c = new f(this, (byte) 0);
             this.c.execute(new String[0]);
         }

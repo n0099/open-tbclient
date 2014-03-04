@@ -67,7 +67,7 @@ public final class l implements com.baidu.tieba.im.messageCenter.g {
     @Override // com.baidu.tieba.im.messageCenter.g
     public final void a(s sVar) {
         if (sVar != null) {
-            switch (sVar.w()) {
+            switch (sVar.v()) {
                 case -118:
                     if (sVar instanceof de) {
                         de deVar = (de) sVar;

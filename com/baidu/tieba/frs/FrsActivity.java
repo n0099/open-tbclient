@@ -280,6 +280,7 @@ public class FrsActivity extends com.baidu.tieba.f implements com.baidu.adp.widg
         return intent;
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         boolean z;
@@ -485,6 +486,7 @@ public class FrsActivity extends com.baidu.tieba.f implements com.baidu.adp.widg
         frsActivity.p.f().a(frsActivity.I.e().e().a());
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         com.baidu.tieba.im.messageCenter.d.a().a(this.O);
@@ -520,7 +522,6 @@ public class FrsActivity extends com.baidu.tieba.f implements com.baidu.adp.widg
         this.d.d(this);
         TiebaApplication.g();
         TiebaApplication.bf();
-        com.baidu.tbadk.imageManager.e.a().c();
         this.R = null;
         if (this.T != null) {
             this.T.cancel(true);
@@ -668,6 +669,7 @@ public class FrsActivity extends com.baidu.tieba.f implements com.baidu.adp.widg
         aa = true;
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.f, android.app.Activity
     public void onResume() {
         NetworkInfo activeNetworkInfo;
@@ -715,6 +717,7 @@ public class FrsActivity extends com.baidu.tieba.f implements com.baidu.adp.widg
 
     @Override // com.baidu.tieba.f
     public void closeActivity() {
+        com.baidu.tbadk.imageManager.e.a().c();
         if (!getIntent().getBooleanExtra("back_special", false)) {
             finish();
             return;
@@ -733,6 +736,7 @@ public class FrsActivity extends com.baidu.tieba.f implements com.baidu.adp.widg
         CompatibleUtile.setAnim(this, R.anim.frs_browser_enter, R.anim.no_effect);
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.f
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
@@ -970,6 +974,7 @@ public class FrsActivity extends com.baidu.tieba.f implements com.baidu.adp.widg
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.f, android.app.Activity
     public void onPause() {
         super.onPause();
@@ -984,6 +989,7 @@ public class FrsActivity extends com.baidu.tieba.f implements com.baidu.adp.widg
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.f, android.app.Activity
     public void onStop() {
         super.onStop();

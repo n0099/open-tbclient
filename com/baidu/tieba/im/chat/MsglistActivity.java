@@ -171,7 +171,7 @@ public abstract class MsglistActivity extends cy implements com.baidu.tieba.im.m
     public void a(com.baidu.tieba.im.message.s sVar) {
         GroupNewsPojo a;
         if (sVar != null) {
-            switch (sVar.w()) {
+            switch (sVar.v()) {
                 case -141:
                 case -138:
                 case -137:

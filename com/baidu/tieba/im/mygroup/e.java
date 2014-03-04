@@ -27,7 +27,7 @@ final class e implements com.baidu.tieba.im.messageCenter.g {
         if (this.a.getActivity() != null && this.a.b != null) {
             hVar = this.a.d;
             if (hVar != null) {
-                if (sVar.w() == 103003) {
+                if (sVar.v() == 103003) {
                     this.a.b.a();
                 }
                 cc ccVar = (cc) sVar;
@@ -53,9 +53,9 @@ final class e implements com.baidu.tieba.im.messageCenter.g {
                         enterForumGuideCenterView.setVisibility(0);
                     }
                 }
-                if (sVar.w() == 103003) {
+                if (sVar.v() == 103003) {
                     this.a.c = false;
-                } else if (sVar.w() == -106) {
+                } else if (sVar.v() == -106) {
                     hVar2 = this.a.d;
                     if (hVar2 != null) {
                         hVar3 = this.a.d;

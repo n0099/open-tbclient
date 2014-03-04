@@ -1,17 +1,16 @@
 package com.baidu.tieba.voice.a;
 
-import com.baidu.adp.lib.e.h;
-import com.baidu.adp.lib.e.i;
+import com.baidu.tieba.data.i;
 import com.baidu.tieba.util.af;
 import com.baidu.tieba.util.ba;
 import com.baidu.tieba.voice.ak;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public final class g implements i {
+public final class g implements com.baidu.adp.lib.e.g {
     private ba a = null;
-    private h b;
+    private com.baidu.adp.lib.e.f b;
 
-    @Override // com.baidu.adp.lib.e.i
+    @Override // com.baidu.adp.lib.e.g
     public final /* synthetic */ Object a(String str, com.baidu.adp.lib.e.e eVar) {
         String a = af.a(str, 1);
         if (a == null) {
@@ -23,17 +22,17 @@ public final class g implements i {
         return dVar;
     }
 
-    @Override // com.baidu.adp.lib.e.i
-    public final /* bridge */ /* synthetic */ Object a(String str, h hVar) {
+    @Override // com.baidu.adp.lib.e.g
+    public final /* bridge */ /* synthetic */ Object a(String str, com.baidu.adp.lib.e.f fVar) {
         return null;
     }
 
-    @Override // com.baidu.adp.lib.e.i
+    @Override // com.baidu.adp.lib.e.g
     public final /* synthetic */ Object b(String str, com.baidu.adp.lib.e.e eVar) {
-        this.b = eVar.e();
+        this.b = eVar.d();
         String str2 = this.b != null ? (String) this.b.a("from") : null;
         d dVar = new d();
-        this.a = new ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/p/voice?voice_md5=" + str + "&play_from=" + str2);
+        this.a = new ba(String.valueOf(i.a) + "c/p/voice?voice_md5=" + str + "&play_from=" + str2);
         if (this.b != null) {
             this.b.a("network", this.a);
         }

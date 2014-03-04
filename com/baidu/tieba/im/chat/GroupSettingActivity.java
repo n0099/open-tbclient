@@ -156,7 +156,7 @@ public class GroupSettingActivity extends com.baidu.tieba.f implements com.baidu
         GroupNewsPojo a;
         if (sVar != null && (sVar instanceof com.baidu.tieba.im.message.da)) {
             com.baidu.tieba.im.message.da daVar = (com.baidu.tieba.im.message.da) sVar;
-            if (sVar.w() == 103112) {
+            if (sVar.v() == 103112) {
                 if (daVar.l()) {
                     hideProgressBar();
                     showToast(R.string.neterror);
@@ -167,7 +167,7 @@ public class GroupSettingActivity extends com.baidu.tieba.f implements com.baidu
                 com.baidu.tieba.im.util.d.a(this.b.c());
                 com.baidu.tieba.im.c.a.d().b(false, null);
                 finish();
-            } else if (sVar.w() == 103102) {
+            } else if (sVar.v() == 103102) {
                 if (daVar.l()) {
                     hideProgressBar();
                     showToast(daVar.n());
@@ -176,7 +176,7 @@ public class GroupSettingActivity extends com.baidu.tieba.f implements com.baidu
                 hideProgressBar();
                 showToast(R.string.group_add_group_switch_success);
                 this.b.b(this.c.c());
-            } else if (sVar.w() == 103104) {
+            } else if (sVar.v() == 103104) {
                 hideProgressBar();
                 if (daVar.l()) {
                     a(daVar.n(), daVar.m());
@@ -186,7 +186,7 @@ public class GroupSettingActivity extends com.baidu.tieba.f implements com.baidu
                 com.baidu.tieba.im.util.d.a(this.b.c());
                 showToast(R.string.group_dismiss_success, false);
                 finish();
-            } else if (sVar.w() != -141 || !(sVar instanceof com.baidu.tieba.im.message.aa) || (a = ((com.baidu.tieba.im.message.aa) sVar).a()) == null || a == null) {
+            } else if (sVar.v() != -141 || !(sVar instanceof com.baidu.tieba.im.message.aa) || (a = ((com.baidu.tieba.im.message.aa) sVar).a()) == null || a == null) {
             } else {
                 try {
                     JSONObject jSONObject = new JSONObject(a.getContent());

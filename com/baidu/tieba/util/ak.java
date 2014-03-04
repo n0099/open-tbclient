@@ -22,7 +22,7 @@ public final class ak implements com.baidu.tieba.im.messageCenter.g {
         double d2;
         al alVar4;
         al alVar5;
-        if (sVar == null || sVar.w() != 103010) {
+        if (sVar == null || sVar.v() != 103010) {
             alVar = this.a.d;
             alVar.a();
         } else if (!(sVar instanceof cr)) {

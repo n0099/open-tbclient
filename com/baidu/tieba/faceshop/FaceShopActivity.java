@@ -198,7 +198,7 @@ public class FaceShopActivity extends com.baidu.tieba.f implements com.baidu.tie
         FaceShopData a;
         aw a2;
         if (this.b != null && this.a != null && (a = this.b.a()) != null && a.packList != null) {
-            if (sVar.w() == -122) {
+            if (sVar.v() == -122) {
                 if (sVar instanceof com.baidu.tieba.d.b) {
                     this.d.clear();
                     List<com.baidu.tieba.d.a> a3 = ((com.baidu.tieba.d.b) sVar).a();
@@ -233,7 +233,7 @@ public class FaceShopActivity extends com.baidu.tieba.f implements com.baidu.tie
                         a2.a(a);
                     }
                 }
-            } else if (sVar.w() == -120) {
+            } else if (sVar.v() == -120) {
                 ArrayList arrayList = new ArrayList();
                 Iterator<FacePackageData> it2 = a.packList.iterator();
                 while (it2.hasNext()) {
