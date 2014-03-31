@@ -1,25 +1,24 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.view.HeadImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public final class be implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ MsgActivityView a;
+final class be extends com.baidu.adp.framework.c.a {
+    final /* synthetic */ GroupChatActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public be(MsgActivityView msgActivityView) {
-        this.a = msgActivityView;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public be(GroupChatActivity groupChatActivity, int i) {
+        super(2001125);
+        this.a = groupChatActivity;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        HeadImageView headImageView;
-        HeadImageView headImageView2;
-        headImageView = this.a.p;
-        String str2 = (String) headImageView.getTag();
-        if (str != null && str.equals(str2) && bVar != null) {
-            headImageView2 = this.a.p;
-            bVar.a(headImageView2);
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
+    @Override // com.baidu.adp.framework.c.c
+    public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
+        com.baidu.tieba.im.p.a();
+        if (com.baidu.tieba.im.p.f()) {
+            this.a.d.Q().setVisibility(0);
+            this.a.d.Q().d();
         }
     }
 }

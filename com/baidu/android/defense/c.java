@@ -11,7 +11,6 @@ import com.baidu.android.defense.b.e;
 import com.baidu.android.defense.push.d;
 import com.baidu.android.defense.push.f;
 import com.baidu.android.defense.push.i;
-import com.baidu.android.pushservice.PushConstants;
 import java.io.UnsupportedEncodingException;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -98,15 +97,15 @@ public final class c {
         }
         if ("action_appinstall".equals(action)) {
             b(intent);
-        } else if (PushConstants.ACTION_RECEIVE.equals(action) || "com.baidu.android.pushservice.action.internal.RECEIVE".equals(action)) {
-            if (PushConstants.METHOD_BIND.equals(intent.getStringExtra(PushConstants.EXTRA_METHOD))) {
+        } else if ("com.baidu.android.pushservice.action.RECEIVE".equals(action) || "com.baidu.android.pushservice.action.internal.RECEIVE".equals(action)) {
+            if ("method_bind".equals(intent.getStringExtra("method"))) {
                 d.a(this.b).a();
             }
-        } else if (PushConstants.ACTION_MESSAGE.equals(action) || "com.baidu.pushservice.action.supper.MESSAGE".equals(action)) {
-            if (PushConstants.ACTION_MESSAGE.equals(action)) {
-                bytes = intent.getByteArrayExtra(PushConstants.EXTRA_PUSH_MESSAGE);
+        } else if ("com.baidu.android.pushservice.action.MESSAGE".equals(action) || "com.baidu.pushservice.action.supper.MESSAGE".equals(action)) {
+            if ("com.baidu.android.pushservice.action.MESSAGE".equals(action)) {
+                bytes = intent.getByteArrayExtra("message");
             } else {
-                String stringExtra = intent.getStringExtra(PushConstants.EXTRA_PUSH_MESSAGE);
+                String stringExtra = intent.getStringExtra("message");
                 bytes = stringExtra != null ? stringExtra.getBytes() : null;
             }
             try {

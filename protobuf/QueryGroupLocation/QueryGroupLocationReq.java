@@ -71,7 +71,7 @@ public final class QueryGroupLocationReq {
                                 this.bitField0_ |= 1;
                                 this.groupId_ = codedInputStream.readInt32();
                                 break;
-                            case 17:
+                            case Im.GroupInfo.CREATETIME_FIELD_NUMBER /* 17 */:
                                 this.bitField0_ |= 2;
                                 this.lng_ = codedInputStream.readDouble();
                                 break;
@@ -187,9 +187,8 @@ public final class QueryGroupLocationReq {
             return i;
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public final Object writeReplace() {
+        protected final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -392,9 +391,8 @@ public final class QueryGroupLocationReq {
             return i;
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public final Object writeReplace() {
+        protected final Object writeReplace() {
             return super.writeReplace();
         }
 

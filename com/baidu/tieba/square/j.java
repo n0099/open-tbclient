@@ -3,9 +3,8 @@ package com.baidu.tieba.square;
 import android.app.Activity;
 import android.content.Context;
 import android.view.View;
-import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.cb;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.bg;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class j implements View.OnClickListener {
@@ -18,27 +17,30 @@ public final class j implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        at atVar;
+        ar arVar;
         Context context;
         String str;
         Context context2;
         String str2;
         Object tag = view.getTag();
-        if ((tag instanceof n) && (atVar = ((n) tag).d) != null) {
-            int i = atVar.a;
-            if (atVar.f.equals(SocialConstants.TRUE)) {
+        if ((tag instanceof n) && (arVar = ((n) tag).d) != null) {
+            int i = arVar.a;
+            if (arVar.f.equals("1")) {
                 context2 = this.a.b;
-                cb.a(context2, "sq_all_category", "click", 1, new Object[0]);
-                this.a.e = am.a("forum_browse", "all");
+                TiebaStatic.a(context2, "sq_all_category", "click", 1, new Object[0]);
+                this.a.e = ak.a("forum_browse", "all");
                 str2 = this.a.e;
                 BarFolderFirstDirActivity.a((Activity) this.a.a(), str2);
                 return;
             }
-            this.a.e = am.a("forum_browse", String.valueOf(i));
+            this.a.e = ak.a("forum_browse", String.valueOf(i));
+            bg a = bg.a();
             context = this.a.b;
-            String str3 = atVar.d;
+            String[] strArr = new String[3];
+            strArr[0] = arVar.d;
             str = this.a.e;
-            UtilHelper.a(context, str3, null, str);
+            strArr[2] = str;
+            a.a(context, strArr);
         }
     }
 }

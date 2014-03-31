@@ -1,6 +1,6 @@
 package com.baidu.tieba.forumdetail;
 
-import com.baidu.tieba.view.HeadImageView;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 final class n implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ ItemInfoView a;

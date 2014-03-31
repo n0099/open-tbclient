@@ -4,32 +4,31 @@ import android.app.Dialog;
 import android.view.View;
 import android.view.animation.ScaleAnimation;
 import com.baidu.tieba.data.InterestFrsData;
-import com.baidu.tieba.model.ar;
-import com.baidu.tieba.model.bx;
-import com.slidingmenu.lib.R;
+import com.baidu.tieba.model.af;
+import com.baidu.tieba.model.bc;
 /* loaded from: classes.dex */
 public final class w implements View.OnClickListener {
     private NewUserGuideActivity a;
     private InterestFrsData.Tag b;
     private a c;
-    private ar d;
-    private bx e;
+    private af d;
+    private bc e;
 
     public w(NewUserGuideActivity newUserGuideActivity, InterestFrsData.Tag tag, s sVar) {
         this.a = newUserGuideActivity;
         this.b = tag;
         int btype = tag.getBtype();
         if (btype == 1) {
-            this.c = new u(this.a, R.style.NewUserDialog);
+            this.c = new u(this.a, com.baidu.tieba.a.l.NewUserDialog);
         } else if (btype == 2) {
-            this.c = new d(this.a, R.style.NewUserDialog);
+            this.c = new d(this.a, com.baidu.tieba.a.l.NewUserDialog);
         } else if (btype == 3) {
-            this.c = new k(this.a, R.style.NewUserDialog);
+            this.c = new k(this.a, com.baidu.tieba.a.l.NewUserDialog);
         }
-        this.c.a(newUserGuideActivity.g());
-        this.d = new ar();
+        this.c.a(newUserGuideActivity.h());
+        this.d = new af();
         this.d.setLoadDataCallBack(new x(this));
-        this.e = new bx();
+        this.e = new bc();
         this.e.a(new y(this));
         this.c.a(this);
         this.c.a(this.b);
@@ -47,9 +46,9 @@ public final class w implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        if (view.getId() == R.id.box_close_layout) {
+        if (view.getId() == com.baidu.tieba.a.h.box_close_layout) {
             this.c.hide();
-        } else if ((view.getId() == R.id.ll_like || view.getId() == R.id.pic_layout) && view.getTag() != null && (view.getTag() instanceof InterestFrsData.Card)) {
+        } else if ((view.getId() == com.baidu.tieba.a.h.ll_like || view.getId() == com.baidu.tieba.a.h.pic_layout) && view.getTag() != null && (view.getTag() instanceof InterestFrsData.Card)) {
             InterestFrsData.Card card = (InterestFrsData.Card) view.getTag();
             if (card.getIs_like() == 1) {
                 this.e.a(card.getFname(), card.getFid());

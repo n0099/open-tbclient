@@ -2,12 +2,12 @@ package com.baidu.tieba.im.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.baidu.tieba.data.UserData;
+import com.baidu.tbadk.core.data.UserData;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class RandChatRoomData implements Parcelable {
-    public static final Parcelable.Creator<RandChatRoomData> CREATOR = new j();
+    public static final Parcelable.Creator<RandChatRoomData> CREATOR = new h();
     private int a;
     private int b;
     private int c;

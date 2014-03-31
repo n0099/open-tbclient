@@ -1,52 +1,99 @@
 package com.baidu.tieba.service;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.util.bv;
-import com.baidu.tieba.view.NoNetworkView;
+import com.baidu.tbadk.core.util.w;
+import java.io.File;
+import java.io.FileWriter;
+import org.apache.commons.io.IOUtils;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class e extends BroadcastReceiver {
-    public int a = -1;
+public final class e implements Runnable {
+    final /* synthetic */ PerformMonitorService a;
 
-    @Override // android.content.BroadcastReceiver
-    public final void onReceive(Context context, Intent intent) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public e(PerformMonitorService performMonitorService) {
+        this.a = performMonitorService;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:48:0x0002 */
+    /* JADX WARN: Incorrect condition in loop: B:13:0x0033 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v17, types: [android.os.Handler] */
+    /* JADX WARN: Type inference failed for: r1v15, types: [com.baidu.tieba.service.f, java.lang.Runnable] */
+    @Override // java.lang.Runnable
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void run() {
+        boolean z;
+        ?? r0;
+        int i = 0;
+        FileWriter fileWriter = null;
+        fileWriter = null;
         try {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-            boolean z = activeNetworkInfo != null && activeNetworkInfo.isAvailable();
-            NoNetworkView.setIsHasNetwork(z);
-            if (z) {
-                if (activeNetworkInfo.getTypeName().equalsIgnoreCase("WIFI")) {
-                    if (this.a != 1) {
-                        if (this.a != -1) {
-                            bv.a().a(true);
-                            com.baidu.tieba.im.message.u uVar = new com.baidu.tieba.im.message.u(-121);
-                            uVar.a(1);
-                            com.baidu.tieba.im.messageCenter.d.a().d(uVar);
+            File g = w.g("performance_sample.log");
+            if (g == null || g.length() > 51200) {
+                this.a.a();
+            } else {
+                FileWriter fileWriter2 = new FileWriter(g, true);
+                try {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    int i2 = 0;
+                    int i3 = Integer.MIN_VALUE;
+                    int i4 = Integer.MAX_VALUE;
+                    while (z && i < 10) {
+                        Thread.sleep(1000L);
+                        int i5 = i + 1;
+                        int a = com.baidu.adp.lib.debug.c.a();
+                        if (a > 0) {
+                            i2 += a;
+                            if (i4 >= a) {
+                                i4 = a;
+                            }
+                            if (i3 > a) {
+                                a = i4;
+                            }
+                            i3 = a;
+                            i = i5;
+                        } else {
+                            i = i5;
                         }
-                        this.a = 1;
                     }
-                } else if (this.a != 2) {
-                    if (this.a != -1) {
-                        bv.a().a(false);
-                        com.baidu.tieba.im.message.u uVar2 = new com.baidu.tieba.im.message.u(-121);
-                        uVar2.a(2);
-                        com.baidu.tieba.im.messageCenter.d.a().d(uVar2);
+                    String c = com.baidu.adp.lib.debug.c.c();
+                    String b = com.baidu.adp.lib.debug.c.b();
+                    int d = com.baidu.adp.lib.debug.c.d();
+                    if (i > 0) {
+                        fileWriter2.append((CharSequence) ("fps_min=" + i4 + "\nfps_max=" + i3 + "\nfps_aver=" + (i2 / i) + IOUtils.LINE_SEPARATOR_UNIX));
                     }
-                    this.a = 2;
+                    long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+                    if (c != null) {
+                        fileWriter2.append((CharSequence) ("cpu=" + c.replace("%", "") + IOUtils.LINE_SEPARATOR_UNIX));
+                    }
+                    if (b != null) {
+                        fileWriter2.append((CharSequence) ("mem=" + b.replace("kb", "") + IOUtils.LINE_SEPARATOR_UNIX));
+                    }
+                    fileWriter2.append((CharSequence) ("gc:time=" + String.valueOf(currentTimeMillis2) + "\ngc=" + d + IOUtils.LINE_SEPARATOR_UNIX));
+                    fileWriter2.flush();
+                    fileWriter2.close();
+                    r0 = this.a.h;
+                    ?? fVar = new f(this);
+                    r0.post(fVar);
+                    fileWriter = fVar;
+                } catch (Throwable th) {
+                    th = th;
+                    fileWriter = fileWriter2;
+                    if (fileWriter != null) {
+                        try {
+                            fileWriter.close();
+                        } catch (Exception e) {
+                            com.baidu.adp.lib.util.f.b(getClass().getName(), "sampleRunnable", th.toString());
+                        }
+                    }
+                    com.baidu.adp.lib.util.f.b(getClass().getName(), "sampleRunnable", th.toString());
+                    this.a.stopSelf();
                 }
-            } else if (this.a != 0) {
-                this.a = 0;
-                com.baidu.tieba.im.message.u uVar3 = new com.baidu.tieba.im.message.u(-121);
-                uVar3.a(0);
-                com.baidu.tieba.im.messageCenter.d.a().d(uVar3);
             }
-            CompatibleUtile.dealWebView();
-        } catch (Throwable th) {
-            com.baidu.adp.lib.util.e.b("NetworkChangeReceiver", "onReceiver", th.getMessage());
+        } catch (Throwable th2) {
+            th = th2;
         }
     }
 }

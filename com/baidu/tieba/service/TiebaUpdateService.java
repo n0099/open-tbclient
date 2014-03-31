@@ -8,24 +8,59 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
 import android.widget.RemoteViews;
-import com.baidu.tieba.TiebaApplication;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tieba.data.VersionData;
-import com.baidu.tieba.util.af;
-import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class TiebaUpdateService extends Service {
-    private static boolean h = false;
+    private static boolean g = false;
     protected String a = null;
     private NotificationManager b = null;
     private Notification c = null;
-    private Notification d = null;
-    private t e = null;
-    private VersionData f = null;
-    private u g = null;
-    private String i = null;
-    private boolean j = false;
-    private Handler k = new r(this);
-    private Handler l = new s(this);
+    private r d = null;
+    private VersionData e = null;
+    private s f = null;
+    private String h = null;
+    private boolean i = false;
+    private long j = 0;
+    private long k = 0;
+    private long l = 0;
+    private long m = 0;
+    private boolean n = false;
+    private int o = 0;
+    private int p = 0;
+    private long q = 0;
+    private long r = 0;
+    private boolean s = false;
+    private Handler t = new p(this);
+    private Handler u = new q(this);
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(TiebaUpdateService tiebaUpdateService, long j, long j2) {
+        if (j2 != 0) {
+            tiebaUpdateService.c.contentView.setProgressBar(com.baidu.tieba.a.h.progress, 100, (int) ((100 * j) / j2), false);
+            StringBuffer stringBuffer = new StringBuffer(20);
+            stringBuffer.append(String.valueOf(j / 1000));
+            stringBuffer.append("K/");
+            stringBuffer.append(String.valueOf(j2 / 1000));
+            stringBuffer.append("K");
+            tiebaUpdateService.c.contentView.setTextViewText(com.baidu.tieba.a.h.schedule, stringBuffer);
+            tiebaUpdateService.b.notify(10, tiebaUpdateService.c);
+        }
+    }
+
+    public final void a(int i) {
+        Intent intent = new Intent();
+        intent.setAction("com.baidu.tieba.NewsVersion");
+        intent.putExtra("progress", i);
+        sendBroadcast(intent);
+    }
+
+    public final void a(String str, String str2) {
+        Intent intent = new Intent();
+        intent.setAction("com.baidu.tieba.NewsVersion");
+        intent.putExtra(str, str2);
+        sendBroadcast(intent);
+    }
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -36,94 +71,93 @@ public class TiebaUpdateService extends Service {
     public void onCreate() {
         super.onCreate();
         this.b = (NotificationManager) getSystemService("notification");
-        this.c = a();
-        this.d = a();
+        com.baidu.tieba.r.c();
+        PendingIntent activity = PendingIntent.getActivity(com.baidu.tieba.r.d(), 0, new Intent(), 0);
+        Notification notification = new Notification(17301633, null, System.currentTimeMillis());
+        com.baidu.tieba.r.c();
+        notification.contentView = new RemoteViews(com.baidu.tieba.r.d().getPackageName(), com.baidu.tieba.a.i.notify_item);
+        notification.contentView.setProgressBar(com.baidu.tieba.a.h.progress, 100, 0, false);
+        notification.contentIntent = activity;
+        notification.flags = 32;
+        this.c = notification;
         if (this.b == null) {
             stopSelf();
         }
     }
 
-    private static Notification a() {
-        PendingIntent activity = PendingIntent.getActivity(TiebaApplication.g().b(), 0, new Intent(), 0);
-        Notification notification = new Notification(17301633, null, System.currentTimeMillis());
-        notification.contentView = new RemoteViews(TiebaApplication.g().b().getPackageName(), (int) R.layout.notify_item);
-        notification.contentView.setProgressBar(R.id.progress, 100, 0, false);
-        notification.contentIntent = activity;
-        notification.flags = 32;
-        return notification;
-    }
-
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        this.k.removeMessages(900002);
-        this.l.removeMessages(900003);
-        if (this.e != null) {
-            this.e.cancel();
+        this.t.removeMessages(900002);
+        this.u.removeMessages(900003);
+        if (this.d != null) {
+            this.d.cancel();
         }
-        if (this.g != null) {
-            this.g.cancel();
+        if (this.f != null) {
+            this.f.cancel();
         }
         if (this.b != null) {
             this.b.cancel(10);
-            this.b.cancel(14);
         }
-        h = false;
+        g = false;
     }
 
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         boolean z;
         String str;
+        boolean z2;
         String[] split;
-        com.baidu.adp.lib.util.e.a(getClass().getName(), "onStart", "onStart");
-        if (!h) {
-            h = true;
+        com.baidu.adp.lib.util.f.a(getClass().getName(), "onStart", "onStart");
+        if (!g) {
+            this.h = intent.getStringExtra("other_url");
+            if (this.h == null || this.h.length() == 0) {
+                this.i = true;
+                z = false;
+            } else {
+                z = true;
+            }
+            String str2 = this.h;
+            if (str2 == null || str2.length() == 0) {
+                str = null;
+            } else {
+                if (str2.contains("?")) {
+                    str2 = str2.substring(0, str2.indexOf("?"));
+                }
+                str = str2.split("/")[split.length - 1];
+            }
+            this.a = str;
+            if (this.a == null || this.a.length() < 4) {
+                this.i = true;
+                z2 = false;
+            } else {
+                z2 = z;
+            }
+            this.n = z2;
+            g = true;
             if (intent != null && intent.getBooleanExtra("update", false)) {
                 VersionData versionData = (VersionData) intent.getSerializableExtra("version");
-                this.f = versionData;
+                this.e = versionData;
                 if (versionData != null) {
-                    this.c.contentView.setTextViewText(R.id.info, String.format(getString(R.string.tieba_downloading), this.f.getNew_version()));
-                    this.c.contentView.setTextViewText(R.id.schedule, "0/0");
-                    if (af.d(this.f.getNew_file()) != null) {
-                        this.k.sendMessageDelayed(this.k.obtainMessage(1, this.f), 100L);
-                    } else if (this.e == null) {
-                        this.e = new t(this, this.f);
-                        this.e.execute(new String[0]);
-                        this.c.contentView.setProgressBar(R.id.progress, 100, 0, false);
+                    this.c.contentView.setTextViewText(com.baidu.tieba.a.h.info, String.format(getString(com.baidu.tieba.a.k.tieba_downloading), this.e.getNew_version()));
+                    this.c.contentView.setTextViewText(com.baidu.tieba.a.h.schedule, "0/0");
+                    a(0);
+                    if (w.d(this.e.getNew_file()) != null) {
+                        this.t.sendMessageDelayed(this.t.obtainMessage(1, this.e), 100L);
+                    } else if (this.d == null) {
+                        this.d = new r(this, this.e);
+                        this.d.execute(new String[0]);
+                        this.c.contentView.setProgressBar(com.baidu.tieba.a.h.progress, 100, 0, false);
                         this.b.notify(10, this.c);
                     }
-                    this.i = intent.getStringExtra("other_url");
-                    if (this.i == null || this.i.length() == 0) {
-                        this.j = true;
-                        z = false;
-                    } else {
-                        z = true;
-                    }
-                    String str2 = this.i;
-                    if (str2 == null || str2.length() == 0) {
-                        str = null;
-                    } else {
-                        if (str2.contains("?")) {
-                            str2 = str2.substring(0, str2.indexOf("?"));
-                        }
-                        str = str2.split("/")[split.length - 1];
-                    }
-                    this.a = str;
-                    if (this.a == null || this.a.length() < 4) {
-                        this.j = true;
-                        z = false;
-                    }
-                    if (z) {
-                        this.d.contentView.setTextViewText(R.id.info, getString(R.string.is_downloading));
-                        this.d.contentView.setTextViewText(R.id.schedule, "0/0");
-                        if (af.d(this.a) != null) {
-                            this.l.sendMessageDelayed(this.l.obtainMessage(2, this.f), 100L);
-                        } else if (this.g == null) {
-                            this.g = new u(this, this.i);
-                            this.g.execute(new String[0]);
-                            this.d.contentView.setProgressBar(R.id.progress, 100, 0, false);
-                            this.b.notify(14, this.d);
+                    if (z2) {
+                        if (w.d(this.a) != null) {
+                            this.n = false;
+                            this.u.sendMessageDelayed(this.u.obtainMessage(2, this.e), 100L);
+                        } else if (this.f == null) {
+                            this.n = true;
+                            this.f = new s(this, this.h);
+                            this.f.execute(new String[0]);
                         }
                     }
                 }

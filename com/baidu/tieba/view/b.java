@@ -1,17 +1,28 @@
 package com.baidu.tieba.view;
 
-import android.view.View;
+import com.baidu.tbadk.widget.TbImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class b implements View.OnLongClickListener {
-    final /* synthetic */ BaseWebView a;
+public final class b implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b(BaseWebView baseWebView) {
-        this.a = baseWebView;
+    public b(a aVar) {
+        this.a = aVar;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public final boolean onLongClick(View view) {
-        return true;
+    @Override // com.baidu.tbadk.imageManager.d
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        TbImageView tbImageView;
+        TbImageView tbImageView2;
+        TbImageView tbImageView3;
+        tbImageView = this.a.c;
+        if (tbImageView.getTag() != null) {
+            tbImageView2 = this.a.c;
+            if (((String) tbImageView2.getTag()).equals(str)) {
+                tbImageView3 = this.a.c;
+                tbImageView3.invalidate();
+            }
+        }
     }
 }

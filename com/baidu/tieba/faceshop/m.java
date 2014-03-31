@@ -1,25 +1,37 @@
 package com.baidu.tieba.faceshop;
 
-import android.webkit.URLUtil;
-import com.baidu.tieba.view.BaseWebView;
+import android.view.View;
 /* loaded from: classes.dex */
-final class m implements Runnable {
-    final /* synthetic */ FaceBuyWebViewActivity a;
+final class m implements View.OnClickListener {
+    final /* synthetic */ EmotionImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(FaceBuyWebViewActivity faceBuyWebViewActivity) {
-        this.a = faceBuyWebViewActivity;
+    public m(EmotionImageActivity emotionImageActivity) {
+        this.a = emotionImageActivity;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        int i;
         String str;
-        BaseWebView baseWebView;
-        str = this.a.c;
-        String guessUrl = URLUtil.guessUrl(str);
-        if (URLUtil.isNetworkUrl(guessUrl)) {
-            baseWebView = this.a.a;
-            baseWebView.loadUrl(guessUrl);
+        String str2;
+        i = this.a.r;
+        switch (i) {
+            case 1:
+                str = "faceshop_from_forum_detail";
+                break;
+            case 2:
+                str = "faceshop_from_pchat_detail";
+                break;
+            case 3:
+                str = "faceshop_from_gchat_detail";
+                break;
+            default:
+                str = "emotion_image";
+                break;
         }
+        EmotionImageActivity emotionImageActivity = this.a;
+        str2 = this.a.f;
+        com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001001, new com.baidu.tbadk.core.b.i(emotionImageActivity, str2, false, str)));
     }
 }

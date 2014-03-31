@@ -9,7 +9,7 @@ import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Xml;
 import com.baidu.android.common.net.ProxyHttpClient;
-import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.tieba.person.PersonInfoActivity;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -113,7 +113,7 @@ public class e {
     }
 
     private void a(k kVar, XmlPullParser xmlPullParser) {
-        String attributeValue = xmlPullParser.getAttributeValue(null, SocialConstants.PARAM_MEDIA_UNAME);
+        String attributeValue = xmlPullParser.getAttributeValue(null, PersonInfoActivity.TAG_NAME);
         if (TextUtils.isEmpty(attributeValue)) {
             return;
         }
@@ -203,7 +203,7 @@ public class e {
     }
 
     private void b(k kVar, XmlPullParser xmlPullParser) {
-        String attributeValue = xmlPullParser.getAttributeValue(null, SocialConstants.PARAM_MEDIA_UNAME);
+        String attributeValue = xmlPullParser.getAttributeValue(null, PersonInfoActivity.TAG_NAME);
         if (TextUtils.isEmpty(attributeValue)) {
             return;
         }

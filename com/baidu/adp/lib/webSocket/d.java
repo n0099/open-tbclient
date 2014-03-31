@@ -6,7 +6,7 @@ public abstract class d implements ao {
 
     protected abstract byte[] g();
 
-    public final byte[] k() {
+    public final byte[] l() {
         synchronized (this) {
             if (!this.b) {
                 this.b = true;

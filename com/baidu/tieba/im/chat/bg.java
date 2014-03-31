@@ -1,28 +1,36 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.text.TextUtils;
+import com.baidu.tbadk.core.data.GroupData;
 /* loaded from: classes.dex */
-public final class bg implements View.OnLongClickListener {
-    final /* synthetic */ MsgActivityView a;
+final class bg implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ GroupChatActivity a;
+    private final /* synthetic */ GroupData b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bg(MsgActivityView msgActivityView) {
-        this.a = msgActivityView;
+    public bg(GroupChatActivity groupChatActivity, GroupData groupData) {
+        this.a = groupChatActivity;
+        this.b = groupData;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public final boolean onLongClick(View view) {
-        com.baidu.adp.lib.b.b bVar;
-        com.baidu.adp.lib.b.b bVar2;
-        int i;
-        bVar = this.a.w;
-        if (bVar != null) {
-            bVar2 = this.a.w;
-            i = this.a.t;
-            bVar2.a(8, i);
-            return true;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.baidu.tieba.im.a
+    public final /* synthetic */ void a(Boolean bool) {
+        Boolean bool2 = bool;
+        if (bool2 != null) {
+            if (bool2.booleanValue()) {
+                this.a.d.J();
+            } else {
+                this.a.d.K();
+            }
+            if (this.a.e == null || this.b == null) {
+                return;
+            }
+            String name = this.b.getName();
+            if (TextUtils.isEmpty(name)) {
+                return;
+            }
+            this.a.d.a(name);
         }
-        return true;
     }
 }

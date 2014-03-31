@@ -1,149 +1,183 @@
 package com.baidu.tieba.write;
 
 import android.content.Context;
-import android.view.LayoutInflater;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.HorizontalScrollView;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.effect.ImageOperation;
+import java.util.Iterator;
+import java.util.LinkedList;
 /* loaded from: classes.dex */
-public final class v extends HorizontalScrollView {
-    private int a;
-    private int b;
-    private Runnable c;
-    private Context d;
-    private ImageView[] e;
-    private View f;
-    private View g;
-    private y h;
-    private boolean i;
-    private String j;
+public final class v extends PagerAdapter implements ViewPager.OnPageChangeListener, com.baidu.tbadk.coreExtra.view.m {
+    private Context a;
+    private ImageFileInfo[] b;
+    private ViewPager c;
+    private w d;
+    private int e;
+    private int f;
+    private x[] g;
+    private com.baidu.tbadk.coreExtra.view.j[] h;
+    private int i;
+    private int j;
 
-    public v(Context context, y yVar, String str) {
-        super(context);
-        this.a = 0;
-        this.b = 0;
-        this.c = new w(this);
+    public v(Context context, ViewPager viewPager, LinkedList<ImageFileInfo> linkedList, int i, w wVar) {
+        String str;
+        int i2 = 0;
+        this.a = null;
+        this.b = null;
+        this.c = null;
         this.d = null;
-        this.e = null;
-        this.f = null;
+        this.e = 0;
+        this.f = 0;
         this.g = null;
         this.h = null;
-        this.i = true;
-        this.j = "normal";
-        this.d = context;
-        this.h = yVar;
-        if (str != null) {
-            this.j = str;
+        this.i = 120;
+        this.j = 120;
+        this.a = context;
+        this.i = (int) context.getResources().getDimension(com.baidu.tieba.a.f.motu_image_size_width);
+        this.j = (int) context.getResources().getDimension(com.baidu.tieba.a.f.motu_image_size_height);
+        if (linkedList != null) {
+            this.e = linkedList.size();
         }
-        a();
-    }
-
-    private void a() {
-        this.a = (int) this.d.getResources().getDimension(R.dimen.ds4);
-        this.b = (int) this.d.getResources().getDimension(R.dimen.ds30);
-        LinearLayout linearLayout = new LinearLayout(this.d);
-        linearLayout.setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
-        linearLayout.setGravity(16);
-        linearLayout.setOrientation(0);
-        linearLayout.setPadding(this.b, linearLayout.getPaddingTop(), linearLayout.getPaddingRight(), linearLayout.getPaddingBottom());
-        setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
-        addView(linearLayout);
-        String[] stringArray = this.d.getResources().getStringArray(R.array.fiter_name);
-        this.e = new ImageView[stringArray.length];
-        LayoutInflater from = LayoutInflater.from(this.d);
-        int length = stringArray.length;
-        int i = 0;
-        int i2 = 0;
-        while (i < length) {
-            String str = stringArray[i];
-            String substring = str.substring(0, str.indexOf("|"));
-            String substring2 = str.substring(str.indexOf("|") + 1);
-            View inflate = from.inflate(R.layout.filter_item, (ViewGroup) null);
-            TextView textView = (TextView) inflate.findViewById(R.id.filter_text);
-            textView.setText(substring2);
-            textView.setTag(substring);
-            ImageView imageView = (ImageView) inflate.findViewById(R.id.filter_immage);
-            imageView.setPadding(this.a, this.a, this.a, this.a);
-            imageView.setTag(textView);
-            imageView.setOnClickListener(new x(this));
-            if (substring.equals(this.j)) {
-                this.f = inflate;
-                this.g = imageView;
-                imageView.setBackgroundResource(R.drawable.bg_choose_filter);
-                textView.setSelected(true);
+        this.b = new ImageFileInfo[this.e];
+        this.g = new x[this.e];
+        this.h = new com.baidu.tbadk.coreExtra.view.j[this.e];
+        while (true) {
+            int i3 = i2;
+            if (i3 < linkedList.size()) {
+                ImageFileInfo imageFileInfo = linkedList.get(i3);
+                if (imageFileInfo.getPersistActionsList() != null) {
+                    Iterator<ImageOperation> it = imageFileInfo.getPersistActionsList().iterator();
+                    while (it.hasNext()) {
+                        ImageOperation next = it.next();
+                        if ("filter".equals(next.actionName)) {
+                            str = next.actionParam;
+                            break;
+                        }
+                    }
+                }
+                str = null;
+                this.h[i3] = new com.baidu.tbadk.coreExtra.view.j(this.a, this, str);
+                this.b[i3] = linkedList.get(i3).cloneWithoutFilterAction(true);
+                this.b[i3].addPageAction(com.baidu.tbadk.img.effect.d.a(this.i, this.j));
+                linkedList.set(i3, this.b[i3]);
+                i2 = i3 + 1;
+            } else {
+                this.f = i;
+                this.c = viewPager;
+                this.d = wVar;
+                this.c.setOffscreenPageLimit(1);
+                this.c.setOnPageChangeListener(this);
+                return;
             }
-            imageView.setImageResource(a(substring));
-            this.e[i2] = imageView;
-            linearLayout.addView(inflate);
-            i++;
-            i2++;
         }
-    }
-
-    @Override // android.widget.HorizontalScrollView, android.widget.FrameLayout, android.view.View
-    protected final void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
-        if (this.f != null) {
-            post(this.c);
-        }
-    }
-
-    public final String getSelectedFilter() {
-        return this.g != null ? (String) ((View) this.g.getTag()).getTag() : "normal";
-    }
-
-    public final void setCanbeClick(boolean z) {
-        this.i = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void b(v vVar, View view) {
-        if (!vVar.i || view == vVar.g) {
-            return;
-        }
-        if (vVar.g != null) {
-            vVar.g.setBackgroundDrawable(null);
-            ((TextView) vVar.g.getTag()).setSelected(false);
-        }
-        vVar.g = view;
-        view.setBackgroundResource(R.drawable.bg_choose_filter);
-        TextView textView = (TextView) view.getTag();
-        textView.setSelected(true);
-        vVar.j = (String) textView.getTag();
-        if (vVar.h != null) {
-            vVar.h.a(vVar.j);
+    public final void a(int i) {
+        if (this.g[this.f].c()) {
+            this.b[this.f].addPageAction(com.baidu.tbadk.img.effect.e.a(i));
+            if (this.h[this.f] != null) {
+                String selectedFilter = this.h[this.f].getSelectedFilter();
+                if (selectedFilter != null && !selectedFilter.equals("normal")) {
+                    ImageFileInfo cloneWithoutFilterAction = this.b[this.f].cloneWithoutFilterAction(false);
+                    cloneWithoutFilterAction.addPageAction(com.baidu.tbadk.img.effect.a.a(selectedFilter));
+                    this.g[this.f].a(cloneWithoutFilterAction);
+                    return;
+                }
+                this.g[this.f].a(this.b[this.f]);
+                return;
+            }
+            this.g[this.f].a(this.b[this.f]);
         }
     }
 
-    public static int a(String str) {
-        if (str == null || str.equals("normal")) {
-            return R.drawable.motu_filter_normal;
+    @Override // com.baidu.tbadk.coreExtra.view.m
+    public final void a(String str) {
+        if (str != null && !str.equals("normal")) {
+            ImageFileInfo cloneWithoutFilterAction = this.b[this.f].cloneWithoutFilterAction(false);
+            cloneWithoutFilterAction.addPageAction(com.baidu.tbadk.img.effect.a.a(str));
+            this.g[this.f].a(cloneWithoutFilterAction);
+            return;
         }
-        if (str.equals("skin")) {
-            return R.drawable.motu_filter_skin;
+        this.g[this.f].a(this.b[this.f]);
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public final Object instantiateItem(ViewGroup viewGroup, int i) {
+        if (this.g[i] == null) {
+            this.g[i] = new x(this, i);
         }
-        if (str.equals("lomo")) {
-            return R.drawable.motu_filter_lomo;
+        this.c.addView(this.g[i].a());
+        return this.g[i].a();
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public final void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+        this.c.removeView(this.g[i].a());
+    }
+
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public final void onPageSelected(int i) {
+        this.f = i;
+        if (this.f >= 0) {
+            if (this.g != null) {
+                for (int i2 = 0; i2 < this.g.length; i2++) {
+                    if (this.g[i2] != null) {
+                        this.g[i2].b();
+                    }
+                }
+            }
+            if (this.g[this.f] == null) {
+                this.g[this.f] = new x(this, this.f);
+            }
+            String selectedFilter = this.h[this.f].getSelectedFilter();
+            if (selectedFilter == null || selectedFilter.equals("normal")) {
+                this.g[this.f].a(this.b[this.f]);
+            } else {
+                ImageFileInfo cloneWithoutFilterAction = this.b[this.f].cloneWithoutFilterAction(false);
+                cloneWithoutFilterAction.addPageAction(com.baidu.tbadk.img.effect.a.a(selectedFilter));
+                this.g[this.f].a(cloneWithoutFilterAction);
+            }
         }
-        if (str.equals("classichdr")) {
-            return R.drawable.motu_filter_classichdr;
+        if (this.d != null) {
+            this.d.a(this.h[i], i);
         }
-        if (str.equals("nashiv")) {
-            return R.drawable.motu_filter_nashiv;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public final int a() {
+        return this.f;
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public final int getCount() {
+        return this.e;
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public final boolean isViewFromObject(View view, Object obj) {
+        return view == obj;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public final void b() {
+        String selectedFilter;
+        for (int i = 0; i < this.b.length; i++) {
+            this.b[i].applayRotatePageActionToPersistAction();
+            if (this.h[i] != null && (selectedFilter = this.h[i].getSelectedFilter()) != null && !selectedFilter.equals("normal")) {
+                this.b[i].addPersistAction(com.baidu.tbadk.img.effect.a.a(selectedFilter));
+            }
         }
-        if (str.equals("fleeting")) {
-            return R.drawable.motu_filter_fleeting;
-        }
-        if (str.equals("bluetone")) {
-            return R.drawable.motu_filter_bluetone;
-        }
-        if (str.equals("elegant")) {
-            return R.drawable.motu_filter_elegant;
-        }
-        return str.equals("gray") ? R.drawable.motu_filter_gray : R.drawable.motu_filter_normal;
+    }
+
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public final void onPageScrolled(int i, float f, int i2) {
+    }
+
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public final void onPageScrollStateChanged(int i) {
     }
 }

@@ -1,71 +1,65 @@
 package com.baidu.tieba.model;
-
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class v extends BdAsyncTask<String, Integer, String> {
-    final /* synthetic */ s a;
-    private com.baidu.tieba.util.ba b;
-    private String c;
-    private String d;
-    private String e;
-    private String f;
-    private String g;
+public final class v extends com.baidu.adp.a.e {
+    private w a = null;
+    private y b = null;
+    private aa c = null;
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ String a(String... strArr) {
-        this.b = new com.baidu.tieba.util.ba(strArr[0]);
-        this.b.a("day", this.g);
-        this.b.a("un", this.f);
-        this.b.a("fid", this.c);
-        this.b.a("word", this.d);
-        this.b.a("z", this.e);
-        this.b.a("ntn", "banid");
-        this.b.e(true);
-        this.b.l();
-        if (this.b.c()) {
-            return null;
-        }
-        return this.b.i();
+    @Override // com.baidu.adp.a.e
+    protected final boolean LoadData() {
+        return false;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void a(String str) {
-        com.baidu.adp.a.g gVar;
-        com.baidu.adp.a.g gVar2;
-        String str2 = str;
-        super.a((v) str2);
-        this.a.b = null;
-        if (this.b == null) {
-            gVar2 = this.a.mLoadDataCallBack;
-            gVar2.a(null);
-            return;
+    @Override // com.baidu.adp.a.e
+    public final boolean cancelLoadData() {
+        if (this.a != null) {
+            this.a.cancel();
+            this.a = null;
         }
-        w wVar = new w(this.a);
-        if (str2 == null) {
-            wVar.a = true;
-        } else {
-            wVar.a = false;
-            wVar.b = str2;
-        }
-        gVar = this.a.mLoadDataCallBack;
-        gVar.a(wVar);
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void cancel() {
-        com.baidu.adp.a.g gVar;
         if (this.b != null) {
-            this.b.j();
+            this.b.cancel();
+            this.b = null;
         }
-        this.a.b = null;
-        super.cancel(true);
-        gVar = this.a.mLoadDataCallBack;
-        gVar.a(null);
+        if (this.c != null) {
+            this.c.cancel();
+            this.c = null;
+            return false;
+        }
+        return false;
+    }
+
+    public final void a(String str, String str2, String str3, String str4, int i, int i2, boolean z) {
+        if (this.a != null) {
+            this.a.cancel();
+            this.a = null;
+        }
+        this.mLoadDataMode = 0;
+        this.a = new w(this, str, str2, str3, str4, i, i2, z);
+        this.a.setPriority(2);
+        this.a.execute(new String[0]);
+    }
+
+    public final boolean a() {
+        return (this.a == null && this.b == null && this.c == null) ? false : true;
+    }
+
+    public final void a(String str, String str2, String str3, int i, String str4) {
+        String str5;
+        if (this.c != null) {
+            this.c.cancel();
+            this.c = null;
+        }
+        this.mLoadDataMode = i;
+        this.c = new aa(this, str, str2, str3, i, str4);
+        this.c.setPriority(2);
+        String str6 = com.baidu.tbadk.core.data.n.a;
+        if (i == 6) {
+            str5 = String.valueOf(str6) + "c/c/bawu/goodlist";
+        } else if (i == 2 || i == 3) {
+            str5 = String.valueOf(str6) + "c/c/bawu/commitgood";
+        } else {
+            str5 = String.valueOf(str6) + "c/c/bawu/committop";
+        }
+        this.c.execute(str5);
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.tieba.forumdetail;
 
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.gson.annotations.SerializedName;
 import java.io.Serializable;
 /* loaded from: classes.dex */
@@ -21,6 +20,7 @@ public class ForumDetailData implements Serializable {
 
     /* loaded from: classes.dex */
     public class BadgeInfo implements Serializable {
+        private static final long serialVersionUID = 1;
         @SerializedName("badge_id")
         public long badgeID = 0;
         @SerializedName("badge_url")
@@ -29,6 +29,7 @@ public class ForumDetailData implements Serializable {
 
     /* loaded from: classes.dex */
     public class ForumContent implements Serializable {
+        private static final long serialVersionUID = 1;
         @SerializedName("type")
         public int type = 0;
         @SerializedName("text")
@@ -37,6 +38,7 @@ public class ForumDetailData implements Serializable {
 
     /* loaded from: classes.dex */
     public class ForumDirInfo implements Serializable {
+        private static final long serialVersionUID = 1;
         @SerializedName("hot_value")
         public long hotValue;
         @SerializedName("rank")
@@ -57,6 +59,7 @@ public class ForumDetailData implements Serializable {
 
     /* loaded from: classes.dex */
     public class ForumInfo implements Serializable {
+        private static final long serialVersionUID = 1;
         @SerializedName("forum_id")
         public int forumID = 0;
         @SerializedName("forum_name")
@@ -71,12 +74,13 @@ public class ForumDetailData implements Serializable {
         public String avatar = "";
         @SerializedName("slogan")
         public String slogan = "";
-        @SerializedName(PushConstants.EXTRA_CONTENT)
+        @SerializedName("content")
         public ForumContent[] contents = new ForumContent[0];
     }
 
     /* loaded from: classes.dex */
     public class ThreadAbstract implements Serializable {
+        private static final long serialVersionUID = 1;
         @SerializedName("type")
         public int type = 0;
         @SerializedName("text")
@@ -85,6 +89,7 @@ public class ForumDetailData implements Serializable {
 
     /* loaded from: classes.dex */
     public class ThreadInfo implements Serializable {
+        private static final long serialVersionUID = 1;
         @SerializedName("id")
         public long id = 0;
         @SerializedName("tid")

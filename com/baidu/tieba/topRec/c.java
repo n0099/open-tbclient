@@ -1,10 +1,10 @@
 package com.baidu.tieba.topRec;
 
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.af;
-import com.baidu.tieba.model.ar;
+import com.baidu.tieba.data.z;
+import com.baidu.tieba.model.af;
+import com.baidu.tieba.r;
 /* loaded from: classes.dex */
-final class c extends com.baidu.adp.a.g {
+final class c extends com.baidu.adp.a.h {
     final /* synthetic */ TopRecActivity a;
     private final /* synthetic */ int b;
     private final /* synthetic */ int c;
@@ -16,12 +16,12 @@ final class c extends com.baidu.adp.a.g {
         this.c = i2;
     }
 
-    @Override // com.baidu.adp.a.g
+    @Override // com.baidu.adp.a.h
     public final void a(Object obj) {
         TRForumListData tRForumListData;
         TRForumListData tRForumListData2;
-        ar arVar;
-        ar arVar2;
+        af afVar;
+        af afVar2;
         TRForumListData tRForumListData3;
         TRForumListData tRForumListData4;
         e eVar;
@@ -29,14 +29,14 @@ final class c extends com.baidu.adp.a.g {
         if (tRForumListData != null) {
             tRForumListData2 = this.a.f;
             if (tRForumListData2.forum_list[this.b] != null) {
-                arVar = this.a.d;
-                if (arVar.getErrorCode() != 22) {
-                    arVar2 = this.a.d;
-                    if (arVar2.getErrorCode() == 0 && ((af) obj) != null) {
+                afVar = this.a.d;
+                if (afVar.getErrorCode() != 22) {
+                    afVar2 = this.a.d;
+                    if (afVar2.getErrorCode() == 0 && ((z) obj) != null) {
                         this.a.a();
-                        TiebaApplication g = TiebaApplication.g();
+                        r c = r.c();
                         tRForumListData3 = this.a.f;
-                        g.e(tRForumListData3.forum_list[this.b].forum_name);
+                        c.e(tRForumListData3.forum_list[this.b].forum_name);
                         return;
                     }
                     TopRecActivity topRecActivity = this.a;

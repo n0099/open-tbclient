@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.groupCard;
 
-import com.slidingmenu.lib.R;
+import com.baidu.tieba.im.j;
 /* loaded from: classes.dex */
 final class a implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ GroupCardActivity a;
@@ -20,7 +20,7 @@ final class a implements com.baidu.tbadk.imageManager.d {
         dVar.d();
         if (bVar == null) {
             dVar4 = this.a.d;
-            dVar4.a(0, this.a.getString(R.string.group_card_error));
+            dVar4.a(0, this.a.getString(j.group_card_error));
             return;
         }
         this.a.i = bVar.h();

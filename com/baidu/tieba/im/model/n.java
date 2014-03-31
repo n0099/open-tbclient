@@ -1,18 +1,30 @@
 package com.baidu.tieba.im.model;
+
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class n extends com.baidu.tieba.im.b<Boolean> {
-    final /* synthetic */ m a;
-    private final /* synthetic */ com.baidu.tieba.im.message.g c;
+public final class n extends com.baidu.adp.framework.c.a {
+    final /* synthetic */ GroupMsglistModel a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(m mVar, com.baidu.tieba.im.message.g gVar) {
-        this.a = mVar;
-        this.c = gVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n(GroupMsglistModel groupMsglistModel, int i) {
+        super(0);
+        this.a = groupMsglistModel;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.b
-    public final /* synthetic */ Boolean a() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.b.a().b(this.c.u(), String.valueOf(this.c.j()), String.valueOf(this.c.l()), 2));
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
+    @Override // com.baidu.adp.framework.c.c
+    public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
+        CustomResponsedMessage<?> customResponsedMessage2 = customResponsedMessage;
+        if (customResponsedMessage2 != null) {
+            if (customResponsedMessage2.g() == 2013005) {
+                this.a.a((com.baidu.adp.framework.message.f<?>) customResponsedMessage2);
+            } else if (customResponsedMessage2.g() == 2001146) {
+                this.a.b(customResponsedMessage2);
+            } else if (customResponsedMessage2.g() == 2001149) {
+                this.a.a(customResponsedMessage2);
+            }
+        }
     }
 }

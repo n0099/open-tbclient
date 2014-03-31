@@ -3,7 +3,7 @@ package com.baidu.tieba.im.mygroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tieba.view.HeadImageView;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 final class b {
     LinearLayout a;

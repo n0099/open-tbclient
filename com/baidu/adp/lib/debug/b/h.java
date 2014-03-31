@@ -1,35 +1,46 @@
 package com.baidu.adp.lib.debug.b;
 
+import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.view.View;
+import android.content.DialogInterface;
 import android.widget.Toast;
-import com.baidu.adp.lib.debug.service.SwitchDebugService;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class h implements View.OnClickListener {
-    final /* synthetic */ c a;
+final class h implements DialogInterface.OnClickListener {
+    final /* synthetic */ g a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(c cVar) {
-        this.a = cVar;
+    public h(g gVar) {
+        this.a = gVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    @Override // android.content.DialogInterface.OnClickListener
+    public final void onClick(DialogInterface dialogInterface, int i) {
+        c cVar;
+        c cVar2;
         Context context;
+        c cVar3;
         Context context2;
-        String str = (String) SwitchDebugService.a.get("update_package_address");
-        if (str == null) {
-            context = this.a.k;
-            Toast makeText = Toast.makeText(context.getApplicationContext(), "更新地址没有配置！！！", 1);
-            makeText.setGravity(17, 0, 0);
-            makeText.show();
+        c cVar4;
+        Context context3;
+        c cVar5;
+        Dialog dialog;
+        if (i == -2) {
+            cVar5 = this.a.a;
+            dialog = cVar5.l;
+            dialog.dismiss();
             return;
         }
-        Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
-        context2 = this.a.k;
-        context2.startActivity(intent);
+        cVar = this.a.a;
+        cVar.c();
+        cVar2 = this.a.a;
+        context = cVar2.k;
+        ((Activity) context).finish();
+        cVar3 = this.a.a;
+        context2 = cVar3.k;
+        Context baseContext = ((Activity) context2).getBaseContext();
+        cVar4 = this.a.a;
+        context3 = cVar4.k;
+        Toast.makeText(baseContext, ((Activity) context3).getText(com.baidu.adp.f.debug_close), 1).show();
     }
 }

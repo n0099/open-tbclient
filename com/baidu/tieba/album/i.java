@@ -2,7 +2,6 @@ package com.baidu.tieba.album;
 
 import android.view.ViewGroup;
 import com.baidu.tbadk.widget.TbImageView;
-import com.slidingmenu.lib.R;
 import java.util.Map;
 /* loaded from: classes.dex */
 final class i implements com.baidu.tbadk.imageManager.d {
@@ -26,8 +25,8 @@ final class i implements com.baidu.tbadk.imageManager.d {
             map = this.a.f;
             map.put(Integer.valueOf(this.c), true);
         } else if (tbImageView != null) {
-            tbImageView.setDefaultResource(R.drawable.pic_baidu_logo_photo);
-            tbImageView.setNightDefaultResource(R.drawable.pic_baidu_logo_photo);
+            tbImageView.setDefaultResource(com.baidu.tieba.a.g.pic_baidu_logo_photo);
+            tbImageView.setNightDefaultResource(com.baidu.tieba.a.g.pic_baidu_logo_photo);
             tbImageView.invalidate();
         }
     }

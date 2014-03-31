@@ -1,7 +1,6 @@
 package com.baidu.tieba.flist;
 
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.util.ap;
 /* loaded from: classes.dex */
 final class ad implements Runnable {
     final /* synthetic */ ForumRankActivity a;
@@ -14,9 +13,9 @@ final class ad implements Runnable {
     @Override // java.lang.Runnable
     public final void run() {
         BdListView bdListView;
-        com.baidu.tieba.util.i iVar;
+        com.baidu.tbadk.editortool.aa aaVar;
         bdListView = this.a.a;
-        iVar = this.a.f;
-        ap.a(bdListView, iVar, 0, -1);
+        aaVar = this.a.f;
+        com.baidu.tbadk.core.util.ac.a(bdListView, aaVar, 0, -1);
     }
 }

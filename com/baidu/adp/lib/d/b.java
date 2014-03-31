@@ -1,10 +1,10 @@
 package com.baidu.adp.lib.d;
 
-import com.baidu.adp.lib.util.e;
+import com.baidu.adp.lib.util.f;
 import java.security.InvalidParameterException;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public final class b<T> {
+public class b<T> {
     private int a;
     private int b;
     private LinkedList<T> c;
@@ -15,12 +15,12 @@ public final class b<T> {
         this.b = 0;
         this.c = null;
         this.d = null;
-        if (cVar == null || i <= 0 || i < 0) {
+        if (cVar == null || i <= 0 || i2 > i) {
             throw new InvalidParameterException("invalid params");
         }
         this.d = cVar;
         this.a = i;
-        this.b = 0;
+        this.b = i2;
         this.c = new LinkedList<>();
         a(this.b);
     }
@@ -32,7 +32,7 @@ public final class b<T> {
                 try {
                     t = this.d.b(this.d.a());
                 } catch (Exception e) {
-                    e.b(e.getMessage());
+                    f.b(e.getMessage());
                     t = null;
                 }
                 if (t != null) {
@@ -53,7 +53,7 @@ public final class b<T> {
                 }
                 a(this.b - this.c.size());
             } catch (Exception e) {
-                e.b(e.getMessage());
+                f.b(e.getMessage());
             }
         }
         return t;
@@ -66,7 +66,7 @@ public final class b<T> {
                 try {
                     t2 = this.d.c(t);
                 } catch (Exception e) {
-                    e.b(e.getMessage());
+                    f.b(e.getMessage());
                     t2 = null;
                 }
                 if (t2 != null) {

@@ -1,28 +1,28 @@
 package com.baidu.tieba.view;
 
-import android.content.Context;
-import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class c implements e {
-    final /* synthetic */ BaseWebView a;
+public final class c implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(BaseWebView baseWebView) {
-        this.a = baseWebView;
+    public c(a aVar) {
+        this.a = aVar;
     }
 
-    @Override // com.baidu.tieba.view.e
-    public final boolean a(String str) {
-        Context context;
-        if (str != null) {
-            try {
-                context = this.a.c;
-                UtilHelper.e(context, str);
-            } catch (Exception e) {
-                com.baidu.adp.lib.util.e.a(getClass().getName(), "shouldOverrideUrlLoading", e.toString());
+    @Override // com.baidu.tbadk.imageManager.d
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        TbImageView tbImageView;
+        TbImageView tbImageView2;
+        TbImageView tbImageView3;
+        tbImageView = this.a.m;
+        if (tbImageView.getTag() != null) {
+            tbImageView2 = this.a.m;
+            if (((String) tbImageView2.getTag()).equals(str)) {
+                tbImageView3 = this.a.m;
+                tbImageView3.invalidate();
             }
         }
-        return true;
     }
 }

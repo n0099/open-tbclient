@@ -1,15 +1,43 @@
 package com.baidu.tieba.person;
 
-import android.widget.ProgressBar;
-import android.widget.TextView;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 /* loaded from: classes.dex */
-final class av {
-    TextView a;
-    ProgressBar b;
-    final /* synthetic */ as c;
+final class av implements DialogInterface.OnClickListener {
+    final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public av(as asVar) {
-        this.c = asVar;
+    public av(PersonChangeActivity personChangeActivity) {
+        this.a = personChangeActivity;
+    }
+
+    @Override // android.content.DialogInterface.OnClickListener
+    public final void onClick(DialogInterface dialogInterface, int i) {
+        Dialog dialog;
+        com.baidu.tieba.model.au auVar;
+        Boolean bool;
+        com.baidu.tieba.model.au auVar2;
+        com.baidu.tieba.model.au auVar3;
+        Dialog dialog2;
+        dialog = this.a.B;
+        if (dialog != null) {
+            dialog2 = this.a.B;
+            dialog2.dismiss();
+        }
+        auVar = this.a.u;
+        if (auVar.a().getPhotoChanged()) {
+            Intent intent = new Intent();
+            bool = this.a.b;
+            if (bool.booleanValue()) {
+                auVar3 = this.a.u;
+                intent.putExtra("person_change_data", auVar3.a());
+            } else {
+                auVar2 = this.a.u;
+                intent.putExtra("data", auVar2.a());
+            }
+            this.a.setResult(-1, intent);
+        }
+        this.a.finish();
     }
 }

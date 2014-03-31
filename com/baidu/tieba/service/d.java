@@ -1,10 +1,9 @@
 package com.baidu.tieba.service;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.util.af;
-import com.baidu.tieba.util.am;
-import com.baidu.tieba.util.ba;
-import com.baidu.tieba.util.cb;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.w;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -14,14 +13,14 @@ import java.io.FileWriter;
 /* loaded from: classes.dex */
 final class d extends BdAsyncTask<String, Integer, String> {
     final /* synthetic */ FatalErrorService a;
-    private ba b;
+    private ak b;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ String a(String... strArr) {
-        return d();
+    public final /* bridge */ /* synthetic */ String a(String... strArr) {
+        return a();
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -43,7 +42,7 @@ final class d extends BdAsyncTask<String, Integer, String> {
         this(fatalErrorService);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [128=6, 138=6, 148=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [159=6, 169=6, 179=5] */
     private void a(String str, String str2, boolean z, boolean z2) {
         FileInputStream fileInputStream;
         ByteArrayOutputStream byteArrayOutputStream;
@@ -51,7 +50,7 @@ final class d extends BdAsyncTask<String, Integer, String> {
         FileWriter fileWriter = null;
         try {
             try {
-                File d = af.d(str);
+                File d = w.d(str);
                 if (d == null || d.length() <= 50) {
                     return;
                 }
@@ -60,7 +59,7 @@ final class d extends BdAsyncTask<String, Integer, String> {
                     byteArrayOutputStream2 = new ByteArrayOutputStream(1024);
                     try {
                         if (z) {
-                            am.a(fileInputStream, byteArrayOutputStream2);
+                            com.baidu.tbadk.d.a.a(fileInputStream, byteArrayOutputStream2);
                         } else {
                             byte[] bArr = new byte[1024];
                             while (true) {
@@ -77,22 +76,22 @@ final class d extends BdAsyncTask<String, Integer, String> {
                             try {
                                 byteArrayOutputStream2.close();
                             } catch (Exception e) {
-                                com.baidu.adp.lib.util.e.b(getClass().getName(), "sendLogFile", e.getMessage());
+                                com.baidu.adp.lib.util.f.b(getClass().getName(), "sendLogFile", e.getMessage());
                             }
                             try {
                                 fileInputStream.close();
                                 return;
                             } catch (Exception e2) {
-                                com.baidu.adp.lib.util.e.b(getClass().getName(), "sendLogFile", e2.getMessage());
+                                com.baidu.adp.lib.util.f.b(getClass().getName(), "sendLogFile", e2.getMessage());
                                 return;
                             }
                         }
-                        this.b = new ba(String.valueOf(com.baidu.tieba.data.i.a) + str2);
+                        this.b = new ak(String.valueOf(com.baidu.tbadk.core.data.n.a) + str2);
                         this.b.a("logfile", byteArray);
-                        this.b.m();
+                        this.b.j();
                         byteArrayOutputStream2.close();
                         fileInputStream.close();
-                        if (this.b.c()) {
+                        if (this.b.a().b().b()) {
                             if (z2) {
                                 a(d);
                             }
@@ -104,32 +103,32 @@ final class d extends BdAsyncTask<String, Integer, String> {
                                 if (d.delete()) {
                                     return;
                                 }
-                                com.baidu.adp.lib.util.e.b(getClass().getName(), "sendLogFile", "file.delete error");
+                                com.baidu.adp.lib.util.f.b(getClass().getName(), "sendLogFile", "file.delete error");
                             } catch (Exception e3) {
                                 e = e3;
                                 byteArrayOutputStream2 = null;
                                 fileWriter = fileWriter2;
                                 fileInputStream = null;
-                                com.baidu.adp.lib.util.e.b(getClass().getName(), "sendLogFile", e.getMessage());
+                                com.baidu.adp.lib.util.f.b(getClass().getName(), "sendLogFile", e.getMessage());
                                 if (byteArrayOutputStream2 != null) {
                                     try {
                                         byteArrayOutputStream2.close();
                                     } catch (Exception e4) {
-                                        com.baidu.adp.lib.util.e.b(getClass().getName(), "sendLogFile", e4.getMessage());
+                                        com.baidu.adp.lib.util.f.b(getClass().getName(), "sendLogFile", e4.getMessage());
                                     }
                                 }
                                 if (fileInputStream != null) {
                                     try {
                                         fileInputStream.close();
                                     } catch (Exception e5) {
-                                        com.baidu.adp.lib.util.e.b(getClass().getName(), "sendLogFile", e5.getMessage());
+                                        com.baidu.adp.lib.util.f.b(getClass().getName(), "sendLogFile", e5.getMessage());
                                     }
                                 }
                                 if (fileWriter != null) {
                                     try {
                                         fileWriter.close();
                                     } catch (Exception e6) {
-                                        com.baidu.adp.lib.util.e.b(getClass().getName(), "sendLogFile", e6.getMessage());
+                                        com.baidu.adp.lib.util.f.b(getClass().getName(), "sendLogFile", e6.getMessage());
                                     }
                                 }
                             } catch (Throwable th) {
@@ -141,21 +140,21 @@ final class d extends BdAsyncTask<String, Integer, String> {
                                     try {
                                         byteArrayOutputStream.close();
                                     } catch (Exception e7) {
-                                        com.baidu.adp.lib.util.e.b(getClass().getName(), "sendLogFile", e7.getMessage());
+                                        com.baidu.adp.lib.util.f.b(getClass().getName(), "sendLogFile", e7.getMessage());
                                     }
                                 }
                                 if (fileInputStream != null) {
                                     try {
                                         fileInputStream.close();
                                     } catch (Exception e8) {
-                                        com.baidu.adp.lib.util.e.b(getClass().getName(), "sendLogFile", e8.getMessage());
+                                        com.baidu.adp.lib.util.f.b(getClass().getName(), "sendLogFile", e8.getMessage());
                                     }
                                 }
                                 if (fileWriter != null) {
                                     try {
                                         fileWriter.close();
                                     } catch (Exception e9) {
-                                        com.baidu.adp.lib.util.e.b(getClass().getName(), "sendLogFile", e9.getMessage());
+                                        com.baidu.adp.lib.util.f.b(getClass().getName(), "sendLogFile", e9.getMessage());
                                     }
                                 }
                                 throw th;
@@ -200,26 +199,26 @@ final class d extends BdAsyncTask<String, Integer, String> {
                         String readLine = bufferedReader.readLine();
                         if (readLine != null) {
                             if (readLine.startsWith("crash_type=")) {
-                                cb.a(readLine.substring(10));
+                                TiebaStatic.a(readLine.substring(10));
                             }
                         } else {
                             try {
                                 bufferedReader.close();
                                 return;
                             } catch (Exception e) {
-                                com.baidu.adp.lib.util.e.b(getClass().getName(), "countCrashType", e.toString());
+                                com.baidu.adp.lib.util.f.b(getClass().getName(), "countCrashType", e.toString());
                                 return;
                             }
                         }
                     } catch (Exception e2) {
                         e = e2;
-                        com.baidu.adp.lib.util.e.b(getClass().getName(), "countCrashType", e.toString());
+                        com.baidu.adp.lib.util.f.b(getClass().getName(), "countCrashType", e.toString());
                         if (bufferedReader != null) {
                             try {
                                 bufferedReader.close();
                                 return;
                             } catch (Exception e3) {
-                                com.baidu.adp.lib.util.e.b(getClass().getName(), "countCrashType", e3.toString());
+                                com.baidu.adp.lib.util.f.b(getClass().getName(), "countCrashType", e3.toString());
                                 return;
                             }
                         }
@@ -232,7 +231,7 @@ final class d extends BdAsyncTask<String, Integer, String> {
                     try {
                         bufferedReader2.close();
                     } catch (Exception e4) {
-                        com.baidu.adp.lib.util.e.b(getClass().getName(), "countCrashType", e4.toString());
+                        com.baidu.adp.lib.util.f.b(getClass().getName(), "countCrashType", e4.toString());
                     }
                 }
                 throw th;
@@ -248,7 +247,7 @@ final class d extends BdAsyncTask<String, Integer, String> {
         }
     }
 
-    private String d() {
+    private String a() {
         a("fatal_error.log", "c/s/logupload", true, true);
         a("log_error.log", "c/s/clientlog", false, false);
         return null;
@@ -257,7 +256,7 @@ final class d extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public final void cancel() {
         if (this.b != null) {
-            this.b.j();
+            this.b.g();
         }
         this.a.a = null;
         super.cancel(true);

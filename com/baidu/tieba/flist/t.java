@@ -3,7 +3,7 @@ package com.baidu.tieba.flist;
 import android.content.Context;
 import com.baidu.tieba.flist.ForumListModel;
 /* loaded from: classes.dex */
-public final class t extends com.baidu.adp.a.d {
+public final class t extends com.baidu.adp.a.e {
     private Context a;
     private ForumListModel.RequestParams b;
     private u c;
@@ -25,14 +25,14 @@ public final class t extends com.baidu.adp.a.d {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.a.d
+    @Override // com.baidu.adp.a.e
     public final boolean LoadData() {
         this.d = new v(this, (byte) 0);
         this.d.execute(new Void[0]);
         return true;
     }
 
-    @Override // com.baidu.adp.a.d
+    @Override // com.baidu.adp.a.e
     public final boolean cancelLoadData() {
         if (this.d == null) {
             return false;

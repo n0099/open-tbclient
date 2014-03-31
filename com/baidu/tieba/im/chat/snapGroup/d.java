@@ -1,9 +1,6 @@
 package com.baidu.tieba.im.chat.snapGroup;
-
-import com.baidu.tieba.view.ce;
-import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-final class d implements ce {
+final class d implements Runnable {
     final /* synthetic */ SnapGroupChatActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,14 +8,14 @@ final class d implements ce {
         this.a = snapGroupChatActivity;
     }
 
-    @Override // com.baidu.tieba.view.ce
-    public final void a() {
-        g gVar;
-        SnapGroupChatActivity.l(this.a);
-        this.a.showToast(this.a.getString(R.string.snap_group_chat_finished));
-        gVar = this.a.r;
-        gVar.b();
-        SnapGroupChatActivity.d(this.a).S().setVisibility(4);
-        this.a.v = true;
+    @Override // java.lang.Runnable
+    public final void run() {
+        String str;
+        String str2;
+        SnapGroupChatActivity.i(this.a);
+        SnapGroupChatActivity snapGroupChatActivity = this.a;
+        str = this.a.v;
+        str2 = this.a.w;
+        SnapGroupChatActivity.a(snapGroupChatActivity, str, str2);
     }
 }

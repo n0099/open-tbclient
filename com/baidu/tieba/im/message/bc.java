@@ -3,16 +3,16 @@ package com.baidu.tieba.im.message;
 import com.google.protobuf.MessageLite;
 import protobuf.UpdateChatroomTopic.UpdateChatroomTopicReq;
 /* loaded from: classes.dex */
-public final class bc extends s implements com.baidu.tieba.im.coder.g {
+public final class bc extends com.baidu.tbadk.message.websockt.d {
     private int a;
     private String b;
     private String c;
 
     public bc() {
-        e(106103);
+        super(106103);
     }
 
-    public final void a(int i) {
+    public final void d(int i) {
         this.a = i;
     }
 
@@ -24,8 +24,8 @@ public final class bc extends s implements com.baidu.tieba.im.coder.g {
         this.c = str;
     }
 
-    @Override // com.baidu.tieba.im.coder.g
-    public final MessageLite a() {
+    @Override // com.baidu.tbadk.message.websockt.d
+    public final MessageLite h() {
         return UpdateChatroomTopicReq.UpdateChatroomTopicReqIdl.newBuilder().a(UpdateChatroomTopicReq.DataReq.newBuilder().a(this.a).a(this.b).b(this.c).build()).build();
     }
 }

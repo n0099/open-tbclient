@@ -5,13 +5,13 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
 public final class p extends BdAsyncTask<Object, Integer, t> {
     final /* synthetic */ BarFolderSecondDirActivity a;
-    private com.baidu.tieba.util.ba b;
+    private com.baidu.tbadk.core.util.ak b;
 
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ t a(Object... objArr) {
-        return d();
+    public final /* bridge */ /* synthetic */ t a(Object... objArr) {
+        return a();
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -31,7 +31,7 @@ public final class p extends BdAsyncTask<Object, Integer, t> {
         this(barFolderSecondDirActivity);
     }
 
-    private t d() {
+    private t a() {
         q qVar;
         String str;
         String str2;
@@ -39,25 +39,25 @@ public final class p extends BdAsyncTask<Object, Integer, t> {
         qVar = this.a.i;
         t a = qVar.a();
         try {
-            this.b = new com.baidu.tieba.util.ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/f/forum/seconddir");
-            com.baidu.tieba.util.ba baVar = this.b;
-            str = this.a.l;
-            baVar.a("menu_name", str);
-            com.baidu.tieba.util.ba baVar2 = this.b;
-            str2 = this.a.m;
-            baVar2.a("menu_type", str2);
-            com.baidu.tieba.util.ba baVar3 = this.b;
-            str3 = this.a.n;
-            baVar3.a("menu_id", str3);
-            String l = this.b.l();
-            if (this.b.c()) {
-                a.b(l);
+            this.b = new com.baidu.tbadk.core.util.ak(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/f/forum/seconddir");
+            com.baidu.tbadk.core.util.ak akVar = this.b;
+            str = this.a.k;
+            akVar.a("menu_name", str);
+            com.baidu.tbadk.core.util.ak akVar2 = this.b;
+            str2 = this.a.l;
+            akVar2.a("menu_type", str2);
+            com.baidu.tbadk.core.util.ak akVar3 = this.b;
+            str3 = this.a.m;
+            akVar3.a("menu_id", str3);
+            String i = this.b.i();
+            if (this.b.a().b().b()) {
+                a.b(i);
             } else {
-                a.a(this.b.i());
+                a.a(this.b.f());
             }
         } catch (Exception e) {
             a.a(e.getMessage());
-            com.baidu.adp.lib.util.e.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.getMessage());
         }
         return a;
     }
@@ -66,7 +66,7 @@ public final class p extends BdAsyncTask<Object, Integer, t> {
     public final void cancel() {
         super.cancel(true);
         if (this.b != null) {
-            this.b.j();
+            this.b.g();
             this.b = null;
         }
         this.a.a(null, true);

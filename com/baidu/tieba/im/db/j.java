@@ -1,21 +1,22 @@
 package com.baidu.tieba.im.db;
 
-import java.util.LinkedList;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.im.message.ResponseRemoveMembersMessage;
 /* loaded from: classes.dex */
-public final class j extends com.baidu.tieba.im.b<Void> {
-    final /* synthetic */ h a;
-    private final /* synthetic */ LinkedList c;
+final class j extends com.baidu.tieba.im.m<Void> {
+    final /* synthetic */ i b;
+    private final /* synthetic */ ResponseRemoveMembersMessage c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(h hVar, LinkedList linkedList) {
-        this.a = hVar;
-        this.c = linkedList;
+    public j(i iVar, ResponseRemoveMembersMessage responseRemoveMembersMessage) {
+        this.b = iVar;
+        this.c = responseRemoveMembersMessage;
     }
 
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.b
-    public final /* bridge */ /* synthetic */ Void a() {
-        return q.a().a(this.c);
+    @Override // com.baidu.tieba.im.m
+    public final /* synthetic */ Void a() {
+        g.a();
+        g.b(this.c.d(), true);
+        return null;
     }
 }

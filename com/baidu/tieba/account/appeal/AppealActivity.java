@@ -7,13 +7,9 @@ import android.os.Bundle;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.android.pushservice.PushConstants;
-import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
-import com.baidu.tieba.view.NavigationBar;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
-public class AppealActivity extends com.baidu.tieba.f {
+public class AppealActivity extends com.baidu.tbadk.a {
     private NavigationBar a;
     private TextView b;
     private TextView c;
@@ -28,33 +24,33 @@ public class AppealActivity extends com.baidu.tieba.f {
     public static void a(Context context, String str, String str2, String str3) {
         Intent intent = new Intent(context, AppealActivity.class);
         intent.putExtra("forum_id", str);
-        intent.putExtra(PushConstants.EXTRA_USER_ID, str2);
+        intent.putExtra("user_id", str2);
         intent.putExtra("user_name", str3);
         context.startActivity(intent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(R.layout.account_appeal_activity);
-        this.a = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.a.a(getString(R.string.appeal_title));
+        setContentView(com.baidu.tieba.a.i.account_appeal_activity);
+        this.a = (NavigationBar) findViewById(com.baidu.tieba.a.h.view_navigation_bar);
+        this.a.a(getString(com.baidu.tieba.a.k.appeal_title));
         this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.appeal_submit_btn), this.j);
-        this.b = (TextView) findViewById(R.id.forbid_id);
-        this.c = (TextView) findViewById(R.id.forbid_reason);
-        this.d = (TextView) findViewById(R.id.appeal_reason);
-        this.e = (TextView) findViewById(R.id.remain_text_count);
-        this.e.setText(String.valueOf((int) SocialAPIErrorCodes.ERROR_AUTHORIZATION_CANCELED));
+        this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(com.baidu.tieba.a.k.appeal_submit_btn), this.j);
+        this.b = (TextView) findViewById(com.baidu.tieba.a.h.forbid_id);
+        this.c = (TextView) findViewById(com.baidu.tieba.a.h.forbid_reason);
+        this.d = (TextView) findViewById(com.baidu.tieba.a.h.appeal_reason);
+        this.e = (TextView) findViewById(com.baidu.tieba.a.h.remain_text_count);
+        this.e.setText(String.valueOf(150));
         this.d.setFocusable(true);
         this.d.setFocusableInTouchMode(true);
         this.d.requestFocus();
-        BdUtilHelper.b(this, this.d);
+        com.baidu.adp.lib.util.i.b(this, this.d);
         this.d.addTextChangedListener(this.i);
         Intent intent = getIntent();
         this.f = intent.getStringExtra("forum_id");
-        this.g = intent.getStringExtra(PushConstants.EXTRA_USER_ID);
+        this.g = intent.getStringExtra("user_id");
         this.h = intent.getStringExtra("user_name");
         j.a(this.f, this.g, new d(this));
     }
@@ -62,20 +58,20 @@ public class AppealActivity extends com.baidu.tieba.f {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void a(AppealActivity appealActivity, String str, boolean z) {
         AlertDialog.Builder builder = new AlertDialog.Builder(appealActivity);
-        builder.setTitle(appealActivity.getString(R.string.anti_title));
+        builder.setTitle(appealActivity.getString(com.baidu.tieba.a.k.anti_title));
         builder.setMessage(str);
-        builder.setPositiveButton(appealActivity.getString(R.string.anti_no_chance_pos), new e(appealActivity, z));
+        builder.setPositiveButton(appealActivity.getString(com.baidu.tieba.a.k.anti_no_chance_pos), new e(appealActivity, z));
         builder.create().show();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f
+    @Override // com.baidu.tbadk.a
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         boolean z = i == 1;
         getLayoutMode().a(z);
-        getLayoutMode().a(findViewById(R.id.root));
+        getLayoutMode().a(findViewById(com.baidu.tieba.a.h.root));
         this.a.b(i);
-        this.d.setHintTextColor(getResources().getColor(z ? R.color.appeal_hint_1 : R.color.appeal_hint));
+        this.d.setHintTextColor(getResources().getColor(z ? com.baidu.tieba.a.e.appeal_hint_1 : com.baidu.tieba.a.e.appeal_hint));
     }
 }

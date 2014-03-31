@@ -1,39 +1,44 @@
 package com.baidu.tieba.im.updategroup;
 
 import android.content.Intent;
-import com.baidu.tieba.im.message.cw;
-import com.baidu.tieba.im.message.s;
-import com.slidingmenu.lib.R;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tieba.im.message.ResponseUpdateGroupMessage;
 /* loaded from: classes.dex */
-public final class d implements com.baidu.tieba.im.messageCenter.g {
+final class d extends com.baidu.adp.framework.c.g {
     final /* synthetic */ UpdateGroupActivity a;
 
-    public d(UpdateGroupActivity updateGroupActivity) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d(UpdateGroupActivity updateGroupActivity, int i) {
+        super(103102);
         this.a = updateGroupActivity;
     }
 
-    @Override // com.baidu.tieba.im.messageCenter.g
-    public final void a(s sVar) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
+    @Override // com.baidu.adp.framework.c.c
+    public final /* synthetic */ void a(SocketResponsedMessage socketResponsedMessage) {
         a aVar;
         a aVar2;
-        if (sVar != null && sVar.v() == 103102) {
-            aVar = this.a.c;
-            aVar.a(false);
-            if (!(sVar instanceof cw)) {
-                this.a.showToast(R.string.group_update_fail);
-                return;
-            }
-            cw cwVar = (cw) sVar;
-            if (cwVar.l()) {
-                UpdateGroupActivity.a(this.a, cwVar.n(), cwVar.m());
-                return;
-            }
-            this.a.showToast(R.string.group_update_success);
-            Intent intent = this.a.getIntent();
-            aVar2 = this.a.c;
-            intent.putExtra("group_text", aVar2.k());
-            this.a.setResult(-1, intent);
-            this.a.finish();
+        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
+        if (socketResponsedMessage2 == null || socketResponsedMessage2.g() != 103102) {
+            return;
         }
+        aVar = this.a.c;
+        aVar.a(false);
+        if (!(socketResponsedMessage2 instanceof ResponseUpdateGroupMessage)) {
+            this.a.showToast(com.baidu.tieba.im.j.group_update_fail);
+            return;
+        }
+        ResponseUpdateGroupMessage responseUpdateGroupMessage = (ResponseUpdateGroupMessage) socketResponsedMessage2;
+        if (responseUpdateGroupMessage.e() != 0) {
+            UpdateGroupActivity.a(this.a, responseUpdateGroupMessage.f(), responseUpdateGroupMessage.e());
+            return;
+        }
+        this.a.showToast(com.baidu.tieba.im.j.group_update_success);
+        Intent intent = this.a.getIntent();
+        aVar2 = this.a.c;
+        intent.putExtra("group_text", aVar2.k());
+        this.a.setResult(-1, intent);
+        this.a.finish();
     }
 }

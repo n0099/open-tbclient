@@ -102,7 +102,7 @@ public final class i extends Handler {
                 }
                 return;
             case 7:
-                this.a.b();
+                this.a.c();
                 synchronized (BdStatSwitchData.class) {
                     bdStatSwitchData = this.a.w;
                     if (bdStatSwitchData == null) {

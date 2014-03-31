@@ -31,7 +31,7 @@ public final class FrameHelper {
         if (i >= 2001000 && i < 3001000) {
             return TYPE.CUSTOM;
         }
-        com.baidu.adp.lib.util.e.b("cmd invalid");
+        com.baidu.adp.lib.util.f.b("cmd invalid:cmd=" + i);
         return null;
     }
 
@@ -47,7 +47,7 @@ public final class FrameHelper {
         return i >= 2001000 && i < 3001000;
     }
 
-    public static <T extends d> void a(LinkedList<T> linkedList, T t) {
+    public static <T extends e> void a(LinkedList<T> linkedList, T t) {
         if (t != null && !linkedList.contains(t)) {
             int a = t.a();
             int size = linkedList.size();

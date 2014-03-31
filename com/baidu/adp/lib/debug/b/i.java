@@ -1,61 +1,35 @@
 package com.baidu.adp.lib.debug.b;
 
 import android.content.Context;
-import android.view.MotionEvent;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.View;
-import android.view.WindowManager;
+import android.widget.Toast;
+import com.baidu.adp.lib.debug.service.SwitchDebugService;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class i {
-    private static float c = 0.0f;
-    private static float d = 200.0f;
-    private static float e = 0.0f;
-    private static float f = 0.0f;
-    private static float g = 0.0f;
-    private static WindowManager h = null;
-    private static View i = null;
-    public static WindowManager.LayoutParams a = new WindowManager.LayoutParams();
-    public static int b = 0;
-    private static View j = null;
+public final class i implements View.OnClickListener {
+    final /* synthetic */ c a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void a(Context context, View view) {
-        if (j != null && j.isShown()) {
-            ((WindowManager) context.getSystemService("window")).removeView(j);
-        }
-        i = view;
-        j = view;
-        h = (WindowManager) context.getSystemService("window");
-        a.type = 2007;
-        a.flags = 40;
-        a.width = -2;
-        a.height = -2;
-        a.alpha = 0.5f;
-        a.gravity = 51;
-        a.x = (int) c;
-        a.y = (int) d;
-        h.addView(view, a);
+    public i(c cVar) {
+        this.a = cVar;
     }
 
-    public static boolean a(MotionEvent motionEvent, View view) {
-        c = motionEvent.getRawX();
-        d = motionEvent.getRawY();
-        switch (motionEvent.getAction()) {
-            case 0:
-                e = 0.0f;
-                f = motionEvent.getX();
-                g = motionEvent.getY();
-                return false;
-            case 1:
-                e = 1.0f;
-                return false;
-            case 2:
-                e = 2.0f;
-                a.x = (int) (c - f);
-                a.y = (int) (d - g);
-                h.updateViewLayout(i, a);
-                return false;
-            default:
-                return false;
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        Context context;
+        Context context2;
+        String str = (String) SwitchDebugService.a.get("update_package_address");
+        if (str == null) {
+            context = this.a.k;
+            Toast makeText = Toast.makeText(context.getApplicationContext(), "更新地址没有配置！！！", 1);
+            makeText.setGravity(17, 0, 0);
+            makeText.show();
+            return;
         }
+        Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
+        context2 = this.a.k;
+        context2.startActivity(intent);
     }
 }

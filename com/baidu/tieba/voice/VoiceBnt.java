@@ -4,9 +4,12 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.ImageView;
+import com.baidu.tbadk.core.voice.VoiceManager;
+import com.baidu.tbadk.core.voice.y;
+import com.baidu.tbadk.core.voice.z;
 /* loaded from: classes.dex */
 public class VoiceBnt extends ImageView {
-    ae a;
+    y a;
     private boolean b;
 
     public VoiceBnt(Context context, AttributeSet attributeSet) {
@@ -14,8 +17,8 @@ public class VoiceBnt extends ImageView {
         this.b = false;
     }
 
-    public void setRecorderView(ae aeVar) {
-        this.a = aeVar;
+    public void setRecorderView(y yVar) {
+        this.a = yVar;
     }
 
     @Override // android.view.View
@@ -38,8 +41,8 @@ public class VoiceBnt extends ImageView {
 
     public VoiceManager getVoiceManager() {
         Context context = getContext();
-        if (context instanceof af) {
-            return ((af) context).c_();
+        if (context instanceof z) {
+            return ((z) context).d();
         }
         return null;
     }

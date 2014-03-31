@@ -1,24 +1,18 @@
 package com.baidu.tieba.im.model;
-
-import com.baidu.tieba.data.UserData;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class r extends com.baidu.tieba.im.b<Boolean> {
-    final /* synthetic */ MsglistModel a;
-    private final /* synthetic */ com.baidu.tieba.im.message.b c;
+final class r implements com.baidu.tieba.im.a<Void> {
+    final /* synthetic */ p a;
+    private final /* synthetic */ com.baidu.tieba.im.a b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(MsglistModel msglistModel, com.baidu.tieba.im.message.b bVar) {
-        this.a = msglistModel;
-        this.c = bVar;
+    public r(p pVar, com.baidu.tieba.im.a aVar) {
+        this.a = pVar;
+        this.b = aVar;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.b
-    public final /* synthetic */ Boolean a() {
-        UserData userData;
-        com.baidu.tieba.im.db.q a = com.baidu.tieba.im.db.q.a();
-        userData = this.a.g;
-        return Boolean.valueOf(a.b(String.valueOf(userData.getUserId()), String.valueOf(this.c.l())));
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.baidu.tieba.im.a
+    public final /* synthetic */ void a(Void r4) {
+        com.baidu.tieba.im.pushNotify.a.d().b(false, this.b);
     }
 }

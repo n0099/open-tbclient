@@ -1,23 +1,26 @@
 package com.baidu.tieba.account;
 
-import android.widget.CompoundButton;
 import android.widget.EditText;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 /* loaded from: classes.dex */
-public final class ac implements CompoundButton.OnCheckedChangeListener {
-    final /* synthetic */ y a;
+final class ac implements RadioGroup.OnCheckedChangeListener {
+    final /* synthetic */ Register2Activity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(y yVar) {
-        this.a = yVar;
+    public ac(Register2Activity register2Activity) {
+        this.a = register2Activity;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public final void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+    @Override // android.widget.RadioGroup.OnCheckedChangeListener
+    public final void onCheckedChanged(RadioGroup radioGroup, int i) {
         EditText editText;
-        if (z) {
-            editText = this.a.c;
-            editText.setText(compoundButton.getText());
+        if (i > 0) {
+            RadioButton radioButton = (RadioButton) this.a.findViewById(i);
+            if (radioButton.isChecked()) {
+                editText = this.a.t;
+                editText.setText(radioButton.getText());
+            }
         }
     }
 }

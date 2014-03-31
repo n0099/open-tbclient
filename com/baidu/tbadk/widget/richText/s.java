@@ -2,9 +2,8 @@ package com.baidu.tbadk.widget.richText;
 
 import android.view.View;
 import android.widget.AbsListView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class s implements AbsListView.RecyclerListener {
+final class s implements AbsListView.RecyclerListener {
     private int a;
 
     public s(int i) {

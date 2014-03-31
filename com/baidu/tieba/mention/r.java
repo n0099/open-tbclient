@@ -1,22 +1,16 @@
 package com.baidu.tieba.mention;
-
-import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class r implements Runnable {
-    final /* synthetic */ l a;
-    private final /* synthetic */ int b;
+public final class r implements com.baidu.adp.widget.ListView.t {
+    final /* synthetic */ m a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(l lVar, int i) {
-        this.a = lVar;
-        this.b = i;
+    public r(m mVar) {
+        this.a = mVar;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        BdListView bdListView;
-        bdListView = this.a.e;
-        bdListView.setSelection(this.b);
+    @Override // com.baidu.adp.widget.ListView.t
+    public final void b() {
+        m.i(this.a);
     }
 }

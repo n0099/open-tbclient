@@ -5,15 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.view.by;
+import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
-public class FacePurchaseRecordsActivity extends com.baidu.tieba.f {
-    private ao a;
-    private am b;
+public class FacePurchaseRecordsActivity extends com.baidu.tbadk.a {
+    private bd a;
+    private bb b;
     private String c;
-    private com.baidu.adp.a.g d = new ah(this);
-    private by e = new ai(this);
+    private com.baidu.adp.a.h d = new aw(this);
+    private com.baidu.tbadk.core.view.m e = new ax(this);
 
     public static void a(Context context, String str) {
         Intent intent = new Intent(context, FacePurchaseRecordsActivity.class);
@@ -22,10 +21,10 @@ public class FacePurchaseRecordsActivity extends com.baidu.tieba.f {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.b = new am();
+        this.b = new bb();
         if (bundle != null) {
             this.c = bundle.getString("st_type");
         } else {
@@ -33,8 +32,8 @@ public class FacePurchaseRecordsActivity extends com.baidu.tieba.f {
         }
         this.b.a(this.c);
         this.b.setLoadDataCallBack(this.d);
-        this.a = new ao(this);
-        this.a.a(new aj(this));
+        this.a = new bd(this);
+        this.a.a(new ay(this));
         this.a.a(this);
         this.a.a(this.e);
         a(true);
@@ -42,7 +41,7 @@ public class FacePurchaseRecordsActivity extends com.baidu.tieba.f {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z) {
-        if (UtilHelper.b()) {
+        if (UtilHelper.a()) {
             if (z) {
                 showProgressBar();
             }
@@ -59,13 +58,13 @@ public class FacePurchaseRecordsActivity extends com.baidu.tieba.f {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, android.app.Activity
+    @Override // com.baidu.tbadk.a, android.app.Activity
     public void onResume() {
         super.onResume();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f
+    @Override // com.baidu.tbadk.a
     public void onChangeSkinType(int i) {
         if (this.a != null) {
             this.a.a(i);
@@ -73,7 +72,7 @@ public class FacePurchaseRecordsActivity extends com.baidu.tieba.f {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         if (this.b != null) {
             this.b.cancelLoadData();
@@ -89,7 +88,7 @@ public class FacePurchaseRecordsActivity extends com.baidu.tieba.f {
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         FacePurchasePackageData facePurchasePackageData;
         if (this.a != null && this.a.a() != null && (facePurchasePackageData = (FacePurchasePackageData) this.a.a().getItem(i)) != null) {
-            FacePackageDetailActivity.a(this, String.valueOf(facePurchasePackageData.pid), false, "purchase_record");
+            sendMessage(new com.baidu.adp.framework.message.a(2001001, new com.baidu.tbadk.core.b.i(this, String.valueOf(facePurchasePackageData.pid), false, "purchase_record")));
             super.onItemClick(adapterView, view, i, j);
         }
     }

@@ -7,16 +7,15 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
-import com.baidu.tieba.im.model.ao;
-import com.slidingmenu.lib.R;
+import com.baidu.tieba.im.model.br;
 /* loaded from: classes.dex */
-public class UpdateGroupActivity extends com.baidu.tieba.f {
-    private ao d;
+public class UpdateGroupActivity extends com.baidu.tbadk.a {
+    private br d;
     private a c = null;
     private int e = 1;
-    private d f = null;
     DialogInterface.OnClickListener a = new b(this);
     DialogInterface.OnClickListener b = new c(this);
+    private com.baidu.adp.framework.c.g f = new d(this, 103102);
 
     public static void a(Activity activity, int i, int i2, int i3, String str) {
         Intent intent = new Intent(activity, UpdateGroupActivity.class);
@@ -29,7 +28,7 @@ public class UpdateGroupActivity extends com.baidu.tieba.f {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void a(UpdateGroupActivity updateGroupActivity, String str, int i) {
         if (i < 0) {
-            updateGroupActivity.showToast(R.string.neterror);
+            updateGroupActivity.showToast(com.baidu.tieba.im.j.neterror);
         } else if (TextUtils.isEmpty(str)) {
         } else {
             updateGroupActivity.showToast(str);
@@ -37,7 +36,7 @@ public class UpdateGroupActivity extends com.baidu.tieba.f {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         Intent intent = getIntent();
@@ -51,16 +50,15 @@ public class UpdateGroupActivity extends com.baidu.tieba.f {
         }
         this.e = intExtra;
         this.c.a(intExtra2);
-        this.d = new ao();
+        this.d = new br();
         this.c.a(stringExtra);
         this.c.a(this.b);
         this.c.b(this.a);
-        this.f = new d(this);
-        com.baidu.tieba.im.messageCenter.d.a().a(103102, this.f);
+        registerListener(this.f);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f
+    @Override // com.baidu.tbadk.a
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.c.b(i);
@@ -69,7 +67,7 @@ public class UpdateGroupActivity extends com.baidu.tieba.f {
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.c.d_()) {
+        if (view == this.c.e_()) {
             if (this.c.l() && this.c.i()) {
                 b();
             } else {
@@ -82,7 +80,7 @@ public class UpdateGroupActivity extends com.baidu.tieba.f {
         }
     }
 
-    @Override // com.baidu.tieba.f, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tbadk.a, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4 && keyEvent.getRepeatCount() == 0 && a()) {
             return true;
@@ -91,7 +89,7 @@ public class UpdateGroupActivity extends com.baidu.tieba.f {
     }
 
     private boolean a() {
-        if (TextUtils.isEmpty(this.c.k()) || !this.c.i() || this.c.k().equals(this.c.e_())) {
+        if (TextUtils.isEmpty(this.c.k()) || !this.c.i() || this.c.k().equals(this.c.f_())) {
             return false;
         }
         this.c.a();
@@ -112,11 +110,10 @@ public class UpdateGroupActivity extends com.baidu.tieba.f {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         releaseResouce();
         super.onDestroy();
-        com.baidu.tieba.im.messageCenter.d.a().a(this.f);
-        this.d.d();
+        this.d.cancelMessage();
     }
 }

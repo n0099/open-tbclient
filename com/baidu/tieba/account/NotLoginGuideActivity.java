@@ -1,7 +1,6 @@
 package com.baidu.tieba.account;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -10,71 +9,64 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import com.baidu.tieba.GuideActivity;
-import com.baidu.tieba.MainTabActivity;
-import com.baidu.tieba.TiebaApplication;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.coreExtra.act.LoginActivity;
 import com.baidu.tieba.guide.NewUserGuideActivity;
-import com.baidu.tieba.util.UtilHelper;
-import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class NotLoginGuideActivity extends com.baidu.tieba.f {
-    private ImageView c = null;
-    private Bitmap d = null;
-    private Button e = null;
-    private Button f = null;
-    private String g = null;
-    private static String h = "from_page";
-    public static String a = "from_account";
-    public static String b = "form_logo";
+public class NotLoginGuideActivity extends com.baidu.tbadk.a {
+    private ImageView a = null;
+    private Bitmap b = null;
+    private Button c = null;
+    private Button d = null;
+    private String e = null;
 
-    public static void a(Context context, String str) {
-        Intent intent = new Intent(context, NotLoginGuideActivity.class);
-        intent.putExtra(h, str);
-        context.startActivity(intent);
+    static {
+        TbadkApplication.j().a(com.baidu.tbadk.core.b.ad.class, NotLoginGuideActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        com.baidu.tieba.ai.a(this, "not_login_guide_page_pv");
+        com.baidu.tbadk.core.g.a(this, "not_login_guide_page_pv");
         if (bundle != null) {
-            this.g = bundle.getString(h);
+            this.e = bundle.getString(com.baidu.tbadk.core.b.ad.a);
         } else {
-            this.g = getIntent().getStringExtra(h);
+            this.e = getIntent().getStringExtra(com.baidu.tbadk.core.b.ad.a);
         }
-        setContentView(R.layout.not_login_guide_activity);
-        this.c = (ImageView) findViewById(R.id.guide_bg);
-        this.e = (Button) findViewById(R.id.guide_regist);
-        this.f = (Button) findViewById(R.id.guide_login);
-        this.d = com.baidu.tieba.util.n.a(this, (int) R.drawable.not_login_guide_bg);
-        this.c.setImageBitmap(this.d);
-        this.e.setOnClickListener(this);
-        this.f.setOnClickListener(this);
+        setContentView(com.baidu.tieba.a.i.not_login_guide_activity);
+        this.a = (ImageView) findViewById(com.baidu.tieba.a.h.guide_bg);
+        this.c = (Button) findViewById(com.baidu.tieba.a.h.guide_regist);
+        this.d = (Button) findViewById(com.baidu.tieba.a.h.guide_login);
+        this.b = com.baidu.tbadk.core.util.g.a(this, com.baidu.tieba.a.g.not_login_guide_bg);
+        this.a.setImageBitmap(this.b);
+        this.c.setOnClickListener(this);
+        this.d.setOnClickListener(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, android.app.Activity
+    @Override // com.baidu.tbadk.a, android.app.Activity
     public void onResume() {
         int i;
         super.onResume();
-        if (TiebaApplication.g().ax()) {
+        if (TbadkApplication.j().T()) {
             i = 2;
         } else {
             i = 1;
         }
-        a.a().a(new av(this));
-        if (this.g != null && this.g.equals(b)) {
-            a.a().a(this, i);
+        com.baidu.tbadk.core.a.a.a().a(new t(this));
+        if (this.e != null && this.e.equals(com.baidu.tbadk.core.b.ad.c)) {
+            com.baidu.tbadk.core.a.a.a().a(this, i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        if (TiebaApplication.g().ax()) {
-            GuideActivity.a(this, "from_logo_page");
+        if (TbadkApplication.j().T()) {
+            sendMessage(new com.baidu.adp.framework.message.a(2015000, new com.baidu.tbadk.core.b.p(this).a("from_logo_page")));
         } else {
-            MainTabActivity.a(this, 1);
+            sendMessage(new com.baidu.adp.framework.message.a(2015001, new com.baidu.tbadk.core.b.aa(this).a(1, false)));
         }
         finish();
     }
@@ -82,16 +74,16 @@ public class NotLoginGuideActivity extends com.baidu.tieba.f {
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.e) {
-            com.baidu.tieba.ai.a(this, "sapi_fast_regist_click");
+        if (view == this.c) {
+            com.baidu.tbadk.core.g.a(this, "sapi_fast_regist_click");
             SapiFastRegActivity.a(this, 22002);
             return;
         }
-        com.baidu.tieba.ai.a(this, "sapi_go_to_login_click");
+        com.baidu.tbadk.core.g.a(this, "sapi_go_to_login_click");
         LoginActivity.a((Activity) this, (String) null, true, 11003);
     }
 
-    @Override // com.baidu.tieba.f, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tbadk.a, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         switch (i) {
             case 4:
@@ -103,17 +95,17 @@ public class NotLoginGuideActivity extends com.baidu.tieba.f {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.c != null) {
-            this.c.setImageBitmap(null);
+        if (this.a != null) {
+            this.a.setImageBitmap(null);
         }
-        if (this.d == null || this.d.isRecycled()) {
+        if (this.b == null || this.b.isRecycled()) {
             return;
         }
-        this.d.recycle();
-        this.d = null;
+        this.b.recycle();
+        this.b = null;
     }
 
     @Override // android.app.Activity
@@ -128,14 +120,15 @@ public class NotLoginGuideActivity extends com.baidu.tieba.f {
                     if (stringExtra.equals("login_user")) {
                         a();
                     } else if (stringExtra.equals("regist_user")) {
-                        if (UtilHelper.b()) {
+                        if (UtilHelper.a()) {
+                            com.baidu.tieba.r.c().a(true);
                             NewUserGuideActivity.a(this, true, false);
                         } else {
                             a();
                         }
-                        if (TiebaApplication.g().ax()) {
-                            TiebaApplication.g();
-                            TiebaApplication.ay();
+                        if (TbadkApplication.j().T()) {
+                            TbadkApplication.j();
+                            TbadkApplication.U();
                         }
                         finish();
                     }

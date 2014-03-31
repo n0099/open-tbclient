@@ -1,32 +1,23 @@
 package com.baidu.tieba.im.chat;
 
-import android.content.DialogInterface;
+import com.baidu.tieba.im.message.ResponseCommitPersonalMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class ap implements DialogInterface.OnClickListener {
-    final /* synthetic */ GroupSettingActivity a;
+public final class ap implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ x a;
+    private final /* synthetic */ ResponseCommitPersonalMessage b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(GroupSettingActivity groupSettingActivity) {
-        this.a = groupSettingActivity;
+    public ap(x xVar, ResponseCommitPersonalMessage responseCommitPersonalMessage) {
+        this.a = xVar;
+        this.b = responseCommitPersonalMessage;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.im.model.al alVar;
-        com.baidu.tieba.im.model.al alVar2;
-        aw awVar;
-        com.baidu.tieba.im.model.al alVar3;
-        com.baidu.tieba.im.model.al alVar4;
-        alVar = this.a.d;
-        if (alVar == null) {
-            this.a.d = new com.baidu.tieba.im.model.al();
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.baidu.tieba.im.a
+    public final /* bridge */ /* synthetic */ void a(Boolean bool) {
+        if (this.b != null) {
+            this.a.a(this.b);
         }
-        alVar2 = this.a.d;
-        awVar = this.a.b;
-        alVar2.a(Integer.parseInt(awVar.c()));
-        alVar3 = this.a.d;
-        alVar3.b(i);
-        alVar4 = this.a.d;
-        alVar4.a();
     }
 }

@@ -13,7 +13,7 @@ public final class ab implements com.baidu.tbadk.imageManager.d {
 
     @Override // com.baidu.tbadk.imageManager.d
     public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        this.a.b.setTag(this.b);
-        TripleTbImageView.a(this.a, this.a.b, bVar);
+        this.a.c.setTag(this.b);
+        TripleTbImageView.a(this.a, this.a.c, bVar);
     }
 }

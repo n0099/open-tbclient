@@ -1,59 +1,16 @@
 package com.baidu.tieba.person;
-
-import android.text.Editable;
-import android.text.Selection;
-import android.text.TextWatcher;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class bt implements TextWatcher {
-    final /* synthetic */ PersonChangeActivity a;
+public final class bt implements bx {
+    final /* synthetic */ PersonInfoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bt(PersonChangeActivity personChangeActivity) {
-        this.a = personChangeActivity;
+    public bt(PersonInfoActivity personInfoActivity) {
+        this.a = personInfoActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public final void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public final void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        EditText editText;
-        TextView textView;
-        LinearLayout linearLayout;
-        EditText editText2;
-        EditText editText3;
-        editText = this.a.p;
-        Editable text = editText.getText();
-        String replaceAll = text.toString().replaceAll("\\s*", "");
-        int length = replaceAll.length();
-        textView = this.a.r;
-        textView.setText(String.valueOf(length));
-        linearLayout = this.a.q;
-        linearLayout.setVisibility(0);
-        this.a.a(0);
-        PersonChangeActivity.t(this.a);
-        if (length > 50) {
-            this.a.showToast(R.string.over_limit_tip);
-            int selectionEnd = Selection.getSelectionEnd(text);
-            String substring = replaceAll.substring(0, 50);
-            editText2 = this.a.p;
-            editText2.setText(substring);
-            editText3 = this.a.p;
-            Editable text2 = editText3.getText();
-            int length2 = text2.length();
-            if (selectionEnd <= length2) {
-                length2 = selectionEnd;
-            }
-            Selection.setSelection(text2, length2);
-        }
-    }
-
-    @Override // android.text.TextWatcher
-    public final void afterTextChanged(Editable editable) {
+    @Override // com.baidu.tieba.person.bx
+    public final void a() {
+        this.a.setIsloading(false);
     }
 }

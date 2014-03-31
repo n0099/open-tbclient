@@ -1,42 +1,26 @@
 package com.baidu.tieba.im.message;
 
 import com.google.protobuf.MessageLite;
-import protobuf.QueryGroupCount.QueryGroupCountReq;
+import protobuf.DelGroupActivity.DelGroupActivityReq;
 /* loaded from: classes.dex */
-public final class ac extends s implements com.baidu.tieba.im.coder.g {
-    private String a;
-    private String b;
+public final class ac extends com.baidu.tbadk.message.websockt.d {
+    private int a;
+    private long b;
 
     public ac() {
-        e(103011);
+        super(103121);
     }
 
-    public final void a(String str) {
-        this.a = str;
+    public final void d(int i) {
+        this.a = i;
     }
 
-    public final void b(String str) {
-        this.b = str;
+    public final void b(long j) {
+        this.b = j;
     }
 
-    @Override // com.baidu.tieba.im.coder.g
-    public final MessageLite a() {
-        NumberFormatException e;
-        double d;
-        double d2 = 0.0d;
-        try {
-            d = Double.valueOf(this.b).doubleValue();
-        } catch (NumberFormatException e2) {
-            e = e2;
-            d = 0.0d;
-        }
-        try {
-            d2 = Double.valueOf(this.a).doubleValue();
-        } catch (NumberFormatException e3) {
-            e = e3;
-            e.printStackTrace();
-            return QueryGroupCountReq.QueryGroupCountReqIdl.newBuilder().a(QueryGroupCountReq.DataReq.newBuilder().b(d).a(d2).build()).build();
-        }
-        return QueryGroupCountReq.QueryGroupCountReqIdl.newBuilder().a(QueryGroupCountReq.DataReq.newBuilder().b(d).a(d2).build()).build();
+    @Override // com.baidu.tbadk.message.websockt.d
+    public final MessageLite h() {
+        return DelGroupActivityReq.DelGroupActivityReqIdl.newBuilder().a(DelGroupActivityReq.DataReq.newBuilder().b(this.a).a((int) this.b).build()).build();
     }
 }

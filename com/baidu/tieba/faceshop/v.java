@@ -1,127 +1,64 @@
 package com.baidu.tieba.faceshop;
 
+import android.app.Dialog;
 import android.content.Context;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.gson.GsonBuilder;
-import com.baidu.tieba.TiebaApplication;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-public final class v extends com.baidu.adp.a.d {
-    private boolean a;
-    private int b;
-    private String c;
-    private String d;
-    private String f;
-    private FacePackageDetailData h;
-    private int j;
-    private int k;
-    private float l;
-    private String e = null;
-    private com.baidu.tieba.i m = null;
-    private w i = null;
-    private GsonBuilder g = new GsonBuilder();
+public final class v extends Dialog {
+    int a;
+    private Context b;
+    private LayoutInflater c;
+    private View d;
+    private SpannableString e;
+    private TextView f;
+    private TextView g;
 
-    public v() {
-        this.j = 0;
-        this.k = 0;
-        Context c = TiebaApplication.g().c();
-        this.j = BdUtilHelper.b(c);
-        this.k = BdUtilHelper.c(c);
-        this.l = c.getResources().getDisplayMetrics().density;
+    public v(Context context, int i) {
+        super(context, i);
+        this.b = context;
+        this.c = LayoutInflater.from(getContext());
     }
 
-    public final FacePackageDetailData a() {
-        return this.h;
+    public final void a() {
+        this.d = this.c.inflate(com.baidu.tieba.a.i.face_buy_loading, (ViewGroup) null);
+        this.a = TbadkApplication.j().l();
+        setContentView(this.d, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(com.baidu.tieba.a.f.faceshop_buy_dialog_width), getContext().getResources().getDimensionPixelSize(com.baidu.tieba.a.f.faceshop_buy_dialog_height)));
+        setCancelable(false);
+        c();
     }
 
-    public final void a(String str) {
-        this.e = str;
-    }
-
-    public final String b() {
-        return this.e;
-    }
-
-    public final void a(boolean z) {
-        this.a = z;
-    }
-
-    public final boolean c() {
-        return this.a;
-    }
-
-    public final int d() {
-        return this.b;
-    }
-
-    public final void b(String str) {
-        this.d = str;
-    }
-
-    public final String e() {
-        return this.d;
-    }
-
-    public final void c(String str) {
-        this.c = str;
-    }
-
-    public final void d(String str) {
-        this.f = str;
-    }
-
-    public final String f() {
-        return this.f;
-    }
-
-    public final void g() {
-        if (this.i == null) {
-            this.i = new w(this, (byte) 0);
-            this.i.setPriority(3);
-            this.i.execute(new Object[0]);
+    public final void b() {
+        ForegroundColorSpan foregroundColorSpan;
+        this.d = this.c.inflate(com.baidu.tieba.a.i.face_buy_fail, (ViewGroup) null);
+        this.a = TbadkApplication.j().l();
+        String string = getContext().getResources().getString(com.baidu.tieba.a.k.query_buy_fail_tel);
+        this.e = new SpannableString(string);
+        if (this.a == 1) {
+            foregroundColorSpan = new ForegroundColorSpan(getContext().getResources().getColor(com.baidu.tieba.a.e.faceshop_package_price_text_1));
+        } else {
+            foregroundColorSpan = new ForegroundColorSpan(getContext().getResources().getColor(com.baidu.tieba.a.e.faceshop_package_price_text));
         }
+        this.e.setSpan(foregroundColorSpan, 5, string.length(), 33);
+        setContentView(this.d, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(com.baidu.tieba.a.f.faceshop_buy_dialog_width), getContext().getResources().getDimensionPixelSize(com.baidu.tieba.a.f.faceshop_buy_dialog_fail_height)));
+        this.f = (TextView) findViewById(com.baidu.tieba.a.h.telphone);
+        this.f.setText(this.e);
+        this.g = (TextView) findViewById(com.baidu.tieba.a.h.confirm);
+        this.g.setOnClickListener(new w(this));
+        setCancelable(true);
+        c();
     }
 
-    public final void a(FacePackageData facePackageData) {
-        if (facePackageData != null) {
-            int i = facePackageData.buyStatus;
-            int i2 = facePackageData.canDownload;
-            int i3 = facePackageData.downloading;
-            int i4 = facePackageData.downloaded;
-            if (i3 == 1) {
-                this.b = 5;
-            } else if (i4 == 1) {
-                this.b = 1;
-            } else if (i == 2) {
-                this.b = 6;
-            } else if (i == 1) {
-                if (i2 == 1) {
-                    this.b = 2;
-                }
-            } else if (i == 0) {
-                if (i2 == 1) {
-                    this.b = 3;
-                } else {
-                    this.b = 4;
-                }
-            }
+    private void c() {
+        if (this.b instanceof com.baidu.tbadk.a) {
+            ((com.baidu.tbadk.a) this.b).getLayoutMode().a(this.a == 1);
+            ((com.baidu.tbadk.a) this.b).getLayoutMode().a(this.d);
         }
-    }
-
-    @Override // com.baidu.adp.a.d
-    protected final boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.a.d
-    public final boolean cancelLoadData() {
-        if (this.i != null) {
-            this.i.cancel();
-            return true;
-        }
-        return true;
-    }
-
-    public final void a(com.baidu.tieba.i iVar) {
-        this.m = iVar;
     }
 }

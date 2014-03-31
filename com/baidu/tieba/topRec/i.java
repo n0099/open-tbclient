@@ -2,7 +2,6 @@ package com.baidu.tieba.topRec;
 
 import android.view.animation.Animation;
 import android.widget.TextView;
-import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class i implements Animation.AnimationListener {
@@ -30,13 +29,13 @@ public final class i implements Animation.AnimationListener {
         if (i < 100) {
             textView5 = this.a.m;
             topRecActivity2 = this.a.j;
-            StringBuilder append = new StringBuilder(String.valueOf(topRecActivity2.getString(R.string.done))).append("(");
+            StringBuilder append = new StringBuilder(String.valueOf(topRecActivity2.getString(com.baidu.tieba.a.k.done))).append("(");
             i2 = this.a.k;
             textView5.setText(append.append(i2).append(")").toString());
         } else {
             textView = this.a.m;
             topRecActivity = this.a.j;
-            textView.setText(String.valueOf(topRecActivity.getString(R.string.done)) + "(99+)");
+            textView.setText(String.valueOf(topRecActivity.getString(com.baidu.tieba.a.k.done)) + "(99+)");
         }
         textView2 = this.a.m;
         textView2.invalidate();

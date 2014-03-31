@@ -1,6 +1,5 @@
 package org.apache.commons.io.input;
 
-import cn.jingling.lib.file.Shared;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -40,7 +39,7 @@ public class NullInputStream extends InputStream {
             return 0;
         }
         if (j > 2147483647L) {
-            return Shared.INFINITY;
+            return Integer.MAX_VALUE;
         }
         return (int) j;
     }

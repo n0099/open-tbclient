@@ -1,55 +1,75 @@
 package com.baidu.tieba.faceshop;
 
-import com.slidingmenu.lib.R;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.gson.Gson;
+import com.baidu.gson.GsonBuilder;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class as extends com.baidu.adp.a.g {
-    final /* synthetic */ FaceShopActivity a;
+public final class as extends BdAsyncTask<Object, FacePackageDownloadData, FacePackageDownloadData> {
+    final /* synthetic */ ar a;
+    private com.baidu.tbadk.core.util.ak b;
+    private String c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public as(FaceShopActivity faceShopActivity) {
-        this.a = faceShopActivity;
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* bridge */ /* synthetic */ FacePackageDownloadData a(Object... objArr) {
+        return a();
     }
 
-    @Override // com.baidu.adp.a.g
-    public final void a(Object obj) {
-        be beVar;
-        be beVar2;
-        be beVar3;
-        bc bcVar;
-        be beVar4;
-        be beVar5;
-        be beVar6;
-        this.a.hideProgressBar();
-        if (obj != null && (obj instanceof FaceShopData)) {
-            beVar2 = this.a.a;
-            if (beVar2 != null) {
-                FaceShopData faceShopData = (FaceShopData) obj;
-                if (faceShopData.errno == 0 && faceShopData.usermsg != null) {
-                    bcVar = this.a.b;
-                    if (bcVar.b()) {
-                        beVar6 = this.a.a;
-                        beVar6.e();
-                    } else {
-                        beVar4 = this.a.a;
-                        beVar4.d();
-                    }
-                    beVar5 = this.a.a;
-                    beVar5.a(faceShopData);
-                    return;
-                }
-                if (faceShopData.usermsg != null) {
-                    this.a.showToast(faceShopData.usermsg);
-                } else {
-                    this.a.showToast(R.string.neterror);
-                }
-                beVar3 = this.a.a;
-                beVar3.b();
-                return;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ void a(FacePackageDownloadData facePackageDownloadData) {
+        com.baidu.adp.a.h hVar;
+        FacePackageDownloadData facePackageDownloadData2 = facePackageDownloadData;
+        this.a.a = null;
+        hVar = this.a.mLoadDataCallBack;
+        hVar.a(facePackageDownloadData2);
+        super.a((as) facePackageDownloadData2);
+    }
+
+    public as(ar arVar, String str) {
+        this.a = arVar;
+        this.c = str;
+    }
+
+    private FacePackageDownloadData a() {
+        FacePackageDownloadData facePackageDownloadData;
+        int i;
+        int i2;
+        float f;
+        try {
+            if (this.c != null && this.c.length() > 0) {
+                this.b = new com.baidu.tbadk.core.util.ak(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/e/faces/dpack");
+                this.b.a("pid", this.c);
+                com.baidu.tbadk.core.util.ak akVar = this.b;
+                i = this.a.c;
+                akVar.a("scr_w", String.valueOf(i));
+                com.baidu.tbadk.core.util.ak akVar2 = this.b;
+                i2 = this.a.d;
+                akVar2.a("scr_h", String.valueOf(i2));
+                com.baidu.tbadk.core.util.ak akVar3 = this.b;
+                f = this.a.e;
+                akVar3.a("scr_dip", String.valueOf(f));
+                String i3 = this.b.i();
+                Gson create = new GsonBuilder().create();
+                this.a.b = (FacePackageDownloadData) create.fromJson(i3, (Class<Object>) FacePackageDownloadData.class);
             }
-            return;
+        } catch (Exception e) {
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.toString());
         }
-        this.a.showToast(R.string.neterror);
-        beVar = this.a.a;
-        beVar.b();
+        facePackageDownloadData = this.a.b;
+        return facePackageDownloadData;
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final void cancel() {
+        super.cancel(true);
+        if (this.b != null) {
+            this.b.g();
+            this.b = null;
+        }
+        this.a.a = null;
     }
 }

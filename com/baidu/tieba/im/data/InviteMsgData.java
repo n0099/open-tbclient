@@ -3,6 +3,7 @@ package com.baidu.tieba.im.data;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class InviteMsgData implements Serializable {
+    private static final long serialVersionUID = 5185744948511601466L;
     private long fromUid;
     private int groupId;
     private String groupName;

@@ -4,9 +4,8 @@ import android.content.Context;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.gson.GsonBuilder;
 import com.baidu.gson.JsonParseException;
-import com.baidu.tieba.TiebaApplication;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.flist.ForumListModel;
-import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class v extends BdAsyncTask<Void, Void, ForumListModel> {
@@ -17,8 +16,8 @@ public final class v extends BdAsyncTask<Void, Void, ForumListModel> {
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ ForumListModel a(Void... voidArr) {
-        return d();
+    public final /* bridge */ /* synthetic */ ForumListModel a(Void... voidArr) {
+        return a();
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -34,7 +33,7 @@ public final class v extends BdAsyncTask<Void, Void, ForumListModel> {
         if (forumListModel2 == null || !forumListModel2.isOk()) {
             uVar = this.b.c;
             context = this.b.a;
-            String string = context.getString(R.string.neterror);
+            String string = context.getString(com.baidu.tieba.a.k.neterror);
             z = this.b.f;
             uVar.a(false, 0, forumListModel2, string, z);
             return;
@@ -73,7 +72,7 @@ public final class v extends BdAsyncTask<Void, Void, ForumListModel> {
         this(tVar);
     }
 
-    private ForumListModel d() {
+    private ForumListModel a() {
         boolean z;
         Context context;
         ForumListModel.RequestParams requestParams;
@@ -82,9 +81,9 @@ public final class v extends BdAsyncTask<Void, Void, ForumListModel> {
         try {
             z = this.b.e;
             if (z) {
-                com.baidu.adp.lib.cache.s<String> m = com.baidu.tieba.c.a.a().m();
+                com.baidu.adp.lib.cache.s<String> m = com.baidu.tbadk.core.c.b.a().m();
                 if (m != null) {
-                    StringBuilder append = new StringBuilder(String.valueOf(TiebaApplication.v())).append("_");
+                    StringBuilder append = new StringBuilder(String.valueOf(TbadkApplication.E())).append("_");
                     requestParams2 = this.b.b;
                     str = m.a(append.append(requestParams2.menu_name).append("_list").toString());
                 } else {
@@ -103,7 +102,7 @@ public final class v extends BdAsyncTask<Void, Void, ForumListModel> {
             requestParams = this.b.b;
             return ForumListModel.new_fetch(context, requestParams);
         } catch (JsonParseException e) {
-            com.baidu.adp.lib.util.e.e("ForumListDetailModel", "ForumListTask", e.getMessage());
+            com.baidu.adp.lib.util.f.e("ForumListDetailModel", "ForumListTask", e.getMessage());
             return null;
         }
     }

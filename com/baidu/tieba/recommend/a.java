@@ -1,27 +1,14 @@
 package com.baidu.tieba.recommend;
 
-import android.view.View;
-import com.slidingmenu.lib.R;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-final class a implements View.OnClickListener {
-    final /* synthetic */ DailyClassicalActivity a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public a(DailyClassicalActivity dailyClassicalActivity) {
-        this.a = dailyClassicalActivity;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.back /* 2131099658 */:
-                this.a.finish();
-                return;
-            case R.id.tag_webview_item /* 2131100133 */:
-                this.a.a();
-                return;
-            default:
-                return;
+final class a implements com.baidu.adp.framework.task.a<com.baidu.tbadk.core.b.f> {
+    @Override // com.baidu.adp.framework.task.a
+    public final CustomResponsedMessage<?> a(com.baidu.adp.framework.message.a<com.baidu.tbadk.core.b.f> aVar) {
+        if (aVar != null && aVar.a() != null) {
+            aVar.a().d().setClass(aVar.a().c(), DailyClassicalActivity.class);
+            aVar.a().f();
         }
+        return null;
     }
 }

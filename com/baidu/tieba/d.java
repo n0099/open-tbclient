@@ -1,211 +1,105 @@
 package com.baidu.tieba;
+
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.os.Handler;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import java.io.File;
 /* loaded from: classes.dex */
-public final class d {
-    private String a;
-    private String b;
-    private int c;
-    private int d;
-    private int e;
-    private int f;
-    private int g;
-    private int h;
-    private int i;
-    private int j;
-    private int k;
-    private int l;
-    private int m;
-    private int n;
-    private int o;
-    private int p;
-    private int q;
-    private int r;
-    private int s;
-    private int t;
-    private int u;
-    private int v;
-    private StringBuffer w = new StringBuffer();
+final class d extends BdAsyncTask<String, Integer, Boolean> {
+    final /* synthetic */ FileDownloader a;
+    private com.baidu.tbadk.core.util.ak b = null;
+    private volatile boolean c = false;
+    private final String d;
+    private final String e;
 
-    public final String toString() {
-        return "BDLayoutInfo [TAG=" + this.w.toString() + "]";
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* bridge */ /* synthetic */ Boolean a(String... strArr) {
+        return a();
     }
 
-    public final void a(String str) {
-        this.w.append(str).append(" || ");
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ void a(Boolean bool) {
+        Notification notification;
+        Notification notification2;
+        Notification notification3;
+        NotificationManager notificationManager;
+        Notification notification4;
+        NotificationManager notificationManager2;
+        Handler handler;
+        Handler handler2;
+        Boolean bool2 = bool;
+        super.a((d) bool2);
+        this.a.c = null;
+        if (bool2.booleanValue()) {
+            notificationManager2 = this.a.a;
+            notificationManager2.cancel(10);
+            handler = this.a.d;
+            handler2 = this.a.d;
+            handler.sendMessageDelayed(handler2.obtainMessage(1, this.e), 100L);
+            return;
+        }
+        notification = this.a.b;
+        if (notification != null) {
+            notification2 = this.a.b;
+            notification2.contentView.setTextViewText(com.baidu.tieba.a.h.info, this.a.getString(com.baidu.tieba.a.k.error_sd_error));
+            notification3 = this.a.b;
+            notification3.flags = 16;
+            notificationManager = this.a.a;
+            notification4 = this.a.b;
+            notificationManager.notify(10, notification4);
+        }
+        this.a.stopSelf();
     }
 
-    public final int a() {
-        return this.q;
+    public d(FileDownloader fileDownloader, String str, String str2) {
+        this.a = fileDownloader;
+        this.d = str;
+        this.e = str2;
     }
 
-    public final void a(int i) {
-        this.q = i;
+    private Boolean a() {
+        File e;
+        Handler handler;
+        Boolean bool = false;
+        while (!this.c) {
+            try {
+                this.b = new com.baidu.tbadk.core.util.ak(this.d);
+                handler = this.a.d;
+                bool = Boolean.valueOf(this.b.a(String.valueOf(this.e) + ".tmp", handler, 900002));
+                if (bool.booleanValue() || this.b.d() == -2) {
+                    break;
+                } else if (!this.b.a().b().c()) {
+                    try {
+                        Thread.sleep(10000L);
+                    } catch (Exception e2) {
+                    }
+                }
+            } catch (Exception e3) {
+            }
+        }
+        if (bool.booleanValue()) {
+            com.baidu.tbadk.core.util.w.j(this.e);
+            File d = com.baidu.tbadk.core.util.w.d(String.valueOf(this.e) + ".tmp");
+            if (d != null && (e = com.baidu.tbadk.core.util.w.e(this.e)) != null) {
+                d.renameTo(e);
+            }
+        }
+        return bool;
     }
 
-    public final int b() {
-        return this.r;
-    }
-
-    public final void b(int i) {
-        this.r = i;
-    }
-
-    public final int c() {
-        return this.o;
-    }
-
-    public final void c(int i) {
-        this.o = i;
-    }
-
-    public final int d() {
-        return this.p;
-    }
-
-    public final void d(int i) {
-        this.p = i;
-    }
-
-    public final int e() {
-        return this.m;
-    }
-
-    public final void e(int i) {
-        this.m = i;
-    }
-
-    public final int f() {
-        return this.n;
-    }
-
-    public final void f(int i) {
-        this.n = i;
-    }
-
-    public final String g() {
-        return this.a;
-    }
-
-    public final int h() {
-        return this.s;
-    }
-
-    public final void g(int i) {
-        this.s = i;
-    }
-
-    public final int i() {
-        return this.t;
-    }
-
-    public final void h(int i) {
-        this.t = i;
-    }
-
-    public final void b(String str) {
-        this.a = str;
-    }
-
-    public final String j() {
-        return this.b;
-    }
-
-    public final void c(String str) {
-        this.b = str;
-    }
-
-    public final int k() {
-        return this.c;
-    }
-
-    public final void i(int i) {
-        this.c = i;
-    }
-
-    public final int l() {
-        return this.d;
-    }
-
-    public final void j(int i) {
-        this.d = i;
-    }
-
-    public final int m() {
-        return this.g;
-    }
-
-    public final void k(int i) {
-        this.g = i;
-    }
-
-    public final int n() {
-        return this.h;
-    }
-
-    public final void l(int i) {
-        this.h = i;
-    }
-
-    public final int o() {
-        return this.e;
-    }
-
-    public final void m(int i) {
-        this.e = i;
-    }
-
-    public final int p() {
-        return this.f;
-    }
-
-    public final void n(int i) {
-        this.f = i;
-    }
-
-    public final int q() {
-        return this.j;
-    }
-
-    public final int r() {
-        return this.i;
-    }
-
-    public final void o(int i) {
-        this.i = i;
-    }
-
-    public final void p(int i) {
-        this.j = i;
-    }
-
-    public final int s() {
-        return this.l;
-    }
-
-    public final void q(int i) {
-        this.l = i;
-    }
-
-    public final int t() {
-        return this.k;
-    }
-
-    public final void r(int i) {
-        this.k = i;
-    }
-
-    public final int u() {
-        return this.u;
-    }
-
-    public final void s(int i) {
-        this.u = i;
-    }
-
-    public final int v() {
-        return this.v;
-    }
-
-    public final void t(int i) {
-        this.v = i;
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final void cancel() {
+        super.cancel(true);
+        this.a.c = null;
+        this.c = true;
+        if (this.b != null) {
+            this.b.g();
+        }
     }
 }

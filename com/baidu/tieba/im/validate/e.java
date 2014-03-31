@@ -1,10 +1,6 @@
 package com.baidu.tieba.im.validate;
-
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.util.ap;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class e implements Runnable {
+final class e implements com.baidu.tieba.im.a<Integer> {
     final /* synthetic */ ValidateActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,13 +8,21 @@ public final class e implements Runnable {
         this.a = validateActivity;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        r rVar;
-        com.baidu.tieba.util.i iVar;
-        rVar = this.a.b;
-        BdListView d = rVar.d();
-        iVar = this.a.h;
-        ap.a(d, iVar, 0, 1);
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.baidu.tieba.im.a
+    public final /* synthetic */ void a(Integer num) {
+        int i;
+        int i2;
+        int i3;
+        com.baidu.tieba.im.a aVar;
+        this.a.j = num.intValue();
+        i = this.a.j;
+        if (i > 0) {
+            this.a.m = true;
+            i2 = this.a.k;
+            i3 = this.a.l;
+            aVar = this.a.c;
+            n.a(i2, i3, aVar);
+        }
     }
 }

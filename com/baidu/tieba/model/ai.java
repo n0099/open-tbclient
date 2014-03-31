@@ -1,45 +1,74 @@
 package com.baidu.tieba.model;
 
-import com.baidu.tieba.data.chat.ImMessageCenterShowItemData;
-import java.util.Iterator;
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.data.MarkData;
 /* loaded from: classes.dex */
-public final class ai implements com.baidu.tieba.im.a<Void> {
-    final /* synthetic */ ag a;
-    private final /* synthetic */ String b;
-    private final /* synthetic */ com.baidu.tieba.im.a c;
+public final class ai extends com.baidu.adp.a.e {
+    private MarkData b;
+    private boolean a = false;
+    private aj c = null;
+    private ak d = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(ag agVar, String str, com.baidu.tieba.im.a aVar) {
-        this.a = agVar;
-        this.b = str;
-        this.c = aVar;
+    public ai() {
+        this.b = null;
+        this.b = new MarkData();
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.baidu.tieba.im.a
-    public final /* synthetic */ void a(Void r6) {
-        List list;
-        ImMessageCenterShowItemData imMessageCenterShowItemData;
-        List list2;
-        list = this.a.b;
-        Iterator it = list.iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                imMessageCenterShowItemData = null;
-                break;
-            }
-            imMessageCenterShowItemData = (ImMessageCenterShowItemData) it.next();
-            if (this.b.equals(imMessageCenterShowItemData.getFriendId())) {
-                break;
-            }
+    public final boolean a() {
+        return this.a;
+    }
+
+    public final MarkData b() {
+        return this.b;
+    }
+
+    public final void a(ak akVar) {
+        this.d = akVar;
+    }
+
+    public final void a(MarkData markData) {
+        this.b = markData;
+    }
+
+    public final void a(boolean z) {
+        this.a = z;
+    }
+
+    public final String c() {
+        if (this.b != null) {
+            return this.b.getPostId();
         }
-        if (imMessageCenterShowItemData != null) {
-            list2 = this.a.b;
-            list2.remove(imMessageCenterShowItemData);
+        return null;
+    }
+
+    public final void d() {
+        if (this.c != null) {
+            this.c.cancel();
         }
-        com.baidu.tieba.im.c.a.d().b(this.b);
-        com.baidu.tieba.im.c.a.d().b(false, this.c);
+        this.c = new aj(this, true);
+        this.c.setPriority(3);
+        this.c.execute(new Boolean[0]);
+    }
+
+    public final void e() {
+        if (this.c != null) {
+            this.c.cancel();
+        }
+        this.c = new aj(this, false);
+        this.c.setPriority(3);
+        this.c.execute(new Boolean[0]);
+    }
+
+    @Override // com.baidu.adp.a.e
+    protected final boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.a.e
+    public final boolean cancelLoadData() {
+        if (this.c != null) {
+            this.c.cancel();
+            return false;
+        }
+        return false;
     }
 }

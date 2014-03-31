@@ -1,35 +1,24 @@
 package com.baidu.tieba.im.friend;
 
-import android.view.View;
-import com.baidu.tieba.util.cj;
-import com.baidu.tieba.view.HeadImageView;
-import com.slidingmenu.lib.R;
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class r implements cj {
-    final /* synthetic */ q a;
-    private final /* synthetic */ String b;
-    private final /* synthetic */ com.baidu.adp.widget.ImageView.b c;
+public final class r implements DialogInterface.OnCancelListener {
+    final /* synthetic */ InviteFriendListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(q qVar, String str, com.baidu.adp.widget.ImageView.b bVar) {
-        this.a = qVar;
-        this.b = str;
-        this.c = bVar;
+    public r(InviteFriendListActivity inviteFriendListActivity) {
+        this.a = inviteFriendListActivity;
     }
 
-    @Override // com.baidu.tieba.util.cj
-    public final boolean a(View view) {
-        if (view instanceof HeadImageView) {
-            HeadImageView headImageView = (HeadImageView) view;
-            if (this.b.equals(headImageView.getTag())) {
-                if (this.c != null) {
-                    headImageView.setImageBitmap(this.c.h());
-                } else {
-                    headImageView.setImageBitmap(com.baidu.tieba.util.n.a((int) R.drawable.photo));
-                }
-                headImageView.invalidate();
-            }
+    @Override // android.content.DialogInterface.OnCancelListener
+    public final void onCancel(DialogInterface dialogInterface) {
+        af afVar;
+        af afVar2;
+        afVar = this.a.b;
+        if (afVar != null) {
+            afVar2 = this.a.b;
+            afVar2.cancelLoadData();
         }
-        return false;
     }
 }

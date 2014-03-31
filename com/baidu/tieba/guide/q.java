@@ -15,7 +15,7 @@ final class q implements s {
         o oVar;
         View view;
         oVar = this.a.a;
-        view = oVar.c;
+        view = oVar.b;
         view.setVisibility(8);
     }
 }

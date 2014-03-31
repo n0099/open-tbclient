@@ -203,7 +203,7 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
 
         private void ensureExtensionsIsMutable() {
             if (!this.extensionsIsMutable) {
-                this.extensions = this.extensions.m250clone();
+                this.extensions = this.extensions.m251clone();
                 this.extensionsIsMutable = true;
             }
         }
@@ -487,8 +487,9 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    final class SerializedForm implements Serializable {
+    public final class SerializedForm implements Serializable {
         private static final long serialVersionUID = 0;
         private byte[] asBytes;
         private String messageClassName;

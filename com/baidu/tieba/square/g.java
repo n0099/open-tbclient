@@ -1,7 +1,7 @@
 package com.baidu.tieba.square;
 
 import android.widget.TextView;
-import com.baidu.tieba.view.HeadImageView;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 public final class g {
     public HeadImageView a;

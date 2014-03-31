@@ -7,15 +7,11 @@ import android.support.v4.view.MotionEventCompat;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
-import com.baidu.android.pushservice.PushConstants;
-import com.baidu.sapi2.shell.SapiErrorCode;
 import java.util.List;
 /* loaded from: classes.dex */
 public class VerticalTranslateLayout extends FrameLayout {
     static final /* synthetic */ boolean a;
-    private ab A;
-    private z B;
-    private ac C;
+    private y A;
     private int b;
     private int c;
     private float d;
@@ -35,11 +31,11 @@ public class VerticalTranslateLayout extends FrameLayout {
     private int r;
     private int s;
     private boolean t;
-    private final w u;
-    private final x v;
-    private final ad w;
-    private aa x;
-    private y y;
+    private final u u;
+    private final v v;
+    private final z w;
+    private x x;
+    private w y;
     private final List<OnOpenAnimationListener> z;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -85,7 +81,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                 this.m = 10000;
             } else if (f == 1.0f) {
                 this.d = this.c - this.f;
-                this.m = PushConstants.ERROR_NETWORK_ERROR;
+                this.m = 10001;
             }
             invalidate();
         }
@@ -111,24 +107,16 @@ public class VerticalTranslateLayout extends FrameLayout {
         return this.m;
     }
 
-    public void setTopAnimationListener(aa aaVar) {
-        this.x = aaVar;
+    public void setTopAnimationListener(x xVar) {
+        this.x = xVar;
     }
 
-    public void setBottomAnimationListener(y yVar) {
-        this.y = yVar;
+    public void setBottomAnimationListener(w wVar) {
+        this.y = wVar;
     }
 
-    public void setTopTrackListener(ab abVar) {
-        this.A = abVar;
-    }
-
-    public void setBottomTrackListener(z zVar) {
-        this.B = zVar;
-    }
-
-    public void setVerticalTrackListener(ac acVar) {
-        this.C = acVar;
+    public void setVerticalTrackListener(y yVar) {
+        this.A = yVar;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -159,9 +147,9 @@ public class VerticalTranslateLayout extends FrameLayout {
                     this.q = x;
                     this.r = y;
                     this.u.removeMessages(-100);
-                    this.u.removeMessages(SapiErrorCode.GETTING_CERT);
-                    this.u.removeMessages(SapiErrorCode.SENT_SUCCEED);
-                    this.u.removeMessages(SapiErrorCode.GET_CERT_FAIL);
+                    this.u.removeMessages(-104);
+                    this.u.removeMessages(-101);
+                    this.u.removeMessages(-105);
                     return false;
                 case 1:
                 default:
@@ -194,7 +182,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                     if (this.w.b) {
                         Log.d("VerticalTranslateLayout", "@onTouchEvent tracking");
                         this.w.b = false;
-                        ad.a(this.w);
+                        z.a(this.w);
                         return true;
                     }
                     return true;
@@ -234,7 +222,7 @@ public class VerticalTranslateLayout extends FrameLayout {
             case 3:
                 if (this.w.b) {
                     this.w.b = false;
-                    ad.a(this.w);
+                    z.a(this.w);
                     return true;
                 }
                 return true;
@@ -295,12 +283,12 @@ public class VerticalTranslateLayout extends FrameLayout {
                 this.h = (int) (this.d - this.c);
                 invalidate();
                 return;
-            case PushConstants.ERROR_NETWORK_ERROR /* 10001 */:
+            case 10001:
                 this.h = (int) (this.c - this.f);
                 invalidate();
                 return;
-            case PushConstants.ERROR_SERVICE_NOT_AVAILABLE /* 10002 */:
-            case PushConstants.ERROR_SERVICE_NOT_AVAILABLE_TEMP /* 10003 */:
+            case 10002:
+            case 10003:
             default:
                 return;
             case 10004:

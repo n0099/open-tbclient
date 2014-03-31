@@ -1,26 +1,22 @@
 package com.baidu.tieba.im.groupInfo;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class w extends BdAsyncTask<Void, Void, Void> {
-    private final /* synthetic */ String a;
-    private final /* synthetic */ String b;
-    private final /* synthetic */ boolean c;
+public final class w implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ r a;
+    private final /* synthetic */ HeadImageView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(String str, String str2, boolean z) {
-        this.a = str;
-        this.b = str2;
-        this.c = z;
+    public w(r rVar, HeadImageView headImageView) {
+        this.a = rVar;
+        this.b = headImageView;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ Void a(Void... voidArr) {
-        v.c(this.a, this.b, this.c);
-        return null;
+    @Override // com.baidu.tbadk.imageManager.d
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        if (bVar != null) {
+            bVar.a(this.b);
+        }
     }
 }

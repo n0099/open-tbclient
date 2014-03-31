@@ -1,14 +1,26 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.tieba.util.cb;
+import android.view.View;
 /* loaded from: classes.dex */
-public final class ai {
-    public static void a(Context context, String str) {
-        cb.a(context, str, "click", 1, new Object[0]);
+final class ai implements View.OnClickListener {
+    final /* synthetic */ UpdateDialog a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ai(UpdateDialog updateDialog) {
+        this.a = updateDialog;
     }
 
-    public static void b(Context context, String str) {
-        cb.a(context, str, "visit", 1, new Object[0]);
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        m mVar;
+        boolean z;
+        mVar = this.a.c;
+        mVar.dismiss();
+        this.a.finish();
+        z = this.a.e;
+        if (!z) {
+            return;
+        }
+        this.a.a();
     }
 }

@@ -70,7 +70,7 @@ public class b {
 
     /* renamed from: do  reason: not valid java name */
     private LocationManager f69do = null;
-    private C0002b v = null;
+    private C0006b v = null;
 
     /* renamed from: new  reason: not valid java name */
     private a f73new = null;
@@ -183,8 +183,8 @@ public class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.location.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0002b implements LocationListener {
-        private C0002b() {
+    public class C0006b implements LocationListener {
+        private C0006b() {
         }
 
         @Override // android.location.LocationListener
@@ -724,8 +724,8 @@ public class b {
             this.a = null;
             if (str == null) {
                 str = "";
-            } else if (str.length() > 100) {
-                str = str.substring(0, 100);
+            } else if (str.length() > b.t) {
+                str = str.substring(0, b.t);
             }
             this.a = str;
         }
@@ -937,7 +937,7 @@ public class b {
 
         /* renamed from: do  reason: not valid java name */
         public void m100do() {
-            if (b.w != null && b.w.length() >= 100) {
+            if (b.w != null && b.w.length() >= b.t) {
                 a(b.w.toString());
             }
             b.m77void();
@@ -1201,7 +1201,7 @@ public class b {
         }
         try {
             this.f69do = (LocationManager) this.f.getSystemService("location");
-            this.v = new C0002b();
+            this.v = new C0006b();
             this.f73new = new a();
             this.f69do.requestLocationUpdates("gps", 1000L, 5.0f, this.v);
             this.f69do.addGpsStatusListener(this.f73new);

@@ -1,14 +1,9 @@
 package com.baidu.tieba.im.message;
+
+import java.util.List;
 /* loaded from: classes.dex */
-public final class n extends s {
-    private String a;
-
-    public n(String str) {
-        e(-128);
-        this.a = str;
-    }
-
-    public final String a() {
-        return this.a;
-    }
+public final class n {
+    public String a;
+    public List<com.baidu.tieba.im.message.a.a> b;
+    public boolean c;
 }

@@ -4,28 +4,27 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import com.baidu.tieba.model.ar;
-import com.baidu.tieba.util.cb;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.model.af;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class TopRecActivity extends com.baidu.tieba.f {
+public class TopRecActivity extends com.baidu.tbadk.a {
     private h a;
     private e b;
     private l c;
-    private ar d;
+    private af d;
     private d e;
     private TRForumListData f;
     private List<d> h;
-    private List<ar> i;
+    private List<af> i;
     private int g = 0;
     private int j = 0;
     private n k = new a(this);
-    private com.baidu.adp.widget.ListView.b l = new b(this);
+    private com.baidu.adp.widget.ListView.d l = new b(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.a = new h(this);
@@ -79,7 +78,7 @@ public class TopRecActivity extends com.baidu.tieba.f {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         int size = this.h.size();
@@ -97,7 +96,7 @@ public class TopRecActivity extends com.baidu.tieba.f {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, android.app.Activity
+    @Override // com.baidu.tbadk.a, android.app.Activity
     public void onResume() {
         super.onResume();
         if (this.b != null) {
@@ -112,14 +111,14 @@ public class TopRecActivity extends com.baidu.tieba.f {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f
+    @Override // com.baidu.tbadk.a
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.a.b(i);
         if (i == 1) {
-            this.b.a(R.drawable.btn_add_1, R.drawable.btn_add_end_1);
+            this.b.a(com.baidu.tieba.a.g.btn_add_1, com.baidu.tieba.a.g.btn_add_end_1);
         } else {
-            this.b.a(R.drawable.btn_add, R.drawable.btn_add_end);
+            this.b.a(com.baidu.tieba.a.g.btn_add, com.baidu.tieba.a.g.btn_add_end);
         }
     }
 
@@ -146,13 +145,13 @@ public class TopRecActivity extends com.baidu.tieba.f {
             }
         } else if (view == this.a.b()) {
             if (this.j != 0) {
-                showToast(String.valueOf(getString(R.string.top_rec_like_finish_a)) + this.j + getString(R.string.top_rec_like_finish_b));
-                cb.a(this, "top_rec_have_like", "people_number", 1, new Object[0]);
+                showToast(String.valueOf(getString(com.baidu.tieba.a.k.top_rec_like_finish_a)) + this.j + getString(com.baidu.tieba.a.k.top_rec_like_finish_b));
+                TiebaStatic.a(this, "top_rec_have_like", "people_number", 1, new Object[0]);
             } else {
-                cb.a(this, "top_rec_no_like", "people_number", 1, new Object[0]);
+                TiebaStatic.a(this, "top_rec_no_like", "people_number", 1, new Object[0]);
             }
             finish();
-            com.baidu.tieba.mainentrance.d.a(this, 1);
+            com.baidu.tbadk.core.d.b.a(this, 1);
         } else if (this.f != null && this.f.forum_list.length != 0) {
             int intValue = ((Integer) view.getTag()).intValue();
             if (this.f.forum_list.length != 0) {
@@ -165,7 +164,7 @@ public class TopRecActivity extends com.baidu.tieba.f {
                     this.e.execute(Integer.valueOf(intValue));
                     return;
                 }
-                this.d = new ar();
+                this.d = new af();
                 if (!this.d.b()) {
                     this.i.add(this.d);
                     a(c);
@@ -181,12 +180,12 @@ public class TopRecActivity extends com.baidu.tieba.f {
     public void onBackPressed() {
         super.onBackPressed();
         if (this.j != 0) {
-            showToast(String.valueOf(getString(R.string.top_rec_like_finish_a)) + this.j + getString(R.string.top_rec_like_finish_b));
-            cb.a(this, "top_rec_have_like", "people_number", 1, new Object[0]);
+            showToast(String.valueOf(getString(com.baidu.tieba.a.k.top_rec_like_finish_a)) + this.j + getString(com.baidu.tieba.a.k.top_rec_like_finish_b));
+            TiebaStatic.a(this, "top_rec_have_like", "people_number", 1, new Object[0]);
         } else {
-            cb.a(this, "top_rec_no_like", "people_number", 1, new Object[0]);
+            TiebaStatic.a(this, "top_rec_no_like", "people_number", 1, new Object[0]);
         }
         finish();
-        com.baidu.tieba.mainentrance.d.a(this, 1);
+        com.baidu.tbadk.core.d.b.a(this, 1);
     }
 }

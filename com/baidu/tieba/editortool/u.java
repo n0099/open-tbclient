@@ -1,20 +1,21 @@
 package com.baidu.tieba.editortool;
-
-import android.view.View;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class u implements View.OnClickListener {
-    final /* synthetic */ EmotionTabHorizonScrollView a;
+public final class u implements Runnable {
+    final /* synthetic */ PbEditor a;
+    private final /* synthetic */ int b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(EmotionTabHorizonScrollView emotionTabHorizonScrollView) {
-        this.a = emotionTabHorizonScrollView;
+    public u(PbEditor pbEditor, int i) {
+        this.a = pbEditor;
+        this.b = i;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        BdUtilHelper.a(this.a.getContext(), (int) R.string.emotion_cant_show);
+    @Override // java.lang.Runnable
+    public final void run() {
+        PbEditor pbEditor = this.a;
+        int i = this.b;
+        new v(this);
+        pbEditor.a(i);
     }
 }

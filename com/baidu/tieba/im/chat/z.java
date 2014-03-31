@@ -1,21 +1,23 @@
 package com.baidu.tieba.im.chat;
+
+import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class z implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ q a;
-    private final /* synthetic */ com.baidu.tieba.im.message.bs b;
+public final class z extends com.baidu.tieba.im.m<Boolean> {
+    final /* synthetic */ x b;
+    private final /* synthetic */ com.baidu.tieba.im.message.a.b c;
+    private final /* synthetic */ LinkedList d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(q qVar, com.baidu.tieba.im.message.bs bsVar) {
-        this.a = qVar;
-        this.b = bsVar;
+    public z(x xVar, com.baidu.tieba.im.message.a.b bVar, LinkedList linkedList) {
+        this.b = xVar;
+        this.c = bVar;
+        this.d = linkedList;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.baidu.tieba.im.a
-    public final /* bridge */ /* synthetic */ void a(Boolean bool) {
-        if (this.b != null) {
-            this.a.a((com.baidu.tieba.im.message.s) this.b);
-        }
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.m
+    public final /* synthetic */ Boolean a() {
+        return Boolean.valueOf(com.baidu.tieba.im.db.c.a().a(this.c.i(), this.d, false));
     }
 }

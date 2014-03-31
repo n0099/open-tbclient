@@ -24,7 +24,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.accessibility.AccessibilityEvent;
-import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.loginshare.e;
 /* loaded from: classes.dex */
 public class DrawerLayout extends ViewGroup {
@@ -390,7 +389,7 @@ public class DrawerLayout extends ViewGroup {
                     } else {
                         i5 = (i3 - i) - ((int) (measuredWidth * layoutParams.onScreen));
                     }
-                    switch (layoutParams.gravity & SocialAPIErrorCodes.ERROR_EXPIRED_SESSION_KEY) {
+                    switch (layoutParams.gravity & 112) {
                         case 16:
                             int i7 = i4 - i2;
                             int i8 = (i7 - measuredHeight) / 2;

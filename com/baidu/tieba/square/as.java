@@ -1,146 +1,45 @@
 package com.baidu.tieba.square;
 
-import com.baidu.tieba.forumdetail.ForumDetailData;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class as {
-    private ArrayList<av> a = new ArrayList<>();
-    private ArrayList<av> b = new ArrayList<>();
-    private af c = new af();
-    private ForumDetailData.ThreadInfo[] d = null;
-    private au e = null;
-    private boolean f = true;
+public final class as extends com.baidu.tieba.data.a {
+    private ArrayList<ar> a = new ArrayList<>();
+    private String b;
 
-    public final boolean a() {
-        return this.f;
+    public as() {
+        this.b = null;
+        this.b = "";
     }
 
-    public final ArrayList<av> b() {
+    public final ArrayList<ar> d() {
         return this.a;
     }
 
-    public final ArrayList<av> c() {
+    public final String e() {
         return this.b;
     }
 
-    public final af d() {
-        return this.c;
-    }
-
-    public final ForumDetailData.ThreadInfo[] e() {
-        return this.d;
-    }
-
-    public final au f() {
-        return this.e;
-    }
-
-    public final void a(String str) {
-        if (str == null || str.length() <= 0) {
-            this.f = false;
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            try {
-                a(jSONObject.optJSONArray("banner"));
-                b(jSONObject.optJSONArray("forum_list_recommend_img"));
-                this.c.a(jSONObject.optJSONArray("forum_list_recommend"));
-                c(jSONObject.optJSONArray("thread_list"));
-                this.e = new au();
-                this.e.b(jSONObject);
-            } catch (Exception e) {
-                this.f = false;
-                com.baidu.adp.lib.util.e.b(getClass().getName(), "parserJson", e.toString());
-            }
-        } catch (Exception e2) {
-            this.f = false;
-            com.baidu.adp.lib.util.e.b(getClass().getName(), "parserJson", e2.toString());
-        }
-    }
-
-    private void a(JSONArray jSONArray) {
-        if (jSONArray != null) {
-            try {
-                if (jSONArray.length() != 0) {
-                    for (int i = 0; i < jSONArray.length(); i++) {
-                        av avVar = new av();
-                        JSONObject jSONObject = jSONArray.getJSONObject(i);
-                        avVar.a(jSONObject.optString("pic_url", ""));
-                        avVar.b(jSONObject.optString("link", ""));
-                        this.a.add(avVar);
-                    }
-                }
-            } catch (Exception e) {
-                com.baidu.adp.lib.util.e.b(getClass().getName(), "parseCarouselRecommendData", e.toString());
+    @Override // com.baidu.tieba.data.a
+    protected final void a(JSONObject jSONObject) {
+        ArrayList<ar> arrayList = new ArrayList<>();
+        JSONArray optJSONArray = jSONObject.optJSONArray("forum_browse");
+        this.b = jSONObject.optString("forum_browse_title");
+        if (optJSONArray != null) {
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                ar arVar = new ar();
+                JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
+                arVar.b = jSONObject2.optString("title");
+                arVar.c = jSONObject2.optString("sub_title");
+                arVar.d = jSONObject2.optString("link");
+                arVar.f = jSONObject2.optString("is_all", "0");
+                arVar.e = jSONObject2.optString("pic_url", null);
+                arVar.e = arVar.e != null ? String.valueOf(arVar.e) + "?v=2" : null;
+                arrayList.add(arVar);
             }
         }
-    }
-
-    private void b(JSONArray jSONArray) {
-        if (jSONArray != null) {
-            try {
-                if (jSONArray.length() != 0) {
-                    for (int i = 0; i < jSONArray.length(); i++) {
-                        av avVar = new av();
-                        JSONObject jSONObject = jSONArray.getJSONObject(i);
-                        avVar.a(jSONObject.optString("pic_url", ""));
-                        avVar.b(jSONObject.optString("link", ""));
-                        this.b.add(avVar);
-                    }
-                }
-            } catch (Exception e) {
-                com.baidu.adp.lib.util.e.b(getClass().getName(), "parseForumTopicRecommendData", e.toString());
-            }
-        }
-    }
-
-    private void c(JSONArray jSONArray) {
-        if (jSONArray != null) {
-            try {
-                if (jSONArray.length() != 0) {
-                    this.d = new ForumDetailData.ThreadInfo[jSONArray.length()];
-                    for (int i = 0; i < jSONArray.length(); i++) {
-                        ForumDetailData.ThreadInfo threadInfo = new ForumDetailData.ThreadInfo();
-                        JSONObject jSONObject = jSONArray.getJSONObject(i);
-                        threadInfo.id = jSONObject.optLong("id");
-                        threadInfo.title = jSONObject.optString("title");
-                        threadInfo.viewNum = jSONObject.optLong("view_num");
-                        threadInfo.replyNum = jSONObject.optLong("reply_num");
-                        threadInfo.forumName = jSONObject.optString("forum_name", "");
-                        threadInfo.postAuthor = jSONObject.optString("post_author", "");
-                        JSONArray optJSONArray = jSONObject.optJSONArray("abstract");
-                        if (optJSONArray != null) {
-                            threadInfo.abstracts = new ForumDetailData.ThreadAbstract[optJSONArray.length()];
-                            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                                JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
-                                ForumDetailData.ThreadAbstract threadAbstract = new ForumDetailData.ThreadAbstract();
-                                threadAbstract.type = jSONObject2.optInt("type", 0);
-                                threadAbstract.text = jSONObject2.optString("text", "");
-                                threadInfo.abstracts[i2] = threadAbstract;
-                            }
-                            this.d[i] = threadInfo;
-                        } else {
-                            return;
-                        }
-                    }
-                }
-            } catch (Exception e) {
-                com.baidu.adp.lib.util.e.b(getClass().getName(), "parseRecommendPostData", e.toString());
-            }
-        }
-    }
-
-    public final boolean g() {
-        boolean z = false;
-        if (this.f) {
-            if (this.a == null || this.e == null || this.b == null || this.c == null || this.d == null) {
-                z = true;
-            }
-            return z;
-        }
-        return true;
+        this.a = arrayList;
+        a((String) null);
     }
 }

@@ -1,25 +1,28 @@
 package com.baidu.tieba.im.chat.receiveChatMsgHandler;
 
-import com.baidu.tieba.im.message.s;
+import com.baidu.tieba.im.data.GroupMsgData;
+import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public abstract class d implements com.baidu.tieba.im.messageCenter.g {
-    private int a;
+public final class d implements com.baidu.tieba.im.a<Boolean> {
+    private final /* synthetic */ GroupMsgData a;
+    private final /* synthetic */ String b;
+    private final /* synthetic */ CommonMsgPojo c;
+    private final /* synthetic */ int d;
+    private final /* synthetic */ boolean e;
 
-    protected abstract void a(com.baidu.tieba.im.data.c cVar);
-
-    public d(int i) {
-        this.a = -1;
-        this.a = i;
-        com.baidu.tieba.im.messageCenter.d.a().a(-100, this);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public d(GroupMsgData groupMsgData, String str, CommonMsgPojo commonMsgPojo, int i, boolean z) {
+        this.a = groupMsgData;
+        this.b = str;
+        this.c = commonMsgPojo;
+        this.d = i;
+        this.e = z;
     }
 
-    @Override // com.baidu.tieba.im.messageCenter.g
-    public final void a(s sVar) {
-        if (sVar != null && -100 == sVar.v()) {
-            com.baidu.tieba.im.data.c cVar = (com.baidu.tieba.im.data.c) sVar;
-            if (cVar.a() != null && this.a == cVar.a().getGroupType()) {
-                a((com.baidu.tieba.im.data.c) sVar);
-            }
-        }
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.baidu.tieba.im.a
+    public final /* bridge */ /* synthetic */ void a(Boolean bool) {
+        b.a(this.a, this.b, this.c, this.d, this.e);
     }
 }

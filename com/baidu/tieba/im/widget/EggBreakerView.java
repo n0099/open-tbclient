@@ -6,7 +6,6 @@ import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.view.animation.RotateAnimation;
 import com.baidu.tbadk.gif.GifView;
-import com.slidingmenu.lib.R;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -46,14 +45,14 @@ public class EggBreakerView extends GifView {
             }
             this.d = com.baidu.adp.gif.b.a().a(getContext().getCacheDir() + "/dandan2.gif");
             setGif(this.d);
-            setLayoutParams(new ViewGroup.LayoutParams(getResources().getDimensionPixelSize(R.dimen.egg_breaker_width), getResources().getDimensionPixelSize(R.dimen.egg_breaker_height)));
+            setLayoutParams(new ViewGroup.LayoutParams(getResources().getDimensionPixelSize(com.baidu.tieba.im.f.egg_breaker_width), getResources().getDimensionPixelSize(com.baidu.tieba.im.f.egg_breaker_height)));
         }
     }
 
     public final void d() {
         postDelayed(new g(this), 30L);
         if (this.b == null) {
-            this.b = (RotateAnimation) AnimationUtils.loadAnimation(getContext(), R.anim.wobble);
+            this.b = (RotateAnimation) AnimationUtils.loadAnimation(getContext(), com.baidu.tieba.im.c.wobble);
         }
         if (this.b != null) {
             startAnimation(this.b);

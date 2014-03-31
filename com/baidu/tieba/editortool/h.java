@@ -1,23 +1,23 @@
 package com.baidu.tieba.editortool;
-
-import android.view.ViewGroup;
-import com.baidu.tbadk.widget.TbImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class h implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ g a;
-    private final /* synthetic */ ViewGroup b;
+public final class h implements com.baidu.tbadk.editortool.x {
+    final /* synthetic */ EditorToolComponetContainer a;
+    private final /* synthetic */ com.baidu.tbadk.editortool.x b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(g gVar, ViewGroup viewGroup) {
-        this.a = gVar;
-        this.b = viewGroup;
+    public h(EditorToolComponetContainer editorToolComponetContainer, com.baidu.tbadk.editortool.x xVar) {
+        this.a = editorToolComponetContainer;
+        this.b = xVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        TbImageView tbImageView = (TbImageView) this.b.findViewWithTag(str);
-        if (tbImageView != null && bVar != null) {
-            tbImageView.invalidate();
+    @Override // com.baidu.tbadk.editortool.x
+    public final void a(int i, Object obj) {
+        if (i == 46) {
+            this.a.b.b();
+        } else if (i == 47) {
+            this.a.b.c();
         }
+        this.b.a(i, obj);
     }
 }

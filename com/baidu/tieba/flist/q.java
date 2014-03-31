@@ -4,7 +4,6 @@ import android.widget.ImageView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.gson.JsonParseException;
 import com.baidu.tieba.flist.ForumListModel;
-import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class q extends BdAsyncTask<Void, Void, ForumListModel> {
@@ -15,8 +14,8 @@ public final class q extends BdAsyncTask<Void, Void, ForumListModel> {
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ ForumListModel a(Void... voidArr) {
-        return d();
+    public final /* bridge */ /* synthetic */ ForumListModel a(Void... voidArr) {
+        return a();
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -35,10 +34,10 @@ public final class q extends BdAsyncTask<Void, Void, ForumListModel> {
         int i7;
         ForumListModel forumListModel2 = forumListModel;
         if (forumListModel2 == null || forumListModel2.recommend_list_left == null) {
-            this.b.showToast(this.b.getString(R.string.neterror));
+            this.b.showToast(this.b.getString(com.baidu.tieba.a.k.neterror));
             if (this.a) {
-                this.b.c.m.setText(this.b.getString(R.string.flist_expand_list));
-                ImageView imageView = this.b.c.n;
+                this.b.c.n.setText(this.b.getString(com.baidu.tieba.a.k.flist_expand_list));
+                ImageView imageView = this.b.c.o;
                 i4 = this.b.l;
                 imageView.setImageResource(i4);
                 requestParams = this.b.A;
@@ -47,13 +46,13 @@ public final class q extends BdAsyncTask<Void, Void, ForumListModel> {
             } else {
                 i = this.b.n;
                 if (i == 200) {
-                    this.b.c.m.setText(this.b.getString(R.string.flist_expand_list));
-                    ImageView imageView2 = this.b.c.n;
+                    this.b.c.n.setText(this.b.getString(com.baidu.tieba.a.k.flist_expand_list));
+                    ImageView imageView2 = this.b.c.o;
                     i3 = this.b.l;
                     imageView2.setImageResource(i3);
                 } else {
-                    this.b.c.m.setText(this.b.getString(R.string.flist_collapse_list));
-                    ImageView imageView3 = this.b.c.n;
+                    this.b.c.n.setText(this.b.getString(com.baidu.tieba.a.k.flist_collapse_list));
+                    ImageView imageView3 = this.b.c.o;
                     i2 = this.b.m;
                     imageView3.setImageResource(i2);
                 }
@@ -67,19 +66,19 @@ public final class q extends BdAsyncTask<Void, Void, ForumListModel> {
             rVar2.a(this.b.a.forum_list);
             i5 = this.b.n;
             if (i5 == 200) {
-                this.b.c.m.setText(this.b.getString(R.string.flist_expand_list));
-                ImageView imageView4 = this.b.c.n;
+                this.b.c.n.setText(this.b.getString(com.baidu.tieba.a.k.flist_expand_list));
+                ImageView imageView4 = this.b.c.o;
                 i7 = this.b.l;
                 imageView4.setImageResource(i7);
             } else {
-                this.b.c.m.setText(this.b.getString(R.string.flist_collapse_list));
-                ImageView imageView5 = this.b.c.n;
+                this.b.c.n.setText(this.b.getString(com.baidu.tieba.a.k.flist_collapse_list));
+                ImageView imageView5 = this.b.c.o;
                 i6 = this.b.m;
                 imageView5.setImageResource(i6);
                 this.b.B = true;
             }
         }
-        this.b.c.l.setEnabled(true);
+        this.b.c.m.setEnabled(true);
         this.b.c.a();
     }
 
@@ -99,12 +98,12 @@ public final class q extends BdAsyncTask<Void, Void, ForumListModel> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void b() {
-        this.b.c.l.setEnabled(false);
-        this.b.c.m.setText(this.b.getString(R.string.flist_loading));
+    public final void c() {
+        this.b.c.m.setEnabled(false);
+        this.b.c.n.setText(this.b.getString(com.baidu.tieba.a.k.flist_loading));
     }
 
-    private ForumListModel d() {
+    private ForumListModel a() {
         ForumListModel.RequestParams requestParams;
         ForumListModel.RequestParams requestParams2;
         ForumListModel.RequestParams requestParams3;

@@ -1,24 +1,26 @@
 package com.baidu.tieba.person;
 
-import android.content.DialogInterface;
+import android.view.ViewTreeObserver;
+import com.baidu.tbadk.core.view.UserIconBox;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class ac implements DialogInterface.OnClickListener {
-    final /* synthetic */ EditMarkActivity a;
+public final class ac implements ViewTreeObserver.OnGlobalLayoutListener {
+    final /* synthetic */ ab a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(EditMarkActivity editMarkActivity) {
-        this.a = editMarkActivity;
+    public ac(ab abVar) {
+        this.a = abVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
-        ad adVar;
-        com.baidu.tieba.model.g gVar;
-        com.baidu.tieba.model.g gVar2;
-        adVar = this.a.b;
-        gVar = this.a.a;
-        adVar.a(gVar.a());
-        gVar2 = this.a.a;
-        gVar2.a((Boolean) true);
+    @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+    public final void onGlobalLayout() {
+        UserIconBox userIconBox;
+        UserIconBox userIconBox2;
+        userIconBox = this.a.y;
+        userIconBox.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+        ab abVar = this.a;
+        userIconBox2 = this.a.y;
+        abVar.C = userIconBox2.getMeasuredWidth();
+        this.a.b();
     }
 }

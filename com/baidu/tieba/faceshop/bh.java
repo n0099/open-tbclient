@@ -1,65 +1,53 @@
 package com.baidu.tieba.faceshop;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-final class bh extends com.baidu.adp.widget.ListView.c {
-    final /* synthetic */ be a;
-    private com.baidu.tieba.f b;
-    private TextView c = null;
-    private ProgressBar d = null;
-    private View e = null;
-    private View f;
+final class bh extends com.baidu.adp.a.h {
+    final /* synthetic */ FaceShopActivity a;
 
-    public bh(be beVar, com.baidu.tieba.f fVar) {
-        this.a = beVar;
-        this.b = fVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bh(FaceShopActivity faceShopActivity) {
+        this.a = faceShopActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.c
-    public final View a() {
-        this.e = LayoutInflater.from(this.b).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
-        this.e.setPadding(0, this.b.getResources().getDimensionPixelSize(R.dimen.listview_item_margin), 0, this.b.getResources().getDimensionPixelSize(R.dimen.listview_item_margin));
-        this.c = (TextView) this.e.findViewById(R.id.pb_more_text);
-        this.f = this.e.findViewById(R.id.pb_more_view);
-        this.f.setVisibility(8);
-        this.d = (ProgressBar) this.e.findViewById(R.id.progress);
-        a(TiebaApplication.g().ae());
-        this.f.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-        return this.e;
-    }
-
-    public final void a(int i) {
-        this.b.getLayoutMode().a(i == 1);
-        this.b.getLayoutMode().a(this.f);
-    }
-
-    public final void c() {
-        this.e.setVisibility(8);
-    }
-
-    public final void d() {
-        this.e.setVisibility(0);
-    }
-
-    public final void e() {
-        this.d.setVisibility(0);
-        this.c.setText(this.b.getText(R.string.loading));
-        this.f.setVisibility(0);
-    }
-
-    public final void f() {
-        this.d.setVisibility(8);
-        this.c.setText(R.string.load_more);
-    }
-
-    @Override // com.baidu.adp.widget.ListView.c
-    public final void onClick() {
+    @Override // com.baidu.adp.a.h
+    public final void a(Object obj) {
+        bu buVar;
+        bu buVar2;
+        bu buVar3;
+        bs bsVar;
+        bu buVar4;
+        bu buVar5;
+        bu buVar6;
+        this.a.hideProgressBar();
+        if (obj != null && (obj instanceof FaceShopData)) {
+            buVar2 = this.a.a;
+            if (buVar2 != null) {
+                FaceShopData faceShopData = (FaceShopData) obj;
+                if (faceShopData.errno == 0 && faceShopData.usermsg != null) {
+                    bsVar = this.a.b;
+                    if (bsVar.b()) {
+                        buVar6 = this.a.a;
+                        buVar6.e();
+                    } else {
+                        buVar4 = this.a.a;
+                        buVar4.d();
+                    }
+                    buVar5 = this.a.a;
+                    buVar5.a(faceShopData);
+                    return;
+                }
+                if (faceShopData.usermsg != null) {
+                    this.a.showToast(faceShopData.usermsg);
+                } else {
+                    this.a.showToast(com.baidu.tieba.a.k.neterror);
+                }
+                buVar3 = this.a.a;
+                buVar3.b();
+                return;
+            }
+            return;
+        }
+        this.a.showToast(com.baidu.tieba.a.k.neterror);
+        buVar = this.a.a;
+        buVar.b();
     }
 }

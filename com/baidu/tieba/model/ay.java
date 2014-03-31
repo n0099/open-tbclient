@@ -1,57 +1,72 @@
 package com.baidu.tieba.model;
-
-import com.baidu.android.pushservice.PushConstants;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class ay {
-    private com.baidu.tieba.data.ai c = new com.baidu.tieba.data.ai();
-    private ArrayList<com.baidu.tieba.data.t> a = new ArrayList<>();
-    private com.baidu.tieba.data.al b = new com.baidu.tieba.data.al();
-    private boolean d = true;
+    private com.baidu.tieba.data.ag a = new com.baidu.tieba.data.ag();
+    private boolean b = true;
+    private String c = null;
+    private int d;
 
-    public final boolean a() {
+    public final void a(String str) {
+        this.c = str;
+    }
+
+    public final String a() {
+        return this.c;
+    }
+
+    public final void a(int i) {
+        this.d = i;
+    }
+
+    public final int b() {
         return this.d;
     }
 
-    public final void a(ArrayList<com.baidu.tieba.data.t> arrayList) {
-        this.a = arrayList;
+    public final void a(boolean z) {
+        this.b = z;
     }
 
-    public final ArrayList<com.baidu.tieba.data.t> b() {
-        return this.a;
-    }
-
-    public final com.baidu.tieba.data.al c() {
+    public final boolean c() {
         return this.b;
     }
 
-    public final void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            this.d = false;
-            com.baidu.adp.lib.util.e.b("MentionModel", "parserJson", "error = " + e.getMessage());
+    public final com.baidu.tieba.data.ag d() {
+        return this.a;
+    }
+
+    public final void a(String str, boolean z) {
+        com.baidu.adp.lib.cache.s<String> k;
+        if (str != null && this.c != null) {
+            if (z) {
+                k = com.baidu.tbadk.core.c.b.a().j();
+            } else {
+                k = com.baidu.tbadk.core.c.b.a().k();
+            }
+            if (k != null) {
+                k.a(String.valueOf(z ? "personal_followme" : "personal_myfollow") + "_" + this.c, str, 604800000L);
+            }
         }
     }
 
-    private void a(JSONObject jSONObject) {
-        try {
-            JSONArray optJSONArray = jSONObject.optJSONArray("reply_list");
-            JSONArray optJSONArray2 = optJSONArray == null ? jSONObject.optJSONArray("at_list") : optJSONArray;
-            if (optJSONArray2 != null) {
-                for (int i = 0; i < optJSONArray2.length(); i++) {
-                    com.baidu.tieba.data.t tVar = new com.baidu.tieba.data.t();
-                    tVar.a(optJSONArray2.optJSONObject(i));
-                    this.a.add(tVar);
-                }
-            }
-            this.c.a(jSONObject.optJSONObject(PushConstants.EXTRA_PUSH_MESSAGE));
-            this.b.a(jSONObject.optJSONObject("page"));
-        } catch (Exception e) {
-            this.d = false;
-            com.baidu.adp.lib.util.e.b("MentionModel", "parserJson", "error = " + e.getMessage());
+    public final com.baidu.tieba.data.ag b(boolean z) {
+        com.baidu.adp.lib.cache.s<String> k;
+        if (this.c == null) {
+            return null;
         }
+        if (z) {
+            k = com.baidu.tbadk.core.c.b.a().j();
+        } else {
+            k = com.baidu.tbadk.core.c.b.a().k();
+        }
+        if (k != null) {
+            String a = k.a(String.valueOf(z ? "personal_followme" : "personal_myfollow") + "_" + this.c);
+            if (a == null) {
+                return null;
+            }
+            com.baidu.tieba.data.ag agVar = new com.baidu.tieba.data.ag();
+            agVar.a(a);
+            return agVar;
+        }
+        return null;
     }
 }

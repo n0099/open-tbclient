@@ -1,15 +1,14 @@
 package com.baidu.tieba.recommend;
+
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-final class d implements com.baidu.adp.widget.ListView.r {
-    final /* synthetic */ DailyRecommendActivity a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public d(DailyRecommendActivity dailyRecommendActivity) {
-        this.a = dailyRecommendActivity;
-    }
-
-    @Override // com.baidu.adp.widget.ListView.r
-    public final void b() {
-        this.a.a();
+final class d implements com.baidu.adp.framework.task.a<com.baidu.tbadk.core.b.g> {
+    @Override // com.baidu.adp.framework.task.a
+    public final CustomResponsedMessage<?> a(com.baidu.adp.framework.message.a<com.baidu.tbadk.core.b.g> aVar) {
+        if (aVar != null && aVar.a() != null) {
+            aVar.a().d().setClass(aVar.a().c(), DailyRecommendActivity.class);
+            aVar.a().f();
+        }
+        return null;
     }
 }

@@ -1,6 +1,5 @@
 package com.google.protobuf;
 
-import cn.jingling.lib.file.Shared;
 import com.google.protobuf.MessageLite;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -330,7 +329,7 @@ public final class CodedInputStream {
     }
 
     private CodedInputStream(byte[] bArr, int i, int i2) {
-        this.currentLimit = Shared.INFINITY;
+        this.currentLimit = Integer.MAX_VALUE;
         this.recursionLimit = 64;
         this.sizeLimit = DEFAULT_SIZE_LIMIT;
         this.buffer = bArr;
@@ -341,7 +340,7 @@ public final class CodedInputStream {
     }
 
     private CodedInputStream(InputStream inputStream) {
-        this.currentLimit = Shared.INFINITY;
+        this.currentLimit = Integer.MAX_VALUE;
         this.recursionLimit = 64;
         this.sizeLimit = DEFAULT_SIZE_LIMIT;
         this.buffer = new byte[4096];

@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.data;
 
-import com.baidu.android.pushservice.PushConstants;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -28,7 +27,7 @@ public final class b {
                 this.f = com.baidu.adp.lib.f.b.a(optJSONObject.optString("userNum"), 0);
                 this.g = com.baidu.adp.lib.f.b.a(optJSONObject.optString("maxUserNum"), 0);
                 this.j = optJSONObject.optString("title");
-                this.i = optJSONObject.optString(PushConstants.EXTRA_CONTENT);
+                this.i = optJSONObject.optString("content");
                 this.d = optJSONObject.optString("userName");
                 this.e = optJSONObject.optString("portrait");
             }

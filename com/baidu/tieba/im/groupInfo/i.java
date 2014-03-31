@@ -1,22 +1,70 @@
 package com.baidu.tieba.im.groupInfo;
 
-import android.content.DialogInterface;
-import com.baidu.tieba.write.by;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class i implements DialogInterface.OnClickListener {
-    final /* synthetic */ GroupInfoActivity a;
+public final class i extends BdAsyncTask<String, Integer, String> {
+    String a;
+    byte[] b;
+    final /* synthetic */ GroupImageActivity c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public i(GroupInfoActivity groupInfoActivity) {
-        this.a = groupInfoActivity;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ String a(String... strArr) {
+        switch (com.baidu.tbadk.core.util.w.a(this.a, this.b, this.c)) {
+            case -2:
+                return com.baidu.tbadk.core.util.w.b();
+            case -1:
+            default:
+                return this.c.getString(com.baidu.tieba.im.j.save_error);
+            case 0:
+                return this.c.getString(com.baidu.tieba.im.j.save_image_to_album);
+        }
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
-        if (i == 0) {
-            by.a(this.a);
-        } else if (i == 1) {
-            by.b(this.a);
-        }
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ void a(String str) {
+        TextView textView;
+        ProgressBar progressBar;
+        String str2 = str;
+        super.a((i) str2);
+        this.c.showToast(str2);
+        this.c.d = null;
+        textView = this.c.f;
+        textView.setVisibility(0);
+        progressBar = this.c.a;
+        progressBar.setVisibility(8);
+    }
+
+    public i(GroupImageActivity groupImageActivity, String str, byte[] bArr) {
+        this.c = groupImageActivity;
+        this.a = null;
+        this.b = null;
+        this.a = str;
+        this.b = bArr;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final void d() {
+        super.d();
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final void cancel() {
+        TextView textView;
+        ProgressBar progressBar;
+        this.c.d = null;
+        textView = this.c.f;
+        textView.setVisibility(0);
+        progressBar = this.c.a;
+        progressBar.setVisibility(8);
+        super.cancel(true);
     }
 }

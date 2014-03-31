@@ -3,13 +3,13 @@ package com.baidu.tieba.data;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class BannerData extends b implements Serializable {
+public class BannerData extends com.baidu.tbadk.core.data.d implements Serializable {
     private static final long serialVersionUID = -7774063518930689243L;
     private int mOpen = 0;
     private String mUrl = null;
     private String mResultUrl = null;
 
-    @Override // com.baidu.tieba.data.b
+    @Override // com.baidu.tbadk.core.data.d
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
@@ -17,7 +17,7 @@ public class BannerData extends b implements Serializable {
                 this.mUrl = jSONObject.optString("message_url", null);
                 this.mResultUrl = jSONObject.optString("dest_url", null);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.e.b(e.getMessage());
+                com.baidu.adp.lib.util.f.b(e.getMessage());
             }
         }
     }

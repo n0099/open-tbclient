@@ -1,7 +1,7 @@
 package com.baidu.tieba.write;
 
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.data.MetaData;
+import com.baidu.tbadk.core.data.MetaData;
 /* loaded from: classes.dex */
 final class b implements Runnable {
     final /* synthetic */ AtListActivity a;
@@ -37,7 +37,7 @@ final class b implements Runnable {
                 }
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.e.b(getClass().getName(), "mGetImageRunnble.run", e.getMessage());
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "mGetImageRunnble.run", e.getMessage());
         }
     }
 }

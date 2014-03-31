@@ -1,25 +1,15 @@
 package com.baidu.tieba.im.messageCenter;
 
-import com.baidu.tieba.im.message.da;
-import com.baidu.tieba.im.message.s;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.atomData.InvokeValidateActivityIsOpenConfig;
+import com.baidu.tieba.im.validate.ValidateActivity;
 /* loaded from: classes.dex */
-public final class n implements g {
-    final /* synthetic */ m a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public n(m mVar) {
-        this.a = mVar;
-    }
-
-    @Override // com.baidu.tieba.im.messageCenter.g
-    public final void a(s sVar) {
-        if (sVar != null) {
-            if (sVar.v() == -11 && (sVar instanceof com.baidu.tieba.im.message.a)) {
-                m.a(this.a, (com.baidu.tieba.im.message.a) sVar);
-            } else if (sVar.v() == 1003 && (sVar instanceof da)) {
-                m.a(this.a, (da) sVar);
-            }
+final class n implements com.baidu.adp.framework.task.a<InvokeValidateActivityIsOpenConfig> {
+    @Override // com.baidu.adp.framework.task.a
+    public final CustomResponsedMessage<Boolean> a(com.baidu.adp.framework.message.a<InvokeValidateActivityIsOpenConfig> aVar) {
+        if (aVar == null) {
+            return null;
         }
+        return new CustomResponsedMessage<>(2008004, Boolean.valueOf(ValidateActivity.a));
     }
 }

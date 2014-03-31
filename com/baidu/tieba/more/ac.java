@@ -1,47 +1,59 @@
 package com.baidu.tieba.more;
-/* loaded from: classes.dex */
-final class ac implements ab {
-    final /* synthetic */ MoreActivity a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(MoreActivity moreActivity) {
-        this.a = moreActivity;
+import android.view.View;
+import android.view.animation.DecelerateInterpolator;
+import android.widget.Scroller;
+/* loaded from: classes.dex */
+public final class ac {
+    private View a;
+    private Scroller b;
+    private int c;
+    private int d;
+    private boolean f;
+    private Runnable g = new ad(this);
+    private int e = 500;
+
+    public ac(View view, int i) {
+        this.a = view;
+        this.b = new Scroller(view.getContext(), new DecelerateInterpolator());
+        this.c = view.getPaddingTop();
+        this.d = -view.getMeasuredHeight();
+        if (view.getVisibility() != 0) {
+            this.f = false;
+        } else {
+            this.f = true;
+        }
     }
 
-    @Override // com.baidu.tieba.more.ab
-    public final void a(int i) {
-        if (i == 0) {
-            MoreActivity.b(this.a);
-        } else if (i == 1) {
-            MoreActivity.c(this.a);
-        } else if (i == 2) {
-            MoreActivity.d(this.a);
-        } else if (i != 3) {
-            if (i != 4) {
-                if (i != 6) {
-                    if (i != 7) {
-                        if (i == 8) {
-                            MoreActivity.i(this.a);
-                            return;
-                        } else if (i == 5) {
-                            SystemHelpSettingActivity.a(this.a);
-                            return;
-                        } else if (i != 9) {
-                            return;
-                        } else {
-                            SecretSettingActivity.a(this.a);
-                            return;
-                        }
-                    }
-                    this.a.b();
-                    return;
-                }
-                AboutActivity.a(this.a);
-                return;
+    public final void a() {
+        if (!this.f) {
+            this.f = true;
+            int paddingLeft = this.a.getPaddingLeft();
+            int paddingTop = this.a.getPaddingTop() == this.c ? -this.a.getMeasuredHeight() : this.a.getPaddingTop();
+            int paddingRight = this.a.getPaddingRight();
+            int paddingBottom = this.a.getPaddingBottom();
+            this.a.setVisibility(0);
+            this.a.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
+            if (!this.b.isFinished()) {
+                this.b.forceFinished(true);
+                this.a.removeCallbacks(this.g);
             }
-            MsgRemindActivity.a(this.a);
-        } else {
-            BrowseSettingActivity.a(this.a);
+            int paddingTop2 = this.a.getPaddingTop();
+            this.b.startScroll(paddingTop2, 0, this.c - paddingTop2, 0, this.e);
+            this.a.post(this.g);
+        }
+    }
+
+    public final void b() {
+        if (this.f) {
+            this.f = false;
+            if (!this.b.isFinished()) {
+                this.b.forceFinished(true);
+                this.a.removeCallbacks(this.g);
+            }
+            int paddingTop = this.a.getPaddingTop();
+            this.b.startScroll(paddingTop, 0, this.d - paddingTop, 0, this.e);
+            this.a.post(this.g);
         }
     }
 }

@@ -4,29 +4,29 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
-import com.baidu.tieba.util.af;
-import com.baidu.tieba.util.cb;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.w;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 /* loaded from: classes.dex */
 public class TiebaActiveService extends Service {
-    private k a = null;
+    private j a = null;
     private int b = 0;
     private Handler c = new Handler();
-    private Runnable d = new j(this);
+    private Runnable d = new i(this);
 
     private static void a(String str) {
         if (str != null && str.length() > 0) {
-            com.baidu.tieba.sharedPref.b.a().b("channel_id", str);
+            com.baidu.tbadk.core.sharedPref.b.a().b("channel_id", str);
         }
     }
 
     private String a() {
         String str = null;
         try {
-            File d = af.d("channel.dat");
+            File d = w.d("channel.dat");
             if (d == null) {
                 return null;
             }
@@ -35,8 +35,8 @@ public class TiebaActiveService extends Service {
             bufferedReader.close();
             return str;
         } catch (Exception e) {
-            com.baidu.adp.lib.util.e.b(getClass().getName(), "getFromByFile", e.getMessage());
-            cb.a(e, "TiebaActiveService.getChannelyFile");
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "getFromByFile", e.getMessage());
+            TiebaStatic.a(e, "TiebaActiveService.getChannelyFile");
             return str;
         }
     }
@@ -44,7 +44,7 @@ public class TiebaActiveService extends Service {
     private void b(String str) {
         if (str != null && str.length() > 0) {
             try {
-                File f = af.f("channel.dat");
+                File f = w.f("channel.dat");
                 if (f != null) {
                     FileWriter fileWriter = new FileWriter(f);
                     fileWriter.append((CharSequence) str);
@@ -52,15 +52,15 @@ public class TiebaActiveService extends Service {
                     fileWriter.close();
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.e.b(getClass().getName(), "saveFromToFile", e.getMessage());
-                cb.a(e, "TiebaActiveService.saveChannelToFile");
+                com.baidu.adp.lib.util.f.b(getClass().getName(), "saveFromToFile", e.getMessage());
+                TiebaStatic.a(e, "TiebaActiveService.saveChannelToFile");
             }
         }
     }
 
     private boolean b() {
         try {
-            String a = com.baidu.tieba.sharedPref.b.a().a("channel_id", (String) null);
+            String a = com.baidu.tbadk.core.sharedPref.b.a().a("channel_id", (String) null);
             if (a == null) {
                 String a2 = a();
                 if (a2 != null && a2.length() > 0) {
@@ -76,9 +76,9 @@ public class TiebaActiveService extends Service {
                 b(a);
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.e.b(getClass().getName(), "getActiveState", e.getMessage());
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "getActiveState", e.getMessage());
         }
-        com.baidu.adp.lib.util.e.a(getClass().getName(), "getActiveState", "channel = ");
+        com.baidu.adp.lib.util.f.a(getClass().getName(), "getActiveState", "channel = ");
         return true;
     }
 
@@ -90,7 +90,7 @@ public class TiebaActiveService extends Service {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (b() && com.baidu.tieba.sharedPref.b.a().a("active", 2) != 1) {
+        if (b() && com.baidu.tbadk.core.sharedPref.b.a().a("active", 2) != 1) {
             stopSelf();
         } else {
             c();
@@ -112,7 +112,7 @@ public class TiebaActiveService extends Service {
         if (this.a != null) {
             this.a.cancel();
         }
-        this.a = new k(this, (byte) 0);
+        this.a = new j(this, (byte) 0);
         this.a.execute(new String[0]);
     }
 }

@@ -4,44 +4,40 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import com.baidu.tieba.view.bg;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public final class u extends BaseAdapter implements bg {
-    private Context a;
-    private y b = null;
-    private ArrayList<av> c = new ArrayList<>();
-    private v d;
+public final class u extends BaseAdapter implements com.baidu.tieba.view.s {
+    private y a = null;
+    private ArrayList<at> b = new ArrayList<>();
+    private v c;
 
     public u(Context context) {
-        this.a = null;
-        this.d = null;
-        this.a = context;
-        this.d = new v(context);
+        this.c = null;
+        this.c = new v(context);
     }
 
-    public final void a(ArrayList<av> arrayList) {
-        this.c = arrayList;
-        this.d.a(arrayList);
-        this.b = this.d.getPagerAdapter();
+    public final void a(ArrayList<at> arrayList) {
+        this.b = arrayList;
+        this.c.a(arrayList);
+        this.a = this.c.getPagerAdapter();
         notifyDataSetChanged();
     }
 
     public final void a() {
-        if (this.d != null) {
-            this.d.a();
+        if (this.c != null) {
+            this.c.a();
         }
     }
 
     public final void b() {
-        if (this.d != null) {
-            this.d.b();
+        if (this.c != null) {
+            this.c.b();
         }
     }
 
     @Override // android.widget.Adapter
     public final int getCount() {
-        return (this.c != null ? this.c.size() + 0 : 0) > 0 ? 1 : 0;
+        return (this.b != null ? this.b.size() + 0 : 0) > 0 ? 1 : 0;
     }
 
     @Override // android.widget.Adapter
@@ -56,26 +52,26 @@ public final class u extends BaseAdapter implements bg {
 
     @Override // android.widget.Adapter
     public final View getView(int i, View view, ViewGroup viewGroup) {
-        return this.d;
+        return this.c;
     }
 
-    @Override // com.baidu.tieba.view.bg
+    @Override // com.baidu.tieba.view.s
     public final void d() {
-        if (this.b != null) {
-            this.b.d();
+        if (this.a != null) {
+            this.a.d();
         }
     }
 
-    @Override // com.baidu.tieba.view.bg
+    @Override // com.baidu.tieba.view.s
     public final void a(View view, int i, int i2) {
-        if (this.b != null) {
-            this.b.a(this.d, 0, 0);
+        if (this.a != null) {
+            this.a.a(this.c, 0, 0);
         }
     }
 
     public final void a(int i) {
-        if (this.d != null) {
-            this.d.a(i);
+        if (this.c != null) {
+            this.c.a(i);
         }
     }
 }

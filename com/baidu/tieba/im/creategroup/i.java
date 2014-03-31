@@ -2,7 +2,6 @@ package com.baidu.tieba.im.creategroup;
 
 import android.graphics.Bitmap;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.util.af;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class i extends BdAsyncTask<Object, Integer, Bitmap> {
@@ -12,7 +11,7 @@ public final class i extends BdAsyncTask<Object, Integer, Bitmap> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public final /* synthetic */ Bitmap a(Object... objArr) {
-        return af.c(null, "tieba_group_image");
+        return com.baidu.tbadk.core.util.w.c(null, "tieba_group_image");
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -39,8 +38,8 @@ public final class i extends BdAsyncTask<Object, Integer, Bitmap> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void b() {
-        super.b();
+    public final void c() {
+        super.c();
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -50,7 +49,7 @@ public final class i extends BdAsyncTask<Object, Integer, Bitmap> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void c() {
-        super.c();
+    public final void d() {
+        super.d();
     }
 }

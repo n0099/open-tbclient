@@ -1,8 +1,18 @@
 package com.baidu.tbadk;
+
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class b {
-    public static final int adk_default_image_height = 2131165187;
-    public static final int adp_foot_need_refresh_delta = 2131165185;
-    public static final int adp_head_need_refresh_delta = 2131165184;
-    public static final int adp_head_view_height = 2131165186;
+public final class b implements DialogInterface.OnCancelListener {
+    final /* synthetic */ a a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public b(a aVar) {
+        this.a = aVar;
+    }
+
+    @Override // android.content.DialogInterface.OnCancelListener
+    public final void onCancel(DialogInterface dialogInterface) {
+        this.a.mWaitingDialog = null;
+    }
 }

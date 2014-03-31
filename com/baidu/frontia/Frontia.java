@@ -22,7 +22,7 @@ public class Frontia {
     }
 
     public static String getFrontiaVersion() {
-        return "1";
+        return c;
     }
 
     public static FrontiaPush getPush() {

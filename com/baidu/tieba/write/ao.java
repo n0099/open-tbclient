@@ -1,9 +1,11 @@
 package com.baidu.tieba.write;
 
+import android.graphics.drawable.NinePatchDrawable;
 import android.widget.EditText;
-import com.baidu.tieba.editortool.EditorToolComponetContainer;
+import com.baidu.tbadk.TbadkApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class ao implements Runnable {
+public final class ao implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,22 +13,13 @@ final class ao implements Runnable {
         this.a = writeActivity;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
+    @Override // com.baidu.tbadk.imageManager.d
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
         EditText editText;
-        EditorToolComponetContainer editorToolComponetContainer;
-        EditText editText2;
-        EditorToolComponetContainer editorToolComponetContainer2;
-        EditText editText3;
-        editText = this.a.g;
-        if (editText.getVisibility() == 0) {
-            editorToolComponetContainer2 = this.a.B;
-            editText3 = this.a.g;
-            editorToolComponetContainer2.c(editText3);
-            return;
+        if (bVar != null && bVar.h() != null && bVar.l() != null) {
+            NinePatchDrawable ninePatchDrawable = new NinePatchDrawable(TbadkApplication.j().getResources(), bVar.h(), bVar.h().getNinePatchChunk(), bVar.l(), null);
+            editText = this.a.h;
+            editText.setBackgroundDrawable(ninePatchDrawable);
         }
-        editorToolComponetContainer = this.a.B;
-        editText2 = this.a.j;
-        editorToolComponetContainer.c(editText2);
     }
 }

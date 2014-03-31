@@ -7,24 +7,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.ch;
-import com.baidu.tieba.view.HeadImageView;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.bn;
+import com.baidu.tbadk.core.view.HeadImageView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public final class c extends BaseAdapter {
     View.OnClickListener a = new d(this);
     private Activity b;
     private ArrayList<ab> c;
-    private com.baidu.tieba.util.i d;
+    private com.baidu.tbadk.editortool.aa d;
 
     public c(Activity activity, h hVar) {
         this.b = activity;
         this.c = hVar.d();
-        this.d = new com.baidu.tieba.util.i(activity);
-        int a = BdUtilHelper.a((Context) activity, 45.0f);
+        this.d = new com.baidu.tbadk.editortool.aa(activity);
+        int a = com.baidu.adp.lib.util.i.a((Context) activity, 45.0f);
         this.d.a(a, a);
     }
 
@@ -52,27 +50,27 @@ public final class c extends BaseAdapter {
         if (view == null) {
             LayoutInflater from = LayoutInflater.from(this.b);
             if (itemViewType == 3) {
-                view2 = from.inflate(R.layout.bar_home_list_line, viewGroup, false);
+                view2 = from.inflate(com.baidu.tieba.a.i.bar_home_list_line, viewGroup, false);
             } else if (itemViewType == 2) {
-                view2 = from.inflate(R.layout.bar_folder_first_dir_bottom_item, viewGroup, false);
+                view2 = from.inflate(com.baidu.tieba.a.i.bar_folder_first_dir_bottom_item, viewGroup, false);
             } else {
-                View inflate = from.inflate(R.layout.bar_folder_first_dir_item, viewGroup, false);
+                View inflate = from.inflate(com.baidu.tieba.a.i.bar_folder_first_dir_item, viewGroup, false);
                 inflate.setOnClickListener(this.a);
                 g gVar = new g();
-                gVar.a = (HeadImageView) inflate.findViewById(R.id.portrait);
-                gVar.b = (TextView) inflate.findViewById(R.id.name);
-                gVar.c = (BestStringsFitTextView) inflate.findViewById(R.id.description);
+                gVar.a = (HeadImageView) inflate.findViewById(com.baidu.tieba.a.h.portrait);
+                gVar.b = (TextView) inflate.findViewById(com.baidu.tieba.a.h.name);
+                gVar.c = (BestStringsFitTextView) inflate.findViewById(com.baidu.tieba.a.h.description);
                 inflate.setTag(gVar);
                 view2 = inflate;
             }
-            ch.b(view2);
+            bn.b(view2);
             view = view2;
         }
-        ch.a(view);
+        bn.a(view);
         if (itemViewType != 3) {
-            int ae = TiebaApplication.g().ae();
-            View findViewById = view.findViewById(R.id.container);
-            ch.a(findViewById, 1, ae);
+            int l = TbadkApplication.j().l();
+            View findViewById = view.findViewById(com.baidu.tieba.a.h.container);
+            bn.a(findViewById, 1, l);
             if (itemViewType == 2) {
                 if (getCount() > 1) {
                     findViewById.setVisibility(0);

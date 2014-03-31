@@ -1,40 +1,23 @@
 package com.baidu.tieba.data;
+
+import android.content.Context;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class g {
-    private f a;
-    private boolean b;
-    private int c;
-    private String d;
+public final class g extends com.baidu.tieba.util.l {
+    final /* synthetic */ f a;
 
-    public final f a() {
-        return this.a;
-    }
-
-    public final void a(f fVar) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g(f fVar, Context context) {
+        super(context);
         this.a = fVar;
     }
 
-    public final boolean b() {
-        return this.b;
-    }
-
-    public final void a(boolean z) {
-        this.b = z;
-    }
-
-    public final int c() {
-        return this.c;
-    }
-
-    public final void a(int i) {
-        this.c = i;
-    }
-
-    public final String d() {
-        return this.d;
-    }
-
-    public final void a(String str) {
-        this.d = str;
+    @Override // com.baidu.tieba.util.l, android.text.style.ClickableSpan
+    public final void onClick(View view) {
+        String str;
+        str = this.a.b;
+        a(str);
     }
 }

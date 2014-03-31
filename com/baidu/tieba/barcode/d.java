@@ -1,30 +1,19 @@
 package com.baidu.tieba.barcode;
 
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.widget.ProgressBar;
+import com.baidu.tbadk.core.util.bk;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class d implements DialogInterface.OnClickListener {
+public final class d implements bk {
     final /* synthetic */ CaptureActivity a;
-    private final /* synthetic */ String b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(CaptureActivity captureActivity, String str) {
+    public d(CaptureActivity captureActivity) {
         this.a = captureActivity;
-        this.b = str;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
-        ProgressBar progressBar;
-        com.baidu.tieba.im.util.p.a((Context) this.a, this.b, false);
-        Intent intent = new Intent();
-        intent.putExtra("result", this.b);
-        this.a.setResult(-1, intent);
-        progressBar = this.a.k;
-        progressBar.setVisibility(8);
-        this.a.finish();
+    @Override // com.baidu.tbadk.core.util.bk
+    public final void a() {
+        this.a.onPause();
+        this.a.onResume();
     }
 }

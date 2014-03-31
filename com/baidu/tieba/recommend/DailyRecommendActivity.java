@@ -1,26 +1,33 @@
 package com.baidu.tieba.recommend;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.tieba.util.cb;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 /* loaded from: classes.dex */
-public class DailyRecommendActivity extends com.baidu.tieba.f {
-    private z c;
-    private w d;
+public class DailyRecommendActivity extends com.baidu.tbadk.a {
+    private ab c;
+    private y d;
     private String g;
     private final String b = DailyRecommendActivity.class.getSimpleName();
     private Handler e = null;
     private Runnable f = null;
-    p a = new c(this);
-    private com.baidu.adp.widget.ListView.r h = new d(this);
-    private com.baidu.adp.widget.ListView.b i = new e(this);
+    r a = new e(this);
+    private final com.baidu.adp.widget.ListView.t h = new f(this);
+    private final com.baidu.adp.widget.ListView.d i = new g(this);
 
+    static {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2010020, new d());
+        customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        com.baidu.adp.framework.c.a().a(customMessageTask);
+    }
+
+    @SuppressLint({"SimpleDateFormat"})
     public final void a() {
         try {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
@@ -30,26 +37,26 @@ public class DailyRecommendActivity extends com.baidu.tieba.f {
         }
     }
 
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a
     public void showToast(String str) {
-        BdUtilHelper.a((Context) this, str);
+        com.baidu.adp.lib.util.i.a((Context) this, str);
     }
 
-    @Override // com.baidu.tieba.f, android.app.Activity
+    @Override // com.baidu.tbadk.a, android.app.Activity
     public void onResume() {
         super.onResume();
         if (this.e != null) {
             this.e.removeCallbacks(this.f);
             this.e.postDelayed(this.f, 300L);
         }
-        z zVar = this.c;
-        cb.a(this, "recommend_feature", "visit", 1, new Object[0]);
+        ab abVar = this.c;
+        TiebaStatic.a(this, "recommend_feature", "visit", 1, new Object[0]);
     }
 
     public final void a(boolean z, String str) {
         b();
         if (str == null && z) {
-            cb.a(this.c.b(), "recommend_pull", "pull");
+            TiebaStatic.a(this.c.b(), "recommend_pull", "pull");
             this.d.a();
         } else if (str == null && !z) {
             this.d.b();
@@ -63,7 +70,7 @@ public class DailyRecommendActivity extends com.baidu.tieba.f {
         this.d.cancelLoadData();
     }
 
-    @Override // com.baidu.tieba.f, android.app.Activity
+    @Override // com.baidu.tbadk.a, android.app.Activity
     public void onPause() {
         super.onPause();
         if (this.e != null) {
@@ -72,7 +79,7 @@ public class DailyRecommendActivity extends com.baidu.tieba.f {
         super.onPause();
     }
 
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         if (this.e != null) {
             this.e.removeCallbacks(this.f);
@@ -83,33 +90,26 @@ public class DailyRecommendActivity extends com.baidu.tieba.f {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.e = new Handler();
-        this.f = new f(this);
-        this.c = new z(this, this.h, this.a);
+        this.f = new h(this);
+        this.c = new ab(this, this.h, this.a);
         this.c.a(this.i);
         this.c.d();
-        this.d = new w();
+        this.d = new y();
         if (bundle != null) {
             this.d.a(bundle);
         } else {
             this.d.a(getIntent());
         }
-        this.d.a(new g(this));
+        this.d.a(new i(this));
         a(false, (String) null);
     }
 
-    @Override // com.baidu.tieba.f
+    @Override // com.baidu.tbadk.a
     public void onChangeSkinType(int i) {
         this.c.a(i);
-    }
-
-    public static void a(Context context, String str) {
-        Intent intent = new Intent(context, DailyRecommendActivity.class);
-        intent.putExtra(w.a, str);
-        intent.addFlags(268435456);
-        context.startActivity(intent);
     }
 }

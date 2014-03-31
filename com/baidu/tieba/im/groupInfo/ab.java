@@ -1,29 +1,28 @@
 package com.baidu.tieba.im.groupInfo;
 
-import android.view.View;
-import com.baidu.tieba.im.data.PhotoUrlData;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ab implements View.OnClickListener {
-    final /* synthetic */ PhotoWallView a;
-    private final /* synthetic */ PhotoUrlData b;
-    private final /* synthetic */ int c;
+public final class ab extends BdAsyncTask<Void, Void, Void> {
+    final /* synthetic */ aa a;
+    private final /* synthetic */ String b;
+    private final /* synthetic */ String c;
+    private final /* synthetic */ boolean d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(PhotoWallView photoWallView, PhotoUrlData photoUrlData, int i) {
-        this.a = photoWallView;
-        this.b = photoUrlData;
-        this.c = i;
+    public ab(aa aaVar, String str, String str2, boolean z) {
+        this.a = aaVar;
+        this.b = str;
+        this.c = str2;
+        this.d = z;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        z zVar;
-        z zVar2;
-        zVar = this.a.k;
-        if (zVar != null) {
-            zVar2 = this.a.k;
-            zVar2.onClick(view, 1, this.b, this.c);
-        }
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ Void a(Void... voidArr) {
+        this.a.b(this.b, this.c, this.d);
+        return null;
     }
 }

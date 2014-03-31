@@ -1,18 +1,33 @@
 package com.baidu.tieba.frs;
-/* loaded from: classes.dex */
-final class ax implements com.baidu.adp.widget.ScrollView.m {
-    final /* synthetic */ FrsImageActivity a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ax(FrsImageActivity frsImageActivity) {
-        this.a = frsImageActivity;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes.dex */
+public final class ax extends BdAsyncTask<String, Integer, Boolean> {
+    final /* synthetic */ FrsActivity a;
+    private final String b;
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ Boolean a(String... strArr) {
+        return Boolean.valueOf(FrsActivity.h(this.a, this.b));
     }
 
-    @Override // com.baidu.adp.widget.ScrollView.m
-    public final void a() {
-        com.baidu.tieba.util.cb.a(this.a, "frs_pulldown", "frsclick", 1, new Object[0]);
-        this.a.q = null;
-        this.a.p = true;
-        this.a.b(1);
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ void a(Boolean bool) {
+        if (bool.booleanValue()) {
+            this.a.showToast(com.baidu.tieba.a.k.shortcut_has_add);
+        } else {
+            FrsActivity.i(this.a, this.b);
+        }
+    }
+
+    public ax(FrsActivity frsActivity, String str) {
+        this.a = frsActivity;
+        this.b = str;
     }
 }

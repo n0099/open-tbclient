@@ -2,7 +2,7 @@ package com.baidu.tieba.guide;
 
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import com.baidu.tieba.model.bh;
+import com.baidu.tieba.model.ao;
 import com.baidu.tieba.view.RightSlideViewPager;
 /* loaded from: classes.dex */
 final class c implements ViewPager.OnPageChangeListener {
@@ -17,24 +17,24 @@ final class c implements ViewPager.OnPageChangeListener {
     public final void onPageSelected(int i) {
         RightSlideViewPager rightSlideViewPager;
         if (i == 1) {
-            rightSlideViewPager = this.a.i;
+            rightSlideViewPager = this.a.h;
             rightSlideViewPager.setTag(null);
         }
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public final void onPageScrolled(int i, float f, int i2) {
-        bh bhVar;
-        bhVar = this.a.d;
-        if (bhVar.a() && i == 0 && f > 0.0f) {
-            this.a.i();
+        ao aoVar;
+        aoVar = this.a.c;
+        if (aoVar.a() && i == 0 && f > 0.0f) {
+            this.a.j();
         }
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public final void onPageScrollStateChanged(int i) {
         RightSlideViewPager rightSlideViewPager;
-        rightSlideViewPager = this.a.i;
+        rightSlideViewPager = this.a.h;
         l lVar = (l) ((FragmentPagerAdapter) rightSlideViewPager.getAdapter()).getItem(0);
         if (i == 0) {
             lVar.a();

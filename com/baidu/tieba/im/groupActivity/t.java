@@ -1,22 +1,26 @@
 package com.baidu.tieba.im.groupActivity;
 
-import com.baidu.tieba.view.HeadImageView;
+import android.app.Dialog;
+import android.view.View;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class t implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ r a;
+public final class t implements View.OnClickListener {
+    final /* synthetic */ s a;
+    private final /* synthetic */ GroupActivityActivity b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public t(r rVar) {
-        this.a = rVar;
+    public t(s sVar, GroupActivityActivity groupActivityActivity) {
+        this.a = sVar;
+        this.b = groupActivityActivity;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        HeadImageView headImageView;
-        if (bVar != null) {
-            headImageView = this.a.c;
-            bVar.a(headImageView);
-        }
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        Dialog dialog;
+        s.a(this.a);
+        dialog = this.a.t;
+        dialog.show();
+        TiebaStatic.a(this.b, "group_activity_edit", "groupclick", 1, new Object[0]);
     }
 }

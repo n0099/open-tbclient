@@ -1,17 +1,17 @@
 package com.baidu.tieba.more;
-
-import android.view.View;
 /* loaded from: classes.dex */
-final class s implements View.OnClickListener {
-    final /* synthetic */ AppsActivity a;
+final class s implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ MoreActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(AppsActivity appsActivity) {
-        this.a = appsActivity;
+    public s(MoreActivity moreActivity) {
+        this.a = moreActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        this.a.b();
+    @Override // com.baidu.tbadk.imageManager.d
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        w wVar;
+        wVar = this.a.a;
+        wVar.a(bVar);
     }
 }

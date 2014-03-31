@@ -6,22 +6,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.tieba.view.HeadImageView;
-import com.baidu.tieba.view.bg;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.core.view.HeadImageView;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public final class y extends PagerAdapter implements com.baidu.tbadk.imageManager.d, bg {
+public final class y extends PagerAdapter implements com.baidu.tbadk.imageManager.d, com.baidu.tieba.view.s {
     final /* synthetic */ v b;
     private Context f;
-    private com.baidu.tieba.util.i g;
+    private com.baidu.tbadk.editortool.aa g;
     private int h;
     private int i;
     private LayoutInflater k;
     private View l;
-    private ArrayList<av> c = null;
+    private ArrayList<at> c = null;
     private int d = 0;
     private ArrayList<View> e = new ArrayList<>();
     public ArrayList<HeadImageView> a = new ArrayList<>();
@@ -36,13 +33,13 @@ public final class y extends PagerAdapter implements com.baidu.tbadk.imageManage
         this.k = null;
         this.f = context;
         this.k = LayoutInflater.from(context);
-        this.g = new com.baidu.tieba.util.i(context);
-        this.h = BdUtilHelper.b(context);
+        this.g = new com.baidu.tbadk.editortool.aa(context);
+        this.h = com.baidu.adp.lib.util.i.b(context);
         this.i = (int) (0.5f + (this.h * this.j));
         this.g.a(this.h, this.i);
     }
 
-    public final void a(ArrayList<av> arrayList) {
+    public final void a(ArrayList<at> arrayList) {
         this.e.clear();
         this.d = 0;
         this.c = null;
@@ -52,12 +49,12 @@ public final class y extends PagerAdapter implements com.baidu.tbadk.imageManage
             this.c = arrayList;
             int i = 0;
             while (i < this.d) {
-                HeadImageView headImageView = (HeadImageView) this.k.inflate(R.layout.carousel_topics_recommend_item, (ViewGroup) null);
-                av avVar = arrayList.get(i);
+                HeadImageView headImageView = (HeadImageView) this.k.inflate(com.baidu.tieba.a.i.carousel_topics_recommend_item, (ViewGroup) null);
+                at atVar = arrayList.get(i);
                 int i2 = i > 0 ? i - 1 : 0;
-                headImageView.setTag(avVar.a());
+                headImageView.setTag(atVar.a());
                 headImageView.setLayoutParams(new ViewGroup.LayoutParams(this.h, this.i));
-                headImageView.setOnClickListener(new z(this, avVar, i2));
+                headImageView.setOnClickListener(new z(this, atVar, i2));
                 this.a.add(headImageView);
                 this.e.add(headImageView);
                 i++;
@@ -101,14 +98,14 @@ public final class y extends PagerAdapter implements com.baidu.tbadk.imageManage
         return view == obj;
     }
 
-    @Override // com.baidu.tieba.view.bg
+    @Override // com.baidu.tieba.view.s
     public final void d() {
         if (this.g != null) {
             this.g.c();
         }
     }
 
-    @Override // com.baidu.tieba.view.bg
+    @Override // com.baidu.tieba.view.s
     public final void a(View view, int i, int i2) {
         this.l = view;
         if (this.g != null && this.c != null) {
@@ -133,7 +130,7 @@ public final class y extends PagerAdapter implements com.baidu.tbadk.imageManage
     @Override // com.baidu.tbadk.imageManager.d
     public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
         HeadImageView headImageView;
-        if (this.l != null && (headImageView = (HeadImageView) this.l.findViewWithTag(str)) != null && bVar != null) {
+        if (this.l != null && (headImageView = (HeadImageView) this.l.findViewWithTag(str)) != null) {
             headImageView.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
             headImageView.invalidate();
         }

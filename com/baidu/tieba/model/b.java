@@ -3,31 +3,29 @@ package com.baidu.tieba.model;
 import android.content.Context;
 import android.os.Build;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.TiebaApplication;
+import com.baidu.tbadk.TbadkApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class b extends BdAsyncTask<String, Integer, bw> {
-    com.baidu.tieba.util.ba a;
+public final class b extends BdAsyncTask<String, Integer, bb> {
+    com.baidu.tbadk.core.util.ak a;
     final /* synthetic */ a b;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ bw a(String... strArr) {
-        return d();
+    public final /* bridge */ /* synthetic */ bb a(String... strArr) {
+        return a();
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* bridge */ /* synthetic */ void a(bw bwVar) {
-        bw bwVar2 = bwVar;
-        super.a((b) bwVar2);
+    public final /* bridge */ /* synthetic */ void a(bb bbVar) {
+        bb bbVar2 = bbVar;
+        super.a((b) bbVar2);
         this.b.b = null;
-        this.b.a.a(bwVar2);
+        this.b.a.a(bbVar2);
     }
 
     private b(a aVar) {
@@ -42,48 +40,50 @@ public final class b extends BdAsyncTask<String, Integer, bw> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void b() {
-        super.b();
+    public final void c() {
+        super.c();
     }
 
-    private bw d() {
-        bw bwVar;
+    private bb a() {
+        bb bbVar;
         Exception e;
         Context unused;
         try {
-            this.a = new com.baidu.tieba.util.ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/s/sync");
+            this.a = new com.baidu.tbadk.core.util.ak(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/s/sync");
             this.a.a("_os_version", Build.VERSION.RELEASE);
             StringBuffer stringBuffer = new StringBuffer(15);
-            stringBuffer.append(String.valueOf(BdUtilHelper.b(TiebaApplication.g().b())));
+            com.baidu.tieba.r.c();
+            stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.i.b(com.baidu.tieba.r.d())));
             stringBuffer.append(",");
-            stringBuffer.append(String.valueOf(BdUtilHelper.c(TiebaApplication.g().b())));
+            com.baidu.tieba.r.c();
+            stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.i.c(com.baidu.tieba.r.d())));
             this.a.a("_phone_screen", stringBuffer.toString());
-            if (TiebaApplication.g().G() > 0) {
-                this.a.a("_msg_status", SocialConstants.FALSE);
+            if (TbadkApplication.j().ag() > 0) {
+                this.a.a("_msg_status", "0");
             } else {
-                this.a.a("_msg_status", SocialConstants.TRUE);
+                this.a.a("_msg_status", "1");
             }
-            String l = this.a.l();
-            if (!this.a.c()) {
+            String i = this.a.i();
+            if (!this.a.a().b().b()) {
                 return null;
             }
-            bwVar = new bw();
+            bbVar = new bb();
             try {
-                bwVar.a(l);
-                if (TiebaApplication.E() == null && bwVar.d().a() != null && bwVar.d().a().length() > 0) {
+                bbVar.a(i);
+                if (TbadkApplication.B() == null && bbVar.d().a() != null && bbVar.d().a().length() > 0) {
                     unused = this.b.c;
-                    TiebaApplication.m(bwVar.d().a());
-                    TiebaApplication.n(bwVar.d().a());
-                    return bwVar;
+                    TbadkApplication.b(bbVar.d().a());
+                    TbadkApplication.c(bbVar.d().a());
+                    return bbVar;
                 }
-                return bwVar;
+                return bbVar;
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.adp.lib.util.e.b(getClass().getName(), "doInBackground", e.getMessage());
-                return bwVar;
+                com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.getMessage());
+                return bbVar;
             }
         } catch (Exception e3) {
-            bwVar = null;
+            bbVar = null;
             e = e3;
         }
     }
@@ -92,7 +92,7 @@ public final class b extends BdAsyncTask<String, Integer, bw> {
     public final void cancel() {
         this.b.b = null;
         if (this.a != null) {
-            this.a.j();
+            this.a.g();
         }
         super.cancel(true);
     }

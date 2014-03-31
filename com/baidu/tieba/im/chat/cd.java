@@ -1,34 +1,21 @@
 package com.baidu.tieba.im.chat;
 
-import android.text.TextUtils;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
 /* loaded from: classes.dex */
-public final class cd implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ MsglistActivity a;
+final class cd implements View.OnClickListener {
+    final /* synthetic */ MsgActivityView a;
+    private final /* synthetic */ String b;
+    private final /* synthetic */ String c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cd(MsglistActivity msglistActivity) {
-        this.a = msglistActivity;
+    public cd(MsgActivityView msgActivityView, String str, String str2) {
+        this.a = msgActivityView;
+        this.b = str;
+        this.c = str2;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.baidu.tieba.im.a
-    public final /* synthetic */ void a(Boolean bool) {
-        Boolean bool2 = bool;
-        if (bool2 != null) {
-            if (bool2.booleanValue()) {
-                this.a.d.H();
-            } else {
-                this.a.d.I();
-            }
-            if (this.a.e == null || this.a.e.a() == null) {
-                return;
-            }
-            String name = this.a.e.a().getName();
-            if (TextUtils.isEmpty(name)) {
-                return;
-            }
-            this.a.d.a(name);
-        }
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001003, new com.baidu.tbadk.core.b.ag(this.a.b(), this.b, this.c)));
     }
 }

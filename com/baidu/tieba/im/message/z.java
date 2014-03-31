@@ -1,36 +1,21 @@
 package com.baidu.tieba.im.message;
 
 import com.google.protobuf.MessageLite;
-import protobuf.CommitPusherCount.CommitPusherCountReq;
+import protobuf.QueryChatroomInfo.QueryChatroomInfoReq;
 /* loaded from: classes.dex */
-public final class z extends s implements com.baidu.tieba.im.coder.g {
+public final class z extends com.baidu.tbadk.message.websockt.d {
     private int a;
-    private long b;
-    private long c;
-    private int d;
-
-    public final void a(int i) {
-        this.d = i;
-    }
-
-    public final void b(int i) {
-        this.a = i;
-    }
-
-    public final void a(long j) {
-        this.b = j;
-    }
-
-    public final void b(long j) {
-        this.c = j;
-    }
 
     public z() {
-        e(202101);
+        super(106001);
     }
 
-    @Override // com.baidu.tieba.im.coder.g
-    public final MessageLite a() {
-        return CommitPusherCountReq.CommitPusherCountReqIdl.newBuilder().a(CommitPusherCountReq.DataReq.newBuilder().c(this.c).a(this.a).b(this.b).build()).build();
+    @Override // com.baidu.tbadk.message.websockt.d
+    public final MessageLite h() {
+        return QueryChatroomInfoReq.QueryChatroomInfoReqIdl.newBuilder().a(QueryChatroomInfoReq.DataReq.newBuilder().a(this.a).build()).build();
+    }
+
+    public final void d(int i) {
+        this.a = i;
     }
 }

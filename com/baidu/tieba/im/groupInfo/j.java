@@ -1,10 +1,9 @@
 package com.baidu.tieba.im.groupInfo;
 
 import android.content.DialogInterface;
-import com.baidu.tieba.im.data.PhotoUrlData;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.core.util.az;
 /* loaded from: classes.dex */
-final class j implements y {
+final class j implements DialogInterface.OnClickListener {
     final /* synthetic */ GroupInfoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,28 +11,12 @@ final class j implements y {
         this.a = groupInfoActivity;
     }
 
-    @Override // com.baidu.tieba.im.groupInfo.y
-    public final void a(DialogInterface dialogInterface, int i, Object obj, int i2) {
-        m mVar;
+    @Override // android.content.DialogInterface.OnClickListener
+    public final void onClick(DialogInterface dialogInterface, int i) {
         if (i == 0) {
-            if (i2 == 0) {
-                this.a.showToast(this.a.getString(R.string.has_set_portrait));
-                return;
-            }
-            dialogInterface.dismiss();
-            GroupInfoActivity.a(this.a, obj);
+            az.a(this.a);
         } else if (i == 1) {
-            if (i2 == 0) {
-                this.a.showToast(this.a.getString(R.string.group_portrait_cant_del));
-                return;
-            }
-            dialogInterface.dismiss();
-            if (obj != null && (obj instanceof PhotoUrlData)) {
-                GroupInfoActivity.a(this.a, (PhotoUrlData) obj);
-            }
-        } else if (i == 2) {
-            mVar = this.a.f;
-            mVar.w();
+            az.b(this.a);
         }
     }
 }

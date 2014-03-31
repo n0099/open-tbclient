@@ -1,45 +1,44 @@
 package com.baidu.tieba.service;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.ai;
-import com.baidu.tieba.util.ba;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.ak;
+import com.baidu.tieba.data.ab;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class m extends BdAsyncTask<String, Integer, ai> {
+public final class m extends BdAsyncTask<String, Integer, ab> {
     int b;
     final /* synthetic */ TiebaMessageService c;
-    ba a = null;
-    private TiebaApplication d = TiebaApplication.g();
-    private String e = TiebaApplication.v();
+    ak a = null;
+    private final com.baidu.tieba.r d = com.baidu.tieba.r.c();
+    private final String e = TbadkApplication.E();
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ ai a(String... strArr) {
-        return d();
+    public final /* bridge */ /* synthetic */ ab a(String... strArr) {
+        return a();
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void a(ai aiVar) {
-        ai aiVar2 = aiVar;
+    public final /* synthetic */ void a(ab abVar) {
+        ab abVar2 = abVar;
         try {
-            super.a((m) aiVar2);
+            super.a((m) abVar2);
             this.c.a = null;
             this.c.b = null;
-            if (aiVar2 != null) {
-                this.c.c = aiVar2;
+            if (abVar2 != null) {
+                this.c.c = abVar2;
                 if (this.e == null || this.e.length() <= 0) {
                     return;
                 }
                 TiebaMessageService.c(this.c, this.b);
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.e.b(getClass().getName(), "onPostExecute", e.getMessage());
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "onPostExecute", e.getMessage());
         }
     }
 
@@ -51,37 +50,38 @@ public final class m extends BdAsyncTask<String, Integer, ai> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void b() {
-        super.b();
+    public final void c() {
+        super.c();
     }
 
-    private ai d() {
-        ai aiVar;
+    private ab a() {
+        ab abVar;
         Exception e;
         try {
+            com.baidu.tieba.r rVar = this.d;
         } catch (Exception e2) {
-            aiVar = null;
+            abVar = null;
             e = e2;
         }
-        if (this.d.T() && this.e != null && this.e.length() > 0) {
-            this.a = new ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/s/msg");
+        if (com.baidu.tieba.r.p() && this.e != null && this.e.length() > 0) {
+            this.a = new ak(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/s/msg");
             if (this.b == 2) {
-                this.a.a("bookmark", SocialConstants.TRUE);
+                this.a.a("bookmark", "1");
             }
-            String l = this.a.l();
-            if (this.a.c()) {
-                aiVar = new ai();
+            String i = this.a.i();
+            if (this.a.a().b().b()) {
+                abVar = new ab();
                 try {
-                    aiVar.a(l);
+                    abVar.a(i);
                 } catch (Exception e3) {
                     e = e3;
-                    com.baidu.adp.lib.util.e.b(getClass().getName(), "doInBackground", e.getMessage());
-                    return aiVar;
+                    com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.getMessage());
+                    return abVar;
                 }
             } else {
-                aiVar = null;
+                abVar = null;
             }
-            return aiVar;
+            return abVar;
         }
         return null;
     }
@@ -91,7 +91,7 @@ public final class m extends BdAsyncTask<String, Integer, ai> {
         this.c.a = null;
         this.c.b = null;
         if (this.a != null) {
-            this.a.j();
+            this.a.g();
         }
         super.cancel(true);
     }

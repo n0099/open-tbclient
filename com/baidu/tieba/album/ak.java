@@ -2,7 +2,7 @@ package com.baidu.tieba.album;
 
 import android.text.TextUtils;
 import android.widget.TextView;
-import com.baidu.tieba.img.ImageFileInfo;
+import com.baidu.tbadk.img.ImageFileInfo;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -19,16 +19,16 @@ public final class ak implements al {
         AlbumActivity albumActivity;
         TextView textView;
         if (list == null || list.size() == 0) {
-            albumActivity = this.a.b;
-            albumActivity.d(0);
-            this.a.o = false;
+            albumActivity = this.a.a;
+            albumActivity.e(0);
+            this.a.n = false;
             return;
         }
-        this.a.o = true;
-        this.a.n = list;
+        this.a.n = true;
+        this.a.m = list;
         this.a.a(list);
         if (!TextUtils.isEmpty(str)) {
-            textView = this.a.h;
+            textView = this.a.g;
             textView.setText(str);
         }
     }

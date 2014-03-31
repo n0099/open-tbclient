@@ -1,43 +1,33 @@
 package com.baidu.tieba.person;
 
-import android.app.Dialog;
 import android.content.DialogInterface;
-import android.content.Intent;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class bv implements DialogInterface.OnClickListener {
-    final /* synthetic */ PersonChangeActivity a;
+public final class bv implements DialogInterface.OnClickListener {
+    final /* synthetic */ PersonInfoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bv(PersonChangeActivity personChangeActivity) {
-        this.a = personChangeActivity;
+    public bv(PersonInfoActivity personInfoActivity) {
+        this.a = personInfoActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public final void onClick(DialogInterface dialogInterface, int i) {
-        Dialog dialog;
-        com.baidu.tieba.model.bo boVar;
-        Boolean bool;
-        com.baidu.tieba.model.bo boVar2;
-        com.baidu.tieba.model.bo boVar3;
-        Dialog dialog2;
-        dialog = this.a.D;
-        if (dialog != null) {
-            dialog2 = this.a.D;
-            dialog2.dismiss();
-        }
-        boVar = this.a.w;
-        if (boVar.a().getPhotoChanged()) {
-            Intent intent = new Intent();
-            bool = this.a.b;
-            if (bool.booleanValue()) {
-                boVar3 = this.a.w;
-                intent.putExtra("person_change_data", boVar3.a());
-            } else {
-                boVar2 = this.a.w;
-                intent.putExtra("data", boVar2.a());
+        com.baidu.tieba.model.av avVar;
+        com.baidu.tieba.model.e eVar;
+        com.baidu.tieba.model.e eVar2;
+        com.baidu.tieba.model.e eVar3;
+        avVar = this.a.mModel;
+        int a = com.baidu.adp.lib.f.b.a(avVar.e(), -1);
+        if (a > 0) {
+            eVar = this.a.mBlackListModel;
+            if (eVar.a() == 1) {
+                eVar3 = this.a.mBlackListModel;
+                eVar3.b(a);
+                return;
             }
-            this.a.setResult(-1, intent);
+            eVar2 = this.a.mBlackListModel;
+            eVar2.a(a);
         }
-        this.a.finish();
     }
 }

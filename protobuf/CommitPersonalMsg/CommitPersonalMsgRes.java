@@ -20,6 +20,7 @@ public final class CommitPersonalMsgRes {
         public static Parser<DataRes> PARSER = new j();
         public static final int RECORDID_FIELD_NUMBER = 3;
         public static final int TOUID_FIELD_NUMBER = 4;
+        public static final int TOUSERTYPE_FIELD_NUMBER = 5;
         private static final DataRes a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
@@ -29,6 +30,7 @@ public final class CommitPersonalMsgRes {
         private long msgId_;
         private long recordId_;
         private long toUid_;
+        private int toUserType_;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ DataRes(GeneratedMessageLite.Builder builder, DataRes dataRes) {
@@ -84,6 +86,10 @@ public final class CommitPersonalMsgRes {
                             case 32:
                                 this.bitField0_ |= 8;
                                 this.toUid_ = codedInputStream.readInt64();
+                                break;
+                            case 40:
+                                this.bitField0_ |= 16;
+                                this.toUserType_ = codedInputStream.readInt32();
                                 break;
                             default:
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
@@ -152,11 +158,20 @@ public final class CommitPersonalMsgRes {
             return this.toUid_;
         }
 
+        public final boolean hasToUserType() {
+            return (this.bitField0_ & 16) == 16;
+        }
+
+        public final int getToUserType() {
+            return this.toUserType_;
+        }
+
         private void a() {
             this.msgId_ = 0L;
             this.groupId_ = 0;
             this.recordId_ = 0L;
             this.toUid_ = 0L;
+            this.toUserType_ = 0;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -184,6 +199,9 @@ public final class CommitPersonalMsgRes {
             if ((this.bitField0_ & 8) == 8) {
                 codedOutputStream.writeInt64(4, this.toUid_);
             }
+            if ((this.bitField0_ & 16) == 16) {
+                codedOutputStream.writeInt32(5, this.toUserType_);
+            }
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -202,6 +220,9 @@ public final class CommitPersonalMsgRes {
                 }
                 if ((this.bitField0_ & 8) == 8) {
                     i += CodedOutputStream.computeInt64Size(4, this.toUid_);
+                }
+                if ((this.bitField0_ & 16) == 16) {
+                    i += CodedOutputStream.computeInt32Size(5, this.toUserType_);
                 }
                 this.memoizedSerializedSize = i;
             }

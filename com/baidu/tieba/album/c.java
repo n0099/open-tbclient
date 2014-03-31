@@ -4,8 +4,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import com.baidu.tieba.img.ImageFileInfo;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
 final class c implements View.OnClickListener {
     final /* synthetic */ b a;
@@ -35,43 +34,43 @@ final class c implements View.OnClickListener {
         ImageView imageView3;
         AlbumActivity albumActivity6;
         int i4;
-        hVar = this.a.i;
+        hVar = this.a.h;
         if (hVar != null) {
-            hVar2 = this.a.i;
-            i = this.a.j;
+            hVar2 = this.a.h;
+            i = this.a.i;
             ImageFileInfo a = hVar2.a(i);
-            pVar = this.a.c;
+            pVar = this.a.b;
             if (pVar != null) {
-                albumActivity = this.a.b;
+                albumActivity = this.a.a;
                 if (albumActivity != null) {
-                    hVar3 = this.a.i;
-                    i2 = this.a.j;
+                    hVar3 = this.a.h;
+                    i2 = this.a.i;
                     if (hVar3.b(i2)) {
-                        pVar2 = this.a.c;
+                        pVar2 = this.a.b;
                         if (pVar2.c(a)) {
-                            albumActivity5 = this.a.b;
+                            albumActivity5 = this.a.a;
                             if (albumActivity5.b(a)) {
                                 b bVar = this.a;
-                                imageView3 = this.a.l;
+                                imageView3 = this.a.k;
                                 b.a(imageView3, false);
-                                albumActivity6 = this.a.b;
-                                i4 = this.a.j;
+                                albumActivity6 = this.a.a;
+                                i4 = this.a.i;
                                 albumActivity6.a(i4, false);
                                 return;
                             }
                             return;
                         }
-                        albumActivity2 = this.a.b;
+                        albumActivity2 = this.a.a;
                         if (albumActivity2.a(a)) {
                             b bVar2 = this.a;
-                            imageView = this.a.l;
+                            imageView = this.a.k;
                             b.a(imageView, true);
-                            albumActivity3 = this.a.b;
-                            i3 = this.a.j;
+                            albumActivity3 = this.a.a;
+                            i3 = this.a.i;
                             albumActivity3.a(i3, true);
-                            albumActivity4 = this.a.b;
-                            Animation loadAnimation = AnimationUtils.loadAnimation(albumActivity4, R.anim.album_choose_icon);
-                            imageView2 = this.a.l;
+                            albumActivity4 = this.a.a;
+                            Animation loadAnimation = AnimationUtils.loadAnimation(albumActivity4, com.baidu.tieba.a.b.album_choose_icon);
+                            imageView2 = this.a.k;
                             imageView2.startAnimation(loadAnimation);
                         }
                     }

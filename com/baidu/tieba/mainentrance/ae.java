@@ -1,29 +1,21 @@
 package com.baidu.tieba.mainentrance;
 
-import android.widget.CompoundButton;
-import android.widget.RadioButton;
+import android.widget.ImageView;
 /* loaded from: classes.dex */
-final class ae implements CompoundButton.OnCheckedChangeListener {
-    final /* synthetic */ SquareSearchActivity a;
+final class ae implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ ad a;
+    private final /* synthetic */ ImageView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(SquareSearchActivity squareSearchActivity) {
-        this.a = squareSearchActivity;
+    public ae(ad adVar, ImageView imageView) {
+        this.a = adVar;
+        this.b = imageView;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public final void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        RadioButton radioButton;
-        RadioButton radioButton2;
-        RadioButton radioButton3;
-        if (z) {
-            this.a.a(0);
-            radioButton = this.a.l;
-            radioButton.setChecked(false);
-            radioButton2 = this.a.l;
-            radioButton2.setSelected(false);
-            radioButton3 = this.a.k;
-            radioButton3.setSelected(true);
+    @Override // com.baidu.tbadk.imageManager.d
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        if (bVar != null) {
+            this.b.invalidate();
         }
     }
 }

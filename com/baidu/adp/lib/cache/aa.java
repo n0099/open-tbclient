@@ -5,10 +5,10 @@ import android.database.Cursor;
 import android.util.Log;
 /* loaded from: classes.dex */
 public final class aa {
-    private final com.baidu.adp.a.h a;
+    private final com.baidu.adp.a.i a;
 
-    public aa(com.baidu.adp.a.h hVar) {
-        this.a = hVar;
+    public aa(com.baidu.adp.a.i iVar) {
+        this.a = iVar;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [55=4] */
@@ -21,7 +21,7 @@ public final class aa {
                 th = th;
                 try {
                     this.a.b();
-                    com.baidu.adp.lib.util.e.b("BdNameSpaceDBManager", str, th.getMessage());
+                    com.baidu.adp.lib.util.f.b("BdNameSpaceDBManager", str, th.getMessage());
                     return null;
                 } finally {
                     com.baidu.adp.lib.f.a.a(cursor);
@@ -59,7 +59,7 @@ public final class aa {
             }
         } catch (Throwable th) {
             this.a.b();
-            com.baidu.adp.lib.util.e.a("BdNameSpaceDBManager", "failed to insert " + nVar.a + " to db.", th);
+            com.baidu.adp.lib.util.f.a("BdNameSpaceDBManager", "failed to insert " + nVar.a + " to db.", th);
         }
     }
 

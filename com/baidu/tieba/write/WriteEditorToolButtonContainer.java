@@ -4,9 +4,8 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class WriteEditorToolButtonContainer extends com.baidu.tieba.editortool.ab {
+public class WriteEditorToolButtonContainer extends com.baidu.tieba.editortool.ao {
     public WriteEditorToolButtonContainer(Context context) {
         super(context);
     }
@@ -15,8 +14,8 @@ public class WriteEditorToolButtonContainer extends com.baidu.tieba.editortool.a
         super(context, attributeSet);
     }
 
-    @Override // com.baidu.tieba.editortool.ab
+    @Override // com.baidu.tieba.editortool.ao
     protected final void d() {
-        LayoutInflater.from(this.a).inflate(R.layout.write_editor_tool_button_container, (ViewGroup) this, true);
+        LayoutInflater.from(this.a).inflate(com.baidu.tieba.a.i.write_editor_tool_button_container, (ViewGroup) this, true);
     }
 }

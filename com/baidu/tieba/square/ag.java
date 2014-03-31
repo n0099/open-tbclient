@@ -4,19 +4,18 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import com.baidu.tieba.view.bg;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public final class ag extends BaseAdapter implements bg {
+public final class ag extends BaseAdapter implements com.baidu.tieba.view.s {
     private ah a;
-    private ArrayList<av> b = new ArrayList<>();
+    private ArrayList<at> b = new ArrayList<>();
 
     public ag(Context context) {
         this.a = null;
         this.a = new ah(context);
     }
 
-    public final void a(ArrayList<av> arrayList) {
+    public final void a(ArrayList<at> arrayList) {
         this.b = arrayList;
         this.a.a(arrayList);
     }
@@ -41,14 +40,14 @@ public final class ag extends BaseAdapter implements bg {
         return this.a;
     }
 
-    @Override // com.baidu.tieba.view.bg
+    @Override // com.baidu.tieba.view.s
     public final void d() {
         if (this.a != null) {
             this.a.d();
         }
     }
 
-    @Override // com.baidu.tieba.view.bg
+    @Override // com.baidu.tieba.view.s
     public final void a(View view, int i, int i2) {
         if (this.a != null) {
             this.a.a(this.a, 0, 0);

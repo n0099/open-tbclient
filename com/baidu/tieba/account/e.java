@@ -1,26 +1,43 @@
 package com.baidu.tieba.account;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.data.AccountData;
-import com.baidu.tieba.util.DatabaseService;
+import android.view.View;
+import android.widget.AdapterView;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.coreExtra.act.LoginActivity;
 /* loaded from: classes.dex */
-final class e extends BdAsyncTask<Void, Void, Void> {
-    final /* synthetic */ d a;
-    private final /* synthetic */ AccountData b;
+final class e implements AdapterView.OnItemClickListener {
+    final /* synthetic */ AccountActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(d dVar, AccountData accountData) {
-        this.a = dVar;
-        this.b = accountData;
+    public e(AccountActivity accountActivity) {
+        this.a = accountActivity;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ Void a(Void... voidArr) {
-        DatabaseService.a(this.b);
-        DatabaseService.b(this.b);
-        return null;
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public final void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        l lVar;
+        l lVar2;
+        l lVar3;
+        i iVar;
+        i iVar2;
+        lVar = this.a.b;
+        if (lVar.getItemId(i) >= 0) {
+            lVar2 = this.a.b;
+            if (!lVar2.a()) {
+                lVar3 = this.a.b;
+                AccountData accountData = (AccountData) lVar3.getItem(i);
+                if (accountData != null && accountData.getIsActive() != 1) {
+                    this.a.h = new i(this.a, accountData);
+                    iVar = this.a.h;
+                    iVar.setPriority(3);
+                    iVar2 = this.a.h;
+                    iVar2.execute(new Object[0]);
+                    return;
+                }
+                return;
+            }
+            return;
+        }
+        LoginActivity.a(this.a);
     }
 }

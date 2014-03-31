@@ -1,35 +1,42 @@
 package com.baidu.tieba.im.chat;
 
-import android.os.Handler;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.EditText;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.animation.Animation;
+import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
-public final class c implements View.OnTouchListener {
-    final /* synthetic */ a a;
+final class c implements Animation.AnimationListener {
+    final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(a aVar) {
-        this.a = aVar;
+    public c(b bVar) {
+        this.a = bVar;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public final boolean onTouch(View view, MotionEvent motionEvent) {
-        EditText editText;
-        if (motionEvent.getAction() == 1) {
-            editText = this.a.G;
-            editText.setCursorVisible(true);
-            this.a.P();
-        } else if (motionEvent.getAction() == 0) {
-            this.a.U();
-            if (this.a.e.getVisibility() == 0) {
-                this.a.Q();
-                this.a.T();
-                new Handler().postDelayed(new e(this.a), 100L);
-                return true;
-            }
+    @Override // android.view.animation.Animation.AnimationListener
+    public final void onAnimationEnd(Animation animation) {
+        a aVar;
+        a aVar2;
+        boolean z;
+        a aVar3;
+        a aVar4;
+        NavigationBar navigationBar;
+        aVar = this.a.a;
+        aVar.o = true;
+        aVar2 = this.a.a;
+        z = aVar2.p;
+        if (z) {
+            aVar3 = this.a.a;
+            aVar3.p = false;
+            aVar4 = this.a.a;
+            navigationBar = aVar4.i;
+            navigationBar.setVisibility(8);
         }
-        return false;
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public final void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public final void onAnimationStart(Animation animation) {
     }
 }

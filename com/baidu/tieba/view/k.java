@@ -1,70 +1,40 @@
 package com.baidu.tieba.view;
 
-import android.view.LayoutInflater;
+import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-final class k {
-    final /* synthetic */ i a;
-    private View b;
-    private LinearLayout c;
-    private TextView d;
-    private ImageView e;
-    private String f = null;
+public final class k extends View {
+    private int a;
+    private int b;
 
-    public k(i iVar, LayoutInflater layoutInflater) {
-        this.a = iVar;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.b = layoutInflater.inflate(R.layout.chatterbox_dialog_item, (ViewGroup) null);
-        this.d = (TextView) this.b.findViewById(R.id.chatterbox_text);
-        this.c = (LinearLayout) this.b.findViewById(R.id.chatterbox_item_layout);
-        this.e = (ImageView) this.b.findViewById(R.id.chatterbox_selected);
+    public k(Context context) {
+        super(context);
+        this.a = 0;
+        this.b = 0;
     }
 
-    public final boolean a(View view) {
-        return this.c.equals(view);
-    }
-
-    public final void a(boolean z) {
-        if (z) {
-            this.e.setVisibility(0);
-        } else {
-            this.e.setVisibility(8);
+    @Override // android.view.View
+    protected final void onMeasure(int i, int i2) {
+        if (this.b == 0) {
+            setMeasuredDimension(i & 1073741823, this.a);
+        } else if (this.a == 0) {
+            setMeasuredDimension(this.b, 1073741823 & i2);
         }
     }
 
-    public final String a() {
-        return this.f;
+    public final void setHeightPx(int i) {
+        this.a = i;
     }
 
-    public final void a(String str) {
-        this.f = str;
+    public final void setWidthPx(int i) {
+        this.b = i;
     }
 
-    public final void b(String str) {
-        this.d.setText(str);
+    public final void setHeightDip(int i) {
+        this.a = com.baidu.adp.lib.util.i.a(getContext(), i);
     }
 
-    public final String b() {
-        CharSequence text = this.d.getText();
-        if (text != null) {
-            return text.toString();
-        }
-        return null;
-    }
-
-    public final View c() {
-        return this.b;
-    }
-
-    public final void a(View.OnClickListener onClickListener) {
-        this.c.setOnClickListener(onClickListener);
+    public final void setWidthDip(int i) {
+        this.b = com.baidu.adp.lib.util.i.a(getContext(), i);
     }
 }

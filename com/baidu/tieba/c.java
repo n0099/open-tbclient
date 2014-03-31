@@ -1,23 +1,48 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.AttributeSet;
-import android.view.LayoutInflater;
-import android.view.View;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.location.LocationClientOption;
+import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
-public final class c implements LayoutInflater.Factory {
-    private e a;
+final class c extends Handler {
+    final /* synthetic */ FileDownloader a;
 
-    public final void a(e eVar) {
-        this.a = eVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public c(FileDownloader fileDownloader) {
+        this.a = fileDownloader;
     }
 
-    @Override // android.view.LayoutInflater.Factory
-    public final View onCreateView(String str, Context context, AttributeSet attributeSet) {
-        if (this.a == null) {
-            this.a = new e();
+    @Override // android.os.Handler
+    public final void handleMessage(Message message) {
+        Notification notification;
+        Notification notification2;
+        Notification notification3;
+        NotificationManager notificationManager;
+        Notification notification4;
+        super.handleMessage(message);
+        if (message.what == 900002) {
+            notification = this.a.b;
+            if (notification != null && message.arg2 > 0) {
+                notification2 = this.a.b;
+                notification2.contentView.setProgressBar(com.baidu.tieba.a.h.progress, 100, (int) ((message.arg1 * 100) / message.arg2), false);
+                StringBuffer stringBuffer = new StringBuffer(20);
+                stringBuffer.append(String.valueOf(message.arg1 / LocationClientOption.MIN_SCAN_SPAN));
+                stringBuffer.append("K/");
+                stringBuffer.append(String.valueOf(message.arg2 / LocationClientOption.MIN_SCAN_SPAN));
+                stringBuffer.append("K");
+                notification3 = this.a.b;
+                notification3.contentView.setTextViewText(com.baidu.tieba.a.h.schedule, stringBuffer);
+                notificationManager = this.a.a;
+                notification4 = this.a.b;
+                notificationManager.notify(10, notification4);
+            }
+        } else if (message.what == 1) {
+            r.c();
+            UtilHelper.b(r.d(), (String) message.obj);
+            this.a.stopSelf();
         }
-        this.a.a(str, context, attributeSet);
-        return null;
     }
 }

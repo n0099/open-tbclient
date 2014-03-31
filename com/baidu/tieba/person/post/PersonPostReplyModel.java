@@ -1,14 +1,14 @@
 package com.baidu.tieba.person.post;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.gson.annotations.SerializedName;
+import com.baidu.tieba.person.PersonInfoActivity;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes.dex */
-public class PersonPostReplyModel extends com.baidu.adp.a.d implements Serializable {
+public class PersonPostReplyModel extends com.baidu.adp.a.e implements Serializable {
     public static final int PAGE_SIZE = 20;
     public static g sFetchReplyAsyncTask;
     @SerializedName("post_list")
@@ -16,12 +16,12 @@ public class PersonPostReplyModel extends com.baidu.adp.a.d implements Serializa
     static int mReplyPn = 0;
     static String mLastReplyUid = "";
 
-    @Override // com.baidu.adp.a.d
+    @Override // com.baidu.adp.a.e
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.a.d
+    @Override // com.baidu.adp.a.e
     public boolean cancelLoadData() {
         if (sFetchReplyAsyncTask != null) {
             sFetchReplyAsyncTask.cancel();
@@ -48,13 +48,13 @@ public class PersonPostReplyModel extends com.baidu.adp.a.d implements Serializa
         public String title = "";
         @SerializedName("user_name")
         public String user_name = "";
-        @SerializedName(PushConstants.EXTRA_USER_ID)
+        @SerializedName("user_id")
         public long user_id = 0;
         @SerializedName("user_portrait")
         public String user_portrait = "";
         @SerializedName("abstract")
         public String abs = "";
-        @SerializedName(PushConstants.EXTRA_CONTENT)
+        @SerializedName("content")
         public Content[] content = new Content[0];
         @SerializedName("quote")
         public Quote quote = new Quote();
@@ -96,7 +96,7 @@ public class PersonPostReplyModel extends com.baidu.adp.a.d implements Serializa
         public String text = "";
         @SerializedName("src")
         public String src = "";
-        @SerializedName("un")
+        @SerializedName(PersonInfoActivity.TAG_ID)
         public String un = "";
         @SerializedName("link")
         public String link = "";
@@ -112,11 +112,11 @@ public class PersonPostReplyModel extends com.baidu.adp.a.d implements Serializa
         public long post_id = 0;
         @SerializedName("user_name")
         public String user_name = "";
-        @SerializedName(PushConstants.EXTRA_USER_ID)
+        @SerializedName("user_id")
         public long user_id = 0;
         @SerializedName("ip")
         public long ip = 0;
-        @SerializedName(PushConstants.EXTRA_CONTENT)
+        @SerializedName("content")
         public String content = "";
 
         public String toString() {

@@ -5,7 +5,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.provider.MediaStore;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.img.ImageFileInfo;
+import com.baidu.tbadk.img.ImageFileInfo;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,8 +47,8 @@ public final class f extends BdAsyncTask<Object, Integer, List<a>> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void b() {
-        super.b();
+    public final void c() {
+        super.c();
         if (this.b != null) {
             o oVar = this.b;
         }
@@ -91,8 +91,7 @@ public final class f extends BdAsyncTask<Object, Integer, List<a>> {
                             File file = new File(string3.substring(0, string3.lastIndexOf("/")));
                             if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
                                 for (File file2 : listFiles) {
-                                    e eVar = this.a;
-                                    String a = e.a(file2.getAbsolutePath());
+                                    String a = this.a.a(file2.getAbsolutePath());
                                     if (a != null && (matcher = compile.matcher(a)) != null && matcher.matches()) {
                                         i++;
                                     }
@@ -124,7 +123,7 @@ public final class f extends BdAsyncTask<Object, Integer, List<a>> {
                 } catch (Exception e) {
                     e = e;
                     str = this.a.a;
-                    com.baidu.adp.lib.util.e.b(str, "getAlbumData", "error = " + e.getMessage());
+                    com.baidu.adp.lib.util.f.b(str, "getAlbumData", "error = " + e.getMessage());
                     com.baidu.adp.lib.f.a.a(cursor);
                     return list;
                 }

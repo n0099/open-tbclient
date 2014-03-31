@@ -1,38 +1,22 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.view.animation.AlphaAnimation;
-import android.widget.ImageView;
-import com.slidingmenu.lib.R;
+import android.content.Intent;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class ab implements Runnable {
-    final /* synthetic */ LogoActivity a;
+public final class ab implements com.baidu.adp.framework.task.a<Intent> {
+    final /* synthetic */ r a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(LogoActivity logoActivity) {
-        this.a = logoActivity;
+    public ab(r rVar) {
+        this.a = rVar;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        Bitmap bitmap;
-        ImageView imageView;
-        ImageView imageView2;
-        Bitmap bitmap2;
-        ImageView imageView3;
-        AlphaAnimation alphaAnimation;
-        this.a.e = com.baidu.tieba.util.n.a(this.a, (int) R.drawable.logo);
-        bitmap = this.a.e;
-        if (bitmap != null) {
-            imageView = this.a.d;
-            if (imageView != null) {
-                imageView2 = this.a.d;
-                bitmap2 = this.a.e;
-                imageView2.setImageBitmap(bitmap2);
-                imageView3 = this.a.d;
-                alphaAnimation = this.a.f;
-                imageView3.startAnimation(alphaAnimation);
-            }
-        }
+    @Override // com.baidu.adp.framework.task.a
+    public final CustomResponsedMessage<?> a(com.baidu.adp.framework.message.a<Intent> aVar) {
+        UtilHelper.a(TbadkApplication.j(), aVar.a());
+        return null;
     }
 }

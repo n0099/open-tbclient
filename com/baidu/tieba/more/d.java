@@ -4,46 +4,46 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bs;
-import com.baidu.tieba.view.NavigationBar;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 /* loaded from: classes.dex */
-public final class d extends com.baidu.adp.a.e {
-    private com.baidu.tieba.f a;
-    private NavigationBar c;
-    private RelativeLayout d;
-    private TextView e;
-    private ImageView f;
+public final class d extends com.baidu.adp.a.f {
+    protected ImageView a;
+    protected TextView c;
+    private com.baidu.tbadk.a d;
+    private NavigationBar e;
+    private RelativeLayout f;
     private TextView g;
     private SettingTextTestNewView h;
-    private SettingTextTipView i;
+    private TbSettingTextTipView i;
     private SettingTextFunctionIntroView j;
     private ProgressBar k;
 
-    public d(com.baidu.tieba.f fVar, ab abVar) {
-        super(fVar);
-        this.a = fVar;
-        this.a.setContentView(R.layout.about_activity);
-        this.d = (RelativeLayout) this.a.findViewById(R.id.parent);
-        this.c = (NavigationBar) this.a.findViewById(R.id.view_navigation_bar);
-        this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.c.a(this.a.getString(R.string.version_info));
-        this.e = (TextView) this.a.findViewById(R.id.text_versioninfo);
-        this.f = (ImageView) this.a.findViewById(R.id.text_description);
-        this.h = (SettingTextTestNewView) this.a.findViewById(R.id.about_version_update);
-        this.h.e();
-        this.j = (SettingTextFunctionIntroView) this.a.findViewById(R.id.about_function_intro);
-        this.i = (SettingTextTipView) this.a.findViewById(R.id.about_guide);
-        this.k = (ProgressBar) this.a.findViewById(R.id.about_progress);
-        String u = com.baidu.tieba.data.i.u();
-        if (com.baidu.tieba.data.i.w() == 1 && !bs.c(com.baidu.tieba.data.i.v())) {
-            u = String.valueOf(u) + "." + com.baidu.tieba.data.i.v();
+    public d(com.baidu.tbadk.a aVar, p pVar) {
+        super(aVar);
+        this.d = aVar;
+        this.d.setContentView(com.baidu.tieba.a.i.about_activity);
+        this.f = (RelativeLayout) this.d.findViewById(com.baidu.tieba.a.h.parent);
+        this.e = (NavigationBar) this.d.findViewById(com.baidu.tieba.a.h.view_navigation_bar);
+        this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.e.a(this.d.getString(com.baidu.tieba.a.k.version_info));
+        this.g = (TextView) this.d.findViewById(com.baidu.tieba.a.h.text_versioninfo);
+        this.a = (ImageView) this.d.findViewById(com.baidu.tieba.a.h.text_description);
+        this.h = (SettingTextTestNewView) this.d.findViewById(com.baidu.tieba.a.h.about_version_update);
+        this.h.d();
+        this.j = (SettingTextFunctionIntroView) this.d.findViewById(com.baidu.tieba.a.h.about_function_intro);
+        this.i = (TbSettingTextTipView) this.d.findViewById(com.baidu.tieba.a.h.about_guide);
+        this.k = (ProgressBar) this.d.findViewById(com.baidu.tieba.a.h.about_progress);
+        String c = com.baidu.tbadk.core.data.n.c();
+        if (com.baidu.tbadk.core.data.n.e() == 1 && !bc.c(com.baidu.tbadk.core.data.n.d())) {
+            c = String.valueOf(c) + "." + com.baidu.tbadk.core.data.n.d();
         }
-        this.e.setText(String.valueOf(this.a.getString(R.string.setting_version_text)) + " " + u);
-        this.g = (TextView) this.a.findViewById(R.id.text_version_protoco);
-        a(TiebaApplication.g().ae());
-        e eVar = new e(this, abVar);
+        this.g.setText(String.valueOf(this.d.getString(com.baidu.tieba.a.k.setting_version_text)) + " " + c);
+        this.c = (TextView) this.d.findViewById(com.baidu.tieba.a.h.text_version_protoco);
+        a(TbadkApplication.j().l());
+        e eVar = new e(this, pVar);
         this.h.setOnClickListener(eVar);
         this.i.setOnClickListener(eVar);
         this.j.setOnClickListener(eVar);
@@ -63,22 +63,22 @@ public final class d extends com.baidu.adp.a.e {
 
     public final void e() {
         if (this.h != null) {
-            this.h.a();
+            this.h.e();
         }
         if (this.j != null) {
-            this.j.a();
+            this.j.e();
         }
     }
 
     public final void a(int i) {
         if (i == 1) {
-            this.d.setBackgroundColor(this.a.getResources().getColor(R.color.bg_page_setting_1));
+            this.f.setBackgroundColor(this.d.getResources().getColor(com.baidu.tieba.a.e.bg_page_setting_1));
         } else {
-            this.d.setBackgroundColor(this.a.getResources().getColor(R.color.bg_page_setting));
+            this.f.setBackgroundColor(this.d.getResources().getColor(com.baidu.tieba.a.e.bg_page_setting));
         }
-        this.c.b(i);
-        this.a.getLayoutMode().a(i == 1);
-        this.a.getLayoutMode().a(this.d);
+        this.e.b(i);
+        this.d.getLayoutMode().a(i == 1);
+        this.d.getLayoutMode().a(this.f);
         this.h.a(i);
         this.j.a(i);
         this.i.a(i);

@@ -1,36 +1,34 @@
 package com.baidu.tieba.im.friend;
 
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.util.ch;
-import com.baidu.tieba.util.cj;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import com.baidu.tbadk.core.util.bp;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
-public final class v implements com.baidu.tbadk.imageManager.d {
+final class v implements bp {
     final /* synthetic */ u a;
+    private final /* synthetic */ String b;
+    private final /* synthetic */ com.baidu.adp.widget.ImageView.b c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(u uVar) {
+    public v(u uVar, String str, com.baidu.adp.widget.ImageView.b bVar) {
         this.a = uVar;
+        this.b = str;
+        this.c = bVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        BdListView bdListView;
-        InviteFriendCandidateList inviteFriendCandidateList;
-        BdListView bdListView2;
-        if (bVar != null) {
-            bdListView = this.a.f;
-            ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
-            while (imageView != null) {
-                imageView.setTag(null);
-                imageView.setImageBitmap(bVar.h());
-                bdListView2 = this.a.f;
-                imageView = (ImageView) bdListView2.findViewWithTag(str);
+    @Override // com.baidu.tbadk.core.util.bp
+    public final boolean a(View view) {
+        if (view instanceof HeadImageView) {
+            HeadImageView headImageView = (HeadImageView) view;
+            if (this.b.equals(headImageView.getTag())) {
+                if (this.c != null) {
+                    headImageView.setImageBitmap(this.c.h());
+                } else {
+                    headImageView.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.im.g.photo));
+                }
+                headImageView.invalidate();
             }
-            inviteFriendCandidateList = this.a.j;
-            ch.a((ViewGroup) inviteFriendCandidateList, false, (cj) new w(this, str, bVar));
         }
+        return false;
     }
 }

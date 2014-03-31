@@ -1,49 +1,47 @@
 package com.baidu.tieba.model;
-/* loaded from: classes.dex */
-public final class ar extends com.baidu.adp.a.d {
-    private String a = null;
-    private String b = null;
-    private String c = null;
-    private as d = null;
-    private String e;
 
-    public final void a(String str) {
-        this.e = str;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+/* loaded from: classes.dex */
+public final class ar extends com.baidu.adp.a.e {
+    private at a = null;
+    private WriteData b = null;
+    private as c = null;
+    private boolean d = false;
+
+    public final void a(boolean z) {
+        this.d = z;
     }
 
-    @Override // com.baidu.adp.a.d
+    public final void a(as asVar) {
+        this.c = asVar;
+    }
+
+    public final void a(WriteData writeData) {
+        this.b = writeData;
+    }
+
+    public final WriteData a() {
+        return this.b;
+    }
+
+    public final boolean b() {
+        if (this.b == null) {
+            return false;
+        }
+        if (this.a == null) {
+            this.a = new at(this);
+            this.a.execute(new Integer[0]);
+        }
+        return true;
+    }
+
+    @Override // com.baidu.adp.a.e
     protected final boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.a.d
+    @Override // com.baidu.adp.a.e
     public final boolean cancelLoadData() {
         return false;
-    }
-
-    public final void a() {
-        if (this.d != null) {
-            this.d.cancel();
-            this.d = null;
-        }
-    }
-
-    public final void a(String str, String str2, String str3) {
-        a(str, str2);
-        this.c = str3;
-    }
-
-    public final void a(String str, String str2) {
-        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.d == null) {
-            this.a = str;
-            this.b = str2;
-            this.d = new as(this, (byte) 0);
-            this.d.setPriority(2);
-            this.d.execute(new Object[0]);
-        }
-    }
-
-    public final boolean b() {
-        return this.d != null;
     }
 }

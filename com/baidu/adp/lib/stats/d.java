@@ -53,7 +53,7 @@ public abstract class d {
         this.j = handler;
         this.k = str;
         this.p = System.currentTimeMillis();
-        com.baidu.adp.lib.util.b.d(this.k);
+        com.baidu.adp.lib.util.c.d(this.k);
         if (TextUtils.isEmpty(g)) {
             g = e();
         }
@@ -62,9 +62,7 @@ public abstract class d {
 
     public final void c(boolean z) {
         this.f = z;
-        if (z && this.b) {
-            b(true);
-        }
+        b(true);
     }
 
     public final String f() {
@@ -98,7 +96,7 @@ public abstract class d {
                 this.h.append(IOUtils.LINE_SEPARATOR_WINDOWS);
                 this.i++;
             } catch (Exception e) {
-                com.baidu.adp.lib.util.e.a(getClass(), "add", e);
+                com.baidu.adp.lib.util.f.a(getClass(), "add", e);
             }
         }
         if (System.currentTimeMillis() - this.p > 60000) {
@@ -187,7 +185,7 @@ public abstract class d {
                             }
                             return a;
                         } catch (UnsupportedEncodingException e) {
-                            com.baidu.adp.lib.util.e.a(getClass(), "getProcessName", e);
+                            com.baidu.adp.lib.util.f.a(getClass(), "getProcessName", e);
                             return str;
                         }
                     }

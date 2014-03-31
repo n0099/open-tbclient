@@ -4,104 +4,97 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.baidu.tieba.TiebaApplication;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.data.ForumInfoData;
 import com.baidu.tieba.forumdetail.ForumDetailActivity;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.model.ar;
-import com.baidu.tieba.switchs.SwitchKey;
-import com.baidu.tieba.util.cb;
-import com.baidu.tieba.view.HeadImageView;
-import com.slidingmenu.lib.R;
+import com.baidu.tieba.switchs.features.BarDetailForDirSwitchStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class r extends BaseAdapter implements View.OnClickListener {
-    private com.baidu.tieba.f b;
-    private int c;
-    private int d;
-    private ar e;
-    private int g;
+    private com.baidu.tbadk.a b;
+    private com.baidu.tieba.model.af c;
+    private int e;
     public int a = -1;
-    private int f = 0;
-    private boolean h = true;
-    private ForumDetailActivity.FromType i = ForumDetailActivity.FromType.BAR_DIR;
-    private boolean k = false;
-    private ForumInfoData[] j = new ForumInfoData[0];
+    private int d = 0;
+    private boolean f = true;
+    private ForumDetailActivity.FromType g = ForumDetailActivity.FromType.BAR_DIR;
+    private boolean i = false;
+    private ForumInfoData[] h = new ForumInfoData[0];
 
-    public r(com.baidu.tieba.f fVar, int i) {
-        this.g = 0;
-        this.b = fVar;
-        this.g = i;
+    public r(com.baidu.tbadk.a aVar, int i) {
+        this.e = 0;
+        this.b = aVar;
+        this.e = i;
     }
 
     public final ForumInfoData[] a() {
-        return this.j;
+        return this.h;
     }
 
     public final void a(ForumDetailActivity.FromType fromType) {
-        this.i = fromType;
+        this.g = fromType;
     }
 
     public final void a(ForumInfoData[] forumInfoDataArr) {
-        this.j = forumInfoDataArr;
-        if (this.j != null) {
+        this.h = forumInfoDataArr;
+        if (this.h != null) {
             notifyDataSetChanged();
         }
     }
 
-    public final void a(ar arVar) {
-        this.e = arVar;
+    public final void a(com.baidu.tieba.model.af afVar) {
+        this.c = afVar;
     }
 
     public final void a(int i, int i2) {
-        this.c = i;
-        this.d = i2;
         if (i != 0 && i2 != 0) {
             notifyDataSetChanged();
         }
     }
 
     public final void b() {
-        for (int i = 0; i < this.f; i++) {
-            int d = TiebaApplication.g().d(this.j[i].forum_name);
+        for (int i = 0; i < this.d; i++) {
+            int d = com.baidu.tieba.r.c().d(this.h[i].forum_name);
             if (d == 1) {
-                this.j[i].is_like = 1;
+                this.h[i].is_like = 1;
             } else if (d == -1) {
-                this.j[i].is_like = 0;
+                this.h[i].is_like = 0;
             }
         }
     }
 
     public final boolean c() {
-        if (this.e == null) {
+        if (this.c == null) {
             return false;
         }
-        return this.e.b();
+        return this.c.b();
     }
 
     public final void a(int i) {
-        this.f = i;
+        this.d = i;
         notifyDataSetChanged();
     }
 
     public final void a(Boolean bool) {
-        this.h = bool.booleanValue();
+        this.f = bool.booleanValue();
     }
 
     @Override // android.widget.Adapter
     public final int getCount() {
-        if (this.j == null) {
+        if (this.h == null) {
             return 0;
         }
-        return this.f <= this.j.length ? this.f : this.j.length;
+        return this.d <= this.h.length ? this.d : this.h.length;
     }
 
     @Override // android.widget.Adapter
     public final Object getItem(int i) {
-        if (i > this.f) {
+        if (i > this.d) {
             return null;
         }
-        return this.j[i];
+        return this.h[i];
     }
 
     @Override // android.widget.Adapter
@@ -112,27 +105,27 @@ public final class r extends BaseAdapter implements View.OnClickListener {
     @Override // android.widget.Adapter
     public final View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null || view.getTag() == null) {
-            view = View.inflate(this.b, R.layout.forum_list_forum_item, null);
+            view = View.inflate(this.b, com.baidu.tieba.a.i.forum_list_forum_item, null);
             s sVar = new s(this);
-            sVar.a = (HeadImageView) view.findViewById(R.id.forum_avatar);
+            sVar.a = (HeadImageView) view.findViewById(com.baidu.tieba.a.h.forum_avatar);
             sVar.a.setGifIconSupport(false);
-            sVar.d = (TextView) view.findViewById(R.id.name);
-            sVar.e = (TextView) view.findViewById(R.id.member_count);
-            sVar.f = (TextView) view.findViewById(R.id.thread_count);
-            sVar.g = (TextView) view.findViewById(R.id.slogan);
-            sVar.h = (TextView) view.findViewById(R.id.like);
-            sVar.b = (TextView) view.findViewById(R.id.rank_badge);
-            sVar.c = (TextView) view.findViewById(R.id.rise_no);
+            sVar.d = (TextView) view.findViewById(com.baidu.tieba.a.h.name);
+            sVar.e = (TextView) view.findViewById(com.baidu.tieba.a.h.member_count);
+            sVar.f = (TextView) view.findViewById(com.baidu.tieba.a.h.thread_count);
+            sVar.g = (TextView) view.findViewById(com.baidu.tieba.a.h.slogan);
+            sVar.h = (TextView) view.findViewById(com.baidu.tieba.a.h.like);
+            sVar.b = (TextView) view.findViewById(com.baidu.tieba.a.h.rank_badge);
+            sVar.c = (TextView) view.findViewById(com.baidu.tieba.a.h.rise_no);
             view.setTag(sVar);
         }
-        View findViewById = view.findViewById(R.id.bd_list_top_divider);
-        View findViewById2 = view.findViewById(R.id.bd_list_bottom_divider);
-        if (this.k) {
-            findViewById.setBackgroundColor(this.b.getResources().getColor(R.color.ht_title_top_sep_line_1));
-            findViewById2.setBackgroundColor(this.b.getResources().getColor(R.color.ht_title_top_sep_line_1));
+        View findViewById = view.findViewById(com.baidu.tieba.a.h.bd_list_top_divider);
+        View findViewById2 = view.findViewById(com.baidu.tieba.a.h.bd_list_bottom_divider);
+        if (this.i) {
+            findViewById.setBackgroundColor(this.b.getResources().getColor(com.baidu.tieba.a.e.ht_title_top_sep_line_1));
+            findViewById2.setBackgroundColor(this.b.getResources().getColor(com.baidu.tieba.a.e.ht_title_top_sep_line_1));
         } else {
-            findViewById.setBackgroundColor(this.b.getResources().getColor(R.color.ht_title_top_sep_line));
-            findViewById2.setBackgroundColor(this.b.getResources().getColor(R.color.ht_title_top_sep_line));
+            findViewById.setBackgroundColor(this.b.getResources().getColor(com.baidu.tieba.a.e.ht_title_top_sep_line));
+            findViewById2.setBackgroundColor(this.b.getResources().getColor(com.baidu.tieba.a.e.ht_title_top_sep_line));
         }
         if (i == 0) {
             findViewById.setVisibility(0);
@@ -140,24 +133,22 @@ public final class r extends BaseAdapter implements View.OnClickListener {
             findViewById.setVisibility(8);
         }
         s sVar2 = (s) view.getTag();
-        int ae = TiebaApplication.g().ae();
-        this.b.getLayoutMode().a(ae == 1);
+        int l = TbadkApplication.j().l();
+        this.b.getLayoutMode().a(l == 1);
         this.b.getLayoutMode().a(view);
-        ForumInfoData forumInfoData = this.j[i];
-        com.baidu.adp.lib.util.e.e("ForumListAdapter", "getView", "forum name:" + this.j[i].forum_name + "forum avatar:" + this.j[i].avatar);
-        String str = this.j[i].avatar;
-        HeadImageView headImageView = sVar2.a;
-        sVar2.a.setTag(str);
+        ForumInfoData forumInfoData = this.h[i];
+        com.baidu.adp.lib.util.f.e("ForumListAdapter", "getView", "forum name:" + this.h[i].forum_name + "forum avatar:" + this.h[i].avatar);
+        sVar2.a.setTag(this.h[i].avatar);
         sVar2.a.invalidate();
         sVar2.d.setText(forumInfoData.forum_name);
         sVar2.d.setTag(Integer.valueOf(forumInfoData.forum_id));
         sVar2.h.setTag(forumInfoData.forum_name);
-        sVar2.e.setText(String.valueOf(this.b.getString(R.string.forum_list_attention_tv)) + " " + b(forumInfoData.member_count));
-        sVar2.f.setText(String.valueOf(this.b.getString(R.string.forum_list_thread_tv)) + " " + b(forumInfoData.thread_count));
+        sVar2.e.setText(String.valueOf(this.b.getString(com.baidu.tieba.a.k.forum_list_attention_tv)) + " " + b(forumInfoData.member_count));
+        sVar2.f.setText(String.valueOf(this.b.getString(com.baidu.tieba.a.k.forum_list_thread_tv)) + " " + b(forumInfoData.thread_count));
         sVar2.g.setText(forumInfoData.slogan);
-        if (this.g == 0) {
+        if (this.e == 0) {
             sVar2.c.setVisibility(8);
-            if (!this.h) {
+            if (!this.f) {
                 sVar2.b.setVisibility(8);
             } else {
                 sVar2.b.setVisibility(0);
@@ -165,13 +156,13 @@ public final class r extends BaseAdapter implements View.OnClickListener {
                 sVar2.b.setBackgroundDrawable(null);
                 switch (i) {
                     case 0:
-                        sVar2.b.setBackgroundResource(ae != 1 ? R.drawable.icon_brief_grade_orange : R.drawable.icon_brief_grade_orange_1);
+                        sVar2.b.setBackgroundResource(l != 1 ? com.baidu.tieba.a.g.icon_brief_grade_orange : com.baidu.tieba.a.g.icon_brief_grade_orange_1);
                         break;
                     case 1:
-                        sVar2.b.setBackgroundResource(ae != 1 ? R.drawable.icon_brief_grade_blue : R.drawable.icon_brief_grade_blue_1);
+                        sVar2.b.setBackgroundResource(l != 1 ? com.baidu.tieba.a.g.icon_brief_grade_blue : com.baidu.tieba.a.g.icon_brief_grade_blue_1);
                         break;
                     case 2:
-                        sVar2.b.setBackgroundResource(ae != 1 ? R.drawable.icon_brief_grade_green : R.drawable.icon_brief_grade_green_1);
+                        sVar2.b.setBackgroundResource(l != 1 ? com.baidu.tieba.a.g.icon_brief_grade_green : com.baidu.tieba.a.g.icon_brief_grade_green_1);
                         break;
                     default:
                         sVar2.b.setText(String.format("%02d", Integer.valueOf(i + 1)));
@@ -182,13 +173,13 @@ public final class r extends BaseAdapter implements View.OnClickListener {
             sVar2.b.setVisibility(8);
             sVar2.c.setVisibility(0);
             sVar2.c.setText((CharSequence) null);
-            sVar2.c.setCompoundDrawablesWithIntrinsicBounds(ae != 1 ? R.drawable.icon_rise : R.drawable.icon_rise_1, 0, 0, 0);
-            sVar2.c.setText(String.valueOf(this.b.getString(R.string.rise)) + String.valueOf(forumInfoData.mbr_inter_rank) + this.b.getString(R.string.number));
+            sVar2.c.setCompoundDrawablesWithIntrinsicBounds(l != 1 ? com.baidu.tieba.a.g.icon_rise : com.baidu.tieba.a.g.icon_rise_1, 0, 0, 0);
+            sVar2.c.setText(String.valueOf(this.b.getString(com.baidu.tieba.a.k.rise)) + String.valueOf(forumInfoData.mbr_inter_rank) + this.b.getString(com.baidu.tieba.a.k.number));
         }
-        if (TiebaApplication.g().ae() == 1) {
-            sVar2.h.setTextColor(this.b.getResources().getColor(R.color.enterforum_name_txt_1));
+        if (TbadkApplication.j().l() == 1) {
+            sVar2.h.setTextColor(this.b.getResources().getColor(com.baidu.tieba.a.e.enterforum_name_txt_1));
         } else {
-            sVar2.h.setTextColor(this.b.getResources().getColor(R.color.enterforum_name_txt));
+            sVar2.h.setTextColor(this.b.getResources().getColor(com.baidu.tieba.a.e.enterforum_name_txt));
         }
         sVar2.h.setOnClickListener(this);
         view.setOnClickListener(this);
@@ -197,32 +188,29 @@ public final class r extends BaseAdapter implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.like /* 2131100376 */:
-                cb.a(this.b, "forumlist_to_frs", "tofrsclick", 1, new Object[0]);
-                FrsActivity.a(this.b, (String) view.getTag(), null);
-                return;
-            default:
-                s sVar = (s) view.getTag();
-                if (com.baidu.adp.lib.a.d.a().b(SwitchKey.BAR_DETAIL_DIR) == 0) {
-                    ForumDetailActivity.a(this.b, String.valueOf(sVar.d.getTag()), this.i);
-                    return;
-                }
-                cb.a(this.b, "forumlist_to_frs", "tofrsclick", 1, new Object[0]);
-                FrsActivity.a(this.b, sVar.d.getText().toString(), null);
-                return;
+        if (view.getId() == com.baidu.tieba.a.h.like) {
+            TiebaStatic.a(this.b, "forumlist_to_frs", "tofrsclick", 1, new Object[0]);
+            this.b.sendMessage(new com.baidu.adp.framework.message.a(2003000, new com.baidu.tbadk.core.b.l(this.b).a((String) view.getTag(), null)));
+            return;
         }
+        s sVar = (s) view.getTag();
+        if (com.baidu.adp.lib.a.f.a().b(BarDetailForDirSwitchStatic.BAR_DETAIL_DIR) == 0) {
+            ForumDetailActivity.a(this.b, String.valueOf(sVar.d.getTag()), this.g);
+            return;
+        }
+        TiebaStatic.a(this.b, "forumlist_to_frs", "tofrsclick", 1, new Object[0]);
+        this.b.sendMessage(new com.baidu.adp.framework.message.a(2003000, new com.baidu.tbadk.core.b.l(this.b).a(sVar.d.getText().toString(), null)));
     }
 
     private String b(int i) {
         if (i >= 100000) {
-            return String.valueOf(String.valueOf(i / 10000)) + this.b.getString(R.string.member_count_unit);
+            return String.valueOf(String.valueOf(i / 10000)) + this.b.getString(com.baidu.tieba.a.k.member_count_unit);
         }
         return String.valueOf(i);
     }
 
     public final void a(boolean z) {
-        this.k = z;
+        this.i = z;
         notifyDataSetChanged();
     }
 }

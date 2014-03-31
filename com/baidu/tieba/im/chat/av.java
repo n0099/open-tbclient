@@ -1,27 +1,22 @@
 package com.baidu.tieba.im.chat;
 
-import com.slidingmenu.lib.R;
+import com.baidu.location.LocationClientOption;
+import java.util.LinkedList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class av implements com.baidu.tieba.im.messageCenter.g {
-    final /* synthetic */ GroupSettingActivity a;
+public final class av extends com.baidu.tieba.im.m<LinkedList<String>> {
+    final /* synthetic */ x b;
+    private final /* synthetic */ String c;
 
-    public av(GroupSettingActivity groupSettingActivity) {
-        this.a = groupSettingActivity;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public av(x xVar, String str) {
+        this.b = xVar;
+        this.c = str;
     }
 
-    @Override // com.baidu.tieba.im.messageCenter.g
-    public final void a(com.baidu.tieba.im.message.s sVar) {
-        if (sVar != null && sVar.v() == 103103) {
-            if (!(sVar instanceof com.baidu.tieba.im.message.cq)) {
-                this.a.showToast(R.string.group_report_fail);
-                return;
-            }
-            com.baidu.tieba.im.message.cq cqVar = (com.baidu.tieba.im.message.cq) sVar;
-            if (cqVar.l()) {
-                this.a.a(cqVar.n(), cqVar.m());
-            } else {
-                this.a.showToast(R.string.group_report_success);
-            }
-        }
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.m
+    public final /* synthetic */ LinkedList<String> a() {
+        return com.baidu.tieba.im.db.n.d().a(this.c, 2, (String) null, LocationClientOption.MIN_SCAN_SPAN);
     }
 }

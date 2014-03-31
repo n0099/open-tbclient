@@ -1,33 +1,54 @@
 package com.baidu.tieba.im.frsgroup;
 
-import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.tieba.data.UserData;
-import com.baidu.tieba.person.cm;
+import android.text.TextUtils;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tieba.im.message.ResponseRemoveMembersMessage;
 /* loaded from: classes.dex */
-final class t implements AdapterView.OnItemClickListener {
+final class t extends com.baidu.adp.framework.c.g {
     final /* synthetic */ MembersActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public t(MembersActivity membersActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t(MembersActivity membersActivity, int i) {
+        super(103112);
         this.a = membersActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public final void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        ae aeVar;
-        aeVar = this.a.b;
-        aa h = aeVar.h();
-        UserData userData = (UserData) h.getItem(i);
-        if (userData != null) {
-            if (h.d()) {
-                if (!userData.getPermission().isController()) {
-                    h.a(Long.valueOf(userData.getUserIdLong()));
-                    return;
-                }
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
+    @Override // com.baidu.adp.framework.c.c
+    public final /* synthetic */ void a(SocketResponsedMessage socketResponsedMessage) {
+        ah ahVar;
+        ah ahVar2;
+        com.baidu.tieba.im.model.y yVar;
+        ah ahVar3;
+        ah ahVar4;
+        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
+        ahVar = this.a.b;
+        ahVar.a(false);
+        if (socketResponsedMessage2 == null || !(socketResponsedMessage2 instanceof ResponseRemoveMembersMessage)) {
+            this.a.showToast(com.baidu.tieba.im.j.neterror);
+            return;
+        }
+        ResponseRemoveMembersMessage responseRemoveMembersMessage = (ResponseRemoveMembersMessage) socketResponsedMessage2;
+        if (responseRemoveMembersMessage.e() != 0) {
+            if (responseRemoveMembersMessage.e() <= 0) {
+                this.a.showToast(com.baidu.tieba.im.j.neterror);
+                return;
+            } else if (TextUtils.isEmpty(responseRemoveMembersMessage.f())) {
+                return;
+            } else {
+                this.a.showToast(responseRemoveMembersMessage.f());
                 return;
             }
-            cm.a(this.a, new StringBuilder(String.valueOf(userData.getUserId())).toString(), userData.getUserName());
         }
+        this.a.showToast(com.baidu.tieba.im.j.members_delete_success);
+        ahVar2 = this.a.b;
+        ad h = ahVar2.h();
+        yVar = this.a.c;
+        h.b(yVar.c());
+        ahVar3 = this.a.b;
+        ahVar3.i();
+        ahVar4 = this.a.b;
+        ahVar4.h().a();
     }
 }

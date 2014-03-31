@@ -1,20 +1,19 @@
 package com.baidu.tieba.im.chat;
 
-import java.util.LinkedList;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class cl extends com.baidu.tieba.im.b<Void> {
-    final /* synthetic */ ck a;
-    private final /* synthetic */ LinkedList c;
+public final class cl implements View.OnLongClickListener {
+    final /* synthetic */ ch a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cl(ck ckVar, LinkedList linkedList) {
-        this.a = ckVar;
-        this.c = linkedList;
+    public cl(ch chVar) {
+        this.a = chVar;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.b
-    public final /* bridge */ /* synthetic */ Void a() {
-        return com.baidu.tieba.im.db.q.a().a(this.c);
+    @Override // android.view.View.OnLongClickListener
+    public final boolean onLongClick(View view) {
+        this.a.d.b(view, 3, this.a.f, 0L);
+        return true;
     }
 }

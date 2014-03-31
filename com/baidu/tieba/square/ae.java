@@ -1,18 +1,16 @@
 package com.baidu.tieba.square;
 
-import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 final class ae {
     TextView a;
     TextView b;
-    View c;
-    LinearLayout d;
-    final /* synthetic */ ac e;
+    LinearLayout c;
+    final /* synthetic */ ac d;
 
     private ae(ac acVar) {
-        this.e = acVar;
+        this.d = acVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

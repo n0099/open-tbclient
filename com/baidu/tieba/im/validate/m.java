@@ -1,17 +1,22 @@
 package com.baidu.tieba.im.validate;
+
+import com.baidu.tbadk.core.view.HeadImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class m extends com.baidu.tieba.im.b<Boolean> {
-    private final /* synthetic */ ValidateItemData a;
+public final class m implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ i a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(ValidateItemData validateItemData) {
-        this.a = validateItemData;
+    public m(i iVar) {
+        this.a = iVar;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.b
-    public final /* synthetic */ Boolean a() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.c.a().a(this.a));
+    @Override // com.baidu.tbadk.imageManager.d
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        HeadImageView headImageView;
+        if (bVar != null) {
+            headImageView = this.a.d;
+            bVar.a(headImageView);
+        }
     }
 }

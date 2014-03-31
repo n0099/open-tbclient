@@ -1,6 +1,5 @@
 package com.baidu.tieba.person;
 
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -15,7 +14,7 @@ public class PersonPostListData implements Serializable {
     public int hide_post = 0;
 
     /* loaded from: classes.dex */
-    public class PostList extends com.baidu.tieba.util.au implements Serializable {
+    public class PostList extends com.baidu.tbadk.core.util.a implements Serializable {
         @SerializedName("forum_id")
         public long forum_id = 0;
         @SerializedName("thread_id")
@@ -32,13 +31,13 @@ public class PersonPostListData implements Serializable {
         public String title = "";
         @SerializedName("user_name")
         public String user_name = "";
-        @SerializedName(PushConstants.EXTRA_USER_ID)
+        @SerializedName("user_id")
         public long user_id = 0;
         @SerializedName("user_portrait")
         public String user_portrait = "";
         @SerializedName("abstract")
         public Abs[] abs = new Abs[0];
-        @SerializedName(PushConstants.EXTRA_CONTENT)
+        @SerializedName("content")
         public String content = "";
         @SerializedName("quote")
         public Quote quote = new Quote();
@@ -55,7 +54,7 @@ public class PersonPostListData implements Serializable {
             return "PostList{forum_id=" + this.forum_id + ", thread_id=" + this.thread_id + ", post_id=" + this.post_id + ", is_thread=" + this.is_thread + ", create_time=" + this.create_time + ", forum_name='" + this.forum_name + "', title='" + this.title + "', user_name='" + this.user_name + "', user_id=" + this.user_id + ", user_portrait='" + this.user_portrait + "', abs=" + Arrays.toString(this.abs) + ", content='" + this.content + "', quote=" + this.quote + ", reply_num=" + this.reply_num + ", media=" + Arrays.toString(this.media) + ", lbs_info=" + this.lbs_info + ", is_post_deleted=" + this.is_post_deleted + '}';
         }
 
-        @Override // com.baidu.tieba.util.au, com.baidu.tieba.util.aw
+        @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ab
         public LinkedList<String> getImageUrl() {
             Media[] mediaArr;
             LinkedList<String> linkedList = new LinkedList<>();
@@ -93,7 +92,7 @@ public class PersonPostListData implements Serializable {
         public String text = "";
         @SerializedName("src")
         public String src = "";
-        @SerializedName("un")
+        @SerializedName(PersonInfoActivity.TAG_ID)
         public String un = "";
         @SerializedName("link")
         public String link = "";
@@ -109,11 +108,11 @@ public class PersonPostListData implements Serializable {
         public long post_id = 0;
         @SerializedName("user_name")
         public String user_name = "";
-        @SerializedName(PushConstants.EXTRA_USER_ID)
+        @SerializedName("user_id")
         public long user_id = 0;
         @SerializedName("ip")
         public long ip = 0;
-        @SerializedName(PushConstants.EXTRA_CONTENT)
+        @SerializedName("content")
         public String content = "";
 
         public String toString() {

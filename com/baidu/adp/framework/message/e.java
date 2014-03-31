@@ -2,28 +2,27 @@ package com.baidu.adp.framework.message;
 
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
-public abstract class e<T> {
-    private final int a;
-    private int b;
+public final class e {
+    private HttpMessage a;
+    private g b;
 
-    public abstract boolean a(int i);
-
-    public e(int i) {
-        this.a = i;
-        if (!a(this.a)) {
-            throw new InvalidParameterException("cmd invalid");
-        }
-    }
-
-    public final int d() {
+    public final HttpMessage a() {
         return this.a;
     }
 
-    public final int e() {
+    public final g b() {
         return this.b;
     }
 
-    public final void b(int i) {
-        this.b = i;
+    public final int c() {
+        if (this.a.f() != this.b.f()) {
+            throw new InvalidParameterException("tag invalid");
+        }
+        return this.a.f();
+    }
+
+    public final void a(int i) {
+        this.a.b(i);
+        this.b.b(i);
     }
 }

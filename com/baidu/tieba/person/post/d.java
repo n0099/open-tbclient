@@ -1,6 +1,8 @@
 package com.baidu.tieba.person.post;
+
+import android.view.View;
 /* loaded from: classes.dex */
-final class d implements k {
+final class d implements View.OnClickListener {
     final /* synthetic */ PersonPostActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,10 +10,8 @@ final class d implements k {
         this.a = personPostActivity;
     }
 
-    @Override // com.baidu.tieba.person.post.k
-    public final void a(int i) {
-        e unused;
-        unused = this.a.j;
-        e.a();
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        this.a.finish();
     }
 }

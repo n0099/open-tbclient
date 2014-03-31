@@ -1,6 +1,6 @@
 package com.baidu.tieba.flist;
 /* loaded from: classes.dex */
-public final class c extends com.baidu.adp.a.d {
+public final class c extends com.baidu.adp.a.e {
     private d a;
     private e b;
     private String c;
@@ -16,14 +16,14 @@ public final class c extends com.baidu.adp.a.d {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.a.d
+    @Override // com.baidu.adp.a.e
     public final boolean LoadData() {
         this.a = new d(this, (byte) 0);
         this.a.execute(new Object[0]);
         return true;
     }
 
-    @Override // com.baidu.adp.a.d
+    @Override // com.baidu.adp.a.e
     public final boolean cancelLoadData() {
         if (this.a != null) {
             this.a.cancel();

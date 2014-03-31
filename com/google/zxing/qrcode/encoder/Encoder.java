@@ -1,7 +1,6 @@
 package com.google.zxing.qrcode.encoder;
 
 import android.support.v4.view.MotionEventCompat;
-import cn.jingling.lib.file.Shared;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitArray;
@@ -173,7 +172,7 @@ public final class Encoder {
     }
 
     private static int chooseMaskPattern(BitArray bitArray, ErrorCorrectionLevel errorCorrectionLevel, Version version, ByteMatrix byteMatrix) {
-        int i = Shared.INFINITY;
+        int i = Integer.MAX_VALUE;
         int i2 = -1;
         int i3 = 0;
         while (i3 < 8) {

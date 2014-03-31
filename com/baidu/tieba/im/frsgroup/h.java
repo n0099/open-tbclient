@@ -1,23 +1,36 @@
 package com.baidu.tieba.im.frsgroup;
 
-import android.view.View;
+import com.baidu.adp.widget.ListView.BdListView;
 /* loaded from: classes.dex */
-final class h implements View.OnClickListener {
-    final /* synthetic */ c a;
+final class h implements com.baidu.adp.widget.ListView.d {
+    final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(c cVar) {
-        this.a = cVar;
+    public h(b bVar) {
+        this.a = bVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        FrsGroupActivity frsGroupActivity;
-        FrsGroupActivity frsGroupActivity2;
-        frsGroupActivity = this.a.b;
-        if (frsGroupActivity != null) {
-            frsGroupActivity2 = this.a.b;
-            frsGroupActivity2.g();
+    @Override // com.baidu.adp.widget.ListView.d
+    public final void a(boolean z) {
+        com.baidu.tieba.im.model.k kVar;
+        com.baidu.tieba.im.model.k kVar2;
+        int i;
+        BdListView bdListView;
+        kVar = this.a.b;
+        if (!kVar.h() || !z) {
+            kVar2 = this.a.b;
+            if (kVar2.g() == 2) {
+                i = this.a.j;
+                if (i == com.baidu.adp.lib.util.i.a()) {
+                    bdListView = this.a.d;
+                    bdListView.b();
+                    this.a.showToast(com.baidu.tieba.im.j.frsgroup_hot_cannot_refresh_tip);
+                    return;
+                }
+            }
+            this.a.a();
+            return;
         }
+        this.a.a(false);
     }
 }

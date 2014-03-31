@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
-import cn.jingling.lib.file.ImageFile;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -25,7 +24,7 @@ public final class a extends d {
         this.s = "yyyyMMddkkmmss";
         this.d = 500;
         this.r = String.valueOf(str) + File.separator + "dbgbak";
-        com.baidu.adp.lib.util.b.d(this.r);
+        com.baidu.adp.lib.util.c.d(this.r);
         a((String) null);
     }
 
@@ -73,13 +72,13 @@ public final class a extends d {
                             l();
                         } catch (Exception e) {
                             this.e++;
-                            com.baidu.adp.lib.util.e.a(getClass(), "refreshFile", e);
+                            com.baidu.adp.lib.util.f.a(getClass(), "refreshFile", e);
                             try {
                                 a.close();
                                 cls = a;
                             } catch (IOException e2) {
                                 Class<?> cls2 = getClass();
-                                com.baidu.adp.lib.util.e.a(cls2, "refreshFile", e2);
+                                com.baidu.adp.lib.util.f.a(cls2, "refreshFile", e2);
                                 cls = cls2;
                             }
                             d(this.k);
@@ -92,7 +91,7 @@ public final class a extends d {
                     try {
                         a.close();
                     } catch (IOException e3) {
-                        com.baidu.adp.lib.util.e.a(getClass(), "refreshFile", e3);
+                        com.baidu.adp.lib.util.f.a(getClass(), "refreshFile", e3);
                     }
                     d(this.k);
                 }
@@ -115,7 +114,7 @@ public final class a extends d {
                 return true;
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.e.a(getClass(), "shouldUpload", e);
+            com.baidu.adp.lib.util.f.a(getClass(), "shouldUpload", e);
         }
         return false;
     }
@@ -139,7 +138,7 @@ public final class a extends d {
     }
 
     private void d(String str) {
-        if (com.baidu.adp.lib.util.b.a(str, true) > ImageFile.MIN_SD_CARD_SPACE) {
+        if (com.baidu.adp.lib.util.c.a(str, true) > 5242880) {
             try {
                 File[] listFiles = new File(str).listFiles();
                 if (listFiles == null || listFiles.length == 0) {
@@ -149,7 +148,7 @@ public final class a extends d {
                 long j = 0;
                 for (File file : listFiles) {
                     if (file.isFile()) {
-                        long a = com.baidu.adp.lib.util.b.a(file);
+                        long a = com.baidu.adp.lib.util.c.a(file);
                         if (a(file)) {
                             j += a;
                             if (j >= FileUtils.ONE_MB && FileUtils.ONE_MB > 0) {
@@ -161,7 +160,7 @@ public final class a extends d {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.e.a(getClass(), "deleteFiles", e);
+                com.baidu.adp.lib.util.f.a(getClass(), "deleteFiles", e);
             }
         }
     }
@@ -170,7 +169,7 @@ public final class a extends d {
         try {
             return file.delete();
         } catch (Exception e) {
-            com.baidu.adp.lib.util.e.a(getClass(), "deleteFiles", e);
+            com.baidu.adp.lib.util.f.a(getClass(), "deleteFiles", e);
             return false;
         }
     }
@@ -181,7 +180,7 @@ public final class a extends d {
             if (!this.b || this.f) {
                 if (m()) {
                     this.j.sendMessage(this.j.obtainMessage(5));
-                } else if (z && System.currentTimeMillis() - g() >= g.a().d()) {
+                } else if (z && System.currentTimeMillis() - g() >= g.a().e()) {
                     this.j.removeMessages(5);
                     this.j.sendMessage(this.j.obtainMessage(5));
                 }
@@ -202,7 +201,7 @@ public final class a extends d {
             this.n = System.currentTimeMillis();
             k.a().b(this.n, this.l);
         } catch (Exception e) {
-            com.baidu.adp.lib.util.e.a(getClass(), "uploadSucc", e);
+            com.baidu.adp.lib.util.f.a(getClass(), "uploadSucc", e);
         }
         d(this.r);
     }
@@ -222,7 +221,7 @@ public final class a extends d {
                 }
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.e.a(getClass(), "clearLogs", e);
+            com.baidu.adp.lib.util.f.a(getClass(), "clearLogs", e);
         }
     }
 }

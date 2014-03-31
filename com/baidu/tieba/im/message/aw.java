@@ -1,26 +1,34 @@
 package com.baidu.tieba.im.message;
 
 import com.google.protobuf.MessageLite;
-import protobuf.QueryPrize.QueryPrizeReq;
+import protobuf.DelGroupUsers.DelGroupUsersReq;
 /* loaded from: classes.dex */
-public final class aw extends s implements com.baidu.tieba.im.coder.g {
-    private int a;
+public final class aw extends com.baidu.tbadk.message.websockt.d {
+    private long a;
+    private String b;
 
     public aw() {
-        e(103013);
+        super(103112);
     }
 
-    public final void a(int i) {
-        this.a = i;
+    public final long i() {
+        return this.a;
     }
 
-    @Override // com.baidu.tieba.im.coder.g
-    public final MessageLite a() {
-        try {
-            return QueryPrizeReq.QueryPrizeReqIdl.newBuilder().a(QueryPrizeReq.DataReq.newBuilder().a(this.a).build()).build();
-        } catch (Exception e) {
-            com.baidu.adp.lib.util.e.e("data convert error");
-            return null;
-        }
+    public final void b(long j) {
+        this.a = j;
+    }
+
+    public final String j() {
+        return this.b;
+    }
+
+    public final void a(String str) {
+        this.b = str;
+    }
+
+    @Override // com.baidu.tbadk.message.websockt.d
+    public final MessageLite h() {
+        return DelGroupUsersReq.DelGroupUsersReqIdl.newBuilder().a(DelGroupUsersReq.DataReq.newBuilder().a((int) this.a).a(this.b).build()).build();
     }
 }

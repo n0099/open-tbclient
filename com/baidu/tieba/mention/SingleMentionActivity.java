@@ -5,11 +5,11 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 /* loaded from: classes.dex */
-public class SingleMentionActivity extends com.baidu.tieba.k {
-    c d;
+public class SingleMentionActivity extends com.baidu.tbadk.core.e {
+    c c;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.k, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.e, com.baidu.adp.a.c, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         Bundle bundle2 = new Bundle();
@@ -22,10 +22,10 @@ public class SingleMentionActivity extends com.baidu.tieba.k {
             }
         }
         FragmentManager supportFragmentManager = getSupportFragmentManager();
-        this.d = new c();
-        this.d.setArguments(bundle2);
+        this.c = new c();
+        this.c.setArguments(bundle2);
         FragmentTransaction beginTransaction = supportFragmentManager.beginTransaction();
-        beginTransaction.add(16908290, this.d);
+        beginTransaction.add(16908290, this.c);
         beginTransaction.commitAllowingStateLoss();
     }
 
@@ -36,7 +36,7 @@ public class SingleMentionActivity extends com.baidu.tieba.k {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.k, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.e, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
     }
@@ -47,15 +47,15 @@ public class SingleMentionActivity extends com.baidu.tieba.k {
         super.onResumeFragments();
     }
 
-    @Override // com.baidu.tieba.k
-    protected final void b(int i) {
+    @Override // com.baidu.tbadk.core.e
+    protected final void c(int i) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
-        if (this.d != null) {
-            this.d.onActivityResult(i, i2, intent);
+        if (this.c != null) {
+            this.c.onActivityResult(i, i2, intent);
         }
     }
 }

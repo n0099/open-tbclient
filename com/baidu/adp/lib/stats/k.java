@@ -46,7 +46,7 @@ public class k {
             try {
                 return Long.parseLong(a);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.e.d(e.getMessage());
+                com.baidu.adp.lib.util.f.d(e.getMessage());
             }
         }
         return 0L;
@@ -72,7 +72,7 @@ public class k {
             try {
                 return Long.parseLong(a);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.e.d(e.getMessage());
+                com.baidu.adp.lib.util.f.d(e.getMessage());
             }
         }
         return 0L;
@@ -98,7 +98,7 @@ public class k {
             try {
                 return Long.parseLong(a);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.e.d(e.getMessage());
+                com.baidu.adp.lib.util.f.d(e.getMessage());
             }
         }
         return 0L;

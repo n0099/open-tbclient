@@ -1,30 +1,28 @@
 package com.baidu.tieba.im.randchat;
 
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tieba.view.NavigationBar;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
-public final class f extends com.baidu.adp.a.e {
+public final class f extends com.baidu.adp.a.f {
     private View a;
     private WaittingActivity c;
     private NavigationBar d;
     private RingLayoutView e;
     private WaitingTipView f;
-    private ImageView g;
+    private View g;
     private TextView h;
 
     public f(WaittingActivity waittingActivity) {
         super(waittingActivity);
         this.c = waittingActivity;
-        this.c.setContentView(R.layout.im_waitting_activity);
-        this.d = (NavigationBar) this.c.findViewById(R.id.view_navigation_bar);
-        this.e = (RingLayoutView) this.c.findViewById(R.id.waittingView);
+        this.c.setContentView(com.baidu.tieba.im.i.im_waitting_activity);
+        this.d = (NavigationBar) this.c.findViewById(com.baidu.tieba.im.h.view_navigation_bar);
+        this.e = (RingLayoutView) this.c.findViewById(com.baidu.tieba.im.h.waittingView);
         this.g = this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.d.a(R.string.rand_chat_waiting_title);
-        this.h = this.d.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.c.getString(R.string.rand_chat_waiting_button_change));
-        this.f = (WaitingTipView) this.c.findViewById(R.id.tipView);
+        this.d.a(com.baidu.tieba.im.j.rand_chat_waiting_title);
+        this.h = this.d.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.c.getString(com.baidu.tieba.im.j.rand_chat_waiting_button_change));
+        this.f = (WaitingTipView) this.c.findViewById(com.baidu.tieba.im.h.tipView);
         this.g.setOnClickListener(this.c);
         this.h.setOnClickListener(this.c);
     }
@@ -36,12 +34,12 @@ public final class f extends com.baidu.adp.a.e {
     }
 
     public final void a() {
-        if (com.baidu.tieba.sharedPref.b.a().a("is_show_randchat_create", true)) {
+        if (com.baidu.tbadk.core.sharedPref.b.a().a("is_show_randchat_create", true)) {
             com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
             gVar.a(this.h).a(178).b(true);
             gVar.a(new g(this));
             gVar.a().a(this.c);
-            com.baidu.tieba.sharedPref.b.a().b("is_show_randchat_create", false);
+            com.baidu.tbadk.core.sharedPref.b.a().b("is_show_randchat_create", false);
         }
     }
 
@@ -55,7 +53,7 @@ public final class f extends com.baidu.adp.a.e {
         }
     }
 
-    public final com.baidu.tieba.view.p e() {
+    public final com.baidu.tieba.im.view.h e() {
         if (this.e == null) {
             return null;
         }
@@ -70,7 +68,7 @@ public final class f extends com.baidu.adp.a.e {
         return this.f;
     }
 
-    public final ImageView h() {
+    public final View h() {
         return this.g;
     }
 

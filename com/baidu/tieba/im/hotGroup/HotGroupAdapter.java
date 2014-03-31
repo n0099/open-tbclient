@@ -10,13 +10,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.tieba.TiebaApplication;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.editortool.aa;
 import com.baidu.tieba.im.data.GroupInfoData;
-import com.baidu.tieba.util.bq;
-import com.baidu.tieba.util.i;
-import com.baidu.tieba.view.HeadImageView;
-import com.slidingmenu.lib.R;
+import com.baidu.tieba.im.g;
+import com.baidu.tieba.im.h;
+import com.baidu.tieba.im.i;
+import com.baidu.tieba.im.j;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -24,7 +26,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public final class HotGroupAdapter extends BaseAdapter {
     private HotGroupActivity a;
-    private i b;
+    private aa b;
     private List<GroupInfoData> c = new ArrayList();
     private BOTTOM_TYPE d;
     private boolean e;
@@ -48,11 +50,11 @@ public final class HotGroupAdapter extends BaseAdapter {
 
     public HotGroupAdapter(HotGroupActivity hotGroupActivity) {
         this.a = hotGroupActivity;
-        this.b = new i(this.a);
+        this.b = new aa(this.a);
         this.b.a(true);
     }
 
-    public final i a() {
+    public final aa a() {
         return this.b;
     }
 
@@ -126,22 +128,22 @@ public final class HotGroupAdapter extends BaseAdapter {
     public final View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null || view.getTag() == null || !(view.getTag() instanceof a)) {
-            view = LayoutInflater.from(this.a).inflate(R.layout.hot_group_item_view, viewGroup, false);
+            view = LayoutInflater.from(this.a).inflate(i.hot_group_item_view, viewGroup, false);
             a aVar2 = new a();
-            aVar2.a = (LinearLayout) view.findViewById(R.id.list_more);
-            aVar2.c = (TextView) view.findViewById(R.id.list_more_title);
-            aVar2.d = (ProgressBar) view.findViewById(R.id.list_more_progress);
-            aVar2.e = (ImageView) view.findViewById(R.id.list_more_line);
-            aVar2.b = (LinearLayout) view.findViewById(R.id.list_more_text);
-            aVar2.f = (LinearLayout) view.findViewById(R.id.click_head);
-            aVar2.g = (LinearLayout) view.findViewById(R.id.list_item_content);
-            aVar2.h = (HeadImageView) view.findViewById(R.id.item_head);
-            aVar2.i = (TextView) view.findViewById(R.id.group_name);
-            aVar2.j = (TextView) view.findViewById(R.id.item_group_num);
-            aVar2.k = (TextView) view.findViewById(R.id.group_intro);
-            aVar2.l = (ImageView) view.findViewById(R.id.item_grade1);
-            aVar2.m = (ImageView) view.findViewById(R.id.item_grade2);
-            aVar2.n = (ImageView) view.findViewById(R.id.item_grade3);
+            aVar2.a = (LinearLayout) view.findViewById(h.list_more);
+            aVar2.c = (TextView) view.findViewById(h.list_more_title);
+            aVar2.d = (ProgressBar) view.findViewById(h.list_more_progress);
+            aVar2.e = (ImageView) view.findViewById(h.list_more_line);
+            aVar2.b = (LinearLayout) view.findViewById(h.list_more_text);
+            aVar2.f = (LinearLayout) view.findViewById(h.click_head);
+            aVar2.g = (LinearLayout) view.findViewById(h.list_item_content);
+            aVar2.h = (HeadImageView) view.findViewById(h.item_head);
+            aVar2.i = (TextView) view.findViewById(h.group_name);
+            aVar2.j = (TextView) view.findViewById(h.item_group_num);
+            aVar2.k = (TextView) view.findViewById(h.group_intro);
+            aVar2.l = (ImageView) view.findViewById(h.item_grade1);
+            aVar2.m = (ImageView) view.findViewById(h.item_grade2);
+            aVar2.n = (ImageView) view.findViewById(h.item_grade3);
             aVar2.o = new ImageView[4];
             aVar2.o[1] = aVar2.l;
             aVar2.o[2] = aVar2.m;
@@ -152,10 +154,10 @@ public final class HotGroupAdapter extends BaseAdapter {
             aVar = (a) view.getTag();
         }
         aVar.h.setTag(null);
-        aVar.h.setDefaultResource(R.drawable.avatar_poto_defaul140);
+        aVar.h.setDefaultResource(g.avatar_poto_defaul140);
         aVar.h.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
         aVar.h.setDrawBorder(true);
-        aVar.h.setRadius(BdUtilHelper.a((Context) this.a, 5.0f));
+        aVar.h.setRadius(com.baidu.adp.lib.util.i.a((Context) this.a, 3.0f));
         if (getItemViewType(i) == 1) {
             aVar.a.setVisibility(0);
             aVar.g.setVisibility(8);
@@ -166,10 +168,10 @@ public final class HotGroupAdapter extends BaseAdapter {
                 aVar.e.setVisibility(8);
                 aVar.b.setVisibility(0);
                 if (this.d == BOTTOM_TYPE.HAVE_MORE) {
-                    aVar.c.setText(R.string.frsgroup_load_more);
+                    aVar.c.setText(j.frsgroup_load_more);
                     aVar.d.setVisibility(0);
                 } else {
-                    aVar.c.setText(R.string.frsgroup_no_more);
+                    aVar.c.setText(j.frsgroup_no_more);
                     aVar.d.setVisibility(8);
                 }
             }
@@ -189,13 +191,13 @@ public final class HotGroupAdapter extends BaseAdapter {
                 }
                 a(aVar.o, item.getGrade());
             }
-            this.a.a().a(TiebaApplication.g().ae() == 1);
-            this.a.a().a(view);
+            this.a.b().a(TbadkApplication.j().l() == 1);
+            this.a.b().a(view);
             if (item != null && item.isMemGroup()) {
-                bq.a(aVar.i, R.color.im_group_vip_text, 1);
-                bq.d(aVar.l, (int) R.drawable.icon_vip_grade_big_small_s);
-                bq.d(aVar.m, (int) R.drawable.icon_vip_grade_big_small_s);
-                bq.d(aVar.n, (int) R.drawable.icon_vip_grade_big_small_s);
+                ba.a(aVar.i, com.baidu.tieba.im.e.im_group_vip_text, 1);
+                ba.c(aVar.l, g.icon_vip_grade_big_small_s);
+                ba.c(aVar.m, g.icon_vip_grade_big_small_s);
+                ba.c(aVar.n, g.icon_vip_grade_big_small_s);
             }
         }
         return view;

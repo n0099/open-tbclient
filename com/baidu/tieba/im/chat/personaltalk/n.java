@@ -1,27 +1,21 @@
 package com.baidu.tieba.im.chat.personaltalk;
 
-import com.baidu.tieba.im.message.ax;
+import com.baidu.tbadk.TbadkApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class n implements com.baidu.tieba.im.a<PersonalSettingItemData> {
-    final /* synthetic */ l a;
-    private final /* synthetic */ long b;
+public final class n extends com.baidu.tieba.im.m<PersonalSettingItemData> {
+    final /* synthetic */ k b;
+    private final /* synthetic */ long c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(l lVar, long j) {
-        this.a = lVar;
-        this.b = j;
+    public n(k kVar, long j) {
+        this.b = kVar;
+        this.c = j;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.baidu.tieba.im.a
-    public final /* synthetic */ void a(PersonalSettingItemData personalSettingItemData) {
-        PersonalSettingItemData personalSettingItemData2 = personalSettingItemData;
-        if (personalSettingItemData2 != null) {
-            this.a.f = personalSettingItemData2.isAcceptNotify();
-        }
-        ax axVar = new ax();
-        axVar.a(this.b);
-        com.baidu.tieba.im.messageCenter.d.a().a(axVar);
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.m
+    public final /* synthetic */ PersonalSettingItemData a() {
+        return a.a().b(TbadkApplication.E(), String.valueOf(this.c));
     }
 }

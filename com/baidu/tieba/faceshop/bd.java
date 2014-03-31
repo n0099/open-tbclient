@@ -1,103 +1,104 @@
 package com.baidu.tieba.faceshop;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.gson.GsonBuilder;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Handler;
+import android.widget.AbsListView;
+import android.widget.AdapterView;
+import android.widget.LinearLayout;
+import android.widget.ListAdapter;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
-public final class bd extends BdAsyncTask<Object, FaceShopData, FaceShopData> {
-    final /* synthetic */ bc a;
-    private int b;
-    private com.baidu.tieba.util.ba c;
-    private volatile boolean d;
+public final class bd {
+    private final com.baidu.tbadk.a b;
+    private final LinearLayout c;
+    private final NavigationBar d;
+    private final NoNetworkView e;
+    private final BdListView f;
+    private final com.baidu.tbadk.core.view.q g;
+    private final TextView h;
+    private az i;
+    private final Handler j;
+    private com.baidu.tbadk.editortool.aa k;
+    private final Runnable l = new be(this);
+    AbsListView.OnScrollListener a = new bf(this);
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void a(FaceShopData faceShopData) {
-        com.baidu.adp.a.g gVar;
-        FaceShopData faceShopData2;
-        FaceShopData faceShopData3;
-        FaceShopData faceShopData4 = faceShopData;
-        super.a((bd) faceShopData4);
-        this.a.b = null;
-        if (faceShopData4 != null) {
-            this.a.e = faceShopData4.hasMore == 1;
-            if (this.b == 1) {
-                this.a.a = faceShopData4;
-            } else if (this.b == 2) {
-                faceShopData3 = this.a.a;
-                faceShopData3.add(faceShopData4);
-            }
+    public bd(com.baidu.tbadk.a aVar) {
+        this.b = aVar;
+        aVar.setContentView(com.baidu.tieba.a.i.face_purchase_records_layout);
+        this.c = (LinearLayout) aVar.findViewById(com.baidu.tieba.a.h.purchase_record);
+        this.d = (NavigationBar) this.c.findViewById(com.baidu.tieba.a.h.view_navigation_bar);
+        this.d.a(aVar.getResources().getString(com.baidu.tieba.a.k.purchase_record));
+        this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.e = (NoNetworkView) this.c.findViewById(com.baidu.tieba.a.h.view_no_network);
+        this.h = (TextView) this.c.findViewById(com.baidu.tieba.a.h.empty);
+        this.f = (BdListView) this.c.findViewById(com.baidu.tieba.a.h.purchase_record_list);
+        this.g = new com.baidu.tbadk.core.view.q(aVar);
+        this.f.setPullRefresh(this.g);
+        this.f.setOnScrollListener(this.a);
+        this.j = new Handler();
+    }
+
+    public final void a(FacePurchaseRecordsData facePurchaseRecordsData) {
+        if (this.i == null) {
+            this.i = new az(this.b);
+            this.f.setAdapter((ListAdapter) this.i);
         }
-        gVar = this.a.mLoadDataCallBack;
-        faceShopData2 = this.a.a;
-        gVar.a(faceShopData2);
-    }
-
-    private bd(bc bcVar) {
-        this.a = bcVar;
-        this.d = false;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bd(bc bcVar, byte b) {
-        this(bcVar);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: private */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public FaceShopData a(Object... objArr) {
-        int i;
-        int i2;
-        int i3;
-        float f;
-        int i4;
-        String str;
-        this.b = ((Integer) objArr[0]).intValue();
-        try {
-            if (!this.d) {
-                this.c = new com.baidu.tieba.util.ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/e/faces/getpacklist");
-                if (this.b == 1) {
-                    this.a.c = 0;
-                } else if (this.b == 2) {
-                    bc bcVar = this.a;
-                    i = bcVar.c;
-                    bcVar.c = i + 1;
-                }
-                com.baidu.tieba.util.ba baVar = this.c;
-                i2 = this.a.f;
-                baVar.a("scr_w", String.valueOf(i2));
-                com.baidu.tieba.util.ba baVar2 = this.c;
-                i3 = this.a.g;
-                baVar2.a("scr_h", String.valueOf(i3));
-                com.baidu.tieba.util.ba baVar3 = this.c;
-                f = this.a.h;
-                baVar3.a("scr_dip", String.valueOf(f));
-                com.baidu.tieba.util.ba baVar4 = this.c;
-                i4 = this.a.c;
-                baVar4.a("offset", String.valueOf(i4));
-                this.c.a("limit", String.valueOf(10));
-                com.baidu.tieba.util.ba baVar5 = this.c;
-                str = this.a.d;
-                baVar5.a("st_type", str);
-                return (FaceShopData) new GsonBuilder().create().fromJson(this.c.l(), (Class<Object>) FaceShopData.class);
-            }
-        } catch (Exception e) {
-            com.baidu.adp.lib.util.e.b(getClass().getName(), "doInBackground", e.toString());
+        this.k = this.i.a();
+        this.i.a(facePurchaseRecordsData);
+        if (facePurchaseRecordsData == null || facePurchaseRecordsData.packList == null || facePurchaseRecordsData.packList.size() == 0) {
+            c();
         }
-        return null;
+        if (this.j != null) {
+            this.j.removeCallbacks(this.l);
+            this.j.postDelayed(this.l, 300L);
+        }
+        this.f.b();
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void cancel() {
-        super.cancel(true);
-        this.d = true;
-        if (this.c != null) {
-            this.c.j();
-            this.c = null;
+    public final az a() {
+        return this.i;
+    }
+
+    public final void b() {
+        this.f.b();
+    }
+
+    public final void c() {
+        if (this.f != null) {
+            this.f.setEmptyView(this.h);
         }
-        this.a.b = null;
+    }
+
+    public final void a(AdapterView.OnItemClickListener onItemClickListener) {
+        this.f.setOnItemClickListener(onItemClickListener);
+    }
+
+    public final void a(com.baidu.adp.widget.ListView.d dVar) {
+        this.g.a(dVar);
+    }
+
+    public final void d() {
+        if (this.k != null) {
+            this.k.a();
+            this.k.c();
+        }
+    }
+
+    public final void a(com.baidu.tbadk.core.view.m mVar) {
+        this.e.a(mVar);
+    }
+
+    public final void b(com.baidu.tbadk.core.view.m mVar) {
+        this.e.b(mVar);
+    }
+
+    public final void a(int i) {
+        this.b.getLayoutMode().a(i == 1);
+        this.b.getLayoutMode().a(this.c);
+        this.d.b(i);
+        this.e.a(i);
+        this.g.a(i);
     }
 }

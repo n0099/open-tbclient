@@ -1,25 +1,11 @@
 package com.baidu.tieba.a;
-
-import android.content.Context;
-import android.content.Intent;
-import com.baidu.tieba.data.UserData;
 /* loaded from: classes.dex */
-public final class c extends com.baidu.tieba.f.a {
-    private UserData a;
-
-    public c(Context context, long j, String str, String str2, int i) {
-        super(context);
-        this.a = null;
-        UserData userData = new UserData(j, str, str2, i);
-        this.a = userData;
-        Intent d = d();
-        d.putExtra("is_accept_notify", true);
-        d.putExtra("chat_mode", 1);
-        d.putExtra("user", userData);
-        d.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
-    }
-
-    public final UserData a() {
-        return this.a;
-    }
+public final class c {
+    public static final int delete_account = 2131361798;
+    public static final int fiter_name = 2131361792;
+    public static final int menu_on_off = 2131361796;
+    public static final int menu_recommend_push = 2131361795;
+    public static final int menu_remind_tone = 2131361794;
+    public static final int menu_view_images = 2131361793;
+    public static final int voice_black_frs_list = 2131361797;
 }

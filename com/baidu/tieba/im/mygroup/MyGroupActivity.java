@@ -4,19 +4,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.k;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-public class MyGroupActivity extends k implements View.OnClickListener {
-    private i d;
+public class MyGroupActivity extends com.baidu.tbadk.core.e implements View.OnClickListener {
+    private k c;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.k, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.e, com.baidu.adp.a.c, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.d = new i(this);
+        this.c = new k(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -26,24 +23,24 @@ public class MyGroupActivity extends k implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.k, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.e, com.baidu.adp.a.c, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
     }
 
-    @Override // com.baidu.tieba.k
-    protected final void b(int i) {
-        this.d.a(i);
+    @Override // com.baidu.tbadk.core.e
+    protected final void c(int i) {
+        this.c.a(i);
     }
 
     public static void a(Context context) {
         if (context != null) {
-            if (!TiebaApplication.w()) {
-                if (context instanceof com.baidu.tieba.f) {
-                    ((com.baidu.tieba.f) context).showToast(R.string.not_login_text);
+            if (!TbadkApplication.F()) {
+                if (context instanceof com.baidu.tbadk.a) {
+                    ((com.baidu.tbadk.a) context).showToast(com.baidu.tieba.im.j.not_login_text);
                     return;
-                } else if (context instanceof k) {
-                    BdUtilHelper.a((Context) ((k) context), (int) R.string.not_login_text);
+                } else if (context instanceof com.baidu.tbadk.core.e) {
+                    com.baidu.adp.lib.util.i.a((Context) ((com.baidu.tbadk.core.e) context), com.baidu.tieba.im.j.not_login_text);
                     return;
                 } else {
                     return;
@@ -54,15 +51,15 @@ public class MyGroupActivity extends k implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.k, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.e, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.d.a();
+        this.c.a();
     }
 
-    @Override // android.view.View.OnClickListener
+    @Override // com.baidu.adp.a.c, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.d == null) {
+        if (this.c == null) {
         }
     }
 }

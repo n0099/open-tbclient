@@ -1,27 +1,29 @@
 package com.baidu.tieba.more;
 
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.ba;
+import android.content.DialogInterface;
+import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-final class o extends Thread {
-    final /* synthetic */ AccountActivity a;
-    private String b;
+final class o implements DialogInterface.OnClickListener {
+    final /* synthetic */ j a;
 
-    public o(AccountActivity accountActivity, String str) {
-        this.a = accountActivity;
-        this.b = null;
-        this.b = str;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public o(j jVar) {
+        this.a = jVar;
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public final void run() {
-        super.run();
-        ba baVar = new ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/m/register");
-        baVar.c(false);
-        baVar.a(false);
-        baVar.a("BDUSS", this.b);
-        baVar.a("channel_id", TiebaApplication.g().aQ());
-        baVar.a("channel_uid", TiebaApplication.g().aP());
-        baVar.l();
+    @Override // android.content.DialogInterface.OnClickListener
+    public final void onClick(DialogInterface dialogInterface, int i) {
+        switch (i) {
+            case 0:
+                TbadkApplication.j().d(1);
+                break;
+            case 1:
+                TbadkApplication.j().d(2);
+                break;
+            case 2:
+                TbadkApplication.j().d(3);
+                break;
+        }
+        this.a.o();
     }
 }

@@ -12,6 +12,8 @@ final class f implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        this.a.a(view);
+        com.baidu.tbadk.core.e eVar;
+        eVar = this.a.n;
+        eVar.finish();
     }
 }

@@ -8,62 +8,59 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tieba.TiebaApplication;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tieba.forumdetail.ForumDetailData;
-import com.baidu.tieba.util.bs;
-import com.slidingmenu.lib.R;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class ItemHotThreadView extends LinearLayout {
     private Context a;
-    private TextView b;
-    private LayoutInflater c;
-    private HashMap<String, View> d;
-    private ForumDetailData e;
+    private LayoutInflater b;
+    private HashMap<String, View> c;
+    private ForumDetailData d;
 
     public ItemHotThreadView(Context context) {
         super(context);
-        this.d = new HashMap<>();
+        this.c = new HashMap<>();
         a(context);
     }
 
     public ItemHotThreadView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.d = new HashMap<>();
+        this.c = new HashMap<>();
         a(context);
     }
 
     private void a(Context context) {
         this.a = context;
-        this.c = (LayoutInflater) context.getSystemService("layout_inflater");
-        this.c.inflate(R.layout.forum_detail_hot_thread, (ViewGroup) this, true);
-        this.b = (TextView) findViewById(R.id.ht_title);
+        this.b = (LayoutInflater) context.getSystemService("layout_inflater");
+        this.b.inflate(com.baidu.tieba.a.i.forum_detail_hot_thread, (ViewGroup) this, true);
     }
 
     public final boolean a(ForumDetailData forumDetailData) {
         ForumDetailData.ThreadInfo[] threadInfoArr;
         l lVar;
         View view;
-        this.e = forumDetailData;
+        this.d = forumDetailData;
         if (forumDetailData == null || forumDetailData.threads.length == 0) {
             return false;
         }
         for (ForumDetailData.ThreadInfo threadInfo : forumDetailData.threads) {
-            if (this.d.containsKey(String.valueOf(threadInfo.tId))) {
-                View view2 = this.d.get(String.valueOf(threadInfo.tId));
+            if (this.c.containsKey(String.valueOf(threadInfo.tId))) {
+                View view2 = this.c.get(String.valueOf(threadInfo.tId));
                 lVar = (l) view2.getTag();
                 view = view2;
             } else {
-                view = this.c.inflate(R.layout.forum_detail_hot_thread_item, (ViewGroup) this, false);
+                view = this.b.inflate(com.baidu.tieba.a.i.forum_detail_hot_thread_item, (ViewGroup) this, false);
                 lVar = new l((byte) 0);
-                lVar.a = (TextView) view.findViewById(R.id.ht_item_title);
-                lVar.b = (TextView) view.findViewById(R.id.ht_item_content);
-                lVar.c = (TextView) view.findViewById(R.id.ht_label_pv);
-                lVar.d = (TextView) view.findViewById(R.id.ht_item_pv);
-                lVar.e = (TextView) view.findViewById(R.id.ht_item_reply);
-                lVar.f = (TextView) view.findViewById(R.id.ht_divider_line);
+                lVar.a = (TextView) view.findViewById(com.baidu.tieba.a.h.ht_item_title);
+                lVar.b = (TextView) view.findViewById(com.baidu.tieba.a.h.ht_item_content);
+                lVar.c = (TextView) view.findViewById(com.baidu.tieba.a.h.ht_label_pv);
+                lVar.d = (TextView) view.findViewById(com.baidu.tieba.a.h.ht_item_pv);
+                lVar.e = (TextView) view.findViewById(com.baidu.tieba.a.h.ht_item_reply);
+                lVar.f = (TextView) view.findViewById(com.baidu.tieba.a.h.ht_divider_line);
                 view.setTag(lVar);
-                this.d.put(String.valueOf(threadInfo.tId), view);
+                this.c.put(String.valueOf(threadInfo.tId), view);
                 addView(view);
             }
             lVar.a.setText(threadInfo.title);
@@ -74,7 +71,7 @@ public class ItemHotThreadView extends LinearLayout {
                     sb.append(threadInfo.abstracts[i].text);
                 }
             }
-            if (bs.c(sb.toString().trim())) {
+            if (bc.c(sb.toString().trim())) {
                 lVar.b.setVisibility(8);
             } else {
                 lVar.b.setText(sb.toString());
@@ -82,35 +79,35 @@ public class ItemHotThreadView extends LinearLayout {
             }
             lVar.d.setText(String.valueOf(threadInfo.viewNum));
             lVar.e.setText(String.valueOf(threadInfo.replyNum));
-            if (TiebaApplication.g().ae() == 1) {
-                lVar.a.setTextColor(this.a.getResources().getColor(R.color.forum_detail_htitem_title_color_1));
-                lVar.b.setTextColor(this.a.getResources().getColor(R.color.forum_detail_htitem_txt_color_1));
-                lVar.c.setTextColor(this.a.getResources().getColor(R.color.forum_detail_ht_lbl_1));
-                lVar.d.setTextColor(this.a.getResources().getColor(R.color.forum_detail_ht_lbl_1));
-                lVar.e.setTextColor(this.a.getResources().getColor(R.color.forum_detail_ht_cmt_1));
-                BitmapDrawable bitmapDrawable = (BitmapDrawable) this.a.getResources().getDrawable(R.drawable.icon_bestlittle_comment_b_1);
+            if (TbadkApplication.j().l() == 1) {
+                lVar.a.setTextColor(this.a.getResources().getColor(com.baidu.tieba.a.e.forum_detail_htitem_title_color_1));
+                lVar.b.setTextColor(this.a.getResources().getColor(com.baidu.tieba.a.e.forum_detail_htitem_txt_color_1));
+                lVar.c.setTextColor(this.a.getResources().getColor(com.baidu.tieba.a.e.forum_detail_ht_lbl_1));
+                lVar.d.setTextColor(this.a.getResources().getColor(com.baidu.tieba.a.e.forum_detail_ht_lbl_1));
+                lVar.e.setTextColor(this.a.getResources().getColor(com.baidu.tieba.a.e.forum_detail_ht_cmt_1));
+                BitmapDrawable bitmapDrawable = (BitmapDrawable) this.a.getResources().getDrawable(com.baidu.tieba.a.g.icon_bestlittle_comment_b_1);
                 bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
                 lVar.e.setCompoundDrawables(bitmapDrawable, null, null, null);
-                lVar.f.setBackgroundResource(R.color.forum_detail_sep_line_1);
+                lVar.f.setBackgroundResource(com.baidu.tieba.a.e.forum_detail_sep_line_1);
             } else {
-                lVar.a.setTextColor(this.a.getResources().getColor(R.color.forum_detail_htitem_title_color));
-                lVar.b.setTextColor(this.a.getResources().getColor(R.color.forum_detail_htitem_txt_color));
-                lVar.c.setTextColor(this.a.getResources().getColor(R.color.forum_detail_ht_lbl));
-                lVar.d.setTextColor(this.a.getResources().getColor(R.color.forum_detail_ht_lbl));
-                lVar.e.setTextColor(this.a.getResources().getColor(R.color.forum_detail_ht_cmt));
-                BitmapDrawable bitmapDrawable2 = (BitmapDrawable) this.a.getResources().getDrawable(R.drawable.icon_bestlittle_comment_b);
+                lVar.a.setTextColor(this.a.getResources().getColor(com.baidu.tieba.a.e.forum_detail_htitem_title_color));
+                lVar.b.setTextColor(this.a.getResources().getColor(com.baidu.tieba.a.e.forum_detail_htitem_txt_color));
+                lVar.c.setTextColor(this.a.getResources().getColor(com.baidu.tieba.a.e.forum_detail_ht_lbl));
+                lVar.d.setTextColor(this.a.getResources().getColor(com.baidu.tieba.a.e.forum_detail_ht_lbl));
+                lVar.e.setTextColor(this.a.getResources().getColor(com.baidu.tieba.a.e.forum_detail_ht_cmt));
+                BitmapDrawable bitmapDrawable2 = (BitmapDrawable) this.a.getResources().getDrawable(com.baidu.tieba.a.g.icon_bestlittle_comment_b);
                 bitmapDrawable2.setBounds(0, 0, bitmapDrawable2.getIntrinsicWidth(), bitmapDrawable2.getIntrinsicHeight());
                 lVar.e.setCompoundDrawables(bitmapDrawable2, null, null, null);
-                lVar.f.setBackgroundResource(R.color.forum_detail_sep_line);
+                lVar.f.setBackgroundResource(com.baidu.tieba.a.e.forum_detail_sep_line);
             }
             view.setOnClickListener(new k(this, String.valueOf(threadInfo.id)));
         }
         return true;
     }
 
-    public final void a(com.baidu.tieba.f fVar, int i) {
-        fVar.getLayoutMode().a(i == 1);
-        fVar.getLayoutMode().a(this);
-        a(this.e);
+    public final void a(com.baidu.tbadk.a aVar, int i) {
+        aVar.getLayoutMode().a(i == 1);
+        aVar.getLayoutMode().a(this);
+        a(this.d);
     }
 }

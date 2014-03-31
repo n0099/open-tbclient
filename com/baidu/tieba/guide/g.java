@@ -9,15 +9,15 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.tbadk.editortool.aa;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.data.InterestFrsData;
-import com.slidingmenu.lib.R;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class g extends BaseAdapter {
     private List<InterestFrsData.Card> a;
     private Context b;
-    private com.baidu.tieba.util.i c;
+    private aa c;
     private View.OnClickListener d;
 
     public g(Context context) {
@@ -28,8 +28,8 @@ public final class g extends BaseAdapter {
         this.d = onClickListener;
     }
 
-    public final void a(com.baidu.tieba.util.i iVar) {
-        this.c = iVar;
+    public final void a(aa aaVar) {
+        this.c = aaVar;
     }
 
     public final void a(List<InterestFrsData.Card> list) {
@@ -62,13 +62,13 @@ public final class g extends BaseAdapter {
     public final View getView(int i, View view, ViewGroup viewGroup) {
         j jVar;
         if (view == null) {
-            view = LayoutInflater.from(this.b).inflate(R.layout.new_user_img_item, viewGroup, false);
+            view = LayoutInflater.from(this.b).inflate(com.baidu.tieba.a.i.new_user_img_item, viewGroup, false);
             jVar = new j(this, (byte) 0);
-            jVar.b = (TbImageView) view.findViewById(R.id.pic);
-            jVar.c = (ImageView) view.findViewById(R.id.select_icon);
-            jVar.d = (RelativeLayout) view.findViewById(R.id.lay_select);
-            jVar.e = (TextView) view.findViewById(R.id.tv_fname);
-            jVar.a = (FrameLayout) view.findViewById(R.id.pic_layout);
+            jVar.b = (TbImageView) view.findViewById(com.baidu.tieba.a.h.pic);
+            jVar.c = (ImageView) view.findViewById(com.baidu.tieba.a.h.select_icon);
+            jVar.d = (RelativeLayout) view.findViewById(com.baidu.tieba.a.h.lay_select);
+            jVar.e = (TextView) view.findViewById(com.baidu.tieba.a.h.tv_fname);
+            jVar.a = (FrameLayout) view.findViewById(com.baidu.tieba.a.h.pic_layout);
             jVar.a.setOnClickListener(this.d);
             view.setTag(jVar);
         } else {
@@ -83,9 +83,9 @@ public final class g extends BaseAdapter {
             InterestFrsData.Card card = (InterestFrsData.Card) item;
             ImageView imageView = jVar.c;
             if (card.getIs_like() == 1) {
-                imageView.setBackgroundDrawable(this.b.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_s));
+                imageView.setBackgroundDrawable(this.b.getResources().getDrawable(com.baidu.tieba.a.g.icon_startpage2_add_ba_s));
             } else {
-                imageView.setBackgroundDrawable(this.b.getResources().getDrawable(R.drawable.icon_startpage2_add_pic_n));
+                imageView.setBackgroundDrawable(this.b.getResources().getDrawable(com.baidu.tieba.a.g.icon_startpage2_add_pic_n));
             }
             jVar.d.setTag(card);
             jVar.a.setTag(card);

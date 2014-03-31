@@ -1,18 +1,27 @@
 package com.baidu.tieba.im.model;
 /* loaded from: classes.dex */
-final class x extends com.baidu.tieba.im.b<Boolean> {
-    final /* synthetic */ w a;
-    private final /* synthetic */ com.baidu.tieba.im.message.g c;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public x(w wVar, com.baidu.tieba.im.message.g gVar) {
-        this.a = wVar;
-        this.c = gVar;
+public final class x extends com.baidu.adp.a.e {
+    @Override // com.baidu.adp.a.e
+    public final boolean cancelLoadData() {
+        return false;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.b
-    public final /* synthetic */ Boolean a() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.b.a().b(this.c.u(), String.valueOf(this.c.j()), String.valueOf(this.c.l()), 2));
+    public final void a(int i) {
+        com.baidu.tbadk.core.message.c cVar = new com.baidu.tbadk.core.message.c();
+        cVar.d(8);
+        super.sendMessage(cVar);
+    }
+
+    public final void a(int i, boolean z) {
+        com.baidu.tbadk.core.message.d dVar = new com.baidu.tbadk.core.message.d();
+        dVar.a(z);
+        dVar.d(8);
+        dVar.a("");
+        super.sendMessage(dVar);
+    }
+
+    @Override // com.baidu.adp.a.e
+    protected final boolean LoadData() {
+        return false;
     }
 }

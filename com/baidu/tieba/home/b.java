@@ -5,7 +5,6 @@ import android.text.TextWatcher;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 final class b implements TextWatcher {
     final /* synthetic */ CreateBarActivity a;
@@ -23,7 +22,7 @@ final class b implements TextWatcher {
     public final void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:12:0x0069  */
+    /* JADX WARN: Removed duplicated region for block: B:12:0x0068  */
     /* JADX WARN: Removed duplicated region for block: B:9:0x0040  */
     @Override // android.text.TextWatcher
     /*
@@ -46,15 +45,15 @@ final class b implements TextWatcher {
                 relativeLayout2 = this.a.i;
                 relativeLayout2.setEnabled(true);
                 if (length < 32) {
-                    textView3 = this.a.t;
-                    textView3.setText(this.a.getString(R.string.bar_name_long));
-                    textView4 = this.a.t;
+                    textView3 = this.a.s;
+                    textView3.setText(this.a.getString(com.baidu.tieba.a.k.bar_name_long));
+                    textView4 = this.a.s;
                     textView4.setTextColor(-65536);
                     return;
                 }
-                textView = this.a.t;
-                textView.setText(this.a.getString(R.string.bar_name_rule));
-                textView2 = this.a.t;
+                textView = this.a.s;
+                textView.setText(this.a.getString(com.baidu.tieba.a.k.bar_name_rule));
+                textView2 = this.a.s;
                 textView2.setTextColor(-6250336);
                 return;
             }

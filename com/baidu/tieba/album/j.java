@@ -7,26 +7,24 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.img.ImageFileInfo;
-import com.baidu.tieba.view.HeadImageView;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.img.ImageFileInfo;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class j extends BaseAdapter implements AbsListView.OnScrollListener {
     private List<a> a;
     private AlbumActivity b;
-    private com.baidu.tieba.img.e c;
+    private com.baidu.tbadk.img.e c;
     private int d;
     private int e;
     private boolean f;
 
     public j(AlbumActivity albumActivity) {
         this.b = albumActivity;
-        this.c = albumActivity.f();
-        this.e = (int) this.b.getResources().getDimension(R.dimen.album_image_height);
-        this.d = BdUtilHelper.b(this.b) / 2;
+        this.c = albumActivity.g();
+        this.e = (int) this.b.getResources().getDimension(com.baidu.tieba.a.f.album_image_height);
+        this.d = com.baidu.adp.lib.util.i.b(this.b) / 2;
     }
 
     public final void a(List<a> list) {
@@ -67,30 +65,30 @@ public final class j extends BaseAdapter implements AbsListView.OnScrollListener
         if (view != null) {
             lVar = (l) view.getTag();
         } else {
-            view = LayoutInflater.from(this.b).inflate(R.layout.album_list_item, viewGroup, false);
+            view = LayoutInflater.from(this.b).inflate(com.baidu.tieba.a.i.album_list_item, viewGroup, false);
             l lVar2 = new l(this, (byte) 0);
-            lVar2.a = (HeadImageView) view.findViewById(R.id.item_head);
-            lVar2.b = (TextView) view.findViewById(R.id.album_name);
+            lVar2.a = (HeadImageView) view.findViewById(com.baidu.tieba.a.h.item_head);
+            lVar2.b = (TextView) view.findViewById(com.baidu.tieba.a.h.album_name);
             view.setTag(lVar2);
             lVar = lVar2;
         }
         lVar.a.setTag(null);
-        lVar.a.setNightDefaultResource(R.drawable.pic_image_h_not_1);
-        lVar.a.setDefaultResource(R.drawable.pic_image_h_not);
+        lVar.a.setNightDefaultResource(com.baidu.tieba.a.g.pic_image_h_not_1);
+        lVar.a.setDefaultResource(com.baidu.tieba.a.g.pic_image_h_not);
         a item = getItem(i);
         if (item != null) {
             if (!TextUtils.isEmpty(item.b())) {
                 item.b();
-                lVar.b.setText(String.valueOf(BdUtilHelper.a(lVar.b.getPaint(), item.b(), this.d)) + "(" + item.c() + ")");
+                lVar.b.setText(String.valueOf(com.baidu.adp.lib.util.i.a(lVar.b.getPaint(), item.b(), this.d)) + "(" + item.c() + ")");
             } else {
                 lVar.b.setText("");
             }
             ImageFileInfo d = item.d();
             if (d != null) {
                 d.clearPageActions();
-                d.addPageAction(com.baidu.tieba.img.effects.d.a(this.e, this.e));
-                com.baidu.tieba.img.e eVar = this.c;
-                com.baidu.adp.widget.ImageView.b a = com.baidu.tieba.img.e.a(d, false);
+                d.addPageAction(com.baidu.tbadk.img.effect.d.a(this.e, this.e));
+                com.baidu.tbadk.img.e eVar = this.c;
+                com.baidu.adp.widget.ImageView.b a = com.baidu.tbadk.img.e.a(d, false);
                 lVar.a.setTag(d.toCachedKey(false));
                 if (a != null) {
                     lVar.a.invalidate();
@@ -101,8 +99,8 @@ public final class j extends BaseAdapter implements AbsListView.OnScrollListener
         } else {
             lVar.b.setText("");
         }
-        this.b.a().a(TiebaApplication.g().ae() == 1);
-        this.b.a().a(view);
+        this.b.b().a(TbadkApplication.j().l() == 1);
+        this.b.b().a(view);
         return view;
     }
 

@@ -1,6 +1,6 @@
 package com.baidu.tieba.album;
 
-import com.baidu.tieba.img.ImageFileInfo;
+import com.baidu.tbadk.img.ImageFileInfo;
 import java.util.List;
 /* loaded from: classes.dex */
 public interface al {

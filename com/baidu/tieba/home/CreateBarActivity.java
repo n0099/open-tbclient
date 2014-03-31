@@ -14,32 +14,31 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tieba.util.bq;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
-public class CreateBarActivity extends com.baidu.tieba.f {
+public class CreateBarActivity extends com.baidu.tbadk.a {
+    public NavigationBar d;
     private TextView e = null;
     private TextView f = null;
     private EditText g = null;
     private EditText h = null;
     private RelativeLayout i = null;
-    private ImageView j = null;
-    private FrameLayout k = null;
-    private ImageView l = null;
+    private FrameLayout j = null;
+    private ImageView k = null;
+    private ProgressBar l = null;
     private ProgressBar m = null;
-    private ProgressBar n = null;
-    private c o = null;
-    private d p = null;
-    private View.OnClickListener q = null;
-    private TextWatcher r = null;
-    private String s = null;
-    private TextView t = null;
+    private c n = null;
+    private d o = null;
+    private View.OnClickListener p = null;
+    private TextWatcher q = null;
+    private String r = null;
+    private TextView s = null;
     RelativeLayout a = null;
     View b = null;
     TextView c = null;
-    TextView d = null;
-    private String u = null;
-    private boolean v = false;
+    private String t = null;
+    private boolean u = false;
 
     public static void a(Context context, String str, boolean z) {
         if (str != null && str.length() > 0) {
@@ -51,100 +50,99 @@ public class CreateBarActivity extends com.baidu.tieba.f {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(R.layout.create_bar_activity);
+        setContentView(com.baidu.tieba.a.i.create_bar_activity);
         Intent intent = getIntent();
-        this.u = intent.getStringExtra("barname");
-        this.v = intent.getBooleanExtra("isvalid", false);
-        if (this.u == null) {
-            this.u = "";
+        this.t = intent.getStringExtra("barname");
+        this.u = intent.getBooleanExtra("isvalid", false);
+        if (this.t == null) {
+            this.t = "";
         }
-        this.q = new a(this);
-        this.r = new b(this);
-        this.a = (RelativeLayout) findViewById(R.id.container);
-        this.b = findViewById(R.id.title);
-        this.c = (TextView) findViewById(R.id.title_text);
-        this.d = (TextView) findViewById(R.id.text);
-        this.t = (TextView) findViewById(R.id.error);
-        this.e = (TextView) findViewById(R.id.info);
-        this.i = (RelativeLayout) findViewById(R.id.create);
-        this.i.setOnClickListener(this.q);
-        this.f = (TextView) findViewById(R.id.info2);
-        this.g = (EditText) findViewById(R.id.edit_name);
-        this.g.addTextChangedListener(this.r);
-        this.h = (EditText) findViewById(R.id.edit_vcode);
-        this.h.addTextChangedListener(this.r);
-        if (this.v) {
-            this.f.setText(getString(R.string.bar_name_valid));
-            this.g.setText(this.u);
+        this.p = new a(this);
+        this.q = new b(this);
+        this.d = (NavigationBar) findViewById(com.baidu.tieba.a.h.view_navigation_bar);
+        this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.d.a(getString(com.baidu.tieba.a.k.create_bar));
+        this.a = (RelativeLayout) findViewById(com.baidu.tieba.a.h.container);
+        this.b = findViewById(com.baidu.tieba.a.h.title);
+        this.c = (TextView) findViewById(com.baidu.tieba.a.h.text);
+        this.s = (TextView) findViewById(com.baidu.tieba.a.h.error);
+        this.e = (TextView) findViewById(com.baidu.tieba.a.h.info);
+        this.i = (RelativeLayout) findViewById(com.baidu.tieba.a.h.create);
+        this.i.setOnClickListener(this.p);
+        this.f = (TextView) findViewById(com.baidu.tieba.a.h.info2);
+        this.g = (EditText) findViewById(com.baidu.tieba.a.h.edit_name);
+        this.g.addTextChangedListener(this.q);
+        this.h = (EditText) findViewById(com.baidu.tieba.a.h.edit_vcode);
+        this.h.addTextChangedListener(this.q);
+        if (this.u) {
+            this.f.setText(getString(com.baidu.tieba.a.k.bar_name_valid));
+            this.g.setText(this.t);
         } else {
-            this.f.setText(getString(R.string.bar_name_invalid));
+            this.f.setText(getString(com.baidu.tieba.a.k.bar_name_invalid));
         }
-        this.j = (ImageView) findViewById(R.id.back);
-        this.j.setOnClickListener(this.q);
-        this.k = (FrameLayout) findViewById(R.id.image_button);
-        this.k.setOnClickListener(this.q);
-        this.l = (ImageView) findViewById(R.id.image);
+        this.j = (FrameLayout) findViewById(com.baidu.tieba.a.h.image_button);
+        this.j.setOnClickListener(this.p);
+        this.k = (ImageView) findViewById(com.baidu.tieba.a.h.image);
         this.i.setEnabled(false);
-        this.m = (ProgressBar) findViewById(R.id.progress);
-        this.n = (ProgressBar) findViewById(R.id.progress_image);
-        if (this.v) {
+        this.l = (ProgressBar) findViewById(com.baidu.tieba.a.h.progress);
+        this.m = (ProgressBar) findViewById(com.baidu.tieba.a.h.progress_image);
+        if (this.u) {
             this.h.requestFocus();
         }
-        if (this.p == null) {
-            this.p = new d(this, (byte) 0);
-            this.p.execute(new String[0]);
+        if (this.o == null) {
+            this.o = new d(this, (byte) 0);
+            this.o.execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
+        if (this.n != null) {
+            this.n.cancel();
+        }
         if (this.o != null) {
             this.o.cancel();
-        }
-        if (this.p != null) {
-            this.p.cancel();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void c(CreateBarActivity createBarActivity) {
-        if (createBarActivity.p == null && createBarActivity.o == null) {
-            createBarActivity.p = new d(createBarActivity, (byte) 0);
-            createBarActivity.p.setPriority(3);
-            createBarActivity.p.execute(new String[0]);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void g(CreateBarActivity createBarActivity) {
-        if (createBarActivity.o == null) {
-            createBarActivity.o = new c(createBarActivity, createBarActivity.g.getText().toString().trim(), createBarActivity.h.getText().toString().trim());
+        if (createBarActivity.o == null && createBarActivity.n == null) {
+            createBarActivity.o = new d(createBarActivity, (byte) 0);
             createBarActivity.o.setPriority(3);
             createBarActivity.o.execute(new String[0]);
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void g(CreateBarActivity createBarActivity) {
+        if (createBarActivity.n == null) {
+            createBarActivity.n = new c(createBarActivity, createBarActivity.g.getText().toString().trim(), createBarActivity.h.getText().toString().trim());
+            createBarActivity.n.setPriority(3);
+            createBarActivity.n.execute(new String[0]);
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f
+    @Override // com.baidu.tbadk.a
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        bq.e(this.c, i);
-        bq.a(this.j, i);
-        bq.a(this.a, i);
-        bq.d(this.b, i);
-        bq.a(this.d, i);
-        bq.b(this.f, i);
-        String str = String.valueOf(this.u) + getString(R.string.bar_not_create);
+        ba.a(this.a, i);
+        ba.d(this.b, i);
+        ba.a(this.c, i);
+        ba.b(this.f, i);
+        String str = String.valueOf(this.t) + getString(com.baidu.tieba.a.k.bar_not_create);
         SpannableString spannableString = new SpannableString(str);
-        spannableString.setSpan(new ForegroundColorSpan(Color.rgb(229, 4, 0)), 0, this.u.length(), 33);
+        spannableString.setSpan(new ForegroundColorSpan(Color.rgb(229, 4, 0)), 0, this.t.length(), 33);
         if (i == 1) {
-            spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.skin_1_common_color)), this.u.length(), str.length(), 33);
+            spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(com.baidu.tieba.a.e.skin_1_common_color)), this.t.length(), str.length(), 33);
         }
         this.e.setText(spannableString);
+        this.d.b(i);
     }
 }

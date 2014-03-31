@@ -11,14 +11,24 @@ final class h implements g {
     private InputStream b;
     private OutputStream c;
     private byte[] d;
+    private long e;
+    private String f;
 
     public h(String str, int i, al alVar) {
         this.a = null;
         this.b = null;
         this.c = null;
         this.d = null;
+        this.e = 0L;
+        this.f = null;
         this.a = new Socket();
-        this.a.connect(new InetSocketAddress(str, i), alVar.f());
+        long currentTimeMillis = System.currentTimeMillis();
+        InetSocketAddress inetSocketAddress = new InetSocketAddress(str, i);
+        if (inetSocketAddress.getAddress() != null) {
+            this.f = inetSocketAddress.getAddress().getHostAddress();
+            this.e = System.currentTimeMillis() - currentTimeMillis;
+        }
+        this.a.connect(inetSocketAddress, alVar.f());
         this.a.setSoTimeout(alVar.e());
         this.a.setTcpNoDelay(alVar.d());
         this.b = this.a.getInputStream();
@@ -31,12 +41,12 @@ final class h implements g {
         try {
             this.b.close();
         } catch (Exception e) {
-            com.baidu.adp.lib.util.e.b(e.getMessage());
+            com.baidu.adp.lib.util.f.b(e.getMessage());
         }
         try {
             this.c.close();
         } catch (Exception e2) {
-            com.baidu.adp.lib.util.e.b(e2.getMessage());
+            com.baidu.adp.lib.util.f.b(e2.getMessage());
         }
         if (this.a != null) {
             this.a.close();
@@ -69,5 +79,15 @@ final class h implements g {
             this.c.write(bArr);
         }
         return remaining;
+    }
+
+    @Override // com.baidu.adp.lib.webSocket.g
+    public final String c() {
+        return this.f;
+    }
+
+    @Override // com.baidu.adp.lib.webSocket.g
+    public final long d() {
+        return this.e;
     }
 }

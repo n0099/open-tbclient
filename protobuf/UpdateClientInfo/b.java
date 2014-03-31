@@ -18,6 +18,7 @@ public final class b extends GeneratedMessageLite.Builder<UpdateClientInfoReq.Da
     private int g;
     private int h;
     private int i;
+    private int j;
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
     public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
@@ -56,6 +57,8 @@ public final class b extends GeneratedMessageLite.Builder<UpdateClientInfoReq.Da
         this.a &= -65;
         this.i = 0;
         this.a &= -129;
+        this.j = 0;
+        this.a &= -257;
         return this;
     }
 
@@ -110,6 +113,10 @@ public final class b extends GeneratedMessageLite.Builder<UpdateClientInfoReq.Da
             i2 |= 128;
         }
         dataReq.unreadMsg_ = this.i;
+        if ((i & 256) == 256) {
+            i2 |= 256;
+        }
+        dataReq.pubEnv_ = this.j;
         dataReq.bitField0_ = i2;
         return dataReq;
     }
@@ -149,6 +156,11 @@ public final class b extends GeneratedMessageLite.Builder<UpdateClientInfoReq.Da
                 int unreadMsg = dataReq.getUnreadMsg();
                 this.a |= 128;
                 this.i = unreadMsg;
+            }
+            if (dataReq.hasPubEnv()) {
+                int pubEnv = dataReq.getPubEnv();
+                this.a |= 256;
+                this.j = pubEnv;
             }
         }
         return this;

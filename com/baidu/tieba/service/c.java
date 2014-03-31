@@ -1,126 +1,22 @@
 package com.baidu.tieba.service;
 
-import android.app.ActivityManager;
 import android.content.Intent;
-import android.text.TextUtils;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.LogoActivity;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.ai;
-import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.cb;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-final class c extends BdAsyncTask<String, Integer, String> {
-    final /* synthetic */ DealIntentService a;
-    private Intent b;
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ String a(String... strArr) {
-        String str;
-        String str2;
-        if (this.b == null || this.b.getExtras() == null) {
+final class c implements com.baidu.adp.framework.task.a<String> {
+    @Override // com.baidu.adp.framework.task.a
+    public final CustomResponsedMessage<String> a(com.baidu.adp.framework.message.a<String> aVar) {
+        String a = aVar.a();
+        Intent intent = new Intent(TbadkApplication.j(), FatalErrorService.class);
+        if ("start".equals(a)) {
+            TbadkApplication.j().startService(intent);
+            return null;
+        } else if ("stop".equals(a)) {
+            TbadkApplication.j().stopService(intent);
+            return null;
+        } else {
             return null;
         }
-        int i = this.b.getExtras().getInt("class", -1);
-        if (this.b.getExtras().getBoolean("is_notify", false)) {
-            switch (i) {
-                case 6:
-                    cb.a(this.a.getBaseContext(), "notify_to_pk_before", "click");
-                    break;
-                case 7:
-                    cb.a(this.a.getBaseContext(), "notify_to_pk_end", "click");
-                    break;
-                case 8:
-                    cb.a(this.a.getBaseContext(), "notify_to_vote_list", "click");
-                    break;
-                case 14:
-                    ai.a(this.a.getBaseContext(), "notify_group_event_click");
-                    break;
-            }
-        }
-        String string = this.b.getExtras().getString("stat");
-        String stringExtra = this.b.getStringExtra("link");
-        long j = this.b.getExtras().getLong("message_id");
-        if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(stringExtra)) {
-            cb.a(TiebaApplication.g().b().getApplicationContext(), "cl_push_noti:" + string, "msgID:" + j);
-            cb.a(j, 2, stringExtra, string);
-        }
-        for (ActivityManager.RunningTaskInfo runningTaskInfo : ((ActivityManager) TiebaApplication.g().b().getSystemService("activity")).getRunningTasks(500)) {
-            if (runningTaskInfo.baseActivity.getClassName().startsWith(this.a.getPackageName())) {
-                com.baidu.adp.lib.util.e.e("see noti goto maintab app active");
-                if (5 == this.b.getIntExtra("class", -1)) {
-                    com.baidu.adp.lib.util.e.e("see noti goto maintab");
-                    if (!runningTaskInfo.topActivity.getClassName().equalsIgnoreCase(com.baidu.tieba.mainentrance.d.b())) {
-                        com.baidu.adp.lib.util.e.e("see noti goto maintab new");
-                        this.b.putExtra("class", 11);
-                    }
-                } else if (10 == this.b.getIntExtra("class", -1)) {
-                    this.b.putExtra("class", 12);
-                }
-                str2 = DealIntentService.b;
-                return str2;
-            }
-        }
-        if (this.b.getExtras().getBoolean("is_notify", false)) {
-            switch (i) {
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                    TiebaSyncService.a("push_msg");
-                    break;
-                case 5:
-                case 10:
-                    TiebaSyncService.a("user_msg");
-                    break;
-                case 6:
-                case 7:
-                case 8:
-                    TiebaSyncService.a("kuainan_msg");
-                    break;
-                case 9:
-                    TiebaSyncService.a("sign_msg");
-                    break;
-            }
-        }
-        com.baidu.adp.lib.util.e.e("see noti goto maintab app not active");
-        str = DealIntentService.c;
-        return str;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void a(String str) {
-        String str2;
-        String str3;
-        String str4 = str;
-        if (str4 != null) {
-            str2 = DealIntentService.b;
-            if (str4.equals(str2)) {
-                this.b.addFlags(268435456);
-                UtilHelper.a(this.a.getBaseContext(), this.b);
-            } else {
-                str3 = DealIntentService.c;
-                if (str4.equals(str3)) {
-                    LogoActivity.a(this.a, this.b);
-                }
-            }
-        }
-        this.a.stopSelf();
-    }
-
-    public c(DealIntentService dealIntentService, Intent intent) {
-        this.a = dealIntentService;
-        this.b = null;
-        this.b = intent;
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void cancel() {
-        super.cancel(true);
     }
 }

@@ -1,28 +1,20 @@
 package com.baidu.tieba.frs;
-
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.GridView;
 /* loaded from: classes.dex */
-final class o implements AdapterView.OnItemClickListener {
-    final /* synthetic */ FrsActivity a;
+final class o implements Runnable {
+    final /* synthetic */ n a;
+    private final /* synthetic */ String b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(FrsActivity frsActivity) {
-        this.a = frsActivity;
+    public o(n nVar, String str) {
+        this.a = nVar;
+        this.b = str;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public final void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        bs bsVar;
-        if (i >= 0) {
-            bsVar = this.a.p;
-            bsVar.i(i);
-            this.a.w = true;
-            this.a.v = ((com.baidu.tieba.data.z) ((GridView) adapterView).getAdapter().getItem(i)).b();
-            this.a.j = 1;
-            this.a.f = 3;
-            this.a.o();
-        }
+    @Override // java.lang.Runnable
+    public final void run() {
+        com.baidu.tbadk.core.util.ak akVar = new com.baidu.tbadk.core.util.ak(this.b);
+        akVar.a().a().d = false;
+        akVar.a().a().c = false;
+        akVar.h();
     }
 }

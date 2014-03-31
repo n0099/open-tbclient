@@ -1,25 +1,34 @@
 package com.baidu.tieba.im.groupUpdates;
 
 import android.view.View;
+import android.widget.ImageView;
+import com.baidu.tieba.person.PersonInfoActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class k implements View.OnLongClickListener {
-    final /* synthetic */ f a;
+public final class k implements View.OnClickListener {
+    final /* synthetic */ i a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(f fVar) {
-        this.a = fVar;
+    public k(i iVar) {
+        this.a = iVar;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public final boolean onLongClick(View view) {
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
         UpdatesActivity updatesActivity;
-        View view2;
+        UpdatesActivity updatesActivity2;
         UpdatesItemData updatesItemData;
+        ImageView imageView;
+        View unused;
         updatesActivity = this.a.l;
-        view2 = this.a.c;
+        if (updatesActivity.b()) {
+            imageView = this.a.i;
+            imageView.performClick();
+            return;
+        }
+        updatesActivity2 = this.a.l;
+        unused = this.a.c;
         updatesItemData = this.a.m;
-        updatesActivity.a(view2, 200, updatesItemData);
-        return true;
+        updatesActivity2.a(PersonInfoActivity.REQUSET_CHANGE, updatesItemData);
     }
 }

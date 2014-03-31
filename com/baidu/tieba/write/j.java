@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import com.baidu.adp.lib.util.BdUtilHelper;
 /* loaded from: classes.dex */
 final class j implements View.OnClickListener {
     final /* synthetic */ AtListActivity a;
@@ -25,7 +24,7 @@ final class j implements View.OnClickListener {
         intent.putExtras(bundle);
         AtListActivity atListActivity = this.a;
         editText = this.a.b;
-        BdUtilHelper.a(atListActivity, editText);
+        com.baidu.adp.lib.util.i.a(atListActivity, editText);
         this.a.setResult(-1, intent);
         this.a.finish();
     }

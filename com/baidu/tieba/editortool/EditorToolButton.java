@@ -5,12 +5,10 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tieba.am;
-import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class EditorToolButton extends ImageView {
-    protected static final int[] h = {R.attr.custom_state_focused};
-    protected static final int[] i = {R.attr.custom_state_skin};
+    protected static final int[] h = {com.baidu.tieba.a.d.custom_state_focused};
+    protected static final int[] i = {com.baidu.tieba.a.d.custom_state_skin};
     protected TextView a;
     protected Context b;
     protected boolean c;
@@ -42,7 +40,7 @@ public class EditorToolButton extends ImageView {
         this.f = false;
         this.g = 0;
         this.b = context;
-        TypedArray obtainStyledAttributes = this.b.obtainStyledAttributes(attributeSet, am.custom_state);
+        TypedArray obtainStyledAttributes = this.b.obtainStyledAttributes(attributeSet, com.baidu.tieba.a.m.custom_state);
         this.c = obtainStyledAttributes.getBoolean(1, false);
         obtainStyledAttributes.recycle();
     }

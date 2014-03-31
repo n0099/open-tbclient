@@ -1,36 +1,28 @@
 package com.baidu.tieba.view;
 
-import android.view.GestureDetector;
-import android.view.MotionEvent;
+import com.baidu.tbadk.core.view.HeadImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class ac extends GestureDetector.SimpleOnGestureListener {
-    final /* synthetic */ w a;
-
-    private ac(w wVar) {
-        this.a = wVar;
-    }
+public final class ac implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ UserPhotoLayout a;
+    private final /* synthetic */ HeadImageView b;
+    private final /* synthetic */ String c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ac(w wVar, byte b) {
-        this(wVar);
+    public ac(UserPhotoLayout userPhotoLayout, HeadImageView headImageView, String str) {
+        this.a = userPhotoLayout;
+        this.b = headImageView;
+        this.c = str;
     }
 
-    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
-    public final boolean onDoubleTap(MotionEvent motionEvent) {
-        if (w.i(this.a) == 1 || w.i(this.a) == 2) {
-            return false;
+    @Override // com.baidu.tbadk.imageManager.d
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        if (bVar != null) {
+            this.b.setTag(null);
+            bVar.a(this.b);
+            return;
         }
-        w.a(this.a, 2);
-        if (w.j(this.a) > w.k(this.a)) {
-            w.a(this.a, w.k(this.a));
-            w.b(this.a, w.j(this.a));
-            w.l(this.a);
-            w.m(this.a);
-            return true;
-        }
-        w.a(this.a, w.k(this.a) * 2.0f);
-        w.a(this.a, true, (int) motionEvent.getX(), (int) motionEvent.getY());
-        w.m(this.a);
-        return true;
+        this.b.setTag(this.c);
+        this.b.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.a.g.photo));
     }
 }

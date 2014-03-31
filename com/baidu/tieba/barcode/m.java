@@ -1,90 +1,55 @@
 package com.baidu.tieba.barcode;
 
-import android.graphics.Bitmap;
-import android.graphics.Rect;
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.os.Message;
-import com.google.zxing.BinaryBitmap;
+import com.google.zxing.BarcodeFormat;
 import com.google.zxing.DecodeHintType;
-import com.google.zxing.MultiFormatReader;
-import com.google.zxing.PlanarYUVLuminanceSource;
-import com.google.zxing.ReaderException;
-import com.google.zxing.Result;
-import com.google.zxing.common.HybridBinarizer;
-import com.slidingmenu.lib.R;
-import java.io.ByteArrayOutputStream;
+import com.google.zxing.ResultPointCallback;
+import java.util.Collection;
+import java.util.EnumMap;
+import java.util.EnumSet;
 import java.util.Map;
+import java.util.concurrent.CountDownLatch;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class m extends Handler {
+public final class m extends Thread {
     private final CaptureActivity a;
-    private boolean c = true;
-    private final MultiFormatReader b = new MultiFormatReader();
+    private Handler c;
+    private final CountDownLatch d = new CountDownLatch(1);
+    private final Map<DecodeHintType, Object> b = new EnumMap(DecodeHintType.class);
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(CaptureActivity captureActivity, Map<DecodeHintType, Object> map) {
-        this.b.setHints(map);
+    public m(CaptureActivity captureActivity, Collection<BarcodeFormat> collection, Map<DecodeHintType, ?> map, String str, ResultPointCallback resultPointCallback) {
         this.a = captureActivity;
+        if (map != null) {
+            this.b.putAll(map);
+        }
+        if (collection == null || collection.isEmpty()) {
+            collection = EnumSet.noneOf(BarcodeFormat.class);
+            collection.addAll(k.a);
+        }
+        this.b.put(DecodeHintType.POSSIBLE_FORMATS, collection);
+        if (str != null) {
+            this.b.put(DecodeHintType.CHARACTER_SET, str);
+        }
+        this.b.put(DecodeHintType.NEED_RESULT_POINT_CALLBACK, resultPointCallback);
+        com.baidu.adp.lib.util.f.a(getClass().getName(), "DecodeThread", "Hints: " + this.b);
     }
 
-    @Override // android.os.Handler
-    public final void handleMessage(Message message) {
-        Result result;
-        if (this.c) {
-            if (message.what == R.id.decode) {
-                byte[] bArr = (byte[]) message.obj;
-                int i = message.arg1;
-                int i2 = message.arg2;
-                long currentTimeMillis = System.currentTimeMillis();
-                byte[] bArr2 = new byte[bArr.length];
-                for (int i3 = 0; i3 < i2; i3++) {
-                    for (int i4 = 0; i4 < i; i4++) {
-                        bArr2[(((i4 * i2) + i2) - i3) - 1] = bArr[(i3 * i) + i4];
-                    }
-                }
-                Rect f = this.a.c().f();
-                PlanarYUVLuminanceSource planarYUVLuminanceSource = f == null ? null : new PlanarYUVLuminanceSource(bArr2, i2, i, f.left, f.top, f.width(), f.height(), false);
-                if (planarYUVLuminanceSource != null) {
-                    try {
-                        result = this.b.decodeWithState(new BinaryBitmap(new HybridBinarizer(planarYUVLuminanceSource)));
-                        this.b.reset();
-                    } catch (ReaderException e) {
-                        this.b.reset();
-                        result = null;
-                    } catch (Throwable th) {
-                        this.b.reset();
-                        throw th;
-                    }
-                } else {
-                    result = null;
-                }
-                Handler b = this.a.b();
-                if (result == null) {
-                    if (b != null) {
-                        Message.obtain(b, (int) R.id.decode_failed).sendToTarget();
-                        return;
-                    }
-                    return;
-                }
-                com.baidu.adp.lib.util.e.e(getClass().getName(), "decode", "Found barcode in " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
-                if (b != null) {
-                    Message obtain = Message.obtain(b, R.id.decode_succeeded, result);
-                    Bundle bundle = new Bundle();
-                    int[] renderThumbnail = planarYUVLuminanceSource.renderThumbnail();
-                    int thumbnailWidth = planarYUVLuminanceSource.getThumbnailWidth();
-                    Bitmap createBitmap = Bitmap.createBitmap(renderThumbnail, 0, thumbnailWidth, thumbnailWidth, planarYUVLuminanceSource.getThumbnailHeight(), Bitmap.Config.ARGB_8888);
-                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                    createBitmap.compress(Bitmap.CompressFormat.JPEG, 50, byteArrayOutputStream);
-                    bundle.putByteArray("barcode_bitmap", byteArrayOutputStream.toByteArray());
-                    bundle.putFloat("barcode_scaled_factor", thumbnailWidth / planarYUVLuminanceSource.getWidth());
-                    obtain.setData(bundle);
-                    obtain.sendToTarget();
-                }
-            } else if (message.what == R.id.quit) {
-                this.c = false;
-                Looper.myLooper().quit();
-            }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public final Handler a() {
+        try {
+            this.d.await();
+        } catch (InterruptedException e) {
         }
+        return this.c;
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
+    public final void run() {
+        Looper.prepare();
+        this.c = new l(this.a, this.b);
+        this.d.countDown();
+        Looper.loop();
     }
 }

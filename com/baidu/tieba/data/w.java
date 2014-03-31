@@ -1,42 +1,44 @@
 package com.baidu.tieba.data;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import org.json.JSONArray;
+import com.baidu.tieba.person.PersonInfoActivity;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class w {
-    private ArrayList<MetaData> a = new ArrayList<>();
-    private HashMap<String, String> b = null;
+    private String a = "";
+    private String b = "";
+    private String c = "";
+    private String d = "";
+    private int e = 0;
+    private int f = 0;
 
-    public final void a(JSONObject jSONObject, boolean z) {
+    public final void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                if (this.b == null) {
-                    this.b = new HashMap<>();
-                }
-                JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
-                if (optJSONArray != null) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        MetaData metaData = new MetaData();
-                        metaData.parserJson(optJSONArray.getJSONObject(i));
-                        if (metaData.getName_show() != null) {
-                            this.a.add(metaData);
-                            this.b.put(metaData.getName_show(), metaData.getPortrait());
-                        }
-                    }
-                }
+                this.a = jSONObject.optString("id");
+                this.e = jSONObject.optInt("user_type");
+                this.f = jSONObject.optInt("is_verify");
+                this.b = jSONObject.optString(PersonInfoActivity.TAG_NAME);
+                this.c = jSONObject.optString("name_show");
+                this.d = jSONObject.optString("portrait");
             } catch (Exception e) {
-                com.baidu.adp.lib.util.e.b("FriendData", "parserFreindJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.util.f.b("LikeData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
-    public final ArrayList<MetaData> a() {
+    public final String a() {
         return this.a;
     }
 
-    public final HashMap<String, String> b() {
+    public final String b() {
         return this.b;
+    }
+
+    public final String c() {
+        return this.c;
+    }
+
+    public final String d() {
+        return this.d;
     }
 }

@@ -48,12 +48,12 @@ public final class c {
     public final void a(Camera camera, boolean z) {
         Camera.Parameters parameters = camera.getParameters();
         if (parameters == null) {
-            com.baidu.adp.lib.util.e.c(getClass().getName(), "setDesiredCameraParameters", "Device error: no camera parameters are available. Proceeding without configuration.");
+            com.baidu.adp.lib.util.f.c(getClass().getName(), "setDesiredCameraParameters", "Device error: no camera parameters are available. Proceeding without configuration.");
             return;
         }
-        com.baidu.adp.lib.util.e.a(getClass().getName(), "setDesiredCameraParameters", "Initial camera parameters: " + parameters.flatten());
+        com.baidu.adp.lib.util.f.a(getClass().getName(), "setDesiredCameraParameters", "Initial camera parameters: " + parameters.flatten());
         if (z) {
-            com.baidu.adp.lib.util.e.c(getClass().getName(), "setDesiredCameraParameters", "In camera config safe mode -- most settings will not be honored");
+            com.baidu.adp.lib.util.f.c(getClass().getName(), "setDesiredCameraParameters", "In camera config safe mode -- most settings will not be honored");
         }
         String a = a(parameters.getSupportedFocusModes(), "auto");
         if (!z && a == null) {
@@ -85,7 +85,7 @@ public final class c {
     private Point a(Camera.Parameters parameters, Point point) {
         List<Camera.Size> supportedPreviewSizes = parameters.getSupportedPreviewSizes();
         if (supportedPreviewSizes == null) {
-            com.baidu.adp.lib.util.e.c(getClass().getName(), "findBestPreviewSizeValue", "Device returned no supported preview sizes; using default");
+            com.baidu.adp.lib.util.f.c(getClass().getName(), "findBestPreviewSizeValue", "Device returned no supported preview sizes; using default");
             Camera.Size previewSize = parameters.getPreviewSize();
             return new Point(previewSize.width, previewSize.height);
         }
@@ -104,7 +104,7 @@ public final class c {
                 int i5 = z ? i : i2;
                 if (i4 == point.x && i5 == point.y) {
                     Point point3 = new Point(i, i2);
-                    com.baidu.adp.lib.util.e.a(getClass().getName(), "sort", "Found preview size exactly matching screen size: " + point3);
+                    com.baidu.adp.lib.util.f.a(getClass().getName(), "sort", "Found preview size exactly matching screen size: " + point3);
                     return point3;
                 }
                 float abs = Math.abs((i4 / i5) - f);
@@ -117,15 +117,15 @@ public final class c {
         if (point2 == null) {
             Camera.Size previewSize2 = parameters.getPreviewSize();
             point2 = new Point(previewSize2.width, previewSize2.height);
-            com.baidu.adp.lib.util.e.a(getClass().getName(), "sort", "No suitable preview sizes, using default: " + point2);
+            com.baidu.adp.lib.util.f.a(getClass().getName(), "sort", "No suitable preview sizes, using default: " + point2);
         }
-        com.baidu.adp.lib.util.e.a(getClass().getName(), "sort", "Found best approximate preview size: " + point2);
+        com.baidu.adp.lib.util.f.a(getClass().getName(), "sort", "Found best approximate preview size: " + point2);
         return point2;
     }
 
     private static String a(Collection<String> collection, String... strArr) {
         String str;
-        com.baidu.adp.lib.util.e.a("CameraConfiguration", "findSettableValue", "Supported values: " + collection);
+        com.baidu.adp.lib.util.f.a("CameraConfiguration", "findSettableValue", "Supported values: " + collection);
         if (collection != null) {
             int length = strArr.length;
             for (int i = 0; i < length; i++) {
@@ -136,7 +136,7 @@ public final class c {
             }
         }
         str = null;
-        com.baidu.adp.lib.util.e.a("CameraConfiguration", "findSettableValue", "Settable value: " + str);
+        com.baidu.adp.lib.util.f.a("CameraConfiguration", "findSettableValue", "Settable value: " + str);
         return str;
     }
 }

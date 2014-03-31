@@ -4,17 +4,23 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.ai;
-import com.baidu.tieba.mention.v;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tieba.data.ab;
 /* loaded from: classes.dex */
 public class TiebaMessageService extends Service {
     private m a = null;
     private m b = null;
-    private ai c = null;
+    private ab c = null;
     private int d = 0;
     private boolean e = false;
-    private Handler f = new l(this);
+    private final Handler f = new l(this);
+
+    static {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2006001, new k());
+        customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        com.baidu.adp.framework.c.a().a(customMessageTask);
+    }
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -38,7 +44,8 @@ public class TiebaMessageService extends Service {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (!TiebaApplication.g().T()) {
+        com.baidu.tieba.r.c();
+        if (!com.baidu.tieba.r.p()) {
             stopSelf();
             return;
         }
@@ -63,7 +70,7 @@ public class TiebaMessageService extends Service {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void a(TiebaMessageService tiebaMessageService, int i) {
         try {
-            if (TiebaApplication.v() == null || TiebaApplication.z() == null) {
+            if (TbadkApplication.E() == null || TbadkApplication.O() == null) {
                 return;
             }
             if (i == 1 || i == 3) {
@@ -83,7 +90,7 @@ public class TiebaMessageService extends Service {
                 tiebaMessageService.b.execute(new String[0]);
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.e.b(tiebaMessageService.getClass().getName(), "getMsg", e.getMessage());
+            com.baidu.adp.lib.util.f.b(tiebaMessageService.getClass().getName(), "getMsg", e.getMessage());
         }
     }
 
@@ -92,29 +99,29 @@ public class TiebaMessageService extends Service {
         if (tiebaMessageService.c == null || tiebaMessageService.c.a() < 0 || tiebaMessageService.c.b() < 0 || tiebaMessageService.c.c() < 0 || tiebaMessageService.c.d() < 0 || tiebaMessageService.c.e() < 0) {
             return;
         }
-        if (!TiebaApplication.g().Q()) {
+        if (!TbadkApplication.j().ai()) {
             tiebaMessageService.c.a(0);
         }
-        if (!TiebaApplication.g().P()) {
+        if (!TbadkApplication.j().ah()) {
             tiebaMessageService.c.b(0);
         }
-        if (!TiebaApplication.g().O()) {
+        if (!TbadkApplication.j().ak()) {
             tiebaMessageService.c.c(0);
         }
-        if (!TiebaApplication.g().R()) {
+        if (!TbadkApplication.j().ae()) {
             tiebaMessageService.c.d(0);
         }
-        Intent intent = new Intent(com.baidu.tieba.data.i.e());
+        Intent intent = new Intent(com.baidu.tieba.data.d.b());
         intent.putExtra("relay", tiebaMessageService.c.a());
         intent.putExtra("at_me", tiebaMessageService.c.b());
         intent.putExtra("fans", tiebaMessageService.c.c());
         intent.putExtra("pletter", tiebaMessageService.c.d());
         if (i == 1) {
-            intent.putExtra("new_bookmark", v.a().p());
+            intent.putExtra("new_bookmark", com.baidu.tbadk.coreExtra.messageCenter.a.a().n());
         } else if (i == 2) {
             intent.putExtra("new_bookmark", tiebaMessageService.c.e());
         }
         tiebaMessageService.sendBroadcast(intent);
-        com.baidu.adp.lib.util.e.a(tiebaMessageService.getClass().getName(), "broadcastMsg", "sendBroadcast: " + String.format("%d %d %d %d", Integer.valueOf(tiebaMessageService.c.a()), Integer.valueOf(tiebaMessageService.c.b()), Integer.valueOf(tiebaMessageService.c.c()), Integer.valueOf(tiebaMessageService.c.e())));
+        com.baidu.adp.lib.util.f.a(tiebaMessageService.getClass().getName(), "broadcastMsg", "sendBroadcast: " + String.format("%d %d %d %d", Integer.valueOf(tiebaMessageService.c.a()), Integer.valueOf(tiebaMessageService.c.b()), Integer.valueOf(tiebaMessageService.c.c()), Integer.valueOf(tiebaMessageService.c.e())));
     }
 }

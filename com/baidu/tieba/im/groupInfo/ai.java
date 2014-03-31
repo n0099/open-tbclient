@@ -1,24 +1,26 @@
 package com.baidu.tieba.im.groupInfo;
 
-import com.baidu.tieba.im.message.da;
-import java.util.LinkedList;
-import protobuf.AddGroupUsers.AddGroupUsersRes;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ai extends da implements com.baidu.tieba.im.coder.f {
-    private int a;
+public final class ai implements View.OnClickListener {
+    final /* synthetic */ PhotoWallView a;
+    private final /* synthetic */ int b;
 
-    public ai() {
-        e(103111);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ai(PhotoWallView photoWallView, int i) {
+        this.a = photoWallView;
+        this.b = i;
     }
 
-    @Override // com.baidu.tieba.im.coder.f
-    public final void a(LinkedList<com.baidu.tieba.im.message.s> linkedList, byte[] bArr, int i) {
-        AddGroupUsersRes.AddGroupUsersResIdl parseFrom = AddGroupUsersRes.AddGroupUsersResIdl.parseFrom(bArr);
-        g(parseFrom.getError().getErrorno());
-        c(parseFrom.getError().getUsermsg());
-        linkedList.add(this);
-        if (!l()) {
-            this.a = parseFrom.getData().getGroupId();
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        ae aeVar;
+        ae aeVar2;
+        aeVar = this.a.k;
+        if (aeVar != null) {
+            aeVar2 = this.a.k;
+            aeVar2.onClick(view, 2, null, this.b);
         }
     }
 }

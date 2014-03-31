@@ -1,24 +1,21 @@
 package com.baidu.tieba.editortool;
 
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class y implements View.OnClickListener {
-    final /* synthetic */ EmotionTabWidgetView a;
+final class y implements View.OnClickListener {
+    final /* synthetic */ PbEditorToolButtonContainer a;
+    private final /* synthetic */ com.baidu.tbadk.editortool.x b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public y(EmotionTabWidgetView emotionTabWidgetView) {
-        this.a = emotionTabWidgetView;
+    public y(PbEditorToolButtonContainer pbEditorToolButtonContainer, com.baidu.tbadk.editortool.x xVar) {
+        this.a = pbEditorToolButtonContainer;
+        this.b = xVar;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        aa aaVar;
-        aa aaVar2;
-        aaVar = this.a.c;
-        if (aaVar != null) {
-            aaVar2 = this.a.c;
-            aaVar2.a(21, null);
+        if (view instanceof EditorToolButton) {
+            this.a.a((EditorToolButton) view, this.b);
         }
     }
 }

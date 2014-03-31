@@ -1,6 +1,5 @@
 package com.google.protobuf;
 
-import cn.jingling.lib.file.Shared;
 import com.google.protobuf.ByteString;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -32,7 +31,7 @@ public class RopeByteString extends ByteString {
             i2 = i;
             i = i3;
         }
-        arrayList.add(Integer.valueOf((int) Shared.INFINITY));
+        arrayList.add(Integer.MAX_VALUE);
         minLengthByDepth = new int[arrayList.size()];
         int i4 = 0;
         while (true) {

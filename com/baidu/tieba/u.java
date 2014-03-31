@@ -1,22 +1,18 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tieba.account.SapiFastRegActivity;
 /* loaded from: classes.dex */
-final class u implements View.OnClickListener {
-    final /* synthetic */ GuideActivity a;
+final class u implements Runnable {
+    final /* synthetic */ t a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(GuideActivity guideActivity) {
-        this.a = guideActivity;
+    public u(t tVar) {
+        this.a = tVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        String str;
-        str = this.a.e;
-        if (!str.equals("from_about_page")) {
-            this.a.a();
-        }
-        this.a.closeActivity();
+    @Override // java.lang.Runnable
+    public final void run() {
+        SapiFastRegActivity.a(TbadkApplication.j());
     }
 }

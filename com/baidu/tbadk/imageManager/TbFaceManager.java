@@ -17,6 +17,7 @@ public final class TbFaceManager {
 
     /* loaded from: classes.dex */
     public class RichUnit implements Serializable {
+        private static final long serialVersionUID = -3736301305777944719L;
         public String c;
         public String text;
         public Integer type;
@@ -47,8 +48,8 @@ public final class TbFaceManager {
     private com.baidu.adp.widget.ImageView.b a(int i, String str) {
         com.baidu.adp.widget.ImageView.b c = e.a().c(str);
         if (c == null) {
-            com.baidu.adp.lib.util.a.a();
-            Bitmap a2 = com.baidu.adp.lib.util.a.a(this.b, i);
+            com.baidu.adp.lib.util.b.a();
+            Bitmap a2 = com.baidu.adp.lib.util.b.a(this.b, i);
             if (a2 != null) {
                 com.baidu.adp.widget.ImageView.b bVar = new com.baidu.adp.widget.ImageView.b(a2, false, str);
                 e.a().c(str, bVar);
@@ -71,6 +72,10 @@ public final class TbFaceManager {
             return new c(a2.c(), a2.d());
         }
         return null;
+    }
+
+    public final int b() {
+        return this.c.a();
     }
 
     public final String d(String str) {

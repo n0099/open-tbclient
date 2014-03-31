@@ -1,43 +1,33 @@
 package com.baidu.tieba.im.friend;
 
-import com.baidu.tieba.view.TbCheckBox;
-import com.baidu.tieba.view.cq;
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.ImageView;
+import com.baidu.tbadk.core.util.bp;
 /* loaded from: classes.dex */
-public final class aa implements cq {
-    final /* synthetic */ u a;
+final class aa implements bp {
+    final /* synthetic */ z a;
+    private final /* synthetic */ String b;
+    private final /* synthetic */ com.baidu.adp.widget.ImageView.b c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(u uVar) {
-        this.a = uVar;
+    public aa(z zVar, String str, com.baidu.adp.widget.ImageView.b bVar) {
+        this.a = zVar;
+        this.b = str;
+        this.c = bVar;
     }
 
-    @Override // com.baidu.tieba.view.cq
-    public final void a(TbCheckBox tbCheckBox, boolean z, Object obj) {
-        InviteFriendCandidateList inviteFriendCandidateList;
-        InviteFriendListActivity inviteFriendListActivity;
-        InviteFriendListActivity inviteFriendListActivity2;
-        int i;
-        this.a.i();
-        if (obj != null && (obj instanceof com.baidu.tieba.im.data.d)) {
-            if (z) {
-                int l = this.a.l();
-                inviteFriendCandidateList = this.a.j;
-                if (l <= inviteFriendCandidateList.getItemLength()) {
-                    inviteFriendListActivity = this.a.a;
-                    inviteFriendListActivity2 = this.a.a;
-                    String string = inviteFriendListActivity2.getString(R.string.invite_friend_exceed_max_count);
-                    i = this.a.n;
-                    inviteFriendListActivity.showToast(String.format(string, Integer.valueOf(i)));
-                    tbCheckBox.setChecked(false);
-                    ((com.baidu.tieba.im.data.d) obj).setChecked(false);
-                    return;
+    @Override // com.baidu.tbadk.core.util.bp
+    public final boolean a(View view) {
+        if ((view instanceof ImageView) && view.getTag() != null) {
+            Object tag = view.getTag();
+            if (tag instanceof com.baidu.tieba.im.data.c) {
+                ImageView imageView = (ImageView) view;
+                com.baidu.tieba.im.data.c cVar = (com.baidu.tieba.im.data.c) tag;
+                if (this.b != null && this.b.equals(cVar.c())) {
+                    this.c.a(imageView);
                 }
-                this.a.b((com.baidu.tieba.im.data.d) obj);
-                return;
             }
-            this.a.c((com.baidu.tieba.im.data.d) obj);
         }
+        return false;
     }
 }

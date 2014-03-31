@@ -1,23 +1,24 @@
 package com.baidu.tieba.im.widget.chatVoiceView;
 
-import com.baidu.tieba.im.message.g;
+import com.baidu.tieba.im.m;
 import java.util.LinkedList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class a extends com.baidu.tieba.im.b<Boolean> {
-    final /* synthetic */ ChatVoiceView a;
-    private final /* synthetic */ g c;
+public final class a extends m<Boolean> {
+    final /* synthetic */ ChatVoiceView b;
+    private final /* synthetic */ com.baidu.tieba.im.message.a.b c;
     private final /* synthetic */ LinkedList d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public a(ChatVoiceView chatVoiceView, g gVar, LinkedList linkedList) {
-        this.a = chatVoiceView;
-        this.c = gVar;
+    public a(ChatVoiceView chatVoiceView, com.baidu.tieba.im.message.a.b bVar, LinkedList linkedList) {
+        this.b = chatVoiceView;
+        this.c = bVar;
         this.d = linkedList;
     }
 
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.b
+    @Override // com.baidu.tieba.im.m
     public final /* synthetic */ Boolean a() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.b.a().a(this.c.u(), this.d, false));
+        return Boolean.valueOf(com.baidu.tieba.im.db.c.a().a(this.c.i(), this.d, false));
     }
 }

@@ -8,20 +8,18 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ProgressBar;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.view.MultiImageView;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.coreExtra.view.MultiImageView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class PersonImageActivity extends com.baidu.tieba.f {
+public class PersonImageActivity extends com.baidu.tbadk.a {
     private ProgressBar a = null;
-    private cl b = null;
+    private bl b = null;
     private MultiImageView c = null;
     private View.OnClickListener d = null;
     private View.OnLongClickListener e = null;
     private DialogInterface.OnClickListener f = null;
-    private com.baidu.tieba.view.a g = null;
+    private com.baidu.tbadk.core.view.a g = null;
     private String h;
     private Context i;
 
@@ -34,29 +32,29 @@ public class PersonImageActivity extends com.baidu.tieba.f {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        TiebaApplication.g().a(this);
-        setContentView(R.layout.person_image_activity);
+        TbadkApplication.j().a(this);
+        setContentView(com.baidu.tieba.a.i.person_image_activity);
         if (bundle != null) {
-            com.baidu.adp.lib.util.e.e(" have savedInstanceState");
+            com.baidu.adp.lib.util.f.e(" have savedInstanceState");
             this.h = bundle.getString("curImgUrl");
         } else {
-            com.baidu.adp.lib.util.e.e(" not have savedInstanceState");
+            com.baidu.adp.lib.util.f.e(" not have savedInstanceState");
             Intent intent = getIntent();
             if (intent != null) {
                 this.h = intent.getStringExtra("curImgUrl");
             }
         }
-        this.d = new ch(this);
-        this.e = new ci(this);
-        this.f = new cj(this);
-        this.g = new ck(this);
-        this.a = (ProgressBar) findViewById(R.id.progress);
-        this.c = (MultiImageView) findViewById(R.id.viewpager);
-        this.c.setPageMargin(BdUtilHelper.a((Context) this, 8.0f));
-        this.c.a(2, com.baidu.tieba.data.i.t() * com.baidu.tieba.data.i.t());
+        this.d = new bh(this);
+        this.e = new bi(this);
+        this.f = new bj(this);
+        this.g = new bk(this);
+        this.a = (ProgressBar) findViewById(com.baidu.tieba.a.h.progress);
+        this.c = (MultiImageView) findViewById(com.baidu.tieba.a.h.viewpager);
+        this.c.setPageMargin(com.baidu.adp.lib.util.i.a((Context) this, 8.0f));
+        this.c.a(2, com.baidu.tbadk.core.data.n.u() * com.baidu.tbadk.core.data.n.u());
         this.c.setItemOnclickListener(this.d);
         this.c.setItemOnLongClickListener(this.e);
         this.c.a(0, false);
@@ -74,39 +72,39 @@ public class PersonImageActivity extends com.baidu.tieba.f {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f
+    @Override // com.baidu.tbadk.a
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1) {
-            this.c.setBackgroundColor(com.baidu.tieba.util.bq.d(i));
+            this.c.setBackgroundColor(com.baidu.tbadk.core.util.ba.d(i));
         } else {
             this.c.setBackgroundColor(-16777216);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, android.app.Activity
+    @Override // com.baidu.tbadk.a, android.app.Activity
     public void onPause() {
         super.onPause();
         this.c.b();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, android.app.Activity
+    @Override // com.baidu.tbadk.a, android.app.Activity
     public void onResume() {
         super.onResume();
         this.c.a();
     }
 
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a
     public void releaseResouce() {
         this.c.c();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
-        TiebaApplication.g().b(this);
+        TbadkApplication.j().b(this);
         this.c.c();
         if (this.b != null) {
             this.b.cancel();
@@ -118,7 +116,7 @@ public class PersonImageActivity extends com.baidu.tieba.f {
         super.onDestroy();
     }
 
-    @Override // com.baidu.tieba.f, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tbadk.a, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
             finish();

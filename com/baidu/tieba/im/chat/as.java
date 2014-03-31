@@ -1,21 +1,23 @@
 package com.baidu.tieba.im.chat;
+
+import com.baidu.tbadk.TbadkApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class as extends com.baidu.tieba.im.b<Boolean> {
-    final /* synthetic */ ar a;
+public final class as extends com.baidu.tieba.im.m<Void> {
+    private final /* synthetic */ int b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public as(ar arVar) {
-        this.a = arVar;
+    public as(int i) {
+        this.b = i;
     }
 
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.b
-    public final /* synthetic */ Boolean a() {
-        GroupSettingActivity groupSettingActivity;
-        aw awVar;
-        com.baidu.tieba.im.db.b a = com.baidu.tieba.im.db.b.a();
-        groupSettingActivity = this.a.a;
-        awVar = groupSettingActivity.b;
-        return Boolean.valueOf(a.e(awVar.c()));
+    @Override // com.baidu.tieba.im.m
+    public final /* synthetic */ Void a() {
+        if (TbadkApplication.O() != null) {
+            com.baidu.tieba.im.db.n.d().a(this.b);
+            return null;
+        }
+        return null;
     }
 }

@@ -1,8 +1,6 @@
 package com.baidu.tieba.mention;
-
-import com.baidu.tieba.util.DatabaseService;
 /* loaded from: classes.dex */
-final class b implements s {
+final class b implements t {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,18 +8,18 @@ final class b implements s {
         this.a = aVar;
     }
 
-    @Override // com.baidu.tieba.mention.s
+    @Override // com.baidu.tieba.mention.t
     public final void a(String str) {
-        DatabaseService.f(str);
+        com.baidu.tieba.util.k.e(str);
     }
 
-    @Override // com.baidu.tieba.mention.s
+    @Override // com.baidu.tieba.mention.t
     public final String a() {
-        return DatabaseService.h();
+        return com.baidu.tieba.util.k.g();
     }
 
-    @Override // com.baidu.tieba.mention.s
+    @Override // com.baidu.tieba.mention.t
     public final void b() {
-        DatabaseService.g();
+        com.baidu.tieba.util.k.f();
     }
 }

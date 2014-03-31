@@ -1,29 +1,25 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
-import com.baidu.tieba.pb.NewPbActivity;
+import android.app.Dialog;
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-final class au implements View.OnClickListener {
-    final /* synthetic */ as a;
-    private final /* synthetic */ com.baidu.tieba.model.ba b;
+final class au implements DialogInterface.OnClickListener {
+    final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public au(as asVar, com.baidu.tieba.model.ba baVar) {
-        this.a = asVar;
-        this.b = baVar;
+    public au(PersonChangeActivity personChangeActivity) {
+        this.a = personChangeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        if (this.b.a() == 2) {
-            NewPbActivity.a(this.a.a, this.b.g(), (String) null, "");
-        } else if (this.b.i()) {
-            NewPbActivity.b(this.a.a, this.b.g(), this.b.h(), "");
-        } else {
-            NewPbActivity.a(this.a.a, this.b.g(), this.b.h(), "");
+    @Override // android.content.DialogInterface.OnClickListener
+    public final void onClick(DialogInterface dialogInterface, int i) {
+        Dialog dialog;
+        Dialog dialog2;
+        dialog = this.a.B;
+        if (dialog != null) {
+            dialog2 = this.a.B;
+            dialog2.dismiss();
         }
-        if (this.a.b.a() != null) {
-            com.baidu.tieba.util.cb.a(this.a.a, "his_threads_item", "click", 1, new Object[0]);
-        }
+        PersonChangeActivity.m(this.a);
     }
 }

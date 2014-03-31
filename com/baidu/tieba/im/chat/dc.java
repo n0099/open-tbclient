@@ -1,18 +1,22 @@
 package com.baidu.tieba.im.chat;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
-public final class dc implements Runnable {
-    final /* synthetic */ cy a;
-    private final /* synthetic */ String b;
+final class dc extends com.baidu.tieba.im.m<Void> {
+    final /* synthetic */ PersonalChatActivity b;
+    private final /* synthetic */ UserData c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dc(cy cyVar, String str) {
-        this.a = cyVar;
-        this.b = str;
+    public dc(PersonalChatActivity personalChatActivity, UserData userData) {
+        this.b = personalChatActivity;
+        this.c = userData;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        this.a.e.c(this.b);
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.m
+    public final /* synthetic */ Void a() {
+        com.baidu.tieba.im.chat.personaltalk.a.a().a(TbadkApplication.E(), PersonalChatActivity.b, this.c);
+        return null;
     }
 }

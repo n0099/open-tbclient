@@ -1,118 +1,22 @@
 package com.baidu.tieba.recommend;
 
-import android.location.Address;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.ba;
-import com.baidu.tieba.view.BaseWebView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class b extends BdAsyncTask<Object, Integer, String> {
+final class b implements View.OnClickListener {
     final /* synthetic */ DailyClassicalActivity a;
-    private ba b;
-    private String c;
-
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ String a(Object... objArr) {
-        return d();
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void a(String str) {
-        LinearLayout linearLayout;
-        TextView textView;
-        BaseWebView baseWebView;
-        LinearLayout linearLayout2;
-        View.OnClickListener onClickListener;
-        BaseWebView baseWebView2;
-        TextView textView2;
-        BaseWebView baseWebView3;
-        String str2 = str;
-        this.a.i = null;
-        linearLayout = this.a.h;
-        linearLayout.setOnClickListener(null);
-        if (this.b != null && this.b.d() && str2 != null && str2.length() > 0) {
-            baseWebView2 = this.a.f;
-            baseWebView2.loadDataWithBaseURL(com.baidu.tieba.data.i.a, str2, "text/html", "utf-8", "");
-            textView2 = this.a.l;
-            textView2.setVisibility(8);
-            baseWebView3 = this.a.f;
-            baseWebView3.setVisibility(0);
-        } else {
-            this.a.k = false;
-            textView = this.a.l;
-            textView.setVisibility(0);
-            baseWebView = this.a.f;
-            baseWebView.setVisibility(8);
-            linearLayout2 = this.a.h;
-            onClickListener = this.a.e;
-            linearLayout2.setOnClickListener(onClickListener);
-        }
-        this.a.j = true;
-        DailyClassicalActivity.f(this.a);
-    }
-
-    private b(DailyClassicalActivity dailyClassicalActivity) {
-        this.a = dailyClassicalActivity;
-        this.b = null;
-    }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ b(DailyClassicalActivity dailyClassicalActivity, byte b) {
-        this(dailyClassicalActivity);
+    public b(DailyClassicalActivity dailyClassicalActivity) {
+        this.a = dailyClassicalActivity;
     }
 
-    private String d() {
-        String str;
-        boolean z;
-        long j;
-        this.b = new ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/s/tag/gettogether");
-        this.b.b(false);
-        if (TiebaApplication.g().ae() == 1) {
-            this.b.a("night_type", SocialConstants.TRUE);
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        int id = view.getId();
+        if (id == com.baidu.tieba.a.h.back) {
+            this.a.finish();
+        } else if (id == com.baidu.tieba.a.h.tag_webview_item) {
+            this.a.a();
         }
-        ba baVar = this.b;
-        str = this.a.q;
-        baVar.a("pn", str);
-        this.b.a("_version_more", SocialConstants.TRUE);
-        this.b.a("platform", SocialConstants.ANDROID_CLIENT_TYPE);
-        z = DailyClassicalActivity.o;
-        if (z) {
-            DailyClassicalActivity.o = false;
-            this.b.a("msg_click", SocialConstants.TRUE);
-            ba baVar2 = this.b;
-            j = DailyClassicalActivity.p;
-            baVar2.a("message_id", String.valueOf(j));
-        }
-        Address b = com.baidu.adp.lib.c.a.a().b(false);
-        if (b != null && TiebaApplication.g().o()) {
-            this.b.a("lbs", String.valueOf(String.valueOf(b.getLatitude())) + "," + String.valueOf(b.getLongitude()));
-        }
-        try {
-            this.c = this.b.l();
-            if (this.b.d()) {
-                return this.c;
-            }
-        } catch (Exception e) {
-            com.baidu.adp.lib.util.e.b("ContentAsyncTask", "doInBackground", "error = " + e.getMessage());
-        }
-        return null;
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void cancel() {
-        if (this.b != null) {
-            this.b.j();
-        }
-        this.a.n = false;
-        super.cancel(true);
     }
 }

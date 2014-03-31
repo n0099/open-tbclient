@@ -13,7 +13,7 @@ import android.util.SparseArray;
 import android.view.animation.AlphaAnimation;
 import android.widget.ImageView;
 import com.baidu.adp.g;
-import com.baidu.adp.lib.e.f;
+import com.baidu.adp.lib.e.e;
 import java.lang.ref.SoftReference;
 /* loaded from: classes.dex */
 public class BDImageView extends ImageView {
@@ -29,7 +29,7 @@ public class BDImageView extends ImageView {
     private int i;
     private boolean j;
     private boolean k;
-    private f l;
+    private e l;
     private Rect m;
     private boolean n;
     private ColorFilter o;
@@ -283,7 +283,7 @@ public class BDImageView extends ImageView {
     protected b getImage() {
         if (this.h != null) {
             try {
-                Object a = com.baidu.adp.lib.e.c.a().a(this.h, this.i, null, getContext(), null, 1);
+                Object a = com.baidu.adp.lib.e.b.a().a(this.h, this.i, null, getContext(), null, 1);
                 if (a != null && (a instanceof b)) {
                     return (b) a;
                 }
@@ -295,13 +295,13 @@ public class BDImageView extends ImageView {
     }
 
     public final void a(String str, int i) {
-        f fVar = this.l;
+        e eVar = this.l;
         this.h = str;
         if (this.h != null) {
             this.i = 1;
-            this.l = fVar;
+            this.l = eVar;
             try {
-                com.baidu.adp.lib.e.c.a().a(this.h, this.i, new a(this), getContext(), fVar);
+                com.baidu.adp.lib.e.b.a().a(this.h, this.i, new a(this), getContext(), eVar);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -315,7 +315,7 @@ public class BDImageView extends ImageView {
             this.g = new SparseArray<>();
         }
         if (this.g.indexOfKey(this.b) < 0 || (softReference = this.g.get(this.b)) == null || (bVar = softReference.get()) == null) {
-            b bVar2 = new b(com.baidu.adp.lib.util.a.a().a(this.b), false, null);
+            b bVar2 = new b(com.baidu.adp.lib.util.b.a().a(this.b), false, null);
             this.g.put(this.b, new SoftReference<>(bVar2));
             return bVar2;
         }
@@ -376,6 +376,12 @@ public class BDImageView extends ImageView {
     public void setImageBitmap(Bitmap bitmap) {
         super.setImageBitmap(bitmap);
         this.q = bitmap != null;
+    }
+
+    @Override // android.widget.ImageView
+    public void setImageResource(int i) {
+        super.setImageResource(i);
+        this.q = i != 0;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

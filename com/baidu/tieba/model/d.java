@@ -1,27 +1,77 @@
 package com.baidu.tieba.model;
+
+import com.baidu.tbadk.core.data.ForumData;
+import java.util.ArrayList;
+import java.util.Date;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class d {
-    private e a;
-    private com.baidu.adp.a.g b;
+    private int e = 0;
+    private ArrayList<ForumData> a = new ArrayList<>();
+    private com.baidu.tbadk.core.data.l b = new com.baidu.tbadk.core.data.l();
+    private Date c = null;
+    private boolean d = true;
 
-    public d(com.baidu.adp.a.g gVar) {
-        this.b = gVar;
+    public final int a() {
+        return this.e;
     }
 
-    public final void a(boolean z, String str, String str2) {
-        if (this.a == null) {
-            this.a = new e(this, (byte) 0);
-            this.a.setPriority(2);
-            this.a.a(z);
-            this.a.a2(str);
-            this.a.b(str2);
-            this.a.execute(new Integer[0]);
+    public final void a(int i) {
+        this.e = i;
+    }
+
+    public final ArrayList<ForumData> b() {
+        return this.a;
+    }
+
+    public final void a(ArrayList<ForumData> arrayList) {
+        this.a = arrayList;
+    }
+
+    public final void a(String str) {
+        if (str != null) {
+            try {
+                a(new JSONObject(str));
+            } catch (Exception e) {
+                this.d = false;
+                com.baidu.adp.lib.util.f.b("BarlistModel", "parserJson", "error = " + e.getMessage());
+            }
         }
     }
 
-    public final void a() {
-        if (this.a != null) {
-            this.a.cancel();
+    private void a(JSONObject jSONObject) {
+        try {
+            JSONObject optJSONObject = jSONObject.optJSONObject("forum_list");
+            if (optJSONObject != null) {
+                JSONArray jSONArray = optJSONObject.getJSONArray("gconforum");
+                if (jSONArray != null) {
+                    this.e = jSONArray.length();
+                    for (int i = 0; i < jSONArray.length(); i++) {
+                        ForumData forumData = new ForumData();
+                        forumData.parserJson(jSONArray.getJSONObject(i));
+                        this.a.add(forumData);
+                    }
+                }
+                JSONArray jSONArray2 = optJSONObject.getJSONArray("non-gconforum");
+                if (jSONArray2 != null) {
+                    for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
+                        ForumData forumData2 = new ForumData();
+                        forumData2.parserJson(jSONArray2.getJSONObject(i2));
+                        this.a.add(forumData2);
+                    }
+                }
+                this.b.a(jSONObject.optJSONObject("page"));
+                long optLong = jSONObject.optLong("ctime", 0L);
+                if (optLong > 0) {
+                    this.c = new Date(optLong);
+                } else {
+                    this.c = new Date();
+                }
+            }
+        } catch (Exception e) {
+            this.d = false;
+            com.baidu.adp.lib.util.f.b("BarlistModel", "parserJson", "error = " + e.getMessage());
         }
     }
 }

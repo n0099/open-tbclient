@@ -29,7 +29,7 @@ public final class f {
                 return "WIFI";
             }
             if (type == 0) {
-                int b2 = com.baidu.adp.lib.network.i.b();
+                int b2 = com.baidu.adp.lib.network.willdelete.h.b();
                 StringBuilder sb = new StringBuilder();
                 switch (b2) {
                     case 1:

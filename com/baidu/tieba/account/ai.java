@@ -1,52 +1,46 @@
 package com.baidu.tieba.account;
 
-import android.view.View;
-import android.widget.Button;
-import com.slidingmenu.lib.R;
+import android.os.Handler;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.plugins.BdSapiCoreLightDelegate;
 /* loaded from: classes.dex */
-final class ai implements View.OnFocusChangeListener {
-    final /* synthetic */ LoginActivity a;
+final class ai implements BdSapiCoreLightDelegate.SapiCoreLightCallback {
+    final /* synthetic */ SapiFastRegActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(LoginActivity loginActivity) {
-        this.a = loginActivity;
+    public ai(SapiFastRegActivity sapiFastRegActivity) {
+        this.a = sapiFastRegActivity;
     }
 
-    @Override // android.view.View.OnFocusChangeListener
-    public final void onFocusChange(View view, boolean z) {
-        Button button;
-        Button button2;
-        Button button3;
-        Button button4;
-        Button button5;
-        Button button6;
-        Button button7;
-        Button button8;
-        Button button9;
-        if (z) {
-            int id = view.getId();
-            if (id == R.id.edit_vcode) {
-                button7 = this.a.D;
-                button7.setVisibility(8);
-                button8 = this.a.C;
-                button8.setVisibility(8);
-                button9 = this.a.E;
-                button9.setVisibility(0);
-            } else if (id == R.id.login_edit_account) {
-                button4 = this.a.D;
-                button4.setVisibility(8);
-                button5 = this.a.C;
-                button5.setVisibility(0);
-                button6 = this.a.E;
-                button6.setVisibility(8);
-            } else if (id == R.id.login_edit_password) {
-                button = this.a.D;
-                button.setVisibility(0);
-                button2 = this.a.C;
-                button2.setVisibility(8);
-                button3 = this.a.E;
-                button3.setVisibility(8);
-            }
+    @Override // com.baidu.tbadk.plugins.BdSapiCoreLightDelegate.SapiCoreLightCallback
+    public final void onAuthorizationSuccess(String str, String str2, String str3, String str4, String str5) {
+        Handler handler;
+        com.baidu.tbadk.core.a.u uVar;
+        if (!bc.c(str)) {
+            this.a.b = "login_user";
+            uVar = this.a.e;
+            com.baidu.tbadk.core.a.t.a(str, str2, str3, uVar, true);
+            return;
         }
+        AccountData accountData = new AccountData();
+        accountData.setAccount(str);
+        accountData.setID(str4);
+        accountData.setBDUSS(String.valueOf(str2) + "|" + str3);
+        accountData.setPortrait(str5);
+        this.a.b = "regist_user";
+        handler = this.a.d;
+        handler.post(new aj(this, accountData));
+    }
+
+    @Override // com.baidu.tbadk.plugins.BdSapiCoreLightDelegate.SapiCoreLightCallback
+    public final void onAuthorizationFailed(int i, String str) {
+        com.baidu.adp.lib.util.f.e("simon", "onFailed", str);
+        this.a.finish();
+    }
+
+    @Override // com.baidu.tbadk.plugins.BdSapiCoreLightDelegate.SapiCoreLightCallback
+    public final void finishActivity() {
+        this.a.finish();
     }
 }

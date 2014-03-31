@@ -1,22 +1,20 @@
 package com.baidu.tieba.mainentrance;
 
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.EditText;
 /* loaded from: classes.dex */
-final class j {
-    TextView a;
-    TextView b;
-    TextView c;
-    TextView d;
-    LinearLayout e;
-    final /* synthetic */ h f;
-
-    private j(h hVar) {
-        this.f = hVar;
-    }
+final class j implements View.OnClickListener {
+    final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ j(h hVar, byte b) {
-        this(hVar);
+    public j(SquareSearchActivity squareSearchActivity) {
+        this.a = squareSearchActivity;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        EditText editText;
+        editText = this.a.c;
+        editText.setText("");
     }
 }

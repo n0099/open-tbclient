@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.randchat;
 
 import android.view.View;
-import com.baidu.tieba.view.HeadImageView;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 final class d implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ RingLayoutView a;

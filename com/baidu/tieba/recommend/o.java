@@ -1,29 +1,28 @@
 package com.baidu.tieba.recommend;
 
+import android.app.Activity;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.bg;
 /* loaded from: classes.dex */
-final class o {
-    View a;
-    LinearLayout b;
-    RelativeLayout c;
-    TextView d;
-    TextView e;
-    TbImageView f;
-    TextView g;
-    TextView h;
-    TextView i;
-    final /* synthetic */ h j;
-
-    private o(h hVar) {
-        this.j = hVar;
-    }
+final class o implements View.OnClickListener {
+    final /* synthetic */ j a;
+    private final /* synthetic */ com.baidu.tieba.data.l b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ o(h hVar, byte b) {
-        this(hVar);
+    public o(j jVar, com.baidu.tieba.data.l lVar) {
+        this.a = jVar;
+        this.b = lVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        Activity activity;
+        Activity activity2;
+        activity = this.a.i;
+        TiebaStatic.a(activity, "recommend_to_pb", "click");
+        bg a = bg.a();
+        activity2 = this.a.i;
+        a.a(activity2, new String[]{this.b.a()});
     }
 }

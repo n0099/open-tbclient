@@ -1,30 +1,27 @@
 package com.baidu.tieba.person;
 
-import android.content.Context;
-import android.content.DialogInterface;
-import android.view.View;
-import com.slidingmenu.lib.R;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
-final class ci implements View.OnLongClickListener {
-    final /* synthetic */ PersonImageActivity a;
+final class ci {
+    HeadImageView a;
+    TextView b;
+    TextView c;
+    ImageView d;
+    LinearLayout e;
+    ProgressBar f;
+    TextView g;
+    final /* synthetic */ ch h;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ci(PersonImageActivity personImageActivity) {
-        this.a = personImageActivity;
+    private ci(ch chVar) {
+        this.h = chVar;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public final boolean onLongClick(View view) {
-        Context context;
-        Context context2;
-        DialogInterface.OnClickListener onClickListener;
-        context = this.a.i;
-        context2 = this.a.i;
-        String[] strArr = {context.getString(R.string.save), context2.getString(R.string.cancel)};
-        PersonImageActivity personImageActivity = this.a;
-        onClickListener = this.a.f;
-        personImageActivity.createListMenu(strArr, onClickListener);
-        this.a.showListMenu();
-        return false;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ci(ch chVar, byte b) {
+        this(chVar);
     }
 }

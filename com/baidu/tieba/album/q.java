@@ -8,7 +8,6 @@ import android.database.ContentObserver;
 import android.os.Handler;
 import android.os.Looper;
 import android.provider.MediaStore;
-import com.baidu.tieba.TiebaApplication;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
@@ -25,7 +24,8 @@ public final class q {
         if (a == null) {
             q qVar = new q();
             a = qVar;
-            Application b = TiebaApplication.g().b();
+            com.baidu.tieba.r.c();
+            Application d = com.baidu.tieba.r.d();
             qVar.c = new s(qVar);
             qVar.d = new t(qVar, qVar.b);
             IntentFilter intentFilter = new IntentFilter();
@@ -35,8 +35,8 @@ public final class q {
             intentFilter.addAction("android.intent.action.MEDIA_SCANNER_FINISHED");
             intentFilter.addAction("android.intent.action.MEDIA_EJECT");
             intentFilter.addDataScheme("file");
-            b.registerReceiver(qVar.c, intentFilter);
-            b.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, qVar.d);
+            d.registerReceiver(qVar.c, intentFilter);
+            d.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, qVar.d);
         }
         return a;
     }
@@ -75,9 +75,10 @@ public final class q {
 
     public final void b() {
         this.e.clear();
-        Application b = TiebaApplication.g().b();
-        b.unregisterReceiver(this.c);
-        b.getContentResolver().unregisterContentObserver(this.d);
+        com.baidu.tieba.r.c();
+        Application d = com.baidu.tieba.r.d();
+        d.unregisterReceiver(this.c);
+        d.getContentResolver().unregisterContentObserver(this.d);
         a = null;
     }
 }

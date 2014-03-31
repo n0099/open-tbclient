@@ -2,7 +2,7 @@ package com.baidu.tieba.album;
 
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import com.baidu.tieba.view.HeadImageView;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 final class ag {
     HeadImageView a;

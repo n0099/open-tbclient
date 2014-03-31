@@ -7,16 +7,15 @@ import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.img.ImageFileInfo;
-import com.baidu.tieba.view.HeadImageView;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.img.ImageFileInfo;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class ab extends BaseAdapter implements AbsListView.OnScrollListener {
     private List<ImageFileInfo> a;
     private AlbumActivity b;
-    private com.baidu.tieba.img.e c;
+    private com.baidu.tbadk.img.e c;
     private p d;
     private z e;
     private aa f;
@@ -25,9 +24,9 @@ public final class ab extends BaseAdapter implements AbsListView.OnScrollListene
 
     public ab(AlbumActivity albumActivity, p pVar) {
         this.b = albumActivity;
-        this.c = albumActivity.f();
+        this.c = albumActivity.g();
         this.d = pVar;
-        this.g = (int) this.b.getResources().getDimension(R.dimen.album_gridview_item_height);
+        this.g = (int) this.b.getResources().getDimension(com.baidu.tieba.a.f.album_gridview_item_height);
     }
 
     public final void a(List<ImageFileInfo> list) {
@@ -85,28 +84,28 @@ public final class ab extends BaseAdapter implements AbsListView.OnScrollListene
     public final View getView(int i, View view, ViewGroup viewGroup) {
         ag agVar;
         if (view == null) {
-            view = LayoutInflater.from(this.b).inflate(R.layout.album_image_item_view, viewGroup, false);
+            view = LayoutInflater.from(this.b).inflate(com.baidu.tieba.a.i.album_image_item_view, viewGroup, false);
             agVar = new ag(this, (byte) 0);
-            agVar.a = (HeadImageView) view.findViewById(R.id.pic);
-            agVar.b = (ImageView) view.findViewById(R.id.select_icon);
-            agVar.c = (RelativeLayout) view.findViewById(R.id.lay_select);
+            agVar.a = (HeadImageView) view.findViewById(com.baidu.tieba.a.h.pic);
+            agVar.b = (ImageView) view.findViewById(com.baidu.tieba.a.h.select_icon);
+            agVar.c = (RelativeLayout) view.findViewById(com.baidu.tieba.a.h.lay_select);
             view.setTag(agVar);
         } else {
             agVar = (ag) view.getTag();
         }
         agVar.a.setTag(null);
         agVar.a.setRadius(1);
-        agVar.a.setDefaultResource(R.drawable.pic_image_h_not);
-        agVar.a.setNightDefaultResource(R.drawable.pic_image_h_not_1);
+        agVar.a.setDefaultResource(com.baidu.tieba.a.g.pic_image_h_not);
+        agVar.a.setNightDefaultResource(com.baidu.tieba.a.g.pic_image_h_not_1);
         ImageFileInfo item = getItem(i);
         af afVar = new af(this, (byte) 0);
         afVar.a = true;
         if (item != null) {
             item.clearPageActions();
-            item.addPageAction(com.baidu.tieba.img.effects.d.a(this.g, this.g));
+            item.addPageAction(com.baidu.tbadk.img.effect.d.a(this.g, this.g));
             agVar.a.setTag(item.toCachedKey(false));
-            com.baidu.tieba.img.e eVar = this.c;
-            if (com.baidu.tieba.img.e.a(item, false) != null) {
+            com.baidu.tbadk.img.e eVar = this.c;
+            if (com.baidu.tbadk.img.e.a(item, false) != null) {
                 agVar.a.invalidate();
             } else if (!this.h) {
                 this.c.a(item, new ac(this, viewGroup, afVar), false);
@@ -114,22 +113,22 @@ public final class ab extends BaseAdapter implements AbsListView.OnScrollListene
         } else {
             afVar.a = false;
         }
-        int ae = TiebaApplication.g().ae();
-        this.b.a().a(ae == 1);
-        this.b.a().a(view);
+        int l = TbadkApplication.j().l();
+        this.b.b().a(l == 1);
+        this.b.b().a(view);
         if (this.d != null) {
             if (this.d.c(item)) {
-                if (ae == 1) {
-                    agVar.b.setBackgroundResource(R.drawable.btn_choose_photo_s_1);
+                if (l == 1) {
+                    agVar.b.setBackgroundResource(com.baidu.tieba.a.g.btn_choose_photo_s_1);
                 } else {
-                    agVar.b.setBackgroundResource(R.drawable.btn_choose_photo_s);
+                    agVar.b.setBackgroundResource(com.baidu.tieba.a.g.btn_choose_photo_s);
                 }
-            } else if (ae == 1) {
-                agVar.b.setBackgroundResource(R.drawable.btn_choose_photo_n_1);
+            } else if (l == 1) {
+                agVar.b.setBackgroundResource(com.baidu.tieba.a.g.btn_choose_photo_n_1);
             } else {
-                agVar.b.setBackgroundResource(R.drawable.btn_choose_photo_n);
+                agVar.b.setBackgroundResource(com.baidu.tieba.a.g.btn_choose_photo_n);
             }
-            agVar.c.setOnClickListener(new ae(this, afVar, this.d, item, i, ae, agVar));
+            agVar.c.setOnClickListener(new ae(this, afVar, this.d, item, i, l, agVar));
         }
         agVar.a.setOnClickListener(new ad(this, afVar, i, item));
         return view;

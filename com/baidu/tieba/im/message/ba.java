@@ -1,26 +1,33 @@
 package com.baidu.tieba.im.message;
 
 import com.google.protobuf.MessageLite;
-import protobuf.ReportGroup.ReportGroupReq;
+import java.util.HashMap;
+import org.json.JSONObject;
+import protobuf.LogStat.LogStatReq;
 /* loaded from: classes.dex */
-public final class ba extends s implements com.baidu.tieba.im.coder.g {
-    private int a;
-    private int b;
+public final class ba extends com.baidu.tbadk.message.websockt.d {
+    private String a;
+    private String b;
 
     public ba() {
-        e(103103);
+        super(104001);
     }
 
-    public final void a(int i) {
-        this.a = i;
+    private ba(String str, String str2) {
+        super(104001);
+        this.a = str;
+        this.b = str2;
     }
 
-    public final void b(int i) {
-        this.b = i;
+    @Override // com.baidu.tbadk.message.websockt.d
+    public final MessageLite h() {
+        return LogStatReq.LogStatReqIdl.newBuilder().a(LogStatReq.DataReq.newBuilder().a(this.a).b(this.b).build()).build();
     }
 
-    @Override // com.baidu.tieba.im.coder.g
-    public final MessageLite a() {
-        return ReportGroupReq.ReportGroupReqIdl.newBuilder().a(ReportGroupReq.DataReq.newBuilder().a(this.a).b(this.b).build()).build();
+    public static void a(String str, String str2) {
+        HashMap hashMap = new HashMap();
+        hashMap.put("st_param", str2);
+        hashMap.put("jobid", "0");
+        com.baidu.adp.framework.c.a().a(new ba(str, new JSONObject(hashMap).toString()));
     }
 }

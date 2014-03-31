@@ -1,15 +1,7 @@
 package com.baidu.tieba.voice;
 /* loaded from: classes.dex */
-final class e implements Runnable {
-    final /* synthetic */ c a;
+public interface e {
+    void a();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public e(c cVar) {
-        this.a = cVar;
-    }
-
-    @Override // java.lang.Runnable
-    public final void run() {
-        this.a.b();
-    }
+    void b();
 }

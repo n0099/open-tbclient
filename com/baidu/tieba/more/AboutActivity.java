@@ -4,34 +4,33 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import com.baidu.tieba.TiebaApplication;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.UpdateDialog;
-import com.baidu.tieba.model.bw;
-import com.slidingmenu.lib.R;
+import com.baidu.tieba.model.bb;
 import java.util.Date;
 /* loaded from: classes.dex */
-public class AboutActivity extends com.baidu.tieba.f {
+public class AboutActivity extends com.baidu.tbadk.a {
     private d a;
     private com.baidu.tieba.model.a b;
     private c c = null;
-    private String d = String.valueOf(com.baidu.tieba.data.i.b) + "mo/q/topic_page/110_1";
+    private String d = String.valueOf(com.baidu.tieba.data.d.a) + "mo/q/topic_page/110_1";
 
     public static void a(Context context) {
         context.startActivity(new Intent(context, AboutActivity.class));
     }
 
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.a = new d(this, new a(this));
         this.a.e();
         this.c = new c(this, (byte) 0);
         IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(com.baidu.tieba.data.i.a());
+        intentFilter.addAction(com.baidu.tbadk.core.data.n.z());
         registerReceiver(this.c, intentFilter);
     }
 
-    @Override // com.baidu.tieba.f, android.app.Activity
+    @Override // com.baidu.tbadk.a, android.app.Activity
     public void onResume() {
         super.onResume();
         if (this.a != null) {
@@ -39,7 +38,7 @@ public class AboutActivity extends com.baidu.tieba.f {
         }
     }
 
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         if (this.c != null) {
@@ -53,7 +52,7 @@ public class AboutActivity extends com.baidu.tieba.f {
         }
     }
 
-    @Override // com.baidu.tieba.f
+    @Override // com.baidu.tbadk.a
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (this.a != null) {
@@ -77,20 +76,24 @@ public class AboutActivity extends com.baidu.tieba.f {
         if (aboutActivity.a != null) {
             aboutActivity.a.d();
         }
-        bw bwVar = obj != null ? (bw) obj : null;
-        if (bwVar == null) {
-            aboutActivity.showToast(aboutActivity.getResources().getString(R.string.neterror));
+        bb bbVar = obj != null ? (bb) obj : null;
+        if (bbVar == null) {
+            aboutActivity.showToast(aboutActivity.getResources().getString(com.baidu.tieba.a.k.neterror));
             return;
         }
-        TiebaApplication.g().a(bwVar.c());
-        TiebaApplication.g().w(false);
-        if (bwVar.c().getHas_new_ver() != 1) {
-            aboutActivity.showToast(aboutActivity.getResources().getString(R.string.neednot_update));
-        } else if (bwVar.c().getForce_update() == 1) {
-            UpdateDialog.a(TiebaApplication.g().b(), bwVar.c(), bwVar.b());
+        com.baidu.tieba.r.c().a(bbVar.c());
+        TbadkApplication.j().i(false);
+        if (bbVar.c().getHas_new_ver() != 1) {
+            aboutActivity.showToast(aboutActivity.getResources().getString(com.baidu.tieba.a.k.neednot_update));
+        } else if (bbVar.c().getForce_update() == 1) {
+            com.baidu.tieba.r.c();
+            UpdateDialog.a(com.baidu.tieba.r.d(), bbVar.c(), bbVar.b());
         } else {
-            TiebaApplication.g().a(Long.valueOf(new Date().getTime()).longValue());
-            UpdateDialog.a(TiebaApplication.g().b(), bwVar.c(), bwVar.b());
+            Long valueOf = Long.valueOf(new Date().getTime());
+            TbadkApplication.j();
+            TbadkApplication.a(valueOf.longValue());
+            com.baidu.tieba.r.c();
+            UpdateDialog.a(com.baidu.tieba.r.d(), bbVar.c(), bbVar.b());
         }
         if (aboutActivity.a != null) {
             aboutActivity.a.e();

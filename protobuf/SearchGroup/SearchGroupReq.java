@@ -142,9 +142,8 @@ public final class SearchGroupReq {
             return i;
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public final Object writeReplace() {
+        protected final Object writeReplace() {
             return super.writeReplace();
         }
 
@@ -347,9 +346,8 @@ public final class SearchGroupReq {
             return i;
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
-        public final Object writeReplace() {
+        protected final Object writeReplace() {
             return super.writeReplace();
         }
 

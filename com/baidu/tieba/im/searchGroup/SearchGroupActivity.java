@@ -4,51 +4,49 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
-import com.baidu.tieba.im.data.BaseGroupData;
-import com.baidu.tieba.im.groupInfo.GroupInfoActivity;
-import com.baidu.tieba.im.message.ct;
-import com.baidu.tieba.im.model.an;
-import com.baidu.tieba.util.ap;
-import com.baidu.tieba.util.cb;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.core.b.o;
+import com.baidu.tbadk.core.data.BaseGroupData;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ac;
+import com.baidu.tieba.im.message.ResponseSearchGroupMessage;
+import com.baidu.tieba.im.model.bp;
 /* loaded from: classes.dex */
-public class SearchGroupActivity extends com.baidu.tieba.f implements View.OnClickListener {
-    protected an a;
+public class SearchGroupActivity extends com.baidu.tbadk.a implements View.OnClickListener {
+    protected bp a;
     private g b;
-    private com.baidu.tieba.im.messageCenter.g c = new d(this);
+    private com.baidu.adp.framework.c.g c = new d(this, 103007);
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.b = new g(this);
-        this.a = new an();
-        com.baidu.tieba.im.messageCenter.d.a().a(103007, this.c);
+        this.a = new bp();
+        registerListener(this.c);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        com.baidu.tieba.im.messageCenter.d.a().a(this.c);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f
+    @Override // com.baidu.tbadk.a
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.b.b();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, android.app.Activity
+    @Override // com.baidu.tbadk.a, android.app.Activity
     public void onResume() {
         super.onResume();
         a();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, android.app.Activity
+    @Override // com.baidu.tbadk.a, android.app.Activity
     public void onStop() {
         super.onStop();
         if (this.b == null || this.b.a() == null || this.b.a().a() == null) {
@@ -59,7 +57,7 @@ public class SearchGroupActivity extends com.baidu.tieba.f implements View.OnCli
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == R.id.home_bt_search_s && (view.getTag() instanceof String)) {
+        if (view.getId() == com.baidu.tieba.im.h.home_bt_search_s && (view.getTag() instanceof String)) {
             a((String) view.getTag());
         }
     }
@@ -68,33 +66,32 @@ public class SearchGroupActivity extends com.baidu.tieba.f implements View.OnCli
         if (!TextUtils.isEmpty(str) && TextUtils.isDigitsOnly(str)) {
             try {
                 this.b.e();
-                this.b.a((ct) null);
-                an anVar = this.a;
-                an.a(Integer.parseInt(str));
+                this.b.a((ResponseSearchGroupMessage) null);
+                this.a.a(Integer.parseInt(str));
                 return;
             } catch (NumberFormatException e) {
                 e.printStackTrace();
                 this.b.c();
-                showToast(R.string.groupid_error);
+                showToast(com.baidu.tieba.im.j.groupid_error);
                 return;
             }
         }
-        showToast(R.string.please_input_groupid);
+        showToast(com.baidu.tieba.im.j.please_input_groupid);
     }
 
     @Override // com.baidu.adp.a.a, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         BaseGroupData item;
         if (this.b != null && this.b.a() != null && this.b.a().a(i) && (item = this.b.a().getItem(i)) != null) {
-            cb.a(this, "search_group_item", "click", 1, new Object[0]);
-            GroupInfoActivity.a(this, item.getGroupId(), 0);
+            TiebaStatic.a(this, "search_group_item", "click", 1, new Object[0]);
+            sendMessage(new com.baidu.adp.framework.message.a(2008011, new o(this, item.getGroupId(), 0)));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a() {
         if (this.b != null && this.b.a() != null) {
-            ap.a(this.b.a, this.b.a().a(), 0, -1);
+            ac.a(this.b.a, this.b.a().a(), 0, -1);
         }
     }
 }

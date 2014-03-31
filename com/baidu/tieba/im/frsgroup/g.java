@@ -1,27 +1,29 @@
 package com.baidu.tieba.im.frsgroup;
 
-import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.tieba.im.data.GroupInfoData;
-import com.baidu.tieba.im.groupInfo.GroupInfoActivity;
+import android.text.TextUtils;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
+import com.baidu.tieba.im.message.PushMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class g implements AdapterView.OnItemClickListener {
-    final /* synthetic */ c a;
+public final class g extends com.baidu.adp.framework.c.a {
+    final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(c cVar) {
-        this.a = cVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g(b bVar, int i) {
+        super(0);
+        this.a = bVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public final void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        GroupListAdapter groupListAdapter;
-        FrsGroupActivity frsGroupActivity;
-        groupListAdapter = this.a.i;
-        GroupInfoData groupInfoData = (GroupInfoData) groupListAdapter.getItem(i);
-        if (groupInfoData != null) {
-            frsGroupActivity = this.a.b;
-            GroupInfoActivity.a(frsGroupActivity, groupInfoData.getGroupId(), c.l(this.a));
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
+    @Override // com.baidu.adp.framework.c.c
+    public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
+        GroupNewsPojo b;
+        CustomResponsedMessage<?> customResponsedMessage2 = customResponsedMessage;
+        if (customResponsedMessage2 == null || !(customResponsedMessage2 instanceof PushMessage) || (b = ((PushMessage) customResponsedMessage2).b()) == null || TextUtils.isEmpty(b.getCmd()) || !b.getCmd().equals("dismiss_group")) {
+            return;
         }
+        b.a(this.a, Long.parseLong(b.getGid()));
     }
 }

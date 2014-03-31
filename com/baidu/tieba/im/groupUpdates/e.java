@@ -1,58 +1,25 @@
 package com.baidu.tieba.im.groupUpdates;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
+import java.util.LinkedList;
 /* loaded from: classes.dex */
-public final class e extends BaseAdapter {
-    private UpdatesActivity a;
-    private List<UpdatesItemData> b = new ArrayList();
+final class e implements com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> {
+    final /* synthetic */ UpdatesActivity a;
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     public e(UpdatesActivity updatesActivity) {
         this.a = updatesActivity;
     }
 
-    public final void a() {
-        this.a = null;
-    }
-
-    public final void a(List<UpdatesItemData> list) {
-        if (list != null) {
-            this.b = list;
-            com.baidu.adp.lib.util.e.e("size:" + this.b.size());
-            notifyDataSetChanged();
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public final int getCount() {
-        if (this.b == null) {
-            return 0;
-        }
-        return this.b.size();
-    }
-
-    @Override // android.widget.Adapter
-    public final View getView(int i, View view, ViewGroup viewGroup) {
-        f fVar = null;
-        if (view != null) {
-            fVar = (f) view.getTag();
-        }
-        f fVar2 = fVar == null ? new f(this.a) : fVar;
-        fVar2.a(this.b.get(i));
-        fVar2.d();
-        return fVar2.a();
-    }
-
-    @Override // android.widget.Adapter
-    public final Object getItem(int i) {
-        return this.b.get(i);
-    }
-
-    @Override // android.widget.Adapter
-    public final long getItemId(int i) {
-        return i;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.baidu.tieba.im.a
+    public final /* synthetic */ void a(LinkedList<GroupNewsPojo> linkedList) {
+        t tVar;
+        t tVar2;
+        tVar = this.a.b;
+        tVar.a(p.a(linkedList));
+        tVar2 = this.a.b;
+        tVar2.a(false);
+        this.a.c();
     }
 }

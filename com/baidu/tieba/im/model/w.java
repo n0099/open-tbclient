@@ -1,79 +1,64 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tieba.img.ImageUploadResult;
-import com.baidu.tieba.util.bm;
-import com.baidu.tieba.util.cb;
-import java.util.HashMap;
+import android.graphics.Bitmap;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.im.model.LocalPicModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class w implements com.baidu.tieba.img.d {
-    final /* synthetic */ MsglistModel a;
+public final class w extends BdAsyncTask<Object, Integer, LocalPicModel.ResponseData> {
+    final /* synthetic */ LocalPicModel a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public w(MsglistModel msglistModel) {
-        this.a = msglistModel;
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ LocalPicModel.ResponseData a(Object... objArr) {
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        String str5 = "im_" + String.valueOf(System.currentTimeMillis());
+        str = this.a.mSPath;
+        str2 = this.a.mSName;
+        String a = com.baidu.tbadk.core.util.w.a(str, str2, com.baidu.tbadk.coreExtra.d.x.c, String.valueOf(str5) + "_send");
+        String str6 = String.valueOf(str5) + "_display";
+        str3 = this.a.mDPath;
+        str4 = this.a.mDName;
+        String a2 = com.baidu.tbadk.core.util.w.a(str3, str4, com.baidu.tbadk.coreExtra.d.x.c, str6);
+        Bitmap c = com.baidu.tbadk.core.util.w.c(com.baidu.tbadk.coreExtra.d.x.c, str6);
+        if (a == null || a2 == null || c == null) {
+            return null;
+        }
+        return new LocalPicModel.ResponseData(c, a, a2);
     }
 
-    @Override // com.baidu.tieba.img.d
-    public final synchronized void a(String str, ImageUploadResult imageUploadResult) {
-        HashMap hashMap;
-        com.baidu.tieba.img.a aVar;
-        com.baidu.tieba.im.message.b bVar;
-        String str2;
-        int i;
-        String str3;
-        aj ajVar;
-        aj ajVar2;
-        int i2 = 0;
-        synchronized (this) {
-            synchronized (MsglistModel.class) {
-                hashMap = this.a.l;
-                aVar = (com.baidu.tieba.img.a) hashMap.remove(str);
-            }
-            if (aVar != null && (bVar = (com.baidu.tieba.im.message.b) aVar.a) != null) {
-                if (imageUploadResult == null || imageUploadResult.error_code != 0 || imageUploadResult.picInfo == null) {
-                    long currentTimeMillis = System.currentTimeMillis() - bVar.t();
-                    if (imageUploadResult != null) {
-                        cb.a(bVar.v(), 0, "", "", "upload pic http fail", imageUploadResult.error_code, imageUploadResult.error_msg, currentTimeMillis);
-                    } else {
-                        cb.a(bVar.v(), 0, "", "", "upload pic http fail", -1, "resutl is null", currentTimeMillis);
-                    }
-                    this.a.b(bVar);
-                    if (bVar instanceof com.baidu.tieba.im.message.g) {
-                        com.baidu.tieba.im.i.a(new x(this, (com.baidu.tieba.im.message.g) bVar), null);
-                    } else if (bVar instanceof com.baidu.tieba.im.message.w) {
-                        com.baidu.tieba.im.i.a(new y(this, (com.baidu.tieba.im.message.w) bVar), null);
-                    }
-                } else {
-                    long currentTimeMillis2 = System.currentTimeMillis() - bVar.t();
-                    if (imageUploadResult.picInfo.bigPic == null) {
-                        str2 = "";
-                    } else {
-                        str2 = imageUploadResult.picInfo.bigPic.picUrl;
-                    }
-                    cb.a(bVar.v(), 0, "", "", "upload pic http suc bigUrl: " + str2, imageUploadResult.error_code, imageUploadResult.error_msg, currentTimeMillis2);
-                    String str4 = imageUploadResult.picInfo.bigPic == null ? null : imageUploadResult.picInfo.bigPic.picUrl;
-                    if (imageUploadResult.picInfo.smallPic != null) {
-                        str3 = imageUploadResult.picInfo.smallPic.picUrl;
-                        i2 = imageUploadResult.picInfo.smallPic.width;
-                        int i3 = imageUploadResult.picInfo.smallPic.height;
-                        bm.a().a(str3, str, true, true, true);
-                        i = i3;
-                    } else {
-                        i = 0;
-                        str3 = null;
-                    }
-                    MsglistModel msglistModel = this.a;
-                    bVar.a(MsglistModel.a(str4, str3, i2, i));
-                    com.baidu.tieba.im.chat.q.b().a(bVar);
-                    ajVar = this.a.q;
-                    if (ajVar != null) {
-                        com.baidu.adp.lib.util.e.e("simon", "send callback", "picture");
-                        ajVar2 = this.a.q;
-                        ajVar2.o();
-                    }
-                }
-            }
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ void a(LocalPicModel.ResponseData responseData) {
+        com.baidu.adp.a.h hVar;
+        com.baidu.adp.a.h hVar2;
+        LocalPicModel.ResponseData responseData2 = responseData;
+        super.a((w) responseData2);
+        this.a.mImageTask = null;
+        hVar = this.a.mLoadDataCallBack;
+        if (hVar != null) {
+            hVar2 = this.a.mLoadDataCallBack;
+            hVar2.a(responseData2);
         }
+    }
+
+    private w(LocalPicModel localPicModel) {
+        this.a = localPicModel;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ w(LocalPicModel localPicModel, byte b) {
+        this(localPicModel);
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final void cancel() {
+        super.cancel(true);
+        this.a.mImageTask = null;
     }
 }

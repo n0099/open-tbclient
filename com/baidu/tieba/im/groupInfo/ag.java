@@ -1,34 +1,29 @@
 package com.baidu.tieba.im.groupInfo;
 
-import com.google.protobuf.MessageLite;
-import protobuf.DelGroupMsgs.DelGroupMsgsReq;
+import android.view.View;
+import com.baidu.tbadk.coreExtra.data.PhotoUrlData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ag extends com.baidu.tieba.im.message.s implements com.baidu.tieba.im.coder.g {
-    private int a;
-    private String b;
+public final class ag implements View.OnClickListener {
+    final /* synthetic */ PhotoWallView a;
+    private final /* synthetic */ PhotoUrlData b;
+    private final /* synthetic */ int c;
 
-    public ag() {
-        e(202004);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ag(PhotoWallView photoWallView, PhotoUrlData photoUrlData, int i) {
+        this.a = photoWallView;
+        this.b = photoUrlData;
+        this.c = i;
     }
 
-    public final int b() {
-        return this.a;
-    }
-
-    public final void a(int i) {
-        this.a = i;
-    }
-
-    public final String c() {
-        return this.b;
-    }
-
-    public final void a(String str) {
-        this.b = str;
-    }
-
-    @Override // com.baidu.tieba.im.coder.g
-    public final MessageLite a() {
-        return DelGroupMsgsReq.DelGroupMsgsReqIdl.newBuilder().a(DelGroupMsgsReq.DataReq.newBuilder().a(this.a).a(this.b).build()).build();
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        ae aeVar;
+        ae aeVar2;
+        aeVar = this.a.k;
+        if (aeVar != null) {
+            aeVar2 = this.a.k;
+            aeVar2.onClick(view, 1, this.b, this.c);
+        }
     }
 }

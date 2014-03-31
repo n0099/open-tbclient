@@ -1,90 +1,126 @@
 package com.baidu.tieba.faceshop;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bs;
-import com.slidingmenu.lib.R;
-import java.util.ArrayList;
-import java.util.Date;
+import com.baidu.gson.GsonBuilder;
 /* loaded from: classes.dex */
-public final class ak extends BaseAdapter {
-    private Context a;
-    private FacePurchaseRecordsData b = null;
-    private com.baidu.tieba.util.i c;
+public final class ak extends com.baidu.adp.a.e {
+    private boolean a;
+    private int b;
+    private String c;
+    private String d;
+    private String f;
+    private FacePackageDetailData h;
+    private int j;
+    private int k;
+    private float l;
+    private String e = null;
+    private com.baidu.tbadk.d m = null;
+    private al i = null;
+    private GsonBuilder g = new GsonBuilder();
 
-    public ak(Context context) {
-        this.a = context;
-        this.c = new com.baidu.tieba.util.i(context);
-        this.c.a(context.getResources().getDimensionPixelSize(R.dimen.faceshop_purchase_cover_width), context.getResources().getDimensionPixelSize(R.dimen.faceshop_purchase_cover_height));
+    public ak() {
+        this.j = 0;
+        this.k = 0;
+        com.baidu.tieba.r.c();
+        Context e = com.baidu.tieba.r.e();
+        this.j = com.baidu.adp.lib.util.i.b(e);
+        this.k = com.baidu.adp.lib.util.i.c(e);
+        this.l = e.getResources().getDisplayMetrics().density;
     }
 
-    public final void a(FacePurchaseRecordsData facePurchaseRecordsData) {
-        this.b = facePurchaseRecordsData;
-        notifyDataSetChanged();
+    public final FacePackageDetailData a() {
+        return this.h;
     }
 
-    public final com.baidu.tieba.util.i a() {
-        return this.c;
+    public final void a(String str) {
+        this.e = str;
     }
 
-    @Override // android.widget.Adapter
-    public final int getCount() {
-        if (this.b == null || this.b.packList == null) {
-            return 0;
-        }
-        return this.b.packList.size();
+    public final String b() {
+        return this.e;
     }
 
-    @Override // android.widget.Adapter
-    public final Object getItem(int i) {
-        if (this.b == null || this.b.packList == null) {
-            return null;
-        }
-        ArrayList<FacePurchasePackageData> arrayList = this.b.packList;
-        if (i < 0 || i >= arrayList.size()) {
-            return null;
-        }
-        return arrayList.get(i);
+    public final void a(boolean z) {
+        this.a = z;
     }
 
-    @Override // android.widget.Adapter
-    public final long getItemId(int i) {
-        return i;
+    public final boolean c() {
+        return this.a;
     }
 
-    @Override // android.widget.Adapter
-    public final View getView(int i, View view, ViewGroup viewGroup) {
-        int ae = TiebaApplication.g().ae();
-        if (view == null) {
-            LayoutInflater from = LayoutInflater.from(this.a);
-            al alVar = new al(this, (byte) 0);
-            view = from.inflate(R.layout.face_purchase_record_item, (ViewGroup) null);
-            alVar.a = (TbImageView) view.findViewById(R.id.cover);
-            alVar.b = (TextView) view.findViewById(R.id.title);
-            alVar.c = (TextView) view.findViewById(R.id.time);
-            alVar.d = (TextView) view.findViewById(R.id.price);
-            view.setTag(alVar);
+    public final int d() {
+        return this.b;
+    }
+
+    public final void b(String str) {
+        this.d = str;
+    }
+
+    public final String e() {
+        return this.d;
+    }
+
+    public final void c(String str) {
+        this.c = str;
+    }
+
+    public final void d(String str) {
+        this.f = str;
+    }
+
+    public final String f() {
+        return this.f;
+    }
+
+    public final void g() {
+        if (this.i == null) {
+            this.i = new al(this, (byte) 0);
+            this.i.setPriority(3);
+            this.i.execute(new Object[0]);
         }
-        al alVar2 = (al) view.getTag();
-        if (this.a instanceof com.baidu.tieba.f) {
-            ((com.baidu.tieba.f) this.a).getLayoutMode().a(ae == 1);
-            ((com.baidu.tieba.f) this.a).getLayoutMode().a(view);
+    }
+
+    public final void a(FacePackageData facePackageData) {
+        if (facePackageData != null) {
+            int i = facePackageData.buyStatus;
+            int i2 = facePackageData.canDownload;
+            int i3 = facePackageData.downloading;
+            int i4 = facePackageData.downloaded;
+            if (i3 == 1) {
+                this.b = 5;
+            } else if (i4 == 1) {
+                this.b = 1;
+            } else if (i == 2) {
+                this.b = 6;
+            } else if (i == 1) {
+                if (i2 == 1) {
+                    this.b = 2;
+                }
+            } else if (i == 0) {
+                if (i2 == 1) {
+                    this.b = 3;
+                } else {
+                    this.b = 4;
+                }
+            }
         }
-        FacePurchasePackageData facePurchasePackageData = (FacePurchasePackageData) getItem(i);
-        if (facePurchasePackageData != null) {
-            alVar2.a.setTag(facePurchasePackageData.coverUrl);
-            alVar2.d.setText(facePurchasePackageData.price);
-            alVar2.b.setText(facePurchasePackageData.pname);
-            Date date = new Date();
-            date.setTime(facePurchasePackageData.puyTime * 1000);
-            alVar2.c.setText(bs.c(date));
+    }
+
+    @Override // com.baidu.adp.a.e
+    protected final boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.a.e
+    public final boolean cancelLoadData() {
+        if (this.i != null) {
+            this.i.cancel();
+            return true;
         }
-        return view;
+        return true;
+    }
+
+    public final void a(com.baidu.tbadk.d dVar) {
+        this.m = dVar;
     }
 }

@@ -1,31 +1,26 @@
 package com.baidu.tieba.im.groupInfo;
 
-import android.content.DialogInterface;
-import android.text.ClipboardManager;
-import com.slidingmenu.lib.R;
+import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class t implements DialogInterface.OnClickListener {
-    final /* synthetic */ m a;
-    private final /* synthetic */ String b;
+public final class t implements com.baidu.tbadk.coreExtra.view.i {
+    final /* synthetic */ r a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public t(m mVar, String str) {
-        this.a = mVar;
-        this.b = str;
+    public t(r rVar) {
+        this.a = rVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
-        GroupInfoActivity groupInfoActivity;
-        GroupInfoActivity groupInfoActivity2;
-        try {
-            groupInfoActivity = this.a.d;
-            ((ClipboardManager) groupInfoActivity.getSystemService("clipboard")).setText(this.b);
-            groupInfoActivity2 = this.a.d;
-            groupInfoActivity2.showToast(R.string.copy_success);
-        } catch (Exception e) {
-            com.baidu.adp.lib.util.e.b("copy group introduction failed");
+    @Override // com.baidu.tbadk.coreExtra.view.i
+    public final void a(boolean z) {
+        TextView textView;
+        TextView textView2;
+        if (z) {
+            textView2 = this.a.ac;
+            textView2.setVisibility(0);
+            return;
         }
+        textView = this.a.ac;
+        textView.setVisibility(8);
     }
 }

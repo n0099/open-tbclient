@@ -1,44 +1,28 @@
 package com.baidu.tieba.im.chat;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.Button;
+import android.view.View;
+import android.widget.AbsListView;
+import com.baidu.tbadk.gif.GifView;
+import com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class o implements TextWatcher {
-    final /* synthetic */ a a;
+public final class o implements AbsListView.RecyclerListener {
+    final /* synthetic */ h a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(a aVar) {
-        this.a = aVar;
+    public o(h hVar) {
+        this.a = hVar;
     }
 
-    @Override // android.text.TextWatcher
-    public final void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public final void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public final void afterTextChanged(Editable editable) {
-        Button button;
-        boolean V;
-        Button button2;
-        Button button3;
-        if (editable == null || editable.length() <= 0) {
-            button = this.a.F;
-            button.setEnabled(false);
-            return;
+    @Override // android.widget.AbsListView.RecyclerListener
+    public final void onMovedToScrapHeap(View view) {
+        View findViewById = view.findViewById(com.baidu.tieba.im.h.lay_msgitem_voice);
+        if (findViewById != null && (findViewById instanceof ChatVoiceView)) {
+            ((ChatVoiceView) findViewById).a();
         }
-        V = this.a.V();
-        if (V) {
-            button3 = this.a.F;
-            button3.setEnabled(true);
-            return;
+        View findViewById2 = view.findViewById(com.baidu.tieba.im.h.emotion_msgitem_image);
+        if (findViewById2 != null && (findViewById2 instanceof GifView)) {
+            ((GifView) findViewById2).a();
         }
-        button2 = this.a.F;
-        button2.setEnabled(false);
     }
 }

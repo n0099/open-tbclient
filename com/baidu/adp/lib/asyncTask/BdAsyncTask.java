@@ -43,7 +43,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract Result a(Params... paramsArr);
 
-    private static /* synthetic */ int[] d() {
+    private static /* synthetic */ int[] a() {
         int[] iArr = p;
         if (iArr == null) {
             iArr = new int[BdAsyncTaskStatus.valuesCustom().length];
@@ -92,20 +92,20 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
         b = new d((byte) 0);
     }
 
-    public static void removeAllTask(int i) {
-        a.a(i);
+    public static LinkedList<BdAsyncTask<?, ?, ?>> removeAllTask(int i) {
+        return a.a(i);
     }
 
-    public static void removeAllTask(int i, String str) {
-        a.a(i, str);
+    public static LinkedList<BdAsyncTask<?, ?, ?>> removeAllTask(int i, String str) {
+        return a.a(i, str);
     }
 
-    public static void removeAllQueueTask(int i) {
-        a.b(i);
+    public static LinkedList<BdAsyncTask<?, ?, ?>> removeAllQueueTask(int i) {
+        return a.b(i);
     }
 
-    public static void removeAllQueueTask(int i, String str) {
-        a.b(i, str);
+    public static LinkedList<BdAsyncTask<?, ?, ?>> removeAllQueueTask(int i, String str) {
+        return a.b(i, str);
     }
 
     public static LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask(int i) {
@@ -202,11 +202,11 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a() {
+    public void b() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void b() {
+    public void c() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -218,11 +218,11 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     }
 
     protected void b(Result result) {
-        c();
+        d();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void c() {
+    public void d() {
     }
 
     public final boolean isCancelled() {
@@ -234,7 +234,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
             a.a((BdAsyncTask<?, ?, ?>) this);
         }
         boolean cancel = this.d.cancel(z);
-        a();
+        b();
         return cancel;
     }
 
@@ -252,7 +252,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
 
     public final BdAsyncTask<Params, Progress, Result> executeOnExecutor(Executor executor, Params... paramsArr) {
         if (this.e != BdAsyncTaskStatus.PENDING) {
-            switch (d()[this.e.ordinal()]) {
+            switch (a()[this.e.ordinal()]) {
                 case 2:
                     throw new IllegalStateException("Cannot execute task: the task is already running.");
                 case 3:
@@ -260,7 +260,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
             }
         }
         this.e = BdAsyncTaskStatus.RUNNING;
-        b();
+        c();
         this.c.b = paramsArr;
         executor.execute(this.d);
         return this;

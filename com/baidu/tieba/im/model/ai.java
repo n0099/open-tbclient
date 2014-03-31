@@ -1,40 +1,23 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tieba.im.message.da;
+import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ai implements com.baidu.tieba.im.messageCenter.g {
-    final /* synthetic */ MsglistModel a;
-
-    private ai(MsglistModel msglistModel) {
-        this.a = msglistModel;
-    }
+public final class ai extends com.baidu.tieba.im.m<Boolean> {
+    final /* synthetic */ MsglistModel b;
+    private final /* synthetic */ com.baidu.tieba.im.message.a.e c;
+    private final /* synthetic */ LinkedList d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ai(MsglistModel msglistModel, byte b) {
-        this(msglistModel);
+    public ai(MsglistModel msglistModel, com.baidu.tieba.im.message.a.e eVar, LinkedList linkedList) {
+        this.b = msglistModel;
+        this.c = eVar;
+        this.d = linkedList;
     }
 
-    @Override // com.baidu.tieba.im.messageCenter.g
-    public final void a(com.baidu.tieba.im.message.s sVar) {
-        if (sVar == null) {
-            com.baidu.adp.lib.util.e.b("msg == null");
-        } else if (sVar.v() == 103112) {
-            MsglistModel.a(this.a, sVar);
-        } else if (sVar.v() == 103102) {
-            MsglistModel.b(this.a, sVar);
-        } else if (sVar.v() == 202003) {
-            MsglistModel.c(this.a, sVar);
-        } else if (sVar.v() == -113) {
-            MsglistModel.k(this.a);
-        } else if (sVar.v() == 205004) {
-            MsglistModel.d(this.a, sVar);
-        } else if (sVar.v() == -126) {
-            com.baidu.adp.lib.util.e.e("simon", "onMessage", "msg = " + sVar);
-            if (sVar instanceof da) {
-                MsglistModel.e(this.a).getChatMessages().add((com.baidu.tieba.im.message.b) ((da) sVar).o());
-                MsglistModel.f(this.a).a(MsglistModel.e(this.a));
-            }
-        }
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.m
+    public final /* synthetic */ Boolean a() {
+        return Boolean.valueOf(com.baidu.tieba.im.db.m.d().a(this.c.x(), this.c.l(), this.d, false));
     }
 }

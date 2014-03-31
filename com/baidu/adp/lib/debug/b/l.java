@@ -2,32 +2,24 @@ package com.baidu.adp.lib.debug.b;
 
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ImageButton;
 /* loaded from: classes.dex */
 final class l implements View.OnTouchListener {
-    final /* synthetic */ j a;
+    final /* synthetic */ k a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(j jVar) {
-        this.a = jVar;
+    public l(k kVar) {
+        this.a = kVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public final boolean onTouch(View view, MotionEvent motionEvent) {
-        if (this.a.w && motionEvent.getAction() == 0) {
-            ((ImageButton) view).setBackgroundDrawable(this.a.getResources().getDrawable(com.baidu.adp.c.adp_debug_switch_bk));
-            this.a.m.setVisibility(8);
-            this.a.m.setClickable(false);
-            this.a.b.setVisibility(8);
-            this.a.w = false;
-            this.a.c.setVisibility(0);
-        } else if (motionEvent.getAction() == 0) {
-            ((ImageButton) view).setBackgroundDrawable(this.a.getResources().getDrawable(com.baidu.adp.c.adp_debug_switch));
-            this.a.m.setVisibility(0);
-            this.a.m.setClickable(true);
-            this.a.b.setVisibility(0);
-            this.a.c.setVisibility(8);
-            this.a.w = true;
+        if (motionEvent.getAction() == 0) {
+            view.setBackgroundResource(com.baidu.adp.c.adp_debug_refresh_press);
+            com.baidu.adp.lib.debug.c.b(0);
+            com.baidu.adp.lib.debug.c.c(0);
+            com.baidu.adp.lib.debug.c.g();
+        } else if (motionEvent.getAction() == 1) {
+            view.setBackgroundResource(com.baidu.adp.c.adp_debug_refresh);
         }
         return false;
     }

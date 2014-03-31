@@ -9,9 +9,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.view.HeadImageView;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 public class SettingTextImageView extends FrameLayout {
     private Context a;
@@ -24,7 +23,7 @@ public class SettingTextImageView extends FrameLayout {
         super(context, attributeSet);
         this.a = context;
         d();
-        TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, com.baidu.tieba.am.SettingView);
+        TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, com.baidu.tieba.a.m.TbSettingView);
         String string = obtainStyledAttributes.getString(0);
         int color = obtainStyledAttributes.getColor(1, -1);
         obtainStyledAttributes.recycle();
@@ -36,23 +35,23 @@ public class SettingTextImageView extends FrameLayout {
         }
         this.b.setClickable(false);
         this.b.setFocusable(false);
-        a(TiebaApplication.g().ae());
+        a(TbadkApplication.j().l());
     }
 
     public SettingTextImageView(Context context) {
         super(context);
         this.a = context;
         d();
-        a(TiebaApplication.g().ae());
+        a(TbadkApplication.j().l());
     }
 
     public final void a(int i) {
         if (i == 1) {
-            this.c.setTextColor(this.a.getResources().getColor(R.color.about_tip_color_1));
-            this.e.setImageResource(R.drawable.icon_arrow_right_1);
+            this.c.setTextColor(this.a.getResources().getColor(com.baidu.tieba.a.e.about_tip_color_1));
+            this.e.setImageResource(com.baidu.tieba.a.g.icon_arrow_right_1);
         } else {
-            this.c.setTextColor(this.a.getResources().getColor(R.color.about_tip_color));
-            this.e.setImageResource(R.drawable.icon_arrow_right);
+            this.c.setTextColor(this.a.getResources().getColor(com.baidu.tieba.a.e.about_tip_color));
+            this.e.setImageResource(com.baidu.tieba.a.g.icon_arrow_right);
         }
         this.d.invalidate();
     }
@@ -90,7 +89,7 @@ public class SettingTextImageView extends FrameLayout {
             this.d.setDefaultResource(0);
             this.d.setIsRound(true);
             this.d.setNightDefaultResource(0);
-            this.d.setImageBitmap(com.baidu.tieba.util.n.a((int) R.drawable.person_photo));
+            this.d.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.a.g.person_photo));
         }
     }
 
@@ -98,10 +97,10 @@ public class SettingTextImageView extends FrameLayout {
     }
 
     private void d() {
-        LayoutInflater.from(this.a).inflate(R.layout.setting_text_image_view, (ViewGroup) this, true);
-        this.b = (LinearLayout) findViewById(R.id.container);
-        this.c = (TextView) findViewById(R.id.text);
-        this.d = (HeadImageView) findViewById(R.id.icon);
-        this.e = (ImageView) findViewById(R.id.arrow);
+        LayoutInflater.from(this.a).inflate(com.baidu.tieba.a.i.setting_text_image_view, (ViewGroup) this, true);
+        this.b = (LinearLayout) findViewById(com.baidu.tieba.a.h.container);
+        this.c = (TextView) findViewById(com.baidu.tieba.a.h.text);
+        this.d = (HeadImageView) findViewById(com.baidu.tieba.a.h.icon);
+        this.e = (ImageView) findViewById(com.baidu.tieba.a.h.arrow);
     }
 }

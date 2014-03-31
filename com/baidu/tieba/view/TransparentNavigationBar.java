@@ -2,7 +2,7 @@ package com.baidu.tieba.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
 public class TransparentNavigationBar extends NavigationBar {
     public TransparentNavigationBar(Context context) {
@@ -17,12 +17,12 @@ public class TransparentNavigationBar extends NavigationBar {
         super(context, attributeSet, i);
     }
 
-    @Override // com.baidu.tieba.view.NavigationBar
+    @Override // com.baidu.tbadk.core.view.NavigationBar
     public final void b(int i) {
         if (i == 1) {
-            setBackgroundColor(getResources().getColor(R.color.navi_transparent_bg_1));
+            setBackgroundColor(getResources().getColor(com.baidu.tieba.a.e.navi_transparent_bg_1));
         } else {
-            setBackgroundColor(getResources().getColor(R.color.navi_transparent_bg));
+            setBackgroundColor(getResources().getColor(com.baidu.tieba.a.e.navi_transparent_bg));
         }
         a();
     }

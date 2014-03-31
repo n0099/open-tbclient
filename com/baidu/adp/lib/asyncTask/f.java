@@ -96,17 +96,17 @@ public final class f implements Executor {
         int size = this.g.size();
         if (size >= 5) {
             if (b) {
-                com.baidu.adp.lib.util.e.e(a().toString());
+                com.baidu.adp.lib.util.f.e(a().toString());
             }
         } else {
             j peek = this.f.peek();
             if (peek == null) {
                 if (b) {
-                    com.baidu.adp.lib.util.e.e(a().toString());
+                    com.baidu.adp.lib.util.f.e(a().toString());
                 }
             } else if (size >= 4 && peek.e() == 1) {
                 if (b) {
-                    com.baidu.adp.lib.util.e.e(a().toString());
+                    com.baidu.adp.lib.util.f.e(a().toString());
                 }
             } else {
                 k kVar = new k(this, this.g);
@@ -128,45 +128,60 @@ public final class f implements Executor {
                     }
                 }
                 if (b) {
-                    com.baidu.adp.lib.util.e.e(a().toString());
+                    com.baidu.adp.lib.util.f.e(a().toString());
                 }
             }
         }
     }
 
-    public final synchronized void a(int i) {
-        b(i);
-        a(this.g, false, i, null);
-        a(this.h, false, i, null);
+    public final synchronized LinkedList<BdAsyncTask<?, ?, ?>> a(int i) {
+        LinkedList<BdAsyncTask<?, ?, ?>> linkedList;
+        linkedList = new LinkedList<>();
+        linkedList.addAll(b(i));
+        linkedList.addAll(a(this.g, false, i));
+        linkedList.addAll(a(this.h, false, i));
         if (b) {
-            com.baidu.adp.lib.util.e.e(a().toString());
+            com.baidu.adp.lib.util.f.e(a().toString());
         }
+        return linkedList;
     }
 
-    public final synchronized void a(int i, String str) {
-        b(i, str);
-        a(this.g, false, i, str);
-        a(this.h, false, i, str);
+    public final synchronized LinkedList<BdAsyncTask<?, ?, ?>> a(int i, String str) {
+        LinkedList<BdAsyncTask<?, ?, ?>> linkedList;
+        linkedList = new LinkedList<>();
+        linkedList.addAll(b(i, str));
+        linkedList.addAll(a(this.g, false, i, str));
+        linkedList.addAll(a(this.h, false, i, str));
         if (b) {
-            com.baidu.adp.lib.util.e.e(a().toString());
+            com.baidu.adp.lib.util.f.e(a().toString());
         }
+        return linkedList;
     }
 
-    public final synchronized void b(int i) {
-        a(this.f, true, i, null);
+    public final synchronized LinkedList<BdAsyncTask<?, ?, ?>> b(int i) {
+        LinkedList<BdAsyncTask<?, ?, ?>> a2;
+        a2 = a(this.f, true, i, null);
         if (b) {
-            com.baidu.adp.lib.util.e.e(a().toString());
+            com.baidu.adp.lib.util.f.e(a().toString());
         }
+        return a2;
     }
 
-    public final synchronized void b(int i, String str) {
-        a(this.f, true, i, str);
+    public final synchronized LinkedList<BdAsyncTask<?, ?, ?>> b(int i, String str) {
+        LinkedList<BdAsyncTask<?, ?, ?>> a2;
+        a2 = a(this.f, true, i, str);
         if (b) {
-            com.baidu.adp.lib.util.e.e(a().toString());
+            com.baidu.adp.lib.util.f.e(a().toString());
         }
+        return a2;
     }
 
-    private static void a(LinkedList<j> linkedList, boolean z, int i, String str) {
+    private LinkedList<BdAsyncTask<?, ?, ?>> a(LinkedList<j> linkedList, boolean z, int i) {
+        return a(linkedList, z, i, null);
+    }
+
+    private static LinkedList<BdAsyncTask<?, ?, ?>> a(LinkedList<j> linkedList, boolean z, int i, String str) {
+        LinkedList<BdAsyncTask<?, ?, ?>> linkedList2 = new LinkedList<>();
         Iterator<j> it = linkedList.iterator();
         while (it.hasNext()) {
             j next = it.next();
@@ -177,8 +192,10 @@ public final class f implements Executor {
                     it.remove();
                 }
                 next.c();
+                linkedList2.add(next.d());
             }
         }
+        return linkedList2;
     }
 
     public final synchronized void a(BdAsyncTask<?, ?, ?> bdAsyncTask) {
@@ -194,7 +211,7 @@ public final class f implements Executor {
             }
         }
         if (b) {
-            com.baidu.adp.lib.util.e.e(a().toString());
+            com.baidu.adp.lib.util.f.e(a().toString());
         }
     }
 

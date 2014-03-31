@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class SearchBoxView extends RelativeLayout {
     private Activity a;
@@ -19,17 +18,14 @@ public class SearchBoxView extends RelativeLayout {
     private View.OnClickListener f;
     private View.OnClickListener g;
 
-    public static void a() {
-    }
-
     public SearchBoxView(Context context) {
         super(context);
         this.b = "sq_tb_search";
         this.c = null;
         this.d = null;
         this.e = null;
-        this.f = new cj(this);
-        this.g = new ck(this);
+        this.f = new x(this);
+        this.g = new y(this);
         a(context);
     }
 
@@ -39,8 +35,8 @@ public class SearchBoxView extends RelativeLayout {
         this.c = null;
         this.d = null;
         this.e = null;
-        this.f = new cj(this);
-        this.g = new ck(this);
+        this.f = new x(this);
+        this.g = new y(this);
         a(context);
     }
 
@@ -50,18 +46,18 @@ public class SearchBoxView extends RelativeLayout {
         this.c = null;
         this.d = null;
         this.e = null;
-        this.f = new cj(this);
-        this.g = new ck(this);
+        this.f = new x(this);
+        this.g = new y(this);
         a(context);
     }
 
     private void a(Context context) {
         this.a = (Activity) context;
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.widget_search_box, this);
-        this.c = (LinearLayout) findViewById(R.id.search_bg_layout);
-        this.d = (TextView) findViewById(R.id.search_bar_text);
+        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.a.i.widget_search_box, this);
+        this.c = (LinearLayout) findViewById(com.baidu.tieba.a.h.search_bg_layout);
+        this.d = (TextView) findViewById(com.baidu.tieba.a.h.search_bar_text);
         this.c.setOnClickListener(this.g);
-        this.e = (TextView) findViewById(R.id.search_from_qr);
+        this.e = (TextView) findViewById(com.baidu.tieba.a.h.search_from_qr);
         this.e.setOnClickListener(this.f);
     }
 
@@ -70,23 +66,23 @@ public class SearchBoxView extends RelativeLayout {
     }
 
     public final void a(int i) {
-        if (this.a instanceof com.baidu.tieba.f) {
-            com.baidu.tieba.f fVar = (com.baidu.tieba.f) this.a;
-            fVar.getLayoutMode().a(i == 1);
-            fVar.getLayoutMode().a(this);
+        if (this.a instanceof com.baidu.tbadk.a) {
+            com.baidu.tbadk.a aVar = (com.baidu.tbadk.a) this.a;
+            aVar.getLayoutMode().a(i == 1);
+            aVar.getLayoutMode().a(this);
         }
-        if (this.a instanceof com.baidu.tieba.k) {
-            com.baidu.tieba.k kVar = (com.baidu.tieba.k) this.a;
-            kVar.a().a(i == 1);
-            kVar.a().a(this);
+        if (this.a instanceof com.baidu.tbadk.core.e) {
+            com.baidu.tbadk.core.e eVar = (com.baidu.tbadk.core.e) this.a;
+            eVar.b().a(i == 1);
+            eVar.b().a(this);
         }
         if (i == 1) {
-            this.d.setHintTextColor(getResources().getColor(R.color.widget_searchbox_text_1));
-            setBackgroundColor(getResources().getColor(R.color.search_box_bg_1));
+            this.d.setHintTextColor(getResources().getColor(com.baidu.tieba.a.e.widget_searchbox_text_1));
+            setBackgroundColor(getResources().getColor(com.baidu.tieba.a.e.search_box_bg_1));
             return;
         }
-        this.d.setHintTextColor(getResources().getColor(R.color.widget_searchbox_text));
-        setBackgroundColor(getResources().getColor(R.color.search_box_bg));
+        this.d.setHintTextColor(getResources().getColor(com.baidu.tieba.a.e.widget_searchbox_text));
+        setBackgroundColor(getResources().getColor(com.baidu.tieba.a.e.search_box_bg));
     }
 
     @Override // android.view.View

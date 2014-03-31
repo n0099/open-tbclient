@@ -1,9 +1,9 @@
 package com.baidu.gson.stream;
 
-import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.gson.internal.JsonReaderInternalAccess;
 import com.baidu.gson.internal.bind.JsonTreeReader;
 import com.baidu.location.BDLocation;
+import com.baidu.tieba.person.PersonInfoActivity;
 import java.io.Closeable;
 import java.io.EOFException;
 import java.io.IOException;
@@ -226,7 +226,7 @@ public class JsonReader implements Closeable {
                     case 59:
                         checkLenient();
                         break;
-                    case SocialAPIErrorCodes.ERROR_INVALID_UPLOAD_FILE /* 125 */:
+                    case 125:
                         this.peeked = 2;
                         return 2;
                     default:
@@ -242,7 +242,7 @@ public class JsonReader implements Closeable {
                     checkLenient();
                     this.peeked = 12;
                     return 12;
-                case SocialAPIErrorCodes.ERROR_INVALID_UPLOAD_FILE /* 125 */:
+                case 125:
                     if (i != 5) {
                         this.peeked = 2;
                         return 2;
@@ -312,7 +312,7 @@ public class JsonReader implements Closeable {
                     return 4;
                 }
                 break;
-            case SocialAPIErrorCodes.ERROR_INVALID_BDUSS /* 123 */:
+            case 123:
                 this.peeked = 1;
                 return 1;
             default:
@@ -500,7 +500,7 @@ public class JsonReader implements Closeable {
                         return 0;
                     }
                 case 'E':
-                case SocialAPIErrorCodes.ERROR_INVALID_CLIENT_ID /* 101 */:
+                case PersonInfoActivity.REQUSET_CHANGE /* 101 */:
                     if (c2 == 2 || c2 == 4) {
                         c = 5;
                         z = z4;
@@ -578,8 +578,8 @@ public class JsonReader implements Closeable {
             case ':':
             case '[':
             case ']':
-            case SocialAPIErrorCodes.ERROR_INVALID_BDUSS /* 123 */:
-            case SocialAPIErrorCodes.ERROR_INVALID_UPLOAD_FILE /* 125 */:
+            case '{':
+            case '}':
                 break;
             default:
                 return true;
@@ -782,8 +782,8 @@ public class JsonReader implements Closeable {
                     case ':':
                     case '[':
                     case ']':
-                    case SocialAPIErrorCodes.ERROR_INVALID_BDUSS /* 123 */:
-                    case SocialAPIErrorCodes.ERROR_INVALID_UPLOAD_FILE /* 125 */:
+                    case '{':
+                    case '}':
                         break;
                     case '#':
                     case '/':
@@ -864,8 +864,8 @@ public class JsonReader implements Closeable {
                     case ':':
                     case '[':
                     case ']':
-                    case SocialAPIErrorCodes.ERROR_INVALID_BDUSS /* 123 */:
-                    case SocialAPIErrorCodes.ERROR_INVALID_UPLOAD_FILE /* 125 */:
+                    case '{':
+                    case '}':
                         this.pos = i + this.pos;
                         return;
                     case '#':
@@ -1139,15 +1139,15 @@ public class JsonReader implements Closeable {
                 return c;
             case 'b':
                 return '\b';
-            case SocialAPIErrorCodes.ERROR_INVALID_SESSION_KEY /* 102 */:
+            case PersonInfoActivity.REQUEST_MARK /* 102 */:
                 return '\f';
-            case SocialAPIErrorCodes.ERROR_MISS_ACCESS_TOKEN /* 110 */:
+            case 'n':
                 return '\n';
             case 'r':
                 return '\r';
-            case SocialAPIErrorCodes.ERROR_INVALID_GRANT_TYPE /* 116 */:
+            case 't':
                 return '\t';
-            case SocialAPIErrorCodes.ERROR_INVALID_MEDIA_TYPE /* 117 */:
+            case 'u':
                 if (this.pos + 4 > this.limit && !fillBuffer(4)) {
                     throw syntaxError("Unterminated escape sequence");
                 }

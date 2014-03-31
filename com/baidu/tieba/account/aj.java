@@ -1,29 +1,21 @@
 package com.baidu.tieba.account;
 
-import android.view.KeyEvent;
-import android.view.View;
-import android.widget.TextView;
+import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
-final class aj implements TextView.OnEditorActionListener {
-    final /* synthetic */ LoginActivity a;
+final class aj implements Runnable {
+    final /* synthetic */ ai a;
+    private final /* synthetic */ AccountData b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aj(LoginActivity loginActivity) {
-        this.a = loginActivity;
+    public aj(ai aiVar, AccountData accountData) {
+        this.a = aiVar;
+        this.b = accountData;
     }
 
-    @Override // android.widget.TextView.OnEditorActionListener
-    public final boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-        View view;
-        View view2;
-        view = this.a.B;
-        if (view.getVisibility() != 8 || i != 4) {
-            view2 = this.a.B;
-            if (view2.getVisibility() != 0 || i != 6) {
-                return false;
-            }
-        }
-        LoginActivity.t(this.a);
-        return true;
+    @Override // java.lang.Runnable
+    public final void run() {
+        SapiFastRegActivity sapiFastRegActivity;
+        sapiFastRegActivity = this.a.a;
+        SapiFastRegActivity.a(sapiFastRegActivity, this.b);
     }
 }

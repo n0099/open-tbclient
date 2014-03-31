@@ -1,7 +1,7 @@
 package com.baidu.tieba.write;
 
-import com.baidu.tieba.data.MetaData;
+import com.baidu.tbadk.core.data.MetaData;
 /* loaded from: classes.dex */
 public interface p {
-    void c(MetaData metaData);
+    void a(MetaData metaData);
 }

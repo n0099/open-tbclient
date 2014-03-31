@@ -1,20 +1,19 @@
 package com.baidu.tieba.im.chat;
 
-import android.content.DialogInterface;
+import com.baidu.tbadk.core.data.VoiceData;
 /* loaded from: classes.dex */
-final class dd implements DialogInterface.OnClickListener {
-    final /* synthetic */ cy a;
-    private final /* synthetic */ int b;
+final class dd implements w {
+    final /* synthetic */ PersonalChatActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dd(cy cyVar, int i) {
-        this.a = cyVar;
-        this.b = i;
+    public dd(PersonalChatActivity personalChatActivity) {
+        this.a = personalChatActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
-        dialogInterface.dismiss();
-        r0.e.a(this.b, this.a.j);
+    @Override // com.baidu.tieba.im.chat.w
+    public final void a(VoiceData.VoiceModel voiceModel) {
+        if (voiceModel != null) {
+            this.a.e.a(voiceModel.voiceId, voiceModel.duration);
+        }
     }
 }

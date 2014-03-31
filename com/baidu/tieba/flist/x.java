@@ -14,8 +14,8 @@ public final class x implements View.OnKeyListener {
 
     @Override // android.view.View.OnKeyListener
     public final boolean onKey(View view, int i, KeyEvent keyEvent) {
-        if (i == 4 && this.a.t.isShowing()) {
-            this.a.t.dismiss();
+        if (i == 4 && this.a.u.isShowing()) {
+            this.a.u.dismiss();
             return false;
         }
         return false;

@@ -1,21 +1,31 @@
 package com.baidu.tieba.mainentrance;
 
-import android.view.View;
-import android.widget.EditText;
-import com.baidu.tieba.util.UtilHelper;
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-final class m implements View.OnClickListener {
-    final /* synthetic */ SquareSearchActivity a;
+final class m implements DialogInterface.OnClickListener {
+    final /* synthetic */ l a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(SquareSearchActivity squareSearchActivity) {
-        this.a = squareSearchActivity;
+    public m(l lVar) {
+        this.a = lVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        EditText editText;
-        editText = this.a.c;
-        UtilHelper.i(this.a, editText.getText().toString().trim());
+    @Override // android.content.DialogInterface.OnClickListener
+    public final void onClick(DialogInterface dialogInterface, int i) {
+        SquareSearchActivity squareSearchActivity;
+        int i2;
+        SquareSearchActivity squareSearchActivity2;
+        SquareSearchActivity squareSearchActivity3;
+        squareSearchActivity = this.a.a;
+        i2 = squareSearchActivity.z;
+        if (i2 == 0) {
+            com.baidu.tieba.util.k.j();
+            squareSearchActivity3 = this.a.a;
+            squareSearchActivity3.c();
+            return;
+        }
+        com.baidu.tieba.util.k.k();
+        squareSearchActivity2 = this.a.a;
+        squareSearchActivity2.d();
     }
 }

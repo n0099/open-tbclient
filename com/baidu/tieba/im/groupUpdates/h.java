@@ -1,34 +1,58 @@
 package com.baidu.tieba.im.groupUpdates;
 
 import android.view.View;
-import android.widget.ImageView;
-import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
-public final class h implements View.OnClickListener {
-    final /* synthetic */ f a;
+public final class h extends BaseAdapter {
+    private UpdatesActivity a;
+    private List<UpdatesItemData> b = new ArrayList();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public h(f fVar) {
-        this.a = fVar;
+    public h(UpdatesActivity updatesActivity) {
+        this.a = updatesActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        UpdatesActivity updatesActivity;
-        UpdatesActivity updatesActivity2;
-        UpdatesItemData updatesItemData;
-        ImageView imageView;
-        View unused;
-        updatesActivity = this.a.l;
-        if (updatesActivity.b()) {
-            imageView = this.a.i;
-            imageView.performClick();
-            return;
+    public final void a() {
+        this.a = null;
+    }
+
+    public final void a(List<UpdatesItemData> list) {
+        if (list != null) {
+            this.b = list;
+            com.baidu.adp.lib.util.f.e("size:" + this.b.size());
+            notifyDataSetChanged();
         }
-        updatesActivity2 = this.a.l;
-        unused = this.a.c;
-        updatesItemData = this.a.m;
-        updatesActivity2.a(SocialAPIErrorCodes.ERROR_INVALID_CLIENT_ID, updatesItemData);
+    }
+
+    @Override // android.widget.Adapter
+    public final int getCount() {
+        if (this.b == null) {
+            return 0;
+        }
+        return this.b.size();
+    }
+
+    @Override // android.widget.Adapter
+    public final View getView(int i, View view, ViewGroup viewGroup) {
+        i iVar = null;
+        if (view != null) {
+            iVar = (i) view.getTag();
+        }
+        i iVar2 = iVar == null ? new i(this.a) : iVar;
+        iVar2.a(this.b.get(i));
+        iVar2.d();
+        return iVar2.a();
+    }
+
+    @Override // android.widget.Adapter
+    public final Object getItem(int i) {
+        return this.b.get(i);
+    }
+
+    @Override // android.widget.Adapter
+    public final long getItemId(int i) {
+        return i;
     }
 }

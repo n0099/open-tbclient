@@ -1,16 +1,25 @@
 package com.baidu.tieba.im.frsgroup;
 
-import android.content.DialogInterface;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
-final class p implements DialogInterface.OnClickListener {
-    final /* synthetic */ MembersActivity a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public p(MembersActivity membersActivity) {
-        this.a = membersActivity;
-    }
-
-    @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
-    }
+final class p {
+    LinearLayout a;
+    LinearLayout b;
+    HeadImageView c;
+    TextView d;
+    TextView e;
+    TextView f;
+    TextView g;
+    ImageView h;
+    ImageView i;
+    ImageView j;
+    ImageView[] k;
+    LinearLayout l;
+    TextView m;
+    ProgressBar n;
+    ImageView o;
 }

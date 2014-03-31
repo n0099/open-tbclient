@@ -10,7 +10,6 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import com.baidu.android.common.util.CommonParam;
-import com.baidu.cloudsdk.social.core.SocialConstants;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -35,7 +34,7 @@ public final class d {
     private String h = "";
     private String l = "xcloud";
     private String n = "app_moblie_txt";
-    private String o = SocialConstants.TRUE;
+    private String o = "1";
 
     private d(Context context) {
         b(context);
@@ -70,7 +69,7 @@ public final class d {
         stringBuffer.append("_");
         stringBuffer.append(i2);
         stringBuffer.append("_");
-        stringBuffer.append(SocialConstants.ANDROID_CLIENT_TYPE);
+        stringBuffer.append("android");
         stringBuffer.append("_");
         stringBuffer.append(this.d);
         stringBuffer.append("_");
@@ -203,7 +202,7 @@ public final class d {
         stringBuffer2.append("ver=" + b(String.valueOf(this.e)));
         stringBuffer2.append("&");
         if (z) {
-            stringBuffer2.append("vfrom=" + b(SocialConstants.TRUE));
+            stringBuffer2.append("vfrom=" + b("1"));
             stringBuffer2.append("&");
         }
         stringBuffer2.append("pu=" + b8);

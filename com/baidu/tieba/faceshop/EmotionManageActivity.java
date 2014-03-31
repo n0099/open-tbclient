@@ -12,21 +12,19 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bq;
-import com.baidu.tieba.view.NavigationBar;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.view.NavigationBar;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class EmotionManageActivity extends com.baidu.tieba.f implements com.baidu.tieba.im.messageCenter.g {
-    private List<e> a;
-    private f c;
-    private c d;
+public class EmotionManageActivity extends com.baidu.tbadk.a {
+    private List<s> a;
+    private t c;
+    private q d;
     private LinearLayout e;
     private NavigationBar f;
-    private ImageView g;
+    private View g;
     private TextView h;
     private TextView i;
     private TextView j;
@@ -34,53 +32,53 @@ public class EmotionManageActivity extends com.baidu.tieba.f implements com.baid
     private BdListView l;
     private TextView m;
     private View n;
-    private d o;
-    private List<String> b = new LinkedList();
+    private r o;
+    private final List<String> b = new LinkedList();
     private boolean p = false;
-    private View.OnClickListener q = new a(this);
-    private AdapterView.OnItemClickListener r = new b(this);
+    private final View.OnClickListener q = new n(this);
+    private final AdapterView.OnItemClickListener r = new o(this);
+    private final com.baidu.adp.framework.c.a s = new p(this, 0);
 
     public static void a(Context context) {
         context.startActivity(new Intent(context, EmotionManageActivity.class));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(R.layout.activity_emotion_manage);
-        this.e = (LinearLayout) findViewById(R.id.emotion_manage_root);
-        this.f = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.f.a(R.string.title_activity_emotion_manage);
+        setContentView(com.baidu.tieba.a.i.activity_emotion_manage);
+        this.e = (LinearLayout) findViewById(com.baidu.tieba.a.h.emotion_manage_root);
+        this.f = (NavigationBar) findViewById(com.baidu.tieba.a.h.view_navigation_bar);
+        this.f.a(com.baidu.tieba.a.k.title_activity_emotion_manage);
         this.g = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.h = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, String.valueOf(getString(R.string.delete)) + "(" + this.b.size() + ")", this.q);
+        this.h = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, String.valueOf(getString(com.baidu.tieba.a.k.delete)) + "(" + this.b.size() + ")", this.q);
         c();
-        this.i = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.edit), this.q);
-        this.j = (TextView) findViewById(R.id.emotion_manager_title);
-        this.k = (ImageView) findViewById(R.id.emotion_manage_enter_line_list_up);
-        this.l = (BdListView) findViewById(R.id.emotion_manage_list);
+        this.i = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(com.baidu.tieba.a.k.edit), this.q);
+        this.j = (TextView) findViewById(com.baidu.tieba.a.h.emotion_manager_title);
+        this.k = (ImageView) findViewById(com.baidu.tieba.a.h.emotion_manage_enter_line_list_up);
+        this.l = (BdListView) findViewById(com.baidu.tieba.a.h.emotion_manage_list);
         this.l.setOnItemClickListener(this.r);
-        this.n = LayoutInflater.from(this).inflate(R.layout.emotion_manage_list_footer, (ViewGroup) null);
+        this.n = LayoutInflater.from(this).inflate(com.baidu.tieba.a.i.emotion_manage_list_footer, (ViewGroup) null);
         this.l.addFooterView(this.n);
-        this.m = (TextView) this.n.findViewById(R.id.emotion_manage_enter_record);
+        this.m = (TextView) this.n.findViewById(com.baidu.tieba.a.h.emotion_manage_enter_record);
         this.m.setOnClickListener(this.q);
-        getLayoutMode().a(TiebaApplication.g().ae() == 1);
+        getLayoutMode().a(TbadkApplication.j().l() == 1);
         getLayoutMode().a(this.e);
         getLayoutMode().a(this.n);
         b();
-        com.baidu.tieba.im.messageCenter.d.a().a(-120, this);
-        this.c = new f(this, (byte) 0);
+        registerListener(2001120, this.s);
+        this.c = new t(this, (byte) 0);
         this.c.execute(new String[0]);
-        this.o = new d(this, (byte) 0);
+        this.o = new r(this, (byte) 0);
         this.l.setAdapter((ListAdapter) this.o);
         a(true);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        com.baidu.tieba.im.messageCenter.d.a().a(this);
         if (this.d != null) {
             this.d.cancel(true);
             this.d = null;
@@ -88,11 +86,11 @@ public class EmotionManageActivity extends com.baidu.tieba.f implements com.baid
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f
+    @Override // com.baidu.tbadk.a
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.f.b(i);
-        bq.f((View) this.h, (int) R.drawable.navi_del_text_bg);
+        com.baidu.tbadk.core.util.ba.f((View) this.h, com.baidu.tieba.a.g.navi_del_text_bg);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -102,7 +100,7 @@ public class EmotionManageActivity extends com.baidu.tieba.f implements com.baid
             this.b.clear();
         } else {
             for (String str : this.b) {
-                Iterator<e> it = this.a.iterator();
+                Iterator<s> it = this.a.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z2 = false;
@@ -126,13 +124,13 @@ public class EmotionManageActivity extends com.baidu.tieba.f implements com.baid
     public void a() {
         if (this.a != null) {
             if (this.a.size() == 0) {
-                this.j.setText(R.string.emotion_manage_title_nodata);
+                this.j.setText(com.baidu.tieba.a.k.emotion_manage_title_nodata);
                 this.i.setEnabled(false);
                 this.k.setVisibility(8);
                 b();
                 return;
             }
-            this.j.setText(R.string.emotion_manage_title);
+            this.j.setText(com.baidu.tieba.a.k.emotion_manage_title);
             this.i.setEnabled(true);
             this.k.setVisibility(0);
         }
@@ -158,7 +156,7 @@ public class EmotionManageActivity extends com.baidu.tieba.f implements com.baid
         emotionManageActivity.g.setVisibility(8);
         emotionManageActivity.h.setVisibility(0);
         emotionManageActivity.c();
-        emotionManageActivity.i.setText(emotionManageActivity.getString(R.string.cancel));
+        emotionManageActivity.i.setText(emotionManageActivity.getString(com.baidu.tieba.a.k.cancel));
         emotionManageActivity.p = true;
         emotionManageActivity.n.setVisibility(8);
     }
@@ -167,36 +165,36 @@ public class EmotionManageActivity extends com.baidu.tieba.f implements com.baid
     public void b() {
         this.g.setVisibility(0);
         this.h.setVisibility(8);
-        this.i.setText(getString(R.string.edit));
+        this.i.setText(getString(com.baidu.tieba.a.k.edit));
         this.p = false;
         this.n.setVisibility(0);
     }
 
     private void c() {
         int size = this.b.size();
-        int ae = TiebaApplication.g().ae();
-        this.h.setText(String.valueOf(getString(R.string.delete)) + "(" + size + ")");
+        int l = TbadkApplication.j().l();
+        this.h.setText(String.valueOf(getString(com.baidu.tieba.a.k.delete)) + "(" + size + ")");
         if (size == 0) {
             this.h.setEnabled(false);
-            if (ae == 1) {
-                this.h.setTextColor(getResources().getColor(R.color.emotion_manage_del_disable_1));
+            if (l == 1) {
+                this.h.setTextColor(getResources().getColor(com.baidu.tieba.a.e.emotion_manage_del_disable_1));
                 return;
             } else {
-                this.h.setTextColor(getResources().getColor(R.color.emotion_manage_del_disable));
+                this.h.setTextColor(getResources().getColor(com.baidu.tieba.a.e.emotion_manage_del_disable));
                 return;
             }
         }
         this.h.setEnabled(true);
-        if (ae == 1) {
-            this.h.setTextColor(getResources().getColor(R.color.emotion_manage_del_enable_1));
+        if (l == 1) {
+            this.h.setTextColor(getResources().getColor(com.baidu.tieba.a.e.emotion_manage_del_enable_1));
         } else {
-            this.h.setTextColor(getResources().getColor(R.color.emotion_manage_del_enable));
+            this.h.setTextColor(getResources().getColor(com.baidu.tieba.a.e.emotion_manage_del_enable));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void b(EmotionManageActivity emotionManageActivity) {
-        emotionManageActivity.d = new c(emotionManageActivity, (byte) 0);
+        emotionManageActivity.d = new q(emotionManageActivity, (byte) 0);
         emotionManageActivity.d.execute(emotionManageActivity.b);
     }
 
@@ -210,13 +208,5 @@ public class EmotionManageActivity extends com.baidu.tieba.f implements com.baid
             return;
         }
         super.onBackPressed();
-    }
-
-    @Override // com.baidu.tieba.im.messageCenter.g
-    public final void a(com.baidu.tieba.im.message.s sVar) {
-        if (sVar.v() == -120) {
-            this.c = new f(this, (byte) 0);
-            this.c.execute(new String[0]);
-        }
     }
 }

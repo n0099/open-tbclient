@@ -13,6 +13,6 @@ public final class b implements DialogInterface.OnClickListener {
 
     @Override // android.content.DialogInterface.OnClickListener
     public final void onClick(DialogInterface dialogInterface, int i) {
-        dialogInterface.dismiss();
+        this.a.finish();
     }
 }

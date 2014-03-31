@@ -2,17 +2,16 @@ package com.baidu.tieba.im.updategroup;
 
 import android.text.InputFilter;
 import android.widget.ImageButton;
-import com.baidu.tieba.im.util.o;
-import com.slidingmenu.lib.R;
+import com.baidu.tieba.im.f.r;
 /* loaded from: classes.dex */
 public final class f extends g {
     public f(UpdateGroupActivity updateGroupActivity) {
         super(updateGroupActivity);
-        c(R.layout.update_group_name_activity);
-        d(R.string.group_update_name);
-        this.g = (ImageButton) updateGroupActivity.findViewById(R.id.button_del);
+        c(com.baidu.tieba.im.i.update_group_name_activity);
+        d(com.baidu.tieba.im.j.group_update_name);
+        this.g = (ImageButton) updateGroupActivity.findViewById(com.baidu.tieba.im.h.button_del);
         this.g.setOnClickListener(updateGroupActivity);
-        this.c.setFilters(new InputFilter[]{new com.baidu.tieba.im.util.a(20)});
+        this.c.setFilters(new InputFilter[]{new com.baidu.tieba.im.f.a(20)});
     }
 
     @Override // com.baidu.tieba.im.updategroup.g
@@ -27,11 +26,11 @@ public final class f extends g {
 
     @Override // com.baidu.tieba.im.updategroup.a
     public final void g() {
-        a(this.c.length(), o.a(this.c), 2, 20);
+        a(this.c.length(), r.a(this.c), 2, 20);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
     public final int j() {
-        return R.string.group_step_name_error;
+        return com.baidu.tieba.im.j.group_step_name_error;
     }
 }

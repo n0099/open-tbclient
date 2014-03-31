@@ -1,9 +1,8 @@
 package com.baidu.tbadk.widget.richText;
 
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class n implements View.OnClickListener {
+final class n implements View.OnClickListener {
     final /* synthetic */ TbRichTextView a;
     private final /* synthetic */ c b;
 

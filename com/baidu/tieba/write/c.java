@@ -3,8 +3,6 @@ package com.baidu.tieba.write;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.util.ch;
-import com.baidu.tieba.util.cj;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class c implements com.baidu.tbadk.imageManager.d {
@@ -30,6 +28,6 @@ public final class c implements com.baidu.tbadk.imageManager.d {
         }
         atListActivity2 = this.a.a;
         atSelectFriendList = atListActivity2.e;
-        ch.a((ViewGroup) atSelectFriendList, false, (cj) new d(this, str, bVar));
+        com.baidu.tbadk.core.util.bn.a((ViewGroup) atSelectFriendList, false, (com.baidu.tbadk.core.util.bp) new d(this, str, bVar));
     }
 }

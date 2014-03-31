@@ -1,35 +1,26 @@
 package com.baidu.tieba.more;
 
 import android.content.DialogInterface;
-import com.baidu.tieba.util.bv;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class y implements DialogInterface.OnClickListener {
-    final /* synthetic */ v a;
+    final /* synthetic */ w a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public y(v vVar) {
-        this.a = vVar;
+    public y(w wVar) {
+        this.a = wVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public final void onClick(DialogInterface dialogInterface, int i) {
-        switch (i) {
-            case 0:
-                com.baidu.tieba.h.a.a().b(0);
-                break;
-            case 1:
-                com.baidu.tieba.h.a.a().b(1);
-                break;
-            case 2:
-                com.baidu.tieba.h.a.a().b(2);
-                break;
-            case 3:
-                com.baidu.tieba.h.a.a().b(3);
-                break;
+        p pVar;
+        p pVar2;
+        if (i == 0) {
+            pVar2 = this.a.c;
+            pVar2.a(11);
+            return;
         }
-        this.a.q();
-        this.a.m();
-        bv.a().h();
+        pVar = this.a.c;
+        pVar.a(12);
     }
 }

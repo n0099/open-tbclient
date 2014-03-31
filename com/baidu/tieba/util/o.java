@@ -1,128 +1,45 @@
 package com.baidu.tieba.util;
+
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o {
-    private static Object m = new Object();
-    private static o n;
-    private com.baidu.tieba.data.c g;
-    private int h;
-    private int i;
-    private int j;
-    private int k;
-    private final int a = 2;
-    private final int b = 10;
-    private final int c = 0;
-    private final int d = 1;
-    private final int e = 2;
-    private final int f = 3;
-    private q l = new q(this, (byte) 0);
+public final class o extends BdAsyncTask<String, String, WriteData> {
+    private final n a;
+    private final String b;
 
-    public static o a() {
-        if (n == null) {
-            synchronized (o.class) {
-                if (n == null) {
-                    n = new o();
-                }
-            }
-        }
-        return n;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* bridge */ /* synthetic */ WriteData a(String... strArr) {
+        return a();
     }
 
-    private o() {
-    }
-
-    public final com.baidu.tieba.data.c b() {
-        return this.g;
-    }
-
-    public final void a(com.baidu.tieba.data.c cVar) {
-        synchronized (m) {
-            this.g = cVar;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* bridge */ /* synthetic */ void a(WriteData writeData) {
+        WriteData writeData2 = writeData;
+        super.a((o) writeData2);
+        if (this.a != null) {
+            this.a.a(writeData2);
         }
     }
 
-    public final void a(int i) {
-        int i2;
-        int i3;
-        int i4;
-        int i5;
-        String qVar;
-        int i6 = 0;
-        if (this.g != null && this.g.a()) {
-            synchronized (m) {
-                this.j++;
-                this.i++;
-                q qVar2 = this.l;
-                if (qVar2.a.length() != 0) {
-                    qVar2.a.append(",");
-                }
-                qVar2.a.append(i);
-                i2 = this.j;
-                i3 = this.i;
-                i4 = this.h;
-                i5 = this.h != 0 ? this.k / this.h : 0;
-                qVar = this.l.toString();
-                if (this.j >= this.g.b() && this.j >= 10) {
-                    if (this.i >= this.g.e() && this.h >= this.g.c()) {
-                        i6 = 1;
-                    } else if (this.i >= this.g.e()) {
-                        i6 = 2;
-                    } else if (this.h >= this.g.c()) {
-                        i6 = 3;
-                    }
-                    c();
-                }
-            }
-            a(i6, i2, i3, qVar, i4, i5);
-        }
+    public o(String str, n nVar) {
+        setPriority(3);
+        this.a = nVar;
+        this.b = str;
     }
 
-    public final void a(long j) {
-        int i;
-        int i2;
-        int i3;
-        int i4;
-        String qVar;
-        int i5 = 0;
-        if (this.g != null && this.g.a()) {
-            synchronized (m) {
-                this.j++;
-                if (j >= this.g.d()) {
-                    this.h++;
-                    this.k = (int) (this.k + j);
-                }
-                i = this.j;
-                i2 = this.i;
-                i3 = this.h;
-                i4 = this.h != 0 ? this.k / this.h : 0;
-                qVar = this.l.toString();
-                if (this.j >= this.g.b() && this.j >= 10) {
-                    if (this.i >= this.g.e() && this.h >= this.g.c()) {
-                        i5 = 1;
-                    } else if (this.i >= this.g.e()) {
-                        i5 = 2;
-                    } else if (this.h >= this.g.c()) {
-                        i5 = 3;
-                    }
-                    c();
-                }
-            }
-            a(i5, i, i2, qVar, i3, i4);
+    private WriteData a() {
+        String str;
+        try {
+            str = com.baidu.tbadk.core.c.b.a().d().a(this.b);
+        } catch (Exception e) {
+            str = null;
         }
-    }
-
-    private void a(int i, int i2, int i3, String str, int i4, int i5) {
-        if (this.g != null && this.g.a() && i != 0) {
-            p pVar = new p(this, i, i2, i3, str, i4, new StringBuilder(String.valueOf(i5)).toString());
-            pVar.setParallelTag(2);
-            pVar.execute(new Object[0]);
-        }
-    }
-
-    private void c() {
-        this.j = 0;
-        this.h = 0;
-        this.i = 0;
-        this.k = 0;
-        this.l.a.setLength(0);
+        return WriteData.fromDraftString(str);
     }
 }

@@ -1,23 +1,32 @@
 package com.baidu.tieba.editortool;
+
+import android.view.View;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.browser.TbWebViewActivity;
+import com.baidu.tieba.data.BubbleListData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class e implements com.baidu.tieba.voice.p {
-    final /* synthetic */ EditorToolComponetContainer a;
-    private final /* synthetic */ aa b;
+public final class e implements View.OnClickListener {
+    final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(EditorToolComponetContainer editorToolComponetContainer, aa aaVar) {
-        this.a = editorToolComponetContainer;
-        this.b = aaVar;
+    public e(a aVar) {
+        this.a = aVar;
     }
 
-    @Override // com.baidu.tieba.voice.p
-    public final void a() {
-        this.b.a(14, null);
-    }
-
-    @Override // com.baidu.tieba.voice.p
-    public final void b() {
-        this.b.a(15, null);
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        if (view instanceof com.baidu.tieba.view.a) {
+            BubbleListData.BubbleData bubbleData = this.a.b.getB_info().get(((Integer) view.getTag()).intValue());
+            if (bubbleData != null) {
+                if (bubbleData.getBcode() == 0 || bubbleData.canUse() || bubbleData.isFree()) {
+                    com.baidu.tieba.model.f fVar = this.a.a;
+                    com.baidu.tieba.model.f.a(bubbleData.getBcode(), com.baidu.adp.lib.util.i.b(this.a.d), com.baidu.adp.lib.util.i.c(this.a.d));
+                    this.a.a.a(bubbleData.getBcode());
+                    return;
+                }
+                TbWebViewActivity.a(this.a.d, TbadkApplication.j().getString(com.baidu.tieba.a.k.web_title_bubble_purchase), String.valueOf(com.baidu.tieba.data.d.a) + "mo/q/tbeantshow?_client_version=" + com.baidu.tbadk.core.data.n.c());
+            }
+        }
     }
 }

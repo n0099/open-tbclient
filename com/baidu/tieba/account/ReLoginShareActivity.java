@@ -14,16 +14,15 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.tieba.GuideActivity;
-import com.baidu.tieba.TiebaApplication;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.UpdateDialog;
-import com.baidu.tieba.data.AccountData;
-import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.view.NavigationBar;
-import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class ReLoginShareActivity extends com.baidu.tieba.f {
+public class ReLoginShareActivity extends com.baidu.tbadk.a {
     private static Activity l = null;
     private NavigationBar k;
     private Button b = null;
@@ -33,40 +32,36 @@ public class ReLoginShareActivity extends com.baidu.tieba.f {
     private String f = null;
     private String g = null;
     private String h = null;
-    private y i = null;
+    private com.baidu.tbadk.coreExtra.view.p i = null;
     LinearLayout a = null;
     private boolean j = false;
-    private View.OnClickListener m = new bc(this);
-    private az n = new bd(this);
+    private final View.OnClickListener m = new v(this);
+    private final com.baidu.tbadk.core.a.u n = new w(this);
 
-    public static void a(Activity activity, String str, String str2, String str3, int i) {
-        Intent intent = new Intent(activity, ReLoginShareActivity.class);
-        l = activity;
-        intent.putExtra("user_name", str);
-        intent.putExtra("bduss", str2);
-        intent.putExtra(SapiAccountManager.SESSION_PTOKEN, str3);
-        intent.putExtra("locate_type", i);
-        activity.startActivity(intent);
+    static {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2001002, new u());
+        customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        com.baidu.adp.framework.c.a().a(customMessageTask);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(R.layout.relogin_activity);
+        setContentView(com.baidu.tieba.a.i.relogin_activity);
         Intent intent = getIntent();
         this.f = intent.getStringExtra("user_name");
         this.g = intent.getStringExtra("bduss");
-        this.h = intent.getStringExtra(SapiAccountManager.SESSION_PTOKEN);
-        this.k = (NavigationBar) findViewById(R.id.view_navigation_bar);
+        this.h = intent.getStringExtra("ptoken");
+        this.k = (NavigationBar) findViewById(com.baidu.tieba.a.h.view_navigation_bar);
         this.k.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.b = (Button) findViewById(R.id.relogin_retry_button);
+        this.b = (Button) findViewById(com.baidu.tieba.a.h.relogin_retry_button);
         this.b.setOnClickListener(this.m);
-        this.c = (Button) findViewById(R.id.relogin_cacel_button);
+        this.c = (Button) findViewById(com.baidu.tieba.a.h.relogin_cacel_button);
         this.c.setOnClickListener(this.m);
-        this.e = (ProgressBar) findViewById(R.id.relogin_progressbar);
-        this.d = (TextView) findViewById(R.id.relogin_textview);
-        this.a = (LinearLayout) findViewById(R.id.container);
+        this.e = (ProgressBar) findViewById(com.baidu.tieba.a.h.relogin_progressbar);
+        this.d = (TextView) findViewById(com.baidu.tieba.a.h.relogin_textview);
+        this.a = (LinearLayout) findViewById(com.baidu.tieba.a.h.container);
         a();
     }
 
@@ -75,7 +70,7 @@ public class ReLoginShareActivity extends com.baidu.tieba.f {
         super.onRestoreInstanceState(bundle);
         this.f = bundle.getString("user_name");
         this.g = bundle.getString("bduss");
-        this.h = bundle.getString(SapiAccountManager.SESSION_PTOKEN);
+        this.h = bundle.getString("ptoken");
     }
 
     @Override // android.app.Activity
@@ -83,18 +78,18 @@ public class ReLoginShareActivity extends com.baidu.tieba.f {
         super.onSaveInstanceState(bundle);
         bundle.putString("user_name", this.f);
         bundle.putString("bduss", this.g);
-        bundle.putString(SapiAccountManager.SESSION_PTOKEN, this.h);
+        bundle.putString("ptoken", this.h);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f
+    @Override // com.baidu.tbadk.a
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         a(0, this.f, null);
         this.k.b(i);
-        com.baidu.tieba.util.bq.a((TextView) this.c, i);
-        com.baidu.tieba.util.bq.a(this.a, i);
-        com.baidu.tieba.util.bq.b(this.d, i);
+        ba.a((TextView) this.c, i);
+        ba.a(this.a, i);
+        ba.b(this.d, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -107,8 +102,8 @@ public class ReLoginShareActivity extends com.baidu.tieba.f {
             case 0:
                 this.b.setVisibility(8);
                 this.e.setVisibility(0);
-                String string = getString(R.string.relogin_statement);
-                int indexOf = string.indexOf(63);
+                String string = getString(com.baidu.tieba.a.k.relogin_statement);
+                int indexOf = string.indexOf("?");
                 String replace = string.replace("?", str);
                 this.d.setTextSize(2, 16.0f);
                 if (str.length() <= 0) {
@@ -122,7 +117,7 @@ public class ReLoginShareActivity extends com.baidu.tieba.f {
             case 1:
                 this.b.setVisibility(0);
                 this.e.setVisibility(8);
-                String string2 = getString(R.string.relogin_fail);
+                String string2 = getString(com.baidu.tieba.a.k.relogin_fail);
                 this.d.setTextSize(2, 16.0f);
                 if (str.length() <= 0) {
                     this.d.setText(string2);
@@ -131,7 +126,7 @@ public class ReLoginShareActivity extends com.baidu.tieba.f {
                 SpannableString spannableString2 = new SpannableString(String.valueOf(str2) + str);
                 int length = (String.valueOf(string2) + "\n\n").length();
                 if (this.mSkinType == 1) {
-                    spannableString2.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.skin_1_common_color)), 0, length, 33);
+                    spannableString2.setSpan(new ForegroundColorSpan(getResources().getColor(com.baidu.tieba.a.e.skin_1_common_color)), 0, length, 33);
                 }
                 spannableString2.setSpan(new ForegroundColorSpan(Color.rgb((int) MotionEventCompat.ACTION_MASK, 47, 47)), length, str.length() + length, 33);
                 spannableString2.setSpan(new RelativeSizeSpan(0.9f), length, str.length() + length, 33);
@@ -139,9 +134,9 @@ public class ReLoginShareActivity extends com.baidu.tieba.f {
                 return;
             case 2:
                 if (this.i == null) {
-                    this.i = new y(this);
-                    this.i.a(new be(this));
-                    this.i.b(new bf(this));
+                    this.i = new com.baidu.tbadk.coreExtra.view.p(this);
+                    this.i.a(new x(this));
+                    this.i.b(new y(this));
                 }
                 this.i.e();
                 this.i.a("");
@@ -156,9 +151,9 @@ public class ReLoginShareActivity extends com.baidu.tieba.f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void c(ReLoginShareActivity reLoginShareActivity) {
-        if (!TextUtils.isEmpty(TiebaApplication.v())) {
-            DatabaseService.i();
-            TiebaApplication.a((AccountData) null, reLoginShareActivity.getBaseContext());
+        if (!TextUtils.isEmpty(TbadkApplication.E())) {
+            com.baidu.tbadk.core.a.o.a();
+            TbadkApplication.a((AccountData) null, reLoginShareActivity.getBaseContext());
         }
         reLoginShareActivity.finish();
     }
@@ -167,34 +162,33 @@ public class ReLoginShareActivity extends com.baidu.tieba.f {
     public void a() {
         if (this.g != null && this.h != null) {
             this.j = false;
-            new ba(this.f, this.g, this.h, this.n, true, true).execute(new String[0]);
+            com.baidu.tbadk.core.a.t.b(this.f, this.g, this.h, this.n, true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void a(ReLoginShareActivity reLoginShareActivity, AccountData accountData) {
         if (!reLoginShareActivity.j) {
-            DatabaseService.a(accountData);
-            TiebaApplication.a(accountData, reLoginShareActivity.getBaseContext());
+            com.baidu.tbadk.core.a.o.a(accountData);
+            TbadkApplication.a(accountData, reLoginShareActivity.getBaseContext());
         }
-        TiebaApplication.g();
-        TiebaApplication.u();
+        TbadkApplication.j();
+        TbadkApplication.M();
         if (l != null) {
             l.finish();
         }
-        if (TiebaApplication.g().ax()) {
-            GuideActivity.a(reLoginShareActivity, "from_logo_page");
+        if (TbadkApplication.j().T()) {
+            reLoginShareActivity.sendMessage(new com.baidu.adp.framework.message.a(2015000, new com.baidu.tbadk.core.b.p(reLoginShareActivity).a("from_logo_page")));
         } else {
             int intExtra = reLoginShareActivity.getIntent().getIntExtra("locate_type", -1);
-            com.baidu.tieba.mention.v.a().j();
-            com.baidu.tieba.mention.v.a().h();
-            if (com.baidu.tieba.mainentrance.d.a() == null) {
-                com.baidu.tieba.mainentrance.d.a(new com.baidu.tieba.mainentrance.e());
-            }
-            com.baidu.tieba.mainentrance.d.a(reLoginShareActivity, intExtra, false);
+            com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2006001, "stop"));
+            com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2006001, "start"));
+            com.baidu.adp.framework.c.a().a(new CustomResponsedMessage(2007005, null));
+            com.baidu.tbadk.core.d.b.a(reLoginShareActivity, intExtra, false);
         }
-        if (TiebaApplication.g().aj() && TiebaApplication.g().al() != null) {
-            UpdateDialog.a(TiebaApplication.g().b(), TiebaApplication.g().al(), TiebaApplication.g().ak());
+        if (com.baidu.tieba.r.c().z() && com.baidu.tieba.r.c().B() != null) {
+            com.baidu.tieba.r.c();
+            UpdateDialog.a(com.baidu.tieba.r.d(), com.baidu.tieba.r.c().B(), com.baidu.tieba.r.c().A());
         }
         reLoginShareActivity.finish();
     }

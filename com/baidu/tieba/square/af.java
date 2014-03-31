@@ -44,7 +44,7 @@ public final class af {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.e.b(getClass().getName(), "parseForumListRecommendData", e.toString());
+                com.baidu.adp.lib.util.f.b(getClass().getName(), "parseForumListRecommendData", e.toString());
             }
         }
     }

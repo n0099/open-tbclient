@@ -1,7 +1,7 @@
 package protobuf.QueryUserInfos;
 
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
-import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
+import com.baidu.tieba.person.PersonInfoActivity;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.CodedOutputStream;
@@ -424,15 +424,15 @@ public final class QueryUserInfosRes {
                                 this.bitField0_ |= 2048;
                                 this.isCoreuser_ = codedInputStream.readInt32();
                                 break;
-                            case SocialAPIErrorCodes.ERROR_INVALID_SIGNATURE /* 104 */:
+                            case PersonInfoActivity.REQUSET_MY_MENTION /* 104 */:
                                 this.bitField0_ |= 4096;
                                 this.superboy_ = codedInputStream.readInt32();
                                 break;
-                            case SocialAPIErrorCodes.ERROR_EXPIRED_SESSION_KEY /* 112 */:
+                            case 112:
                                 this.bitField0_ |= 8192;
                                 this.isInterestman_ = codedInputStream.readInt32();
                                 break;
-                            case SocialAPIErrorCodes.ERROR_SESSION_EXPIRED /* 122 */:
+                            case 122:
                                 if (!(z2 & true)) {
                                     this.iconInfo_ = new ArrayList();
                                     z2 |= true;

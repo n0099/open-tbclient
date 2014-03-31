@@ -1,32 +1,42 @@
 package com.baidu.tieba.model;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class ae {
-    private long a = 0;
-    private long b = 0;
-    private long c = 0;
-    private long d;
+    private int a;
+    private int b;
+    private int c;
+    private int[] d;
 
-    public final void a(long j) {
-        this.a = j;
+    public final void a(JSONObject jSONObject) {
+        if (jSONObject != null && jSONObject != null) {
+            this.a = jSONObject.optInt("conn_conf");
+            this.b = jSONObject.optInt("continuous_fail_count");
+            this.c = jSONObject.optInt("restart_time_interval");
+            JSONArray optJSONArray = jSONObject.optJSONArray("conn_list");
+            if (optJSONArray != null) {
+                this.d = new int[optJSONArray.length()];
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    this.d[i] = optJSONArray.optInt(i);
+                }
+            }
+        }
     }
 
-    public final void b(long j) {
-        this.b = j;
+    public final int a() {
+        return this.a;
     }
 
-    public final long a() {
-        return this.b + this.c;
+    public final int b() {
+        return this.b;
     }
 
-    public final void c(long j) {
-        this.c = j;
+    public final int c() {
+        return this.c;
     }
 
-    public final long b() {
+    public final int[] d() {
         return this.d;
-    }
-
-    public final void d(long j) {
-        this.d = j;
     }
 }

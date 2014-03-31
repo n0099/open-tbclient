@@ -1,27 +1,36 @@
 package com.baidu.tieba.more;
 
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.ba;
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class l extends Thread {
-    final /* synthetic */ AccountActivity a;
-    private String b;
+public final class l implements DialogInterface.OnClickListener {
+    final /* synthetic */ j a;
 
-    public l(AccountActivity accountActivity, String str) {
-        this.a = accountActivity;
-        this.b = null;
-        this.b = str;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public l(j jVar) {
+        this.a = jVar;
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public final void run() {
-        super.run();
-        ba baVar = new ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/s/logout");
-        baVar.c(false);
-        baVar.a(false);
-        baVar.a("BDUSS", this.b);
-        baVar.a("channel_id", TiebaApplication.g().aQ());
-        baVar.a("channel_uid", TiebaApplication.g().aP());
-        baVar.l();
+    @Override // android.content.DialogInterface.OnClickListener
+    public final void onClick(DialogInterface dialogInterface, int i) {
+        switch (i) {
+            case 0:
+                com.baidu.tbadk.core.h.a().a(true);
+                com.baidu.tbadk.core.h.a().c(0);
+                break;
+            case 1:
+                com.baidu.tbadk.core.h.a().a(true);
+                com.baidu.tbadk.core.h.a().c(1);
+                break;
+            case 2:
+                com.baidu.tbadk.core.h.a().a(true);
+                com.baidu.tbadk.core.h.a().c(2);
+                break;
+            case 3:
+                com.baidu.tbadk.core.h.a().a(false);
+                break;
+        }
+        this.a.p();
+        this.a.m();
     }
 }

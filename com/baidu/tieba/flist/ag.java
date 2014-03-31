@@ -3,9 +3,9 @@ package com.baidu.tieba.flist;
 import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.gson.GsonBuilder;
-import com.baidu.tieba.util.ba;
+import com.baidu.tbadk.core.util.ak;
 /* loaded from: classes.dex */
-public final class ag extends com.baidu.adp.a.d {
+public final class ag extends com.baidu.adp.a.e {
     private String a;
     private ah b = null;
     private String c;
@@ -29,7 +29,7 @@ public final class ag extends com.baidu.adp.a.d {
         bundle.putString("st_type", this.c);
     }
 
-    @Override // com.baidu.adp.a.d
+    @Override // com.baidu.adp.a.e
     public final boolean LoadData() {
         if (this.a == null) {
             return false;
@@ -41,7 +41,7 @@ public final class ag extends com.baidu.adp.a.d {
         return true;
     }
 
-    @Override // com.baidu.adp.a.d
+    @Override // com.baidu.adp.a.e
     public final boolean cancelLoadData() {
         if (this.b != null) {
             this.b.cancel();
@@ -51,9 +51,9 @@ public final class ag extends com.baidu.adp.a.d {
     }
 
     public static /* synthetic */ ForumRankData a(ag agVar) {
-        ba baVar = new ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/f/forum/forumsquarelist");
-        baVar.a("list_id", agVar.a);
-        baVar.a("st_type", agVar.c);
-        return (ForumRankData) new GsonBuilder().create().fromJson(baVar.l(), (Class<Object>) ForumRankData.class);
+        ak akVar = new ak(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/f/forum/forumsquarelist");
+        akVar.a("list_id", agVar.a);
+        akVar.a("st_type", agVar.c);
+        return (ForumRankData) new GsonBuilder().create().fromJson(akVar.i(), (Class<Object>) ForumRankData.class);
     }
 }

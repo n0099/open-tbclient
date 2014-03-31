@@ -1,56 +1,101 @@
 package com.baidu.tieba.faceshop;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.emotions.MyEmotionGroupData;
+import android.database.Cursor;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.util.DatabaseManager;
+import java.io.InputStream;
+import java.util.LinkedList;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class c extends BdAsyncTask<List<String>, Integer, Boolean> {
-    final /* synthetic */ EmotionManageActivity a;
+public final class c {
+    private static c a = new c();
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ Boolean a(List<String>... listArr) {
-        List<String> list = listArr[0];
-        if (list == null || list.isEmpty()) {
-            return false;
-        }
+    public static c a() {
+        return a;
+    }
+
+    public static int a(String str, InputStream inputStream) {
+        com.baidu.tbadk.editortool.v a2 = com.baidu.tbadk.editortool.v.a();
+        List<String> a3 = d.a(str, inputStream);
         int i = 0;
-        for (String str : list) {
-            MyEmotionGroupData myEmotionGroupData = new MyEmotionGroupData();
-            myEmotionGroupData.setGroupId(str);
-            myEmotionGroupData.setUid(TiebaApplication.v());
-            com.baidu.tieba.data.emotions.j.a();
-            if (com.baidu.tieba.data.emotions.j.a(myEmotionGroupData)) {
-                com.baidu.adp.lib.util.e.e("delete my emotion:" + myEmotionGroupData.getId());
+        for (int i2 = 0; i2 < a3.size(); i2++) {
+            if (a2.a(a3.get(i2), str, i2 + 1)) {
                 i++;
             }
         }
-        return i > 0;
+        return i;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void a(Boolean bool) {
-        Boolean bool2 = bool;
-        super.a((c) bool2);
-        if (bool2.booleanValue()) {
-            com.baidu.tieba.data.emotions.l.a().b();
-            this.a.p = true;
-            this.a.a(true);
+    public static boolean a(MyEmotionGroupData myEmotionGroupData) {
+        if (myEmotionGroupData == null) {
+            return false;
+        }
+        try {
+            DatabaseManager.a().delete("user_emotions", "uid = ? and groupId = ?", new String[]{myEmotionGroupData.uid, myEmotionGroupData.groupId});
+            return true;
+        } catch (Throwable th) {
+            com.baidu.adp.lib.util.f.b("BigEmotionsDBManager", "addToMyEmotion", th.getMessage());
+            DatabaseManager.a(th, "EmotionsDBManager.deleteMyEmotion");
+            return false;
         }
     }
 
-    private c(EmotionManageActivity emotionManageActivity) {
-        this.a = emotionManageActivity;
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [98=4] */
+    public final MyEmotionGroupData a(String str, String str2) {
+        Cursor cursor;
+        MyEmotionGroupData myEmotionGroupData = null;
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            try {
+                cursor = DatabaseManager.a().rawQuery("SELECT * FROM user_emotions where uid = ? and groupId = ? ", new String[]{str, str2});
+            } catch (Throwable th) {
+                th = th;
+                cursor = null;
+            }
+            try {
+                if (cursor.moveToNext()) {
+                    myEmotionGroupData = a(cursor);
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                try {
+                    com.baidu.adp.lib.util.f.b("BigEmotionsDBManager", "getMyEmotion", th.getMessage());
+                    DatabaseManager.a(th, "EmotionsDBManager.getMyEmotion");
+                    return myEmotionGroupData;
+                } finally {
+                    com.baidu.tbadk.core.util.l.a(cursor);
+                }
+            }
+        }
+        return myEmotionGroupData;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ c(EmotionManageActivity emotionManageActivity, byte b) {
-        this(emotionManageActivity);
+    public final List<MyEmotionGroupData> a(String str) {
+        LinkedList linkedList = new LinkedList();
+        if (!TextUtils.isEmpty(str)) {
+            Cursor cursor = null;
+            try {
+                cursor = DatabaseManager.a().rawQuery("SELECT * FROM user_emotions where uid = ? order by updateTime desc ", new String[]{str});
+                while (cursor.moveToNext()) {
+                    linkedList.add(a(cursor));
+                }
+            } catch (Throwable th) {
+                try {
+                    com.baidu.adp.lib.util.f.b("BigEmotionsDBManager", "listMyEmotions", th.getMessage());
+                    DatabaseManager.a(th, "EmotionsDBManager.listMyEmotions");
+                } finally {
+                    com.baidu.tbadk.core.util.l.a(cursor);
+                }
+            }
+        }
+        return linkedList;
+    }
+
+    private static MyEmotionGroupData a(Cursor cursor) {
+        MyEmotionGroupData myEmotionGroupData = new MyEmotionGroupData();
+        myEmotionGroupData.id = cursor.getInt(cursor.getColumnIndex("id"));
+        myEmotionGroupData.uid = cursor.getString(cursor.getColumnIndex("uid"));
+        myEmotionGroupData.groupId = cursor.getString(cursor.getColumnIndex("groupId"));
+        myEmotionGroupData.updateTime = cursor.getLong(cursor.getColumnIndex("updateTime"));
+        return myEmotionGroupData;
     }
 }

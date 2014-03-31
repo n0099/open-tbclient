@@ -1,26 +1,18 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.data.UserData;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class cm implements com.baidu.tieba.im.a<Void> {
-    final /* synthetic */ ck a;
-    private final /* synthetic */ com.baidu.adp.framework.message.a b;
+public final class cm implements View.OnClickListener {
+    final /* synthetic */ ch a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cm(ck ckVar, com.baidu.adp.framework.message.a aVar) {
-        this.a = ckVar;
-        this.b = aVar;
+    public cm(ch chVar) {
+        this.a = chVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.baidu.tieba.im.a
-    public final /* synthetic */ void a(Void r6) {
-        ((com.baidu.tieba.a.c) this.b.a()).d().setClass(((com.baidu.tieba.a.c) this.b.a()).c(), PersonalChatActivity.class);
-        UserData a = ((com.baidu.tieba.a.c) this.b.a()).a();
-        if (a.getUserIdLong() == 0) {
-            com.baidu.adp.lib.util.e.e("userid = " + a.getUserId());
-        } else {
-            ((com.baidu.tieba.a.c) this.b.a()).e();
-        }
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        this.a.c.a(view, 7, this.a.f, 0L);
     }
 }

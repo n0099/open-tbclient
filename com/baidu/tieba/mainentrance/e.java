@@ -1,36 +1,24 @@
 package com.baidu.tieba.mainentrance;
 
-import android.content.Context;
-import com.baidu.tieba.MainTabActivity;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public final class e implements c {
-    @Override // com.baidu.tieba.mainentrance.c
-    public final void a(Context context, int i) {
-        MainTabActivity.a(context, i);
+final class e {
+    TextView a;
+    TextView b;
+    TextView c;
+    TextView d;
+    LinearLayout e;
+    View f;
+    final /* synthetic */ c g;
+
+    private e(c cVar) {
+        this.g = cVar;
     }
 
-    @Override // com.baidu.tieba.mainentrance.c
-    public final void a(Context context) {
-        MainTabActivity.a(context);
-    }
-
-    @Override // com.baidu.tieba.mainentrance.c
-    public final void a(Context context, int i, boolean z) {
-        MainTabActivity.b(context, i, z);
-    }
-
-    @Override // com.baidu.tieba.mainentrance.c
-    public final void b(Context context, int i) {
-        MainTabActivity.b(context, i);
-    }
-
-    @Override // com.baidu.tieba.mainentrance.c
-    public final Class a() {
-        return MainTabActivity.class;
-    }
-
-    @Override // com.baidu.tieba.mainentrance.c
-    public final String b() {
-        return MainTabActivity.class.getName();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ e(c cVar, byte b) {
+        this(cVar);
     }
 }

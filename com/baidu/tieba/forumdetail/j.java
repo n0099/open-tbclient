@@ -1,6 +1,6 @@
 package com.baidu.tieba.forumdetail;
 
-import com.baidu.tieba.view.HeadImageView;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class j implements com.baidu.tbadk.imageManager.d {

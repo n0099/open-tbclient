@@ -55,7 +55,7 @@ public final class o extends Handler {
             n nVar = this.a;
             d7 = com.baidu.adp.a.b.a().d();
             if (d7) {
-                com.baidu.adp.lib.util.e.e("could not call onTextMessage() .. handler already NULL");
+                com.baidu.adp.lib.util.f.e("could not call onTextMessage() .. handler already NULL");
             }
         } else if (message.obj instanceof ae) {
             ae aeVar = (ae) message.obj;
@@ -68,7 +68,7 @@ public final class o extends Handler {
             n nVar2 = this.a;
             d6 = com.baidu.adp.a.b.a().d();
             if (d6) {
-                com.baidu.adp.lib.util.e.e("could not call onRawTextMessage() .. handler already NULL");
+                com.baidu.adp.lib.util.f.e("could not call onRawTextMessage() .. handler already NULL");
             }
         } else if (message.obj instanceof s) {
             s sVar = (s) message.obj;
@@ -81,14 +81,14 @@ public final class o extends Handler {
             n nVar3 = this.a;
             d5 = com.baidu.adp.a.b.a().d();
             if (d5) {
-                com.baidu.adp.lib.util.e.e("could not call onBinaryMessage() .. handler already NULL");
+                com.baidu.adp.lib.util.f.e("could not call onBinaryMessage() .. handler already NULL");
             }
         } else if (message.obj instanceof ab) {
             ab abVar = (ab) message.obj;
             n nVar4 = this.a;
             d4 = com.baidu.adp.a.b.a().d();
             if (d4) {
-                com.baidu.adp.lib.util.e.e("WebSockets Ping received");
+                com.baidu.adp.lib.util.f.e("WebSockets Ping received");
             }
             ac acVar = new ac();
             acVar.a = abVar.a;
@@ -103,7 +103,7 @@ public final class o extends Handler {
             n nVar5 = this.a;
             d3 = com.baidu.adp.a.b.a().d();
             if (d3) {
-                com.baidu.adp.lib.util.e.e("WebSockets Pong received");
+                com.baidu.adp.lib.util.f.e("WebSockets Pong received");
             }
         } else if (message.obj instanceof u) {
             this.a.a(1, (String) null);
@@ -112,7 +112,7 @@ public final class o extends Handler {
             n nVar6 = this.a;
             d = com.baidu.adp.a.b.a().d();
             if (d) {
-                com.baidu.adp.lib.util.e.e("opening handshake received");
+                com.baidu.adp.lib.util.f.e("opening handshake received");
             }
             if (aiVar.a) {
                 kVar11 = this.a.n;
@@ -132,7 +132,7 @@ public final class o extends Handler {
                 n nVar7 = this.a;
                 d2 = com.baidu.adp.a.b.a().d();
                 if (d2) {
-                    com.baidu.adp.lib.util.e.e("could not call onOpen() .. handler already NULL");
+                    com.baidu.adp.lib.util.f.e("could not call onOpen() .. handler already NULL");
                 }
                 this.a.a(6, "handler already NULL");
             }
@@ -157,7 +157,7 @@ public final class o extends Handler {
                 kVar10.b(dVar);
             }
         } else if (message.obj instanceof y) {
-            this.a.r = null;
+            this.a.s = null;
             d dVar2 = ((y) message.obj).a;
             kVar5 = this.a.n;
             if (kVar5 != null) {
@@ -170,7 +170,7 @@ public final class o extends Handler {
                 kVar7.a(dVar2);
             }
         } else if (message.obj instanceof af) {
-            this.a.r = null;
+            this.a.s = null;
             d dVar3 = ((af) message.obj).a;
             kVar = this.a.n;
             if (kVar != null) {

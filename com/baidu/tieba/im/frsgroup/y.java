@@ -1,8 +1,13 @@
 package com.baidu.tieba.im.frsgroup;
 
-import android.content.DialogInterface;
+import android.app.AlertDialog;
+import android.view.View;
+import android.widget.AdapterView;
+import com.baidu.tbadk.core.data.UserData;
+import java.util.ArrayList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class y implements DialogInterface.OnClickListener {
+public final class y implements AdapterView.OnItemLongClickListener {
     final /* synthetic */ MembersActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,23 +15,32 @@ final class y implements DialogInterface.OnClickListener {
         this.a = membersActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.im.model.l lVar;
-        ae aeVar;
-        int i2 = 0;
-        switch (i) {
-            case 1:
-                i2 = 1;
-                break;
-            case 2:
-                i2 = 2;
-                break;
+    @Override // android.widget.AdapterView.OnItemLongClickListener
+    public final boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
+        ah ahVar;
+        com.baidu.tieba.im.model.y yVar;
+        ah ahVar2;
+        ahVar = this.a.b;
+        if (ahVar.h().d()) {
+            return false;
         }
-        lVar = this.a.c;
-        lVar.a(i2);
-        aeVar = this.a.b;
-        aeVar.c(i);
-        this.a.d();
+        yVar = this.a.c;
+        if (yVar.b()) {
+            ahVar2 = this.a.b;
+            UserData userData = (UserData) ahVar2.h().getItem(i);
+            if (userData != null) {
+                if (userData.getPermission().isController()) {
+                    return false;
+                }
+                long userIdLong = userData.getUserIdLong();
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(Long.valueOf(userIdLong));
+                MembersActivity membersActivity = this.a;
+                z zVar = new z(this, arrayList);
+                new AlertDialog.Builder(membersActivity).setTitle(com.baidu.tieba.im.j.del_post_tip).setMessage(com.baidu.tieba.im.j.members_dialog_remove_one_message).setPositiveButton(com.baidu.tieba.im.j.alert_yes_button, zVar).setNegativeButton(com.baidu.tieba.im.j.alert_no_button, new aa(this)).create().show();
+            }
+            return true;
+        }
+        return false;
     }
 }

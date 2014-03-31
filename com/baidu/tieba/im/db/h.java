@@ -1,20 +1,15 @@
 package com.baidu.tieba.im.db;
 
 import android.text.TextUtils;
-import com.baidu.gson.Gson;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.UserData;
-import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.db.pojo.OldUserData;
+import com.baidu.tieba.im.s;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public final class h {
     private static h a = new h();
-    private final AtomicBoolean b = new AtomicBoolean(false);
-    private final d c = new d();
+    private com.baidu.adp.framework.c.g b = new i(this, 0);
 
     private h() {
     }
@@ -23,197 +18,121 @@ public final class h {
         return a;
     }
 
-    public final boolean b() {
-        return this.b.get();
+    public final void b() {
+        com.baidu.adp.framework.c.a().a(103112, this.b);
+        com.baidu.adp.framework.c.a().a(103101, this.b);
     }
 
-    public final synchronized void c() {
+    public final synchronized void a(ImMessageCenterPojo imMessageCenterPojo) {
+        if (imMessageCenterPojo != null) {
+            String gid = imMessageCenterPojo.getGid();
+            if (!TextUtils.isEmpty(gid)) {
+                ImMessageCenterPojo a2 = com.baidu.tieba.im.b.a.a().a(gid);
+                if (a2 == null) {
+                    a2 = new ImMessageCenterPojo();
+                    a2.setGid(gid);
+                }
+                a2.setExt(imMessageCenterPojo.getExt());
+                a2.setGroup_ext(imMessageCenterPojo.getGroup_ext());
+                a2.setGroup_head(imMessageCenterPojo.getGroup_head());
+                a2.setGroup_name(imMessageCenterPojo.getGroup_name());
+                a2.setCustomGroupType(imMessageCenterPojo.getCustomGroupType());
+                a2.setIs_delete(imMessageCenterPojo.getIs_delete());
+                a2.setIs_hidden(imMessageCenterPojo.getIs_hidden());
+                a2.setLast_content_time(imMessageCenterPojo.getLast_content_time());
+                a2.setLast_content(imMessageCenterPojo.getLast_content());
+                a2.setLast_user_name(imMessageCenterPojo.getLast_user_name());
+                a2.setOrderCol(imMessageCenterPojo.getOrderCol());
+                a2.setType(imMessageCenterPojo.getType());
+                a2.setUnread_count(imMessageCenterPojo.getUnread_count());
+                if (imMessageCenterPojo.getLast_rid() > a2.getLast_rid()) {
+                    a2.setLast_rid(imMessageCenterPojo.getLast_rid());
+                }
+                long pulled_msgId = a2.getPulled_msgId();
+                long pulled_msgId2 = imMessageCenterPojo.getPulled_msgId();
+                if (pulled_msgId <= pulled_msgId2) {
+                    a2.setPulled_msgId(pulled_msgId2);
+                    long last_rid = a2.getLast_rid();
+                    long last_rid2 = imMessageCenterPojo.getLast_rid();
+                    if (last_rid <= last_rid2) {
+                        a2.setLast_rid(last_rid2);
+                        com.baidu.tbadk.coreExtra.messageCenter.d.a().a(com.baidu.adp.lib.f.b.a(a2.getGid(), 0), a2.getPulled_msgId() / 100);
+                        com.baidu.tieba.im.b.a.a().a(a2);
+                    }
+                }
+            }
+        }
+    }
+
+    public final synchronized void a(String str) {
+        ImMessageCenterPojo a2 = com.baidu.tieba.im.b.e.a(str);
+        if (a2 != null) {
+            a2.setLast_rid(0L);
+            a2.setPulled_msgId(0L);
+            a2.setIs_delete(1);
+        } else {
+            com.baidu.adp.lib.util.f.b("删除gid失败");
+        }
+    }
+
+    public final synchronized void b(String str) {
+        com.baidu.tbadk.coreExtra.messageCenter.d.a().a(com.baidu.adp.lib.f.b.a(str, 0));
+        com.baidu.tieba.im.b.a.a().b(str);
+    }
+
+    public final synchronized void b(ImMessageCenterPojo imMessageCenterPojo) {
+        if (imMessageCenterPojo != null) {
+            ImMessageCenterPojo a2 = com.baidu.tieba.im.b.a.a().a(imMessageCenterPojo.getGid());
+            if (a2 == null) {
+                a2 = new ImMessageCenterPojo();
+            }
+            a2.setExt(imMessageCenterPojo.getExt());
+            a2.setGid(imMessageCenterPojo.getGid());
+            a2.setGroup_ext(imMessageCenterPojo.getGroup_ext());
+            a2.setGroup_head(imMessageCenterPojo.getGroup_head());
+            a2.setGroup_name(imMessageCenterPojo.getGroup_name());
+            a2.setCustomGroupType(imMessageCenterPojo.getCustomGroupType());
+            a2.setIs_delete(0);
+            a2.setIs_hidden(0);
+            a2.setType(imMessageCenterPojo.getType());
+            a2.setUnread_count(imMessageCenterPojo.getUnread_count());
+            com.baidu.tieba.im.b.a.a().a(a2);
+        }
+    }
+
+    public static void c(String str) {
         ImMessageCenterPojo a2;
-        String str;
-        OldUserData oldUserData;
-        this.b.set(false);
-        this.c.a();
-        k.a();
-        LinkedList<ImMessageCenterPojo> b = k.b();
-        if (b != null) {
-            Iterator<ImMessageCenterPojo> it = b.iterator();
+        if (!TextUtils.isEmpty(str) && (a2 = com.baidu.tieba.im.b.e.a(str)) != null) {
+            a2.setUnread_count(0);
+        }
+    }
+
+    public final void a(LinkedList<ImMessageCenterPojo> linkedList) {
+        if (linkedList != null) {
+            HashSet hashSet = new HashSet();
+            com.baidu.tieba.im.b.e.a(new k(this, hashSet));
+            Iterator<ImMessageCenterPojo> it = linkedList.iterator();
             while (it.hasNext()) {
                 ImMessageCenterPojo next = it.next();
-                next.setUnread_count(b.a().a(next.getGid()));
-                next.setPulled_msgId(b.a().c(next.getGid()));
-                CommonMsgPojo d = b.a().d(next.getGid());
-                if (d != null) {
-                    d.checkRidAndSelf();
-                    String h = com.baidu.tieba.im.util.l.h(d.toChatMessage());
-                    UserData userData = (UserData) new Gson().fromJson(d.getUser_info(), (Class<Object>) UserData.class);
-                    if (userData != null) {
-                        if (com.baidu.adp.lib.util.g.b(userData.getUserId()) && (oldUserData = (OldUserData) new Gson().fromJson(d.getUser_info(), (Class<Object>) OldUserData.class)) != null) {
-                            oldUserData.setToUserData(userData);
-                        }
-                        str = userData.getUserName();
-                    } else {
-                        str = "";
+                hashSet.remove(next.getGid());
+                ImMessageCenterPojo a2 = com.baidu.tieba.im.b.a.a().a(next.getGid());
+                if (a2 != null) {
+                    a2.setExt(next.getExt());
+                    a2.setGroup_ext(next.getGroup_ext());
+                    a2.setGroup_head(next.getGroup_head());
+                    a2.setGroup_name(next.getGroup_name());
+                    a2.setCustomGroupType(next.getCustomGroupType());
+                    a2.setIs_delete(next.getIs_delete());
+                    a2.setIs_hidden(next.getIs_hidden());
+                    a2.setOrderCol(next.getOrderCol());
+                    if (a2.getPulled_msgId() == 0) {
+                        a2.setPulled_msgId(next.getPulled_msgId());
                     }
-                    next.setLast_content(h);
-                    next.setLast_user_name(str);
-                    next.setLast_rid(d.getRid());
-                    next.setLast_content_time(d.getCreate_time() * 1000);
                 } else {
-                    next.setLast_content("");
-                    next.setPulled_msgId(0L);
-                    next.setLast_rid(0L);
-                    next.setLast_user_name("");
-                    next.setLast_content_time(0L);
-                }
-                this.c.a(next);
-            }
-        }
-        com.baidu.adp.lib.util.e.e("see init private chat begin ");
-        ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
-        imMessageCenterPojo.setGid(String.valueOf(com.baidu.tieba.im.chat.q.a));
-        imMessageCenterPojo.setGroup_type(6);
-        q.a();
-        for (String str2 : q.c()) {
-            com.baidu.adp.lib.util.e.e("see init private chat id:" + str2);
-            if (!TextUtils.isEmpty(str2)) {
-                long b2 = q.a().b(str2);
-                if (b2 > imMessageCenterPojo.getPulled_msgId()) {
-                    imMessageCenterPojo.setPulled_msgId(b2);
-                }
-                CommonMsgPojo c = q.a().c(str2);
-                if (c == null) {
-                    com.baidu.adp.lib.util.e.e("see init private chat cmpojo null id:" + str2);
-                } else {
-                    ImMessageCenterPojo fromCommonMsg = ImMessageCenterPojo.fromCommonMsg(c);
-                    if (fromCommonMsg == null) {
-                        com.baidu.adp.lib.util.e.e("see init private chat person null id:" + str2);
-                    } else {
-                        if (c.getRid() > imMessageCenterPojo.getLast_rid()) {
-                            imMessageCenterPojo.setLast_rid(c.getRid());
-                        }
-                        String b3 = k.b(str2);
-                        if (b3 != null && (a2 = this.c.a(b3)) != null) {
-                            imMessageCenterPojo.setIs_hidden(a2.getIs_hidden());
-                            fromCommonMsg.setIs_hidden(a2.getIs_hidden());
-                        }
-                        this.c.a(fromCommonMsg);
-                    }
+                    com.baidu.tieba.im.b.a.a().a(next);
                 }
             }
-        }
-        this.c.a(imMessageCenterPojo);
-        this.b.set(true);
-    }
-
-    public final synchronized d d() {
-        if (Thread.currentThread().getId() != com.baidu.tieba.im.e.a) {
-            com.baidu.adp.lib.util.e.b("!!!!!!!!!!!!!!!获取缓存不是在主线程里面执行了！");
-            if (com.baidu.tieba.data.i.F()) {
-                new RuntimeException().printStackTrace();
-            }
-        }
-        return this.c;
-    }
-
-    public final void e() {
-        this.c.a();
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:20:0x006a  */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x00a0  */
-    /* JADX WARN: Removed duplicated region for block: B:39:0x0171  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void a(String str, int i, CommonMsgPojo commonMsgPojo) {
-        boolean z;
-        ImMessageCenterPojo a2;
-        boolean z2;
-        OldUserData oldUserData;
-        if (commonMsgPojo != null) {
-            String h = com.baidu.tieba.im.util.l.h(commonMsgPojo.toChatMessage());
-            UserData userData = (UserData) new Gson().fromJson(commonMsgPojo.getUser_info(), (Class<Object>) UserData.class);
-            String str2 = "";
-            if (userData != null) {
-                if (com.baidu.adp.lib.util.g.b(userData.getUserId()) && (oldUserData = (OldUserData) new Gson().fromJson(commonMsgPojo.getUser_info(), (Class<Object>) OldUserData.class)) != null) {
-                    oldUserData.setToUserData(userData);
-                }
-                str2 = userData.getUserName();
-                if (TiebaApplication.w()) {
-                    String v = TiebaApplication.v();
-                    if (!TextUtils.isEmpty(v) && v.equals(String.valueOf(userData.getUserId()))) {
-                        z = true;
-                        if (com.baidu.adp.lib.util.e.a()) {
-                            com.baidu.adp.lib.util.e.e("see gid:" + str + " content:" + h);
-                            com.baidu.adp.lib.util.e.e("see pojo1:" + commonMsgPojo);
-                        }
-                        a2 = this.c.a(str);
-                        if (a2 == null) {
-                            if (a2.getGroup_type() == 6) {
-                                com.baidu.adp.lib.util.e.e("see private group found in mem");
-                            }
-                            long rid = commonMsgPojo.getRid();
-                            long last_rid = a2.getLast_rid();
-                            com.baidu.adp.lib.util.e.e("gid:" + str + "curLastMid:" + rid + "orginalLastMid:" + last_rid + " cur unRead:" + a2.getUnread_count() + " add unread:" + i + "content:" + commonMsgPojo + " readableContent:" + h);
-                            if (rid > last_rid) {
-                                a2.setLast_rid(rid);
-                                a2.setLast_content(h);
-                                a2.setLast_content_time(commonMsgPojo.getCreate_time() * 1000);
-                                a2.setLast_user_name(str2);
-                                if (last_rid < rid) {
-                                    a2.setLast_rid(rid);
-                                    a2.setUnread_count(a2.getUnread_count() + i);
-                                }
-                                if (i > 0) {
-                                    z2 = true;
-                                } else if (!z) {
-                                    z2 = false;
-                                } else {
-                                    z2 = true;
-                                }
-                                if (z2) {
-                                    a2.setIs_hidden(0);
-                                    com.baidu.tieba.im.i.a(new i(this, str), null);
-                                    return;
-                                }
-                                return;
-                            }
-                            com.baidu.adp.lib.util.e.e("curRid(" + rid + ") <= orginalLastRid(" + last_rid + "), 所以没有更新消息中心。消息： " + commonMsgPojo.getContent());
-                            return;
-                        } else if (commonMsgPojo.isPrivate()) {
-                            com.baidu.adp.lib.util.e.e("see add private chat");
-                            ImMessageCenterPojo fromCommonMsg = ImMessageCenterPojo.fromCommonMsg(commonMsgPojo);
-                            if (fromCommonMsg != null) {
-                                LinkedList linkedList = new LinkedList();
-                                linkedList.add(fromCommonMsg.getGid());
-                                com.baidu.tieba.im.i.a(new j(this, linkedList), null);
-                                new LinkedList().add(commonMsgPojo);
-                                fromCommonMsg.setUnread_count(i);
-                                this.c.a(fromCommonMsg);
-                                return;
-                            }
-                            return;
-                        } else {
-                            ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
-                            imMessageCenterPojo.setGid(str);
-                            imMessageCenterPojo.setLast_content(h);
-                            imMessageCenterPojo.setLast_content_time(commonMsgPojo.getCreate_time() * 1000);
-                            imMessageCenterPojo.setLast_user_name(str2);
-                            imMessageCenterPojo.setLast_rid(commonMsgPojo.getMid());
-                            imMessageCenterPojo.setPulled_msgId(commonMsgPojo.getMid());
-                            imMessageCenterPojo.setUnread_count(i);
-                            this.c.a(imMessageCenterPojo);
-                            return;
-                        }
-                    }
-                }
-            }
-            z = false;
-            if (com.baidu.adp.lib.util.e.a()) {
-            }
-            a2 = this.c.a(str);
-            if (a2 == null) {
-            }
+            s.a(new l(this, linkedList), null);
         }
     }
 }

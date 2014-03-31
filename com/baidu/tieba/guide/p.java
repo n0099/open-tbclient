@@ -2,9 +2,7 @@ package com.baidu.tieba.guide;
 
 import android.view.View;
 import android.widget.Button;
-import com.baidu.tieba.MainTabActivity;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.ai;
+import com.baidu.tbadk.core.b.aa;
 import com.baidu.tieba.data.InterestFrsData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -28,32 +26,34 @@ public final class p implements View.OnClickListener {
         NewUserGuideActivity newUserGuideActivity5;
         View view2;
         if (view.getTag() == null || !(view.getTag() instanceof InterestFrsData.Tag)) {
-            button = this.a.q;
+            button = this.a.p;
             if (view == button) {
-                newUserGuideActivity = this.a.o;
-                if (newUserGuideActivity.e()) {
-                    TiebaApplication.g().g(true);
+                newUserGuideActivity = this.a.n;
+                if (newUserGuideActivity.f()) {
+                    com.baidu.tieba.r.c().e(true);
                 }
-                newUserGuideActivity2 = this.a.o;
-                z = this.a.r;
-                MainTabActivity.a(newUserGuideActivity2, 1, z);
-                newUserGuideActivity3 = this.a.o;
+                o oVar = this.a;
+                newUserGuideActivity2 = this.a.n;
+                aa aaVar = new aa(newUserGuideActivity2);
+                z = this.a.q;
+                oVar.sendMessage(new com.baidu.adp.framework.message.a(2015001, aaVar.a(1, z)));
+                newUserGuideActivity3 = this.a.n;
                 newUserGuideActivity3.finish();
                 return;
             }
             return;
         }
-        z2 = this.a.t;
+        z2 = this.a.s;
         if (z2) {
-            this.a.t = false;
-            newUserGuideActivity4 = this.a.o;
-            ai.a(newUserGuideActivity4, "newUserInterestSelect");
-            newUserGuideActivity5 = this.a.o;
+            this.a.s = false;
+            newUserGuideActivity4 = this.a.n;
+            com.baidu.tbadk.core.g.a(newUserGuideActivity4, "newUserInterestSelect");
+            newUserGuideActivity5 = this.a.n;
             w wVar = new w(newUserGuideActivity5, (InterestFrsData.Tag) view.getTag(), new q(this));
-            view2 = this.a.c;
+            view2 = this.a.b;
             view2.setVisibility(0);
             wVar.a();
-            this.a.t = true;
+            this.a.s = true;
         }
     }
 }

@@ -1,18 +1,24 @@
 package com.baidu.tieba.write;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-public final class au implements Runnable {
+final class au implements DialogInterface.OnCancelListener {
     final /* synthetic */ WriteActivity a;
-    private final /* synthetic */ int b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public au(WriteActivity writeActivity, int i) {
+    public au(WriteActivity writeActivity) {
         this.a = writeActivity;
-        this.b = i;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        this.a.b(this.b);
+    @Override // android.content.DialogInterface.OnCancelListener
+    public final void onCancel(DialogInterface dialogInterface) {
+        com.baidu.tieba.model.ar arVar;
+        com.baidu.tieba.model.ar arVar2;
+        this.a.DeinitWaitingDialog();
+        arVar = this.a.E;
+        if (arVar != null) {
+            arVar2 = this.a.E;
+            arVar2.cancelLoadData();
+        }
     }
 }

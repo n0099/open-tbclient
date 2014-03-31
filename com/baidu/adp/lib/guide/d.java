@@ -83,7 +83,8 @@ public class d implements View.OnClickListener, View.OnKeyListener {
         i iVar = new i(activity);
         iVar.b(activity.getResources().getColor(this.b.e));
         iVar.a(this.b.b);
-        iVar.a(this.b.g);
+        boolean z = this.b.g;
+        i.a();
         iVar.setOnKeyListener(this);
         int[] iArr = new int[2];
         ((ViewGroup) activity.findViewById(16908290)).getLocationInWindow(iArr);

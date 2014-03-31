@@ -1,7 +1,7 @@
 package com.baidu.tieba.album;
 
 import android.view.ViewGroup;
-import com.baidu.tieba.view.HeadImageView;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 final class k implements com.baidu.tbadk.imageManager.d {
     final /* synthetic */ j a;

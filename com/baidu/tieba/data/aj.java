@@ -1,38 +1,45 @@
 package com.baidu.tieba.data;
 
-import com.baidu.cloudsdk.social.core.SocialConstants;
-import org.json.JSONObject;
+import android.content.Context;
+import android.text.TextPaint;
+import android.text.style.ClickableSpan;
+import android.view.View;
+import com.baidu.tbadk.TbadkApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class aj {
-    private boolean g = false;
-    private int a = 0;
-    private String b = null;
-    private int e = 0;
-    private String c = null;
-    private String d = null;
-    private String f = null;
+public final class aj extends ClickableSpan {
+    final /* synthetic */ ai a;
+    private String b;
+    private String c;
+    private Context d;
 
-    public final boolean a() {
-        return this.g;
+    public aj(ai aiVar, Context context, String str, String str2) {
+        this.a = aiVar;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.b = str;
+        this.c = str2;
+        this.d = context;
     }
 
-    public final void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.b = jSONObject.optString("id");
-                this.a = jSONObject.optInt("is_login", 0);
-                this.e = jSONObject.optInt("no_un", 0);
-                this.c = jSONObject.optString(SocialConstants.PARAM_MEDIA_UNAME);
-                this.d = jSONObject.optString("name_show");
-                this.f = jSONObject.optString("portrait");
-                if (jSONObject.optInt("is_manager", 0) == 1) {
-                    this.g = true;
-                } else {
-                    this.g = false;
-                }
-            } catch (Exception e) {
-                com.baidu.adp.lib.util.e.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
+    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+    public final void updateDrawState(TextPaint textPaint) {
+        if (this.d != null) {
+            if (TbadkApplication.j().l() == 1) {
+                textPaint.setColor(this.d.getResources().getColor(com.baidu.tieba.a.e.common_link_text_1));
+            } else {
+                textPaint.setColor(this.d.getResources().getColor(com.baidu.tieba.a.e.common_link_text));
             }
+        }
+        textPaint.setUnderlineText(false);
+        textPaint.setFakeBoldText(false);
+    }
+
+    @Override // android.text.style.ClickableSpan
+    public final void onClick(View view) {
+        if (this.b != null && this.c != null && this.d != null) {
+            com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001003, new com.baidu.tbadk.core.b.ag(this.d, this.c, this.b)));
         }
     }
 }

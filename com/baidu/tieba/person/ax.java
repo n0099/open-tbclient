@@ -1,15 +1,20 @@
 package com.baidu.tieba.person;
 
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.ScrollView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class ax {
-    ImageView a;
-    TextView b;
-    final /* synthetic */ as c;
+public final class ax implements Runnable {
+    final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ax(as asVar) {
-        this.c = asVar;
+    public ax(PersonChangeActivity personChangeActivity) {
+        this.a = personChangeActivity;
+    }
+
+    @Override // java.lang.Runnable
+    public final void run() {
+        ScrollView scrollView;
+        scrollView = this.a.h;
+        scrollView.fullScroll(130);
     }
 }

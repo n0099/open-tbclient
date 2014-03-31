@@ -1,9 +1,8 @@
 package com.baidu.tieba.mention;
 
 import android.view.View;
-import com.baidu.tieba.data.aq;
-import com.baidu.tieba.model.bn;
-import com.baidu.tieba.person.cm;
+import com.baidu.tieba.data.ai;
+import com.baidu.tieba.model.am;
 /* loaded from: classes.dex */
 final class y implements View.OnClickListener {
     final /* synthetic */ PostActivity a;
@@ -15,17 +14,17 @@ final class y implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        bn bnVar;
-        bn bnVar2;
-        bn bnVar3;
-        bnVar = this.a.l;
-        if (bnVar != null) {
-            bnVar2 = this.a.l;
-            if (bnVar2.a() != null) {
-                bnVar3 = this.a.l;
-                aq aqVar = bnVar3.a().e().get(0);
-                if (aqVar != null) {
-                    cm.a(this.a, aqVar.g().getUserId(), aqVar.g().getUserName());
+        am amVar;
+        am amVar2;
+        am amVar3;
+        amVar = this.a.l;
+        if (amVar != null) {
+            amVar2 = this.a.l;
+            if (amVar2.a() != null) {
+                amVar3 = this.a.l;
+                ai aiVar = amVar3.a().e().get(0);
+                if (aiVar != null) {
+                    com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001003, new com.baidu.tbadk.core.b.ag(this.a, aiVar.g().getUserId(), aiVar.g().getUserName())));
                 }
             }
         }

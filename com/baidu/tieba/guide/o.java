@@ -7,14 +7,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import com.baidu.tieba.data.InterestFrsData;
-import com.baidu.tieba.model.bh;
-import com.slidingmenu.lib.R;
+import com.baidu.tieba.model.ao;
 import java.util.ArrayList;
 import java.util.Hashtable;
 /* loaded from: classes.dex */
-public final class o extends com.baidu.tieba.j {
-    private ViewGroup b;
-    private View c;
+public final class o extends com.baidu.tbadk.core.d {
+    private ViewGroup a;
+    private View b;
+    private ImageView c;
     private ImageView d;
     private ImageView e;
     private ImageView f;
@@ -24,35 +24,34 @@ public final class o extends com.baidu.tieba.j {
     private ImageView j;
     private ImageView k;
     private ImageView l;
-    private ImageView m;
-    private NewUserGuideActivity o;
-    private bh p;
-    private Button q;
-    private final Hashtable<Integer, ImageView> n = new Hashtable<>();
+    private NewUserGuideActivity n;
+    private ao o;
+    private Button p;
+    private final Hashtable<Integer, ImageView> m = new Hashtable<>();
+    private boolean q = false;
     private boolean r = false;
-    private boolean s = false;
-    private boolean t = true;
-    private final View.OnClickListener u = new p(this);
+    private boolean s = true;
+    private final View.OnClickListener t = new p(this);
 
     public final void a(InterestFrsData interestFrsData) {
         b(interestFrsData);
-        this.s = true;
+        this.r = true;
     }
 
-    @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public final void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.o = (NewUserGuideActivity) getActivity();
-        this.p = this.o.h();
-        if (this.p == null || this.s) {
+        this.n = (NewUserGuideActivity) getActivity();
+        this.o = this.n.i();
+        if (this.o == null || this.r) {
             return;
         }
         if (bundle != null) {
-            this.r = bundle.getBoolean("is_new_user");
+            this.q = bundle.getBoolean("is_new_user");
         } else {
-            this.r = this.o.getIntent().getBooleanExtra("is_new_user", false);
+            this.q = this.n.getIntent().getBooleanExtra("is_new_user", false);
         }
-        b(this.p.b());
+        b(this.o.b());
     }
 
     private void b(InterestFrsData interestFrsData) {
@@ -64,9 +63,9 @@ public final class o extends com.baidu.tieba.j {
                 int i2 = i;
                 if (i2 < tag_list.size()) {
                     InterestFrsData.Tag tag = tag_list.get(i2);
-                    if (tag.getBid() > 0 && tag.getBid() <= 10 && (imageView = this.n.get(Integer.valueOf(tag.getBid()))) != null) {
+                    if (tag.getBid() > 0 && tag.getBid() <= 10 && (imageView = this.m.get(Integer.valueOf(tag.getBid()))) != null) {
                         imageView.setTag(tag);
-                        this.o.g().b(tag.getBicon(), new r(this, imageView));
+                        this.n.h().b(tag.getBicon(), new r(this, imageView));
                     }
                     i = i2 + 1;
                 } else {
@@ -76,52 +75,52 @@ public final class o extends com.baidu.tieba.j {
         }
     }
 
-    @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public final View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.b = (ViewGroup) layoutInflater.inflate(R.layout.guide_main, (ViewGroup) null);
-        this.c = this.b.findViewById(R.id.root_main_view_cover);
-        this.d = (ImageView) this.b.findViewById(R.id.icon_1);
-        this.e = (ImageView) this.b.findViewById(R.id.icon_2);
-        this.f = (ImageView) this.b.findViewById(R.id.icon_3);
-        this.g = (ImageView) this.b.findViewById(R.id.icon_4);
-        this.h = (ImageView) this.b.findViewById(R.id.icon_5);
-        this.i = (ImageView) this.b.findViewById(R.id.icon_6);
-        this.j = (ImageView) this.b.findViewById(R.id.icon_7);
-        this.k = (ImageView) this.b.findViewById(R.id.icon_8);
-        this.l = (ImageView) this.b.findViewById(R.id.icon_9);
-        this.m = (ImageView) this.b.findViewById(R.id.icon_10);
-        this.q = (Button) this.b.findViewById(R.id.btn_next);
-        this.n.put(1, this.d);
-        this.n.put(2, this.e);
-        this.n.put(3, this.f);
-        this.n.put(4, this.g);
-        this.n.put(5, this.h);
-        this.n.put(6, this.i);
-        this.n.put(7, this.j);
-        this.n.put(8, this.k);
-        this.n.put(9, this.l);
-        this.n.put(10, this.m);
-        this.q.setOnClickListener(this.u);
-        this.d.setOnClickListener(this.u);
-        this.e.setOnClickListener(this.u);
-        this.f.setOnClickListener(this.u);
-        this.g.setOnClickListener(this.u);
-        this.h.setOnClickListener(this.u);
-        this.i.setOnClickListener(this.u);
-        this.j.setOnClickListener(this.u);
-        this.k.setOnClickListener(this.u);
-        this.l.setOnClickListener(this.u);
-        this.l.setOnClickListener(this.u);
-        this.m.setOnClickListener(this.u);
-        return this.b;
+        this.a = (ViewGroup) layoutInflater.inflate(com.baidu.tieba.a.i.guide_main, (ViewGroup) null);
+        this.b = this.a.findViewById(com.baidu.tieba.a.h.root_main_view_cover);
+        this.c = (ImageView) this.a.findViewById(com.baidu.tieba.a.h.icon_1);
+        this.d = (ImageView) this.a.findViewById(com.baidu.tieba.a.h.icon_2);
+        this.e = (ImageView) this.a.findViewById(com.baidu.tieba.a.h.icon_3);
+        this.f = (ImageView) this.a.findViewById(com.baidu.tieba.a.h.icon_4);
+        this.g = (ImageView) this.a.findViewById(com.baidu.tieba.a.h.icon_5);
+        this.h = (ImageView) this.a.findViewById(com.baidu.tieba.a.h.icon_6);
+        this.i = (ImageView) this.a.findViewById(com.baidu.tieba.a.h.icon_7);
+        this.j = (ImageView) this.a.findViewById(com.baidu.tieba.a.h.icon_8);
+        this.k = (ImageView) this.a.findViewById(com.baidu.tieba.a.h.icon_9);
+        this.l = (ImageView) this.a.findViewById(com.baidu.tieba.a.h.icon_10);
+        this.p = (Button) this.a.findViewById(com.baidu.tieba.a.h.btn_next);
+        this.m.put(1, this.c);
+        this.m.put(2, this.d);
+        this.m.put(3, this.e);
+        this.m.put(4, this.f);
+        this.m.put(5, this.g);
+        this.m.put(6, this.h);
+        this.m.put(7, this.i);
+        this.m.put(8, this.j);
+        this.m.put(9, this.k);
+        this.m.put(10, this.l);
+        this.p.setOnClickListener(this.t);
+        this.c.setOnClickListener(this.t);
+        this.d.setOnClickListener(this.t);
+        this.e.setOnClickListener(this.t);
+        this.f.setOnClickListener(this.t);
+        this.g.setOnClickListener(this.t);
+        this.h.setOnClickListener(this.t);
+        this.i.setOnClickListener(this.t);
+        this.j.setOnClickListener(this.t);
+        this.k.setOnClickListener(this.t);
+        this.k.setOnClickListener(this.t);
+        this.l.setOnClickListener(this.t);
+        return this.a;
     }
 
-    @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public final void onResume() {
         super.onResume();
     }
 
-    @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public final void onPause() {
         super.onPause();
     }

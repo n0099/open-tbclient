@@ -5,7 +5,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Proxy;
 import android.telephony.TelephonyManager;
-import com.baidu.cloudsdk.social.core.SocialConstants;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -37,7 +36,7 @@ public final class o {
                     return "WIFI";
                 }
                 if (type == 0) {
-                    int b = com.baidu.adp.lib.network.i.b();
+                    int b = com.baidu.adp.lib.network.willdelete.h.b();
                     StringBuilder sb = new StringBuilder();
                     switch (b) {
                         case 1:
@@ -107,7 +106,7 @@ public final class o {
                         return "2";
                     }
                 }
-                return SocialConstants.TRUE;
+                return "1";
             }
             return null;
         } catch (Exception e) {
@@ -127,13 +126,13 @@ public final class o {
             try {
                 file.createNewFile();
             } catch (IOException e) {
-                com.baidu.adp.lib.util.e.a("BdStatsHelper", "getFileOutputStream", e);
+                com.baidu.adp.lib.util.f.a("BdStatsHelper", "getFileOutputStream", e);
             }
         }
         try {
             return new FileOutputStream(file, z);
         } catch (FileNotFoundException e2) {
-            com.baidu.adp.lib.util.e.a("BdStatsHelper", "getFileOutputStream", e2);
+            com.baidu.adp.lib.util.f.a("BdStatsHelper", "getFileOutputStream", e2);
             return null;
         }
     }
@@ -155,7 +154,7 @@ public final class o {
             }
             return new String(cArr2);
         } catch (Exception e) {
-            com.baidu.adp.lib.util.e.a("BdStatsHelper", "getMD5", e);
+            com.baidu.adp.lib.util.f.a("BdStatsHelper", "getMD5", e);
             return null;
         }
     }

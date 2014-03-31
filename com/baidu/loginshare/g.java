@@ -1,6 +1,4 @@
 package com.baidu.loginshare;
-
-import com.baidu.sapi2.SapiAccountManager;
 /* loaded from: classes.dex */
 public class g {
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -50,7 +48,7 @@ public class g {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String j() {
-        return SapiAccountManager.SESSION_PTOKEN;
+        return "ptoken";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

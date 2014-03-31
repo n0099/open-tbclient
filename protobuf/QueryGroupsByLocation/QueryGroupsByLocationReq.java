@@ -79,7 +79,7 @@ public final class QueryGroupsByLocationReq {
                                 this.bitField0_ |= 1;
                                 this.lat_ = codedInputStream.readDouble();
                                 break;
-                            case 17:
+                            case Im.GroupInfo.CREATETIME_FIELD_NUMBER /* 17 */:
                                 this.bitField0_ |= 2;
                                 this.lng_ = codedInputStream.readDouble();
                                 break;

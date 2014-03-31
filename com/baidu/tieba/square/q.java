@@ -6,9 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.ch;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.bn;
 /* loaded from: classes.dex */
 public final class q extends BaseAdapter {
     View.OnClickListener a = new r(this);
@@ -44,24 +43,24 @@ public final class q extends BaseAdapter {
         if (view == null) {
             LayoutInflater from = LayoutInflater.from(this.b);
             if (itemViewType == 3) {
-                view2 = from.inflate(R.layout.bar_home_list_line, viewGroup, false);
+                view2 = from.inflate(com.baidu.tieba.a.i.bar_home_list_line, viewGroup, false);
             } else {
-                View inflate = from.inflate(R.layout.bar_folder_second_dir_item, viewGroup, false);
+                View inflate = from.inflate(com.baidu.tieba.a.i.bar_folder_second_dir_item, viewGroup, false);
                 inflate.setOnClickListener(this.a);
                 s sVar = new s();
-                sVar.a = (TextView) inflate.findViewById(R.id.name);
+                sVar.a = (TextView) inflate.findViewById(com.baidu.tieba.a.h.name);
                 inflate.setTag(sVar);
                 view2 = inflate;
             }
-            ch.b(view2);
+            bn.b(view2);
             view = view2;
         }
-        ch.a(view);
+        bn.a(view);
         if (itemViewType != 3) {
-            int ae = TiebaApplication.g().ae();
-            View findViewById = view.findViewById(R.id.container);
-            View findViewById2 = view.findViewById(R.id.item_up);
-            View findViewById3 = view.findViewById(R.id.item_down);
+            int l = TbadkApplication.j().l();
+            View findViewById = view.findViewById(com.baidu.tieba.a.h.container);
+            View findViewById2 = view.findViewById(com.baidu.tieba.a.h.item_up);
+            View findViewById3 = view.findViewById(com.baidu.tieba.a.h.item_down);
             if (itemViewType == 0) {
                 findViewById2.setVisibility(0);
                 findViewById3.setVisibility(8);
@@ -72,7 +71,7 @@ public final class q extends BaseAdapter {
                 findViewById2.setVisibility(8);
                 findViewById3.setVisibility(8);
             }
-            ch.a(findViewById, itemViewType, ae);
+            bn.a(findViewById, itemViewType, l);
             s sVar2 = (s) view.getTag();
             ab abVar = this.c.d().e.get(i / 2);
             sVar2.b = abVar;

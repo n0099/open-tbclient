@@ -7,16 +7,15 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteStatement;
 import android.text.TextUtils;
-import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.cb;
-import com.baidu.tieba.util.r;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.person.PersonInfoActivity;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public final class f extends SQLiteOpenHelper {
     public f(Context context, String str) {
-        super(context, str, (SQLiteDatabase.CursorFactory) null, 4);
+        super(context, str, (SQLiteDatabase.CursorFactory) null, 5);
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
@@ -26,14 +25,14 @@ public final class f extends SQLiteOpenHelper {
 
     private void a(SQLiteDatabase sQLiteDatabase) {
         try {
-            com.baidu.adp.lib.util.e.e("CREATE TABLE IF NOT EXISTS tb_group_news(notice_id TEXT NOT NULL UNIQUE, cmd TEXT, gid TEXT, time long, content TEXT, content_status int, ext TEXT);");
+            com.baidu.adp.lib.util.f.e("CREATE TABLE IF NOT EXISTS tb_group_news(notice_id TEXT NOT NULL UNIQUE, cmd TEXT, gid TEXT, time long, content TEXT, content_status int, ext TEXT);");
             sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS tb_group_news(notice_id TEXT NOT NULL UNIQUE, cmd TEXT, gid TEXT, time long, content TEXT, content_status int, ext TEXT);");
-            com.baidu.adp.lib.util.e.e("CREATE TABLE IF NOT EXISTS tb_message_center(gid TEXT NOT NULL UNIQUE, group_name TEXT, group_head TEXT, group_type int, group_ext TEXT, unread_count int, last_msgId TEXT, last_user_name TEXT, last_content_time long, orderCol TEXT, last_content TEXT, type int, ext TEXT,is_hidden int,is_delete int);");
-            sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS tb_message_center(gid TEXT NOT NULL UNIQUE, group_name TEXT, group_head TEXT, group_type int, group_ext TEXT, unread_count int, last_msgId TEXT, last_user_name TEXT, last_content_time long, orderCol TEXT, last_content TEXT, type int, ext TEXT,is_hidden int,is_delete int);");
-            com.baidu.adp.lib.util.e.e("CREATE TABLE IF NOT EXISTS tb_personal_id(personal_gid int);");
+            com.baidu.adp.lib.util.f.e("CREATE TABLE IF NOT EXISTS tb_message_center(gid TEXT NOT NULL UNIQUE, group_name TEXT, group_head TEXT, group_type int, custom_group_type int, group_ext TEXT, unread_count int, last_msgId TEXT, last_user_name TEXT, last_content_time long, orderCol TEXT, last_content TEXT, type int, ext TEXT,is_hidden int,is_delete int);");
+            sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS tb_message_center(gid TEXT NOT NULL UNIQUE, group_name TEXT, group_head TEXT, group_type int, custom_group_type int, group_ext TEXT, unread_count int, last_msgId TEXT, last_user_name TEXT, last_content_time long, orderCol TEXT, last_content TEXT, type int, ext TEXT,is_hidden int,is_delete int);");
+            com.baidu.adp.lib.util.f.e("CREATE TABLE IF NOT EXISTS tb_personal_id(personal_gid int);");
             sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS tb_personal_id(personal_gid int);");
         } catch (Exception e) {
-            cb.a(e, "ImDatabaseHelper.createTables", new Object[0]);
+            TiebaStatic.a(e, "ImDatabaseHelper.createTables", new Object[0]);
         }
     }
 
@@ -41,15 +40,21 @@ public final class f extends SQLiteOpenHelper {
     @SuppressLint({"Override"})
     public final void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         try {
-            TiebaApplication.g().b().deleteDatabase(String.valueOf(TiebaApplication.v()) + ".db");
+            TbadkApplication.j().b().deleteDatabase(String.valueOf(TbadkApplication.E()) + ".db");
             a(sQLiteDatabase);
         } catch (Exception e) {
-            cb.a(e, "ImDatabaseHelper.onDowngrade", new Object[0]);
+            TiebaStatic.a(e, "ImDatabaseHelper.onDowngrade", new Object[0]);
             e.printStackTrace();
         }
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:17:0x0036 A[Catch: all -> 0x011b, TRY_ENTER, TRY_LEAVE, TryCatch #6 {Exception -> 0x0045, blocks: (B:6:0x0007, B:11:0x001b, B:12:0x001e, B:15:0x0031, B:40:0x00fc, B:20:0x0041, B:14:0x0023, B:39:0x00ed, B:7:0x000b, B:8:0x0012, B:10:0x0018, B:24:0x0078, B:26:0x0084, B:31:0x008f, B:33:0x0097, B:36:0x00b8, B:17:0x0036, B:18:0x0039, B:19:0x003e, B:45:0x0107), top: B:56:0x0007 }] */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x0023 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:66:? A[RETURN, SYNTHETIC] */
     @Override // android.database.sqlite.SQLiteOpenHelper
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public final void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         switch (i) {
             case 1:
@@ -61,47 +66,74 @@ public final class f extends SQLiteOpenHelper {
                         while (it.hasNext()) {
                             String next = it.next();
                             if (TextUtils.isEmpty(next)) {
-                                com.baidu.adp.lib.util.e.b("gid is null");
+                                com.baidu.adp.lib.util.f.b("gid is null");
                             } else if (next.startsWith("tb_group_msg_")) {
                                 try {
                                     sQLiteDatabase.execSQL("ALTER TABLE " + next + " ADD read_flag int default 0;");
                                 } catch (Exception e) {
-                                    cb.a(e, "ImDatabaseHelper.groupMsg1to2", new Object[0]);
+                                    TiebaStatic.a(e, "ImDatabaseHelper.groupMsg1to2", new Object[0]);
                                     sQLiteDatabase.execSQL("DROP TABLE IF EXISTS " + next);
-                                    com.baidu.adp.lib.util.e.b("升级" + next + "失败！");
+                                    com.baidu.adp.lib.util.f.b("升级" + next + "失败！");
                                 }
                             }
                         }
                         sQLiteDatabase.setTransactionSuccessful();
                         sQLiteDatabase.endTransaction();
                     } catch (Exception e2) {
-                        cb.a(e2, "ImDatabaseHelper.onUpgrade", new Object[0]);
-                        com.baidu.adp.lib.util.e.b("im数据库升级失败， 删除数据库。 重新建立数据库");
-                        TiebaApplication.g().b().deleteDatabase(String.valueOf(TiebaApplication.v()) + ".db");
+                        TiebaStatic.a(e2, "ImDatabaseHelper.onUpgrade", new Object[0]);
+                        com.baidu.adp.lib.util.f.b("im数据库升级失败， 删除数据库。 重新建立数据库");
+                        TbadkApplication.j().b().deleteDatabase(String.valueOf(TbadkApplication.E()) + ".db");
                         a(sQLiteDatabase);
                         return;
                     }
                 }
+                b(sQLiteDatabase);
+                if (sQLiteDatabase != null) {
+                    try {
+                        sQLiteDatabase.beginTransaction();
+                        com.baidu.adp.lib.util.f.e("CREATE TABLE IF NOT EXISTS tb_personal_id(personal_gid int);");
+                        sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS tb_personal_id(personal_gid int);");
+                        sQLiteDatabase.setTransactionSuccessful();
+                        sQLiteDatabase.endTransaction();
+                    } catch (Exception e3) {
+                        TiebaStatic.a(e3, "ImDatabaseHelper.groupMsg3to4", new Object[0]);
+                        com.baidu.adp.lib.util.f.b(e3.toString());
+                        sQLiteDatabase.endTransaction();
+                    }
+                }
+                if (sQLiteDatabase == null) {
+                    sQLiteDatabase.beginTransaction();
+                    try {
+                        sQLiteDatabase.execSQL("ALTER TABLE tb_message_center ADD custom_group_type int default 0;");
+                    } catch (Exception e4) {
+                        TiebaStatic.a(e4, "ImDatabaseHelper.groupMsg4to5", new Object[0]);
+                        sQLiteDatabase.execSQL("DROP TABLE IF EXISTS tb_message_center");
+                        com.baidu.adp.lib.util.f.b("升级tb_message_center失败！");
+                    }
+                    sQLiteDatabase.setTransactionSuccessful();
+                    sQLiteDatabase.endTransaction();
+                    return;
+                }
+                return;
             case 2:
                 b(sQLiteDatabase);
+                if (sQLiteDatabase != null) {
+                }
+                if (sQLiteDatabase == null) {
+                }
                 break;
             case 3:
+                if (sQLiteDatabase != null) {
+                }
+                if (sQLiteDatabase == null) {
+                }
+                break;
+            case 4:
+                if (sQLiteDatabase == null) {
+                }
                 break;
             default:
                 return;
-        }
-        if (sQLiteDatabase != null) {
-            try {
-                sQLiteDatabase.beginTransaction();
-                com.baidu.adp.lib.util.e.e("CREATE TABLE IF NOT EXISTS tb_personal_id(personal_gid int);");
-                sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS tb_personal_id(personal_gid int);");
-                sQLiteDatabase.setTransactionSuccessful();
-                sQLiteDatabase.endTransaction();
-            } catch (Exception e3) {
-                cb.a(e3, "ImDatabaseHelper.groupMsg3to4", new Object[0]);
-                com.baidu.adp.lib.util.e.b(e3.toString());
-                sQLiteDatabase.endTransaction();
-            }
         }
     }
 
@@ -114,7 +146,7 @@ public final class f extends SQLiteOpenHelper {
                 while (it.hasNext()) {
                     String next = it.next();
                     if (TextUtils.isEmpty(next)) {
-                        com.baidu.adp.lib.util.e.b("gid is null");
+                        com.baidu.adp.lib.util.f.b("gid is null");
                     } else if (next.startsWith("tb_group_msg_")) {
                         try {
                             sQLiteDatabase.execSQL("ALTER TABLE " + next + " ADD rid BIGINT;");
@@ -122,9 +154,9 @@ public final class f extends SQLiteOpenHelper {
                             sQLiteDatabase.execSQL("UPDATE " + next + " SET read_flag=0 WHERE read_flag is null");
                             sQLiteDatabase.execSQL("UPDATE " + next + " SET rid=mid WHERE rid is null");
                         } catch (Exception e) {
-                            cb.a(e, "ImDatabaseHelper.groupMsg2to3", new Object[0]);
+                            TiebaStatic.a(e, "ImDatabaseHelper.groupMsg2to3", new Object[0]);
                             sQLiteDatabase.execSQL("DROP TABLE IF EXISTS " + next);
-                            com.baidu.adp.lib.util.e.b("升级" + next + "失败！");
+                            com.baidu.adp.lib.util.f.b("升级" + next + "失败！");
                         }
                     }
                 }
@@ -143,17 +175,17 @@ public final class f extends SQLiteOpenHelper {
                 cursor = sQLiteDatabase.rawQuery("select * from sqlite_master where type='table'", null);
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
-                        linkedList.add(cursor.getString(cursor.getColumnIndex(SocialConstants.PARAM_MEDIA_UNAME)));
+                        linkedList.add(cursor.getString(cursor.getColumnIndex(PersonInfoActivity.TAG_NAME)));
                     }
                 }
             } catch (Exception e) {
-                cb.a(e, "ImDatabaseHelper.getAllTable", new Object[0]);
+                TiebaStatic.a(e, "ImDatabaseHelper.getAllTable", new Object[0]);
                 e.printStackTrace();
             } finally {
-                r.a(cursor);
+                com.baidu.tbadk.core.util.l.a(cursor);
             }
         }
-        com.baidu.adp.lib.util.e.e("haveTables:" + linkedList);
+        com.baidu.adp.lib.util.f.e("haveTables:" + linkedList);
         return linkedList;
     }
 
@@ -167,13 +199,13 @@ public final class f extends SQLiteOpenHelper {
 
     public static SQLiteStatement a(String str) {
         try {
-            SQLiteDatabase a = g.a();
-            if (a == null) {
+            SQLiteDatabase imDataBase = ImDatabaseManager.getImDataBase();
+            if (imDataBase == null) {
                 return null;
             }
-            return a.compileStatement(str);
+            return imDataBase.compileStatement(str);
         } catch (Exception e) {
-            cb.a(e, "ImDatabaseHelper.getStatementForSql", new Object[0]);
+            TiebaStatic.a(e, "ImDatabaseHelper.getStatementForSql", new Object[0]);
             return null;
         }
     }

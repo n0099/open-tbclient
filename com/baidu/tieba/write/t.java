@@ -6,18 +6,18 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class t extends BdAsyncTask<Object, s, s> {
     final /* synthetic */ s a;
-    private com.baidu.tieba.util.ba b;
+    private com.baidu.tbadk.core.util.ak b;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public final /* bridge */ /* synthetic */ void a(s sVar) {
-        com.baidu.adp.a.g gVar;
+        com.baidu.adp.a.h hVar;
         s sVar2 = sVar;
         super.a((t) sVar2);
         this.a.a = null;
-        gVar = this.a.mLoadDataCallBack;
-        gVar.a(sVar2);
+        hVar = this.a.mLoadDataCallBack;
+        hVar.a(sVar2);
     }
 
     private t(s sVar) {
@@ -36,15 +36,15 @@ public final class t extends BdAsyncTask<Object, s, s> {
     public s a(Object... objArr) {
         s sVar = null;
         String obj = objArr[0].toString();
-        this.b = new com.baidu.tieba.util.ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/f/frs/toplist");
+        this.b = new com.baidu.tbadk.core.util.ak(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/f/frs/toplist");
         this.b.a("kw", obj);
-        String l = this.b.l();
-        if (this.b.c()) {
+        String i = this.b.i();
+        if (this.b.a().b().b()) {
             sVar = new s();
             try {
-                sVar.a(new JSONObject(l));
+                sVar.a(new JSONObject(i));
             } catch (Exception e) {
-                com.baidu.adp.lib.util.e.b(sVar.getClass().getName(), "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.util.f.b(sVar.getClass().getName(), "parserJson", "error = " + e.getMessage());
             }
         }
         return sVar;
@@ -55,7 +55,7 @@ public final class t extends BdAsyncTask<Object, s, s> {
         super.cancel(true);
         this.a.a = null;
         if (this.b != null) {
-            this.b.j();
+            this.b.g();
         }
     }
 }

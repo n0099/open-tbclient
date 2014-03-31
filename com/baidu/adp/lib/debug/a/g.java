@@ -36,7 +36,7 @@ public final class g extends ImageView {
         super.draw(canvas);
         if (elapsedRealtime - this.b > 1000) {
             this.b = elapsedRealtime;
-            com.baidu.adp.lib.debug.b.a(this.c);
+            com.baidu.adp.lib.debug.c.a(this.c);
             this.c = 0;
         }
         this.c++;

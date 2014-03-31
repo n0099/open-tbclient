@@ -3,15 +3,12 @@ package com.baidu.tieba.im.chat;
 import android.content.Context;
 import android.text.TextUtils;
 import android.widget.TextView;
-import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.view.HeadImageView;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.core.view.HeadImageView;
 import java.util.Calendar;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class MsgActivityView extends br {
-    private static final String o = MsgActivityView.class.getName();
+public class MsgActivityView extends ch {
     private HeadImageView p;
     private TextView q;
     private TextView r;
@@ -22,27 +19,26 @@ public class MsgActivityView extends br {
     private com.baidu.adp.lib.b.b w;
 
     public MsgActivityView(Context context) {
-        super(context, R.layout.msg_msgactivity_view);
-        this.u = new be(this);
-        this.i = (TextView) a(R.id.tex_msgitem_time);
-        this.q = (TextView) a(R.id.msg_msgactivity_title);
-        this.r = (TextView) a(R.id.msg_msgactivity_time);
-        this.s = (TextView) a(R.id.msg_msgactivity_address);
-        this.p = (HeadImageView) a(R.id.img_msgactivity_photo);
+        super(context, com.baidu.tieba.im.i.msg_msgactivity_view);
+        this.u = new ca(this);
+        this.i = (TextView) a(com.baidu.tieba.im.h.tex_msgitem_time);
+        this.q = (TextView) a(com.baidu.tieba.im.h.msg_msgactivity_title);
+        this.r = (TextView) a(com.baidu.tieba.im.h.msg_msgactivity_time);
+        this.s = (TextView) a(com.baidu.tieba.im.h.msg_msgactivity_address);
+        this.p = (HeadImageView) a(com.baidu.tieba.im.h.img_msgactivity_photo);
         this.p.setIsRound(false);
         this.p.setClickable(true);
-        a().setOnClickListener(new bf(this));
-        a().setOnLongClickListener(new bg(this));
+        a().setOnClickListener(new cb(this));
+        a().setOnLongClickListener(new cc(this));
     }
 
-    public final void a(com.baidu.tieba.im.message.b bVar) {
+    public final void a(com.baidu.tieba.im.message.a.a aVar) {
         String string;
-        int i;
         String string2;
-        if (bVar != null) {
-            c(bVar);
+        if (aVar != null) {
+            c(aVar);
             try {
-                JSONObject optJSONObject = new JSONObject(bVar.k()).optJSONObject("eventParam");
+                JSONObject optJSONObject = new JSONObject(aVar.v()).optJSONObject("eventParam");
                 if (optJSONObject != null) {
                     String optString = optJSONObject.optString("activityTitle");
                     String optString2 = optJSONObject.optString("activityTime");
@@ -53,50 +49,45 @@ public class MsgActivityView extends br {
                     this.q.setText(optString);
                     Calendar calendar = Calendar.getInstance();
                     calendar.setTimeInMillis(com.baidu.adp.lib.f.b.a(optString2, 0L) * 1000);
-                    int i2 = calendar.get(11);
-                    int i3 = calendar.get(12);
-                    int i4 = calendar.get(7) - 1;
-                    int i5 = calendar.get(1);
-                    int i6 = calendar.get(2) + 1;
-                    int i7 = calendar.get(5);
-                    switch (i4) {
+                    int i = calendar.get(11);
+                    int i2 = calendar.get(12);
+                    int i3 = calendar.get(7) - 1;
+                    int i4 = calendar.get(1);
+                    int i5 = calendar.get(2) + 1;
+                    int i6 = calendar.get(5);
+                    switch (i3) {
                         case 0:
-                            string = this.b.getResources().getString(R.string.seven);
+                            string = this.b.getResources().getString(com.baidu.tieba.im.j.seven);
                             break;
                         case 1:
-                            string = this.b.getResources().getString(R.string.one);
+                            string = this.b.getResources().getString(com.baidu.tieba.im.j.one);
                             break;
                         case 2:
-                            string = this.b.getResources().getString(R.string.two);
+                            string = this.b.getResources().getString(com.baidu.tieba.im.j.two);
                             break;
                         case 3:
-                            string = this.b.getResources().getString(R.string.three);
+                            string = this.b.getResources().getString(com.baidu.tieba.im.j.three);
                             break;
                         case 4:
-                            string = this.b.getResources().getString(R.string.four);
+                            string = this.b.getResources().getString(com.baidu.tieba.im.j.four);
                             break;
                         case 5:
-                            string = this.b.getResources().getString(R.string.five);
+                            string = this.b.getResources().getString(com.baidu.tieba.im.j.five);
                             break;
                         case 6:
-                            string = this.b.getResources().getString(R.string.six);
+                            string = this.b.getResources().getString(com.baidu.tieba.im.j.six);
                             break;
                         default:
                             string = "";
                             break;
                     }
-                    if (i2 > 12) {
-                        i = i2 - 12;
-                        string2 = this.b.getResources().getString(R.string.pm);
+                    if (i > 12) {
+                        string2 = this.b.getResources().getString(com.baidu.tieba.im.j.pm);
+                        i -= 12;
                     } else {
-                        i = i2;
-                        string2 = this.b.getResources().getString(R.string.am);
+                        string2 = this.b.getResources().getString(com.baidu.tieba.im.j.am);
                     }
-                    String sb = new StringBuilder(String.valueOf(i3)).toString();
-                    if (i3 < 10) {
-                        sb = SocialConstants.FALSE + i3;
-                    }
-                    this.r.setText(String.format("%d-%d-%d %s %s %d:%s", Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), string, string2, Integer.valueOf(i), sb));
+                    this.r.setText(String.format("%d-%d-%d %s %s %d:%d", Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), string, string2, Integer.valueOf(i), Integer.valueOf(i2)));
                     if (TextUtils.isEmpty(optString3)) {
                         this.s.setVisibility(4);
                     } else {
@@ -104,7 +95,7 @@ public class MsgActivityView extends br {
                         this.s.setText(optString3);
                     }
                     this.p.setTag(optString4);
-                    this.p.setOnClickListener(new bh(this, optString5, optString6));
+                    this.p.setOnClickListener(new cd(this, optString5, optString6));
                     if (this.e != null) {
                         this.e.c(optString4, this.u);
                     }
@@ -115,17 +106,17 @@ public class MsgActivityView extends br {
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.br
+    @Override // com.baidu.tieba.im.chat.ch
     public final void a(com.baidu.adp.lib.b.a aVar) {
         this.v = aVar;
     }
 
-    @Override // com.baidu.tieba.im.chat.br
+    @Override // com.baidu.tieba.im.chat.ch
     public final void a(com.baidu.adp.lib.b.b bVar) {
         this.w = bVar;
     }
 
-    @Override // com.baidu.tieba.im.chat.br
+    @Override // com.baidu.tieba.im.chat.ch
     public final void b(int i) {
         this.t = i;
     }

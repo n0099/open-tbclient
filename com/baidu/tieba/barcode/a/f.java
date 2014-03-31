@@ -3,9 +3,8 @@ package com.baidu.tieba.barcode.a;
 import android.graphics.Point;
 import android.hardware.Camera;
 import android.os.Handler;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class f implements Camera.PreviewCallback {
+final class f implements Camera.PreviewCallback {
     private final c a;
     private Handler b;
     private int c;
@@ -30,6 +29,6 @@ public final class f implements Camera.PreviewCallback {
             this.b = null;
             return;
         }
-        com.baidu.adp.lib.util.e.e(getClass().getName(), "onPreviewFrame", "Got preview callback, but no handler or resolution available");
+        com.baidu.adp.lib.util.f.e(getClass().getName(), "onPreviewFrame", "Got preview callback, but no handler or resolution available");
     }
 }

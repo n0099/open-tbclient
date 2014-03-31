@@ -5,16 +5,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import com.baidu.tieba.ai;
-import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class GroupLevelActivity extends com.baidu.tieba.f {
-    private com.baidu.tieba.im.model.f a;
-    private m b;
-    private com.baidu.tieba.view.dialog.a c;
-    private com.baidu.tieba.view.dialog.c d = new j(this);
-    private com.baidu.tieba.view.dialog.c e = new k(this);
-    private com.baidu.tieba.im.messageCenter.g f = new l(this);
+public class GroupLevelActivity extends com.baidu.tbadk.a {
+    private com.baidu.tieba.im.model.m a;
+    private o b;
+    private com.baidu.tbadk.core.dialog.a c;
+    private com.baidu.tbadk.core.dialog.c d = new l(this);
+    private com.baidu.tbadk.core.dialog.c e = new m(this);
+    private com.baidu.adp.framework.c.g f = new n(this, 0);
 
     public static void a(Context context, long j) {
         Intent intent = new Intent(context, GroupLevelActivity.class);
@@ -23,25 +21,23 @@ public class GroupLevelActivity extends com.baidu.tieba.f {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        ai.b(this, "im_group_level_visit");
-        this.a = new com.baidu.tieba.im.model.f();
+        com.baidu.tbadk.core.g.b(this, "im_group_level_visit");
+        this.a = new com.baidu.tieba.im.model.m();
         if (bundle == null) {
             this.a.a(getIntent());
         } else {
             this.a.a(bundle);
         }
-        com.baidu.tieba.im.model.f fVar = this.a;
-        com.baidu.tieba.im.messageCenter.g gVar = this.f;
-        com.baidu.tieba.im.messageCenter.d.a().a(103006, gVar);
-        com.baidu.tieba.im.messageCenter.d.a().a(103105, gVar);
-        this.b = new m(this);
-        this.c = new com.baidu.tieba.view.dialog.a(this);
-        this.c.a(R.string.upgrade_mem_group_if_up);
-        this.c.a(R.string.alert_yes_btn, this.d);
-        this.c.b(R.string.alert_no_button, this.e);
+        registerListener(103006, this.f);
+        registerListener(103105, this.f);
+        this.b = new o(this);
+        this.c = new com.baidu.tbadk.core.dialog.a(this);
+        this.c.a(com.baidu.tieba.im.j.upgrade_mem_group_if_up);
+        this.c.a(com.baidu.tieba.im.j.alert_yes_btn, this.d);
+        this.c.b(com.baidu.tieba.im.j.alert_no_button, this.e);
         this.c.a();
         a();
     }
@@ -49,7 +45,7 @@ public class GroupLevelActivity extends com.baidu.tieba.f {
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
         this.b.a(true);
-        this.a.a(this.a.a());
+        this.a.a(this.a.a(), getUniqueId());
     }
 
     @Override // android.app.Activity
@@ -63,23 +59,21 @@ public class GroupLevelActivity extends com.baidu.tieba.f {
         if (view == this.b.a()) {
             closeActivity();
         } else if (view == this.b.d()) {
-            ai.a(this, "im_group_level_upgrade_mem");
+            com.baidu.tbadk.core.g.a(this, "im_group_level_upgrade_mem");
             this.c.b();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f
+    @Override // com.baidu.tbadk.a
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.b.a(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        com.baidu.tieba.im.model.f fVar = this.a;
-        com.baidu.tieba.im.messageCenter.d.a().a(this.f);
     }
 }

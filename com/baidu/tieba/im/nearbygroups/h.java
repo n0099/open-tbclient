@@ -1,55 +1,167 @@
 package com.baidu.tieba.im.nearbygroups;
 
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.R;
+import android.widget.AdapterView;
+import com.baidu.adp.widget.p;
+import com.baidu.tbadk.editortool.aa;
+import com.baidu.tieba.im.data.NearbyGroupsData;
+import java.util.Iterator;
 /* loaded from: classes.dex */
-public final class h implements a {
-    private LinearLayout a;
-    private TextView b;
-    private Button c;
-    private NearbyGroupsActivity d;
-    private View e;
-    private int f;
+public final class h extends p {
+    private NearbyGroupsActivity a;
+    private aa d;
+    private a f;
+    private NearbyGroupsData b = null;
+    private boolean c = true;
+    private boolean e = false;
 
-    public h(NearbyGroupsActivity nearbyGroupsActivity, int i) {
+    public h(NearbyGroupsActivity nearbyGroupsActivity) {
         this.a = null;
-        this.b = null;
-        this.c = null;
         this.d = null;
-        this.e = null;
-        this.d = nearbyGroupsActivity;
-        this.f = i;
-        this.e = LayoutInflater.from(this.d).inflate(R.layout.nearby_group_guide, (ViewGroup) null);
-        this.a = (LinearLayout) this.e.findViewById(R.id.guide_parent);
-        this.b = (TextView) this.e.findViewById(R.id.guide_tip);
-        this.c = (Button) this.e.findViewById(R.id.guide_setting);
-        this.c.setOnClickListener(this.d);
-        if (this.f == 2) {
-            this.b.setText(R.string.nearby_group_gps_no_data);
-            this.c.setVisibility(8);
-        } else if (this.f == 0) {
-            this.b.setText(R.string.nearby_group_gps_close);
-            this.c.setVisibility(0);
-        } else if (this.f == 1) {
-            this.b.setText(R.string.nearby_group_gps_error);
-            this.c.setVisibility(8);
+        this.a = nearbyGroupsActivity;
+        this.d = new aa(this.a);
+        this.d.a(true);
+    }
+
+    public final NearbyGroupsData d() {
+        return this.b;
+    }
+
+    public final aa e() {
+        return this.d;
+    }
+
+    public final void a(boolean z) {
+        this.c = z;
+        if (!this.c) {
+            this.b = null;
         }
-        this.d.getLayoutMode().a(TiebaApplication.g().ae() == 1);
-        this.d.getLayoutMode().a(this.a);
+        a();
     }
 
-    @Override // com.baidu.tieba.im.nearbygroups.a
-    public final View a() {
-        return this.e;
+    public final void b(boolean z) {
+        this.e = z;
+        if (this.e) {
+            this.b = null;
+        }
+        a();
     }
 
-    @Override // com.baidu.tieba.im.nearbygroups.a
-    public final void a(Object obj) {
+    public final void a(NearbyGroupsData nearbyGroupsData) {
+        boolean z = false;
+        if (nearbyGroupsData != null && this.b != null && nearbyGroupsData.getOffset() != 0) {
+            z = true;
+        }
+        if (z) {
+            com.baidu.tieba.im.data.e lastGroup = this.b.getLastGroup();
+            com.baidu.tieba.im.data.e firstGroup = nearbyGroupsData.getFirstGroup();
+            if (lastGroup != null && firstGroup != null && lastGroup.a() != null && lastGroup.a().equals(firstGroup.a())) {
+                nearbyGroupsData.remove(firstGroup);
+            }
+            Iterator it = nearbyGroupsData.iterator();
+            while (it.hasNext()) {
+                com.baidu.tieba.im.data.f fVar = (com.baidu.tieba.im.data.f) it.next();
+                if ((fVar instanceof com.baidu.tieba.im.data.g) && this.b.findItemByGroupId(((com.baidu.tieba.im.data.g) fVar).c()) != null) {
+                    break;
+                }
+                this.b.add(fVar);
+            }
+        } else {
+            this.b = nearbyGroupsData;
+        }
+        a();
+    }
+
+    @Override // android.widget.Adapter
+    public final int getCount() {
+        if (this.b == null) {
+            return (this.e || !this.c) ? 1 : 0;
+        }
+        int size = this.b.size();
+        if (size == 0) {
+            return 1;
+        }
+        return size;
+    }
+
+    @Override // android.widget.Adapter
+    public final int getItemViewType(int i) {
+        if (this.b == null) {
+            if (!this.c) {
+                return 0;
+            }
+            if (this.e) {
+                return 1;
+            }
+            return 5;
+        } else if (this.b.size() == 0) {
+            return 2;
+        } else {
+            if (this.b.get(i).b() == 0) {
+                return 4;
+            }
+            return 3;
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public final int getViewTypeCount() {
+        return 6;
+    }
+
+    @Override // android.widget.Adapter
+    public final Object getItem(int i) {
+        if (this.b == null || this.b.size() <= 0) {
+            return null;
+        }
+        return this.b.get(i);
+    }
+
+    @Override // android.widget.Adapter
+    public final long getItemId(int i) {
+        return i;
+    }
+
+    @Override // android.widget.Adapter
+    public final View getView(int i, View view, ViewGroup viewGroup) {
+        a aVar;
+        int itemViewType = getItemViewType(i);
+        if (view == null) {
+            aVar = i.a(this.a, itemViewType);
+            view = aVar.a();
+            view.setTag(aVar);
+        } else {
+            Object tag = view.getTag();
+            if (tag == null || !(tag instanceof a)) {
+                aVar = null;
+            } else {
+                aVar = (a) tag;
+            }
+        }
+        if (aVar != null) {
+            aVar.a(getItem(i));
+        }
+        return view;
+    }
+
+    @Override // com.baidu.adp.widget.p
+    public final int b() {
+        return 4;
+    }
+
+    @Override // com.baidu.adp.widget.p
+    public final View c() {
+        if (this.f == null) {
+            this.f = i.a(this.a, 4);
+        }
+        return this.f.a();
+    }
+
+    @Override // com.baidu.adp.widget.p
+    public final void a(View view, AdapterView adapterView, int i) {
+        if (this.f != null) {
+            this.f.a(getItem(i));
+        }
     }
 }

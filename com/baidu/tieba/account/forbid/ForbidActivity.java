@@ -8,15 +8,13 @@ import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.account.LoginActivity;
-import com.baidu.tieba.util.bq;
-import com.baidu.tieba.view.NavigationBar;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.coreExtra.act.LoginActivity;
 /* loaded from: classes.dex */
-public class ForbidActivity extends com.baidu.tieba.f {
+public class ForbidActivity extends com.baidu.tbadk.a {
     private NavigationBar a;
     private RadioGroup b;
     private String c;
@@ -40,22 +38,22 @@ public class ForbidActivity extends com.baidu.tieba.f {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(R.layout.account_forbid_activity);
-        String v = TiebaApplication.v();
-        if (v == null || v.length() <= 0) {
-            LoginActivity.a((Activity) this, getString(R.string.login_to_use), true, 11018);
+        setContentView(com.baidu.tieba.a.i.account_forbid_activity);
+        String E = TbadkApplication.E();
+        if (E == null || E.length() <= 0) {
+            LoginActivity.a((Activity) this, getString(com.baidu.tieba.a.k.login_to_use), true, 11018);
             return;
         }
-        this.a = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.a.a(getString(R.string.forbid_page_title));
+        this.a = (NavigationBar) findViewById(com.baidu.tieba.a.h.view_navigation_bar);
+        this.a.a(getString(com.baidu.tieba.a.k.forbid_page_title));
         this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.forbid_btn_txt), this.k);
-        this.h = (TextView) findViewById(R.id.forbid_id);
-        this.i = (BdListView) findViewById(R.id.listview_forbid_reason);
-        this.b = (RadioGroup) findViewById(R.id.forbid_days);
+        this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(com.baidu.tieba.a.k.forbid_btn_txt), this.k);
+        this.h = (TextView) findViewById(com.baidu.tieba.a.h.forbid_id);
+        this.i = (BdListView) findViewById(com.baidu.tieba.a.h.listview_forbid_reason);
+        this.b = (RadioGroup) findViewById(com.baidu.tieba.a.h.forbid_days);
         this.b.setOnCheckedChangeListener(new c(this));
         Intent intent = getIntent();
         this.c = intent.getStringExtra("forum_id");
@@ -68,33 +66,33 @@ public class ForbidActivity extends com.baidu.tieba.f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void a(ForbidActivity forbidActivity, int i) {
-        boolean z = TiebaApplication.g().ae() == 1;
-        int i2 = !z ? R.drawable.btn_prohibit_day_n : R.drawable.btn_prohibit_day_n_1;
-        int i3 = !z ? R.color.appeal_com_text : R.color.appeal_com_text_1;
-        int i4 = !z ? R.drawable.btn_prohibit_day_s : R.drawable.btn_prohibit_day_s_1;
-        int i5 = !z ? R.color.forbid_time_selected : R.color.forbid_time_selected_1;
+        boolean z = TbadkApplication.j().l() == 1;
+        int i2 = !z ? com.baidu.tieba.a.g.btn_prohibit_day_n : com.baidu.tieba.a.g.btn_prohibit_day_n_1;
+        int i3 = !z ? com.baidu.tieba.a.e.appeal_com_text : com.baidu.tieba.a.e.appeal_com_text_1;
+        int i4 = !z ? com.baidu.tieba.a.g.btn_prohibit_day_s : com.baidu.tieba.a.g.btn_prohibit_day_s_1;
+        int i5 = !z ? com.baidu.tieba.a.e.forbid_time_selected : com.baidu.tieba.a.e.forbid_time_selected_1;
         for (int i6 = 0; i6 < 3; i6++) {
             RadioButton radioButton = (RadioButton) forbidActivity.b.getChildAt(i6);
             if (radioButton.getId() == i) {
-                bq.e((View) radioButton, i4);
+                ba.e((View) radioButton, i4);
                 radioButton.setTextColor(forbidActivity.getResources().getColor(i5));
             } else {
-                bq.e((View) radioButton, i2);
+                ba.e((View) radioButton, i2);
                 radioButton.setTextColor(forbidActivity.getResources().getColor(i3));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f
+    @Override // com.baidu.tbadk.a
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         boolean z = i == 1;
-        View findViewById = findViewById(R.id.root);
+        View findViewById = findViewById(com.baidu.tieba.a.h.root);
         getLayoutMode().a(z);
         getLayoutMode().a(findViewById);
         this.a.b(i);
-        this.i.setDivider(getResources().getDrawable(z ? R.drawable.forbid_list_divider_1 : R.drawable.forbid_list_divider));
-        this.i.setDividerHeight(BdUtilHelper.a((Context) this, 1.0f));
+        this.i.setDivider(getResources().getDrawable(z ? com.baidu.tieba.a.g.forbid_list_divider_1 : com.baidu.tieba.a.g.forbid_list_divider));
+        this.i.setDividerHeight(com.baidu.adp.lib.util.i.a((Context) this, 1.0f));
     }
 }

@@ -1,40 +1,19 @@
 package com.baidu.tieba.account;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.util.DatabaseService;
-import java.util.ArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-public final class j extends BdAsyncTask<Object, Object, Object> {
-    final /* synthetic */ a a;
+final class j implements DialogInterface.OnCancelListener {
+    final /* synthetic */ i a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(a aVar) {
-        this.a = aVar;
+    public j(i iVar) {
+        this.a = iVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final Object a(Object... objArr) {
-        this.a.f = DatabaseService.j();
-        return null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void a(Object obj) {
-        ArrayList arrayList;
-        ArrayList arrayList2;
-        super.a((j) obj);
-        this.a.g = 0;
-        arrayList = this.a.f;
-        if (arrayList != null) {
-            arrayList2 = this.a.f;
-            if (arrayList2.size() > 0) {
-                this.a.b();
-                return;
-            }
-        }
-        a.k(this.a);
+    @Override // android.content.DialogInterface.OnCancelListener
+    public final void onCancel(DialogInterface dialogInterface) {
+        AccountActivity accountActivity;
+        accountActivity = this.a.a;
+        accountActivity.DeinitWaitingDialog();
     }
 }

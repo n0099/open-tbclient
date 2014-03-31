@@ -18,7 +18,6 @@ import com.baidu.android.a.j;
 import com.baidu.android.common.logging.Log;
 import com.baidu.android.moplus.MoPlusReceiver;
 import com.baidu.android.moplus.MoPlusService;
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.systemmonitor.c.d;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -97,8 +96,8 @@ public final class b {
         e(context, false);
         if (com.baidu.android.moplus.d.a(context)) {
             Intent c2 = c(context);
-            c2.setAction(PushConstants.ACTION_METHOD);
-            c2.putExtra(PushConstants.EXTRA_METHOD, "pushservice_restart");
+            c2.setAction("com.baidu.android.pushservice.action.METHOD");
+            c2.putExtra("method", "pushservice_restart");
             c2.setPackage(null);
             context.sendBroadcast(c2);
             Intent c3 = c(context);

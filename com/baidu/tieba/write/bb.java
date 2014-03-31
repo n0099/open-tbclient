@@ -1,14 +1,12 @@
 package com.baidu.tieba.write;
 
+import android.content.Context;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tieba.data.WriteData;
 import com.baidu.tieba.editortool.EditorToolComponetContainer;
-import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class bb implements View.OnFocusChangeListener {
+public final class bb implements View.OnClickListener {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,67 +14,19 @@ final class bb implements View.OnFocusChangeListener {
         this.a = writeActivity;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:7:0x0016, code lost:
-        if (r3 == r0) goto L22;
-     */
-    @Override // android.view.View.OnFocusChangeListener
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void onFocusChange(View view, boolean z) {
-        EditText editText;
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        TextView textView;
+        bs bsVar;
         WriteEditorToolButtonContainer writeEditorToolButtonContainer;
         EditorToolComponetContainer editorToolComponetContainer;
-        EditText editText2;
-        EditText editText3;
-        WriteData writeData;
-        EditText editText4;
-        WriteData writeData2;
-        WriteEditorToolButtonContainer writeEditorToolButtonContainer2;
-        EditorToolComponetContainer editorToolComponetContainer2;
-        EditText editText5;
-        EditText editText6;
-        ImageView imageView;
-        TextView textView;
-        editText = this.a.g;
-        if (view != editText) {
-            imageView = this.a.o;
-            if (view != imageView) {
-                textView = this.a.p;
-            }
-        }
-        if (z) {
-            this.a.H = true;
-            this.a.d();
-            writeEditorToolButtonContainer = this.a.A;
-            writeEditorToolButtonContainer.c();
-            editorToolComponetContainer = this.a.B;
-            editText2 = this.a.g;
-            editorToolComponetContainer.c(editText2);
-        }
-        editText3 = this.a.j;
-        if (view == editText3) {
-            if (!z) {
-                writeData = this.a.b;
-                if (writeData.getType() == 0) {
-                    editText4 = this.a.j;
-                    editText4.setHint(R.string.content);
-                    return;
-                }
-                return;
-            }
-            this.a.H = false;
-            writeData2 = this.a.b;
-            if (writeData2.getType() == 0) {
-                editText6 = this.a.j;
-                editText6.setHint((CharSequence) null);
-            }
-            this.a.d();
-            writeEditorToolButtonContainer2 = this.a.A;
-            writeEditorToolButtonContainer2.c();
-            editorToolComponetContainer2 = this.a.B;
-            editText5 = this.a.j;
-            editorToolComponetContainer2.c(editText5);
-        }
+        textView = this.a.M;
+        textView.setSelected(true);
+        bsVar = this.a.N;
+        bsVar.showAsDropDown(view, 0, com.baidu.adp.lib.util.i.a((Context) this.a, 1.0f));
+        writeEditorToolButtonContainer = this.a.z;
+        writeEditorToolButtonContainer.c();
+        editorToolComponetContainer = this.a.A;
+        editorToolComponetContainer.b();
     }
 }

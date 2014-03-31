@@ -5,7 +5,6 @@ import android.content.Context;
 import android.os.Process;
 import android.util.Log;
 import com.baidu.android.common.security.RSAUtil;
-import com.baidu.cloudsdk.social.core.SocialConstants;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -72,7 +71,7 @@ public class SilentManager {
     private static String a(String str, String str2) {
         try {
             PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(a.a(str.getBytes())));
-            Cipher cipher = Cipher.getInstance(com.baidu.sapi2.shell.b.a);
+            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
             cipher.init(2, generatePublic);
             byte[] doFinal = cipher.doFinal(a.a(str2.getBytes()));
             String str3 = new String(doFinal, "UTF8");
@@ -92,7 +91,7 @@ public class SilentManager {
         String str = "";
         for (byte b2 : bArr) {
             String hexString = Integer.toHexString(b2 & 255);
-            str = hexString.length() == 1 ? str + SocialConstants.FALSE + hexString : str + hexString;
+            str = hexString.length() == 1 ? str + "0" + hexString : str + hexString;
         }
         return str;
     }

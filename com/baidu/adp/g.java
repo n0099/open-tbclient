@@ -20,6 +20,8 @@ public final class g {
     public static final int ColumnLayout_columnOrientation = 0;
     public static final int ColumnLayout_spacingLeft = 1;
     public static final int ColumnLayout_spacingRight = 2;
+    public static final int ExpandListView_beforeExpandHeight = 0;
+    public static final int ExpandListView_expandDistance = 1;
     public static final int FloatingLayout_Layout_layout_clear = 0;
     public static final int HorizontalTranslateLayout_background = 6;
     public static final int HorizontalTranslateLayout_leftOffset = 0;
@@ -51,6 +53,7 @@ public final class g {
     public static final int[] ColumnLayout = {R.attr.columnOrientation, R.attr.spacingLeft, R.attr.spacingRight};
     public static final int[] HorizontalTranslateLayout = {R.attr.leftOffset, R.attr.rightOffset, R.attr.leftWidth, R.attr.rightWidth, R.attr.track, R.attr.tapBack, R.attr.background};
     public static final int[] BDImageView = {R.attr.radius};
+    public static final int[] ExpandListView = {R.attr.beforeExpandHeight, R.attr.expandDistance};
     public static final int[] FloatingLayout_Layout = {R.attr.layout_clear};
     public static final int[] VerticalTranslateLayout = {R.attr.track, R.attr.tapBack, R.attr.background, R.attr.topOffset, R.attr.bottomOffset, R.attr.topHeight, R.attr.bottomHeight};
     public static final int[] IndicatorView = {R.attr.spacing, R.attr.drawable, R.attr.selector, R.attr.autoHide, R.attr.count};

@@ -1,25 +1,18 @@
 package com.baidu.tieba.im.model;
 /* loaded from: classes.dex */
-public class ap extends com.baidu.adp.a.d {
-    private static final String a = ap.class.getName();
-    private aq b;
+final class ap extends com.baidu.tieba.im.m<Boolean> {
+    final /* synthetic */ am b;
+    private final /* synthetic */ com.baidu.tieba.im.message.a.e c;
 
-    @Override // com.baidu.adp.a.d
-    protected boolean LoadData() {
-        return false;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ap(am amVar, com.baidu.tieba.im.message.a.e eVar) {
+        this.b = amVar;
+        this.c = eVar;
     }
 
-    @Override // com.baidu.adp.a.d
-    public boolean cancelLoadData() {
-        return false;
-    }
-
-    public final void a(String str, long j) {
-        if (this.b != null) {
-            this.b.cancel();
-            this.b = null;
-        }
-        this.b = new aq(this, str, j);
-        this.b.execute(new Object[0]);
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.m
+    public final /* synthetic */ Boolean a() {
+        return Boolean.valueOf(com.baidu.tieba.im.db.m.d().a(this.c.x(), this.c.l(), String.valueOf(this.c.u()), String.valueOf(this.c.w()), 2));
     }
 }

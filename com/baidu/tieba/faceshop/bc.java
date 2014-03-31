@@ -1,59 +1,73 @@
 package com.baidu.tieba.faceshop;
 
-import android.content.Context;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.tieba.TiebaApplication;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.gson.GsonBuilder;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class bc extends com.baidu.adp.a.d {
-    private String d;
-    private int f;
-    private int g;
-    private float h;
-    private bd b = null;
-    private FaceShopData a = null;
-    private boolean e = false;
-    private int c = 0;
+public final class bc extends BdAsyncTask<Object, FacePurchaseRecordsData, FacePurchaseRecordsData> {
+    final /* synthetic */ bb a;
+    private com.baidu.tbadk.core.util.ak b;
 
-    public bc() {
-        this.f = 0;
-        this.g = 0;
-        Context c = TiebaApplication.g().c();
-        this.f = BdUtilHelper.b(c);
-        this.g = BdUtilHelper.c(c);
-        this.h = c.getResources().getDisplayMetrics().density;
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* bridge */ /* synthetic */ FacePurchaseRecordsData a(Object... objArr) {
+        return a();
     }
 
-    public final FaceShopData a() {
-        return this.a;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ void a(FacePurchaseRecordsData facePurchaseRecordsData) {
+        com.baidu.adp.a.h hVar;
+        FacePurchaseRecordsData facePurchaseRecordsData2 = facePurchaseRecordsData;
+        this.a.a = null;
+        hVar = this.a.mLoadDataCallBack;
+        hVar.a(facePurchaseRecordsData2);
+        super.a((bc) facePurchaseRecordsData2);
     }
 
-    public final boolean b() {
-        return this.e;
+    private bc(bb bbVar) {
+        this.a = bbVar;
     }
 
-    public final void a(String str) {
-        this.d = str;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ bc(bb bbVar, byte b) {
+        this(bbVar);
     }
 
-    public final void a(int i) {
-        if (this.b == null) {
-            this.b = new bd(this, (byte) 0);
-            this.b.setPriority(3);
-            this.b.execute(Integer.valueOf(i));
+    private FacePurchaseRecordsData a() {
+        String str;
+        int i;
+        int i2;
+        float f;
+        try {
+            this.b = new com.baidu.tbadk.core.util.ak(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/e/faces/getpackhis");
+            com.baidu.tbadk.core.util.ak akVar = this.b;
+            str = this.a.b;
+            akVar.a("st_type", str);
+            com.baidu.tbadk.core.util.ak akVar2 = this.b;
+            i = this.a.c;
+            akVar2.a("scr_w", String.valueOf(i));
+            com.baidu.tbadk.core.util.ak akVar3 = this.b;
+            i2 = this.a.d;
+            akVar3.a("scr_h", String.valueOf(i2));
+            com.baidu.tbadk.core.util.ak akVar4 = this.b;
+            f = this.a.e;
+            akVar4.a("scr_dip", String.valueOf(f));
+            return (FacePurchaseRecordsData) new GsonBuilder().create().fromJson(this.b.i(), (Class<Object>) FacePurchaseRecordsData.class);
+        } catch (Exception e) {
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.toString());
+            return null;
         }
     }
 
-    @Override // com.baidu.adp.a.d
-    protected final boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.a.d
-    public final boolean cancelLoadData() {
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final void cancel() {
+        super.cancel(true);
         if (this.b != null) {
-            this.b.cancel();
-            return true;
+            this.b.g();
         }
-        return true;
+        this.a.a = null;
     }
 }

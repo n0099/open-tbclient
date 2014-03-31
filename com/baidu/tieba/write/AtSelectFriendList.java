@@ -7,23 +7,22 @@ import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.MetaData;
-import com.baidu.tieba.view.HeadImageView;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.view.HeadImageView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class AtSelectFriendList extends HorizontalScrollView {
-    private Context a;
+    private final Context a;
     private LinearLayout b;
     private int c;
     private int d;
     private int e;
-    private com.baidu.tieba.util.i f;
+    private com.baidu.tbadk.editortool.aa f;
     private int g;
     private HeadImageView h;
     private r i;
-    private View.OnClickListener j;
+    private final View.OnClickListener j;
 
     public AtSelectFriendList(Context context) {
         super(context);
@@ -47,18 +46,20 @@ public class AtSelectFriendList extends HorizontalScrollView {
         a();
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     public void setMaxCount(int i) {
         this.g = i;
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     public void setItemOPerationHandler(r rVar) {
         this.i = rVar;
     }
 
     private void a() {
-        this.c = this.a.getResources().getDimensionPixelSize(R.dimen.invite_friend_candidate_item_width);
-        this.d = this.a.getResources().getDimensionPixelSize(R.dimen.invite_friend_candidate_item_height);
-        this.e = this.a.getResources().getDimensionPixelSize(R.dimen.invite_friend_candidate_item_margin);
+        this.c = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.invite_friend_candidate_item_width);
+        this.d = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.invite_friend_candidate_item_height);
+        this.e = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.invite_friend_candidate_item_margin);
         this.b = new LinearLayout(this.a);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.width = -2;
@@ -77,7 +78,7 @@ public class AtSelectFriendList extends HorizontalScrollView {
             this.h = e();
             this.h.setDrawBorder(false);
         }
-        this.h.setImageBitmap(com.baidu.tieba.util.n.a(d() ? R.drawable.icon_add_pop_1 : R.drawable.icon_add_pop));
+        this.h.setImageBitmap(com.baidu.tbadk.core.util.g.a(d() ? com.baidu.tieba.a.g.icon_add_pop_1 : com.baidu.tieba.a.g.icon_add_pop));
         this.b.addView(this.h);
     }
 
@@ -87,22 +88,24 @@ public class AtSelectFriendList extends HorizontalScrollView {
         return childCount > 0 && this.b.getChildAt(childCount + (-1)) == this.h;
     }
 
-    public void setImageLoader(com.baidu.tieba.util.i iVar) {
-        this.f = iVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void setImageLoader(com.baidu.tbadk.editortool.aa aaVar) {
+        this.f = aaVar;
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(MetaData metaData) {
         if (getItemLength() < this.g) {
             HeadImageView e = e();
             e.setIsRound(true);
             if (this.f != null) {
-                com.baidu.tieba.util.i iVar = this.f;
+                com.baidu.tbadk.editortool.aa aaVar = this.f;
                 com.baidu.adp.widget.ImageView.b b = com.baidu.tbadk.imageManager.e.a().b(metaData.getPortrait());
                 if (b != null) {
                     b.a(e);
                 } else {
                     e.setTag(metaData.getPortrait());
-                    e.setImageBitmap(com.baidu.tieba.util.n.a(d() ? R.drawable.icon_add_pop_1 : R.drawable.icon_add_pop));
+                    e.setImageBitmap(com.baidu.tbadk.core.util.g.a(d() ? com.baidu.tieba.a.g.icon_add_pop_1 : com.baidu.tieba.a.g.icon_add_pop));
                 }
             }
             if (c()) {
@@ -119,6 +122,7 @@ public class AtSelectFriendList extends HorizontalScrollView {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     public final void b(MetaData metaData) {
         Object tag;
         int childCount = this.b.getChildCount();
@@ -132,6 +136,7 @@ public class AtSelectFriendList extends HorizontalScrollView {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     public ArrayList<String> getDataList() {
         Object tag;
         int childCount = this.b.getChildCount();
@@ -146,9 +151,10 @@ public class AtSelectFriendList extends HorizontalScrollView {
     }
 
     private static boolean d() {
-        return TiebaApplication.g().ae() == 1;
+        return TbadkApplication.j().l() == 1;
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     public final void c(MetaData metaData) {
         View findViewWithTag = this.b.findViewWithTag(metaData);
         if (findViewWithTag != null) {
@@ -169,6 +175,7 @@ public class AtSelectFriendList extends HorizontalScrollView {
         return headImageView;
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     public int getItemLength() {
         return c() ? this.b.getChildCount() - 1 : this.b.getChildCount();
     }

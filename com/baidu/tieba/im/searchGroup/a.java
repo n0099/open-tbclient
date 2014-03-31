@@ -1,43 +1,43 @@
 package com.baidu.tieba.im.searchGroup;
 
-import com.baidu.tieba.im.data.BaseGroupData;
-import com.baidu.tieba.im.message.ct;
-import com.baidu.tieba.im.message.s;
-import com.slidingmenu.lib.R;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tbadk.core.data.BaseGroupData;
+import com.baidu.tieba.im.message.ResponseSearchGroupMessage;
 import java.util.List;
 /* loaded from: classes.dex */
-final class a implements com.baidu.tieba.im.messageCenter.g {
+final class a extends com.baidu.adp.framework.c.g {
     final /* synthetic */ AddGroupActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public a(AddGroupActivity addGroupActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a(AddGroupActivity addGroupActivity, int i) {
+        super(103007);
         this.a = addGroupActivity;
     }
 
-    @Override // com.baidu.tieba.im.messageCenter.g
-    public final void a(s sVar) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
+    @Override // com.baidu.adp.framework.c.c
+    public final /* synthetic */ void a(SocketResponsedMessage socketResponsedMessage) {
         b bVar;
+        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
         bVar = this.a.a;
         bVar.a(false);
-        if (sVar != null && sVar.v() == 103007) {
-            if (sVar instanceof ct) {
-                ct ctVar = (ct) sVar;
-                if (ctVar.l()) {
-                    AddGroupActivity.a(this.a, ctVar.n(), ctVar.m());
-                    return;
-                }
-                List<BaseGroupData> a = ctVar.a();
-                if (a != null && a.size() > 0) {
-                    AddGroupActivity.a(this.a, a.get(0));
-                    return;
-                } else {
-                    this.a.showToast(R.string.add_group_toast_noresult);
-                    return;
-                }
-            }
-            this.a.showToast(R.string.add_group_toast_noresult);
+        if (socketResponsedMessage2 == null || socketResponsedMessage2.g() != 103007) {
+            this.a.showToast(com.baidu.tieba.im.j.add_group_toast_noresult);
             return;
         }
-        this.a.showToast(R.string.add_group_toast_noresult);
+        if (socketResponsedMessage2 instanceof ResponseSearchGroupMessage) {
+            ResponseSearchGroupMessage responseSearchGroupMessage = (ResponseSearchGroupMessage) socketResponsedMessage2;
+            if (responseSearchGroupMessage.e() != 0) {
+                AddGroupActivity.a(this.a, responseSearchGroupMessage.f(), responseSearchGroupMessage.e());
+                return;
+            }
+            List<BaseGroupData> d = responseSearchGroupMessage.d();
+            if (d != null && d.size() > 0) {
+                AddGroupActivity.a(this.a, d.get(0));
+                return;
+            }
+        }
+        this.a.showToast(com.baidu.tieba.im.j.add_group_toast_noresult);
     }
 }

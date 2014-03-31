@@ -1,35 +1,39 @@
 package com.baidu.tieba.editortool;
 
+import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
+import android.widget.BaseAdapter;
 /* loaded from: classes.dex */
-final class ae implements Animation.AnimationListener {
-    private final /* synthetic */ af a;
-    private final /* synthetic */ ViewGroup b;
+public final class ae extends BaseAdapter {
+    final /* synthetic */ PrivilegeTabContentView a;
+    private final int b;
+    private final int c;
+    private ah d;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(af afVar, ViewGroup viewGroup) {
-        this.a = afVar;
-        this.b = viewGroup;
+    public ae(PrivilegeTabContentView privilegeTabContentView, int i, int i2, ah ahVar) {
+        this.a = privilegeTabContentView;
+        this.b = i;
+        this.c = i2;
+        this.d = ahVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public final void onAnimationEnd(Animation animation) {
-        if (this.a != null) {
-            this.a.a();
-        }
-        this.b.setVisibility(0);
+    @Override // android.widget.Adapter
+    public final int getCount() {
+        return this.b;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public final void onAnimationRepeat(Animation animation) {
+    @Override // android.widget.Adapter
+    public final Object getItem(int i) {
+        return Integer.valueOf(i);
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public final void onAnimationStart(Animation animation) {
-        this.b.setVisibility(8);
-        if (this.a != null) {
-            af afVar = this.a;
-        }
+    @Override // android.widget.Adapter
+    public final long getItemId(int i) {
+        return i;
+    }
+
+    @Override // android.widget.Adapter
+    public final View getView(int i, View view, ViewGroup viewGroup) {
+        return this.d.a(this.c + i, view);
     }
 }

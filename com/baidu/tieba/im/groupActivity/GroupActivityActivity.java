@@ -7,10 +7,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 /* loaded from: classes.dex */
-public class GroupActivityActivity extends com.baidu.tieba.f implements View.OnClickListener {
-    private r a;
-    private q b;
-    private p c;
+public class GroupActivityActivity extends com.baidu.tbadk.a implements View.OnClickListener {
+    private s a;
+    private r b;
+    private com.baidu.adp.framework.c.a c = new n(this, 2001127);
+    private com.baidu.adp.framework.c.g d = new o(this, 0);
 
     public static void a(Context context, int i, long j, int i2) {
         Intent intent = new Intent(context, GroupActivityActivity.class);
@@ -24,12 +25,13 @@ public class GroupActivityActivity extends com.baidu.tieba.f implements View.OnC
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         a();
         if (this.b == null) {
-            this.b = new q();
+            this.b = new r(this);
+            this.b.setUniqueId(getUniqueId());
         }
         if (bundle != null) {
             this.b.b(bundle.getInt("activity_id", 0));
@@ -50,7 +52,7 @@ public class GroupActivityActivity extends com.baidu.tieba.f implements View.OnC
         a();
         b();
         if (this.b == null) {
-            this.b = new q();
+            this.b = new r(this);
         }
         if (intent == null) {
             intent = getIntent();
@@ -64,12 +66,9 @@ public class GroupActivityActivity extends com.baidu.tieba.f implements View.OnC
     }
 
     private void a() {
-        if (this.c == null) {
-            this.c = new p(this, (byte) 0);
-            com.baidu.tieba.im.messageCenter.d.a().a(103015, this.c);
-            com.baidu.tieba.im.messageCenter.d.a().a(-127, this.c);
-            com.baidu.tieba.im.messageCenter.d.a().a(103121, this.c);
-        }
+        registerListener(103015, this.d);
+        registerListener(this.c);
+        registerListener(103121, this.d);
     }
 
     @Override // android.app.Activity
@@ -83,17 +82,16 @@ public class GroupActivityActivity extends com.baidu.tieba.f implements View.OnC
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, android.app.Activity
+    @Override // com.baidu.tbadk.a, android.app.Activity
     public void onStop() {
         super.onStop();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.b.d();
-        com.baidu.tieba.im.messageCenter.d.a().a(this.c);
+        this.b.cancelMessage();
         if (this.a != null) {
             this.a.a();
         }
@@ -101,7 +99,7 @@ public class GroupActivityActivity extends com.baidu.tieba.f implements View.OnC
 
     private void b() {
         if (this.a == null) {
-            this.a = new r(this);
+            this.a = new s(this);
         }
     }
 
@@ -111,7 +109,7 @@ public class GroupActivityActivity extends com.baidu.tieba.f implements View.OnC
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f
+    @Override // com.baidu.tbadk.a
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (this.a != null) {
@@ -124,7 +122,7 @@ public class GroupActivityActivity extends com.baidu.tieba.f implements View.OnC
         if (view == this.a.d()) {
             closeActivity();
         } else if (view == this.a.e()) {
-            com.baidu.tieba.im.util.b.a(this, new n(this));
+            com.baidu.tieba.im.f.b.a(this, new p(this));
         }
     }
 
@@ -133,9 +131,9 @@ public class GroupActivityActivity extends com.baidu.tieba.f implements View.OnC
         super.onClick(dialogInterface, i);
         if (dialogInterface != null && dialogInterface == this.a.f()) {
             if (i == 0) {
-                CreateGroupActivityActivity.a(this, (int) this.b.c(), this.b.h(), 23001);
+                CreateGroupActivityActivity.a(this, (int) this.b.c(), this.b.g(), 23001);
             } else if (i == 1) {
-                com.baidu.tieba.im.util.b.a(this, new o(this));
+                com.baidu.tieba.im.f.b.a(this, new q(this));
             }
         }
     }
@@ -155,7 +153,7 @@ public class GroupActivityActivity extends com.baidu.tieba.f implements View.OnC
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f
+    @Override // com.baidu.tbadk.a
     public void closeActivity() {
         finish();
     }

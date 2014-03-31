@@ -1,55 +1,29 @@
 package com.baidu.tieba.person;
 
-import android.os.Parcelable;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.view.View;
-import java.util.List;
 /* loaded from: classes.dex */
-public final class bi extends PagerAdapter {
-    public List<View> a;
-    final /* synthetic */ bg b;
+final class bi implements View.OnLongClickListener {
+    final /* synthetic */ PersonImageActivity a;
 
-    public bi(bg bgVar, List<View> list) {
-        this.b = bgVar;
-        this.a = list;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bi(PersonImageActivity personImageActivity) {
+        this.a = personImageActivity;
     }
 
-    @Override // android.support.v4.view.PagerAdapter
-    public final void destroyItem(View view, int i, Object obj) {
-        ((ViewPager) view).removeView(this.a.get(i));
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public final void finishUpdate(View view) {
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public final int getCount() {
-        return this.a.size();
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public final Object instantiateItem(View view, int i) {
-        ((ViewPager) view).addView(this.a.get(i), 0);
-        return this.a.get(i);
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public final boolean isViewFromObject(View view, Object obj) {
-        return view == obj;
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public final void restoreState(Parcelable parcelable, ClassLoader classLoader) {
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public final Parcelable saveState() {
-        return null;
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public final void startUpdate(View view) {
+    @Override // android.view.View.OnLongClickListener
+    public final boolean onLongClick(View view) {
+        Context context;
+        Context context2;
+        DialogInterface.OnClickListener onClickListener;
+        context = this.a.i;
+        context2 = this.a.i;
+        String[] strArr = {context.getString(com.baidu.tieba.a.k.save), context2.getString(com.baidu.tieba.a.k.cancel)};
+        PersonImageActivity personImageActivity = this.a;
+        onClickListener = this.a.f;
+        personImageActivity.createListMenu(strArr, onClickListener);
+        this.a.showListMenu();
+        return false;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.barcode;
 import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class h implements DialogInterface.OnClickListener {
+public final class h implements DialogInterface.OnCancelListener {
     final /* synthetic */ CaptureActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,8 +11,8 @@ public final class h implements DialogInterface.OnClickListener {
         this.a = captureActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
+    @Override // android.content.DialogInterface.OnCancelListener
+    public final void onCancel(DialogInterface dialogInterface) {
         this.a.setResult(0);
         this.a.finish();
     }

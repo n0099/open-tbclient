@@ -1,8 +1,8 @@
 package com.baidu.tbadk.data;
 
 import com.baidu.adp.lib.f.b;
-import com.baidu.adp.lib.util.e;
-import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.adp.lib.util.f;
+import com.baidu.tieba.person.PersonInfoActivity;
 import java.io.Serializable;
 import java.util.LinkedList;
 import org.json.JSONArray;
@@ -10,14 +10,18 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class MetaData implements Serializable {
     private static final long serialVersionUID = -2658065756886586092L;
+    private int is_like = 0;
     private String userId = null;
     private int type = 0;
+    private int level_id = 0;
     private String userName = null;
     private String name_show = null;
     private String portrait = null;
     private String portraith = null;
     private LinkedList<IconData> mIconInfo = new LinkedList<>();
     private LinkedList<IconData> mTShowIconInfo = new LinkedList<>();
+    private int is_bawu = 0;
+    private String bawu_type = null;
 
     public void setUserId(String str) {
         this.userId = str;
@@ -29,6 +33,14 @@ public class MetaData implements Serializable {
 
     public void setUserIdLong(long j) {
         this.userId = String.valueOf(j);
+    }
+
+    public int getIsLike() {
+        return this.is_like;
+    }
+
+    public void setIsLike(int i) {
+        this.is_like = i;
     }
 
     public long getUserIdLong() {
@@ -79,6 +91,10 @@ public class MetaData implements Serializable {
         return this.mIconInfo;
     }
 
+    public void setIconInfo(LinkedList<IconData> linkedList) {
+        this.mIconInfo = linkedList;
+    }
+
     public LinkedList<IconData> getTShowInfo() {
         return this.mTShowIconInfo;
     }
@@ -87,11 +103,35 @@ public class MetaData implements Serializable {
         this.mTShowIconInfo = linkedList;
     }
 
+    public int getLevel_id() {
+        return this.level_id;
+    }
+
+    public void setLevel_id(int i) {
+        this.level_id = i;
+    }
+
+    public int getIs_bawu() {
+        return this.is_bawu;
+    }
+
+    public void setIsBawu(int i) {
+        this.is_bawu = i;
+    }
+
+    public String getBawu_type() {
+        return this.bawu_type;
+    }
+
+    public void setBawuType(String str) {
+        this.bawu_type = str;
+    }
+
     public void parserJson(String str) {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            e.b("MetaData", "parserJson", "error = " + e.getMessage());
+            f.b("MetaData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -100,7 +140,11 @@ public class MetaData implements Serializable {
             try {
                 this.userId = jSONObject.optString("id");
                 this.type = jSONObject.optInt("type", 0);
-                this.userName = jSONObject.optString(SocialConstants.PARAM_MEDIA_UNAME);
+                this.userName = jSONObject.optString(PersonInfoActivity.TAG_NAME);
+                this.level_id = jSONObject.optInt("level_id", 0);
+                this.is_like = jSONObject.optInt("is_like", 0);
+                this.is_bawu = jSONObject.optInt("is_bawu", 0);
+                this.bawu_type = jSONObject.optString("bawu_type");
                 if (this.userName != null && this.userName.length() <= 0) {
                     this.userName = null;
                 }
@@ -124,21 +168,22 @@ public class MetaData implements Serializable {
                     }
                 }
             } catch (Exception e) {
-                e.b("MetaData", "parserJson", "error = " + e.getMessage());
+                f.b("MetaData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
     public void logPrint() {
-        e.d("MetaData", "logPrint", "id = " + this.userId);
-        e.d("MetaData", "logPrint", "type = " + String.valueOf(this.type));
-        e.d("MetaData", "logPrint", "name = " + this.userName);
-        e.d("MetaData", "logPrint", "name_show = " + this.name_show);
-        e.d("MetaData", "logPrint", "portrait = " + this.portrait);
-        e.d("MetaData", "logPrint", "portraith = " + this.portraith);
+        f.d("MetaData", "logPrint", "id = " + this.userId);
+        f.d("MetaData", "logPrint", "type = " + String.valueOf(this.type));
+        f.d("MetaData", "logPrint", "name = " + this.userName);
+        f.d("MetaData", "logPrint", "name_show = " + this.name_show);
+        f.d("MetaData", "logPrint", "portrait = " + this.portrait);
+        f.d("MetaData", "logPrint", "portraith = " + this.portraith);
+        f.d("MetaData", "logPrint", "level_id = " + String.valueOf(this.level_id));
     }
 
     public String toString() {
-        return "MetaData{id='" + this.userId + "', type=" + this.type + ", name='" + this.userName + "', name_show='" + this.name_show + "', portrait='" + this.portrait + "', portraith='" + this.portraith + "', mIconInfo=" + this.mIconInfo + ", mTShowIconInfo=" + this.mTShowIconInfo + '}';
+        return "MetaData{id='" + this.userId + "', type=" + this.type + ", name='" + this.userName + "', level_id=" + this.level_id + ", is_like=" + this.is_like + ", bawu_type=" + this.bawu_type + ", is_bawu=" + this.is_bawu + ", name_show='" + this.name_show + "', portrait='" + this.portrait + "', portraith='" + this.portraith + "', mIconInfo=" + this.mIconInfo + ", mTShowIconInfo=" + this.mTShowIconInfo + '}';
     }
 }

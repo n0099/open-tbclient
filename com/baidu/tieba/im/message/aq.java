@@ -1,28 +1,51 @@
 package com.baidu.tieba.im.message;
 
 import com.google.protobuf.MessageLite;
-import protobuf.QueryHotGroups.QueryHotGroupsReq;
+import protobuf.QueryGroupsByLocation.QueryGroupsByLocationReq;
 /* loaded from: classes.dex */
-public final class aq extends s implements com.baidu.tieba.im.coder.g {
-    private int a;
-    private int b;
+public final class aq extends com.baidu.tbadk.message.websockt.d {
+    private String a;
+    private String b;
     private int c;
     private int d;
+    private int e;
+    private int f;
+    private int g;
 
-    public aq(int i, int i2, int i3, int i4) {
-        super.e(103012);
-        this.a = i;
-        this.b = i2;
-        this.c = i3;
-        this.d = i4;
+    public aq() {
+        super(103009);
     }
 
-    public final boolean b() {
-        return this.d == 0;
+    public final void d(int i) {
+        this.g = i;
     }
 
-    @Override // com.baidu.tieba.im.coder.g
-    public final MessageLite a() {
-        return QueryHotGroupsReq.QueryHotGroupsReqIdl.newBuilder().a(QueryHotGroupsReq.DataReq.newBuilder().c(this.b).a(this.d).b(this.c).d(this.a).build()).build();
+    public final void e(int i) {
+        this.f = i;
+    }
+
+    public final void f(int i) {
+        this.e = 30;
+    }
+
+    public final void h(int i) {
+        this.d = i;
+    }
+
+    public final void i(int i) {
+        this.c = i;
+    }
+
+    public final void a(String str) {
+        this.a = str;
+    }
+
+    public final void b(String str) {
+        this.b = str;
+    }
+
+    @Override // com.baidu.tbadk.message.websockt.d
+    public final MessageLite h() {
+        return QueryGroupsByLocationReq.QueryGroupsByLocationReqIdl.newBuilder().a(QueryGroupsByLocationReq.DataReq.newBuilder().a(com.baidu.adp.lib.f.b.a(this.b, 0.0d)).b(com.baidu.adp.lib.f.b.a(this.a, 0.0d)).c(this.c).a(this.d).b(this.e).e(this.f).d(this.f).build()).build();
     }
 }

@@ -1,21 +1,18 @@
 package com.baidu.tieba.recommend;
 
-import com.baidu.tbadk.widget.TbImageView;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-final class u implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ t a;
-    private final /* synthetic */ TbImageView b;
+final class u {
+    TextView a;
+    TextView b;
+    final /* synthetic */ j c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public u(t tVar, TbImageView tbImageView) {
-        this.a = tVar;
-        this.b = tbImageView;
+    private u(j jVar) {
+        this.c = jVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        if (this.b != null) {
-            this.b.invalidate();
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ u(j jVar, byte b) {
+        this(jVar);
     }
 }

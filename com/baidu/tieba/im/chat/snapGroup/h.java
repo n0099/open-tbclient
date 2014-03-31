@@ -1,22 +1,45 @@
 package com.baidu.tieba.im.chat.snapGroup;
 
-import com.slidingmenu.lib.R;
+import android.os.Handler;
+import com.baidu.tieba.im.model.bu;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class h implements Runnable {
-    final /* synthetic */ g a;
+public final class h extends com.baidu.tbadk.coreExtra.c.b {
+    final /* synthetic */ SnapGroupChatActivity a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public h(g gVar) {
-        this.a = gVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h(SnapGroupChatActivity snapGroupChatActivity, long j) {
+        super(j, 1000L);
+        this.a = snapGroupChatActivity;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
+    @Override // com.baidu.tbadk.coreExtra.c.b
+    public final void a(long j) {
         boolean z;
-        this.a.a.finish();
-        z = this.a.a.u;
-        if (z) {
-            this.a.a.showToast(this.a.a.getString(R.string.snap_group_chat_kick_out_by_silence), false);
+        if (j < 30000 && SnapGroupChatActivity.d(this.a).U().getVisibility() == 4) {
+            SnapGroupChatActivity.d(this.a).U().setVisibility(0);
+            SnapGroupChatActivity.d(this.a).U().a(30000L, 1000L);
+            SnapGroupChatActivity.d(this.a).U().a();
+            z = this.a.s;
+            if (z) {
+                this.a.showToast(this.a.getString(com.baidu.tieba.im.j.snap_group_chat_silence_warning), false);
+            }
         }
+    }
+
+    @Override // com.baidu.tbadk.coreExtra.c.b
+    public final void c() {
+        com.baidu.tieba.im.chat.h hVar;
+        bu buVar;
+        int i;
+        Handler handler;
+        SnapGroupChatActivity.d(this.a).U().setNoticeText(this.a.getString(com.baidu.tieba.im.j.snap_group_chat_kick_out_by_silence));
+        hVar = this.a.d;
+        hVar.P();
+        buVar = this.a.l;
+        i = this.a.o;
+        buVar.a(i, false, 1);
+        handler = this.a.u;
+        handler.postDelayed(new i(this), 3000L);
     }
 }

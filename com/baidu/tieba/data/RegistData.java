@@ -1,6 +1,6 @@
 package com.baidu.tieba.data;
 
-import com.baidu.tieba.util.bs;
+import com.baidu.tbadk.core.util.bc;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class RegistData implements Serializable {
@@ -27,7 +27,7 @@ public class RegistData implements Serializable {
 
     public void setPsw(String str) {
         if (str != null) {
-            str = bs.a(str.getBytes());
+            str = bc.a(str.getBytes());
         }
         this.psw = str;
     }

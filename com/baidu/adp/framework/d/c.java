@@ -2,16 +2,16 @@ package com.baidu.adp.framework.d;
 
 import android.util.SparseArray;
 import com.baidu.adp.framework.FrameHelper;
-import com.baidu.adp.framework.b.a;
-import com.baidu.adp.framework.message.e;
+import com.baidu.adp.framework.b.f;
+import com.baidu.adp.framework.message.d;
 import com.baidu.adp.framework.message.f;
 import com.baidu.adp.framework.task.b;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.i;
 import java.security.InvalidParameterException;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public abstract class c<M extends e, T extends com.baidu.adp.framework.task.b, R extends com.baidu.adp.framework.b.a, N extends f<?>> implements com.baidu.adp.framework.a<M, T> {
+public abstract class c<M extends com.baidu.adp.framework.message.d, T extends com.baidu.adp.framework.task.b, R extends f, N extends com.baidu.adp.framework.message.f<?>> implements com.baidu.adp.framework.a<M, T> {
     protected com.baidu.adp.framework.c a;
     private final SparseArray<T> c = new SparseArray<>();
     private final SparseArray<N> d = new SparseArray<>();
@@ -33,7 +33,11 @@ public abstract class c<M extends e, T extends com.baidu.adp.framework.task.b, R
         }
     }
 
-    public final T b(int i) {
+    public final void b(int i) {
+        this.c.remove(i);
+    }
+
+    public final T c(int i) {
         return this.c.get(i);
     }
 
@@ -45,25 +49,49 @@ public abstract class c<M extends e, T extends com.baidu.adp.framework.task.b, R
 
     public final void a(int i, com.baidu.adp.framework.c.c<N> cVar) {
         a();
-        BdUtilHelper.b();
+        i.b();
         if (cVar != null) {
-            if (cVar.b() == 0) {
+            if ((i == 0 && cVar.b() == 0) || (i != 0 && cVar.b() != 0)) {
                 throw new InvalidParameterException("registerListener cmd error");
             }
-            int b = cVar.b();
-            LinkedList<com.baidu.adp.framework.c.c<N>> linkedList = this.e.get(b);
+            if (i == 0) {
+                i = cVar.b();
+            }
+            LinkedList<com.baidu.adp.framework.c.c<N>> linkedList = this.e.get(i);
             if (linkedList == null) {
                 linkedList = new LinkedList<>();
-                this.e.put(b, linkedList);
+                this.e.put(i, linkedList);
             }
             FrameHelper.a(linkedList, cVar);
-            this.d.get(b);
+            N n = this.d.get(i);
+            if (n != null) {
+                cVar.a((com.baidu.adp.framework.c.c<N>) n);
+            }
         }
     }
 
-    public final void c(int i) {
+    public final void a(com.baidu.adp.framework.c.c cVar) {
         a();
-        BdUtilHelper.b();
+        i.b();
+        if (cVar != null) {
+            int b = cVar.b();
+            if (b == 0) {
+                int size = this.e.size();
+                for (int i = 0; i < size; i++) {
+                    this.e.valueAt(i).remove(cVar);
+                }
+                return;
+            }
+            LinkedList<com.baidu.adp.framework.c.c<N>> linkedList = this.e.get(b);
+            if (linkedList != null) {
+                linkedList.remove(cVar);
+            }
+        }
+    }
+
+    public final void d(int i) {
+        a();
+        i.b();
         if (i != 0) {
             int size = this.e.size();
             for (int i2 = 0; i2 < size; i2++) {
@@ -79,58 +107,61 @@ public abstract class c<M extends e, T extends com.baidu.adp.framework.task.b, R
     }
 
     public final boolean c(M m, T t) {
-        BdUtilHelper.b();
+        i.b();
         if (m == null) {
             return false;
         }
-        T b = b(m.d());
-        if (b != null) {
-            M b2 = b(m, b);
+        int e = m.e();
+        T c = c(e);
+        if (c != null) {
+            M b = b((c<M, T, R, N>) m, (M) c);
             if (this.b != null) {
-                if (b.j() == null) {
-                    b.b(this.b.h());
+                if (c.j() == null) {
+                    c.b(this.b.j());
                 }
-                if (b.k() == 0) {
-                    b.a(this.b.g());
+                if (c.k() == 0) {
+                    c.a(this.b.i());
                 }
             }
-            a((c<M, T, R, N>) b2, (M) b);
-            return true;
+            if (b != null) {
+                a((c<M, T, R, N>) b, (M) c);
+                return true;
+            }
+            com.baidu.adp.lib.util.f.e("message is trapped:" + e);
+            return false;
         }
-        com.baidu.adp.lib.util.e.b("task not register");
+        com.baidu.adp.lib.util.f.b("task not register:" + e);
         return false;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:12:0x002f A[Catch: Exception -> 0x003f, all -> 0x004a, Merged into TryCatch #1 {all -> 0x004a, Exception -> 0x003f, blocks: (B:9:0x0025, B:10:0x0029, B:12:0x002f, B:15:0x0036, B:19:0x0040), top: B:24:0x0025 }, TRY_LEAVE] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public final void a(N n) {
-        BdUtilHelper.b();
+        i.b();
         if (n != null) {
-            int b = n.b();
-            if (this.d.indexOfKey(b) >= 0) {
-                this.d.put(b, n);
+            int g = n.g();
+            if (this.d.indexOfKey(g) >= 0) {
+                this.d.put(g, n);
             }
-            LinkedList<com.baidu.adp.framework.c.c<N>> linkedList = this.e.get(b);
-            this.f = false;
-            this.g = true;
-            try {
-                Iterator<com.baidu.adp.framework.c.c<N>> it = linkedList.iterator();
-                while (it.hasNext() && !this.f) {
-                    if (it.next() == null) {
-                    }
-                    while (it.hasNext()) {
-                        if (it.next() == null) {
+            LinkedList<com.baidu.adp.framework.c.c<N>> linkedList = this.e.get(g);
+            if (linkedList != null) {
+                this.f = false;
+                this.g = true;
+                try {
+                    Iterator<com.baidu.adp.framework.c.c<N>> it = linkedList.iterator();
+                    while (it.hasNext() && !this.f) {
+                        com.baidu.adp.framework.c.c<N> next = it.next();
+                        if (next != null) {
+                            try {
+                                next.a((com.baidu.adp.framework.c.c<N>) n);
+                            } catch (Exception e) {
+                                com.baidu.adp.lib.util.f.b(e.getMessage());
+                            }
                         }
-                        while (it.hasNext()) {
-                        }
                     }
+                } catch (Exception e2) {
+                    com.baidu.adp.lib.util.f.b(String.valueOf(e2.getMessage()) + n.getClass().getName());
+                } finally {
+                    this.g = false;
                 }
-            } catch (Exception e) {
-                com.baidu.adp.lib.util.e.b(e.getMessage());
-            } finally {
-                this.g = false;
             }
         }
     }

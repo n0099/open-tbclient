@@ -5,15 +5,15 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.util.Log;
 import android.view.View;
-import com.baidu.adp.lib.debug.b.j;
+import com.baidu.adp.lib.debug.b.k;
 /* loaded from: classes.dex */
 public class DebugService extends Service {
-    j a;
+    k a;
 
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        this.a = new j(this);
+        this.a = new k(this);
     }
 
     @Override // android.app.Service

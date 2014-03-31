@@ -1,21 +1,20 @@
 package com.baidu.tieba.person;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class ak implements com.baidu.tieba.im.messageCenter.g {
-    final /* synthetic */ ai a;
-
-    private ak(ai aiVar) {
-        this.a = aiVar;
-    }
+public final class ak implements Runnable {
+    final /* synthetic */ aj a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ak(ai aiVar, byte b) {
-        this(aiVar);
+    public ak(aj ajVar) {
+        this.a = ajVar;
     }
 
-    @Override // com.baidu.tieba.im.messageCenter.g
-    public final void a(com.baidu.tieba.im.message.s sVar) {
-        if (sVar != null && sVar.v() == -124) {
-            ai.a(this.a, sVar);
+    @Override // java.lang.Runnable
+    public final void run() {
+        boolean z;
+        z = this.a.j;
+        if (z) {
+            this.a.c();
         }
     }
 }

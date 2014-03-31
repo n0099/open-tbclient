@@ -7,8 +7,6 @@ import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.location.c;
 import com.baidu.location.e;
 import java.io.File;
@@ -80,7 +78,7 @@ public class j {
     /* renamed from: int  reason: not valid java name */
     public static int f202int = 20;
     public static int k = 70;
-    public static int K = SocialAPIErrorCodes.ERROR_INVALID_AUTHORIZED_CODE;
+    public static int K = 120;
     public static float T = 2.0f;
     public static float Q = 10.0f;
     public static float d = 50.0f;
@@ -121,7 +119,7 @@ public class j {
             String a2 = a(context);
             String m244do = b.m244do(context);
             if (TextUtils.isEmpty(m244do)) {
-                m244do = SocialConstants.FALSE;
+                m244do = "0";
             }
             return a2 + "|" + new StringBuffer(m244do).reverse().toString();
         }
@@ -272,7 +270,7 @@ public class j {
                 hexString = hexString.toUpperCase();
             }
             if (hexString.length() == 1) {
-                sb.append(SocialConstants.FALSE);
+                sb.append("0");
             }
             sb.append(hexString).append(str);
         }

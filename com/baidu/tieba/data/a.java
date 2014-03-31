@@ -1,6 +1,5 @@
 package com.baidu.tieba.data;
 
-import com.baidu.cloudsdk.social.core.SocialConstants;
 import java.util.Date;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -32,13 +31,13 @@ public abstract class a {
             b(new JSONObject(str));
         } catch (Exception e) {
             this.b = "你的网络状况不大好，请稍后重试";
-            com.baidu.adp.lib.util.e.b("error = " + e.getMessage());
+            com.baidu.adp.lib.util.f.b("error = " + e.getMessage());
         }
     }
 
     public final void b(JSONObject jSONObject) {
         try {
-            this.c = jSONObject.optInt(SocialConstants.PARAM_ERROR_CODE, 0);
+            this.c = jSONObject.optInt("error_code", 0);
             if (this.c != 0) {
                 this.b = jSONObject.optString("error_msg", "你的网络状况不大好，请稍后重试");
                 return;
@@ -58,7 +57,7 @@ public abstract class a {
             a(jSONObject);
         } catch (Exception e) {
             this.b = "你的网络状况不大好，请稍后重试";
-            com.baidu.adp.lib.util.e.b("error = " + e.getMessage());
+            com.baidu.adp.lib.util.f.b("error = " + e.getMessage());
         }
     }
 }

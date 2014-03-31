@@ -1,36 +1,64 @@
 package com.baidu.tieba.write;
 
-import com.slidingmenu.lib.R;
-import java.util.ArrayList;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.view.View;
+import android.widget.ProgressBar;
+import java.util.Date;
 /* loaded from: classes.dex */
-final class be extends com.baidu.adp.a.g {
-    final /* synthetic */ WriteActivity a;
+final class be implements View.OnClickListener {
+    final /* synthetic */ WriteImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public be(WriteActivity writeActivity) {
-        this.a = writeActivity;
+    public be(WriteImageActivity writeImageActivity) {
+        this.a = writeImageActivity;
     }
 
-    @Override // com.baidu.adp.a.g
-    public final void a(Object obj) {
-        FeedBackTopListView feedBackTopListView;
-        FeedBackTopListView feedBackTopListView2;
-        FeedBackTopListView feedBackTopListView3;
-        this.a.hideProgressBar();
-        if (obj == null || !(obj instanceof s)) {
-            feedBackTopListView = this.a.m;
-            feedBackTopListView.setVisibility(8);
-            this.a.showToast(R.string.neterror);
-            return;
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        boolean z;
+        int i;
+        ProgressBar progressBar;
+        boolean z2;
+        Bitmap bitmap;
+        Bitmap bitmap2;
+        boolean a;
+        z = this.a.y;
+        if (!z) {
+            i = this.a.z;
+            if (i == 12003) {
+                Intent intent = new Intent();
+                progressBar = this.a.g;
+                if (progressBar.getVisibility() != 0) {
+                    z2 = this.a.x;
+                    if (z2) {
+                        bitmap = this.a.p;
+                        if (bitmap != null) {
+                            bitmap2 = this.a.p;
+                            if (!bitmap2.isRecycled()) {
+                                String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
+                                a = this.a.a(str);
+                                if (a) {
+                                    intent.putExtra("change", true);
+                                    intent.putExtra("file_name", str);
+                                } else {
+                                    intent.putExtra("change", false);
+                                }
+                                this.a.setResult(-1, intent);
+                            }
+                        }
+                    }
+                    intent.putExtra("change", false);
+                    this.a.setResult(-1, intent);
+                } else {
+                    return;
+                }
+            } else {
+                this.a.setResult(0, new Intent());
+            }
+        } else {
+            this.a.setResult(0, new Intent());
         }
-        s sVar = (s) obj;
-        if (sVar.b() != 0) {
-            feedBackTopListView2 = this.a.m;
-            feedBackTopListView2.setVisibility(8);
-            return;
-        }
-        ArrayList<com.baidu.tieba.data.az> a = sVar.a();
-        feedBackTopListView3 = this.a.m;
-        feedBackTopListView3.setData(a);
+        this.a.finish();
     }
 }

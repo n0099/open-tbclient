@@ -1,101 +1,106 @@
 package com.baidu.tieba.model;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.cloudsdk.social.core.SocialConstants;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class aa extends BdAsyncTask<String, Integer, Boolean> {
-    final /* synthetic */ z a;
-    private com.baidu.tieba.util.ba b = null;
-    private String c;
-    private String d;
+public final class aa extends BdAsyncTask<String, String, Boolean> {
+    ArrayList<com.baidu.tbadk.core.data.g> a;
+    String b;
+    final /* synthetic */ v c;
+    private com.baidu.tbadk.core.util.ak d = null;
     private String e;
-    private ab f;
+    private String f;
+    private String g;
+    private int h;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public final /* synthetic */ void a(Boolean bool) {
-        com.baidu.tieba.frs.by byVar;
-        com.baidu.tieba.frs.by byVar2;
-        this.a.n = null;
-        this.a.a(false);
-        if (this.b != null) {
-            ac acVar = new ac(this.a);
-            acVar.d = this.b.i();
-            acVar.c = this.b.e();
-            byVar = this.a.k;
-            if (byVar != null) {
-                byVar2 = this.a.k;
-                byVar2.a(this.f, acVar);
-            }
+        com.baidu.adp.a.h hVar;
+        com.baidu.adp.a.h hVar2;
+        Boolean bool2 = bool;
+        super.a((aa) bool2);
+        this.c.c = null;
+        if (this.d == null) {
+            hVar2 = this.c.mLoadDataCallBack;
+            hVar2.a(null);
+            return;
         }
+        ab abVar = new ab(this.c);
+        abVar.a = bool2.booleanValue();
+        if (!bool2.booleanValue()) {
+            abVar.b = this.d.f();
+        } else if (this.h == 6) {
+            abVar.c = this.a;
+        }
+        hVar = this.c.mLoadDataCallBack;
+        hVar.a(abVar);
     }
 
-    public aa(z zVar, String str, String str2, String str3) {
-        this.a = zVar;
-        this.f = new ab(zVar);
-        this.c = str;
-        this.d = str2;
-        this.e = str3;
+    public aa(v vVar, String str, String str2, String str3, int i, String str4) {
+        this.c = vVar;
+        this.a = null;
+        this.b = null;
+        this.e = str;
+        this.f = str2;
+        this.g = str3;
+        this.h = i;
+        this.b = str4;
+        this.a = new ArrayList<>();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: private */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Boolean a(String... strArr) {
-        try {
-            this.b = new com.baidu.tieba.util.ba(strArr[0]);
-            this.b.a("fid", this.c);
-            this.b.a("kw", this.d);
-            this.b.a("is_like", this.e);
-            this.b.e(true);
-            String l = this.b.l();
-            if (this.b.d()) {
-                if (this.e.equals(SocialConstants.FALSE)) {
-                    try {
-                        JSONObject jSONObject = new JSONObject(l);
-                        JSONObject optJSONObject = jSONObject.optJSONObject("like_data");
-                        if (optJSONObject.optInt("is_success", 0) == 1) {
-                            this.f.d = optJSONObject.optInt("level_id", 0);
-                            this.f.e = optJSONObject.optString("level_name", "");
-                            JSONObject optJSONObject2 = jSONObject.optJSONObject("user_perm");
-                            if (optJSONObject2 != null) {
-                                this.f.f = optJSONObject2.optInt("cur_score", 0);
-                                this.f.g = optJSONObject2.optInt("levelup_score", 0);
-                            }
-                            this.f.b = true;
-                        }
-                        this.a.a(this.f);
-                    } catch (Exception e) {
-                        com.baidu.adp.lib.util.e.b(getClass().getName(), "doInBackground", e.getMessage());
+        this.d = new com.baidu.tbadk.core.util.ak(strArr[0]);
+        this.d.a("word", this.f);
+        if (this.h != 6) {
+            this.d.a("fid", this.e);
+            this.d.a("z", this.g);
+            if (this.h == 4) {
+                this.d.a("ntn", "set");
+            } else if (this.h != 5 && this.h == 2) {
+                this.d.a("ntn", "set");
+                this.d.a("cid", this.b);
+            } else {
+                this.d.a("ntn", "");
+            }
+        }
+        this.d.a().a().a = true;
+        String i = this.d.i();
+        if (this.d.a().b().b()) {
+            if (this.h == 6) {
+                try {
+                    JSONArray optJSONArray = new JSONObject(i).optJSONArray("cates");
+                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                        com.baidu.tbadk.core.data.g gVar = new com.baidu.tbadk.core.data.g();
+                        gVar.a(optJSONArray.optJSONObject(i2));
+                        this.a.add(gVar);
                     }
-                }
-                if (this.b.c()) {
-                    try {
-                        JSONObject jSONObject2 = new JSONObject(l);
-                        this.f.c = jSONObject2.optInt("num");
-                        this.f.a = true;
-                    } catch (Exception e2) {
-                        com.baidu.adp.lib.util.e.b(getClass().getName(), "doInBackground", e2.getMessage());
-                    }
+                } catch (Exception e) {
+                    com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.getMessage());
+                    return false;
                 }
             }
-            return false;
-        } catch (Exception e3) {
-            com.baidu.adp.lib.util.e.b(getClass().getName(), "", "AddFanAsyncTask.doInBackground error = " + e3.getMessage());
-            return false;
+            return true;
         }
+        return false;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public final void cancel() {
-        super.cancel(true);
-        if (this.b != null) {
-            this.b.j();
+        com.baidu.adp.a.h hVar;
+        if (this.d != null) {
+            this.d.g();
         }
-        this.a.n = null;
-        this.a.a(false);
+        this.c.c = null;
+        super.cancel(true);
+        hVar = this.c.mLoadDataCallBack;
+        hVar.a(null);
     }
 }

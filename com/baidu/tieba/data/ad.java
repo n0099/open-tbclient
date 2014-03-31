@@ -4,52 +4,31 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class ad {
     private String a = null;
-    private String b = null;
-    private int c = 0;
-    private int d = 0;
-    private int f = 0;
+    private ah b = null;
+    private ah c = null;
+    private String d = null;
     private String e = null;
-
-    public final String a() {
-        return this.a;
-    }
-
-    public final String b() {
-        return this.b;
-    }
-
-    public final void a(int i) {
-        this.d = i;
-    }
-
-    public final int c() {
-        return this.d;
-    }
-
-    public final void b(int i) {
-        this.c = i;
-    }
-
-    public final int d() {
-        return this.c;
-    }
+    private long f = 0;
+    private long g = 0;
+    private long h = 0;
+    private int i = 0;
 
     public final void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.a = jSONObject.optString("forum_id");
-                this.b = jSONObject.optString("forum_name");
-                this.f = jSONObject.optInt("is_like", 0);
-                this.d = jSONObject.optInt("is_sign", 0);
-                this.c = jSONObject.optInt("level_id", 0);
-                this.e = jSONObject.optString("avatar", "");
+                this.a = jSONObject.optString("pk_id", null);
+                this.b = new ah();
+                this.b.a(jSONObject.optJSONObject("player1"));
+                this.c = new ah();
+                this.c.a(jSONObject.optJSONObject("player2"));
+                this.f = jSONObject.optLong("start_time");
+                this.g = jSONObject.optLong("end_time");
+                this.h = jSONObject.optLong("remain_time");
+                this.d = jSONObject.optString("title");
+                this.i = jSONObject.optInt("status", 0);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.e.b("BrowseForumData", "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.util.f.b("PKInfoData", "parserJson", "error = " + e.getMessage());
             }
         }
-    }
-
-    public final int e() {
-        return this.f;
     }
 }

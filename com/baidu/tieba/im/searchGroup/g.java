@@ -7,18 +7,16 @@ import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
-import com.baidu.tieba.im.data.BaseGroupData;
-import com.baidu.tieba.im.message.ct;
-import com.baidu.tieba.util.bq;
-import com.baidu.tieba.view.NavigationBar;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.core.data.BaseGroupData;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.im.message.ResponseSearchGroupMessage;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class g {
     public BdListView a;
-    private SearchGroupActivity b;
+    private final SearchGroupActivity b;
     private View c;
     private NavigationBar d;
     private EditText e;
@@ -40,41 +38,41 @@ public final class g {
         this.h = null;
         this.i = null;
         this.b = searchGroupActivity;
-        searchGroupActivity.setContentView(R.layout.search_group_activity);
-        this.c = this.b.findViewById(R.id.mparent);
-        this.d = (NavigationBar) this.b.findViewById(R.id.view_navigation_bar);
-        this.d.a(this.b.getResources().getString(R.string.search_group_text));
+        searchGroupActivity.setContentView(com.baidu.tieba.im.i.search_group_activity);
+        this.c = this.b.findViewById(com.baidu.tieba.im.h.mparent);
+        this.d = (NavigationBar) this.b.findViewById(com.baidu.tieba.im.h.view_navigation_bar);
+        this.d.a(this.b.getResources().getString(com.baidu.tieba.im.j.search_group_text));
         this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.h = (TextView) this.b.findViewById(R.id.text_no_data);
-        this.h.setText(R.string.text_no_search_record_ground);
-        this.e = (EditText) this.b.findViewById(R.id.home_et_search);
-        this.e.setHint(R.string.search_group_by_id);
+        this.h = (TextView) this.b.findViewById(com.baidu.tieba.im.h.text_no_data);
+        this.h.setText(com.baidu.tieba.im.j.text_no_search_record_ground);
+        this.e = (EditText) this.b.findViewById(com.baidu.tieba.im.h.home_et_search);
+        this.e.setHint(com.baidu.tieba.im.j.search_group_by_id);
         this.e.setOnFocusChangeListener(new h(this));
-        this.g = (Button) this.b.findViewById(R.id.home_bt_search_s);
+        this.g = (Button) this.b.findViewById(com.baidu.tieba.im.h.home_bt_search_s);
         this.g.setOnClickListener(this.b);
-        this.f = (Button) this.b.findViewById(R.id.home_bt_search_del);
+        this.f = (Button) this.b.findViewById(com.baidu.tieba.im.h.home_bt_search_del);
         this.f.setOnClickListener(new i(this));
         this.e.addTextChangedListener(new j(this));
-        this.a = (BdListView) this.b.findViewById(R.id.home_lv_search);
+        this.a = (BdListView) this.b.findViewById(com.baidu.tieba.im.h.home_lv_search);
         this.a.a(new k(this), 300L);
         this.j = new e(this.b);
         this.a.setOnItemClickListener(this.b);
         this.a.setAdapter((ListAdapter) this.j);
-        this.i = (ProgressBar) this.b.findViewById(R.id.home_progress_search);
+        this.i = (ProgressBar) this.b.findViewById(com.baidu.tieba.im.h.home_progress_search);
         this.i.setVisibility(8);
         this.e.setText("");
         this.e.setInputType(2);
         this.e.requestFocus();
         this.e.setOnEditorActionListener(new l(this));
-        this.b.ShowSoftKeyPadDelay(this.e, SocialAPIErrorCodes.ERROR_AUTHORIZATION_CANCELED);
+        this.b.ShowSoftKeyPadDelay(this.e, 150);
     }
 
     public final void b() {
         this.b.getLayoutMode().a(false);
         this.b.getLayoutMode().a(this.c);
-        bq.a(this.c, 0);
+        ba.a(this.c, 0);
         this.d.b(0);
-        this.h.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.pic_search_fruitless, 0, 0);
+        this.h.setCompoundDrawablesWithIntrinsicBounds(0, com.baidu.tieba.im.g.pic_search_fruitless, 0, 0);
     }
 
     public final void c() {
@@ -89,10 +87,10 @@ public final class g {
         }
     }
 
-    public final void a(ct ctVar) {
+    public final void a(ResponseSearchGroupMessage responseSearchGroupMessage) {
         List<BaseGroupData> linkedList = new LinkedList<>();
-        if (ctVar != null && ctVar.a() != null) {
-            linkedList = ctVar.a();
+        if (responseSearchGroupMessage != null && responseSearchGroupMessage.d() != null) {
+            linkedList = responseSearchGroupMessage.d();
         }
         this.j.a(linkedList);
     }

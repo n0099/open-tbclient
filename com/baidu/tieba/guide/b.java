@@ -2,12 +2,11 @@ package com.baidu.tieba.guide;
 
 import android.support.v4.app.FragmentPagerAdapter;
 import com.baidu.tieba.data.InterestFrsData;
-import com.baidu.tieba.model.bh;
-import com.baidu.tieba.model.bj;
+import com.baidu.tieba.model.ao;
+import com.baidu.tieba.model.aq;
 import com.baidu.tieba.view.RightSlideViewPager;
-import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-final class b implements bj {
+final class b implements aq {
     final /* synthetic */ NewUserGuideActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,27 +14,27 @@ final class b implements bj {
         this.a = newUserGuideActivity;
     }
 
-    @Override // com.baidu.tieba.model.bj
+    @Override // com.baidu.tieba.model.aq
     public final void a(InterestFrsData interestFrsData) {
-        bh bhVar;
-        bh bhVar2;
+        ao aoVar;
+        ao aoVar2;
         RightSlideViewPager rightSlideViewPager;
-        bhVar = this.a.d;
-        bhVar.a(false);
-        bhVar2 = this.a.d;
-        bhVar2.a(interestFrsData);
-        rightSlideViewPager = this.a.i;
+        aoVar = this.a.c;
+        aoVar.a(false);
+        aoVar2 = this.a.c;
+        aoVar2.a(interestFrsData);
+        rightSlideViewPager = this.a.h;
         ((o) ((FragmentPagerAdapter) rightSlideViewPager.getAdapter()).getItem(1)).a(interestFrsData);
     }
 
-    @Override // com.baidu.tieba.model.bj
+    @Override // com.baidu.tieba.model.aq
     public final void a() {
-        bh bhVar;
-        bh bhVar2;
-        bhVar = this.a.d;
-        bhVar.a(true);
-        bhVar2 = this.a.d;
-        bhVar2.a((InterestFrsData) null);
-        this.a.c(R.string.neterror_interestfrs);
+        ao aoVar;
+        ao aoVar2;
+        aoVar = this.a.c;
+        aoVar.a(true);
+        aoVar2 = this.a.c;
+        aoVar2.a((InterestFrsData) null);
+        this.a.d(com.baidu.tieba.a.k.neterror_interestfrs);
     }
 }

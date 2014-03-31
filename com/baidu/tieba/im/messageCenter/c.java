@@ -1,24 +1,16 @@
 package com.baidu.tieba.im.messageCenter;
 
-import com.baidu.tieba.im.message.da;
-import com.baidu.tieba.im.message.s;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.atomData.InvokeClearChatNotifyMessageConfig;
+import com.baidu.tieba.im.s;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public abstract class c extends com.baidu.tieba.im.b<da> {
-    private s a = null;
-
-    public abstract da a(s sVar);
-
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.b
-    public final /* bridge */ /* synthetic */ da a() {
-        da a = a(this.a);
-        if (a != null) {
-            a.a(this.a);
+public final class c implements com.baidu.adp.framework.task.a<InvokeClearChatNotifyMessageConfig> {
+    @Override // com.baidu.adp.framework.task.a
+    public final CustomResponsedMessage<InvokeClearChatNotifyMessageConfig> a(com.baidu.adp.framework.message.a<InvokeClearChatNotifyMessageConfig> aVar) {
+        if (aVar != null) {
+            s.a(new d(this), new e(this));
         }
-        return a;
-    }
-
-    public final void b(s sVar) {
-        this.a = sVar;
+        return null;
     }
 }

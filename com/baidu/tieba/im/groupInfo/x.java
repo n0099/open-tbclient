@@ -1,27 +1,24 @@
 package com.baidu.tieba.im.groupInfo;
+
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class x extends com.baidu.tieba.im.b<Boolean> {
-    private final /* synthetic */ String a;
-    private final /* synthetic */ String c;
-    private final /* synthetic */ long d;
+public final class x implements DialogInterface.OnClickListener {
+    final /* synthetic */ r a;
+    private final /* synthetic */ Object b;
+    private final /* synthetic */ int c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(String str, String str2, long j) {
-        this.a = str;
-        this.c = str2;
-        this.d = j;
+    public x(r rVar, Object obj, int i) {
+        this.a = rVar;
+        this.b = obj;
+        this.c = i;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.b
-    public final /* synthetic */ Boolean a() {
-        GroupSettingItemData a = v.a(this.a, this.c);
-        if (a != null && a.isAlreadyApply()) {
-            if (System.currentTimeMillis() - a.getLastApplyTimeStamp() <= this.d) {
-                return false;
-            }
-        }
-        return true;
+    @Override // android.content.DialogInterface.OnClickListener
+    public final void onClick(DialogInterface dialogInterface, int i) {
+        ad adVar;
+        adVar = this.a.Q;
+        adVar.a(dialogInterface, i, this.b, this.c);
     }
 }

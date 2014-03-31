@@ -1,6 +1,4 @@
 package com.google.zxing.qrcode.decoder;
-
-import cn.jingling.lib.file.Shared;
 /* loaded from: classes.dex */
 final class FormatInformation {
     private final byte dataMask;
@@ -30,7 +28,7 @@ final class FormatInformation {
     private static FormatInformation doDecodeFormatInformation(int i, int i2) {
         int i3;
         int i4;
-        int i5 = Shared.INFINITY;
+        int i5 = Integer.MAX_VALUE;
         int[][] iArr = FORMAT_INFO_DECODE_LOOKUP;
         int length = iArr.length;
         int i6 = 0;

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.common.security.Base64;
-import com.baidu.cloudsdk.social.core.SocialConstants;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
@@ -96,8 +95,8 @@ public final class a {
         if (jSONObject.has("maxnum")) {
             this.f.b(jSONObject.getInt("maxnum"));
         }
-        if (jSONObject.has(SocialConstants.TOKEN_RESPONSE_TYPE)) {
-            this.f.a(jSONObject.getLong(SocialConstants.TOKEN_RESPONSE_TYPE));
+        if (jSONObject.has("token")) {
+            this.f.a(jSONObject.getLong("token"));
         }
         if (jSONObject.has("retlist")) {
             String string = jSONObject.getString("retlist");

@@ -1,7 +1,6 @@
 package com.baidu.loginshare;
 
 import android.content.Context;
-import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.share.IShareListener;
 import com.baidu.share.ShareAssistant;
 import com.baidu.share.ShareModel;
@@ -23,10 +22,10 @@ public class b {
     private c f = null;
     private a g = new a();
     private j h = new j();
-    private String i = SocialConstants.TRUE;
-    private String j = SocialConstants.FALSE;
-    private String k = SocialConstants.TRUE;
-    private String l = SocialConstants.FALSE;
+    private String i = "1";
+    private String j = "0";
+    private String k = "1";
+    private String l = "0";
     private volatile boolean o = false;
     private k p = null;
     private volatile boolean q = false;
@@ -89,7 +88,7 @@ public class b {
 
     private boolean a(boolean z, String str, String str2, String str3, String str4, String str5, String str6) {
         if (this.d != null) {
-            this.d.a(g.k(), z ? SocialConstants.TRUE : SocialConstants.FALSE);
+            this.d.a(g.k(), z ? "1" : "0");
             this.d.a(g.f(), str);
             this.d.a(g.g(), str2);
             this.d.a(g.h(), str3);
@@ -105,7 +104,7 @@ public class b {
 
     private boolean a(boolean z, String str, String str2, String str3, String str4, String str5, HashMap hashMap) {
         if (this.d != null) {
-            this.d.a(g.k(), z ? SocialConstants.TRUE : SocialConstants.FALSE);
+            this.d.a(g.k(), z ? "1" : "0");
             this.d.a(g.f(), str);
             this.d.a(g.g(), str2);
             this.d.a(g.h(), str3);

@@ -6,8 +6,7 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tieba.more.SettingTextSwitchView;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
 /* loaded from: classes.dex */
 public class PersonalTalkSettingViewSettingView extends LinearLayout {
     private SettingTextSwitchView a;
@@ -32,10 +31,10 @@ public class PersonalTalkSettingViewSettingView extends LinearLayout {
 
     private void a() {
         setOrientation(1);
-        inflate(getContext(), R.layout.p2ptalk_setting_detail_view, this);
-        this.a = (SettingTextSwitchView) findViewById(R.id.sv_person_msg_notify);
-        this.b = (TextView) findViewById(R.id.change_attention_text);
-        this.c = (RelativeLayout) findViewById(R.id.change_attention);
+        inflate(getContext(), com.baidu.tieba.im.i.p2ptalk_setting_detail_view, this);
+        this.a = (SettingTextSwitchView) findViewById(com.baidu.tieba.im.h.sv_person_msg_notify);
+        this.b = (TextView) findViewById(com.baidu.tieba.im.h.change_attention_text);
+        this.c = (RelativeLayout) findViewById(com.baidu.tieba.im.h.change_attention);
     }
 
     public final void a(boolean z) {
@@ -49,32 +48,32 @@ public class PersonalTalkSettingViewSettingView extends LinearLayout {
     public final void b(boolean z) {
         boolean z2 = false;
         Context context = getContext();
-        if (context instanceof com.baidu.tieba.f) {
-            z2 = ((com.baidu.tieba.f) context).getLayoutMode().a();
-        } else if (context instanceof com.baidu.tieba.k) {
-            z2 = ((com.baidu.tieba.k) getContext()).a().a();
+        if (context instanceof com.baidu.tbadk.a) {
+            z2 = ((com.baidu.tbadk.a) context).getLayoutMode().a();
+        } else if (context instanceof com.baidu.tbadk.core.e) {
+            z2 = ((com.baidu.tbadk.core.e) getContext()).b().a();
         }
         if (z) {
-            this.b.setText(R.string.cancel_attention);
+            this.b.setText(com.baidu.tieba.im.j.cancel_attention);
             this.b.setCompoundDrawables(null, null, null, null);
             if (z2) {
-                this.b.setTextColor(getResources().getColor(R.color.btn_attention_remove_1));
-                this.c.setBackgroundResource(R.drawable.btn_information_add_1);
+                this.b.setTextColor(getResources().getColor(com.baidu.tieba.im.e.btn_attention_remove_1));
+                this.c.setBackgroundResource(com.baidu.tieba.im.g.btn_information_add_1);
                 return;
             }
-            this.b.setTextColor(getResources().getColor(R.color.btn_attention_remove));
-            this.c.setBackgroundResource(R.drawable.btn_information_add);
+            this.b.setTextColor(getResources().getColor(com.baidu.tieba.im.e.btn_attention_remove));
+            this.c.setBackgroundResource(com.baidu.tieba.im.g.btn_information_add);
             return;
         }
-        this.b.setText(R.string.add_attention);
+        this.b.setText(com.baidu.tieba.im.j.add_attention);
         if (z2) {
-            this.b.setTextColor(getResources().getColor(R.color.btn_attention_add_1));
-            this.b.setCompoundDrawablesWithIntrinsicBounds(context.getResources().getDrawable(R.drawable.icon_brief_attention_1), (Drawable) null, (Drawable) null, (Drawable) null);
-            this.c.setBackgroundResource(R.drawable.btn_information_discuss_1);
+            this.b.setTextColor(getResources().getColor(com.baidu.tieba.im.e.btn_attention_add_1));
+            this.b.setCompoundDrawablesWithIntrinsicBounds(context.getResources().getDrawable(com.baidu.tieba.im.g.icon_brief_attention_1), (Drawable) null, (Drawable) null, (Drawable) null);
+            this.c.setBackgroundResource(com.baidu.tieba.im.g.btn_information_discuss_1);
             return;
         }
-        this.b.setTextColor(getResources().getColor(R.color.btn_attention_add));
-        this.b.setCompoundDrawablesWithIntrinsicBounds(context.getResources().getDrawable(R.drawable.icon_brief_attention), (Drawable) null, (Drawable) null, (Drawable) null);
-        this.c.setBackgroundResource(R.drawable.btn_information_discuss);
+        this.b.setTextColor(getResources().getColor(com.baidu.tieba.im.e.btn_attention_add));
+        this.b.setCompoundDrawablesWithIntrinsicBounds(context.getResources().getDrawable(com.baidu.tieba.im.g.icon_brief_attention), (Drawable) null, (Drawable) null, (Drawable) null);
+        this.c.setBackgroundResource(com.baidu.tieba.im.g.btn_information_discuss);
     }
 }

@@ -6,21 +6,21 @@ import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import com.baidu.tbadk.core.util.resourceLoader.PicImageLoaderProc;
 import java.io.InputStream;
 /* loaded from: classes.dex */
 public final class GifView extends ImageView implements a {
-    private static /* synthetic */ int[] i;
+    private static /* synthetic */ int[] h;
     private b a;
     private Bitmap b;
     private boolean c;
-    private boolean d;
-    private d e;
-    private View f;
-    private GifImageType g;
-    private Handler h;
+    private d d;
+    private View e;
+    private GifImageType f;
+    private final Handler g;
 
     private static /* synthetic */ int[] b() {
-        int[] iArr = i;
+        int[] iArr = h;
         if (iArr == null) {
             iArr = new int[GifImageType.valuesCustom().length];
             try {
@@ -35,7 +35,7 @@ public final class GifView extends ImageView implements a {
                 iArr[GifImageType.WAIT_FINISH.ordinal()] = 1;
             } catch (NoSuchFieldError e3) {
             }
-            i = iArr;
+            h = iArr;
         }
         return iArr;
     }
@@ -80,7 +80,7 @@ public final class GifView extends ImageView implements a {
     }
 
     public final void setAsBackground(View view) {
-        this.f = view;
+        this.e = view;
     }
 
     @Override // android.view.View
@@ -101,23 +101,23 @@ public final class GifView extends ImageView implements a {
         setGifDecoderImage(inputStream);
     }
 
-    public final void setGifImage(int i2) {
-        setGifDecoderImage(getResources().openRawResource(i2));
+    public final void setGifImage(int i) {
+        setGifDecoderImage(getResources().openRawResource(i));
     }
 
     public final void setGifImageType(GifImageType gifImageType) {
         if (this.a == null) {
-            this.g = gifImageType;
+            this.f = gifImageType;
         }
     }
 
     @Override // com.baidu.adp.lib.gif.a
-    public final void a(boolean z, int i2) {
+    public final void a(boolean z, int i) {
         if (z) {
             if (this.a != null) {
-                switch (b()[this.g.ordinal()]) {
+                switch (b()[this.f.ordinal()]) {
                     case 1:
-                        if (i2 == -1) {
+                        if (i == -1) {
                             if (this.a.b() > 1) {
                                 new d(this, (byte) 0).start();
                                 return;
@@ -128,30 +128,30 @@ public final class GifView extends ImageView implements a {
                         }
                         return;
                     case 2:
-                        if (i2 == 1) {
+                        if (i == 1) {
                             this.b = this.a.c();
                             a();
                             return;
-                        } else if (i2 == -1) {
+                        } else if (i == -1) {
                             a();
                             return;
-                        } else if (this.e == null) {
-                            this.e = new d(this, (byte) 0);
-                            this.e.start();
+                        } else if (this.d == null) {
+                            this.d = new d(this, (byte) 0);
+                            this.d.start();
                             return;
                         } else {
                             return;
                         }
                     case 3:
-                        if (i2 == 1) {
+                        if (i == 1) {
                             this.b = this.a.c();
                             a();
                             return;
-                        } else if (i2 == -1) {
+                        } else if (i == -1) {
                             if (this.a.b() > 1) {
-                                if (this.e == null) {
-                                    this.e = new d(this, (byte) 0);
-                                    this.e.start();
+                                if (this.d == null) {
+                                    this.d = new d(this, (byte) 0);
+                                    this.d.start();
                                     return;
                                 }
                                 return;
@@ -165,13 +165,13 @@ public final class GifView extends ImageView implements a {
                         return;
                 }
             }
-            Log.e("gif", "parse error");
+            Log.e(PicImageLoaderProc.IS_GIF, "parse error");
         }
     }
 
     public void a() {
-        if (this.h != null) {
-            this.h.sendMessage(this.h.obtainMessage());
+        if (this.g != null) {
+            this.g.sendMessage(this.g.obtainMessage());
         }
     }
 }

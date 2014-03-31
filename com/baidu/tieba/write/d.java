@@ -2,10 +2,9 @@ package com.baidu.tieba.write;
 
 import android.view.View;
 import android.widget.ImageView;
-import com.baidu.tieba.data.MetaData;
-import com.baidu.tieba.util.cj;
+import com.baidu.tbadk.core.data.MetaData;
 /* loaded from: classes.dex */
-final class d implements cj {
+final class d implements com.baidu.tbadk.core.util.bp {
     final /* synthetic */ c a;
     private final /* synthetic */ String b;
     private final /* synthetic */ com.baidu.adp.widget.ImageView.b c;
@@ -17,7 +16,7 @@ final class d implements cj {
         this.c = bVar;
     }
 
-    @Override // com.baidu.tieba.util.cj
+    @Override // com.baidu.tbadk.core.util.bp
     public final boolean a(View view) {
         if ((view instanceof ImageView) && view.getTag() != null) {
             Object tag = view.getTag();

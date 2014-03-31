@@ -2,9 +2,8 @@ package com.baidu.tbadk.widget.richText;
 
 import android.content.Context;
 import android.widget.TextView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class l implements com.baidu.adp.lib.d.c<TextView> {
+final class l implements com.baidu.adp.lib.d.c<TextView> {
     private final /* synthetic */ Context a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,8 +14,8 @@ public final class l implements com.baidu.adp.lib.d.c<TextView> {
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // com.baidu.adp.lib.d.c
     public final /* synthetic */ TextView a() {
-        com.baidu.adp.lib.util.e.e("pool make TextView");
-        return new com.baidu.tbadk.widget.c(this.a);
+        com.baidu.adp.lib.util.f.e("pool make TextView");
+        return new com.baidu.tbadk.widget.l(this.a);
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */

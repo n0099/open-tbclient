@@ -1,65 +1,121 @@
 package com.baidu.tieba.model;
+
+import com.baidu.tbadk.TbadkApplication;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public final class s extends com.baidu.adp.a.d {
-    private t a = null;
-    private v b = null;
-    private x c = null;
-
-    @Override // com.baidu.adp.a.d
-    protected final boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.a.d
-    public final boolean cancelLoadData() {
-        if (this.a != null) {
-            this.a.cancel();
-            this.a = null;
-        }
-        if (this.b != null) {
-            this.b.cancel();
-            this.b = null;
-        }
-        if (this.c != null) {
-            this.c.cancel();
-            this.c = null;
-            return false;
-        }
-        return false;
-    }
-
-    public final void a(String str, String str2, String str3, String str4, int i, int i2, boolean z) {
-        if (this.a != null) {
-            this.a.cancel();
-            this.a = null;
-        }
-        this.mLoadDataMode = 0;
-        this.a = new t(this, str, str2, str3, str4, i, i2, z);
-        this.a.setPriority(2);
-        this.a.execute(new String[0]);
-    }
+public class s extends com.baidu.adp.a.e {
+    private com.baidu.tieba.data.p d;
+    private t e;
+    private boolean c = false;
+    private int f = 1;
+    protected int a = 0;
+    protected String b = null;
+    private int g = 0;
 
     public final boolean a() {
-        return (this.a == null && this.b == null && this.c == null) ? false : true;
+        return this.c;
     }
 
-    public final void a(String str, String str2, String str3, int i, String str4) {
-        String str5;
-        if (this.c != null) {
-            this.c.cancel();
-            this.c = null;
+    public final void a(boolean z) {
+        this.c = z;
+    }
+
+    public final boolean b() {
+        return this.g == 0;
+    }
+
+    public final boolean c() {
+        ArrayList<com.baidu.tieba.data.q> b;
+        return (this.d == null || (b = this.d.b()) == null || b.size() <= 0) ? false : true;
+    }
+
+    public final boolean d() {
+        ArrayList<com.baidu.tieba.data.q> b;
+        if (!((this.d == null || (b = this.d.b()) == null || b.size() < 300) ? false : true)) {
+            if (this.d != null && (this.d.c() || this.c)) {
+                return true;
+            }
         }
-        this.mLoadDataMode = i;
-        this.c = new x(this, str, str2, str3, i, str4);
-        this.c.setPriority(2);
-        String str6 = com.baidu.tieba.data.i.a;
-        if (i == 6) {
-            str5 = String.valueOf(str6) + "c/c/bawu/goodlist";
-        } else if (i == 2 || i == 3) {
-            str5 = String.valueOf(str6) + "c/c/bawu/commitgood";
+        return false;
+    }
+
+    public final void a(int i) {
+        int i2;
+        ArrayList<com.baidu.tieba.data.q> b;
+        this.f = i;
+        this.e = new t(this);
+        if (i != 2 || this.c) {
+            i2 = 1;
         } else {
-            str5 = String.valueOf(str6) + "c/c/bawu/committop";
+            i2 = (this.d == null || (b = this.d.b()) == null) ? 1 : (b.size() / 20) + 1;
         }
-        this.c.execute(str5);
+        this.e.execute(Integer.valueOf(i2));
+        this.g = 1;
+    }
+
+    public final void e() {
+        if (this.e == null) {
+            this.e = new t(this);
+        }
+        this.e.execute(1, 1);
+        this.g = 1;
+    }
+
+    public final com.baidu.tieba.data.p f() {
+        String E = TbadkApplication.E();
+        if (E == null) {
+            return null;
+        }
+        com.baidu.adp.lib.cache.s<String> g = com.baidu.tbadk.core.c.b.a().g();
+        String a = g != null ? g.a("home_forumfeed_" + E) : null;
+        if (a != null) {
+            com.baidu.tieba.data.p pVar = new com.baidu.tieba.data.p();
+            pVar.a(a);
+            this.d = pVar;
+            return pVar;
+        }
+        return null;
+    }
+
+    public final int g() {
+        return this.f;
+    }
+
+    @Override // com.baidu.adp.a.e
+    public int getErrorCode() {
+        return this.a;
+    }
+
+    @Override // com.baidu.adp.a.e
+    public void setErrorCode(int i) {
+        this.a = i;
+    }
+
+    @Override // com.baidu.adp.a.e
+    public String getErrorString() {
+        return this.b;
+    }
+
+    @Override // com.baidu.adp.a.e
+    public void setErrorString(String str) {
+        this.b = str;
+    }
+
+    public final com.baidu.tieba.data.p h() {
+        return this.d;
+    }
+
+    @Override // com.baidu.adp.a.e
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.a.e
+    public boolean cancelLoadData() {
+        if (this.e != null) {
+            this.e.cancel();
+            return true;
+        }
+        return true;
     }
 }

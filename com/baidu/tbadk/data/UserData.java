@@ -1,13 +1,13 @@
 package com.baidu.tbadk.data;
 
-import com.baidu.adp.lib.util.e;
+import com.baidu.adp.lib.util.f;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class UserData extends MetaData {
     private static final long serialVersionUID = -1871115639893992930L;
     private String BDUSS;
-    private String bawu_type;
+    private String bimg_url;
     private int concern_num;
     private int fans_num;
     private int have_attention;
@@ -15,11 +15,8 @@ public class UserData extends MetaData {
     private String intro;
     private String ip;
     private boolean isManager;
-    private int is_bawu;
-    private int is_like;
     private long lastReplyTime;
     private String lat;
-    private int level_id;
     private int like_bars;
     private String lng;
     private long loginTime;
@@ -29,6 +26,7 @@ public class UserData extends MetaData {
     private int posts_num;
     private int sex;
     private String tb_age;
+    private int userType;
 
     public String getTb_age() {
         return this.tb_age;
@@ -40,11 +38,9 @@ public class UserData extends MetaData {
 
     public UserData() {
         this.password = null;
-        this.is_like = 0;
         this.isManager = false;
         this.ip = null;
         this.BDUSS = null;
-        this.level_id = 0;
         this.fans_num = 0;
         this.concern_num = 0;
         this.like_bars = 0;
@@ -52,14 +48,11 @@ public class UserData extends MetaData {
         this.intro = null;
         this.posts_num = 0;
         setHave_attention(0);
-        this.is_bawu = 0;
-        this.bawu_type = null;
         this.tb_age = "";
     }
 
     public UserData(long j, String str, String str2, int i) {
         this.password = null;
-        this.is_like = 0;
         this.isManager = false;
         setUserId(String.valueOf(j));
         setUserName(str);
@@ -69,10 +62,6 @@ public class UserData extends MetaData {
 
     public void setIp(String str) {
         this.ip = str;
-    }
-
-    public int getIsLike() {
-        return this.is_like;
     }
 
     public boolean getIsManager() {
@@ -93,7 +82,7 @@ public class UserData extends MetaData {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            e.b("PostData", "parserJson", "error = " + e.getMessage());
+            f.b("PostData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -104,7 +93,6 @@ public class UserData extends MetaData {
             if (jSONObject != null) {
                 this.ip = jSONObject.optString("ip");
                 this.BDUSS = jSONObject.optString("BDUSS");
-                this.level_id = jSONObject.optInt("level_id", 0);
                 this.fans_num = jSONObject.optInt("fans_num");
                 this.concern_num = jSONObject.optInt("concern_num");
                 this.sex = jSONObject.optInt("sex", 1);
@@ -112,32 +100,29 @@ public class UserData extends MetaData {
                 this.intro = jSONObject.optString("intro");
                 this.have_attention = jSONObject.optInt("has_concerned");
                 this.password = jSONObject.optString("passwd");
-                this.is_like = jSONObject.optInt("is_like", 0);
                 this.posts_num = jSONObject.optInt("post_num", 0);
-                this.is_bawu = jSONObject.optInt("is_bawu", 0);
-                this.bawu_type = jSONObject.optString("bawu_type");
                 this.tb_age = jSONObject.optString("tb_age");
                 if (jSONObject.optInt("is_manager", 0) == 1) {
                     this.isManager = true;
                 } else {
                     this.isManager = false;
                 }
+                this.bimg_url = jSONObject.optString("bimg_url");
             }
         } catch (Exception e) {
-            e.b("PostData", "parserJson", "error = " + e.getMessage());
+            f.b("PostData", "parserJson", "error = " + e.getMessage());
         }
     }
 
     @Override // com.baidu.tbadk.data.MetaData
     public void logPrint() {
         super.logPrint();
-        e.d(getClass().getName(), "logPrint", "ip = " + this.ip);
-        e.d(getClass().getName(), "logPrint", "BDUSS = " + this.BDUSS);
-        e.d(getClass().getName(), "logPrint", "level_id = " + String.valueOf(this.level_id));
-        e.d(getClass().getName(), "logPrint", "fans_num = " + String.valueOf(this.fans_num));
-        e.d(getClass().getName(), "logPrint", "concern_num = " + String.valueOf(this.concern_num));
-        e.d(getClass().getName(), "logPrint", "sex = " + String.valueOf(this.sex));
-        e.d(getClass().getName(), "logPrint", "intro = " + this.intro);
+        f.d(getClass().getName(), "logPrint", "ip = " + this.ip);
+        f.d(getClass().getName(), "logPrint", "BDUSS = " + this.BDUSS);
+        f.d(getClass().getName(), "logPrint", "fans_num = " + String.valueOf(this.fans_num));
+        f.d(getClass().getName(), "logPrint", "concern_num = " + String.valueOf(this.concern_num));
+        f.d(getClass().getName(), "logPrint", "sex = " + String.valueOf(this.sex));
+        f.d(getClass().getName(), "logPrint", "intro = " + this.intro);
     }
 
     public void setFans_num(int i) {
@@ -236,14 +221,6 @@ public class UserData extends MetaData {
         return this.BDUSS;
     }
 
-    public int getLevel_id() {
-        return this.level_id;
-    }
-
-    public void setLevel_id(int i) {
-        this.level_id = i;
-    }
-
     public void setLike_bars(int i) {
         this.like_bars = i;
     }
@@ -268,17 +245,21 @@ public class UserData extends MetaData {
         return this.have_attention;
     }
 
-    public int getIs_bawu() {
-        return this.is_bawu;
+    public int getUserType() {
+        return this.userType;
     }
 
-    public String getBawu_type() {
-        return this.bawu_type;
+    public void setUserType(int i) {
+        this.userType = i;
+    }
+
+    public String getBimg_url() {
+        return this.bimg_url;
     }
 
     @Override // com.baidu.tbadk.data.MetaData
     public String toString() {
-        return "UserData{ip='" + this.ip + "', level_id=" + this.level_id + ", BDUSS='" + this.BDUSS + "', fans_num=" + this.fans_num + ", concern_num=" + this.concern_num + ", like_bars=" + this.like_bars + ", sex=" + this.sex + ", intro='" + this.intro + "', have_attention=" + this.have_attention + ", password='" + this.password + "', is_like=" + this.is_like + ", posts_num=" + this.posts_num + ", is_bawu=" + this.is_bawu + ", bawu_type='" + this.bawu_type + "', isManager=" + this.isManager + "}:" + super.toString();
+        return "UserData [ip=" + this.ip + ", BDUSS=" + this.BDUSS + ", fans_num=" + this.fans_num + ", concern_num=" + this.concern_num + ", like_bars=" + this.like_bars + ", sex=" + this.sex + ", intro=" + this.intro + ", have_attention=" + this.have_attention + ", password=" + this.password + ", posts_num=" + this.posts_num + ", isManager=" + this.isManager + ", position=" + this.position + ", lng=" + this.lng + ", lat=" + this.lat + ", inTime=" + this.inTime + ", loginTime=" + this.loginTime + ", lastReplyTime=" + this.lastReplyTime + ", userType=" + this.userType + ", permission=" + this.permission + ", tb_age=" + this.tb_age + "]";
     }
 
     /* loaded from: classes.dex */

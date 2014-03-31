@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tieba.data.InterestFrsData;
-import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 final class v {
     View a;
@@ -26,7 +25,7 @@ final class v {
         Context context3;
         this.d = uVar;
         context = uVar.a;
-        this.a = LayoutInflater.from(context).inflate(R.layout.new_user_text_item, (ViewGroup) null);
+        this.a = LayoutInflater.from(context).inflate(com.baidu.tieba.a.i.new_user_text_item, (ViewGroup) null);
         this.a.setTag(Integer.valueOf(card.getFid()));
         a();
         this.f.setOnClickListener(onClickListener);
@@ -34,10 +33,10 @@ final class v {
         this.b.setText(card.getFname());
         if (card.getOrder() == 1) {
             context3 = this.d.a;
-            drawable = context3.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_rise);
+            drawable = context3.getResources().getDrawable(com.baidu.tieba.a.g.icon_startpage2_add_ba_rise);
         } else if (card.getOrder() == 2) {
             context2 = this.d.a;
-            drawable = context2.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_decline);
+            drawable = context2.getResources().getDrawable(com.baidu.tieba.a.g.icon_startpage2_add_ba_decline);
         } else {
             drawable = null;
         }
@@ -53,10 +52,10 @@ final class v {
     }
 
     private void a() {
-        this.b = (TextView) this.a.findViewById(R.id.tv_fname);
-        this.c = (TextView) this.a.findViewById(R.id.tv_cdesc);
-        this.e = (ImageView) this.a.findViewById(R.id.iv_like);
-        this.f = (LinearLayout) this.a.findViewById(R.id.ll_like);
+        this.b = (TextView) this.a.findViewById(com.baidu.tieba.a.h.tv_fname);
+        this.c = (TextView) this.a.findViewById(com.baidu.tieba.a.h.tv_cdesc);
+        this.e = (ImageView) this.a.findViewById(com.baidu.tieba.a.h.iv_like);
+        this.f = (LinearLayout) this.a.findViewById(com.baidu.tieba.a.h.ll_like);
     }
 
     public final void a(boolean z) {
@@ -65,11 +64,11 @@ final class v {
         if (!z) {
             ImageView imageView = this.e;
             context2 = this.d.a;
-            imageView.setBackgroundDrawable(context2.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_n));
+            imageView.setBackgroundDrawable(context2.getResources().getDrawable(com.baidu.tieba.a.g.icon_startpage2_add_ba_n));
             return;
         }
         ImageView imageView2 = this.e;
         context = this.d.a;
-        imageView2.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_s));
+        imageView2.setBackgroundDrawable(context.getResources().getDrawable(com.baidu.tieba.a.g.icon_startpage2_add_ba_s));
     }
 }

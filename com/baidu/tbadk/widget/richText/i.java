@@ -5,10 +5,10 @@ import android.graphics.Rect;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.style.ImageSpan;
-import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import java.util.ArrayList;
 import org.json.JSONObject;
+import protobuf.Im;
 /* loaded from: classes.dex */
 public final class i {
     private int a = 0;
@@ -74,6 +74,8 @@ public final class i {
 
     public final CharSequence a(Context context, ArrayList<f> arrayList) {
         String a;
+        String a2;
+        int b;
         switch (this.a) {
             case 1:
                 if (this.a != 1 || this.b == null) {
@@ -86,30 +88,25 @@ public final class i {
                 }
                 return a(context, this.a, this.b.a(), this.b.b());
             case 4:
-                if (this.a != 4 || this.b == null || this.b.a() == null || this.b.b() == null) {
+                if (this.a != 4 || this.b == null || this.b.a() == null || this.b.b() == null || (b = TbFaceManager.a().b((a2 = this.b.a()))) == 0) {
                     return null;
                 }
-                String a2 = this.b.a();
-                String b = this.b.b();
-                int b2 = TbFaceManager.a().b(a2);
-                if (b2 != 0) {
-                    SpannableString spannableString = new SpannableString(String.valueOf(b) + " ");
-                    f fVar = new f(context, b2);
-                    if (arrayList != null) {
-                        arrayList.add(fVar);
-                    }
-                    com.baidu.tbadk.imageManager.c c = TbFaceManager.a().c(a2);
-                    if (c != null) {
-                        fVar.setBounds(new Rect(0, 0, c.a(), c.b()));
-                    } else {
-                        fVar.setBounds(new Rect(0, 0, 0, 0));
-                    }
-                    spannableString.setSpan(new ImageSpan(fVar, 0), 0, b.length(), 33);
-                    return spannableString;
+                String str = "#(" + TbFaceManager.a().d(a2) + ")";
+                SpannableString spannableString = new SpannableString(String.valueOf(str) + " ");
+                f fVar = new f(context, b);
+                if (arrayList != null) {
+                    arrayList.add(fVar);
                 }
-                return null;
+                com.baidu.tbadk.imageManager.c c = TbFaceManager.a().c(a2);
+                if (c != null) {
+                    fVar.setBounds(new Rect(0, 0, c.a(), c.b()));
+                } else {
+                    fVar.setBounds(new Rect(0, 0, 0, 0));
+                }
+                spannableString.setSpan(new ImageSpan(fVar, 0), 0, str.length(), 33);
+                return spannableString;
             case 8:
-            case 17:
+            case Im.GroupInfo.CREATETIME_FIELD_NUMBER /* 17 */:
             default:
                 return null;
             case 16:
@@ -123,9 +120,9 @@ public final class i {
                     return spannableStringBuilder;
                 }
                 spannableStringBuilder.append((CharSequence) "视频：");
-                CharSequence b3 = b(context, arrayList);
-                if (b3 != null) {
-                    spannableStringBuilder.append(b3);
+                CharSequence b2 = b(context, arrayList);
+                if (b2 != null) {
+                    spannableStringBuilder.append(b2);
                 }
                 SpannableString a3 = a(context, this.a, this.b.a(), this.b.a());
                 if (a3 != null) {
@@ -138,9 +135,9 @@ public final class i {
                 if (this.a != 128 || this.b == null) {
                     return spannableStringBuilder2;
                 }
-                CharSequence b4 = b(context, arrayList);
-                if (b4 != null) {
-                    spannableStringBuilder2.append(b4);
+                CharSequence b3 = b(context, arrayList);
+                if (b3 != null) {
+                    spannableStringBuilder2.append(b3);
                 }
                 SpannableString a4 = a(context, this.a, this.b.b(), this.b.b());
                 if (a4 != null) {
@@ -152,11 +149,11 @@ public final class i {
                 if (this.a != 256 || this.b == null || (a = this.b.a()) == null) {
                     return null;
                 }
-                String str = !a.endsWith(" ") ? String.valueOf(a) + " " : a;
-                SpannableString spannableString2 = new SpannableString(str);
-                h hVar = new h(context, this.a, str);
+                String str2 = !a.endsWith(" ") ? String.valueOf(a) + " " : a;
+                SpannableString spannableString2 = new SpannableString(str2);
+                h hVar = new h(context, this.a, str2);
                 hVar.a(this.b.b());
-                spannableString2.setSpan(hVar, 0, str.length() - 1, 33);
+                spannableString2.setSpan(hVar, 0, str2.length() - 1, 33);
                 return spannableString2;
         }
     }
@@ -210,7 +207,7 @@ public final class i {
             } else if (this.a == 512) {
                 this.d = new t(jSONObject);
             } else if (this.a == 16) {
-                this.b = new b(jSONObject.optString("text"), jSONObject.optString(SapiAccountManager.SESSION_UID));
+                this.b = new b(jSONObject.optString("text"), jSONObject.optString("uid"));
             } else if (this.a == 17) {
                 this.e = new e();
                 this.e.c = String.format("#(%s)", jSONObject.optString("c"));
@@ -226,12 +223,12 @@ public final class i {
                     i2++;
                     if (str.equals("faceshop")) {
                         String str2 = split[i2].split("_")[0];
-                        com.baidu.adp.lib.util.e.e("TbRichTextView", "onClick", str2);
+                        com.baidu.adp.lib.util.f.e("TbRichTextView", "onClick", str2);
                         this.e.e = str2;
                     }
                 }
                 String str22 = split[i2].split("_")[0];
-                com.baidu.adp.lib.util.e.e("TbRichTextView", "onClick", str22);
+                com.baidu.adp.lib.util.f.e("TbRichTextView", "onClick", str22);
                 this.e.e = str22;
             } else {
                 this.b = new b(jSONObject);
@@ -251,7 +248,7 @@ public final class i {
                 this.b.c();
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.e.b(e.getMessage());
+            com.baidu.adp.lib.util.f.b(e.getMessage());
         }
     }
 }

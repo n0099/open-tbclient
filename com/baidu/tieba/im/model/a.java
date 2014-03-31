@@ -1,8 +1,8 @@
 package com.baidu.tieba.im.model;
 
-import com.baidu.tieba.im.message.bm;
+import com.baidu.tieba.im.message.ResponseAddGroupMessage;
 /* loaded from: classes.dex */
-public final class a extends com.baidu.adp.a.d {
+public final class a extends com.baidu.adp.a.e {
     private int c;
     private String d;
     private String e;
@@ -13,8 +13,8 @@ public final class a extends com.baidu.adp.a.d {
     private String j;
     private int k;
     private int l;
-    private com.baidu.tieba.im.message.ad a = null;
-    private bm b = null;
+    private com.baidu.tieba.im.message.y a = null;
+    private ResponseAddGroupMessage b = null;
     private int m = -1;
 
     public final void a(int i) {
@@ -57,12 +57,12 @@ public final class a extends com.baidu.adp.a.d {
         this.l = i;
     }
 
-    @Override // com.baidu.adp.a.d
+    @Override // com.baidu.adp.a.e
     protected final boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.a.d
+    @Override // com.baidu.adp.a.e
     public final boolean cancelLoadData() {
         return false;
     }
@@ -72,46 +72,40 @@ public final class a extends com.baidu.adp.a.d {
     }
 
     public final void a() {
-        com.baidu.tieba.im.message.ad adVar = new com.baidu.tieba.im.message.ad();
-        adVar.a(this.c);
-        adVar.a(this.d);
-        adVar.b(this.e);
-        adVar.c(this.f);
-        adVar.d(this.g);
-        adVar.e(this.h);
-        adVar.f(this.i);
-        adVar.g(this.j);
-        adVar.b(this.k);
-        adVar.c(this.l);
+        com.baidu.tieba.im.message.y yVar = new com.baidu.tieba.im.message.y();
+        yVar.d(this.c);
+        yVar.a(this.d);
+        yVar.b(this.e);
+        yVar.c(this.f);
+        yVar.d(this.g);
+        yVar.e(this.h);
+        yVar.f(this.i);
+        yVar.g(this.j);
+        yVar.e(this.k);
+        yVar.f(this.l);
         switch (this.m) {
             case 1011:
-                adVar.h("neargp");
+                yVar.h("neargp");
                 break;
             case 1012:
-                adVar.h("mygp");
+                yVar.h("mygp");
                 break;
             case 1013:
-                adVar.h("bargp");
+                yVar.h("bargp");
                 break;
             case 1014:
-                adVar.h("");
+                yVar.h("");
                 break;
             default:
-                adVar.h("");
+                yVar.h("");
                 break;
         }
-        this.a = adVar;
-        com.baidu.tieba.im.messageCenter.d.a().a(this.a);
+        this.a = yVar;
+        super.sendMessage(this.a);
     }
 
-    public final void b() {
-        if (this.a != null) {
-            com.baidu.tieba.im.messageCenter.d.a().b(this.a);
-            this.a = null;
-        }
-        if (this.b != null) {
-            com.baidu.tieba.im.messageCenter.d.a().b(this.b);
-            this.b = null;
-        }
+    @Override // com.baidu.adp.a.e
+    public final void cancelMessage() {
+        super.cancelMessage();
     }
 }

@@ -1,104 +1,56 @@
 package com.baidu.tieba.im.friend;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.Button;
-import android.widget.TextView;
-import com.baidu.tieba.view.HeadImageView;
-import com.slidingmenu.lib.R;
-import java.util.ArrayList;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
+import com.baidu.tieba.im.message.ResponseGetMaskInfoMessage;
 /* loaded from: classes.dex */
-public final class c extends BaseAdapter {
-    private IMBlackListActivity a;
-    private com.baidu.tieba.util.i b;
-    private ArrayList<com.baidu.tieba.im.data.a> c;
-    private View.OnClickListener d = new d(this);
+final class c extends com.baidu.adp.framework.c.g {
+    final /* synthetic */ IMBlackListActivity a;
 
-    public c(IMBlackListActivity iMBlackListActivity) {
-        this.b = null;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c(IMBlackListActivity iMBlackListActivity, int i) {
+        super(0);
         this.a = iMBlackListActivity;
-        this.b = new com.baidu.tieba.util.i(this.a);
     }
 
-    public final void a(ArrayList<com.baidu.tieba.im.data.a> arrayList) {
-        this.c = arrayList;
-    }
-
-    public final void a(com.baidu.tieba.im.data.a aVar) {
-        if (this.c != null) {
-            this.c.remove(aVar);
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public final int getCount() {
-        if (this.c != null) {
-            return this.c.size();
-        }
-        return 0;
-    }
-
-    @Override // android.widget.Adapter
-    public final Object getItem(int i) {
-        if (this.c != null) {
-            return this.c.get(i);
-        }
-        return null;
-    }
-
-    @Override // android.widget.Adapter
-    public final long getItemId(int i) {
-        return 0L;
-    }
-
-    @Override // android.widget.Adapter
-    public final View getView(int i, View view, ViewGroup viewGroup) {
-        e eVar;
-        com.baidu.tieba.im.data.a aVar = (com.baidu.tieba.im.data.a) getItem(i);
-        if (aVar != null) {
-            Object tag = view != null ? view.getTag() : null;
-            if (tag == null) {
-                e eVar2 = new e(this, (byte) 0);
-                eVar2.a = LayoutInflater.from(this.a).inflate(R.layout.im_black_list_item, (ViewGroup) null);
-                eVar2.b = (HeadImageView) eVar2.a.findViewById(R.id.header_view);
-                eVar2.b.setIsRound(true);
-                eVar2.c = (TextView) eVar2.a.findViewById(R.id.user_name);
-                eVar2.d = (Button) eVar2.a.findViewById(R.id.remove_button);
-                eVar2.a.setTag(eVar2);
-                eVar2.d.setOnClickListener(this.d);
-                eVar = eVar2;
-            } else {
-                eVar = (e) tag;
-            }
-            String c = aVar.c();
-            if (c != null) {
-                com.baidu.tieba.util.i iVar = this.b;
-                com.baidu.adp.widget.ImageView.b b = com.baidu.tbadk.imageManager.e.a().b(c);
-                if (b != null) {
-                    b.a(eVar.b);
-                } else {
-                    eVar.b.setTag(c);
-                    eVar.b.setImageBitmap(com.baidu.tieba.util.n.a((int) R.drawable.photo));
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
+    @Override // com.baidu.adp.framework.c.c
+    public final /* synthetic */ void a(SocketResponsedMessage socketResponsedMessage) {
+        i iVar;
+        ResponseUpdateMaskInfoMessage responseUpdateMaskInfoMessage;
+        com.baidu.adp.framework.message.d<?> h;
+        com.baidu.tieba.im.data.a aVar;
+        i iVar2;
+        com.baidu.tieba.im.data.a aVar2;
+        i iVar3;
+        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
+        iVar = this.a.b;
+        iVar.d();
+        this.a.closeLoadingDialog();
+        if (socketResponsedMessage2 != null) {
+            if (socketResponsedMessage2.g() == 104103 && (socketResponsedMessage2 instanceof ResponseGetMaskInfoMessage)) {
+                ResponseGetMaskInfoMessage responseGetMaskInfoMessage = (ResponseGetMaskInfoMessage) socketResponsedMessage2;
+                if (responseGetMaskInfoMessage.e() != 0) {
+                    this.a.showToast(responseGetMaskInfoMessage.f());
+                    return;
+                }
+                iVar3 = this.a.b;
+                iVar3.a(responseGetMaskInfoMessage.i());
+            } else if (socketResponsedMessage2.g() == 104102 && (socketResponsedMessage2 instanceof ResponseUpdateMaskInfoMessage) && (h = (responseUpdateMaskInfoMessage = (ResponseUpdateMaskInfoMessage) socketResponsedMessage2).h()) != null && (h instanceof com.baidu.tbadk.core.message.d) && ((com.baidu.tbadk.core.message.d) h).i() == 10) {
+                if (responseUpdateMaskInfoMessage.e() != 0) {
+                    this.a.showToast(responseUpdateMaskInfoMessage.f());
+                    return;
+                }
+                this.a.showToast(this.a.getString(com.baidu.tieba.im.j.black_list_remove_success));
+                aVar = this.a.c;
+                if (aVar != null) {
+                    iVar2 = this.a.b;
+                    aVar2 = this.a.c;
+                    iVar2.a(aVar2);
+                    this.a.c = null;
                 }
             }
-            eVar.c.setText(aVar.b());
-            eVar.d.setTag(aVar);
-            this.a.getLayoutMode().a(eVar.a);
-        } else {
-            eVar = null;
         }
-        if (eVar != null) {
-            return eVar.a;
-        }
-        return null;
-    }
-
-    public final com.baidu.tieba.util.i a() {
-        if (this.b == null) {
-            this.b = new com.baidu.tieba.util.i(this.a);
-        }
-        return this.b;
     }
 }

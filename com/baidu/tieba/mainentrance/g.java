@@ -1,17 +1,16 @@
 package com.baidu.tieba.mainentrance;
-
-import android.widget.TextView;
 /* loaded from: classes.dex */
-final class g {
-    TextView a;
-    final /* synthetic */ f b;
-
-    private g(f fVar) {
-        this.b = fVar;
-    }
+final class g implements com.baidu.tieba.view.v {
+    final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ g(f fVar, byte b) {
-        this(fVar);
+    public g(SquareSearchActivity squareSearchActivity) {
+        this.a = squareSearchActivity;
+    }
+
+    @Override // com.baidu.tieba.view.v
+    public final void a(boolean z) {
+        com.baidu.adp.lib.util.f.e("simon", "onSoftKeyboardShown", String.valueOf(z));
+        this.a.C = z;
     }
 }

@@ -13,13 +13,13 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.UserData;
-import com.baidu.tieba.view.NavigationBar;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
-public class PersonListActivity extends com.baidu.tieba.f {
-    private com.baidu.tieba.model.br j;
+public class PersonListActivity extends com.baidu.tbadk.a {
+    private com.baidu.tieba.model.ay j;
     private LinearLayout k;
     private TextView l;
     private NavigationBar n;
@@ -28,15 +28,15 @@ public class PersonListActivity extends com.baidu.tieba.f {
     private View d = null;
     private TextView e = null;
     private ProgressBar f = null;
-    private dg g = null;
+    private ch g = null;
     private final Handler h = new Handler();
-    private df i = null;
+    private cg i = null;
     private RelativeLayout m = null;
     private TextView o = null;
     private int p = 0;
     int a = 0;
-    private com.baidu.tieba.data.ao q = null;
-    private final Runnable r = new cy(this);
+    private com.baidu.tieba.data.ag q = null;
+    private final Runnable r = new bz(this);
 
     public static void a(Activity activity, boolean z, String str, int i) {
         Intent intent = new Intent(activity, PersonListActivity.class);
@@ -46,79 +46,79 @@ public class PersonListActivity extends com.baidu.tieba.f {
             intent.putExtra("follow", false);
         }
         intent.putExtra("user_sex", i);
-        intent.putExtra("un", str);
+        intent.putExtra(PersonInfoActivity.TAG_ID, str);
         activity.startActivity(intent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(R.layout.person_list_activity);
-        this.j = new com.baidu.tieba.model.br();
+        setContentView(com.baidu.tieba.a.i.person_list_activity);
+        this.j = new com.baidu.tieba.model.ay();
         if (bundle != null) {
             this.j.a(bundle.getBoolean("follow", false));
-            this.j.a(bundle.getString("un"));
+            this.j.a(bundle.getString(PersonInfoActivity.TAG_ID));
             this.p = bundle.getInt("user_sex");
             this.j.a(this.p);
         } else {
             Intent intent = getIntent();
             this.j.a(intent.getBooleanExtra("follow", false));
-            this.j.a(intent.getStringExtra("un"));
+            this.j.a(intent.getStringExtra(PersonInfoActivity.TAG_ID));
             this.p = intent.getIntExtra("user_sex", 0);
             this.j.a(this.p);
         }
-        this.m = (RelativeLayout) findViewById(R.id.parent);
-        this.n = (NavigationBar) findViewById(R.id.view_navigation_bar);
+        this.m = (RelativeLayout) findViewById(com.baidu.tieba.a.h.parent);
+        this.n = (NavigationBar) findViewById(com.baidu.tieba.a.h.view_navigation_bar);
         this.o = this.n.a("");
         this.n.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f = (ProgressBar) findViewById(R.id.progress);
-        String v = TiebaApplication.v();
+        this.f = (ProgressBar) findViewById(com.baidu.tieba.a.h.progress);
+        String E = TbadkApplication.E();
         String a = this.j.a();
-        if (v == null || !v.equals(a)) {
+        if (E == null || !E.equals(a)) {
             if (this.j.c()) {
                 if (this.p == 2) {
-                    this.o.setText(R.string.her_attention_people);
+                    this.o.setText(com.baidu.tieba.a.k.her_attention_people);
                 } else if (this.p == 1) {
-                    this.o.setText(R.string.his_attention_people);
+                    this.o.setText(com.baidu.tieba.a.k.his_attention_people);
                 } else {
-                    this.o.setText(R.string.ta_attention_people);
+                    this.o.setText(com.baidu.tieba.a.k.ta_attention_people);
                 }
             } else if (this.p == 2) {
-                this.o.setText(R.string.attention_to_her);
+                this.o.setText(com.baidu.tieba.a.k.attention_to_her);
             } else if (this.p == 1) {
-                this.o.setText(R.string.attention_to_him);
+                this.o.setText(com.baidu.tieba.a.k.attention_to_him);
             } else {
-                this.o.setText(R.string.attention_to_ta);
+                this.o.setText(com.baidu.tieba.a.k.attention_to_ta);
             }
         } else if (this.j.c()) {
-            this.o.setText(R.string.my_attention);
+            this.o.setText(com.baidu.tieba.a.k.my_attention);
         } else {
-            this.o.setText(R.string.fans);
+            this.o.setText(com.baidu.tieba.a.k.fans);
         }
-        da daVar = new da(this);
-        db dbVar = new db(this);
-        dc dcVar = new dc(this);
-        this.g = new dg(this, getIntent().getBooleanExtra("follow", false), this.j.a() != null && this.j.a().equals(TiebaApplication.v()), this.j.b(), daVar, dbVar, dcVar);
-        this.b = (BdListView) findViewById(R.id.list);
+        cb cbVar = new cb(this);
+        cc ccVar = new cc(this);
+        cd cdVar = new cd(this);
+        this.g = new ch(this, getIntent().getBooleanExtra("follow", false), this.j.a() != null && this.j.a().equals(TbadkApplication.E()), this.j.b(), cbVar, ccVar, cdVar);
+        this.b = (BdListView) findViewById(com.baidu.tieba.a.h.list);
         this.b.setAdapter((ListAdapter) this.g);
-        this.c = LayoutInflater.from(this).inflate(R.layout.person_list_newheader, (ViewGroup) null);
-        this.d = this.c.findViewById(R.id.newheader_root);
+        this.c = LayoutInflater.from(this).inflate(com.baidu.tieba.a.i.person_list_newheader, (ViewGroup) null);
+        this.d = this.c.findViewById(com.baidu.tieba.a.h.newheader_root);
         this.c.setVisibility(8);
         this.c.setClickable(false);
         this.c.setEnabled(false);
-        this.e = (TextView) this.c.findViewById(R.id.person_list_title);
+        this.e = (TextView) this.c.findViewById(com.baidu.tieba.a.h.person_list_title);
         this.b.addHeaderView(this.c, null, false);
-        this.k = (LinearLayout) findViewById(R.id.no_data_container);
-        this.l = (TextView) findViewById(R.id.no_data_image_text);
-        this.b.setOnScrollListener(new dd(this));
-        this.b.setOnSrollToBottomListener(new de(this));
-        this.i = new df(this, this.j.a(), this.j.c(), 0, true);
+        this.k = (LinearLayout) findViewById(com.baidu.tieba.a.h.no_data_container);
+        this.l = (TextView) findViewById(com.baidu.tieba.a.h.no_data_image_text);
+        this.b.setOnScrollListener(new ce(this));
+        this.b.setOnSrollToBottomListener(new cf(this));
+        this.i = new cg(this, this.j.a(), this.j.c(), 0, true);
         this.i.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f
+    @Override // com.baidu.tbadk.a
     public void onChangeSkinType(int i) {
         getLayoutMode().a(i == 1);
         getLayoutMode().a(this.m);
@@ -129,7 +129,7 @@ public class PersonListActivity extends com.baidu.tieba.f {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         if (this.i != null) {
             this.i.cancel();
@@ -152,7 +152,7 @@ public class PersonListActivity extends com.baidu.tieba.f {
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         bundle.putBoolean("follow", this.j.c());
-        bundle.putString("un", this.j.a());
+        bundle.putString(PersonInfoActivity.TAG_ID, this.j.a());
         bundle.putInt("user_sex", this.p);
     }
 
@@ -163,7 +163,7 @@ public class PersonListActivity extends com.baidu.tieba.f {
                 personListActivity.g.b(true);
                 personListActivity.g.notifyDataSetChanged();
             }
-            personListActivity.i = new df(personListActivity, personListActivity.j.a(), personListActivity.j.c(), personListActivity.j.d().a().d() + 1);
+            personListActivity.i = new cg(personListActivity, personListActivity.j.a(), personListActivity.j.c(), personListActivity.j.d().a().d() + 1);
             personListActivity.i.setPriority(3);
             personListActivity.i.execute(new String[0]);
         }
@@ -172,10 +172,10 @@ public class PersonListActivity extends com.baidu.tieba.f {
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
         UserData userData;
-        if (this.g != null && this.g.getItemViewType(this.a) == 0 && (userData = (UserData) this.g.getItem(this.a)) != null && userData.getUserId() != null && userData.getUserName() != null && !userData.getUserId().equals(TiebaApplication.v())) {
-            com.baidu.tieba.util.cb.a(this, "enter_chat", "personlistclick", 1, new Object[0]);
+        if (this.g != null && this.g.getItemViewType(this.a) == 0 && (userData = (UserData) this.g.getItem(this.a)) != null && userData.getUserId() != null && userData.getUserName() != null && !userData.getUserId().equals(TbadkApplication.E())) {
+            TiebaStatic.a(this, "enter_chat", "personlistclick", 1, new Object[0]);
             try {
-                com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001002, new com.baidu.tieba.a.c(this, Long.parseLong(userData.getUserId()), userData.getUserName(), userData.getPortrait(), userData.getSex())));
+                com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001005, new com.baidu.tbadk.core.b.ah(this, Long.parseLong(userData.getUserId()), userData.getUserName(), userData.getPortrait(), userData.getSex())));
             } catch (Exception e) {
                 e.printStackTrace();
             }

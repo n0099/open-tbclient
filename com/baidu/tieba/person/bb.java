@@ -1,27 +1,17 @@
 package com.baidu.tieba.person;
-
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.tieba.view.CommonImageLayout;
-import com.baidu.tieba.view.UserIconBox;
-import com.baidu.tieba.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-public final class bb {
-    public LinearLayout a;
-    public RelativeLayout b;
-    public TextView c;
-    public TextView d;
-    public TextView e;
-    public TextView f;
-    public TextView g;
-    public TextView h;
-    public CommonImageLayout i;
-    public PlayVoiceBnt j;
-    public String k;
-    public String l;
-    public int m;
-    public boolean n;
-    public UserIconBox o;
-    public UserIconBox p = null;
+final class bb implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ PersonChangeActivity a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bb(PersonChangeActivity personChangeActivity) {
+        this.a = personChangeActivity;
+    }
+
+    @Override // com.baidu.tbadk.imageManager.d
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        if (bVar != null) {
+            bVar.a(this.a.a);
+        }
+    }
 }

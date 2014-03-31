@@ -1,16 +1,14 @@
 package com.baidu.tieba.model;
+
+import java.util.ArrayList;
 /* loaded from: classes.dex */
 public final class ab {
-    public boolean a = false;
-    public boolean b = false;
-    public int c = -1;
-    public int d = -1;
-    public String e = null;
-    public int f = 0;
-    public int g = 0;
-    final /* synthetic */ z h;
+    public boolean a;
+    public String b;
+    public ArrayList<com.baidu.tbadk.core.data.g> c;
+    final /* synthetic */ v d;
 
-    public ab(z zVar) {
-        this.h = zVar;
+    public ab(v vVar) {
+        this.d = vVar;
     }
 }

@@ -1,37 +1,19 @@
 package com.baidu.tieba.im.groupInfo;
 
-import android.os.Handler;
-import android.os.Message;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public final class n extends Handler {
-    int a = 0;
-    final /* synthetic */ m b;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public n(m mVar) {
-        this.b = mVar;
-    }
-
-    @Override // android.os.Handler
-    public final void handleMessage(Message message) {
-        Handler handler;
-        Handler handler2;
-        super.handleMessage(message);
-        if (message.what == 0) {
-            if (this.a == 0) {
-                m.a(this.b);
-                m mVar = this.b;
-                com.baidu.tieba.sharedPref.b.a().b("has_shown_activity_guide_toast", true);
-            } else if (this.a >= 3) {
-                this.b.z();
-                handler = this.b.ai;
-                handler.removeMessages(0);
-                return;
+final class n implements com.baidu.adp.framework.task.a<com.baidu.tbadk.core.b.o> {
+    @Override // com.baidu.adp.framework.task.a
+    public final CustomResponsedMessage<?> a(com.baidu.adp.framework.message.a<com.baidu.tbadk.core.b.o> aVar) {
+        if (aVar != null && aVar.a() != null) {
+            aVar.a().d().setClass(aVar.a().c(), GroupInfoActivity.class);
+            int intExtra = aVar.a().d().getIntExtra("requestCode", -1);
+            if (intExtra != -1) {
+                aVar.a().b(intExtra);
+            } else {
+                aVar.a().f();
             }
-            this.a++;
-            handler2 = this.b.ai;
-            handler2.sendEmptyMessageDelayed(0, 1000L);
         }
+        return null;
     }
 }

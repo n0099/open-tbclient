@@ -2,7 +2,7 @@ package com.baidu.adp.framework.task;
 
 import com.baidu.adp.framework.FrameHelper;
 /* loaded from: classes.dex */
-public final class CustomMessageTask extends b {
+public class CustomMessageTask extends b {
     private a<?> e;
     private TASK_TYPE f;
     private boolean g;

@@ -1,8 +1,8 @@
 package com.baidu.tieba.square;
 
 import android.view.ViewGroup;
-import com.baidu.tieba.util.ch;
-import com.baidu.tieba.util.cj;
+import com.baidu.tbadk.core.util.bn;
+import com.baidu.tbadk.core.util.bp;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class e implements com.baidu.tbadk.imageManager.d {
@@ -18,7 +18,7 @@ public final class e implements com.baidu.tbadk.imageManager.d {
     @Override // com.baidu.tbadk.imageManager.d
     public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
         if (bVar != null) {
-            ch.a(this.b, false, (cj) new f(this, str, bVar));
+            bn.a(this.b, false, (bp) new f(this, str, bVar));
         }
     }
 }

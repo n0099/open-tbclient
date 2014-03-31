@@ -1,71 +1,53 @@
 package com.baidu.tieba.more;
 
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import com.baidu.tieba.view.NavigationBar;
-import com.slidingmenu.lib.R;
+import android.content.Context;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.model.MoreModel;
+import com.baidu.tieba.switchs.features.VoiceSwitchStatic;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class am extends com.baidu.adp.a.e {
-    private NavigationBar a;
-    private ViewGroup c;
-    private ImageView d;
-    private SettingTextSwitchView e;
-    private SettingTextTipView f;
-    private SecretSettingActivity g;
+public final class am extends BdAsyncTask<String, String, String> {
+    final /* synthetic */ aj a;
 
-    public am(SecretSettingActivity secretSettingActivity) {
-        super(secretSettingActivity);
-        this.a = null;
-        this.g = secretSettingActivity;
-        secretSettingActivity.setContentView(R.layout.secret_setting_activity);
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ String a(String... strArr) {
+        Context context;
+        String d = com.baidu.tbadk.core.util.w.d();
+        long a = com.baidu.tbadk.core.util.w.a(String.valueOf(d) + "image", false) + com.baidu.tbadk.core.util.w.a(String.valueOf(d) + VoiceSwitchStatic.VOICE, false) + com.baidu.tbadk.core.util.w.k(String.valueOf(d) + "tieba_database.db");
+        float f = 0.0f + ((float) a);
+        if (a >= 10485.76d) {
+            StringBuilder sb = new StringBuilder(String.valueOf(String.format("%.2f", Float.valueOf(f / 1048576.0f))));
+            context = this.a.d;
+            return sb.append(context.getString(com.baidu.tieba.a.k.mebibyte)).toString();
+        }
+        return "";
     }
 
-    public final void a(int i) {
-        this.g.getLayoutMode().a(i == 1);
-        this.g.getLayoutMode().a(this.c);
-        this.a.b(i);
-        this.f.a(i);
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* bridge */ /* synthetic */ void a(String str) {
+        com.baidu.tbadk.d dVar;
+        com.baidu.tbadk.d dVar2;
+        String str2 = str;
+        super.a((am) str2);
+        this.a.c = null;
+        dVar = this.a.e;
+        if (dVar != null) {
+            dVar2 = this.a.e;
+            dVar2.a(MoreModel.TaskType.GET_SIZE, str2);
+        }
+    }
+
+    private am(aj ajVar) {
+        this.a = ajVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void a(SecretSettingActivity secretSettingActivity) {
-        this.c = (RelativeLayout) secretSettingActivity.findViewById(R.id.parent);
-        this.a = (NavigationBar) secretSettingActivity.findViewById(R.id.view_navigation_bar);
-        this.a.a(secretSettingActivity.getString(R.string.secretSetting_title));
-        this.d = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, secretSettingActivity);
-        this.e = (SettingTextSwitchView) secretSettingActivity.findViewById(R.id.only_send_me);
-        this.e.setSwitchStateChangeListener(this.g);
-        this.f = (SettingTextTipView) secretSettingActivity.findViewById(R.id.black_address_list);
-        this.f.setOnClickListener(this.g);
-    }
-
-    public final void a() {
-        this.g.showLoadingDialog(this.g.getString(R.string.loading));
-    }
-
-    public final void d() {
-        SettingTextTipView settingTextTipView = this.f;
-        SettingTextTipView.d();
-    }
-
-    public final void e() {
-        this.g.showLoadingDialog(this.g.getString(R.string.saving));
-    }
-
-    public final void f() {
-        this.g.closeLoadingDialog();
-    }
-
-    public final ImageView g() {
-        return this.d;
-    }
-
-    public final SettingTextSwitchView h() {
-        return this.e;
-    }
-
-    public final SettingTextTipView i() {
-        return this.f;
+    public /* synthetic */ am(aj ajVar, byte b) {
+        this(ajVar);
     }
 }

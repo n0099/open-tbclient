@@ -1,192 +1,78 @@
 package com.baidu.tieba.write;
 
-import android.graphics.Bitmap;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import cn.jingling.lib.filters.FilterFactory;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.cloudsdk.social.core.SocialConstants;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.ScrollView;
+import java.lang.reflect.Method;
 /* loaded from: classes.dex */
-public final class bs extends BdAsyncTask<String, Void, Bitmap> {
-    final /* synthetic */ WriteImageActivity a;
-    private String b;
-    private Bitmap c;
-    private Boolean d;
-    private Boolean e;
+public final class bs extends PopupWindow {
+    private int a;
+    private bt b;
+    private int c;
+    private LinearLayout d;
+    private Context e;
+    private int f;
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ Bitmap a(String... strArr) {
-        Bitmap bitmap;
-        Bitmap bitmap2;
-        Bitmap bitmap3;
-        Bitmap bitmap4;
-        Bitmap bitmap5;
-        Bitmap bitmap6;
-        Bitmap bitmap7;
-        Bitmap bitmap8;
-        Bitmap bitmap9;
-        Bitmap bitmap10;
-        Bitmap bitmap11;
-        Bitmap bitmap12;
-        this.b = strArr[0];
-        bitmap = this.a.c;
-        if (bitmap == null) {
-            bitmap12 = this.a.p;
-            if (bitmap12 == null) {
-                return null;
-            }
+    public bs(Context context) {
+        super(context);
+        this.a = -1;
+        this.e = context;
+        ScrollView scrollView = new ScrollView(context);
+        this.d = new LinearLayout(context);
+        this.d.setOrientation(1);
+        this.d.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+        scrollView.addView(this.d);
+        scrollView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        scrollView.setPadding(0, 0, com.baidu.adp.lib.util.i.a(context, 1.0f), com.baidu.adp.lib.util.i.a(context, 1.0f));
+        scrollView.setFadingEdgeLength(0);
+        try {
+            Method declaredMethod = scrollView.getClass().getDeclaredMethod("setOverScrollMode", Integer.TYPE);
+            declaredMethod.setAccessible(true);
+            declaredMethod.invoke(scrollView, 2);
+        } catch (Exception e) {
         }
-        if (this.b.equals(SocialConstants.FALSE) || this.b.equals(SocialConstants.TRUE)) {
-            this.d = true;
-        } else if (this.b.equals("2") || this.b.equals("3")) {
-            this.e = true;
-        }
-        if (!this.d.booleanValue() && !this.e.booleanValue()) {
-            bitmap9 = this.a.c;
-            if (!bitmap9.isRecycled()) {
-                bitmap10 = this.a.c;
-                bitmap11 = this.a.c;
-                this.c = bitmap10.copy(bitmap11.getConfig(), true);
-            }
-        } else {
-            bitmap2 = this.a.p;
-            if (bitmap2 != null) {
-                bitmap6 = this.a.p;
-                if (!bitmap6.isRecycled()) {
-                    bitmap7 = this.a.p;
-                    bitmap8 = this.a.p;
-                    this.c = bitmap7.copy(bitmap8.getConfig(), true);
-                }
-            }
-            bitmap3 = this.a.c;
-            if (!bitmap3.isRecycled()) {
-                bitmap4 = this.a.c;
-                bitmap5 = this.a.c;
-                this.c = bitmap4.copy(bitmap5.getConfig(), true);
-            }
-        }
-        if (this.c != null) {
-            if (this.c.getWidth() > 900 || this.c.getHeight() > 900) {
-                this.c = com.baidu.tieba.util.n.a(this.c, 900);
-            }
-            if (this.d.booleanValue()) {
-                this.c = com.baidu.tieba.util.n.d(this.c, Integer.parseInt(this.b));
-            } else if (this.e.booleanValue()) {
-                this.c = com.baidu.tieba.util.n.f(this.c, Integer.parseInt(this.b));
-            } else {
-                this.c = FilterFactory.createOneKeyFilter(this.a, this.b).apply(this.a, this.c);
-            }
-            return this.c;
-        }
-        return null;
+        setContentView(scrollView);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x005d, code lost:
-        if (r0.getHeight() > 900) goto L21;
-     */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final /* synthetic */ void a(Bitmap bitmap) {
-        ProgressBar progressBar;
-        TextView textView;
-        ImageView imageView;
-        Bitmap bitmap2;
-        Bitmap bitmap3;
-        Bitmap bitmap4;
-        Bitmap bitmap5;
-        Bitmap bitmap6;
-        Bitmap bitmap7;
-        Bitmap bitmap8;
-        Bitmap bitmap9;
-        Bitmap bitmap10;
-        Bitmap bitmap11 = bitmap;
-        progressBar = this.a.g;
-        progressBar.setVisibility(8);
-        textView = this.a.d;
-        textView.setEnabled(true);
-        if (bitmap11 == null || bitmap11.isRecycled()) {
-            return;
+    @Override // android.widget.PopupWindow
+    public final void showAsDropDown(View view, int i, int i2) {
+        getContentView().measure(View.MeasureSpec.makeMeasureSpec(this.e.getResources().getDisplayMetrics().widthPixels, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(this.e.getResources().getDisplayMetrics().heightPixels, Integer.MIN_VALUE));
+        int measuredWidth = getContentView().getMeasuredWidth();
+        if (measuredWidth < view.getWidth()) {
+            measuredWidth = view.getWidth();
         }
-        this.a.x = true;
-        imageView = this.a.b;
-        imageView.setImageBitmap(bitmap11);
-        bitmap2 = this.a.c;
-        if (bitmap2 != null && (this.d.booleanValue() || this.e.booleanValue())) {
-            bitmap6 = this.a.c;
-            if (bitmap6.getWidth() <= 900) {
-                bitmap10 = this.a.c;
-            }
-            WriteImageActivity writeImageActivity = this.a;
-            bitmap7 = this.a.c;
-            writeImageActivity.c = com.baidu.tieba.util.n.a(bitmap7, 900);
-            if (this.d.booleanValue()) {
-                WriteImageActivity writeImageActivity2 = this.a;
-                bitmap9 = this.a.c;
-                writeImageActivity2.c = com.baidu.tieba.util.n.d(bitmap9, Integer.parseInt(this.b));
-            } else if (this.e.booleanValue()) {
-                WriteImageActivity writeImageActivity3 = this.a;
-                bitmap8 = this.a.c;
-                writeImageActivity3.c = com.baidu.tieba.util.n.f(bitmap8, Integer.parseInt(this.b));
-            }
+        int measuredHeight = getContentView().getMeasuredHeight();
+        if (measuredHeight > this.f) {
+            measuredHeight = this.f;
         }
-        bitmap3 = this.a.p;
-        if (bitmap3 != null) {
-            bitmap4 = this.a.p;
-            if (!bitmap4.isRecycled()) {
-                bitmap5 = this.a.p;
-                bitmap5.recycle();
-            }
-        }
-        this.a.p = bitmap11;
+        setWidth(measuredWidth);
+        setHeight(measuredHeight);
+        super.showAsDropDown(view, i, i2);
     }
 
-    private bs(WriteImageActivity writeImageActivity) {
-        this.a = writeImageActivity;
-        this.d = false;
-        this.e = false;
+    public final void a(View view) {
+        view.setOnClickListener(new bu(this.c, this.b));
+        this.d.addView(view);
+        this.c++;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bs(WriteImageActivity writeImageActivity, byte b) {
-        this(writeImageActivity);
+    public final void a(int i) {
+        this.f = i;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void b() {
-        ProgressBar progressBar;
-        TextView textView;
-        progressBar = this.a.g;
-        progressBar.setVisibility(0);
-        textView = this.a.d;
-        textView.setEnabled(false);
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void cancel() {
-        ProgressBar progressBar;
-        TextView textView;
-        Bitmap bitmap;
-        if (this.c != null && !this.c.isRecycled()) {
-            bitmap = this.a.p;
-            if (bitmap != this.c) {
-                this.c.recycle();
-            }
+    public final void b(int i) {
+        if (this.a != -1) {
+            this.d.getChildAt(this.a).setSelected(false);
         }
-        this.c = null;
-        progressBar = this.a.g;
-        progressBar.setVisibility(8);
-        textView = this.a.d;
-        textView.setEnabled(true);
-        super.cancel(true);
+        this.a = i;
+        this.d.getChildAt(this.a).setSelected(true);
+    }
+
+    public final void a(bt btVar) {
+        this.b = btVar;
     }
 }

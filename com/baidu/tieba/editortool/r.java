@@ -1,39 +1,66 @@
 package com.baidu.tieba.editortool;
 
-import android.support.v4.view.PagerAdapter;
 import android.view.View;
-import android.view.ViewGroup;
-import java.util.ArrayList;
+import android.widget.FrameLayout;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.WriteImagesInfo;
 /* loaded from: classes.dex */
-public final class r extends PagerAdapter {
-    final /* synthetic */ EmotionTabContentView a;
-    private ArrayList<View> b;
+final class r implements View.OnClickListener {
+    final /* synthetic */ o a;
+    private final /* synthetic */ FrameLayout b;
 
-    public r(EmotionTabContentView emotionTabContentView, ArrayList<View> arrayList) {
-        this.a = emotionTabContentView;
-        this.b = new ArrayList<>();
-        this.b = arrayList;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public r(o oVar, FrameLayout frameLayout) {
+        this.a = oVar;
+        this.b = frameLayout;
     }
 
-    @Override // android.support.v4.view.PagerAdapter
-    public final int getCount() {
-        return this.b.size();
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public final boolean isViewFromObject(View view, Object obj) {
-        return view == obj;
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public final void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        viewGroup.removeView(this.b.get(i));
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public final Object instantiateItem(ViewGroup viewGroup, int i) {
-        View view = this.b.get(i);
-        viewGroup.addView(view);
-        return view;
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        EditorToolComponetContainer editorToolComponetContainer;
+        EditorToolComponetContainer editorToolComponetContainer2;
+        EditorToolComponetContainer editorToolComponetContainer3;
+        EditorToolComponetContainer editorToolComponetContainer4;
+        WriteImagesInfo writeImagesInfo;
+        EditorToolComponetContainer editorToolComponetContainer5;
+        EditorToolComponetContainer editorToolComponetContainer6;
+        WriteImagesInfo writeImagesInfo2;
+        EditorToolComponetContainer editorToolComponetContainer7;
+        EditorToolComponetContainer editorToolComponetContainer8;
+        EditorToolComponetContainer editorToolComponetContainer9;
+        EditorToolComponetContainer editorToolComponetContainer10;
+        com.baidu.tbadk.editortool.x xVar;
+        EditorToolComponetContainer editorToolComponetContainer11;
+        editorToolComponetContainer = this.a.a;
+        if (!editorToolComponetContainer.i.e()) {
+            editorToolComponetContainer2 = this.a.a;
+            editorToolComponetContainer2.g.a(this.b);
+            editorToolComponetContainer3 = this.a.a;
+            int a = editorToolComponetContainer3.i.a(this.b);
+            editorToolComponetContainer4 = this.a.a;
+            writeImagesInfo = editorToolComponetContainer4.s;
+            ImageFileInfo remove = writeImagesInfo.getChosedFiles().remove(a);
+            if (remove.isTempFile()) {
+                new s(this.a, remove.getFilePath()).execute(new Void[0]);
+            }
+            editorToolComponetContainer5 = this.a.a;
+            int maxItemNum = editorToolComponetContainer5.i.getMaxItemNum();
+            editorToolComponetContainer6 = this.a.a;
+            writeImagesInfo2 = editorToolComponetContainer6.s;
+            int size = writeImagesInfo2.size();
+            editorToolComponetContainer7 = this.a.a;
+            String string = editorToolComponetContainer7.getResources().getString(com.baidu.tieba.a.k.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size));
+            editorToolComponetContainer8 = this.a.a;
+            editorToolComponetContainer8.j.setText(string);
+            editorToolComponetContainer9 = this.a.a;
+            editorToolComponetContainer9.b.a(new StringBuilder(String.valueOf(size)).toString());
+            if (size == 0) {
+                editorToolComponetContainer11 = this.a.a;
+                editorToolComponetContainer11.b.a();
+            }
+            editorToolComponetContainer10 = this.a.a;
+            xVar = editorToolComponetContainer10.t;
+            xVar.a(13, null);
+        }
     }
 }

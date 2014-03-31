@@ -1,9 +1,10 @@
 package com.baidu.tieba.mainentrance;
 
-import android.widget.CompoundButton;
-import android.widget.RadioButton;
+import android.app.AlertDialog;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class l implements CompoundButton.OnCheckedChangeListener {
+public final class l implements View.OnClickListener {
     final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,19 +12,8 @@ final class l implements CompoundButton.OnCheckedChangeListener {
         this.a = squareSearchActivity;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public final void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        RadioButton radioButton;
-        RadioButton radioButton2;
-        RadioButton radioButton3;
-        if (z) {
-            this.a.a(1);
-            radioButton = this.a.k;
-            radioButton.setChecked(false);
-            radioButton2 = this.a.k;
-            radioButton2.setSelected(false);
-            radioButton3 = this.a.l;
-            radioButton3.setSelected(true);
-        }
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        new AlertDialog.Builder(this.a).setTitle("提醒").setIcon(com.baidu.tieba.a.g.dialogue_quit).setMessage("确认清除搜索记录？").setPositiveButton("确认", new m(this)).setNegativeButton("取消", new n(this)).create().show();
     }
 }

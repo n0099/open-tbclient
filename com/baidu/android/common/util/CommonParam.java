@@ -2,7 +2,6 @@ package com.baidu.android.common.util;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.cloudsdk.social.core.SocialConstants;
 /* loaded from: classes.dex */
 public class CommonParam {
     private static final boolean DEBUG = false;
@@ -12,7 +11,7 @@ public class CommonParam {
         String deviceId = getDeviceId(context);
         String imei = DeviceId.getIMEI(context);
         if (TextUtils.isEmpty(imei)) {
-            imei = SocialConstants.FALSE;
+            imei = "0";
         }
         return deviceId + "|" + new StringBuffer(imei).reverse().toString();
     }

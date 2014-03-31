@@ -1,7 +1,11 @@
 package com.baidu.tieba.im.randchat;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.net.ConnectivityManager;
 /* loaded from: classes.dex */
-public final class q implements e {
+final class q extends BroadcastReceiver {
     final /* synthetic */ WaittingActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,8 +13,10 @@ public final class q implements e {
         this.a = waittingActivity;
     }
 
-    @Override // com.baidu.tieba.im.randchat.e
-    public final void a(String str) {
-        WaittingActivity.a(this.a, str);
+    @Override // android.content.BroadcastReceiver
+    public final void onReceive(Context context, Intent intent) {
+        if (intent != null && "android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction()) && ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo() == null) {
+            this.a.showToast(com.baidu.tieba.im.j.rand_chat_waiting_net_error);
+        }
     }
 }

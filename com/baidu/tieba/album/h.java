@@ -5,27 +5,25 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.img.ImageFileInfo;
-import com.slidingmenu.lib.R;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public final class h extends PagerAdapter {
     private AlbumActivity a;
-    private com.baidu.tieba.img.e b;
+    private com.baidu.tbadk.img.e b;
     private List<ImageFileInfo> c;
     private int d;
     private int e;
     private Map<Integer, Boolean> f = new HashMap();
 
-    public h(AlbumActivity albumActivity, com.baidu.tieba.img.e eVar) {
+    public h(AlbumActivity albumActivity, com.baidu.tbadk.img.e eVar) {
         this.a = albumActivity;
         this.b = eVar;
-        this.d = BdUtilHelper.b(this.a);
-        this.e = BdUtilHelper.c(this.a) - ((int) this.a.getResources().getDimension(R.dimen.album_bottom_height));
+        this.d = com.baidu.adp.lib.util.i.b(this.a);
+        this.e = com.baidu.adp.lib.util.i.c(this.a) - ((int) this.a.getResources().getDimension(com.baidu.tieba.a.f.album_bottom_height));
     }
 
     public final void a(List<ImageFileInfo> list) {
@@ -67,8 +65,8 @@ public final class h extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public final Object instantiateItem(ViewGroup viewGroup, int i) {
-        View inflate = LayoutInflater.from(this.a).inflate(R.layout.album_big_image_item, (ViewGroup) null);
-        TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.big_image);
+        View inflate = LayoutInflater.from(this.a).inflate(com.baidu.tieba.a.i.album_big_image_item, (ViewGroup) null);
+        TbImageView tbImageView = (TbImageView) inflate.findViewById(com.baidu.tieba.a.h.big_image);
         tbImageView.setTag(null);
         tbImageView.setDefaultResource(0);
         tbImageView.setNightDefaultResource(0);
@@ -76,10 +74,10 @@ public final class h extends PagerAdapter {
         this.f.put(Integer.valueOf(i), false);
         if (a != null) {
             a.clearPageActions();
-            a.addPageAction(com.baidu.tieba.img.effects.d.a(this.d, this.e));
+            a.addPageAction(com.baidu.tbadk.img.effect.d.a(this.d, this.e));
             tbImageView.setTag(a.toCachedKey(false));
-            com.baidu.tieba.img.e eVar = this.b;
-            if (com.baidu.tieba.img.e.a(a, false) != null) {
+            com.baidu.tbadk.img.e eVar = this.b;
+            if (com.baidu.tbadk.img.e.a(a, false) != null) {
                 tbImageView.invalidate();
                 this.f.put(Integer.valueOf(i), true);
             } else {

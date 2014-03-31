@@ -5,7 +5,6 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -322,7 +321,7 @@ public class ColumnLayout extends ViewGroup {
                 if (i5 == 1) {
                     i4 = a2.gravity & 7;
                 } else {
-                    i4 = a2.gravity & SocialAPIErrorCodes.ERROR_EXPIRED_SESSION_KEY;
+                    i4 = a2.gravity & 112;
                 }
                 switch (i4) {
                     case 1:

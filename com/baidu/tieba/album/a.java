@@ -1,6 +1,6 @@
 package com.baidu.tieba.album;
 
-import com.baidu.tieba.img.ImageFileInfo;
+import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
 public final class a {
     private String a;

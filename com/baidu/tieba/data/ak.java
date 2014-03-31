@@ -1,34 +1,31 @@
 package com.baidu.tieba.data;
 
-import org.json.JSONObject;
+import com.baidu.tbadk.core.data.AntiData;
 /* loaded from: classes.dex */
 public final class ak {
-    private String a = null;
-    private ap b = null;
-    private ap c = null;
-    private String d = null;
-    private String e = null;
-    private long f = 0;
-    private long g = 0;
-    private long h = 0;
-    private int i = 0;
+    final int a;
+    final String b;
+    final AntiData c;
 
-    public final void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optString("pk_id", null);
-                this.b = new ap();
-                this.b.a(jSONObject.optJSONObject("player1"));
-                this.c = new ap();
-                this.c.a(jSONObject.optJSONObject("player2"));
-                this.f = jSONObject.optLong("start_time");
-                this.g = jSONObject.optLong("end_time");
-                this.h = jSONObject.optLong("remain_time");
-                this.d = jSONObject.optString("title");
-                this.i = jSONObject.optInt("status", 0);
-            } catch (Exception e) {
-                com.baidu.adp.lib.util.e.b("PKInfoData", "parserJson", "error = " + e.getMessage());
-            }
-        }
+    public ak(int i, String str, AntiData antiData) {
+        this.a = i;
+        this.b = str;
+        this.c = antiData;
+    }
+
+    public final boolean a() {
+        return this.a != 0;
+    }
+
+    public final boolean b() {
+        return this.a == 5 || this.a == 6;
+    }
+
+    public final String c() {
+        return this.b;
+    }
+
+    public final AntiData d() {
+        return this.c;
     }
 }

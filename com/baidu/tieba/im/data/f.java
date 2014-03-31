@@ -1,15 +1,14 @@
 package com.baidu.tieba.im.data;
-
-import java.util.List;
 /* loaded from: classes.dex */
-public final class f {
-    private List<com.baidu.tieba.im.message.b> a;
+public class f {
+    private int a = 1;
 
-    public final List<com.baidu.tieba.im.message.b> a() {
+    public final int b() {
         return this.a;
     }
 
-    public final void a(List<com.baidu.tieba.im.message.b> list) {
-        this.a = list;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public final void a(int i) {
+        this.a = i;
     }
 }

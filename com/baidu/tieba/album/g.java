@@ -5,7 +5,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.provider.MediaStore;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.img.ImageFileInfo;
+import com.baidu.tbadk.img.ImageFileInfo;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -53,8 +53,8 @@ public final class g extends BdAsyncTask<Object, Integer, List<ImageFileInfo>> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void a() {
-        super.a();
+    public final void b() {
+        super.b();
         if (this.b != null) {
             al alVar = this.b;
         }
@@ -77,7 +77,7 @@ public final class g extends BdAsyncTask<Object, Integer, List<ImageFileInfo>> {
                 } catch (Exception e) {
                     e = e;
                     str2 = this.a.a;
-                    com.baidu.adp.lib.util.e.b(str2, "getAlbumData", "error = " + e.getMessage());
+                    com.baidu.adp.lib.util.f.b(str2, "getAlbumData", "error = " + e.getMessage());
                     com.baidu.adp.lib.f.a.a(cursor);
                     return arrayList;
                 }

@@ -5,12 +5,11 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public class TripleTbImageView extends ViewGroup {
     public static final float[] a = {0.5f, 0.33f, 0.25f};
-    private static com.baidu.tieba.util.i g;
+    private static com.baidu.tbadk.editortool.aa g;
     private static int h;
     public TbImageView b;
     public TbImageView c;
@@ -33,9 +32,9 @@ public class TripleTbImageView extends ViewGroup {
         addView(this.b);
         addView(this.c);
         addView(this.d);
-        this.f = BdUtilHelper.a(context, 6.0f);
+        this.f = com.baidu.adp.lib.util.i.a(context, 6.0f);
         if (g == null) {
-            g = new com.baidu.tieba.util.i(context);
+            g = new com.baidu.tbadk.editortool.aa(context);
         }
     }
 
@@ -72,24 +71,24 @@ public class TripleTbImageView extends ViewGroup {
         if (length == 1) {
             String str = (String) objArr[0];
             this.b.setTag(str);
-            g.b(str, new ab(this, str));
+            g.b(str, new z(this, str));
             this.c.setTag(null);
             this.d.setTag(null);
         } else if (length == 2) {
             String str2 = (String) objArr[0];
             this.b.setTag(str2);
-            g.b(str2, new ac(this, str2));
+            g.b(str2, new aa(this, str2));
             String str3 = (String) objArr[1];
-            g.b(str3, new ad(this, str3));
+            g.b(str3, new ab(this, str3));
             this.d.setTag(null);
         } else if (length == 3) {
             String str4 = (String) objArr[0];
             this.b.setTag(str4);
-            g.b(str4, new ae(this, str4));
+            g.b(str4, new ac(this, str4));
             String str5 = (String) objArr[1];
-            g.b(str5, new af(this, str5));
+            g.b(str5, new ad(this, str5));
             String str6 = (String) objArr[2];
-            g.b(str6, new ag(this, str6));
+            g.b(str6, new ae(this, str6));
         }
         requestLayout();
         invalidate();

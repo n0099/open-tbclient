@@ -7,18 +7,18 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tieba.im.data.BaseGroupData;
-import com.baidu.tieba.view.HeadImageView;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.core.data.BaseGroupData;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.editortool.aa;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class e extends BaseAdapter {
     private Activity a;
-    private com.baidu.tieba.util.i b;
+    private aa b;
     private List<BaseGroupData> c = new ArrayList();
 
-    public final com.baidu.tieba.util.i a() {
+    public final aa a() {
         return this.b;
     }
 
@@ -29,7 +29,7 @@ public final class e extends BaseAdapter {
 
     public e(Activity activity) {
         this.a = activity;
-        this.b = new com.baidu.tieba.util.i(activity);
+        this.b = new aa(activity);
         this.b.a(true);
     }
 
@@ -62,23 +62,23 @@ public final class e extends BaseAdapter {
     public final View getView(int i, View view, ViewGroup viewGroup) {
         f fVar;
         if (view == null || view.getTag() == null) {
-            view = LayoutInflater.from(this.a).inflate(R.layout.im_search_group_list_item, viewGroup, false);
+            view = LayoutInflater.from(this.a).inflate(com.baidu.tieba.im.i.im_search_group_list_item, viewGroup, false);
             fVar = new f();
-            fVar.a = (HeadImageView) view.findViewById(R.id.item_head);
-            fVar.b = (TextView) view.findViewById(R.id.item_name);
-            fVar.c = (TextView) view.findViewById(R.id.item_count);
+            fVar.a = (HeadImageView) view.findViewById(com.baidu.tieba.im.h.item_head);
+            fVar.b = (TextView) view.findViewById(com.baidu.tieba.im.h.item_name);
+            fVar.c = (TextView) view.findViewById(com.baidu.tieba.im.h.item_count);
             view.setTag(fVar);
         } else {
             fVar = (f) view.getTag();
         }
         BaseGroupData baseGroupData = this.c.get(i);
         fVar.a.setTag(null);
-        fVar.a.setDefaultResource(R.drawable.avatar_poto_defaul50);
+        fVar.a.setDefaultResource(com.baidu.tieba.im.g.avatar_poto_defaul50);
         fVar.a.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
         if (baseGroupData != null) {
             fVar.a.setTag(baseGroupData.getPortrait());
             fVar.b.setText(baseGroupData.getName());
-            fVar.c.setText(this.a.getResources().getString(R.string.mem_count, String.valueOf(baseGroupData.getMemberNum())));
+            fVar.c.setText(this.a.getResources().getString(com.baidu.tieba.im.j.mem_count, String.valueOf(baseGroupData.getMemberNum())));
         }
         return view;
     }

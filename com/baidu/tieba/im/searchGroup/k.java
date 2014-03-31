@@ -1,9 +1,9 @@
 package com.baidu.tieba.im.searchGroup;
 
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.s;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class k implements q {
+public final class k implements s {
     final /* synthetic */ g a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,7 +11,7 @@ public final class k implements q {
         this.a = gVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.adp.widget.ListView.s
     public final void a() {
         SearchGroupActivity searchGroupActivity;
         searchGroupActivity = this.a.b;

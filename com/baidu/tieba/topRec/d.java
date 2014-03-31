@@ -1,17 +1,16 @@
 package com.baidu.tieba.topRec;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.TiebaApplication;
+import com.baidu.tbadk.core.util.ak;
+import com.baidu.tieba.r;
 import com.baidu.tieba.topRec.TRForumListData;
-import com.baidu.tieba.util.ba;
 /* loaded from: classes.dex */
 final class d extends BdAsyncTask<Integer, Integer, String> {
     int a;
     int b;
     TRForumListData.TRForum c;
     final /* synthetic */ TopRecActivity d;
-    private ba e;
+    private ak e;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     /* JADX INFO: Access modifiers changed from: protected */
@@ -25,7 +24,7 @@ final class d extends BdAsyncTask<Integer, Integer, String> {
             int i = this.a;
             int i2 = this.c.forum_id;
             topRecActivity.a(i);
-        } else if (!this.e.c()) {
+        } else if (!this.e.a().b().b()) {
             TopRecActivity topRecActivity2 = this.d;
             int i3 = this.a;
             int i4 = this.c.forum_id;
@@ -36,7 +35,7 @@ final class d extends BdAsyncTask<Integer, Integer, String> {
             int i6 = this.c.forum_id;
             topRecActivity3.a(i5);
         } else {
-            TiebaApplication.g().f(this.c.forum_name);
+            r.c().f(this.c.forum_name);
             this.d.b();
         }
     }
@@ -68,18 +67,18 @@ final class d extends BdAsyncTask<Integer, Integer, String> {
         }
         try {
             if (this.c != null && this.c.forum_id != 0 && this.c.forum_name != null) {
-                this.e = new ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/c/forum/unfavolike");
+                this.e = new ak(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/c/forum/unfavolike");
                 this.e.a("fid", String.valueOf(this.c.forum_id));
                 this.e.a("kw", this.c.forum_name);
-                this.e.a("favo_type", SocialConstants.TRUE);
+                this.e.a("favo_type", "1");
                 this.e.a("st_type", "from_topRec");
-                this.e.e(true);
-                this.e.l();
+                this.e.a().a().a = true;
+                this.e.i();
                 return null;
             }
             return null;
         } catch (Exception e) {
-            com.baidu.adp.lib.util.e.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.getMessage());
             return null;
         }
     }
@@ -88,7 +87,7 @@ final class d extends BdAsyncTask<Integer, Integer, String> {
     public final void cancel() {
         h hVar;
         if (this.e != null) {
-            this.e.j();
+            this.e.g();
             this.e = null;
         }
         hVar = this.d.a;

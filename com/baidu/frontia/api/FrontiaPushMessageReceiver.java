@@ -4,7 +4,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.PushConstants;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -27,31 +26,31 @@ public abstract class FrontiaPushMessageReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public final void onReceive(Context context, Intent intent) {
         int i = 0;
-        if (intent.getAction().equals(PushConstants.ACTION_MESSAGE)) {
+        if (intent.getAction().equals("com.baidu.android.pushservice.action.MESSAGE")) {
             if (intent.getExtras() == null) {
                 return;
             }
-            onMessage(context, intent.getExtras().getString(PushConstants.EXTRA_PUSH_MESSAGE_STRING), intent.getStringExtra(PushConstants.EXTRA_EXTRA));
-        } else if (!intent.getAction().equals(PushConstants.ACTION_RECEIVE)) {
-            if (intent.getAction().equals(PushConstants.ACTION_RECEIVER_NOTIFICATION_CLICK)) {
-                onNotificationClicked(context, intent.getStringExtra(PushConstants.EXTRA_NOTIFICATION_TITLE), intent.getStringExtra(PushConstants.EXTRA_NOTIFICATION_CONTENT), intent.getStringExtra(PushConstants.EXTRA_EXTRA));
+            onMessage(context, intent.getExtras().getString("message_string"), intent.getStringExtra("extra_extra_custom_content"));
+        } else if (!intent.getAction().equals("com.baidu.android.pushservice.action.RECEIVE")) {
+            if (intent.getAction().equals("com.baidu.android.pushservice.action.notification.CLICK")) {
+                onNotificationClicked(context, intent.getStringExtra("notification_title"), intent.getStringExtra("notification_content"), intent.getStringExtra("extra_extra_custom_content"));
             }
         } else {
-            String stringExtra = intent.getStringExtra(PushConstants.EXTRA_METHOD);
+            String stringExtra = intent.getStringExtra("method");
             int intExtra = intent.getIntExtra("error_msg", 0);
-            String str = intent.getByteArrayExtra(PushConstants.EXTRA_CONTENT) != null ? new String(intent.getByteArrayExtra(PushConstants.EXTRA_CONTENT)) : "";
+            String str = intent.getByteArrayExtra("content") != null ? new String(intent.getByteArrayExtra("content")) : "";
             try {
-                if (stringExtra.equals(PushConstants.METHOD_BIND)) {
+                if (stringExtra.equals("method_bind")) {
                     if (TextUtils.isEmpty(str)) {
                         return;
                     }
                     JSONObject jSONObject = new JSONObject(str);
                     String string = jSONObject.getString("request_id");
                     JSONObject jSONObject2 = jSONObject.getJSONObject("response_params");
-                    onBind(context, intExtra, jSONObject2.getString("appid"), jSONObject2.getString(PushConstants.EXTRA_USER_ID), jSONObject2.getString("channel_id"), string);
-                } else if (stringExtra.equals(PushConstants.METHOD_UNBIND)) {
+                    onBind(context, intExtra, jSONObject2.getString("appid"), jSONObject2.getString("user_id"), jSONObject2.getString("channel_id"), string);
+                } else if (stringExtra.equals("method_unbind")) {
                     onUnbind(context, intExtra, new JSONObject(str).getString("request_id"));
-                } else if (stringExtra.equals(PushConstants.METHOD_SET_TAGS)) {
+                } else if (stringExtra.equals("method_set_tags")) {
                     JSONObject jSONObject3 = new JSONObject(str);
                     String string2 = jSONObject3.getString("request_id");
                     JSONArray jSONArray = jSONObject3.getJSONObject("response_params").getJSONArray("details");
@@ -68,9 +67,9 @@ public abstract class FrontiaPushMessageReceiver extends BroadcastReceiver {
                         i++;
                     }
                     onSetTags(context, intExtra, arrayList, arrayList2, string2);
-                } else if (!stringExtra.equals(PushConstants.METHOD_DEL_TAGS)) {
-                    if (stringExtra.equals(PushConstants.METHOD_LISTTAGS)) {
-                        onListTags(context, intExtra, intent.getStringArrayListExtra(PushConstants.EXTRA_TAGS_LIST), new JSONObject(str).getString("request_id"));
+                } else if (!stringExtra.equals("method_del_tags")) {
+                    if (stringExtra.equals("method_listtags")) {
+                        onListTags(context, intExtra, intent.getStringArrayListExtra("tags_list"), new JSONObject(str).getString("request_id"));
                     }
                 } else {
                     JSONObject jSONObject5 = new JSONObject(str);

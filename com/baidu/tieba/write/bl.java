@@ -1,36 +1,34 @@
 package com.baidu.tieba.write;
 
 import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.tieba.view.NavigationBar;
+import android.widget.ProgressBar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class bl implements View.OnClickListener {
     final /* synthetic */ WriteImageActivity a;
+    private final /* synthetic */ String b;
+    private final /* synthetic */ int c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bl(WriteImageActivity writeImageActivity) {
+    public bl(WriteImageActivity writeImageActivity, String str, int i) {
         this.a = writeImageActivity;
+        this.b = str;
+        this.c = i;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        NavigationBar navigationBar;
-        NavigationBar navigationBar2;
-        LinearLayout linearLayout;
-        NavigationBar navigationBar3;
-        LinearLayout linearLayout2;
-        navigationBar = this.a.o;
-        if (navigationBar.getVisibility() == 0) {
-            navigationBar3 = this.a.o;
-            navigationBar3.setVisibility(8);
-            linearLayout2 = this.a.m;
-            linearLayout2.setVisibility(8);
-            return;
+        ProgressBar progressBar;
+        String str;
+        progressBar = this.a.g;
+        if (progressBar.getVisibility() != 0) {
+            String str2 = this.b;
+            str = this.a.v;
+            if (!str2.equals(str)) {
+                WriteImageActivity.b(this.a, this.b);
+                this.a.b(this.b);
+                this.a.s = this.c;
+            }
         }
-        navigationBar2 = this.a.o;
-        navigationBar2.setVisibility(0);
-        linearLayout = this.a.m;
-        linearLayout.setVisibility(0);
     }
 }

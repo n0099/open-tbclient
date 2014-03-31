@@ -1,20 +1,19 @@
 package com.baidu.tieba.person.post;
-
-import android.view.View;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class z {
-    BdListView a;
-    TextView b;
-    ProgressBar c;
+public final class z implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ TripleTbImageView a;
+    private final /* synthetic */ String b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(View view) {
-        this.a = (BdListView) view.findViewById(R.id.list);
-        this.b = (TextView) view.findViewById(R.id.no_post_view);
-        this.c = (ProgressBar) view.findViewById(R.id.progress);
+    public z(TripleTbImageView tripleTbImageView, String str) {
+        this.a = tripleTbImageView;
+        this.b = str;
+    }
+
+    @Override // com.baidu.tbadk.imageManager.d
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        this.a.b.setTag(this.b);
+        TripleTbImageView.a(this.a, this.a.b, bVar);
     }
 }

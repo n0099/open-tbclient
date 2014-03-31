@@ -21,11 +21,11 @@ final class ac implements AbsListView.OnScrollListener {
         Runnable runnable;
         Handler handler2;
         Runnable runnable2;
-        handler = this.a.l;
-        runnable = this.a.r;
+        handler = this.a.k;
+        runnable = this.a.q;
         handler.removeCallbacks(runnable);
-        handler2 = this.a.l;
-        runnable2 = this.a.r;
+        handler2 = this.a.k;
+        runnable2 = this.a.q;
         handler2.postDelayed(runnable2, 300L);
     }
 }

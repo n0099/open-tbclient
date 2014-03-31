@@ -6,8 +6,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.TbadkApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class e extends BaseAdapter {
@@ -38,10 +37,10 @@ public final class e extends BaseAdapter {
     public final View getView(int i, View view, ViewGroup viewGroup) {
         g gVar;
         if (view == null) {
-            view = ((LayoutInflater) viewGroup.getContext().getSystemService("layout_inflater")).inflate(R.layout.forbid_list_item, (ViewGroup) null);
+            view = ((LayoutInflater) viewGroup.getContext().getSystemService("layout_inflater")).inflate(com.baidu.tieba.a.i.forbid_list_item, (ViewGroup) null);
             g gVar2 = new g((byte) 0);
-            gVar2.a = (TextView) view.findViewById(R.id.reason_text);
-            gVar2.b = (ImageView) view.findViewById(R.id.check_img);
+            gVar2.a = (TextView) view.findViewById(com.baidu.tieba.a.h.reason_text);
+            gVar2.b = (ImageView) view.findViewById(com.baidu.tieba.a.h.check_img);
             view.setTag(gVar2);
             view.setOnClickListener(this.c);
             gVar = gVar2;
@@ -49,15 +48,15 @@ public final class e extends BaseAdapter {
             gVar = (g) view.getTag();
         }
         gVar.c = i;
-        boolean z = TiebaApplication.g().ae() == 1;
+        boolean z = TbadkApplication.j().l() == 1;
         gVar.a.setText(this.a[i]);
         if (gVar.c == this.b) {
-            gVar.b.setImageDrawable(viewGroup.getResources().getDrawable(z ? R.drawable.icon_found_information_choose_1 : R.drawable.icon_found_information_choose));
+            gVar.b.setImageDrawable(viewGroup.getResources().getDrawable(z ? com.baidu.tieba.a.g.icon_found_information_choose_1 : com.baidu.tieba.a.g.icon_found_information_choose));
             gVar.b.setVisibility(0);
-            gVar.a.setTextColor(viewGroup.getResources().getColor(z ? R.color.forbid_selected_txt_1 : R.color.forbid_selected_txt));
+            gVar.a.setTextColor(viewGroup.getResources().getColor(z ? com.baidu.tieba.a.e.forbid_selected_txt_1 : com.baidu.tieba.a.e.forbid_selected_txt));
         } else {
             gVar.b.setVisibility(4);
-            gVar.a.setTextColor(viewGroup.getResources().getColor(z ? R.color.appeal_com_text_1 : R.color.appeal_com_text));
+            gVar.a.setTextColor(viewGroup.getResources().getColor(z ? com.baidu.tieba.a.e.appeal_com_text_1 : com.baidu.tieba.a.e.appeal_com_text));
         }
         return view;
     }

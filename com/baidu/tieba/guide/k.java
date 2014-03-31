@@ -7,8 +7,8 @@ import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
+import com.baidu.tbadk.editortool.aa;
 import com.baidu.tieba.data.InterestFrsData;
-import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public final class k extends Dialog implements a {
     private Context a;
@@ -22,20 +22,20 @@ public final class k extends Dialog implements a {
     private LinearLayout i;
 
     public k(Context context, int i) {
-        super(context, R.style.NewUserDialog);
+        super(context, i);
         this.a = context;
-        this.e = View.inflate(this.a, R.layout.new_user_img_box, null);
+        this.e = View.inflate(this.a, com.baidu.tieba.a.i.new_user_img_box, null);
         this.g = new g(this.a);
         setCanceledOnTouchOutside(true);
-        this.i = (LinearLayout) this.e.findViewById(R.id.box_close_layout);
-        this.h = (GridView) this.e.findViewById(R.id.layout_content);
+        this.i = (LinearLayout) this.e.findViewById(com.baidu.tieba.a.h.box_close_layout);
+        this.h = (GridView) this.e.findViewById(com.baidu.tieba.a.h.layout_content);
         this.h.setAdapter((ListAdapter) this.g);
-        this.h.setSelector(R.color.transparent);
+        this.h.setSelector(com.baidu.tieba.a.e.transparent);
         setContentView(this.e);
-        this.b = (TextView) this.e.findViewById(R.id.prompt_title);
-        this.c = (TextView) this.e.findViewById(R.id.prompt_sub_title);
-        this.d = this.e.findViewById(R.id.view_layout);
-        this.d.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.bg_startpage2_card_orange_up));
+        this.b = (TextView) this.e.findViewById(com.baidu.tieba.a.h.prompt_title);
+        this.c = (TextView) this.e.findViewById(com.baidu.tieba.a.h.prompt_sub_title);
+        this.d = this.e.findViewById(com.baidu.tieba.a.h.view_layout);
+        this.d.setBackgroundDrawable(this.a.getResources().getDrawable(com.baidu.tieba.a.g.bg_startpage2_card_orange_up));
     }
 
     @Override // com.baidu.tieba.guide.a
@@ -65,8 +65,8 @@ public final class k extends Dialog implements a {
     }
 
     @Override // com.baidu.tieba.guide.a
-    public final void a(com.baidu.tieba.util.i iVar) {
-        this.g.a(iVar);
+    public final void a(aa aaVar) {
+        this.g.a(aaVar);
     }
 
     @Override // com.baidu.tieba.guide.a

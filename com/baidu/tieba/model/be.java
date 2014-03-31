@@ -1,147 +1,78 @@
 package com.baidu.tieba.model;
 
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import com.baidu.tieba.data.WriteData;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import java.lang.ref.WeakReference;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class be extends com.baidu.adp.a.d {
-    protected Context e;
-    protected com.baidu.tieba.data.av f;
-    protected int a = 0;
-    protected String b = null;
-    protected String c = null;
-    protected String d = null;
-    protected bf g = null;
-    protected bg h = null;
-    protected com.baidu.tieba.util.i i = null;
+public final class be extends BdAsyncTask<Integer, Integer, Integer> {
+    private com.baidu.tbadk.core.util.ak a = null;
+    private String b;
+    private long c;
+    private String d;
+    private WeakReference<bd> e;
 
-    public final void a(Intent intent) {
-        this.b = intent.getStringExtra("thread_id");
-        this.c = intent.getStringExtra("post_id");
-        this.d = intent.getStringExtra("st_type");
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* bridge */ /* synthetic */ Integer a(Integer... numArr) {
+        return a();
     }
 
-    public final void a(Bundle bundle) {
-        this.b = bundle.getString("thread_id");
-        this.c = bundle.getString("post_id");
-        this.d = bundle.getString("st_type");
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ void a(Integer num) {
+        bd bdVar;
+        Integer num2 = num;
+        super.a((be) num2);
+        if (this.e == null || (bdVar = this.e.get()) == null) {
+            return;
+        }
+        if (this.a == null) {
+            String str = this.b;
+            long j = this.c;
+            bdVar.a();
+        } else if (!this.a.a().b().b()) {
+            String str2 = this.b;
+            long j2 = this.c;
+            bdVar.a();
+        } else if (num2.intValue() == 1) {
+            com.baidu.tieba.r.c().f(this.b);
+            bdVar.a(this.b, this.c);
+        } else {
+            String str3 = this.b;
+            long j3 = this.c;
+            bdVar.a();
+        }
     }
 
-    public final void b(Bundle bundle) {
-        bundle.putString("thread_id", this.b);
-        bundle.putString("post_id", this.c);
-        bundle.putString("st_type", this.d);
-    }
-
-    public be(Context context) {
+    public be(String str, long j, String str2, bd bdVar) {
+        this.b = null;
+        this.c = 0L;
         this.e = null;
-        this.f = null;
-        this.e = context;
-        this.f = new com.baidu.tieba.data.av();
-    }
-
-    public final void a(String str) {
         this.b = str;
+        this.c = j;
+        this.e = new WeakReference<>(bdVar);
+        this.d = str2;
+        setPriority(3);
     }
 
-    public final String a() {
-        return this.b;
-    }
-
-    public final void b(String str) {
-        this.c = str;
-    }
-
-    public final String b() {
-        return this.c;
-    }
-
-    public final String c() {
-        return this.d;
-    }
-
-    public final void d() {
-        this.f = new com.baidu.tieba.data.av();
-    }
-
-    public final com.baidu.tieba.data.av e() {
-        return this.f;
-    }
-
-    public final WriteData f() {
-        if (this.f == null || this.f.g() == null || this.f.l() == null || this.f.a() == null) {
-            return null;
+    private Integer a() {
+        try {
+            if (this.c != 0 && this.b != null) {
+                this.a = new com.baidu.tbadk.core.util.ak(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/c/forum/unfavolike");
+                this.a.a("fid", String.valueOf(this.c));
+                this.a.a("kw", this.b);
+                this.a.a("favo_type", "1");
+                this.a.a("st_type", this.d);
+                this.a.a().a().a = true;
+                this.a.i();
+            }
+            return 1;
+        } catch (Exception e) {
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.getMessage());
+            return 0;
         }
-        WriteData writeData = new WriteData();
-        writeData.setForumName(this.f.g().getName());
-        writeData.setForumId(this.f.g().getId());
-        writeData.setFloor(this.f.a().d());
-        writeData.setType(2);
-        writeData.setThreadId(this.f.l().a());
-        writeData.setFloorNum(0);
-        return writeData;
-    }
-
-    public final void a(bg bgVar) {
-        this.h = bgVar;
-    }
-
-    @Override // com.baidu.adp.a.d
-    protected final boolean LoadData() {
-        return false;
-    }
-
-    public final int g() {
-        return this.a;
-    }
-
-    @Override // com.baidu.adp.a.d
-    public final boolean cancelLoadData() {
-        if (this.g != null) {
-            this.g.cancel();
-            return true;
-        }
-        return true;
-    }
-
-    public final boolean h() {
-        cancelLoadData();
-        if (this.b == null || this.c == null || this.g != null) {
-            return false;
-        }
-        this.a = 0;
-        a(0);
-        return true;
-    }
-
-    public final boolean i() {
-        cancelLoadData();
-        if (this.b == null || this.c == null || this.f.k() || this.g != null) {
-            return false;
-        }
-        this.a = 2;
-        a(2);
-        return true;
-    }
-
-    public final boolean j() {
-        cancelLoadData();
-        this.a = 1;
-        a(1);
-        return true;
-    }
-
-    public final boolean k() {
-        cancelLoadData();
-        this.a = 3;
-        a(3);
-        return true;
-    }
-
-    private void a(int i) {
-        this.g = new bf(this, i);
-        this.g.setPriority(3);
-        this.g.execute(new Object[0]);
     }
 }

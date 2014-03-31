@@ -20,6 +20,7 @@ public final class ai extends GeneratedMessageLite.Builder<Im.UserInfo, ai> impl
     private int k;
     private int l;
     private int m;
+    private int p;
     private Object c = "";
     private Object d = "";
     private Object e = "";
@@ -85,6 +86,8 @@ public final class ai extends GeneratedMessageLite.Builder<Im.UserInfo, ai> impl
         this.a &= -4097;
         this.o = Collections.emptyList();
         this.a &= -8193;
+        this.p = 0;
+        this.a &= -16385;
         return this;
     }
 
@@ -154,6 +157,10 @@ public final class ai extends GeneratedMessageLite.Builder<Im.UserInfo, ai> impl
             this.a &= -8193;
         }
         userInfo.tshowIcon_ = this.o;
+        if ((i & 16384) == 16384) {
+            i2 |= 8192;
+        }
+        userInfo.userType_ = this.p;
         userInfo.bitField0_ = i2;
         return userInfo;
     }
@@ -253,6 +260,11 @@ public final class ai extends GeneratedMessageLite.Builder<Im.UserInfo, ai> impl
                     list2 = userInfo.tshowIcon_;
                     list4.addAll(list2);
                 }
+            }
+            if (userInfo.hasUserType()) {
+                int userType = userInfo.getUserType();
+                this.a |= 16384;
+                this.p = userType;
             }
         }
         return this;

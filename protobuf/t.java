@@ -14,6 +14,7 @@ public final class t extends GeneratedMessageLite.Builder<Im.MaskInfo, t> implem
     private int f;
     private Object c = "";
     private Object e = "";
+    private Object g = "";
 
     @Override // com.google.protobuf.MessageLite.Builder
     public final /* synthetic */ MessageLite build() {
@@ -55,6 +56,8 @@ public final class t extends GeneratedMessageLite.Builder<Im.MaskInfo, t> implem
         this.a &= -9;
         this.f = 0;
         this.a &= -17;
+        this.g = "";
+        this.a &= -33;
         return this;
     }
 
@@ -87,6 +90,10 @@ public final class t extends GeneratedMessageLite.Builder<Im.MaskInfo, t> implem
             i2 |= 16;
         }
         maskInfo.shieldStatus_ = this.f;
+        if ((i & 32) == 32) {
+            i2 |= 32;
+        }
+        maskInfo.maskFids_ = this.g;
         maskInfo.bitField0_ = i2;
         return maskInfo;
     }
@@ -96,6 +103,7 @@ public final class t extends GeneratedMessageLite.Builder<Im.MaskInfo, t> implem
     public final t mergeFrom(Im.MaskInfo maskInfo) {
         Object obj;
         Object obj2;
+        Object obj3;
         if (maskInfo != Im.MaskInfo.getDefaultInstance()) {
             if (maskInfo.hasUserId()) {
                 long userId = maskInfo.getUserId();
@@ -104,8 +112,8 @@ public final class t extends GeneratedMessageLite.Builder<Im.MaskInfo, t> implem
             }
             if (maskInfo.hasMaskGids()) {
                 this.a |= 2;
-                obj2 = maskInfo.maskGids_;
-                this.c = obj2;
+                obj3 = maskInfo.maskGids_;
+                this.c = obj3;
             }
             if (maskInfo.hasRemindMask()) {
                 int remindMask = maskInfo.getRemindMask();
@@ -114,13 +122,18 @@ public final class t extends GeneratedMessageLite.Builder<Im.MaskInfo, t> implem
             }
             if (maskInfo.hasMaskUids()) {
                 this.a |= 8;
-                obj = maskInfo.maskUids_;
-                this.e = obj;
+                obj2 = maskInfo.maskUids_;
+                this.e = obj2;
             }
             if (maskInfo.hasShieldStatus()) {
                 int shieldStatus = maskInfo.getShieldStatus();
                 this.a |= 16;
                 this.f = shieldStatus;
+            }
+            if (maskInfo.hasMaskFids()) {
+                this.a |= 32;
+                obj = maskInfo.maskFids_;
+                this.g = obj;
             }
         }
         return this;

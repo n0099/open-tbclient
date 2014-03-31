@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.tbadk.editortool.aa;
 import com.baidu.tieba.data.InterestFrsData;
-import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public final class d extends Dialog implements a {
@@ -19,22 +19,22 @@ public final class d extends Dialog implements a {
     private View d;
     private LinearLayout e;
     private View.OnClickListener f;
-    private com.baidu.tieba.util.i g;
+    private aa g;
     private View h;
     private LinearLayout i;
 
     public d(Context context, int i) {
-        super(context, R.style.NewUserDialog);
+        super(context, i);
         this.a = context;
-        this.h = View.inflate(this.a, R.layout.new_user_box, null);
+        this.h = View.inflate(this.a, com.baidu.tieba.a.i.new_user_box, null);
         setContentView(this.h);
         setCanceledOnTouchOutside(true);
-        this.i = (LinearLayout) this.h.findViewById(R.id.box_close_layout);
-        this.b = (TextView) this.h.findViewById(R.id.prompt_title);
-        this.c = (TextView) this.h.findViewById(R.id.prompt_sub_title);
-        this.d = this.h.findViewById(R.id.view_layout);
-        this.e = (LinearLayout) findViewById(R.id.layout_content);
-        this.d.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.bg_startpage2_card_purple_up));
+        this.i = (LinearLayout) this.h.findViewById(com.baidu.tieba.a.h.box_close_layout);
+        this.b = (TextView) this.h.findViewById(com.baidu.tieba.a.h.prompt_title);
+        this.c = (TextView) this.h.findViewById(com.baidu.tieba.a.h.prompt_sub_title);
+        this.d = this.h.findViewById(com.baidu.tieba.a.h.view_layout);
+        this.e = (LinearLayout) findViewById(com.baidu.tieba.a.h.layout_content);
+        this.d.setBackgroundDrawable(this.a.getResources().getDrawable(com.baidu.tieba.a.g.bg_startpage2_card_purple_up));
     }
 
     @Override // com.baidu.tieba.guide.a
@@ -59,18 +59,18 @@ public final class d extends Dialog implements a {
             View a = new f(this, card, this.f).a();
             this.e.addView(a);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) a.getLayoutParams();
-            int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.ds20);
-            layoutParams.setMargins(0, i == 0 ? this.a.getResources().getDimensionPixelSize(R.dimen.ds44) : dimensionPixelSize, 0, dimensionPixelSize);
+            int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.ds20);
+            layoutParams.setMargins(0, i == 0 ? this.a.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.ds44) : dimensionPixelSize, 0, dimensionPixelSize);
             a.setLayoutParams(layoutParams);
             if (i != card_list.size() - 1) {
-                this.e.addView(LayoutInflater.from(this.a).inflate(R.layout.new_user_line_item, (ViewGroup) null));
+                this.e.addView(LayoutInflater.from(this.a).inflate(com.baidu.tieba.a.i.new_user_line_item, (ViewGroup) null));
             }
             this.g.b(card.getAvatar(), new e(this));
             i++;
         }
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
-        float dimensionPixelSize2 = getContext().getResources().getDisplayMetrics().heightPixels - getContext().getResources().getDimensionPixelSize(R.dimen.ds120);
-        if ((getContext().getResources().getDimensionPixelSize(R.dimen.ds140) * card_list.size()) + getContext().getResources().getDimensionPixelSize(R.dimen.ds188) + getContext().getResources().getDimensionPixelSize(R.dimen.ds100) > dimensionPixelSize2) {
+        float dimensionPixelSize2 = getContext().getResources().getDisplayMetrics().heightPixels - getContext().getResources().getDimensionPixelSize(com.baidu.tieba.a.f.ds120);
+        if ((getContext().getResources().getDimensionPixelSize(com.baidu.tieba.a.f.ds140) * card_list.size()) + getContext().getResources().getDimensionPixelSize(com.baidu.tieba.a.f.ds188) + getContext().getResources().getDimensionPixelSize(com.baidu.tieba.a.f.ds100) > dimensionPixelSize2) {
             attributes.height = (int) dimensionPixelSize2;
         }
     }
@@ -92,8 +92,8 @@ public final class d extends Dialog implements a {
     }
 
     @Override // com.baidu.tieba.guide.a
-    public final void a(com.baidu.tieba.util.i iVar) {
-        this.g = iVar;
+    public final void a(aa aaVar) {
+        this.g = aaVar;
     }
 
     @Override // com.baidu.tieba.guide.a

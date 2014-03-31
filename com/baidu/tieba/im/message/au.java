@@ -1,21 +1,22 @@
 package com.baidu.tieba.im.message;
 
 import com.google.protobuf.MessageLite;
-import protobuf.GetPeerInfo.GetPeerInfoReq;
+import protobuf.QueryUserInfos.QueryUserInfosReq;
 /* loaded from: classes.dex */
-public final class au extends s implements com.baidu.tieba.im.coder.g {
-    private long a;
+public final class au extends com.baidu.tbadk.message.websockt.d {
+    protobuf.QueryUserInfos.b a;
 
     public au() {
-        e(205004);
+        super(205003);
+        this.a = QueryUserInfosReq.DataReq.newBuilder();
     }
 
-    public final void a(long j) {
-        this.a = j;
+    public final void b(long j) {
+        this.a.a(j);
     }
 
-    @Override // com.baidu.tieba.im.coder.g
-    public final MessageLite a() {
-        return GetPeerInfoReq.GetPeerInfoReqIdl.newBuilder().a(GetPeerInfoReq.DataReq.newBuilder().a(this.a).build()).build();
+    @Override // com.baidu.tbadk.message.websockt.d
+    public final MessageLite h() {
+        return QueryUserInfosReq.QueryUserInfosReqIdl.newBuilder().a(this.a.build()).build();
     }
 }

@@ -1,33 +1,107 @@
 package com.baidu.tieba.data;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.tieba.person.cm;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.square.at;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class n extends com.baidu.tieba.util.ao {
-    final /* synthetic */ k a;
+public final class n {
+    private boolean c;
+    private boolean d;
+    private int f;
+    private int g;
+    private String h;
+    private at b = new at();
+    private long e = 0;
+    private y a = new y();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n(k kVar, Context context) {
-        super(context);
-        this.a = kVar;
+    public final boolean a() {
+        return this.c;
     }
 
-    @Override // com.baidu.tieba.util.ao, android.text.style.ClickableSpan
-    public final void onClick(View view) {
-        String str;
-        String str2;
-        String str3;
-        String str4 = null;
-        str = this.a.b;
-        if (str != null) {
-            str3 = this.a.b;
-            str4 = str3.replace("@", "").replace(" ", "");
+    public final void a(boolean z) {
+        this.c = true;
+    }
+
+    public n() {
+        this.d = true;
+        this.d = false;
+    }
+
+    public final int b() {
+        return this.f;
+    }
+
+    public final int c() {
+        return this.g;
+    }
+
+    public final String d() {
+        return this.h;
+    }
+
+    public final void a(String str) {
+        if (str == null || str.length() <= 0) {
+            this.d = false;
+            return;
         }
-        Context a = a();
-        str2 = this.a.g;
-        cm.a(a, str2, str4);
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            try {
+                this.f = jSONObject.optInt("msign_valid");
+                this.g = jSONObject.optInt("msign_level");
+                this.h = jSONObject.optString("msign_text");
+                JSONArray optJSONArray = jSONObject.optJSONArray("like_forum");
+                JSONObject optJSONObject = jSONObject.optJSONObject("banner");
+                this.a.a(this.g);
+                this.a.a(optJSONArray);
+                this.e = jSONObject.optLong("time");
+                a(optJSONObject);
+            } catch (Exception e) {
+                this.d = false;
+                com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.toString());
+            }
+            this.d = true;
+        } catch (Exception e2) {
+            this.d = false;
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e2.toString());
+        }
+    }
+
+    private void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.b.a(jSONObject.optString("pic_url", ""));
+                this.b.b(jSONObject.optString("link", ""));
+            } catch (Exception e) {
+                com.baidu.adp.lib.util.f.b(getClass().getName(), "BannerData", e.toString());
+            }
+        }
+    }
+
+    public final at e() {
+        return this.b;
+    }
+
+    public final y f() {
+        return this.a;
+    }
+
+    public final void b(boolean z) {
+        this.d = true;
+    }
+
+    public final boolean g() {
+        return this.d;
+    }
+
+    public final boolean h() {
+        return System.currentTimeMillis() / d.e.longValue() == (this.e * 1000) / d.e.longValue();
+    }
+
+    public final boolean i() {
+        if (this.a != null) {
+            return this.a.b();
+        }
+        return false;
     }
 }

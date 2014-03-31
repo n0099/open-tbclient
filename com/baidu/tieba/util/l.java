@@ -1,58 +1,31 @@
 package com.baidu.tieba.util;
 
-import android.graphics.Bitmap;
-import java.util.HashSet;
-import java.util.Map;
+import android.content.Context;
+import android.text.style.ClickableSpan;
+import android.view.View;
+import com.baidu.tbadk.core.b.af;
 /* loaded from: classes.dex */
-public final class l {
-    public HashSet<com.baidu.tbadk.imageManager.d> b;
-    public String c;
-    public volatile int d;
-    public volatile Bitmap e;
-    public boolean g;
-    public volatile com.baidu.adp.widget.ImageView.b i;
-    public boolean o;
-    public boolean p;
-    public Map<String, Object> q;
-    public volatile ba a = null;
-    public boolean f = false;
-    public volatile boolean h = false;
-    public byte[] j = null;
-    public String k = null;
-    public String l = null;
-    public String m = null;
-    public boolean n = false;
-    private boolean r = false;
+public class l extends ClickableSpan {
+    private Context a;
 
-    public final boolean a() {
-        return this.r;
+    public l(Context context) {
+        this.a = null;
+        this.a = context;
     }
 
-    public final void a(boolean z) {
-        this.r = true;
+    @Override // android.text.style.ClickableSpan
+    public void onClick(View view) {
     }
 
-    public l(String str, int i, com.baidu.tbadk.imageManager.d dVar, boolean z, boolean z2, boolean z3, Map<String, Object> map) {
-        this.b = null;
-        this.c = null;
-        this.d = 0;
-        this.e = null;
-        this.g = false;
-        this.o = false;
-        this.p = false;
-        this.c = str;
-        this.d = i;
-        this.b = new HashSet<>();
-        this.b.add(dVar);
-        this.e = null;
-        this.g = z;
-        this.p = z2;
-        this.o = z3;
-        this.q = map;
+    public final Context a() {
+        return this.a;
     }
 
-    public final String b() {
-        Object obj;
-        return (this.d != 6 || this.q == null || (obj = this.q.get("em_sharp_text")) == null) ? this.c : obj.toString();
+    public final void a(String str) {
+        com.baidu.tbadk.browser.a.a(this.a, str);
+    }
+
+    public final void b(String str) {
+        com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2004001, new af(this.a).a(str, null, null)));
     }
 }

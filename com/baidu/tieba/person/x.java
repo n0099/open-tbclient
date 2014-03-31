@@ -1,180 +1,192 @@
 package com.baidu.tieba.person;
 
-import android.graphics.Bitmap;
-import android.widget.ProgressBar;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import cn.jingling.lib.filters.FilterFactory;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.view.EditHeadImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tieba.person.PersonPostListData;
+import java.util.List;
 /* loaded from: classes.dex */
-public final class x extends BdAsyncTask<String, Void, Bitmap> {
-    final /* synthetic */ EditHeadActivity a;
-    private String b;
-    private Bitmap c;
-    private Boolean d;
-    private Boolean e;
+public final class x extends BaseAdapter {
+    private PersonPostListData a;
+    private com.baidu.tbadk.core.e b;
+    private y c;
+    private com.baidu.tbadk.editortool.aa e;
+    private int f;
+    private com.baidu.tieba.model.av k;
+    private LinearLayout l;
+    private ImageView m;
+    private TextView n;
+    private boolean d = false;
+    private int g = 200;
+    private boolean h = false;
+    private float i = 0.4f;
+    private boolean j = false;
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ Bitmap a(String... strArr) {
-        Bitmap bitmap;
-        Bitmap bitmap2;
-        Bitmap bitmap3;
-        Bitmap bitmap4;
-        Bitmap bitmap5;
-        Bitmap bitmap6;
-        Bitmap bitmap7;
-        Bitmap bitmap8;
-        Bitmap bitmap9;
-        this.b = strArr[0];
-        bitmap = this.a.h;
-        if (bitmap == null) {
-            bitmap9 = this.a.w;
-            if (bitmap9 == null) {
-                return null;
-            }
-        }
-        if (this.b.equals(SocialConstants.FALSE) || this.b.equals(SocialConstants.TRUE)) {
+    public final void a(PersonPostListData personPostListData, com.baidu.tieba.model.av avVar) {
+        a(com.baidu.tbadk.core.util.bd.a().b());
+        this.a = personPostListData;
+        this.k = avVar;
+        if (this.a == null || this.a.post_list == null || this.a.post_list.size() <= 0) {
+            this.d = false;
+        } else {
             this.d = true;
-        } else if (this.b.equals("2") || this.b.equals("3")) {
-            this.e = true;
         }
-        if (!this.d.booleanValue() && !this.e.booleanValue()) {
-            bitmap7 = this.a.h;
-            bitmap8 = this.a.h;
-            this.c = bitmap7.copy(bitmap8.getConfig(), true);
+    }
+
+    public x(com.baidu.tbadk.core.e eVar) {
+        this.f = 200;
+        this.b = eVar;
+        this.e = new com.baidu.tbadk.editortool.aa(eVar);
+        this.f = com.baidu.adp.lib.util.i.b(eVar);
+        a(com.baidu.tbadk.core.util.bd.a().b());
+    }
+
+    @Override // android.widget.Adapter
+    public final int getCount() {
+        List<PersonPostListData.PostList> list;
+        if (!this.d) {
+            return 1;
+        }
+        if (this.a == null || (list = this.a.post_list) == null) {
+            return 0;
+        }
+        return list.size();
+    }
+
+    @Override // android.widget.Adapter
+    public final Object getItem(int i) {
+        if (!this.d || this.a == null || this.a.post_list == null) {
+            return null;
+        }
+        List<PersonPostListData.PostList> list = this.a.post_list;
+        if (i < 0 || list == null || i >= list.size()) {
+            return null;
+        }
+        return list.get(i);
+    }
+
+    @Override // android.widget.Adapter
+    public final long getItemId(int i) {
+        return 0L;
+    }
+
+    @Override // android.widget.Adapter
+    public final View getView(int i, View view, ViewGroup viewGroup) {
+        PersonPostListData.PostList postList;
+        if (!this.d) {
+            int l = TbadkApplication.j().l();
+            com.baidu.tieba.model.av avVar = this.k;
+            if (this.l == null) {
+                this.l = (LinearLayout) View.inflate(this.b, com.baidu.tieba.a.i.person_center_list_no_data_view, null);
+                this.m = (ImageView) this.l.findViewById(com.baidu.tieba.a.h.person_center_list_no_data_iv);
+                this.m.setVisibility(8);
+                this.n = (TextView) this.l.findViewById(com.baidu.tieba.a.h.person_center_list_no_data_txt);
+            }
+            if (1 == l && this.l != null) {
+                this.l.setBackgroundColor(this.b.getResources().getColor(com.baidu.tieba.a.e.person_center_list_no_data_bg_color_1));
+                this.m.setBackgroundResource(com.baidu.tieba.a.g.pic_blank_page_search_1);
+                this.n.setTextColor(this.b.getResources().getColor(com.baidu.tieba.a.e.person_center_list_no_data_text_color_1));
+            } else if (this.l != null) {
+                this.l.setBackgroundColor(this.b.getResources().getColor(com.baidu.tieba.a.e.person_center_list_no_data_bg_color));
+                this.m.setBackgroundResource(com.baidu.tieba.a.g.pic_blank_page_search);
+                this.n.setTextColor(this.b.getResources().getColor(com.baidu.tieba.a.e.person_center_list_no_data_text_color));
+            }
+            if (avVar != null && avVar.g() != null) {
+                this.m.setVisibility(0);
+                if (avVar.a() != null && avVar.a().hide_post != 0) {
+                    this.n.setText(this.b.getResources().getString(com.baidu.tieba.a.k.his_post_not_available));
+                } else if (avVar.a() == null || avVar.a().post_list.size() == 0) {
+                    if (avVar.f()) {
+                        this.n.setText(this.b.getResources().getString(com.baidu.tieba.a.k.no_post_info));
+                    } else if (avVar.g().getSex() == 1) {
+                        this.n.setText(this.b.getResources().getString(com.baidu.tieba.a.k.he_no_post_info));
+                    } else if (avVar.g().getSex() == 2) {
+                        this.n.setText(this.b.getResources().getString(com.baidu.tieba.a.k.she_no_post_info));
+                    } else {
+                        this.n.setText(this.b.getResources().getString(com.baidu.tieba.a.k.ta_no_post_info));
+                    }
+                }
+            }
+            return this.l;
+        }
+        if (this.c == null) {
+            this.c = new y(this.b);
+        }
+        y yVar = this.c;
+        int i2 = this.f;
+        boolean z = this.h;
+        float f = this.i;
+        yVar.a(z);
+        this.c.b(this.j);
+        View a = (view == null || view.getTag() == null) ? this.c.a() : view;
+        a.setPadding(0, i == 0 ? this.b.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.forumfeed_first_item_margin_top) : 0, 0, 0);
+        int l2 = TbadkApplication.j().l();
+        List<PersonPostListData.PostList> list = this.a.post_list;
+        if (list != null && (postList = list.get(i)) != null) {
+            this.c.a(a, postList);
+            this.c.a(l2, a);
+        }
+        com.baidu.tbadk.core.e eVar = this.b;
+        eVar.b().a(l2 == 1);
+        eVar.b().a(a);
+        return a;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public final int getViewTypeCount() {
+        return 6;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public final int getItemViewType(int i) {
+        PersonPostListData.PostList postList;
+        PersonPostListData.Media[] mediaArr;
+        if (this.d && this.a != null) {
+            List<PersonPostListData.PostList> list = this.a.post_list;
+            if (list == null || (postList = list.get(i)) == null || (mediaArr = postList.media) == null) {
+                return 2;
+            }
+            int length = mediaArr.length;
+            if (length >= 3) {
+                return 5;
+            }
+            if (length == 2) {
+                return 4;
+            }
+            return length == 1 ? 3 : 2;
+        }
+        return 0;
+    }
+
+    private void a(boolean z) {
+        this.h = z;
+        this.g = this.f;
+        if (this.h) {
+            if (this.g > 480) {
+                this.g = 480;
+            }
+            if (this.g > com.baidu.adp.lib.util.i.a((Context) this.b, 320.0f)) {
+                this.g = com.baidu.adp.lib.util.i.a((Context) this.b, 320.0f);
+            }
+            this.e.f = "_small";
         } else {
-            bitmap2 = this.a.w;
-            if (bitmap2 == null) {
-                bitmap3 = this.a.h;
-                bitmap4 = this.a.h;
-                this.c = bitmap3.copy(bitmap4.getConfig(), true);
-            } else {
-                bitmap5 = this.a.w;
-                bitmap6 = this.a.w;
-                this.c = bitmap5.copy(bitmap6.getConfig(), true);
+            if (this.g > this.i * 480.0f) {
+                this.g = (int) (this.i * 480.0f);
             }
+            if (this.g > com.baidu.adp.lib.util.i.a((Context) this.b, 320.0f) * this.i) {
+                this.g = (int) (com.baidu.adp.lib.util.i.a((Context) this.b, 320.0f) * this.i);
+            }
+            this.e.f = "_mobile";
         }
-        if (this.d.booleanValue()) {
-            this.c = com.baidu.tieba.util.n.d(this.c, Integer.parseInt(this.b));
-        } else if (this.e.booleanValue()) {
-            this.c = com.baidu.tieba.util.n.f(this.c, Integer.parseInt(this.b));
-        } else {
-            this.c = FilterFactory.createOneKeyFilter(this.a, this.b).apply(this.a, this.c);
-        }
-        return this.c;
+        this.e.a(this.g, this.g);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x005e, code lost:
-        if (r0.getHeight() > 750) goto L28;
-     */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final /* synthetic */ void a(Bitmap bitmap) {
-        ProgressBar progressBar;
-        TextView textView;
-        TextView textView2;
-        EditHeadImageView editHeadImageView;
-        Bitmap bitmap2;
-        Bitmap bitmap3;
-        Bitmap bitmap4;
-        Bitmap bitmap5;
-        Bitmap bitmap6;
-        Bitmap bitmap7;
-        Bitmap bitmap8;
-        Bitmap bitmap9;
-        EditHeadImageView editHeadImageView2;
-        Bitmap bitmap10 = bitmap;
-        progressBar = this.a.n;
-        progressBar.setVisibility(8);
-        textView = this.a.j;
-        textView.setClickable(true);
-        textView2 = this.a.j;
-        textView2.setEnabled(true);
-        if (bitmap10 == null || bitmap10.isRecycled()) {
-            return;
-        }
-        this.a.D = true;
-        if (this.d.booleanValue() || this.e.booleanValue()) {
-            editHeadImageView = this.a.g;
-            editHeadImageView.setImageBitmap(bitmap10);
-            bitmap2 = this.a.h;
-            if (bitmap2.getWidth() <= 750) {
-                bitmap6 = this.a.h;
-            }
-            EditHeadActivity editHeadActivity = this.a;
-            bitmap3 = this.a.h;
-            editHeadActivity.h = com.baidu.tieba.util.n.a(bitmap3, 750);
-            if (this.d.booleanValue()) {
-                EditHeadActivity editHeadActivity2 = this.a;
-                bitmap5 = this.a.h;
-                editHeadActivity2.h = com.baidu.tieba.util.n.d(bitmap5, Integer.parseInt(this.b));
-            } else if (this.e.booleanValue()) {
-                EditHeadActivity editHeadActivity3 = this.a;
-                bitmap4 = this.a.h;
-                editHeadActivity3.h = com.baidu.tieba.util.n.f(bitmap4, Integer.parseInt(this.b));
-            }
-        } else {
-            editHeadImageView2 = this.a.g;
-            editHeadImageView2.a(bitmap10);
-        }
-        bitmap7 = this.a.w;
-        if (bitmap7 != null) {
-            bitmap8 = this.a.w;
-            if (!bitmap8.isRecycled()) {
-                bitmap9 = this.a.w;
-                bitmap9.recycle();
-            }
-        }
-        this.a.w = bitmap10;
-    }
-
-    private x(EditHeadActivity editHeadActivity) {
-        this.a = editHeadActivity;
-        this.d = false;
-        this.e = false;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ x(EditHeadActivity editHeadActivity, byte b) {
-        this(editHeadActivity);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void b() {
-        ProgressBar progressBar;
-        TextView textView;
-        progressBar = this.a.n;
-        progressBar.setVisibility(0);
-        textView = this.a.j;
-        textView.setClickable(false);
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void cancel() {
-        ProgressBar progressBar;
-        TextView textView;
-        Bitmap bitmap;
-        if (this.c != null && !this.c.isRecycled()) {
-            bitmap = this.a.w;
-            if (bitmap != this.c) {
-                this.c.recycle();
-            }
-        }
-        this.c = null;
-        progressBar = this.a.n;
-        progressBar.setVisibility(8);
-        textView = this.a.j;
-        textView.setClickable(true);
-        super.cancel(true);
+    public final com.baidu.tbadk.editortool.aa a() {
+        return this.e;
     }
 }

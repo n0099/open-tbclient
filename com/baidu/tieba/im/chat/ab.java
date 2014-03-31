@@ -1,30 +1,23 @@
 package com.baidu.tieba.im.chat;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ab implements com.baidu.tieba.im.a<LinkedList<String>> {
-    final /* synthetic */ q a;
-    private final /* synthetic */ bd b;
+public final class ab extends com.baidu.tieba.im.m<Boolean> {
+    final /* synthetic */ x b;
+    private final /* synthetic */ com.baidu.tieba.im.message.a.f c;
+    private final /* synthetic */ LinkedList d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(q qVar, bd bdVar) {
-        this.a = qVar;
-        this.b = bdVar;
+    public ab(x xVar, com.baidu.tieba.im.message.a.f fVar, LinkedList linkedList) {
+        this.b = xVar;
+        this.c = fVar;
+        this.d = linkedList;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.baidu.tieba.im.a
-    public final /* synthetic */ void a(LinkedList<String> linkedList) {
-        LinkedList<String> linkedList2 = linkedList;
-        ArrayList<String> arrayList = new ArrayList<>();
-        while (!linkedList2.isEmpty()) {
-            String a = com.baidu.tieba.im.util.l.a(linkedList2.removeLast(), true);
-            if (a != null) {
-                arrayList.add(a);
-            }
-        }
-        this.b.a(arrayList);
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.m
+    public final /* synthetic */ Boolean a() {
+        return Boolean.valueOf(com.baidu.tieba.im.db.n.d().a(this.c.x(), this.c.l(), this.d, false));
     }
 }

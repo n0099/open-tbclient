@@ -1,109 +1,137 @@
 package com.baidu.tieba.model;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.tbadk.TbadkApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class t extends BdAsyncTask<String, Integer, String> {
+public final class t extends BdAsyncTask<Integer, com.baidu.tieba.data.p, com.baidu.tieba.data.p> {
     final /* synthetic */ s a;
-    private com.baidu.tieba.util.ba b = null;
-    private String c;
-    private String d;
-    private String e;
-    private String f;
-    private int g;
-    private int h;
-    private boolean i;
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ String a(String... strArr) {
-        String str = com.baidu.tieba.data.i.a;
-        this.b = new com.baidu.tieba.util.ba(this.g == 0 ? String.valueOf(str) + "c/c/bawu/delthread" : String.valueOf(str) + "c/c/bawu/delpost");
-        this.b.a("fid", this.c);
-        this.b.a("word", this.d);
-        this.b.a("z", this.e);
-        if (this.g == 0) {
-            if (this.h == 0) {
-                this.b.a("delete_my_thread", SocialConstants.TRUE);
-            }
-        } else if (this.g == 1) {
-            this.b.a("pid", this.f);
-            this.b.a("isfloor", SocialConstants.FALSE);
-            this.b.a("src", SocialConstants.TRUE);
-            if (this.h == 0 && this.i) {
-                this.b.a("delete_my_post", SocialConstants.TRUE);
-            }
-        } else if (this.g == 2) {
-            this.b.a("pid", this.f);
-            this.b.a("isfloor", SocialConstants.TRUE);
-            this.b.a("src", "3");
-            if (this.h == 0 && this.i) {
-                this.b.a("delete_my_post", SocialConstants.TRUE);
-            }
-        }
-        if (this.h != 0 || this.i) {
-            this.b.a("is_vipdel", SocialConstants.FALSE);
-        } else {
-            this.b.a("is_vipdel", SocialConstants.TRUE);
-        }
-        this.b.e(true);
-        this.b.l();
-        if (this.b.c()) {
-            return null;
-        }
-        return this.b.i();
-    }
+    private com.baidu.tieba.b.b b = null;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void a(String str) {
-        com.baidu.adp.a.g gVar;
-        com.baidu.adp.a.g gVar2;
-        String str2 = str;
-        super.a((t) str2);
-        this.a.a = null;
-        if (this.b == null) {
-            gVar2 = this.a.mLoadDataCallBack;
-            gVar2.a(null);
-            return;
-        }
-        u uVar = new u(this.a);
-        uVar.c = this.g;
-        uVar.d = this.f;
-        uVar.b = str2;
-        if (str2 == null) {
-            uVar.a = true;
+    public final /* synthetic */ void a(com.baidu.tieba.data.p pVar) {
+        boolean z;
+        int i;
+        com.baidu.adp.a.h hVar;
+        com.baidu.tieba.data.p pVar2;
+        com.baidu.tieba.data.p pVar3;
+        int i2;
+        com.baidu.tieba.data.p pVar4;
+        com.baidu.adp.a.h hVar2;
+        com.baidu.tieba.data.p pVar5 = pVar;
+        this.b.a();
+        if (pVar5 == null || this.b.e() != 0) {
+            this.a.setErrorCode(this.b.e());
+            this.a.setErrorString(this.b.f());
+            z = true;
+        } else if (pVar5 == null || pVar5.d() == 0) {
+            z = false;
         } else {
-            uVar.a = false;
+            this.a.setErrorCode(pVar5.d());
+            this.a.setErrorString(pVar5.e());
+            z = true;
         }
-        gVar = this.a.mLoadDataCallBack;
-        gVar.a(uVar);
+        if (z) {
+            hVar2 = this.a.mLoadDataCallBack;
+            hVar2.a(null);
+        } else {
+            i = this.a.f;
+            if (i != 1) {
+                pVar3 = this.a.d;
+                if (pVar3 != null) {
+                    i2 = this.a.f;
+                    if (i2 == 2) {
+                        if (this.a.a()) {
+                            this.a.d = pVar5;
+                        } else {
+                            pVar4 = this.a.d;
+                            pVar4.a(pVar5, true);
+                        }
+                    }
+                    hVar = this.a.mLoadDataCallBack;
+                    pVar2 = this.a.d;
+                    hVar.a(pVar2);
+                }
+            }
+            this.a.d = pVar5;
+            hVar = this.a.mLoadDataCallBack;
+            pVar2 = this.a.d;
+            hVar.a(pVar2);
+        }
+        this.a.g = 0;
     }
 
-    public t(s sVar, String str, String str2, String str3, String str4, int i, int i2, boolean z) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ void b(com.baidu.tieba.data.p... pVarArr) {
+        com.baidu.adp.a.h hVar;
+        com.baidu.tieba.data.p[] pVarArr2 = pVarArr;
+        super.b((Object[]) pVarArr2);
+        u uVar = new u(this.a);
+        uVar.b = 3;
+        uVar.a = pVarArr2.length > 0 ? pVarArr2[0] : null;
+        hVar = this.a.mLoadDataCallBack;
+        hVar.a(uVar);
+    }
+
+    public t(s sVar) {
         this.a = sVar;
-        this.c = str;
-        this.d = str2;
-        this.e = str3;
-        this.f = str4;
-        this.g = i;
-        this.h = i2;
-        this.i = z;
+        setSelfExecute(true);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final void c() {
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: private */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public com.baidu.tieba.data.p a(Integer... numArr) {
+        String E;
+        com.baidu.adp.lib.cache.s<String> g;
+        try {
+            if (this.b == null) {
+                this.b = new com.baidu.tieba.b.b();
+            }
+            String num = numArr[0].toString();
+            if (numArr.length > 1 ? numArr[1].intValue() == 1 : false) {
+                c((Object[]) new com.baidu.tieba.data.p[]{this.a.f()});
+                if (numArr[1].intValue() == 1) {
+                    return null;
+                }
+            }
+            String b = this.b.b(num);
+            if (!this.b.c() || b == null) {
+                return null;
+            }
+            com.baidu.tieba.data.p pVar = new com.baidu.tieba.data.p();
+            pVar.a(b);
+            if (num.equals("1") && this.b.e() == 0 && pVar.d() == 0 && (E = TbadkApplication.E()) != null && (g = com.baidu.tbadk.core.c.b.a().g()) != null) {
+                g.a("home_forumfeed_" + E, b, 604800000L);
+            }
+            return pVar;
+        } catch (Exception e) {
+            this.a.g = 0;
+            com.baidu.adp.lib.util.f.b(s.class.getName(), "GetForumFeedTask.doInBackground", e.getMessage().toString());
+            return null;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final void d() {
+        super.d();
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public final void cancel() {
-        com.baidu.adp.a.g gVar;
-        if (this.b != null) {
-            this.b.j();
-        }
-        this.a.a = null;
         super.cancel(true);
-        gVar = this.a.mLoadDataCallBack;
-        gVar.a(null);
+        if (this.b != null) {
+            this.b.a();
+        }
     }
 }

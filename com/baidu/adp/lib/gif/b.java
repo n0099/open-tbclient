@@ -47,7 +47,7 @@ public final class b extends Thread {
     private int g = 1;
     private c B = null;
     private boolean C = false;
-    private byte[] D = new byte[256];
+    private final byte[] D = new byte[256];
     private int E = 0;
     private int F = 0;
     private int G = 0;
@@ -115,9 +115,8 @@ public final class b extends Thread {
         return String.valueOf(System.currentTimeMillis());
     }
 
-    private void a(Bitmap bitmap, String str) {
+    private void a(Bitmap bitmap) {
         try {
-            new File(String.valueOf(this.S) + File.separator + str + ".png");
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, new FileOutputStream(String.valueOf(this.S) + File.separator + e() + ".png"));
         } catch (Exception e) {
         }
@@ -541,9 +540,8 @@ public final class b extends Thread {
                                             this.z = Bitmap.createBitmap(iArr, this.a, this.b, Bitmap.Config.ARGB_4444);
                                             if (this.O == null) {
                                                 if (this.T) {
-                                                    String e = e();
-                                                    this.O = new c(String.valueOf(this.S) + File.separator + e + ".png", this.I);
-                                                    a(this.z, e);
+                                                    this.O = new c(String.valueOf(this.S) + File.separator + e() + ".png", this.I);
+                                                    a(this.z);
                                                 } else {
                                                     this.O = new c(this.z, this.I);
                                                 }
@@ -554,9 +552,8 @@ public final class b extends Thread {
                                                     cVar = cVar.d;
                                                 }
                                                 if (this.T) {
-                                                    String e2 = e();
-                                                    cVar.d = new c(String.valueOf(this.S) + File.separator + e2 + ".png", this.I);
-                                                    a(this.z, e2);
+                                                    cVar.d = new c(String.valueOf(this.S) + File.separator + e() + ".png", this.I);
+                                                    a(this.z);
                                                 } else {
                                                     cVar.d = new c(this.z, this.I);
                                                 }

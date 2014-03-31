@@ -1,23 +1,63 @@
 package com.baidu.tieba.im.model;
 
-import java.util.LinkedList;
+import com.baidu.gson.Gson;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.im.data.VoiceMsgData;
+import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class z extends com.baidu.tieba.im.b<Boolean> {
+public final class z extends com.baidu.adp.a.h {
     final /* synthetic */ MsglistModel a;
-    private final /* synthetic */ com.baidu.tieba.im.message.g c;
-    private final /* synthetic */ LinkedList d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(MsglistModel msglistModel, com.baidu.tieba.im.message.g gVar, LinkedList linkedList) {
+    public z(MsglistModel msglistModel) {
         this.a = msglistModel;
-        this.c = gVar;
-        this.d = linkedList;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.b
-    public final /* synthetic */ Boolean a() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.b.a().a(this.c.u(), this.d, false));
+    @Override // com.baidu.adp.a.h
+    public final void a(Object obj) {
+        BasicNameValuePair basicNameValuePair;
+        String str;
+        aw awVar;
+        aw awVar2;
+        if (obj != null && (obj instanceof BasicNameValuePair) && (basicNameValuePair = (BasicNameValuePair) obj) != null && basicNameValuePair.getName() != null && basicNameValuePair.getName().length() > 0) {
+            String name = basicNameValuePair.getName();
+            String value = basicNameValuePair.getValue();
+            com.baidu.adp.lib.util.f.d("----send voice suc, vid : " + value);
+            try {
+                com.baidu.tieba.im.message.a.a a = MsglistModel.a(this.a, Long.parseLong(name));
+                if (a != null) {
+                    if (value != null && value.length() > 0) {
+                        VoiceMsgData f = com.baidu.tieba.im.f.q.f(a);
+                        if (f != null) {
+                            f.setVoice_md5(value);
+                            a.d("[" + new Gson().toJson(f) + "]");
+                        }
+                        TiebaStatic.a(a.e(), 0, "", "", "upload voice http suc vid = " + value, 0, "upload voice http success ", System.currentTimeMillis() - a.E());
+                        com.baidu.tieba.im.chat.x.b().a(a);
+                        awVar = this.a.k;
+                        if (awVar != null) {
+                            com.baidu.adp.lib.util.f.e("simon", "send callback", "send voice");
+                            awVar2 = this.a.k;
+                            awVar2.t();
+                            return;
+                        }
+                        return;
+                    }
+                    TiebaStatic.a(a.e(), 0, "", "", "", -1, "upload voice http fail", System.currentTimeMillis() - a.E());
+                    this.a.d(a);
+                    if (a instanceof com.baidu.tieba.im.message.a.b) {
+                        com.baidu.tieba.im.s.a(new aa(this, (com.baidu.tieba.im.message.a.b) a), null);
+                    } else if (a instanceof com.baidu.tieba.im.message.a.f) {
+                        com.baidu.tieba.im.s.a(new ab(this, (com.baidu.tieba.im.message.a.f) a), null);
+                    } else if (a instanceof com.baidu.tieba.im.message.a.e) {
+                        com.baidu.tieba.im.s.a(new ac(this, (com.baidu.tieba.im.message.a.e) a), null);
+                    }
+                }
+            } catch (Exception e) {
+                str = MsglistModel.a;
+                com.baidu.adp.lib.util.f.b(str, "BdLoadDataCallBack", e.getMessage());
+            }
+        }
     }
 }

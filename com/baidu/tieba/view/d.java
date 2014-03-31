@@ -1,62 +1,46 @@
 package com.baidu.tieba.view;
 
-import android.graphics.Bitmap;
-import android.util.Log;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
+import android.app.TimePickerDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-public final class d extends WebViewClient {
-    final /* synthetic */ BaseWebView a;
+public final class d extends TimePickerDialog {
+    private int a;
+    private int b;
+    private boolean c;
 
-    public d(BaseWebView baseWebView) {
-        this.a = baseWebView;
+    public d(Context context, TimePickerDialog.OnTimeSetListener onTimeSetListener, int i, int i2, boolean z) {
+        super(context, onTimeSetListener, 0, 0, true);
+        this.a = -1;
+        this.b = -1;
+        this.c = false;
+        this.a = 0;
+        this.b = 0;
     }
 
-    @Override // android.webkit.WebViewClient
-    public final void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-        g gVar;
-        g gVar2;
-        super.onPageStarted(webView, str, bitmap);
-        gVar = this.a.e;
-        if (gVar != null) {
-            gVar2 = this.a.e;
-            gVar2.b();
+    @Override // android.app.TimePickerDialog
+    public final void updateTime(int i, int i2) {
+        super.updateTime(i, i2);
+        this.a = i;
+        this.b = i2;
+        this.c = false;
+    }
+
+    @Override // android.app.TimePickerDialog, android.content.DialogInterface.OnClickListener
+    public final void onClick(DialogInterface dialogInterface, int i) {
+        if (i == -1) {
+            this.c = true;
+        } else if (this.a >= 0 && this.b >= 0) {
+            updateTime(this.a, this.b);
         }
-        Log.d("BaseWebView", "@onPageStarted = " + str);
+        super.onClick(dialogInterface, i);
     }
 
-    @Override // android.webkit.WebViewClient
-    public final void onLoadResource(WebView webView, String str) {
-        super.onLoadResource(webView, str);
-    }
-
-    @Override // android.webkit.WebViewClient
-    public final void onPageFinished(WebView webView, String str) {
-        f fVar;
-        f fVar2;
-        super.onPageFinished(webView, str);
-        fVar = this.a.f;
-        if (fVar != null) {
-            fVar2 = this.a.f;
-            fVar2.a();
+    @Override // android.app.Dialog
+    protected final void onStop() {
+        if (!this.c) {
+            updateTime(this.a, this.b);
         }
-        Log.d("BaseWebView", "@onPageFinished = " + str);
-    }
-
-    @Override // android.webkit.WebViewClient
-    public final boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        e eVar;
-        e eVar2;
-        eVar = this.a.b;
-        if (eVar != null) {
-            eVar2 = this.a.b;
-            return eVar2.a(str);
-        }
-        return super.shouldOverrideUrlLoading(webView, str);
-    }
-
-    @Override // android.webkit.WebViewClient
-    public final void onReceivedError(WebView webView, int i, String str, String str2) {
-        super.onReceivedError(webView, i, str, str2);
+        super.onStop();
     }
 }

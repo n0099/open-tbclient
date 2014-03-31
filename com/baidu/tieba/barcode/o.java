@@ -1,45 +1,35 @@
 package com.baidu.tieba.barcode;
 
 import android.app.Activity;
-import android.content.BroadcastReceiver;
-import android.content.IntentFilter;
+import android.os.AsyncTask;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class o {
-    private final Activity a;
-    private final com.baidu.tieba.barcode.b.a.a b = new com.baidu.tieba.barcode.b.a.b().a();
-    private final BroadcastReceiver c = new q(this, (byte) 0);
-    private p d;
+public final class o extends AsyncTask<Object, Object, Object> {
+    final /* synthetic */ n a;
 
-    public o(Activity activity) {
-        this.a = activity;
-        a();
+    private o(n nVar) {
+        this.a = nVar;
     }
 
-    public final synchronized void a() {
-        e();
-        this.d = new p(this, (byte) 0);
-        this.b.a(this.d, new Object[0]);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ o(n nVar, byte b) {
+        this(nVar);
     }
 
-    public final void b() {
-        e();
-        this.a.unregisterReceiver(this.c);
-    }
-
-    public final void c() {
-        this.a.registerReceiver(this.c, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
-        a();
-    }
-
-    public synchronized void e() {
-        p pVar = this.d;
-        if (pVar != null) {
-            pVar.cancel(true);
-            this.d = null;
+    @Override // android.os.AsyncTask
+    protected final Object doInBackground(Object... objArr) {
+        Activity activity;
+        Activity activity2;
+        try {
+            Thread.sleep(300000L);
+            com.baidu.adp.lib.util.f.a(getClass().getName(), "doInBackground", "Finishing activity due to inactivity");
+            activity = this.a.a;
+            activity.setResult(0);
+            activity2 = this.a.a;
+            activity2.finish();
+            return null;
+        } catch (InterruptedException e) {
+            return null;
         }
-    }
-
-    public final void d() {
-        e();
     }
 }

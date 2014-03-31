@@ -5,9 +5,8 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.cb;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 public final class f implements x {
     CreateGroupStepActivity a;
@@ -38,10 +37,10 @@ public final class f implements x {
         this.d = null;
         this.e = null;
         this.a = createGroupStepActivity;
-        this.b = createGroupStepActivity.getLayoutInflater().inflate(R.layout.create_group_step1_view, (ViewGroup) null);
-        this.d = (EditText) this.b.findViewById(R.id.step1_group_name);
-        this.c = (ImageView) this.b.findViewById(R.id.step1_img_bg);
-        this.e = (ImageButton) this.b.findViewById(R.id.button_del);
+        this.b = createGroupStepActivity.getLayoutInflater().inflate(com.baidu.tieba.im.i.create_group_step1_view, (ViewGroup) null);
+        this.d = (EditText) this.b.findViewById(com.baidu.tieba.im.h.step1_group_name);
+        this.c = (ImageView) this.b.findViewById(com.baidu.tieba.im.h.step1_img_bg);
+        this.e = (ImageButton) this.b.findViewById(com.baidu.tieba.im.h.button_del);
         this.e.setOnClickListener(createGroupStepActivity);
         this.f = i;
         this.g = i2;
@@ -55,7 +54,7 @@ public final class f implements x {
 
     @Override // com.baidu.tieba.im.creategroup.x
     public final View a() {
-        cb.a(this.a, "create_g_name", "pv", 1, new Object[0]);
+        TiebaStatic.a(this.a, "create_g_name", "pv", 1, new Object[0]);
         return this.b;
     }
 
@@ -66,26 +65,26 @@ public final class f implements x {
 
     @Override // com.baidu.tieba.im.creategroup.x
     public final void h() {
-        this.a.getLayoutMode().a(TiebaApplication.g().ae() == 1);
+        this.a.getLayoutMode().a(TbadkApplication.j().l() == 1);
         this.a.getLayoutMode().a(this.b);
-        if (TiebaApplication.g().ae() == 1) {
-            this.d.setHintTextColor(this.a.getResources().getColor(R.color.create_group_input_hintcolor_1));
+        if (TbadkApplication.j().l() == 1) {
+            this.d.setHintTextColor(this.a.getResources().getColor(com.baidu.tieba.im.e.create_group_input_hintcolor_1));
         } else {
-            this.d.setHintTextColor(this.a.getResources().getColor(R.color.create_group_input_hintcolor));
+            this.d.setHintTextColor(this.a.getResources().getColor(com.baidu.tieba.im.e.create_group_input_hintcolor));
         }
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
     public final String i() {
-        return String.format(this.a.getString(R.string.group_create_step_name), Integer.valueOf(this.g));
+        return String.format(this.a.getString(com.baidu.tieba.im.j.group_create_step_name), Integer.valueOf(this.g));
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
     public final String j() {
         if (this.f != this.h) {
-            return this.a.getString(R.string.group_create_step_tip);
+            return this.a.getString(com.baidu.tieba.im.j.group_create_step_tip);
         }
-        return this.a.getString(R.string.group_create_step_done_tip);
+        return this.a.getString(com.baidu.tieba.im.j.group_create_step_done_tip);
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
@@ -95,7 +94,7 @@ public final class f implements x {
 
     @Override // com.baidu.tieba.im.creategroup.x
     public final String l() {
-        return this.a.getString(R.string.group_step_name_error);
+        return this.a.getString(com.baidu.tieba.im.j.group_step_name_error);
     }
 
     @Override // com.baidu.tieba.im.creategroup.x

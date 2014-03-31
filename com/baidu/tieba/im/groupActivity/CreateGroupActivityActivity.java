@@ -8,22 +8,19 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.android.pushservice.PushConstants;
-import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.im.data.GroupActivityData;
-import com.slidingmenu.lib.R;
+import com.baidu.tieba.person.PersonInfoActivity;
 /* loaded from: classes.dex */
-public class CreateGroupActivityActivity extends com.baidu.tieba.k implements View.OnClickListener {
-    private e d;
-    private d e;
-    private c f;
-    private boolean g = false;
+public class CreateGroupActivityActivity extends com.baidu.tbadk.core.e implements View.OnClickListener {
+    private e c;
+    private d d;
+    private boolean e = false;
+    private com.baidu.adp.framework.c.g f = new a(this, 103120);
 
     public static void a(Context context, int i) {
         if (context != null) {
             Intent intent = new Intent(context, CreateGroupActivityActivity.class);
-            intent.putExtra(PushConstants.EXTRA_GID, i);
+            intent.putExtra("gid", i);
             intent.putExtra("isedit", false);
             context.startActivity(intent);
         }
@@ -32,76 +29,76 @@ public class CreateGroupActivityActivity extends com.baidu.tieba.k implements Vi
     public static void a(Activity activity, int i, GroupActivityData groupActivityData, int i2) {
         if (activity != null && i != 0 && groupActivityData != null) {
             Intent intent = new Intent(activity, CreateGroupActivityActivity.class);
-            intent.putExtra(PushConstants.EXTRA_GID, i);
+            intent.putExtra("gid", i);
             intent.putExtra("isedit", true);
             intent.putExtra("aid", groupActivityData.getActivityId());
-            intent.putExtra(SocialConstants.PARAM_MEDIA_UNAME, groupActivityData.getgActivityTitle());
+            intent.putExtra(PersonInfoActivity.TAG_NAME, groupActivityData.getgActivityTitle());
             intent.putExtra("time", groupActivityData.getgActivityTime());
             intent.putExtra("area", groupActivityData.getgActivityArea());
-            intent.putExtra(PushConstants.EXTRA_CONTENT, groupActivityData.getgActivityContent());
+            intent.putExtra("content", groupActivityData.getgActivityContent());
             activity.startActivityForResult(intent, 23001);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.k, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.e, com.baidu.adp.a.c, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        e();
-        this.e = new d();
-        this.d = new e(this);
-        if (this.e.a() != null) {
+        f();
+        this.d = new d(this);
+        this.c = new e(this);
+        if (this.d.a() != null) {
             if (bundle != null) {
-                this.e.a().setGroupId(bundle.getInt(PushConstants.EXTRA_GID, 0));
-                this.g = bundle.getBoolean("isedit", false);
-                if (this.g) {
-                    this.e.a().setActivityId(bundle.getInt("aid", 0));
-                    this.e.a().setgActivityTitle(bundle.getString(SocialConstants.PARAM_MEDIA_UNAME));
-                    this.e.a().setgActivityArea(bundle.getString("area"));
-                    this.e.a().setgActivityContent(bundle.getString(PushConstants.EXTRA_CONTENT));
-                    this.e.a().setgActivityTime(bundle.getLong("time", 0L));
+                this.d.a().setGroupId(bundle.getInt("gid", 0));
+                this.e = bundle.getBoolean("isedit", false);
+                if (this.e) {
+                    this.d.a().setActivityId(bundle.getInt("aid", 0));
+                    this.d.a().setgActivityTitle(bundle.getString(PersonInfoActivity.TAG_NAME));
+                    this.d.a().setgActivityArea(bundle.getString("area"));
+                    this.d.a().setgActivityContent(bundle.getString("content"));
+                    this.d.a().setgActivityTime(bundle.getLong("time", 0L));
                 }
             } else if (getIntent() != null) {
-                this.e.a().setGroupId(getIntent().getIntExtra(PushConstants.EXTRA_GID, 0));
-                this.g = getIntent().getBooleanExtra("isedit", false);
-                if (this.g) {
-                    this.e.a().setActivityId(getIntent().getIntExtra("aid", 0));
-                    this.e.a().setgActivityTitle(getIntent().getStringExtra(SocialConstants.PARAM_MEDIA_UNAME));
-                    this.e.a().setgActivityArea(getIntent().getStringExtra("area"));
-                    this.e.a().setgActivityContent(getIntent().getStringExtra(PushConstants.EXTRA_CONTENT));
-                    this.e.a().setgActivityTime(getIntent().getLongExtra("time", 0L));
+                this.d.a().setGroupId(getIntent().getIntExtra("gid", 0));
+                this.e = getIntent().getBooleanExtra("isedit", false);
+                if (this.e) {
+                    this.d.a().setActivityId(getIntent().getIntExtra("aid", 0));
+                    this.d.a().setgActivityTitle(getIntent().getStringExtra(PersonInfoActivity.TAG_NAME));
+                    this.d.a().setgActivityArea(getIntent().getStringExtra("area"));
+                    this.d.a().setgActivityContent(getIntent().getStringExtra("content"));
+                    this.d.a().setgActivityTime(getIntent().getLongExtra("time", 0L));
                 }
             }
         }
-        this.d.a(this.e.a(), this.g);
+        this.c.a(this.d.a(), this.e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        e();
-        if (this.e == null) {
-            this.e = new d();
+        f();
+        if (this.d == null) {
+            this.d = new d(this);
         }
         if (intent == null) {
             intent = getIntent();
         }
-        if (intent != null && this.e.a() != null) {
-            this.e.a().setGroupId(intent.getIntExtra(PushConstants.EXTRA_GID, 0));
-            this.g = getIntent().getBooleanExtra("isedit", false);
-            if (this.g) {
-                this.e.a().setActivityId(intent.getIntExtra("aid", 0));
-                this.e.a().setgActivityTitle(getIntent().getStringExtra(SocialConstants.PARAM_MEDIA_UNAME));
-                this.e.a().setgActivityArea(getIntent().getStringExtra("area"));
-                this.e.a().setgActivityContent(getIntent().getStringExtra(PushConstants.EXTRA_CONTENT));
-                this.e.a().setgActivityTime(getIntent().getLongExtra("time", 0L));
+        if (intent != null && this.d.a() != null) {
+            this.d.a().setGroupId(intent.getIntExtra("gid", 0));
+            this.e = getIntent().getBooleanExtra("isedit", false);
+            if (this.e) {
+                this.d.a().setActivityId(intent.getIntExtra("aid", 0));
+                this.d.a().setgActivityTitle(getIntent().getStringExtra(PersonInfoActivity.TAG_NAME));
+                this.d.a().setgActivityArea(getIntent().getStringExtra("area"));
+                this.d.a().setgActivityContent(getIntent().getStringExtra("content"));
+                this.d.a().setgActivityTime(getIntent().getLongExtra("time", 0L));
             }
         }
-        if (this.d == null) {
-            this.d = new e(this);
+        if (this.c == null) {
+            this.c = new e(this);
         }
-        this.d.a(this.e.a(), this.g);
+        this.c.a(this.d.a(), this.e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -109,76 +106,69 @@ public class CreateGroupActivityActivity extends com.baidu.tieba.k implements Vi
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         int i = 0;
-        if (this.e.a() != null) {
-            i = this.e.a().getGroupId();
+        if (this.d.a() != null) {
+            i = this.d.a().getGroupId();
         }
-        bundle.putInt(PushConstants.EXTRA_GID, i);
-        bundle.putString(SocialConstants.PARAM_MEDIA_UNAME, this.d.e());
-        bundle.putString(PushConstants.EXTRA_CONTENT, this.d.g());
-        bundle.putString("area", this.d.f());
-        bundle.putLong("time", this.d.h());
+        bundle.putInt("gid", i);
+        bundle.putString(PersonInfoActivity.TAG_NAME, this.c.e());
+        bundle.putString("content", this.c.g());
+        bundle.putString("area", this.c.f());
+        bundle.putLong("time", this.c.h());
     }
 
-    @Override // com.baidu.tieba.k
-    protected final void b(int i) {
-        if (this.d != null) {
-            this.d.a(i);
+    @Override // com.baidu.tbadk.core.e
+    protected final void c(int i) {
+        if (this.c != null) {
+            this.c.a(i);
         }
     }
 
-    private void e() {
-        if (this.f == null) {
-            this.f = new c(this, (byte) 0);
-            com.baidu.tieba.im.messageCenter.d.a().a(103120, this.f);
-        }
+    private void f() {
+        a(this.f);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.k, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.e, com.baidu.adp.a.c, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        d dVar = this.e;
-        if (dVar.a != null) {
-            com.baidu.tieba.im.messageCenter.d.a().b(dVar.a);
-        }
-        com.baidu.tieba.im.messageCenter.d.a().a(this.f);
-        this.d.c();
+        this.d.cancelMessage();
+        this.c.c();
     }
 
-    @Override // android.view.View.OnClickListener
+    @Override // com.baidu.adp.a.c, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.d.a()) {
-            f();
-        } else if (view == this.d.d() && this.e != null && this.e.a() != null) {
-            long h = this.d.h();
-            if ((!this.g || this.d.i()) && 1000 * h < System.currentTimeMillis()) {
-                BdUtilHelper.a((Context) this, (int) R.string.group_activity_time_val);
+        if (view == this.c.a()) {
+            g();
+        } else if (view == this.c.d() && this.d != null && this.d.a() != null) {
+            long h = this.c.h();
+            if ((!this.e || this.c.i()) && 1000 * h < System.currentTimeMillis()) {
+                com.baidu.adp.lib.util.i.a((Context) this, com.baidu.tieba.im.j.group_activity_time_val);
                 return;
             }
-            this.e.a().setgActivityArea(this.d.f());
-            this.e.a().setgActivityContent(this.d.g());
-            this.e.a().setgActivityTime(h);
-            this.e.a().setgActivityTitle(this.d.e());
-            c();
-            this.e.a(this.g);
+            this.d.a().setgActivityArea(this.c.f());
+            this.d.a().setgActivityContent(this.c.g());
+            this.d.a().setgActivityTime(h);
+            this.d.a().setgActivityTitle(this.c.e());
+            g_();
+            this.d.a(this.e);
         }
     }
 
-    @Override // com.baidu.tieba.k, android.support.v4.app.FragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tbadk.core.e, android.support.v4.app.FragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            if (TextUtils.isEmpty(this.d.e())) {
+            if (TextUtils.isEmpty(this.c.e())) {
                 finish();
                 return true;
             }
-            f();
+            g();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
     }
 
-    private void f() {
-        boolean z = this.g;
-        new AlertDialog.Builder(this).setTitle(R.string.quit).setMessage(z ? R.string.group_activity_edit_quit : R.string.group_activity_create_quit).setPositiveButton(R.string.confirm, new a(this)).setNegativeButton(R.string.cancel, new b(this)).create().show();
+    private void g() {
+        boolean z = this.e;
+        new AlertDialog.Builder(this).setTitle(com.baidu.tieba.im.j.quit).setMessage(z ? com.baidu.tieba.im.j.group_activity_edit_quit : com.baidu.tieba.im.j.group_activity_create_quit).setPositiveButton(com.baidu.tieba.im.j.confirm, new b(this)).setNegativeButton(com.baidu.tieba.im.j.cancel, new c(this)).create().show();
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.recommend;
 /* loaded from: classes.dex */
-final class e implements com.baidu.adp.widget.ListView.b {
+final class e implements r {
     final /* synthetic */ DailyRecommendActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -8,8 +8,8 @@ final class e implements com.baidu.adp.widget.ListView.b {
         this.a = dailyRecommendActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.b
-    public final void a(boolean z) {
-        this.a.a(true, (String) null);
+    @Override // com.baidu.tieba.recommend.r
+    public final void a(String str) {
+        this.a.g = str;
     }
 }

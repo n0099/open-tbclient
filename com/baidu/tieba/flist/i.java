@@ -2,7 +2,7 @@ package com.baidu.tieba.flist;
 
 import com.baidu.tieba.flist.ForumListModel;
 /* loaded from: classes.dex */
-final class i implements com.baidu.adp.widget.ListView.b {
+final class i implements com.baidu.adp.widget.ListView.d {
     final /* synthetic */ ForumListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,7 +10,7 @@ final class i implements com.baidu.adp.widget.ListView.b {
         this.a = forumListActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.b
+    @Override // com.baidu.adp.widget.ListView.d
     public final void a(boolean z) {
         r rVar;
         r rVar2;
@@ -45,7 +45,7 @@ final class i implements com.baidu.adp.widget.ListView.b {
                     } else {
                         this.a.n = 200;
                     }
-                    com.baidu.adp.lib.util.e.e("ForumListActivity", "pull down", "left refresh");
+                    com.baidu.adp.lib.util.f.e("ForumListActivity", "pull down", "left refresh");
                     new q(this.a, (byte) 0).execute(new Void[0]);
                 } else if (this.a.c.d.getCurrentItem() == 1) {
                     z3 = this.a.C;
@@ -54,7 +54,7 @@ final class i implements com.baidu.adp.widget.ListView.b {
                     } else {
                         this.a.o = 200;
                     }
-                    com.baidu.adp.lib.util.e.e("ForumListActivity", "pull down", "right refresh");
+                    com.baidu.adp.lib.util.f.e("ForumListActivity", "pull down", "right refresh");
                     new p(this.a, (byte) 0).execute(new Void[0]);
                 }
             }

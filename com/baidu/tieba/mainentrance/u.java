@@ -1,9 +1,8 @@
 package com.baidu.tieba.mainentrance;
 
-import java.util.ArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
+import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
-public final class u implements com.baidu.tieba.im.a<ArrayList<String>> {
+final class u implements Runnable {
     final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,9 +10,33 @@ public final class u implements com.baidu.tieba.im.a<ArrayList<String>> {
         this.a = squareSearchActivity;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.baidu.tieba.im.a
-    public final /* bridge */ /* synthetic */ void a(ArrayList<String> arrayList) {
-        this.a.a(true, arrayList);
+    @Override // java.lang.Runnable
+    public final void run() {
+        String str;
+        String str2;
+        String str3;
+        ab abVar;
+        ab abVar2;
+        try {
+            str = this.a.y;
+            if (str != null) {
+                str2 = this.a.y;
+                if (str2.length() > 0) {
+                    StringBuffer stringBuffer = new StringBuffer(30);
+                    stringBuffer.append(com.baidu.tbadk.core.data.n.a);
+                    stringBuffer.append("c/f/forum/search");
+                    str3 = this.a.y;
+                    BasicNameValuePair basicNameValuePair = new BasicNameValuePair("query", str3.trim());
+                    this.a.a();
+                    this.a.w = new ab(this.a, stringBuffer.toString(), basicNameValuePair);
+                    abVar = this.a.w;
+                    abVar.setPriority(3);
+                    abVar2 = this.a.w;
+                    abVar2.execute(stringBuffer.toString(), basicNameValuePair);
+                }
+            }
+        } catch (Exception e) {
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "mSuggestRunnble.run", "error = " + e.getMessage());
+        }
     }
 }

@@ -1,8 +1,7 @@
 package com.baidu.tieba.account.appeal;
 
 import android.widget.TextView;
-import com.baidu.tieba.util.bs;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.core.util.bc;
 /* loaded from: classes.dex */
 final class d implements l {
     final /* synthetic */ AppealActivity a;
@@ -21,7 +20,7 @@ final class d implements l {
         str = this.a.h;
         textView.setText(str);
         textView2 = this.a.c;
-        textView2.setText(!bs.c(forbidReasonData.reason) ? forbidReasonData.reason : this.a.getString(R.string.default_forbid_reason));
+        textView2.setText(!bc.c(forbidReasonData.reason) ? forbidReasonData.reason : this.a.getString(com.baidu.tieba.a.k.default_forbid_reason));
     }
 
     @Override // com.baidu.tieba.account.appeal.l

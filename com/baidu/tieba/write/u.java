@@ -2,7 +2,6 @@ package com.baidu.tieba.write;
 
 import android.content.Context;
 import android.view.View;
-import com.baidu.tieba.pb.NewPbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class u implements View.OnClickListener {
@@ -18,7 +17,8 @@ public final class u implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         Context context;
+        com.baidu.adp.framework.c a = com.baidu.adp.framework.c.a();
         context = this.a.a;
-        NewPbActivity.a(context, this.b, (String) null, "feed_back");
+        a.a(new com.baidu.adp.framework.message.a(2004001, new com.baidu.tbadk.core.b.af(context).a(this.b, null, "feed_back")));
     }
 }

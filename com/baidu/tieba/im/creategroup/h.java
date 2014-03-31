@@ -4,9 +4,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.view.HeadImageView;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 public final class h implements x {
     CreateGroupStepActivity a;
@@ -27,10 +26,10 @@ public final class h implements x {
         this.d = null;
         this.e = null;
         this.a = createGroupStepActivity;
-        this.b = createGroupStepActivity.getLayoutInflater().inflate(R.layout.create_group_step3_view, (ViewGroup) null);
-        this.d = (ImageView) this.b.findViewById(R.id.step3_img_bg);
-        this.c = (HeadImageView) this.b.findViewById(R.id.step3_img_scr);
-        this.e = (Button) this.b.findViewById(R.id.create_group3);
+        this.b = createGroupStepActivity.getLayoutInflater().inflate(com.baidu.tieba.im.i.create_group_step3_view, (ViewGroup) null);
+        this.d = (ImageView) this.b.findViewById(com.baidu.tieba.im.h.step3_img_bg);
+        this.c = (HeadImageView) this.b.findViewById(com.baidu.tieba.im.h.step3_img_scr);
+        this.e = (Button) this.b.findViewById(com.baidu.tieba.im.h.create_group3);
         this.h = i;
         this.i = i2;
         this.j = i3;
@@ -57,22 +56,22 @@ public final class h implements x {
 
     @Override // com.baidu.tieba.im.creategroup.x
     public final void h() {
-        this.a.getLayoutMode().a(TiebaApplication.g().ae() == 1);
+        this.a.getLayoutMode().a(TbadkApplication.j().l() == 1);
         this.a.getLayoutMode().a(this.b);
-        this.c.d();
+        this.c.c();
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
     public final String i() {
-        return String.format(this.a.getString(R.string.group_create_step_photo), Integer.valueOf(this.i));
+        return String.format(this.a.getString(com.baidu.tieba.im.j.group_create_step_photo), Integer.valueOf(this.i));
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
     public final String j() {
         if (this.h != this.j) {
-            return this.a.getString(R.string.group_create_step_tip);
+            return this.a.getString(com.baidu.tieba.im.j.group_create_step_tip);
         }
-        return this.a.getString(R.string.group_create_step_done_tip);
+        return this.a.getString(com.baidu.tieba.im.j.group_create_step_done_tip);
     }
 
     @Override // com.baidu.tieba.im.creategroup.x

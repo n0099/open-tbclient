@@ -1,31 +1,23 @@
 package com.baidu.tieba.view;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.List;
 /* loaded from: classes.dex */
-public final class j implements View.OnClickListener {
-    final /* synthetic */ i a;
+final class j {
+    public final boolean a;
+    public final List<Object> b;
+    public final List<Object> c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public j(i iVar) {
-        this.a = iVar;
+    public static j a(List<Object> list, List<Object> list2) {
+        return new j(true, list, list2);
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        m mVar;
-        String str;
-        m mVar2;
-        String str2;
-        m mVar3;
-        mVar = this.a.e;
-        str = this.a.g;
-        mVar.a(str);
-        mVar2 = this.a.e;
-        str2 = this.a.h;
-        mVar2.b(str2);
-        mVar3 = this.a.e;
-        mVar3.show();
-        this.a.cancel();
+    public static j a() {
+        return new j(false, null, null);
+    }
+
+    private j(boolean z, List<Object> list, List<Object> list2) {
+        this.a = z;
+        this.b = list;
+        this.c = list2;
     }
 }

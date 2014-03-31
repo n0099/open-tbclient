@@ -1,20 +1,23 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.im.message.ResponseCommitGroupMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class an implements com.baidu.tieba.im.widget.h {
-    final /* synthetic */ am a;
+public final class an implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ x a;
+    private final /* synthetic */ ResponseCommitGroupMessage b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public an(am amVar) {
-        this.a = amVar;
+    public an(x xVar, ResponseCommitGroupMessage responseCommitGroupMessage) {
+        this.a = xVar;
+        this.b = responseCommitGroupMessage;
     }
 
-    @Override // com.baidu.tieba.im.widget.h
-    public final void a() {
-        TiebaApplication.g().x(false);
-        com.baidu.tieba.im.message.aw awVar = new com.baidu.tieba.im.message.aw();
-        awVar.a(com.baidu.adp.lib.f.b.a(GroupChatActivity.b, 0));
-        com.baidu.tieba.im.messageCenter.d.a().a(awVar);
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.baidu.tieba.im.a
+    public final /* bridge */ /* synthetic */ void a(Boolean bool) {
+        if (this.b != null) {
+            this.a.a(this.b);
+        }
     }
 }

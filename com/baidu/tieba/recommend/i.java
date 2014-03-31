@@ -1,47 +1,53 @@
 package com.baidu.tieba.recommend;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import android.view.View;
-import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.cb;
-import java.util.ArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Handler;
 /* loaded from: classes.dex */
-public final class i implements com.baidu.tieba.view.r {
-    final /* synthetic */ h a;
+final class i implements aa {
+    final /* synthetic */ DailyRecommendActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(h hVar) {
-        this.a = hVar;
+    public i(DailyRecommendActivity dailyRecommendActivity) {
+        this.a = dailyRecommendActivity;
     }
 
-    @Override // com.baidu.tieba.view.r
-    public final void a() {
-        t tVar;
-        t tVar2;
-        com.baidu.tieba.view.q qVar;
-        t tVar3;
-        com.baidu.tieba.view.q qVar2;
-        Activity activity;
-        Activity activity2;
-        tVar = this.a.g;
-        if (tVar != null) {
-            tVar2 = this.a.g;
-            int size = tVar2.a.size();
-            qVar = this.a.f;
-            if (size > qVar.getCurrentItem()) {
-                tVar3 = this.a.g;
-                ArrayList<View> arrayList = tVar3.a;
-                qVar2 = this.a.f;
-                String str = (String) arrayList.get(qVar2.getCurrentItem()).getTag();
-                if (!TextUtils.isEmpty(str)) {
-                    activity = this.a.i;
-                    UtilHelper.a(activity, str, null, null);
-                    activity2 = this.a.i;
-                    cb.a(activity2, "recommend_banner", "click");
+    @Override // com.baidu.tieba.recommend.aa
+    public final void a(boolean z, String str, com.baidu.tieba.data.k kVar, int i) {
+        ab abVar;
+        ab abVar2;
+        ab abVar3;
+        Handler handler;
+        Runnable runnable;
+        Handler handler2;
+        Runnable runnable2;
+        ab abVar4;
+        abVar = this.a.c;
+        abVar.a(true, "");
+        if (z) {
+            abVar3 = this.a.c;
+            abVar3.a(kVar);
+            handler = this.a.e;
+            runnable = this.a.f;
+            handler.removeCallbacks(runnable);
+            handler2 = this.a.e;
+            runnable2 = this.a.f;
+            handler2.postDelayed(runnable2, 0L);
+            if (i == 0) {
+                abVar4 = this.a.c;
+                abVar4.f();
+            }
+        } else {
+            abVar2 = this.a.c;
+            abVar2.a((com.baidu.tieba.data.k) null);
+            if (i != 1) {
+                if (str.equals("70000")) {
+                    this.a.showToast("已经无新数据了");
+                } else {
+                    this.a.showToast("获取数据失败");
                 }
             }
+        }
+        if (i == 1) {
+            this.a.a(true, (String) null);
         }
     }
 }

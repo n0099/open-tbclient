@@ -13,6 +13,7 @@ public final class k extends GeneratedMessageLite.Builder<CommitPersonalMsgRes.D
     private int c;
     private long d;
     private long e;
+    private int f;
 
     @Override // com.google.protobuf.MessageLite.Builder
     public final /* synthetic */ MessageLite build() {
@@ -52,6 +53,8 @@ public final class k extends GeneratedMessageLite.Builder<CommitPersonalMsgRes.D
         this.a &= -5;
         this.e = 0L;
         this.a &= -9;
+        this.f = 0;
+        this.a &= -17;
         return this;
     }
 
@@ -80,6 +83,10 @@ public final class k extends GeneratedMessageLite.Builder<CommitPersonalMsgRes.D
             i2 |= 8;
         }
         dataRes.toUid_ = this.e;
+        if ((i & 16) == 16) {
+            i2 |= 16;
+        }
+        dataRes.toUserType_ = this.f;
         dataRes.bitField0_ = i2;
         return dataRes;
     }
@@ -107,6 +114,11 @@ public final class k extends GeneratedMessageLite.Builder<CommitPersonalMsgRes.D
                 long toUid = dataRes.getToUid();
                 this.a |= 8;
                 this.e = toUid;
+            }
+            if (dataRes.hasToUserType()) {
+                int toUserType = dataRes.getToUserType();
+                this.a |= 16;
+                this.f = toUserType;
             }
         }
         return this;

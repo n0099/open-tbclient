@@ -28,11 +28,11 @@ final class o extends PagerAdapter {
     public final Object instantiateItem(ViewGroup viewGroup, int i) {
         switch (i) {
             case 0:
-                viewGroup.addView(this.a.c.h);
-                return this.a.c.h;
-            case 1:
                 viewGroup.addView(this.a.c.i);
                 return this.a.c.i;
+            case 1:
+                viewGroup.addView(this.a.c.j);
+                return this.a.c.j;
             default:
                 return null;
         }

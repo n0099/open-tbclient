@@ -1,59 +1,27 @@
 package com.baidu.tieba.faceshop;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.gson.GsonBuilder;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.widget.ImageView.BDImageView;
 /* loaded from: classes.dex */
-public final class l extends BdAsyncTask<Object, FaceBuyData, FaceBuyData> {
-    final /* synthetic */ j a;
-    private com.baidu.tieba.util.ba b;
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* bridge */ /* synthetic */ void a(FaceBuyData faceBuyData) {
-        com.baidu.adp.a.g gVar;
-        FaceBuyData faceBuyData2 = faceBuyData;
-        super.a((l) faceBuyData2);
-        this.a.a = null;
-        gVar = this.a.mLoadDataCallBack;
-        gVar.a(faceBuyData2);
-    }
-
-    private l(j jVar) {
-        this.a = jVar;
-    }
+final class l implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ EmotionImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ l(j jVar, byte b) {
-        this(jVar);
+    public l(EmotionImageActivity emotionImageActivity) {
+        this.a = emotionImageActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: private */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public FaceBuyData a(Object... objArr) {
-        String obj = objArr[0].toString();
-        try {
-            this.b = new com.baidu.tieba.util.ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/e/faces/buyfacepack");
-            this.b.a("pid", obj);
-            return (FaceBuyData) new GsonBuilder().create().fromJson(this.b.l(), (Class<Object>) FaceBuyData.class);
-        } catch (Exception e) {
-            com.baidu.adp.lib.util.e.b(getClass().getName(), "doInBackground", e.toString());
-            return null;
+    @Override // com.baidu.tbadk.imageManager.d
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        boolean z2;
+        String str2;
+        BDImageView bDImageView;
+        z2 = this.a.q;
+        if (!z2 && bVar != null) {
+            str2 = this.a.h;
+            if (str2.equals(str)) {
+                bDImageView = this.a.c;
+                bVar.a(bDImageView);
+            }
         }
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void cancel() {
-        com.baidu.adp.a.g gVar;
-        super.cancel(true);
-        if (this.b != null) {
-            this.b.j();
-        }
-        this.a.a = null;
-        gVar = this.a.mLoadDataCallBack;
-        gVar.a(null);
     }
 }

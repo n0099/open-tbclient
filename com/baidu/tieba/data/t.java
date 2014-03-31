@@ -1,80 +1,109 @@
 package com.baidu.tieba.data;
 
-import com.baidu.android.pushservice.PushConstants;
+import android.content.Context;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class t {
-    private int a = 0;
-    private long b = 0;
+    private ai e;
+    private ArrayList<f> f;
+    private Context n;
+    private String a = null;
+    private String b = null;
     private String c = null;
     private String d = null;
-    private String e = null;
-    private String f = null;
-    private String g = null;
-    private String h = null;
-    private MetaData i = new MetaData();
-    private MetaData j = new MetaData();
-    private int k;
-    private String l;
+    private int g = 0;
+    private int h = 0;
+    private String i = null;
+    private String j = null;
+    private String k = null;
+    private String l = null;
+    private int m = -1;
 
-    public final int a() {
-        return this.a;
+    public t(Context context) {
+        this.e = null;
+        this.f = null;
+        this.n = null;
+        this.n = context;
+        this.e = new ai();
+        this.f = new ArrayList<>();
     }
 
-    public final long b() {
+    public final ai a() {
+        return this.e;
+    }
+
+    public final String b() {
         return this.b;
     }
 
     public final String c() {
-        return this.c;
+        return this.a;
     }
 
     public final String d() {
-        return this.d;
-    }
-
-    public final String e() {
-        return this.e;
-    }
-
-    public final String f() {
-        return this.f;
-    }
-
-    public final String g() {
-        return this.g;
-    }
-
-    public final String h() {
-        return this.h;
-    }
-
-    public final MetaData i() {
         return this.i;
     }
 
-    public final boolean j() {
-        return this.k == 1;
+    public final String e() {
+        return this.k;
+    }
+
+    public final int f() {
+        return this.g;
+    }
+
+    public final int g() {
+        return this.h;
+    }
+
+    public final int h() {
+        return this.m;
+    }
+
+    public final String i() {
+        return this.l;
+    }
+
+    public final String j() {
+        return this.d;
     }
 
     public final void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optInt("type", 0);
-                this.c = jSONObject.optString("title");
-                this.b = jSONObject.optLong("time", 0L) * 1000;
-                this.d = jSONObject.optString("fname");
-                this.e = jSONObject.optString(PushConstants.EXTRA_CONTENT);
-                this.f = jSONObject.optString("quote_content");
-                this.g = jSONObject.optString("thread_id");
-                this.h = jSONObject.optString("post_id");
-                this.k = jSONObject.optInt("is_floor");
-                this.l = jSONObject.optString("quote_pid");
-                this.i.parserJson(jSONObject.optJSONObject("replyer"));
-                this.j.parserJson(jSONObject.optJSONObject("quote_user"));
-            } catch (Exception e) {
-                com.baidu.adp.lib.util.e.b("FeedData", "parserJson", "error = " + e.getMessage());
+        JSONObject optJSONObject;
+        try {
+            this.i = jSONObject.optString("post_id");
+            this.k = jSONObject.optString("user_name");
+            this.l = jSONObject.optString("user_id");
+            this.j = jSONObject.optString("comment_amount");
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("img");
+            this.m = jSONObject.optInt("index", -1);
+            if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("original")) != null) {
+                this.a = optJSONObject.optString("id");
+                this.b = optJSONObject.optString("url");
+                this.g = optJSONObject.optInt("width", 0);
+                this.h = optJSONObject.optInt("height", 0);
+                this.c = optJSONObject.optString("cdn_src", "");
+                if (this.c == null || this.c.length() == 0) {
+                    this.c = this.b;
+                }
+                this.d = optJSONObject.optString("big_cdn_src", null);
             }
+            JSONArray optJSONArray = jSONObject.optJSONArray("descr");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    f fVar = new f();
+                    fVar.a(optJSONArray.optJSONObject(i));
+                    this.f.add(fVar);
+                }
+            }
+            this.e.a(this.f);
+            if (this.n != null) {
+                this.e.b(this.n);
+            }
+        } catch (Exception e) {
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "paserJson", e.toString());
         }
     }
 }

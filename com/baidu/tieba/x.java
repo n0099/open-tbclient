@@ -1,24 +1,22 @@
 package com.baidu.tieba;
 
-import android.support.v4.view.ViewPager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.AccountData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class x implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ GuideActivity a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public x(GuideActivity guideActivity) {
-        this.a = guideActivity;
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public final void onPageSelected(int i) {
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public final void onPageScrollStateChanged(int i) {
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public final void onPageScrolled(int i, float f, int i2) {
+public final class x implements com.baidu.adp.framework.task.a<AccountData> {
+    @Override // com.baidu.adp.framework.task.a
+    public final CustomResponsedMessage<?> a(com.baidu.adp.framework.message.a<AccountData> aVar) {
+        if (com.baidu.adp.lib.util.i.c()) {
+            TbadkApplication.j();
+            r.a(aVar.a());
+            return null;
+        } else if (r.c() != null) {
+            r.c().b.post(new y(this, aVar));
+            return null;
+        } else {
+            return null;
+        }
     }
 }

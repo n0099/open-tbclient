@@ -1,7 +1,6 @@
 package com.baidu.adp.lib.stats;
 
 import android.text.TextUtils;
-import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.location.LocationClientOption;
 import java.io.Serializable;
 import org.json.JSONObject;
@@ -77,7 +76,7 @@ public class BdStatSwitchData implements Serializable {
             try {
                 parserJson(new JSONObject(str));
             } catch (Exception e) {
-                com.baidu.adp.lib.util.e.a(getClass(), "parserJson", e);
+                com.baidu.adp.lib.util.f.a(getClass(), "parserJson", e);
             }
         }
     }
@@ -85,8 +84,8 @@ public class BdStatSwitchData implements Serializable {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                setError_code(jSONObject.optInt(SocialConstants.PARAM_ERROR_CODE, 0));
-                setError_msg(jSONObject.optString(SocialConstants.PARAM_ERROR_CODE));
+                setError_code(jSONObject.optInt("error_code", 0));
+                setError_msg(jSONObject.optString("error_code"));
                 int optInt = jSONObject.optInt("upload_interval", 0);
                 if (optInt > 0) {
                     setUploadInterval(optInt);
@@ -98,7 +97,7 @@ public class BdStatSwitchData implements Serializable {
                     this.error.parserJson(optJSONObject.optJSONObject("error"));
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.e.a(getClass(), "parserJson", e);
+                com.baidu.adp.lib.util.f.a(getClass(), "parserJson", e);
             }
         }
     }

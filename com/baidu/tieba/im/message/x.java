@@ -1,23 +1,42 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tieba.im.messageCenter.IDuplicateProcess;
 import com.google.protobuf.MessageLite;
+import protobuf.QueryGroupCount.QueryGroupCountReq;
 /* loaded from: classes.dex */
-public final class x extends s implements com.baidu.tieba.im.coder.g, IDuplicateProcess {
-    private static final MessageLite a = new y();
-    private IDuplicateProcess.RemoveState b = IDuplicateProcess.RemoveState.REMOVE_ME;
+public final class x extends com.baidu.tbadk.message.websockt.d {
+    private String a;
+    private String b;
 
     public x() {
-        e(1003);
+        super(103011);
     }
 
-    @Override // com.baidu.tieba.im.messageCenter.IDuplicateProcess
-    public final IDuplicateProcess.RemoveState c() {
-        return this.b;
+    public final void a(String str) {
+        this.a = str;
     }
 
-    @Override // com.baidu.tieba.im.coder.g
-    public final MessageLite a() {
-        return a;
+    public final void b(String str) {
+        this.b = str;
+    }
+
+    @Override // com.baidu.tbadk.message.websockt.d
+    public final MessageLite h() {
+        NumberFormatException e;
+        double d;
+        double d2 = 0.0d;
+        try {
+            d = Double.valueOf(this.b).doubleValue();
+        } catch (NumberFormatException e2) {
+            e = e2;
+            d = 0.0d;
+        }
+        try {
+            d2 = Double.valueOf(this.a).doubleValue();
+        } catch (NumberFormatException e3) {
+            e = e3;
+            e.printStackTrace();
+            return QueryGroupCountReq.QueryGroupCountReqIdl.newBuilder().a(QueryGroupCountReq.DataReq.newBuilder().b(d).a(d2).build()).build();
+        }
+        return QueryGroupCountReq.QueryGroupCountReqIdl.newBuilder().a(QueryGroupCountReq.DataReq.newBuilder().b(d).a(d2).build()).build();
     }
 }

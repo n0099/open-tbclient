@@ -1,25 +1,17 @@
 package com.baidu.tieba.person;
 
-import com.baidu.tieba.view.HeadImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
 /* loaded from: classes.dex */
-public final class be implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ bc a;
+final class be implements View.OnClickListener {
+    final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public be(bc bcVar) {
-        this.a = bcVar;
+    public be(PersonChangeActivity personChangeActivity) {
+        this.a = personChangeActivity;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        HeadImageView headImageView;
-        HeadImageView headImageView2;
-        if (bVar != null) {
-            headImageView = this.a.d;
-            headImageView.setImageResource(0);
-            headImageView2 = this.a.d;
-            bVar.a(headImageView2);
-        }
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        PersonChangeActivity.o(this.a);
     }
 }

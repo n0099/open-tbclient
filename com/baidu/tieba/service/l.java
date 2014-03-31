@@ -2,10 +2,10 @@ package com.baidu.tieba.service;
 
 import android.os.Handler;
 import android.os.Message;
-import com.baidu.tieba.TiebaApplication;
+import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 final class l extends Handler {
-    long a = TiebaApplication.g().G();
+    long a = TbadkApplication.j().ag();
     long b = 0;
     final /* synthetic */ TiebaMessageService c;
 

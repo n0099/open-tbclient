@@ -1,45 +1,52 @@
 package com.baidu.tieba.write;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.data.WriteData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.util.AntiHelper;
 /* loaded from: classes.dex */
-public final class ag extends BdAsyncTask<String, String, WriteData> {
-    private final af a;
-    private final String b;
+final class ag implements com.baidu.tieba.model.as {
+    final /* synthetic */ WriteActivity a;
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ WriteData a(String... strArr) {
-        return d();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ag(WriteActivity writeActivity) {
+        this.a = writeActivity;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* bridge */ /* synthetic */ void a(WriteData writeData) {
-        WriteData writeData2 = writeData;
-        super.a((ag) writeData2);
-        if (this.a != null) {
-            this.a.a(writeData2);
+    @Override // com.baidu.tieba.model.as
+    public final void a(boolean z, String str, com.baidu.tbadk.coreExtra.data.f fVar, WriteData writeData, AntiData antiData) {
+        WriteData writeData2;
+        WriteData writeData3;
+        WriteData writeData4;
+        WriteData writeData5;
+        WriteActivity.a(this.a);
+        this.a.closeLoadingDialog();
+        if (z) {
+            WriteActivity.a(this.a, antiData, str);
+            writeData2 = this.a.a;
+            if (writeData2.getType() == 0) {
+                writeData5 = this.a.a;
+                com.baidu.tieba.util.m.a(writeData5.getForumId(), (WriteData) null);
+            } else {
+                writeData3 = this.a.a;
+                if (writeData3.getType() == 1) {
+                    writeData4 = this.a.a;
+                    com.baidu.tieba.util.m.b(writeData4.getThreadId(), (WriteData) null);
+                }
+            }
+            this.a.setResult(-1);
+            this.a.finish();
+        } else if (fVar == null || writeData == null || fVar.b() == null) {
+            WriteActivity.a(this.a, antiData, str);
+        } else if (AntiHelper.c(antiData)) {
+            WriteActivity.a(this.a, antiData, str);
+        } else {
+            writeData.setVcodeMD5(fVar.a());
+            writeData.setVcodeUrl(fVar.b());
+            if (fVar.c().equals("4")) {
+                com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001001, new com.baidu.tbadk.core.b.ac(this.a, 12006, writeData, false)));
+            } else {
+                com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001001, new com.baidu.tbadk.core.b.au(this.a, writeData, 12006)));
+            }
         }
-    }
-
-    public ag(String str, af afVar) {
-        setPriority(3);
-        this.a = afVar;
-        this.b = str;
-    }
-
-    private WriteData d() {
-        String str;
-        try {
-            str = com.baidu.tieba.c.a.a().d().a(this.b);
-        } catch (Exception e) {
-            str = null;
-        }
-        return WriteData.fromDraftString(str);
     }
 }

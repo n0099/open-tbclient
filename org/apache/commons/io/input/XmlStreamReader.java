@@ -1,6 +1,5 @@
 package org.apache.commons.io.input;
 
-import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.location.BDLocation;
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -39,7 +38,7 @@ public class XmlStreamReader extends Reader {
     private static final String UTF_32BE = "UTF-32BE";
     private static final String UTF_32LE = "UTF-32LE";
     private static final String EBCDIC = "CP1047";
-    private static final ByteOrderMark[] XML_GUESS_BYTES = {new ByteOrderMark(UTF_8, 60, 63, SocialAPIErrorCodes.ERROR_INVALID_AUTHORIZED_CODE, 109), new ByteOrderMark(UTF_16BE, 0, 60, 0, 63), new ByteOrderMark(UTF_16LE, 60, 0, 63, 0), new ByteOrderMark(UTF_32BE, 0, 0, 0, 60, 0, 0, 0, 63, 0, 0, 0, SocialAPIErrorCodes.ERROR_INVALID_AUTHORIZED_CODE, 0, 0, 0, 109), new ByteOrderMark(UTF_32LE, 60, 0, 0, 0, 63, 0, 0, 0, SocialAPIErrorCodes.ERROR_INVALID_AUTHORIZED_CODE, 0, 0, 0, 109, 0, 0, 0), new ByteOrderMark(EBCDIC, 76, SocialAPIErrorCodes.ERROR_EXPIRED_ACCESS_TOKEN, BDLocation.TypeServerError, 148)};
+    private static final ByteOrderMark[] XML_GUESS_BYTES = {new ByteOrderMark(UTF_8, 60, 63, 120, 109), new ByteOrderMark(UTF_16BE, 0, 60, 0, 63), new ByteOrderMark(UTF_16LE, 60, 0, 63, 0), new ByteOrderMark(UTF_32BE, 0, 0, 0, 60, 0, 0, 0, 63, 0, 0, 0, 120, 0, 0, 0, 109), new ByteOrderMark(UTF_32LE, 60, 0, 0, 0, 63, 0, 0, 0, 120, 0, 0, 0, 109, 0, 0, 0), new ByteOrderMark(EBCDIC, 76, 111, BDLocation.TypeServerError, 148)};
     private static final Pattern CHARSET_PATTERN = Pattern.compile("charset=[\"']?([.[^; \"']]*)[\"']?");
     public static final Pattern ENCODING_PATTERN = Pattern.compile("<\\?xml.*encoding[\\s]*=[\\s]*((?:\".[^\"]*\")|(?:'.[^']*'))", 8);
 

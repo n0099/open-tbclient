@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class CustomTimerView extends LinearLayout {
     private static long a = 359999;
@@ -23,13 +22,13 @@ public class CustomTimerView extends LinearLayout {
 
     public CustomTimerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        LayoutInflater.from(context).inflate(R.layout.custom_timer_view, (ViewGroup) this, true);
-        this.b = (TextView) findViewById(R.id.hour_num);
-        this.c = (TextView) findViewById(R.id.hour_text);
-        this.d = (TextView) findViewById(R.id.min_num);
-        this.e = (TextView) findViewById(R.id.min_text);
-        this.f = (TextView) findViewById(R.id.sec_num);
-        this.g = (TextView) findViewById(R.id.sec_text);
+        LayoutInflater.from(context).inflate(com.baidu.tieba.a.i.custom_timer_view, (ViewGroup) this, true);
+        this.b = (TextView) findViewById(com.baidu.tieba.a.h.hour_num);
+        this.c = (TextView) findViewById(com.baidu.tieba.a.h.hour_text);
+        this.d = (TextView) findViewById(com.baidu.tieba.a.h.min_num);
+        this.e = (TextView) findViewById(com.baidu.tieba.a.h.min_text);
+        this.f = (TextView) findViewById(com.baidu.tieba.a.h.sec_num);
+        this.g = (TextView) findViewById(com.baidu.tieba.a.h.sec_text);
     }
 
     public void setTextSize(int i) {

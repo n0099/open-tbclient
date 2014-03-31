@@ -1,21 +1,42 @@
 package com.baidu.tieba.im.message;
-
-import com.google.protobuf.MessageLite;
-import protobuf.DelGroup.DelGroupReq;
 /* loaded from: classes.dex */
-public final class aj extends s implements com.baidu.tieba.im.coder.g {
-    private int a;
+public final class aj extends com.baidu.adp.framework.message.a<Object> {
+    private long a;
+    private int b;
+    private int c;
+    private int d;
+    private int e;
+    private String f;
 
     public aj() {
-        e(103104);
+        super(2001102);
     }
 
-    public final void a(int i) {
-        this.a = i;
+    public final long b() {
+        return this.a;
     }
 
-    @Override // com.baidu.tieba.im.coder.g
-    public final MessageLite a() {
-        return DelGroupReq.DelGroupReqIdl.newBuilder().a(DelGroupReq.DataReq.newBuilder().a(this.a).build()).build();
+    public final void a(long j) {
+        this.a = j;
+    }
+
+    public final void c(int i) {
+        this.b = i;
+    }
+
+    public final void d(int i) {
+        this.c = i;
+    }
+
+    public final void e(int i) {
+        this.d = i;
+    }
+
+    public final void f(int i) {
+        this.e = i;
+    }
+
+    public final void a(String str) {
+        this.f = str;
     }
 }

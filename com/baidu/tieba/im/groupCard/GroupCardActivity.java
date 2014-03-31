@@ -9,20 +9,22 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.SparseArray;
 import android.view.View;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.tieba.data.i;
-import com.baidu.tieba.f;
-import com.baidu.tieba.im.chat.LocalViewSize;
-import com.baidu.tieba.util.af;
-import com.baidu.tieba.util.cb;
-import com.slidingmenu.lib.R;
+import com.baidu.adp.lib.util.i;
+import com.baidu.tbadk.core.data.n;
+import com.baidu.tbadk.core.util.LocalViewSize;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.coreExtra.d.x;
+import com.baidu.tbadk.coreExtra.share.f;
+import com.baidu.tieba.im.g;
+import com.baidu.tieba.im.j;
 import java.text.MessageFormat;
 /* loaded from: classes.dex */
-public class GroupCardActivity extends f implements View.OnClickListener {
+public class GroupCardActivity extends com.baidu.tbadk.a implements View.OnClickListener {
     public static String a = "groupid";
     public static String b = "groupname";
     public static String c = "groupportrait";
-    private static String j = String.valueOf(i.a) + "c/p/groupShareImg?group_id=";
+    private static String j = String.valueOf(n.a) + "c/p/groupShareImg?group_id=";
     private d d = null;
     private b e = null;
     private long f = 0;
@@ -41,7 +43,7 @@ public class GroupCardActivity extends f implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.d = new d(this);
@@ -52,7 +54,7 @@ public class GroupCardActivity extends f implements View.OnClickListener {
         this.h = intent.getStringExtra(c);
         this.e = new b(this.f, this);
         if (this.e != null) {
-            com.baidu.adp.widget.ImageView.b a2 = this.e.a(this, BdUtilHelper.b(this) - BdUtilHelper.a((Context) this, 10.0f), (BdUtilHelper.c(this) - this.d.i().getHeight()) - this.d.j().getHeight(), new a(this));
+            com.baidu.adp.widget.ImageView.b a2 = this.e.a(this, i.b(this) - i.a((Context) this, 10.0f), (i.c(this) - this.d.i().getHeight()) - this.d.j().getHeight(), new a(this));
             if (a2 != null) {
                 this.d.d();
                 this.i = a2.h();
@@ -63,7 +65,7 @@ public class GroupCardActivity extends f implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f
+    @Override // com.baidu.tbadk.a
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.d.a(i);
@@ -74,29 +76,29 @@ public class GroupCardActivity extends f implements View.OnClickListener {
         boolean z;
         super.onClick(view);
         if (view == this.d.f()) {
-            if (af.a()) {
+            if (w.a()) {
                 z = true;
             } else {
-                this.d.a(0, getString(R.string.voice_error_sdcard));
+                this.d.a(0, getString(j.voice_error_sdcard));
                 z = false;
             }
             if (z && this.i != null) {
-                cb.a(this, "group_card_save", "click", 1, new Object[0]);
+                TiebaStatic.a(this, "group_card_save", "click", 1, new Object[0]);
                 this.e.a(this.i);
             }
         } else if (view == this.d.h()) {
             finish();
         } else if (view == this.d.g()) {
-            cb.a(this, "group_card_share", "click", 1, new Object[0]);
-            com.baidu.tieba.widget.share.f fVar = new com.baidu.tieba.widget.share.f();
-            fVar.a = MessageFormat.format(getString(R.string.im_share_title), this.g);
-            fVar.b = MessageFormat.format(getString(R.string.im_share_content), this.g, String.valueOf(this.f));
-            fVar.c = String.valueOf(com.baidu.tieba.im.f.h) + this.f;
+            TiebaStatic.a(this, "group_card_share", "click", 1, new Object[0]);
+            f fVar = new f();
+            fVar.a = MessageFormat.format(getString(j.im_share_title), this.g);
+            fVar.b = MessageFormat.format(getString(j.im_share_content), this.g, String.valueOf(this.f));
+            fVar.c = String.valueOf(x.g) + this.f;
             try {
                 fVar.d = Uri.parse(String.valueOf(j) + this.f + "&w=" + LocalViewSize.a().b());
             } catch (Throwable th) {
             }
-            com.baidu.tieba.widget.share.d dVar = new com.baidu.tieba.widget.share.d(this);
+            com.baidu.tbadk.coreExtra.share.d dVar = new com.baidu.tbadk.coreExtra.share.d(this);
             dVar.a(fVar, true);
             dVar.a(3, a(), true);
             SparseArray<String> sparseArray = new SparseArray<>(7);
@@ -111,18 +113,18 @@ public class GroupCardActivity extends f implements View.OnClickListener {
         }
     }
 
-    private com.baidu.tieba.widget.share.f a() {
-        com.baidu.tieba.widget.share.f fVar = new com.baidu.tieba.widget.share.f();
-        fVar.a = MessageFormat.format(getString(R.string.im_share_title), this.g);
-        fVar.b = MessageFormat.format(getString(R.string.im_share_content), this.g, String.valueOf(this.f));
-        fVar.c = String.valueOf(com.baidu.tieba.im.f.h) + this.f;
+    private f a() {
+        f fVar = new f();
+        fVar.a = MessageFormat.format(getString(j.im_share_title), this.g);
+        fVar.b = MessageFormat.format(getString(j.im_share_content), this.g, String.valueOf(this.f));
+        fVar.c = String.valueOf(x.g) + this.f;
         try {
             if (this.h == null || this.h.equals("")) {
-                fVar.a(BitmapFactory.decodeResource(getResources(), R.drawable.icon));
+                fVar.a(BitmapFactory.decodeResource(getResources(), g.icon));
             } else if (this.h.startsWith("http")) {
                 fVar.d = Uri.parse(this.h);
             } else {
-                fVar.a(af.c(null, "tieba_group_image"));
+                fVar.a(w.c(null, "tieba_group_image"));
             }
         } catch (Throwable th) {
         }

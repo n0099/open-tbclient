@@ -9,6 +9,8 @@ import android.widget.TextView;
 import com.baidu.tbadk.gif.GifView;
 /* loaded from: classes.dex */
 public interface j {
+    ListView a();
+
     void a(Context context, String str);
 
     void a(String str);
@@ -17,19 +19,17 @@ public interface j {
 
     void b(String str);
 
-    ListView c();
-
     void c(String str);
 
-    int d();
+    int e();
 
-    com.baidu.adp.lib.d.b<ImageView> e();
+    com.baidu.adp.lib.d.b<ImageView> f();
 
-    com.baidu.adp.lib.d.b<TextView> f();
+    com.baidu.adp.lib.d.b<TextView> g();
 
-    com.baidu.adp.lib.d.b<GifView> g();
+    com.baidu.adp.lib.d.b<GifView> h();
 
-    com.baidu.adp.lib.d.b<View> h();
+    com.baidu.adp.lib.d.b<View> i();
 
-    com.baidu.adp.lib.d.b<LinearLayout> i();
+    com.baidu.adp.lib.d.b<LinearLayout> j();
 }

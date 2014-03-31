@@ -1,69 +1,65 @@
 package com.baidu.tieba.im.a;
 
 import android.text.TextUtils;
-import com.baidu.tieba.im.message.cl;
-import com.baidu.tieba.im.message.da;
-import com.baidu.tieba.im.message.s;
-import com.baidu.tieba.im.messageCenter.g;
+import com.baidu.adp.framework.c.g;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tieba.im.message.ResponseQueryGroupCountMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class b implements g {
+public final class b extends g {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b(a aVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b(a aVar, int i) {
+        super(103011);
         this.a = aVar;
     }
 
-    @Override // com.baidu.tieba.im.messageCenter.g
-    public final void a(s sVar) {
-        d dVar;
-        d dVar2;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
+    @Override // com.baidu.adp.framework.c.c
+    public final /* synthetic */ void a(SocketResponsedMessage socketResponsedMessage) {
+        e eVar;
+        e eVar2;
+        e eVar3;
         int i;
         String str;
         String str2;
-        d dVar3;
-        d dVar4;
-        d dVar5;
-        d dVar6;
-        d dVar7;
-        int unused;
-        if (sVar instanceof da) {
-            if (((da) sVar).l()) {
-                dVar5 = this.a.h;
-                if (dVar5 != null) {
-                    dVar6 = this.a.h;
-                    dVar6.a();
-                    if (((da) sVar).m() > 0 && !TextUtils.isEmpty(((da) sVar).n())) {
-                        dVar7 = this.a.h;
-                        dVar7.b(((da) sVar).n());
-                    }
+        e eVar4;
+        e eVar5;
+        e unused;
+        e unused2;
+        int unused3;
+        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
+        if (socketResponsedMessage2.e() != 0) {
+            eVar4 = this.a.h;
+            if (eVar4 != null) {
+                unused = this.a.h;
+                if (socketResponsedMessage2.e() <= 0 || TextUtils.isEmpty(socketResponsedMessage2.f())) {
+                    return;
                 }
-            } else if (sVar instanceof cl) {
-                cl clVar = (cl) sVar;
-                this.a.d = clVar.c();
-                this.a.e = clVar.d();
-                this.a.f = clVar.b();
-                this.a.g = clVar.a();
-                if (sVar.v() == 103011) {
-                    a.a = false;
-                    dVar3 = this.a.h;
-                    if (dVar3 != null) {
-                        dVar4 = this.a.h;
-                        dVar4.a();
-                    }
-                } else if (sVar.v() == -114) {
-                    this.a.a();
-                }
-                dVar = this.a.h;
-                if (dVar != null) {
-                    dVar2 = this.a.h;
-                    unused = this.a.d;
-                    i = this.a.e;
-                    str = this.a.g;
-                    str2 = this.a.f;
-                    dVar2.a(i, str, str2);
-                }
+                eVar5 = this.a.h;
+                eVar5.a(socketResponsedMessage2.f());
+            }
+        } else if (socketResponsedMessage2 instanceof ResponseQueryGroupCountMessage) {
+            ResponseQueryGroupCountMessage responseQueryGroupCountMessage = (ResponseQueryGroupCountMessage) socketResponsedMessage2;
+            this.a.d = responseQueryGroupCountMessage.j();
+            this.a.e = responseQueryGroupCountMessage.k();
+            this.a.f = responseQueryGroupCountMessage.i();
+            this.a.g = responseQueryGroupCountMessage.d();
+            a.a = false;
+            eVar = this.a.h;
+            if (eVar != null) {
+                unused2 = this.a.h;
+            }
+            eVar2 = this.a.h;
+            if (eVar2 != null) {
+                eVar3 = this.a.h;
+                unused3 = this.a.d;
+                i = this.a.e;
+                str = this.a.g;
+                str2 = this.a.f;
+                eVar3.a(i, str, str2);
             }
         }
     }

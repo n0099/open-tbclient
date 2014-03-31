@@ -1,130 +1,59 @@
 package com.baidu.tieba.im.nearbygroups;
 
+import android.graphics.drawable.Drawable;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ListAdapter;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.adp.widget.ListView.r;
-import com.baidu.adp.widget.PinnedHeaderListView;
-import com.baidu.tieba.im.data.NearbyGroupsData;
-import com.baidu.tieba.util.ap;
-import com.baidu.tieba.util.bq;
-import com.baidu.tieba.view.NavigationBar;
-import com.baidu.tieba.view.NoNetworkView;
-import com.baidu.tieba.view.cs;
-import com.baidu.tieba.view.cu;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-public final class k extends com.baidu.adp.a.e {
-    private NavigationBar a;
-    private NearbyGroupsActivity c;
-    private View d;
-    private TextView e;
-    private f f;
-    private PinnedHeaderListView g;
-    private cs h;
-    private NoNetworkView i;
-    private cu j;
+public final class k implements a {
+    private LinearLayout a;
+    private TextView b;
+    private TextView c;
+    private NearbyGroupsActivity d;
+    private View e;
 
     public k(NearbyGroupsActivity nearbyGroupsActivity) {
-        super(nearbyGroupsActivity);
         this.a = null;
+        this.b = null;
         this.c = null;
         this.d = null;
         this.e = null;
-        this.f = null;
-        this.g = null;
-        this.h = null;
-        this.i = null;
-        this.j = null;
-        this.c = nearbyGroupsActivity;
-        this.f = new f(this.c);
-        this.j = new cu(this.c);
-        this.c.setContentView(R.layout.nearby_group_activity);
-        this.d = this.c.findViewById(R.id.parent);
-        this.g = (PinnedHeaderListView) this.c.findViewById(R.id.nearby_list);
-        this.a = (NavigationBar) this.c.findViewById(R.id.view_navigation_bar);
-        this.a.a(this.c.getResources().getString(R.string.nearby_group_title));
-        this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.e = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.c);
-        this.i = (NoNetworkView) this.c.findViewById(R.id.view_no_network);
-        this.h = new cs(this.c);
-        this.g.setPullRefresh(this.h);
-        this.g.setAdapter((ListAdapter) this.f);
-        this.g.setNextPage(this.j);
-        this.g.a(new l(this), 300L);
+        this.d = nearbyGroupsActivity;
+        this.e = LayoutInflater.from(this.d).inflate(com.baidu.tieba.im.i.im_group_list_group, (ViewGroup) null);
+        this.b = (TextView) this.e.findViewById(com.baidu.tieba.im.h.tv_group_line_top);
+        this.a = (LinearLayout) this.e.findViewById(com.baidu.tieba.im.h.list_group);
+        this.c = (TextView) this.e.findViewById(com.baidu.tieba.im.h.tv_group_name);
+        int l = TbadkApplication.j().l();
+        this.d.getLayoutMode().a(l == 1);
+        this.d.getLayoutMode().a(this.a);
+        if (l == 1) {
+            this.c.setTextColor(this.d.getResources().getColor(com.baidu.tieba.im.e.common_list_text_1));
+            a(com.baidu.tieba.im.g.icon_list_small_lbs_1);
+            return;
+        }
+        this.c.setTextColor(this.d.getResources().getColor(com.baidu.tieba.im.e.common_list_text));
+        a(com.baidu.tieba.im.g.icon_list_small_lbs);
     }
 
-    public final void a() {
-        ap.a(this.g, this.f.e(), 0, -1);
+    @Override // com.baidu.tieba.im.nearbygroups.a
+    public final View a() {
+        return this.e;
     }
 
-    public final void d() {
-        this.j.f();
-    }
-
-    public final void e() {
-        this.j.e();
-    }
-
-    public final void a(r rVar) {
-        this.g.setOnSrollToBottomListener(rVar);
-    }
-
-    public final void a(View.OnClickListener onClickListener) {
-        this.j.a(onClickListener);
-    }
-
-    public final void a(com.baidu.adp.widget.ListView.b bVar) {
-        this.h.a(bVar);
-    }
-
-    public final void f() {
-        this.g.b();
-    }
-
-    public final void g() {
-        this.g.a();
-    }
-
-    public final int h() {
-        return this.e.getId();
-    }
-
-    public final void a(boolean z) {
-        this.f.a(false);
-        j();
-    }
-
-    public final void b(boolean z) {
-        this.f.b(z);
-        j();
-    }
-
-    public final NearbyGroupsData i() {
-        return this.f.d();
-    }
-
-    public final void a(NearbyGroupsData nearbyGroupsData) {
-        this.f.a(nearbyGroupsData);
-        j();
-    }
-
-    private void j() {
-        NearbyGroupsData d = this.f.d();
-        if (d == null || d.size() == 0) {
-            this.j.c();
-        } else {
-            this.j.d();
+    @Override // com.baidu.tieba.im.nearbygroups.a
+    public final void a(Object obj) {
+        if (obj instanceof com.baidu.tieba.im.data.e) {
+            this.c.setText(((com.baidu.tieba.im.data.e) obj).a());
+            this.b.setVisibility(8);
         }
     }
 
-    public final void a(int i) {
-        this.c.getLayoutMode().a(i == 1);
-        bq.a(this.d, i);
-        this.h.a(i);
-        this.a.b(i);
-        this.i.a(i);
-        this.j.a(i);
-        this.c.getLayoutMode().a(this.d);
+    private void a(int i) {
+        Drawable drawable = this.d.getResources().getDrawable(i);
+        drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+        this.c.setCompoundDrawables(drawable, null, null, null);
     }
 }

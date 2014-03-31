@@ -1,88 +1,50 @@
 package com.baidu.tieba.more;
 
 import android.text.TextUtils;
-import com.baidu.tieba.im.message.bj;
-import com.baidu.tieba.im.message.bz;
-import com.baidu.tieba.im.message.cx;
-import com.slidingmenu.lib.R;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tieba.model.MoreModel;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class al implements com.baidu.tieba.im.messageCenter.g {
-    final /* synthetic */ SecretSettingActivity a;
+public final class al extends BdAsyncTask<String, Integer, String> {
+    final /* synthetic */ aj a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public al(SecretSettingActivity secretSettingActivity) {
-        this.a = secretSettingActivity;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ String a(String... strArr) {
+        String E = TbadkApplication.E();
+        if (TextUtils.isEmpty(E)) {
+            return null;
+        }
+        com.baidu.adp.framework.c.a().b(new CustomResponsedMessage(2008015, E));
+        return null;
     }
 
-    @Override // com.baidu.tieba.im.messageCenter.g
-    public final void a(com.baidu.tieba.im.message.s sVar) {
-        am amVar;
-        am amVar2;
-        am amVar3;
-        am amVar4;
-        am amVar5;
-        am amVar6;
-        amVar = this.a.b;
-        amVar.f();
-        if (sVar.v() == 104103) {
-            if (!(sVar instanceof bz)) {
-                this.a.showToast(R.string.neterror);
-                return;
-            }
-            bz bzVar = (bz) sVar;
-            com.baidu.tieba.im.message.s o = bzVar.o();
-            if (!(o instanceof com.baidu.tieba.im.message.an)) {
-                this.a.showToast(R.string.neterror);
-            } else if (((com.baidu.tieba.im.message.an) o).b() == 8) {
-                if (bzVar.l()) {
-                    if (bzVar.m() > 0) {
-                        if (!TextUtils.isEmpty(bzVar.n())) {
-                            this.a.showToast(bzVar.n());
-                            return;
-                        }
-                        return;
-                    }
-                    this.a.showToast(R.string.neterror);
-                    return;
-                }
-                if (bzVar.a() != 0) {
-                    amVar6 = this.a.b;
-                    amVar6.h().b();
-                    return;
-                }
-                amVar5 = this.a.b;
-                amVar5.h().a();
-            }
-        } else if (sVar.v() == 104102) {
-            if (!(sVar instanceof cx)) {
-                this.a.showToast(R.string.neterror);
-                return;
-            }
-            cx cxVar = (cx) sVar;
-            com.baidu.tieba.im.message.s o2 = cxVar.o();
-            if (!(o2 instanceof bj)) {
-                this.a.showToast(R.string.neterror);
-            } else if (((bj) o2).b() == 8) {
-                if (!cxVar.l()) {
-                    amVar2 = this.a.b;
-                    Object tag = amVar2.h().getTag();
-                    if (tag != null && (tag instanceof Boolean)) {
-                        if (((Boolean) tag).booleanValue()) {
-                            amVar4 = this.a.b;
-                            amVar4.h().b();
-                            return;
-                        }
-                        amVar3 = this.a.b;
-                        amVar3.h().a();
-                    }
-                } else if (cxVar.m() > 0) {
-                    if (!TextUtils.isEmpty(cxVar.n())) {
-                        this.a.showToast(cxVar.n());
-                    }
-                } else {
-                    this.a.showToast(R.string.neterror);
-                }
-            }
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ void a(String str) {
+        com.baidu.tbadk.d dVar;
+        com.baidu.tbadk.d dVar2;
+        super.a((al) str);
+        this.a.b = null;
+        dVar = this.a.e;
+        if (dVar != null) {
+            dVar2 = this.a.e;
+            dVar2.a(MoreModel.TaskType.DO_CLEAR);
         }
+        com.baidu.adp.framework.c.a().b(new CustomResponsedMessage(2008016));
+    }
+
+    private al(aj ajVar) {
+        this.a = ajVar;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ al(aj ajVar, byte b) {
+        this(ajVar);
     }
 }

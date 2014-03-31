@@ -1,87 +1,76 @@
 package com.baidu.tieba.editortool;
 
-import android.view.LayoutInflater;
+import android.content.Context;
+import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.img.ImageFileInfo;
-import com.baidu.tieba.img.WriteImagesInfo;
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-public final class g extends BaseAdapter {
-    final /* synthetic */ EditorToolComponetContainer a;
-    private WriteImagesInfo b;
+public class g extends RelativeLayout {
+    private Context a;
 
-    public g(EditorToolComponetContainer editorToolComponetContainer, WriteImagesInfo writeImagesInfo) {
-        this.a = editorToolComponetContainer;
-        this.b = writeImagesInfo;
+    public g(Context context) {
+        super(context);
+        this.a = context;
     }
 
-    @Override // android.widget.Adapter
-    public final int getCount() {
-        return this.b.size();
+    public g(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.a = context;
     }
 
-    @Override // android.widget.Adapter
-    public final Object getItem(int i) {
-        return this.b.getChosedFiles().get(i);
+    public g(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.a = context;
     }
 
-    @Override // android.widget.Adapter
-    public final long getItemId(int i) {
-        return i;
+    private static boolean d() {
+        return TbadkApplication.j().l() == 1;
     }
 
-    @Override // android.widget.Adapter
-    public final View getView(int i, View view, ViewGroup viewGroup) {
-        FrameLayout frameLayout;
-        int i2;
-        int i3;
-        com.baidu.tieba.img.e eVar;
-        LayoutInflater layoutInflater;
-        if (view == null) {
-            layoutInflater = this.a.p;
-            frameLayout = (FrameLayout) layoutInflater.inflate(R.layout.editor_muti_image_item, (ViewGroup) null);
+    public final TextView a(EditorToolButton editorToolButton, boolean z) {
+        TextView textView = new TextView(this.a);
+        textView.setTextSize(10.0f);
+        textView.setTextColor(this.a.getResources().getColor(d() ? com.baidu.tieba.a.e.top_msg_num_night : com.baidu.tieba.a.e.top_msg_num_day));
+        textView.setGravity(17);
+        if (z) {
+            textView.setBackgroundResource(d() ? com.baidu.tieba.a.g.icon_news_head_prompt_one_1 : com.baidu.tieba.a.g.icon_news_head_prompt_one);
         } else {
-            frameLayout = view;
+            textView.setBackgroundResource(d() ? com.baidu.tieba.a.g.icon_news_list_prompt_1 : com.baidu.tieba.a.g.icon_news_list_prompt);
         }
-        int ae = TiebaApplication.g().ae();
-        ImageFileInfo imageFileInfo = this.b.getChosedFiles().get(i);
-        int measuredWidth = viewGroup.getMeasuredWidth();
-        i2 = this.a.n;
-        int i4 = measuredWidth - (i2 * 2);
-        i3 = this.a.o;
-        int i5 = i4 + i3;
-        FrameLayout frameLayout2 = (FrameLayout) frameLayout;
-        LinearLayout linearLayout = (LinearLayout) frameLayout2.findViewById(R.id.iv_container);
-        FrameLayout frameLayout3 = (FrameLayout) frameLayout2.findViewById(R.id.shadow_container);
-        TbImageView tbImageView = (TbImageView) frameLayout2.findViewById(R.id.iv);
-        if (i5 > 0) {
-            int paddingRight = (i5 / 3) - linearLayout.getPaddingRight();
-            int measuredHeight = viewGroup.getMeasuredHeight() - linearLayout.getPaddingTop();
-            int i6 = ae == 1 ? R.drawable.bg_add_photo_1 : R.drawable.bg_add_photo;
-            int i7 = ae == 1 ? R.drawable.bg_add_photo_foregroundselector_1 : R.drawable.bg_add_photo_foregroundselector;
-            frameLayout3.setBackgroundResource(i6);
-            frameLayout3.setForeground(this.a.getResources().getDrawable(i7));
-            imageFileInfo.clearPageActions();
-            imageFileInfo.addPageAction(com.baidu.tieba.img.effects.d.a(paddingRight, measuredHeight));
-            tbImageView.setTag(imageFileInfo.toCachedKey(true));
-            eVar = this.a.s;
-            if (eVar.a(imageFileInfo, new h(this, viewGroup), true) != null) {
-                tbImageView.invalidate();
+        editorToolButton.a(textView);
+        addView(textView);
+        return textView;
+    }
+
+    public final void a() {
+        int childCount = getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            View childAt = getChildAt(i);
+            if (childAt instanceof EditorToolButton) {
+                ((EditorToolButton) childAt).c();
             }
         }
-        frameLayout2.setLayoutParams(new ViewGroup.LayoutParams(i5 / 3, -1));
-        frameLayout2.setOnClickListener(new i(this, viewGroup));
-        ImageView imageView = (ImageView) frameLayout2.findViewById(R.id.delete);
-        imageView.setImageResource(ae == 1 ? R.drawable.btn_add_photo_close_n_1 : R.drawable.btn_add_photo_close_n);
-        imageView.setOnClickListener(new j(this, frameLayout2));
-        return frameLayout2;
+    }
+
+    public final void b() {
+        int childCount = getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            View childAt = getChildAt(i);
+            if (childAt instanceof EditorToolButton) {
+                ((EditorToolButton) childAt).d();
+            }
+        }
+    }
+
+    public final void c() {
+        int childCount = getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            View childAt = getChildAt(i);
+            if (childAt instanceof EditorToolButton) {
+                ((EditorToolButton) childAt).i();
+            }
+        }
     }
 }

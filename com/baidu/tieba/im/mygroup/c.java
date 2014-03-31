@@ -1,17 +1,20 @@
 package com.baidu.tieba.im.mygroup;
 
-import com.baidu.tieba.im.message.s;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* loaded from: classes.dex */
-final class c implements com.baidu.tieba.im.messageCenter.g {
+final class c extends com.baidu.adp.framework.c.g {
     final /* synthetic */ MyGroupFragment a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(MyGroupFragment myGroupFragment) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c(MyGroupFragment myGroupFragment, int i) {
+        super(0);
         this.a = myGroupFragment;
     }
 
-    @Override // com.baidu.tieba.im.messageCenter.g
-    public final void a(s sVar) {
-        this.a.c = true;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
+    @Override // com.baidu.adp.framework.c.c
+    public final /* bridge */ /* synthetic */ void a(SocketResponsedMessage socketResponsedMessage) {
+        this.a.b = true;
     }
 }

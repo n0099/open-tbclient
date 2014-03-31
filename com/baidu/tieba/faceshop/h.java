@@ -1,65 +1,30 @@
 package com.baidu.tieba.faceshop;
 
-import android.app.Dialog;
-import android.content.Context;
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.R;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.download.QueryDownloadMessage;
+import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class h extends Dialog {
-    int a;
-    private Context b;
-    private LayoutInflater c;
-    private View d;
-    private SpannableString e;
-    private TextView f;
-    private TextView g;
+public final class h extends com.baidu.adp.framework.c.a {
+    final /* synthetic */ f a;
 
-    public h(Context context, int i) {
-        super(context, R.style.common_alert_dialog);
-        this.b = context;
-        this.c = LayoutInflater.from(getContext());
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h(f fVar, int i) {
+        super(2001123);
+        this.a = fVar;
     }
 
-    public final void a() {
-        this.d = this.c.inflate(R.layout.face_buy_loading, (ViewGroup) null);
-        this.a = TiebaApplication.g().ae();
-        setContentView(this.d, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.faceshop_buy_dialog_width), getContext().getResources().getDimensionPixelSize(R.dimen.faceshop_buy_dialog_height)));
-        setCancelable(false);
-        c();
-    }
-
-    public final void b() {
-        ForegroundColorSpan foregroundColorSpan;
-        this.d = this.c.inflate(R.layout.face_buy_fail, (ViewGroup) null);
-        this.a = TiebaApplication.g().ae();
-        String string = getContext().getResources().getString(R.string.query_buy_fail_tel);
-        this.e = new SpannableString(string);
-        if (this.a == 1) {
-            foregroundColorSpan = new ForegroundColorSpan(getContext().getResources().getColor(R.color.faceshop_package_price_text_1));
-        } else {
-            foregroundColorSpan = new ForegroundColorSpan(getContext().getResources().getColor(R.color.faceshop_package_price_text));
-        }
-        this.e.setSpan(foregroundColorSpan, 5, string.length(), 33);
-        setContentView(this.d, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.faceshop_buy_dialog_width), getContext().getResources().getDimensionPixelSize(R.dimen.faceshop_buy_dialog_fail_height)));
-        this.f = (TextView) findViewById(R.id.telphone);
-        this.f.setText(this.e);
-        this.g = (TextView) findViewById(R.id.confirm);
-        this.g.setOnClickListener(new i(this));
-        setCancelable(true);
-        c();
-    }
-
-    private void c() {
-        if (this.b instanceof com.baidu.tieba.f) {
-            ((com.baidu.tieba.f) this.b).getLayoutMode().a(this.a == 1);
-            ((com.baidu.tieba.f) this.b).getLayoutMode().a(this.d);
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
+    @Override // com.baidu.adp.framework.c.c
+    public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
+        List list;
+        CustomResponsedMessage<?> customResponsedMessage2 = customResponsedMessage;
+        if (customResponsedMessage2.g() == 2001123 && (customResponsedMessage2 instanceof QueryDownloadMessage)) {
+            this.a.c = ((QueryDownloadMessage) customResponsedMessage2).a();
+            f fVar = this.a;
+            list = this.a.c;
+            f.b(fVar, list);
         }
     }
 }

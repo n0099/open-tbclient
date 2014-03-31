@@ -1,35 +1,65 @@
 package com.baidu.tieba.write;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-import com.baidu.tieba.editortool.EditorToolComponetContainer;
+import android.widget.ProgressBar;
+import java.util.Date;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class bg implements View.OnClickListener {
-    final /* synthetic */ WriteActivity a;
+public final class bg implements View.OnClickListener {
+    final /* synthetic */ WriteImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bg(WriteActivity writeActivity) {
-        this.a = writeActivity;
+    public bg(WriteImageActivity writeImageActivity) {
+        this.a = writeImageActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        InputMethodManager inputMethodManager;
-        EditText editText;
-        InputMethodManager inputMethodManager2;
-        EditText editText2;
-        EditorToolComponetContainer editorToolComponetContainer;
-        WriteActivity writeActivity = this.a;
-        inputMethodManager = this.a.e;
-        editText = this.a.g;
-        writeActivity.HidenSoftKeyPad(inputMethodManager, editText);
-        WriteActivity writeActivity2 = this.a;
-        inputMethodManager2 = this.a.e;
-        editText2 = this.a.j;
-        writeActivity2.HidenSoftKeyPad(inputMethodManager2, editText2);
-        editorToolComponetContainer = this.a.B;
-        editorToolComponetContainer.b();
-        this.a.c();
+        boolean z;
+        int i;
+        ProgressBar progressBar;
+        boolean z2;
+        Bitmap bitmap;
+        Bitmap bitmap2;
+        boolean a;
+        z = this.a.y;
+        if (!z) {
+            i = this.a.z;
+            if (i == 12003) {
+                Intent intent = new Intent();
+                progressBar = this.a.g;
+                if (progressBar.getVisibility() != 0) {
+                    z2 = this.a.x;
+                    if (z2) {
+                        bitmap = this.a.p;
+                        if (bitmap != null) {
+                            bitmap2 = this.a.p;
+                            if (!bitmap2.isRecycled()) {
+                                String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
+                                a = this.a.a(str);
+                                if (a) {
+                                    intent.putExtra("change", true);
+                                    intent.putExtra("file_name", str);
+                                } else {
+                                    intent.putExtra("change", false);
+                                }
+                                this.a.setResult(-1, intent);
+                            }
+                        }
+                    }
+                    intent.putExtra("change", false);
+                    this.a.setResult(-1, intent);
+                } else {
+                    return;
+                }
+            } else {
+                this.a.setResult(0, new Intent());
+            }
+        } else {
+            this.a.setResult(0, new Intent());
+        }
+        this.a.finish();
     }
 }

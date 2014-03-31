@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class MoreDiscoveryWidget extends FrameLayout {
     private ImageView a;
@@ -30,24 +29,24 @@ public class MoreDiscoveryWidget extends FrameLayout {
         super(context, attributeSet, i);
         this.f = new int[2];
         this.e = context;
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.more_discovery_widget, (ViewGroup) this, true);
-        this.a = (ImageView) findViewById(R.id.widget_icon);
-        this.b = (TextView) findViewById(R.id.widget_text);
-        this.c = (ImageView) findViewById(R.id.widget_new);
-        this.d = (ImageView) findViewById(R.id.widget_remind);
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, com.baidu.tieba.am.moreTabWidget);
+        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.a.i.more_discovery_widget, (ViewGroup) this, true);
+        this.a = (ImageView) findViewById(com.baidu.tieba.a.h.widget_icon);
+        this.b = (TextView) findViewById(com.baidu.tieba.a.h.widget_text);
+        this.c = (ImageView) findViewById(com.baidu.tieba.a.h.widget_new);
+        this.d = (ImageView) findViewById(com.baidu.tieba.a.h.widget_remind);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, com.baidu.tieba.a.m.moreTabWidget);
         this.b.setText(obtainStyledAttributes.getString(1));
         this.a.setImageDrawable(obtainStyledAttributes.getDrawable(0));
         this.f[0] = obtainStyledAttributes.getResourceId(0, 0);
-        this.f[1] = com.baidu.tieba.e.a(getResources(), this.f[0]);
+        this.f[1] = com.baidu.tbadk.core.c.a(getResources(), this.f[0]);
         obtainStyledAttributes.recycle();
     }
 
     public final void a(int i) {
-        if (this.e instanceof com.baidu.tieba.f) {
-            ((com.baidu.tieba.f) this.e).getLayoutMode().a(this);
-        } else if (this.e instanceof com.baidu.tieba.k) {
-            ((com.baidu.tieba.k) getContext()).a().a(this);
+        if (this.e instanceof com.baidu.tbadk.a) {
+            ((com.baidu.tbadk.a) this.e).getLayoutMode().a(this);
+        } else if (this.e instanceof com.baidu.tbadk.core.e) {
+            ((com.baidu.tbadk.core.e) getContext()).b().a(this);
         }
         if (1 == i) {
             this.a.setImageResource(this.f[1]);

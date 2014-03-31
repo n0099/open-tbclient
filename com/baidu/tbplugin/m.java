@@ -1,75 +1,18 @@
 package com.baidu.tbplugin;
+
+import android.content.Context;
 /* loaded from: classes.dex */
 public final class m {
-    public static final int ItemText = 2131101551;
-    public static final int ItemTitle = 2131101550;
-    public static final int RelativeLayout01 = 2131101542;
-    public static final int adp_debug_constom_config_default_value = 2131101543;
-    public static final int adp_debug_custom_config_defaults_list = 2131101549;
-    public static final int adp_debug_custom_config_item = 2131101544;
-    public static final int adp_debug_custom_config_title = 2131101545;
-    public static final int adp_debug_custom_configs_list = 2131099825;
-    public static final int adp_debug_edit_custom_config = 2131101546;
-    public static final int all = 2131101363;
-    public static final int assets = 2131101364;
-    public static final int both = 2131099651;
-    public static final int close_debug = 2131099824;
-    public static final int debug_bt = 2131099838;
-    public static final int debug_close_item = 2131101541;
-    public static final int debug_cpu = 2131099831;
-    public static final int debug_fps = 2131099829;
-    public static final int debug_gc = 2131099832;
-    public static final int debug_mem = 2131099830;
-    public static final int debug_rcv = 2131099837;
-    public static final int debug_refresh = 2131099827;
-    public static final int debug_sm = 2131099833;
-    public static final int debug_snd = 2131099836;
-    public static final int debug_switch = 2131099826;
-    public static final int debug_switch_setting = 2131099822;
-    public static final int debug_text = 2131099828;
-    public static final int debug_title = 2131099823;
-    public static final int debug_total = 2131099835;
-    public static final int debug_ts = 2131099834;
-    public static final int debug_update_package_item = 2131101562;
-    public static final int delete_custom_config = 2131101547;
-    public static final int delete_server = 2131101559;
-    public static final int disabled = 2131099648;
-    public static final int edit_server = 2131101558;
-    public static final int foot_layout_progress = 2131099845;
-    public static final int foot_layout_text = 2131099844;
-    public static final int foot_ly = 2131099847;
-    public static final int head_layout_left_arrow = 2131099842;
-    public static final int head_layout_left_progressbar = 2131099843;
-    public static final int head_layout_refresh_time = 2131099841;
-    public static final int head_layout_title = 2131099840;
-    public static final int head_ly = 2131099846;
-    public static final int head_text_container = 2131099839;
-    public static final int installed = 2131101365;
-    public static final int jar = 2131101359;
-    public static final int layout = 2131099919;
-    public static final int left = 2131101362;
-    public static final int list = 2131099725;
-    public static final int manualOnly = 2131099652;
-    public static final int monitor_view = 2131099821;
-    public static final int name = 2131099907;
-    public static final int pullFromEnd = 2131099650;
-    public static final int pullFromStart = 2131099649;
-    public static final int pull_arrow = 2131101373;
-    public static final int pull_content = 2131101375;
-    public static final int pull_progress = 2131101374;
-    public static final int pull_text = 2131101376;
-    public static final int pull_time = 2131101377;
-    public static final int res = 2131101360;
-    public static final int server_content = 2131101557;
-    public static final int server_list = 2131101561;
-    public static final int server_title = 2131101556;
-    public static final int so = 2131101361;
-    public static final int switch_custom_config = 2131101548;
-    public static final int switch_image = 2131099920;
-    public static final int switch_monitor = 2131101554;
-    public static final int switch_monitor_button = 2131101555;
-    public static final int switch_monitor_item = 2131101552;
-    public static final int switch_monitor_text = 2131101553;
-    public static final int switch_server = 2131101560;
-    public static final int version = 2131101358;
+    private Class<?> a;
+    private Context b;
+    private n c = null;
+
+    public m(Class<?> cls, Context context, n nVar) {
+        this.a = cls;
+        this.b = context;
+    }
+
+    public final synchronized void a() {
+        new o(this, (byte) 0).executeOnExecutor(k.a().g(), new Void[0]);
+    }
 }

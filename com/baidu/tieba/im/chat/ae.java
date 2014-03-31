@@ -1,23 +1,21 @@
 package com.baidu.tieba.im.chat;
-
-import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ae extends com.baidu.tieba.im.b<Boolean> {
-    final /* synthetic */ q a;
-    private final /* synthetic */ com.baidu.tieba.im.message.g c;
-    private final /* synthetic */ LinkedList d;
+public final class ae implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ x a;
+    private final /* synthetic */ com.baidu.tieba.im.message.a.e b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(q qVar, com.baidu.tieba.im.message.g gVar, LinkedList linkedList) {
-        this.a = qVar;
-        this.c = gVar;
-        this.d = linkedList;
+    public ae(x xVar, com.baidu.tieba.im.message.a.e eVar) {
+        this.a = xVar;
+        this.b = eVar;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.b
-    public final /* synthetic */ Boolean a() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.b.a().a(this.c.u(), this.d, false));
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.baidu.tieba.im.a
+    public final /* synthetic */ void a(Boolean bool) {
+        this.b.i(System.currentTimeMillis());
+        com.baidu.adp.framework.c.a().a(this.b);
+        com.baidu.adp.lib.util.f.e("SHANG sendMessage to queue");
     }
 }

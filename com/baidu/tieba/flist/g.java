@@ -16,21 +16,21 @@ final class g implements e {
         Runnable runnable;
         Handler handler2;
         Runnable runnable2;
-        com.baidu.adp.lib.util.e.e("ForumListActivity", "callback", "start");
+        com.baidu.adp.lib.util.f.e("ForumListActivity", "callback", "start");
         if (!z || i != 0) {
-            com.baidu.adp.lib.util.e.e("ForumListActivity", "callback", "dir menu not ok");
+            com.baidu.adp.lib.util.f.e("ForumListActivity", "callback", "dir menu not ok");
             if (!z2) {
                 this.a.c.b();
                 return;
             }
             return;
         }
-        com.baidu.adp.lib.util.e.e("ForumListActivity", "callback", "dir menu ok");
+        com.baidu.adp.lib.util.f.e("ForumListActivity", "callback", "dir menu ok");
         abVar.e.add(0, abVar);
-        if (this.a.c.x != null) {
-            this.a.c.x.a(abVar);
-            ForumListActivity.a(this.a, String.valueOf(this.a.c.g.getText()));
-            this.a.c.x.notifyDataSetChanged();
+        if (this.a.c.y != null) {
+            this.a.c.y.a(abVar);
+            ForumListActivity.a(this.a, String.valueOf(this.a.c.h.getText()));
+            this.a.c.y.notifyDataSetChanged();
         }
         handler = this.a.e;
         runnable = this.a.P;
@@ -38,7 +38,7 @@ final class g implements e {
         handler2 = this.a.e;
         runnable2 = this.a.P;
         handler2.post(runnable2);
-        this.a.c.y.setClickable(true);
-        this.a.c.y.setOnClickListener(this.a);
+        this.a.c.z.setClickable(true);
+        this.a.c.z.setOnClickListener(this.a);
     }
 }

@@ -1,22 +1,36 @@
 package com.baidu.tieba.person;
-
-import android.view.MotionEvent;
-import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class br implements View.OnTouchListener {
-    final /* synthetic */ PersonChangeActivity a;
+public final class br implements com.baidu.adp.widget.ListView.a {
+    final /* synthetic */ PersonInfoActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public br(PersonChangeActivity personChangeActivity) {
-        this.a = personChangeActivity;
+    public br(PersonInfoActivity personInfoActivity) {
+        this.a = personInfoActivity;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public final boolean onTouch(View view, MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 1) {
-            this.a.v = true;
-            return false;
+    @Override // com.baidu.adp.widget.ListView.a
+    public final void b() {
+        af afVar;
+        if (!this.a.isIsloading()) {
+            afVar = this.a.mHeadView;
+            afVar.d();
+            this.a.setIsloading(true);
+            this.a.refresh();
         }
-        return false;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.a
+    public final void a(float f) {
+        af afVar;
+        afVar = this.a.mHeadView;
+        afVar.a(f);
+    }
+
+    @Override // com.baidu.adp.widget.ListView.a
+    public final void a() {
+        af afVar;
+        afVar = this.a.mHeadView;
+        afVar.b();
     }
 }

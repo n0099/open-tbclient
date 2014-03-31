@@ -1,0 +1,21 @@
+package com.baidu.tbadk.plugins;
+
+import com.baidu.tbplugin.i;
+/* loaded from: classes.dex */
+final class c implements i {
+    final /* synthetic */ a a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public c(a aVar) {
+        this.a = aVar;
+    }
+
+    @Override // com.baidu.tbplugin.i
+    public final void a(int i, String str) {
+        if (i != 0) {
+            com.baidu.adp.lib.util.f.b("BdSocialShareSdkDelegate Installation Error: " + str);
+        } else {
+            com.baidu.adp.lib.util.f.d("BdSocialShareSdkDelegate Installation Success");
+        }
+    }
+}

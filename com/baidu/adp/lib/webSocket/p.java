@@ -30,6 +30,7 @@ public final class p extends Thread {
         List<BasicNameValuePair> list;
         boolean z2;
         Thread.currentThread().setName("WebSocketConnector");
+        long currentTimeMillis = System.currentTimeMillis();
         try {
             new f();
             n nVar = this.a;
@@ -39,6 +40,7 @@ public final class p extends Thread {
             z = this.a.q;
             if (!z) {
                 if (this.a.d.b()) {
+                    this.a.r = System.currentTimeMillis() - currentTimeMillis;
                     try {
                         this.a.b();
                         this.a.a();
@@ -65,7 +67,7 @@ public final class p extends Thread {
                         n nVar2 = this.a;
                         d = com.baidu.adp.a.b.a().d();
                         if (d) {
-                            com.baidu.adp.lib.util.e.d("----WebSocketConnector error. e:" + th.getMessage());
+                            com.baidu.adp.lib.util.f.d("----WebSocketConnector error. e:" + th.getMessage());
                         }
                         this.a.a(new x(new Exception(th)));
                         return;

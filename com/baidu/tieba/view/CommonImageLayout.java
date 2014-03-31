@@ -5,20 +5,18 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
-import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class CommonImageLayout extends ViewGroup {
-    private static com.baidu.tieba.util.i j;
-    public co b;
-    public co c;
-    public co d;
-    private com.baidu.tieba.data.ah[] k;
+    private static com.baidu.tbadk.core.util.b j;
+    public z b;
+    public z c;
+    public z d;
+    private com.baidu.tbadk.core.data.j[] k;
     private int l;
     private boolean m;
     private boolean n;
-    private Context o;
+    private final Context o;
     private String p;
     private static float[] e = {306.0f, 144.0f, 204.0f, 101.0f, 97.0f};
     private static float[] f = {138.0f, 144.0f, 204.0f, 101.0f, 97.0f};
@@ -31,9 +29,9 @@ public class CommonImageLayout extends ViewGroup {
         this(context, null);
     }
 
-    private void b() {
+    private void a() {
         if (a < 0.0f) {
-            a = BdUtilHelper.b(this.o) / 320.0f;
+            a = com.baidu.adp.lib.util.i.b(this.o) / 320.0f;
             for (int i2 = 0; i2 < e.length; i2++) {
                 float[] fArr = e;
                 fArr[i2] = fArr[i2] * a;
@@ -52,10 +50,10 @@ public class CommonImageLayout extends ViewGroup {
         this.n = false;
         this.p = "other";
         this.o = context;
-        b();
-        this.b = new co(context);
-        this.c = new co(context);
-        this.d = new co(context);
+        a();
+        this.b = new z(context);
+        this.c = new z(context);
+        this.d = new z(context);
         this.b.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.c.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.d.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -91,8 +89,8 @@ public class CommonImageLayout extends ViewGroup {
         }
     }
 
-    public void setData(com.baidu.tieba.data.ah[] ahVarArr) {
-        this.k = ahVarArr;
+    public void setData(com.baidu.tbadk.core.data.j[] jVarArr) {
+        this.k = jVarArr;
         if (this.k == null || this.k.length <= 0) {
             if (this.b != null) {
                 this.b.setTag(null);
@@ -271,20 +269,20 @@ public class CommonImageLayout extends ViewGroup {
         this.l = i2;
     }
 
-    private void a(TbImageView tbImageView, com.baidu.tieba.data.ah ahVar) {
+    private void a(TbImageView tbImageView, com.baidu.tbadk.core.data.j jVar) {
         if (tbImageView != null) {
-            String b = ahVar.b();
-            if (ahVar.a() == 5) {
-                b = null;
-                tbImageView.setDefaultResource(R.drawable.pic_video);
-                tbImageView.setNightDefaultResource(R.drawable.pic_video_1);
-                tbImageView.setOnClickListener(new t(this, ahVar));
+            String c = jVar.c();
+            if (jVar.b() == 5) {
+                c = null;
+                tbImageView.setDefaultResource(com.baidu.tieba.a.g.pic_video);
+                tbImageView.setNightDefaultResource(com.baidu.tieba.a.g.pic_video_1);
+                tbImageView.setOnClickListener(new h(this, jVar));
             } else {
-                tbImageView.setDefaultResource(R.drawable.pic_baidu_logo_d);
-                tbImageView.setNightDefaultResource(R.drawable.pic_baidu_logo_d_1);
+                tbImageView.setDefaultResource(com.baidu.tieba.a.g.pic_baidu_logo_d);
+                tbImageView.setNightDefaultResource(com.baidu.tieba.a.g.pic_baidu_logo_d_1);
                 tbImageView.setClickable(false);
             }
-            tbImageView.setTag(b);
+            tbImageView.setTag(c);
         }
     }
 
@@ -305,18 +303,14 @@ public class CommonImageLayout extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        a();
-    }
-
-    public final void a() {
         if (this.b != null) {
-            this.b.d();
+            this.b.c();
         }
         if (this.c != null) {
-            this.c.d();
+            this.c.c();
         }
         if (this.d != null) {
-            this.d.d();
+            this.d.c();
         }
     }
 }

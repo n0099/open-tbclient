@@ -1,64 +1,42 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.data.NewErrorData;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class l {
-    protected com.baidu.tieba.util.ba a;
-    protected NewErrorData b = null;
-
-    public l() {
-        this.a = null;
-        this.a = new com.baidu.tieba.util.ba();
-    }
-
-    public void a() {
-        if (this.a != null) {
-            this.a.j();
+final class l extends com.baidu.adp.framework.c.a {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
+    @Override // com.baidu.adp.framework.c.c
+    public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
+        CustomResponsedMessage<?> customResponsedMessage2 = customResponsedMessage;
+        if (customResponsedMessage2 != null) {
+            switch (customResponsedMessage2.g()) {
+                case 2005009:
+                    r.c();
+                    r.M();
+                    return;
+                case 2005010:
+                    r.c();
+                    r.N();
+                    return;
+                case 2005011:
+                    r.c();
+                    r.O();
+                    return;
+                case 2005012:
+                    r.c();
+                    r.P();
+                    return;
+                case 2005013:
+                    r.c();
+                    r.L();
+                    return;
+                default:
+                    return;
+            }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final void a(String str) {
-        this.a.a(str);
-    }
-
-    public final void a(String str, String str2) {
-        this.a.a(str, str2);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public String b() {
-        String l = this.a.l();
-        this.b = new NewErrorData();
-        this.b.parserJson(l);
-        return l;
-    }
-
-    public final boolean c() {
-        if (this.a != null) {
-            return this.a.c();
-        }
-        return false;
-    }
-
-    public final String d() {
-        if (this.a != null) {
-            return this.a.i();
-        }
-        return null;
-    }
-
-    public int e() {
-        if (this.b != null) {
-            return this.b.getErrorNumber();
-        }
-        return -1;
-    }
-
-    public String f() {
-        if (this.b != null) {
-            return this.b.getErrorMsg();
-        }
-        return null;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public l(int i) {
+        super(0);
     }
 }

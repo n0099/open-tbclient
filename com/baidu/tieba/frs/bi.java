@@ -1,30 +1,47 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tieba.view.di;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tieba.frs.view.FrsPraiseView;
+import com.baidu.tieba.frs.view.FrsReplyView;
+import com.baidu.tieba.view.FrsCommonImageLayout;
+import com.baidu.tieba.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-final class bi implements di {
-    final /* synthetic */ FrsImageActivity a;
+final class bi {
+    LinearLayout a;
+    LinearLayout b;
+    TextView c;
+    PlayVoiceBnt d;
+    FrsCommonImageLayout e;
+    TextView f;
+    TextView g;
+    TextView h;
+    UserIconBox i;
+    HeadImageView j;
+    LinearLayout k;
+    ImageView l;
+    TextView m;
+    LinearLayout n;
+    TextView o;
+    FrsPraiseView p;
+    TextView q;
+    View r;
+    FrsReplyView s;
+    FrsReplyView t;
+    FrsReplyView u;
+    TextView v;
+    final /* synthetic */ ay w;
+
+    private bi(ay ayVar) {
+        this.w = ayVar;
+    }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bi(FrsImageActivity frsImageActivity) {
-        this.a = frsImageActivity;
-    }
-
-    @Override // com.baidu.tieba.view.di
-    public final void a() {
-        int i;
-        FrsImageActivity frsImageActivity = this.a;
-        i = this.a.h;
-        FrsImageActivity.f(frsImageActivity, i);
-    }
-
-    @Override // com.baidu.tieba.view.di
-    public final void b() {
-        this.a.c();
-    }
-
-    @Override // com.baidu.tieba.view.di
-    public final void c() {
-        this.a.c();
+    public /* synthetic */ bi(ay ayVar, byte b) {
+        this(ayVar);
     }
 }

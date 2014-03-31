@@ -5,48 +5,46 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.person.cm;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.b.ag;
 /* loaded from: classes.dex */
-public class PersonalTalkSettingActivity extends com.baidu.tieba.f implements com.baidu.adp.widget.BdSwitchView.c, o {
-    private p a;
-    private l b;
+public class PersonalTalkSettingActivity extends com.baidu.tbadk.a implements com.baidu.adp.widget.BdSwitchView.c, p {
+    private q a;
+    private k b;
     private long c;
 
     public static void a(long j) {
-        Intent intent = new Intent(TiebaApplication.g().b().getApplicationContext(), PersonalTalkSettingActivity.class);
+        Intent intent = new Intent(TbadkApplication.j().b().getApplicationContext(), PersonalTalkSettingActivity.class);
         intent.addFlags(268435456);
         intent.putExtra("userId", j);
-        TiebaApplication.g().b().getApplicationContext().startActivity(intent);
+        TbadkApplication.j().b().getApplicationContext().startActivity(intent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.a = new p(this);
-        p pVar = this.a;
-        if (pVar.b != null) {
-            pVar.b.setSwitchStateChangeListener(this);
+        this.a = new q(this);
+        q qVar = this.a;
+        if (qVar.b != null) {
+            qVar.b.setSwitchStateChangeListener(this);
         }
         if (bundle == null) {
             this.c = getIntent().getLongExtra("userId", 0L);
         } else {
             this.c = bundle.getLong("userId");
         }
-        this.b = new l(this, this, this.c);
-        com.baidu.tieba.im.messageCenter.d.a().a(205003, this.b);
-        com.baidu.tieba.im.messageCenter.d.a().a(104102, this.b);
-        com.baidu.tieba.im.messageCenter.d.a().a(-118, this.b);
+        this.b = new k(this, this, this.c);
+        registerListener(205003, this.b.h());
+        registerListener(104102, this.b.h());
+        registerListener(2001118, this.b.i());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         this.b.g();
-        com.baidu.tieba.im.messageCenter.d.a().a(this.b);
     }
 
     @Override // android.app.Activity
@@ -56,7 +54,7 @@ public class PersonalTalkSettingActivity extends com.baidu.tieba.f implements co
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f
+    @Override // com.baidu.tbadk.a
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         getLayoutMode().a(i == 1);
@@ -66,46 +64,46 @@ public class PersonalTalkSettingActivity extends com.baidu.tieba.f implements co
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         int id = view.getId();
-        if (id == R.id.user_info_lin) {
+        if (id == com.baidu.tieba.im.h.user_info_lin) {
             if (this.b != null && this.b.b() != null) {
-                cm.a(this, String.valueOf(this.c), this.b.b().getName());
+                com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001003, new ag(this, String.valueOf(this.c), this.b.b().getName())));
             }
-        } else if (id == R.id.remove_from_black_man) {
-            new AlertDialog.Builder(this).setMessage(getString(R.string.add_black_alert, new Object[]{this.b.b().getName()})).setPositiveButton(R.string.alert_yes_button, new c(this)).setNegativeButton(R.string.alert_no_button, new d(this)).create().show();
-        } else if (id == R.id.st_delete_talk_history) {
-            new AlertDialog.Builder(this).setMessage(getString(R.string.remove_personal_history, new Object[]{this.b.b().getName()})).setPositiveButton(R.string.alert_yes_button, new e(this)).setNegativeButton(R.string.alert_no_button, new h(this)).create().show();
-        } else if (id == R.id.add_to_black) {
-            new AlertDialog.Builder(this).setMessage(getString(R.string.remove_black_alert, new Object[]{this.b.b().getName()})).setPositiveButton(R.string.alert_yes_button, new i(this)).setNegativeButton(R.string.alert_no_button, new j(this)).create().show();
-        } else if (id == R.id.change_attention) {
+        } else if (id == com.baidu.tieba.im.h.remove_from_black_man) {
+            new AlertDialog.Builder(this).setMessage(getString(com.baidu.tieba.im.j.add_black_alert, new Object[]{this.b.b().getName()})).setPositiveButton(com.baidu.tieba.im.j.alert_yes_button, new b(this)).setNegativeButton(com.baidu.tieba.im.j.alert_no_button, new c(this)).create().show();
+        } else if (id == com.baidu.tieba.im.h.st_delete_talk_history) {
+            new AlertDialog.Builder(this).setMessage(getString(com.baidu.tieba.im.j.remove_personal_history, new Object[]{this.b.b().getName()})).setPositiveButton(com.baidu.tieba.im.j.alert_yes_button, new d(this)).setNegativeButton(com.baidu.tieba.im.j.alert_no_button, new g(this)).create().show();
+        } else if (id == com.baidu.tieba.im.h.add_to_black) {
+            new AlertDialog.Builder(this).setMessage(getString(com.baidu.tieba.im.j.remove_black_alert, new Object[]{this.b.b().getName()})).setPositiveButton(com.baidu.tieba.im.j.alert_yes_button, new h(this)).setNegativeButton(com.baidu.tieba.im.j.alert_no_button, new i(this)).create().show();
+        } else if (id == com.baidu.tieba.im.h.change_attention) {
             this.b.e();
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.personaltalk.o
+    @Override // com.baidu.tieba.im.chat.personaltalk.p
     public final void a() {
         String portrait;
         closeLoadingDialog();
         if (this.a != null && this.b != null) {
-            p pVar = this.a;
-            l lVar = this.b;
-            if (lVar != null) {
-                boolean d = lVar.d();
-                int sex = lVar.b().getSex();
+            q qVar = this.a;
+            k kVar = this.b;
+            if (kVar != null) {
+                boolean d = kVar.d();
+                int sex = kVar.b().getSex();
                 if (d) {
-                    pVar.a.setSex(sex);
-                    pVar.a.setVisibility(0);
-                    pVar.b.setVisibility(8);
+                    qVar.a.setSex(sex);
+                    qVar.a.setVisibility(0);
+                    qVar.b.setVisibility(8);
                 } else {
-                    pVar.b.setVisibility(0);
-                    pVar.a.setVisibility(8);
+                    qVar.b.setVisibility(0);
+                    qVar.a.setVisibility(8);
                 }
-                pVar.b.b(lVar.c());
-                pVar.b.a(lVar.a());
-                pVar.a(lVar.b());
-                if (lVar == null || lVar.b() == null || (portrait = lVar.b().getPortrait()) == null || portrait.length() <= 0) {
+                qVar.b.b(kVar.c());
+                qVar.b.a(kVar.a());
+                qVar.a(kVar.b());
+                if (kVar == null || kVar.b() == null || (portrait = kVar.b().getPortrait()) == null || portrait.length() <= 0) {
                     return;
                 }
-                lVar.f().c(portrait, new q(pVar));
+                kVar.f().c(portrait, new r(qVar));
             }
         }
     }
@@ -113,6 +111,6 @@ public class PersonalTalkSettingActivity extends com.baidu.tieba.f implements co
     @Override // com.baidu.adp.widget.BdSwitchView.c
     public final void a(View view, BdSwitchView.SwitchState switchState) {
         this.b.a(switchState == BdSwitchView.SwitchState.ON);
-        new k(this, switchState).execute(new Void[0]);
+        new j(this, switchState).execute(new Void[0]);
     }
 }

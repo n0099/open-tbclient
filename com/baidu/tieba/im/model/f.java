@@ -1,40 +1,29 @@
 package com.baidu.tieba.im.model;
 
-import android.content.Intent;
-import android.os.Bundle;
+import com.baidu.tieba.im.chat.by;
+import com.baidu.tieba.im.message.ResponseCommitGroupMessage;
+import com.baidu.tieba.im.message.ResponseCommitMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class f extends com.baidu.adp.a.d {
-    private long a;
+public final class f implements by {
+    final /* synthetic */ CommonGroupMsglistModel a;
 
-    public final long a() {
-        return this.a;
+    private f(CommonGroupMsglistModel commonGroupMsglistModel) {
+        this.a = commonGroupMsglistModel;
     }
 
-    @Override // com.baidu.adp.a.d
-    protected final boolean LoadData() {
-        return false;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ f(CommonGroupMsglistModel commonGroupMsglistModel, byte b) {
+        this(commonGroupMsglistModel);
     }
 
-    @Override // com.baidu.adp.a.d
-    public final boolean cancelLoadData() {
-        return false;
-    }
-
-    public final void a(Intent intent) {
-        this.a = intent.getLongExtra("group_id", 0L);
-    }
-
-    public final void a(Bundle bundle) {
-        this.a = bundle.getLong("group_id");
-    }
-
-    public final void a(long j) {
-        com.baidu.tieba.im.message.ap apVar = new com.baidu.tieba.im.message.ap();
-        apVar.a(j);
-        com.baidu.tieba.im.messageCenter.d.a().a(apVar);
-    }
-
-    public final void b(Bundle bundle) {
-        bundle.putLong("group_id", this.a);
+    @Override // com.baidu.tieba.im.chat.by
+    public final void a(com.baidu.adp.framework.message.f<?> fVar) {
+        if (fVar != null && fVar.g() == 202001 && (fVar instanceof ResponseCommitGroupMessage)) {
+            ResponseCommitGroupMessage responseCommitGroupMessage = (ResponseCommitGroupMessage) fVar;
+            if (CommonGroupMsglistModel.a(this.a, responseCommitGroupMessage)) {
+                this.a.a((ResponseCommitMessage) responseCommitGroupMessage);
+            }
+        }
     }
 }

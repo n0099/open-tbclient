@@ -22,6 +22,7 @@ public final class CommitPersonalMsgReq {
         public static Parser<DataReq> PARSER = new d();
         public static final int RECORDID_FIELD_NUMBER = 6;
         public static final int TOUID_FIELD_NUMBER = 2;
+        public static final int TOUSERTYPE_FIELD_NUMBER = 7;
         private static final DataReq a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
@@ -33,6 +34,7 @@ public final class CommitPersonalMsgReq {
         private int msgType_;
         private long recordId_;
         private long toUid_;
+        private int toUserType_;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ DataReq(GeneratedMessageLite.Builder builder, DataReq dataReq) {
@@ -96,6 +98,10 @@ public final class CommitPersonalMsgReq {
                             case 48:
                                 this.bitField0_ |= 32;
                                 this.recordId_ = codedInputStream.readInt64();
+                                break;
+                            case 56:
+                                this.bitField0_ |= 64;
+                                this.toUserType_ = codedInputStream.readInt32();
                                 break;
                             default:
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
@@ -199,6 +205,14 @@ public final class CommitPersonalMsgReq {
             return this.recordId_;
         }
 
+        public final boolean hasToUserType() {
+            return (this.bitField0_ & 64) == 64;
+        }
+
+        public final int getToUserType() {
+            return this.toUserType_;
+        }
+
         private void a() {
             this.groupId_ = 0;
             this.toUid_ = 0L;
@@ -206,6 +220,7 @@ public final class CommitPersonalMsgReq {
             this.content_ = "";
             this.duration_ = 0;
             this.recordId_ = 0L;
+            this.toUserType_ = 0;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -239,6 +254,9 @@ public final class CommitPersonalMsgReq {
             if ((this.bitField0_ & 32) == 32) {
                 codedOutputStream.writeInt64(6, this.recordId_);
             }
+            if ((this.bitField0_ & 64) == 64) {
+                codedOutputStream.writeInt32(7, this.toUserType_);
+            }
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -263,6 +281,9 @@ public final class CommitPersonalMsgReq {
                 }
                 if ((this.bitField0_ & 32) == 32) {
                     i += CodedOutputStream.computeInt64Size(6, this.recordId_);
+                }
+                if ((this.bitField0_ & 64) == 64) {
+                    i += CodedOutputStream.computeInt32Size(7, this.toUserType_);
                 }
                 this.memoizedSerializedSize = i;
             }

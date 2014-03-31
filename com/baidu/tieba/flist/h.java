@@ -2,7 +2,7 @@ package com.baidu.tieba.flist;
 
 import android.view.View;
 import android.widget.AdapterView;
-import com.baidu.tieba.util.cb;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 final class h implements AdapterView.OnItemClickListener {
@@ -15,11 +15,11 @@ final class h implements AdapterView.OnItemClickListener {
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public final void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        cb.a(this.a, "forumlist_catalog", "catalogclick", 1, new Object[0]);
-        this.a.c.t.dismiss();
+        TiebaStatic.a(this.a, "forumlist_catalog", "catalogclick", 1, new Object[0]);
+        this.a.c.u.dismiss();
         this.a.t = i;
         this.a.c.b();
-        ArrayList<com.baidu.tieba.square.ab> arrayList = this.a.c.x.a().e;
+        ArrayList<com.baidu.tieba.square.ab> arrayList = this.a.c.y.a().e;
         ForumListActivity.a(this.a, arrayList.get(i).b, arrayList.get(i).c, arrayList.get(i).a);
     }
 }

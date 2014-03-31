@@ -1,20 +1,26 @@
 package com.baidu.tieba.mainentrance;
 
-import com.baidu.tieba.util.DatabaseService;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import java.util.ArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class v extends com.baidu.tieba.im.b<ArrayList<String>> {
+final class v extends com.baidu.adp.framework.c.a {
     final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(SquareSearchActivity squareSearchActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v(SquareSearchActivity squareSearchActivity, int i) {
+        super(2009002);
         this.a = squareSearchActivity;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.b
-    public final /* synthetic */ ArrayList<String> a() {
-        return DatabaseService.n();
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
+    @Override // com.baidu.adp.framework.c.c
+    public final /* bridge */ /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
+        Object a;
+        CustomResponsedMessage<?> customResponsedMessage2 = customResponsedMessage;
+        if (customResponsedMessage2 == null || (a = customResponsedMessage2.a()) == null || !(a instanceof ArrayList)) {
+            return;
+        }
+        this.a.a(true, (ArrayList<String>) a);
     }
 }

@@ -1,52 +1,71 @@
 package com.baidu.tieba.account;
 
-import android.app.Activity;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.data.AccountData;
-import com.baidu.tieba.util.DatabaseService;
+import android.content.DialogInterface;
+import android.view.View;
+import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
-final class c extends BdAsyncTask<Void, Void, AccountData> {
+final class c implements DialogInterface.OnClickListener {
     final /* synthetic */ b a;
-    private final /* synthetic */ String b;
+    private final /* synthetic */ View b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(b bVar, String str) {
+    public c(b bVar, View view) {
         this.a = bVar;
-        this.b = str;
+        this.b = view;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ AccountData a(Void... voidArr) {
-        return DatabaseService.g(this.b);
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void a(AccountData accountData) {
-        boolean z;
-        Activity activity;
-        int i;
-        at atVar;
-        AccountData accountData2 = accountData;
-        super.a((c) accountData2);
-        if (accountData2 == null || com.baidu.tieba.util.bs.c(accountData2.getPassword())) {
-            z = this.a.a.h;
-            if (z) {
-                return;
+    @Override // android.content.DialogInterface.OnClickListener
+    public final void onClick(DialogInterface dialogInterface, int i) {
+        AccountActivity accountActivity;
+        AccountActivity accountActivity2;
+        AccountActivity accountActivity3;
+        f fVar;
+        AccountActivity accountActivity4;
+        f fVar2;
+        AccountActivity accountActivity5;
+        AccountActivity accountActivity6;
+        AccountActivity accountActivity7;
+        f fVar3;
+        AccountActivity accountActivity8;
+        f fVar4;
+        if (this.b != null) {
+            AccountData accountData = (AccountData) this.b.getTag();
+            switch (i) {
+                case 0:
+                    if (accountData != null) {
+                        accountActivity5 = this.a.a;
+                        accountActivity6 = this.a.a;
+                        accountActivity5.i = new f(accountActivity6, false, accountData);
+                        accountActivity7 = this.a.a;
+                        fVar3 = accountActivity7.i;
+                        fVar3.setPriority(3);
+                        accountActivity8 = this.a.a;
+                        fVar4 = accountActivity8.i;
+                        fVar4.execute(new Object[0]);
+                    }
+                    dialogInterface.cancel();
+                    return;
+                case 1:
+                    if (accountData != null) {
+                        accountActivity = this.a.a;
+                        accountActivity2 = this.a.a;
+                        accountActivity.i = new f(accountActivity2, true, accountData);
+                        accountActivity3 = this.a.a;
+                        fVar = accountActivity3.i;
+                        fVar.setPriority(3);
+                        accountActivity4 = this.a.a;
+                        fVar2 = accountActivity4.i;
+                        fVar2.execute(new Object[0]);
+                    }
+                    dialogInterface.cancel();
+                    return;
+                case 2:
+                    dialogInterface.cancel();
+                    return;
+                default:
+                    dialogInterface.cancel();
+                    return;
             }
-            a aVar = this.a.a;
-            activity = this.a.a.b;
-            i = this.a.a.c;
-            aVar.a(activity, i);
-            return;
         }
-        String account = accountData2.getAccount();
-        String password = accountData2.getPassword();
-        atVar = this.a.a.k;
-        as.a(account, password, atVar);
     }
 }

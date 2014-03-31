@@ -1,6 +1,6 @@
 package com.baidu.tieba.album;
 
-import com.baidu.tieba.img.ImageFileInfo;
+import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
 final class ai implements aa {
     final /* synthetic */ ah a;
@@ -15,10 +15,10 @@ final class ai implements aa {
         AlbumActivity albumActivity;
         AlbumActivity albumActivity2;
         if (z) {
-            albumActivity2 = this.a.b;
+            albumActivity2 = this.a.a;
             return albumActivity2.a(imageFileInfo);
         }
-        albumActivity = this.a.b;
+        albumActivity = this.a.a;
         return albumActivity.b(imageFileInfo);
     }
 }

@@ -1,27 +1,18 @@
 package com.baidu.tieba.editortool;
-
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.GridView;
-import com.baidu.tieba.data.emotions.WritableEmotionGroup;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class m implements AdapterView.OnItemLongClickListener {
-    final /* synthetic */ EmotionTabContentView a;
+public final class m implements com.baidu.tbadk.editortool.x {
+    final /* synthetic */ EditorToolComponetContainer a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(EmotionTabContentView emotionTabContentView) {
-        this.a = emotionTabContentView;
+    public m(EditorToolComponetContainer editorToolComponetContainer) {
+        this.a = editorToolComponetContainer;
     }
 
-    @Override // android.widget.AdapterView.OnItemLongClickListener
-    public final boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-        WritableEmotionGroup writableEmotionGroup;
-        writableEmotionGroup = this.a.b;
-        if (writableEmotionGroup.c() == WritableEmotionGroup.EmotionGroupType.BIG_EMOTION) {
-            this.a.a(i, (GridView) adapterView);
-            return true;
-        }
-        return true;
+    @Override // com.baidu.tbadk.editortool.x
+    public final void a(int i, Object obj) {
+        com.baidu.tbadk.editortool.x xVar;
+        xVar = this.a.t;
+        xVar.a(i, obj);
     }
 }

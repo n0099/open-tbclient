@@ -3,8 +3,8 @@ package protobuf;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
-import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.location.BDLocation;
+import com.baidu.tieba.person.PersonInfoActivity;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.CodedOutputStream;
@@ -33,7 +33,6 @@ public final class Im {
         private int memoizedSerializedSize;
         private Object usermsg_;
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ Error(GeneratedMessageLite.Builder builder, Error error) {
             this(builder);
         }
@@ -53,7 +52,6 @@ public final class Im {
             return a;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final Error getDefaultInstanceForType() {
             return a;
@@ -99,7 +97,6 @@ public final class Im {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ Error(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, Error error) {
             this(codedInputStream, extensionRegistryLite);
         }
@@ -192,7 +189,6 @@ public final class Im {
             return i;
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
         public final Object writeReplace() {
             return super.writeReplace();
@@ -242,7 +238,6 @@ public final class Im {
             return e.b();
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         public final e newBuilderForType() {
             return newBuilder();
@@ -252,7 +247,6 @@ public final class Im {
             return newBuilder().mergeFrom(error);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         public final e toBuilder() {
             return newBuilder(this);
@@ -272,7 +266,6 @@ public final class Im {
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ UserPermission(GeneratedMessageLite.Builder builder, UserPermission userPermission) {
             this(builder);
         }
@@ -292,7 +285,6 @@ public final class Im {
             return a;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final UserPermission getDefaultInstanceForType() {
             return a;
@@ -338,7 +330,6 @@ public final class Im {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ UserPermission(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, UserPermission userPermission) {
             this(codedInputStream, extensionRegistryLite);
         }
@@ -412,7 +403,6 @@ public final class Im {
             return i;
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
         public final Object writeReplace() {
             return super.writeReplace();
@@ -462,7 +452,6 @@ public final class Im {
             return al.b();
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         public final al newBuilderForType() {
             return newBuilder();
@@ -472,7 +461,6 @@ public final class Im {
             return newBuilder().mergeFrom(userPermission);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         public final al toBuilder() {
             return newBuilder(this);
@@ -508,7 +496,6 @@ public final class Im {
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ GroupPermission(GeneratedMessageLite.Builder builder, GroupPermission groupPermission) {
             this(builder);
         }
@@ -528,7 +515,6 @@ public final class Im {
             return a;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final GroupPermission getDefaultInstanceForType() {
             return a;
@@ -606,7 +592,6 @@ public final class Im {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ GroupPermission(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, GroupPermission groupPermission) {
             this(codedInputStream, extensionRegistryLite);
         }
@@ -857,7 +842,6 @@ public final class Im {
             return i;
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
         public final Object writeReplace() {
             return super.writeReplace();
@@ -907,7 +891,6 @@ public final class Im {
             return q.b();
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         public final q newBuilderForType() {
             return newBuilder();
@@ -917,7 +900,6 @@ public final class Im {
             return newBuilder().mergeFrom(groupPermission);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         public final q toBuilder() {
             return newBuilder(this);
@@ -939,7 +921,6 @@ public final class Im {
         private Object name_;
         private Object url_;
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ TshowInfo(GeneratedMessageLite.Builder builder, TshowInfo tshowInfo) {
             this(builder);
         }
@@ -959,7 +940,6 @@ public final class Im {
             return a;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final TshowInfo getDefaultInstanceForType() {
             return a;
@@ -1009,7 +989,6 @@ public final class Im {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ TshowInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, TshowInfo tshowInfo) {
             this(codedInputStream, extensionRegistryLite);
         }
@@ -1155,7 +1134,6 @@ public final class Im {
             return i;
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
         public final Object writeReplace() {
             return super.writeReplace();
@@ -1205,7 +1183,6 @@ public final class Im {
             return af.a();
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         public final af newBuilderForType() {
             return newBuilder();
@@ -1215,7 +1192,6 @@ public final class Im {
             return newBuilder().mergeFrom(tshowInfo);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         public final af toBuilder() {
             return newBuilder(this);
@@ -1239,6 +1215,7 @@ public final class Im {
         public static final int TSHOWICON_FIELD_NUMBER = 14;
         public static final int USERID_FIELD_NUMBER = 1;
         public static final int USERNAME_FIELD_NUMBER = 2;
+        public static final int USERTYPE_FIELD_NUMBER = 15;
         private static final UserInfo a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
@@ -1258,8 +1235,8 @@ public final class Im {
         private List<TshowInfo> tshowIcon_;
         private int userId_;
         private Object userName_;
+        private int userType_;
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ UserInfo(GeneratedMessageLite.Builder builder, UserInfo userInfo) {
             this(builder);
         }
@@ -1279,7 +1256,6 @@ public final class Im {
             return a;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final UserInfo getDefaultInstanceForType() {
             return a;
@@ -1348,7 +1324,7 @@ public final class Im {
                                 this.bitField0_ |= 2048;
                                 this.sysGroupId_ = codedInputStream.readInt32();
                                 break;
-                            case SocialAPIErrorCodes.ERROR_INVALID_SIGNATURE_ALGORITHM /* 106 */:
+                            case 106:
                                 if ((this.bitField0_ & 4096) != 4096) {
                                     alVar = null;
                                 } else {
@@ -1367,6 +1343,10 @@ public final class Im {
                                     z2 |= true;
                                 }
                                 this.tshowIcon_.add((TshowInfo) codedInputStream.readMessage(TshowInfo.PARSER, extensionRegistryLite));
+                                break;
+                            case 120:
+                                this.bitField0_ |= 8192;
+                                this.userType_ = codedInputStream.readInt32();
                                 break;
                             default:
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
@@ -1390,7 +1370,6 @@ public final class Im {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ UserInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, UserInfo userInfo) {
             this(codedInputStream, extensionRegistryLite);
         }
@@ -1606,6 +1585,14 @@ public final class Im {
             return this.tshowIcon_.get(i);
         }
 
+        public final boolean hasUserType() {
+            return (this.bitField0_ & 8192) == 8192;
+        }
+
+        public final int getUserType() {
+            return this.userType_;
+        }
+
         private void a() {
             this.userId_ = 0;
             this.userName_ = "";
@@ -1621,6 +1608,7 @@ public final class Im {
             this.sysGroupId_ = 0;
             this.permission_ = UserPermission.getDefaultInstance();
             this.tshowIcon_ = Collections.emptyList();
+            this.userType_ = 0;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -1678,12 +1666,14 @@ public final class Im {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.tshowIcon_.size()) {
-                    codedOutputStream.writeMessage(14, this.tshowIcon_.get(i2));
-                    i = i2 + 1;
-                } else {
-                    return;
+                if (i2 >= this.tshowIcon_.size()) {
+                    break;
                 }
+                codedOutputStream.writeMessage(14, this.tshowIcon_.get(i2));
+                i = i2 + 1;
+            }
+            if ((this.bitField0_ & 8192) == 8192) {
+                codedOutputStream.writeInt32(15, this.userType_);
             }
         }
 
@@ -1737,12 +1727,14 @@ public final class Im {
                     computeInt32Size = CodedOutputStream.computeMessageSize(14, this.tshowIcon_.get(i)) + i2;
                     i++;
                 }
+                if ((this.bitField0_ & 8192) == 8192) {
+                    i2 += CodedOutputStream.computeInt32Size(15, this.userType_);
+                }
                 this.memoizedSerializedSize = i2;
             }
             return i2;
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
         public final Object writeReplace() {
             return super.writeReplace();
@@ -1792,7 +1784,6 @@ public final class Im {
             return ai.b();
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         public final ai newBuilderForType() {
             return newBuilder();
@@ -1802,7 +1793,6 @@ public final class Im {
             return newBuilder().mergeFrom(userInfo);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         public final ai toBuilder() {
             return newBuilder(this);
@@ -1811,6 +1801,7 @@ public final class Im {
 
     /* loaded from: classes.dex */
     public final class MaskInfo extends GeneratedMessageLite implements u {
+        public static final int MASKFIDS_FIELD_NUMBER = 6;
         public static final int MASKGIDS_FIELD_NUMBER = 2;
         public static final int MASKUIDS_FIELD_NUMBER = 4;
         public static Parser<MaskInfo> PARSER = new s();
@@ -1820,6 +1811,7 @@ public final class Im {
         private static final MaskInfo a;
         private static final long serialVersionUID = 0;
         private int bitField0_;
+        private Object maskFids_;
         private Object maskGids_;
         private Object maskUids_;
         private byte memoizedIsInitialized;
@@ -1828,7 +1820,6 @@ public final class Im {
         private int shieldStatus_;
         private long userId_;
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ MaskInfo(GeneratedMessageLite.Builder builder, MaskInfo maskInfo) {
             this(builder);
         }
@@ -1848,7 +1839,6 @@ public final class Im {
             return a;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final MaskInfo getDefaultInstanceForType() {
             return a;
@@ -1887,6 +1877,10 @@ public final class Im {
                                 this.bitField0_ |= 16;
                                 this.shieldStatus_ = codedInputStream.readInt32();
                                 break;
+                            case 50:
+                                this.bitField0_ |= 32;
+                                this.maskFids_ = codedInputStream.readBytes();
+                                break;
                             default:
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
@@ -1906,7 +1900,6 @@ public final class Im {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ MaskInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, MaskInfo maskInfo) {
             this(codedInputStream, extensionRegistryLite);
         }
@@ -2000,12 +1993,40 @@ public final class Im {
             return this.shieldStatus_;
         }
 
+        public final boolean hasMaskFids() {
+            return (this.bitField0_ & 32) == 32;
+        }
+
+        public final String getMaskFids() {
+            Object obj = this.maskFids_;
+            if (obj instanceof String) {
+                return (String) obj;
+            }
+            ByteString byteString = (ByteString) obj;
+            String stringUtf8 = byteString.toStringUtf8();
+            if (byteString.isValidUtf8()) {
+                this.maskFids_ = stringUtf8;
+            }
+            return stringUtf8;
+        }
+
+        public final ByteString getMaskFidsBytes() {
+            Object obj = this.maskFids_;
+            if (obj instanceof String) {
+                ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
+                this.maskFids_ = copyFromUtf8;
+                return copyFromUtf8;
+            }
+            return (ByteString) obj;
+        }
+
         private void a() {
             this.userId_ = 0L;
             this.maskGids_ = "";
             this.remindMask_ = 0;
             this.maskUids_ = "";
             this.shieldStatus_ = 0;
+            this.maskFids_ = "";
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -2036,6 +2057,9 @@ public final class Im {
             if ((this.bitField0_ & 16) == 16) {
                 codedOutputStream.writeInt32(5, this.shieldStatus_);
             }
+            if ((this.bitField0_ & 32) == 32) {
+                codedOutputStream.writeBytes(6, getMaskFidsBytes());
+            }
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -2058,12 +2082,14 @@ public final class Im {
                 if ((this.bitField0_ & 16) == 16) {
                     i += CodedOutputStream.computeInt32Size(5, this.shieldStatus_);
                 }
+                if ((this.bitField0_ & 32) == 32) {
+                    i += CodedOutputStream.computeBytesSize(6, getMaskFidsBytes());
+                }
                 this.memoizedSerializedSize = i;
             }
             return i;
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
         public final Object writeReplace() {
             return super.writeReplace();
@@ -2113,7 +2139,6 @@ public final class Im {
             return t.b();
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         public final t newBuilderForType() {
             return newBuilder();
@@ -2123,7 +2148,6 @@ public final class Im {
             return newBuilder().mergeFrom(maskInfo);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         public final t toBuilder() {
             return newBuilder(this);
@@ -2208,7 +2232,6 @@ public final class Im {
         private Object position_;
         private int status_;
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ GroupInfo(GeneratedMessageLite.Builder builder, GroupInfo groupInfo) {
             this(builder);
         }
@@ -2228,7 +2251,6 @@ public final class Im {
             return a;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final GroupInfo getDefaultInstanceForType() {
             return a;
@@ -2295,15 +2317,15 @@ public final class Im {
                                 this.bitField0_ |= 2048;
                                 this.status_ = codedInputStream.readInt32();
                                 break;
-                            case SocialAPIErrorCodes.ERROR_INVALID_SIGNATURE /* 104 */:
+                            case PersonInfoActivity.REQUSET_MY_MENTION /* 104 */:
                                 this.bitField0_ |= 4096;
                                 this.flag_ = codedInputStream.readInt32();
                                 break;
-                            case SocialAPIErrorCodes.ERROR_EXPIRED_SESSION_KEY /* 112 */:
+                            case 112:
                                 this.bitField0_ |= 8192;
                                 this.authorId_ = codedInputStream.readInt32();
                                 break;
-                            case SocialAPIErrorCodes.ERROR_SESSION_EXPIRED /* 122 */:
+                            case 122:
                                 this.bitField0_ |= 16384;
                                 this.authorName_ = codedInputStream.readBytes();
                                 break;
@@ -2319,7 +2341,7 @@ public final class Im {
                                 this.bitField0_ |= AccessibilityEventCompat.TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY;
                                 this.maxMemberNum_ = codedInputStream.readInt32();
                                 break;
-                            case SocialAPIErrorCodes.ERROR_BIND_API_NOT_BIND_TO_CURRENT_USER /* 152 */:
+                            case 152:
                                 this.bitField0_ |= AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START;
                                 this.memberNum_ = codedInputStream.readInt32();
                                 break;
@@ -2402,7 +2424,6 @@ public final class Im {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ GroupInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, GroupInfo groupInfo) {
             this(codedInputStream, extensionRegistryLite);
         }
@@ -3184,7 +3205,6 @@ public final class Im {
             return i;
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
         public final Object writeReplace() {
             return super.writeReplace();
@@ -3234,7 +3254,6 @@ public final class Im {
             return k.c();
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         public final k newBuilderForType() {
             return newBuilder();
@@ -3244,7 +3263,6 @@ public final class Im {
             return newBuilder().mergeFrom(groupInfo);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         public final k toBuilder() {
             return newBuilder(this);
@@ -3268,7 +3286,6 @@ public final class Im {
         private int memoizedSerializedSize;
         private int thresholdDay_;
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ GradeInfo(GeneratedMessageLite.Builder builder, GradeInfo gradeInfo) {
             this(builder);
         }
@@ -3288,7 +3305,6 @@ public final class Im {
             return a;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final GradeInfo getDefaultInstanceForType() {
             return a;
@@ -3342,7 +3358,6 @@ public final class Im {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ GradeInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, GradeInfo gradeInfo) {
             this(codedInputStream, extensionRegistryLite);
         }
@@ -3465,7 +3480,6 @@ public final class Im {
             return i;
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
         public final Object writeReplace() {
             return super.writeReplace();
@@ -3515,7 +3529,6 @@ public final class Im {
             return h.a();
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         public final h newBuilderForType() {
             return newBuilder();
@@ -3525,7 +3538,6 @@ public final class Im {
             return newBuilder().mergeFrom(gradeInfo);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         public final h toBuilder() {
             return newBuilder(this);
@@ -3538,11 +3550,14 @@ public final class Im {
         public static final int CREATETIME_FIELD_NUMBER = 8;
         public static final int DURATION_FIELD_NUMBER = 7;
         public static final int GROUPID_FIELD_NUMBER = 2;
+        public static final int LINK_FIELD_NUMBER = 13;
         public static final int MSGID_FIELD_NUMBER = 1;
         public static final int MSGTYPE_FIELD_NUMBER = 3;
         public static Parser<MsgInfo> PARSER = new v();
         public static final int RECORDID_FIELD_NUMBER = 9;
         public static final int STATUS_FIELD_NUMBER = 6;
+        public static final int STAT_FIELD_NUMBER = 14;
+        public static final int TASKID_FIELD_NUMBER = 15;
         public static final int TOUID_FIELD_NUMBER = 11;
         public static final int TOUSERINFO_FIELD_NUMBER = 12;
         public static final int USERID_FIELD_NUMBER = 4;
@@ -3554,18 +3569,20 @@ public final class Im {
         private int createTime_;
         private int duration_;
         private int groupId_;
+        private Object link_;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
         private long msgId_;
         private int msgType_;
         private long recordId_;
+        private Object stat_;
         private int status_;
+        private long taskId_;
         private long toUid_;
         private UserInfo toUserInfo_;
         private long userId_;
         private UserInfo userInfo_;
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ MsgInfo(GeneratedMessageLite.Builder builder, MsgInfo msgInfo) {
             this(builder);
         }
@@ -3585,7 +3602,6 @@ public final class Im {
             return a;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final MsgInfo getDefaultInstanceForType() {
             return a;
@@ -3662,6 +3678,18 @@ public final class Im {
                                 }
                                 this.bitField0_ |= 2048;
                                 break;
+                            case 106:
+                                this.bitField0_ |= 4096;
+                                this.link_ = codedInputStream.readBytes();
+                                break;
+                            case 114:
+                                this.bitField0_ |= 8192;
+                                this.stat_ = codedInputStream.readBytes();
+                                break;
+                            case 120:
+                                this.bitField0_ |= 16384;
+                                this.taskId_ = codedInputStream.readInt64();
+                                break;
                             default:
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     z = true;
@@ -3681,7 +3709,6 @@ public final class Im {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ MsgInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, MsgInfo msgInfo) {
             this(codedInputStream, extensionRegistryLite);
         }
@@ -3812,6 +3839,68 @@ public final class Im {
             return this.toUserInfo_;
         }
 
+        public final boolean hasLink() {
+            return (this.bitField0_ & 4096) == 4096;
+        }
+
+        public final String getLink() {
+            Object obj = this.link_;
+            if (obj instanceof String) {
+                return (String) obj;
+            }
+            ByteString byteString = (ByteString) obj;
+            String stringUtf8 = byteString.toStringUtf8();
+            if (byteString.isValidUtf8()) {
+                this.link_ = stringUtf8;
+            }
+            return stringUtf8;
+        }
+
+        public final ByteString getLinkBytes() {
+            Object obj = this.link_;
+            if (obj instanceof String) {
+                ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
+                this.link_ = copyFromUtf8;
+                return copyFromUtf8;
+            }
+            return (ByteString) obj;
+        }
+
+        public final boolean hasStat() {
+            return (this.bitField0_ & 8192) == 8192;
+        }
+
+        public final String getStat() {
+            Object obj = this.stat_;
+            if (obj instanceof String) {
+                return (String) obj;
+            }
+            ByteString byteString = (ByteString) obj;
+            String stringUtf8 = byteString.toStringUtf8();
+            if (byteString.isValidUtf8()) {
+                this.stat_ = stringUtf8;
+            }
+            return stringUtf8;
+        }
+
+        public final ByteString getStatBytes() {
+            Object obj = this.stat_;
+            if (obj instanceof String) {
+                ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
+                this.stat_ = copyFromUtf8;
+                return copyFromUtf8;
+            }
+            return (ByteString) obj;
+        }
+
+        public final boolean hasTaskId() {
+            return (this.bitField0_ & 16384) == 16384;
+        }
+
+        public final long getTaskId() {
+            return this.taskId_;
+        }
+
         private void a() {
             this.msgId_ = 0L;
             this.groupId_ = 0;
@@ -3825,6 +3914,9 @@ public final class Im {
             this.userInfo_ = UserInfo.getDefaultInstance();
             this.toUid_ = 0L;
             this.toUserInfo_ = UserInfo.getDefaultInstance();
+            this.link_ = "";
+            this.stat_ = "";
+            this.taskId_ = 0L;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -3876,6 +3968,15 @@ public final class Im {
             if ((this.bitField0_ & 2048) == 2048) {
                 codedOutputStream.writeMessage(12, this.toUserInfo_);
             }
+            if ((this.bitField0_ & 4096) == 4096) {
+                codedOutputStream.writeBytes(13, getLinkBytes());
+            }
+            if ((this.bitField0_ & 8192) == 8192) {
+                codedOutputStream.writeBytes(14, getStatBytes());
+            }
+            if ((this.bitField0_ & 16384) == 16384) {
+                codedOutputStream.writeInt64(15, this.taskId_);
+            }
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -3919,12 +4020,20 @@ public final class Im {
                 if ((this.bitField0_ & 2048) == 2048) {
                     i += CodedOutputStream.computeMessageSize(12, this.toUserInfo_);
                 }
+                if ((this.bitField0_ & 4096) == 4096) {
+                    i += CodedOutputStream.computeBytesSize(13, getLinkBytes());
+                }
+                if ((this.bitField0_ & 8192) == 8192) {
+                    i += CodedOutputStream.computeBytesSize(14, getStatBytes());
+                }
+                if ((this.bitField0_ & 16384) == 16384) {
+                    i += CodedOutputStream.computeInt64Size(15, this.taskId_);
+                }
                 this.memoizedSerializedSize = i;
             }
             return i;
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
         public final Object writeReplace() {
             return super.writeReplace();
@@ -3974,7 +4083,6 @@ public final class Im {
             return w.a();
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         public final w newBuilderForType() {
             return newBuilder();
@@ -3984,7 +4092,6 @@ public final class Im {
             return newBuilder().mergeFrom(msgInfo);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         public final w toBuilder() {
             return newBuilder(this);
@@ -4008,7 +4115,6 @@ public final class Im {
         private long pushTime_;
         private int type_;
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ PusherMsgInfo(GeneratedMessageLite.Builder builder, PusherMsgInfo pusherMsgInfo) {
             this(builder);
         }
@@ -4028,7 +4134,6 @@ public final class Im {
             return a;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final PusherMsgInfo getDefaultInstanceForType() {
             return a;
@@ -4082,7 +4187,6 @@ public final class Im {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ PusherMsgInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, PusherMsgInfo pusherMsgInfo) {
             this(codedInputStream, extensionRegistryLite);
         }
@@ -4186,7 +4290,6 @@ public final class Im {
             return i;
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
         public final Object writeReplace() {
             return super.writeReplace();
@@ -4236,7 +4339,6 @@ public final class Im {
             return ac.b();
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         public final ac newBuilderForType() {
             return newBuilder();
@@ -4246,7 +4348,6 @@ public final class Im {
             return newBuilder().mergeFrom(pusherMsgInfo);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         public final ac toBuilder() {
             return newBuilder(this);
@@ -4266,7 +4367,6 @@ public final class Im {
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ GroupLastId(GeneratedMessageLite.Builder builder, GroupLastId groupLastId) {
             this(builder);
         }
@@ -4286,7 +4386,6 @@ public final class Im {
             return a;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final GroupLastId getDefaultInstanceForType() {
             return a;
@@ -4332,7 +4431,6 @@ public final class Im {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ GroupLastId(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, GroupLastId groupLastId) {
             this(codedInputStream, extensionRegistryLite);
         }
@@ -4406,7 +4504,6 @@ public final class Im {
             return i;
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
         public final Object writeReplace() {
             return super.writeReplace();
@@ -4456,7 +4553,6 @@ public final class Im {
             return n.b();
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         public final n newBuilderForType() {
             return newBuilder();
@@ -4466,7 +4562,6 @@ public final class Im {
             return newBuilder().mergeFrom(groupLastId);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         public final n toBuilder() {
             return newBuilder(this);
@@ -4488,7 +4583,6 @@ public final class Im {
         private Object picId_;
         private Object smallurl_;
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ Photo(GeneratedMessageLite.Builder builder, Photo photo) {
             this(builder);
         }
@@ -4508,7 +4602,6 @@ public final class Im {
             return a;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final Photo getDefaultInstanceForType() {
             return a;
@@ -4558,7 +4651,6 @@ public final class Im {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ Photo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, Photo photo) {
             this(codedInputStream, extensionRegistryLite);
         }
@@ -4704,7 +4796,6 @@ public final class Im {
             return i;
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
         public final Object writeReplace() {
             return super.writeReplace();
@@ -4754,7 +4845,6 @@ public final class Im {
             return z.a();
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         public final z newBuilderForType() {
             return newBuilder();
@@ -4764,7 +4854,6 @@ public final class Im {
             return newBuilder().mergeFrom(photo);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         public final z toBuilder() {
             return newBuilder(this);
@@ -4786,7 +4875,6 @@ public final class Im {
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ ActivityInfo(GeneratedMessageLite.Builder builder, ActivityInfo activityInfo) {
             this(builder);
         }
@@ -4806,7 +4894,6 @@ public final class Im {
             return a;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final ActivityInfo getDefaultInstanceForType() {
             return a;
@@ -4856,7 +4943,6 @@ public final class Im {
             }
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ ActivityInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, ActivityInfo activityInfo) {
             this(codedInputStream, extensionRegistryLite);
         }
@@ -4964,7 +5050,6 @@ public final class Im {
             return i;
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.protobuf.GeneratedMessageLite
         public final Object writeReplace() {
             return super.writeReplace();
@@ -5014,7 +5099,6 @@ public final class Im {
             return b.a();
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         public final b newBuilderForType() {
             return newBuilder();
@@ -5024,7 +5108,6 @@ public final class Im {
             return newBuilder().mergeFrom(activityInfo);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite
         public final b toBuilder() {
             return newBuilder(this);

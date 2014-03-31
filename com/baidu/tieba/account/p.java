@@ -1,11 +1,11 @@
 package com.baidu.tieba.account;
 
-import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-final class p implements Runnable {
+final class p implements TextWatcher {
     final /* synthetic */ ActivationActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,40 +13,39 @@ final class p implements Runnable {
         this.a = activationActivity;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
+    @Override // android.text.TextWatcher
+    public final void afterTextChanged(Editable editable) {
+        RelativeLayout relativeLayout;
         int i;
+        LinearLayout linearLayout;
+        LinearLayout linearLayout2;
         int i2;
         int i3;
-        TextView textView;
-        Handler handler;
-        Runnable runnable;
-        TextView textView2;
-        t tVar;
-        RelativeLayout relativeLayout;
-        ActivationActivity activationActivity = this.a;
-        i = activationActivity.o;
-        activationActivity.o = i - 1;
-        i2 = this.a.o;
-        if (i2 <= 0) {
-            this.a.n = true;
-            textView2 = this.a.g;
-            textView2.setText(this.a.getString(R.string.resend_code));
-            tVar = this.a.m;
-            if (tVar == null) {
-                relativeLayout = this.a.k;
-                relativeLayout.setEnabled(true);
-                return;
-            }
-            return;
+        RelativeLayout relativeLayout2;
+        if (editable.length() == 6) {
+            relativeLayout2 = this.a.k;
+            relativeLayout2.setEnabled(true);
+        } else {
+            relativeLayout = this.a.k;
+            relativeLayout.setEnabled(false);
         }
-        String string = this.a.getString(R.string.resend_code_second);
-        i3 = this.a.o;
-        String format = String.format(string, Integer.valueOf(i3));
-        textView = this.a.g;
-        textView.setText(format);
-        handler = this.a.q;
-        runnable = this.a.z;
-        handler.postDelayed(runnable, 1000L);
+        i = this.a.y;
+        if (i != 0) {
+            this.a.y = 0;
+            linearLayout = this.a.d;
+            linearLayout.setBackgroundResource(com.baidu.tieba.a.g.pass_input);
+            linearLayout2 = this.a.d;
+            i2 = this.a.w;
+            i3 = this.a.x;
+            linearLayout2.setPadding(i2, 0, i3, 0);
+        }
+    }
+
+    @Override // android.text.TextWatcher
+    public final void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public final void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 }

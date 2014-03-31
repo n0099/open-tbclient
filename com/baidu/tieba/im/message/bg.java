@@ -1,31 +1,33 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tieba.im.messageCenter.IDuplicateProcess;
 import com.google.protobuf.MessageLite;
 import protobuf.Im;
 import protobuf.UpdateGroup.UpdateGroupReq;
 /* loaded from: classes.dex */
-public abstract class bg extends s implements com.baidu.tieba.im.coder.g, IDuplicateProcess {
+public abstract class bg extends com.baidu.tbadk.message.websockt.d {
     public int a;
     private int b;
 
     protected abstract void a(protobuf.k kVar);
 
     public bg() {
-        e(103102);
+        super(103102);
     }
 
-    public final void a(int i) {
+    public final void d(int i) {
         this.b = i;
     }
 
-    @Override // com.baidu.tieba.im.messageCenter.IDuplicateProcess
-    public final IDuplicateProcess.RemoveState c() {
-        return IDuplicateProcess.RemoveState.REMOVE_ME;
+    public final int i() {
+        return this.a;
     }
 
-    @Override // com.baidu.tieba.im.coder.g
-    public final MessageLite a() {
+    public final void e(int i) {
+        this.a = i;
+    }
+
+    @Override // com.baidu.tbadk.message.websockt.d
+    public final MessageLite h() {
         protobuf.k newBuilder = Im.GroupInfo.newBuilder();
         newBuilder.a(this.b);
         a(newBuilder);

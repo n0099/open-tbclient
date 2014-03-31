@@ -1,25 +1,25 @@
 package com.baidu.tieba.im.chat;
+
+import com.baidu.tieba.im.message.ResponseCommitPersonalMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class aq implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ GroupSettingActivity a;
+public final class aq extends com.baidu.tieba.im.m<Boolean> {
+    final /* synthetic */ x b;
+    private final /* synthetic */ long c;
+    private final /* synthetic */ long d;
+    private final /* synthetic */ ResponseCommitPersonalMessage e;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aq(GroupSettingActivity groupSettingActivity) {
-        this.a = groupSettingActivity;
+    public aq(x xVar, long j, long j2, ResponseCommitPersonalMessage responseCommitPersonalMessage) {
+        this.b = xVar;
+        this.c = j;
+        this.d = j2;
+        this.e = responseCommitPersonalMessage;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.baidu.tieba.im.a
-    public final /* synthetic */ void a(Boolean bool) {
-        az azVar;
-        az azVar2;
-        Boolean bool2 = bool;
-        if (bool2 == null || !bool2.equals(true)) {
-            azVar = this.a.a;
-            azVar.t().b();
-            return;
-        }
-        azVar2 = this.a.a;
-        azVar2.t().a();
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.m
+    public final /* synthetic */ Boolean a() {
+        return Boolean.valueOf(com.baidu.tieba.im.db.m.d().a(this.c, this.d, String.valueOf(this.e.i()), String.valueOf(this.e.d()), 3));
     }
 }

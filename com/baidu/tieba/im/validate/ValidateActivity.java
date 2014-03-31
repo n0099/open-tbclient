@@ -7,35 +7,33 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.AbsListView;
-import com.baidu.tieba.data.chat.ImMessageCenterShowItemData;
+import com.baidu.tbadk.core.b.ag;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.editortool.aa;
+import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.baidu.tieba.im.groupInfo.af;
-import com.baidu.tieba.im.groupInfo.ag;
-import com.baidu.tieba.im.groupInfo.aj;
-import com.baidu.tieba.im.message.aa;
-import com.baidu.tieba.im.message.da;
-import com.baidu.tieba.mention.v;
-import com.baidu.tieba.person.cm;
-import com.baidu.tieba.util.UtilHelper;
-import com.slidingmenu.lib.R;
+import com.baidu.tieba.im.groupInfo.ak;
+import com.baidu.tieba.im.groupInfo.al;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class ValidateActivity extends com.baidu.tieba.f implements AbsListView.OnScrollListener, com.baidu.adp.widget.ListView.r, com.baidu.tieba.im.messageCenter.g {
+public class ValidateActivity extends com.baidu.tbadk.a implements AbsListView.OnScrollListener, com.baidu.adp.widget.ListView.t {
     public static boolean a = false;
-    private r b;
+    private t b;
     private com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> c;
     private com.baidu.tieba.im.a<Boolean> d;
     private AlertDialog e;
     private ValidateItemData f;
     private Runnable g;
-    private com.baidu.tieba.util.i h;
+    private aa h;
     private int j;
     private int l;
     private boolean m;
     private com.baidu.tieba.im.a<Integer> n;
     private boolean i = false;
     private int k = 20;
+    private com.baidu.adp.framework.c.g o = new a(this, 0);
+    private com.baidu.adp.framework.c.a p = new b(this, 2001129);
 
     public static void a(Context context) {
         if (context != null) {
@@ -44,20 +42,20 @@ public class ValidateActivity extends com.baidu.tieba.f implements AbsListView.O
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.h = new com.baidu.tieba.util.i(this);
+        this.h = new aa(this);
         this.h.a(false);
-        this.b = new r(this);
-        this.d = new a(this);
-        this.c = new b(this);
-        this.n = new c(this);
-        com.baidu.tieba.im.messageCenter.d.a().a(103111, this);
-        com.baidu.tieba.im.messageCenter.d.a().a(202004, this);
-        com.baidu.tieba.im.messageCenter.d.a().a(-129, this);
+        this.b = new t(this);
+        this.d = new c(this);
+        this.c = new d(this);
+        this.n = new e(this);
+        com.baidu.adp.framework.c.a().a(103111, this.o);
+        com.baidu.adp.framework.c.a().a(202004, this.o);
+        com.baidu.adp.framework.c.a().a(this.p);
         this.b.a(true);
-        com.baidu.tieba.im.i.a(new q(), this.n);
+        com.baidu.tieba.im.s.a(new s(), this.n);
     }
 
     @Override // android.app.Activity
@@ -67,10 +65,10 @@ public class ValidateActivity extends com.baidu.tieba.f implements AbsListView.O
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, android.app.Activity
+    @Override // com.baidu.tbadk.a, android.app.Activity
     public void onResume() {
         super.onResume();
-        v.a().a(1);
+        com.baidu.tbadk.coreExtra.messageCenter.a.a().a(1);
     }
 
     @Override // android.app.Activity
@@ -80,14 +78,14 @@ public class ValidateActivity extends com.baidu.tieba.f implements AbsListView.O
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, android.app.Activity
+    @Override // com.baidu.tbadk.a, android.app.Activity
     public void onStop() {
-        f e;
+        h e;
         List<ValidateItemData> b;
         super.onStop();
         a = false;
         if (this.b != null && (e = this.b.e()) != null && (b = e.b()) != null && !b.isEmpty()) {
-            ImMessageCenterShowItemData f = com.baidu.tieba.im.c.a.d().f();
+            ImMessageCenterShowItemData f = com.baidu.tieba.im.pushNotify.a.d().f();
             LinkedList linkedList = new LinkedList();
             int size = b.size();
             for (int i = 0; i < size; i++) {
@@ -98,21 +96,20 @@ public class ValidateActivity extends com.baidu.tieba.f implements AbsListView.O
                     f.setUnReadCount(f.getUnReadCount() - 1);
                 }
             }
-            new n(linkedList).execute(new Void[0]);
+            new p(linkedList).execute(new Void[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, android.app.Activity
+    @Override // com.baidu.tbadk.a, android.app.Activity
     public void onPause() {
         super.onPause();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        com.baidu.tieba.im.messageCenter.d.a().a(this);
         if (this.b != null) {
             this.b.c();
         }
@@ -127,7 +124,7 @@ public class ValidateActivity extends com.baidu.tieba.f implements AbsListView.O
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f
+    @Override // com.baidu.tbadk.a
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (this.b != null) {
@@ -138,40 +135,40 @@ public class ValidateActivity extends com.baidu.tieba.f implements AbsListView.O
     public final void a(int i, ValidateItemData validateItemData) {
         if (validateItemData != null) {
             if (100 == i) {
-                if (!UtilHelper.b()) {
-                    showToast(R.string.neterror);
+                if (!UtilHelper.a()) {
+                    showToast(com.baidu.tieba.im.j.neterror);
                 } else if (validateItemData == null || validateItemData.isPass() || this.i) {
                 } else {
                     try {
                         validateItemData.setShown(true);
-                        ImMessageCenterShowItemData f = com.baidu.tieba.im.c.a.d().f();
+                        ImMessageCenterShowItemData f = com.baidu.tieba.im.pushNotify.a.d().f();
                         f.setUnReadCount(f.getUnReadCount() - 1);
-                        l.a(this.d, validateItemData);
+                        n.a(this.d, validateItemData);
                         this.b.a(true);
-                        af afVar = new af();
-                        afVar.a(validateItemData.getInviterUserId());
-                        afVar.a(validateItemData.getJoinType());
-                        afVar.a(validateItemData.getUserId());
-                        afVar.b(com.baidu.adp.lib.f.b.a(validateItemData.getGroupId(), 0));
-                        afVar.b(validateItemData.getNotice_id());
+                        ak akVar = new ak();
+                        akVar.b(validateItemData.getInviterUserId());
+                        akVar.d(validateItemData.getJoinType());
+                        akVar.a(validateItemData.getUserId());
+                        akVar.e(com.baidu.adp.lib.f.b.a(validateItemData.getGroupId(), 0));
+                        akVar.b(validateItemData.getNotice_id());
                         String notice_id = validateItemData.getNotice_id();
-                        String e = com.baidu.tieba.im.c.j.a().e();
+                        String e = com.baidu.tieba.im.pushNotify.o.a().e();
                         if (TextUtils.isEmpty(notice_id) || TextUtils.isEmpty(e) || !TextUtils.isDigitsOnly(notice_id) || !TextUtils.isDigitsOnly(e)) {
                             return;
                         }
-                        afVar.c(com.baidu.adp.lib.f.b.a(e, 0));
-                        afVar.c(String.valueOf(com.baidu.adp.lib.f.b.a(notice_id, 0L) / 100));
-                        afVar.d(1);
-                        com.baidu.adp.lib.util.e.e("pass apply: userid:" + afVar.c() + "  groupId:" + afVar.b() + " sysGid" + e + " mid:" + afVar.e());
+                        akVar.f(com.baidu.adp.lib.f.b.a(e, 0));
+                        akVar.c(String.valueOf(com.baidu.adp.lib.f.b.a(notice_id, 0L) / 100));
+                        akVar.h(1);
+                        com.baidu.adp.lib.util.f.e("pass apply: userid:" + akVar.j() + "  groupId:" + akVar.i() + " sysGid" + e + " mid:" + akVar.m());
                         this.i = true;
-                        com.baidu.tieba.im.messageCenter.d.a().a(afVar);
+                        com.baidu.adp.framework.c.a().a(akVar);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
                 }
             } else if (101 != i || validateItemData == null) {
             } else {
-                cm.a(this, validateItemData.getUserId(), validateItemData.getUserName());
+                com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001003, new ag(this, validateItemData.getUserId(), validateItemData.getUserName())));
             }
         }
     }
@@ -180,11 +177,11 @@ public class ValidateActivity extends com.baidu.tieba.f implements AbsListView.O
         if (view != null && validateItemData != null) {
             this.f = validateItemData;
             if (this.e == null) {
-                String string = getString(R.string.delete_user_chat);
-                d dVar = new d(this);
+                String string = getString(com.baidu.tieba.im.j.delete_user_chat);
+                f fVar = new f(this);
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle(R.string.operation);
-                builder.setItems(new String[]{string}, dVar);
+                builder.setTitle(com.baidu.tieba.im.j.operation);
+                builder.setItems(new String[]{string}, fVar);
                 this.e = builder.create();
                 this.e.setCanceledOnTouchOutside(true);
             }
@@ -192,105 +189,28 @@ public class ValidateActivity extends com.baidu.tieba.f implements AbsListView.O
         }
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x0038: ARITH  (r1v5 long A[REMOVE]) = (wrap: long : 0x002d: INVOKE  (r1v4 long A[REMOVE]) = 
-      (wrap: java.lang.String : 0x0029: INVOKE  (r1v3 java.lang.String A[REMOVE]) = (r8v0 com.baidu.tieba.im.validate.ValidateItemData) type: VIRTUAL call: com.baidu.tieba.im.validate.ValidateItemData.getNotice_id():java.lang.String)
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x0037: ARITH  (r1v5 long A[REMOVE]) = (wrap: long : 0x002c: INVOKE  (r1v4 long A[REMOVE]) = 
+      (wrap: java.lang.String : 0x0028: INVOKE  (r1v3 java.lang.String A[REMOVE]) = (r8v0 com.baidu.tieba.im.validate.ValidateItemData) type: VIRTUAL call: com.baidu.tieba.im.validate.ValidateItemData.getNotice_id():java.lang.String)
      type: STATIC call: java.lang.Long.parseLong(java.lang.String):long) / (100 long))] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void a(ValidateActivity validateActivity, ValidateItemData validateItemData) {
-        if (!UtilHelper.b()) {
-            validateActivity.showToast(R.string.neterror);
+        if (!UtilHelper.a()) {
+            validateActivity.showToast(com.baidu.tieba.im.j.neterror);
         } else if (validateItemData != null) {
             validateActivity.b.a(true);
-            ag agVar = new ag();
-            agVar.a(Integer.parseInt(com.baidu.tieba.im.c.j.a().e()));
-            agVar.a(new StringBuilder().append(Long.parseLong(validateItemData.getNotice_id()) / 100).toString());
-            com.baidu.adp.lib.util.e.e("del group info request: gid" + validateItemData.getGroupId() + " msgid:" + validateItemData.getNotice_id() + " systemGid:" + agVar.b());
+            al alVar = new al();
+            alVar.d(Integer.parseInt(com.baidu.tieba.im.pushNotify.o.a().e()));
+            alVar.a(new StringBuilder().append(Long.parseLong(validateItemData.getNotice_id()) / 100).toString());
+            com.baidu.adp.lib.util.f.e("del group info request: gid" + validateItemData.getGroupId() + " msgid:" + validateItemData.getNotice_id() + " systemGid:" + alVar.i());
             validateActivity.i = true;
-            com.baidu.tieba.im.messageCenter.d.a().a(agVar);
+            com.baidu.adp.framework.c.a().a(alVar);
         }
     }
 
-    @Override // com.baidu.tieba.im.messageCenter.g
-    public final void a(com.baidu.tieba.im.message.s sVar) {
-        this.b.a(false);
-        this.i = false;
-        if (sVar != null && (sVar instanceof da)) {
-            int v = sVar.v();
-            if (v == 103111) {
-                da daVar = (da) sVar;
-                af afVar = (af) daVar.o();
-                if (daVar.l()) {
-                    if (afVar != null) {
-                        int m = daVar.m();
-                        String n = daVar.n();
-                        if (TextUtils.isEmpty(n)) {
-                            showToast(R.string.validate_fail);
-                        } else {
-                            showToast(n);
-                        }
-                        com.baidu.adp.lib.util.e.e("errCode:" + m + "errMsg:" + n);
-                        ValidateItemData a2 = a(afVar.d());
-                        if (a2 != null) {
-                            a2.setPass(false);
-                            a2.setShown(true);
-                            l.a(this.d, a2);
-                            this.b.e().notifyDataSetChanged();
-                            com.baidu.adp.lib.util.e.e("apply add group" + sVar.toString() + "err:" + m + " " + n);
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                }
-                ValidateItemData a3 = a(afVar.d());
-                if (a3 != null) {
-                    a3.setPass(true);
-                    a3.setShown(true);
-                    l.a(this.d, a3);
-                    if (TextUtils.isEmpty(daVar.n())) {
-                        showToast(R.string.validate_succ);
-                    } else {
-                        showToast(daVar.n());
-                    }
-                    this.b.e().notifyDataSetChanged();
-                    com.baidu.adp.lib.util.e.e("apply add group" + sVar.toString());
-                }
-            } else if (202004 == v) {
-                aj ajVar = (aj) sVar;
-                ag agVar = (ag) ajVar.o();
-                if (ajVar.l()) {
-                    com.baidu.adp.lib.util.e.b("del group info err:" + ajVar.n());
-                    return;
-                }
-                com.baidu.adp.lib.util.e.e("del group info: gid" + agVar.b() + " msgid:" + agVar.c());
-                ValidateItemData validateItemData = this.f;
-                com.baidu.tieba.im.a<Boolean> aVar = this.d;
-                if (validateItemData != null) {
-                    com.baidu.adp.lib.util.e.e("lastmid:" + validateItemData.getNotice_id());
-                    com.baidu.tieba.im.i.a(new o(validateItemData), aVar);
-                }
-                this.l--;
-                this.j--;
-                f e = this.b.e();
-                e.b().remove(this.f);
-                e.notifyDataSetChanged();
-                com.baidu.tieba.im.c.a.a((com.baidu.tieba.im.a<Void>) null);
-            } else if (-129 == v && (sVar instanceof aa)) {
-                GroupNewsPojo a4 = ((aa) sVar).a();
-                this.l++;
-                this.j++;
-                this.b.e().b().add(0, l.a(a4));
-                this.b.e().notifyDataSetChanged();
-            }
-        }
-    }
-
-    private ValidateItemData a(String str) {
-        if (str == null) {
-            return null;
-        }
-        List<ValidateItemData> b = this.b.e().b();
-        if (b != null) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ ValidateItemData a(ValidateActivity validateActivity, String str) {
+        List<ValidateItemData> b;
+        if (str != null && (b = validateActivity.b.e().b()) != null) {
             for (ValidateItemData validateItemData : b) {
                 if (str.equals(validateItemData.getNotice_id())) {
                     return validateItemData;
@@ -304,7 +224,7 @@ public class ValidateActivity extends com.baidu.tieba.f implements AbsListView.O
     public void c() {
         if (this.b.d() != null) {
             if (this.g == null) {
-                this.g = new e(this);
+                this.g = new g(this);
             }
             this.b.d().removeCallbacks(this.g);
             this.b.d().post(this.g);
@@ -322,15 +242,15 @@ public class ValidateActivity extends com.baidu.tieba.f implements AbsListView.O
         }
     }
 
-    public final com.baidu.tieba.util.i a() {
+    public final aa a() {
         return this.h;
     }
 
-    @Override // com.baidu.adp.widget.ListView.r
+    @Override // com.baidu.adp.widget.ListView.t
     public final void b() {
         if (!this.m && this.l < this.j) {
             this.m = true;
-            l.a(this.k, this.l, this.c);
+            n.a(this.k, this.l, this.c);
         }
     }
 }

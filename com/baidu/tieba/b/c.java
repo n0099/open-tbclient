@@ -1,29 +1,26 @@
 package com.baidu.tieba.b;
 
-import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.l;
+import com.baidu.tbadk.core.data.n;
+import com.baidu.tbadk.core.f;
 /* loaded from: classes.dex */
-public final class c extends l {
-    private static final String c = String.valueOf(com.baidu.tieba.data.i.a) + "c/f/forum/forumrecommend";
+public final class c extends f {
+    private static final String c = String.valueOf(n.a) + "c/f/forum/forumsquare";
 
     public final String g() {
-        a("like_forum", SocialConstants.TRUE);
-        a("topic", SocialConstants.FALSE);
-        a("recommend", SocialConstants.FALSE);
         a(c);
-        return this.a.l();
+        return b();
     }
 
     public final long h() {
         if (this.a != null) {
-            return this.a.p();
+            return this.a.a().c().a.d;
         }
         return 0L;
     }
 
     public final long i() {
         if (this.a != null) {
-            return this.a.q();
+            return this.a.a().c().a.c;
         }
         return 0L;
     }

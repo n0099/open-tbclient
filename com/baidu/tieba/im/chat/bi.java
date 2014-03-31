@@ -1,23 +1,19 @@
 package com.baidu.tieba.im.chat;
-
-import android.content.Context;
-import android.widget.TextView;
-import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public final class bi extends com.baidu.adp.a.c<com.baidu.tieba.im.message.b> {
-    private TextView c;
+final class bi implements com.baidu.tieba.im.widget.h {
+    final /* synthetic */ bh a;
 
-    public bi(Context context) {
-        super(context, R.layout.msg_msg_chat_rule_view);
-        this.c = (TextView) a(R.id.tex_msgcontent);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bi(bh bhVar) {
+        this.a = bhVar;
     }
 
-    public final void a(com.baidu.tieba.im.message.b bVar) {
-        String str;
-        if (bVar == null) {
-            this.c = null;
-        } else if ((bVar instanceof com.baidu.tieba.im.message.f) && (str = ((com.baidu.tieba.im.message.f) bVar).b) != null) {
-            this.c.setText(str);
-        }
+    @Override // com.baidu.tieba.im.widget.h
+    public final void a() {
+        com.baidu.tieba.im.p.a();
+        com.baidu.tieba.im.p.b(false);
+        com.baidu.tieba.im.message.at atVar = new com.baidu.tieba.im.message.at();
+        atVar.d(com.baidu.adp.lib.f.b.a(GroupChatActivity.b, 0));
+        com.baidu.adp.framework.c.a().a(atVar);
     }
 }

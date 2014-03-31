@@ -1,6 +1,5 @@
 package com.baidu.adp.lib.webSocket;
 
-import com.baidu.adp.lib.util.BdUtilHelper;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.http.message.BasicNameValuePair;
@@ -32,7 +31,7 @@ public class l {
         this.d = strArr;
         this.c = list;
         if (com.baidu.adp.a.b.a().d()) {
-            com.baidu.adp.lib.util.e.e("----ws init " + str);
+            com.baidu.adp.lib.util.f.e("----ws init " + str);
         }
     }
 
@@ -43,13 +42,13 @@ public class l {
 
     public final boolean b() {
         if (com.baidu.adp.a.b.a().d()) {
-            BdUtilHelper.b();
-            com.baidu.adp.lib.util.e.e("----open");
+            com.baidu.adp.lib.util.i.b();
+            com.baidu.adp.lib.util.f.e("----open");
         }
         if (this.f != null) {
             if (this.f.d() || this.f.e()) {
                 if (com.baidu.adp.a.b.a().d()) {
-                    com.baidu.adp.lib.util.e.e("----WebSocketConnection connecting");
+                    com.baidu.adp.lib.util.f.e("----WebSocketConnection connecting");
                 }
                 return true;
             }
@@ -74,7 +73,7 @@ public class l {
             this.f = null;
             nVar.a(i, (String) null);
             if (this.f != null) {
-                com.baidu.adp.lib.util.e.b("close is opened and thread is leaded!!!");
+                com.baidu.adp.lib.util.f.b("close is opened and thread is leaded!!!");
                 this.f = null;
             }
         }
@@ -82,21 +81,21 @@ public class l {
 
     public final boolean c() {
         if (com.baidu.adp.a.b.a().d()) {
-            BdUtilHelper.b();
+            com.baidu.adp.lib.util.i.b();
         }
         return (this.f == null || !this.f.e() || this.f.c()) ? false : true;
     }
 
     public final boolean d() {
         if (com.baidu.adp.a.b.a().d()) {
-            BdUtilHelper.b();
+            com.baidu.adp.lib.util.i.b();
         }
         return this.f != null && this.f.e();
     }
 
     public final boolean e() {
         if (com.baidu.adp.a.b.a().d()) {
-            BdUtilHelper.b();
+            com.baidu.adp.lib.util.i.b();
         }
         return this.f != null && this.f.d();
     }
@@ -105,7 +104,7 @@ public class l {
         boolean z = false;
         synchronized (this) {
             if (dVar != null) {
-                BdUtilHelper.b();
+                com.baidu.adp.lib.util.i.b();
                 if (this.f != null) {
                     z = this.f.a(dVar);
                 } else if (dVar != null) {
@@ -151,5 +150,23 @@ public class l {
             return this.f.i();
         }
         return 0L;
+    }
+
+    public final long j() {
+        if (this.f != null) {
+            return this.f.j();
+        }
+        return 0L;
+    }
+
+    public final String k() {
+        if (this.f != null) {
+            return this.f.k();
+        }
+        return null;
+    }
+
+    public final long l() {
+        return this.f.l();
     }
 }

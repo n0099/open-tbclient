@@ -1,33 +1,33 @@
 package com.baidu.tieba.im.mygroup;
 
-import com.baidu.tieba.im.message.cy;
-import com.baidu.tieba.im.message.da;
-import com.baidu.tieba.im.message.s;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tieba.im.message.ResponseUpgradeMemberGroupMessage;
 /* loaded from: classes.dex */
-final class d implements com.baidu.tieba.im.messageCenter.g {
+final class d extends com.baidu.adp.framework.c.g {
     final /* synthetic */ MyGroupFragment a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(MyGroupFragment myGroupFragment) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d(MyGroupFragment myGroupFragment, int i) {
+        super(0);
         this.a = myGroupFragment;
     }
 
-    @Override // com.baidu.tieba.im.messageCenter.g
-    public final void a(s sVar) {
-        switch (sVar.v()) {
-            case -109:
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
+    @Override // com.baidu.adp.framework.c.c
+    public final /* synthetic */ void a(SocketResponsedMessage socketResponsedMessage) {
+        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
+        switch (socketResponsedMessage2.g()) {
             case 103101:
             case 103102:
             case 103104:
             case 103105:
             case 103112:
-                if (sVar instanceof da) {
-                    da daVar = (da) sVar;
-                    if (daVar.l() && (!(sVar instanceof cy) || daVar.m() != 2230110)) {
-                        return;
-                    }
+            case 2001109:
+                if (!(socketResponsedMessage2 instanceof com.baidu.adp.framework.message.f) || socketResponsedMessage2.e() == 0 || ((socketResponsedMessage2 instanceof ResponseUpgradeMemberGroupMessage) && socketResponsedMessage2.e() == 2230110)) {
+                    this.a.b = true;
+                    return;
                 }
-                this.a.c = true;
                 return;
             default:
                 return;

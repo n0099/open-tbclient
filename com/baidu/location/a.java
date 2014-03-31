@@ -5,7 +5,6 @@ import android.os.DeadObjectException;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Messenger;
-import com.baidu.android.pushservice.PushConstants;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
@@ -31,7 +30,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.location.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0001a {
+    public class C0005a {
 
         /* renamed from: for  reason: not valid java name */
         public Messenger f59for;
@@ -45,7 +44,7 @@ public class a {
         /* renamed from: if  reason: not valid java name */
         public int f60if = 0;
 
-        public C0001a(Message message) {
+        public C0005a(Message message) {
             this.f61int = null;
             this.f59for = null;
             this.f59for = message.replyTo;
@@ -130,7 +129,7 @@ public class a {
                     try {
                         JSONObject jSONObject = new JSONObject(str);
                         JSONObject jSONObject2 = jSONObject.getJSONObject("result");
-                        JSONObject jSONObject3 = jSONObject.getJSONObject(PushConstants.EXTRA_CONTENT);
+                        JSONObject jSONObject3 = jSONObject.getJSONObject("content");
                         if (Integer.parseInt(jSONObject2.getString("error")) == 161) {
                             JSONObject jSONObject4 = jSONObject3.getJSONObject("poi");
                             JSONArray jSONArray = jSONObject4.getJSONArray("p");
@@ -148,7 +147,7 @@ public class a {
                             }
                             jSONObject4.put("p", jSONArray);
                             jSONObject3.put("poi", jSONObject4);
-                            jSONObject.put(PushConstants.EXTRA_CONTENT, jSONObject3);
+                            jSONObject.put("content", jSONObject3);
                             str = jSONObject.toString();
                         }
                     } catch (JSONException e) {
@@ -201,15 +200,15 @@ public class a {
         this.f55do = new ArrayList();
     }
 
-    private C0001a a(Messenger messenger) {
+    private C0005a a(Messenger messenger) {
         if (this.f55do == null) {
             return null;
         }
         Iterator it = this.f55do.iterator();
         while (it.hasNext()) {
-            C0001a c0001a = (C0001a) it.next();
-            if (c0001a.f59for.equals(messenger)) {
-                return c0001a;
+            C0005a c0005a = (C0005a) it.next();
+            if (c0005a.f59for.equals(messenger)) {
+                return c0005a;
             }
         }
         return null;
@@ -224,7 +223,7 @@ public class a {
             if (!it.hasNext()) {
                 break;
             }
-            z2 = ((C0001a) it.next()).f58do.f51new.equals("kuikedefancaiburudashahaochi") ? true : z;
+            z2 = ((C0005a) it.next()).f58do.f51new.equals("kuikedefancaiburudashahaochi") ? true : z;
         }
         if (this.a != z) {
             this.a = z;
@@ -232,17 +231,17 @@ public class a {
         }
     }
 
-    private void a(C0001a c0001a) {
-        if (c0001a == null) {
+    private void a(C0005a c0005a) {
+        if (c0005a == null) {
             return;
         }
-        if (a(c0001a.f59for) != null) {
-            c0001a.a(14);
+        if (a(c0005a.f59for) != null) {
+            c0005a.a(14);
             return;
         }
-        this.f55do.add(c0001a);
-        j.a(f54if, c0001a.f61int + " registered ");
-        c0001a.a(13);
+        this.f55do.add(c0005a);
+        j.a(f54if, c0005a.f61int + " registered ");
+        c0005a.a(13);
     }
 
     /* renamed from: do  reason: not valid java name */
@@ -258,11 +257,11 @@ public class a {
         boolean z = false;
         boolean z2 = false;
         while (it.hasNext()) {
-            C0001a c0001a = (C0001a) it.next();
-            if (c0001a.f58do.f42case) {
+            C0005a c0005a = (C0005a) it.next();
+            if (c0005a.f58do.f42case) {
                 z2 = true;
             }
-            z = c0001a.f58do.f53void ? true : z;
+            z = c0005a.f58do.f53void ? true : z;
         }
         j.I = z;
         if (this.f56for != z2) {
@@ -276,7 +275,7 @@ public class a {
             j.a(f54if, "invalid Poirequest");
             return null;
         }
-        C0001a a = a(message.replyTo);
+        C0005a a = a(message.replyTo);
         if (a != null) {
             a.f58do.a = message.getData().getInt("num", a.f58do.a);
             a.f58do.f44do = message.getData().getFloat("distance", a.f58do.f44do);
@@ -292,17 +291,17 @@ public class a {
         ArrayList arrayList = new ArrayList();
         Iterator it = this.f55do.iterator();
         while (it.hasNext()) {
-            C0001a c0001a = (C0001a) it.next();
-            c0001a.m45if(str);
-            if (c0001a.f60if > 4) {
-                arrayList.add(c0001a);
+            C0005a c0005a = (C0005a) it.next();
+            c0005a.m45if(str);
+            if (c0005a.f60if > 4) {
+                arrayList.add(c0005a);
             }
         }
         if (arrayList.size() > 0) {
             Iterator it2 = arrayList.iterator();
             while (it2.hasNext()) {
                 j.a(f54if, "remove dead object...");
-                this.f55do.remove((C0001a) it2.next());
+                this.f55do.remove((C0005a) it2.next());
             }
         }
     }
@@ -311,17 +310,17 @@ public class a {
         ArrayList arrayList = new ArrayList();
         Iterator it = this.f55do.iterator();
         while (it.hasNext()) {
-            C0001a c0001a = (C0001a) it.next();
-            c0001a.a(str, i);
-            if (c0001a.f60if > 4) {
-                arrayList.add(c0001a);
+            C0005a c0005a = (C0005a) it.next();
+            c0005a.a(str, i);
+            if (c0005a.f60if > 4) {
+                arrayList.add(c0005a);
             }
         }
         if (arrayList.size() > 0) {
             Iterator it2 = arrayList.iterator();
             while (it2.hasNext()) {
                 j.a(f54if, "remove dead object...");
-                this.f55do.remove((C0001a) it2.next());
+                this.f55do.remove((C0005a) it2.next());
             }
         }
     }
@@ -330,7 +329,7 @@ public class a {
         if (str == null || message == null) {
             return;
         }
-        C0001a a = a(message.replyTo);
+        C0005a a = a(message.replyTo);
         if (a == null) {
             j.a(f54if, "not found the client messener...");
             return;
@@ -344,13 +343,13 @@ public class a {
     /* renamed from: byte  reason: not valid java name */
     public String m35byte() {
         StringBuffer stringBuffer = new StringBuffer(256);
-        C0001a c0001a = (C0001a) this.f55do.get(0);
-        if (c0001a.f58do.f51new != null) {
-            stringBuffer.append(c0001a.f58do.f51new);
+        C0005a c0005a = (C0005a) this.f55do.get(0);
+        if (c0005a.f58do.f51new != null) {
+            stringBuffer.append(c0005a.f58do.f51new);
         }
-        if (c0001a.f61int != null) {
+        if (c0005a.f61int != null) {
             stringBuffer.append(":");
-            stringBuffer.append(c0001a.f61int);
+            stringBuffer.append(c0005a.f61int);
             stringBuffer.append("|");
         }
         String stringBuffer2 = stringBuffer.toString();
@@ -362,7 +361,7 @@ public class a {
 
     /* renamed from: do  reason: not valid java name */
     public int m36do(Message message) {
-        C0001a a;
+        C0005a a;
         if (message == null || message.replyTo == null || (a = a(message.replyTo)) == null || a.f58do == null) {
             return 1;
         }
@@ -377,7 +376,7 @@ public class a {
     /* renamed from: for  reason: not valid java name */
     public boolean m38for(Message message) {
         boolean z = true;
-        C0001a a = a(message.replyTo);
+        C0005a a = a(message.replyTo);
         if (a == null) {
             return false;
         }
@@ -416,13 +415,13 @@ public class a {
     public void m39if() {
         Iterator it = this.f55do.iterator();
         while (it.hasNext()) {
-            ((C0001a) it.next()).a();
+            ((C0005a) it.next()).a();
         }
     }
 
     /* renamed from: if  reason: not valid java name */
     public void m40if(Message message) {
-        C0001a a = a(message.replyTo);
+        C0005a a = a(message.replyTo);
         if (a != null) {
             j.a(f54if, a.f61int + " unregistered");
             this.f55do.remove(a);
@@ -434,7 +433,7 @@ public class a {
     public void m41if(String str) {
         Iterator it = this.f55do.iterator();
         while (it.hasNext()) {
-            ((C0001a) it.next()).a(str);
+            ((C0005a) it.next()).a(str);
         }
     }
 
@@ -444,7 +443,7 @@ public class a {
             j.a(f54if, "invalid regist client");
             return;
         }
-        a(new C0001a(message));
+        a(new C0005a(message));
         m32do();
     }
 
@@ -452,7 +451,7 @@ public class a {
     public void m43new() {
         Iterator it = this.f55do.iterator();
         while (it.hasNext()) {
-            ((C0001a) it.next()).m44if();
+            ((C0005a) it.next()).m44if();
         }
     }
 }

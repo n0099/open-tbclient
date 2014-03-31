@@ -1,31 +1,26 @@
 package com.baidu.tieba.write;
 
-import android.text.SpannableStringBuilder;
-import com.baidu.tieba.data.emotions.WritableEmotionGroup;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Environment;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import java.io.File;
 /* loaded from: classes.dex */
-public final class aw implements com.baidu.tbadk.imageManager.d {
+final class aw extends BdAsyncTask<Void, Integer, Void> {
     final /* synthetic */ WriteActivity a;
-    private final /* synthetic */ SpannableStringBuilder b;
-    private final /* synthetic */ int c;
-    private final /* synthetic */ WritableEmotionGroup.EmotionGroupType d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aw(WriteActivity writeActivity, SpannableStringBuilder spannableStringBuilder, int i, WritableEmotionGroup.EmotionGroupType emotionGroupType) {
+    public aw(WriteActivity writeActivity) {
         this.a = writeActivity;
-        this.b = spannableStringBuilder;
-        this.c = i;
-        this.d = emotionGroupType;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        if (bVar != null) {
-            WriteActivity writeActivity = this.a;
-            SpannableStringBuilder spannableStringBuilder = this.b;
-            int i = this.c;
-            WritableEmotionGroup.EmotionGroupType emotionGroupType = this.d;
-            writeActivity.a(spannableStringBuilder, i, bVar);
-        }
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ Void a(Void... voidArr) {
+        String str;
+        StringBuilder append = new StringBuilder().append(Environment.getExternalStorageDirectory()).append("/").append(com.baidu.tbadk.core.data.n.f()).append("/");
+        str = this.a.D;
+        com.baidu.tbadk.core.util.w.c(new File(append.append(str).toString()));
+        return null;
     }
 }

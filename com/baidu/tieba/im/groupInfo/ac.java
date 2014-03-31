@@ -1,30 +1,28 @@
 package com.baidu.tieba.im.groupInfo;
-
-import android.view.View;
-import com.baidu.tieba.im.data.PhotoUrlData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ac implements View.OnLongClickListener {
-    final /* synthetic */ PhotoWallView a;
-    private final /* synthetic */ PhotoUrlData b;
-    private final /* synthetic */ int c;
+public final class ac extends com.baidu.tieba.im.m<Boolean> {
+    final /* synthetic */ aa b;
+    private final /* synthetic */ String c;
+    private final /* synthetic */ String d;
+    private final /* synthetic */ long e;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(PhotoWallView photoWallView, PhotoUrlData photoUrlData, int i) {
-        this.a = photoWallView;
-        this.b = photoUrlData;
-        this.c = i;
+    public ac(aa aaVar, String str, String str2, long j) {
+        this.b = aaVar;
+        this.c = str;
+        this.d = str2;
+        this.e = j;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public final boolean onLongClick(View view) {
-        aa aaVar;
-        aa aaVar2;
-        aaVar = this.a.l;
-        if (aaVar != null) {
-            aaVar2 = this.a.l;
-            aaVar2.a(this.b, this.c);
-            return true;
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.m
+    public final /* synthetic */ Boolean a() {
+        GroupSettingItemData b = this.b.b(this.c, this.d);
+        if (b != null && b.isAlreadyApply()) {
+            if (System.currentTimeMillis() - b.getLastApplyTimeStamp() <= this.e) {
+                return false;
+            }
         }
         return true;
     }

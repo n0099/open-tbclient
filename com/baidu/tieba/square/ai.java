@@ -2,18 +2,18 @@ package com.baidu.tieba.square;
 
 import android.content.Context;
 import android.view.View;
-import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tbadk.core.util.bg;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class ai implements View.OnClickListener {
     final /* synthetic */ ah a;
-    private final /* synthetic */ av b;
+    private final /* synthetic */ at b;
     private final /* synthetic */ int c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(ah ahVar, av avVar, int i) {
+    public ai(ah ahVar, at atVar, int i) {
         this.a = ahVar;
-        this.b = avVar;
+        this.b = atVar;
         this.c = i;
     }
 
@@ -21,8 +21,12 @@ public final class ai implements View.OnClickListener {
     public final void onClick(View view) {
         Context context;
         String b = this.b.b();
-        String a = am.a("forum_topics_recommend", String.valueOf(this.c));
+        String a = ak.a("forum_topics_recommend", String.valueOf(this.c));
+        bg a2 = bg.a();
         context = this.a.a;
-        UtilHelper.a(context, b, null, a);
+        String[] strArr = new String[3];
+        strArr[0] = b;
+        strArr[2] = a;
+        a2.a(context, strArr);
     }
 }

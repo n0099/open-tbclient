@@ -1,40 +1,51 @@
 package com.baidu.tieba.more;
 
-import android.app.TimePickerDialog;
-import android.widget.TimePicker;
-import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.R;
+import android.content.Context;
 /* loaded from: classes.dex */
-final class aj implements TimePickerDialog.OnTimeSetListener {
-    final /* synthetic */ MsgRemindActivity a;
-    private final /* synthetic */ int b;
-    private final /* synthetic */ TiebaApplication c;
+public final class aj extends com.baidu.adp.a.e {
+    private Context d;
+    private ak a = null;
+    private al b = null;
+    private am c = null;
+    private com.baidu.tbadk.d e = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public aj(MsgRemindActivity msgRemindActivity, int i, TiebaApplication tiebaApplication) {
-        this.a = msgRemindActivity;
-        this.b = i;
-        this.c = tiebaApplication;
+    public aj(Context context) {
+        this.d = null;
+        this.d = context;
     }
 
-    @Override // android.app.TimePickerDialog.OnTimeSetListener
-    public final void onTimeSet(TimePicker timePicker, int i, int i2) {
-        ak akVar;
-        ak akVar2;
-        if (this.b == R.id.sign_remind) {
-            this.c.a(i, i2);
-            akVar2 = this.a.a;
-            akVar2.d();
-        } else if (this.b == R.id.no_disturb_end_time || this.b == R.id.no_disturb_start_time) {
-            String str = String.valueOf(String.valueOf(i < 10 ? SocialConstants.FALSE : "") + i) + ":" + (String.valueOf(i2 < 10 ? SocialConstants.FALSE : "") + i2);
-            if (this.b == R.id.no_disturb_start_time) {
-                this.c.o(str);
-            } else {
-                this.c.p(str);
-            }
-            akVar = this.a.a;
-            akVar.e();
+    public final void a() {
+        if (this.a == null) {
+            this.a = new ak(this, (byte) 0);
+            this.a.execute(new String[0]);
         }
+    }
+
+    public final void b() {
+        if (this.b == null) {
+            this.b = new al(this, (byte) 0);
+            this.b.execute(new String[0]);
+        }
+    }
+
+    public final void c() {
+        if (this.c == null) {
+            this.c = new am(this, (byte) 0);
+            this.c.execute(new String[0]);
+        }
+    }
+
+    @Override // com.baidu.adp.a.e
+    protected final boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.a.e
+    public final boolean cancelLoadData() {
+        return false;
+    }
+
+    public final void a(com.baidu.tbadk.d dVar) {
+        this.e = dVar;
     }
 }

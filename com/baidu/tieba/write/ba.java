@@ -1,10 +1,8 @@
 package com.baidu.tieba.write;
 
-import android.os.Environment;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import java.io.File;
+import android.view.View;
 /* loaded from: classes.dex */
-final class ba extends BdAsyncTask<Void, Integer, Void> {
+final class ba implements View.OnClickListener {
     final /* synthetic */ WriteActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,15 +10,8 @@ final class ba extends BdAsyncTask<Void, Integer, Void> {
         this.a = writeActivity;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ Void a(Void... voidArr) {
-        String str;
-        StringBuilder append = new StringBuilder().append(Environment.getExternalStorageDirectory()).append("/").append(com.baidu.tieba.data.i.k()).append("/");
-        str = this.a.E;
-        com.baidu.tieba.util.af.c(new File(append.append(str).toString()));
-        return null;
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        this.a.f();
     }
 }

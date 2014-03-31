@@ -27,11 +27,12 @@ public final class n implements j {
     private boolean o = false;
     private boolean p = false;
     private volatile boolean q = false;
-    private d r = null;
+    private long r = 0;
+    private d s = null;
 
     public n() {
         if (com.baidu.adp.a.b.a().d()) {
-            com.baidu.adp.lib.util.e.e("created");
+            com.baidu.adp.lib.util.f.e("created");
         }
         this.a = new o(this);
     }
@@ -40,9 +41,9 @@ public final class n implements j {
         if (dVar == null) {
             return false;
         }
-        if (this.r != null || !this.o) {
+        if (this.s != null || !this.o) {
             if (com.baidu.adp.a.b.a().d()) {
-                com.baidu.adp.lib.util.e.e("mWebSocketSendData not null");
+                com.baidu.adp.lib.util.f.e("mWebSocketSendData not null");
             }
             if (dVar != null) {
                 dVar.a(1);
@@ -50,8 +51,8 @@ public final class n implements j {
             }
             return false;
         }
-        this.r = dVar;
-        d dVar2 = this.r;
+        this.s = dVar;
+        d dVar2 = this.s;
         if (this.c == null) {
             a(new x(new Exception("mWriter = null")));
             return false;
@@ -61,7 +62,7 @@ public final class n implements j {
 
     public final void a(int i, String str) {
         if (com.baidu.adp.a.b.a().d()) {
-            com.baidu.adp.lib.util.e.e("fail connection [code = " + i + ", reason = " + str);
+            com.baidu.adp.lib.util.f.e("fail connection [code = " + i + ", reason = " + str);
         }
         this.o = false;
         this.q = true;
@@ -90,12 +91,12 @@ public final class n implements j {
                 kVar.a(i, str);
             } catch (Exception e2) {
                 if (com.baidu.adp.a.b.a().d()) {
-                    com.baidu.adp.lib.util.e.e(e2.getMessage());
+                    com.baidu.adp.lib.util.f.e(e2.getMessage());
                 }
             }
         }
         if (com.baidu.adp.a.b.a().d()) {
-            com.baidu.adp.lib.util.e.e("worker threads stopped");
+            com.baidu.adp.lib.util.f.e("worker threads stopped");
         }
     }
 
@@ -159,7 +160,7 @@ public final class n implements j {
         handlerThread.start();
         this.c = new ap(handlerThread.getLooper(), this.a, this.d, this.e);
         if (com.baidu.adp.a.b.a().d()) {
-            com.baidu.adp.lib.util.e.e("WS writer created and started");
+            com.baidu.adp.lib.util.f.e("WS writer created and started");
         }
     }
 
@@ -168,12 +169,12 @@ public final class n implements j {
         this.b = new am(this.a, this.d, this.e, "WebSocketReader");
         this.b.start();
         if (com.baidu.adp.a.b.a().d()) {
-            com.baidu.adp.lib.util.e.e("WS reader created and started");
+            com.baidu.adp.lib.util.f.e("WS reader created and started");
         }
     }
 
     public final boolean c() {
-        return this.r != null;
+        return this.s != null;
     }
 
     public final boolean d() {
@@ -212,5 +213,23 @@ public final class n implements j {
             return am.c();
         }
         return 0L;
+    }
+
+    public final long j() {
+        if (this.d != null) {
+            return this.d.d();
+        }
+        return 0L;
+    }
+
+    public final String k() {
+        if (this.d != null) {
+            return this.d.c();
+        }
+        return null;
+    }
+
+    public final long l() {
+        return this.r;
     }
 }

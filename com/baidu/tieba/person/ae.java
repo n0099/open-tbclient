@@ -1,21 +1,22 @@
 package com.baidu.tieba.person;
 
-import android.app.Dialog;
-import android.content.DialogInterface;
+import android.view.View;
+import com.baidu.location.LocationClientOption;
+import com.baidu.tbadk.coreExtra.view.EllipsizingTextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ae implements DialogInterface.OnClickListener {
-    final /* synthetic */ ad a;
+public final class ae implements View.OnClickListener {
+    final /* synthetic */ ab a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(ad adVar) {
-        this.a = adVar;
+    public ae(ab abVar) {
+        this.a = abVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
-        Dialog dialog;
-        dialog = this.a.j;
-        dialog.dismiss();
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        EllipsizingTextView ellipsizingTextView;
+        ellipsizingTextView = this.a.f;
+        ellipsizingTextView.setMaxLines(LocationClientOption.MIN_SCAN_SPAN);
     }
 }

@@ -1,30 +1,31 @@
 package com.baidu.tieba.mention;
 
-import android.view.View;
-import android.widget.AdapterView;
+import android.widget.ImageView;
 import com.baidu.adp.widget.ListView.BdListView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class o implements AdapterView.OnItemClickListener {
-    final /* synthetic */ l a;
+final class o implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ n a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(l lVar) {
-        this.a = lVar;
+    public o(n nVar) {
+        this.a = nVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public final void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        h hVar = (h) ((BdListView) adapterView).getWrappedAdapter();
-        long itemId = hVar.getItemId(i);
-        if (itemId == -1) {
-            this.a.b();
-        } else if (itemId == -2) {
-            l.i(this.a);
-        } else {
-            com.baidu.tieba.data.t tVar = (com.baidu.tieba.data.t) hVar.getItem(i);
-            if (tVar != null) {
-                l.a(this.a, tVar);
+    @Override // com.baidu.tbadk.imageManager.d
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        m mVar;
+        BdListView bdListView;
+        while (true) {
+            mVar = this.a.a;
+            bdListView = mVar.e;
+            ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
+            if (imageView != null) {
+                imageView.setTag(null);
+                if (imageView != null && bVar != null) {
+                    bVar.a(imageView);
+                }
+            } else {
+                return;
             }
         }
     }

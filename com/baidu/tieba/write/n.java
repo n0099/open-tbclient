@@ -6,23 +6,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.MetaData;
-import com.baidu.tieba.view.HeadImageView;
-import com.baidu.tieba.view.TbCheckBox;
-import com.baidu.tieba.view.cq;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.TbCheckBox;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public final class n extends BaseAdapter {
-    private Context a;
-    private com.baidu.tieba.util.i b;
+    private final Context a;
+    private com.baidu.tbadk.editortool.aa b;
     private ArrayList<MetaData> c;
-    private cq d;
+    private com.baidu.tbadk.core.view.o d;
     private p e = null;
     private ViewGroup f = null;
     private boolean g;
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(p pVar) {
         this.e = pVar;
     }
@@ -32,15 +31,17 @@ public final class n extends BaseAdapter {
         this.g = true;
         this.a = context;
         this.g = z;
-        this.b = new com.baidu.tieba.util.i(context);
+        this.b = new com.baidu.tbadk.editortool.aa(context);
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(ArrayList<MetaData> arrayList) {
         this.c = arrayList;
     }
 
-    public final void a(cq cqVar) {
-        this.d = cqVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public final void a(com.baidu.tbadk.core.view.o oVar) {
+        this.d = oVar;
     }
 
     @Override // android.widget.Adapter
@@ -64,7 +65,8 @@ public final class n extends BaseAdapter {
         return 0L;
     }
 
-    public final com.baidu.tieba.util.i a() {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public final com.baidu.tbadk.editortool.aa a() {
         return this.b;
     }
 
@@ -77,14 +79,14 @@ public final class n extends BaseAdapter {
         MetaData metaData = (MetaData) getItem(i);
         if (metaData != null) {
             Object tag = view != null ? view.getTag() : null;
-            int ae = TiebaApplication.g().ae();
+            int l = TbadkApplication.j().l();
             if (tag == null) {
                 o oVar2 = new o(this, (byte) 0);
-                oVar2.a = LayoutInflater.from(this.a).inflate(R.layout.invite_friend_list_item, (ViewGroup) null);
-                oVar2.b = (HeadImageView) oVar2.a.findViewById(R.id.photo);
+                oVar2.a = LayoutInflater.from(this.a).inflate(com.baidu.tieba.a.i.invite_friend_list_item, (ViewGroup) null);
+                oVar2.b = (HeadImageView) oVar2.a.findViewById(com.baidu.tieba.a.h.photo);
                 oVar2.b.setIsRound(true);
-                oVar2.c = (TextView) oVar2.a.findViewById(R.id.txt_user_name);
-                oVar2.d = (TbCheckBox) oVar2.a.findViewById(R.id.ckb_select);
+                oVar2.c = (TextView) oVar2.a.findViewById(com.baidu.tieba.a.h.txt_user_name);
+                oVar2.d = (TbCheckBox) oVar2.a.findViewById(com.baidu.tieba.a.h.ckb_select);
                 if (this.d != null) {
                     oVar2.d.setStatedChangedListener(this.d);
                 }
@@ -96,7 +98,7 @@ public final class n extends BaseAdapter {
             if (this.e != null) {
                 p pVar = this.e;
                 View view2 = oVar.a;
-                pVar.c(metaData);
+                pVar.a(metaData);
             }
             String portrait = metaData.getPortrait();
             oVar.c.setText(metaData.getName_show());
@@ -107,17 +109,17 @@ public final class n extends BaseAdapter {
             } else {
                 oVar.d.setVisibility(8);
             }
-            com.baidu.tieba.util.i iVar = this.b;
+            com.baidu.tbadk.editortool.aa aaVar = this.b;
             com.baidu.adp.widget.ImageView.b b = com.baidu.tbadk.imageManager.e.a().b(portrait);
             if (b != null) {
                 oVar.b.setTag(null);
                 b.a(oVar.b);
             } else {
                 oVar.b.setTag(portrait);
-                oVar.b.setImageBitmap(com.baidu.tieba.util.n.a((int) R.drawable.photo));
+                oVar.b.setImageBitmap(com.baidu.tbadk.core.util.g.a(com.baidu.tieba.a.g.photo));
             }
             if (this.a instanceof AtListActivity) {
-                ((AtListActivity) this.a).getLayoutMode().a(ae == 1);
+                ((AtListActivity) this.a).getLayoutMode().a(l == 1);
                 ((AtListActivity) this.a).getLayoutMode().a(oVar.a);
             }
         } else {

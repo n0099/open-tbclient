@@ -11,12 +11,11 @@ import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.img.ImageFileInfo;
-import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public final class v extends com.baidu.adp.a.e {
+public final class v extends com.baidu.adp.a.f {
     private final int a;
     private String c;
     private String d;
@@ -28,7 +27,7 @@ public final class v extends com.baidu.adp.a.e {
     private RelativeLayout j;
     private ImageView k;
     private AlbumActivity l;
-    private com.baidu.tieba.img.e m;
+    private com.baidu.tbadk.img.e m;
     private Fragment[] n;
     private String[] o;
     private FrameLayout[] p;
@@ -45,17 +44,17 @@ public final class v extends com.baidu.adp.a.e {
         this.e = "tag_b_image";
         this.s = new Handler();
         this.l = albumActivity;
-        this.m = new com.baidu.tieba.img.e(albumActivity);
-        albumActivity.setContentView(R.layout.album_activity);
-        this.f = (LinearLayout) albumActivity.findViewById(R.id.parent);
-        this.g = (Button) albumActivity.findViewById(R.id.btn_done);
+        this.m = new com.baidu.tbadk.img.e(albumActivity);
+        albumActivity.setContentView(com.baidu.tieba.a.i.album_activity);
+        this.f = (LinearLayout) albumActivity.findViewById(com.baidu.tieba.a.h.parent);
+        this.g = (Button) albumActivity.findViewById(com.baidu.tieba.a.h.btn_done);
         this.g.setOnClickListener(albumActivity);
-        this.h = (HorizontalScrollView) albumActivity.findViewById(R.id.bottom_scroll);
-        this.i = (LinearLayout) albumActivity.findViewById(R.id.bottom_container);
-        this.j = (RelativeLayout) albumActivity.findViewById(R.id.lay_bottom);
-        this.k = (ImageView) albumActivity.findViewById(R.id.add_more);
-        this.q = (int) this.l.getResources().getDimension(R.dimen.album_bottom_item_height);
-        this.r = (int) this.l.getResources().getDimension(R.dimen.default_gap_4);
+        this.h = (HorizontalScrollView) albumActivity.findViewById(com.baidu.tieba.a.h.bottom_scroll);
+        this.i = (LinearLayout) albumActivity.findViewById(com.baidu.tieba.a.h.bottom_container);
+        this.j = (RelativeLayout) albumActivity.findViewById(com.baidu.tieba.a.h.lay_bottom);
+        this.k = (ImageView) albumActivity.findViewById(com.baidu.tieba.a.h.add_more);
+        this.q = (int) this.l.getResources().getDimension(com.baidu.tieba.a.f.album_bottom_item_height);
+        this.r = (int) this.l.getResources().getDimension(com.baidu.tieba.a.f.default_gap_4);
     }
 
     public final void a(int i) {
@@ -65,7 +64,7 @@ public final class v extends com.baidu.adp.a.e {
         while (true) {
             int i3 = i2;
             if (i3 < this.p.length) {
-                this.p[i3] = (FrameLayout) from.inflate(R.layout.album_bottom_item_view, (ViewGroup) null);
+                this.p[i3] = (FrameLayout) from.inflate(com.baidu.tieba.a.i.album_bottom_item_view, (ViewGroup) null);
                 i2 = i3 + 1;
             } else {
                 return;
@@ -78,7 +77,7 @@ public final class v extends com.baidu.adp.a.e {
         if (frameLayout == null) {
             return null;
         }
-        return (TbImageView) frameLayout.findViewById(R.id.item_iv);
+        return (TbImageView) frameLayout.findViewById(com.baidu.tieba.a.h.item_iv);
     }
 
     public final void a() {
@@ -107,8 +106,8 @@ public final class v extends com.baidu.adp.a.e {
     }
 
     public final void d(int i) {
-        this.l.a().a(i == 1);
-        this.l.a().a(this.f);
+        this.l.b().a(i == 1);
+        this.l.b().a(this.f);
     }
 
     public final Button d() {
@@ -134,11 +133,11 @@ public final class v extends com.baidu.adp.a.e {
                     a.setLayoutParams(new FrameLayout.LayoutParams(this.q, this.q));
                     a.setScaleType(ImageView.ScaleType.CENTER_CROP);
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.q + (this.r * 2), this.q + (this.r * 2));
-                    layoutParams.bottomMargin = ((int) this.l.getResources().getDimension(R.dimen.album_bottom_item_margin_bottom)) - this.r;
-                    layoutParams.topMargin = ((int) this.l.getResources().getDimension(R.dimen.album_bottom_item_margin_top)) - this.r;
-                    layoutParams.leftMargin = ((int) this.l.getResources().getDimension(R.dimen.album_bottom_item_margin_left)) - this.r;
+                    layoutParams.bottomMargin = ((int) this.l.getResources().getDimension(com.baidu.tieba.a.f.album_bottom_item_margin_bottom)) - this.r;
+                    layoutParams.topMargin = ((int) this.l.getResources().getDimension(com.baidu.tieba.a.f.album_bottom_item_margin_top)) - this.r;
+                    layoutParams.leftMargin = ((int) this.l.getResources().getDimension(com.baidu.tieba.a.f.album_bottom_item_margin_left)) - this.r;
                     this.p[i].setLayoutParams(layoutParams);
-                    this.p[i].setBackgroundResource(TiebaApplication.g().ae() == 1 ? R.drawable.bg_add_photo_1 : R.drawable.bg_add_photo);
+                    this.p[i].setBackgroundResource(TbadkApplication.j().l() == 1 ? com.baidu.tieba.a.g.bg_add_photo_1 : com.baidu.tieba.a.g.bg_add_photo);
                     this.i.addView(this.p[i], this.i.getChildCount() - 1);
                     HorizontalScrollView horizontalScrollView = this.h;
                     if (this.h != null) {
@@ -151,10 +150,10 @@ public final class v extends com.baidu.adp.a.e {
                     a.setOnClickListener(new w(this, imageFileInfo));
                     a.setTag(null);
                     imageFileInfo.clearPageActions();
-                    imageFileInfo.addPageAction(com.baidu.tieba.img.effects.d.a(this.q, this.q));
+                    imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.d.a(this.q, this.q));
                     a.setTag(imageFileInfo.toCachedKey(false));
-                    com.baidu.tieba.img.e eVar = this.m;
-                    com.baidu.adp.widget.ImageView.b a2 = com.baidu.tieba.img.e.a(imageFileInfo, false);
+                    com.baidu.tbadk.img.e eVar = this.m;
+                    com.baidu.adp.widget.ImageView.b a2 = com.baidu.tbadk.img.e.a(imageFileInfo, false);
                     if (a2 != null) {
                         a2.a(a);
                         return;
@@ -172,7 +171,7 @@ public final class v extends com.baidu.adp.a.e {
         TbImageView a;
         if (imageFileInfo != null) {
             imageFileInfo.clearPageActions();
-            imageFileInfo.addPageAction(com.baidu.tieba.img.effects.d.a(this.q, this.q));
+            imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.d.a(this.q, this.q));
             if (!TextUtils.isEmpty(imageFileInfo.toCachedKey(false))) {
                 int childCount = this.i.getChildCount();
                 for (int i = 0; i < childCount; i++) {
@@ -207,16 +206,16 @@ public final class v extends com.baidu.adp.a.e {
     }
 
     public final void e(int i) {
-        if (TiebaApplication.g().ae() != 1) {
+        if (TbadkApplication.j().l() != 1) {
             if (i == 2) {
-                this.j.setBackgroundResource(R.drawable.bg_pic_bottom_bar_special);
-                this.g.setBackgroundResource(R.drawable.album_done_btn_special);
-                this.k.setBackgroundResource(R.drawable.icon_bottom_add_photo_special);
+                this.j.setBackgroundResource(com.baidu.tieba.a.g.bg_pic_bottom_bar_special);
+                this.g.setBackgroundResource(com.baidu.tieba.a.g.album_done_btn_special);
+                this.k.setBackgroundResource(com.baidu.tieba.a.g.icon_bottom_add_photo_special);
                 return;
             }
-            this.j.setBackgroundResource(R.drawable.bg_pic_bottom_bar);
-            this.g.setBackgroundResource(R.drawable.album_done_btn);
-            this.k.setBackgroundResource(R.drawable.icon_bottom_add_photo);
+            this.j.setBackgroundResource(com.baidu.tieba.a.g.bg_pic_bottom_bar);
+            this.g.setBackgroundResource(com.baidu.tieba.a.g.album_done_btn);
+            this.k.setBackgroundResource(com.baidu.tieba.a.g.icon_bottom_add_photo);
         }
     }
 }

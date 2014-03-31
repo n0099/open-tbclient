@@ -1,0 +1,316 @@
+package com.baidu.tbadk.coreExtra.view;
+
+import android.content.Context;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.util.AttributeSet;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import com.baidu.tbadk.core.util.UtilHelper;
+import java.util.ArrayList;
+/* loaded from: classes.dex */
+public class MultiImageView extends RelativeLayout {
+    private Button a;
+    private Button b;
+    private LinearLayout c;
+    private View.OnClickListener d;
+    private n e;
+    private ViewPager.OnPageChangeListener f;
+    private ViewPager.OnPageChangeListener g;
+    private com.baidu.tbadk.widget.f h;
+    private o i;
+    private com.baidu.tbadk.widget.e j;
+    private int k;
+    private boolean l;
+    private boolean m;
+    private boolean n;
+
+    public MultiImageView(Context context) {
+        super(context);
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.g = null;
+        this.h = null;
+        this.i = null;
+        this.j = null;
+        this.k = 0;
+        this.l = true;
+        this.m = false;
+        this.n = false;
+        f();
+    }
+
+    public void setOnScrollOutListener(com.baidu.tbadk.core.view.a aVar) {
+        if (this.e != null) {
+            this.e.setOnFlipOutListener(aVar);
+        }
+    }
+
+    public MultiImageView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.g = null;
+        this.h = null;
+        this.i = null;
+        this.j = null;
+        this.k = 0;
+        this.l = true;
+        this.m = false;
+        this.n = false;
+        f();
+    }
+
+    public MultiImageView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.g = null;
+        this.h = null;
+        this.i = null;
+        this.j = null;
+        this.k = 0;
+        this.l = true;
+        this.m = false;
+        this.n = false;
+        f();
+    }
+
+    private void f() {
+        this.m = UtilHelper.g(getContext());
+        this.d = new x(this);
+        this.f = new y(this);
+        this.h = new z(this);
+        this.j = new aa(this);
+        this.e = new n(getContext());
+        this.e.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
+        this.e.setOnPageChangeListener(this.f);
+        addView(this.e);
+        this.c = new LinearLayout(getContext());
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+        layoutParams.bottomMargin = com.baidu.adp.lib.util.i.a(getContext(), 10.0f);
+        layoutParams.addRule(12);
+        layoutParams.addRule(14);
+        this.c.setOrientation(0);
+        this.c.setLayoutParams(layoutParams);
+        addView(this.c);
+        LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
+        this.b = new Button(getContext());
+        this.b.setBackgroundDrawable(getContext().getResources().getDrawable(com.baidu.tbadk.i.image_zoomout));
+        this.b.setLayoutParams(layoutParams2);
+        this.b.setOnClickListener(this.d);
+        this.b.setEnabled(false);
+        this.c.addView(this.b);
+        this.a = new Button(getContext());
+        this.a.setBackgroundDrawable(getContext().getResources().getDrawable(com.baidu.tbadk.i.image_zoomin));
+        this.a.setLayoutParams(layoutParams2);
+        this.a.setOnClickListener(this.d);
+        this.a.setEnabled(false);
+        this.c.addView(this.a);
+        if (this.m) {
+            this.c.setVisibility(8);
+        }
+        this.i = new o(getContext(), null, this.j);
+        setAdapter(this.i);
+    }
+
+    public final void a() {
+        if (this.e.getCurrentView() != null) {
+            if (this.l) {
+                int childCount = this.e.getChildCount();
+                for (int i = 0; i < childCount; i++) {
+                    View childAt = this.e.getChildAt(i);
+                    if (childAt != null && (childAt instanceof ah) && ((ah) childAt).getImageView() != this.e.getCurrentView()) {
+                        ((ah) childAt).b();
+                    }
+                }
+            }
+            View findViewWithTag = this.e.findViewWithTag(String.valueOf(this.e.getCurrentItem()));
+            if (findViewWithTag != null && (findViewWithTag instanceof ah)) {
+                ((ah) findViewWithTag).a(this.n);
+            }
+            this.e.getCurrentView().d();
+        }
+    }
+
+    public final void b() {
+        if (this.e.getCurrentView() != null) {
+            this.e.getCurrentView().e();
+        }
+    }
+
+    public final void c() {
+        if (this.e != null) {
+            int childCount = this.e.getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                View childAt = this.e.getChildAt(i);
+                if (childAt != null && (childAt instanceof ah)) {
+                    ((ah) childAt).a();
+                }
+            }
+        }
+    }
+
+    public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
+        this.g = onPageChangeListener;
+    }
+
+    public int getItemNum() {
+        return this.i.getCount();
+    }
+
+    public int getCurrentItem() {
+        return this.e.getCurrentItem();
+    }
+
+    public void setZoomButton(com.baidu.tbadk.widget.a aVar) {
+        if (aVar != null) {
+            if (aVar.o()) {
+                this.a.setEnabled(true);
+            } else {
+                this.a.setEnabled(false);
+            }
+            if (aVar.p()) {
+                this.b.setEnabled(true);
+                return;
+            } else {
+                this.b.setEnabled(false);
+                return;
+            }
+        }
+        this.b.setEnabled(false);
+        this.a.setEnabled(false);
+    }
+
+    public final void d() {
+        if (!this.m) {
+            this.c.setVisibility(0);
+        }
+    }
+
+    public final void e() {
+        if (!this.m) {
+            this.c.setVisibility(8);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public com.baidu.tbadk.widget.a getCurrentImageView() {
+        return this.e.getCurrentView();
+    }
+
+    @Override // android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        return super.onTouchEvent(motionEvent);
+    }
+
+    public void setPageMargin(int i) {
+        this.e.setPageMargin(i);
+    }
+
+    public final void a(int i, int i2) {
+        this.e.setOffscreenPageLimit(2);
+        this.k = UtilHelper.e(getContext()) - ((i2 * 5) * 2);
+        this.k = (int) (this.k * 0.8d);
+        if (this.k < 6291456) {
+            this.l = true;
+            this.k = (int) (UtilHelper.e(getContext()) * 0.7d);
+        } else {
+            this.l = false;
+        }
+        PagerAdapter adapter = this.e.getAdapter();
+        if (adapter != null && (adapter instanceof o)) {
+            ((o) adapter).b(this.k);
+        }
+    }
+
+    private void setAdapter(o oVar) {
+        oVar.a(this.h);
+        this.e.setAdapter(oVar);
+    }
+
+    public final void a(int i, boolean z) {
+        this.e.setCurrentItem(i, z);
+    }
+
+    public void setTempSize(int i) {
+        this.i.a(i);
+        this.i.notifyDataSetChanged();
+    }
+
+    public void setItemOnclickListener(View.OnClickListener onClickListener) {
+        this.i.a(onClickListener);
+    }
+
+    public void setItemOnLongClickListener(View.OnLongClickListener onLongClickListener) {
+        this.i.a(onLongClickListener);
+    }
+
+    public void setUrlData(ArrayList<String> arrayList) {
+        this.i.a(arrayList);
+        this.i.notifyDataSetChanged();
+    }
+
+    public void setHasNext(boolean z) {
+        this.i.a(z);
+        this.i.notifyDataSetChanged();
+    }
+
+    public boolean getHasNext() {
+        return this.i.a();
+    }
+
+    public void setNextTitle(String str) {
+        this.i.a(str);
+    }
+
+    public byte[] getCurrentImageData() {
+        com.baidu.tbadk.widget.a selectedView = this.e.getSelectedView();
+        if (selectedView == null) {
+            return null;
+        }
+        return selectedView.getImageData();
+    }
+
+    public String getCurrentImageUrl() {
+        com.baidu.tbadk.widget.a selectedView = this.e.getSelectedView();
+        if (!(selectedView.getTag() instanceof String)) {
+            return null;
+        }
+        return (String) selectedView.getTag();
+    }
+
+    public void setAllowLocalUrl(boolean z) {
+        this.n = z;
+        if (this.i != null) {
+            this.i.b(z);
+        }
+    }
+
+    public void setIsFromCDN(boolean z) {
+        if (this.i != null) {
+            this.i.c(z);
+        }
+    }
+
+    public void setHeadImage(boolean z) {
+        if (this.i != null) {
+            this.i.d(z);
+        }
+    }
+}

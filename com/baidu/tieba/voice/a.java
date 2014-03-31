@@ -1,36 +1,21 @@
 package com.baidu.tieba.voice;
 
-import android.os.Handler;
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-public final class a {
-    private static c b;
-    private static String c;
-    private static j d;
-    private static int a = 0;
-    private static Handler e = new Handler(new b());
+final class a implements DialogInterface.OnClickListener {
+    final /* synthetic */ RecordVoiceBnt a;
 
-    public static boolean a(String str, j jVar, int i) {
-        if (a == 0) {
-            if (b == null) {
-                b = new c(e, i);
-            } else {
-                b.a(i);
-            }
-            c = str;
-            d = jVar;
-            b.a(str);
-            a = 2;
-            new Thread(b).start();
-            return true;
-        }
-        return false;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public a(RecordVoiceBnt recordVoiceBnt) {
+        this.a = recordVoiceBnt;
     }
 
-    public static void a() {
-        if (b != null) {
-            b.c();
-        } else {
-            a = 0;
+    @Override // android.content.DialogInterface.OnClickListener
+    public final void onClick(DialogInterface dialogInterface, int i) {
+        this.a.e();
+        if (this.a.getVoiceManager() != null && this.a.a != null) {
+            this.a.getVoiceManager().a(this.a.a.voiceId);
+            this.a.a = null;
         }
     }
 }

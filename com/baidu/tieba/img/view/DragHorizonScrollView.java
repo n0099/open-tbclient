@@ -12,9 +12,7 @@ import android.view.animation.LinearInterpolator;
 import android.view.animation.TranslateAnimation;
 import android.widget.BaseAdapter;
 import android.widget.Scroller;
-import cn.jingling.lib.file.Shared;
 import com.baidu.location.LocationClientOption;
-import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class DragHorizonScrollView extends ViewGroup implements View.OnLongClickListener, f, g {
@@ -98,8 +96,8 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         this.q = viewConfiguration.getScaledMaximumFlingVelocity();
         this.l = new Scroller(context, new LinearInterpolator());
         this.m = new Scroller(context);
-        this.u = getResources().getDimensionPixelSize(R.dimen.editor_muti_image_upload_scrollview_paddingleft);
-        this.v = getResources().getDimensionPixelSize(R.dimen.default_gap_24);
+        this.u = getResources().getDimensionPixelSize(com.baidu.tieba.a.f.editor_muti_image_upload_scrollview_paddingleft);
+        this.v = getResources().getDimensionPixelSize(com.baidu.tieba.a.f.default_gap_24);
     }
 
     @Override // android.view.View
@@ -309,7 +307,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
                         int i = -xVelocity;
                         int i2 = i < 0 ? Integer.MAX_VALUE : 0;
                         this.B = i2;
-                        this.m.fling(i2, 0, i, 0, 0, Shared.INFINITY, 0, Shared.INFINITY);
+                        this.m.fling(i2, 0, i, 0, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE);
                         post(this.H);
                     }
                     if (this.o != null) {

@@ -8,11 +8,10 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
-import com.baidu.tieba.util.al;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class GroupAddressLocateActivity extends com.baidu.tieba.f implements AdapterView.OnItemClickListener, com.baidu.adp.widget.BdSwitchView.c, al {
+public class GroupAddressLocateActivity extends com.baidu.tbadk.a implements AdapterView.OnItemClickListener, com.baidu.adp.widget.BdSwitchView.c, com.baidu.tieba.im.f.g {
     private boolean c = false;
     private boolean d = false;
     private String e = null;
@@ -33,7 +32,7 @@ public class GroupAddressLocateActivity extends com.baidu.tieba.f implements Ada
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         Intent intent = getIntent();
@@ -49,7 +48,7 @@ public class GroupAddressLocateActivity extends com.baidu.tieba.f implements Ada
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         if (this.j != null) {
@@ -58,13 +57,13 @@ public class GroupAddressLocateActivity extends com.baidu.tieba.f implements Ada
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, android.app.Activity
+    @Override // com.baidu.tbadk.a, android.app.Activity
     public void onResume() {
         super.onResume();
         this.j.k();
     }
 
-    @Override // com.baidu.tieba.f, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tbadk.a, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4 && keyEvent.getRepeatCount() == 0 && d()) {
             return true;
@@ -129,7 +128,7 @@ public class GroupAddressLocateActivity extends com.baidu.tieba.f implements Ada
         return this.i;
     }
 
-    @Override // com.baidu.tieba.util.al
+    @Override // com.baidu.tieba.im.f.g
     public final void a(String str, List<String> list, double d, double d2) {
         this.j.b(String.valueOf(d));
         this.j.a(String.valueOf(d2));
@@ -152,12 +151,12 @@ public class GroupAddressLocateActivity extends com.baidu.tieba.f implements Ada
         }
     }
 
-    @Override // com.baidu.tieba.util.al
+    @Override // com.baidu.tieba.im.f.g
     public final void a() {
         this.j.i();
     }
 
-    @Override // com.baidu.tieba.util.al
+    @Override // com.baidu.tieba.im.f.g
     public final void b() {
         this.j.j();
     }
@@ -194,7 +193,7 @@ public class GroupAddressLocateActivity extends com.baidu.tieba.f implements Ada
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f
+    @Override // com.baidu.tbadk.a
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.j.a(i);

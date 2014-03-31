@@ -17,14 +17,14 @@ final class j {
     TextView i;
     TextView j;
     LinearLayout k;
-    final /* synthetic */ h l;
+    final /* synthetic */ g l;
 
-    private j(h hVar) {
-        this.l = hVar;
+    private j(g gVar) {
+        this.l = gVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ j(h hVar, byte b) {
-        this(hVar);
+    public /* synthetic */ j(g gVar, byte b) {
+        this(gVar);
     }
 }

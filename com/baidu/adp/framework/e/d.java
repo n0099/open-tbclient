@@ -4,11 +4,11 @@ public class d {
     protected e a = null;
     protected int b = 1;
 
-    public final int g() {
+    public final int i() {
         return this.b;
     }
 
-    public final e h() {
+    public final e j() {
         return this.a;
     }
 }

@@ -2,8 +2,8 @@ package com.baidu.tieba.album;
 
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.img.ImageFileInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class x implements com.baidu.tbadk.imageManager.d {

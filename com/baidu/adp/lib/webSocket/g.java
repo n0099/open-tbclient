@@ -10,4 +10,8 @@ interface g {
     int b(ByteBuffer byteBuffer);
 
     boolean b();
+
+    String c();
+
+    long d();
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.album;
 
 import android.view.View;
-import com.baidu.tieba.img.ImageFileInfo;
+import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
 final class ad implements View.OnClickListener {
     final /* synthetic */ ab a;

@@ -3,10 +3,9 @@ package com.baidu.tieba.im.creategroup;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import com.baidu.tieba.view.NavigationBar;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
-public final class e extends com.baidu.adp.a.e {
+public final class e extends com.baidu.adp.a.f {
     NavigationBar a;
     View c;
     Button d;
@@ -31,14 +30,14 @@ public final class e extends com.baidu.adp.a.e {
         this.h = null;
         this.i = 0;
         this.h = createGroupMainActivity;
-        createGroupMainActivity.setContentView(R.layout.create_group_main_activity);
-        this.c = createGroupMainActivity.findViewById(R.id.parent);
-        this.d = (Button) createGroupMainActivity.findViewById(R.id.create_group1);
-        this.e = (Button) createGroupMainActivity.findViewById(R.id.create_group2);
-        this.f = (TextView) createGroupMainActivity.findViewById(R.id.create_group1_text);
-        this.g = (TextView) createGroupMainActivity.findViewById(R.id.create_group2_text);
-        this.a = (NavigationBar) createGroupMainActivity.findViewById(R.id.view_navigation_bar);
-        this.a.a(createGroupMainActivity.getResources().getString(R.string.group_create));
+        createGroupMainActivity.setContentView(com.baidu.tieba.im.i.create_group_main_activity);
+        this.c = createGroupMainActivity.findViewById(com.baidu.tieba.im.h.parent);
+        this.d = (Button) createGroupMainActivity.findViewById(com.baidu.tieba.im.h.create_group1);
+        this.e = (Button) createGroupMainActivity.findViewById(com.baidu.tieba.im.h.create_group2);
+        this.f = (TextView) createGroupMainActivity.findViewById(com.baidu.tieba.im.h.create_group1_text);
+        this.g = (TextView) createGroupMainActivity.findViewById(com.baidu.tieba.im.h.create_group2_text);
+        this.a = (NavigationBar) createGroupMainActivity.findViewById(com.baidu.tieba.im.h.view_navigation_bar);
+        this.a.a(createGroupMainActivity.getResources().getString(com.baidu.tieba.im.j.group_create));
         this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.d.setOnClickListener(createGroupMainActivity);
         this.e.setOnClickListener(createGroupMainActivity);

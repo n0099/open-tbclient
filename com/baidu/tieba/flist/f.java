@@ -4,8 +4,6 @@ import android.os.Handler;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tieba.flist.ForumListModel;
-import com.baidu.tieba.model.ar;
-import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 final class f implements u {
     final /* synthetic */ ForumListActivity a;
@@ -27,11 +25,11 @@ final class f implements u {
         int i4;
         r rVar;
         r rVar2;
-        ar arVar;
+        com.baidu.tieba.model.af afVar;
         r rVar3;
         r rVar4;
         r rVar5;
-        ar arVar2;
+        com.baidu.tieba.model.af afVar2;
         r rVar6;
         Handler handler;
         Runnable runnable;
@@ -41,11 +39,11 @@ final class f implements u {
         int i6;
         r rVar7;
         ForumListModel.RequestParams requestParams5;
-        com.baidu.adp.lib.util.e.e("ForunListActivity", "ForumListDetailCallBack", "callback start");
+        com.baidu.adp.lib.util.f.e("ForunListActivity", "ForumListDetailCallBack", "callback start");
         if (!z) {
             rVar7 = this.a.D;
             if (rVar7.a() == null) {
-                com.baidu.adp.lib.util.e.e("ForunListActivity", "ForumListDetailCallBack", "isOk == false");
+                com.baidu.adp.lib.util.f.e("ForunListActivity", "ForumListDetailCallBack", "isOk == false");
                 this.a.showToast(str);
                 this.a.c.b();
                 this.a.c.a();
@@ -53,15 +51,15 @@ final class f implements u {
                 if (requestParams5.menu_type == 2 && !z2) {
                     this.a.finish();
                 }
-                this.a.c.A.setVisibility(8);
+                this.a.c.B.setVisibility(8);
                 return;
             }
         }
         if (forumListModel == null || forumListModel.recommend_list_left == null || forumListModel.recommend_list_right == null || forumListModel.editor_recommend == null || forumListModel.forum_class == null) {
-            com.baidu.adp.lib.util.e.e("ForunListActivity", "ForumListDetailCallBack", "data null ec:" + i);
+            com.baidu.adp.lib.util.f.e("ForunListActivity", "ForumListDetailCallBack", "data null ec:" + i);
             requestParams = this.a.A;
             if (requestParams.menu_type == 2 && !z2) {
-                this.a.showToast(this.a.getString(R.string.no_forum_data));
+                this.a.showToast(this.a.getString(com.baidu.tieba.a.k.no_forum_data));
                 this.a.finish();
             } else {
                 this.a.showToast(str);
@@ -73,26 +71,26 @@ final class f implements u {
                 i3 = this.a.w;
                 requestParams3.rn = i3;
             }
-            this.a.c.A.setVisibility(8);
+            this.a.c.B.setVisibility(8);
             return;
         }
-        this.a.c.A.setVisibility(8);
+        this.a.c.B.setVisibility(8);
         z3 = this.a.u;
         if (z3) {
-            this.a.c.m.setText(this.a.getString(R.string.flist_expand_list));
-            ImageView imageView = this.a.c.n;
+            this.a.c.n.setText(this.a.getString(com.baidu.tieba.a.k.flist_expand_list));
+            ImageView imageView = this.a.c.o;
             i5 = this.a.l;
             imageView.setImageResource(i5);
-            this.a.c.p.setText(this.a.getString(R.string.flist_expand_list));
-            ImageView imageView2 = this.a.c.q;
+            this.a.c.q.setText(this.a.getString(com.baidu.tieba.a.k.flist_expand_list));
+            ImageView imageView2 = this.a.c.r;
             i6 = this.a.l;
             imageView2.setImageResource(i6);
             this.a.u = false;
         }
-        TextView textView = this.a.c.g;
+        TextView textView = this.a.c.h;
         requestParams4 = this.a.A;
         textView.setText(requestParams4.menu_name);
-        a aVar = this.a.c.x;
+        a aVar = this.a.c.y;
         i4 = this.a.t;
         aVar.a(i4);
         int min = Math.min(forumListModel.recommend_list_left.forum_list.length, this.a.a.forum_list.length);
@@ -102,36 +100,36 @@ final class f implements u {
         rVar = this.a.D;
         rVar.a(min);
         rVar2 = this.a.D;
-        arVar = this.a.q;
-        rVar2.a(arVar);
+        afVar = this.a.q;
+        rVar2.a(afVar);
         rVar3 = this.a.D;
         rVar3.a(this.a.a.forum_list);
-        this.a.c.h.setSelection(1);
+        this.a.c.i.setSelection(1);
         if (forumListModel.recommend_list_left.has_more == 1) {
             this.a.c.b.setVisibility(0);
         } else {
             this.a.c.b.setVisibility(8);
         }
-        this.a.c.j.setText(forumListModel.forum_class[0]);
+        this.a.c.k.setText(forumListModel.forum_class[0]);
         rVar4 = this.a.E;
         rVar4.a(min2);
         rVar5 = this.a.E;
-        arVar2 = this.a.q;
-        rVar5.a(arVar2);
+        afVar2 = this.a.q;
+        rVar5.a(afVar2);
         rVar6 = this.a.E;
         rVar6.a(this.a.b.forum_list);
-        this.a.c.i.setSelection(1);
+        this.a.c.j.setSelection(1);
         if (forumListModel.recommend_list_right.has_more == 1) {
             this.a.c.c.setVisibility(0);
         } else {
             this.a.c.c.setVisibility(8);
         }
-        this.a.c.k.setText(forumListModel.forum_class[1]);
-        this.a.findViewById(R.id.item_root).setVisibility(0);
+        this.a.c.l.setText(forumListModel.forum_class[1]);
+        this.a.findViewById(com.baidu.tieba.a.h.item_root).setVisibility(0);
         this.a.c.a();
-        if (this.a.c.x.getCount() > 0) {
-            this.a.c.y.setClickable(true);
-            this.a.c.y.setOnClickListener(this.a);
+        if (this.a.c.y.getCount() > 0) {
+            this.a.c.z.setClickable(true);
+            this.a.c.z.setOnClickListener(this.a);
         }
         handler = this.a.e;
         runnable = this.a.P;

@@ -16,11 +16,10 @@ public final class i extends ViewGroup {
     private final RectF b;
     private final RectF c;
     private final Paint d;
-    private Path e;
+    private final Path e;
     private boolean f;
-    private boolean g;
-    private Paint h;
-    private Paint i;
+    private final Paint g;
+    private final Paint h;
 
     @Override // android.view.ViewGroup
     protected final /* synthetic */ ViewGroup.LayoutParams generateDefaultLayoutParams() {
@@ -38,17 +37,17 @@ public final class i extends ViewGroup {
         this.c = new RectF();
         this.d = new Paint();
         this.e = new Path();
+        this.g = new Paint();
         this.h = new Paint();
-        this.i = new Paint();
-        this.i.setAntiAlias(true);
-        this.h.setColor(-65536);
-        this.h.setStrokeWidth(10.0f);
+        this.h.setAntiAlias(true);
+        this.g.setColor(-65536);
+        this.g.setStrokeWidth(10.0f);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         setFocusable(true);
         setFocusableInTouchMode(true);
         requestFocus();
         this.e.setFillType(Path.FillType.EVEN_ODD);
-        a();
+        b();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -64,7 +63,7 @@ public final class i extends ViewGroup {
         setMeasuredDimension(i3, i4);
         if (!this.f) {
             this.b.set(0.0f, 0.0f, i3, i4);
-            a();
+            b();
         }
         int childCount = getChildCount();
         for (int i5 = 0; i5 < childCount; i5++) {
@@ -117,7 +116,7 @@ public final class i extends ViewGroup {
                         break;
                 }
                 this.c.offset((int) ((jVar.c * f) + 0.5f), (int) ((jVar.d * f) + 0.5f));
-                com.baidu.adp.lib.util.e.e("MaskView", "onLayout", "child layout to: " + this.c);
+                com.baidu.adp.lib.util.f.e("MaskView", "onLayout", "child layout to: " + this.c);
                 childAt.layout((int) this.c.left, (int) this.c.top, (int) this.c.right, (int) this.c.bottom);
             }
         }
@@ -163,25 +162,25 @@ public final class i extends ViewGroup {
         }
     }
 
-    private void a() {
+    private void b() {
         this.e.reset();
         this.e.addRect(this.a, Path.Direction.CW);
-        com.baidu.adp.lib.util.e.e("MaskView", "resetOutPath", "target rect = " + this.a);
+        com.baidu.adp.lib.util.f.e("MaskView", "resetOutPath", "target rect = " + this.a);
         this.e.addRect(this.b, Path.Direction.CW);
-        com.baidu.adp.lib.util.e.e("MaskView", "resetOutPath", "fulling rect = " + this.b);
+        com.baidu.adp.lib.util.f.e("MaskView", "resetOutPath", "fulling rect = " + this.b);
     }
 
     public final void a(Rect rect) {
         this.a.set(rect);
-        a();
-        com.baidu.adp.lib.util.e.e("MaskView", "settargetRect", "target rect = " + this.a);
+        b();
+        com.baidu.adp.lib.util.f.e("MaskView", "settargetRect", "target rect = " + this.a);
         invalidate();
     }
 
     public final void b(Rect rect) {
         this.b.set(rect);
-        a();
-        com.baidu.adp.lib.util.e.e("MaskView", "setFullingRect", "fulling rect = " + this.b);
+        b();
+        com.baidu.adp.lib.util.f.e("MaskView", "setFullingRect", "fulling rect = " + this.b);
         this.f = true;
         invalidate();
     }
@@ -196,8 +195,7 @@ public final class i extends ViewGroup {
         invalidate();
     }
 
-    public final void a(boolean z) {
-        this.g = z;
+    public static void a() {
     }
 
     @Override // android.view.ViewGroup, android.view.View

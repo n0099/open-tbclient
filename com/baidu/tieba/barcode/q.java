@@ -1,29 +1,18 @@
 package com.baidu.tieba.barcode;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import com.google.zxing.ResultPoint;
+import com.google.zxing.ResultPointCallback;
 /* loaded from: classes.dex */
-final class q extends BroadcastReceiver {
-    final /* synthetic */ o a;
-
-    private q(o oVar) {
-        this.a = oVar;
-    }
+final class q implements ResultPointCallback {
+    private final ViewfinderView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ q(o oVar, byte b) {
-        this(oVar);
+    public q(ViewfinderView viewfinderView) {
+        this.a = viewfinderView;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public final void onReceive(Context context, Intent intent) {
-        if ("android.intent.action.BATTERY_CHANGED".equals(intent.getAction())) {
-            if (intent.getIntExtra("plugged", -1) <= 0) {
-                this.a.a();
-            } else {
-                o.a(this.a);
-            }
-        }
+    @Override // com.google.zxing.ResultPointCallback
+    public final void foundPossibleResultPoint(ResultPoint resultPoint) {
+        this.a.a(resultPoint);
     }
 }

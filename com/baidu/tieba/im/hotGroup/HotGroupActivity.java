@@ -4,10 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import com.baidu.tieba.k;
 /* loaded from: classes.dex */
-public class HotGroupActivity extends k implements View.OnClickListener {
-    private d d;
+public class HotGroupActivity extends com.baidu.tbadk.core.e implements View.OnClickListener {
+    private e c;
 
     public static void a(Context context) {
         if (context != null) {
@@ -15,23 +14,23 @@ public class HotGroupActivity extends k implements View.OnClickListener {
         }
     }
 
-    @Override // com.baidu.tieba.k
-    protected final void b(int i) {
-        if (this.d != null) {
-            this.d.a(i);
+    @Override // com.baidu.tbadk.core.e
+    protected final void c(int i) {
+        if (this.c != null) {
+            this.c.a(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.k, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.e, com.baidu.adp.a.c, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.d = new d(this);
+        this.c = new e(this);
     }
 
-    @Override // android.view.View.OnClickListener
+    @Override // com.baidu.adp.a.c, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.d.a()) {
+        if (view == this.c.a()) {
             finish();
         }
     }

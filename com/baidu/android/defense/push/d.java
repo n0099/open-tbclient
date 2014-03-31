@@ -10,7 +10,6 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import com.baidu.android.common.util.CommonParam;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.cloudsdk.social.core.SocialConstants;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -90,9 +89,9 @@ public final class d {
         }
         Intent createMethodIntent = PushConstants.createMethodIntent(this.d);
         createMethodIntent.putExtra("access_token", PushConstants.rsaEncrypt(c2));
-        createMethodIntent.putExtra(PushConstants.EXTRA_METHOD, PushConstants.METHOD_BIND);
-        createMethodIntent.putExtra(PushConstants.EXTRA_BIND_NAME, Build.MODEL);
-        createMethodIntent.putExtra(PushConstants.EXTRA_BIND_STATUS, 0);
+        createMethodIntent.putExtra("method", "method_bind");
+        createMethodIntent.putExtra("bind_name", Build.MODEL);
+        createMethodIntent.putExtra("bind_status", 0);
         if (this.e == 2) {
             createMethodIntent.putExtra("method_type", "internal");
         }
@@ -118,7 +117,7 @@ public final class d {
         String valueOf4 = String.valueOf(displayMetrics.densityDpi);
         ArrayList arrayList = new ArrayList();
         if (!TextUtils.isEmpty(cuid)) {
-            arrayList.add(new BasicNameValuePair(SocialConstants.PARAM_CUID, cuid));
+            arrayList.add(new BasicNameValuePair("cuid", cuid));
         }
         if (!TextUtils.isEmpty(e2)) {
             arrayList.add(new BasicNameValuePair("ch_uid", e2));
@@ -163,8 +162,8 @@ public final class d {
     public final void b() {
         UrlEncodedFormEntity urlEncodedFormEntity;
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new BasicNameValuePair(SocialConstants.PARAM_GRANT_TYPE, "client_credentials"));
-        arrayList.add(new BasicNameValuePair(SocialConstants.PARAM_CLIENT_ID, "Zq8wwbvNemxR4qGmWGhE6sva"));
+        arrayList.add(new BasicNameValuePair("grant_type", "client_credentials"));
+        arrayList.add(new BasicNameValuePair("client_id", "Zq8wwbvNemxR4qGmWGhE6sva"));
         arrayList.add(new BasicNameValuePair("client_secret", "iq1WKpTUQYoplQqGUmu6iVtU0vkKN41I"));
         try {
             urlEncodedFormEntity = new UrlEncodedFormEntity(arrayList, "utf-8");

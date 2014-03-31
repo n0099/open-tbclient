@@ -1,8 +1,8 @@
 package com.baidu.tieba.mainentrance;
 
-import com.baidu.tieba.view.bp;
+import android.view.View;
 /* loaded from: classes.dex */
-final class aa implements bp {
+final class aa implements View.OnFocusChangeListener {
     final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,9 +10,10 @@ final class aa implements bp {
         this.a = squareSearchActivity;
     }
 
-    @Override // com.baidu.tieba.view.bp
-    public final void a(boolean z) {
-        com.baidu.adp.lib.util.e.e("simon", "onSoftKeyboardShown", String.valueOf(z));
-        this.a.G = z;
+    @Override // android.view.View.OnFocusChangeListener
+    public final void onFocusChange(View view, boolean z) {
+        if (!z) {
+            com.baidu.adp.lib.util.i.a(this.a, view);
+        }
     }
 }

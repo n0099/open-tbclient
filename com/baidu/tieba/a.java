@@ -6,11 +6,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import com.baidu.tieba.util.bq;
-import com.baidu.tieba.util.ch;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bn;
 /* loaded from: classes.dex */
-public class a extends f {
+public class a extends com.baidu.tbadk.a {
     protected ViewGroup a = null;
     protected View b = null;
     protected ImageView c = null;
@@ -23,41 +22,41 @@ public class a extends f {
     public void setContentView(int i) {
         super.setContentView(i);
         if (this.a == null) {
-            this.a = (ViewGroup) findViewById(R.id.container);
+            this.a = (ViewGroup) findViewById(com.baidu.tieba.a.h.container);
             if (this.a == null) {
-                this.a = (ViewGroup) findViewById(R.id.parent);
+                this.a = (ViewGroup) findViewById(com.baidu.tieba.a.h.parent);
             }
-            this.b = findViewById(R.id.title);
-            this.c = (ImageView) findViewById(R.id.back);
+            this.b = findViewById(com.baidu.tieba.a.h.title);
+            this.c = (ImageView) findViewById(com.baidu.tieba.a.h.back);
             if (this.c != null) {
                 this.c.setOnClickListener(new b(this));
             }
-            this.d = (TextView) findViewById(R.id.title_text);
+            this.d = (TextView) findViewById(com.baidu.tieba.a.h.title_text);
             if (this.a != null) {
                 this.f = (Button) this.a.findViewWithTag("skin_top_more_button");
             }
         }
         if (this.e == null) {
-            this.e = (ListView) findViewById(R.id.list);
+            this.e = (ListView) findViewById(com.baidu.tieba.a.h.list);
         }
-        this.g = (ViewGroup) findViewById(R.id.body_container);
-        ch.b(this.g);
+        this.g = (ViewGroup) findViewById(com.baidu.tieba.a.h.body_container);
+        bn.b(this.g);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f
+    @Override // com.baidu.tbadk.a
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        bq.a(this.c, i);
-        bq.d(this.b, i);
-        bq.e(this.d, i);
-        bq.b(this.a, i);
-        bq.f((TextView) this.f, i);
+        ba.a(this.c, i);
+        ba.d(this.b, i);
+        ba.d(this.d, i);
+        ba.b(this.a, i);
+        ba.e((TextView) this.f, i);
         if (this.e != null) {
             this.e.invalidateViews();
         }
         if (this.g != null) {
-            ch.a(this.g, i);
+            bn.a(this.g, i);
         }
     }
 

@@ -1,25 +1,23 @@
 package com.baidu.tieba.frs;
 
+import android.content.Context;
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ba implements View.OnClickListener {
-    final /* synthetic */ FrsImageActivity a;
+final class ba implements View.OnClickListener {
+    final /* synthetic */ ay a;
+    private final /* synthetic */ com.baidu.tbadk.core.data.o b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ba(FrsImageActivity frsImageActivity) {
-        this.a = frsImageActivity;
+    public ba(ay ayVar, com.baidu.tbadk.core.data.o oVar) {
+        this.a = ayVar;
+        this.b = oVar;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        int i;
-        int i2;
-        i = this.a.i;
-        if (i > 240) {
-            FrsImageActivity frsImageActivity = this.a;
-            i2 = this.a.i;
-            frsImageActivity.b(i2 - 240);
-        }
+        Context context;
+        com.baidu.adp.framework.c a = com.baidu.adp.framework.c.a();
+        context = this.a.a;
+        a.a(new com.baidu.adp.framework.message.a(2001003, new com.baidu.tbadk.core.b.ag(context, this.b.t().getUserId(), this.b.t().getName_show())));
     }
 }

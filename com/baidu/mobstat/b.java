@@ -7,9 +7,8 @@ import android.telephony.TelephonyManager;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b {
+class b {
     private static String a = "Android";
     private static JSONObject q = new JSONObject();
     private static b w = new b();

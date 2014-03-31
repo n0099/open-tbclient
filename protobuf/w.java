@@ -18,9 +18,12 @@ public final class w extends GeneratedMessageLite.Builder<Im.MsgInfo, w> impleme
     private int i;
     private long j;
     private long l;
+    private long p;
     private Object f = "";
     private Im.UserInfo k = Im.UserInfo.getDefaultInstance();
     private Im.UserInfo m = Im.UserInfo.getDefaultInstance();
+    private Object n = "";
+    private Object o = "";
 
     @Override // com.google.protobuf.MessageLite.Builder
     public final /* synthetic */ MessageLite build() {
@@ -76,6 +79,12 @@ public final class w extends GeneratedMessageLite.Builder<Im.MsgInfo, w> impleme
         this.a &= -1025;
         this.m = Im.UserInfo.getDefaultInstance();
         this.a &= -2049;
+        this.n = "";
+        this.a &= -4097;
+        this.o = "";
+        this.a &= -8193;
+        this.p = 0L;
+        this.a &= -16385;
         return this;
     }
 
@@ -136,6 +145,18 @@ public final class w extends GeneratedMessageLite.Builder<Im.MsgInfo, w> impleme
             i2 |= 2048;
         }
         msgInfo.toUserInfo_ = this.m;
+        if ((i & 4096) == 4096) {
+            i2 |= 4096;
+        }
+        msgInfo.link_ = this.n;
+        if ((i & 8192) == 8192) {
+            i2 |= 8192;
+        }
+        msgInfo.stat_ = this.o;
+        if ((i & 16384) == 16384) {
+            i2 |= 16384;
+        }
+        msgInfo.taskId_ = this.p;
         msgInfo.bitField0_ = i2;
         return msgInfo;
     }
@@ -144,6 +165,8 @@ public final class w extends GeneratedMessageLite.Builder<Im.MsgInfo, w> impleme
     /* renamed from: a */
     public final w mergeFrom(Im.MsgInfo msgInfo) {
         Object obj;
+        Object obj2;
+        Object obj3;
         if (msgInfo != Im.MsgInfo.getDefaultInstance()) {
             if (msgInfo.hasMsgId()) {
                 long msgId = msgInfo.getMsgId();
@@ -167,8 +190,8 @@ public final class w extends GeneratedMessageLite.Builder<Im.MsgInfo, w> impleme
             }
             if (msgInfo.hasContent()) {
                 this.a |= 16;
-                obj = msgInfo.content_;
-                this.f = obj;
+                obj3 = msgInfo.content_;
+                this.f = obj3;
             }
             if (msgInfo.hasStatus()) {
                 int status = msgInfo.getStatus();
@@ -212,6 +235,21 @@ public final class w extends GeneratedMessageLite.Builder<Im.MsgInfo, w> impleme
                     this.m = Im.UserInfo.newBuilder(this.m).mergeFrom(toUserInfo).buildPartial();
                 }
                 this.a |= 2048;
+            }
+            if (msgInfo.hasLink()) {
+                this.a |= 4096;
+                obj2 = msgInfo.link_;
+                this.n = obj2;
+            }
+            if (msgInfo.hasStat()) {
+                this.a |= 8192;
+                obj = msgInfo.stat_;
+                this.o = obj;
+            }
+            if (msgInfo.hasTaskId()) {
+                long taskId = msgInfo.getTaskId();
+                this.a |= 16384;
+                this.p = taskId;
             }
         }
         return this;

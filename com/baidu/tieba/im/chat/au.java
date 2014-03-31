@@ -1,17 +1,30 @@
 package com.baidu.tieba.im.chat;
 
-import android.content.DialogInterface;
+import java.util.ArrayList;
+import java.util.LinkedList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class au implements DialogInterface.OnClickListener {
-    final /* synthetic */ GroupSettingActivity a;
+public final class au implements com.baidu.tieba.im.a<LinkedList<String>> {
+    final /* synthetic */ x a;
+    private final /* synthetic */ bz b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public au(GroupSettingActivity groupSettingActivity) {
-        this.a = groupSettingActivity;
+    public au(x xVar, bz bzVar) {
+        this.a = xVar;
+        this.b = bzVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
-        dialogInterface.cancel();
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.baidu.tieba.im.a
+    public final /* synthetic */ void a(LinkedList<String> linkedList) {
+        LinkedList<String> linkedList2 = linkedList;
+        ArrayList<String> arrayList = new ArrayList<>();
+        while (!linkedList2.isEmpty()) {
+            String a = com.baidu.tieba.im.f.q.a(linkedList2.removeLast(), true);
+            if (a != null) {
+                arrayList.add(a);
+            }
+        }
+        this.b.a(arrayList);
     }
 }

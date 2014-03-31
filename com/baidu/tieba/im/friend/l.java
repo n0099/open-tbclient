@@ -1,30 +1,32 @@
 package com.baidu.tieba.im.friend;
 
-import com.baidu.tieba.view.ci;
+import android.view.View;
+import android.widget.LinearLayout;
 /* loaded from: classes.dex */
-final class l implements ci {
-    final /* synthetic */ InviteFriendListActivity a;
+final class l implements View.OnClickListener {
+    final /* synthetic */ InviteFriendCandidateList a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(InviteFriendListActivity inviteFriendListActivity) {
-        this.a = inviteFriendListActivity;
+    public l(InviteFriendCandidateList inviteFriendCandidateList) {
+        this.a = inviteFriendCandidateList;
     }
 
-    @Override // com.baidu.tieba.view.ci
-    public final void a(String str) {
-        com.baidu.tieba.im.model.h hVar;
-        if (str == null || str.trim().equals("")) {
-            hVar = this.a.b;
-            hVar.a(str);
-            this.a.a();
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        LinearLayout linearLayout;
+        boolean e;
+        m mVar;
+        m mVar2;
+        linearLayout = this.a.b;
+        linearLayout.removeView(view);
+        e = this.a.e();
+        if (!e) {
+            this.a.d();
         }
-    }
-
-    @Override // com.baidu.tieba.view.ci
-    public final void b(String str) {
-        com.baidu.tieba.im.model.h hVar;
-        hVar = this.a.b;
-        hVar.a(str);
-        this.a.a();
+        mVar = this.a.i;
+        if (mVar != null) {
+            mVar2 = this.a.i;
+            mVar2.a(view.getTag());
+        }
     }
 }

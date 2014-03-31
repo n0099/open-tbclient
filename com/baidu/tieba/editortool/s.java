@@ -1,20 +1,25 @@
 package com.baidu.tieba.editortool;
 
-import android.view.View;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.slidingmenu.lib.R;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class s implements View.OnClickListener {
-    final /* synthetic */ EmotionTabHorizonScrollView a;
+public final class s extends BdAsyncTask<Void, Integer, Void> {
+    final /* synthetic */ o a;
+    private final /* synthetic */ String b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(EmotionTabHorizonScrollView emotionTabHorizonScrollView) {
-        this.a = emotionTabHorizonScrollView;
+    public s(o oVar, String str) {
+        this.a = oVar;
+        this.b = str;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        BdUtilHelper.a(this.a.getContext(), (int) R.string.emotion_cant_show);
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ Void a(Void... voidArr) {
+        com.baidu.tbadk.core.util.w.c(new File(this.b));
+        return null;
     }
 }

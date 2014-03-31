@@ -8,48 +8,49 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.ListAdapter;
+import com.baidu.adp.framework.c.g;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.adp.widget.ListView.q;
-import com.baidu.adp.widget.ListView.r;
+import com.baidu.adp.widget.ListView.s;
+import com.baidu.adp.widget.ListView.t;
+import com.baidu.tbadk.core.b.o;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ac;
+import com.baidu.tbadk.core.view.q;
 import com.baidu.tieba.im.data.GroupInfoData;
-import com.baidu.tieba.im.groupInfo.GroupInfoActivity;
-import com.baidu.tieba.im.messageCenter.g;
-import com.baidu.tieba.j;
-import com.baidu.tieba.util.ap;
-import com.baidu.tieba.util.cb;
-import com.baidu.tieba.view.cs;
-import com.slidingmenu.lib.R;
+import com.baidu.tieba.im.h;
+import com.baidu.tieba.im.i;
 /* loaded from: classes.dex */
-public class HotGroupFragment extends j implements com.baidu.adp.widget.ListView.b, q, r {
-    private BdListView b;
-    private cs c;
-    private HotGroupActivity d;
-    private View e;
-    private HotGroupAdapter f;
-    private c g;
-    private g h = new b(this);
+public class HotGroupFragment extends com.baidu.tbadk.core.d implements com.baidu.adp.widget.ListView.d, s, t {
+    private BdListView a;
+    private q b;
+    private HotGroupActivity c;
+    private View d;
+    private HotGroupAdapter e;
+    private d f;
+    private g g = new b(this, 0);
+    private com.baidu.adp.framework.c.a h = new c(this, 2001116);
 
-    @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         if (activity instanceof HotGroupActivity) {
-            this.d = (HotGroupActivity) activity;
+            this.c = (HotGroupActivity) activity;
         }
     }
 
-    @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        View inflate = layoutInflater.inflate(R.layout.hot_group_fragment, (ViewGroup) null);
-        this.b = (BdListView) inflate.findViewById(R.id.hot_group_list);
-        this.b.a(this, 300L);
-        this.c = new cs(this.d);
-        this.c.a(this);
-        this.f = new HotGroupAdapter(this.d);
-        this.b.setAdapter((ListAdapter) this.f);
-        this.b.setPullRefresh(this.c);
-        this.b.setOnItemClickListener(this);
-        this.b.setOnSrollToBottomListener(this);
-        this.e = (FrameLayout) inflate.findViewById(R.id.fragment_parent);
+        View inflate = layoutInflater.inflate(i.hot_group_fragment, (ViewGroup) null);
+        this.a = (BdListView) inflate.findViewById(h.hot_group_list);
+        this.a.a(this, 300L);
+        this.b = new q(this.c);
+        this.b.a(this);
+        this.e = new HotGroupAdapter(this.c);
+        this.a.setAdapter((ListAdapter) this.e);
+        this.a.setPullRefresh(this.b);
+        this.a.setOnItemClickListener(this);
+        this.a.setOnSrollToBottomListener(this);
+        this.d = (FrameLayout) inflate.findViewById(h.fragment_parent);
         return inflate;
     }
 
@@ -59,73 +60,74 @@ public class HotGroupFragment extends j implements com.baidu.adp.widget.ListView
         c();
     }
 
-    @Override // com.baidu.tieba.j, android.widget.AdapterView.OnItemClickListener
+    @Override // com.baidu.tbadk.core.d, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        GroupInfoData item = this.f.getItem(i);
+        GroupInfoData item = this.e.getItem(i);
         if (item != null) {
-            cb.a(this.d, "hot_group_item", "click", 1, new Object[0]);
-            GroupInfoActivity.a(this.d, item.getGroupId(), 0);
+            TiebaStatic.a(this.c, "hot_group_item", "click", 1, new Object[0]);
+            this.c.a(new com.baidu.adp.framework.message.a(2008011, new o(this.c, item.getGroupId(), 0)));
         }
     }
 
-    @Override // com.baidu.tieba.j
-    public final void c(int i) {
-        super.c(i);
-        this.d.a().a(this.e);
-        this.c.a(i);
+    @Override // com.baidu.tbadk.core.d
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        this.c.b().a(this.d);
+        this.b.a(i);
     }
 
-    @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        com.baidu.tieba.im.messageCenter.d.a().a(103012, this.h);
-        com.baidu.tieba.im.messageCenter.d.a().a(-116, this.h);
-        com.baidu.tieba.im.messageCenter.d.a().a(103105, this.h);
+        com.baidu.adp.framework.c.a().a(103012, this.g);
+        com.baidu.adp.framework.c.a().a(103105, this.g);
+        com.baidu.adp.framework.c.a().a(this.h);
     }
 
-    @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public void onDestroyView() {
-        com.baidu.tieba.im.messageCenter.d.a().a(this.h);
+        com.baidu.adp.framework.c.a().b(this.g);
+        com.baidu.adp.framework.c.a().b(this.h);
         super.onDestroyView();
     }
 
-    @Override // com.baidu.adp.widget.ListView.r
+    @Override // com.baidu.adp.widget.ListView.t
     public final void b() {
-        if (this.g.a()) {
-            this.g.a(this.f.getCount());
-            this.g.d(false);
+        if (this.f.a()) {
+            this.f.a(this.e.getCount());
+            this.f.d(false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        if (this.g == null) {
-            this.g = new c();
+        if (this.f == null) {
+            this.f = new d();
         }
-        this.g.b(true);
-        this.b.b();
+        this.f.b(true);
+        this.a.c();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void e() {
-        if (this.b != null && this.f != null) {
-            ap.a(this.b, this.f.a(), 0, -1);
+    public void d() {
+        if (this.a != null && this.e != null) {
+            ac.a(this.a, this.e.a(), 0, -1);
         }
     }
 
-    @Override // com.baidu.adp.widget.ListView.q
+    @Override // com.baidu.adp.widget.ListView.s
     public final void a() {
-        e();
+        d();
     }
 
-    @Override // com.baidu.adp.widget.ListView.b
+    @Override // com.baidu.adp.widget.ListView.d
     public final void a(boolean z) {
-        this.g.a(0);
-        if (this.g.b()) {
-            this.g.d(true);
-            this.g.b(false);
+        this.f.a(0);
+        if (this.f.b()) {
+            this.f.d(true);
+            this.f.b(false);
             return;
         }
-        this.g.d(false);
+        this.f.d(false);
     }
 }

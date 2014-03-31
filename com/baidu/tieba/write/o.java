@@ -2,8 +2,8 @@ package com.baidu.tieba.write;
 
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.tieba.view.HeadImageView;
-import com.baidu.tieba.view.TbCheckBox;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.TbCheckBox;
 /* loaded from: classes.dex */
 final class o {
     public View a;

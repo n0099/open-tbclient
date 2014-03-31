@@ -21,9 +21,9 @@ public final class c extends BitmapDrawable {
         Bitmap bitmap;
         Bitmap bitmap2;
         Bitmap bitmap3;
-        bitmap = this.a.d;
+        bitmap = this.a.e;
         if (bitmap != null && (bitmap2 = getBitmap()) != null && !bitmap2.isRecycled()) {
-            bitmap3 = this.a.d;
+            bitmap3 = this.a.e;
             canvas.drawBitmap(bitmap3, (Rect) null, getBounds(), getPaint());
         }
     }

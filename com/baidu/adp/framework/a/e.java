@@ -1,9 +1,10 @@
 package com.baidu.adp.framework.a;
 
 import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 /* loaded from: classes.dex */
-final class e extends com.baidu.adp.framework.message.c {
-    @Override // com.baidu.adp.framework.message.d
+final class e extends HttpResponsedMessage {
+    @Override // com.baidu.adp.framework.message.c
     public final /* bridge */ /* synthetic */ void a(int i, Object obj) {
     }
 

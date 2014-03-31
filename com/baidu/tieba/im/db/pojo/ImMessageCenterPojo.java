@@ -1,12 +1,12 @@
 package com.baidu.tieba.im.db.pojo;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.e;
-import com.baidu.adp.lib.util.g;
+import com.baidu.adp.lib.util.f;
+import com.baidu.adp.lib.util.h;
 import com.baidu.gson.Gson;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.UserData;
-import com.baidu.tieba.im.util.l;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tieba.im.f.q;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class ImMessageCenterPojo implements Serializable {
@@ -21,16 +21,26 @@ public class ImMessageCenterPojo implements Serializable {
     String group_head;
     String group_name;
     int group_type;
+    private boolean isSelf;
     int is_delete;
     int is_hidden;
     String last_content;
     long last_content_time;
     long last_rid;
     String last_user_name;
+    private int mCustomGroupType = 1;
     long orderCol;
     long pulled_msgId;
     int type;
     int unread_count;
+
+    public boolean isSelf() {
+        return this.isSelf;
+    }
+
+    public void setSelf(boolean z) {
+        this.isSelf = z;
+    }
 
     public long getLast_rid() {
         return this.last_rid;
@@ -64,10 +74,12 @@ public class ImMessageCenterPojo implements Serializable {
         this.is_hidden = i;
     }
 
+    @Deprecated
     public int getGroup_type() {
         return this.group_type;
     }
 
+    @Deprecated
     public void setGroup_type(int i) {
         this.group_type = i;
     }
@@ -165,43 +177,44 @@ public class ImMessageCenterPojo implements Serializable {
     }
 
     public static ImMessageCenterPojo fromCommonMsg(CommonMsgPojo commonMsgPojo) {
+        boolean z;
         OldUserData oldUserData;
         OldUserData oldUserData2;
         if (commonMsgPojo == null) {
-            e.e("see init cmpojo is null");
+            f.e("see init cmpojo is null");
             return null;
         }
-        String v = TiebaApplication.v();
-        if (TextUtils.isEmpty(v)) {
-            e.e("see init not login:");
+        String E = TbadkApplication.E();
+        if (TextUtils.isEmpty(E)) {
+            f.e("see init not login:");
             return null;
         }
-        e.e("see init private cmpojo:" + commonMsgPojo);
+        f.e("see init private cmpojo:" + commonMsgPojo);
         String gid = commonMsgPojo.getGid();
         if (TextUtils.isEmpty(gid)) {
-            e.b("see init private uid  is null uid:" + gid);
+            f.b("see init private uid  is null uid:" + gid);
             return null;
         }
         ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
         imMessageCenterPojo.setGid(gid);
         UserData userData = (UserData) new Gson().fromJson(commonMsgPojo.getUser_info(), (Class<Object>) UserData.class);
+        UserData userData2 = (UserData) new Gson().fromJson(commonMsgPojo.getToUser_info(), (Class<Object>) UserData.class);
         if (userData == null) {
-            e.e("see init private userinfo:" + commonMsgPojo.getUser_info());
+            f.e("see init private userinfo:" + commonMsgPojo.getUser_info());
             return null;
         }
-        if (g.b(userData.getUserId()) && (oldUserData2 = (OldUserData) new Gson().fromJson(commonMsgPojo.getUser_info(), (Class<Object>) OldUserData.class)) != null) {
+        if (h.b(userData.getUserId()) && (oldUserData2 = (OldUserData) new Gson().fromJson(commonMsgPojo.getUser_info(), (Class<Object>) OldUserData.class)) != null) {
             oldUserData2.setToUserData(userData);
         }
         String toUid = commonMsgPojo.getToUid();
-        if (!TextUtils.isEmpty(toUid) && toUid.equals(gid) && v.equals(gid)) {
-            e.b("see init private : send msg to self");
+        if (!TextUtils.isEmpty(toUid) && toUid.equals(gid) && E.equals(gid)) {
+            f.b("see init private : send msg to self");
             return null;
         }
         String uid = commonMsgPojo.getUid();
-        if (v.equals(uid)) {
-            UserData userData2 = (UserData) new Gson().fromJson(commonMsgPojo.getToUser_info(), (Class<Object>) UserData.class);
+        if (E.equals(uid)) {
             if (userData2 != null) {
-                if (g.b(userData2.getUserId()) && (oldUserData = (OldUserData) new Gson().fromJson(commonMsgPojo.getToUser_info(), (Class<Object>) OldUserData.class)) != null) {
+                if (h.b(userData2.getUserId()) && (oldUserData = (OldUserData) new Gson().fromJson(commonMsgPojo.getToUser_info(), (Class<Object>) OldUserData.class)) != null) {
                     oldUserData.setToUserData(userData2);
                 }
                 imMessageCenterPojo.setGroup_name(userData2.getUserName());
@@ -211,14 +224,38 @@ public class ImMessageCenterPojo implements Serializable {
             imMessageCenterPojo.setGroup_name(userData.getUserName());
             imMessageCenterPojo.setGroup_head(userData.getPortrait());
         }
-        imMessageCenterPojo.setGroup_type(6);
-        if (v.equals(uid)) {
-            imMessageCenterPojo.setLast_content(l.g(commonMsgPojo.toChatMessage()));
+        if (E.equals(uid)) {
+            if (userData2 != null && userData2.getUserType() == 1) {
+                imMessageCenterPojo.setCustomGroupType(4);
+                z = true;
+            }
+            z = false;
         } else {
-            imMessageCenterPojo.setLast_content(String.valueOf(userData.getUserName()) + ":" + l.g(commonMsgPojo.toChatMessage()));
+            if (userData != null && userData.getUserType() == 1) {
+                imMessageCenterPojo.setCustomGroupType(4);
+                z = true;
+            }
+            z = false;
+        }
+        if (!z) {
+            imMessageCenterPojo.setCustomGroupType(2);
+        }
+        if (E.equals(uid)) {
+            imMessageCenterPojo.setLast_content(q.g(commonMsgPojo.toChatMessage()));
+        } else {
+            imMessageCenterPojo.setLast_content(String.valueOf(userData.getUserName()) + ":" + q.g(commonMsgPojo.toChatMessage()));
         }
         imMessageCenterPojo.setLast_content_time(commonMsgPojo.getCreate_time() * 1000);
-        e.e("see convert " + imMessageCenterPojo + "ori:" + commonMsgPojo);
+        imMessageCenterPojo.setSelf(commonMsgPojo.isSelf);
+        f.e("see convert " + imMessageCenterPojo + "ori:" + commonMsgPojo);
         return imMessageCenterPojo;
+    }
+
+    public int getCustomGroupType() {
+        return this.mCustomGroupType;
+    }
+
+    public void setCustomGroupType(int i) {
+        this.mCustomGroupType = i;
     }
 }

@@ -21,8 +21,6 @@ import android.os.Messenger;
 import android.os.Process;
 import android.support.v4.view.MotionEventCompat;
 import android.util.Log;
-import com.baidu.android.pushservice.PushConstants;
-import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.location.c;
 import com.baidu.location.e;
 import java.io.File;
@@ -1351,10 +1349,10 @@ public final class f extends Service {
             JSONObject jSONObject = new JSONObject(str);
             int parseInt = Integer.parseInt(jSONObject.getJSONObject("result").getString("error"));
             if (parseInt == 161) {
-                JSONObject jSONObject2 = jSONObject.getJSONObject(PushConstants.EXTRA_CONTENT);
+                JSONObject jSONObject2 = jSONObject.getJSONObject("content");
                 if (jSONObject2.has("clf")) {
                     String string = jSONObject2.getString("clf");
-                    if (string.equals(SocialConstants.FALSE)) {
+                    if (string.equals("0")) {
                         JSONObject jSONObject3 = jSONObject2.getJSONObject("point");
                         d2 = Double.parseDouble(jSONObject3.getString("x"));
                         d3 = Double.parseDouble(jSONObject3.getString("y"));

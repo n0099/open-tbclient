@@ -1,36 +1,23 @@
 package com.baidu.tieba.im.b;
 
-import java.util.Map;
+import com.baidu.tieba.im.m;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class b implements com.baidu.tieba.im.net.a {
-    final /* synthetic */ a a;
+public final class b extends m<Void> {
+    final /* synthetic */ a b;
+    private final /* synthetic */ String c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b(a aVar) {
-        this.a = aVar;
+    public b(a aVar, String str) {
+        this.b = aVar;
+        this.c = str;
     }
 
-    @Override // com.baidu.tieba.im.net.a
-    public final boolean a(int i, String str) {
-        this.a.f();
-        return false;
-    }
-
-    @Override // com.baidu.tieba.im.net.a
-    public final void a(Map<String, String> map) {
-        this.a.e();
-    }
-
-    @Override // com.baidu.tieba.im.net.a
-    public final void a(byte[] bArr) {
-    }
-
-    @Override // com.baidu.tieba.im.net.a
-    public final void a(com.baidu.adp.lib.webSocket.d dVar) {
-    }
-
-    @Override // com.baidu.tieba.im.net.a
-    public final void a(String str) {
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.m
+    public final /* bridge */ /* synthetic */ Void a() {
+        com.baidu.tieba.im.db.g.a();
+        com.baidu.tieba.im.db.g.a(this.c, false);
+        return null;
     }
 }

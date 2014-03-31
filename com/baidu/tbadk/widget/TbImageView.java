@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.widget.ImageView;
 import com.baidu.adp.widget.ImageView.BDImageView;
-import com.baidu.tbadk.imageManager.e;
+import com.baidu.tbadk.n;
 /* loaded from: classes.dex */
 public class TbImageView extends BDImageView {
     private static Bitmap c;
@@ -25,9 +25,8 @@ public class TbImageView extends BDImageView {
     private int j;
     private int k;
     private boolean l;
-    private boolean m;
+    private int[] m;
     private int[] n;
-    private int[] o;
     private static final PorterDuffColorFilter b = new PorterDuffColorFilter(-5000269, PorterDuff.Mode.MULTIPLY);
     private static int e = 0;
 
@@ -38,10 +37,10 @@ public class TbImageView extends BDImageView {
         this.g = null;
         this.h = null;
         this.i = -1;
-        this.j = com.baidu.tbadk.c.pic_image_h_not;
-        this.k = com.baidu.tbadk.c.pic_image_h_not_1;
-        this.m = true;
-        d();
+        this.j = com.baidu.tbadk.i.pic_image_h_not;
+        this.k = com.baidu.tbadk.i.pic_image_h_not_1;
+        this.l = true;
+        c();
     }
 
     public TbImageView(Context context, AttributeSet attributeSet) {
@@ -51,10 +50,10 @@ public class TbImageView extends BDImageView {
         this.g = null;
         this.h = null;
         this.i = -1;
-        this.j = com.baidu.tbadk.c.pic_image_h_not;
-        this.k = com.baidu.tbadk.c.pic_image_h_not_1;
-        this.m = true;
-        d();
+        this.j = com.baidu.tbadk.i.pic_image_h_not;
+        this.k = com.baidu.tbadk.i.pic_image_h_not_1;
+        this.l = true;
+        c();
     }
 
     public TbImageView(Context context, AttributeSet attributeSet, int i) {
@@ -64,12 +63,12 @@ public class TbImageView extends BDImageView {
         this.g = null;
         this.h = null;
         this.i = -1;
-        this.j = com.baidu.tbadk.c.pic_image_h_not;
-        this.k = com.baidu.tbadk.c.pic_image_h_not_1;
-        this.m = true;
-        d();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tbadk.d.TbImageView);
-        this.m = obtainStyledAttributes.getBoolean(0, true);
+        this.j = com.baidu.tbadk.i.pic_image_h_not;
+        this.k = com.baidu.tbadk.i.pic_image_h_not_1;
+        this.l = true;
+        c();
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, n.TbImageView);
+        this.l = obtainStyledAttributes.getBoolean(0, true);
         obtainStyledAttributes.recycle();
     }
 
@@ -78,7 +77,7 @@ public class TbImageView extends BDImageView {
     }
 
     public void setGifIconSupport(boolean z) {
-        this.m = z;
+        this.l = z;
     }
 
     @Override // com.baidu.adp.widget.ImageView.BDImageView, android.view.View
@@ -95,9 +94,9 @@ public class TbImageView extends BDImageView {
         this.f = str;
     }
 
-    private void d() {
+    private void c() {
         if (c == null) {
-            c = BitmapFactory.decodeResource(getResources(), com.baidu.tbadk.c.icon_gif);
+            c = BitmapFactory.decodeResource(getResources(), com.baidu.tbadk.i.icon_gif);
         }
         setDefaultScaleType(ImageView.ScaleType.CENTER_INSIDE);
         if (e == 1) {
@@ -158,13 +157,9 @@ public class TbImageView extends BDImageView {
             return null;
         }
         if (this.d == 0) {
-            return e.a().c(str);
+            return com.baidu.tbadk.imageManager.e.a().c(str);
         }
-        return e.a().b(str);
-    }
-
-    public void setDrawRoundCover(boolean z) {
-        this.l = z;
+        return com.baidu.tbadk.imageManager.e.a().b(str);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -180,28 +175,28 @@ public class TbImageView extends BDImageView {
             }
         }
         super.onDraw(canvas);
-        if (super.getIsLoaded() && this.m && super.getIsGif() && this.d != 1) {
+        if (super.getIsLoaded() && this.l && super.getIsGif() && this.d != 1) {
             canvas.drawBitmap(c, 0.0f, 0.0f, (Paint) null);
         }
     }
 
     public void setRealShowSize(int[] iArr) {
-        this.n = iArr;
+        this.m = iArr;
     }
 
     public int[] getRealShowSize() {
-        return this.n;
+        return this.m;
     }
 
     public void setCurrShowSize(int[] iArr) {
-        this.o = iArr;
+        this.n = iArr;
     }
 
     public int[] getCurrShowSize() {
-        return this.o;
+        return this.n;
     }
 
-    public final boolean c() {
+    public final boolean d() {
         return getImage() != null;
     }
 }

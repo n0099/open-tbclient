@@ -1,18 +1,22 @@
 package com.baidu.tieba.im.model;
 /* loaded from: classes.dex */
-final class o extends com.baidu.tieba.im.b<Boolean> {
-    final /* synthetic */ m a;
-    private final /* synthetic */ com.baidu.tieba.im.message.w c;
+public class o {
+    private static final String a = o.class.getName();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public o(m mVar, com.baidu.tieba.im.message.w wVar) {
-        this.a = mVar;
-        this.c = wVar;
-    }
-
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.b
-    public final /* synthetic */ Boolean a() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.q.a().a(this.c.m(), this.c.c(), String.valueOf(this.c.j()), String.valueOf(this.c.l()), 2));
+    public static String a(String str) {
+        com.baidu.tbadk.coreExtra.data.b a2;
+        if (str != null) {
+            try {
+                com.baidu.tbadk.coreExtra.data.c a3 = new com.baidu.tbadk.coreExtra.service.b("c/c/voice/chunkupload", "c/c/voice/voice_fin_chunk_upload").a(com.baidu.tbadk.core.util.w.a(str, 1));
+                if (a3 != null && a3.b() && (a2 = a3.a()) != null) {
+                    String a4 = a2.a();
+                    com.baidu.tbadk.core.voice.cache.e.a(str, a4);
+                    return a4;
+                }
+            } catch (Exception e) {
+                com.baidu.adp.lib.util.f.b(a, "submitVoiceBinary", "error: " + e.getMessage());
+            }
+        }
+        return null;
     }
 }

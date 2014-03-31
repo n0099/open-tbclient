@@ -1,54 +1,45 @@
 package com.baidu.tbplugin;
 
-import android.content.Context;
-import android.content.ContextWrapper;
-import android.os.Build;
-import dalvik.system.DexClassLoader;
 import java.io.File;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public final class d {
-    private ClassLoader a;
-    private Context b;
-    private boolean c;
+    private InputStream a;
+    private String b;
 
-    public d(Context context) {
-        this.b = context;
+    public d(InputStream inputStream, String str) {
+        this.a = inputStream;
+        this.b = str;
     }
 
-    public final synchronized void a() {
-        boolean z = this.c;
-        String str = "";
-        File[] listFiles = f.a().listFiles();
-        if (listFiles != null && listFiles.length != 0) {
-            StringBuilder sb = new StringBuilder();
-            for (File file : listFiles) {
-                sb.append(file.getAbsolutePath());
-                sb.append(File.pathSeparator);
-            }
-            str = sb.substring(0, sb.length() - 1);
-        }
-        this.a = new DexClassLoader(str, f.e().getAbsolutePath(), f.c().getAbsolutePath(), this.b.getClassLoader());
-        Context context = this.b;
-        ClassLoader classLoader = this.a;
+    public final void a() {
         try {
-            Object obj = Build.VERSION.SDK_INT <= 7 ? f.a(Class.forName("android.app.ApplicationContext"), "mPackageInfo").get(context.getApplicationContext()) : f.a(Class.forName("android.app.ContextImpl"), "mPackageInfo").get(f.a(ContextWrapper.class, "mBase").get(context.getApplicationContext()));
-            f.a(obj.getClass(), "mClassLoader").set(obj, classLoader);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-            com.baidu.adp.lib.util.e.b("IllegalAccessException");
-            this.c = false;
-        } catch (IllegalArgumentException e2) {
-            e2.printStackTrace();
-            com.baidu.adp.lib.util.e.b("IllegalArgumentException");
-            this.c = false;
-        } catch (Throwable th) {
-            com.baidu.adp.lib.util.e.b("Throwable " + th.getMessage());
-            this.c = false;
+            ZipInputStream zipInputStream = new ZipInputStream(this.a);
+            while (true) {
+                ZipEntry nextEntry = zipInputStream.getNextEntry();
+                if (nextEntry != null) {
+                    if (nextEntry.isDirectory()) {
+                        FileUtils.forceMkdir(new File(String.valueOf(this.b) + File.separator + nextEntry.getName()));
+                    } else {
+                        FileUtils.touch(new File(String.valueOf(this.b) + File.separator + nextEntry.getName()));
+                        FileOutputStream fileOutputStream = new FileOutputStream(String.valueOf(this.b) + File.separator + nextEntry.getName());
+                        IOUtils.copy(zipInputStream, fileOutputStream);
+                        zipInputStream.closeEntry();
+                        IOUtils.closeQuietly((OutputStream) fileOutputStream);
+                    }
+                } else {
+                    IOUtils.closeQuietly((InputStream) zipInputStream);
+                    return;
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Generator Error: " + e.getMessage());
         }
-    }
-
-    public final ClassLoader b() {
-        return this.a;
     }
 }

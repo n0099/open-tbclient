@@ -2,8 +2,9 @@ package com.baidu.tieba.account.forbid;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.gson.GsonBuilder;
-import com.baidu.tieba.util.ba;
-import com.baidu.tieba.util.bs;
+import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.bc;
+import com.baidu.tieba.person.PersonInfoActivity;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -20,8 +21,8 @@ public final class i extends BdAsyncTask<String, Object, ForbidResultData> {
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ ForbidResultData a(String... strArr) {
-        return d();
+    public final /* bridge */ /* synthetic */ ForbidResultData a(String... strArr) {
+        return a();
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -32,7 +33,7 @@ public final class i extends BdAsyncTask<String, Object, ForbidResultData> {
         super.a((i) forbidResultData2);
         j jVar = this.g.get();
         if (jVar != null) {
-            if (forbidResultData2.errNo == 0 && bs.c(forbidResultData2.errMsg)) {
+            if (forbidResultData2.errNo == 0 && bc.c(forbidResultData2.errMsg)) {
                 jVar.a();
             } else {
                 jVar.b();
@@ -51,32 +52,32 @@ public final class i extends BdAsyncTask<String, Object, ForbidResultData> {
         setPriority(3);
     }
 
-    private ForbidResultData d() {
+    private ForbidResultData a() {
         String str;
         str = h.a;
-        ba baVar = new ba(str);
-        baVar.a("day", this.e);
-        baVar.a("un", this.d);
-        baVar.a("fid", this.a);
-        baVar.a("word", this.b);
-        baVar.a("z", this.c);
-        baVar.a("reason", this.f);
-        baVar.a("ntn", "banid");
-        baVar.e(true);
-        String l = baVar.l();
-        if (baVar.c()) {
+        ak akVar = new ak(str);
+        akVar.a("day", this.e);
+        akVar.a(PersonInfoActivity.TAG_ID, this.d);
+        akVar.a("fid", this.a);
+        akVar.a("word", this.b);
+        akVar.a("z", this.c);
+        akVar.a("reason", this.f);
+        akVar.a("ntn", "banid");
+        akVar.a().a().a = true;
+        String i = akVar.i();
+        if (akVar.a().b().b()) {
             try {
-                return (ForbidResultData) new GsonBuilder().create().fromJson(l, (Class<Object>) ForbidResultData.class);
+                return (ForbidResultData) new GsonBuilder().create().fromJson(i, (Class<Object>) ForbidResultData.class);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.e.b("ForbidPostModel", "doInBackground", e.getMessage());
+                com.baidu.adp.lib.util.f.b("ForbidPostModel", "doInBackground", e.getMessage());
                 ForbidResultData forbidResultData = new ForbidResultData();
                 forbidResultData.errNo = -1000;
                 return forbidResultData;
             }
         }
         ForbidResultData forbidResultData2 = new ForbidResultData();
-        forbidResultData2.errNo = baVar.e();
-        forbidResultData2.errMsg = baVar.i();
+        forbidResultData2.errNo = akVar.d();
+        forbidResultData2.errMsg = akVar.f();
         return forbidResultData2;
     }
 }

@@ -1,113 +1,57 @@
 package com.baidu.tieba.im.chat.personaltalk;
 
-import android.text.TextUtils;
-import com.baidu.tieba.im.message.bj;
-import com.baidu.tieba.im.message.cn;
-import com.baidu.tieba.im.message.cx;
-import com.baidu.tieba.im.message.da;
-import com.baidu.tieba.im.message.de;
-import com.baidu.tieba.im.message.s;
-import com.slidingmenu.lib.R;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
+import com.baidu.tieba.im.message.ResponseQueryUserInfoMessage;
 import protobuf.QueryUserInfos.QueryUserInfosRes;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class l implements com.baidu.tieba.im.messageCenter.g {
-    private QueryUserInfosRes.DataRes c;
-    private com.baidu.tieba.util.i g;
-    private PersonalTalkSettingActivity h;
-    private o i;
-    private com.baidu.tieba.model.d b = new com.baidu.tieba.model.d(null);
-    private boolean d = false;
-    private boolean e = false;
-    private boolean f = false;
-    com.baidu.tieba.im.model.b a = new com.baidu.tieba.im.model.b();
+public final class l extends com.baidu.adp.framework.c.g {
+    final /* synthetic */ k a;
 
-    public final boolean a() {
-        return this.f;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public l(k kVar, int i) {
+        super(0);
+        this.a = kVar;
     }
 
-    public final void a(boolean z) {
-        this.f = z;
-    }
-
-    public final QueryUserInfosRes.DataRes b() {
-        return this.c;
-    }
-
-    public final boolean c() {
-        return this.d;
-    }
-
-    public final boolean d() {
-        return this.e;
-    }
-
-    public l(PersonalTalkSettingActivity personalTalkSettingActivity, o oVar, long j) {
-        this.h = personalTalkSettingActivity;
-        this.i = oVar;
-        personalTalkSettingActivity.showProgressBar();
-        this.g = new com.baidu.tieba.util.i(personalTalkSettingActivity);
-        com.baidu.tieba.im.i.a(new m(this, j), new n(this, j));
-    }
-
-    public final void e() {
-        if (this.b != null && this.c != null) {
-            this.b.a(!this.d, this.c.getPortrait(), String.valueOf(this.c.getId()));
-        }
-    }
-
-    public final void b(boolean z) {
-        this.h.showLoadingDialog(null);
-        if (z) {
-            this.a.a(this.c.getId());
-        } else {
-            this.a.b(this.c.getId());
-        }
-    }
-
-    @Override // com.baidu.tieba.im.messageCenter.g
-    public final void a(s sVar) {
-        if (sVar != null) {
-            switch (sVar.v()) {
-                case -118:
-                    if (sVar instanceof de) {
-                        de deVar = (de) sVar;
-                        if (deVar.a()) {
-                            this.d = deVar.d();
-                            if (this.h != null) {
-                                if (this.d) {
-                                    this.h.showToast(R.string.add_succ);
-                                } else {
-                                    this.h.showToast(R.string.remove_succ);
-                                }
-                            }
-                            if (this.i != null) {
-                                this.i.a();
-                                return;
-                            }
-                            return;
-                        } else if (this.h != null && !TextUtils.isEmpty(deVar.b())) {
-                            this.h.showToast(deVar.b());
-                            return;
-                        } else {
-                            return;
-                        }
-                    }
-                    return;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
+    @Override // com.baidu.adp.framework.c.c
+    public final /* synthetic */ void a(SocketResponsedMessage socketResponsedMessage) {
+        p pVar;
+        p pVar2;
+        PersonalTalkSettingActivity personalTalkSettingActivity;
+        PersonalTalkSettingActivity personalTalkSettingActivity2;
+        QueryUserInfosRes.DataRes dataRes;
+        QueryUserInfosRes.DataRes dataRes2;
+        PersonalTalkSettingActivity personalTalkSettingActivity3;
+        p pVar3;
+        p pVar4;
+        PersonalTalkSettingActivity personalTalkSettingActivity4;
+        PersonalTalkSettingActivity personalTalkSettingActivity5;
+        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
+        if (socketResponsedMessage2 != null) {
+            switch (socketResponsedMessage2.g()) {
                 case 104102:
-                    if (sVar instanceof da) {
-                        this.h.closeLoadingDialog();
-                        if (((da) sVar).l()) {
-                            this.h.showToast(((da) sVar).n());
+                    if (socketResponsedMessage2 instanceof com.baidu.adp.framework.message.f) {
+                        personalTalkSettingActivity = this.a.h;
+                        personalTalkSettingActivity.closeLoadingDialog();
+                        if (socketResponsedMessage2.e() != 0) {
+                            personalTalkSettingActivity2 = this.a.h;
+                            personalTalkSettingActivity2.showToast(socketResponsedMessage2.f());
                         }
                     }
-                    if (sVar instanceof cx) {
-                        cx cxVar = (cx) sVar;
-                        if (cxVar.o() instanceof bj) {
-                            bj bjVar = (bj) cxVar.o();
-                            if (bjVar.b() == 10) {
-                                this.e = bjVar.c() == 1;
-                                if (this.i != null) {
-                                    this.i.a();
+                    if (socketResponsedMessage2 instanceof ResponseUpdateMaskInfoMessage) {
+                        ResponseUpdateMaskInfoMessage responseUpdateMaskInfoMessage = (ResponseUpdateMaskInfoMessage) socketResponsedMessage2;
+                        if (responseUpdateMaskInfoMessage.h() instanceof com.baidu.tbadk.core.message.d) {
+                            com.baidu.tbadk.core.message.d dVar = (com.baidu.tbadk.core.message.d) responseUpdateMaskInfoMessage.h();
+                            if (dVar.i() == 10) {
+                                this.a.e = dVar.j() == 1;
+                                pVar = this.a.i;
+                                if (pVar != null) {
+                                    pVar2 = this.a.i;
+                                    pVar2.a();
                                     return;
                                 }
                                 return;
@@ -118,19 +62,28 @@ public final class l implements com.baidu.tieba.im.messageCenter.g {
                     }
                     return;
                 case 205003:
-                    if ((sVar instanceof da) && ((da) sVar).l()) {
-                        this.h.hideProgressBar();
-                        this.h.showToast(((da) sVar).n());
+                    if ((socketResponsedMessage2 instanceof com.baidu.adp.framework.message.f) && socketResponsedMessage2.e() != 0) {
+                        personalTalkSettingActivity4 = this.a.h;
+                        personalTalkSettingActivity4.hideProgressBar();
+                        personalTalkSettingActivity5 = this.a.h;
+                        personalTalkSettingActivity5.showToast(socketResponsedMessage2.f());
                         return;
-                    } else if (sVar instanceof cn) {
-                        cn cnVar = (cn) sVar;
-                        if (cnVar.a() != null) {
-                            this.c = cnVar.a();
-                            this.d = this.c.getHasConcerned() == 1;
-                            this.e = this.c.getIsBlacklist() == 1;
-                            this.h.hideProgressBar();
-                            if (this.i != null) {
-                                this.i.a();
+                    } else if (socketResponsedMessage2 instanceof ResponseQueryUserInfoMessage) {
+                        ResponseQueryUserInfoMessage responseQueryUserInfoMessage = (ResponseQueryUserInfoMessage) socketResponsedMessage2;
+                        if (responseQueryUserInfoMessage.d() != null) {
+                            this.a.c = responseQueryUserInfoMessage.d();
+                            k kVar = this.a;
+                            dataRes = this.a.c;
+                            kVar.d = dataRes.getHasConcerned() == 1;
+                            k kVar2 = this.a;
+                            dataRes2 = this.a.c;
+                            kVar2.e = dataRes2.getIsBlacklist() == 1;
+                            personalTalkSettingActivity3 = this.a.h;
+                            personalTalkSettingActivity3.hideProgressBar();
+                            pVar3 = this.a.i;
+                            if (pVar3 != null) {
+                                pVar4 = this.a.i;
+                                pVar4.a();
                                 return;
                             }
                             return;
@@ -142,22 +95,6 @@ public final class l implements com.baidu.tieba.im.messageCenter.g {
                 default:
                     return;
             }
-        }
-    }
-
-    public final com.baidu.tieba.util.i f() {
-        return this.g;
-    }
-
-    public final void g() {
-        if (this.g != null) {
-            this.g.c();
-        }
-        if (this.b != null) {
-            this.b.a();
-        }
-        if (this.a != null) {
-            this.a.cancelLoadData();
         }
     }
 }

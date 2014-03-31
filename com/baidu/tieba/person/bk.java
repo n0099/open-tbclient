@@ -1,20 +1,14 @@
 package com.baidu.tieba.person;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class bk implements Runnable {
-    final /* synthetic */ bj a;
+final class bk implements com.baidu.tbadk.core.view.a {
+    final /* synthetic */ PersonImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bk(bj bjVar) {
-        this.a = bjVar;
+    public bk(PersonImageActivity personImageActivity) {
+        this.a = personImageActivity;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        boolean z;
-        z = this.a.j;
-        if (z) {
-            this.a.d();
-        }
+    @Override // com.baidu.tbadk.core.view.a
+    public final void a(int i) {
     }
 }

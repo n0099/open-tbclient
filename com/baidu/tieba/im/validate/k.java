@@ -1,22 +1,26 @@
 package com.baidu.tieba.im.validate;
 
-import com.baidu.tieba.view.HeadImageView;
+import android.view.View;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.person.PersonInfoActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class k implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ g a;
+public final class k implements View.OnClickListener {
+    final /* synthetic */ i a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(g gVar) {
-        this.a = gVar;
+    public k(i iVar) {
+        this.a = iVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        HeadImageView headImageView;
-        if (bVar != null) {
-            headImageView = this.a.d;
-            bVar.a(headImageView);
-        }
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        ValidateActivity validateActivity;
+        ValidateItemData validateItemData;
+        HeadImageView unused;
+        validateActivity = this.a.i;
+        unused = this.a.d;
+        validateItemData = this.a.j;
+        validateActivity.a(PersonInfoActivity.REQUSET_CHANGE, validateItemData);
     }
 }

@@ -1,9 +1,9 @@
 package com.baidu.tieba.im.validate;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
+import java.util.LinkedList;
 /* loaded from: classes.dex */
-public final class d implements DialogInterface.OnClickListener {
+final class d implements com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> {
     final /* synthetic */ ValidateActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,20 +11,27 @@ public final class d implements DialogInterface.OnClickListener {
         this.a = validateActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
-        r rVar;
-        ValidateItemData validateItemData;
-        switch (i) {
-            case 0:
-                rVar = this.a.b;
-                rVar.a(true);
-                ValidateActivity validateActivity = this.a;
-                validateItemData = this.a.f;
-                ValidateActivity.a(validateActivity, validateItemData);
-                return;
-            default:
-                return;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.baidu.tieba.im.a
+    public final /* synthetic */ void a(LinkedList<GroupNewsPojo> linkedList) {
+        t tVar;
+        boolean z;
+        t tVar2;
+        int i;
+        LinkedList<GroupNewsPojo> linkedList2 = linkedList;
+        tVar = this.a.b;
+        tVar.a(n.a(linkedList2));
+        if (linkedList2 != null) {
+            ValidateActivity validateActivity = this.a;
+            i = validateActivity.l;
+            validateActivity.l = i + linkedList2.size();
         }
+        z = this.a.i;
+        if (!z) {
+            tVar2 = this.a.b;
+            tVar2.a(false);
+        }
+        this.a.c();
+        this.a.m = false;
     }
 }

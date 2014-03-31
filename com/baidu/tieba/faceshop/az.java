@@ -1,59 +1,88 @@
 package com.baidu.tieba.faceshop;
 
 import android.content.Context;
-import com.baidu.tieba.util.UtilHelper;
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.widget.TbImageView;
+import java.util.ArrayList;
+import java.util.Date;
 /* loaded from: classes.dex */
-public final class az extends com.baidu.adp.a.g {
-    final /* synthetic */ aw a;
-    private final /* synthetic */ com.baidu.tieba.f b;
-    private final /* synthetic */ FacePackageData c;
-    private final /* synthetic */ int d;
+public final class az extends BaseAdapter {
+    private Context a;
+    private FacePurchaseRecordsData b = null;
+    private com.baidu.tbadk.editortool.aa c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public az(aw awVar, com.baidu.tieba.f fVar, FacePackageData facePackageData, int i) {
-        this.a = awVar;
-        this.b = fVar;
-        this.c = facePackageData;
-        this.d = i;
+    public az(Context context) {
+        this.a = context;
+        this.c = new com.baidu.tbadk.editortool.aa(context);
+        this.c.a(context.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.faceshop_purchase_cover_width), context.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.faceshop_purchase_cover_height));
     }
 
-    @Override // com.baidu.adp.a.g
-    public final void a(Object obj) {
-        Context context;
-        Context context2;
-        Context context3;
-        Context context4;
-        Context context5;
-        this.b.hideProgressBar();
-        if (obj == null || !(obj instanceof FaceBuyData)) {
-            context = this.a.c;
-            UtilHelper.a(context, (int) R.string.neterror);
-            return;
+    public final void a(FacePurchaseRecordsData facePurchaseRecordsData) {
+        this.b = facePurchaseRecordsData;
+        notifyDataSetChanged();
+    }
+
+    public final com.baidu.tbadk.editortool.aa a() {
+        return this.c;
+    }
+
+    @Override // android.widget.Adapter
+    public final int getCount() {
+        if (this.b == null || this.b.packList == null) {
+            return 0;
         }
-        FaceBuyData faceBuyData = (FaceBuyData) obj;
-        if (faceBuyData.errno == 0 && faceBuyData.usermsg != null) {
-            String str = faceBuyData.buyInfo.buyUrl;
-            String str2 = faceBuyData.buyInfo.returnUrl;
-            if (faceBuyData.buyInfo.buyStatus == 2) {
-                context4 = this.a.c;
-                UtilHelper.a(context4, (int) R.string.has_buy2);
-                this.c.buyStatus = 1;
-                this.c.canDownload = 1;
-                this.a.notifyDataSetChanged();
-                return;
-            }
-            this.c.orderId = faceBuyData.buyInfo.orderId;
-            com.baidu.tieba.f fVar = this.b;
-            context5 = this.a.c;
-            FaceBuyWebViewActivity.a(fVar, str, str2, context5.getString(R.string.buy_package), this.d, 10000);
-        } else if (faceBuyData.usermsg != null) {
-            context3 = this.a.c;
-            UtilHelper.b(context3, faceBuyData.usermsg);
-        } else {
-            context2 = this.a.c;
-            UtilHelper.a(context2, (int) R.string.neterror);
+        return this.b.packList.size();
+    }
+
+    @Override // android.widget.Adapter
+    public final Object getItem(int i) {
+        if (this.b == null || this.b.packList == null) {
+            return null;
         }
+        ArrayList<FacePurchasePackageData> arrayList = this.b.packList;
+        if (i < 0 || i >= arrayList.size()) {
+            return null;
+        }
+        return arrayList.get(i);
+    }
+
+    @Override // android.widget.Adapter
+    public final long getItemId(int i) {
+        return i;
+    }
+
+    @Override // android.widget.Adapter
+    public final View getView(int i, View view, ViewGroup viewGroup) {
+        int l = TbadkApplication.j().l();
+        if (view == null) {
+            LayoutInflater from = LayoutInflater.from(this.a);
+            ba baVar = new ba(this, (byte) 0);
+            view = from.inflate(com.baidu.tieba.a.i.face_purchase_record_item, (ViewGroup) null);
+            baVar.a = (TbImageView) view.findViewById(com.baidu.tieba.a.h.cover);
+            baVar.b = (TextView) view.findViewById(com.baidu.tieba.a.h.title);
+            baVar.c = (TextView) view.findViewById(com.baidu.tieba.a.h.time);
+            baVar.d = (TextView) view.findViewById(com.baidu.tieba.a.h.price);
+            view.setTag(baVar);
+        }
+        ba baVar2 = (ba) view.getTag();
+        if (this.a instanceof com.baidu.tbadk.a) {
+            ((com.baidu.tbadk.a) this.a).getLayoutMode().a(l == 1);
+            ((com.baidu.tbadk.a) this.a).getLayoutMode().a(view);
+        }
+        FacePurchasePackageData facePurchasePackageData = (FacePurchasePackageData) getItem(i);
+        if (facePurchasePackageData != null) {
+            baVar2.a.setTag(facePurchasePackageData.coverUrl);
+            baVar2.d.setText(facePurchasePackageData.price);
+            baVar2.b.setText(facePurchasePackageData.pname);
+            Date date = new Date();
+            date.setTime(facePurchasePackageData.puyTime * 1000);
+            baVar2.c.setText(com.baidu.tbadk.core.util.bc.d(date));
+        }
+        return view;
     }
 }

@@ -1,17 +1,14 @@
 package com.baidu.tieba.im.messageCenter;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.b.x;
 /* loaded from: classes.dex */
-public final class j implements com.baidu.tieba.im.a<l> {
-    final /* synthetic */ i a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public j(i iVar) {
-        this.a = iVar;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.baidu.tieba.im.a
-    public final /* bridge */ /* synthetic */ void a(l lVar) {
-        i.a(this.a, lVar);
+final class j implements com.baidu.adp.framework.task.a<x> {
+    @Override // com.baidu.adp.framework.task.a
+    public final CustomResponsedMessage<x> a(com.baidu.adp.framework.message.a<x> aVar) {
+        if (aVar != null && aVar.a() != null) {
+            com.baidu.tieba.im.d.a.a().a(aVar.a().d().getIntArrayExtra("timeouts"));
+        }
+        return null;
     }
 }

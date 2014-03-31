@@ -1,6 +1,5 @@
 package com.baidu.tieba.faceshop;
 
-import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.gson.annotations.SerializedName;
 import java.io.Serializable;
 /* loaded from: classes.dex */
@@ -14,7 +13,7 @@ public class FaceBuyQueryData implements Serializable {
     public String errmsg;
     @SerializedName("errno")
     public int errno;
-    @SerializedName(SocialConstants.PARAM_ERROR_CODE)
+    @SerializedName("error_code")
     public int errorCode;
     @SerializedName("error_msg")
     public String errorMsg;

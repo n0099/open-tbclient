@@ -1,40 +1,81 @@
 package com.baidu.tieba.write;
 
-import android.content.DialogInterface;
-import android.os.Handler;
-import android.widget.EditText;
-import com.baidu.tieba.data.WriteData;
-import com.slidingmenu.lib.R;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.view.View;
+import java.util.Date;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class bh implements DialogInterface.OnClickListener {
-    final /* synthetic */ WriteActivity a;
+public final class bh implements View.OnClickListener {
+    final /* synthetic */ WriteImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bh(WriteActivity writeActivity) {
-        this.a = writeActivity;
+    public bh(WriteImageActivity writeImageActivity) {
+        this.a = writeImageActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
-        WriteData writeData;
-        EditText editText;
-        WriteData writeData2;
-        EditText editText2;
-        WriteData writeData3;
-        WriteData writeData4;
-        Handler handler;
-        writeData = this.a.b;
-        editText = this.a.g;
-        writeData.setTitle(editText.getText().toString());
-        writeData2 = this.a.b;
-        editText2 = this.a.j;
-        writeData2.setContent(editText2.getText().toString());
-        writeData3 = this.a.b;
-        String forumId = writeData3.getForumId();
-        writeData4 = this.a.b;
-        ae.a(forumId, writeData4);
-        this.a.showToast(R.string.draft_save_success);
-        handler = this.a.u;
-        handler.postDelayed(new bi(this), 1000L);
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        boolean z;
+        int i;
+        Intent intent;
+        boolean z2;
+        Bitmap bitmap;
+        Bitmap bitmap2;
+        boolean a;
+        boolean z3;
+        Bitmap bitmap3;
+        Bitmap bitmap4;
+        boolean a2;
+        z = this.a.y;
+        if (!z) {
+            i = this.a.z;
+            if (i == 12003) {
+                intent = new Intent();
+                intent.putExtra("delete", true);
+            } else {
+                intent = new Intent();
+                z2 = this.a.x;
+                if (z2) {
+                    bitmap = this.a.p;
+                    if (bitmap != null) {
+                        bitmap2 = this.a.p;
+                        if (!bitmap2.isRecycled()) {
+                            String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
+                            a = this.a.a(str);
+                            if (a) {
+                                intent.putExtra("change", true);
+                                intent.putExtra("file_name", str);
+                            } else {
+                                intent.putExtra("change", false);
+                            }
+                        }
+                    }
+                    intent.putExtra("change", false);
+                } else {
+                    intent.setData(this.a.getIntent().getData());
+                    this.a.setResult(-1, intent);
+                }
+            }
+            this.a.setResult(-1, intent);
+        } else {
+            Intent intent2 = new Intent();
+            z3 = this.a.x;
+            if (z3) {
+                bitmap3 = this.a.p;
+                if (bitmap3 != null) {
+                    bitmap4 = this.a.p;
+                    if (!bitmap4.isRecycled()) {
+                        String str2 = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
+                        a2 = this.a.a(str2);
+                        if (a2) {
+                            intent2.putExtra("filename", str2);
+                        }
+                    }
+                }
+            }
+            this.a.setResult(-1, intent2);
+        }
+        this.a.finish();
     }
 }

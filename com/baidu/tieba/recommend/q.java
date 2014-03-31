@@ -1,15 +1,29 @@
 package com.baidu.tieba.recommend;
-/* loaded from: classes.dex */
-public final class q {
-    public int a;
-    public Object b;
-    public String c;
-    final /* synthetic */ h d;
 
-    public q(h hVar, int i, Object obj, String str) {
-        this.d = hVar;
-        this.a = i;
-        this.b = obj;
-        this.c = str;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.widget.TbImageView;
+/* loaded from: classes.dex */
+final class q {
+    View a;
+    LinearLayout b;
+    LinearLayout c;
+    View d;
+    TextView e;
+    TextView f;
+    TbImageView g;
+    TextView h;
+    TextView i;
+    TextView j;
+    final /* synthetic */ j k;
+
+    private q(j jVar) {
+        this.k = jVar;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ q(j jVar, byte b) {
+        this(jVar);
     }
 }

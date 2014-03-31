@@ -65,7 +65,7 @@ public final class a {
         try {
             this.k = (LocationManager) this.o.getSystemService("location");
         } catch (Exception e) {
-            com.baidu.adp.lib.util.e.b(e.getMessage());
+            com.baidu.adp.lib.util.f.b(e.getMessage());
         }
         try {
             if (this.e) {
@@ -82,7 +82,7 @@ public final class a {
                 this.f.setLocOption(locationClientOption);
             }
         } catch (Exception e2) {
-            com.baidu.adp.lib.util.e.b(e2.getMessage());
+            com.baidu.adp.lib.util.f.b(e2.getMessage());
         }
     }
 
@@ -139,7 +139,7 @@ public final class a {
             try {
                 this.k.removeUpdates(this.q);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.e.b("error : " + e.getMessage());
+                com.baidu.adp.lib.util.f.b("error : " + e.getMessage());
             }
         }
         if (this.f != null && this.f.isStarted()) {

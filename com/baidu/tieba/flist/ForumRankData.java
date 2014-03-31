@@ -1,7 +1,7 @@
 package com.baidu.tieba.flist;
 
+import com.baidu.tbadk.core.data.NewErrorData;
 import com.baidu.tieba.data.ForumInfoData;
-import com.baidu.tieba.data.NewErrorData;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class ForumRankData implements Serializable {

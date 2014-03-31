@@ -1,25 +1,25 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import android.content.DialogInterface;
+import com.baidu.tieba.data.VersionData;
 /* loaded from: classes.dex */
-final class ah extends BroadcastReceiver {
-    final /* synthetic */ MainTabActivity a;
-
-    private ah(MainTabActivity mainTabActivity) {
-        this.a = mainTabActivity;
-    }
+final class ah implements DialogInterface.OnDismissListener {
+    final /* synthetic */ UpdateDialog a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ah(MainTabActivity mainTabActivity, byte b) {
-        this(mainTabActivity);
+    public ah(UpdateDialog updateDialog) {
+        this.a = updateDialog;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public final void onReceive(Context context, Intent intent) {
-        if (intent.getAction().equals(com.baidu.tieba.data.i.a())) {
-            MainTabActivity.a(this.a);
+    @Override // android.content.DialogInterface.OnDismissListener
+    public final void onDismiss(DialogInterface dialogInterface) {
+        m mVar;
+        VersionData versionData;
+        mVar = this.a.c;
+        mVar.dismiss();
+        versionData = this.a.a;
+        if (versionData.getForce_update() == 1) {
+            com.baidu.tbadk.core.d.b.a(this.a, 200);
         }
     }
 }

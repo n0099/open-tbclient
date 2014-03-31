@@ -1,51 +1,19 @@
 package com.baidu.tieba.mainentrance;
 
-import android.content.Context;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public final class d {
-    private static c a = null;
+final class d {
+    TextView a;
+    ProgressBar b;
+    final /* synthetic */ c c;
 
-    public static void a(Context context, int i) {
-        if (a != null) {
-            a.a(context, i);
-        }
+    private d(c cVar) {
+        this.c = cVar;
     }
 
-    public static void a(Context context) {
-        if (a != null) {
-            a.a(context);
-        }
-    }
-
-    public static void a(Context context, int i, boolean z) {
-        if (a != null) {
-            a.a(context, i, false);
-        }
-    }
-
-    public static void b(Context context, int i) {
-        if (a != null) {
-            a.b(context, i);
-        }
-    }
-
-    public static Class a() {
-        if (a == null) {
-            return null;
-        }
-        return a.a();
-    }
-
-    public static String b() {
-        if (a == null) {
-            return null;
-        }
-        return a.b();
-    }
-
-    public static void a(c cVar) {
-        if (cVar != null) {
-            a = cVar;
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ d(c cVar, byte b) {
+        this(cVar);
     }
 }

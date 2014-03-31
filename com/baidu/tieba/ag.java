@@ -1,21 +1,20 @@
 package com.baidu.tieba;
-/* loaded from: classes.dex */
-final class ag implements com.baidu.tieba.im.messageCenter.g {
-    final /* synthetic */ MainTabActivity a;
 
-    private ag(MainTabActivity mainTabActivity) {
-        this.a = mainTabActivity;
-    }
+import android.content.DialogInterface;
+/* loaded from: classes.dex */
+final class ag implements DialogInterface.OnCancelListener {
+    final /* synthetic */ UpdateDialog a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ag(MainTabActivity mainTabActivity, byte b) {
-        this(mainTabActivity);
+    public ag(UpdateDialog updateDialog) {
+        this.a = updateDialog;
     }
 
-    @Override // com.baidu.tieba.im.messageCenter.g
-    public final void a(com.baidu.tieba.im.message.s sVar) {
-        if (sVar != null && sVar.v() == -124) {
-            MainTabActivity.a(this.a, sVar);
-        }
+    @Override // android.content.DialogInterface.OnCancelListener
+    public final void onCancel(DialogInterface dialogInterface) {
+        m mVar;
+        mVar = this.a.c;
+        mVar.dismiss();
+        this.a.finish();
     }
 }

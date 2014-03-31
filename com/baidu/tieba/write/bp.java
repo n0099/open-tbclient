@@ -1,36 +1,19 @@
 package com.baidu.tieba.write;
 
-import android.graphics.Bitmap;
 import android.view.View;
-import android.widget.ProgressBar;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class bp implements View.OnClickListener {
-    final /* synthetic */ WriteImageActivity a;
+final class bp implements View.OnClickListener {
+    final /* synthetic */ WriteMultiImgsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bp(WriteImageActivity writeImageActivity) {
-        this.a = writeImageActivity;
+    public bp(WriteMultiImgsActivity writeMultiImgsActivity) {
+        this.a = writeMultiImgsActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        ProgressBar progressBar;
-        Bitmap bitmap;
-        Bitmap bitmap2;
-        progressBar = this.a.g;
-        if (progressBar.getVisibility() != 0) {
-            bitmap = this.a.c;
-            if (bitmap == null) {
-                bitmap2 = this.a.p;
-                if (bitmap2 == null) {
-                    return;
-                }
-            }
-            if (view.getTag() != null) {
-                this.a.x = false;
-                WriteImageActivity.b(this.a, view.getTag().toString());
-            }
-        }
+        v vVar;
+        vVar = this.a.d;
+        vVar.a(Integer.parseInt(view.getTag().toString()));
     }
 }

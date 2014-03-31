@@ -2,7 +2,6 @@ package com.baidu.tieba.topRec;
 
 import android.view.animation.Animation;
 import android.widget.Button;
-import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class j implements Animation.AnimationListener {
@@ -26,13 +25,13 @@ public final class j implements Animation.AnimationListener {
         if (i < 100) {
             button3 = this.a.d;
             topRecActivity2 = this.a.j;
-            StringBuilder append = new StringBuilder(String.valueOf(topRecActivity2.getString(R.string.done))).append("(");
+            StringBuilder append = new StringBuilder(String.valueOf(topRecActivity2.getString(com.baidu.tieba.a.k.done))).append("(");
             i2 = this.a.k;
             button3.setText(append.append(i2).append(")").toString());
         } else {
             button = this.a.d;
             topRecActivity = this.a.j;
-            button.setText(String.valueOf(topRecActivity.getString(R.string.done)) + "(99+)");
+            button.setText(String.valueOf(topRecActivity.getString(com.baidu.tieba.a.k.done)) + "(99+)");
         }
         button2 = this.a.d;
         button2.invalidate();

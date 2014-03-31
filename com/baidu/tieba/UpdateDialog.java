@@ -1,23 +1,20 @@
 package com.baidu.tieba;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import com.baidu.tieba.data.CombineDownload;
 import com.baidu.tieba.data.VersionData;
 import com.baidu.tieba.service.TiebaUpdateService;
-import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class UpdateDialog extends f {
-    private an c;
+public class UpdateDialog extends com.baidu.tbadk.a {
+    private m c;
     private VersionData a = null;
     private CombineDownload b = null;
-    private Dialog d = null;
-    private DialogInterface.OnClickListener e = null;
-    private DialogInterface.OnClickListener f = null;
+    private ak d = null;
+    private boolean e = false;
+    private boolean f = false;
 
     public static void a(Context context, VersionData versionData, CombineDownload combineDownload) {
         if (versionData != null) {
@@ -26,13 +23,13 @@ public class UpdateDialog extends f {
             intent.putExtra("data", versionData);
             intent.putExtra("combineDownload", combineDownload);
             context.startActivity(intent);
-            TiebaApplication.g().t(true);
-            TiebaApplication.g().a(combineDownload);
+            r.c().p(true);
+            r.c().a(combineDownload);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (bundle != null) {
@@ -48,19 +45,20 @@ public class UpdateDialog extends f {
         if (this.a == null || this.a.getHas_new_ver() == 0) {
             finish();
         }
-        new AlertDialog.Builder(this);
-        if (this.a.getNew_version_desc() == null || this.a.getNew_version_desc().length() <= 0) {
-            String.format(getString(R.string.update_client), this.a.getNew_version());
-        } else {
-            this.a.getNew_version_desc();
-        }
         if (this.a.getHas_new_ver() == 1) {
-            this.c = new an(this, R.style.common_alert_dialog);
-            this.c.a(this.a, this.b, new bb(this));
-            this.c.setOnCancelListener(new bc(this));
-            this.c.setOnDismissListener(new bd(this));
+            this.c = new m(this, com.baidu.tieba.a.l.common_alert_dialog);
+            this.c.setCancelable(false);
+            this.c.a(this.a, this.b, new af(this));
+            this.c.setOnCancelListener(new ag(this));
+            this.c.setOnDismissListener(new ah(this));
+            this.c.a(new ai(this));
+            this.c.b(new aj(this));
             this.c.show();
         }
+        this.d = new ak(this, (byte) 0);
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("com.baidu.tieba.NewsVersion");
+        registerReceiver(this.d, intentFilter);
     }
 
     @Override // android.app.Activity
@@ -72,24 +70,26 @@ public class UpdateDialog extends f {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.d != null) {
-            this.d.dismiss();
-        }
         if (this.c != null) {
             this.c.dismiss();
         }
+        if (this.d != null) {
+            unregisterReceiver(this.d);
+        }
+        a();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static /* synthetic */ void b(UpdateDialog updateDialog) {
-        if (!com.baidu.tieba.util.af.a()) {
-            updateDialog.showToast(com.baidu.tieba.util.af.b());
+    public static /* synthetic */ void d(UpdateDialog updateDialog) {
+        if (!com.baidu.tbadk.core.util.w.a()) {
+            updateDialog.showToast(com.baidu.tbadk.core.util.w.b());
             return;
         }
         Intent intent = new Intent(updateDialog, TiebaUpdateService.class);
+        intent.addFlags(268435456);
         intent.putExtra("update", true);
         intent.putExtra("version", updateDialog.a);
         updateDialog.startService(intent);
@@ -97,14 +97,28 @@ public class UpdateDialog extends f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void a(UpdateDialog updateDialog, String str) {
-        if (!com.baidu.tieba.util.af.a()) {
-            updateDialog.showToast(com.baidu.tieba.util.af.b());
+        if (!com.baidu.tbadk.core.util.w.a()) {
+            updateDialog.showToast(com.baidu.tbadk.core.util.w.b());
             return;
         }
         Intent intent = new Intent(updateDialog, TiebaUpdateService.class);
+        intent.addFlags(268435456);
         intent.putExtra("update", true);
         intent.putExtra("version", updateDialog.a);
         intent.putExtra("other_url", str);
         updateDialog.startService(intent);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a() {
+        stopService(new Intent(this, TiebaUpdateService.class));
+    }
+
+    @Override // com.baidu.tbadk.a
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        if (this.c != null) {
+            this.c.b(i);
+        }
     }
 }

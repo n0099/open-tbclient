@@ -14,10 +14,10 @@ public final class j implements i {
     @Override // com.baidu.adp.widget.ScrollView.i
     public final void a() {
         b bVar;
-        this.a.u = false;
+        this.a.s = false;
         BdPullRefreshScrollView bdPullRefreshScrollView = this.a;
         BdPullRefreshScrollView.State state = BdPullRefreshScrollView.State.RESET;
-        bVar = this.a.n;
+        bVar = this.a.m;
         bdPullRefreshScrollView.a(state, bVar);
     }
 }

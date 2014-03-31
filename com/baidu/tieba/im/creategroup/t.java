@@ -3,7 +3,7 @@ package com.baidu.tieba.im.creategroup;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import com.baidu.tieba.TiebaApplication;
+import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 public final class t extends BaseAdapter {
     private String[] a;
@@ -49,7 +49,7 @@ public final class t extends BaseAdapter {
         } else {
             aVar.a(false);
         }
-        this.b.getLayoutMode().a(TiebaApplication.g().ae() == 1);
+        this.b.getLayoutMode().a(TbadkApplication.j().l() == 1);
         this.b.getLayoutMode().a(view);
         return view;
     }

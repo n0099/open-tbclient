@@ -1,82 +1,168 @@
 package com.baidu.tieba.data;
 
-import java.util.ArrayList;
+import android.content.Context;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tieba.person.PersonInfoActivity;
+import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class u {
+    private String a;
+    private String b;
+    private int c;
+    private AntiData d;
+    private Context e;
+    private LinkedList<t> f;
     private String g;
     private String h;
-    private int a = 0;
-    private String b = "";
-    private String c = "";
-    private int d = 0;
-    private int e = 0;
-    private boolean f = false;
-    private ArrayList<v> i = new ArrayList<>();
+    private String i;
+    private String j;
+    private int k;
+
+    public u(Context context) {
+        this.a = null;
+        this.b = null;
+        this.c = 0;
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.g = null;
+        this.h = null;
+        this.i = null;
+        this.j = null;
+        this.k = 0;
+        this.e = context;
+        this.f = new LinkedList<>();
+        this.d = new AntiData();
+    }
+
+    public final boolean a() {
+        return this.c > 0 && this.c <= this.f.size();
+    }
+
+    public final boolean b() {
+        return (this.g == null || this.g.length() == 0 || this.h == null || this.h.length() == 0) ? false : true;
+    }
 
     public final void a(String str) {
+        this.i = str;
+    }
+
+    public final void b(String str) {
+        this.j = str;
+    }
+
+    public final String c() {
+        return this.i;
+    }
+
+    public final String d() {
+        return this.j;
+    }
+
+    public final AntiData e() {
+        return this.d;
+    }
+
+    public final String f() {
+        return this.g;
+    }
+
+    public final String g() {
+        return this.h;
+    }
+
+    public u() {
+        this.a = null;
+        this.b = null;
+        this.c = 0;
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.g = null;
+        this.h = null;
+        this.i = null;
+        this.j = null;
+        this.k = 0;
+        this.f = new LinkedList<>();
+        this.d = new AntiData();
+    }
+
+    public final void a(String str, boolean z) {
         try {
-            a(new JSONObject(str));
+            a(new JSONObject(str), (Boolean) true);
         } catch (Exception e) {
-            com.baidu.adp.lib.util.e.b("ForumFeedData", "parserJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "paserJson", e.toString());
         }
     }
 
-    private void a(JSONObject jSONObject) {
+    public final LinkedList<t> h() {
+        return this.f;
+    }
+
+    public final void c(String str) {
+        this.a = str;
+    }
+
+    public final String i() {
+        return this.a;
+    }
+
+    public final String j() {
+        return this.b;
+    }
+
+    public final int k() {
+        return this.c;
+    }
+
+    public final String l() {
+        return this.f.size() > 0 ? this.f.get(this.f.size() - 1).c() : "";
+    }
+
+    private void a(JSONObject jSONObject, Boolean bool) {
         if (jSONObject != null) {
             try {
-                this.d = jSONObject.optInt("is_new_url", 0);
-                JSONObject optJSONObject = jSONObject.optJSONObject("error");
+                this.k = jSONObject.optInt("is_new_url", 0);
+                JSONObject optJSONObject = jSONObject.optJSONObject("forum");
                 if (optJSONObject != null) {
-                    this.a = optJSONObject.optInt("errno", 0);
-                    this.b = optJSONObject.optString("errmsg", "");
-                    this.c = optJSONObject.optString("usermsg", "");
+                    this.a = optJSONObject.optString(PersonInfoActivity.TAG_NAME);
+                    this.b = optJSONObject.optString("id");
                 }
-                this.g = jSONObject.optString("total");
-                this.e = jSONObject.optInt("has_more");
-                JSONArray optJSONArray = jSONObject.optJSONArray("feed_thread_list");
+                this.c = jSONObject.optInt("pic_amount", 0);
+                JSONArray optJSONArray = jSONObject.optJSONArray("pic_list");
                 if (optJSONArray != null) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        v vVar = new v();
-                        vVar.a(optJSONArray.optJSONObject(i));
-                        this.i.add(vVar);
+                    if (bool.booleanValue()) {
+                        for (int i = 0; i < optJSONArray.length(); i++) {
+                            t tVar = new t(this.e);
+                            tVar.a(optJSONArray.optJSONObject(i));
+                            int h = tVar.h();
+                            if (h > 0 && h <= this.c) {
+                                this.f.addLast(tVar);
+                            }
+                        }
+                    } else {
+                        for (int length = optJSONArray.length() - 1; length >= 0; length--) {
+                            t tVar2 = new t(this.e);
+                            tVar2.a(optJSONArray.getJSONObject(length));
+                            int h2 = tVar2.h();
+                            if (h2 > 0 && h2 <= this.c) {
+                                this.f.addFirst(tVar2);
+                            }
+                        }
                     }
-                    this.f = optJSONArray.length() == 0;
                 }
+                JSONObject optJSONObject2 = jSONObject.optJSONArray("album_list").optJSONObject(0);
+                this.g = optJSONObject2.optString("tid");
+                this.h = optJSONObject2.optString("title");
             } catch (Exception e) {
-                com.baidu.adp.lib.util.e.b("ForumFeedData", "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.util.f.b(getClass().getName(), "paserJson", e.toString());
             }
         }
     }
 
-    public final void a(u uVar, boolean z) {
-        if (uVar != null) {
-            this.e = uVar.e;
-            this.g = uVar.g;
-            this.h = uVar.h;
-            this.f = uVar.i == null || uVar.i.size() == 0;
-            this.i.addAll(uVar.i);
-        }
-    }
-
-    public final int a() {
-        return this.d;
-    }
-
-    public final ArrayList<v> b() {
-        return this.i;
-    }
-
-    public final boolean c() {
-        return this.e > 0;
-    }
-
-    public final int d() {
-        return this.a;
-    }
-
-    public final String e() {
-        return this.c;
+    public final int m() {
+        return this.k;
     }
 }

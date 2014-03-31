@@ -7,13 +7,13 @@ import java.util.List;
 public class MembersData implements Serializable {
     private static final long serialVersionUID = -7753167435649497271L;
     private UserData.Permission permission;
-    private List<com.baidu.tieba.data.UserData> users;
+    private List<com.baidu.tbadk.core.data.UserData> users;
 
-    public List<com.baidu.tieba.data.UserData> getUsers() {
+    public List<com.baidu.tbadk.core.data.UserData> getUsers() {
         return this.users;
     }
 
-    public void setUsers(List<com.baidu.tieba.data.UserData> list) {
+    public void setUsers(List<com.baidu.tbadk.core.data.UserData> list) {
         this.users = list;
     }
 

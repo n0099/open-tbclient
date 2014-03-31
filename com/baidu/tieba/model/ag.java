@@ -1,103 +1,109 @@
 package com.baidu.tieba.model;
 
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.chat.ImMessageCenterShowItemData;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
+import android.text.TextUtils;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ag extends com.baidu.adp.a.d {
-    private final List<ImMessageCenterShowItemData> a = new LinkedList();
-    private final List<ImMessageCenterShowItemData> b = new LinkedList();
+public final class ag extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.z> {
+    final /* synthetic */ af a;
+    private volatile com.baidu.tbadk.core.util.ak b;
 
-    @Override // com.baidu.adp.a.d
-    protected final boolean LoadData() {
-        return false;
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* bridge */ /* synthetic */ com.baidu.tieba.data.z a(Object... objArr) {
+        return a();
     }
 
-    @Override // com.baidu.adp.a.d
-    public final boolean cancelLoadData() {
-        return false;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ void a(com.baidu.tieba.data.z zVar) {
+        com.baidu.adp.a.h hVar;
+        com.baidu.adp.a.h hVar2;
+        String str;
+        com.baidu.tieba.data.z zVar2 = zVar;
+        this.a.d = null;
+        if (zVar2 == null && this.b != null) {
+            this.a.mErrorCode = this.b.d();
+            this.a.mErrorString = this.b.f();
+            str = this.a.mErrorString;
+            com.baidu.adp.lib.util.f.e("LikeModel", "onPostExecute", str);
+        }
+        hVar = this.a.mLoadDataCallBack;
+        if (hVar != null) {
+            hVar2 = this.a.mLoadDataCallBack;
+            hVar2.a(zVar2);
+        }
     }
 
-    public final void a(ImMessageCenterShowItemData imMessageCenterShowItemData, com.baidu.tieba.im.a<Void> aVar) {
-        if (imMessageCenterShowItemData != null && imMessageCenterShowItemData.getOwnerName() != null) {
-            if (imMessageCenterShowItemData.getOwnerName().equals(String.valueOf(2))) {
-                com.baidu.tieba.sharedPref.b.a().b("is_show_validate", false);
-                TiebaApplication.v();
-                a(String.valueOf(2), aVar, false);
-            } else if (imMessageCenterShowItemData.getOwnerName().equals(String.valueOf(3))) {
-                com.baidu.tieba.sharedPref.b.a().b("is_show_updates", false);
-                TiebaApplication.v();
-                a(String.valueOf(3), aVar, false);
-            } else if (imMessageCenterShowItemData.getOwnerName().equals(String.valueOf(1))) {
-                TiebaApplication.v();
-                a(imMessageCenterShowItemData.getFriendId(), aVar, false);
-            } else if (imMessageCenterShowItemData.getOwnerName().equals(String.valueOf(4))) {
-                TiebaApplication.v();
-                a(imMessageCenterShowItemData.getFriendId(), aVar, true);
+    private ag(af afVar) {
+        this.a = afVar;
+        this.b = null;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ag(af afVar, byte b) {
+        this(afVar);
+    }
+
+    private com.baidu.tieba.data.z a() {
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        String str5;
+        String str6;
+        String str7;
+        String str8;
+        try {
+            this.b = new com.baidu.tbadk.core.util.ak(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/c/forum/like");
+            StringBuilder sb = new StringBuilder("mForumName:");
+            str = this.a.a;
+            StringBuilder append = sb.append(str).append(" mForumid:");
+            str2 = this.a.b;
+            com.baidu.adp.lib.util.f.e("LikeModel", "doInBackground", append.append(str2).toString());
+            com.baidu.tbadk.core.util.ak akVar = this.b;
+            str3 = this.a.a;
+            akVar.a("kw", str3);
+            com.baidu.tbadk.core.util.ak akVar2 = this.b;
+            str4 = this.a.b;
+            akVar2.a("fid", str4);
+            com.baidu.tbadk.core.util.ak akVar3 = this.b;
+            str5 = this.a.e;
+            akVar3.a("st_type", str5);
+            str6 = this.a.c;
+            if (!TextUtils.isEmpty(str6)) {
+                com.baidu.tbadk.core.util.ak akVar4 = this.b;
+                str8 = this.a.c;
+                akVar4.a("pagefrom", str8);
             }
+            this.b.a().a().a = true;
+            String i = this.b.i();
+            com.baidu.adp.lib.util.f.e("LikeModel", "doInBackground", "data:" + i);
+            if (this.b.a().b().b() && i != null) {
+                com.baidu.tieba.data.z zVar = new com.baidu.tieba.data.z();
+                zVar.b(i);
+                str7 = this.a.b;
+                zVar.a(str7);
+                return zVar;
+            }
+        } catch (Exception e) {
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.getMessage());
         }
+        return null;
     }
 
-    private void a(String str, com.baidu.tieba.im.a<Void> aVar, boolean z) {
-        ImMessageCenterPojo a = com.baidu.tieba.im.db.h.a().d().a(str);
-        if (a != null) {
-            a.setIs_hidden(1);
-        }
-        com.baidu.tieba.im.i.a(new ah(this, z, str), new ai(this, str, aVar));
-    }
-
-    public final List<ImMessageCenterShowItemData> a() {
-        return this.a;
-    }
-
-    public final void b() {
-        this.a.clear();
-        this.b.clear();
-    }
-
-    public static void c() {
-        com.baidu.tieba.im.c.a.d().b(false, null);
-    }
-
-    public final void a(com.baidu.tieba.im.a<Void> aVar) {
-        com.baidu.tieba.im.c.a.d().b(false, new aj(this, aVar));
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void d() {
-        this.a.clear();
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final void cancel() {
+        com.baidu.adp.a.h hVar;
         if (this.b != null) {
-            this.a.addAll(this.b);
+            this.b.g();
+            this.b = null;
         }
-        com.baidu.tieba.im.c.a.d();
-        if (com.baidu.tieba.im.c.a.i()) {
-            ImMessageCenterShowItemData f = com.baidu.tieba.im.c.a.d().f();
-            if (f != null) {
-                this.a.add(f);
-            } else {
-                com.baidu.tieba.im.c.a.c();
-                ImMessageCenterShowItemData f2 = com.baidu.tieba.im.c.a.d().f();
-                if (f2 != null) {
-                    this.a.add(f2);
-                }
-            }
-        }
-        com.baidu.tieba.im.c.a.d();
-        if (com.baidu.tieba.im.c.a.j()) {
-            ImMessageCenterShowItemData h = com.baidu.tieba.im.c.a.d().h();
-            if (h != null) {
-                this.a.add(h);
-            } else {
-                com.baidu.tieba.im.c.a.a((String) null, false);
-                ImMessageCenterShowItemData h2 = com.baidu.tieba.im.c.a.d().h();
-                if (h2 != null) {
-                    this.a.add(h2);
-                }
-            }
-        }
-        Collections.sort(this.a, new ak(this));
+        this.a.d = null;
+        super.cancel(true);
+        hVar = this.a.mLoadDataCallBack;
+        hVar.a(null);
     }
 }

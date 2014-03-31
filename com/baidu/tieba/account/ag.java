@@ -1,31 +1,30 @@
 package com.baidu.tieba.account;
 
-import android.view.View;
-import android.widget.EditText;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
-final class ag implements View.OnClickListener {
-    final /* synthetic */ LoginActivity a;
+final class ag implements com.baidu.tbadk.core.a.u {
+    final /* synthetic */ SapiFastRegActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(LoginActivity loginActivity) {
-        this.a = loginActivity;
+    public ag(SapiFastRegActivity sapiFastRegActivity) {
+        this.a = sapiFastRegActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        EditText editText;
-        EditText editText2;
-        EditText editText3;
-        LoginActivity loginActivity = this.a;
-        editText = this.a.o;
-        BdUtilHelper.a(loginActivity, editText);
-        LoginActivity loginActivity2 = this.a;
-        editText2 = this.a.p;
-        BdUtilHelper.a(loginActivity2, editText2);
-        LoginActivity loginActivity3 = this.a;
-        editText3 = this.a.q;
-        BdUtilHelper.a(loginActivity3, editText3);
+    @Override // com.baidu.tbadk.core.a.u
+    public final void a(String str) {
+    }
+
+    @Override // com.baidu.tbadk.core.a.u
+    public final void a(AccountData accountData) {
+        TbadkApplication.a(accountData, this.a);
+        new ah(this, accountData).execute(new Void[0]);
+    }
+
+    @Override // com.baidu.tbadk.core.a.u
+    public final void a(String str, String str2) {
+        com.baidu.adp.lib.util.f.e("simon", "onFailure", str2);
+        this.a.showToast(com.baidu.tieba.a.k.relogin_fail);
         this.a.finish();
     }
 }

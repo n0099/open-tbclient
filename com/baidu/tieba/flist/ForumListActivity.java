@@ -12,16 +12,14 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.TiebaApplication;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tieba.data.ForumInfoData;
 import com.baidu.tieba.flist.ForumListModel;
-import com.baidu.tieba.model.ar;
-import com.baidu.tieba.util.bs;
-import com.baidu.tieba.util.cb;
-import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class ForumListActivity extends com.baidu.tieba.f implements ViewPager.OnPageChangeListener {
+public class ForumListActivity extends com.baidu.tbadk.a implements ViewPager.OnPageChangeListener {
     private ForumListModel.RequestParams A;
     private r D;
     private r E;
@@ -47,8 +45,8 @@ public class ForumListActivity extends com.baidu.tieba.f implements ViewPager.On
     private int n = 200;
     private int o = 200;
     private int p = 0;
-    private ar q = new ar();
-    private com.baidu.tieba.util.i r = null;
+    private final com.baidu.tieba.model.af q = new com.baidu.tieba.model.af();
+    private com.baidu.tbadk.editortool.aa r = null;
     private boolean s = false;
     private int t = 0;
     private boolean u = false;
@@ -59,23 +57,23 @@ public class ForumListActivity extends com.baidu.tieba.f implements ViewPager.On
     private int z = 0;
     private boolean B = false;
     private boolean C = false;
-    private u H = new f(this);
-    private e I = new g(this);
-    private AdapterView.OnItemClickListener J = new h(this);
-    private com.baidu.adp.widget.ListView.b K = new i(this);
-    private Runnable P = new j(this);
-    private AbsListView.OnScrollListener Q = new k(this);
+    private final u H = new f(this);
+    private final e I = new g(this);
+    private final AdapterView.OnItemClickListener J = new h(this);
+    private final com.baidu.adp.widget.ListView.d K = new i(this);
+    private final Runnable P = new j(this);
+    private final AbsListView.OnScrollListener Q = new k(this);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void a(ForumListActivity forumListActivity, String str) {
-        com.baidu.tieba.square.ab a = forumListActivity.c.x.a();
+        com.baidu.tieba.square.ab a = forumListActivity.c.y.a();
         if (a != null) {
             ArrayList<com.baidu.tieba.square.ab> arrayList = a.e;
             int size = arrayList.size();
             for (int i = 0; i < size; i++) {
                 if (arrayList.get(i).b.equals(str)) {
                     forumListActivity.t = i;
-                    forumListActivity.c.x.a(forumListActivity.t);
+                    forumListActivity.c.y.a(forumListActivity.t);
                     return;
                 }
             }
@@ -92,7 +90,7 @@ public class ForumListActivity extends com.baidu.tieba.f implements ViewPager.On
             forumListActivity.A.parent_menu_name = forumListActivity.getIntent().getStringExtra("parent_menu_name");
             forumListActivity.A.offset = 0;
             forumListActivity.A.rn = 10;
-            com.baidu.adp.lib.util.e.e("ForumListActivity", "onCreate", forumListActivity.A.toString());
+            com.baidu.adp.lib.util.f.e("ForumListActivity", "onCreate", forumListActivity.A.toString());
         } catch (NullPointerException e) {
             forumListActivity.finish();
         }
@@ -132,37 +130,37 @@ public class ForumListActivity extends com.baidu.tieba.f implements ViewPager.On
         context.startActivity(intent);
     }
 
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(R.layout.forum_list_activity);
+        setContentView(com.baidu.tieba.a.i.forum_list_activity);
         this.c = new w(this);
         w wVar = this.c;
-        this.c.h = a();
-        this.c.l.setOnClickListener(new l(this));
-        wVar.h = this.c.h;
-        w wVar2 = this.c;
         this.c.i = a();
-        this.c.o.setOnClickListener(new m(this));
-        wVar2.i = this.c.i;
-        this.c.A.setVisibility(0);
-        this.c.y.setOnClickListener(null);
-        this.c.y.setClickable(false);
+        this.c.m.setOnClickListener(new l(this));
+        wVar.i = this.c.i;
+        w wVar2 = this.c;
+        this.c.j = a();
+        this.c.p.setOnClickListener(new m(this));
+        wVar2.j = this.c.j;
+        this.c.B.setVisibility(0);
+        this.c.z.setOnClickListener(null);
+        this.c.z.setClickable(false);
         this.c.d.setAdapter(new o(this));
         this.D = new r(this, 0);
-        this.c.h.setAdapter((ListAdapter) this.D);
+        this.c.i.setAdapter((ListAdapter) this.D);
         this.E = new r(this, 1);
-        this.c.i.setAdapter((ListAdapter) this.E);
+        this.c.j.setAdapter((ListAdapter) this.E);
         String stringExtra = getIntent().getStringExtra("parent_menu_name");
         String stringExtra2 = getIntent().getStringExtra("level_2_menu_name");
         String stringExtra3 = getIntent().getStringExtra("parent_menu_id");
         String stringExtra4 = getIntent().getStringExtra("menu_type");
         this.e = new Handler();
-        if (bs.c(stringExtra2)) {
+        if (bc.c(stringExtra2)) {
             stringExtra2 = stringExtra;
         }
-        this.c.g.setText(stringExtra2);
-        this.r = new com.baidu.tieba.util.i(this);
+        this.c.h.setText(stringExtra2);
+        this.r = new com.baidu.tbadk.editortool.aa(this);
         this.A = new ForumListModel.RequestParams();
         try {
             this.A.menu_id = Integer.valueOf(stringExtra3).intValue();
@@ -172,7 +170,7 @@ public class ForumListActivity extends com.baidu.tieba.f implements ViewPager.On
             this.A.parent_menu_name = stringExtra;
             this.A.offset = 0;
             this.A.rn = 10;
-            com.baidu.adp.lib.util.e.e("ForumListActivity", "onCreate", this.A.toString());
+            com.baidu.adp.lib.util.f.e("ForumListActivity", "onCreate", this.A.toString());
         } catch (NullPointerException e) {
             finish();
         }
@@ -191,13 +189,13 @@ public class ForumListActivity extends com.baidu.tieba.f implements ViewPager.On
         this.b = new ForumListModel.List();
         this.a.forum_list = new ForumInfoData[50];
         this.b.forum_list = new ForumInfoData[50];
-        this.c.h.setPullRefresh(this.c.r);
         this.c.i.setPullRefresh(this.c.s);
-        this.c.r.a(this.K);
+        this.c.j.setPullRefresh(this.c.t);
         this.c.s.a(this.K);
+        this.c.t.a(this.K);
         if (stringExtra4.equals("2")) {
-            com.baidu.adp.lib.util.e.e("ForumListActivity", "OnCreate", "from frs");
-            this.c.z.setVisibility(8);
+            com.baidu.adp.lib.util.f.e("ForumListActivity", "OnCreate", "from frs");
+            this.c.A.setVisibility(8);
             this.c.b();
         } else {
             this.F = new c(stringExtra, stringExtra4, stringExtra3);
@@ -206,7 +204,7 @@ public class ForumListActivity extends com.baidu.tieba.f implements ViewPager.On
         }
         this.G = new t(this, this.A);
         this.G.a(this.H);
-        this.c.h.b();
+        this.c.i.c();
     }
 
     public static void a(String str, String str2, String str3, String str4) {
@@ -217,7 +215,7 @@ public class ForumListActivity extends com.baidu.tieba.f implements ViewPager.On
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, android.app.Activity
+    @Override // com.baidu.tbadk.a, android.app.Activity
     public void onResume() {
         super.onResume();
         if (d) {
@@ -226,8 +224,8 @@ public class ForumListActivity extends com.baidu.tieba.f implements ViewPager.On
             a(this, L, N, M, O);
             return;
         }
-        String v = TiebaApplication.v();
-        if (v != null && v.length() > 0) {
+        String E = TbadkApplication.E();
+        if (E != null && E.length() > 0) {
             if (this.D != null) {
                 this.D.b();
                 this.D.notifyDataSetChanged();
@@ -242,7 +240,7 @@ public class ForumListActivity extends com.baidu.tieba.f implements ViewPager.On
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, android.app.Activity
+    @Override // com.baidu.tbadk.a, android.app.Activity
     public void onPause() {
         super.onPause();
         this.e.removeCallbacks(this.P);
@@ -250,17 +248,17 @@ public class ForumListActivity extends com.baidu.tieba.f implements ViewPager.On
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         if (this.q != null) {
             this.q.a();
         }
         this.c.d.setAdapter(null);
+        this.c.j.setAdapter((ListAdapter) null);
         this.c.i.setAdapter((ListAdapter) null);
-        this.c.h.setAdapter((ListAdapter) null);
-        if (this.c.w != null) {
-            this.c.w.setAdapter((ListAdapter) null);
+        if (this.c.x != null) {
+            this.c.x.setAdapter((ListAdapter) null);
         }
         if (this.F != null) {
             this.F.cancelLoadData();
@@ -273,12 +271,12 @@ public class ForumListActivity extends com.baidu.tieba.f implements ViewPager.On
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f
+    @Override // com.baidu.tbadk.a
     public void onChangeSkinType(int i) {
         getLayoutMode().a(i == 1);
         getLayoutMode().a(this.c.a);
         this.c.f.b(i);
-        if (TiebaApplication.g().ae() == 1) {
+        if (TbadkApplication.j().l() == 1) {
             this.D.a(true);
             this.E.a(true);
         } else {
@@ -288,103 +286,98 @@ public class ForumListActivity extends com.baidu.tieba.f implements ViewPager.On
         this.D.notifyDataSetChanged();
         this.E.notifyDataSetChanged();
         if (i == 1) {
-            if (this.c.t != null) {
-                this.c.t.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_allsproutpop_dropdown_1));
+            if (this.c.u != null) {
+                this.c.u.setBackgroundDrawable(getResources().getDrawable(com.baidu.tieba.a.g.bg_allsproutpop_dropdown_1));
             }
-            this.c.z.setImageResource(R.drawable.btn_allsproutpop_down_1);
-            this.c.e.setBackgroundResource(R.drawable.bg_up_bar_1);
-            this.f = getResources().getColor(R.color.flist_text_color_night);
-            this.g = getResources().getColor(R.color.forum_list_tab_text_select);
-            this.h = R.drawable.btn_pop_most_left_n_1;
-            this.i = R.drawable.btn_pop_most_right_n_1;
-            this.j = R.drawable.btn_pop_most_left_s_1;
-            this.k = R.drawable.btn_pop_most_right_s_1;
-            this.l = R.drawable.ico_downward_1;
-            this.m = R.drawable.ico_upward_1;
-            this.D.a(R.drawable.btn_add_end_1, R.drawable.btn_add_1);
-            this.E.a(R.drawable.btn_add_end_1, R.drawable.btn_add_1);
-            this.c.j.setTextColor(this.f);
+            this.c.A.setImageResource(com.baidu.tieba.a.g.btn_allsproutpop_down_1);
+            this.c.e.setBackgroundResource(com.baidu.tieba.a.g.bg_up_bar_1);
+            this.f = getResources().getColor(com.baidu.tieba.a.e.flist_text_color_night);
+            this.g = getResources().getColor(com.baidu.tieba.a.e.forum_list_tab_text_select);
+            this.h = com.baidu.tieba.a.g.btn_pop_most_left_n_1;
+            this.i = com.baidu.tieba.a.g.btn_pop_most_right_n_1;
+            this.j = com.baidu.tieba.a.g.btn_pop_most_left_s_1;
+            this.k = com.baidu.tieba.a.g.btn_pop_most_right_s_1;
+            this.l = com.baidu.tieba.a.g.ico_downward_1;
+            this.m = com.baidu.tieba.a.g.ico_upward_1;
+            this.D.a(com.baidu.tieba.a.g.btn_add_end_1, com.baidu.tieba.a.g.btn_add_1);
+            this.E.a(com.baidu.tieba.a.g.btn_add_end_1, com.baidu.tieba.a.g.btn_add_1);
             this.c.k.setTextColor(this.f);
-            this.c.c.setBackgroundResource(R.drawable.bg_black_banner_down_1);
-            this.c.p.setTextColor(getResources().getColor(R.color.flist_text_color_night));
-            this.c.b.setBackgroundResource(R.drawable.bg_black_banner_down_1);
-            this.c.m.setTextColor(getResources().getColor(R.color.flist_text_color_night));
-            if (this.c.r != null && this.c.s != null) {
-                this.c.r.a(i);
+            this.c.l.setTextColor(this.f);
+            this.c.c.setBackgroundResource(com.baidu.tieba.a.g.bg_black_banner_down_1);
+            this.c.q.setTextColor(getResources().getColor(com.baidu.tieba.a.e.flist_text_color_night));
+            this.c.b.setBackgroundResource(com.baidu.tieba.a.g.bg_black_banner_down_1);
+            this.c.n.setTextColor(getResources().getColor(com.baidu.tieba.a.e.flist_text_color_night));
+            if (this.c.s != null && this.c.t != null) {
                 this.c.s.a(i);
+                this.c.t.a(i);
             }
             if (this.B) {
-                this.c.n.setImageResource(R.drawable.ico_upward_1);
+                this.c.o.setImageResource(com.baidu.tieba.a.g.ico_upward_1);
             } else {
-                this.c.n.setImageResource(R.drawable.ico_downward_1);
+                this.c.o.setImageResource(com.baidu.tieba.a.g.ico_downward_1);
             }
             if (this.C) {
-                this.c.q.setImageResource(R.drawable.ico_upward_1);
+                this.c.r.setImageResource(com.baidu.tieba.a.g.ico_upward_1);
             } else {
-                this.c.q.setImageResource(R.drawable.ico_downward_1);
+                this.c.r.setImageResource(com.baidu.tieba.a.g.ico_downward_1);
             }
         } else {
-            if (this.c.t != null) {
-                this.c.t.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_allsproutpop_dropdown_1));
+            if (this.c.u != null) {
+                this.c.u.setBackgroundDrawable(getResources().getDrawable(com.baidu.tieba.a.g.bg_allsproutpop_dropdown_1));
             }
-            this.c.z.setImageResource(R.drawable.btn_allsproutpop_down);
-            this.c.e.setBackgroundResource(R.drawable.bg_pop_most);
-            this.f = getResources().getColor(R.color.flist_text_color_day);
-            this.g = getResources().getColor(R.color.forum_list_tab_text_select);
-            this.h = R.drawable.btn_pop_most_left_n;
-            this.i = R.drawable.btn_pop_most_right_n;
-            this.j = R.drawable.btn_pop_most_left_s;
-            this.k = R.drawable.btn_pop_most_right_s;
-            this.l = R.drawable.ico_downward;
-            this.m = R.drawable.ico_upward;
-            this.D.a(R.drawable.btn_add_end, R.drawable.btn_add);
-            this.E.a(R.drawable.btn_add_end, R.drawable.btn_add);
-            this.c.c.setBackgroundResource(R.drawable.bg_black_banner_down);
-            this.c.p.setTextColor(getResources().getColor(R.color.flist_text_color_day));
-            this.c.b.setBackgroundResource(R.drawable.bg_black_banner_down);
-            this.c.m.setTextColor(getResources().getColor(R.color.flist_text_color_day));
+            this.c.A.setImageResource(com.baidu.tieba.a.g.btn_allsproutpop_down);
+            this.c.e.setBackgroundResource(com.baidu.tieba.a.g.bg_pop_most);
+            this.f = getResources().getColor(com.baidu.tieba.a.e.flist_text_color_day);
+            this.g = getResources().getColor(com.baidu.tieba.a.e.forum_list_tab_text_select);
+            this.h = com.baidu.tieba.a.g.btn_pop_most_left_n;
+            this.i = com.baidu.tieba.a.g.btn_pop_most_right_n;
+            this.j = com.baidu.tieba.a.g.btn_pop_most_left_s;
+            this.k = com.baidu.tieba.a.g.btn_pop_most_right_s;
+            this.l = com.baidu.tieba.a.g.ico_downward;
+            this.m = com.baidu.tieba.a.g.ico_upward;
+            this.D.a(com.baidu.tieba.a.g.btn_add_end, com.baidu.tieba.a.g.btn_add);
+            this.E.a(com.baidu.tieba.a.g.btn_add_end, com.baidu.tieba.a.g.btn_add);
+            this.c.c.setBackgroundResource(com.baidu.tieba.a.g.bg_black_banner_down);
+            this.c.q.setTextColor(getResources().getColor(com.baidu.tieba.a.e.flist_text_color_day));
+            this.c.b.setBackgroundResource(com.baidu.tieba.a.g.bg_black_banner_down);
+            this.c.n.setTextColor(getResources().getColor(com.baidu.tieba.a.e.flist_text_color_day));
             if (this.B) {
-                this.c.n.setImageResource(R.drawable.ico_upward);
+                this.c.o.setImageResource(com.baidu.tieba.a.g.ico_upward);
             } else {
-                this.c.n.setImageResource(R.drawable.ico_downward);
+                this.c.o.setImageResource(com.baidu.tieba.a.g.ico_downward);
             }
             if (this.C) {
-                this.c.q.setImageResource(R.drawable.ico_upward);
+                this.c.r.setImageResource(com.baidu.tieba.a.g.ico_upward);
             } else {
-                this.c.q.setImageResource(R.drawable.ico_downward);
+                this.c.r.setImageResource(com.baidu.tieba.a.g.ico_downward);
             }
         }
         if (this.c.d.getCurrentItem() == 0) {
-            this.c.j.setTextColor(this.g);
-            this.c.j.setBackgroundResource(this.j);
-            this.c.k.setBackgroundResource(this.i);
-            this.c.k.setTextColor(this.f);
+            this.c.k.setTextColor(this.g);
+            this.c.k.setBackgroundResource(this.j);
+            this.c.l.setBackgroundResource(this.i);
+            this.c.l.setTextColor(this.f);
             return;
         }
-        this.c.k.setTextColor(this.g);
-        this.c.k.setBackgroundResource(this.k);
-        this.c.j.setBackgroundResource(this.h);
-        this.c.j.setTextColor(this.f);
+        this.c.l.setTextColor(this.g);
+        this.c.l.setBackgroundResource(this.k);
+        this.c.k.setBackgroundResource(this.h);
+        this.c.k.setTextColor(this.f);
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.tab_recommends /* 2131100361 */:
-                this.c.d.setCurrentItem(0);
-                this.p = 0;
-                cb.a(view.getContext(), "recommend_list_click", "click", 1, new Object[0]);
-                return;
-            case R.id.tab_hot /* 2131100362 */:
-                this.c.d.setCurrentItem(1);
-                this.p = 1;
-                cb.a(view.getContext(), "hot_list_click", "click", 1, new Object[0]);
-                return;
-            case R.id.title_menu /* 2131101111 */:
-                this.c.a(this.J);
-                return;
-            default:
-                return;
+        int id = view.getId();
+        if (id == com.baidu.tieba.a.h.tab_recommends) {
+            this.c.d.setCurrentItem(0);
+            this.p = 0;
+            TiebaStatic.a(view.getContext(), "recommend_list_click", "click", 1, new Object[0]);
+        } else if (id == com.baidu.tieba.a.h.tab_hot) {
+            this.c.d.setCurrentItem(1);
+            this.p = 1;
+            TiebaStatic.a(view.getContext(), "hot_list_click", "click", 1, new Object[0]);
+        } else if (id == com.baidu.tieba.a.h.title_menu) {
+            this.c.a(this.J);
         }
     }
 
@@ -404,8 +397,8 @@ public class ForumListActivity extends com.baidu.tieba.f implements ViewPager.On
         forumListActivity.D.a(min);
         forumListActivity.D.a(forumInfoDataArr);
         forumListActivity.B = false;
-        forumListActivity.c.m.setText(forumListActivity.getString(R.string.flist_expand_list));
-        forumListActivity.c.n.setImageResource(forumListActivity.l);
+        forumListActivity.c.n.setText(forumListActivity.getString(com.baidu.tieba.a.k.flist_expand_list));
+        forumListActivity.c.o.setImageResource(forumListActivity.l);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -424,8 +417,8 @@ public class ForumListActivity extends com.baidu.tieba.f implements ViewPager.On
         forumListActivity.E.a(min);
         forumListActivity.E.a(forumInfoDataArr);
         forumListActivity.C = false;
-        forumListActivity.c.p.setText(forumListActivity.getString(R.string.flist_expand_list));
-        forumListActivity.c.q.setImageResource(forumListActivity.l);
+        forumListActivity.c.q.setText(forumListActivity.getString(com.baidu.tieba.a.k.flist_expand_list));
+        forumListActivity.c.r.setImageResource(forumListActivity.l);
     }
 
     private BdListView a() {
@@ -454,17 +447,17 @@ public class ForumListActivity extends com.baidu.tieba.f implements ViewPager.On
             if (i == 0) {
                 this.D.b();
                 this.D.notifyDataSetChanged();
-                this.c.j.setBackgroundResource(this.j);
-                this.c.j.setTextColor(this.g);
-                this.c.k.setBackgroundResource(this.i);
-                this.c.k.setTextColor(this.f);
+                this.c.k.setBackgroundResource(this.j);
+                this.c.k.setTextColor(this.g);
+                this.c.l.setBackgroundResource(this.i);
+                this.c.l.setTextColor(this.f);
             } else if (i == 1) {
                 this.E.b();
                 this.E.notifyDataSetChanged();
-                this.c.k.setBackgroundResource(this.k);
-                this.c.k.setTextColor(this.g);
-                this.c.j.setBackgroundResource(this.h);
-                this.c.j.setTextColor(this.f);
+                this.c.l.setBackgroundResource(this.k);
+                this.c.l.setTextColor(this.g);
+                this.c.k.setBackgroundResource(this.h);
+                this.c.k.setTextColor(this.f);
             }
             this.e.removeCallbacks(this.P);
             this.e.post(this.P);

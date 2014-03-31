@@ -1,63 +1,59 @@
 package com.baidu.tieba.b;
 
-import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.data.NewErrorData;
-import com.baidu.tieba.l;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.data.n;
+import com.baidu.tbadk.core.util.ak;
+import com.baidu.tieba.recommend.y;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class e extends l {
-    private static final String c = String.valueOf(com.baidu.tieba.data.i.a) + "c/u/user/get_double_follows";
-    private static final String d = String.valueOf(com.baidu.tieba.data.i.a) + "c/u/user/search_double_follows";
+public final class e {
+    private static final String d = String.valueOf(n.a) + "c/f/forum/threadrecommend";
+    private int a = -1;
+    private ak b = null;
+    private boolean c;
 
-    public final String b(String str) {
-        if (str == null || str.trim().equals("")) {
-            a(c);
-        } else {
-            a(d);
-            this.a.a("user_name", str);
-        }
-        this.a.a("offset", SocialConstants.FALSE);
-        this.a.a("limit", String.valueOf(100));
-        String b = b();
-        if (!c()) {
-            return null;
-        }
-        return b;
+    public e(boolean z) {
+        this.c = z;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.l
-    public final String b() {
-        String l = this.a.l();
-        if (this.a.c()) {
-            this.b = new NewErrorData();
-            this.b.parserJson(l);
-        } else {
-            this.b = new NewErrorData();
-            this.b.errmsg = this.a.i();
-            this.b.errno = this.a.e();
+    public final String a(String str, String str2) {
+        this.b = new ak();
+        this.b.a(d);
+        this.b.a().a().b = false;
+        if (this.c) {
+            this.b.a("type", "banner");
         }
-        return l;
+        if (!TextUtils.isEmpty(str)) {
+            this.b.a("date", str);
+        }
+        if (str2 != null) {
+            this.b.a(y.a, str2);
+        }
+        String i = this.b.i();
+        if (i != null) {
+            try {
+                this.a = new JSONObject(i).optInt("error_code");
+            } catch (JSONException e) {
+            }
+        }
+        return i;
     }
 
-    @Override // com.baidu.tieba.l
     public final void a() {
-        if (this.a != null) {
-            this.a.j();
+        if (this.b != null) {
+            this.b.g();
         }
     }
 
-    public final String g() {
+    public final boolean b() {
         if (this.b != null) {
-            return this.b.getErrorMsg();
+            return this.b.a().b().b();
         }
-        return null;
+        return false;
     }
 
-    @Override // com.baidu.tieba.l
-    public final int e() {
-        if (this.b != null) {
-            return this.b.getErrorNumber();
-        }
-        return 0;
+    public final int c() {
+        return this.a;
     }
 }

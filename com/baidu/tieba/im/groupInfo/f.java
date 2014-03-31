@@ -1,56 +1,42 @@
 package com.baidu.tieba.im.groupInfo;
 
-import android.support.v4.view.ViewPager;
-import java.util.ArrayList;
-import java.util.HashMap;
+import android.view.animation.Animation;
+import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
-final class f implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ GroupImageActivity a;
+final class f implements Animation.AnimationListener {
+    final /* synthetic */ e a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(GroupImageActivity groupImageActivity) {
-        this.a = groupImageActivity;
+    public f(e eVar) {
+        this.a = eVar;
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public final void onPageSelected(int i) {
-        int i2;
-        GroupImageActivity groupImageActivity = this.a;
-        i2 = this.a.c;
-        groupImageActivity.a(i2);
-        this.a.c = i;
-        this.a.a();
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public final void onPageScrolled(int i, float f, int i2) {
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public final void onPageScrollStateChanged(int i) {
-        long j;
-        ArrayList arrayList;
-        int i2;
-        ArrayList arrayList2;
-        HashMap hashMap;
-        ArrayList arrayList3;
-        int i3;
-        if (i == 1) {
-            long nanoTime = System.nanoTime();
-            j = this.a.s;
-            if (nanoTime - j > 300000000) {
-                arrayList = this.a.b;
-                if (arrayList != null) {
-                    i2 = this.a.c;
-                    arrayList2 = this.a.b;
-                    if (i2 < arrayList2.size()) {
-                        hashMap = this.a.t;
-                        arrayList3 = this.a.b;
-                        i3 = this.a.c;
-                        hashMap.put((String) arrayList3.get(i3), true);
-                    }
-                }
-            }
+    @Override // android.view.animation.Animation.AnimationListener
+    public final void onAnimationEnd(Animation animation) {
+        GroupImageActivity groupImageActivity;
+        GroupImageActivity groupImageActivity2;
+        boolean z;
+        GroupImageActivity groupImageActivity3;
+        GroupImageActivity groupImageActivity4;
+        NavigationBar navigationBar;
+        groupImageActivity = this.a.a;
+        groupImageActivity.o = true;
+        groupImageActivity2 = this.a.a;
+        z = groupImageActivity2.p;
+        if (z) {
+            groupImageActivity3 = this.a.a;
+            groupImageActivity3.p = false;
+            groupImageActivity4 = this.a.a;
+            navigationBar = groupImageActivity4.e;
+            navigationBar.setVisibility(8);
         }
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public final void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public final void onAnimationStart(Animation animation) {
     }
 }

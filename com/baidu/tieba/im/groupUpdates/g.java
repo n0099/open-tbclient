@@ -1,16 +1,20 @@
 package com.baidu.tieba.im.groupUpdates;
 
-import android.view.View;
+import com.baidu.tbadk.core.util.ac;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class g implements View.OnClickListener {
-    final /* synthetic */ f a;
+public final class g implements Runnable {
+    final /* synthetic */ UpdatesActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(f fVar) {
-        this.a = fVar;
+    public g(UpdatesActivity updatesActivity) {
+        this.a = updatesActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
+    @Override // java.lang.Runnable
+    public final void run() {
+        t tVar;
+        tVar = this.a.b;
+        ac.a(tVar.g(), this.a.a(), 0, -1);
     }
 }

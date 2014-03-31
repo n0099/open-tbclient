@@ -4,7 +4,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class PersonaltalkSettingViewBlackManView extends LinearLayout {
     private TextView a;
@@ -20,24 +19,24 @@ public class PersonaltalkSettingViewBlackManView extends LinearLayout {
     }
 
     private void a() {
-        inflate(getContext(), R.layout.p2ptalk_setting_black_man_view, this);
+        inflate(getContext(), com.baidu.tieba.im.i.p2ptalk_setting_black_man_view, this);
         setOrientation(1);
-        this.a = (TextView) findViewById(R.id.black_man_text);
+        this.a = (TextView) findViewById(com.baidu.tieba.im.h.black_man_text);
     }
 
     public void setSex(int i) {
         String string;
         switch (i) {
             case 1:
-                string = getResources().getString(R.string.he);
+                string = getResources().getString(com.baidu.tieba.im.j.he);
                 break;
             case 2:
-                string = getResources().getString(R.string.she);
+                string = getResources().getString(com.baidu.tieba.im.j.she);
                 break;
             default:
-                string = getResources().getString(R.string.it);
+                string = getResources().getString(com.baidu.tieba.im.j.it);
                 break;
         }
-        this.a.setText(getResources().getString(R.string.in_black_desc_1, string));
+        this.a.setText(getResources().getString(com.baidu.tieba.im.j.in_black_desc_1, string));
     }
 }

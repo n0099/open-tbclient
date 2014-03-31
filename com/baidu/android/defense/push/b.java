@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ResolveInfo;
-import com.baidu.android.pushservice.PushConstants;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public final class b {
@@ -57,7 +56,7 @@ public final class b {
 
     public static void c(Context context, String str) {
         SharedPreferences.Editor edit = context.getSharedPreferences("moplus_psetting", 0).edit();
-        edit.putString(PushConstants.EXTRA_USER_ID, str);
+        edit.putString("user_id", str);
         edit.commit();
     }
 
@@ -66,7 +65,7 @@ public final class b {
     }
 
     public static String e(Context context) {
-        return context.getSharedPreferences("moplus_psetting", 0).getString(PushConstants.EXTRA_USER_ID, "");
+        return context.getSharedPreferences("moplus_psetting", 0).getString("user_id", "");
     }
 
     public static long f(Context context) {
@@ -94,7 +93,7 @@ public final class b {
 
     public static boolean k(Context context) {
         boolean z = false;
-        Iterator<ResolveInfo> it = context.getPackageManager().queryBroadcastReceivers(new Intent(PushConstants.ACTION_RECEIVE), 0).iterator();
+        Iterator<ResolveInfo> it = context.getPackageManager().queryBroadcastReceivers(new Intent("com.baidu.android.pushservice.action.RECEIVE"), 0).iterator();
         while (true) {
             boolean z2 = z;
             if (!it.hasNext()) {

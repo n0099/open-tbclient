@@ -1,44 +1,18 @@
 package com.baidu.tieba.faceshop;
 
-import android.content.Context;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.tieba.TiebaApplication;
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ac extends com.baidu.adp.a.d {
-    private int c;
-    private int d;
-    private float e;
-    private FacePackageDownloadData b = null;
-    private ad a = null;
+public final class ac implements DialogInterface.OnClickListener {
+    final /* synthetic */ FaceBuyWebViewActivity a;
 
-    public ac() {
-        this.c = 0;
-        this.d = 0;
-        Context c = TiebaApplication.g().c();
-        this.c = BdUtilHelper.b(c);
-        this.d = BdUtilHelper.c(c);
-        this.e = c.getResources().getDisplayMetrics().density;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ac(FaceBuyWebViewActivity faceBuyWebViewActivity) {
+        this.a = faceBuyWebViewActivity;
     }
 
-    public final void a(String str) {
-        if (this.a == null) {
-            this.a = new ad(this, str);
-            this.a.setPriority(3);
-            this.a.execute(new Object[0]);
-        }
-    }
-
-    @Override // com.baidu.adp.a.d
-    protected final boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.a.d
-    public final boolean cancelLoadData() {
-        if (this.a != null) {
-            this.a.cancel();
-            return false;
-        }
-        return false;
+    @Override // android.content.DialogInterface.OnClickListener
+    public final void onClick(DialogInterface dialogInterface, int i) {
+        this.a.closeActivity();
     }
 }

@@ -1,13 +1,13 @@
 package com.baidu.tieba.im.db.pojo;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.e;
-import com.baidu.tieba.TiebaApplication;
+import com.baidu.adp.lib.util.f;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.im.groupUpdates.UpdatesItemData;
-import com.baidu.tieba.im.groupUpdates.m;
-import com.baidu.tieba.im.message.b;
+import com.baidu.tieba.im.groupUpdates.p;
+import com.baidu.tieba.im.message.a.a;
 import com.baidu.tieba.im.validate.ValidateItemData;
-import com.baidu.tieba.im.validate.l;
+import com.baidu.tieba.im.validate.n;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,14 +24,14 @@ public class GroupNewsPojo implements Serializable {
     String gid;
     String notice_id;
     private CommonMsgPojo originalChatMsgPojo;
-    private b originalPushMsg;
+    private a originalPushMsg;
     long time;
 
     public GroupNewsPojo() {
     }
 
-    public GroupNewsPojo(b bVar, String str) {
-        if (bVar != null && !TextUtils.isEmpty(str)) {
+    public GroupNewsPojo(a aVar, String str) {
+        if (aVar != null && !TextUtils.isEmpty(str)) {
             String str2 = "000";
             setContent_status(1);
             if (str.equals("001")) {
@@ -62,20 +62,20 @@ public class GroupNewsPojo implements Serializable {
                 str2 = "group_activitys_change";
             }
             setCmd(str2);
-            setContent(bVar.k());
-            setTime(bVar.p() * 1000);
-            setNotice_id(String.valueOf(bVar.l()));
-            e.e("begin");
+            setContent(aVar.v());
+            setTime(aVar.A() * 1000);
+            setNotice_id(String.valueOf(aVar.w()));
+            f.e("begin");
             if (!TextUtils.isEmpty(getCmd())) {
                 if (getCmd().equals("group_intro_change") || getCmd().equals("group_name_change") || getCmd().equals("group_notice_change")) {
-                    UpdatesItemData a = m.a(this);
+                    UpdatesItemData a = p.a(this);
                     if (a != null) {
-                        String v = TiebaApplication.v();
-                        if (!TextUtils.isEmpty(v)) {
+                        String E = TbadkApplication.E();
+                        if (!TextUtils.isEmpty(E)) {
                             String authorId = a.getAuthorId();
                             if (!TextUtils.isEmpty(authorId)) {
-                                e.e("curUid:" + v + " uid:" + authorId);
-                                if (v.equals(authorId)) {
+                                f.e("curUid:" + E + " uid:" + authorId);
+                                if (E.equals(authorId)) {
                                     setContent_status(2);
                                 } else {
                                     setContent_status(1);
@@ -84,7 +84,7 @@ public class GroupNewsPojo implements Serializable {
                         }
                     }
                 }
-                e.e("end");
+                f.e("end");
             }
             String content = getContent();
             if (!TextUtils.isEmpty(content)) {
@@ -98,7 +98,7 @@ public class GroupNewsPojo implements Serializable {
                 }
             }
             if (str2.equals("apply_join_group")) {
-                a(l.a(this));
+                a(n.a(this));
             }
         }
     }
@@ -188,12 +188,12 @@ public class GroupNewsPojo implements Serializable {
         return "GroupNewsPojo [notice_id=" + this.notice_id + ", cmd=" + this.cmd + ", gid=" + this.gid + ", time=" + this.time + ", content=" + this.content + ", content_status=" + this.content_status + ", ext=" + this.ext + "]";
     }
 
-    public b getOriginalPushMsg() {
+    public a getOriginalPushMsg() {
         return this.originalPushMsg;
     }
 
-    public void setOriginalPushMsg(b bVar) {
-        this.originalPushMsg = bVar;
+    public void setOriginalPushMsg(a aVar) {
+        this.originalPushMsg = aVar;
     }
 
     public CommonMsgPojo getOriginalChatMsgPojo() {

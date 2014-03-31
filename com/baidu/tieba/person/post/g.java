@@ -3,20 +3,19 @@ package com.baidu.tieba.person.post;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.gson.GsonBuilder;
 import com.baidu.gson.JsonParseException;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.tieba.util.ba;
+import com.baidu.tbadk.core.util.ak;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public final class g extends BdAsyncTask<Void, Void, PersonPostReplyModel> {
     private WeakReference<f> a;
     private boolean b;
-    private ba c;
+    private ak c;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ PersonPostReplyModel a(Void... voidArr) {
-        return d();
+    public final /* bridge */ /* synthetic */ PersonPostReplyModel a(Void... voidArr) {
+        return a();
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -35,27 +34,27 @@ public final class g extends BdAsyncTask<Void, Void, PersonPostReplyModel> {
         this.b = z;
     }
 
-    private PersonPostReplyModel d() {
+    private PersonPostReplyModel a() {
         PersonPostReplyModel personPostReplyModel;
-        this.c = new ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/u/feed/userpost");
-        this.c.a(SapiAccountManager.SESSION_UID, String.valueOf(PersonPostReplyModel.mLastReplyUid));
+        this.c = new ak(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/u/feed/userpost");
+        this.c.a("uid", String.valueOf(PersonPostReplyModel.mLastReplyUid));
         this.c.a("pn", String.valueOf(PersonPostReplyModel.mReplyPn));
         this.c.a("rn", String.valueOf(20));
         this.c.a("is_thread", String.valueOf(0));
         this.c.a("need_content", String.valueOf(1));
-        String l = this.c.l();
-        com.baidu.adp.lib.util.e.e("PersonPostReplyModel", "doInBackground", l);
+        String i = this.c.i();
+        com.baidu.adp.lib.util.f.e("PersonPostReplyModel", "doInBackground", i);
         try {
-            personPostReplyModel = (PersonPostReplyModel) new GsonBuilder().create().fromJson(l, (Class<Object>) PersonPostReplyModel.class);
+            personPostReplyModel = (PersonPostReplyModel) new GsonBuilder().create().fromJson(i, (Class<Object>) PersonPostReplyModel.class);
         } catch (JsonParseException e) {
-            com.baidu.adp.lib.util.e.e("PersonPostReplyModel", "doInBackground", e.getMessage());
+            com.baidu.adp.lib.util.f.e("PersonPostReplyModel", "doInBackground", e.getMessage());
             personPostReplyModel = null;
         }
         if (personPostReplyModel == null) {
             personPostReplyModel = new PersonPostReplyModel();
         }
-        personPostReplyModel.setErrorCode(this.c.e());
-        personPostReplyModel.setErrorString(this.c.i());
+        personPostReplyModel.setErrorCode(this.c.d());
+        personPostReplyModel.setErrorString(this.c.f());
         return personPostReplyModel;
     }
 
@@ -63,7 +62,7 @@ public final class g extends BdAsyncTask<Void, Void, PersonPostReplyModel> {
     public final void cancel() {
         super.cancel();
         if (this.c != null) {
-            this.c.j();
+            this.c.g();
         }
         PersonPostReplyModel.sFetchReplyAsyncTask = null;
     }

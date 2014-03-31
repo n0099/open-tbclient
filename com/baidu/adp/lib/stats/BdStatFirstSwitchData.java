@@ -39,7 +39,7 @@ public class BdStatFirstSwitchData implements Serializable {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.e.a(getClass(), "parserJson", e);
+                com.baidu.adp.lib.util.f.a(getClass(), "parserJson", e);
             }
         }
     }

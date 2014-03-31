@@ -1,25 +1,27 @@
 package com.baidu.tieba.im.chat;
 
-import com.slidingmenu.lib.R;
+import android.view.MotionEvent;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class cq implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ cp a;
+public final class cq implements View.OnTouchListener {
+    final /* synthetic */ MsgleftView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cq(cp cpVar) {
-        this.a = cpVar;
+    public cq(MsgleftView msgleftView) {
+        this.a = msgleftView;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        String a;
-        if (bVar != null) {
-            cp cpVar = this.a;
-            a = this.a.a(str, bVar.k());
-            cpVar.a(a);
-            return;
+    @Override // android.view.View.OnTouchListener
+    public final boolean onTouch(View view, MotionEvent motionEvent) {
+        TouchType touchType;
+        TouchType touchType2;
+        touchType = this.a.w;
+        if (touchType.get() && motionEvent.getAction() == 1) {
+            this.a.d.b(view, 2, this.a.f, 0L);
+            touchType2 = this.a.w;
+            touchType2.set(false);
         }
-        this.a.a(this.a.b.getString(R.string.save_error));
+        return false;
     }
 }

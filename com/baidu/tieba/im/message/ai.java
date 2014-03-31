@@ -1,26 +1,26 @@
 package com.baidu.tieba.im.message;
 
 import com.google.protobuf.MessageLite;
-import protobuf.DelGroupActivity.DelGroupActivityReq;
+import protobuf.QueryGroupActivity.QueryGroupActivityReq;
 /* loaded from: classes.dex */
-public final class ai extends s implements com.baidu.tieba.im.coder.g {
+public final class ai extends com.baidu.tbadk.message.websockt.d {
     private int a;
-    private long b;
+    private int b;
 
     public ai() {
-        e(103121);
+        super(103015);
     }
 
-    public final void a(int i) {
+    public final void d(int i) {
+        this.b = i;
+    }
+
+    public final void e(int i) {
         this.a = i;
     }
 
-    public final void a(long j) {
-        this.b = j;
-    }
-
-    @Override // com.baidu.tieba.im.coder.g
-    public final MessageLite a() {
-        return DelGroupActivityReq.DelGroupActivityReqIdl.newBuilder().a(DelGroupActivityReq.DataReq.newBuilder().b(this.a).a((int) this.b).build()).build();
+    @Override // com.baidu.tbadk.message.websockt.d
+    public final MessageLite h() {
+        return QueryGroupActivityReq.QueryGroupActivityReqIdl.newBuilder().a(QueryGroupActivityReq.DataReq.newBuilder().a(this.a).b(this.b).build()).build();
     }
 }

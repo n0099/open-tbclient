@@ -15,6 +15,7 @@ public final class e extends GeneratedMessageLite.Builder<CommitPersonalMsgReq.D
     private Object e = "";
     private int f;
     private long g;
+    private int h;
 
     @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
     public final /* synthetic */ GeneratedMessageLite getDefaultInstanceForType() {
@@ -49,6 +50,8 @@ public final class e extends GeneratedMessageLite.Builder<CommitPersonalMsgReq.D
         this.a &= -17;
         this.g = 0L;
         this.a &= -33;
+        this.h = 0;
+        this.a &= -65;
         return this;
     }
 
@@ -95,6 +98,10 @@ public final class e extends GeneratedMessageLite.Builder<CommitPersonalMsgReq.D
             i2 |= 32;
         }
         dataReq.recordId_ = this.g;
+        if ((i & 64) == 64) {
+            i2 |= 64;
+        }
+        dataReq.toUserType_ = this.h;
         dataReq.bitField0_ = i2;
         return dataReq;
     }
@@ -125,6 +132,9 @@ public final class e extends GeneratedMessageLite.Builder<CommitPersonalMsgReq.D
             }
             if (dataReq.hasRecordId()) {
                 b(dataReq.getRecordId());
+            }
+            if (dataReq.hasToUserType()) {
+                c(dataReq.getToUserType());
             }
         }
         return this;
@@ -202,6 +212,12 @@ public final class e extends GeneratedMessageLite.Builder<CommitPersonalMsgReq.D
     public final e b(long j) {
         this.a |= 32;
         this.g = j;
+        return this;
+    }
+
+    public final e c(int i) {
+        this.a |= 64;
+        this.h = i;
         return this;
     }
 }

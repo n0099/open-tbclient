@@ -1,23 +1,27 @@
 package com.baidu.tieba.im.friend;
 
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-import com.baidu.tieba.view.HeadImageView;
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class e {
-    public View a;
-    public HeadImageView b;
-    public TextView c;
-    public Button d;
-    final /* synthetic */ c e;
-
-    private e(c cVar) {
-        this.e = cVar;
-    }
+public final class e implements DialogInterface.OnClickListener {
+    final /* synthetic */ IMBlackListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ e(c cVar, byte b) {
-        this(cVar);
+    public e(IMBlackListActivity iMBlackListActivity) {
+        this.a = iMBlackListActivity;
+    }
+
+    @Override // android.content.DialogInterface.OnClickListener
+    public final void onClick(DialogInterface dialogInterface, int i) {
+        com.baidu.tieba.im.data.a aVar;
+        com.baidu.tieba.im.model.b bVar;
+        com.baidu.tieba.im.data.a aVar2;
+        aVar = this.a.c;
+        if (aVar != null) {
+            r0.showLoadingDialog(null, new d(this.a));
+            bVar = this.a.a;
+            aVar2 = this.a.c;
+            bVar.b(aVar2.a());
+        }
     }
 }

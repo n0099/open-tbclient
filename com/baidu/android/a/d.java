@@ -2,12 +2,11 @@ package com.baidu.android.a;
 
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
-import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.tieba.person.PersonInfoActivity;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d extends com.baidu.android.systemmonitor.b.a {
+class d extends com.baidu.android.systemmonitor.b.a {
     final /* synthetic */ ArrayList a;
     final /* synthetic */ int b;
     final /* synthetic */ o c;
@@ -26,7 +25,7 @@ public class d extends com.baidu.android.systemmonitor.b.a {
         }
         sQLiteDatabase.delete("server_config_table", "type=" + this.b, null);
         DatabaseUtils.InsertHelper insertHelper = new DatabaseUtils.InsertHelper(sQLiteDatabase, "server_config_table");
-        int columnIndex = insertHelper.getColumnIndex(SocialConstants.PARAM_MEDIA_UNAME);
+        int columnIndex = insertHelper.getColumnIndex(PersonInfoActivity.TAG_NAME);
         int columnIndex2 = insertHelper.getColumnIndex("value");
         int columnIndex3 = insertHelper.getColumnIndex("type");
         Iterator it = this.a.iterator();

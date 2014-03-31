@@ -1,40 +1,35 @@
 package com.baidu.tieba.im.randchat;
 
-import com.baidu.tieba.im.chat.snapGroup.SnapGroupChatActivity;
-import com.baidu.tieba.im.data.RandChatRoomData;
-import com.baidu.tieba.im.model.ar;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.im.model.bu;
+import com.baidu.tieba.im.randchat.WaitingTipView;
 /* loaded from: classes.dex */
-public final class n implements c {
+final class n extends com.baidu.tbadk.coreExtra.c.b {
     final /* synthetic */ WaittingActivity a;
-    private final /* synthetic */ String b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(WaittingActivity waittingActivity, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n(WaittingActivity waittingActivity, long j, long j2) {
+        super(120000L, 120000L);
         this.a = waittingActivity;
-        this.b = str;
     }
 
-    @Override // com.baidu.tieba.im.randchat.c
-    public final void a() {
-        boolean z;
-        ar arVar;
-        ar arVar2;
-        ar arVar3;
-        ar arVar4;
-        z = this.a.g;
-        if (!z) {
-            arVar = this.a.b;
-            RandChatRoomData f = arVar.f();
-            arVar2 = this.a.b;
-            int g = arVar2.g();
-            WaittingActivity waittingActivity = this.a;
-            arVar3 = this.a.b;
-            String h = arVar3.h();
-            arVar4 = this.a.b;
-            SnapGroupChatActivity.a(waittingActivity, f, h, arVar4.i(), this.b, g);
-            this.a.finish();
-            this.a.g = true;
+    @Override // com.baidu.tbadk.coreExtra.c.b
+    public final void a(long j) {
+    }
+
+    @Override // com.baidu.tbadk.coreExtra.c.b
+    public final void c() {
+        com.baidu.tbadk.coreExtra.c.b bVar;
+        bu buVar;
+        com.baidu.tbadk.coreExtra.c.b bVar2;
+        bVar = this.a.f;
+        if (bVar != null) {
+            bVar2 = this.a.f;
+            bVar2.a();
+        }
+        buVar = this.a.b;
+        if (buVar.d() <= 4) {
+            this.a.b(WaitingTipView.Type.WAIT_LONG, (Object[]) null);
         }
     }
 }

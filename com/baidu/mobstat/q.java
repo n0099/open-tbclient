@@ -15,7 +15,6 @@ import android.telephony.TelephonyManager;
 import android.telephony.gsm.GsmCellLocation;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
-import cn.jingling.lib.file.Shared;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -219,7 +218,7 @@ final class q {
                 WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
                 if (wifiManager.isWifiEnabled()) {
                     com.baidu.mobstat.a.b.a("[d]", new StringBuilder().append(wifiManager.getScanResults()).toString());
-                    int i4 = Shared.INFINITY;
+                    int i4 = Integer.MAX_VALUE;
                     int i5 = -1;
                     while (i3 < wifiManager.getScanResults().size()) {
                         ScanResult scanResult = wifiManager.getScanResults().get(i3);

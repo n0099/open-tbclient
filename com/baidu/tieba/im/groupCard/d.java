@@ -5,21 +5,21 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import com.baidu.adp.a.e;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.tieba.im.util.n;
-import com.baidu.tieba.util.bq;
-import com.baidu.tieba.view.NavigationBar;
-import com.baidu.tieba.widget.share.g;
-import com.slidingmenu.lib.R;
+import com.baidu.adp.a.f;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.coreExtra.share.g;
+import com.baidu.tieba.im.h;
+import com.baidu.tieba.im.i;
+import com.baidu.tieba.im.j;
 /* loaded from: classes.dex */
-public final class d extends e {
+public final class d extends f {
     private View a;
     private GroupCardActivity c;
     private LinearLayout d;
     private LinearLayout e;
     private LinearLayout f;
-    private ImageView g;
+    private View g;
     private ProgressBar h;
     private NavigationBar i;
     private ImageView j;
@@ -43,22 +43,22 @@ public final class d extends e {
         this.m = null;
         this.n = null;
         this.c = groupCardActivity;
-        this.c.setContentView(R.layout.group_card_activity);
-        this.a = this.c.findViewById(R.id.parent);
-        this.d = (LinearLayout) this.c.findViewById(R.id.groud_card_save);
+        this.c.setContentView(i.group_card_activity);
+        this.a = this.c.findViewById(h.parent);
+        this.d = (LinearLayout) this.c.findViewById(h.groud_card_save);
         this.d.setOnClickListener(this.c);
-        this.e = (LinearLayout) this.c.findViewById(R.id.group_card_share);
+        this.e = (LinearLayout) this.c.findViewById(h.group_card_share);
         if (g.a(this.c)) {
             this.e.setOnClickListener(this.c);
         } else {
             this.e.setVisibility(8);
         }
-        this.f = (LinearLayout) this.c.findViewById(R.id.group_card_setting);
-        this.h = (ProgressBar) this.c.findViewById(R.id.progress);
-        this.j = (ImageView) this.c.findViewById(R.id.group_card_inner_image);
-        this.i = (NavigationBar) this.c.findViewById(R.id.group_card_topbar);
+        this.f = (LinearLayout) this.c.findViewById(h.group_card_setting);
+        this.h = (ProgressBar) this.c.findViewById(h.progress);
+        this.j = (ImageView) this.c.findViewById(h.group_card_inner_image);
+        this.i = (NavigationBar) this.c.findViewById(h.group_card_topbar);
         this.i.setSystemClickable(false);
-        this.i.a(this.c.getResources().getString(R.string.group_card_name));
+        this.i.a(this.c.getResources().getString(j.group_card_name));
         this.g = this.i.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.g.setOnClickListener(this.c);
     }
@@ -70,13 +70,73 @@ public final class d extends e {
     }
 
     public final void a(int i, String str) {
+        String str2;
         if (str != null) {
-            BdUtilHelper.a((Context) this.c, str);
+            com.baidu.adp.lib.util.i.a((Context) this.c, str);
             return;
         }
-        String a = n.a(0);
-        if (a != null && a.length() > 0) {
-            BdUtilHelper.a((Context) this.c, a);
+        boolean z = false;
+        switch (z) {
+            case true:
+                str2 = "定位失败了，右上角点下刷新吧~";
+                break;
+            case true:
+                str2 = "录音发生错误";
+                break;
+            case true:
+            case true:
+            case true:
+            case true:
+                str2 = "你的网络状况不大好，请稍后重试";
+                break;
+            case true:
+                str2 = "未知错误";
+                break;
+            case true:
+                str2 = "创建私聊不成功，请稍后再试";
+                break;
+            case true:
+                str2 = "内容不合适，请修改下吧";
+                break;
+            case true:
+                str2 = "内容不能为空，请修改下吧";
+                break;
+            case true:
+                str2 = "最多允许20个表情，请修改下吧";
+                break;
+            case true:
+                str2 = "发的太频繁啦";
+                break;
+            case true:
+                str2 = "录音太短啦";
+                break;
+            case true:
+                str2 = "操作违规";
+                break;
+            case true:
+                str2 = "存储卡已满，请清理文件";
+                break;
+            case true:
+                str2 = "存储卡读写失败";
+                break;
+            case true:
+                str2 = "你的存储卡被USB占用，请更改数据线连接方式";
+                break;
+            case true:
+                str2 = "无法找到存储卡";
+                break;
+            case true:
+                str2 = "数据转换失败";
+                break;
+            case false:
+                str2 = null;
+                break;
+            default:
+                str2 = "未定义错误";
+                break;
+        }
+        if (str2 != null && str2.length() > 0) {
+            com.baidu.adp.lib.util.i.a((Context) this.c, str2);
         }
     }
 
@@ -100,7 +160,7 @@ public final class d extends e {
         return this.e;
     }
 
-    public final ImageView h() {
+    public final View h() {
         return this.g;
     }
 
@@ -115,7 +175,7 @@ public final class d extends e {
     public final void a(int i) {
         this.c.getLayoutMode().a(i == 1);
         this.c.getLayoutMode().a(this.a);
-        bq.a(this.a, i);
+        ba.a(this.a, i);
         this.i.b(i);
     }
 }

@@ -1,9 +1,7 @@
 package com.baidu.tieba.im.randchat;
-
-import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class s implements View.OnClickListener {
+public final class s implements e {
     final /* synthetic */ WaittingActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,8 +9,8 @@ public final class s implements View.OnClickListener {
         this.a = waittingActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        WaittingActivity.f(this.a);
+    @Override // com.baidu.tieba.im.randchat.e
+    public final void a(String str) {
+        WaittingActivity.a(this.a, str);
     }
 }

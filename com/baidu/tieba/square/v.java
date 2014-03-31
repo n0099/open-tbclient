@@ -8,9 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.widget.IndicatorView;
-import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public final class v extends FrameLayout {
@@ -26,7 +24,7 @@ public final class v extends FrameLayout {
     private final int i;
     private final int j;
     private final int k;
-    private ArrayList<av> m;
+    private ArrayList<at> m;
     private Handler n;
 
     public v(Context context) {
@@ -46,14 +44,14 @@ public final class v extends FrameLayout {
         this.n = new w(this);
         this.a = new x(this);
         this.b = context;
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.carousel_topics_recommend, (ViewGroup) this, true);
-        this.c = (ViewPager) findViewById(R.id.carousel_pager);
-        this.d = (IndicatorView) findViewById(R.id.carousel_indicator);
+        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.a.i.carousel_topics_recommend, (ViewGroup) this, true);
+        this.c = (ViewPager) findViewById(com.baidu.tieba.a.h.carousel_pager);
+        this.d = (IndicatorView) findViewById(com.baidu.tieba.a.h.carousel_indicator);
         this.c.setOnTouchListener(this.a);
-        this.j = context.getResources().getDimensionPixelSize(R.dimen.square_caroucel_paddingTop);
-        this.i = context.getResources().getDimensionPixelSize(R.dimen.square_caroucel_paddingBottom);
-        this.k = context.getResources().getDimensionPixelSize(R.dimen.square_page_padding);
-        this.f = BdUtilHelper.b(context) - (this.k * 2);
+        this.j = context.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.square_caroucel_paddingTop);
+        this.i = context.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.square_caroucel_paddingBottom);
+        this.k = context.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.square_page_padding);
+        this.f = com.baidu.adp.lib.util.i.b(context) - (this.k * 2);
         this.g = (int) (0.5f + (this.f * this.h));
         ViewGroup.LayoutParams layoutParams = this.c.getLayoutParams();
         layoutParams.width = this.f;
@@ -63,7 +61,7 @@ public final class v extends FrameLayout {
         setPadding(this.k, this.j, this.k, this.i);
     }
 
-    public final Boolean a(ArrayList<av> arrayList) {
+    public final Boolean a(ArrayList<at> arrayList) {
         if (arrayList == null || arrayList.size() == 0) {
             setVisibility(8);
             return false;

@@ -7,7 +7,7 @@ public final class BdCacheService {
     private static BdCacheService a;
     private aa b;
     private Context c;
-    private com.baidu.adp.a.h d;
+    private com.baidu.adp.a.i d;
     private final String e;
     private boolean f;
     private HashMap<String, s<String>> g = new HashMap<>();
@@ -233,9 +233,9 @@ public final class BdCacheService {
         return this.b;
     }
 
-    private com.baidu.adp.a.h d() {
+    private com.baidu.adp.a.i d() {
         if (this.d == null) {
-            this.d = new com.baidu.adp.a.h(c(), this.e);
+            this.d = new com.baidu.adp.a.i(c(), this.e);
         }
         return this.d;
     }

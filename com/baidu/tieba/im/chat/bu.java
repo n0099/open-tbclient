@@ -1,19 +1,18 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-public final class bu implements View.OnLongClickListener {
-    final /* synthetic */ br a;
+final class bu extends com.baidu.tieba.im.m<Boolean> {
+    final /* synthetic */ bs b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bu(br brVar) {
-        this.a = brVar;
+    public bu(bs bsVar) {
+        this.b = bsVar;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public final boolean onLongClick(View view) {
-        this.a.d.a(4, this.a.f);
-        return true;
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.m
+    public final /* synthetic */ Boolean a() {
+        return Boolean.valueOf(com.baidu.tieba.im.groupInfo.aa.a().d(TbadkApplication.E(), this.b.b()));
     }
 }

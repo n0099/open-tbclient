@@ -1,52 +1,48 @@
 package com.baidu.tieba.account;
 
-import android.app.Activity;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.AccountData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.ba;
 /* loaded from: classes.dex */
-public final class d implements at {
-    final /* synthetic */ a a;
+final class d implements View.OnClickListener {
+    final /* synthetic */ AccountActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(a aVar) {
-        this.a = aVar;
+    public d(AccountActivity accountActivity) {
+        this.a = accountActivity;
     }
 
-    @Override // com.baidu.tieba.account.at
-    public final void a(AccountData accountData) {
-        Activity activity;
-        Activity activity2;
-        k kVar;
-        k kVar2;
-        activity = this.a.b;
-        TiebaApplication.a(accountData, activity);
-        activity2 = this.a.b;
-        if (activity2 != null) {
-            TiebaApplication.g();
-            TiebaApplication.u();
-            com.baidu.tieba.mention.v.a().j();
-            com.baidu.tieba.mention.v.a().h();
-            kVar = this.a.d;
-            if (kVar != null) {
-                kVar2 = this.a.d;
-                kVar2.a();
-            }
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        l lVar;
+        l lVar2;
+        TextView textView;
+        TextView textView2;
+        l lVar3;
+        l lVar4;
+        TextView textView3;
+        TextView textView4;
+        l lVar5;
+        lVar = this.a.b;
+        if (!lVar.a()) {
+            lVar4 = this.a.b;
+            lVar4.a(true);
+            textView3 = this.a.f;
+            textView3.setText(com.baidu.tieba.a.k.done);
+            textView4 = this.a.f;
+            ba.g(textView4, TbadkApplication.j().l());
+            lVar5 = this.a.b;
+            lVar5.notifyDataSetChanged();
+            return;
         }
-        new e(this, accountData).execute(new Void[0]);
-    }
-
-    @Override // com.baidu.tieba.account.at
-    public final void a() {
-        boolean z;
-        Activity activity;
-        int i;
-        z = this.a.h;
-        if (!z) {
-            a aVar = this.a;
-            activity = this.a.b;
-            i = this.a.c;
-            aVar.a(activity, i);
-        }
+        lVar2 = this.a.b;
+        lVar2.a(false);
+        textView = this.a.f;
+        textView.setText(com.baidu.tieba.a.k.edit);
+        textView2 = this.a.f;
+        ba.h(textView2, TbadkApplication.j().l());
+        lVar3 = this.a.b;
+        lVar3.notifyDataSetChanged();
     }
 }

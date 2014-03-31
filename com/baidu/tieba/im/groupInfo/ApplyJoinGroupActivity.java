@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.groupInfo;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.SpannableString;
@@ -10,21 +9,18 @@ import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bq;
-import com.baidu.tieba.view.NavigationBar;
-import com.slidingmenu.lib.R;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
-public class ApplyJoinGroupActivity extends com.baidu.tieba.f implements com.baidu.tieba.im.messageCenter.g {
-    public static int p = 0;
-    public static int q = 1;
+public class ApplyJoinGroupActivity extends com.baidu.tbadk.a {
     View a;
     EditText b;
     TextView c;
     TextView d;
-    ImageView e;
+    View e;
     TextView f;
     Button g;
     Button h;
@@ -35,11 +31,18 @@ public class ApplyJoinGroupActivity extends com.baidu.tieba.f implements com.bai
     int m;
     long n;
     String o;
-    int r;
-    private NavigationBar s = null;
+    int p;
+    private NavigationBar q = null;
+    private com.baidu.adp.framework.c.g r = new a(this, 103110);
+
+    static {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2008014, new b());
+        customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        com.baidu.adp.framework.c.a().a(customMessageTask);
+    }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         Intent intent = getIntent();
@@ -49,47 +52,47 @@ public class ApplyJoinGroupActivity extends com.baidu.tieba.f implements com.bai
             this.m = intent.getIntExtra("canJoinCount", 0);
             this.n = intent.getLongExtra("inviteUserId", 0L);
             this.o = intent.getStringExtra("defaultUserMsg");
-            this.r = intent.getIntExtra("joinType", p);
+            this.p = intent.getIntExtra("joinType", com.baidu.tbadk.core.b.b.a);
         }
         if (this.o == null) {
             this.o = "";
         }
-        this.j = new a(this);
-        this.i = new b(this);
-        this.a = View.inflate(this, R.layout.group_apply_activity, null);
+        this.j = new c(this);
+        this.i = new d(this);
+        this.a = View.inflate(this, com.baidu.tieba.im.i.group_apply_activity, null);
         setContentView(this.a);
-        this.s = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.s.a(R.string.group_apply_join);
-        this.e = this.s.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f = this.s.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.group_apply_send));
+        this.q = (NavigationBar) findViewById(com.baidu.tieba.im.h.view_navigation_bar);
+        this.q.a(com.baidu.tieba.im.j.group_apply_join);
+        this.e = this.q.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f = this.q.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(com.baidu.tieba.im.j.group_apply_send));
         this.e.setOnClickListener(this.i);
-        this.b = (EditText) this.a.findViewById(R.id.et_content);
+        this.b = (EditText) this.a.findViewById(com.baidu.tieba.im.h.et_content);
         this.b.setText(this.o);
-        this.c = (TextView) this.a.findViewById(R.id.tv_word_count);
+        this.c = (TextView) this.a.findViewById(com.baidu.tieba.im.h.tv_word_count);
         int length = 30 - this.o.length();
         if (length < 0) {
             length = 0;
         }
         this.c.setText(String.valueOf(length) + "/30");
-        this.d = (TextView) this.a.findViewById(R.id.tv_add_limit);
+        this.d = (TextView) this.a.findViewById(com.baidu.tieba.im.h.tv_add_limit);
         this.d.setVisibility(8);
         this.f.setOnClickListener(this.i);
-        this.g = (Button) this.a.findViewById(R.id.btn_agree);
+        this.g = (Button) this.a.findViewById(com.baidu.tieba.im.h.btn_agree);
         this.g.setOnClickListener(this.i);
-        this.h = (Button) this.a.findViewById(R.id.btn_disagree);
+        this.h = (Button) this.a.findViewById(com.baidu.tieba.im.h.btn_disagree);
         this.h.setOnClickListener(this.i);
         this.g.setVisibility(8);
         this.h.setVisibility(8);
         this.b.addTextChangedListener(this.j);
         ShowSoftKeyPadDelay(this.b, 500);
         if (this.m != 0 || this.l != 0) {
-            String string = getString(R.string.group_join_limit_str1);
+            String string = getString(com.baidu.tieba.im.j.group_join_limit_str1);
             String valueOf = String.valueOf(this.l);
-            String string2 = getString(R.string.group_join_limit_str3);
+            String string2 = getString(com.baidu.tieba.im.j.group_join_limit_str3);
             String valueOf2 = String.valueOf(this.m);
-            String string3 = getString(R.string.group_join_limit_str5);
-            int i = a() ? R.color.edit_exceed_1 : R.color.edit_exceed;
-            int i2 = a() ? R.color.edit_normal_1 : R.color.edit_normal;
+            String string3 = getString(com.baidu.tieba.im.j.group_join_limit_str5);
+            int i = a() ? com.baidu.tieba.im.e.edit_exceed_1 : com.baidu.tieba.im.e.edit_exceed;
+            int i2 = a() ? com.baidu.tieba.im.e.edit_normal_1 : com.baidu.tieba.im.e.edit_normal;
             SpannableString a = a(valueOf, getResources().getColor(i));
             SpannableString a2 = a(valueOf2, getResources().getColor(i));
             this.d.setTextColor(getResources().getColor(i2));
@@ -112,17 +115,17 @@ public class ApplyJoinGroupActivity extends com.baidu.tieba.f implements com.bai
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, android.app.Activity
+    @Override // com.baidu.tbadk.a, android.app.Activity
     public void onPause() {
         super.onPause();
-        com.baidu.tieba.im.messageCenter.d.a().a(this);
+        com.baidu.adp.framework.c.a().b(this.r);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, android.app.Activity
+    @Override // com.baidu.tbadk.a, android.app.Activity
     public void onResume() {
         super.onResume();
-        com.baidu.tieba.im.messageCenter.d.a().a(103110, this);
+        registerListener(this.r);
         if (TextUtils.isEmpty(this.b.getText())) {
             this.f.setEnabled(false);
         } else {
@@ -131,7 +134,7 @@ public class ApplyJoinGroupActivity extends com.baidu.tieba.f implements com.bai
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         if (this.b != null) {
@@ -139,78 +142,17 @@ public class ApplyJoinGroupActivity extends com.baidu.tieba.f implements com.bai
         }
     }
 
-    public static void a(Context context, String str, int i, int i2) {
-        if (context != null) {
-            Intent intent = new Intent(context, ApplyJoinGroupActivity.class);
-            intent.putExtra("groupID", str);
-            intent.putExtra("alreadJoinCount", i);
-            intent.putExtra("canJoinCount", i2);
-            com.baidu.adp.lib.util.e.e("get intent groupID:" + str);
-            context.startActivity(intent);
-        }
-    }
-
-    public static void a(Context context, String str, int i, int i2, long j, String str2) {
-        if (context != null) {
-            Intent intent = new Intent(context, ApplyJoinGroupActivity.class);
-            intent.putExtra("groupID", str);
-            intent.putExtra("alreadJoinCount", i);
-            intent.putExtra("canJoinCount", i2);
-            intent.putExtra("inviteUserId", j);
-            intent.putExtra("defaultUserMsg", str2);
-            intent.putExtra("joinType", q);
-            com.baidu.adp.lib.util.e.e("get intent groupID:" + str);
-            context.startActivity(intent);
-        }
-    }
-
-    public static void a(Context context, String str, long j, String str2) {
-        if (context != null) {
-            Intent intent = new Intent(context, ApplyJoinGroupActivity.class);
-            intent.putExtra("groupID", str);
-            intent.putExtra("inviteUserId", j);
-            intent.putExtra("defaultUserMsg", str2);
-            intent.putExtra("joinType", q);
-            com.baidu.adp.lib.util.e.e("get intent groupID:" + str);
-            context.startActivity(intent);
-        }
-    }
-
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f
+    @Override // com.baidu.tbadk.a
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         getLayoutMode().a(i == 1);
         getLayoutMode().a(this.a);
-        this.s.b(i);
-        bq.g(this.f, 0);
+        this.q.b(i);
+        ba.f(this.f, 0);
     }
 
     private static boolean a() {
-        return TiebaApplication.g().ae() == 1;
-    }
-
-    @Override // com.baidu.tieba.im.messageCenter.g
-    public final void a(com.baidu.tieba.im.message.s sVar) {
-        if (sVar != null && (sVar instanceof ak)) {
-            ak akVar = (ak) sVar;
-            int m = akVar.m();
-            String n = akVar.n();
-            if (akVar.l()) {
-                String string = TextUtils.isEmpty(n) ? getString(R.string.group_apply_fail) : n;
-                com.baidu.adp.lib.util.e.e("apply add group" + sVar.toString() + "err:" + m + " errMsg" + string);
-                this.f.setEnabled(true);
-                showToast(string);
-                return;
-            }
-            if (TextUtils.isEmpty(n)) {
-                n = getString(R.string.group_apply_succ);
-            }
-            showToast(n, false);
-            if (m == 0) {
-                v.a(TiebaApplication.v(), this.k, true);
-                finish();
-            }
-        }
+        return TbadkApplication.j().l() == 1;
     }
 }

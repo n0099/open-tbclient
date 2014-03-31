@@ -1,59 +1,217 @@
 package com.baidu.tieba.data;
 
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.text.SpannableString;
+import android.text.style.ImageSpan;
+import com.baidu.location.LocationClientOption;
+import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tbadk.data.IconData;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class q {
+public class q extends com.baidu.tbadk.core.util.a {
     private String a;
     private String b;
     private String c;
-    private String d;
-    private String e;
+    private SpannableString d;
+    private int e;
     private String f;
     private String g;
-    private String h;
+    private long h;
     private String i;
+    private int j;
+    private int k;
+    private int l;
+    private ArrayList<com.baidu.tbadk.core.data.j> m;
+    private ArrayList<VoiceData.VoiceModel> n = new ArrayList<>();
+    private final int o = 0;
+    private int p;
+    private LinkedList<IconData> q;
+    private LinkedList<IconData> r;
 
-    public final String a() {
-        return this.a;
+    public final void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.a = jSONObject.optString("forum_id", "");
+                this.b = jSONObject.optString("forum_name", "");
+                this.c = jSONObject.optString("thread_id", "");
+                String optString = jSONObject.optString("title", "");
+                this.e = jSONObject.optInt("post_num", 0);
+                this.k = jSONObject.optInt("is_top", 0);
+                this.j = jSONObject.optInt("is_good", 0);
+                this.f = jSONObject.optString("user_id", "");
+                this.g = jSONObject.optString("user_name", "");
+                this.l = jSONObject.optInt("is_up", 0);
+                this.h = jSONObject.optLong("create_time", 0L);
+                this.p = jSONObject.optInt("is_voice_thread");
+                JSONObject optJSONObject = jSONObject.optJSONObject("userinfo");
+                JSONArray optJSONArray = optJSONObject.optJSONArray("iconinfo");
+                JSONArray optJSONArray2 = optJSONObject.optJSONArray("tshow_icon");
+                if (optJSONArray != null) {
+                    if (this.q == null) {
+                        this.q = new LinkedList<>();
+                    }
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        IconData iconData = new IconData();
+                        iconData.parserJson(optJSONArray.getJSONObject(i));
+                        this.q.add(iconData);
+                    }
+                }
+                if (optJSONArray2 != null) {
+                    if (this.r == null) {
+                        this.r = new LinkedList<>();
+                    }
+                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                        IconData iconData2 = new IconData();
+                        iconData2.parserJson(optJSONArray2.getJSONObject(i2));
+                        this.r.add(iconData2);
+                    }
+                }
+                StringBuilder sb = new StringBuilder();
+                JSONArray optJSONArray3 = jSONObject.optJSONArray("abstract");
+                if (optJSONArray3 != null && optJSONArray3.length() > 0) {
+                    int length = optJSONArray3.length();
+                    for (int i3 = 0; i3 < length; i3++) {
+                        JSONObject jSONObject2 = optJSONArray3.getJSONObject(i3);
+                        if (jSONObject2 != null && jSONObject2.optInt("type", -1) == 0) {
+                            sb.append(jSONObject2.optString("text", ""));
+                        }
+                    }
+                }
+                this.i = sb.toString();
+                JSONArray optJSONArray4 = jSONObject.optJSONArray("media");
+                if (optJSONArray4 != null) {
+                    if (this.m == null) {
+                        this.m = new ArrayList<>();
+                    }
+                    for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
+                        com.baidu.tbadk.core.data.j jVar = new com.baidu.tbadk.core.data.j();
+                        jVar.a(optJSONArray4.getJSONObject(i4));
+                        if (jVar.c() != null && jVar.c().length() > 0) {
+                            this.m.add(jVar);
+                        }
+                    }
+                }
+                JSONArray optJSONArray5 = jSONObject.optJSONArray("voice_info");
+                if (optJSONArray5 != null) {
+                    for (int i5 = 0; i5 < optJSONArray5.length(); i5++) {
+                        VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
+                        JSONObject jSONObject3 = optJSONArray5.getJSONObject(i5);
+                        voiceModel.from = "home_voice_play";
+                        voiceModel.voiceId = jSONObject3.optString("voice_md5");
+                        voiceModel.duration = jSONObject3.optInt("during_time") / LocationClientOption.MIN_SCAN_SPAN;
+                        this.n.add(voiceModel);
+                    }
+                }
+                a(optString);
+            } catch (Exception e) {
+                com.baidu.adp.lib.util.f.b(q.class.getName(), "parserJson", "error = " + e.getMessage());
+            }
+        }
+    }
+
+    public final LinkedList<IconData> a() {
+        return this.r;
+    }
+
+    private void a(String str) {
+        SpannableString spannableString;
+        if (str != null) {
+            ArrayList arrayList = new ArrayList();
+            if (this.p == 1) {
+                arrayList.add(Integer.valueOf(com.baidu.tieba.a.g.icon_voice));
+            }
+            if (arrayList.size() > 0) {
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < arrayList.size(); i++) {
+                    sb.append("1 ");
+                }
+                SpannableString spannableString2 = new SpannableString(String.valueOf(sb.toString()) + str);
+                int i2 = 0;
+                for (int i3 = 0; i3 < arrayList.size(); i3++) {
+                    Bitmap a = com.baidu.tbadk.core.util.g.a(((Integer) arrayList.get(i3)).intValue());
+                    BitmapDrawable bitmapDrawable = new BitmapDrawable(a);
+                    bitmapDrawable.setBounds(0, 0, a.getWidth(), a.getHeight());
+                    spannableString2.setSpan(new ImageSpan(bitmapDrawable, 1), i2, i2 + 1, 33);
+                    i2 += 2;
+                }
+                spannableString = spannableString2;
+            } else {
+                spannableString = new SpannableString(str);
+            }
+            this.d = spannableString;
+        }
     }
 
     public final String b() {
-        return this.b;
+        return this.a;
     }
 
     public final String c() {
-        return this.c;
+        return this.b != null ? this.b : "";
     }
 
     public final String d() {
+        return this.c != null ? this.c : "";
+    }
+
+    public final SpannableString e() {
         return this.d;
     }
 
-    public final String e() {
+    public final int f() {
         return this.e;
     }
 
-    public final String f() {
-        return this.g;
-    }
-
     public final String g() {
-        return this.f;
+        return this.g != null ? this.g : "";
     }
 
-    public final String h() {
+    public final long h() {
         return this.h;
     }
 
-    public final void a(JSONObject jSONObject) {
-        this.a = jSONObject.optString("link");
-        this.b = jSONObject.optString("title");
-        this.c = jSONObject.optString("abstract");
-        this.d = jSONObject.optString("forum_name");
-        this.e = jSONObject.optString("img");
-        this.f = jSONObject.optString("post_type");
-        this.g = jSONObject.optString("user_name");
-        this.h = jSONObject.optString("reply_num");
-        this.i = jSONObject.optString("proper");
+    public final String i() {
+        return this.i != null ? this.i : "";
+    }
+
+    public final int j() {
+        return this.j;
+    }
+
+    public final ArrayList<com.baidu.tbadk.core.data.j> k() {
+        return this.m;
+    }
+
+    public final ArrayList<VoiceData.VoiceModel> l() {
+        return this.n;
+    }
+
+    public final LinkedList<IconData> m() {
+        return this.q;
+    }
+
+    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ab
+    public LinkedList<String> getImageUrl() {
+        if (this.m == null) {
+            return null;
+        }
+        LinkedList<String> linkedList = new LinkedList<>();
+        Iterator<com.baidu.tbadk.core.data.j> it = this.m.iterator();
+        int i = 0;
+        while (it.hasNext()) {
+            com.baidu.tbadk.core.data.j next = it.next();
+            i++;
+            if (i > 3) {
+                break;
+            } else if (next.b() == 3) {
+                linkedList.add(next.c());
+            }
+        }
+        return linkedList;
     }
 }

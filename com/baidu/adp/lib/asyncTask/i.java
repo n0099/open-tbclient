@@ -28,7 +28,7 @@ final class i extends j {
                     Process.setThreadPriority(10);
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.util.e.b(e.getMessage());
+                com.baidu.adp.lib.util.f.b(e.getMessage());
             }
             b();
         } finally {

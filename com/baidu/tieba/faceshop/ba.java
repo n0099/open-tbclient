@@ -1,32 +1,21 @@
 package com.baidu.tieba.faceshop;
 
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 final class ba {
     TbImageView a;
     TextView b;
-    FrameLayout c;
+    TextView c;
     TextView d;
-    TextView e;
-    ImageView f;
-    FrameLayout g;
-    TextView h;
-    TbImageView i;
-    TbImageView j;
-    String k;
-    int l;
-    int m;
-    final /* synthetic */ aw n;
+    final /* synthetic */ az e;
 
-    private ba(aw awVar) {
-        this.n = awVar;
+    private ba(az azVar) {
+        this.e = azVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ba(aw awVar, byte b) {
-        this(awVar);
+    public /* synthetic */ ba(az azVar, byte b) {
+        this(azVar);
     }
 }

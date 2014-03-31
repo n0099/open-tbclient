@@ -1,7 +1,6 @@
 package com.baidu.adp.lib.stats;
 
-import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
-import com.baidu.tieba.switchs.SwitchKey;
+import com.baidu.tieba.switchs.features.VoiceSwitchStatic;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public final class l {
@@ -24,7 +23,7 @@ public final class l {
         n nVar = new n(this, (byte) 0);
         nVar.a(3000);
         nVar.b(120000);
-        nVar.c(SocialAPIErrorCodes.ERROR_INVALID_AUTHORIZED_CODE);
+        nVar.c(120);
         this.b.put(com.baidu.loginshare.e.e, nVar);
         this.b.put("op", nVar);
         this.b.put("stat", nVar);
@@ -35,7 +34,7 @@ public final class l {
         this.b.put("file", nVar2);
         this.b.put("db", nVar2);
         this.b.put("img", nVar2);
-        this.b.put(SwitchKey.VOICE, nVar2);
+        this.b.put(VoiceSwitchStatic.VOICE, nVar2);
     }
 
     public final boolean a(String str) {

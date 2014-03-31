@@ -1,21 +1,21 @@
 package com.baidu.tieba.im.message;
 
 import com.google.protobuf.MessageLite;
-import protobuf.QueryChatroomInfo.QueryChatroomInfoReq;
+import protobuf.EnterChatroom.EnterChatroomReq;
 /* loaded from: classes.dex */
-public final class ae extends s implements com.baidu.tieba.im.coder.g {
-    private int a;
+public final class ae extends com.baidu.tbadk.message.websockt.d {
+    private long a;
 
     public ae() {
-        e(106001);
+        super(106101);
     }
 
-    @Override // com.baidu.tieba.im.coder.g
-    public final MessageLite a() {
-        return QueryChatroomInfoReq.QueryChatroomInfoReqIdl.newBuilder().a(QueryChatroomInfoReq.DataReq.newBuilder().a(this.a).build()).build();
+    public final void b(long j) {
+        this.a = j;
     }
 
-    public final void a(int i) {
-        this.a = i;
+    @Override // com.baidu.tbadk.message.websockt.d
+    public final MessageLite h() {
+        return EnterChatroomReq.EnterChatroomReqIdl.newBuilder().a(EnterChatroomReq.DataReq.newBuilder().a((int) this.a).build()).build();
     }
 }

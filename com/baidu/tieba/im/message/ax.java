@@ -1,21 +1,26 @@
 package com.baidu.tieba.im.message;
 
 import com.google.protobuf.MessageLite;
-import protobuf.QueryUserInfos.QueryUserInfosReq;
+import protobuf.ReportGroup.ReportGroupReq;
 /* loaded from: classes.dex */
-public final class ax extends s implements com.baidu.tieba.im.coder.g {
-    protobuf.QueryUserInfos.b a = QueryUserInfosReq.DataReq.newBuilder();
+public final class ax extends com.baidu.tbadk.message.websockt.d {
+    private int a;
+    private int b;
 
     public ax() {
-        e(205003);
+        super(103103);
     }
 
-    public final void a(long j) {
-        this.a.a(j);
+    public final void d(int i) {
+        this.a = i;
     }
 
-    @Override // com.baidu.tieba.im.coder.g
-    public final MessageLite a() {
-        return QueryUserInfosReq.QueryUserInfosReqIdl.newBuilder().a(this.a.build()).build();
+    public final void e(int i) {
+        this.b = i;
+    }
+
+    @Override // com.baidu.tbadk.message.websockt.d
+    public final MessageLite h() {
+        return ReportGroupReq.ReportGroupReqIdl.newBuilder().a(ReportGroupReq.DataReq.newBuilder().a(this.a).b(this.b).build()).build();
     }
 }

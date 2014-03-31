@@ -64,7 +64,7 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public final FieldSet<FieldDescriptorType> m250clone() {
+    public final FieldSet<FieldDescriptorType> m251clone() {
         FieldSet<FieldDescriptorType> newFieldSet = newFieldSet();
         int i = 0;
         while (true) {
@@ -487,7 +487,7 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
                 return Long.valueOf(codedInputStream.readSInt64());
             case 16:
                 throw new IllegalArgumentException("readPrimitiveField() cannot handle nested groups.");
-            case 17:
+            case Im.GroupInfo.CREATETIME_FIELD_NUMBER /* 17 */:
                 throw new IllegalArgumentException("readPrimitiveField() cannot handle embedded messages.");
             case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
                 throw new IllegalArgumentException("readPrimitiveField() cannot handle enums.");
@@ -589,7 +589,7 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
             case 16:
                 codedOutputStream.writeGroupNoTag((MessageLite) obj);
                 return;
-            case 17:
+            case Im.GroupInfo.CREATETIME_FIELD_NUMBER /* 17 */:
                 codedOutputStream.writeMessageNoTag((MessageLite) obj);
                 return;
             case Im.GroupInfo.MAXMEMBERNUM_FIELD_NUMBER /* 18 */:
@@ -704,7 +704,7 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
                 return CodedOutputStream.computeSInt64SizeNoTag(((Long) obj).longValue());
             case 16:
                 return CodedOutputStream.computeGroupSizeNoTag((MessageLite) obj);
-            case 17:
+            case Im.GroupInfo.CREATETIME_FIELD_NUMBER /* 17 */:
                 if (obj instanceof LazyField) {
                     return CodedOutputStream.computeLazyFieldSizeNoTag((LazyField) obj);
                 }

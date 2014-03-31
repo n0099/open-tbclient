@@ -27,7 +27,7 @@ public class ap extends Handler {
         this.e = alVar;
         this.f = new c(alVar.b() + 14, AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START);
         if (com.baidu.adp.a.b.a().d()) {
-            com.baidu.adp.lib.util.e.e("created");
+            com.baidu.adp.lib.util.f.e("created");
         }
     }
 
@@ -99,13 +99,13 @@ public class ap extends Handler {
                 this.f.c();
                 Object obj = message.obj;
                 if (obj instanceof aa) {
-                    byte[] k = ((aa) obj).a.k();
-                    if (k == null) {
+                    byte[] l = ((aa) obj).a.l();
+                    if (l == null) {
                         z = false;
-                    } else if (k.length > this.e.c()) {
+                    } else if (l.length > this.e.c()) {
                         throw new WebSocketException("message payload exceeds payload limit");
                     } else {
-                        a(2, true, k);
+                        a(2, true, l);
                         z = true;
                     }
                 } else {
@@ -235,13 +235,13 @@ public class ap extends Handler {
             }
         } catch (SocketException e) {
             if (com.baidu.adp.a.b.a().d()) {
-                com.baidu.adp.lib.util.e.e("run() : SocketException (" + e.toString() + ")");
+                com.baidu.adp.lib.util.f.e("run() : SocketException (" + e.toString() + ")");
             }
             b(new v(e));
         } catch (Exception e2) {
             if (com.baidu.adp.a.b.a().d()) {
                 e2.printStackTrace();
-                com.baidu.adp.lib.util.e.d("----WebSocketWriter.handleMessage error. e:" + e2.getMessage());
+                com.baidu.adp.lib.util.f.d("----WebSocketWriter.handleMessage error. e:" + e2.getMessage());
             }
             b(new x(e2));
         }
@@ -255,10 +255,10 @@ public class ap extends Handler {
         try {
             this.d.a();
         } catch (Exception e2) {
-            com.baidu.adp.lib.util.e.b("error:" + e2.getMessage());
+            com.baidu.adp.lib.util.f.b("error:" + e2.getMessage());
         }
         if (com.baidu.adp.a.b.a().d()) {
-            com.baidu.adp.lib.util.e.e("ended");
+            com.baidu.adp.lib.util.f.e("ended");
         }
     }
 

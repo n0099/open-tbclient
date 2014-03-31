@@ -3,15 +3,15 @@ package com.baidu.tieba.person;
 import android.view.View;
 /* loaded from: classes.dex */
 final class cd implements View.OnClickListener {
-    final /* synthetic */ PersonChangeActivity a;
+    final /* synthetic */ PersonListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cd(PersonChangeActivity personChangeActivity) {
-        this.a = personChangeActivity;
+    public cd(PersonListActivity personListActivity) {
+        this.a = personListActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        PersonChangeActivity.n(this.a);
+        PersonListActivity.a(this.a, true);
     }
 }

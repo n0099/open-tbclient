@@ -1,32 +1,20 @@
 package com.baidu.tieba;
 
-import android.view.animation.Animation;
+import com.baidu.tbadk.TbadkApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class ad implements Animation.AnimationListener {
-    final /* synthetic */ LogoActivity a;
+public final class ad implements Runnable {
+    final /* synthetic */ r a;
+    private final /* synthetic */ int[] b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(LogoActivity logoActivity) {
-        this.a = logoActivity;
+    public ad(r rVar, int[] iArr) {
+        this.a = rVar;
+        this.b = iArr;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public final void onAnimationEnd(Animation animation) {
-        boolean z;
-        this.a.b = true;
-        z = this.a.c;
-        if (z) {
-            LogoActivity logoActivity = this.a;
-            this.a.getBaseContext();
-            logoActivity.a();
-        }
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public final void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public final void onAnimationStart(Animation animation) {
+    @Override // java.lang.Runnable
+    public final void run() {
+        com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2005004, new com.baidu.tbadk.core.b.x(TbadkApplication.j(), this.b)));
     }
 }

@@ -2,19 +2,19 @@ package com.baidu.tieba.topRec;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.gson.GsonBuilder;
-import com.baidu.tieba.util.ba;
+import com.baidu.tbadk.core.util.ak;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class m extends BdAsyncTask<Object, Integer, TRForumListData> {
     TRForumListData a;
     final /* synthetic */ l b;
-    private ba c;
+    private ak c;
 
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ TRForumListData a(Object... objArr) {
-        return d();
+    public final /* bridge */ /* synthetic */ TRForumListData a(Object... objArr) {
+        return a();
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -26,7 +26,7 @@ public final class m extends BdAsyncTask<Object, Integer, TRForumListData> {
         TRForumListData tRForumListData2 = tRForumListData;
         super.a((m) tRForumListData2);
         if (tRForumListData2 != null) {
-            com.baidu.adp.lib.util.e.e(tRForumListData2.toString());
+            com.baidu.adp.lib.util.f.e(tRForumListData2.toString());
             if (tRForumListData2.error_code != 0 || tRForumListData2.error == null) {
                 n nVar = this.b.b;
                 z = this.b.c;
@@ -50,25 +50,25 @@ public final class m extends BdAsyncTask<Object, Integer, TRForumListData> {
         this(lVar);
     }
 
-    private TRForumListData d() {
-        String l;
+    private TRForumListData a() {
+        String i;
         try {
-            this.c = new ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/f/forum/random_recommend_forum");
+            this.c = new ak(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/f/forum/random_recommend_forum");
             this.c.a("rn", "100");
-            l = this.c.l();
-            com.baidu.adp.lib.util.e.e("TopRecModel", "doInBackground", l);
+            i = this.c.i();
+            com.baidu.adp.lib.util.f.e("TopRecModel", "doInBackground", i);
         } catch (Exception e) {
-            com.baidu.adp.lib.util.e.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "doInBackground", e.getMessage());
         }
-        if (l == null) {
+        if (i == null) {
             return null;
         }
-        if (!this.c.c()) {
+        if (!this.c.a().b().b()) {
             this.b.c = false;
         } else {
-            this.a = (TRForumListData) new GsonBuilder().create().fromJson(l, (Class<Object>) TRForumListData.class);
+            this.a = (TRForumListData) new GsonBuilder().create().fromJson(i, (Class<Object>) TRForumListData.class);
             this.b.c = true;
-            com.baidu.adp.lib.util.e.e(this.a.toString());
+            com.baidu.adp.lib.util.f.e(this.a.toString());
         }
         return this.a;
     }

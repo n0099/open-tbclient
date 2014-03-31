@@ -2,11 +2,10 @@ package com.baidu.tieba.util;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tieba.account.appeal.AppealActivity;
-import com.baidu.tieba.data.AntiData;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class c implements DialogInterface.OnClickListener {
+final class c implements DialogInterface.OnClickListener {
     private final /* synthetic */ Context a;
     private final /* synthetic */ AntiData b;
 

@@ -1,15 +1,16 @@
 package com.baidu.tieba.frs;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class bb extends com.baidu.adp.a.g {
-    final /* synthetic */ FrsImageActivity a;
+public final class bb implements Runnable {
+    final /* synthetic */ ay a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bb(FrsImageActivity frsImageActivity) {
-        this.a = frsImageActivity;
+    public bb(ay ayVar) {
+        this.a = ayVar;
     }
 
-    @Override // com.baidu.adp.a.g
-    public final void a(Object obj) {
-        FrsImageActivity.p(this.a);
+    @Override // java.lang.Runnable
+    public final void run() {
+        this.a.q = System.currentTimeMillis();
     }
 }

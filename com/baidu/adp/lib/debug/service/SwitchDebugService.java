@@ -13,7 +13,7 @@ import android.os.Vibrator;
 import android.widget.Toast;
 import com.baidu.adp.f;
 import com.baidu.adp.lib.debug.DebugConfigActivity;
-import com.baidu.adp.lib.debug.b;
+import com.baidu.adp.lib.debug.c;
 import com.baidu.location.LocationClientOption;
 import java.io.IOException;
 import java.util.List;
@@ -110,7 +110,7 @@ public class SwitchDebugService extends Service implements SensorEventListener {
                     if (this.m >= e && currentTimeMillis - this.i > d && a()) {
                         this.i = currentTimeMillis;
                         this.h.vibrate(100L);
-                        if (b.c) {
+                        if (c.c) {
                             Toast.makeText(getBaseContext(), getResources().getString(f.debug_opened), 1).show();
                             return;
                         }

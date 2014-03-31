@@ -1,24 +1,23 @@
 package com.baidu.tieba.im.model;
-
-import com.baidu.tieba.im.data.GroupData;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class s extends com.baidu.tieba.im.b<Boolean> {
-    final /* synthetic */ MsglistModel a;
-    private final /* synthetic */ com.baidu.tieba.im.message.b c;
+final class s extends com.baidu.tieba.im.m<Void> {
+    final /* synthetic */ p b;
+    private final /* synthetic */ boolean c;
+    private final /* synthetic */ String d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(MsglistModel msglistModel, com.baidu.tieba.im.message.b bVar) {
-        this.a = msglistModel;
-        this.c = bVar;
+    public s(p pVar, boolean z, String str) {
+        this.b = pVar;
+        this.c = z;
+        this.d = str;
     }
 
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.b
-    public final /* synthetic */ Boolean a() {
-        GroupData groupData;
-        com.baidu.tieba.im.db.b a = com.baidu.tieba.im.db.b.a();
-        groupData = this.a.f;
-        return Boolean.valueOf(a.a(String.valueOf(groupData.getGroupId()), String.valueOf(this.c.l())));
+    @Override // com.baidu.tieba.im.m
+    public final /* synthetic */ Void a() {
+        String c = this.c ? com.baidu.tieba.im.db.g.c(this.d) : this.d;
+        com.baidu.tieba.im.db.g.a();
+        com.baidu.tieba.im.db.g.a(c, true);
+        return null;
     }
 }

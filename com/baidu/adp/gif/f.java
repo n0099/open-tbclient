@@ -16,7 +16,7 @@ public final class f {
 
     public static boolean a() {
         String str = Build.MODEL;
-        com.baidu.adp.lib.util.e.e("NSGifCompat", "shouldUseNSGif", "model: " + str);
+        com.baidu.adp.lib.util.f.e("NSGifCompat", "shouldUseNSGif", "model: " + str);
         if (a(str)) {
             if ((Build.VERSION.SDK_INT > 7) && NSGif.a) {
                 return true;

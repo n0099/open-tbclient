@@ -11,6 +11,6 @@ public final class o {
     }
 
     public static boolean a() {
-        return com.baidu.tieba.sharedPref.b.a().a("toprec_first_in", false);
+        return com.baidu.tbadk.core.sharedPref.b.a().a("toprec_first_in", false);
     }
 }

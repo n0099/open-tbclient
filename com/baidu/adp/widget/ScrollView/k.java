@@ -19,13 +19,13 @@ public final class k implements i {
         b bVar2;
         m mVar;
         m mVar2;
-        state = this.a.c;
+        state = this.a.b;
         if (state != BdPullRefreshScrollView.State.RELEASE_TO_REFRESH) {
-            state2 = this.a.c;
+            state2 = this.a.b;
             if (state2 == BdPullRefreshScrollView.State.PULL_TO_REFRESH) {
                 BdPullRefreshScrollView bdPullRefreshScrollView = this.a;
                 BdPullRefreshScrollView.State state3 = BdPullRefreshScrollView.State.RESET;
-                bVar = this.a.n;
+                bVar = this.a.m;
                 bdPullRefreshScrollView.a(state3, bVar);
                 return;
             }
@@ -33,11 +33,11 @@ public final class k implements i {
         }
         BdPullRefreshScrollView bdPullRefreshScrollView2 = this.a;
         BdPullRefreshScrollView.State state4 = BdPullRefreshScrollView.State.REFRESHING;
-        bVar2 = this.a.n;
+        bVar2 = this.a.m;
         bdPullRefreshScrollView2.a(state4, bVar2);
-        mVar = this.a.t;
+        mVar = this.a.r;
         if (mVar != null) {
-            mVar2 = this.a.t;
+            mVar2 = this.a.r;
             mVar2.a();
         }
     }

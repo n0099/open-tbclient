@@ -7,22 +7,22 @@ import com.baidu.adp.widget.ListView.BdListView;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class m extends BdAsyncTask<String, Integer, com.baidu.tieba.data.w> {
+public final class m extends BdAsyncTask<String, Integer, com.baidu.tieba.data.r> {
     final /* synthetic */ AtListActivity a;
-    private com.baidu.tieba.util.ba b;
+    private com.baidu.tbadk.core.util.ak b;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ com.baidu.tieba.data.w a(String... strArr) {
-        return d();
+    public final /* bridge */ /* synthetic */ com.baidu.tieba.data.r a(String... strArr) {
+        return a();
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void a(com.baidu.tieba.data.w wVar) {
+    public final /* synthetic */ void a(com.baidu.tieba.data.r rVar) {
         ProgressBar progressBar;
         com.baidu.tieba.model.c cVar;
         n nVar;
@@ -33,13 +33,13 @@ public final class m extends BdAsyncTask<String, Integer, com.baidu.tieba.data.w
         n nVar3;
         n nVar4;
         BdListView bdListView;
-        com.baidu.tieba.data.w wVar2 = wVar;
+        com.baidu.tieba.data.r rVar2 = rVar;
         this.a.j = null;
         progressBar = this.a.n;
         progressBar.setVisibility(8);
-        if (this.b.c()) {
+        if (this.b.a().b().b()) {
             cVar = this.a.k;
-            cVar.a(wVar2);
+            cVar.a(rVar2);
             nVar = this.a.l;
             if (nVar == null) {
                 return;
@@ -48,21 +48,21 @@ public final class m extends BdAsyncTask<String, Integer, com.baidu.tieba.data.w
             if (editText.getText().toString().length() != 0) {
                 cVar2 = this.a.k;
                 if (cVar2.b() != null) {
-                    if (!wVar2.b().isEmpty()) {
-                        this.a.a(false);
+                    if (!rVar2.b().isEmpty()) {
+                        AtListActivity.a(this.a, false);
                     }
                     cVar3 = this.a.k;
-                    cVar3.b().a(wVar2.b());
+                    cVar3.b().a(rVar2.b());
                     nVar2 = this.a.l;
                     nVar2.notifyDataSetInvalidated();
                 }
             } else {
-                if (wVar2.a().isEmpty()) {
-                    this.a.a(true);
+                if (rVar2.a().isEmpty()) {
+                    AtListActivity.a(this.a, true);
                 } else {
-                    this.a.a(false);
+                    AtListActivity.a(this.a, false);
                 }
-                AtListActivity.a = wVar2.a();
+                AtListActivity.a = rVar2.a();
                 nVar3 = this.a.l;
                 nVar3.a(AtListActivity.a);
                 nVar4 = this.a.l;
@@ -71,9 +71,9 @@ public final class m extends BdAsyncTask<String, Integer, com.baidu.tieba.data.w
                 bdListView.setSelection(0);
             }
         } else {
-            this.a.showToast(this.b.i());
+            this.a.showToast(this.b.f());
         }
-        super.a((m) wVar2);
+        super.a((m) rVar2);
     }
 
     private m(AtListActivity atListActivity) {
@@ -88,18 +88,18 @@ public final class m extends BdAsyncTask<String, Integer, com.baidu.tieba.data.w
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void b() {
+    public final void c() {
         ProgressBar progressBar;
         progressBar = this.a.n;
         progressBar.setVisibility(0);
-        super.b();
+        super.c();
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public final void cancel() {
         ProgressBar progressBar;
         if (this.b != null) {
-            this.b.j();
+            this.b.g();
         }
         this.a.j = null;
         progressBar = this.a.n;
@@ -107,19 +107,19 @@ public final class m extends BdAsyncTask<String, Integer, com.baidu.tieba.data.w
         super.cancel(true);
     }
 
-    private com.baidu.tieba.data.w d() {
-        this.b = new com.baidu.tieba.util.ba();
-        com.baidu.tieba.data.w wVar = null;
-        this.b.a(String.valueOf(com.baidu.tieba.data.i.a) + "c/u/follow/list");
-        String l = this.b.l();
-        if (this.b.c()) {
-            wVar = new com.baidu.tieba.data.w();
+    private com.baidu.tieba.data.r a() {
+        this.b = new com.baidu.tbadk.core.util.ak();
+        com.baidu.tieba.data.r rVar = null;
+        this.b.a(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/u/follow/list");
+        String i = this.b.i();
+        if (this.b.a().b().b()) {
+            rVar = new com.baidu.tieba.data.r();
             try {
-                wVar.a(new JSONObject(l), true);
+                rVar.a(new JSONObject(i), true);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.e.b("FriendData", "parserFreindJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.util.f.b("FriendData", "parserFreindJson", "error = " + e.getMessage());
             }
         }
-        return wVar;
+        return rVar;
     }
 }

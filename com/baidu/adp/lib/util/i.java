@@ -1,112 +1,283 @@
 package com.baidu.adp.lib.util;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.os.Handler;
+import android.os.Looper;
+import android.text.TextPaint;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
+import android.view.Display;
+import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.Toast;
+import com.baidu.adp.lib.util.BdNetUtil;
+import java.lang.reflect.Field;
+import java.util.Calendar;
+import java.util.Locale;
 /* loaded from: classes.dex */
-public class i {
-    /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
-        jadx.core.utils.exceptions.JadxRuntimeException: Found unreachable blocks
-        	at jadx.core.dex.visitors.blocks.DominatorTree.sortBlocks(DominatorTree.java:35)
-        	at jadx.core.dex.visitors.blocks.DominatorTree.compute(DominatorTree.java:25)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.computeDominators(BlockProcessor.java:202)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
-        */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [64=4] */
-    public static java.util.List<com.baidu.adp.lib.cache.t<java.lang.String>> a(com.baidu.adp.lib.cache.s<java.lang.String> r6) {
-        /*
-            r2 = 0
-            java.util.LinkedList r1 = new java.util.LinkedList
-            r1.<init>()
-            if (r6 != 0) goto L10
-            r3 = r2
-        L9:
-            if (r3 != 0) goto L75
-            com.baidu.adp.lib.f.a.a(r3)
-            r0 = r2
-        Lf:
-            return r0
-        L10:
-            boolean r0 = r6 instanceof com.baidu.adp.lib.cache.u     // Catch: java.lang.Throwable -> Laa
-            if (r0 != 0) goto L16
-            r3 = r2
-            goto L9
-        L16:
-            com.baidu.adp.lib.cache.u r6 = (com.baidu.adp.lib.cache.u) r6     // Catch: java.lang.Throwable -> Laa
-            com.baidu.adp.lib.cache.r r0 = r6.b()     // Catch: java.lang.Throwable -> Laa
-            boolean r0 = r0 instanceof com.baidu.adp.lib.cache.o     // Catch: java.lang.Throwable -> Laa
-            if (r0 != 0) goto L22
-            r3 = r2
-            goto L9
-        L22:
-            com.baidu.adp.lib.cache.r r0 = r6.b()     // Catch: java.lang.Throwable -> Laa
-            com.baidu.adp.lib.cache.o r0 = (com.baidu.adp.lib.cache.o) r0     // Catch: java.lang.Throwable -> Laa
-            com.baidu.adp.lib.cache.c r0 = r0.b()     // Catch: java.lang.Throwable -> Laa
-            com.baidu.adp.a.h r3 = r0.b()     // Catch: java.lang.Throwable -> Laa
-            android.database.sqlite.SQLiteDatabase r3 = r3.a()     // Catch: java.lang.Throwable -> Laa
-            java.lang.String r4 = r6.a()     // Catch: java.lang.Throwable -> Laa
-            android.database.Cursor r3 = r0.b(r3, r4)     // Catch: java.lang.Throwable -> Laa
-            goto L9
-        L3d:
-            com.baidu.adp.lib.cache.t r0 = new com.baidu.adp.lib.cache.t     // Catch: java.lang.Throwable -> L89
-            r0.<init>()     // Catch: java.lang.Throwable -> L89
-            java.lang.String r2 = "m_key"
-            int r2 = r3.getColumnIndex(r2)     // Catch: java.lang.Throwable -> L89
-            java.lang.String r2 = r3.getString(r2)     // Catch: java.lang.Throwable -> L89
-            r0.a = r2     // Catch: java.lang.Throwable -> L89
-            java.lang.String r2 = "saveTime"
-            int r2 = r3.getColumnIndex(r2)     // Catch: java.lang.Throwable -> L89
-            long r4 = r3.getLong(r2)     // Catch: java.lang.Throwable -> L89
-            r0.c = r4     // Catch: java.lang.Throwable -> L89
-            java.lang.String r2 = "timeToExpire"
-            int r2 = r3.getColumnIndex(r2)     // Catch: java.lang.Throwable -> L89
-            long r4 = r3.getLong(r2)     // Catch: java.lang.Throwable -> L89
-            r0.d = r4     // Catch: java.lang.Throwable -> L89
-            java.lang.String r2 = "m_value"
-            int r2 = r3.getColumnIndex(r2)     // Catch: java.lang.Throwable -> L89
-            java.lang.String r2 = r3.getString(r2)     // Catch: java.lang.Throwable -> L89
-            r0.b = r2     // Catch: java.lang.Throwable -> L89
-            r1.add(r0)     // Catch: java.lang.Throwable -> L89
-        L75:
-            boolean r0 = r3.moveToNext()     // Catch: java.lang.Throwable -> L92
-            if (r0 != 0) goto L3d
-            com.baidu.adp.lib.f.a.a(r3)
-        L7e:
-            com.baidu.adp.lib.util.j r0 = new com.baidu.adp.lib.util.j
-            r2 = 0
-            r0.<init>(r2)
-            java.util.Collections.sort(r1, r0)
-            r0 = r1
-            goto Lf
-        L89:
-            r0 = move-exception
-            java.lang.Class<com.baidu.adp.lib.util.i> r2 = com.baidu.adp.lib.util.i.class
-            java.lang.String r4 = "listAllTextItemsInDBCache"
-            com.baidu.adp.lib.util.e.a(r2, r4, r0)     // Catch: java.lang.Throwable -> L92
-            goto L75
-        L92:
-            r0 = move-exception
-            r2 = r3
-        L94:
-            java.lang.Class<com.baidu.adp.lib.util.i> r3 = com.baidu.adp.lib.util.i.class
-            java.lang.String r4 = "listAllTextItemsInDBCache"
-            com.baidu.adp.lib.util.e.a(r3, r4, r0)     // Catch: java.lang.Throwable -> La7
-            com.baidu.adp.lib.f.a.a(r2)
-            goto L7e
-        L9f:
-            r0 = move-exception
-            r3 = r2
-        La1:
-            com.baidu.adp.lib.f.a.a(r3)
-            throw r0
-        La5:
-            r0 = move-exception
-            goto La1
-        La7:
-            r0 = move-exception
-            r3 = r2
-            goto La1
-        Laa:
-            r0 = move-exception
-            goto L94
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.adp.lib.util.i.a(com.baidu.adp.lib.cache.s):java.util.List");
+public final class i {
+    static int b;
+    static int c;
+    private static float d;
+    private static String f;
+    static boolean a = false;
+    private static Toast e = null;
+    private static Handler g = new Handler();
+    private static Runnable h = new j();
+
+    public static void a(Context context) {
+        DisplayMetrics displayMetrics;
+        if (context.getResources() != null && (displayMetrics = context.getResources().getDisplayMetrics()) != null) {
+            d = displayMetrics.density;
+            b = displayMetrics.widthPixels;
+            c = displayMetrics.heightPixels;
+        }
+        a = true;
+    }
+
+    public static int b(Context context) {
+        if (!a) {
+            a(context);
+        }
+        return b;
+    }
+
+    public static int c(Context context) {
+        if (!a) {
+            a(context);
+        }
+        return c;
+    }
+
+    public static int a(Context context, float f2) {
+        if (!a) {
+            a(context);
+        }
+        return (int) ((d * f2) + 0.5f);
+    }
+
+    public static float d(Context context) {
+        if (!a) {
+            a(context);
+        }
+        return d;
+    }
+
+    private static void a(Context context, String str, int i) {
+        if (!TextUtils.isEmpty(str)) {
+            g.removeCallbacks(h);
+            if (e == null) {
+                e = Toast.makeText(com.baidu.adp.a.b.a().b(), str, 0);
+                e.setGravity(17, 0, a(context, 100.0f));
+            } else if (!str.equals(f)) {
+                e.setText(str);
+            }
+            f = str;
+            g.postDelayed(h, i);
+            e.show();
+        }
+    }
+
+    public static void a(Context context, String str) {
+        a(context, str, 2000);
+    }
+
+    public static void a(Context context, int i) {
+        a(context, context.getResources().getString(i));
+    }
+
+    public static void b(Context context, String str) {
+        a(context, str, 3500);
+    }
+
+    public static void b(Context context, int i) {
+        b(context, context.getResources().getString(i));
+    }
+
+    public static void a(Context context, View view) {
+        if (view != null) {
+            try {
+                if (view.getWindowToken() != null) {
+                    ((InputMethodManager) context.getSystemService("input_method")).hideSoftInputFromWindow(view.getWindowToken(), 2);
+                }
+            } catch (Throwable th) {
+                f.b("UtilHelper", "hideSoftKeyPad", "error = " + th.getMessage());
+            }
+        }
+    }
+
+    public static void b(Context context, View view) {
+        try {
+            ((InputMethodManager) context.getSystemService("input_method")).showSoftInput(view, 0);
+        } catch (Throwable th) {
+            f.b("UtilHelper", "showSoftKeyPad", "error = " + th.getMessage());
+        }
+    }
+
+    public static int a(Activity activity) {
+        Rect rect = new Rect();
+        activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
+        int i = rect.top;
+        if (i == 0) {
+            try {
+                Class<?> cls = Class.forName("com.android.internal.R$dimen");
+                return activity.getResources().getDimensionPixelSize(Integer.parseInt(cls.getField("status_bar_height").get(cls.newInstance()).toString()));
+            } catch (ClassNotFoundException e2) {
+                e2.printStackTrace();
+                return i;
+            } catch (IllegalAccessException e3) {
+                e3.printStackTrace();
+                return i;
+            } catch (IllegalArgumentException e4) {
+                e4.printStackTrace();
+                return i;
+            } catch (InstantiationException e5) {
+                e5.printStackTrace();
+                return i;
+            } catch (NoSuchFieldException e6) {
+                e6.printStackTrace();
+                return i;
+            } catch (NumberFormatException e7) {
+                e7.printStackTrace();
+                return i;
+            } catch (SecurityException e8) {
+                e8.printStackTrace();
+                return i;
+            }
+        }
+        return i;
+    }
+
+    public static int[] e(Context context) {
+        Display defaultDisplay = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
+        return new int[]{defaultDisplay.getWidth(), defaultDisplay.getHeight()};
+    }
+
+    public static Field a(Object obj, String str) {
+        for (Class<?> cls = obj.getClass(); cls != Object.class; cls = cls.getSuperclass()) {
+            try {
+                Field declaredField = cls.getDeclaredField(str);
+                declaredField.setAccessible(true);
+                return declaredField;
+            } catch (Exception e2) {
+            }
+        }
+        return null;
+    }
+
+    public static boolean a(byte[] bArr) {
+        try {
+            if (bArr[0] == 71 && bArr[1] == 73) {
+                if (bArr[2] == 70) {
+                    return true;
+                }
+            }
+            return false;
+        } catch (Exception e2) {
+            return false;
+        }
+    }
+
+    public static boolean b(byte[] bArr) {
+        if (bArr == null) {
+            return false;
+        }
+        try {
+            String str = new String(bArr, 0, 16, "UTF-8");
+            if (str.indexOf("RIFF") == 0) {
+                return 8 == str.indexOf("WEBPVP8 ");
+            }
+            return false;
+        } catch (Exception e2) {
+            return false;
+        }
+    }
+
+    public static float a(Paint paint, String str) {
+        if (paint == null || str == null) {
+            return 0.0f;
+        }
+        return paint.measureText(str);
+    }
+
+    public static String a(TextPaint textPaint, String str, int i) {
+        CharSequence ellipsize = TextUtils.ellipsize(str, textPaint, i, TextUtils.TruncateAt.END);
+        if (ellipsize == null) {
+            return null;
+        }
+        return ellipsize.toString();
+    }
+
+    public static int b(Context context, float f2) {
+        TextPaint textPaint = new TextPaint();
+        Resources system = context == null ? Resources.getSystem() : context.getResources();
+        if (system != null) {
+            textPaint.setTextSize(TypedValue.applyDimension(2, 15.0f, system.getDisplayMetrics()));
+        }
+        Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
+        return (int) Math.ceil(fontMetrics.descent - fontMetrics.ascent);
+    }
+
+    public static int[] a(int i, int i2, int i3, int i4) {
+        int i5;
+        int i6;
+        if (i <= 0 || i2 <= 0 || i3 <= 0 || i4 <= 0) {
+            return null;
+        }
+        int[] iArr = new int[2];
+        if (i2 > i4) {
+            i6 = (i * i4) / i2;
+            i5 = i4;
+        } else {
+            i5 = i2;
+            i6 = i;
+        }
+        if (i6 > i3) {
+            i5 = (i5 * i3) / i6;
+        } else {
+            i3 = i6;
+        }
+        iArr[0] = i3;
+        iArr[1] = i5;
+        return iArr;
+    }
+
+    public static int a() {
+        return Calendar.getInstance(Locale.CHINA).get(6);
+    }
+
+    public static int c(Context context, int i) {
+        return context.getResources().getDimensionPixelSize(i);
+    }
+
+    public static void b() {
+        if (com.baidu.adp.a.b.a().d()) {
+            boolean z = false;
+            if ((Looper.myLooper() == null || Looper.getMainLooper() != Looper.myLooper()) ? true : true) {
+                StringBuilder sb = new StringBuilder(100);
+                StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+                for (int i = 1; i < stackTrace.length; i++) {
+                    sb.append(stackTrace[i].getClassName());
+                    sb.append(".");
+                    sb.append(stackTrace[i].getMethodName());
+                    sb.append("<-");
+                }
+                throw new Error("can not be call not thread! trace = " + sb.toString());
+            }
+        }
+    }
+
+    public static boolean c() {
+        return Looper.getMainLooper() == Looper.myLooper();
+    }
+
+    public static boolean d() {
+        return BdNetUtil.a() != BdNetUtil.NetworkStateInfo.UNAVAIL;
     }
 }

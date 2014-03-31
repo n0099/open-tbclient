@@ -1,42 +1,52 @@
 package com.baidu.tieba.im.hotGroup;
 
-import android.view.View;
-import android.widget.ImageView;
-import com.baidu.adp.a.e;
-import com.baidu.tieba.view.NavigationBar;
-import com.baidu.tieba.view.NoNetworkView;
-import com.slidingmenu.lib.R;
+import com.baidu.adp.lib.util.i;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tieba.im.message.am;
+import com.baidu.tieba.im.message.an;
 /* loaded from: classes.dex */
-public final class d extends e {
-    private HotGroupActivity a;
-    private View c;
-    private NavigationBar d;
-    private NoNetworkView e;
-    private ImageView f;
-    private HotGroupFragment g;
+public final class d {
+    private int d;
+    private boolean e;
+    private boolean f;
+    private boolean g;
+    private final int h = 30;
+    private int b = i.a(TbadkApplication.j().c(), 70.0f);
+    private int a = i.a(TbadkApplication.j().c(), 70.0f);
+    private int c = 30;
 
-    public d(HotGroupActivity hotGroupActivity) {
-        super(hotGroupActivity);
-        this.a = hotGroupActivity;
-        hotGroupActivity.setContentView(R.layout.hot_group_activity);
-        this.c = this.a.findViewById(R.id.parent);
-        this.d = (NavigationBar) this.a.findViewById(R.id.view_navigation_bar);
-        this.d.a(R.string.hot_group);
-        this.f = this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f.setOnClickListener(this.a);
-        this.g = (HotGroupFragment) this.a.getSupportFragmentManager().findFragmentById(R.id.hot_group_fragment);
-        this.e = (NoNetworkView) this.a.findViewById(R.id.view_no_network);
+    public final void a(int i) {
+        this.d = i;
     }
 
-    public final ImageView a() {
+    public final boolean a() {
+        return this.e;
+    }
+
+    public final void a(boolean z) {
+        this.e = z;
+    }
+
+    public final boolean b() {
         return this.f;
     }
 
-    public final void a(int i) {
-        this.a.a().a(i == 1);
-        this.a.a().a(this.c);
-        this.d.b(i);
-        this.g.c(i);
-        this.e.a(i);
+    public final void b(boolean z) {
+        this.f = z;
+    }
+
+    public final void c(boolean z) {
+        this.g = z;
+    }
+
+    public final void d(boolean z) {
+        if (!this.g) {
+            this.g = true;
+            if (z) {
+                com.baidu.adp.framework.c.a().a(new am(this.b, this.a, this.c, this.d));
+                return;
+            }
+            com.baidu.adp.framework.c.a().a(new an(this.b, this.a, this.c, this.d));
+        }
     }
 }

@@ -2,11 +2,12 @@ package com.baidu.adp.framework.task;
 
 import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.framework.e.e;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallelType;
 /* loaded from: classes.dex */
-public final class HttpMessageTask extends b {
+public class HttpMessageTask extends b {
     private e e;
-    private Class<? extends com.baidu.adp.framework.message.c> f;
+    private Class<? extends HttpResponsedMessage> f;
     private String g;
     private HTTP_METHOD h;
     private boolean i;
@@ -29,6 +30,18 @@ public final class HttpMessageTask extends b {
         }
     }
 
+    public HttpMessageTask(int i, String str) {
+        super(i);
+        this.e = null;
+        this.g = null;
+        this.h = HTTP_METHOD.POST;
+        this.i = true;
+        this.j = false;
+        this.k = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.g = str;
+        this.d = 1;
+    }
+
     public final String a() {
         return this.g;
     }
@@ -41,17 +54,25 @@ public final class HttpMessageTask extends b {
         return this.i;
     }
 
+    public final void a(boolean z) {
+        this.i = true;
+    }
+
     public final boolean e() {
         return this.j;
     }
 
-    public final Class<? extends com.baidu.adp.framework.message.c> f() {
+    public final Class<? extends HttpResponsedMessage> f() {
         return this.f;
+    }
+
+    public final void a(Class<? extends HttpResponsedMessage> cls) {
+        this.f = cls;
     }
 
     @Override // com.baidu.adp.framework.task.b
     public final boolean b() {
-        return FrameHelper.b(this.a);
+        return FrameHelper.c(this.a) || FrameHelper.b(this.a);
     }
 
     public final e g() {

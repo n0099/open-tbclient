@@ -1,65 +1,194 @@
 package com.baidu.tieba.write;
 
-import android.content.Intent;
 import android.graphics.Bitmap;
-import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
-import java.util.Date;
+import android.widget.TextView;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.plugins.MotuPlugin;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class bm implements View.OnClickListener {
+public final class bm extends BdAsyncTask<String, Void, Bitmap> {
     final /* synthetic */ WriteImageActivity a;
+    private String b;
+    private Bitmap c;
+    private Boolean d;
+    private Boolean e;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bm(WriteImageActivity writeImageActivity) {
-        this.a = writeImageActivity;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        boolean z;
-        int i;
-        ProgressBar progressBar;
-        boolean z2;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ Bitmap a(String... strArr) {
         Bitmap bitmap;
         Bitmap bitmap2;
-        boolean a;
-        z = this.a.y;
-        if (!z) {
-            i = this.a.z;
-            if (i == 12003) {
-                Intent intent = new Intent();
-                progressBar = this.a.g;
-                if (progressBar.getVisibility() != 0) {
-                    z2 = this.a.x;
-                    if (z2) {
-                        bitmap = this.a.p;
-                        if (bitmap != null) {
-                            bitmap2 = this.a.p;
-                            if (!bitmap2.isRecycled()) {
-                                String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                                a = this.a.a(str);
-                                if (a) {
-                                    intent.putExtra("change", true);
-                                    intent.putExtra("file_name", str);
-                                } else {
-                                    intent.putExtra("change", false);
-                                }
-                                this.a.setResult(-1, intent);
-                            }
-                        }
-                    }
-                    intent.putExtra("change", false);
-                    this.a.setResult(-1, intent);
-                } else {
-                    return;
-                }
-            } else {
-                this.a.setResult(0, new Intent());
+        Bitmap bitmap3;
+        Bitmap bitmap4;
+        Bitmap bitmap5;
+        Bitmap bitmap6;
+        Bitmap bitmap7;
+        Bitmap bitmap8;
+        Bitmap bitmap9;
+        Bitmap bitmap10;
+        Bitmap bitmap11;
+        Bitmap bitmap12;
+        this.b = strArr[0];
+        bitmap = this.a.c;
+        if (bitmap == null) {
+            bitmap12 = this.a.p;
+            if (bitmap12 == null) {
+                return null;
+            }
+        }
+        if (this.b.equals("0") || this.b.equals("1")) {
+            this.d = true;
+        } else if (this.b.equals("2") || this.b.equals("3")) {
+            this.e = true;
+        }
+        if (!this.d.booleanValue() && !this.e.booleanValue()) {
+            bitmap9 = this.a.c;
+            if (!bitmap9.isRecycled()) {
+                bitmap10 = this.a.c;
+                bitmap11 = this.a.c;
+                this.c = bitmap10.copy(bitmap11.getConfig(), true);
             }
         } else {
-            this.a.setResult(0, new Intent());
+            bitmap2 = this.a.p;
+            if (bitmap2 != null) {
+                bitmap6 = this.a.p;
+                if (!bitmap6.isRecycled()) {
+                    bitmap7 = this.a.p;
+                    bitmap8 = this.a.p;
+                    this.c = bitmap7.copy(bitmap8.getConfig(), true);
+                }
+            }
+            bitmap3 = this.a.c;
+            if (!bitmap3.isRecycled()) {
+                bitmap4 = this.a.c;
+                bitmap5 = this.a.c;
+                this.c = bitmap4.copy(bitmap5.getConfig(), true);
+            }
         }
-        this.a.finish();
+        if (this.c != null) {
+            if (this.c.getWidth() > 900 || this.c.getHeight() > 900) {
+                this.c = com.baidu.tbadk.core.util.g.a(this.c, 900);
+            }
+            if (this.d.booleanValue()) {
+                this.c = com.baidu.tbadk.core.util.g.d(this.c, Integer.parseInt(this.b));
+            } else if (this.e.booleanValue()) {
+                this.c = com.baidu.tbadk.core.util.g.f(this.c, Integer.parseInt(this.b));
+            } else {
+                MotuPlugin motuPlugin = (MotuPlugin) com.baidu.tbplugin.k.a().a(MotuPlugin.class);
+                if (motuPlugin != null) {
+                    this.c = motuPlugin.createOneKeyFilterAndApply(this.a, this.b, this.c);
+                }
+            }
+            return this.c;
+        }
+        return null;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x005d, code lost:
+        if (r0.getHeight() > 900) goto L21;
+     */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final /* synthetic */ void a(Bitmap bitmap) {
+        ProgressBar progressBar;
+        TextView textView;
+        ImageView imageView;
+        Bitmap bitmap2;
+        Bitmap bitmap3;
+        Bitmap bitmap4;
+        Bitmap bitmap5;
+        Bitmap bitmap6;
+        Bitmap bitmap7;
+        Bitmap bitmap8;
+        Bitmap bitmap9;
+        Bitmap bitmap10;
+        Bitmap bitmap11 = bitmap;
+        progressBar = this.a.g;
+        progressBar.setVisibility(8);
+        textView = this.a.d;
+        textView.setEnabled(true);
+        if (bitmap11 == null || bitmap11.isRecycled()) {
+            return;
+        }
+        this.a.x = true;
+        imageView = this.a.b;
+        imageView.setImageBitmap(bitmap11);
+        bitmap2 = this.a.c;
+        if (bitmap2 != null && (this.d.booleanValue() || this.e.booleanValue())) {
+            bitmap6 = this.a.c;
+            if (bitmap6.getWidth() <= 900) {
+                bitmap10 = this.a.c;
+            }
+            WriteImageActivity writeImageActivity = this.a;
+            bitmap7 = this.a.c;
+            writeImageActivity.c = com.baidu.tbadk.core.util.g.a(bitmap7, 900);
+            if (this.d.booleanValue()) {
+                WriteImageActivity writeImageActivity2 = this.a;
+                bitmap9 = this.a.c;
+                writeImageActivity2.c = com.baidu.tbadk.core.util.g.d(bitmap9, Integer.parseInt(this.b));
+            } else if (this.e.booleanValue()) {
+                WriteImageActivity writeImageActivity3 = this.a;
+                bitmap8 = this.a.c;
+                writeImageActivity3.c = com.baidu.tbadk.core.util.g.f(bitmap8, Integer.parseInt(this.b));
+            }
+        }
+        bitmap3 = this.a.p;
+        if (bitmap3 != null) {
+            bitmap4 = this.a.p;
+            if (!bitmap4.isRecycled()) {
+                bitmap5 = this.a.p;
+                bitmap5.recycle();
+            }
+        }
+        this.a.p = bitmap11;
+    }
+
+    private bm(WriteImageActivity writeImageActivity) {
+        this.a = writeImageActivity;
+        this.d = false;
+        this.e = false;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ bm(WriteImageActivity writeImageActivity, byte b) {
+        this(writeImageActivity);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final void c() {
+        ProgressBar progressBar;
+        TextView textView;
+        progressBar = this.a.g;
+        progressBar.setVisibility(0);
+        textView = this.a.d;
+        textView.setEnabled(false);
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final void cancel() {
+        ProgressBar progressBar;
+        TextView textView;
+        Bitmap bitmap;
+        if (this.c != null && !this.c.isRecycled()) {
+            bitmap = this.a.p;
+            if (bitmap != this.c) {
+                this.c.recycle();
+            }
+        }
+        this.c = null;
+        progressBar = this.a.g;
+        progressBar.setVisibility(8);
+        textView = this.a.d;
+        textView.setEnabled(true);
+        super.cancel(true);
     }
 }

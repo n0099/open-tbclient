@@ -7,156 +7,150 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.aj;
-import com.baidu.tieba.view.cs;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-public final class af extends com.baidu.tieba.j implements com.baidu.adp.widget.ListView.b {
-    private cs d;
-    private LinearLayout e;
-    private com.baidu.tieba.home.r f;
-    private aj g;
-    private l b = null;
-    private BdListView c = null;
-    private boolean h = false;
+public final class af extends com.baidu.tbadk.core.d implements com.baidu.adp.widget.ListView.d {
+    private com.baidu.tbadk.core.view.q c;
+    private LinearLayout d;
+    private com.baidu.tbadk.core.view.b e;
+    private com.baidu.tbadk.core.view.k f;
+    private m a = null;
+    private BdListView b = null;
+    private boolean g = false;
 
-    @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public final View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        View inflate = layoutInflater.inflate(R.layout.reply_me_activity, (ViewGroup) null);
-        this.d = new cs(getActivity());
-        this.d.a(this);
-        this.e = (LinearLayout) inflate.findViewById(R.id.bodyNotLogin);
-        this.g = new aj(inflate, (int) R.drawable.pic_blank_page_search, (int) R.drawable.pic_blank_page_search_1);
-        this.c = (BdListView) inflate.findViewById(R.id.replyme_lv);
-        this.c.setPullRefresh(this.d);
-        this.b = new l(this, 1, new ag(this));
-        this.b.a(this.c);
-        this.b.a((ViewGroup) inflate.findViewById(R.id.mention_layout_replyme));
-        this.b.a(this.g);
-        this.b.a("c/u/feed/replyme");
-        this.b.c();
+        View inflate = layoutInflater.inflate(com.baidu.tieba.a.i.reply_me_activity, (ViewGroup) null);
+        this.c = new com.baidu.tbadk.core.view.q(getActivity());
+        this.c.a(this);
+        this.d = (LinearLayout) inflate.findViewById(com.baidu.tieba.a.h.bodyNotLogin);
+        this.f = new com.baidu.tbadk.core.view.k(inflate, com.baidu.tieba.a.g.pic_blank_page_search, com.baidu.tieba.a.g.pic_blank_page_search_1, com.baidu.tieba.a.h.no_data_container, com.baidu.tieba.a.h.no_data_image, com.baidu.tieba.a.h.no_data_image_text);
+        this.b = (BdListView) inflate.findViewById(com.baidu.tieba.a.h.replyme_lv);
+        this.b.setPullRefresh(this.c);
+        this.a = new m(this, 1, new ag(this));
+        this.a.a(this.b);
+        this.a.a((ViewGroup) inflate.findViewById(com.baidu.tieba.a.h.mention_layout_replyme1));
+        this.a.a(this.f);
+        this.a.a("c/u/feed/replyme");
+        this.a.c();
         return inflate;
     }
 
-    @Override // com.baidu.tieba.j
-    public final void c(int i) {
-        super.c(i);
+    @Override // com.baidu.tbadk.core.d
+    public final void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
         if (isAdded()) {
             if (i == 1) {
-                this.c.setCacheColorHint(getResources().getColor(17170445));
-                if (this.g.c()) {
-                    this.c.setDivider(getResources().getDrawable(17170445));
+                if (this.f.c()) {
+                    this.b.setDivider(getResources().getDrawable(17170445));
                 } else {
-                    this.c.setDivider(new ColorDrawable(getResources().getColor(R.color.night_divider)));
+                    this.b.setDivider(new ColorDrawable(getResources().getColor(com.baidu.tieba.a.e.night_divider)));
                 }
-                this.c.setDividerHeight(BdUtilHelper.a((Context) getActivity(), 1.0f));
+                this.b.setDividerHeight(com.baidu.adp.lib.util.i.a((Context) getActivity(), 1.0f));
             } else {
-                this.c.setCacheColorHint(getResources().getColor(17170445));
-                if (this.g.c()) {
-                    this.c.setDivider(getResources().getDrawable(17170445));
+                if (this.f.c()) {
+                    this.b.setDivider(getResources().getDrawable(17170445));
                 } else {
-                    this.c.setDivider(new ColorDrawable(getResources().getColor(R.color.day_divider)));
+                    this.b.setDivider(new ColorDrawable(getResources().getColor(com.baidu.tieba.a.e.day_divider)));
                 }
-                this.c.setDividerHeight(BdUtilHelper.a((Context) getActivity(), 1.0f));
+                this.b.setDividerHeight(com.baidu.adp.lib.util.i.a((Context) getActivity(), 1.0f));
             }
-            this.g.a(i);
-            if (this.d != null) {
-                this.d.a(i);
+            this.f.a(i);
+            if (this.c != null) {
+                this.c.a(i);
             }
-            if (this.f != null) {
-                this.f.a(i);
+            if (this.e != null) {
+                this.e.a(i);
             }
-            if (this.b != null) {
-                this.b.g();
+            if (this.a != null) {
+                this.a.g();
             }
         }
     }
 
-    @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public final void onResume() {
         super.onResume();
-        if (TiebaApplication.w()) {
-            this.c.setVisibility(0);
-            this.e.setVisibility(8);
-            if (this.h) {
-                this.h = false;
+        if (TbadkApplication.F()) {
+            this.b.setVisibility(0);
+            this.d.setVisibility(8);
+            if (this.g) {
+                this.g = false;
                 a();
             }
-            this.b.e();
+            this.a.e();
             return;
         }
-        this.g.b(8);
+        this.f.b(8);
         b();
     }
 
     public final void a() {
-        if (this.b == null) {
-            this.h = true;
+        if (this.a == null) {
+            this.g = true;
             return;
         }
-        this.h = false;
-        if (TiebaApplication.w()) {
-            this.c.setVisibility(0);
-            this.e.setVisibility(8);
-            if (v.a().k() > 0) {
-                this.b.a(2);
+        this.g = false;
+        if (TbadkApplication.F()) {
+            this.b.setVisibility(0);
+            this.d.setVisibility(8);
+            if (com.baidu.tbadk.coreExtra.messageCenter.a.a().i() > 0) {
+                this.a.a(2);
             } else {
-                this.b.a(1);
+                this.a.a(1);
             }
-            this.b.d();
-            this.b.e();
+            this.a.d();
+            this.a.e();
             return;
         }
         b();
     }
 
     private void b() {
-        if (this.f == null) {
-            this.f = new com.baidu.tieba.home.r(getActivity(), getString(R.string.login_msg_tab), getString(R.string.login_msg_form), 3);
-            this.e.addView(this.f.a());
-            this.f.a(TiebaApplication.g().ae());
+        if (this.e == null) {
+            this.e = new com.baidu.tbadk.core.view.b(getActivity(), getString(com.baidu.tieba.a.k.login_msg_tab), getString(com.baidu.tieba.a.k.login_msg_form), 3);
+            this.d.addView(this.e.a());
+            this.e.a(TbadkApplication.j().l());
         } else {
-            ((ViewGroup) this.f.a().getParent()).removeAllViews();
-            this.e.addView(this.f.a());
-            this.f.a(TiebaApplication.g().ae());
+            ((ViewGroup) this.e.a().getParent()).removeAllViews();
+            this.d.addView(this.e.a());
+            this.e.a(TbadkApplication.j().l());
         }
-        this.c.setVisibility(8);
-        this.e.setVisibility(0);
+        this.b.setVisibility(8);
+        this.d.setVisibility(0);
     }
 
-    @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public final void onStop() {
         super.onStop();
-        this.g.b();
+        this.f.b();
     }
 
-    @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public final void onStart() {
         super.onStart();
-        this.g.a();
+        this.f.a();
     }
 
-    @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public final void onDestroy() {
         super.onDestroy();
         try {
-            if (this.b != null) {
-                this.b.f();
-                this.b.a();
+            if (this.a != null) {
+                this.a.f();
+                this.a.a();
             }
             System.gc();
         } catch (Exception e) {
-            com.baidu.adp.lib.util.e.b(getClass().getName(), "onDestroy", e.toString());
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "onDestroy", e.toString());
         }
     }
 
-    @Override // com.baidu.adp.widget.ListView.b
+    @Override // com.baidu.adp.widget.ListView.d
     public final void a(boolean z) {
         if (!z) {
-            this.b.b();
+            this.a.b();
         }
     }
 }

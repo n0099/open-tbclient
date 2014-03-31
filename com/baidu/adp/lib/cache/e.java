@@ -28,15 +28,15 @@ public abstract class e<T> implements r<T> {
         String d = d(str, str2);
         m<T> a = a(d);
         if (a == null) {
-            if (com.baidu.adp.lib.util.e.a()) {
-                com.baidu.adp.lib.util.e.e("cache", "get", "cache miss:" + d);
+            if (com.baidu.adp.lib.util.f.a()) {
+                com.baidu.adp.lib.util.f.e("cache", "get", "cache miss:" + d);
                 return null;
             }
             return null;
         } else if (a.f < System.currentTimeMillis()) {
             c(d);
-            if (com.baidu.adp.lib.util.e.a()) {
-                com.baidu.adp.lib.util.e.e("cache", "get", "cache miss on expired:" + d);
+            if (com.baidu.adp.lib.util.f.a()) {
+                com.baidu.adp.lib.util.f.e("cache", "get", "cache miss on expired:" + d);
                 return null;
             }
             return null;
@@ -45,8 +45,8 @@ public abstract class e<T> implements r<T> {
                 a.e = System.currentTimeMillis();
                 a(a);
             }
-            if (com.baidu.adp.lib.util.e.a()) {
-                com.baidu.adp.lib.util.e.e("cache", "get", "cache hit:" + d);
+            if (com.baidu.adp.lib.util.f.a()) {
+                com.baidu.adp.lib.util.f.e("cache", "get", "cache hit:" + d);
             }
             return a;
         }

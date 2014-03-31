@@ -1,35 +1,29 @@
 package com.baidu.tieba.barcode;
 
-import android.app.Activity;
-import android.os.AsyncTask;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 /* loaded from: classes.dex */
-public final class p extends AsyncTask<Object, Object, Object> {
-    final /* synthetic */ o a;
+final class p extends BroadcastReceiver {
+    final /* synthetic */ n a;
 
-    private p(o oVar) {
-        this.a = oVar;
+    private p(n nVar) {
+        this.a = nVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ p(o oVar, byte b) {
-        this(oVar);
+    public /* synthetic */ p(n nVar, byte b) {
+        this(nVar);
     }
 
-    @Override // android.os.AsyncTask
-    protected final Object doInBackground(Object... objArr) {
-        Activity activity;
-        Activity activity2;
-        try {
-            Thread.sleep(300000L);
-            com.baidu.adp.lib.util.e.a(getClass().getName(), "doInBackground", "Finishing activity due to inactivity");
-            activity = this.a.a;
-            activity.setResult(0);
-            activity2 = this.a.a;
-            activity2.finish();
-            return null;
-        } catch (InterruptedException e) {
-            return null;
+    @Override // android.content.BroadcastReceiver
+    public final void onReceive(Context context, Intent intent) {
+        if ("android.intent.action.BATTERY_CHANGED".equals(intent.getAction())) {
+            if (intent.getIntExtra("plugged", -1) <= 0) {
+                this.a.a();
+            } else {
+                n.a(this.a);
+            }
         }
     }
 }

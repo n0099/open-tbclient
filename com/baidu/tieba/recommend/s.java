@@ -1,20 +1,15 @@
 package com.baidu.tieba.recommend;
-
-import android.widget.ImageView;
-import android.widget.TextView;
 /* loaded from: classes.dex */
-final class s {
-    TextView a;
-    TextView b;
-    ImageView c;
-    final /* synthetic */ h d;
+public final class s {
+    public int a;
+    public Object b;
+    public String c;
+    final /* synthetic */ j d;
 
-    private s(h hVar) {
-        this.d = hVar;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ s(h hVar, byte b) {
-        this(hVar);
+    public s(j jVar, int i, Object obj, String str) {
+        this.d = jVar;
+        this.a = i;
+        this.b = obj;
+        this.c = str;
     }
 }

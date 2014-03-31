@@ -1,20 +1,9 @@
 package com.baidu.tieba.im.validate;
-
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class s implements View.OnClickListener {
-    final /* synthetic */ r a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public s(r rVar) {
-        this.a = rVar;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        ValidateActivity validateActivity;
-        validateActivity = this.a.d;
-        validateActivity.finish();
+final class s extends com.baidu.tieba.im.m<Integer> {
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.m
+    public final /* synthetic */ Integer a() {
+        return Integer.valueOf(com.baidu.tieba.im.db.d.a().b("apply_join_group"));
     }
 }

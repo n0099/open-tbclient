@@ -6,9 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public final class a extends com.baidu.adp.a.e {
+public final class a extends com.baidu.adp.a.f {
     private View a;
     private TextView c;
     private ImageView d;
@@ -18,9 +17,9 @@ public final class a extends com.baidu.adp.a.e {
         this.a = null;
         this.c = null;
         this.d = null;
-        this.a = LayoutInflater.from(this.b).inflate(R.layout.address_lbs_item, (ViewGroup) null);
-        this.c = (TextView) this.a.findViewById(R.id.text);
-        this.d = (ImageView) this.a.findViewById(R.id.group_address_list_item_selected);
+        this.a = LayoutInflater.from(this.b).inflate(com.baidu.tieba.im.i.address_lbs_item, (ViewGroup) null);
+        this.c = (TextView) this.a.findViewById(com.baidu.tieba.im.h.text);
+        this.d = (ImageView) this.a.findViewById(com.baidu.tieba.im.h.group_address_list_item_selected);
         this.a.setTag(this);
     }
 

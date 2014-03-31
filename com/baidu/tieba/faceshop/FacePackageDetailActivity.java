@@ -1,7 +1,6 @@
 package com.baidu.tieba.faceshop;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
@@ -10,36 +9,29 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.account.LoginActivity;
-import com.baidu.tieba.util.bs;
-import com.baidu.tieba.view.by;
-import com.slidingmenu.lib.R;
-import java.util.List;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.coreExtra.act.LoginActivity;
 /* loaded from: classes.dex */
-public class FacePackageDetailActivity extends com.baidu.tieba.f implements com.baidu.tieba.im.messageCenter.g {
-    private v a;
-    private x b;
-    private ac c;
-    private j d;
+public class FacePackageDetailActivity extends com.baidu.tbadk.a {
+    private ak a;
+    private am b;
+    private ar c;
+    private x d;
     private boolean e = false;
-    private Rect f = new Rect();
-    private by g = new q(this);
-    private com.baidu.tieba.i h = new r(this, this);
+    private final Rect f = new Rect();
+    private final com.baidu.tbadk.core.view.m g = new ae(this);
+    private final com.baidu.tbadk.d h = new af(this, this);
+    private final com.baidu.adp.framework.c.a i = new ag(this, 2001122);
 
-    public static void a(Context context, String str, boolean z, String str2) {
-        Intent intent = new Intent(context, FacePackageDetailActivity.class);
-        intent.putExtra("st_type", str2);
-        intent.putExtra("pkg_id", str);
-        intent.putExtra("is_downloading", z);
-        context.startActivity(intent);
+    static {
+        TbadkApplication.j().a(com.baidu.tbadk.core.b.i.class, FacePackageDetailActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.a = new v();
+        this.a = new ak();
         if (bundle != null) {
             this.a.c(bundle.getString("st_type"));
             this.a.b(bundle.getString("pkg_id"));
@@ -48,13 +40,13 @@ public class FacePackageDetailActivity extends com.baidu.tieba.f implements com.
             this.a.c(getIntent().getStringExtra("st_type"));
             this.a.b(getIntent().getStringExtra("pkg_id"));
             this.a.a(getIntent().getBooleanExtra("is_downloading", false));
-            com.baidu.tieba.ai.a(this, getIntent().getStringExtra("st_type"));
+            com.baidu.tbadk.core.g.a(this, getIntent().getStringExtra("st_type"));
         }
         this.a.a(this.h);
-        this.b = new x(this);
+        this.b = new am(this);
         this.b.a(this.g);
-        com.baidu.tieba.im.messageCenter.d.a().a(-122, this);
-        com.baidu.tieba.d.d.a();
+        registerListener(this.i);
+        f.a();
         a();
     }
 
@@ -67,22 +59,22 @@ public class FacePackageDetailActivity extends com.baidu.tieba.f implements com.
     public void onClick(View view) {
         if (this.a != null && this.b != null) {
             if (view == this.b.h()) {
-                if (!TiebaApplication.w()) {
+                if (!TbadkApplication.F()) {
                     LoginActivity.a((Activity) this, (String) null, true, 11003);
                     return;
                 } else if (this.e) {
                     switch (this.a.d()) {
                         case 2:
                         case 3:
-                            com.baidu.tieba.ai.a(this, "emotion_package_detail_free");
+                            com.baidu.tbadk.core.g.a(this, "emotion_package_detail_free");
                             String b = this.a.b();
-                            com.baidu.tieba.d.a aVar = new com.baidu.tieba.d.a(this.a.e());
+                            com.baidu.tieba.download.a aVar = new com.baidu.tieba.download.a(this.a.e());
                             aVar.a(1);
                             aVar.e((String) null);
                             aVar.b(11);
-                            com.baidu.tieba.d.d.a();
-                            com.baidu.tieba.d.d.a(aVar);
-                            if (!bs.c(b)) {
+                            f.a();
+                            f.a(aVar);
+                            if (!com.baidu.tbadk.core.util.bc.c(b)) {
                                 if (this.a.a() != null && this.a.a().facePackage != null) {
                                     a(this.a.e(), this.a.a().facePackage.pname, b);
                                     break;
@@ -95,7 +87,7 @@ public class FacePackageDetailActivity extends com.baidu.tieba.f implements com.
                             }
                             break;
                         case 4:
-                            com.baidu.tieba.ai.a(this, "emotion_package_detail_buy");
+                            com.baidu.tbadk.core.g.a(this, "emotion_package_detail_buy");
                             e();
                             break;
                     }
@@ -103,44 +95,44 @@ public class FacePackageDetailActivity extends com.baidu.tieba.f implements com.
                     return;
                 }
             } else if (view == this.b.i()) {
-                com.baidu.tieba.d.a aVar2 = new com.baidu.tieba.d.a(this.a.e());
+                com.baidu.tieba.download.a aVar2 = new com.baidu.tieba.download.a(this.a.e());
                 aVar2.a(4);
                 aVar2.e((String) null);
                 aVar2.b(11);
-                com.baidu.tieba.d.d.a();
-                com.baidu.tieba.d.d.a(aVar2);
+                f.a();
+                f.a(aVar2);
                 this.a.a(false);
-                com.baidu.tieba.d.d.a();
-                com.baidu.tieba.d.d.a(this.a.e());
+                f.a();
+                f.a(this.a.e());
             }
             super.onClick(view);
         }
     }
 
     private void d() {
-        this.c = new ac();
+        this.c = new ar();
         this.c.a(this.a.e());
-        com.baidu.tieba.d.a aVar = new com.baidu.tieba.d.a(this.a.e());
+        com.baidu.tieba.download.a aVar = new com.baidu.tieba.download.a(this.a.e());
         aVar.b(11);
         aVar.a(2);
-        aVar.e(getResources().getString(R.string.neterror));
-        this.c.setLoadDataCallBack(new s(this, aVar));
+        aVar.e(getResources().getString(com.baidu.tieba.a.k.neterror));
+        this.c.setLoadDataCallBack(new ah(this, aVar));
     }
 
     public static void a(String str, String str2, String str3) {
-        com.baidu.tieba.d.d.a().a(str, str2, str3);
+        f.a().a(str, str2, str3);
     }
 
     private void e() {
         showProgressBar();
         String e = this.a.e();
-        this.d = new j();
-        this.d.setLoadDataCallBack(new t(this));
+        this.d = new x();
+        this.d.setLoadDataCallBack(new ai(this));
         this.d.a(e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, android.app.Activity
+    @Override // com.baidu.tbadk.a, android.app.Activity
     public void onResume() {
         if (this.b != null) {
             this.b.f();
@@ -149,7 +141,7 @@ public class FacePackageDetailActivity extends com.baidu.tieba.f implements com.
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         if (this.b != null) {
@@ -165,11 +157,10 @@ public class FacePackageDetailActivity extends com.baidu.tieba.f implements com.
             this.d.cancelLoadData();
         }
         this.b.b(this.g);
-        com.baidu.tieba.im.messageCenter.d.a().a(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f
+    @Override // com.baidu.tbadk.a
     public void onChangeSkinType(int i) {
         if (this.b != null) {
             this.b.a(i);
@@ -193,12 +184,12 @@ public class FacePackageDetailActivity extends com.baidu.tieba.f implements com.
             if (i == 10001) {
                 String stringExtra = intent.getStringExtra("tag_order_id");
                 if (this.a.a().facePackage != null) {
-                    if (bs.c(stringExtra)) {
+                    if (com.baidu.tbadk.core.util.bc.c(stringExtra)) {
                         stringExtra = this.a.f();
                     }
                     this.b.c();
-                    this.d = new j();
-                    this.d.setLoadDataCallBack(new u(this));
+                    this.d = new x();
+                    this.d.setLoadDataCallBack(new aj(this));
                     this.d.b(stringExtra);
                 }
             } else if (i == 11003) {
@@ -208,38 +199,6 @@ public class FacePackageDetailActivity extends com.baidu.tieba.f implements com.
                     e();
                 }
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.im.messageCenter.g
-    public final void a(com.baidu.tieba.im.message.s sVar) {
-        List<com.baidu.tieba.d.a> a;
-        com.baidu.tieba.d.a aVar;
-        if (this.a != null && this.a.a() != null && this.b != null && sVar.v() == -122 && (sVar instanceof com.baidu.tieba.d.b) && (a = ((com.baidu.tieba.d.b) sVar).a()) != null) {
-            FacePackageData facePackageData = this.a.a().facePackage;
-            if (a.size() > 0 && (aVar = a.get(0)) != null && aVar.a().equals(this.a.e())) {
-                int f = aVar.f();
-                if (f == 3 || f == 0) {
-                    facePackageData.downloaded = 1;
-                    facePackageData.downloading = 0;
-                } else if (f == 2 || f == 4) {
-                    if (!bs.c(aVar.n())) {
-                        showToast(aVar.n());
-                    }
-                    if (this.c != null) {
-                        this.c.cancelLoadData();
-                    }
-                    facePackageData.downloaded = 0;
-                    facePackageData.downloading = 0;
-                } else if (f == 1) {
-                    facePackageData.downloading = 1;
-                    facePackageData.downloaded = 0;
-                    facePackageData.downloadTotal = aVar.i();
-                    facePackageData.downloadNow = aVar.h();
-                }
-            }
-            this.a.a(facePackageData);
-            this.b.b(this.a);
         }
     }
 

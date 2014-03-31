@@ -1,7 +1,6 @@
 package com.baidu.tieba.mention;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,197 +11,180 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bq;
-import com.baidu.tieba.util.cb;
-import com.baidu.tieba.util.cc;
-import com.baidu.tieba.view.NavigationBar;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.tabHost.FragmentTabHost;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.be;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.data.NewsNotifyMessage;
+import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
-public final class c extends com.baidu.tieba.j implements ViewPager.OnPageChangeListener {
-    public static boolean c;
-    private TextView[] d;
-    private TextView[] e;
-    private int[] f;
-    private int h;
-    private NavigationBar j;
-    private FragmentManager o;
-    private k p;
-    private boolean r;
-    private com.baidu.tieba.k s;
-    private g t;
-    private int g = -1;
-    private View.OnClickListener i = null;
-    private ImageView k = null;
-    private ImageView l = null;
-    private View m = null;
-    private ViewPager n = null;
-    protected int b = -1;
-    private boolean q = false;
-    private int u = 16;
+public final class c extends com.baidu.tbadk.core.d implements ViewPager.OnPageChangeListener {
+    private int[] b;
+    private int d;
+    private NavigationBar f;
+    private FragmentTabHost i;
+    private FragmentManager j;
+    private k k;
+    private boolean m;
+    private com.baidu.tbadk.core.e n;
+    private int c = -1;
+    private View.OnClickListener e = null;
+    private View g = null;
+    private ImageView h = null;
+    protected int a = -1;
+    private boolean l = false;
+    private int o = 16;
+    private List<FragmentTabIndicator> p = new ArrayList(3);
+    private final com.baidu.adp.framework.c.a q = new d(this, 2001124);
 
-    public static void a(Activity activity, int i) {
-        Intent intent = new Intent(activity, SingleMentionActivity.class);
-        intent.putExtra("showBack", true);
-        intent.putExtra("NotifiIdKey", 11);
-        c = true;
-        activity.startActivityForResult(intent, 18002);
-    }
-
-    public static void a(Context context, int i) {
-        Intent intent = new Intent(context, SingleMentionActivity.class);
-        intent.setFlags(268435456);
-        intent.putExtra("showBack", true);
-        intent.putExtra("NotifiIdKey", i);
-        c = true;
-        context.startActivity(intent);
-    }
-
-    public final void d(int i) {
-        this.u = i;
-    }
-
-    @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public final void onAttach(Activity activity) {
         super.onAttach(activity);
-        this.s = (com.baidu.tieba.k) activity;
+        this.n = (com.baidu.tbadk.core.e) activity;
     }
 
-    @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public final View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        return layoutInflater.inflate(R.layout.mention_activity, (ViewGroup) null);
+        return layoutInflater.inflate(com.baidu.tieba.a.i.mention_activity, (ViewGroup) null);
     }
 
-    @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public final void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (getArguments() != null) {
-            this.r = getArguments().getBoolean("showBack", false);
-            this.u = getArguments().getInt("NotifiIdKey", this.u);
+            this.m = getArguments().getBoolean("showBack", false);
+            this.o = getArguments().getInt("NotifiIdKey", this.o);
         }
     }
 
-    @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public final void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.t = new g(this, (byte) 0);
-        com.baidu.tieba.im.messageCenter.d.a().a(-124, this.t);
-        this.i = new d(this);
+        com.baidu.adp.framework.c.a().a(this.q);
+        this.e = new e(this);
         View view = getView();
-        this.j = (NavigationBar) view.findViewById(R.id.view_navigation_bar);
-        this.l = this.j.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, NavigationBar.ControlType.ADD_CHAT, this.i);
-        this.m = this.j.a(R.layout.nb_item_msg_titleview, (View.OnClickListener) null);
-        this.k = this.j.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, (View.OnClickListener) null);
-        if (this.r) {
-            this.k.setOnClickListener(new e(this));
-            this.k.setVisibility(0);
+        this.f = (NavigationBar) view.findViewById(com.baidu.tieba.a.h.view_navigation_bar);
+        this.h = (ImageView) this.f.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.a.i.widget_nb_item_addchat, this.e);
+        this.f.a(com.baidu.tieba.a.k.mention_title);
+        this.g = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        if (this.m) {
+            this.g.setOnClickListener(new f(this));
+            this.g.setVisibility(0);
         } else {
-            this.k.setVisibility(8);
+            this.g.setVisibility(8);
         }
-        this.o = getChildFragmentManager();
-        this.p = new k(this.o);
-        this.n = (ViewPager) view.findViewById(R.id.content);
-        this.n.setOnPageChangeListener(this);
-        this.n.setAdapter(this.p);
-        if (this.p.getCount() == 3) {
-            this.d = new TextView[]{(TextView) this.m.findViewById(R.id.chatme_tab), (TextView) this.m.findViewById(R.id.replyme_tab), (TextView) this.m.findViewById(R.id.atme_tab)};
-            this.e = new TextView[]{(TextView) this.m.findViewById(R.id.chatme_msg_num), (TextView) this.m.findViewById(R.id.replyme_msg_num), (TextView) this.m.findViewById(R.id.atme_msg_num)};
-            this.f = new int[]{0, 1, 2};
+        this.j = getChildFragmentManager();
+        this.k = new k(this.j);
+        this.i = (FragmentTabHost) view.findViewById(com.baidu.tieba.a.h.tab_host);
+        this.i.setup(getChildFragmentManager());
+        this.i.setTabWidgetBackgroundColor(getResources().getColor(com.baidu.tieba.a.e.maintab_bg));
+        this.i.setOnPageChangeListener(this);
+        if (this.k != null) {
+            int count = this.k.getCount();
+            for (int i = 0; i < count; i++) {
+                Fragment item = this.k.getItem(i);
+                int a = this.k.a(i);
+                if (item != null) {
+                    if (a == 0) {
+                        a(item, 0, com.baidu.tieba.a.k.mention_chatme);
+                    } else if (a == 1) {
+                        a(item, 1, com.baidu.tieba.a.k.mention_replyme);
+                    } else if (a == 2) {
+                        a(item, 2, com.baidu.tieba.a.k.mention_atme);
+                    }
+                }
+            }
+            this.i.a();
+        }
+        if (this.k.getCount() == 3) {
+            this.b = new int[]{0, 1, 2};
         } else {
-            this.m.findViewById(R.id.chatme_tab).setVisibility(8);
-            this.d = new TextView[]{(TextView) this.m.findViewById(R.id.replyme_tab), (TextView) this.m.findViewById(R.id.atme_tab)};
-            this.e = new TextView[]{(TextView) this.m.findViewById(R.id.replyme_msg_num), (TextView) this.m.findViewById(R.id.atme_msg_num)};
-            this.f = new int[]{1, 2};
+            this.b = new int[]{1, 2};
         }
-        this.h = this.d.length;
-        this.n.setOffscreenPageLimit(this.h - 1);
-        f fVar = new f(this);
-        for (int i = 0; i < this.d.length; i++) {
-            this.d[i].setOnClickListener(fVar);
-        }
-        int i2 = this.f[0];
+        this.d = this.b.length;
+        int i2 = this.b[0];
         if (bundle != null) {
-            i2 = bundle.getInt("type", this.f[0]);
+            i2 = bundle.getInt("type", this.b[0]);
         } else {
             Bundle arguments = getArguments();
             if (arguments != null) {
-                i2 = arguments.getInt("type", this.f[0]);
+                i2 = arguments.getInt("type", this.b[0]);
             }
         }
-        g(i2);
+        b(i2);
     }
 
-    @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public final void onResume() {
-        this.b = TiebaApplication.g().ae();
+        this.a = TbadkApplication.j().l();
         super.onResume();
-        if (d()) {
-            if (this.h == 3 && this.g != -1 && this.f[this.g] == 0) {
-                Fragment item = this.p.getItem(this.g);
-                if (item instanceof com.baidu.tieba.chat.a) {
-                    ((com.baidu.tieba.chat.a) item).a();
-                }
+        if (isShow()) {
+            if (this.d == 3 && this.c != -1 && this.b[this.c] == 0) {
+                com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2008003, new com.baidu.tbadk.core.b.v(this.n, this.k.getItem(this.c))));
             }
-            if (this.q) {
-                this.q = false;
-                g(0);
+            if (this.l) {
+                this.l = false;
+                b(0);
                 return;
             }
-            if (c) {
-                c = false;
-                if (this.u != 11) {
-                    g(0);
+            if (com.baidu.tbadk.core.b.ab.a) {
+                com.baidu.tbadk.core.b.ab.a = false;
+                if (this.o != 11) {
+                    b(0);
                     return;
-                } else if (v.a().n() > 0) {
-                    g(0);
+                } else if (com.baidu.tbadk.coreExtra.messageCenter.a.a().l() > 0) {
+                    b(0);
                     return;
-                } else if (v.a().k() > 0) {
-                    g(1);
+                } else if (com.baidu.tbadk.coreExtra.messageCenter.a.a().i() > 0) {
+                    b(1);
                     return;
-                } else if (v.a().l() > 0) {
-                    g(2);
+                } else if (com.baidu.tbadk.coreExtra.messageCenter.a.a().j() > 0) {
+                    b(2);
                     return;
                 }
             }
-            e(this.g);
+            a(this.c);
         }
     }
 
-    private void e(int i) {
-        Fragment item;
-        if (i >= 0 && i < this.h) {
-            if (this.f[i] == 1) {
-                Fragment item2 = this.p.getItem(this.g);
-                if (item2 instanceof af) {
-                    ((af) item2).a();
+    private void a(int i) {
+        if (i >= 0 && i < this.d) {
+            Fragment item = this.k.getItem(this.c);
+            if (this.b[i] == 1) {
+                if (item instanceof af) {
+                    ((af) item).a();
                 } else {
-                    com.baidu.adp.lib.util.e.b("ReplyMeFragment selected error, can not update data.");
+                    com.baidu.adp.lib.util.f.b("ReplyMeFragment selected error, can not update data.");
                 }
-            } else if (this.f[i] == 2) {
-                Fragment item3 = this.p.getItem(this.g);
-                if (item3 instanceof a) {
-                    ((a) item3).a();
+            } else if (this.b[i] == 2) {
+                if (item instanceof a) {
+                    ((a) item).a();
                 } else {
-                    com.baidu.adp.lib.util.e.b("AtMeFragment selected error, can not update data.");
+                    com.baidu.adp.lib.util.f.b("AtMeFragment selected error, can not update data.");
                 }
             }
-            if (this.p != null && (item = this.p.getItem(i)) != null) {
-                cc.a(item.getClass().getName());
+            if (this.k != null) {
+                Fragment item2 = this.k.getItem(i);
+                if (item != null) {
+                    be.a(item2.getClass().getName());
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public final void onDestroy() {
         super.onDestroy();
-        com.baidu.tieba.im.messageCenter.d.a().a(this.t);
+        com.baidu.adp.framework.c.a().b(this.q);
     }
 
     @Override // android.support.v4.app.Fragment
     public final void onSaveInstanceState(Bundle bundle) {
-        if (this.g != -1) {
-            bundle.putInt("type", this.f[this.g]);
+        if (this.c != -1) {
+            bundle.putInt("type", this.b[this.c]);
         } else {
             bundle.putInt("type", 0);
         }
@@ -216,12 +198,12 @@ public final class c extends com.baidu.tieba.j implements ViewPager.OnPageChange
             switch (i) {
                 case 12011:
                     Bundle extras = intent.getExtras();
-                    String string = extras.getString("id");
-                    String string2 = extras.getString(SocialConstants.PARAM_MEDIA_UNAME);
+                    String string = extras.getString("user_id");
+                    String string2 = extras.getString("user_name");
                     String string3 = extras.getString("portrait");
                     if (string2 != null && string != null) {
                         try {
-                            com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001002, new com.baidu.tieba.a.c(this.s, Long.parseLong(string), string2, string3, 0)));
+                            com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001005, new com.baidu.tbadk.core.b.ah(this.n, Long.parseLong(string), string2, string3, 0)));
                             return;
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -235,155 +217,128 @@ public final class c extends com.baidu.tieba.j implements ViewPager.OnPageChange
         }
     }
 
-    public final void a(View view) {
-        for (int i = 0; i < this.d.length; i++) {
-            if (this.d[i] == view) {
-                f(i);
-                return;
-            }
+    private void a(Fragment fragment, int i, int i2) {
+        if (fragment != null) {
+            com.baidu.tbadk.core.tabHost.b bVar = new com.baidu.tbadk.core.tabHost.b();
+            FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(this.n);
+            bVar.c = fragment;
+            bVar.a = i;
+            fragmentTabIndicator.setText(i2);
+            fragmentTabIndicator.setGravity(17);
+            fragmentTabIndicator.b = com.baidu.tieba.a.e.main_bottom_button_color_1;
+            fragmentTabIndicator.a = com.baidu.tieba.a.e.main_bottom_button_color;
+            fragmentTabIndicator.a(0, getResources().getDimension(com.baidu.tieba.a.f.fontsize32));
+            bVar.b = fragmentTabIndicator;
+            com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
+            cVar.a = ((LayoutInflater) this.n.getSystemService("layout_inflater")).inflate(com.baidu.tieba.a.i.message_tip_item, (ViewGroup) null);
+            cVar.h = fragmentTabIndicator;
+            fragmentTabIndicator.a("msg_tip_key", cVar);
+            this.p.add(fragmentTabIndicator);
+            this.i.a(bVar);
         }
     }
 
-    private void f(int i) {
-        if (i >= 0 && i < this.h && this.g != i) {
-            this.g = i;
-            e(i);
-            this.n.setCurrentItem(i);
-            String str = null;
-            if (this.f[i] == 0) {
-                str = "msg_chat_tab_click";
-            } else if (this.f[i] == 1) {
-                str = "msg_reply_tab_click";
-            } else if (this.f[i] == 2) {
-                str = "msg_atme_tab_click";
-            }
-            if (str != null) {
-                cb.a(this.s, str, "click", 1, new Object[0]);
-            }
-            a();
-            a(this.f[i], true);
-        }
-    }
-
-    private void g(int i) {
-        for (int i2 = 0; i2 < this.f.length; i2++) {
-            if (i == this.f[i2]) {
-                f(i2);
-                return;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.j
-    public final void c(int i) {
-        if (i == 1) {
-            if (TiebaApplication.w()) {
-                this.n.setBackgroundColor(-14538444);
-            } else {
-                this.n.setBackgroundColor(this.s.getResources().getColor(R.color.bg_page_setting_1));
-            }
-        } else if (TiebaApplication.w()) {
-            this.n.setBackgroundColor(this.s.getResources().getColor(R.color.backgroundcolor));
-        } else {
-            this.n.setBackgroundColor(this.s.getResources().getColor(R.color.bg_page_setting));
-        }
-        bq.a(this.k, i);
-        this.j.b(i);
-        if (i == 1) {
-            for (TextView textView : this.e) {
-                textView.setTextColor(getResources().getColor(R.color.top_msg_num_night));
-            }
-        } else {
-            for (TextView textView2 : this.e) {
-                textView2.setTextColor(getResources().getColor(R.color.top_msg_num_day));
-            }
-        }
-        boolean z = this.b == 1;
-        for (int i2 = 0; i2 < this.d.length; i2++) {
-            TextView textView3 = this.d[i2];
-            if (i2 == 0) {
-                textView3.setBackgroundResource(z ? R.drawable.multiview_left_drawable_1 : R.drawable.multiview_left_drawable);
-            } else if (i2 == this.d.length - 1) {
-                textView3.setBackgroundResource(z ? R.drawable.multiview_right_drawable_1 : R.drawable.multiview_right_drawable);
-            } else {
-                textView3.setBackgroundResource(z ? R.drawable.multiview_center_drawable_1 : R.drawable.multiview_center_drawable);
-            }
-        }
-        a();
-        if (this.p != null) {
-            int count = this.p.getCount();
-            for (int i3 = 0; i3 < count; i3++) {
-                Fragment item = this.p.getItem(i3);
-                if (item != null && (item instanceof com.baidu.tieba.j)) {
-                    ((com.baidu.tieba.j) item).b(i);
+    private void b(int i) {
+        for (int i2 = 0; i2 < this.b.length; i2++) {
+            if (i == this.b[i2]) {
+                if (i2 < 0 || i2 >= this.d || this.c == i2) {
+                    return;
+                } else {
+                    this.c = i2;
+                    a(i2);
+                    this.i.setCurrentTab(i2);
+                    a(this.b[i2], true);
+                    String str = this.b[i2] == 0 ? "msg_chat_tab_click" : this.b[i2] == 1 ? "msg_reply_tab_click" : this.b[i2] == 2 ? "msg_atme_tab_click" : null;
+                    if (str != null) {
+                        TiebaStatic.a(this.n, str, "click", 1, new Object[0]);
+                        return;
+                    }
+                    return;
                 }
             }
         }
     }
 
-    private void a() {
-        boolean z = TiebaApplication.g().ae() == 1;
-        for (int i = 0; i < this.d.length; i++) {
-            TextView textView = this.d[i];
-            if (i == this.g) {
-                textView.setTextColor(getResources().getColor(z ? R.color.navi_multiview_text_s_1 : R.color.navi_multiview_text_s));
-                textView.setSelected(true);
+    @Override // com.baidu.tbadk.core.d
+    public final void onChangeSkinType(int i) {
+        if (i == 1) {
+            if (TbadkApplication.F()) {
+                this.i.setBackgroundColor(-14538444);
             } else {
-                textView.setTextColor(getResources().getColor(z ? R.color.navi_multiview_text_n_1 : R.color.navi_multiview_text_n));
-                textView.setSelected(false);
+                this.i.setBackgroundColor(this.n.getResources().getColor(com.baidu.tieba.a.e.bg_page_setting_1));
+            }
+        } else if (TbadkApplication.F()) {
+            this.i.setBackgroundColor(this.n.getResources().getColor(com.baidu.tieba.a.e.backgroundcolor));
+        } else {
+            this.i.setBackgroundColor(this.n.getResources().getColor(com.baidu.tieba.a.e.bg_page_setting));
+        }
+        this.f.b(i);
+        this.i.c(i);
+        if (this.k != null) {
+            int count = this.k.getCount();
+            for (int i2 = 0; i2 < count; i2++) {
+                Fragment item = this.k.getItem(i2);
+                if (item != null && (item instanceof com.baidu.tbadk.core.d)) {
+                    ((com.baidu.tbadk.core.d) item).changeSkinType(i);
+                }
             }
         }
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Removed duplicated region for block: B:105:0x0068  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x0075  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void a(int[] iArr) {
+        TextView textView;
+        FragmentTabIndicator fragmentTabIndicator;
         boolean z;
-        boolean z2 = this.b == 1;
         for (int i = 0; i < iArr.length; i++) {
-            TextView textView = null;
             int i2 = 0;
             while (true) {
-                if (i2 < this.h) {
-                    if (i != this.f[i2]) {
-                        i2++;
-                    } else {
-                        textView = this.e[i2];
-                    }
+                if (i2 >= this.d) {
+                    textView = null;
+                    fragmentTabIndicator = null;
+                } else if (i != this.b[i2]) {
+                    i2++;
+                } else {
+                    FragmentTabIndicator fragmentTabIndicator2 = this.p.get(i2);
+                    textView = (TextView) fragmentTabIndicator2.a("msg_tip_key").a;
+                    fragmentTabIndicator = fragmentTabIndicator2;
                 }
             }
             if (textView != null) {
                 int i3 = iArr[i];
                 switch (i) {
                     case 0:
-                        if (this.h < 3) {
+                        if (this.d < 3) {
                             z = false;
                             break;
                         } else {
-                            if (!TiebaApplication.g().R() && !TiebaApplication.g().S()) {
-                                z = false;
-                                break;
+                            if (!TbadkApplication.j().ae()) {
+                                TbadkApplication.j();
+                                if (!TbadkApplication.ad()) {
+                                    z = false;
+                                    break;
+                                }
                             }
                             z = true;
                             break;
                         }
-                        break;
                     case 1:
-                        if (!TiebaApplication.g().Q()) {
+                        if (!TbadkApplication.j().ai()) {
                             z = false;
                             break;
                         }
-                        if (!TiebaApplication.g().P()) {
+                        if (!TbadkApplication.j().ah()) {
                             z = false;
                             break;
                         }
                         z = true;
                         break;
                     case 2:
-                        if (!TiebaApplication.g().P()) {
+                        if (!TbadkApplication.j().ah()) {
                         }
                         z = true;
                         break;
@@ -393,38 +348,46 @@ public final class c extends com.baidu.tieba.j implements ViewPager.OnPageChange
                 }
                 if (!z) {
                     textView.setVisibility(8);
-                } else if (i3 <= 0) {
-                    textView.setVisibility(8);
-                } else if (i3 < 10) {
-                    textView.setText(String.valueOf(i3));
-                    textView.setBackgroundResource(z2 ? R.drawable.icon_news_head_prompt_one_1 : R.drawable.icon_news_head_prompt_one);
-                    textView.setVisibility(0);
-                } else if (i3 < 100) {
-                    textView.setText(String.valueOf(i3));
-                    textView.setBackgroundResource(z2 ? R.drawable.icon_news_head_prompt_two_1 : R.drawable.icon_news_head_prompt_two);
-                    textView.setVisibility(0);
                 } else {
-                    textView.setText("   ");
-                    textView.setBackgroundResource(z2 ? R.drawable.icon_news_head_prompt_more_1 : R.drawable.icon_news_head_prompt_more);
-                    textView.setVisibility(0);
+                    try {
+                        textView.setVisibility(0);
+                        boolean z2 = TbadkApplication.j().l() == 1;
+                        com.baidu.tieba.r.c();
+                        textView.setTextColor(com.baidu.tieba.r.d().getResources().getColor(z2 ? com.baidu.tieba.a.e.top_msg_num_night : com.baidu.tieba.a.e.top_msg_num_day));
+                        if (i3 == 0) {
+                            textView.setVisibility(8);
+                        } else if (i3 < 10) {
+                            textView.setText(String.valueOf(i3));
+                            textView.setBackgroundResource(z2 ? com.baidu.tieba.a.g.icon_news_head_prompt_one_1 : com.baidu.tieba.a.g.icon_news_head_prompt_one);
+                        } else if (i3 < 100) {
+                            textView.setText(String.valueOf(i3));
+                            textView.setBackgroundResource(z2 ? com.baidu.tieba.a.g.icon_news_head_prompt_two_1 : com.baidu.tieba.a.g.icon_news_head_prompt_two);
+                        } else {
+                            textView.setText("   ");
+                            textView.setBackgroundResource(z2 ? com.baidu.tieba.a.g.icon_news_head_prompt_more_1 : com.baidu.tieba.a.g.icon_news_head_prompt_more);
+                        }
+                    } catch (Exception e) {
+                        com.baidu.adp.lib.util.f.a(getClass(), "setTipMessage", e);
+                    }
                 }
+                fragmentTabIndicator.requestLayout();
             }
         }
     }
 
     public final void a(int i, boolean z) {
-        int k = v.a().k();
-        int l = v.a().l();
+        int i2 = com.baidu.tbadk.coreExtra.messageCenter.a.a().i();
+        int j = com.baidu.tbadk.coreExtra.messageCenter.a.a().j();
         int[] iArr = new int[3];
-        iArr[0] = v.a().o();
-        iArr[1] = k;
-        iArr[2] = l;
-        if (z && i < iArr.length && i >= 0 && i != 0 && this.f[this.g] != 0) {
+        iArr[0] = com.baidu.tbadk.coreExtra.messageCenter.a.a().m();
+        iArr[1] = i2;
+        iArr[2] = j;
+        if (z && i < iArr.length && i >= 0 && i != 0 && this.b[this.c] != 0) {
             iArr[i] = 0;
         }
         a(iArr);
         if (i != 0 && z) {
-            v.a().a(iArr[1], iArr[2], v.a().m(), iArr[0] - v.a().q());
+            com.baidu.tbadk.coreExtra.messageCenter.a.a().a(iArr[1], iArr[2], com.baidu.tbadk.coreExtra.messageCenter.a.a().k(), iArr[0] - com.baidu.tbadk.coreExtra.messageCenter.a.a().o());
         }
     }
 
@@ -434,22 +397,21 @@ public final class c extends com.baidu.tieba.j implements ViewPager.OnPageChange
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public final void onPageSelected(int i) {
-        if (i >= 0 && i < this.h && i != this.g) {
-            this.g = i;
-            e(this.g);
+        if (i >= 0 && i < this.d && i != this.c) {
+            this.c = i;
+            a(this.c);
             String str = null;
-            if (this.f[i] == 0) {
+            if (this.b[i] == 0) {
                 str = "msg_chat_tab_click";
-            } else if (this.f[i] == 1) {
+            } else if (this.b[i] == 1) {
                 str = "msg_reply_tab_click";
-            } else if (this.f[i] == 2) {
+            } else if (this.b[i] == 2) {
                 str = "msg_atme_tab_click";
             }
             if (str != null) {
-                cb.a(this.s, str, "click", 1, new Object[0]);
+                TiebaStatic.a(this.n, str, "click", 1, new Object[0]);
             }
-            a();
-            a(this.f[i], true);
+            a(this.b[i], true);
         }
     }
 
@@ -457,14 +419,15 @@ public final class c extends com.baidu.tieba.j implements ViewPager.OnPageChange
     public final void onPageScrollStateChanged(int i) {
     }
 
-    public static /* synthetic */ void a(c cVar, com.baidu.tieba.im.message.s sVar) {
-        if (sVar != null) {
-            if (!(sVar instanceof com.baidu.tieba.im.message.v)) {
-                com.baidu.adp.lib.util.e.b("transform error");
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void a(c cVar, com.baidu.adp.framework.message.f fVar) {
+        if (fVar != null) {
+            if (!(fVar instanceof NewsNotifyMessage)) {
+                com.baidu.adp.lib.util.f.b("transform error");
                 return;
             }
-            com.baidu.tieba.im.message.v vVar = (com.baidu.tieba.im.message.v) sVar;
-            cVar.a(new int[]{vVar.d(), vVar.a(), vVar.b()});
+            NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) fVar;
+            cVar.a(new int[]{newsNotifyMessage.i(), newsNotifyMessage.b(), newsNotifyMessage.c()});
         }
     }
 }

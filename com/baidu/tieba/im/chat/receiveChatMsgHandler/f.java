@@ -1,24 +1,19 @@
 package com.baidu.tieba.im.chat.receiveChatMsgHandler;
 
-import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import java.util.LinkedList;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.im.data.GroupMsgData;
 /* loaded from: classes.dex */
-final class f extends com.baidu.tieba.im.b<LinkedList<GroupNewsPojo>> {
-    final /* synthetic */ SystemMsgReceivedHandler a;
-    private final /* synthetic */ com.baidu.tieba.im.data.c c;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public f(SystemMsgReceivedHandler systemMsgReceivedHandler, com.baidu.tieba.im.data.c cVar) {
-        this.a = systemMsgReceivedHandler;
-        this.c = cVar;
+public final class f extends com.baidu.adp.framework.c.a {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
+    @Override // com.baidu.adp.framework.c.c
+    public final /* bridge */ /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
+        CustomResponsedMessage<?> customResponsedMessage2 = customResponsedMessage;
+        if (customResponsedMessage2 instanceof GroupMsgData) {
+            b.a((GroupMsgData) customResponsedMessage2, true);
+        }
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.b
-    public final /* bridge */ /* synthetic */ LinkedList<GroupNewsPojo> a() {
-        LinkedList<GroupNewsPojo> b;
-        SystemMsgReceivedHandler systemMsgReceivedHandler = this.a;
-        b = SystemMsgReceivedHandler.b(this.c);
-        return b;
+    public f() {
+        super(2013005);
     }
 }

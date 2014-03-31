@@ -1,0 +1,144 @@
+package com.baidu.tbadk.coreExtra.view;
+
+import android.content.Context;
+import android.graphics.Canvas;
+import android.text.Layout;
+import android.text.StaticLayout;
+import android.text.TextUtils;
+import android.util.AttributeSet;
+import android.widget.TextView;
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes.dex */
+public class EllipsizingTextView extends TextView {
+    private final List<i> a;
+    private boolean b;
+    private boolean c;
+    private boolean d;
+    private String e;
+    private int f;
+    private float g;
+    private float h;
+
+    public EllipsizingTextView(Context context) {
+        super(context);
+        this.a = new ArrayList();
+        this.f = -1;
+        this.g = 1.0f;
+        this.h = 0.0f;
+    }
+
+    public EllipsizingTextView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.a = new ArrayList();
+        this.f = -1;
+        this.g = 1.0f;
+        this.h = 0.0f;
+    }
+
+    public EllipsizingTextView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.a = new ArrayList();
+        this.f = -1;
+        this.g = 1.0f;
+        this.h = 0.0f;
+    }
+
+    public final void a(i iVar) {
+        if (iVar == null) {
+            throw new NullPointerException();
+        }
+        this.a.add(iVar);
+    }
+
+    @Override // android.widget.TextView
+    public void setMaxLines(int i) {
+        super.setMaxLines(i);
+        this.f = i;
+        this.c = true;
+    }
+
+    @Override // android.widget.TextView
+    public int getMaxLines() {
+        return this.f;
+    }
+
+    @Override // android.widget.TextView
+    public void setLineSpacing(float f, float f2) {
+        this.h = f;
+        this.g = f2;
+        super.setLineSpacing(f, f2);
+    }
+
+    @Override // android.widget.TextView
+    protected void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        super.onTextChanged(charSequence, i, i2, i3);
+        if (!this.d) {
+            this.e = charSequence.toString();
+            this.c = true;
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:14:0x0068  */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x0075  */
+    @Override // android.widget.TextView, android.view.View
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    protected void onDraw(Canvas canvas) {
+        boolean z;
+        if (this.c) {
+            super.setEllipsize(null);
+            int maxLines = getMaxLines();
+            String str = this.e;
+            if (maxLines != -1) {
+                Layout a = a(str);
+                if (a.getLineCount() > maxLines) {
+                    String trim = this.e.substring(0, a.getLineEnd(maxLines - 1)).trim();
+                    while (a(String.valueOf(trim) + "...").getLineCount() > maxLines) {
+                        if (trim.length() > 3) {
+                            trim = trim.substring(0, trim.length() - 3);
+                        }
+                        int lastIndexOf = trim.lastIndexOf(32);
+                        if (lastIndexOf == -1) {
+                            break;
+                        }
+                        trim = trim.substring(0, lastIndexOf);
+                    }
+                    str = String.valueOf(trim) + "...";
+                    z = true;
+                    if (!str.equals(getText())) {
+                        this.d = true;
+                        try {
+                            setText(str);
+                        } finally {
+                            this.d = false;
+                        }
+                    }
+                    this.c = false;
+                    if (z != this.b) {
+                        this.b = z;
+                        for (i iVar : this.a) {
+                            iVar.a(z);
+                        }
+                    }
+                }
+            }
+            z = false;
+            if (!str.equals(getText())) {
+            }
+            this.c = false;
+            if (z != this.b) {
+            }
+        }
+        super.onDraw(canvas);
+    }
+
+    private Layout a(String str) {
+        return new StaticLayout(str, getPaint(), (getWidth() - getPaddingLeft()) - getPaddingRight(), Layout.Alignment.ALIGN_NORMAL, this.g, this.h, false);
+    }
+
+    @Override // android.widget.TextView
+    public void setEllipsize(TextUtils.TruncateAt truncateAt) {
+    }
+}

@@ -1,46 +1,51 @@
 package com.baidu.adp.lib.debug.b;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.widget.Toast;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class g implements DialogInterface.OnClickListener {
-    final /* synthetic */ f a;
+public final class g implements View.OnClickListener {
+    final /* synthetic */ c a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(f fVar) {
-        this.a = fVar;
+    public g(c cVar) {
+        this.a = cVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
-        c cVar;
-        c cVar2;
-        Context context;
-        c cVar3;
-        Context context2;
-        c cVar4;
-        Context context3;
-        c cVar5;
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
         Dialog dialog;
-        if (i == -2) {
-            cVar5 = this.a.a;
-            dialog = cVar5.l;
-            dialog.dismiss();
-            return;
+        Dialog dialog2;
+        Dialog dialog3;
+        Dialog dialog4;
+        Context context;
+        Context context2;
+        Context context3;
+        Context context4;
+        Context context5;
+        dialog = this.a.l;
+        if (dialog == null) {
+            context = this.a.k;
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            context2 = this.a.k;
+            builder.setTitle(((Activity) context2).getText(com.baidu.adp.f.prompt));
+            context3 = this.a.k;
+            builder.setMessage(((Activity) context3).getText(com.baidu.adp.f.prompt_close_debug));
+            h hVar = new h(this);
+            context4 = this.a.k;
+            builder.setPositiveButton(((Activity) context4).getText(com.baidu.adp.f.dialog_ok), hVar);
+            context5 = this.a.k;
+            builder.setNegativeButton(((Activity) context5).getText(com.baidu.adp.f.dialog_cancel), hVar);
+            this.a.l = builder.create();
         }
-        cVar = this.a.a;
-        cVar.c();
-        cVar2 = this.a.a;
-        context = cVar2.k;
-        ((Activity) context).finish();
-        cVar3 = this.a.a;
-        context2 = cVar3.k;
-        Context baseContext = ((Activity) context2).getBaseContext();
-        cVar4 = this.a.a;
-        context3 = cVar4.k;
-        Toast.makeText(baseContext, ((Activity) context3).getText(com.baidu.adp.f.debug_close), 1).show();
+        dialog2 = this.a.l;
+        dialog2.setCancelable(false);
+        dialog3 = this.a.l;
+        dialog3.setCanceledOnTouchOutside(false);
+        dialog4 = this.a.l;
+        dialog4.show();
     }
 }

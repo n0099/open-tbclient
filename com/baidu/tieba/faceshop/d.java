@@ -1,108 +1,99 @@
 package com.baidu.tieba.faceshop;
 
 import android.graphics.Bitmap;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.tieba.util.bq;
-import com.slidingmenu.lib.R;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.LinkedList;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
+import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
-public final class d extends BaseAdapter {
-    final /* synthetic */ EmotionManageActivity a;
-
-    private d(EmotionManageActivity emotionManageActivity) {
-        this.a = emotionManageActivity;
+public final class d {
+    public static boolean a(String str, String str2, InputStream inputStream) {
+        return com.baidu.tbadk.core.util.w.a(new StringBuilder(".emotions/").append(str).toString(), str2, inputStream) != null;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ d(EmotionManageActivity emotionManageActivity, byte b) {
-        this(emotionManageActivity);
-    }
-
-    @Override // android.widget.Adapter
-    public final int getCount() {
-        List list;
-        List list2;
-        list = this.a.a;
-        if (list != null) {
-            list2 = this.a.a;
-            return list2.size();
+    public static boolean a(String str) {
+        com.baidu.tbadk.editortool.ab.a();
+        Bitmap c = com.baidu.tbadk.editortool.ab.c(str, "panel.png");
+        if (c == null) {
+            return false;
         }
-        return 0;
+        c.recycle();
+        return true;
     }
 
-    @Override // android.widget.Adapter
-    public final Object getItem(int i) {
-        List list;
-        List list2;
-        List list3;
-        list = this.a.a;
-        if (list != null) {
-            list2 = this.a.a;
-            if (i <= list2.size()) {
-                list3 = this.a.a;
-                return list3.get(i);
+    public static boolean a(String str, String str2, String str3) {
+        String str4 = com.baidu.tbadk.core.util.w.a + "/" + com.baidu.tbadk.core.data.n.f() + "/.emotions/" + str + "/";
+        File file = new File(str4, str2);
+        if (!file.exists()) {
+            return false;
+        }
+        File file2 = new File(str4, str3);
+        if (file2.exists()) {
+            if (file2.delete() && file.renameTo(file2)) {
+                return true;
             }
-        }
-        return null;
-    }
-
-    @Override // android.widget.Adapter
-    public final long getItemId(int i) {
-        List list;
-        List list2;
-        list = this.a.a;
-        if (list != null) {
-            list2 = this.a.a;
-            if (i <= list2.size()) {
-                return i;
-            }
-        }
-        return 0L;
-    }
-
-    @Override // android.widget.Adapter
-    public final View getView(int i, View view, ViewGroup viewGroup) {
-        List list;
-        boolean z;
-        List list2;
-        List list3;
-        if (view == null) {
-            view = View.inflate(this.a, R.layout.emotion_manage_list_item, null);
-            g gVar = new g((byte) 0);
-            gVar.a = (ImageView) view.findViewById(R.id.emotion_group_select);
-            gVar.b = (ImageView) view.findViewById(R.id.emotion_group_photo);
-            gVar.c = (TextView) view.findViewById(R.id.emotion_group_name);
-            view.setTag(gVar);
-        }
-        g gVar2 = (g) view.getTag();
-        list = this.a.a;
-        Bitmap bitmap = ((e) list.get(i)).d;
-        if (bitmap != null) {
-            gVar2.b.setImageBitmap(bitmap);
+            return com.baidu.tbadk.core.util.w.f(file.getAbsolutePath(), file2.getAbsolutePath());
+        } else if (file.renameTo(file2)) {
+            return true;
         } else {
-            bq.d(gVar2.b, (int) R.drawable.pic_image_h_not);
+            return com.baidu.tbadk.core.util.w.f(file.getAbsolutePath(), file2.getAbsolutePath());
         }
-        z = this.a.p;
-        if (z) {
-            list3 = this.a.a;
-            if (((e) list3.get(i)).c) {
-                bq.d(gVar2.a, (int) R.drawable.btn_expression_choose_s);
-            } else {
-                bq.d(gVar2.a, (int) R.drawable.btn_expression_choose_n);
+    }
+
+    public static List<String> a(String str, InputStream inputStream) {
+        ZipInputStream zipInputStream;
+        try {
+            zipInputStream = new ZipInputStream(new BufferedInputStream(inputStream));
+            while (true) {
+                try {
+                    ZipEntry nextEntry = zipInputStream.getNextEntry();
+                    if (nextEntry == null) {
+                        break;
+                    } else if (!nextEntry.isDirectory()) {
+                        String name = nextEntry.getName();
+                        com.baidu.adp.lib.util.f.e("zip file name:" + name);
+                        a(str, name, zipInputStream);
+                    } else {
+                        com.baidu.adp.lib.util.f.e("zip file dir:" + nextEntry.getName());
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    com.baidu.tbadk.core.util.l.a((InputStream) zipInputStream);
+                    throw th;
+                }
             }
-            gVar2.a.setVisibility(0);
-        } else {
-            gVar2.a.setVisibility(8);
+            zipInputStream.close();
+            com.baidu.tbadk.core.util.l.a((InputStream) zipInputStream);
+            byte[] e = com.baidu.tbadk.core.util.w.e(".emotions/" + str, "map.txt");
+            if (e == null) {
+                throw new FileNotFoundException("map.txt file not exsit!");
+            }
+            String str2 = new String(e, "UTF-8");
+            LinkedList linkedList = new LinkedList();
+            for (String str3 : str2.split(IOUtils.LINE_SEPARATOR_UNIX)) {
+                String trim = str3.trim();
+                if (trim.startsWith("#(")) {
+                    String[] split = trim.split("=");
+                    if (split.length == 2) {
+                        String trim2 = split[0].trim();
+                        String trim3 = split[1].trim();
+                        com.baidu.tbadk.editortool.ab.a();
+                        a(str, "s_" + trim3 + ".png", com.baidu.tbadk.editortool.ab.a(trim2, false));
+                        com.baidu.tbadk.editortool.ab.a();
+                        a(str, "d_" + trim3 + ".gif", com.baidu.tbadk.editortool.ab.a(trim2, true));
+                        linkedList.add(trim2);
+                    }
+                }
+            }
+            return linkedList;
+        } catch (Throwable th2) {
+            th = th2;
+            zipInputStream = null;
         }
-        TextView textView = gVar2.c;
-        list2 = this.a.a;
-        textView.setText(((e) list2.get(i)).b);
-        this.a.getLayoutMode().a(view);
-        return view;
     }
 }

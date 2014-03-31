@@ -35,7 +35,7 @@ public final class p {
                         try {
                             this.a.add(new BasicNameValuePair(split[0], URLDecoder.decode(split[1], "utf-8")));
                         } catch (UnsupportedEncodingException e) {
-                            com.baidu.adp.lib.util.e.a(getClass(), "parse", e);
+                            com.baidu.adp.lib.util.f.a(getClass(), "parse", e);
                         }
                     }
                 }
@@ -67,7 +67,7 @@ public final class p {
                     try {
                         sb.append(URLEncoder.encode(next.getValue(), "utf-8"));
                     } catch (UnsupportedEncodingException e) {
-                        com.baidu.adp.lib.util.e.a(getClass(), "toString", e);
+                        com.baidu.adp.lib.util.f.a(getClass(), "toString", e);
                         sb.append(next.getValue());
                     }
                 }

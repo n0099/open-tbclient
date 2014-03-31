@@ -6,8 +6,7 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.widget.RemoteViews;
 import com.baidu.location.LocationClientOption;
-import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.R;
+import com.baidu.tieba.download.DownloadMessage;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -19,7 +18,7 @@ public class b {
     private static List<e> i = new LinkedList();
     private NotificationManager f;
     private Notification g;
-    private int b = 5;
+    private final int b = 5;
     private int c = 0;
     private c d = null;
     private d e = null;
@@ -28,11 +27,14 @@ public class b {
     private b() {
         this.f = null;
         this.g = null;
-        this.f = (NotificationManager) TiebaApplication.g().b().getSystemService("notification");
-        PendingIntent activity = PendingIntent.getActivity(TiebaApplication.g().b(), 0, new Intent(), 0);
+        com.baidu.tieba.r.c();
+        this.f = (NotificationManager) com.baidu.tieba.r.d().getSystemService("notification");
+        com.baidu.tieba.r.c();
+        PendingIntent activity = PendingIntent.getActivity(com.baidu.tieba.r.d(), 0, new Intent(), 0);
         Notification notification = new Notification(17301633, null, System.currentTimeMillis());
-        notification.contentView = new RemoteViews(TiebaApplication.g().b().getPackageName(), (int) R.layout.notify_item);
-        notification.contentView.setProgressBar(R.id.progress, 100, 0, false);
+        com.baidu.tieba.r.c();
+        notification.contentView = new RemoteViews(com.baidu.tieba.r.d().getPackageName(), com.baidu.tieba.a.i.notify_item);
+        notification.contentView.setProgressBar(com.baidu.tieba.a.h.progress, 100, 0, false);
         notification.contentIntent = activity;
         notification.flags = 32;
         this.g = notification;
@@ -48,15 +50,16 @@ public class b {
     }
 
     public final void a(String str, String str2, String str3, int i2) {
-        com.baidu.tieba.d.a aVar = new com.baidu.tieba.d.a(str);
+        com.baidu.tieba.download.a aVar = new com.baidu.tieba.download.a(str);
         aVar.b(12);
-        if (this.c <= this.b) {
+        if (this.c <= 5) {
             this.c++;
             aVar.a(1);
             aVar.e((String) null);
         } else {
             aVar.a(2);
-            aVar.e(TiebaApplication.g().b().getString(R.string.download_fail_over_max));
+            com.baidu.tieba.r.c();
+            aVar.e(com.baidu.tieba.r.d().getString(com.baidu.tieba.a.k.download_fail_over_max));
         }
         a(aVar);
         e eVar = new e(this);
@@ -92,21 +95,21 @@ public class b {
         return split[split.length - 1];
     }
 
-    public static void a(com.baidu.tieba.d.a aVar) {
+    public static void a(com.baidu.tieba.download.a aVar) {
         LinkedList linkedList = new LinkedList();
         linkedList.add(aVar);
-        com.baidu.tieba.im.messageCenter.d.a().d(new com.baidu.tieba.d.b(linkedList));
+        com.baidu.adp.framework.c.a().b(new DownloadMessage(linkedList));
     }
 
-    public static void a(List<com.baidu.tieba.d.a> list) {
-        com.baidu.tieba.im.messageCenter.d.a().d(new com.baidu.tieba.d.b(list));
+    public static void a(List<com.baidu.tieba.download.a> list) {
+        com.baidu.adp.framework.c.a().b(new DownloadMessage(list));
     }
 
     public final NotificationManager b() {
         return this.f;
     }
 
-    public final void a(ArrayList<g> arrayList) {
+    public final void a(ArrayList<com.baidu.tbadk.core.data.b> arrayList) {
         this.e = new d(this, (byte) 0);
         this.e.execute(arrayList);
     }
@@ -114,7 +117,7 @@ public class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ String a(b bVar, String str) {
         StringBuilder sb = new StringBuilder();
-        sb.append(com.baidu.tieba.util.af.d());
+        sb.append(com.baidu.tbadk.core.util.w.d());
         File file = new File(sb.toString());
         if (!file.exists()) {
             file.mkdirs();
@@ -124,25 +127,34 @@ public class b {
         return sb.toString();
     }
 
-    public final void b(com.baidu.tieba.d.a aVar) {
+    public final void b(com.baidu.tieba.download.a aVar) {
         if (this.f != null && this.g != null) {
-            this.g.tickerText = String.valueOf(aVar.b()) + TiebaApplication.g().b().getResources().getString(R.string.download_will_begin);
-            this.g.contentView.setTextViewText(R.id.info, aVar.b());
-            this.g.contentView.setProgressBar(R.id.progress, 100, (int) ((aVar.h() * 100) / aVar.i()), false);
-            StringBuilder sb = new StringBuilder(20);
-            sb.append(String.valueOf(aVar.h() / 1000));
-            sb.append("K/");
-            sb.append(String.valueOf(aVar.i() / 1000));
-            sb.append("K");
-            this.g.contentView.setTextViewText(R.id.schedule, sb);
+            Notification notification = this.g;
+            StringBuilder sb = new StringBuilder(String.valueOf(aVar.b()));
+            com.baidu.tieba.r.c();
+            notification.tickerText = sb.append(com.baidu.tieba.r.d().getResources().getString(com.baidu.tieba.a.k.download_will_begin)).toString();
+            this.g.contentView.setTextViewText(com.baidu.tieba.a.h.info, aVar.b());
+            this.g.contentView.setProgressBar(com.baidu.tieba.a.h.progress, 100, (int) ((aVar.h() * 100) / aVar.i()), false);
+            StringBuilder sb2 = new StringBuilder(20);
+            sb2.append(String.valueOf(aVar.h() / 1000));
+            sb2.append("K/");
+            sb2.append(String.valueOf(aVar.i() / 1000));
+            sb2.append("K");
+            this.g.contentView.setTextViewText(com.baidu.tieba.a.h.schedule, sb2);
             this.f.notify(aVar.o(), this.g);
         }
     }
 
-    public final void c(com.baidu.tieba.d.a aVar) {
+    public final void c(com.baidu.tieba.download.a aVar) {
         if (this.f != null && this.g != null) {
-            this.g.tickerText = String.valueOf(aVar.b()) + TiebaApplication.g().b().getResources().getString(R.string.download_fail_tip);
-            this.g.contentView.setTextViewText(R.id.info, TiebaApplication.g().b().getString(R.string.error_sd_error));
+            Notification notification = this.g;
+            StringBuilder sb = new StringBuilder(String.valueOf(aVar.b()));
+            com.baidu.tieba.r.c();
+            notification.tickerText = sb.append(com.baidu.tieba.r.d().getResources().getString(com.baidu.tieba.a.k.download_fail_tip)).toString();
+            RemoteViews remoteViews = this.g.contentView;
+            int i2 = com.baidu.tieba.a.h.info;
+            com.baidu.tieba.r.c();
+            remoteViews.setTextViewText(i2, com.baidu.tieba.r.d().getString(com.baidu.tieba.a.k.error_sd_error));
             this.g.flags = 16;
             this.f.notify(aVar.o(), this.g);
         }

@@ -2,35 +2,30 @@ package com.baidu.tieba.square;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ProgressBar;
-import com.baidu.tieba.util.bq;
-import com.baidu.tieba.util.cb;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 public class BarFolderSecondDirActivity extends com.baidu.tieba.a {
     private ProgressBar h;
     private q i;
     private p j;
-    private ImageView k = null;
+    private String k;
     private String l;
     private String m;
-    private String n;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(R.layout.bar_folder_dir_activity);
-        this.l = getIntent().getStringExtra("menuName");
-        this.m = getIntent().getStringExtra("menuType");
-        this.n = getIntent().getStringExtra("menuId");
-        this.i = new q(this, new t(), this.l, this.n);
+        setContentView(com.baidu.tieba.a.i.bar_folder_dir_activity);
+        this.k = getIntent().getStringExtra("menuName");
+        this.l = getIntent().getStringExtra("menuType");
+        this.m = getIntent().getStringExtra("menuId");
+        this.i = new q(this, new t(), this.k, this.m);
         this.e.setAdapter((ListAdapter) this.i);
-        this.d.setText(this.l);
-        this.h = (ProgressBar) findViewById(R.id.progress);
-        this.k = (ImageView) findViewById(R.id.home);
+        this.d.setText(this.k);
+        this.h = (ProgressBar) findViewById(com.baidu.tieba.a.h.progress);
         this.h.setVisibility(0);
         this.e.setEnabled(false);
         if (this.j != null) {
@@ -40,15 +35,13 @@ public class BarFolderSecondDirActivity extends com.baidu.tieba.a {
         this.j.setPriority(3);
         this.j.execute("");
         this.e.setOnItemClickListener(new o(this));
-        this.k.setOnClickListener(this);
-        cb.a(this, "category_2", "enter");
+        TiebaStatic.a(this, "category_2", "enter");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.a, com.baidu.tieba.f
+    @Override // com.baidu.tieba.a, com.baidu.tbadk.a
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        bq.c(this.k, i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -63,9 +56,6 @@ public class BarFolderSecondDirActivity extends com.baidu.tieba.a {
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.k) {
-            com.baidu.tieba.mainentrance.d.a(this);
-        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

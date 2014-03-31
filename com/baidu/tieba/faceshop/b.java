@@ -1,61 +1,15 @@
 package com.baidu.tieba.faceshop;
-
-import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.tieba.util.bq;
-import com.slidingmenu.lib.R;
-import java.util.List;
 /* loaded from: classes.dex */
-final class b implements AdapterView.OnItemClickListener {
-    final /* synthetic */ EmotionManageActivity a;
+final class b implements com.baidu.tbadk.editortool.c {
+    final /* synthetic */ AdsEmotionRegister a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b(EmotionManageActivity emotionManageActivity) {
-        this.a = emotionManageActivity;
+    public b(AdsEmotionRegister adsEmotionRegister) {
+        this.a = adsEmotionRegister;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public final void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        boolean z;
-        List list;
-        g gVar;
-        List list2;
-        List<e> list3;
-        List list4;
-        List list5;
-        List list6;
-        z = this.a.p;
-        if (z) {
-            list = this.a.a;
-            if (list.get(i) != null && (gVar = (g) view.getTag()) != null) {
-                list2 = this.a.a;
-                String str = ((e) list2.get(i)).a;
-                if (str != null) {
-                    list3 = this.a.a;
-                    for (e eVar : list3) {
-                        if (eVar.a.equals(str)) {
-                            list4 = this.a.b;
-                            if (list4.contains(str)) {
-                                bq.d(gVar.a, (int) R.drawable.btn_expression_choose_n);
-                                list5 = this.a.b;
-                                list5.remove(str);
-                                EmotionManageActivity.a(this.a, str);
-                                eVar.c = false;
-                            } else {
-                                bq.d(gVar.a, (int) R.drawable.btn_expression_choose_s);
-                                EmotionManageActivity.b(this.a, str);
-                                eVar.c = true;
-                            }
-                        }
-                    }
-                    return;
-                }
-                return;
-            }
-            return;
-        }
-        EmotionManageActivity emotionManageActivity = this.a;
-        list6 = this.a.a;
-        FacePackageDetailActivity.a(emotionManageActivity, ((e) list6.get(i)).a, false, "emotion_manage");
+    @Override // com.baidu.tbadk.editortool.c
+    public final void a() {
+        com.baidu.tbadk.editortool.ab.a().b();
     }
 }

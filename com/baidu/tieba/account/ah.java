@@ -1,30 +1,42 @@
 package com.baidu.tieba.account;
 
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
+import android.content.Intent;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
-final class ah implements View.OnClickListener {
-    final /* synthetic */ LoginActivity a;
+final class ah extends BdAsyncTask<Void, Void, Void> {
+    final /* synthetic */ ag a;
+    private final /* synthetic */ AccountData b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(LoginActivity loginActivity) {
-        this.a = loginActivity;
+    public ah(ag agVar, AccountData accountData) {
+        this.a = agVar;
+        this.b = accountData;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        EditText editText;
-        EditText editText2;
-        this.a.h();
-        LoginActivity loginActivity = this.a;
-        InputMethodManager inputMethodManager = this.a.b;
-        editText = this.a.o;
-        loginActivity.HidenSoftKeyPad(inputMethodManager, editText);
-        LoginActivity loginActivity2 = this.a;
-        InputMethodManager inputMethodManager2 = this.a.b;
-        editText2 = this.a.p;
-        loginActivity2.HidenSoftKeyPad(inputMethodManager2, editText2);
-        SapiFastRegActivity.a(this.a, 22002);
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* bridge */ /* synthetic */ Void a(Void... voidArr) {
+        return a();
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ void a(Void r4) {
+        String str;
+        Intent intent = new Intent();
+        str = this.a.a.b;
+        intent.putExtra("fast_reg_user_type", str);
+        this.a.a.setResult(-1, intent);
+        this.a.a.finish();
+    }
+
+    private Void a() {
+        com.baidu.tbadk.core.a.o.a(this.b);
+        com.baidu.tbadk.core.a.o.b(this.b);
+        return null;
     }
 }

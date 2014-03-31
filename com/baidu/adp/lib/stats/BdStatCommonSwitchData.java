@@ -40,7 +40,7 @@ public class BdStatCommonSwitchData implements Serializable {
                 setIs_only_wifi(jSONObject.optInt("is_only_wifi", 0) != 0);
                 setIs_open(jSONObject.optInt("is_open", 0) != 0);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.e.a(getClass(), "parserJson", e);
+                com.baidu.adp.lib.util.f.a(getClass(), "parserJson", e);
             }
         }
     }

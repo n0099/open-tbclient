@@ -1,53 +1,58 @@
 package com.baidu.tieba.im.hotGroup;
 
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.im.message.aq;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tieba.im.data.GroupInfoData;
+import com.baidu.tieba.im.hotGroup.HotGroupAdapter;
+import com.baidu.tieba.im.message.ResponseHotGroupsLocalMessage;
+import java.util.List;
 /* loaded from: classes.dex */
-public final class c {
-    private int d;
-    private boolean e;
-    private boolean f;
-    private boolean g;
-    private final int h = 30;
-    private int b = BdUtilHelper.a(TiebaApplication.g().c(), 70.0f);
-    private int a = BdUtilHelper.a(TiebaApplication.g().c(), 70.0f);
-    private int c = 30;
+final class c extends com.baidu.adp.framework.c.a {
+    final /* synthetic */ HotGroupFragment a;
 
-    public final void a(int i) {
-        this.d = i;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c(HotGroupFragment hotGroupFragment, int i) {
+        super(2001116);
+        this.a = hotGroupFragment;
     }
 
-    public final boolean a() {
-        return this.e;
-    }
-
-    public final void a(boolean z) {
-        this.e = z;
-    }
-
-    public final boolean b() {
-        return this.f;
-    }
-
-    public final void b(boolean z) {
-        this.f = z;
-    }
-
-    public final void c(boolean z) {
-        this.g = z;
-    }
-
-    public final void d(boolean z) {
-        if (!this.g) {
-            this.g = true;
-            if (z) {
-                aq aqVar = new aq(this.b, this.a, this.c, this.d);
-                aqVar.e(-116);
-                com.baidu.tieba.im.messageCenter.d.a().a(aqVar);
-                return;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
+    @Override // com.baidu.adp.framework.c.c
+    public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
+        d dVar;
+        d dVar2;
+        HotGroupAdapter hotGroupAdapter;
+        HotGroupAdapter hotGroupAdapter2;
+        HotGroupAdapter hotGroupAdapter3;
+        HotGroupAdapter hotGroupAdapter4;
+        d dVar3;
+        BdListView bdListView;
+        CustomResponsedMessage<?> customResponsedMessage2 = customResponsedMessage;
+        if (!(customResponsedMessage2 instanceof ResponseHotGroupsLocalMessage)) {
+            bdListView = this.a.a;
+            bdListView.b();
+            return;
+        }
+        dVar = this.a.f;
+        dVar.c(false);
+        ResponseHotGroupsLocalMessage responseHotGroupsLocalMessage = (ResponseHotGroupsLocalMessage) customResponsedMessage2;
+        if (customResponsedMessage2.g() == 2001116) {
+            List<GroupInfoData> b = responseHotGroupsLocalMessage.b();
+            if (b != null) {
+                hotGroupAdapter = this.a.e;
+                hotGroupAdapter.a(b);
+                hotGroupAdapter2 = this.a.e;
+                hotGroupAdapter2.notifyDataSetChanged();
+                hotGroupAdapter3 = this.a.e;
+                hotGroupAdapter3.a(true);
+                hotGroupAdapter4 = this.a.e;
+                hotGroupAdapter4.a(HotGroupAdapter.BOTTOM_TYPE.LINE);
+                dVar3 = this.a.f;
+                dVar3.a(false);
             }
-            com.baidu.tieba.im.messageCenter.d.a().a(new aq(this.b, this.a, this.c, this.d));
+            dVar2 = this.a.f;
+            dVar2.d(false);
         }
     }
 }

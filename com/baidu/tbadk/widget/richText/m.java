@@ -37,7 +37,7 @@ public final class m implements ViewGroup.OnHierarchyChangeListener {
         com.baidu.adp.lib.d.b bVar10;
         com.baidu.adp.lib.d.b bVar11;
         com.baidu.adp.lib.d.b bVar12;
-        com.baidu.adp.lib.util.e.e("pool return child");
+        com.baidu.adp.lib.util.f.e("pool return child");
         if (view2 instanceof GifView) {
             bVar11 = this.a.f;
             if (bVar11 != null) {

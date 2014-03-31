@@ -4,8 +4,7 @@ import android.content.res.Resources;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.TextView;
-import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 final class a implements TextWatcher {
     final /* synthetic */ AppealActivity a;
@@ -37,12 +36,12 @@ final class a implements TextWatcher {
         if (length < 0) {
             textView3 = this.a.e;
             resources = this.a.getResources();
-            i = R.color.red;
+            i = com.baidu.tieba.a.e.red;
         } else {
-            int ae = TiebaApplication.g().ae();
+            int l = TbadkApplication.j().l();
             textView3 = this.a.e;
             resources = this.a.getResources();
-            i = ae == 1 ? R.color.appeal_hint : R.color.appeal_hint_1;
+            i = l == 1 ? com.baidu.tieba.a.e.appeal_hint : com.baidu.tieba.a.e.appeal_hint_1;
         }
         textView3.setTextColor(resources.getColor(i));
     }

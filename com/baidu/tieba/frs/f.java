@@ -1,33 +1,64 @@
 package com.baidu.tieba.frs;
 
-import org.json.JSONObject;
+import com.baidu.adp.lib.cache.BdCacheService;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
 public final class f {
-    private int a;
-    private String b;
-    private String c;
+    private static f a;
+    private g b;
+    private com.baidu.adp.lib.cache.s<String> c;
 
-    public final String a() {
+    private f() {
+        this.b = null;
+        this.c = null;
+        this.b = new g();
+        this.c = BdCacheService.a().a("tb.frs", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
+    }
+
+    public static synchronized f a() {
+        f fVar;
+        synchronized (f.class) {
+            if (a == null) {
+                a = new f();
+            }
+            fVar = a;
+        }
+        return fVar;
+    }
+
+    public final boolean a(String str) {
+        if (this.c != null && str != null) {
+            String a2 = this.c.a(String.valueOf(TbadkApplication.E()) + str);
+            if (a2 != null && a2.length() > 0) {
+                this.b.a(a2);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public final void a(String str, String str2) {
+        if (str != null && str.length() > 0) {
+            this.c.a(String.valueOf(TbadkApplication.E()) + str, str2, 604800000L);
+        }
+    }
+
+    public final void b(String str) {
+        if (str != null && str.length() > 0) {
+            this.c.c(String.valueOf(TbadkApplication.E()) + str);
+        }
+    }
+
+    public final g b() {
         return this.b;
     }
 
-    public final String b() {
-        return String.valueOf(this.a);
-    }
-
-    public final String c() {
-        return this.c;
-    }
-
-    public final void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = jSONObject.optInt("badge_id", 0);
-                this.b = jSONObject.optString("badge_url", "");
-                this.c = jSONObject.optString("webview");
-            } catch (Exception e) {
-                com.baidu.adp.lib.util.e.b("BadgeData", "parserJson", "error = " + e.getMessage());
-            }
+    public final boolean c(String str) {
+        com.baidu.adp.lib.cache.t<String> b;
+        if (str == null || str.length() <= 0 || (b = this.c.b(str)) == null) {
+            return false;
         }
+        return UtilHelper.a(b.c, System.currentTimeMillis());
     }
 }

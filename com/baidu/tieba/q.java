@@ -1,9 +1,12 @@
 package com.baidu.tieba;
-
-import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class q {
-    public int a;
-    public int b;
-    public View c;
+public interface q {
+    void a();
+
+    void a(boolean z);
+
+    void b();
+
+    void c();
 }

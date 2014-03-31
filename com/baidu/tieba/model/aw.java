@@ -1,100 +1,49 @@
 package com.baidu.tieba.model;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.android.pushservice.PushConstants;
-import com.baidu.tieba.data.MarkData;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class aw extends BdAsyncTask<Boolean, Integer, Boolean> {
+public final class aw extends com.baidu.adp.framework.c.a {
     final /* synthetic */ av a;
-    private com.baidu.tieba.util.ba b = null;
-    private boolean c;
-    private com.baidu.tieba.data.ay d;
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ Boolean a(Boolean... boolArr) {
-        MarkData markData;
-        MarkData markData2;
-        MarkData markData3;
-        if (this.c) {
-            this.b = new com.baidu.tieba.util.ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/c/post/addstore");
-            g gVar = new g();
-            markData3 = this.a.b;
-            gVar.a(markData3);
-            this.b.a("data", gVar.a(0, 1));
-        } else {
-            this.b = new com.baidu.tieba.util.ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/c/post/rmstore");
-            com.baidu.tieba.util.ba baVar = this.b;
-            markData = this.a.b;
-            baVar.a(PushConstants.EXTRA_USER_ID, markData.getAccount());
-            com.baidu.tieba.util.ba baVar2 = this.b;
-            markData2 = this.a.b;
-            baVar2.a("tid", markData2.getId());
-        }
-        this.d.a(this.b.l());
-        return this.b.c() && (this.d.a() == 0);
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void a(Boolean bool) {
-        ax axVar;
-        ax axVar2;
-        ax axVar3;
-        ax axVar4;
-        ax axVar5;
-        try {
-            if (bool.booleanValue()) {
-                axVar4 = this.a.d;
-                if (axVar4 != null) {
-                    axVar5 = this.a.d;
-                    axVar5.a(true, this.c);
-                }
-            } else {
-                axVar = this.a.d;
-                if (axVar != null) {
-                    if (this.b == null || this.b.c()) {
-                        axVar2 = this.a.d;
-                        boolean z = this.c;
-                        this.d.b();
-                        axVar2.a(false, z);
-                    } else {
-                        axVar3 = this.a.d;
-                        boolean z2 = this.c;
-                        this.b.i();
-                        axVar3.a(false, z2);
-                    }
-                }
-            }
-            this.a.c = null;
-        } catch (Throwable th) {
-            com.baidu.adp.lib.util.e.b(th.toString());
-        }
-    }
-
-    public aw(av avVar, boolean z) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public aw(av avVar, int i) {
+        super(2001118);
         this.a = avVar;
-        this.c = true;
-        this.d = null;
-        this.c = z;
-        this.d = new com.baidu.tieba.data.ay();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void b() {
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void cancel() {
-        super.cancel(true);
-        if (this.b != null) {
-            this.b.j();
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
+    @Override // com.baidu.adp.framework.c.c
+    public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
+        com.baidu.adp.a.h hVar;
+        com.baidu.adp.a.h hVar2;
+        CustomResponsedMessage<?> customResponsedMessage2 = customResponsedMessage;
+        if (customResponsedMessage2 != null) {
+            switch (customResponsedMessage2.g()) {
+                case 2001118:
+                    if (!(customResponsedMessage2 instanceof UpdateAttentionMessage) || this.a.g() == null) {
+                        return;
+                    }
+                    UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage2;
+                    com.baidu.tbadk.coreExtra.message.d a = updateAttentionMessage.a();
+                    if (this.a.g().getUserId() == null || a == null || !this.a.g().getUserId().equals(a.c)) {
+                        return;
+                    }
+                    this.a.g().setHave_attention(updateAttentionMessage.c() ? 0 : 1);
+                    this.a.mLoadDataMode = 3;
+                    this.a.setErrorString(updateAttentionMessage.f());
+                    hVar = this.a.mLoadDataCallBack;
+                    if (hVar != null) {
+                        hVar2 = this.a.mLoadDataCallBack;
+                        hVar2.a(Boolean.valueOf(updateAttentionMessage.b()));
+                        return;
+                    }
+                    return;
+                default:
+                    return;
+            }
         }
-        this.a.c = null;
     }
 }

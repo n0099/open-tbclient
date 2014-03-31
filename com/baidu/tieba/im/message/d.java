@@ -1,17 +1,7 @@
 package com.baidu.tieba.im.message;
 /* loaded from: classes.dex */
-public final class d extends s {
-    private String a;
-
+public final class d extends com.baidu.adp.framework.message.a<Object> {
     public d() {
-        super.e(-117);
-    }
-
-    public final String a() {
-        return this.a;
-    }
-
-    public final void a(String str) {
-        this.a = str;
+        super(2001115);
     }
 }

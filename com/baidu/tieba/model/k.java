@@ -1,75 +1,229 @@
 package com.baidu.tieba.model;
+
+import com.baidu.tieba.data.MarkData;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public final class k extends com.baidu.adp.a.d {
-    private com.baidu.tieba.data.s b;
-    private m a = null;
-    private boolean c = true;
-    private n d = null;
-    private long e = 0;
-    private long f = 0;
-    private long g = 0;
-    private long h = 0;
+public final class k {
+    private boolean h;
+    private m b = null;
+    private n c = null;
+    private l d = null;
+    private int f = 0;
+    private int g = 0;
+    protected com.baidu.tbadk.d a = null;
+    private ArrayList<MarkData> e = new ArrayList<>();
 
     public k() {
-        this.b = null;
-        this.b = new com.baidu.tieba.data.s();
+        this.h = false;
+        this.h = true;
     }
 
-    public final long a() {
-        return this.h;
+    public final int a() {
+        if (this.e == null) {
+            return 0;
+        }
+        return this.e.size();
     }
 
-    public final long b() {
-        return this.f;
-    }
-
-    public final long c() {
+    public final int b() {
         return this.g;
     }
 
-    public final long d() {
+    public final void a(int i) {
+        this.g = i;
+    }
+
+    public final boolean c() {
+        return this.f >= 20;
+    }
+
+    public final void d() {
+        this.g = 0;
+        this.f = 0;
+        this.h = true;
+    }
+
+    public final boolean e() {
+        return this.h;
+    }
+
+    public final ArrayList<MarkData> f() {
         return this.e;
     }
 
-    public final com.baidu.tieba.data.s e() {
-        return this.b;
+    public final void a(ArrayList<MarkData> arrayList) {
+        this.e = arrayList;
     }
 
-    public final void a(n nVar) {
-        this.d = nVar;
+    public final void b(ArrayList<MarkData> arrayList) {
+        if (this.e != null && arrayList != null) {
+            this.e.addAll(arrayList);
+            if (this.e != null) {
+                HashSet hashSet = new HashSet();
+                Iterator<MarkData> it = this.e.iterator();
+                while (it.hasNext()) {
+                    if (!hashSet.add(it.next().getId())) {
+                        it.remove();
+                    }
+                }
+            }
+        }
     }
 
-    @Override // com.baidu.adp.a.d
-    protected final boolean LoadData() {
-        return false;
+    public final void a(MarkData markData) {
+        this.e.add(markData);
     }
 
-    @Override // com.baidu.adp.a.d
-    public final boolean cancelLoadData() {
-        if (this.a != null) {
-            this.a.cancel();
+    public final int g() {
+        if (this.e == null) {
+            return 0;
+        }
+        return this.e.size();
+    }
+
+    public final int h() {
+        return this.f;
+    }
+
+    public final void i() {
+        ArrayList<MarkData> l = com.baidu.tieba.util.k.l();
+        if (l != null) {
+            this.e = l;
+        }
+    }
+
+    public final String a(int i, int i2) {
+        JSONArray jSONArray;
+        int i3;
+        if (this.e == null) {
+            return null;
+        }
+        if (i >= this.e.size()) {
+            i2 -= (i - this.e.size()) - 1;
+            i = this.e.size() - 1;
+        }
+        JSONArray jSONArray2 = new JSONArray();
+        int i4 = 0;
+        int i5 = i;
+        while (true) {
+            if (i5 < 0) {
+                jSONArray = jSONArray2;
+                break;
+            } else if (i5 <= i - i2) {
+                jSONArray = jSONArray2;
+                break;
+            } else {
+                try {
+                    JSONObject json = this.e.get(i5).toJson();
+                    if (json == null || i4 < 0) {
+                        i3 = i4;
+                    } else {
+                        i3 = i4 + 1;
+                        jSONArray2.put(i4, json);
+                    }
+                    i5--;
+                    i4 = i3;
+                } catch (Exception e) {
+                    com.baidu.adp.lib.util.f.b(getClass().getName(), "toJson", e.toString());
+                    jSONArray = null;
+                }
+            }
+        }
+        if (jSONArray == null) {
+            return null;
+        }
+        return jSONArray.toString();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public ArrayList<MarkData> a(String str) {
+        JSONObject jSONObject;
+        ArrayList<MarkData> arrayList = new ArrayList<>();
+        try {
+            jSONObject = new JSONObject(str);
+        } catch (Exception e) {
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.toString());
+            arrayList = null;
+        }
+        if (jSONObject.optJSONObject("error").optString("errno").equals("0")) {
+            JSONArray optJSONArray = jSONObject.optJSONArray("store_thread");
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                MarkData markData = new MarkData();
+                markData.paserJson(optJSONArray.getJSONObject(i));
+                arrayList.add(markData);
+            }
+            return arrayList;
+        }
+        return null;
+    }
+
+    public final void a(JSONObject jSONObject) {
+        try {
+            if (jSONObject.optJSONObject("error").optString("errno").equals("0")) {
+                JSONArray optJSONArray = jSONObject.optJSONArray("store_thread");
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    MarkData markData = new MarkData();
+                    markData.paserJson(optJSONArray.getJSONObject(i));
+                    this.e.add(markData);
+                }
+            }
+        } catch (Exception e) {
+            com.baidu.adp.lib.util.f.b(getClass().getName(), "parserJson", e.toString());
+        }
+    }
+
+    public final void a(Boolean bool) {
+        if (this.b != null) {
+            this.b.cancel();
+        }
+        this.b = new m(this, a());
+        this.b.setPriority(3);
+        this.b.execute(bool);
+    }
+
+    public final void j() {
+        if (this.c != null) {
+            this.c.cancel();
+        }
+        this.c = new n(this, (byte) 0);
+        this.c.setPriority(2);
+        this.c.execute(new k[0]);
+    }
+
+    public final boolean b(int i) {
+        if (this.d != null) {
+            this.d.cancel();
+        }
+        if (i >= this.e.size() || this.e.get(i) == null || this.e.get(i).getId() == null) {
             return false;
         }
-        return false;
-    }
-
-    public final boolean a(boolean z) {
-        this.c = z;
-        if (this.a != null) {
-            return false;
-        }
-        this.a = new m(this, 1);
-        this.a.execute(new Object[0]);
+        this.d = new l(this, this.e.get(i).getId(), i);
+        this.d.setPriority(2);
+        this.d.execute(new Boolean[0]);
         return true;
     }
 
-    public final boolean b(boolean z) {
-        this.c = z;
-        if (this.a != null) {
-            return false;
+    public static int k() {
+        return com.baidu.tbadk.core.sharedPref.b.a().a("uploac_mark_offset", 399);
+    }
+
+    public final void l() {
+        if (this.b != null) {
+            this.b.cancel();
         }
-        this.a = new m(this, 0);
-        this.a.execute(new Object[0]);
-        return true;
+        if (this.c != null) {
+            this.c.cancel();
+        }
+        if (this.d != null) {
+            this.d.cancel();
+        }
+    }
+
+    public final void a(com.baidu.tbadk.d dVar) {
+        this.a = dVar;
     }
 }

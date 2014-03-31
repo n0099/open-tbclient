@@ -1,21 +1,24 @@
 package com.baidu.tieba.im.groupUpdates;
 
-import java.util.List;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class o extends com.baidu.tieba.im.b<Boolean> {
-    final /* synthetic */ m a;
+public final class o implements View.OnClickListener {
+    final /* synthetic */ i a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(m mVar) {
-        this.a = mVar;
+    public o(i iVar) {
+        this.a = iVar;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.b
-    public final /* synthetic */ Boolean a() {
-        List<UpdatesItemData> list;
-        com.baidu.tieba.im.db.c a = com.baidu.tieba.im.db.c.a();
-        list = this.a.a;
-        return Boolean.valueOf(a.a(list));
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        UpdatesActivity updatesActivity;
+        UpdatesItemData updatesItemData;
+        view.setSelected(!view.isSelected());
+        updatesActivity = this.a.l;
+        boolean isSelected = view.isSelected();
+        updatesItemData = this.a.m;
+        updatesActivity.a(isSelected, updatesItemData);
     }
 }

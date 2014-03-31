@@ -1,10 +1,9 @@
 package com.baidu.tieba.account.appeal;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.gson.GsonBuilder;
-import com.baidu.tieba.util.ba;
-import com.baidu.tieba.util.bs;
+import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.bc;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -19,8 +18,8 @@ public final class g extends BdAsyncTask<String, Object, AppealData> {
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ AppealData a(String... strArr) {
-        return d();
+    public final /* bridge */ /* synthetic */ AppealData a(String... strArr) {
+        return a();
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -31,7 +30,7 @@ public final class g extends BdAsyncTask<String, Object, AppealData> {
         super.a((g) appealData2);
         h hVar = this.e.get();
         if (hVar != null) {
-            if (appealData2.errNo == 0 && bs.c(appealData2.errMsg)) {
+            if (appealData2.errNo == 0 && bc.c(appealData2.errMsg)) {
                 hVar.a();
             } else {
                 hVar.a(appealData2);
@@ -48,28 +47,28 @@ public final class g extends BdAsyncTask<String, Object, AppealData> {
         setPriority(3);
     }
 
-    private AppealData d() {
+    private AppealData a() {
         String str;
         str = f.a;
-        ba baVar = new ba(str);
-        baVar.a("forum_id", this.a);
-        baVar.a(PushConstants.EXTRA_USER_ID, this.b);
-        baVar.a("user_name", this.c);
-        baVar.a(PushConstants.EXTRA_CONTENT, this.d);
-        String l = baVar.l();
-        if (baVar.c()) {
+        ak akVar = new ak(str);
+        akVar.a("forum_id", this.a);
+        akVar.a("user_id", this.b);
+        akVar.a("user_name", this.c);
+        akVar.a("content", this.d);
+        String i = akVar.i();
+        if (akVar.a().b().b()) {
             try {
-                return (AppealData) new GsonBuilder().create().fromJson(l, (Class<Object>) AppealData.class);
+                return (AppealData) new GsonBuilder().create().fromJson(i, (Class<Object>) AppealData.class);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.e.b("AppealModel", "doInBackground", e.getMessage());
+                com.baidu.adp.lib.util.f.b("AppealModel", "doInBackground", e.getMessage());
                 AppealData appealData = new AppealData();
                 appealData.errNo = -1000;
                 return appealData;
             }
         }
         AppealData appealData2 = new AppealData();
-        appealData2.errNo = baVar.e();
-        appealData2.errMsg = baVar.i();
+        appealData2.errNo = akVar.d();
+        appealData2.errMsg = akVar.f();
         return appealData2;
     }
 }

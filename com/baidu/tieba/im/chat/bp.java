@@ -1,29 +1,21 @@
 package com.baidu.tieba.im.chat;
-
-import android.content.Context;
-import android.text.TextUtils;
-import android.text.method.LinkMovementMethod;
-import android.widget.TextView;
-import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public final class bp extends com.baidu.adp.a.c<com.baidu.tieba.im.message.b> {
-    private TextView c;
+final class bp extends com.baidu.tieba.im.m<Boolean> {
+    final /* synthetic */ bo b;
 
-    public bp(Context context) {
-        super(context, R.layout.msg_msgmid_view);
-        this.c = null;
-        this.c = (TextView) a(R.id.tex_msgcontent);
-        this.c.setMovementMethod(LinkMovementMethod.getInstance());
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bp(bo boVar) {
+        this.b = boVar;
     }
 
-    public final void a(com.baidu.tieba.im.message.b bVar) {
-        if (bVar != null) {
-            String g = com.baidu.tieba.im.util.l.g(bVar);
-            if (!TextUtils.isEmpty(g)) {
-                this.c.setText(g);
-                return;
-            }
-        }
-        this.c.setText("");
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.m
+    public final /* synthetic */ Boolean a() {
+        GroupSettingActivity groupSettingActivity;
+        bs bsVar;
+        com.baidu.tieba.im.db.c a = com.baidu.tieba.im.db.c.a();
+        groupSettingActivity = this.b.a;
+        bsVar = groupSettingActivity.b;
+        return Boolean.valueOf(a.e(bsVar.b()));
     }
 }

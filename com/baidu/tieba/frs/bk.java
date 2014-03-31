@@ -1,27 +1,40 @@
 package com.baidu.tieba.frs;
 
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-final class bk implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ FrsImageActivity a;
+final class bk implements com.baidu.adp.lib.guide.b {
+    final /* synthetic */ bj a;
+    private final /* synthetic */ View b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bk(FrsImageActivity frsImageActivity) {
-        this.a = frsImageActivity;
+    public bk(bj bjVar, View view) {
+        this.a = bjVar;
+        this.b = view;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        bq bqVar;
-        try {
-            bqVar = this.a.l;
-            View findViewWithTag = bqVar.e().a(1).findViewWithTag(str);
-            if (findViewWithTag != null && (findViewWithTag instanceof TbImageView)) {
-                findViewWithTag.invalidate();
-            }
-        } catch (Exception e) {
-            com.baidu.adp.lib.util.e.b(getClass().getName(), "imageLoaded", e.getMessage());
-        }
+    @Override // com.baidu.adp.lib.guide.b
+    public final View a(LayoutInflater layoutInflater) {
+        return this.b;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public final int a() {
+        return 5;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public final int b() {
+        return 32;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public final int c() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public final int d() {
+        return 0;
     }
 }

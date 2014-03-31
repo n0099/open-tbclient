@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.widget.invite2GroupView;
 
 import android.widget.Button;
-import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class d implements com.baidu.tieba.im.a<Boolean> {
@@ -25,7 +24,7 @@ public final class d implements com.baidu.tieba.im.a<Boolean> {
             return;
         }
         button = this.a.d;
-        button.setTextColor(this.a.getContext().getResources().getColor(R.color.group_info_join_disable_color));
+        button.setTextColor(this.a.getContext().getResources().getColor(com.baidu.tieba.im.e.group_info_join_disable_color));
         button2 = this.a.d;
         button2.setOnClickListener(new e(this));
     }

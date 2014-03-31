@@ -1,73 +1,98 @@
 package com.baidu.tieba.faceshop;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.emotions.EmotionGroupData;
-import com.baidu.tieba.data.emotions.MyEmotionGroupData;
-import java.util.Iterator;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tieba.download.DownloadMessage;
+import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
-final class f extends BdAsyncTask<String, Integer, List<e>> {
-    final /* synthetic */ EmotionManageActivity a;
+public final class f {
+    private static f a = new f();
+    private i b;
+    private List<String> c;
+    private int d = 5;
+    private com.baidu.adp.framework.c.a e = new g(this, 2001144);
+    private com.baidu.adp.framework.c.a f = new h(this, 2001123);
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ List<e> a(String... strArr) {
-        List<MyEmotionGroupData> c = com.baidu.tieba.data.emotions.j.a().c(TiebaApplication.v());
-        List<EmotionGroupData> a = com.baidu.tieba.data.emotions.j.a().a(1);
-        LinkedList linkedList = new LinkedList();
-        for (MyEmotionGroupData myEmotionGroupData : c) {
-            Iterator<EmotionGroupData> it = a.iterator();
-            while (true) {
-                if (it.hasNext()) {
-                    EmotionGroupData next = it.next();
-                    if (myEmotionGroupData.getGroupId().equals(next.getGroupId()) && com.baidu.tieba.data.emotions.d.a(next.getGroupId())) {
-                        e eVar = new e(this.a, (byte) 0);
-                        eVar.a = next.getGroupId();
-                        eVar.b = next.getGroupName();
-                        eVar.d = com.baidu.tieba.data.emotions.d.a(eVar.a, "list.png");
-                        linkedList.add(eVar);
-                        break;
-                    }
-                }
-            }
-        }
-        c.clear();
-        a.clear();
-        return linkedList;
+    private f() {
+        com.baidu.adp.framework.c.a().a(this.f);
+        com.baidu.adp.framework.c.a().a(this.e);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void a(List<e> list) {
-        List<e> list2 = list;
-        super.a((f) list2);
-        if (list2 == null) {
-            list2 = new LinkedList<>();
-        }
-        this.a.a = list2;
-        this.a.a(false);
-        this.a.hideProgressBar();
-        this.a.a();
-    }
-
-    private f(EmotionManageActivity emotionManageActivity) {
-        this.a = emotionManageActivity;
+    public static f a() {
+        return a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ f(EmotionManageActivity emotionManageActivity, byte b) {
-        this(emotionManageActivity);
+    public static /* synthetic */ void b(f fVar, List list) {
+        fVar.b = new i(fVar);
+        fVar.b.execute(list);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void b() {
-        super.b();
-        this.a.showProgressBar();
+    public final void a(String str, String str2, String str3) {
+        if (!com.baidu.tbadk.core.util.bc.c(str) && !com.baidu.tbadk.core.util.bc.c(str3)) {
+            com.baidu.tieba.download.a aVar = new com.baidu.tieba.download.a(str, str2, str3, new e());
+            aVar.e(TbadkApplication.E());
+            aVar.b(11);
+            String[] split = str3.split("/");
+            if (split.length > 1) {
+                String[] split2 = split[split.length - 1].split("_");
+                if (split2 != null) {
+                    if (split2.length == 5) {
+                        aVar.b(split2[1]);
+                        aVar.d(split2[2]);
+                        aVar.c(com.baidu.adp.lib.f.b.a(split2[3], 200));
+                        aVar.d(com.baidu.adp.lib.f.b.a(split2[4].split(".png")[0], 200));
+                    } else if (split2.length == 3) {
+                        aVar.b(split2[1]);
+                        aVar.d(split2[2].split(".png")[0]);
+                        aVar.c(200);
+                        aVar.d(200);
+                    } else {
+                        com.baidu.tieba.r.c();
+                        aVar.e(com.baidu.tieba.r.d().getString(com.baidu.tieba.a.k.download_fail));
+                        aVar.a(2);
+                    }
+                } else {
+                    com.baidu.tieba.r.c();
+                    aVar.e(com.baidu.tieba.r.d().getString(com.baidu.tieba.a.k.download_fail));
+                    aVar.a(2);
+                }
+            } else {
+                com.baidu.tieba.r.c();
+                aVar.e(com.baidu.tieba.r.d().getString(com.baidu.tieba.a.k.download_fail));
+                aVar.a(2);
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append(com.baidu.tbadk.core.util.w.d());
+            sb.append(com.baidu.tbadk.core.util.w.a(2));
+            File file = new File(sb.toString());
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            sb.append("/");
+            sb.append(str);
+            aVar.c(sb.toString());
+            com.baidu.adp.lib.util.f.e("download:path:" + aVar.e());
+            com.baidu.tieba.download.c.a().a(aVar, this.d);
+        }
+    }
+
+    public static void a(String str) {
+        com.baidu.tieba.download.c.a().a(str, 11);
+    }
+
+    public static void b() {
+        com.baidu.tieba.download.c.a().a(11);
+    }
+
+    public static void a(com.baidu.tieba.download.a aVar) {
+        LinkedList linkedList = new LinkedList();
+        linkedList.add(aVar);
+        com.baidu.adp.framework.c.a().b(new DownloadMessage(linkedList));
+    }
+
+    public static void a(List<com.baidu.tieba.download.a> list) {
+        com.baidu.adp.framework.c.a().b(new DownloadMessage(list));
     }
 }

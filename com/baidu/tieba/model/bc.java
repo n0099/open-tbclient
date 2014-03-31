@@ -1,7 +1,20 @@
 package com.baidu.tieba.model;
-/* loaded from: classes.dex */
-public interface bc {
-    void a(com.baidu.tieba.data.am amVar);
 
-    void a(boolean z, int i, int i2, int i3, com.baidu.tieba.data.am amVar, String str, int i4);
+import com.baidu.tieba.switchs.features.BarDetailForDirSwitchStatic;
+/* loaded from: classes.dex */
+public final class bc {
+    private String a = BarDetailForDirSwitchStatic.BAR_DETAIL_DIR;
+    private bd b;
+
+    public final void a(String str) {
+        this.a = str;
+    }
+
+    public final void a(bd bdVar) {
+        this.b = bdVar;
+    }
+
+    public final void a(String str, long j) {
+        new be(str, j, this.a, this.b).execute(new Integer[0]);
+    }
 }

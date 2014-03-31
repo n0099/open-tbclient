@@ -1,25 +1,47 @@
 package com.baidu.tieba.person;
 
-import android.widget.ImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-public final class d implements Runnable {
-    final /* synthetic */ BdCenterListView a;
+final class d implements View.OnClickListener {
+    final /* synthetic */ EditBarActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(BdCenterListView bdCenterListView) {
-        this.a = bdCenterListView;
+    public d(EditBarActivity editBarActivity) {
+        this.a = editBarActivity;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        ImageView imageView;
-        ImageView imageView2;
-        this.a.u = null;
-        imageView = this.a.j;
-        imageView.setImageDrawable(null);
-        imageView2 = this.a.j;
-        imageView2.setVisibility(8);
-        this.a.t = false;
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        g gVar;
+        g gVar2;
+        TextView textView;
+        TextView textView2;
+        g gVar3;
+        g gVar4;
+        TextView textView3;
+        TextView textView4;
+        g gVar5;
+        gVar = this.a.i;
+        if (!gVar.a()) {
+            gVar4 = this.a.i;
+            gVar4.a(true);
+            textView3 = this.a.g;
+            textView3.setText(com.baidu.tieba.a.k.done);
+            textView4 = this.a.g;
+            com.baidu.tbadk.core.util.ba.g(textView4, TbadkApplication.j().l());
+            gVar5 = this.a.i;
+            gVar5.notifyDataSetChanged();
+            return;
+        }
+        gVar2 = this.a.i;
+        gVar2.a(false);
+        textView = this.a.g;
+        textView.setText(com.baidu.tieba.a.k.edit);
+        textView2 = this.a.g;
+        com.baidu.tbadk.core.util.ba.h(textView2, TbadkApplication.j().l());
+        gVar3 = this.a.i;
+        gVar3.notifyDataSetChanged();
     }
 }

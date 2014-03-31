@@ -1,23 +1,23 @@
 package com.baidu.tieba.im.frsgroup;
 
-import com.baidu.tieba.im.message.bk;
+import android.view.View;
 /* loaded from: classes.dex */
-final class j implements com.baidu.tieba.view.dialog.c {
-    final /* synthetic */ GroupLevelActivity a;
+final class j implements View.OnClickListener {
+    final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(GroupLevelActivity groupLevelActivity) {
-        this.a = groupLevelActivity;
+    public j(b bVar) {
+        this.a = bVar;
     }
 
-    @Override // com.baidu.tieba.view.dialog.c
-    public final void onClick(com.baidu.tieba.view.dialog.a aVar) {
-        com.baidu.tieba.im.model.f fVar;
-        bk bkVar = new bk();
-        fVar = this.a.a;
-        bkVar.a(fVar.a());
-        bkVar.a(true);
-        com.baidu.adp.lib.util.e.e("send upgrade mem group msg:" + bkVar.v() + " gid:" + bkVar.b());
-        com.baidu.tieba.im.messageCenter.d.a().a(bkVar);
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        FrsGroupActivity frsGroupActivity;
+        FrsGroupActivity frsGroupActivity2;
+        frsGroupActivity = this.a.a;
+        if (frsGroupActivity != null) {
+            frsGroupActivity2 = this.a.a;
+            frsGroupActivity2.h();
+        }
     }
 }

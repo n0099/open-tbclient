@@ -2,11 +2,11 @@ package com.baidu.tieba.im.groupCard;
 
 import android.graphics.Bitmap;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.e;
-import com.baidu.tieba.util.af;
-import com.baidu.tieba.util.ay;
-import com.baidu.tieba.util.bs;
-import com.slidingmenu.lib.R;
+import com.baidu.adp.lib.util.f;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.w;
+import com.baidu.tieba.im.j;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class c extends BdAsyncTask<String, Integer, String> {
@@ -18,8 +18,8 @@ public final class c extends BdAsyncTask<String, Integer, String> {
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ String a(String... strArr) {
-        return d();
+    public final /* bridge */ /* synthetic */ String a(String... strArr) {
+        return a();
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -44,7 +44,7 @@ public final class c extends BdAsyncTask<String, Integer, String> {
         this.b = bitmap;
     }
 
-    private String d() {
+    private String a() {
         GroupCardActivity groupCardActivity;
         GroupCardActivity groupCardActivity2;
         String f;
@@ -54,35 +54,35 @@ public final class c extends BdAsyncTask<String, Integer, String> {
         try {
             if (this.a == null || this.a.length() <= 0 || this.b == null) {
                 groupCardActivity2 = this.c.b;
-                return groupCardActivity2.getString(R.string.save_error);
+                return groupCardActivity2.getString(j.save_error);
             }
-            if (bs.f(this.a) == null) {
+            if (bc.f(this.a) == null) {
                 groupCardActivity5 = this.c.b;
-                return groupCardActivity5.getString(R.string.save_error);
+                return groupCardActivity5.getString(j.save_error);
             }
             String str = String.valueOf(f) + ".jpg";
-            for (int i = 0; af.b(str) && i < 10000; i++) {
+            for (int i = 0; w.b(str) && i < 10000; i++) {
                 str = String.valueOf(f) + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + ".jpg";
             }
-            String a = af.a((String) null, str, this.b, 80);
+            String a = w.a((String) null, str, this.b, 80);
             if (a != null) {
                 groupCardActivity3 = this.c.b;
-                new ay(groupCardActivity3).a(a);
+                new ai(groupCardActivity3).a(a);
                 groupCardActivity4 = this.c.b;
-                return groupCardActivity4.getString(R.string.save_image_to_album);
+                return groupCardActivity4.getString(j.save_image_to_album);
             }
-            return af.b();
+            return w.b();
         } catch (Exception e) {
-            e.b("SaveImageAsyncTask", "doInBackground", "error" + e.getMessage());
+            f.b("SaveImageAsyncTask", "doInBackground", "error" + e.getMessage());
             groupCardActivity = this.c.b;
-            return groupCardActivity.getString(R.string.save_error);
+            return groupCardActivity.getString(j.save_error);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void c() {
-        super.c();
+    public final void d() {
+        super.d();
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask

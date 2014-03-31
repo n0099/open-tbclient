@@ -2,15 +2,17 @@ package com.baidu.tieba.im.groupCard;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
-import com.baidu.tieba.im.chat.LocalViewSize;
-import com.baidu.tieba.util.i;
+import com.baidu.adp.a.e;
+import com.baidu.tbadk.core.data.n;
+import com.baidu.tbadk.core.util.LocalViewSize;
+import com.baidu.tbadk.editortool.aa;
 /* loaded from: classes.dex */
-public final class b extends com.baidu.adp.a.d {
+public final class b extends e {
     private static Long f = 0L;
     private static final Long g = 300000L;
-    private long a;
-    private GroupCardActivity b;
-    private i c = null;
+    private final long a;
+    private final GroupCardActivity b;
+    private aa c = null;
     private c d = null;
     private String e;
 
@@ -19,25 +21,25 @@ public final class b extends com.baidu.adp.a.d {
     }
 
     public b(long j, GroupCardActivity groupCardActivity) {
-        this.e = String.valueOf(com.baidu.tieba.data.i.a) + "c/p/groupShareImg?group_id=";
+        this.e = String.valueOf(n.a) + "c/p/groupShareImg?group_id=";
         this.a = j;
         this.e = String.valueOf(this.e) + this.a;
         this.e = String.valueOf(this.e) + "&w=" + LocalViewSize.a().b();
         this.b = groupCardActivity;
     }
 
-    @Override // com.baidu.adp.a.d
+    @Override // com.baidu.adp.a.e
     protected final boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.a.d
+    @Override // com.baidu.adp.a.e
     public final boolean cancelLoadData() {
         return false;
     }
 
     public final com.baidu.adp.widget.ImageView.b a(Activity activity, int i, int i2, com.baidu.tbadk.imageManager.d dVar) {
-        this.c = new i(activity);
+        this.c = new aa(activity);
         if (System.currentTimeMillis() - f.longValue() > g.longValue()) {
             f = Long.valueOf(System.currentTimeMillis());
         }

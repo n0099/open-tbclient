@@ -4,8 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 public final class g implements x {
     private CreateGroupStepActivity a;
@@ -16,11 +15,11 @@ public final class g implements x {
 
     public g(CreateGroupStepActivity createGroupStepActivity, int i, int i2) {
         this.a = createGroupStepActivity;
-        this.c = createGroupStepActivity.getLayoutInflater().inflate(R.layout.create_group_normal_tips, (ViewGroup) null);
-        this.e = (Button) this.c.findViewById(R.id.create_group_tips_btn);
-        this.d = (ImageView) this.c.findViewById(R.id.create_group_tips_image);
+        this.c = createGroupStepActivity.getLayoutInflater().inflate(com.baidu.tieba.im.i.create_group_normal_tips, (ViewGroup) null);
+        this.e = (Button) this.c.findViewById(com.baidu.tieba.im.h.create_group_tips_btn);
+        this.d = (ImageView) this.c.findViewById(com.baidu.tieba.im.h.create_group_tips_image);
         this.b = i;
-        this.e.setText(String.format(createGroupStepActivity.getString(R.string.group_create_can_create_num), Integer.valueOf(i2)));
+        this.e.setText(String.format(createGroupStepActivity.getString(com.baidu.tieba.im.j.group_create_can_create_num), Integer.valueOf(i2)));
     }
 
     @Override // com.baidu.tieba.im.creategroup.x
@@ -30,7 +29,7 @@ public final class g implements x {
 
     @Override // com.baidu.tieba.im.creategroup.x
     public final void h() {
-        this.a.getLayoutMode().a(TiebaApplication.g().ae() == 1);
+        this.a.getLayoutMode().a(TbadkApplication.j().l() == 1);
         this.a.getLayoutMode().a(this.c);
     }
 
@@ -46,7 +45,7 @@ public final class g implements x {
 
     @Override // com.baidu.tieba.im.creategroup.x
     public final String i() {
-        return this.a.getString(R.string.group_create_tips_normal);
+        return this.a.getString(com.baidu.tieba.im.j.group_create_tips_normal);
     }
 
     @Override // com.baidu.tieba.im.creategroup.x

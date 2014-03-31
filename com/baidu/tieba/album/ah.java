@@ -9,121 +9,120 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.img.ImageFileInfo;
-import com.baidu.tieba.view.NavigationBar;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.img.ImageFileInfo;
 import java.util.List;
 /* loaded from: classes.dex */
-public final class ah extends com.baidu.tieba.j implements u {
-    private AlbumActivity b;
-    private p c;
-    private e d;
-    private View e;
-    private NavigationBar f;
-    private ImageView g;
+public final class ah extends com.baidu.tbadk.core.d implements u {
+    private AlbumActivity a;
+    private p b;
+    private e c;
+    private View d;
+    private NavigationBar e;
+    private View f;
+    private TextView g;
     private TextView h;
-    private TextView i;
-    private GridView j;
-    private ab k;
-    private View l;
-    private String m;
-    private List<ImageFileInfo> n;
-    private boolean o = true;
-    private aa p;
-    private z q;
+    private GridView i;
+    private ab j;
+    private View k;
+    private String l;
+    private List<ImageFileInfo> m;
+    private boolean n = true;
+    private aa o;
+    private z p;
+    private boolean q;
     private boolean r;
-    private boolean s;
 
-    @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public final void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.b = (AlbumActivity) getActivity();
-        this.c = this.b.e();
+        this.a = (AlbumActivity) getActivity();
+        this.b = this.a.f();
         q.a().a(this);
     }
 
-    @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public final View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.e = layoutInflater.inflate(R.layout.album_image_list_view, (ViewGroup) null);
-        this.f = (NavigationBar) this.e.findViewById(R.id.view_navigation_bar);
-        this.g = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.b);
-        this.h = this.f.a("");
-        this.i = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.b.getString(R.string.cancel), this.b);
-        this.j = (GridView) this.e.findViewById(R.id.gv_image_list);
-        this.k = new ab(this.b, this.c);
-        this.j.setAdapter((ListAdapter) this.k);
-        this.j.setOnScrollListener(this.k);
-        this.p = new ai(this);
-        this.q = new aj(this);
-        this.k.a(this.p);
-        this.k.a(this.q);
-        this.l = this.e.findViewById(R.id.lay_no_data);
-        return this.e;
+        this.d = layoutInflater.inflate(com.baidu.tieba.a.i.album_image_list_view, (ViewGroup) null);
+        this.e = (NavigationBar) this.d.findViewById(com.baidu.tieba.a.h.view_navigation_bar);
+        this.f = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.a);
+        this.g = this.e.a("");
+        this.h = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(com.baidu.tieba.a.k.cancel), this.a);
+        this.i = (GridView) this.d.findViewById(com.baidu.tieba.a.h.gv_image_list);
+        this.j = new ab(this.a, this.b);
+        this.i.setAdapter((ListAdapter) this.j);
+        this.i.setOnScrollListener(this.j);
+        this.o = new ai(this);
+        this.p = new aj(this);
+        this.j.a(this.o);
+        this.j.a(this.p);
+        this.k = this.d.findViewById(com.baidu.tieba.a.h.lay_no_data);
+        return this.d;
     }
 
-    @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public final void onResume() {
         super.onResume();
-        this.s = false;
-        if (d()) {
+        this.r = false;
+        if (isShow()) {
             c();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(List<ImageFileInfo> list) {
-        if (this.k != null) {
-            this.c.a(list);
-            this.k.a(list);
+        if (this.j != null) {
+            this.b.a(list);
+            this.j.a(list);
         }
     }
 
-    @Override // com.baidu.tieba.j
-    public final void c(int i) {
-        super.c(i);
-        this.b.a().a(i == 1);
-        this.b.a().a(this.e);
-        this.f.b(i);
+    @Override // com.baidu.tbadk.core.d
+    public final void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        this.a.b().a(i == 1);
+        this.a.b().a(this.d);
+        this.e.b(i);
     }
 
-    public final ImageView a() {
-        return this.g;
+    public final View a() {
+        return this.f;
     }
 
     public final TextView b() {
-        return this.i;
+        return this.h;
     }
 
-    @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public final void onDestroy() {
         super.onDestroy();
-        if (this.d != null) {
-            this.d.b();
+        if (this.c != null) {
+            this.c.b();
         }
         q.a().b(this);
     }
 
     public final void a(int i, boolean z) {
-        if (this.j != null) {
-            int firstVisiblePosition = this.j.getFirstVisiblePosition();
-            int lastVisiblePosition = this.j.getLastVisiblePosition();
+        if (this.i != null) {
+            int firstVisiblePosition = this.i.getFirstVisiblePosition();
+            int lastVisiblePosition = this.i.getLastVisiblePosition();
             if (i >= firstVisiblePosition && i <= lastVisiblePosition) {
-                View childAt = this.j.getChildAt(i - firstVisiblePosition);
+                View childAt = this.i.getChildAt(i - firstVisiblePosition);
                 if (childAt != null) {
                     childAt.invalidate();
-                    ImageView imageView = (ImageView) childAt.findViewById(R.id.select_icon);
-                    int ae = TiebaApplication.g().ae();
+                    ImageView imageView = (ImageView) childAt.findViewById(com.baidu.tieba.a.h.select_icon);
+                    int l = TbadkApplication.j().l();
                     if (z) {
-                        if (ae == 1) {
-                            imageView.setBackgroundResource(R.drawable.btn_choose_photo_s_1);
+                        if (l == 1) {
+                            imageView.setBackgroundResource(com.baidu.tieba.a.g.btn_choose_photo_s_1);
                         } else {
-                            imageView.setBackgroundResource(R.drawable.btn_choose_photo_s);
+                            imageView.setBackgroundResource(com.baidu.tieba.a.g.btn_choose_photo_s);
                         }
-                    } else if (ae == 1) {
-                        imageView.setBackgroundResource(R.drawable.btn_choose_photo_n_1);
+                    } else if (l == 1) {
+                        imageView.setBackgroundResource(com.baidu.tieba.a.g.btn_choose_photo_n_1);
                     } else {
-                        imageView.setBackgroundResource(R.drawable.btn_choose_photo_n);
+                        imageView.setBackgroundResource(com.baidu.tieba.a.g.btn_choose_photo_n);
                     }
                 }
             }
@@ -131,57 +130,57 @@ public final class ah extends com.baidu.tieba.j implements u {
     }
 
     public final void a(ImageFileInfo imageFileInfo, boolean z) {
-        if (imageFileInfo != null && this.k != null) {
-            a(this.k.a(imageFileInfo), z);
+        if (imageFileInfo != null && this.j != null) {
+            a(this.j.a(imageFileInfo), z);
         }
     }
 
-    @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
     public final void onPause() {
         super.onPause();
-        this.s = true;
+        this.r = true;
     }
 
     @Override // com.baidu.tieba.album.u
     public final void a(boolean z) {
-        this.r = z;
-        this.o = false;
+        this.q = z;
+        this.n = false;
         c();
     }
 
     private void c() {
-        if (!isHidden() && !this.s) {
-            if (this.r) {
-                this.j.setVisibility(8);
-                this.l.setVisibility(0);
+        if (!isHidden() && !this.r) {
+            if (this.q) {
+                this.i.setVisibility(8);
+                this.k.setVisibility(0);
                 return;
             }
-            this.j.setVisibility(0);
-            this.l.setVisibility(8);
-            if (this.c == null && this.b != null) {
-                this.c = this.b.e();
+            this.i.setVisibility(0);
+            this.k.setVisibility(8);
+            if (this.b == null && this.a != null) {
+                this.b = this.a.f();
             }
-            if (this.c != null) {
-                String e = this.c.e();
+            if (this.b != null) {
+                String e = this.b.e();
                 if (TextUtils.isEmpty(e)) {
-                    e = this.c.c();
+                    e = this.b.c();
                     if (TextUtils.isEmpty(e)) {
                         return;
                     }
                 }
-                if (!TextUtils.isEmpty(this.m) && this.m.equals(e) && this.o) {
-                    if (this.k != null) {
-                        this.k.notifyDataSetChanged();
+                if (!TextUtils.isEmpty(this.l) && this.l.equals(e) && this.n) {
+                    if (this.j != null) {
+                        this.j.notifyDataSetChanged();
                         return;
                     }
                     return;
                 }
                 a((List<ImageFileInfo>) null);
-                if (this.d == null) {
-                    this.d = new e(this.b);
+                if (this.c == null) {
+                    this.c = new e(this.a);
                 }
-                this.d.a(e, new ak(this));
-                this.m = e;
+                this.c.a(e, new ak(this));
+                this.l = e;
             }
         }
     }

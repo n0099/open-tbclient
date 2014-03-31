@@ -1,24 +1,19 @@
 package com.baidu.tieba.im.chat;
-
-import android.content.Intent;
-import com.baidu.tieba.im.data.GroupData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class al implements com.baidu.adp.framework.task.a<com.baidu.tieba.a.b> {
-    @Override // com.baidu.adp.framework.task.a
-    public final com.baidu.adp.framework.message.b<com.baidu.tieba.a.b> a(com.baidu.adp.framework.message.a<com.baidu.tieba.a.b> aVar) {
-        GroupData a;
-        if (aVar != null && aVar.a() != null && (a = aVar.a().a()) != null && a.getGroupId() != 0) {
-            String b = aVar.a().b();
-            String valueOf = String.valueOf(a.getGroupId());
-            if (!com.baidu.tieba.model.bs.a().a(valueOf)) {
-                new com.baidu.tieba.account.x("chat_pg", b, valueOf).start();
-                com.baidu.tieba.model.bs.a().a(valueOf, Long.valueOf(System.currentTimeMillis()));
-            }
-            Intent d = aVar.a().d();
-            d.setClass(aVar.a().c(), GroupChatActivity.class);
-            d.putExtra("group_author_id", String.valueOf(a.getAuthorId()));
-            aVar.a().e();
-        }
-        return null;
+public final class al implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ x a;
+    private final /* synthetic */ com.baidu.adp.framework.message.f b;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public al(x xVar, com.baidu.adp.framework.message.f fVar) {
+        this.a = xVar;
+        this.b = fVar;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.baidu.tieba.im.a
+    public final /* bridge */ /* synthetic */ void a(Boolean bool) {
+        this.a.a(this.b);
     }
 }

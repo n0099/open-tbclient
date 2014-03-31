@@ -1,26 +1,51 @@
 package com.baidu.adp.widget;
 
+import android.database.DataSetObservable;
 import android.database.DataSetObserver;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListAdapter;
 /* loaded from: classes.dex */
-public final class p extends DataSetObserver {
-    final /* synthetic */ PinnedHeaderListView a;
+public abstract class p implements ListAdapter {
+    private final DataSetObservable a = new DataSetObservable();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public p(PinnedHeaderListView pinnedHeaderListView) {
-        this.a = pinnedHeaderListView;
+    public abstract void a(View view, AdapterView<?> adapterView, int i);
+
+    public abstract int b();
+
+    public abstract View c();
+
+    @Override // android.widget.Adapter
+    public boolean hasStableIds() {
+        return true;
     }
 
-    @Override // android.database.DataSetObserver
-    public final void onChanged() {
-        this.a.requestLayout();
-        this.a.invalidate();
+    @Override // android.widget.Adapter
+    public void registerDataSetObserver(DataSetObserver dataSetObserver) {
+        this.a.registerObserver(dataSetObserver);
     }
 
-    @Override // android.database.DataSetObserver
-    public final void onInvalidated() {
-        this.a.h = -1;
-        this.a.requestLayout();
-        this.a.invalidate();
+    @Override // android.widget.Adapter
+    public void unregisterDataSetObserver(DataSetObserver dataSetObserver) {
+        this.a.unregisterObserver(dataSetObserver);
+    }
+
+    public final void a() {
+        this.a.notifyChanged();
+    }
+
+    @Override // android.widget.ListAdapter
+    public boolean areAllItemsEnabled() {
+        return true;
+    }
+
+    @Override // android.widget.ListAdapter
+    public boolean isEnabled(int i) {
+        return true;
+    }
+
+    @Override // android.widget.Adapter
+    public boolean isEmpty() {
+        return getCount() == 0;
     }
 }

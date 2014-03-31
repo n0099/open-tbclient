@@ -3,7 +3,6 @@ package com.baidu.tieba.account.forbid;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 final class d implements n {
     final /* synthetic */ ForbidActivity a;
@@ -23,8 +22,8 @@ final class d implements n {
         str = this.a.g;
         textView.setText(str);
         if (forbidTplData.type == 1) {
-            this.a.findViewById(R.id.radio_forbid_3).setVisibility(0);
-            this.a.findViewById(R.id.radio_forbid_10).setVisibility(0);
+            this.a.findViewById(com.baidu.tieba.a.h.radio_forbid_3).setVisibility(0);
+            this.a.findViewById(com.baidu.tieba.a.h.radio_forbid_10).setVisibility(0);
         }
         this.a.j = new e(forbidTplData.reason);
         bdListView = this.a.i;

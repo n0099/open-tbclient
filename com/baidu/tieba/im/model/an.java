@@ -1,21 +1,18 @@
 package com.baidu.tieba.im.model;
-
-import com.baidu.tieba.im.message.bb;
 /* loaded from: classes.dex */
-public final class an extends com.baidu.adp.a.d {
-    public static void a(int i) {
-        bb bbVar = new bb();
-        bbVar.a(i);
-        com.baidu.tieba.im.messageCenter.d.a().a(bbVar);
+final class an extends com.baidu.tieba.im.m<Boolean> {
+    final /* synthetic */ am b;
+    private final /* synthetic */ com.baidu.tieba.im.message.a.b c;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public an(am amVar, com.baidu.tieba.im.message.a.b bVar) {
+        this.b = amVar;
+        this.c = bVar;
     }
 
-    @Override // com.baidu.adp.a.d
-    protected final boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.a.d
-    public final boolean cancelLoadData() {
-        return false;
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.m
+    public final /* synthetic */ Boolean a() {
+        return Boolean.valueOf(com.baidu.tieba.im.db.c.a().b(this.c.i(), String.valueOf(this.c.u()), String.valueOf(this.c.w()), 2));
     }
 }

@@ -1,22 +1,21 @@
 package com.baidu.tieba.im.chat;
-
-import com.baidu.location.LocationClientOption;
-import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ac extends com.baidu.tieba.im.b<LinkedList<String>> {
-    final /* synthetic */ q a;
-    private final /* synthetic */ String c;
+public final class ac implements com.baidu.tieba.im.a<Boolean> {
+    final /* synthetic */ x a;
+    private final /* synthetic */ com.baidu.tieba.im.message.a.f b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(q qVar, String str) {
-        this.a = qVar;
-        this.c = str;
+    public ac(x xVar, com.baidu.tieba.im.message.a.f fVar) {
+        this.a = xVar;
+        this.b = fVar;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.b
-    public final /* bridge */ /* synthetic */ LinkedList<String> a() {
-        return com.baidu.tieba.im.db.q.a().a(this.c, 2, (String) null, LocationClientOption.MIN_SCAN_SPAN);
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.baidu.tieba.im.a
+    public final /* synthetic */ void a(Boolean bool) {
+        this.b.i(System.currentTimeMillis());
+        com.baidu.adp.framework.c.a().a(this.b);
+        com.baidu.adp.lib.util.f.e("SHANG sendMessage to queue");
     }
 }

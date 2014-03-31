@@ -4,51 +4,50 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.MetaData;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.MetaData;
 import java.util.HashMap;
 import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class l extends BdAsyncTask<String, Integer, com.baidu.tieba.data.aw> {
+public final class l extends BdAsyncTask<String, Integer, com.baidu.tieba.data.ao> {
     final /* synthetic */ AtListActivity a;
-    private com.baidu.tieba.util.ba b;
+    private com.baidu.tbadk.core.util.ak b;
     private String c;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void a(com.baidu.tieba.data.aw awVar) {
+    public final /* synthetic */ void a(com.baidu.tieba.data.ao aoVar) {
         ProgressBar progressBar;
         EditText editText;
         com.baidu.tieba.model.c cVar;
         n nVar;
         n nVar2;
         BdListView bdListView;
-        com.baidu.tieba.data.aw awVar2 = awVar;
+        com.baidu.tieba.data.ao aoVar2 = aoVar;
         this.a.i = null;
         progressBar = this.a.n;
         progressBar.setVisibility(8);
-        if (this.b.c() && this.c != null) {
+        if (this.b.a().b().b() && this.c != null) {
             editText = this.a.b;
             if (editText.getText().toString().equals(this.c)) {
-                if (!awVar2.a().isEmpty()) {
-                    this.a.a(false);
+                if (!aoVar2.a().isEmpty()) {
+                    AtListActivity.a(this.a, false);
                 }
                 cVar = this.a.k;
-                cVar.a(awVar2);
+                cVar.a(aoVar2);
                 nVar = this.a.l;
-                nVar.a(awVar2.a());
+                nVar.a(aoVar2.a());
                 nVar2 = this.a.l;
                 nVar2.notifyDataSetInvalidated();
                 bdListView = this.a.d;
                 bdListView.setSelection(0);
-                super.a((l) awVar2);
+                super.a((l) aoVar2);
             }
         }
-        this.a.showToast(this.b.i());
-        super.a((l) awVar2);
+        this.a.showToast(this.b.f());
+        super.a((l) aoVar2);
     }
 
     private l(AtListActivity atListActivity) {
@@ -64,11 +63,11 @@ public final class l extends BdAsyncTask<String, Integer, com.baidu.tieba.data.a
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void b() {
+    public final void c() {
         ProgressBar progressBar;
         progressBar = this.a.n;
         progressBar.setVisibility(0);
-        super.b();
+        super.c();
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -84,28 +83,28 @@ public final class l extends BdAsyncTask<String, Integer, com.baidu.tieba.data.a
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: private */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public com.baidu.tieba.data.aw a(String... strArr) {
+    public com.baidu.tieba.data.ao a(String... strArr) {
         com.baidu.tieba.model.c cVar;
         this.c = strArr[0];
-        this.b = new com.baidu.tieba.util.ba();
+        this.b = new com.baidu.tbadk.core.util.ak();
         if (this.c == null || this.c.length() <= 0) {
             return null;
         }
-        this.b.a(String.valueOf(com.baidu.tieba.data.i.a) + "c/u/follow/sug");
-        this.b.a(SapiAccountManager.SESSION_UID, TiebaApplication.v());
+        this.b.a(String.valueOf(com.baidu.tbadk.core.data.n.a) + "c/u/follow/sug");
+        this.b.a("uid", TbadkApplication.E());
         this.b.a("q", this.c);
-        String l = this.b.l();
-        if (this.b.c()) {
-            com.baidu.tieba.data.aw awVar = new com.baidu.tieba.data.aw();
+        String i = this.b.i();
+        if (this.b.a().b().b()) {
+            com.baidu.tieba.data.ao aoVar = new com.baidu.tieba.data.ao();
             cVar = this.a.k;
-            com.baidu.tieba.data.w a = cVar.a();
+            com.baidu.tieba.data.r a = cVar.a();
             if (a != null) {
-                awVar.a(l, a.b());
+                aoVar.a(i, a.b());
             } else {
-                awVar.a(l, (HashMap<String, String>) null);
+                aoVar.a(i, (HashMap<String, String>) null);
             }
             if (AtListActivity.a != null && AtListActivity.a.size() > 0) {
-                Iterator<MetaData> it = awVar.a().iterator();
+                Iterator<MetaData> it = aoVar.a().iterator();
                 while (it.hasNext()) {
                     MetaData next = it.next();
                     Iterator<MetaData> it2 = AtListActivity.a.iterator();
@@ -121,7 +120,7 @@ public final class l extends BdAsyncTask<String, Integer, com.baidu.tieba.data.a
                     }
                 }
             }
-            return awVar;
+            return aoVar;
         }
         return null;
     }

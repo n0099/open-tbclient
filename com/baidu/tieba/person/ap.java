@@ -1,17 +1,22 @@
 package com.baidu.tieba.person;
 
+import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
-final class ap implements View.OnClickListener {
-    final /* synthetic */ MyPostActivity a;
+final class ap implements View.OnTouchListener {
+    final /* synthetic */ PersonChangeActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(MyPostActivity myPostActivity) {
-        this.a = myPostActivity;
+    public ap(PersonChangeActivity personChangeActivity) {
+        this.a = personChangeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        this.a.finish();
+    @Override // android.view.View.OnTouchListener
+    public final boolean onTouch(View view, MotionEvent motionEvent) {
+        if (motionEvent.getAction() == 1) {
+            this.a.t = true;
+            return false;
+        }
+        return false;
     }
 }

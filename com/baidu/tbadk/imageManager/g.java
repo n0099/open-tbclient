@@ -17,10 +17,10 @@ public final class g extends com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.
         com.baidu.adp.lib.d.a aVar;
         com.baidu.adp.widget.ImageView.b bVar3 = bVar;
         if (bVar3 != null) {
-            if (com.baidu.adp.lib.util.e.a()) {
+            if (com.baidu.adp.lib.util.f.a()) {
                 StringBuilder append = new StringBuilder("pic removed from cache:").append(bVar3.j()).append(", size:").append(bVar3.f()).append("/");
                 aVar = this.a.c;
-                com.baidu.adp.lib.util.e.e(append.append(aVar.b()).toString());
+                com.baidu.adp.lib.util.f.e(append.append(aVar.b()).toString());
             }
             bVar3.g();
         }

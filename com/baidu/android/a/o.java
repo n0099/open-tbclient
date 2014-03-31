@@ -4,7 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.tieba.person.PersonInfoActivity;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public final class o {
@@ -70,27 +70,27 @@ public final class o {
             switch (i) {
                 case 0:
                     kVar = new h();
-                    kVar.a(cursor.getString(cursor.getColumnIndex(SocialConstants.PARAM_MEDIA_UNAME)));
+                    kVar.a(cursor.getString(cursor.getColumnIndex(PersonInfoActivity.TAG_NAME)));
                     kVar.b(cursor.getString(cursor.getColumnIndex("value")));
                     kVar.a(cursor.getInt(cursor.getColumnIndex("type")));
                     arrayList.add(kVar);
                     break;
                 case 1:
                     kVar = new b();
-                    kVar.a(cursor.getString(cursor.getColumnIndex(SocialConstants.PARAM_MEDIA_UNAME)));
+                    kVar.a(cursor.getString(cursor.getColumnIndex(PersonInfoActivity.TAG_NAME)));
                     kVar.b(cursor.getString(cursor.getColumnIndex("value")));
                     kVar.a(cursor.getInt(cursor.getColumnIndex("type")));
                     arrayList.add(kVar);
                     break;
                 case 2:
                     kVar = new g();
-                    kVar.a(cursor.getString(cursor.getColumnIndex(SocialConstants.PARAM_MEDIA_UNAME)));
+                    kVar.a(cursor.getString(cursor.getColumnIndex(PersonInfoActivity.TAG_NAME)));
                     kVar.b(cursor.getString(cursor.getColumnIndex("value")));
                     kVar.a(cursor.getInt(cursor.getColumnIndex("type")));
                     arrayList.add(kVar);
                     break;
                 default:
-                    kVar.a(cursor.getString(cursor.getColumnIndex(SocialConstants.PARAM_MEDIA_UNAME)));
+                    kVar.a(cursor.getString(cursor.getColumnIndex(PersonInfoActivity.TAG_NAME)));
                     kVar.b(cursor.getString(cursor.getColumnIndex("value")));
                     kVar.a(cursor.getInt(cursor.getColumnIndex("type")));
                     arrayList.add(kVar);

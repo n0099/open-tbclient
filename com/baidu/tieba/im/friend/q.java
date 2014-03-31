@@ -1,26 +1,28 @@
 package com.baidu.tieba.im.friend;
-
-import android.view.ViewGroup;
-import com.baidu.tieba.util.ch;
-import com.baidu.tieba.util.cj;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class q implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ o a;
+final class q implements com.baidu.tbadk.coreExtra.view.ag {
+    final /* synthetic */ InviteFriendListActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public q(o oVar) {
-        this.a = oVar;
+    public q(InviteFriendListActivity inviteFriendListActivity) {
+        this.a = inviteFriendListActivity;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        ViewGroup viewGroup;
-        ViewGroup viewGroup2;
-        viewGroup = this.a.f;
-        if (viewGroup != null && str != null) {
-            viewGroup2 = this.a.f;
-            ch.a(viewGroup2, false, (cj) new r(this, str, bVar));
+    @Override // com.baidu.tbadk.coreExtra.view.ag
+    public final void a(String str) {
+        af afVar;
+        if (str == null || str.trim().equals("")) {
+            afVar = this.a.b;
+            afVar.a(str);
+            this.a.a();
         }
+    }
+
+    @Override // com.baidu.tbadk.coreExtra.view.ag
+    public final void b(String str) {
+        af afVar;
+        afVar = this.a.b;
+        afVar.a(str);
+        this.a.a();
     }
 }

@@ -1,108 +1,17 @@
 package com.baidu.tieba.person.post;
-
-import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.ListAdapter;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.view.PbListView;
-import com.baidu.tieba.view.cs;
-import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public final class q extends com.baidu.tieba.j implements AbsListView.OnScrollListener {
-    private View b;
-    private BdListView c;
-    private l d;
-    private ProgressBar e;
-    private TextView g;
-    private cs h;
-    private PbListView i;
-    private View j;
-    private int l;
-    private boolean f = false;
-    private boolean k = false;
-    private boolean m = true;
-    private o n = new r(this);
+final class q implements com.baidu.adp.widget.ListView.d {
+    final /* synthetic */ o a;
 
-    @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public final View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.b = layoutInflater.inflate(R.layout.person_reply_fragment, viewGroup, false);
-        this.c = (BdListView) this.b.findViewById(R.id.listview_reply);
-        this.g = (TextView) this.b.findViewById(R.id.txt_listview_emptyview);
-        this.g.setText(getArguments().getString("key_empty_view_text"));
-        this.e = (ProgressBar) this.b.findViewById(R.id.person_post_progress);
-        return this.b;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public q(o oVar) {
+        this.a = oVar;
     }
 
-    @Override // android.support.v4.app.Fragment
-    public final void onViewCreated(View view, Bundle bundle) {
-        this.h = new cs(getActivity());
-        this.c.setPullRefresh(this.h);
-        this.h.a(new s(this));
-        this.c.setOnScrollListener(this);
-        this.i = new PbListView(getActivity());
-        this.c.setNextPage(this.i);
-        this.j = this.i.b().findViewById(R.id.pb_more_view);
-        this.j.setVisibility(8);
-    }
-
-    @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public final void onResume() {
-        super.onResume();
-        if (!this.f) {
-            FragmentActivity activity = getActivity();
-            String string = getArguments().getString("key_uid");
-            getArguments().getString("key_portrait_url");
-            this.d = new l(activity, string);
-            this.d.a(this.n);
-            this.d.a(true);
-            this.c.setAdapter((ListAdapter) this.d);
-            this.f = true;
-        }
-        this.d.notifyDataSetChanged();
-    }
-
-    @Override // com.baidu.tieba.j, android.support.v4.app.Fragment
-    public final void onDestroy() {
-        super.onDestroy();
-        if (this.d != null) {
-            this.d.a();
-        }
-    }
-
-    @Override // com.baidu.tieba.j
-    public final void c(int i) {
-        super.c(i);
-        if (isAdded()) {
-            TextView textView = (TextView) this.j.findViewById(R.id.pb_more_text);
-            if (i == 1) {
-                textView.setTextColor(getResources().getColor(R.color.person_post_header_uname_1));
-            } else {
-                textView.setTextColor(getResources().getColor(R.color.person_post_header_uname));
-            }
-            if (this.i != null) {
-                this.i.c(i);
-            }
-            this.h.a(i);
-        }
-    }
-
-    @Override // com.baidu.tieba.j, android.widget.AbsListView.OnScrollListener
-    public final void onScrollStateChanged(AbsListView absListView, int i) {
-    }
-
-    @Override // com.baidu.tieba.j, android.widget.AbsListView.OnScrollListener
-    public final void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        if (this.k && i3 > 2 && this.l != i3 && i + i2 == i3) {
-            this.l = i3;
-            this.d.a(false);
-            this.j.setVisibility(0);
-            this.i.c();
-        }
+    @Override // com.baidu.adp.widget.ListView.d
+    public final void a(boolean z) {
+        j jVar;
+        jVar = this.a.c;
+        jVar.a(true);
     }
 }

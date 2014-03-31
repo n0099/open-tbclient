@@ -1,21 +1,19 @@
 package com.baidu.tieba.im.chat;
 
 import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class bh implements View.OnClickListener {
-    final /* synthetic */ MsgActivityView a;
-    private final /* synthetic */ String b;
-    private final /* synthetic */ String c;
+public final class bh implements View.OnClickListener {
+    final /* synthetic */ GroupChatActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bh(MsgActivityView msgActivityView, String str, String str2) {
-        this.a = msgActivityView;
-        this.b = str;
-        this.c = str2;
+    public bh(GroupChatActivity groupChatActivity) {
+        this.a = groupChatActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        com.baidu.tieba.person.cm.a(this.a.b(), this.b, this.c);
+        this.a.d.Q().e();
+        this.a.d.Q().setOnEggBrokeListener(new bi(this));
     }
 }

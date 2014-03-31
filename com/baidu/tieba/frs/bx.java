@@ -1,12 +1,21 @@
 package com.baidu.tieba.frs;
-
-import android.app.Activity;
 /* loaded from: classes.dex */
-public final class bx {
-    Activity a;
-    int b = 0;
+final class bx implements com.baidu.tieba.model.bd {
+    final /* synthetic */ FrsImageActivity a;
 
-    public bx(Activity activity) {
-        this.a = activity;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bx(FrsImageActivity frsImageActivity) {
+        this.a = frsImageActivity;
+    }
+
+    @Override // com.baidu.tieba.model.bd
+    public final void a(String str, long j) {
+        cy cyVar;
+        cyVar = this.a.q;
+        cyVar.b().setLike(0);
+    }
+
+    @Override // com.baidu.tieba.model.bd
+    public final void a() {
     }
 }

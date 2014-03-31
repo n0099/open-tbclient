@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.View;
 import android.widget.Button;
 import com.baidu.tieba.im.data.InviteMsgData;
-import com.baidu.tieba.im.groupInfo.ApplyJoinGroupActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class a implements View.OnClickListener {
@@ -29,6 +28,6 @@ public final class a implements View.OnClickListener {
         inviteMsgData2 = this.a.e;
         long fromUid = inviteMsgData2.getFromUid();
         inviteMsgData3 = this.a.e;
-        ApplyJoinGroupActivity.a(context, sb2, fromUid, inviteMsgData3.getText());
+        com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2008014, new com.baidu.tbadk.core.b.b(context, sb2, fromUid, inviteMsgData3.getText())));
     }
 }

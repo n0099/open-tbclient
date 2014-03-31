@@ -12,17 +12,17 @@ public final class m implements View.OnClickListener {
     private final /* synthetic */ String d;
     private final /* synthetic */ String e;
     private final /* synthetic */ String f;
-    private final /* synthetic */ com.baidu.tieba.f g;
+    private final /* synthetic */ com.baidu.tbadk.a g;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(ItemInfoView itemInfoView, boolean z, String str, String str2, String str3, String str4, com.baidu.tieba.f fVar) {
+    public m(ItemInfoView itemInfoView, boolean z, String str, String str2, String str3, String str4, com.baidu.tbadk.a aVar) {
         this.a = itemInfoView;
         this.b = z;
         this.c = str;
         this.d = str2;
         this.e = str3;
         this.f = str4;
-        this.g = fVar;
+        this.g = aVar;
     }
 
     @Override // android.view.View.OnClickListener

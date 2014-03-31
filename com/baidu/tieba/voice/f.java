@@ -1,53 +1,36 @@
 package com.baidu.tieba.voice;
 
 import android.os.Handler;
+import android.os.Message;
+import android.os.SystemClock;
 /* loaded from: classes.dex */
-public final class f {
-    private static h b;
-    private static String c;
-    private static r d;
-    private static int a = 0;
-    private static long e = 0;
-    private static Handler f = new Handler(new g());
+final class f extends Handler {
+    final /* synthetic */ RecordVoiceBnt a;
 
-    public static boolean a(String str, int i, r rVar) {
-        long currentTimeMillis = System.currentTimeMillis() - e;
-        if (currentTimeMillis < 1000) {
-            com.baidu.adp.lib.util.e.d("----start duration......" + currentTimeMillis);
-            return false;
-        }
-        e = System.currentTimeMillis();
-        if (a == 0) {
-            if (b == null) {
-                b = new h(f);
-            }
-            c = str;
-            d = rVar;
-            if (b.a(str, i)) {
-                a = 3;
-                com.baidu.adp.lib.util.e.d("----start record......");
-                new Thread(b).start();
-                return true;
-            }
-            return false;
-        }
-        com.baidu.adp.lib.util.e.d("----start record state......" + a);
-        return false;
+    private f(RecordVoiceBnt recordVoiceBnt) {
+        this.a = recordVoiceBnt;
     }
 
-    public static void a() {
-        com.baidu.adp.lib.util.e.d("----stop record......");
-        if (b != null) {
-            b.a();
-        }
-        a = 0;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ f(RecordVoiceBnt recordVoiceBnt, byte b) {
+        this(recordVoiceBnt);
     }
 
-    public static void b() {
-        com.baidu.adp.lib.util.e.d("----cancel record......");
-        if (b != null) {
-            b.b();
+    @Override // android.os.Handler
+    public final void handleMessage(Message message) {
+        if (message.what == 1) {
+            if (RecordVoiceBnt.a(this.a) < 360.0f) {
+                long uptimeMillis = SystemClock.uptimeMillis();
+                RecordVoiceBnt.a(this.a, uptimeMillis);
+                RecordVoiceBnt.b(this.a, uptimeMillis + 25);
+                RecordVoiceBnt recordVoiceBnt = this.a;
+                RecordVoiceBnt.a(recordVoiceBnt, RecordVoiceBnt.a(recordVoiceBnt) + ((((float) (uptimeMillis - RecordVoiceBnt.b(this.a))) / 1000.0f) * RecordVoiceBnt.c(this.a)));
+                sendEmptyMessageAtTime(1, RecordVoiceBnt.d(this.a));
+            } else {
+                RecordVoiceBnt.a(this.a, 360.0f);
+                RecordVoiceBnt.a(this.a, false);
+            }
+            this.a.invalidate();
         }
-        a = 0;
     }
 }

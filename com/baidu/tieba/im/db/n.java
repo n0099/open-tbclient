@@ -1,22 +1,21 @@
 package com.baidu.tieba.im.db;
-
-import java.util.LinkedList;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class n extends com.baidu.tieba.im.b<Void> {
-    final /* synthetic */ l a;
-    private final /* synthetic */ LinkedList c;
+public final class n extends a {
+    public static String b = "tb_private_msg_";
+    private static a c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public n(l lVar, LinkedList linkedList) {
-        this.a = lVar;
-        this.c = linkedList;
+    private n() {
+        super("tb_private_msg_", com.baidu.tieba.im.message.a.f.class);
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.b
-    public final /* bridge */ /* synthetic */ Void a() {
-        k.a().a(this.c);
-        return null;
+    public static synchronized n d() {
+        n nVar;
+        synchronized (n.class) {
+            if (c == null) {
+                c = new n();
+            }
+            nVar = (n) c;
+        }
+        return nVar;
     }
 }

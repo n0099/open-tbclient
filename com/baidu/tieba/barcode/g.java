@@ -1,19 +1,19 @@
 package com.baidu.tieba.barcode;
 
-import android.view.SurfaceHolder;
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class g implements Runnable {
+public final class g implements DialogInterface.OnClickListener {
     final /* synthetic */ CaptureActivity a;
-    private final /* synthetic */ SurfaceHolder b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(CaptureActivity captureActivity, SurfaceHolder surfaceHolder) {
+    public g(CaptureActivity captureActivity) {
         this.a = captureActivity;
-        this.b = surfaceHolder;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        this.a.a(this.b);
+    @Override // android.content.DialogInterface.OnClickListener
+    public final void onClick(DialogInterface dialogInterface, int i) {
+        this.a.setResult(0);
+        this.a.finish();
     }
 }

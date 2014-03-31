@@ -2,8 +2,7 @@ package com.baidu.tieba.album;
 
 import android.view.View;
 import android.view.animation.AnimationUtils;
-import com.baidu.tieba.img.ImageFileInfo;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
 final class ae implements View.OnClickListener {
     final /* synthetic */ ab a;
@@ -37,16 +36,16 @@ final class ae implements View.OnClickListener {
             if (aaVar2.onClick(this.e, this.d, !c)) {
                 if (!c) {
                     if (this.f == 1) {
-                        this.g.b.setBackgroundResource(R.drawable.btn_choose_photo_s_1);
+                        this.g.b.setBackgroundResource(com.baidu.tieba.a.g.btn_choose_photo_s_1);
                     } else {
-                        this.g.b.setBackgroundResource(R.drawable.btn_choose_photo_s);
+                        this.g.b.setBackgroundResource(com.baidu.tieba.a.g.btn_choose_photo_s);
                     }
                     albumActivity = this.a.b;
-                    this.g.b.startAnimation(AnimationUtils.loadAnimation(albumActivity, R.anim.album_choose_icon));
+                    this.g.b.startAnimation(AnimationUtils.loadAnimation(albumActivity, com.baidu.tieba.a.b.album_choose_icon));
                 } else if (this.f == 1) {
-                    this.g.b.setBackgroundResource(R.drawable.btn_choose_photo_n_1);
+                    this.g.b.setBackgroundResource(com.baidu.tieba.a.g.btn_choose_photo_n_1);
                 } else {
-                    this.g.b.setBackgroundResource(R.drawable.btn_choose_photo_n);
+                    this.g.b.setBackgroundResource(com.baidu.tieba.a.g.btn_choose_photo_n);
                 }
             }
         }

@@ -41,4 +41,8 @@ public abstract class b {
     public final int l() {
         return this.d;
     }
+
+    public final void b(int i) {
+        this.d = -3;
+    }
 }

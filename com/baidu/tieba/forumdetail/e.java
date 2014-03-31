@@ -3,11 +3,10 @@ package com.baidu.tieba.forumdetail;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
-import com.baidu.tieba.view.NavigationBar;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
-public final class e extends com.baidu.adp.a.e {
-    com.baidu.tieba.f a;
+public final class e extends com.baidu.adp.a.f {
+    com.baidu.tbadk.a a;
     private ForumDetailData c;
     private ViewGroup d;
     private ProgressBar e;
@@ -17,27 +16,26 @@ public final class e extends com.baidu.adp.a.e {
     private ItemHotThreadView i;
     private ItemFootNavView j;
 
-    public e(com.baidu.tieba.f fVar) {
-        super(fVar);
+    public e(com.baidu.tbadk.a aVar) {
+        super(aVar);
         this.a = null;
         this.c = null;
         this.d = null;
-        this.a = fVar;
-        this.a.setContentView(R.layout.forum_detail_activity);
-        this.f = (NavigationBar) this.a.findViewById(R.id.view_navigation_bar);
-        this.f.a(this.a.getString(R.string.forum_detail_title));
+        this.a = aVar;
+        this.a.setContentView(com.baidu.tieba.a.i.forum_detail_activity);
+        this.f = (NavigationBar) this.a.findViewById(com.baidu.tieba.a.h.view_navigation_bar);
+        this.f.a(this.a.getString(com.baidu.tieba.a.k.forum_detail_title));
         this.f.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, NavigationBar.ControlType.HOME_BUTTON);
-        this.g = (ItemHeaderView) this.a.findViewById(R.id.item_header);
-        this.h = (ItemInfoView) this.a.findViewById(R.id.item_info);
-        this.i = (ItemHotThreadView) this.a.findViewById(R.id.item_hot_thread);
-        this.j = (ItemFootNavView) this.a.findViewById(R.id.item_foot_nav);
-        this.d = (ViewGroup) this.a.findViewById(R.id.parent);
+        this.g = (ItemHeaderView) this.a.findViewById(com.baidu.tieba.a.h.item_header);
+        this.h = (ItemInfoView) this.a.findViewById(com.baidu.tieba.a.h.item_info);
+        this.i = (ItemHotThreadView) this.a.findViewById(com.baidu.tieba.a.h.item_hot_thread);
+        this.j = (ItemFootNavView) this.a.findViewById(com.baidu.tieba.a.h.item_foot_nav);
+        this.d = (ViewGroup) this.a.findViewById(com.baidu.tieba.a.h.parent);
         this.e = new ProgressBar(this.a);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
         this.e.setLayoutParams(layoutParams);
-        this.e.setIndeterminateDrawable(this.a.getResources().getDrawable(R.drawable.progressbar));
+        this.e.setIndeterminateDrawable(this.a.getResources().getDrawable(com.baidu.tieba.a.g.progressbar));
         this.e.setVisibility(8);
         ((ViewGroup) this.a.findViewById(16908290)).addView(this.e);
         this.e.setVisibility(0);

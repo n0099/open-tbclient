@@ -6,11 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
-import com.baidu.tieba.util.bq;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.core.util.ba;
 import java.util.List;
 /* loaded from: classes.dex */
-public class GroupAddressEditActivity extends com.baidu.tieba.f implements AdapterView.OnItemClickListener, com.baidu.adp.widget.BdSwitchView.c {
+public class GroupAddressEditActivity extends com.baidu.tbadk.a implements AdapterView.OnItemClickListener, com.baidu.adp.widget.BdSwitchView.c {
     p a = null;
     private String[] b = null;
     private boolean c = false;
@@ -29,7 +28,7 @@ public class GroupAddressEditActivity extends com.baidu.tieba.f implements Adapt
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         Intent intent = getIntent();
@@ -42,18 +41,18 @@ public class GroupAddressEditActivity extends com.baidu.tieba.f implements Adapt
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f
+    @Override // com.baidu.tbadk.a
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         p pVar = this.a;
         pVar.d.getLayoutMode().a(i == 1);
         pVar.d.getLayoutMode().a(pVar.c);
-        bq.b(pVar.c, i);
+        ba.b(pVar.c, i);
         pVar.a.b(i);
         if (i == 1) {
-            pVar.c.setBackgroundResource(R.color.group_info_bg_1);
+            pVar.c.setBackgroundResource(com.baidu.tieba.im.e.group_info_bg_1);
         } else {
-            pVar.c.setBackgroundResource(R.color.group_info_bg);
+            pVar.c.setBackgroundResource(com.baidu.tieba.im.e.group_info_bg);
         }
     }
 

@@ -1,19 +1,55 @@
 package com.baidu.tieba.faceshop;
 
-import com.baidu.tieba.view.by;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.TbadkApplication;
+import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class q implements by {
-    final /* synthetic */ FacePackageDetailActivity a;
+public final class q extends BdAsyncTask<List<String>, Integer, Boolean> {
+    final /* synthetic */ EmotionManageActivity a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public q(FacePackageDetailActivity facePackageDetailActivity) {
-        this.a = facePackageDetailActivity;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object[]] */
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ Boolean a(List<String>... listArr) {
+        List<String> list = listArr[0];
+        if (list == null || list.isEmpty()) {
+            return false;
+        }
+        int i = 0;
+        for (String str : list) {
+            MyEmotionGroupData myEmotionGroupData = new MyEmotionGroupData();
+            myEmotionGroupData.setGroupId(str);
+            myEmotionGroupData.setUid(TbadkApplication.E());
+            c.a();
+            if (c.a(myEmotionGroupData)) {
+                com.baidu.adp.lib.util.f.e("delete my emotion:" + myEmotionGroupData.getId());
+                i++;
+            }
+        }
+        return i > 0;
     }
 
-    @Override // com.baidu.tieba.view.by
-    public final void a(boolean z) {
-        if (z) {
-            this.a.a();
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public final /* synthetic */ void a(Boolean bool) {
+        Boolean bool2 = bool;
+        super.a((q) bool2);
+        if (bool2.booleanValue()) {
+            com.baidu.tbadk.editortool.ab.a().b();
+            this.a.p = true;
+            this.a.a(true);
         }
+    }
+
+    private q(EmotionManageActivity emotionManageActivity) {
+        this.a = emotionManageActivity;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ q(EmotionManageActivity emotionManageActivity, byte b) {
+        this(emotionManageActivity);
     }
 }

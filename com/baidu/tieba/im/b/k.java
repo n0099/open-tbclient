@@ -1,52 +1,69 @@
 package com.baidu.tieba.im.b;
 
-import com.baidu.tieba.TiebaApplication;
+import android.text.TextUtils;
+import com.baidu.tieba.im.chat.x;
+import com.baidu.tieba.im.db.n;
+import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.groupInfo.v;
-import java.util.Iterator;
-import java.util.LinkedList;
 /* loaded from: classes.dex */
-final class k implements com.baidu.tieba.im.db.e {
-    final /* synthetic */ i a;
-    private final /* synthetic */ LinkedList b;
-    private final /* synthetic */ LinkedList c;
+public final class k extends c {
+    private static k a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public k(i iVar, LinkedList linkedList, LinkedList linkedList2) {
-        this.a = iVar;
-        this.b = linkedList;
-        this.c = linkedList2;
+    public static synchronized k a() {
+        k kVar;
+        synchronized (k.class) {
+            if (a == null) {
+                a = new k();
+            }
+            kVar = a;
+        }
+        return kVar;
     }
 
-    @Override // com.baidu.tieba.im.db.e
-    public final void a(Iterator<ImMessageCenterPojo> it) {
-        boolean z;
-        while (it.hasNext()) {
-            ImMessageCenterPojo next = it.next();
-            if (next != null) {
-                if (next.getGroup_type() != 7) {
-                    Iterator it2 = this.b.iterator();
-                    while (true) {
-                        if (!it2.hasNext()) {
-                            z = true;
-                            break;
-                        }
-                        String str = (String) it2.next();
-                        if (next.getGid() != null && next.getGid().equals(str)) {
-                            v.d(TiebaApplication.v(), str, true);
-                            z = false;
-                            break;
-                        }
-                    }
-                    if (z) {
-                        v.d(TiebaApplication.v(), next.getGid(), false);
-                        next.setIs_delete(1);
-                        this.c.add(next);
-                    }
+    private k() {
+    }
+
+    public final void a(String str, int i, CommonMsgPojo commonMsgPojo) {
+        e.a(this, str, i, commonMsgPojo);
+    }
+
+    @Override // com.baidu.tieba.im.b.c
+    protected final void b() {
+        com.baidu.adp.lib.util.f.e("see init private chat begin ");
+        ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
+        imMessageCenterPojo.setGid(String.valueOf(x.a));
+        imMessageCenterPojo.setCustomGroupType(2);
+        for (String str : n.d().b()) {
+            com.baidu.adp.lib.util.f.e("see init private chat id:" + str);
+            if (!TextUtils.isEmpty(str)) {
+                long c = n.d().c(str);
+                if (c > imMessageCenterPojo.getPulled_msgId()) {
+                    imMessageCenterPojo.setPulled_msgId(c);
+                }
+                CommonMsgPojo d = n.d().d(str);
+                if (d == null) {
+                    com.baidu.adp.lib.util.f.e("see init private chat cmpojo null id:" + str);
                 } else {
-                    return;
+                    ImMessageCenterPojo fromCommonMsg = ImMessageCenterPojo.fromCommonMsg(d);
+                    if (fromCommonMsg == null) {
+                        com.baidu.adp.lib.util.f.e("see init private chat person null id:" + str);
+                    } else {
+                        if (d.getRid() > imMessageCenterPojo.getLast_rid()) {
+                            imMessageCenterPojo.setLast_rid(d.getRid());
+                        }
+                        if (com.baidu.tieba.im.db.g.c(str) != null) {
+                            com.baidu.tieba.im.db.g.a();
+                            ImMessageCenterPojo b = com.baidu.tieba.im.db.g.b(str);
+                            if (b != null) {
+                                imMessageCenterPojo.setIs_hidden(b.getIs_hidden());
+                                fromCommonMsg.setIs_hidden(b.getIs_hidden());
+                            }
+                        }
+                        a(fromCommonMsg);
+                    }
                 }
             }
         }
+        a(imMessageCenterPojo);
     }
 }

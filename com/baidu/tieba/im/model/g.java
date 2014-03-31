@@ -1,23 +1,26 @@
 package com.baidu.tieba.im.model;
-/* loaded from: classes.dex */
-public class g {
-    private static final String a = g.class.getName();
-    private String b = "";
 
-    public static String a(String str) {
-        com.baidu.tieba.data.f a2;
-        if (str != null) {
-            try {
-                com.baidu.tieba.data.g a3 = new com.baidu.tieba.b.a("c/c/voice/chunkupload", "c/c/voice/voice_fin_chunk_upload").a(com.baidu.tieba.util.af.a(str, 1));
-                if (a3 != null && a3.b() && (a2 = a3.a()) != null) {
-                    String a4 = a2.a();
-                    com.baidu.tieba.voice.a.e.a(str, a4);
-                    return a4;
-                }
-            } catch (Exception e) {
-                com.baidu.adp.lib.util.e.b(a, "submitVoiceBinary", "error: " + e.getMessage());
-            }
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes.dex */
+public final class g extends com.baidu.adp.framework.c.g {
+    final /* synthetic */ CommonPersonalMsglistModel a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g(CommonPersonalMsglistModel commonPersonalMsglistModel, int i) {
+        super(0);
+        this.a = commonPersonalMsglistModel;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
+    @Override // com.baidu.adp.framework.c.c
+    public final /* synthetic */ void a(SocketResponsedMessage socketResponsedMessage) {
+        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
+        if (socketResponsedMessage2 == null) {
+            com.baidu.adp.lib.util.f.b("msg == null");
+        } else if (socketResponsedMessage2.g() == 205004) {
+            CommonPersonalMsglistModel.a(this.a, socketResponsedMessage2);
         }
-        return null;
     }
 }

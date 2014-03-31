@@ -1,5 +1,7 @@
 package com.baidu.adp.framework.task;
+
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public interface a<T> {
-    com.baidu.adp.framework.message.b<T> a(com.baidu.adp.framework.message.a<T> aVar);
+    CustomResponsedMessage<?> a(com.baidu.adp.framework.message.a<T> aVar);
 }

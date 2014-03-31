@@ -1,24 +1,22 @@
 package com.baidu.tieba.im.chat;
 
-import com.slidingmenu.lib.R;
+import com.baidu.location.LocationClientOption;
+import java.util.LinkedList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class at implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ ar a;
+public final class at extends com.baidu.tieba.im.m<LinkedList<String>> {
+    final /* synthetic */ x b;
+    private final /* synthetic */ String c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public at(ar arVar) {
-        this.a = arVar;
+    public at(x xVar, String str) {
+        this.b = xVar;
+        this.c = str;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.baidu.tieba.im.a
-    public final /* synthetic */ void a(Boolean bool) {
-        GroupSettingActivity groupSettingActivity;
-        GroupSettingActivity groupSettingActivity2;
-        groupSettingActivity = this.a.a;
-        groupSettingActivity.closeLoadingDialog();
-        com.baidu.tieba.im.messageCenter.d.a().e(new com.baidu.tieba.im.message.h());
-        groupSettingActivity2 = this.a.a;
-        groupSettingActivity2.showToast(R.string.cash_del_suc, false);
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.m
+    public final /* bridge */ /* synthetic */ LinkedList<String> a() {
+        return com.baidu.tieba.im.db.c.a().a(this.c, 2, (String) null, LocationClientOption.MIN_SCAN_SPAN);
     }
 }

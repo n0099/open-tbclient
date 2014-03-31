@@ -6,28 +6,27 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
-import com.baidu.tieba.MainTabActivity;
-import com.baidu.tieba.model.bh;
-import com.baidu.tieba.model.bj;
+import com.baidu.tbadk.editortool.aa;
+import com.baidu.tieba.model.ao;
+import com.baidu.tieba.model.aq;
 import com.baidu.tieba.view.RightSlideViewPager;
-import com.slidingmenu.lib.R;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
-public class NewUserGuideActivity extends com.baidu.tieba.k {
-    private bh d;
-    private com.baidu.tieba.util.i e;
-    private boolean g;
-    private RightSlideViewPager i;
-    private boolean f = false;
-    private boolean h = false;
-    private bj j = new b(this);
+public class NewUserGuideActivity extends com.baidu.tbadk.core.e {
+    private ao c;
+    private aa d;
+    private boolean f;
+    private RightSlideViewPager h;
+    private boolean e = false;
+    private boolean g = false;
+    private aq i = new b(this);
 
     public final void a(boolean z) {
-        this.h = true;
+        this.g = true;
     }
 
-    public final boolean e() {
-        return this.h;
+    public final boolean f() {
+        return this.g;
     }
 
     public static void a(Context context, boolean z, boolean z2) {
@@ -37,12 +36,12 @@ public class NewUserGuideActivity extends com.baidu.tieba.k {
         context.startActivity(intent);
     }
 
-    public final RightSlideViewPager f() {
-        return this.i;
+    public final RightSlideViewPager g() {
+        return this.h;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.k, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.e, com.baidu.adp.a.c, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (Build.VERSION.SDK_INT >= 11) {
@@ -55,57 +54,57 @@ public class NewUserGuideActivity extends com.baidu.tieba.k {
                 e.printStackTrace();
             }
         }
-        setContentView(R.layout.guide_activity_interestfrs);
-        this.i = (RightSlideViewPager) findViewById(R.id.guide_viewPager);
-        this.i.setAdapter(new t(getSupportFragmentManager()));
-        this.i.setTag("canScroll");
-        this.i.setOnPageChangeListener(new c(this));
-        this.g = getIntent().getBooleanExtra("is_new_user", false);
-        this.f = getIntent().getBooleanExtra("has_like_bar", false);
-        int i2 = this.g ? 1 : 2;
-        this.d = new bh();
-        this.d.a(i2, 0, 100, this.j);
+        setContentView(com.baidu.tieba.a.i.guide_activity_interestfrs);
+        this.h = (RightSlideViewPager) findViewById(com.baidu.tieba.a.h.guide_viewPager);
+        this.h.setAdapter(new t(getSupportFragmentManager()));
+        this.h.setTag("canScroll");
+        this.h.setOnPageChangeListener(new c(this));
+        this.f = getIntent().getBooleanExtra("is_new_user", false);
+        this.e = getIntent().getBooleanExtra("has_like_bar", false);
+        int i2 = this.f ? 1 : 2;
+        this.c = new ao();
+        this.c.a(i2, 0, 100, this.i);
     }
 
     public final void b(boolean z) {
-        this.f = true;
+        this.e = true;
     }
 
-    public final com.baidu.tieba.util.i g() {
-        if (this.e == null) {
-            this.e = new com.baidu.tieba.util.i(this);
+    public final aa h() {
+        if (this.d == null) {
+            this.d = new aa(this);
         }
-        return this.e;
+        return this.d;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.k, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.e, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.k, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.e, com.baidu.adp.a.c, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
+        if (this.c != null) {
+            this.c.c();
+        }
         if (this.d != null) {
             this.d.c();
         }
-        if (this.e != null) {
-            this.e.c();
-        }
     }
 
-    public final bh h() {
-        return this.d;
+    public final ao i() {
+        return this.c;
     }
 
-    @Override // com.baidu.tieba.k
-    protected final void b(int i) {
+    @Override // com.baidu.tbadk.core.e
+    protected final void c(int i) {
     }
 
-    public final void i() {
-        MainTabActivity.a(this, 1, this.g);
+    public final void j() {
+        a(new com.baidu.adp.framework.message.a(2015001, new com.baidu.tbadk.core.b.aa(this).a(1, this.f)));
         finish();
     }
 }

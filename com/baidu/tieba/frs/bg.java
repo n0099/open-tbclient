@@ -1,56 +1,46 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tieba.frs.FrsImageActivity;
-import org.json.JSONObject;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
 /* loaded from: classes.dex */
-final class bg implements bo {
-    final /* synthetic */ FrsImageActivity a;
+final class bg implements View.OnTouchListener {
+    final /* synthetic */ ay a;
+
+    private bg(ay ayVar) {
+        this.a = ayVar;
+    }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bg(FrsImageActivity frsImageActivity) {
-        this.a = frsImageActivity;
+    public /* synthetic */ bg(ay ayVar, byte b) {
+        this(ayVar);
     }
 
-    @Override // com.baidu.tieba.frs.bo
-    public final void a() {
-        this.a.a(FrsImageActivity.FooterType.LOADING);
-    }
-
-    @Override // com.baidu.tieba.frs.bo
-    public final void a(int i, JSONObject jSONObject, com.baidu.tieba.model.an anVar) {
-        int i2;
-        com.baidu.tieba.model.af afVar;
-        com.baidu.tieba.model.af afVar2;
-        int i3;
-        com.baidu.tieba.model.al alVar;
-        com.baidu.tieba.model.al alVar2;
-        FrsImageActivity.c(this.a);
-        this.a.a(FrsImageActivity.FooterType.NORMAL);
-        if (jSONObject == null) {
-            if (anVar != null && anVar.a) {
-                this.a.showToast(anVar.d);
-                return;
-            }
-            return;
-        }
-        FrsImageActivity frsImageActivity = this.a;
-        i2 = frsImageActivity.h;
-        frsImageActivity.h = i2 + 30;
-        this.a.r = new com.baidu.tieba.model.af();
-        afVar = this.a.r;
-        afVar.a(jSONObject);
-        FrsImageActivity frsImageActivity2 = this.a;
-        afVar2 = this.a.r;
-        FrsImageActivity.a(frsImageActivity2, afVar2.a());
-        i3 = this.a.h;
-        alVar = this.a.q;
-        if (i3 >= alVar.d().size()) {
-            alVar2 = this.a.q;
-            if (alVar2.e() == 0) {
-                this.a.a(FrsImageActivity.FooterType.LAST);
-            } else {
-                this.a.a(FrsImageActivity.FooterType.NEXT);
+    @Override // android.view.View.OnTouchListener
+    public final boolean onTouch(View view, MotionEvent motionEvent) {
+        com.baidu.tbadk.core.data.o oVar = (com.baidu.tbadk.core.data.o) this.a.getItem(((Integer) view.getTag()).intValue());
+        View childAt = ((ViewGroup) view).getChildAt(0);
+        if (childAt != null) {
+            boolean z = oVar.k() == null || oVar.k().getIsLike() == 0;
+            if (motionEvent.getAction() == 0) {
+                if (System.currentTimeMillis() - ay.b(this.a) > 1000) {
+                    ay.a(this.a, true);
+                    ay.a(this.a, childAt);
+                } else {
+                    ay.a(this.a, false);
+                }
+            } else if (motionEvent.getAction() == 1) {
+                if (z) {
+                    ay.a(this.a, childAt, ay.c(this.a));
+                } else {
+                    ay.b(this.a, childAt, ay.c(this.a));
+                }
+            } else if (motionEvent.getAction() == 2) {
+                ay.b(this.a, childAt, ay.c(this.a));
+            } else if (motionEvent.getAction() == 3) {
+                ay.b(this.a, childAt, ay.c(this.a));
             }
         }
+        return false;
     }
 }

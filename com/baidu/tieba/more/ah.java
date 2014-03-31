@@ -1,21 +1,21 @@
 package com.baidu.tieba.more;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-public final class ah implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ ag a;
+final class ah implements DialogInterface.OnClickListener {
+    final /* synthetic */ SystemHelpSettingActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(ag agVar) {
-        this.a = agVar;
+    public ah(SystemHelpSettingActivity systemHelpSettingActivity) {
+        this.a = systemHelpSettingActivity;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        SettingTextImageView settingTextImageView;
-        if (bVar == null) {
-            return;
-        }
-        settingTextImageView = this.a.f;
-        settingTextImageView.setIcon(bVar);
+    @Override // android.content.DialogInterface.OnClickListener
+    public final void onClick(DialogInterface dialogInterface, int i) {
+        aj ajVar;
+        this.a.showLoadingDialog(this.a.getString(com.baidu.tieba.a.k.deleting));
+        ajVar = this.a.b;
+        ajVar.b();
+        dialogInterface.cancel();
     }
 }

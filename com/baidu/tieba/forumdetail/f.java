@@ -5,12 +5,12 @@ import android.view.View;
 /* loaded from: classes.dex */
 public final class f implements View.OnClickListener {
     final /* synthetic */ ItemFootNavView a;
-    private final /* synthetic */ com.baidu.tieba.f b;
+    private final /* synthetic */ com.baidu.tbadk.a b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(ItemFootNavView itemFootNavView, com.baidu.tieba.f fVar) {
+    public f(ItemFootNavView itemFootNavView, com.baidu.tbadk.a aVar) {
         this.a = itemFootNavView;
-        this.b = fVar;
+        this.b = aVar;
     }
 
     @Override // android.view.View.OnClickListener

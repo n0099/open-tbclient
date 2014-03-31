@@ -1,21 +1,20 @@
 package com.baidu.tieba.im.chat.snapGroup;
-
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class i implements DialogInterface.OnClickListener {
-    final /* synthetic */ SnapGroupChatView a;
+final class i implements Runnable {
+    final /* synthetic */ h a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(SnapGroupChatView snapGroupChatView) {
-        this.a = snapGroupChatView;
+    public i(h hVar) {
+        this.a = hVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
-        AlertDialog alertDialog;
-        alertDialog = this.a.k;
-        alertDialog.dismiss();
+    @Override // java.lang.Runnable
+    public final void run() {
+        boolean z;
+        this.a.a.finish();
+        z = this.a.a.s;
+        if (z) {
+            this.a.a.showToast(this.a.a.getString(com.baidu.tieba.im.j.snap_group_chat_kick_out_by_silence), false);
+        }
     }
 }

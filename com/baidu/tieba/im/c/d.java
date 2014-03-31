@@ -1,18 +1,38 @@
 package com.baidu.tieba.im.c;
 
-import java.util.LinkedHashMap;
+import java.util.Map;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class d extends com.baidu.tieba.im.b<Void> {
-    private final /* synthetic */ LinkedHashMap a;
+public final class d implements com.baidu.adp.lib.network.websocket.c {
+    final /* synthetic */ b a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(LinkedHashMap linkedHashMap) {
-        this.a = linkedHashMap;
+    public d(b bVar) {
+        this.a = bVar;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.im.b
-    public final /* bridge */ /* synthetic */ Void a() {
-        return com.baidu.tieba.im.db.b.a().a(this.a);
+    @Override // com.baidu.adp.lib.network.websocket.c
+    public final boolean a(int i, String str) {
+        com.baidu.adp.lib.util.f.b("errorCode=" + i + "|errorString=" + str);
+        this.a.d();
+        return false;
+    }
+
+    @Override // com.baidu.adp.lib.network.websocket.c
+    public final void a(Map<String, String> map) {
+        this.a.c();
+        com.baidu.tbadk.a.a.a().a(map);
+    }
+
+    @Override // com.baidu.adp.lib.network.websocket.c
+    public final void a(byte[] bArr) {
+    }
+
+    @Override // com.baidu.adp.lib.network.websocket.c
+    public final void a(com.baidu.adp.lib.webSocket.d dVar) {
+    }
+
+    @Override // com.baidu.adp.lib.network.websocket.c
+    public final void a(String str) {
     }
 }

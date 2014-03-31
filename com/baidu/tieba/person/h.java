@@ -1,34 +1,22 @@
 package com.baidu.tieba.person;
 
 import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.tieba.data.ForumData;
-import com.baidu.tieba.frs.FrsActivity;
 /* loaded from: classes.dex */
-final class h implements AdapterView.OnItemClickListener {
-    final /* synthetic */ EditBarActivity a;
+final class h implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ g a;
+    private final /* synthetic */ View b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(EditBarActivity editBarActivity) {
-        this.a = editBarActivity;
+    public h(g gVar, View view) {
+        this.a = gVar;
+        this.b = view;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public final void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        l lVar;
-        k kVar;
-        l lVar2;
-        lVar = this.a.i;
-        if (lVar.getItem(i) != null) {
-            kVar = this.a.n;
-            if (kVar == null) {
-                this.a.l = i;
-                lVar2 = this.a.i;
-                ForumData forumData = (ForumData) lVar2.getItem(i);
-                if (forumData != null) {
-                    FrsActivity.a(this.a, forumData.getName(), "tb_mytieba");
-                }
-            }
+    @Override // com.baidu.tbadk.imageManager.d
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        View findViewWithTag = this.b.findViewWithTag(str);
+        if (findViewWithTag != null) {
+            findViewWithTag.invalidate();
         }
     }
 }

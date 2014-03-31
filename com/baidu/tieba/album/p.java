@@ -1,7 +1,7 @@
 package com.baidu.tieba.album;
 
-import com.baidu.tieba.img.ImageFileInfo;
-import com.baidu.tieba.img.WriteImagesInfo;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.WriteImagesInfo;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class p {

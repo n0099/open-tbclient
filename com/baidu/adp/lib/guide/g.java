@@ -1,7 +1,6 @@
 package com.baidu.adp.lib.guide;
 
 import android.view.View;
-import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -37,7 +36,10 @@ public final class g {
         if (this.b) {
             throw new BuildException("Already created. rebuild a new one.");
         }
-        this.a.d = R.id.love;
+        if (i <= 0) {
+            throw new BuildException("Illegal view id.");
+        }
+        this.a.d = i;
         return this;
     }
 

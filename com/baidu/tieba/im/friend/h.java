@@ -1,21 +1,23 @@
 package com.baidu.tieba.im.friend;
 
-import android.widget.AbsListView;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
-final class h implements AbsListView.OnScrollListener {
-    final /* synthetic */ f a;
+final class h {
+    public View a;
+    public HeadImageView b;
+    public TextView c;
+    public Button d;
+    final /* synthetic */ f e;
+
+    private h(f fVar) {
+        this.e = fVar;
+    }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(f fVar) {
-        this.a = fVar;
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public final void onScroll(AbsListView absListView, int i, int i2, int i3) {
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public final void onScrollStateChanged(AbsListView absListView, int i) {
-        this.a.e();
+    public /* synthetic */ h(f fVar, byte b) {
+        this(fVar);
     }
 }

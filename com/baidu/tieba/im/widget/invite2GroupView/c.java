@@ -2,6 +2,7 @@ package com.baidu.tieba.im.widget.invite2GroupView;
 
 import android.app.Activity;
 import android.view.View;
+import com.baidu.tbadk.core.b.n;
 import com.baidu.tieba.im.data.InviteMsgData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -24,7 +25,7 @@ public final class c implements View.OnClickListener {
             inviteMsgData2 = this.a.e;
             String groupName = inviteMsgData2.getGroupName();
             inviteMsgData3 = this.a.e;
-            com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001003, new com.baidu.tieba.a.b((Activity) this.a.getContext(), groupId, groupName, inviteMsgData3.getGroupOwnerId(), "invite add group")));
+            com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001001, new n((Activity) this.a.getContext(), groupId, groupName, inviteMsgData3.getGroupOwnerId(), "invite add group")));
         }
     }
 }

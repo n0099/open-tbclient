@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.android.common.security.RSAUtil;
 import com.baidu.android.silentupdate.a;
-import com.baidu.sapi2.shell.b;
 import java.io.UnsupportedEncodingException;
 import java.security.KeyFactory;
 import java.security.PublicKey;
@@ -128,31 +127,31 @@ public class PushConstants {
         switch (i) {
             case 0:
                 return "Success";
-            case ERROR_NETWORK_ERROR /* 10001 */:
+            case 10001:
                 return "Network Problem";
-            case ERROR_SERVICE_NOT_AVAILABLE /* 10002 */:
+            case 10002:
                 return "Service not available";
-            case ERROR_SERVICE_NOT_AVAILABLE_TEMP /* 10003 */:
+            case 10003:
                 return "Service not available temporary";
-            case ERROR_SERVER_INTERNAL_ERROR /* 30600 */:
+            case 30600:
                 return "Internal Server Error";
-            case ERROR_METHOD_ERROR /* 30601 */:
+            case 30601:
                 return "Method Not Allowed";
-            case ERROR_PARAMS_ERROR /* 30602 */:
+            case 30602:
                 return "Request Params Not Valid";
-            case ERROR_AUTHENTICATION_FAILED /* 30603 */:
+            case 30603:
                 return "Authentication Failed";
-            case ERROR_QUOTA_USE_UP /* 30604 */:
+            case 30604:
                 return "Quota Use Up Payment Required";
-            case ERROR_DATA_NOT_FOUND /* 30605 */:
+            case 30605:
                 return "Data Required Not Found";
-            case ERROR_TIME_EXPIRES /* 30606 */:
+            case 30606:
                 return "Request Time Expires Timeout";
-            case ERROR_CHANNEL_TOKEN_TIMEOUT /* 30607 */:
+            case 30607:
                 return "Channel Token Timeout";
-            case ERROR_BIND_NOT_EXIST /* 30608 */:
+            case 30608:
                 return "Bind Relation Not Found";
-            case ERROR_BIND_OVERLOAD /* 30609 */:
+            case 30609:
                 return "Bind Number Too Many";
             default:
                 return "Unknown";
@@ -161,7 +160,7 @@ public class PushConstants {
 
     private static byte[] a(byte[] bArr, String str, int i) {
         PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(a.a(str.getBytes())));
-        Cipher cipher = Cipher.getInstance(b.a);
+        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
         cipher.init(1, generatePublic);
         int i2 = i / 8;
         int i3 = i2 - 11;

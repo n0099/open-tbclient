@@ -2,7 +2,6 @@ package com.baidu.tieba.write;
 
 import android.view.View;
 import android.widget.EditText;
-import com.baidu.adp.lib.util.BdUtilHelper;
 /* loaded from: classes.dex */
 final class e implements View.OnClickListener {
     final /* synthetic */ AtListActivity a;
@@ -17,7 +16,7 @@ final class e implements View.OnClickListener {
         EditText editText;
         AtListActivity atListActivity = this.a;
         editText = this.a.b;
-        BdUtilHelper.a(atListActivity, editText);
+        com.baidu.adp.lib.util.i.a(atListActivity, editText);
         this.a.finish();
     }
 }

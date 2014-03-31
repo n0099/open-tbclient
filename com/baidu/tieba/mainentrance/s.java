@@ -1,9 +1,8 @@
 package com.baidu.tieba.mainentrance;
 
-import android.widget.AbsListView;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import android.view.View;
 /* loaded from: classes.dex */
-final class s implements AbsListView.OnScrollListener {
+final class s implements View.OnClickListener {
     final /* synthetic */ SquareSearchActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,14 +10,27 @@ final class s implements AbsListView.OnScrollListener {
         this.a = squareSearchActivity;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public final void onScrollStateChanged(AbsListView absListView, int i) {
-        if (i == 2 || i == 1) {
-            BdUtilHelper.a(this.a, absListView);
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        String str;
+        String str2;
+        int i;
+        String str3;
+        str = this.a.y;
+        if (str != null) {
+            str2 = this.a.y;
+            if (str2.trim().length() > 0) {
+                i = this.a.z;
+                if (i == 0) {
+                    this.a.b();
+                    return;
+                }
+                SquareSearchActivity squareSearchActivity = this.a;
+                str3 = this.a.y;
+                squareSearchActivity.a(1, str3);
+                return;
+            }
         }
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public final void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        this.a.showToast(this.a.getResources().getString(com.baidu.tieba.a.k.write_keyword));
     }
 }

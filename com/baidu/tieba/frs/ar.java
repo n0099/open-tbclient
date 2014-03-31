@@ -1,56 +1,57 @@
 package com.baidu.tieba.frs;
 
-import android.app.Activity;
-import android.os.Handler;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.TextView;
-import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.R;
+import com.baidu.adp.widget.ListView.BdListView;
 /* loaded from: classes.dex */
-public final class ar {
-    private Activity a;
-    private Animation b;
-    private Animation c;
-    private Handler d = new Handler();
-    private LayoutInflater e;
+final class ar implements Runnable {
+    final /* synthetic */ FrsActivity a;
 
-    public ar(Activity activity) {
-        this.a = activity;
-        this.e = this.a.getLayoutInflater();
-        this.b = AnimationUtils.loadAnimation(this.a, R.anim.frs_like);
-        this.c = AnimationUtils.loadAnimation(this.a, R.anim.frs_sign);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ar(FrsActivity frsActivity) {
+        this.a = frsActivity;
     }
 
-    public final void a(View view) {
-        View inflate = this.e.inflate(R.layout.frs_like_cover, (ViewGroup) null);
-        Button button = (Button) inflate.findViewById(R.id.btn_love);
-        TextView textView = (TextView) inflate.findViewById(R.id.tv_love);
-        if (TiebaApplication.g().ae() == 1) {
-            textView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_like_1, 0, 0, 0);
-            textView.setShadowLayer(1.0f, 0.0f, 1.0f, R.color.frs_like_shadow_1);
-            button.setBackgroundResource(R.drawable.frs_btn_like_1);
-            textView.setTextColor(this.a.getResources().getColor(R.color.frs_like_txt_1));
-        } else {
-            textView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_like, 0, 0, 0);
-            textView.setShadowLayer(1.0f, 0.0f, 1.0f, R.color.frs_like_shadow);
-            button.setBackgroundResource(R.drawable.frs_btn_like);
-            textView.setTextColor(this.a.getResources().getColor(R.color.frs_like_txt));
+    @Override // java.lang.Runnable
+    public final void run() {
+        cm cmVar;
+        cm cmVar2;
+        cm cmVar3;
+        String str;
+        String str2;
+        g gVar;
+        cm cmVar4;
+        cm cmVar5;
+        com.baidu.tbadk.imageManager.d dVar;
+        try {
+            cmVar = this.a.r;
+            cmVar.t().a().a();
+            cmVar2 = this.a.r;
+            cmVar2.v().a().a();
+            cmVar3 = this.a.r;
+            cmVar3.u().a().a();
+            str = this.a.J;
+            if (!str.equals("frs_page")) {
+                str2 = this.a.J;
+                if (str2.equals("normal_page")) {
+                    gVar = this.a.D;
+                    String image_url = gVar.f().getImage_url();
+                    if (image_url != null && image_url.length() > 0) {
+                        this.a.e();
+                    }
+                }
+            } else {
+                this.a.f();
+            }
+            this.a.l();
+            int i = com.baidu.tbadk.core.h.a().f() ? 0 : 1;
+            cmVar4 = this.a.r;
+            BdListView I = cmVar4.I();
+            cmVar5 = this.a.r;
+            com.baidu.tbadk.editortool.aa a = cmVar5.t().a();
+            com.baidu.tbadk.imageManager.d dVar2 = this.a.c;
+            dVar = this.a.ac;
+            com.baidu.tbadk.core.util.ac.a(I, a, dVar2, dVar, null, i, 0);
+        } catch (Exception e) {
+            com.baidu.adp.lib.util.f.b("FrsActivity", "mGetImageRunnble.run", "error = " + e.getMessage());
         }
-        button.setLayoutParams(new FrameLayout.LayoutParams(view.getMeasuredWidth(), view.getMeasuredHeight()));
-        com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
-        gVar.a(false);
-        gVar.b(R.id.love).a(0).b(true);
-        gVar.a(new as(this, inflate));
-        com.baidu.adp.lib.guide.d a = gVar.a();
-        a.a(this.a);
-        inflate.setAnimation(this.b);
-        this.b.start();
-        this.b.setAnimationListener(new at(this, a));
     }
 }

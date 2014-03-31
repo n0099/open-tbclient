@@ -5,41 +5,46 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.sapi2.SapiConfiguration;
-import com.baidu.sapi2.SapiWebView;
-import com.baidu.sapi2.utils.enums.Domain;
-import com.baidu.sapi2.utils.enums.LoginShareStrategy;
-import com.baidu.tieba.data.AccountData;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.b.al;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.plugins.BdSapiCoreLightDelegate;
 /* loaded from: classes.dex */
-public class SapiFastRegActivity extends com.baidu.tieba.f {
-    y a = null;
+public class SapiFastRegActivity extends com.baidu.tbadk.a {
+    com.baidu.tbadk.coreExtra.view.p a = null;
     private String b = null;
-    private Handler c = new Handler();
-    private az d = new bn(this);
+    private BdSapiCoreLightDelegate c = null;
+    private final Handler d = new Handler();
+    private final com.baidu.tbadk.core.a.u e = new ag(this);
+
+    static {
+        TbadkApplication.j().a(al.class, SapiFastRegActivity.class);
+    }
 
     public static void a(Activity activity, int i) {
         activity.startActivityForResult(new Intent(activity, SapiFastRegActivity.class), 22002);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(R.layout.pass_spi_webview_fastreg);
-        SapiWebView sapiWebView = (SapiWebView) findViewById(R.id.sapi_webview);
-        sapiWebView.setOnFinishCallback(new bp(this));
-        sapiWebView.setAuthorizationListener(new bq(this));
-        sapiWebView.loadFastReg();
+        this.c = (BdSapiCoreLightDelegate) com.baidu.tbplugin.k.a().a(BdSapiCoreLightDelegate.class);
+        if (this.c == null) {
+            Register2Activity.a(this, 12007);
+            finish();
+            return;
+        }
+        setContentView(com.baidu.tieba.a.i.pass_spi_webview_fastreg);
+        this.c.setCallback(new ai(this));
+        this.c.setupViews(findViewById(com.baidu.tieba.a.h.sapi_webview));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void a(SapiFastRegActivity sapiFastRegActivity, AccountData accountData) {
         if (sapiFastRegActivity.a == null) {
-            sapiFastRegActivity.a = new y(sapiFastRegActivity);
-            sapiFastRegActivity.a.a(new bs(sapiFastRegActivity));
+            sapiFastRegActivity.a = new com.baidu.tbadk.coreExtra.view.p(sapiFastRegActivity);
+            sapiFastRegActivity.a.a(new ak(sapiFastRegActivity));
         }
         sapiFastRegActivity.a.e();
         sapiFastRegActivity.a.a(accountData);
@@ -47,6 +52,9 @@ public class SapiFastRegActivity extends com.baidu.tieba.f {
     }
 
     public static void a(Context context) {
-        SapiAccountManager.getInstance().init(new SapiConfiguration.Builder(context).setProductLineInfo("tb", SocialConstants.TRUE, "6e93e7659ae637845c7f83abee68a740").setRuntimeEnvironment(Domain.DOMAIN_ONLINE).loginShareStrategy(LoginShareStrategy.DISABLED).skin("file:///android_asset/sapi_theme/style.css").debug(true).build());
+        BdSapiCoreLightDelegate bdSapiCoreLightDelegate = (BdSapiCoreLightDelegate) com.baidu.tbplugin.k.a().a(BdSapiCoreLightDelegate.class);
+        if (bdSapiCoreLightDelegate != null) {
+            bdSapiCoreLightDelegate.initSapi(context, "tb", "1", "6e93e7659ae637845c7f83abee68a740", "file:///android_asset/sapi_theme/style.css");
+        }
     }
 }

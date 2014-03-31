@@ -18,8 +18,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.android.pushservice.PushConstants;
-import com.baidu.cloudsdk.social.core.SocialConstants;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -70,9 +68,8 @@ public class FragmentActivity extends Activity {
         }
     };
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public final class NonConfigurationInstances {
+    final class NonConfigurationInstances {
         Object activity;
         HashMap<String, Object> children;
         Object custom;
@@ -83,9 +80,8 @@ public class FragmentActivity extends Activity {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class FragmentTag {
+    class FragmentTag {
         public static final int[] Fragment = {16842755, 16842960, 16842961};
         public static final int Fragment_id = 1;
         public static final int Fragment_name = 0;
@@ -516,7 +512,7 @@ public class FragmentActivity extends Activity {
             if (id != 0 && resources != null) {
                 switch ((-16777216) & id) {
                     case 16777216:
-                        resourcePackageName = SocialConstants.ANDROID_CLIENT_TYPE;
+                        resourcePackageName = "android";
                         String resourceTypeName = resources.getResourceTypeName(id);
                         String resourceEntryName = resources.getResourceEntryName(id);
                         sb.append(" ");
@@ -527,7 +523,7 @@ public class FragmentActivity extends Activity {
                         sb.append(resourceEntryName);
                         break;
                     case 2130706432:
-                        resourcePackageName = PushConstants.EXTRA_APP;
+                        resourcePackageName = "app";
                         String resourceTypeName2 = resources.getResourceTypeName(id);
                         String resourceEntryName2 = resources.getResourceEntryName(id);
                         sb.append(" ");

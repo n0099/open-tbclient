@@ -1,27 +1,27 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import com.baidu.tbadk.widget.TbImageView;
+import android.view.animation.Animation;
 /* loaded from: classes.dex */
-final class bl implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ FrsImageActivity a;
+final class bl implements Animation.AnimationListener {
+    final /* synthetic */ bj a;
+    private final /* synthetic */ com.baidu.adp.lib.guide.d b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bl(FrsImageActivity frsImageActivity) {
-        this.a = frsImageActivity;
+    public bl(bj bjVar, com.baidu.adp.lib.guide.d dVar) {
+        this.a = bjVar;
+        this.b = dVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        bq bqVar;
-        try {
-            bqVar = this.a.l;
-            View findViewWithTag = bqVar.e().a(2).findViewWithTag(str);
-            if (findViewWithTag != null && (findViewWithTag instanceof TbImageView)) {
-                findViewWithTag.invalidate();
-            }
-        } catch (Exception e) {
-            com.baidu.adp.lib.util.e.b(getClass().getName(), "imageLoaded", e.getMessage());
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public final void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public final void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public final void onAnimationEnd(Animation animation) {
+        this.b.a();
     }
 }

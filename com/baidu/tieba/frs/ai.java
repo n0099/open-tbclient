@@ -1,9 +1,8 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import android.widget.AdapterView;
+import com.baidu.tbadk.core.data.ForumData;
 /* loaded from: classes.dex */
-final class ai implements AdapterView.OnItemLongClickListener {
+final class ai implements cw {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,54 +10,41 @@ final class ai implements AdapterView.OnItemLongClickListener {
         this.a = frsActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemLongClickListener
-    public final boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-        bs bsVar;
-        bs bsVar2;
-        com.baidu.tieba.data.az azVar;
-        com.baidu.tieba.data.az azVar2;
-        com.baidu.tieba.data.az azVar3;
-        com.baidu.tieba.data.az azVar4;
-        bs bsVar3;
-        com.baidu.tieba.data.az azVar5;
-        if (i >= 0) {
-            bsVar = this.a.p;
-            long itemId = bsVar.m().getItemId(i);
-            if (itemId != -1 && itemId != -2) {
-                FrsActivity frsActivity = this.a;
-                bsVar2 = this.a.p;
-                frsActivity.K = (com.baidu.tieba.data.az) bsVar2.m().getItem(i);
-                azVar = this.a.K;
-                if (azVar instanceof g) {
-                    azVar5 = this.a.K;
-                    g gVar = (g) azVar5;
-                    int x = gVar.x();
-                    if (x == 0) {
-                        this.a.a(gVar, i);
-                    } else if (x == 2) {
-                        this.a.a(gVar);
-                    }
-                } else {
-                    FrsActivity frsActivity2 = this.a;
-                    azVar2 = this.a.K;
-                    frsActivity2.n = azVar2.a();
-                    azVar3 = this.a.K;
-                    String j2 = azVar3.j();
-                    if (j2 == null || j2.equals("")) {
-                        this.a.o = false;
-                    } else {
-                        this.a.o = true;
-                    }
-                    FrsActivity frsActivity3 = this.a;
-                    azVar4 = this.a.K;
-                    FrsActivity.b(frsActivity3, azVar4);
-                    bsVar3 = this.a.p;
-                    if (bsVar3.a != null) {
-                        bsVar3.a.show();
-                    }
-                }
-            }
+    @Override // com.baidu.tieba.frs.cw
+    public final void a(i iVar, j jVar) {
+        cm cmVar;
+        cm cmVar2;
+        cm cmVar3;
+        g gVar;
+        g gVar2;
+        cm cmVar4;
+        g gVar3;
+        g gVar4;
+        if (iVar.a) {
+            cmVar3 = this.a.r;
+            cmVar3.a(this.a.getString(com.baidu.tieba.a.k.add_fan_sucess));
+            gVar = this.a.D;
+            gVar.k().b(1);
+            gVar2 = this.a.D;
+            gVar2.k().c(iVar.c);
+            cmVar4 = this.a.r;
+            gVar3 = this.a.D;
+            ForumData f = gVar3.f();
+            gVar4 = this.a.D;
+            cmVar4.a(1, f, gVar4, false);
+            com.baidu.tieba.r.c().e(true);
+            return;
         }
-        return false;
+        if (jVar.d == null || jVar.d.length() <= 0) {
+            cmVar = this.a.r;
+            cmVar.a(this.a.getString(com.baidu.tieba.a.k.add_fan_error));
+        } else {
+            cmVar2 = this.a.r;
+            cmVar2.a(jVar.d);
+        }
+        if (jVar.c != 120002) {
+            return;
+        }
+        this.a.n();
     }
 }

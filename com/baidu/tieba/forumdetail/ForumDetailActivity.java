@@ -3,13 +3,12 @@ package com.baidu.tieba.forumdetail;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.util.cb;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-public class ForumDetailActivity extends com.baidu.tieba.f {
+public class ForumDetailActivity extends com.baidu.tbadk.a {
     private e a = null;
-    private String b = SocialConstants.FALSE;
-    private String c = SocialConstants.FALSE;
+    private String b = "0";
+    private String c = "0";
     private d d = new a(this);
 
     /* loaded from: classes.dex */
@@ -37,25 +36,25 @@ public class ForumDetailActivity extends com.baidu.tieba.f {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.a = new e(this);
         this.b = getIntent().getStringExtra("forum_id");
-        this.c = getIntent().getStringExtra("from_type").equals(FromType.FRS.toString()) ? SocialConstants.FALSE : SocialConstants.TRUE;
+        this.c = getIntent().getStringExtra("from_type").equals(FromType.FRS.toString()) ? "0" : "1";
         b.a(this.b, this.c, this.d);
-        cb.a(this, getIntent().getStringExtra("from_type").equals(FromType.FRS.toString()) ? "detail_from_frs" : "detail_from_bar_dir", "click", 1, new Object[0]);
+        TiebaStatic.a(this, getIntent().getStringExtra("from_type").equals(FromType.FRS.toString()) ? "detail_from_frs" : "detail_from_bar_dir", "click", 1, new Object[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, android.app.Activity
+    @Override // com.baidu.tbadk.a, android.app.Activity
     public void onResume() {
         super.onResume();
         this.a.a();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f
+    @Override // com.baidu.tbadk.a
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.a.a(i);

@@ -2,13 +2,14 @@ package com.baidu.adp.lib.stats;
 
 import android.content.Context;
 import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Environment;
 import android.os.HandlerThread;
 import android.text.TextUtils;
-import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.tieba.switchs.SwitchKey;
+import com.baidu.tieba.person.PersonInfoActivity;
+import com.baidu.tieba.switchs.features.VoiceSwitchStatic;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -79,7 +80,7 @@ public class g {
                 intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
                 context.registerReceiver(this.x, intentFilter);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.e.b(e.getMessage());
+                com.baidu.adp.lib.util.f.b(e.getMessage());
             }
         }
         if (this.y == null && context != null) {
@@ -107,27 +108,48 @@ public class g {
             this.v = new c(context, s, str10);
         }
         a(this.w);
-        f();
+        g();
     }
 
-    private static void f() {
+    private static void g() {
         s.removeMessages(8);
         s.sendMessage(s.obtainMessage(8));
     }
 
     public static /* synthetic */ void a(g gVar) {
+        boolean z = false;
         gVar.q = o.a(gVar.b);
         gVar.r = o.b(gVar.b);
-        boolean a2 = com.baidu.adp.lib.network.i.a();
-        if (gVar.t != null) {
-            gVar.t.c(a2);
+        NetworkInfo[] allNetworkInfo = ((ConnectivityManager) com.baidu.adp.lib.network.willdelete.e.a().b().getSystemService("connectivity")).getAllNetworkInfo();
+        if (allNetworkInfo != null) {
+            int i = 0;
+            while (true) {
+                if (i >= allNetworkInfo.length) {
+                    break;
+                } else if (allNetworkInfo[i].isConnected() && allNetworkInfo[i].isAvailable()) {
+                    z = true;
+                    break;
+                } else {
+                    i++;
+                }
+            }
         }
-        if (gVar.u != null) {
-            gVar.u.c(a2);
+        if (z) {
+            boolean a2 = com.baidu.adp.lib.network.willdelete.h.a();
+            if (gVar.t != null) {
+                gVar.t.c(a2);
+            }
+            if (gVar.u != null) {
+                gVar.u.c(a2);
+            }
+            if (gVar.v != null) {
+                gVar.v.c(a2);
+            }
         }
-        if (gVar.v != null) {
-            gVar.v.c(a2);
-        }
+    }
+
+    public final String b() {
+        return this.q;
     }
 
     public final synchronized void a(String str, String str2, String str3) {
@@ -144,7 +166,7 @@ public class g {
             if (this.v != null) {
                 this.v.a(true);
             }
-            f();
+            g();
         }
     }
 
@@ -158,25 +180,42 @@ public class g {
     }
 
     public final void a(String str, String str2, String str3, long j, long j2, long j3, long j4, long j5, int i, int i2, String str4, Object... objArr) {
-        a("img", null, str2, str3, j, j2, j3, j4, j5, i, i2, str4, objArr);
+        a("img", str, str2, str3, j, j2, j3, j4, j5, i, i2, str4, objArr);
     }
 
     public final void b(String str, String str2, String str3, long j, long j2, long j3, long j4, long j5, int i, int i2, String str4, Object... objArr) {
         a("d", str, str2, str3, j, j2, j3, j4, j5, i, i2, str4, objArr);
     }
 
-    private void a(String str, String str2, String str3, String str4, long j, long j2, long j3, long j4, long j5, int i, int i2, String str5, Object... objArr) {
+    public final void a(String str, String str2, String str3, String str4, long j, long j2, long j3, long j4, long j5, int i, int i2, String str5, Object... objArr) {
         d a2 = a(com.baidu.loginshare.e.e);
         if (a2 != null && a2.i() && a2.c(str) && !l.a().a(com.baidu.loginshare.e.e)) {
             p pVar = new p(com.baidu.loginshare.e.e);
-            pVar.a("module", com.baidu.loginshare.e.e, "st", str, com.baidu.loginshare.e.e, this.q, "interface", str2, "f", str4, "cost", Long.valueOf(j3), "con_cost", Long.valueOf(j4), "rsp_cost", Long.valueOf(j5), "size_u", Long.valueOf(j2), "size_d", Long.valueOf(j), "t", String.valueOf(System.currentTimeMillis()));
+            pVar.a("module", com.baidu.loginshare.e.e, "st", str, com.baidu.loginshare.e.e, this.q, "interface", str2, "cost", Long.valueOf(j3), "t", String.valueOf(System.currentTimeMillis()));
             if (objArr != null && objArr.length > 0) {
                 pVar.a(objArr);
             }
             if (i2 != 0) {
-                pVar.a("sid", str3);
                 pVar.a("result", Integer.valueOf(i2));
                 pVar.a("es", str5);
+            }
+            if (j4 > 0) {
+                pVar.a("con_cost", Long.valueOf(j4));
+            }
+            if (j2 > 0) {
+                pVar.a("size_u", Long.valueOf(j2));
+            }
+            if (j > 0) {
+                pVar.a("size_d", Long.valueOf(j));
+            }
+            if (j5 > 0) {
+                pVar.a("rsp_cost", Long.valueOf(j5));
+            }
+            if (!TextUtils.isEmpty(str3)) {
+                pVar.a("sid", str3);
+            }
+            if (!TextUtils.isEmpty(str4)) {
+                pVar.a("f", str4);
             }
             if (i > 0) {
                 pVar.a("retry", Integer.valueOf(i));
@@ -186,7 +225,7 @@ public class g {
     }
 
     public final void a(String str, String str2, String str3, long j, int i, String str4, Object... objArr) {
-        a(true, "d", str, str2, null, j, i, str4, objArr);
+        a(true, "d", str, null, null, j, 0, null, objArr);
     }
 
     public final void a(boolean z, String str, String str2, String str3, String str4, long j, int i, String str5, Object... objArr) {
@@ -201,10 +240,6 @@ public class g {
                 a2.a(pVar);
             }
         }
-    }
-
-    public final void a(String str, String str2, String str3, String str4, int i, String str5, Object... objArr) {
-        a(true, str, str2, str3, str4, 0L, i, str5, objArr);
     }
 
     public final void a(String str, String str2, String str3, int i, String str4, Object... objArr) {
@@ -226,8 +261,8 @@ public class g {
     }
 
     public final void d(String str, String str2, String str3, int i, String str4, Object... objArr) {
-        if (!l.a().a(SwitchKey.VOICE)) {
-            a(true, SwitchKey.VOICE, str, str2, str3, 0L, i, str4, objArr);
+        if (!l.a().a(VoiceSwitchStatic.VOICE)) {
+            a(true, VoiceSwitchStatic.VOICE, str, str2, str3, 0L, i, str4, objArr);
         }
     }
 
@@ -257,7 +292,7 @@ public class g {
 
     public final void a(String str, String str2, int i, Object... objArr) {
         d a2 = a("stat");
-        if (a2 != null && a2.i() && !l.a().a("stat")) {
+        if (a2 != null && a2.i()) {
             p pVar = new p("stat");
             pVar.a("module", "stat", "op_key", str, "pt", str2, "co", Integer.valueOf(i), "t", String.valueOf(System.currentTimeMillis()));
             if (objArr != null && objArr.length > 0) {
@@ -268,7 +303,7 @@ public class g {
         }
     }
 
-    public final void b() {
+    public final void c() {
         if (this.t != null) {
             this.t.b(true);
         }
@@ -280,7 +315,7 @@ public class g {
         }
     }
 
-    public final void c() {
+    public final void d() {
         if (this.t != null) {
             this.t.a(true);
         }
@@ -296,8 +331,8 @@ public class g {
         try {
             String a2 = gVar.a(false);
             byte[] bytes = TextUtils.isEmpty(a2) ? null : a2.getBytes();
-            com.baidu.adp.lib.network.e.a();
-            com.baidu.adp.lib.network.f a3 = com.baidu.adp.lib.network.b.a(false, gVar.p, bytes, 3, -1, null, null, null);
+            com.baidu.adp.lib.network.willdelete.e.a();
+            com.baidu.adp.lib.network.willdelete.f a3 = com.baidu.adp.lib.network.willdelete.b.a(false, gVar.p, bytes, 3, -1, null, null, null);
             if (a3 != null) {
                 String str = new String(a3.d, "utf-8");
                 if (TextUtils.isEmpty(str)) {
@@ -321,7 +356,7 @@ public class g {
                 }
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.e.a(gVar.getClass(), "syncSwitch", e);
+            com.baidu.adp.lib.util.f.a(gVar.getClass(), "syncSwitch", e);
         }
     }
 
@@ -350,7 +385,7 @@ public class g {
         }
         dVar.d(true);
         try {
-            String a3 = (dVar.c() == null || !dVar.c().equals("omp")) ? gVar.a(true) : gVar.g();
+            String a3 = (dVar.c() == null || !dVar.c().equals("omp")) ? gVar.a(true) : gVar.h();
             if (dVar.d()) {
                 ArrayList<String> k = dVar.k();
                 dVar.l();
@@ -371,7 +406,7 @@ public class g {
                 }
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.e.a(gVar.getClass(), "upload", e);
+            com.baidu.adp.lib.util.f.a(gVar.getClass(), "upload", e);
         }
         dVar.d(false);
         dVar.a();
@@ -392,7 +427,7 @@ public class g {
                         gZIPOutputStream.close();
                     }
                 } catch (Exception e) {
-                    com.baidu.adp.lib.util.e.a(getClass(), "compressAndUpload", e);
+                    com.baidu.adp.lib.util.f.a(getClass(), "compressAndUpload", e);
                 }
             }
             byte[] byteArray = byteArrayOutputStream.toByteArray();
@@ -406,22 +441,22 @@ public class g {
                 arrayList2.add(new BasicNameValuePair("_client_id", this.j));
                 arrayList2.add(new BasicNameValuePair("from", this.f));
                 arrayList2.add(new BasicNameValuePair("net_type", this.r));
-                arrayList2.add(new BasicNameValuePair(SocialConstants.PARAM_CUID, this.k));
+                arrayList2.add(new BasicNameValuePair("cuid", this.k));
                 arrayList2.add(new BasicNameValuePair("model", this.m));
                 if (TextUtils.isEmpty(this.g)) {
-                    arrayList2.add(new BasicNameValuePair(SapiAccountManager.SESSION_UID, SocialConstants.FALSE));
+                    arrayList2.add(new BasicNameValuePair("uid", "0"));
                 } else {
-                    arrayList2.add(new BasicNameValuePair(SapiAccountManager.SESSION_UID, this.g));
+                    arrayList2.add(new BasicNameValuePair("uid", this.g));
                 }
-                arrayList2.add(new BasicNameValuePair("un", this.h));
+                arrayList2.add(new BasicNameValuePair(PersonInfoActivity.TAG_ID, this.h));
                 arrayList2.add(new BasicNameValuePair("BDUSS", this.i));
-                com.baidu.adp.lib.network.e.a();
-                com.baidu.adp.lib.network.f a3 = com.baidu.adp.lib.network.e.a(this.o, false, arrayList2, hashMap, 3, -1, null, null, null);
+                com.baidu.adp.lib.network.willdelete.e.a();
+                com.baidu.adp.lib.network.willdelete.f a3 = com.baidu.adp.lib.network.willdelete.e.a(this.o, false, arrayList2, hashMap, 3, -1, null, null, null);
                 if (a3 != null && a3.a == 200) {
                     dVar.b(str2);
                 }
             } catch (Exception e2) {
-                com.baidu.adp.lib.util.e.a(getClass(), "compressAndUpload", e2);
+                com.baidu.adp.lib.util.f.a(getClass(), "compressAndUpload", e2);
             }
         }
     }
@@ -447,21 +482,21 @@ public class g {
                     }
                     append.append(str2);
                 } catch (UnsupportedEncodingException e) {
-                    com.baidu.adp.lib.util.e.a(getClass(), "generalStatCommonPostdata", e);
+                    com.baidu.adp.lib.util.f.a(getClass(), "generalStatCommonPostdata", e);
                 }
                 a(sb, "_client_version", str, z);
                 a(sb, "_phone_imei", this.l, z);
                 a(sb, "_client_id", this.j, z);
                 a(sb, "from", this.f, z);
                 a(sb, "net_type", this.r, z);
-                a(sb, SocialConstants.PARAM_CUID, this.k, z);
+                a(sb, "cuid", this.k, z);
                 a(sb, "model", this.m, z);
                 if (!TextUtils.isEmpty(this.g)) {
-                    a(sb, SapiAccountManager.SESSION_UID, SocialConstants.FALSE, z);
+                    a(sb, "uid", "0", z);
                 } else {
-                    a(sb, SapiAccountManager.SESSION_UID, this.g, z);
+                    a(sb, "uid", this.g, z);
                 }
-                a(sb, "un", this.h, z);
+                a(sb, PersonInfoActivity.TAG_ID, this.h, z);
                 a(sb, "BDUSS", this.i, z);
                 return sb.toString();
             }
@@ -472,11 +507,11 @@ public class g {
         a(sb, "_client_id", this.j, z);
         a(sb, "from", this.f, z);
         a(sb, "net_type", this.r, z);
-        a(sb, SocialConstants.PARAM_CUID, this.k, z);
+        a(sb, "cuid", this.k, z);
         a(sb, "model", this.m, z);
         if (!TextUtils.isEmpty(this.g)) {
         }
-        a(sb, "un", this.h, z);
+        a(sb, PersonInfoActivity.TAG_ID, this.h, z);
         a(sb, "BDUSS", this.i, z);
         return sb.toString();
     }
@@ -491,12 +526,12 @@ public class g {
                 }
                 append.append(str3);
             } catch (Exception e) {
-                com.baidu.adp.lib.util.e.a(getClass(), "AppendParam", e);
+                com.baidu.adp.lib.util.f.a(getClass(), "AppendParam", e);
             }
         }
     }
 
-    private String g() {
+    private String h() {
         StringBuilder sb = new StringBuilder();
         try {
             sb.append("product");
@@ -513,7 +548,7 @@ public class g {
             sb.append("&");
             sb.append("os");
             sb.append("=");
-            sb.append(SocialConstants.ANDROID_CLIENT_TYPE);
+            sb.append("android");
             sb.append("&");
             sb.append("os_version");
             sb.append("=");
@@ -530,13 +565,13 @@ public class g {
             sb.append(URLEncoder.encode(this.m, "utf-8"));
             if (!TextUtils.isEmpty(this.g)) {
                 sb.append("&");
-                sb.append(SapiAccountManager.SESSION_UID);
+                sb.append("uid");
                 sb.append("=");
                 sb.append(URLEncoder.encode(this.g, "utf-8"));
             }
             if (!TextUtils.isEmpty(this.j)) {
                 sb.append("&");
-                sb.append(SocialConstants.PARAM_CLIENT_ID);
+                sb.append("client_id");
                 sb.append("=");
                 sb.append(URLEncoder.encode(this.j, "utf-8"));
             }
@@ -554,7 +589,7 @@ public class g {
             }
             if (!TextUtils.isEmpty(this.k)) {
                 sb.append("&");
-                sb.append(SocialConstants.PARAM_CUID);
+                sb.append("cuid");
                 sb.append("=");
                 sb.append(URLEncoder.encode(this.k, "utf-8"));
             }
@@ -563,7 +598,7 @@ public class g {
             sb.append("=");
             sb.append(URLEncoder.encode(this.q, "utf-8"));
         } catch (UnsupportedEncodingException e) {
-            com.baidu.adp.lib.util.e.a(getClass(), "generalCommonPostdata", e);
+            com.baidu.adp.lib.util.f.a(getClass(), "generalCommonPostdata", e);
         }
         return sb.toString();
     }
@@ -583,12 +618,12 @@ public class g {
                 try {
                     sb.append(URLEncoder.encode(arrayList.get(i), "utf-8"));
                 } catch (UnsupportedEncodingException e) {
-                    com.baidu.adp.lib.util.e.a(getClass(), "generatePostdata", e);
+                    com.baidu.adp.lib.util.f.a(getClass(), "generatePostdata", e);
                 }
             }
             return sb.toString().getBytes();
         } catch (Exception e2) {
-            com.baidu.adp.lib.util.e.a(getClass(), "generatePostdata", e2);
+            com.baidu.adp.lib.util.f.a(getClass(), "generatePostdata", e2);
             return null;
         }
     }
@@ -631,17 +666,17 @@ public class g {
                                         try {
                                             break;
                                         } catch (IOException e2) {
-                                            com.baidu.adp.lib.util.e.a(getClass(), "readLogFile", e2);
+                                            com.baidu.adp.lib.util.f.a(getClass(), "readLogFile", e2);
                                         }
                                     }
                                 } catch (IOException e3) {
                                     e = e3;
-                                    com.baidu.adp.lib.util.e.a(getClass(), "readLogFile", e);
+                                    com.baidu.adp.lib.util.f.a(getClass(), "readLogFile", e);
                                     if (bufferedReader2 != null) {
                                         try {
                                             bufferedReader2.close();
                                         } catch (IOException e4) {
-                                            com.baidu.adp.lib.util.e.a(getClass(), "readLogFile", e4);
+                                            com.baidu.adp.lib.util.f.a(getClass(), "readLogFile", e4);
                                         }
                                     }
                                     if (inputStreamReader != null) {
@@ -666,7 +701,7 @@ public class g {
                                 try {
                                     bufferedReader.close();
                                 } catch (IOException e6) {
-                                    com.baidu.adp.lib.util.e.a(getClass(), "readLogFile", e6);
+                                    com.baidu.adp.lib.util.f.a(getClass(), "readLogFile", e6);
                                     throw th;
                                 }
                             }
@@ -721,7 +756,7 @@ public class g {
         }
     }
 
-    public final long d() {
+    public final long e() {
         long uploadMilliInterval;
         synchronized (BdStatSwitchData.class) {
             if (this.w == null) {

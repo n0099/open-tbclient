@@ -1,32 +1,25 @@
 package com.baidu.tieba.mention;
 
-import android.view.View;
-import android.widget.ImageView;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.account.ax;
-import com.baidu.tieba.util.cb;
-import com.baidu.tieba.write.AtListActivity;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class d implements View.OnClickListener {
+public final class d extends com.baidu.adp.framework.c.a {
     final /* synthetic */ c a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(c cVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d(c cVar, int i) {
+        super(2001124);
         this.a = cVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        ImageView imageView;
-        com.baidu.tieba.k kVar;
-        com.baidu.tieba.k kVar2;
-        imageView = this.a.l;
-        if (view == imageView && TiebaApplication.w()) {
-            kVar = this.a.s;
-            cb.a(kVar, "msg_newchat_tab_c", "click", 1, new Object[0]);
-            new ax("pchat", "2").start();
-            kVar2 = this.a.s;
-            AtListActivity.a(kVar2, 12011, false);
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
+    @Override // com.baidu.adp.framework.c.c
+    public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
+        CustomResponsedMessage<?> customResponsedMessage2 = customResponsedMessage;
+        if (customResponsedMessage2 == null || customResponsedMessage2.g() != 2001124) {
+            return;
         }
+        c.a(this.a, customResponsedMessage2);
     }
 }

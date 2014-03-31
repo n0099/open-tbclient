@@ -76,8 +76,8 @@ public final class f extends BdAsyncTask<Location, Void, Address> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void a() {
-        super.a();
+    public final void b() {
+        super.b();
         this.a.m = null;
     }
 }

@@ -1,19 +1,21 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
+import com.baidu.tieba.im.message.ResponseCommitGroupMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class am implements View.OnClickListener {
-    final /* synthetic */ GroupChatActivity a;
+public final class am extends com.baidu.tieba.im.m<Boolean> {
+    final /* synthetic */ x b;
+    private final /* synthetic */ ResponseCommitGroupMessage c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public am(GroupChatActivity groupChatActivity) {
-        this.a = groupChatActivity;
+    public am(x xVar, ResponseCommitGroupMessage responseCommitGroupMessage) {
+        this.b = xVar;
+        this.c = responseCommitGroupMessage;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        this.a.d.O().e();
-        this.a.d.O().setOnEggBrokeListener(new an(this));
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.m
+    public final /* synthetic */ Boolean a() {
+        return Boolean.valueOf(com.baidu.tieba.im.db.c.a().b(this.c.j(), String.valueOf(this.c.i()), String.valueOf(this.c.d()), 3));
     }
 }

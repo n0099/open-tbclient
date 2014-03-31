@@ -3,19 +3,28 @@ package com.baidu.tieba.person.post;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.View;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.cb;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.tabHost.FragmentTabHost;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 /* loaded from: classes.dex */
-public class PersonPostActivity extends com.baidu.tieba.k implements View.OnClickListener {
-    private String d;
+public class PersonPostActivity extends com.baidu.tbadk.core.e implements ViewPager.OnPageChangeListener {
+    private int[] d;
     private String e;
     private String f;
-    private int g;
-    private boolean h = false;
-    private j i;
-    private e j;
+    private String g;
+    private int h;
+    private NavigationBar j;
+    private FragmentTabHost l;
+    private e m;
+    private int c = -1;
+    private boolean i = false;
+    private View k = null;
 
     public static void a(Context context, String str, int i, String str2) {
         Intent intent = new Intent(context, PersonPostActivity.class);
@@ -26,55 +35,96 @@ public class PersonPostActivity extends com.baidu.tieba.k implements View.OnClic
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.k, android.support.v4.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.e, com.baidu.adp.a.c, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f = getIntent().getStringExtra("key_portrait_url");
-        this.d = getIntent().getStringExtra("key_uid");
-        this.g = getIntent().getIntExtra("key_sex", 0);
-        this.d = this.d == null ? "" : this.d;
-        if (this.d.equals(TiebaApplication.v())) {
-            this.e = getString(R.string.me);
-            this.h = true;
+        setContentView(com.baidu.tieba.a.i.person_post_activity);
+        this.g = getIntent().getStringExtra("key_portrait_url");
+        this.e = getIntent().getStringExtra("key_uid");
+        this.h = getIntent().getIntExtra("key_sex", 0);
+        this.e = this.e == null ? "" : this.e;
+        if (this.e.equals(TbadkApplication.E())) {
+            this.f = getString(com.baidu.tieba.a.k.me);
+            this.i = true;
         } else {
             switch (getIntent().getIntExtra("key_sex", 0)) {
                 case 1:
-                    this.e = getString(R.string.he);
+                    this.f = getString(com.baidu.tieba.a.k.he);
                     break;
                 case 2:
-                    this.e = getString(R.string.she);
+                    this.f = getString(com.baidu.tieba.a.k.she);
                     break;
                 default:
-                    this.e = getString(R.string.ta);
+                    this.f = getString(com.baidu.tieba.a.k.ta);
                     break;
             }
         }
-        this.i = new j(this);
-        if (this.d == null) {
+        if (this.e == null) {
             finish();
             return;
         }
-        this.i.c.setText(String.format(getString(R.string.person_post_thread), this.e));
-        this.i.d.setText(String.format(getString(R.string.person_post_reply), this.e));
+        this.j = (NavigationBar) findViewById(com.baidu.tieba.a.h.view_navigation_bar);
+        this.j.a(String.format(getString(com.baidu.tieba.a.k.person_post), this.f));
+        this.k = (View) this.j.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).getParent();
+        this.k.setOnClickListener(new d(this));
+        this.d = new int[]{0, 1};
+        this.m = new e(this);
+        this.l = (FragmentTabHost) findViewById(com.baidu.tieba.a.h.tab_host);
+        this.l.setup(getSupportFragmentManager());
+        this.l.setTabWidgetBackgroundColor(getResources().getColor(com.baidu.tieba.a.e.maintab_bg));
+        this.l.setOnPageChangeListener(this);
+        if (this.m != null) {
+            int count = this.m.getCount();
+            for (int i = 0; i < count; i++) {
+                Fragment item = this.m.getItem(i);
+                int a = this.m.a(i);
+                if (item != null) {
+                    if (a == 0) {
+                        a(item, 0, String.format(getString(com.baidu.tieba.a.k.person_post_thread), this.f));
+                    } else if (a == 1) {
+                        a(item, 1, String.format(getString(com.baidu.tieba.a.k.person_post_reply), this.f));
+                    }
+                }
+            }
+            this.l.a();
+        }
+        if (bundle != null) {
+            this.c = bundle.getInt("CurrTabIndex");
+        } else {
+            this.c = 0;
+        }
+        this.l.setCurrentTab(this.c);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.k, android.support.v4.app.FragmentActivity, android.app.Activity
-    public void onResume() {
-        super.onResume();
-        if (this.j == null) {
-            this.j = new e(this);
-            this.i.a(new d(this));
-            this.i.b.setAdapter(this.j);
+    private void a(Fragment fragment, int i, String str) {
+        if (fragment != null) {
+            com.baidu.tbadk.core.tabHost.b bVar = new com.baidu.tbadk.core.tabHost.b();
+            FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(this);
+            bVar.c = fragment;
+            bVar.a = i;
+            fragmentTabIndicator.setText(str);
+            fragmentTabIndicator.setGravity(17);
+            fragmentTabIndicator.b = com.baidu.tieba.a.e.main_bottom_button_color_1;
+            fragmentTabIndicator.a = com.baidu.tieba.a.e.main_bottom_button_color;
+            fragmentTabIndicator.a(0, getResources().getDimension(com.baidu.tieba.a.f.fontsize32));
+            bVar.b = fragmentTabIndicator;
+            this.l.a(bVar);
         }
     }
 
-    public final String e() {
-        return this.d;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.core.e, android.support.v4.app.FragmentActivity, android.app.Activity
+    public void onResume() {
+        super.onResume();
+        c(TbadkApplication.j().l());
     }
 
     public final String f() {
-        return this.f;
+        return this.e;
+    }
+
+    public final String g() {
+        return this.g;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -83,43 +133,52 @@ public class PersonPostActivity extends com.baidu.tieba.k implements View.OnClic
         super.onStart();
     }
 
-    @Override // com.baidu.tieba.k
-    protected final void b(int i) {
-        this.i.a(i);
+    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
+    public void onSaveInstanceState(Bundle bundle) {
+        bundle.putInt("CurrTabIndex", this.c);
+        super.onSaveInstanceState(bundle);
     }
 
-    private void d(int i) {
-        switch (i) {
-            case 1:
-                this.i.b(i);
-                return;
-            case 2:
-                this.i.b(i);
-                return;
-            default:
-                return;
+    public final String h() {
+        if (this.i) {
+            return getString(com.baidu.tieba.a.k.person_post_lv_empty_host);
+        }
+        return String.format(getString(com.baidu.tieba.a.k.person_post_lv_empty_guest), this.f);
+    }
+
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrollStateChanged(int i) {
+    }
+
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrolled(int i, float f, int i2) {
+    }
+
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageSelected(int i) {
+        if (i >= 0 && i < 2 && i != this.c) {
+            this.c = i;
+            if (this.d[i] == 0) {
+                TiebaStatic.a(this, this.i ? "pp_my_thread" : "pp_his_thread", "click", 1, new Object[0]);
+            } else if (this.d[i] == 1) {
+                TiebaStatic.a(this, this.i ? "pp_my_reply" : "pp_his_reply", "click", 1, new Object[0]);
+            }
         }
     }
 
-    public final String g() {
-        return this.h ? getString(R.string.person_post_lv_empty_host) : String.format(getString(R.string.person_post_lv_empty_guest), this.e);
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.reply /* 2131100870 */:
-                cb.a(this, this.h ? "pp_my_reply" : "pp_his_reply", "click", 1, new Object[0]);
-                d(2);
-                this.i.b.setCurrentItem(1);
-                return;
-            case R.id.thread /* 2131101127 */:
-                cb.a(this, this.h ? "pp_my_thread" : "pp_his_thread", "click", 1, new Object[0]);
-                d(1);
-                this.i.b.setCurrentItem(0);
-                return;
-            default:
-                return;
+    @Override // com.baidu.tbadk.core.e
+    protected final void c(int i) {
+        this.j.b(i);
+        this.l.c(i);
+        ba.f(this.l, com.baidu.tieba.a.e.cp_bg_line_c);
+        if (this.m != null) {
+            int count = this.m.getCount();
+            for (int i2 = 0; i2 < count; i2++) {
+                Fragment item = this.m.getItem(i2);
+                if (item != null && (item instanceof com.baidu.tbadk.core.d)) {
+                    ((com.baidu.tbadk.core.d) item).changeSkinType(i);
+                }
+            }
         }
     }
 }

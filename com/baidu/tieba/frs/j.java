@@ -1,16 +1,15 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
-final class j implements com.baidu.adp.widget.ListView.b {
-    final /* synthetic */ FrsActivity a;
+public final class j {
+    public boolean a = false;
+    public boolean b = false;
+    public int c = 0;
+    public String d = "";
+    public long e = 0;
+    public boolean f = false;
+    final /* synthetic */ g g;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public j(FrsActivity frsActivity) {
-        this.a = frsActivity;
-    }
-
-    @Override // com.baidu.adp.widget.ListView.b
-    public final void a(boolean z) {
-        com.baidu.tieba.util.cb.a(this.a, "frs_pulldown", "frsclick", 1, new Object[0]);
-        this.a.n();
+    public j(g gVar) {
+        this.g = gVar;
     }
 }

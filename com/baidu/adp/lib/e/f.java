@@ -1,16 +1,9 @@
 package com.baidu.adp.lib.e;
-
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes.dex */
-public final class f {
-    private Map<String, Object> a = new HashMap();
+public interface f {
+    Object getFromLocal(String str, d dVar);
 
-    public final void a(String str, Object obj) {
-        this.a.put(str, obj);
-    }
+    Object getFromMemory(String str, e eVar);
 
-    public final Object a(String str) {
-        return this.a.get(str);
-    }
+    Object getFromRemote(String str, d dVar);
 }

@@ -1,55 +1,45 @@
 package com.baidu.tieba.barcode;
 
-import android.os.Handler;
-import android.os.Looper;
-import com.google.zxing.BarcodeFormat;
-import com.google.zxing.DecodeHintType;
-import com.google.zxing.ResultPointCallback;
-import java.util.Collection;
-import java.util.EnumMap;
-import java.util.EnumSet;
-import java.util.Map;
-import java.util.concurrent.CountDownLatch;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.IntentFilter;
 /* loaded from: classes.dex */
-public final class n extends Thread {
-    private final CaptureActivity a;
-    private Handler c;
-    private final CountDownLatch d = new CountDownLatch(1);
-    private final Map<DecodeHintType, Object> b = new EnumMap(DecodeHintType.class);
+public final class n {
+    private final Activity a;
+    private final com.baidu.tieba.barcode.b.a.a b = new com.baidu.tieba.barcode.b.a.b().a();
+    private final BroadcastReceiver c = new p(this, (byte) 0);
+    private o d;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public n(CaptureActivity captureActivity, Collection<BarcodeFormat> collection, Map<DecodeHintType, ?> map, String str, ResultPointCallback resultPointCallback) {
-        this.a = captureActivity;
-        if (map != null) {
-            this.b.putAll(map);
-        }
-        if (collection == null || collection.isEmpty()) {
-            collection = EnumSet.noneOf(BarcodeFormat.class);
-            collection.addAll(l.a);
-        }
-        this.b.put(DecodeHintType.POSSIBLE_FORMATS, collection);
-        if (str != null) {
-            this.b.put(DecodeHintType.CHARACTER_SET, str);
-        }
-        this.b.put(DecodeHintType.NEED_RESULT_POINT_CALLBACK, resultPointCallback);
-        com.baidu.adp.lib.util.e.a(getClass().getName(), "DecodeThread", "Hints: " + this.b);
+    public n(Activity activity) {
+        this.a = activity;
+        a();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public final Handler a() {
-        try {
-            this.d.await();
-        } catch (InterruptedException e) {
-        }
-        return this.c;
+    public final synchronized void a() {
+        e();
+        this.d = new o(this, (byte) 0);
+        this.b.a(this.d, new Object[0]);
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public final void run() {
-        Looper.prepare();
-        this.c = new m(this.a, this.b);
-        this.d.countDown();
-        Looper.loop();
+    public final void b() {
+        e();
+        this.a.unregisterReceiver(this.c);
+    }
+
+    public final void c() {
+        this.a.registerReceiver(this.c, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+        a();
+    }
+
+    public synchronized void e() {
+        o oVar = this.d;
+        if (oVar != null) {
+            oVar.cancel(true);
+            this.d = null;
+        }
+    }
+
+    public final void d() {
+        e();
     }
 }

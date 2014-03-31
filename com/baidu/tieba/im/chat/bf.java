@@ -1,26 +1,21 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.GroupData;
 /* loaded from: classes.dex */
-public final class bf implements View.OnClickListener {
-    final /* synthetic */ MsgActivityView a;
+final class bf extends com.baidu.tieba.im.m<Boolean> {
+    final /* synthetic */ GroupChatActivity b;
+    private final /* synthetic */ GroupData c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bf(MsgActivityView msgActivityView) {
-        this.a = msgActivityView;
+    public bf(GroupChatActivity groupChatActivity, GroupData groupData) {
+        this.b = groupChatActivity;
+        this.c = groupData;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        com.baidu.adp.lib.b.a aVar;
-        com.baidu.adp.lib.b.a aVar2;
-        int i;
-        aVar = this.a.v;
-        if (aVar != null) {
-            aVar2 = this.a.v;
-            i = this.a.t;
-            aVar2.a(view, 8, i);
-        }
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.m
+    public final /* synthetic */ Boolean a() {
+        return Boolean.valueOf(com.baidu.tieba.im.groupInfo.aa.a().d(TbadkApplication.E(), String.valueOf(this.c.getGroupId())));
     }
 }

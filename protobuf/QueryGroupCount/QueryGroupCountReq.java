@@ -9,6 +9,7 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.Parser;
 import java.io.IOException;
 import java.io.InputStream;
+import protobuf.Im;
 /* loaded from: classes.dex */
 public final class QueryGroupCountReq {
 
@@ -68,7 +69,7 @@ public final class QueryGroupCountReq {
                                 this.bitField0_ |= 1;
                                 this.lng_ = codedInputStream.readDouble();
                                 break;
-                            case 17:
+                            case Im.GroupInfo.CREATETIME_FIELD_NUMBER /* 17 */:
                                 this.bitField0_ |= 2;
                                 this.lat_ = codedInputStream.readDouble();
                                 break;

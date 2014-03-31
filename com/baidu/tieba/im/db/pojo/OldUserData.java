@@ -1,13 +1,13 @@
 package com.baidu.tieba.im.db.pojo;
 
-import com.baidu.adp.lib.util.g;
+import com.baidu.adp.lib.util.h;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.util.a;
 import com.baidu.tbadk.data.IconData;
-import com.baidu.tieba.data.UserData;
-import com.baidu.tieba.util.au;
 import java.io.Serializable;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class OldUserData extends au implements Serializable {
+public class OldUserData extends a implements Serializable {
     private static final long serialVersionUID = -4483304441506804594L;
     private long id;
     private long inTime;
@@ -27,7 +27,7 @@ public class OldUserData extends au implements Serializable {
     public void setToUserData(UserData userData) {
         if (userData != null) {
             userData.setUserIdLong(Math.max(this.id, this.userId));
-            userData.setUserName((g.b(this.userName) || "null".equalsIgnoreCase(this.userName)) ? this.name : this.userName);
+            userData.setUserName((h.b(this.userName) || "null".equalsIgnoreCase(this.userName)) ? this.name : this.userName);
             userData.setPortrait(this.portrait);
             userData.setSex(this.sex);
             userData.setPosition(this.position);
@@ -152,7 +152,7 @@ public class OldUserData extends au implements Serializable {
         this.lastReplyTime = j;
     }
 
-    @Override // com.baidu.tieba.util.au, com.baidu.tieba.util.aw
+    @Override // com.baidu.tbadk.core.util.a, com.baidu.tbadk.core.util.ab
     public LinkedList<String> getPhotoUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(this.portrait);

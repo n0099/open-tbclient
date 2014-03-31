@@ -1,52 +1,75 @@
 package com.baidu.adp.a;
-
-import android.content.Context;
-import android.os.Handler;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 /* loaded from: classes.dex */
-public class e {
-    private InputMethodManager a = null;
-    protected Context b;
+public abstract class e {
+    public static final int MODE_INVALID = 0;
+    protected int mLoadDataMode = 0;
+    protected int unique_id = 0;
+    protected h mLoadDataCallBack = null;
+    protected int mErrorCode = 0;
+    protected String mErrorString = null;
 
-    public e(Context context) {
-        this.b = null;
-        this.b = context;
+    protected abstract boolean LoadData();
+
+    public abstract boolean cancelLoadData();
+
+    public int getLoadDataMode() {
+        return this.mLoadDataMode;
     }
 
-    public final Context b() {
-        return this.b;
+    public void setLoadDataCallBack(h hVar) {
+        this.mLoadDataCallBack = hVar;
     }
 
-    public void c() {
+    public int getErrorCode() {
+        return this.mErrorCode;
     }
 
-    public final void a(InputMethodManager inputMethodManager) {
-        this.a = inputMethodManager;
+    public void setErrorCode(int i) {
+        this.mErrorCode = i;
     }
 
-    public final void a(View view) {
-        try {
-            if (this.a != null && view != null) {
-                this.a.hideSoftInputFromWindow(view.getWindowToken(), 2);
-            }
-        } catch (Exception e) {
-            com.baidu.adp.lib.util.e.b(getClass().getName(), "HidenSoftKeyPad", "error = " + e.getMessage());
+    public String getErrorString() {
+        return this.mErrorString;
+    }
+
+    public void setErrorString(String str) {
+        this.mErrorString = str;
+    }
+
+    public void setUniqueId(int i) {
+        this.unique_id = i;
+    }
+
+    public void sendMessage(com.baidu.adp.framework.message.d<?> dVar) {
+        a();
+        dVar.b(this.unique_id);
+        com.baidu.adp.framework.c.a().a(dVar);
+    }
+
+    public void cancelMessage() {
+        a();
+        com.baidu.adp.framework.c.a().a(this.unique_id);
+    }
+
+    public void registerListener(com.baidu.adp.framework.c.c<?> cVar) {
+        a();
+        if (cVar != null && cVar.c() == 0) {
+            cVar.b(this.unique_id);
         }
+        com.baidu.adp.framework.c.a().a(cVar);
     }
 
-    public final void b(View view) {
-        try {
-            if (this.a == null) {
-                this.a = (InputMethodManager) this.b.getSystemService("input_method");
-            }
-            this.a.showSoftInput(view, 0);
-        } catch (Exception e) {
-            com.baidu.adp.lib.util.e.b(getClass().getName(), "ShowSoftKeyPad", "error = " + e.getMessage());
+    public void registerListener(int i, com.baidu.adp.framework.c.c<?> cVar) {
+        a();
+        if (cVar != null && cVar.c() == 0) {
+            cVar.b(this.unique_id);
         }
+        com.baidu.adp.framework.c.a().a(i, cVar);
     }
 
-    public final void a(View view, int i) {
-        new Handler().postDelayed(new f(this, view), 100L);
+    private void a() {
+        if (this.unique_id == 0) {
+            com.baidu.adp.lib.util.f.b(String.valueOf(getClass().getName()) + "'s unique_id wasn't seted!");
+        }
     }
 }

@@ -34,7 +34,7 @@ public final class c extends d {
                 if (m()) {
                     this.j.removeMessages(4);
                     this.j.sendMessage(this.j.obtainMessage(4));
-                } else if (z && System.currentTimeMillis() - g() >= g.a().d()) {
+                } else if (z && System.currentTimeMillis() - g() >= g.a().e()) {
                     this.j.removeMessages(4);
                     this.j.sendMessage(this.j.obtainMessage(4));
                 }
@@ -75,13 +75,13 @@ public final class c extends d {
                                 l();
                             } catch (Exception e) {
                                 this.e++;
-                                com.baidu.adp.lib.util.e.a(getClass(), "refreshFile", e);
+                                com.baidu.adp.lib.util.f.a(getClass(), "refreshFile", e);
                                 try {
                                     a.close();
                                     a = a;
                                 } catch (IOException e2) {
                                     Class<?> cls = getClass();
-                                    com.baidu.adp.lib.util.e.a(cls, "refreshFile", e2);
+                                    com.baidu.adp.lib.util.f.a(cls, "refreshFile", e2);
                                     a = cls;
                                 }
                             }
@@ -92,7 +92,7 @@ public final class c extends d {
                         try {
                             a.close();
                         } catch (IOException e3) {
-                            com.baidu.adp.lib.util.e.a(getClass(), "refreshFile", e3);
+                            com.baidu.adp.lib.util.f.a(getClass(), "refreshFile", e3);
                         }
                     }
                 } else {
@@ -108,7 +108,7 @@ public final class c extends d {
             try {
                 return file.delete();
             } catch (Exception e) {
-                com.baidu.adp.lib.util.e.a(getClass(), "checkFileTooBig", e);
+                com.baidu.adp.lib.util.f.a(getClass(), "checkFileTooBig", e);
                 return false;
             }
         }
@@ -127,7 +127,7 @@ public final class c extends d {
                 }
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.e.a(getClass(), "shouldUpload", e);
+            com.baidu.adp.lib.util.f.a(getClass(), "shouldUpload", e);
         }
         return false;
     }
@@ -141,7 +141,7 @@ public final class c extends d {
                 return arrayList;
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.util.e.a(getClass(), "getLogFiles", e);
+            com.baidu.adp.lib.util.f.a(getClass(), "getLogFiles", e);
         }
         return null;
     }
@@ -158,7 +158,7 @@ public final class c extends d {
             this.n = System.currentTimeMillis();
             k.a().c(this.n, this.l);
         } catch (Exception e) {
-            com.baidu.adp.lib.util.e.a(getClass(), "uploadSucc", e);
+            com.baidu.adp.lib.util.f.a(getClass(), "uploadSucc", e);
         }
     }
 
@@ -172,7 +172,7 @@ public final class c extends d {
             l();
             new File(this.p).delete();
         } catch (Exception e) {
-            com.baidu.adp.lib.util.e.a(getClass(), "clearLogs", e);
+            com.baidu.adp.lib.util.f.a(getClass(), "clearLogs", e);
         }
     }
 }

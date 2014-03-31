@@ -1,23 +1,20 @@
 package com.baidu.tieba.editortool;
-
-import android.view.View;
 /* loaded from: classes.dex */
-final class v implements View.OnClickListener {
-    final /* synthetic */ EmotionTabHorizonScrollView a;
-    private final int b;
-
-    private v(EmotionTabHorizonScrollView emotionTabHorizonScrollView, int i) {
-        this.a = emotionTabHorizonScrollView;
-        this.b = i;
-    }
+final class v implements as {
+    final /* synthetic */ u a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ v(EmotionTabHorizonScrollView emotionTabHorizonScrollView, int i, byte b) {
-        this(emotionTabHorizonScrollView, i);
+    public v(u uVar) {
+        this.a = uVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        EmotionTabHorizonScrollView.a(this.a).a(this.b);
+    @Override // com.baidu.tieba.editortool.as
+    public final void a() {
+        PbEditor pbEditor;
+        PbEditor pbEditor2;
+        pbEditor = this.a.a;
+        pbEditor.e = true;
+        pbEditor2 = this.a.a;
+        pbEditor2.b.getEditText().requestFocus();
     }
 }

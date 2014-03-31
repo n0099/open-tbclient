@@ -13,13 +13,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.editortool.aa;
+import com.baidu.tbadk.editortool.w;
 import com.baidu.tieba.forumdetail.ForumDetailActivity;
 import com.baidu.tieba.forumdetail.ForumDetailData;
-import com.baidu.tieba.util.ad;
-import com.baidu.tieba.util.bs;
-import com.baidu.tieba.view.HeadImageView;
-import com.slidingmenu.lib.R;
 import org.apache.commons.io.IOUtils;
 /* loaded from: classes.dex */
 public class ItemInfoView extends RelativeLayout {
@@ -51,42 +50,42 @@ public class ItemInfoView extends RelativeLayout {
 
     private void a(Context context) {
         this.a = context;
-        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.forum_detail_info, (ViewGroup) this, true);
-        this.b = (ViewGroup) findViewById(R.id.info_brief_box);
-        this.c = (TextView) findViewById(R.id.info_brief_content);
-        this.d = (ViewGroup) findViewById(R.id.info_dir_box);
-        this.e = (TextView) findViewById(R.id.info_dir_name);
-        this.f = (TextView) findViewById(R.id.info_rank_divider_line);
-        this.g = (ViewGroup) findViewById(R.id.info_rank_box);
-        this.h = (TextView) findViewById(R.id.info_rank_content);
-        this.i = (TextView) findViewById(R.id.info_badge_divider_line);
-        this.j = (ViewGroup) findViewById(R.id.info_badge_box);
+        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(com.baidu.tieba.a.i.forum_detail_info, (ViewGroup) this, true);
+        this.b = (ViewGroup) findViewById(com.baidu.tieba.a.h.info_brief_box);
+        this.c = (TextView) findViewById(com.baidu.tieba.a.h.info_brief_content);
+        this.d = (ViewGroup) findViewById(com.baidu.tieba.a.h.info_dir_box);
+        this.e = (TextView) findViewById(com.baidu.tieba.a.h.info_dir_name);
+        this.f = (TextView) findViewById(com.baidu.tieba.a.h.info_rank_divider_line);
+        this.g = (ViewGroup) findViewById(com.baidu.tieba.a.h.info_rank_box);
+        this.h = (TextView) findViewById(com.baidu.tieba.a.h.info_rank_content);
+        this.i = (TextView) findViewById(com.baidu.tieba.a.h.info_badge_divider_line);
+        this.j = (ViewGroup) findViewById(com.baidu.tieba.a.h.info_badge_box);
     }
 
-    public final boolean a(ForumDetailData forumDetailData, com.baidu.tieba.f fVar) {
+    public final boolean a(ForumDetailData forumDetailData, com.baidu.tbadk.a aVar) {
         boolean z;
-        if (forumDetailData == null || (forumDetailData.forumInfo != null && forumDetailData.forumInfo.contents.length == 0 && bs.c(forumDetailData.forumInfo.slogan) && forumDetailData.badges.length == 0 && forumDetailData.forumDir == null)) {
+        if (forumDetailData == null || (forumDetailData.forumInfo != null && forumDetailData.forumInfo.contents.length == 0 && bc.c(forumDetailData.forumInfo.slogan) && forumDetailData.badges.length == 0 && forumDetailData.forumDir == null)) {
             return false;
         }
-        boolean equals = fVar.getIntent().getStringExtra("from_type").equals(ForumDetailActivity.FromType.BAR_DIR.toString());
+        boolean equals = aVar.getIntent().getStringExtra("from_type").equals(ForumDetailActivity.FromType.BAR_DIR.toString());
         if (forumDetailData.forumDir != null) {
             String str = forumDetailData.forumDir.levelTwoName;
             String str2 = forumDetailData.forumDir.levelOneName;
             String valueOf = String.valueOf(forumDetailData.forumDir.levelOneMenuType);
             String valueOf2 = String.valueOf(forumDetailData.forumDir.levelOneMenuID);
-            if (bs.c(str)) {
+            if (bc.c(str)) {
                 z = false;
             } else {
                 this.e.setText(str);
                 this.d.setVisibility(0);
-                this.d.setOnClickListener(new m(this, equals, str2, valueOf2, valueOf, str, fVar));
+                this.d.setOnClickListener(new m(this, equals, str2, valueOf2, valueOf, str, aVar));
                 z = true;
             }
             if (forumDetailData.forumDir.rank != 0 || this.d.getVisibility() == 0) {
                 if (forumDetailData.forumDir.rank != 0) {
                     this.h.setText(String.valueOf(forumDetailData.forumDir.rank));
                 } else {
-                    this.h.setText(getResources().getString(R.string.forum_detail_info_no_rank));
+                    this.h.setText(getResources().getString(com.baidu.tieba.a.k.forum_detail_info_no_rank));
                 }
                 if (this.d.getVisibility() == 8 && this.b.getVisibility() == 0) {
                     this.f.setVisibility(0);
@@ -97,16 +96,16 @@ public class ItemInfoView extends RelativeLayout {
         } else {
             z = false;
         }
-        if ((forumDetailData.forumInfo != null && forumDetailData.forumInfo.contents != null && forumDetailData.forumInfo.contents.length > 0) || !bs.c(forumDetailData.forumInfo.slogan)) {
+        if ((forumDetailData.forumInfo != null && forumDetailData.forumInfo.contents != null && forumDetailData.forumInfo.contents.length > 0) || !bc.c(forumDetailData.forumInfo.slogan)) {
             TextView textView = this.c;
             ForumDetailData.ForumContent[] forumContentArr = forumDetailData.forumInfo.contents;
             String str3 = forumDetailData.forumInfo.slogan;
-            ad adVar = new ad();
+            w wVar = new w();
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(String.valueOf(str3) + IOUtils.LINE_SEPARATOR_UNIX);
             int length = forumContentArr.length;
             for (int i = 0; i < length; i++) {
                 if (forumContentArr[i].type == 2) {
-                    Bitmap a = com.baidu.tieba.util.n.a(adVar.a(forumContentArr[i].text));
+                    Bitmap a = com.baidu.tbadk.core.util.g.a(wVar.a(forumContentArr[i].text));
                     if (a != null) {
                         BitmapDrawable bitmapDrawable = new BitmapDrawable(a);
                         bitmapDrawable.setBounds(0, 0, a.getWidth(), a.getHeight());
@@ -122,7 +121,7 @@ public class ItemInfoView extends RelativeLayout {
             this.b.setVisibility(0);
             z = true;
         } else if (this.d.getVisibility() == 0) {
-            this.c.setText(getResources().getString(R.string.forum_detail_info_no_brief));
+            this.c.setText(getResources().getString(com.baidu.tieba.a.k.forum_detail_info_no_brief));
             this.b.setVisibility(0);
             z = true;
         }
@@ -137,11 +136,11 @@ public class ItemInfoView extends RelativeLayout {
     }
 
     private void a(ForumDetailData forumDetailData) {
-        com.baidu.tieba.util.i iVar = new com.baidu.tieba.util.i(this.a);
-        int a = BdUtilHelper.a(this.a, 20.0f);
-        iVar.a(a, a);
+        aa aaVar = new aa(this.a);
+        int a = com.baidu.adp.lib.util.i.a(this.a, 20.0f);
+        aaVar.a(a, a);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(a, a);
-        layoutParams.rightMargin = BdUtilHelper.a(this.a, 6.0f);
+        layoutParams.rightMargin = com.baidu.adp.lib.util.i.a(this.a, 6.0f);
         int length = forumDetailData.badges.length;
         for (int i = 0; i < length; i++) {
             HeadImageView headImageView = new HeadImageView(this.a);
@@ -149,7 +148,7 @@ public class ItemInfoView extends RelativeLayout {
             headImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             headImageView.setTag(forumDetailData.badges[i].badgeURL);
             this.j.addView(headImageView);
-            iVar.b(forumDetailData.badges[i].badgeURL, new n(this, headImageView));
+            aaVar.b(forumDetailData.badges[i].badgeURL, new n(this, headImageView));
         }
         this.j.setVisibility(0);
     }
@@ -158,13 +157,13 @@ public class ItemInfoView extends RelativeLayout {
         this.d.setOnClickListener(onClickListener);
     }
 
-    public final void a(com.baidu.tieba.f fVar, int i) {
+    public final void a(com.baidu.tbadk.a aVar, int i) {
         if (i == 1) {
-            this.c.setTextColor(getResources().getColor(R.color.forum_detail_brief_txt_color_1));
+            this.c.setTextColor(getResources().getColor(com.baidu.tieba.a.e.forum_detail_brief_txt_color_1));
         } else {
-            this.c.setTextColor(getResources().getColor(R.color.forum_detail_brief_txt_color));
+            this.c.setTextColor(getResources().getColor(com.baidu.tieba.a.e.forum_detail_brief_txt_color));
         }
-        fVar.getLayoutMode().a(i == 1);
-        fVar.getLayoutMode().a(this);
+        aVar.getLayoutMode().a(i == 1);
+        aVar.getLayoutMode().a(this);
     }
 }

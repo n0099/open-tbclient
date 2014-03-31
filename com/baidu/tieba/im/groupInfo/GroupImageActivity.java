@@ -10,34 +10,30 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bq;
-import com.baidu.tieba.view.MultiImageView;
-import com.baidu.tieba.view.NavigationBar;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.coreExtra.view.MultiImageView;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
-public class GroupImageActivity extends com.baidu.tieba.f {
+public class GroupImageActivity extends com.baidu.tbadk.a {
     private FrameLayout g;
     private int q;
     private String r;
     private ProgressBar a = null;
     private ArrayList<String> b = null;
     private int c = 0;
-    private h d = null;
+    private i d = null;
     private NavigationBar e = null;
     private TextView f = null;
-    private ImageView h = null;
+    private View h = null;
     private TextView i = null;
     private MultiImageView j = null;
     private View.OnClickListener k = null;
-    private com.baidu.tieba.view.a l = null;
+    private com.baidu.tbadk.core.view.a l = null;
     private ViewPager.OnPageChangeListener m = null;
     private AlphaAnimation n = null;
     private boolean o = true;
@@ -50,53 +46,53 @@ public class GroupImageActivity extends com.baidu.tieba.f {
             Intent intent = new Intent(context, GroupImageActivity.class);
             intent.putExtra("curImgUrl", str);
             intent.putExtra("groupId", String.valueOf(j));
-            intent.putExtra(SocialConstants.PARAM_URL, arrayList);
+            intent.putExtra("url", arrayList);
             context.startActivity(intent);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x00fa, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x00f4, code lost:
         if (r7.c < 0) goto L28;
      */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        TiebaApplication.g().a(this);
-        setContentView(R.layout.image_activity_2);
+        TbadkApplication.j().a(this);
+        setContentView(com.baidu.tieba.im.i.image_activity_2);
         if (bundle != null) {
-            com.baidu.adp.lib.util.e.e(" have savedInstanceState");
-            this.b = bundle.getStringArrayList(SocialConstants.PARAM_URL);
+            com.baidu.adp.lib.util.f.e(" have savedInstanceState");
+            this.b = bundle.getStringArrayList("url");
             this.c = bundle.getInt("index", -1);
             this.r = bundle.getString("curImgUrl");
         } else {
-            com.baidu.adp.lib.util.e.e(" not have savedInstanceState");
+            com.baidu.adp.lib.util.f.e(" not have savedInstanceState");
             Intent intent = getIntent();
             if (intent != null) {
-                this.b = intent.getStringArrayListExtra(SocialConstants.PARAM_URL);
+                this.b = intent.getStringArrayListExtra("url");
                 this.r = intent.getStringExtra("curImgUrl");
                 this.c = 0;
             }
         }
         this.t = new HashMap<>();
-        this.k = new d(this);
-        this.m = new f(this);
-        this.l = new g(this);
-        this.e = (NavigationBar) findViewById(R.id.navigation_bar);
-        this.g = (FrameLayout) this.e.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.image_activity_save_button, this.k);
+        this.k = new e(this);
+        this.m = new g(this);
+        this.l = new h(this);
+        this.e = (NavigationBar) findViewById(com.baidu.tieba.im.h.navigation_bar);
+        this.g = (FrameLayout) this.e.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.im.i.image_activity_save_button, this.k);
         this.h = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.i = this.e.a("");
-        this.a = (ProgressBar) findViewById(R.id.progress);
-        this.f = (TextView) findViewById(R.id.save);
+        this.a = (ProgressBar) findViewById(com.baidu.tieba.im.h.progress);
+        this.f = (TextView) findViewById(com.baidu.tieba.im.h.save);
         this.f.setClickable(false);
         this.g.setOnClickListener(this.k);
         this.h.setOnClickListener(this.k);
-        this.j = (MultiImageView) findViewById(R.id.viewpager);
-        this.j.setPageMargin(BdUtilHelper.a((Context) this, 8.0f));
-        this.j.a(2, com.baidu.tieba.data.i.t() * com.baidu.tieba.data.i.t());
+        this.j = (MultiImageView) findViewById(com.baidu.tieba.im.h.viewpager);
+        this.j.setPageMargin(com.baidu.adp.lib.util.i.a((Context) this, 8.0f));
+        this.j.a(2, com.baidu.tbadk.core.data.n.u() * com.baidu.tbadk.core.data.n.u());
         this.j.setOnPageChangeListener(this.m);
         this.j.setItemOnclickListener(this.k);
         MultiImageView multiImageView = this.j;
@@ -123,9 +119,9 @@ public class GroupImageActivity extends com.baidu.tieba.f {
             }
             String str = this.b.get(i3);
             if (!TextUtils.isEmpty(str)) {
-                com.baidu.adp.lib.util.e.e("get img url :" + str);
+                com.baidu.adp.lib.util.f.e("get img url :" + str);
                 if (str.equals(this.r)) {
-                    com.baidu.adp.lib.util.e.e("get img idx:" + i3);
+                    com.baidu.adp.lib.util.f.e("get img idx:" + i3);
                     this.c = i3;
                     break;
                 }
@@ -142,11 +138,11 @@ public class GroupImageActivity extends com.baidu.tieba.f {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f
+    @Override // com.baidu.tbadk.a
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1) {
-            this.j.setBackgroundColor(bq.d(i));
+            this.j.setBackgroundColor(ba.d(i));
         } else {
             this.j.setBackgroundColor(-16777216);
         }
@@ -154,28 +150,28 @@ public class GroupImageActivity extends com.baidu.tieba.f {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, android.app.Activity
+    @Override // com.baidu.tbadk.a, android.app.Activity
     public void onPause() {
         super.onPause();
         this.j.b();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, android.app.Activity
+    @Override // com.baidu.tbadk.a, android.app.Activity
     public void onResume() {
         super.onResume();
         this.j.a();
     }
 
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a
     public void releaseResouce() {
         this.j.c();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
-        TiebaApplication.g().b(this);
+        TbadkApplication.j().b(this);
         int i = this.c;
         int i2 = this.c;
         a(i);
@@ -190,7 +186,7 @@ public class GroupImageActivity extends com.baidu.tieba.f {
         super.onDestroy();
     }
 
-    @Override // com.baidu.tieba.f, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tbadk.a, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
             Intent intent = new Intent();
@@ -210,7 +206,7 @@ public class GroupImageActivity extends com.baidu.tieba.f {
                 valueOf = String.valueOf(String.valueOf(valueOf) + "/") + this.q;
             }
             if (this.j.getHasNext() && this.c == this.j.getItemNum() - 1) {
-                this.i.setText(getString(R.string.image_recommend));
+                this.i.setText(getString(com.baidu.tieba.im.j.image_recommend));
                 this.f.setVisibility(4);
                 return;
             }
@@ -222,7 +218,7 @@ public class GroupImageActivity extends com.baidu.tieba.f {
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putStringArrayList(SocialConstants.PARAM_URL, this.b);
+        bundle.putStringArrayList("url", this.b);
         bundle.putInt("index", this.c);
         bundle.putString("curImgUrl", this.r);
     }

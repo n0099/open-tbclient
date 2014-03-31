@@ -1,6 +1,5 @@
 package org.apache.commons.io;
 
-import cn.jingling.lib.file.Shared;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -92,7 +91,7 @@ public class FileSystemUtils {
     long freeSpaceWindows(String str, long j) {
         String normalize = FilenameUtils.normalize(str, false);
         String str2 = (normalize.length() <= 0 || normalize.charAt(0) == '\"') ? normalize : "\"" + normalize + "\"";
-        List<String> performCommand = performCommand(new String[]{"cmd.exe", "/C", "dir /a /-c " + str2}, Shared.INFINITY, j);
+        List<String> performCommand = performCommand(new String[]{"cmd.exe", "/C", "dir /a /-c " + str2}, Integer.MAX_VALUE, j);
         for (int size = performCommand.size() - 1; size >= 0; size--) {
             String str3 = performCommand.get(size);
             if (str3.length() > 0) {

@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public abstract class c<T> {
-    protected final com.baidu.adp.a.h a;
+    protected final com.baidu.adp.a.i a;
     protected String b;
     protected h c;
     protected g d;
@@ -24,8 +24,8 @@ public abstract class c<T> {
 
     protected abstract boolean b(String str);
 
-    public c(com.baidu.adp.a.h hVar) {
-        this.a = hVar;
+    public c(com.baidu.adp.a.i iVar) {
+        this.a = iVar;
     }
 
     public final void a(f fVar, String str) {
@@ -43,7 +43,7 @@ public abstract class c<T> {
             return a(this.a.a(), str);
         } catch (Throwable th) {
             this.a.b();
-            com.baidu.adp.lib.util.e.a(getClass(), str, th);
+            com.baidu.adp.lib.util.f.a(getClass(), str, th);
             return null;
         }
     }
@@ -66,7 +66,7 @@ public abstract class c<T> {
             }
         } catch (Throwable th) {
             this.a.b();
-            com.baidu.adp.lib.util.e.a(getClass(), "failed to insert " + mVar.a + " to db.", th);
+            com.baidu.adp.lib.util.f.a(getClass(), "failed to insert " + mVar.a + " to db.", th);
         }
     }
 
@@ -86,7 +86,7 @@ public abstract class c<T> {
             return this.a.a().delete(this.b, "m_key = ?", new String[]{str});
         } catch (Throwable th) {
             this.a.b();
-            com.baidu.adp.lib.util.e.a(getClass(), "failed to delete " + str + " from db.", th);
+            com.baidu.adp.lib.util.f.a(getClass(), "failed to delete " + str + " from db.", th);
             return 0;
         }
     }
@@ -133,7 +133,7 @@ public abstract class c<T> {
             } catch (Throwable th) {
                 try {
                     this.a.b();
-                    com.baidu.adp.lib.util.e.a(getClass(), "performEvict", th);
+                    com.baidu.adp.lib.util.f.a(getClass(), "performEvict", th);
                 } finally {
                     com.baidu.adp.lib.f.a.a(cursor);
                     this.d.d();
@@ -163,7 +163,7 @@ public abstract class c<T> {
             } catch (Throwable th) {
                 try {
                     this.a.b();
-                    com.baidu.adp.lib.util.e.a(getClass(), "performPump", th);
+                    com.baidu.adp.lib.util.f.a(getClass(), "performPump", th);
                 } finally {
                     com.baidu.adp.lib.f.a.a(cursor);
                     h hVar2 = this.c;
@@ -202,7 +202,7 @@ public abstract class c<T> {
         }
     }
 
-    public final com.baidu.adp.a.h b() {
+    public final com.baidu.adp.a.i b() {
         return this.a;
     }
 }

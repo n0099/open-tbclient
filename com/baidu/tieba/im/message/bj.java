@@ -1,43 +1,31 @@
 package com.baidu.tieba.im.message;
 
 import com.google.protobuf.MessageLite;
-import protobuf.UpdateMaskInfo.UpdateMaskInfoReq;
+import protobuf.UpgradeMemberGroup.UpgradeMemberGroupReq;
 /* loaded from: classes.dex */
-public final class bj extends s implements com.baidu.tieba.im.coder.g {
-    private int a;
+public final class bj extends com.baidu.tbadk.message.websockt.d {
+    private long a;
     private int b;
-    private String c;
 
     public bj() {
-        e(104102);
+        super(103105);
+        this.b = 1;
     }
 
-    @Override // com.baidu.tieba.im.coder.g
-    public final MessageLite a() {
-        return UpdateMaskInfoReq.UpdateMaskInfoReqIdl.newBuilder().a(UpdateMaskInfoReq.DataReq.newBuilder().a(this.a).b(this.b).a(this.c).build()).build();
-    }
-
-    public final int b() {
+    public final long i() {
         return this.a;
     }
 
-    public final void a(int i) {
-        this.a = i;
-    }
-
-    public final int c() {
-        return this.b;
-    }
-
-    public final void b(int i) {
-        this.b = i;
-    }
-
     public final void a(boolean z) {
-        this.b = z ? 1 : 0;
+        this.b = 1;
     }
 
-    public final void a(String str) {
-        this.c = str;
+    public final void b(long j) {
+        this.a = j;
+    }
+
+    @Override // com.baidu.tbadk.message.websockt.d
+    public final MessageLite h() {
+        return UpgradeMemberGroupReq.UpgradeMemberGroupReqIdl.newBuilder().a(UpgradeMemberGroupReq.DataReq.newBuilder().a((int) this.a).b(this.b).build()).build();
     }
 }

@@ -1,35 +1,51 @@
 package com.baidu.tieba.a;
-
-import android.app.Activity;
-import android.content.Intent;
-import com.baidu.tieba.im.data.GroupData;
 /* loaded from: classes.dex */
-public final class b extends com.baidu.tieba.f.a {
-    private GroupData a;
-    private String b;
-
-    public b(Activity activity, int i, String str, long j, String str2) {
-        super(activity);
-        this.a = null;
-        this.b = null;
-        GroupData groupData = new GroupData();
-        groupData.setGroupId(i);
-        groupData.setName(str);
-        groupData.setAuthorId(j);
-        this.a = groupData;
-        this.b = str2;
-        Intent d = d();
-        d.putExtra("chat_mode", 0);
-        d.putExtra("group", groupData);
-        d.putExtra("is_accept_notify", true);
-        d.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
-    }
-
-    public final GroupData a() {
-        return this.a;
-    }
-
-    public final String b() {
-        return this.b;
-    }
+public final class b {
+    public static final int adp_down_to_up = 2130968576;
+    public static final int adp_up_to_down = 2130968577;
+    public static final int album_choose_icon = 2130968578;
+    public static final int bdsocialshare_sharedialog_in = 2130968579;
+    public static final int bdsocialshare_sharedialog_out = 2130968580;
+    public static final int bdsocialshare_sharemenu_in = 2130968581;
+    public static final int bdsocialshare_sharemenu_out = 2130968582;
+    public static final int big_image_anim = 2130968583;
+    public static final int bottom_fold_down = 2130968584;
+    public static final int bottom_fold_up = 2130968585;
+    public static final int custom_home_text_info = 2130968586;
+    public static final int custom_menu_close = 2130968587;
+    public static final int custom_menu_open = 2130968588;
+    public static final int dialog_ani_b2t_enter = 2130968589;
+    public static final int dialog_ani_b2t_exit = 2130968590;
+    public static final int dialog_ani_l2r_enter = 2130968591;
+    public static final int dialog_ani_l2r_exit = 2130968592;
+    public static final int dialog_ani_r2l_enter = 2130968593;
+    public static final int dialog_ani_r2l_exit = 2130968594;
+    public static final int dialog_ani_t2b_enter = 2130968595;
+    public static final int dialog_ani_t2b_exit = 2130968596;
+    public static final int down = 2130968597;
+    public static final int frs_browser_enter = 2130968598;
+    public static final int frs_like = 2130968599;
+    public static final int frs_praise_animation = 2130968600;
+    public static final int frs_sign = 2130968601;
+    public static final int hold = 2130968602;
+    public static final int left = 2130968605;
+    public static final int loading_rotate = 2130968606;
+    public static final int no_effect = 2130968608;
+    public static final int pb_exit_anim = 2130968611;
+    public static final int praise_animation_scale1 = 2130968612;
+    public static final int praise_animation_scale2 = 2130968613;
+    public static final int praise_animation_scale3 = 2130968614;
+    public static final int refresh_rotate = 2130968615;
+    public static final int share_dialog_enter = 2130968616;
+    public static final int share_dialog_exit = 2130968617;
+    public static final int sub_pb_enter = 2130968618;
+    public static final int tb_image_anim = 2130968619;
+    public static final int top_fold_down = 2130968620;
+    public static final int top_fold_up = 2130968621;
+    public static final int top_recommended_finish_a = 2130968622;
+    public static final int top_recommended_finish_b = 2130968623;
+    public static final int user_info_center_head_rotate = 2130968624;
+    public static final int voice_btn_play_anim = 2130968625;
+    public static final int voice_btn_play_anim_1 = 2130968626;
+    public static final int voice_play = 2130968627;
 }

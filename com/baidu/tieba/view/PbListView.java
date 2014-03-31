@@ -1,16 +1,18 @@
 package com.baidu.tieba.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.ba;
 /* loaded from: classes.dex */
-public final class PbListView extends com.baidu.adp.widget.ListView.c {
+public final class PbListView extends com.baidu.adp.widget.ListView.e {
     private Context a;
     private TextView b;
     private ProgressBar c;
@@ -18,8 +20,8 @@ public final class PbListView extends com.baidu.adp.widget.ListView.c {
     private View e;
     private String f;
     private LinearLayout g;
-    private int h;
-    private IconType i;
+    private ImageView h;
+    private int i;
 
     /* loaded from: classes.dex */
     public enum IconType {
@@ -45,55 +47,53 @@ public final class PbListView extends com.baidu.adp.widget.ListView.c {
         this.e = null;
         this.f = null;
         this.g = null;
-        this.h = 0;
-        this.i = IconType.ICON_DOWN_WARD;
+        this.h = null;
+        this.i = 0;
         this.a = context;
     }
 
-    public PbListView(Context context, IconType iconType) {
+    public PbListView(Context context, byte b) {
         this(context);
-        this.i = iconType;
     }
 
-    @Override // com.baidu.adp.widget.ListView.c
+    @Override // com.baidu.adp.widget.ListView.e
     public final View a() {
-        this.e = LayoutInflater.from(this.a).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
-        this.g = (LinearLayout) this.e.findViewById(R.id.pb_more_view);
-        this.b = (TextView) this.e.findViewById(R.id.pb_more_text);
-        this.c = (ProgressBar) this.e.findViewById(R.id.progress);
+        this.e = LayoutInflater.from(this.a).inflate(com.baidu.tieba.a.i.new_pb_list_more, (ViewGroup) null);
+        this.g = (LinearLayout) this.e.findViewById(com.baidu.tieba.a.h.pb_more_view);
+        this.b = (TextView) this.e.findViewById(com.baidu.tieba.a.h.pb_more_text);
+        this.c = (ProgressBar) this.e.findViewById(com.baidu.tieba.a.h.progress);
+        this.h = (ImageView) this.e.findViewById(com.baidu.tieba.a.h.pb_more_view_top_line);
         return this.e;
     }
 
     public final void c() {
-        this.c.setVisibility(0);
-        this.b.setText(this.a.getText(R.string.loading));
-        c(TiebaApplication.g().ae());
+        this.h.setVisibility(0);
     }
 
     public final void d() {
+        this.c.setVisibility(0);
+        this.b.setText(this.a.getText(com.baidu.tieba.a.k.loading));
+        c(TbadkApplication.j().l());
+    }
+
+    public final void e() {
         this.c.setVisibility(8);
         if (this.f != null) {
             this.b.setText(this.f);
         } else {
-            this.b.setText(this.a.getText(R.string.pb_load_more));
+            this.b.setText(this.a.getText(com.baidu.tieba.a.k.pb_load_more));
         }
-        c(TiebaApplication.g().ae());
+        c(TbadkApplication.j().l());
     }
 
     public final void a(int i) {
         this.g.setBackgroundResource(i);
     }
 
-    public final void b(int i) {
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.g.getLayoutParams());
-        layoutParams.height = i;
-        this.g.setLayoutParams(layoutParams);
-    }
-
     public final void a(String str) {
         this.f = str;
         this.b.setText(str);
-        c(TiebaApplication.g().ae());
+        c(TbadkApplication.j().l());
     }
 
     private void d(int i) {
@@ -104,31 +104,45 @@ public final class PbListView extends com.baidu.adp.widget.ListView.c {
         this.d = onClickListener;
     }
 
-    @Override // com.baidu.adp.widget.ListView.c
+    @Override // com.baidu.adp.widget.ListView.e
     public final void onClick() {
         if (this.d != null) {
             this.d.onClick(this.e);
         }
     }
 
+    public final void b(int i) {
+        this.i = i;
+    }
+
+    @SuppressLint({"ResourceAsColor"})
     public final void c(int i) {
         String charSequence = this.b.getText().toString();
         if (this.e != null && charSequence != null) {
             if (i == 1) {
-                if (charSequence.equals(this.a.getText(R.string.pb_load_more))) {
-                    d(R.color.pb_more_txt_1);
-                } else if (charSequence.equals(this.a.getText(R.string.loading))) {
-                    d(R.color.pb_more_txt_1);
-                } else if (charSequence.equals(this.a.getText(R.string.no_more_to_load))) {
-                    d(R.color.pb_list_morebutton_nomore_text_1);
+                if (charSequence.equals(this.a.getText(com.baidu.tieba.a.k.pb_load_more))) {
+                    d(com.baidu.tieba.a.e.pb_more_txt_1);
+                } else if (charSequence.equals(this.a.getText(com.baidu.tieba.a.k.loading))) {
+                    d(com.baidu.tieba.a.e.pb_more_txt_1);
+                } else if (charSequence.equals(this.a.getText(com.baidu.tieba.a.k.no_more_to_load))) {
+                    d(com.baidu.tieba.a.e.pb_list_morebutton_nomore_text_1);
                 }
-            } else if (charSequence.equals(this.a.getText(R.string.pb_load_more))) {
-                d(R.color.pb_more_txt);
-            } else if (charSequence.equals(this.a.getText(R.string.loading))) {
-                d(R.color.pb_more_txt);
-            } else if (charSequence.equals(this.a.getText(R.string.no_more_to_load))) {
-                d(R.color.pb_list_morebutton_nomore_text);
+                this.h.setImageResource(com.baidu.tieba.a.e.cp_bg_line_b_1);
+            } else {
+                if (charSequence.equals(this.a.getText(com.baidu.tieba.a.k.pb_load_more))) {
+                    d(com.baidu.tieba.a.e.pb_more_txt);
+                } else if (charSequence.equals(this.a.getText(com.baidu.tieba.a.k.loading))) {
+                    d(com.baidu.tieba.a.e.pb_more_txt);
+                } else if (charSequence.equals(this.a.getText(com.baidu.tieba.a.k.no_more_to_load))) {
+                    d(com.baidu.tieba.a.e.pb_list_morebutton_nomore_text);
+                }
+                this.h.setImageResource(com.baidu.tieba.a.e.cp_bg_line_b);
             }
+        }
+        if (this.i == 0) {
+            ba.f(this.g, com.baidu.tieba.a.e.cp_bg_line_d);
+        } else if (this.i > 0) {
+            ba.f(this.g, this.i);
         }
     }
 }

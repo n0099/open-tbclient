@@ -208,7 +208,7 @@ public class BDImageView2 extends ImageView {
     private b getImage() {
         if (this.e != null) {
             try {
-                Object a = com.baidu.adp.lib.e.c.a().a(this.e, this.f, null, getContext(), null, 1);
+                Object a = com.baidu.adp.lib.e.b.a().a(this.e, this.f, null, getContext(), null, 1);
                 if (a != null && (a instanceof b)) {
                     return (b) a;
                 }
@@ -230,7 +230,7 @@ public class BDImageView2 extends ImageView {
             }
             matrix = this.d;
         } else {
-            image = new b(com.baidu.adp.lib.util.a.a().a(this.a), false, null);
+            image = new b(com.baidu.adp.lib.util.b.a().a(this.a), false, null);
             if (this.c == null) {
                 this.c = a(image);
             }

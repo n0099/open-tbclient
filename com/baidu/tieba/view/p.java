@@ -2,127 +2,76 @@ package com.baidu.tieba.view;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import java.util.ArrayList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class p extends FrameLayout {
-    public LinearLayout a;
-    public Button b;
-    public Context c;
-    private HaloView d;
-    private LinearLayout e;
-    private TextView f;
-    private TextView g;
-    private TextView h;
-    private String i;
-    private boolean j;
+public final class p implements View.OnClickListener {
+    final /* synthetic */ FrsCommonImageLayout a;
+    private final int b;
 
-    public p(Context context) {
-        super(context);
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.h = null;
-        this.i = null;
-        this.j = false;
-        this.c = context;
-        LayoutInflater.from(context).inflate(R.layout.chatterbox_view, (ViewGroup) this, true);
-        this.b = (Button) findViewById(R.id.chat_select_btn);
-        this.d = (HaloView) findViewById(R.id.haloView);
-        this.e = (LinearLayout) findViewById(R.id.chat_view);
-        this.f = (TextView) findViewById(R.id.chat_view_content_1);
-        this.g = (TextView) findViewById(R.id.chat_view_content_2);
-        this.h = (TextView) findViewById(R.id.chat_view_content_3);
+    private p(FrsCommonImageLayout frsCommonImageLayout, int i) {
+        this.a = frsCommonImageLayout;
+        this.b = i;
     }
 
-    public final void a(boolean z, boolean z2) {
-        boolean z3 = this.j;
-        this.j = z;
-        if (z2 || (!z3 && z3 != this.j)) {
-            b();
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ p(FrsCommonImageLayout frsCommonImageLayout, int i, byte b) {
+        this(frsCommonImageLayout, i);
     }
 
-    private void b() {
-        this.i = null;
-        this.f.setVisibility(8);
-        this.g.setVisibility(8);
-        this.h.setVisibility(8);
-        this.e.setVisibility(8);
-        if (this.j) {
-            setVisibility(0);
-            this.d.setIsBlack(false);
-            this.b.setVisibility(0);
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        q qVar;
+        com.baidu.tbadk.core.data.j[] jVarArr;
+        com.baidu.tbadk.core.data.j[] jVarArr2;
+        com.baidu.tbadk.core.data.j[] jVarArr3;
+        Context context;
+        String str;
+        String str2;
+        String str3;
+        boolean z;
+        Context context2;
+        Context context3;
+        com.baidu.tbadk.core.data.j[] jVarArr4;
+        q unused;
+        qVar = this.a.a;
+        if (qVar != null) {
+            unused = this.a.a;
+            int i = this.b;
             return;
         }
-        setVisibility(8);
-        this.d.setIsBlack(true);
-        this.b.setVisibility(8);
-    }
-
-    public final void setTitle(String str) {
-        if (str == null || !str.equals(this.i)) {
-            if (TextUtils.isEmpty(str)) {
-                b();
+        jVarArr = this.a.c;
+        if (jVarArr[this.b].b() != 5) {
+            jVarArr2 = this.a.c;
+            if (jVarArr2 != null) {
+                ArrayList<String> arrayList = new ArrayList<>();
+                jVarArr3 = this.a.c;
+                for (com.baidu.tbadk.core.data.j jVar : jVarArr3) {
+                    if (TextUtils.isEmpty(jVar.a())) {
+                        arrayList.add(jVar.c());
+                    } else {
+                        arrayList.add(jVar.a());
+                    }
+                }
+                com.baidu.adp.framework.c a = com.baidu.adp.framework.c.a();
+                context = this.a.d;
+                com.baidu.tbadk.core.b.t tVar = new com.baidu.tbadk.core.b.t(context);
+                int i2 = this.b;
+                str = this.a.p;
+                str2 = this.a.o;
+                str3 = this.a.q;
+                z = this.a.b;
+                a.a(new com.baidu.adp.framework.message.a(2010000, tVar.a(arrayList, i2, str, str2, str3, z, arrayList.size() > 0 ? arrayList.get(arrayList.size() - 1) : "")));
+                context2 = this.a.d;
+                TiebaStatic.a(context2, "pic_frs", "");
                 return;
             }
-            setVisibility(0);
-            this.b.setVisibility(8);
-            this.d.setIsBlack(true);
-            this.e.setVisibility(0);
-            if (str.length() <= 7) {
-                this.f.setVisibility(0);
-                this.g.setVisibility(8);
-                this.h.setVisibility(8);
-                this.f.setText(str);
-            } else if (str.length() <= 13) {
-                this.f.setVisibility(0);
-                this.g.setVisibility(0);
-                this.h.setVisibility(8);
-                String substring = str.substring(0, 7);
-                String substring2 = str.substring(7, str.length());
-                this.f.setText(substring);
-                this.g.setText(substring2);
-            } else {
-                this.f.setVisibility(0);
-                this.g.setVisibility(0);
-                this.h.setVisibility(0);
-                String substring3 = str.substring(0, 7);
-                String substring4 = str.substring(7, 13);
-                String substring5 = str.substring(13, str.length() <= 15 ? str.length() : 15);
-                this.f.setText(substring3);
-                this.g.setText(substring4);
-                this.h.setText(substring5);
-            }
-            this.i = str;
+            return;
         }
-    }
-
-    public final boolean a(View view) {
-        if (this.j) {
-            return view == this.b || view == this.e;
-        }
-        return false;
-    }
-
-    @Override // android.view.View
-    public final void setOnClickListener(View.OnClickListener onClickListener) {
-        super.setOnClickListener(onClickListener);
-        this.b.setOnClickListener(onClickListener);
-        this.e.setOnClickListener(onClickListener);
-    }
-
-    public final void a() {
-        this.d.a();
+        context3 = this.a.d;
+        jVarArr4 = this.a.c;
+        com.baidu.tbadk.browser.a.a(context3, jVarArr4[this.b].d());
     }
 }

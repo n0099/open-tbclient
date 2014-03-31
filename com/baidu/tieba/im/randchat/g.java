@@ -3,7 +3,6 @@ package com.baidu.tieba.im.randchat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
-import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class g implements com.baidu.adp.lib.guide.b {
@@ -19,7 +18,7 @@ public final class g implements com.baidu.adp.lib.guide.b {
         WaittingActivity waittingActivity;
         waittingActivity = this.a.c;
         ImageView imageView = new ImageView(waittingActivity);
-        imageView.setBackgroundResource(R.drawable.pic_chatprogress);
+        imageView.setBackgroundResource(com.baidu.tieba.im.g.pic_chatprogress);
         return imageView;
     }
 

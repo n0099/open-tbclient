@@ -6,32 +6,28 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.ch;
-import com.baidu.tieba.view.HeadImageView;
-import com.baidu.tieba.view.bg;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.bn;
+import com.baidu.tbadk.core.view.HeadImageView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public final class i extends BaseAdapter implements bg {
+public final class i extends BaseAdapter implements com.baidu.tieba.view.s {
     private final Context b;
-    private au c;
-    private com.baidu.tieba.util.i d;
+    private as c;
+    private final com.baidu.tbadk.editortool.aa d;
     private String e = null;
     View.OnClickListener a = new j(this);
 
     public i(Context context) {
         this.b = context;
-        this.d = new com.baidu.tieba.util.i(context);
-        int a = BdUtilHelper.a(context, 45.0f);
+        this.d = new com.baidu.tbadk.editortool.aa(context);
+        int a = com.baidu.adp.lib.util.i.a(context, 45.0f);
         this.d.a(a, a);
     }
 
-    public final void a(au auVar) {
-        this.c = auVar;
+    public final void a(as asVar) {
+        this.c = asVar;
     }
 
     @Override // android.widget.Adapter
@@ -39,7 +35,7 @@ public final class i extends BaseAdapter implements bg {
         if (this.c == null || this.c.d().size() == 0) {
             return 0;
         }
-        ArrayList<at> d = this.c.d();
+        ArrayList<ar> d = this.c.d();
         if (d == null || d.size() <= 0) {
             return 1;
         }
@@ -54,94 +50,94 @@ public final class i extends BaseAdapter implements bg {
         if (view == null) {
             LayoutInflater from = LayoutInflater.from(this.b);
             if (itemViewType == 0) {
-                view2 = from.inflate(R.layout.bar_home_header, (ViewGroup) null);
+                view2 = from.inflate(com.baidu.tieba.a.i.bar_home_header, (ViewGroup) null);
             } else if (itemViewType == 2) {
-                View inflate = from.inflate(R.layout.bar_home_all_dir_item, (ViewGroup) null);
-                at atVar = new at();
-                atVar.f = SocialConstants.TRUE;
+                View inflate = from.inflate(com.baidu.tieba.a.i.bar_home_all_dir_item, (ViewGroup) null);
+                ar arVar = new ar();
+                arVar.f = "1";
                 n nVar = new n();
-                nVar.a = (HeadImageView) inflate.findViewById(R.id.portrait);
-                nVar.b = (TextView) inflate.findViewById(R.id.squre_name);
-                nVar.c = (BestStringsFitTextView) inflate.findViewById(R.id.description);
-                nVar.d = atVar;
+                nVar.a = (HeadImageView) inflate.findViewById(com.baidu.tieba.a.h.portrait);
+                nVar.b = (TextView) inflate.findViewById(com.baidu.tieba.a.h.squre_name);
+                nVar.c = (BestStringsFitTextView) inflate.findViewById(com.baidu.tieba.a.h.description);
+                nVar.d = arVar;
                 inflate.setOnClickListener(this.a);
                 inflate.setTag(nVar);
                 view2 = inflate;
             } else {
-                View inflate2 = from.inflate(R.layout.bar_home_first_dir_item, (ViewGroup) null);
+                View inflate2 = from.inflate(com.baidu.tieba.a.i.bar_home_first_dir_item, (ViewGroup) null);
                 inflate2.setOnClickListener(this.a);
-                at atVar2 = new at();
-                atVar2.f = SocialConstants.FALSE;
+                ar arVar2 = new ar();
+                arVar2.f = "0";
                 n nVar2 = new n();
-                nVar2.a = (HeadImageView) inflate2.findViewById(R.id.portrait);
-                nVar2.b = (TextView) inflate2.findViewById(R.id.squre_name);
-                nVar2.c = (BestStringsFitTextView) inflate2.findViewById(R.id.description);
-                nVar2.d = atVar2;
+                nVar2.a = (HeadImageView) inflate2.findViewById(com.baidu.tieba.a.h.portrait);
+                nVar2.b = (TextView) inflate2.findViewById(com.baidu.tieba.a.h.squre_name);
+                nVar2.c = (BestStringsFitTextView) inflate2.findViewById(com.baidu.tieba.a.h.description);
+                nVar2.d = arVar2;
                 inflate2.setTag(nVar2);
                 view2 = inflate2;
             }
-            ch.b(view2);
+            bn.b(view2);
             view = view2;
         }
         if (itemViewType == 0) {
             if (this.c != null) {
-                ((TextView) view.findViewById(R.id.title)).setText(this.c.e());
+                ((TextView) view.findViewById(com.baidu.tieba.a.h.title)).setText(this.c.e());
             }
         } else if (itemViewType == 2) {
-            ch.a(view);
+            bn.a(view);
             a(viewGroup, (n) view.getTag(), i, "all");
         } else if (itemViewType == 1) {
-            ch.a(view);
+            bn.a(view);
             a(viewGroup, (n) view.getTag(), i, "normal");
         }
-        int ae = TiebaApplication.g().ae();
-        com.baidu.tieba.k kVar = (com.baidu.tieba.k) this.b;
-        kVar.a().a(ae == 1);
-        kVar.a().a(view);
+        int l = TbadkApplication.j().l();
+        com.baidu.tbadk.core.e eVar = (com.baidu.tbadk.core.e) this.b;
+        eVar.b().a(l == 1);
+        eVar.b().a(view);
         if (itemViewType == 0) {
-            View findViewById2 = view.findViewById(R.id.post_recommend_line_up);
-            View findViewById3 = view.findViewById(R.id.post_recommend_line_down);
+            View findViewById2 = view.findViewById(com.baidu.tieba.a.h.post_recommend_line_up);
+            View findViewById3 = view.findViewById(com.baidu.tieba.a.h.post_recommend_line_down);
             if (findViewById2 != null && findViewById3 != null) {
-                if (ae == 1) {
-                    findViewById2.setBackgroundColor(this.b.getResources().getColor(R.color.square_dividing_line_1));
-                    findViewById3.setBackgroundColor(this.b.getResources().getColor(R.color.square_dividing_line_1));
+                if (l == 1) {
+                    findViewById2.setBackgroundColor(this.b.getResources().getColor(com.baidu.tieba.a.e.square_dividing_line_1));
+                    findViewById3.setBackgroundColor(this.b.getResources().getColor(com.baidu.tieba.a.e.square_dividing_line_1));
                 } else {
-                    findViewById2.setBackgroundColor(this.b.getResources().getColor(R.color.square_dividing_line));
-                    findViewById3.setBackgroundColor(this.b.getResources().getColor(R.color.square_dividing_line));
+                    findViewById2.setBackgroundColor(this.b.getResources().getColor(com.baidu.tieba.a.e.square_dividing_line));
+                    findViewById3.setBackgroundColor(this.b.getResources().getColor(com.baidu.tieba.a.e.square_dividing_line));
                 }
             }
-        } else if (itemViewType == 1 && (findViewById = view.findViewById(R.id.bar_folder_item_bottom_line)) != null) {
-            if (ae == 1) {
-                findViewById.setBackgroundColor(this.b.getResources().getColor(R.color.square_dividing_line_1));
+        } else if (itemViewType == 1 && (findViewById = view.findViewById(com.baidu.tieba.a.h.bar_folder_item_bottom_line)) != null) {
+            if (l == 1) {
+                findViewById.setBackgroundColor(this.b.getResources().getColor(com.baidu.tieba.a.e.square_dividing_line_1));
             } else {
-                findViewById.setBackgroundColor(this.b.getResources().getColor(R.color.square_dividing_line));
+                findViewById.setBackgroundColor(this.b.getResources().getColor(com.baidu.tieba.a.e.square_dividing_line));
             }
         }
         return view;
     }
 
     private void a(ViewGroup viewGroup, n nVar, int i, String str) {
-        at atVar = this.c.d().get(i - 1);
-        atVar.a = i - 1;
-        if (atVar.f.equals(SocialConstants.TRUE) && str.equals("all")) {
-            a(viewGroup, nVar, atVar);
-        } else if (atVar.f.equals(SocialConstants.FALSE) && str.equals("normal")) {
-            a(viewGroup, nVar, atVar);
+        ar arVar = this.c.d().get(i - 1);
+        arVar.a = i - 1;
+        if (arVar.f.equals("1") && str.equals("all")) {
+            a(viewGroup, nVar, arVar);
+        } else if (arVar.f.equals("0") && str.equals("normal")) {
+            a(viewGroup, nVar, arVar);
         }
     }
 
-    private void a(ViewGroup viewGroup, n nVar, at atVar) {
-        nVar.d = atVar;
-        nVar.b.setText(UtilHelper.a(atVar.b, 11));
-        if (atVar.c != null) {
-            nVar.c.setText(atVar.c);
+    private void a(ViewGroup viewGroup, n nVar, ar arVar) {
+        nVar.d = arVar;
+        nVar.b.setText(UtilHelper.a(arVar.b, 11));
+        if (arVar.c != null) {
+            nVar.c.setText(arVar.c);
             nVar.c.setVisibility(0);
         } else {
             nVar.c.setVisibility(8);
         }
-        if (atVar.e != null) {
-            nVar.a.setTag(atVar.e);
-            this.d.b(atVar.e, new k(this, viewGroup));
+        if (arVar.e != null) {
+            nVar.a.setTag(arVar.e);
+            this.d.b(arVar.e, new k(this, viewGroup));
         }
     }
 
@@ -175,21 +171,21 @@ public final class i extends BaseAdapter implements bg {
         return this.b;
     }
 
-    @Override // com.baidu.tieba.view.bg
+    @Override // com.baidu.tieba.view.s
     public final void d() {
         this.d.c();
     }
 
-    @Override // com.baidu.tieba.view.bg
+    @Override // com.baidu.tieba.view.s
     public final void a(View view, int i, int i2) {
         while (i <= i2) {
             if (getItemViewType(i) == 1) {
                 this.d.a();
-                at atVar = this.c.d().get(i - 1);
-                if (atVar.e != null) {
-                    com.baidu.tieba.util.i iVar = this.d;
-                    if (com.baidu.tbadk.imageManager.e.a().c(atVar.e) == null) {
-                        this.d.b(atVar.e, new m(this, view));
+                ar arVar = this.c.d().get(i - 1);
+                if (arVar.e != null) {
+                    com.baidu.tbadk.editortool.aa aaVar = this.d;
+                    if (com.baidu.tbadk.imageManager.e.a().c(arVar.e) == null) {
+                        this.d.b(arVar.e, new m(this, view));
                     }
                 }
             }

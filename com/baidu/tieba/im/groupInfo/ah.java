@@ -1,40 +1,31 @@
 package com.baidu.tieba.im.groupInfo;
 
-import com.google.protobuf.MessageLite;
-import protobuf.ApplyJoinGroup.ApplyJoinGroupReq;
+import android.view.View;
+import com.baidu.tbadk.coreExtra.data.PhotoUrlData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ah extends com.baidu.tieba.im.message.s implements com.baidu.tieba.im.coder.g {
-    private int a;
-    private String b;
-    private long c;
-    private int d;
+public final class ah implements View.OnLongClickListener {
+    final /* synthetic */ PhotoWallView a;
+    private final /* synthetic */ PhotoUrlData b;
+    private final /* synthetic */ int c;
 
-    public ah() {
-        e(103110);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ah(PhotoWallView photoWallView, PhotoUrlData photoUrlData, int i) {
+        this.a = photoWallView;
+        this.b = photoUrlData;
+        this.c = i;
     }
 
-    public final void a(int i) {
-        this.d = i;
-    }
-
-    public final void a(long j) {
-        this.c = j;
-    }
-
-    public final int b() {
-        return this.a;
-    }
-
-    public final void b(int i) {
-        this.a = i;
-    }
-
-    public final void a(String str) {
-        this.b = str;
-    }
-
-    @Override // com.baidu.tieba.im.coder.g
-    public final MessageLite a() {
-        return ApplyJoinGroupReq.ApplyJoinGroupReqIdl.newBuilder().a(ApplyJoinGroupReq.DataReq.newBuilder().a(this.a).a(this.c).a(this.b).b(this.d).build()).build();
+    @Override // android.view.View.OnLongClickListener
+    public final boolean onLongClick(View view) {
+        af afVar;
+        af afVar2;
+        afVar = this.a.l;
+        if (afVar != null) {
+            afVar2 = this.a.l;
+            afVar2.a(this.b, this.c);
+            return true;
+        }
+        return true;
     }
 }

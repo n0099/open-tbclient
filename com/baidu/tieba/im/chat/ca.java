@@ -1,27 +1,25 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.MotionEvent;
-import android.view.View;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ca implements View.OnTouchListener {
-    final /* synthetic */ MsgleftView a;
+public final class ca implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ MsgActivityView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ca(MsgleftView msgleftView) {
-        this.a = msgleftView;
+    public ca(MsgActivityView msgActivityView) {
+        this.a = msgActivityView;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public final boolean onTouch(View view, MotionEvent motionEvent) {
-        TouchType touchType;
-        TouchType touchType2;
-        touchType = this.a.v;
-        if (touchType.get() && motionEvent.getAction() == 1) {
-            this.a.d.a(2, this.a.f);
-            touchType2 = this.a.v;
-            touchType2.set(false);
+    @Override // com.baidu.tbadk.imageManager.d
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        HeadImageView headImageView;
+        HeadImageView headImageView2;
+        headImageView = this.a.p;
+        String str2 = (String) headImageView.getTag();
+        if (str != null && str.equals(str2) && bVar != null) {
+            headImageView2 = this.a.p;
+            bVar.a(headImageView2);
         }
-        return false;
     }
 }

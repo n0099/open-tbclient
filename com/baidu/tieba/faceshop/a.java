@@ -1,50 +1,41 @@
 package com.baidu.tieba.faceshop;
 
-import android.view.View;
-import android.widget.TextView;
-import java.util.List;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.editortool.AdsEmotionGroupData;
+import java.util.LinkedList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-final class a implements View.OnClickListener {
-    final /* synthetic */ EmotionManageActivity a;
+final class a extends com.baidu.adp.framework.c.a {
+    final /* synthetic */ AdsEmotionRegister a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public a(EmotionManageActivity emotionManageActivity) {
-        this.a = emotionManageActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a(AdsEmotionRegister adsEmotionRegister, int i) {
+        super(2001145);
+        this.a = adsEmotionRegister;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        TextView textView;
-        TextView textView2;
-        TextView textView3;
-        boolean z;
-        d dVar;
-        List list;
-        textView = this.a.h;
-        if (view != textView) {
-            textView2 = this.a.i;
-            if (view != textView2) {
-                textView3 = this.a.m;
-                if (view == textView3) {
-                    FacePurchaseRecordsActivity.a(this.a, "emotion_manage");
-                    this.a.b();
-                    this.a.a(true);
-                    return;
-                }
-                return;
-            }
-            z = this.a.p;
-            if (!z) {
-                EmotionManageActivity.g(this.a);
-            } else {
-                this.a.b();
-                list = this.a.b;
-                list.clear();
-            }
-            dVar = this.a.o;
-            dVar.notifyDataSetChanged();
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
+    @Override // com.baidu.adp.framework.c.c
+    public final /* synthetic */ void a(CustomResponsedMessage<?> customResponsedMessage) {
+        Object a;
+        JSONArray optJSONArray;
+        CustomResponsedMessage<?> customResponsedMessage2 = customResponsedMessage;
+        if (customResponsedMessage2.g() != 2001145 || (a = customResponsedMessage2.a()) == null || !(a instanceof JSONObject) || (optJSONArray = ((JSONObject) a).optJSONArray("recmd_face")) == null) {
             return;
         }
-        EmotionManageActivity.b(this.a);
+        LinkedList linkedList = new LinkedList();
+        for (int i = 0; i < optJSONArray.length() && i < 2; i++) {
+            try {
+                JSONObject jSONObject = optJSONArray.getJSONObject(i);
+                AdsEmotionGroupData adsEmotionGroupData = new AdsEmotionGroupData();
+                adsEmotionGroupData.parseJson(jSONObject);
+                linkedList.add(adsEmotionGroupData);
+            } catch (JSONException e) {
+            }
+        }
+        this.a.setNewAdsEmotionGroups(linkedList);
     }
 }

@@ -1,128 +1,112 @@
 package com.baidu.tieba.im.hotGroup;
 
 import android.text.TextUtils;
+import com.baidu.adp.framework.c.g;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.hotGroup.HotGroupAdapter;
-import com.baidu.tieba.im.message.aq;
-import com.baidu.tieba.im.message.cd;
-import com.baidu.tieba.im.message.cy;
-import com.baidu.tieba.im.message.s;
-import com.baidu.tieba.im.messageCenter.g;
+import com.baidu.tieba.im.message.ResponseHotGroupsMessage;
+import com.baidu.tieba.im.message.ResponseUpgradeMemberGroupMessage;
+import com.baidu.tieba.im.message.an;
 import java.util.List;
 /* loaded from: classes.dex */
-final class b implements g {
+final class b extends g {
     final /* synthetic */ HotGroupFragment a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b(HotGroupFragment hotGroupFragment) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b(HotGroupFragment hotGroupFragment, int i) {
+        super(0);
         this.a = hotGroupFragment;
     }
 
-    @Override // com.baidu.tieba.im.messageCenter.g
-    public final void a(s sVar) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.f] */
+    @Override // com.baidu.adp.framework.c.c
+    public final /* synthetic */ void a(SocketResponsedMessage socketResponsedMessage) {
         HotGroupActivity hotGroupActivity;
         BdListView bdListView;
-        c cVar;
-        c cVar2;
-        c cVar3;
+        d dVar;
+        d dVar2;
+        BdListView bdListView2;
+        d dVar3;
+        d dVar4;
         HotGroupAdapter hotGroupAdapter;
         HotGroupAdapter hotGroupAdapter2;
         HotGroupAdapter hotGroupAdapter3;
         HotGroupAdapter hotGroupAdapter4;
-        c cVar4;
-        BdListView bdListView2;
-        c cVar5;
-        c cVar6;
         HotGroupAdapter hotGroupAdapter5;
         HotGroupAdapter hotGroupAdapter6;
         HotGroupAdapter hotGroupAdapter7;
         HotGroupAdapter hotGroupAdapter8;
-        HotGroupAdapter hotGroupAdapter9;
-        HotGroupAdapter hotGroupAdapter10;
-        HotGroupAdapter hotGroupAdapter11;
-        HotGroupAdapter hotGroupAdapter12;
         BdListView bdListView3;
-        hotGroupActivity = this.a.d;
+        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
+        hotGroupActivity = this.a.c;
         if (hotGroupActivity != null) {
-            bdListView = this.a.b;
+            bdListView = this.a.a;
             if (bdListView != null) {
-                cVar = this.a.g;
-                if (cVar != null) {
-                    if (sVar instanceof cy) {
-                        cy cyVar = (cy) sVar;
-                        if (!cyVar.l() || cyVar.m() == 2230110) {
-                            this.a.c();
-                            return;
-                        }
-                    }
-                    if (!(sVar instanceof cd)) {
-                        bdListView3 = this.a.b;
-                        bdListView3.a();
+                dVar = this.a.f;
+                if (dVar == null) {
+                    return;
+                }
+                if (socketResponsedMessage2 instanceof ResponseUpgradeMemberGroupMessage) {
+                    ResponseUpgradeMemberGroupMessage responseUpgradeMemberGroupMessage = (ResponseUpgradeMemberGroupMessage) socketResponsedMessage2;
+                    if (responseUpgradeMemberGroupMessage.e() == 0 || responseUpgradeMemberGroupMessage.e() == 2230110) {
+                        this.a.c();
                         return;
                     }
-                    cd cdVar = (cd) sVar;
-                    cVar2 = this.a.g;
-                    cVar2.c(false);
-                    if (sVar.v() == 103012) {
-                        bdListView2 = this.a.b;
-                        bdListView2.a();
-                        if (cdVar.l()) {
-                            if (cdVar.m() > 0 && !TextUtils.isEmpty(cdVar.n())) {
-                                this.a.a(cdVar.n());
+                }
+                if (!(socketResponsedMessage2 instanceof ResponseHotGroupsMessage)) {
+                    bdListView3 = this.a.a;
+                    bdListView3.b();
+                    return;
+                }
+                ResponseHotGroupsMessage responseHotGroupsMessage = (ResponseHotGroupsMessage) socketResponsedMessage2;
+                dVar2 = this.a.f;
+                dVar2.c(false);
+                if (socketResponsedMessage2.g() == 103012) {
+                    bdListView2 = this.a.a;
+                    bdListView2.b();
+                    if (responseHotGroupsMessage.e() != 0) {
+                        if (responseHotGroupsMessage.e() <= 0 || TextUtils.isEmpty(responseHotGroupsMessage.f())) {
+                            return;
+                        }
+                        this.a.showToast(responseHotGroupsMessage.f());
+                    } else if (responseHotGroupsMessage.h() instanceof an) {
+                        an anVar = (an) responseHotGroupsMessage.h();
+                        List<GroupInfoData> d = responseHotGroupsMessage.d();
+                        if (d != null) {
+                            if (anVar.i()) {
+                                hotGroupAdapter8 = this.a.e;
+                                hotGroupAdapter8.b();
                             }
-                        } else if (cdVar.o() instanceof aq) {
-                            aq aqVar = (aq) cdVar.o();
-                            List<GroupInfoData> a = cdVar.a();
-                            if (a != null) {
-                                if (aqVar.b()) {
-                                    hotGroupAdapter12 = this.a.f;
-                                    hotGroupAdapter12.b();
-                                }
-                                cVar5 = this.a.g;
-                                cVar5.a(cdVar.b());
-                                cVar6 = this.a.g;
-                                if (cVar6.a()) {
-                                    hotGroupAdapter11 = this.a.f;
-                                    hotGroupAdapter11.a(HotGroupAdapter.BOTTOM_TYPE.HAVE_MORE);
-                                } else if (!aqVar.b()) {
-                                    hotGroupAdapter5 = this.a.f;
-                                    hotGroupAdapter5.a(HotGroupAdapter.BOTTOM_TYPE.NO_MORE);
-                                } else if (a.size() == 0) {
-                                    hotGroupAdapter7 = this.a.f;
-                                    hotGroupAdapter7.a(false);
-                                    return;
-                                } else {
-                                    hotGroupAdapter6 = this.a.f;
-                                    hotGroupAdapter6.a(HotGroupAdapter.BOTTOM_TYPE.LINE);
-                                }
-                                if (a.size() > 0) {
-                                    hotGroupAdapter8 = this.a.f;
-                                    hotGroupAdapter8.a(a);
-                                    hotGroupAdapter9 = this.a.f;
-                                    hotGroupAdapter9.notifyDataSetChanged();
-                                    this.a.e();
-                                    hotGroupAdapter10 = this.a.f;
-                                    hotGroupAdapter10.a(true);
-                                }
+                            dVar3 = this.a.f;
+                            dVar3.a(responseHotGroupsMessage.i());
+                            dVar4 = this.a.f;
+                            if (dVar4.a()) {
+                                hotGroupAdapter7 = this.a.e;
+                                hotGroupAdapter7.a(HotGroupAdapter.BOTTOM_TYPE.HAVE_MORE);
+                            } else if (!anVar.i()) {
+                                hotGroupAdapter = this.a.e;
+                                hotGroupAdapter.a(HotGroupAdapter.BOTTOM_TYPE.NO_MORE);
+                            } else if (d.size() == 0) {
+                                hotGroupAdapter3 = this.a.e;
+                                hotGroupAdapter3.a(false);
+                                return;
+                            } else {
+                                hotGroupAdapter2 = this.a.e;
+                                hotGroupAdapter2.a(HotGroupAdapter.BOTTOM_TYPE.LINE);
+                            }
+                            if (d.size() > 0) {
+                                hotGroupAdapter4 = this.a.e;
+                                hotGroupAdapter4.a(d);
+                                hotGroupAdapter5 = this.a.e;
+                                hotGroupAdapter5.notifyDataSetChanged();
+                                this.a.d();
+                                hotGroupAdapter6 = this.a.e;
+                                hotGroupAdapter6.a(true);
                             }
                         }
-                    } else if (sVar.v() == -116) {
-                        List<GroupInfoData> a2 = cdVar.a();
-                        if (a2 != null) {
-                            hotGroupAdapter = this.a.f;
-                            hotGroupAdapter.a(a2);
-                            hotGroupAdapter2 = this.a.f;
-                            hotGroupAdapter2.notifyDataSetChanged();
-                            hotGroupAdapter3 = this.a.f;
-                            hotGroupAdapter3.a(true);
-                            hotGroupAdapter4 = this.a.f;
-                            hotGroupAdapter4.a(HotGroupAdapter.BOTTOM_TYPE.LINE);
-                            cVar4 = this.a.g;
-                            cVar4.a(false);
-                        }
-                        cVar3 = this.a.g;
-                        cVar3.d(false);
                     }
                 }
             }

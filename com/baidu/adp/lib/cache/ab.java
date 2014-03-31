@@ -7,8 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 public final class ab extends c<String> {
     private String g;
 
-    public ab(com.baidu.adp.a.h hVar, String str) {
-        super(hVar);
+    public ab(com.baidu.adp.a.i iVar, String str) {
+        super(iVar);
         this.g = str;
     }
 
@@ -76,7 +76,7 @@ public final class ab extends c<String> {
             return true;
         } catch (Throwable th) {
             this.a.b();
-            com.baidu.adp.lib.util.e.a(getClass(), "failed to clear from " + str, th);
+            com.baidu.adp.lib.util.f.a(getClass(), "failed to clear from " + str, th);
             return false;
         }
     }

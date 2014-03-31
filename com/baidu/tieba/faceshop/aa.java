@@ -1,22 +1,25 @@
 package com.baidu.tieba.faceshop;
 
-import com.baidu.tbadk.widget.TbImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.webkit.URLUtil;
+import com.baidu.tbadk.coreExtra.view.BaseWebView;
 /* loaded from: classes.dex */
-public final class aa implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ x a;
+final class aa implements Runnable {
+    final /* synthetic */ FaceBuyWebViewActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(x xVar) {
-        this.a = xVar;
+    public aa(FaceBuyWebViewActivity faceBuyWebViewActivity) {
+        this.a = faceBuyWebViewActivity;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        TbImageView tbImageView;
-        if (bVar != null) {
-            tbImageView = this.a.f;
-            tbImageView.invalidate();
+    @Override // java.lang.Runnable
+    public final void run() {
+        String str;
+        BaseWebView baseWebView;
+        str = this.a.c;
+        String guessUrl = URLUtil.guessUrl(str);
+        if (URLUtil.isNetworkUrl(guessUrl)) {
+            baseWebView = this.a.a;
+            baseWebView.loadUrl(guessUrl);
         }
     }
 }

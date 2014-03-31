@@ -1,50 +1,18 @@
 package com.baidu.tieba.frs;
 
-import android.content.DialogInterface;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.pb.NewPbActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
-public final class w implements DialogInterface.OnClickListener {
+final class w implements SlidingMenu.OnOpenedListener {
     final /* synthetic */ FrsActivity a;
-    private final /* synthetic */ com.baidu.tieba.data.az b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(FrsActivity frsActivity, com.baidu.tieba.data.az azVar) {
+    public w(FrsActivity frsActivity) {
         this.a = frsActivity;
-        this.b = azVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public final void onClick(DialogInterface dialogInterface, int i) {
-        String str;
-        String str2;
-        boolean z;
-        bs bsVar;
-        switch (i) {
-            case 0:
-                str = this.a.n;
-                if (str != null) {
-                    FrsActivity frsActivity = this.a;
-                    com.baidu.tieba.data.az azVar = this.b;
-                    str2 = this.a.g;
-                    z = this.a.o;
-                    NewPbActivity.a(frsActivity, azVar, str2, null, 18003, true, false, z);
-                    break;
-                }
-                break;
-            case 1:
-                this.a.b(this.b);
-                break;
-            case 2:
-                this.a.c(this.b);
-                break;
-        }
-        com.baidu.tieba.util.bo am = TiebaApplication.g().am();
-        if (am != null && !am.b(this.b.a())) {
-            am.a(this.b.a());
-        }
-        bsVar = this.a.p;
-        bsVar.q();
+    @Override // com.slidingmenu.lib.SlidingMenu.OnOpenedListener
+    public final void onOpened() {
+        TiebaStatic.a(this.a, "frs_total_more", "frsclick", 1, new Object[0]);
     }
 }

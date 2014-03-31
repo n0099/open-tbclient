@@ -6,7 +6,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class SearchPostModel implements Serializable {
-    private ArrayList<au> datas;
+    private static final long serialVersionUID = 1;
+    private ArrayList<am> datas;
     private int totalCount = 0;
     private int currentPage = 0;
     private int totalPage = 0;
@@ -18,7 +19,7 @@ public class SearchPostModel implements Serializable {
         this.datas = new ArrayList<>();
     }
 
-    public ArrayList<au> getData() {
+    public ArrayList<am> getData() {
         return this.datas;
     }
 
@@ -46,7 +47,7 @@ public class SearchPostModel implements Serializable {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.adp.lib.util.e.b("SearchPostModel", "parserJson", "error = " + e.getMessage());
+            com.baidu.adp.lib.util.f.b("SearchPostModel", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -58,9 +59,9 @@ public class SearchPostModel implements Serializable {
                 this.datas.clear();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
-                    au auVar = new au();
-                    auVar.a(optJSONObject2);
-                    this.datas.add(auVar);
+                    am amVar = new am();
+                    amVar.a(optJSONObject2);
+                    this.datas.add(amVar);
                 }
                 this.totalCount = optJSONObject.optInt("total_count");
                 this.totalPage = optJSONObject.optInt("total_page");
@@ -68,7 +69,7 @@ public class SearchPostModel implements Serializable {
                 this.hasPre = optJSONObject.optInt("has_prev") != 0;
                 this.currentPage = optJSONObject.optInt("current_page");
             } catch (Exception e) {
-                com.baidu.adp.lib.util.e.b("SearchPostModel", "parserJson", "error = " + e.getMessage());
+                com.baidu.adp.lib.util.f.b("SearchPostModel", "parserJson", "error = " + e.getMessage());
             }
         }
     }

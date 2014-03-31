@@ -1,41 +1,40 @@
 package com.baidu.tieba.person;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tieba.data.MarkData;
-import com.baidu.tieba.pb.NewPbActivity;
-import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class EditMarkActivity extends com.baidu.tieba.f implements com.baidu.adp.widget.ListView.b, com.baidu.adp.widget.ListView.r {
-    private com.baidu.tieba.model.g a = null;
-    private ad b = null;
+public class EditMarkActivity extends com.baidu.tbadk.a implements com.baidu.adp.widget.ListView.d, com.baidu.adp.widget.ListView.t {
+    private com.baidu.tieba.model.k a = null;
+    private m b = null;
     private int c = -1;
     private ArrayList<MarkData> d = null;
 
-    public static void a(Activity activity, int i) {
-        activity.startActivityForResult(new Intent(activity, EditMarkActivity.class), SocialAPIErrorCodes.ERROR_INVALID_SESSION_KEY);
+    static {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2015005, new j());
+        customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        com.baidu.adp.framework.c.a().a(customMessageTask);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.a = new com.baidu.tieba.model.g();
-        this.a.a(new ab(this, this));
-        this.b = new ad(this);
-        this.b.b = new ac(this);
-        com.baidu.tieba.model.g gVar = this.a;
-        if (com.baidu.tieba.model.g.k() >= 0) {
+        this.a = new com.baidu.tieba.model.k();
+        this.a.a(new k(this, this));
+        this.b = new m(this);
+        this.b.b = new l(this);
+        com.baidu.tieba.model.k kVar = this.a;
+        if (com.baidu.tieba.model.k.k() >= 0) {
             if (this.a.g() != 0) {
-                com.baidu.tieba.model.g gVar2 = this.a;
-                if (com.baidu.tieba.model.g.k() >= 0) {
-                    ad adVar = this.b;
-                    adVar.a.showLoadingDialog(adVar.a.getString(R.string.syncing));
+                com.baidu.tieba.model.k kVar2 = this.a;
+                if (com.baidu.tieba.model.k.k() >= 0) {
+                    m mVar = this.b;
+                    mVar.a.showLoadingDialog(mVar.a.getString(com.baidu.tieba.a.k.syncing));
                     this.a.j();
                     return;
                 }
@@ -47,14 +46,14 @@ public class EditMarkActivity extends com.baidu.tieba.f implements com.baidu.adp
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f
+    @Override // com.baidu.tbadk.a
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.b.b(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tbadk.a, com.baidu.adp.a.a, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         this.b.f();
@@ -67,8 +66,8 @@ public class EditMarkActivity extends com.baidu.tieba.f implements com.baidu.adp
             this.b.b();
         } else {
             int id = view.getId();
-            ad adVar = this.b;
-            if (id == R.id.home_lv_markitem_delete) {
+            m mVar = this.b;
+            if (id == com.baidu.tieba.a.h.home_lv_markitem_delete) {
                 int intValue = ((Integer) view.getTag()).intValue();
                 this.b.d();
                 if (!this.a.b(intValue)) {
@@ -86,12 +85,12 @@ public class EditMarkActivity extends com.baidu.tieba.f implements com.baidu.adp
             MarkData markData = this.a.f().get(i);
             MarkData markData2 = this.d.get(i);
             int b = this.a.b();
-            int p = com.baidu.tieba.mention.v.a().p();
+            int n = com.baidu.tbadk.coreExtra.messageCenter.a.a().n();
             if (markData2.getNewCounts() > 0) {
-                if (p > 0) {
-                    com.baidu.tieba.mention.v.a().f(p - 1);
+                if (n > 0) {
+                    com.baidu.tbadk.coreExtra.messageCenter.a.a().f(n - 1);
                 } else {
-                    com.baidu.tieba.mention.v.a().f(0);
+                    com.baidu.tbadk.coreExtra.messageCenter.a.a().f(0);
                 }
                 if (b > 0) {
                     this.a.a(b - 1);
@@ -101,14 +100,29 @@ public class EditMarkActivity extends com.baidu.tieba.f implements com.baidu.adp
             }
             markData2.setNewCounts(0);
             if (markData != null) {
-                NewPbActivity.a(this, markData, (String) null);
+                com.baidu.tbadk.core.b.af afVar = new com.baidu.tbadk.core.b.af(this);
+                String threadId = markData.getThreadId();
+                String postId = markData.getPostId();
+                boolean hostMode = markData.getHostMode();
+                boolean booleanValue = markData.getSequence().booleanValue();
+                Intent d = afVar.d();
+                d.putExtra("thread_id", threadId);
+                d.putExtra("post_id", postId);
+                d.putExtra("host_only", hostMode);
+                d.putExtra("squence", booleanValue);
+                d.putExtra("st_type", (String) null);
+                d.putExtra("from_mark", true);
+                d.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
+                d.putExtra("is_start_for_result", "1");
+                d.putExtra("request_code", 17001);
+                sendMessage(new com.baidu.adp.framework.message.a(2004001, afVar));
             }
         }
         super.onItemClick(adapterView, view, i, j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.f, android.app.Activity
+    @Override // com.baidu.tbadk.a, android.app.Activity
     public void onResume() {
         super.onResume();
         this.b.a(this.d);
@@ -147,7 +161,7 @@ public class EditMarkActivity extends com.baidu.tieba.f implements com.baidu.adp
         }
     }
 
-    @Override // com.baidu.adp.widget.ListView.b
+    @Override // com.baidu.adp.widget.ListView.d
     public final void a(boolean z) {
         if (this.a != null && this.b != null) {
             this.a.d();
@@ -156,7 +170,7 @@ public class EditMarkActivity extends com.baidu.tieba.f implements com.baidu.adp
         }
     }
 
-    @Override // com.baidu.adp.widget.ListView.r
+    @Override // com.baidu.adp.widget.ListView.t
     public final void b() {
         if (this.b != null && this.a != null && this.a.c()) {
             this.b.a(this.a.a());

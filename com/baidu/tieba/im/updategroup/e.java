@@ -1,8 +1,7 @@
 package com.baidu.tieba.im.updategroup;
 
 import android.widget.TextView;
-import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 public final class e extends g {
     protected TextView a;
@@ -10,9 +9,9 @@ public final class e extends g {
     public e(UpdateGroupActivity updateGroupActivity) {
         super(updateGroupActivity);
         this.a = null;
-        c(R.layout.update_group_info_activity);
-        d(R.string.group_update_info);
-        this.a = (TextView) this.h.findViewById(R.id.edit_count);
+        c(com.baidu.tieba.im.i.update_group_info_activity);
+        d(com.baidu.tieba.im.j.group_update_info);
+        this.a = (TextView) this.h.findViewById(com.baidu.tieba.im.h.edit_count);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
@@ -27,15 +26,15 @@ public final class e extends g {
             this.a.setVisibility(8);
         }
         if (i == 0) {
-            this.a.setTextColor(this.h.getResources().getColor(R.color.group_create_info_count_color));
+            this.a.setTextColor(this.h.getResources().getColor(com.baidu.tieba.im.e.group_create_info_count_color));
             return;
         }
-        this.h.getLayoutMode().a(TiebaApplication.g().ae() == 1);
+        this.h.getLayoutMode().a(TbadkApplication.j().l() == 1);
         this.h.getLayoutMode().a(this.a);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
     public final int j() {
-        return R.string.group_step_info_error;
+        return com.baidu.tieba.im.j.group_step_info_error;
     }
 }

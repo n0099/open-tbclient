@@ -1,90 +1,124 @@
 package com.baidu.tieba.square;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.ListAdapter;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tieba.view.SearchBoxView;
 /* loaded from: classes.dex */
-public final class ay extends BdAsyncTask<Object, as, as> {
-    final /* synthetic */ aw a;
-    private int c;
-    private com.baidu.tieba.b.h b = null;
-    private com.baidu.adp.lib.cache.s<String> d = null;
+public final class ay extends com.baidu.adp.a.f {
+    com.baidu.tbadk.core.view.q a;
+    private com.baidu.tbadk.core.e c;
+    private View d;
+    private BdListView e;
+    private LinearLayout f;
+    private SearchBoxView g;
+    private NoNetworkView h;
+    private ax i;
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ as a(Object... objArr) {
-        as asVar;
-        String str = null;
-        this.b = new com.baidu.tieba.b.h();
-        this.d = com.baidu.tieba.c.a.a().o();
-        if (this.c == 0) {
-            String a = this.d.a("square_cache_key");
-            if (a == null) {
-                return null;
-            }
-            as asVar2 = new as();
-            asVar2.a(a);
-            if (asVar2.a()) {
-                return asVar2;
-            }
-            this.c = 1;
-            str = a;
-            asVar = asVar2;
-        } else {
-            asVar = null;
-        }
-        if (this.c == 1) {
-            this.a.d = System.currentTimeMillis();
-            str = this.b.g();
-            this.a.e = this.b.h();
-            this.a.f = this.b.i();
-            this.a.g = System.currentTimeMillis();
-        }
-        if (this.b.c()) {
-            as asVar3 = new as();
-            asVar3.a(str);
-            this.d.a("square_cache_key", str, 86400000L);
-            return asVar3;
-        }
-        return asVar;
+    public ay(com.baidu.tbadk.core.e eVar, com.baidu.tbadk.core.d dVar, View.OnKeyListener onKeyListener) {
+        super(eVar);
+        this.c = null;
+        this.e = null;
+        this.f = null;
+        this.a = null;
+        this.i = null;
+        this.c = eVar;
+        this.d = dVar.getView();
+        this.f = (LinearLayout) this.d.findViewById(com.baidu.tieba.a.h.container);
+        this.g = (SearchBoxView) this.d.findViewById(com.baidu.tieba.a.h.view_searchbox);
+        this.e = (BdListView) this.d.findViewById(com.baidu.tieba.a.h.square_list);
+        this.e.setOnKeyListener(onKeyListener);
+        this.e.setOnItemClickListener(dVar);
+        this.e.setOnScrollListener(dVar);
+        this.i = new ax(eVar);
+        this.e.setAdapter((ListAdapter) this.i);
+        this.a = new com.baidu.tbadk.core.view.q(eVar);
+        this.e.setPullRefresh(this.a);
+        this.h = (NoNetworkView) this.d.findViewById(com.baidu.tieba.a.h.view_no_network);
+        com.baidu.tieba.view.k kVar = new com.baidu.tieba.view.k(this.b);
+        kVar.setHeightDip(30);
+        this.e.addFooterView(kVar);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* synthetic */ void a(as asVar) {
-        ax axVar;
-        ax axVar2;
-        ax axVar3;
-        as asVar2 = asVar;
-        this.a.a = null;
-        this.a.b = asVar2;
-        axVar = this.a.c;
-        if (axVar != null) {
-            if (this.c == 0 || this.b.c()) {
-                axVar2 = this.a.c;
-                axVar2.a(true, null, asVar2);
-                return;
+    public final void a(aq aqVar) {
+        if (aqVar != null) {
+            try {
+                this.i.a(aqVar);
+                this.i.notifyDataSetChanged();
+            } catch (Exception e) {
+                com.baidu.adp.lib.util.f.b(getClass().getName(), "refresh", e.getMessage());
             }
-            String d = this.b.d();
-            axVar3 = this.a.c;
-            axVar3.a(false, d, asVar2);
         }
     }
 
-    public ay(aw awVar, int i) {
-        this.a = awVar;
-        this.c = 1;
-        this.c = i;
-        setPriority(3);
+    public final void a() {
+        if (this.e != null) {
+            int headerViewsCount = this.e.getHeaderViewsCount() + 1;
+            int firstVisiblePosition = this.e.getFirstVisiblePosition();
+            int lastVisiblePosition = this.e.getLastVisiblePosition();
+            if (firstVisiblePosition > 0) {
+                firstVisiblePosition -= headerViewsCount;
+                lastVisiblePosition -= headerViewsCount;
+            }
+            this.i.a(this.e, firstVisiblePosition, lastVisiblePosition);
+        }
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void cancel() {
-        super.cancel();
-        if (this.b != null) {
-            this.b.a();
+    public final void d() {
+        this.e.b();
+    }
+
+    public final SearchBoxView e() {
+        return this.g;
+    }
+
+    public final void f() {
+        this.e.c();
+    }
+
+    public final void g() {
+        this.h.setVisibility(0);
+    }
+
+    public final void h() {
+        this.h.setVisibility(8);
+    }
+
+    public final void a(com.baidu.tbadk.core.view.m mVar) {
+        this.h.a(mVar);
+    }
+
+    public final void b(com.baidu.tbadk.core.view.m mVar) {
+        this.h.b(mVar);
+    }
+
+    public final void i() {
+        this.i.d();
+    }
+
+    public final void j() {
+        NetworkInfo activeNetworkInfo;
+        com.baidu.adp.lib.util.f.e("SquareView", "onResume", "onResume");
+        this.i.a();
+        if (this.h != null && this.h.getVisibility() == 0 && (activeNetworkInfo = ((ConnectivityManager) this.c.getSystemService("connectivity")).getActiveNetworkInfo()) != null && activeNetworkInfo.isAvailable()) {
+            this.h.setVisible(false);
         }
-        this.a.a = null;
+    }
+
+    public final void k() {
+        this.i.b();
+    }
+
+    public final void a(int i) {
+        this.c.b().a(i == 1);
+        this.c.b().a(this.f);
+        this.i.a(i);
+        this.a.a(i);
+        this.h.a(i);
+        this.g.a(i);
     }
 }

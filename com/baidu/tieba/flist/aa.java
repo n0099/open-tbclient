@@ -4,14 +4,11 @@ import android.os.Handler;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.util.aw;
-import com.baidu.tieba.view.NavigationBar;
-import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-final class aa extends com.baidu.adp.a.g {
+final class aa extends com.baidu.adp.a.h {
     final /* synthetic */ ForumRankActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -19,7 +16,7 @@ final class aa extends com.baidu.adp.a.g {
         this.a = forumRankActivity;
     }
 
-    @Override // com.baidu.adp.a.g
+    @Override // com.baidu.adp.a.h
     public final void a(Object obj) {
         BdListView bdListView;
         r rVar;
@@ -40,21 +37,21 @@ final class aa extends com.baidu.adp.a.g {
         TbImageView tbImageView3;
         BdListView bdListView4;
         TbImageView tbImageView4;
-        aw awVar;
+        com.baidu.tbadk.core.util.ab abVar;
         this.a.hideProgressBar();
         bdListView = this.a.a;
-        bdListView.a();
+        bdListView.b();
         if (obj != null && (obj instanceof ForumRankData)) {
             ForumRankData forumRankData = (ForumRankData) obj;
             if (forumRankData.error != null && forumRankData.error.errno == 0) {
                 if (forumRankData.pic_url != null && forumRankData.pic_url.length() > 0) {
-                    z = this.a.n;
+                    z = this.a.m;
                     if (z) {
                         bdListView4 = this.a.a;
                         tbImageView4 = this.a.e;
-                        awVar = this.a.p;
-                        bdListView4.addHeaderView(tbImageView4, awVar, false);
-                        this.a.n = false;
+                        abVar = this.a.o;
+                        bdListView4.addHeaderView(tbImageView4, abVar, false);
+                        this.a.m = false;
                     }
                     tbImageView = this.a.e;
                     tbImageView.setVisibility(0);
@@ -63,8 +60,8 @@ final class aa extends com.baidu.adp.a.g {
                     tbImageView3 = this.a.e;
                     ViewGroup.LayoutParams layoutParams = tbImageView3.getLayoutParams();
                     layoutParams.width = -1;
-                    layoutParams.height = (int) ((BdUtilHelper.b(this.a) * 15.0f) / 32.0f);
-                    this.a.m = forumRankData.pic_url;
+                    layoutParams.height = (int) ((com.baidu.adp.lib.util.i.b(this.a) * 15.0f) / 32.0f);
+                    this.a.l = forumRankData.pic_url;
                 }
                 rVar = this.a.c;
                 rVar.a(forumRankData.forumsquare_list);
@@ -74,7 +71,7 @@ final class aa extends com.baidu.adp.a.g {
                 navigationBar.a(forumRankData.title);
                 if (forumRankData.forumsquare_list != null && forumRankData.forumsquare_list.length > 100) {
                     bdListView2 = this.a.a;
-                    if (((com.baidu.adp.widget.ListView.e) bdListView2.getAdapter()).d() <= 0) {
+                    if (((com.baidu.adp.widget.ListView.g) bdListView2.getAdapter()).d() <= 0) {
                         bdListView3 = this.a.a;
                         linearLayout = this.a.h;
                         bdListView3.addFooterView(linearLayout);
@@ -87,21 +84,21 @@ final class aa extends com.baidu.adp.a.g {
                     frameLayout2 = this.a.j;
                     frameLayout2.setVisibility(8);
                 }
-                handler = this.a.l;
-                runnable = this.a.r;
+                handler = this.a.k;
+                runnable = this.a.q;
                 handler.removeCallbacks(runnable);
-                handler2 = this.a.l;
-                runnable2 = this.a.r;
+                handler2 = this.a.k;
+                runnable2 = this.a.q;
                 handler2.postDelayed(runnable2, 0L);
                 return;
             } else if (forumRankData.error != null) {
                 this.a.showToast(forumRankData.error.usermsg);
                 return;
             } else {
-                this.a.showToast(R.string.neterror);
+                this.a.showToast(com.baidu.tieba.a.k.neterror);
                 return;
             }
         }
-        this.a.showToast(R.string.neterror);
+        this.a.showToast(com.baidu.tieba.a.k.neterror);
     }
 }

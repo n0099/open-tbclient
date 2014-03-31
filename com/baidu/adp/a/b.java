@@ -2,7 +2,6 @@ package com.baidu.adp.a;
 
 import android.app.Application;
 import android.content.Context;
-import com.baidu.adp.lib.util.BdUtilHelper;
 /* loaded from: classes.dex */
 public class b extends Application {
     private static b a = null;
@@ -14,25 +13,25 @@ public class b extends Application {
         super.onCreate();
         a = this;
         this.c = this;
-        BdUtilHelper.a(this);
+        com.baidu.adp.lib.util.i.a(this);
         if ((this.c.getApplicationInfo().flags & 2) == 0) {
             this.b = false;
         } else {
             this.b = true;
         }
-        com.baidu.adp.lib.util.a.a().a(this.c);
-        com.baidu.adp.lib.network.e.a().a(this.c, false);
+        com.baidu.adp.lib.util.b.a().a(this.c);
+        com.baidu.adp.lib.network.willdelete.e.a().a(this.c, false);
     }
 
     public static b a() {
         return a;
     }
 
-    public Application b() {
+    public final Application b() {
         return this.c;
     }
 
-    public Context c() {
+    public final Context c() {
         return this.c;
     }
 

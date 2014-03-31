@@ -1,90 +1,27 @@
 package com.baidu.tieba.faceshop;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.gson.Gson;
-import com.baidu.gson.GsonBuilder;
-import com.baidu.tieba.util.bs;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.gif.GifView;
 /* loaded from: classes.dex */
-public final class k extends BdAsyncTask<Object, FaceBuyQueryData, FaceBuyQueryData> {
-    final /* synthetic */ j a;
-    private com.baidu.tieba.util.ba b;
-    private volatile boolean c;
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final /* bridge */ /* synthetic */ void a(FaceBuyQueryData faceBuyQueryData) {
-        com.baidu.adp.a.g gVar;
-        FaceBuyQueryData faceBuyQueryData2 = faceBuyQueryData;
-        super.a((k) faceBuyQueryData2);
-        this.a.b = null;
-        this.c = true;
-        gVar = this.a.mLoadDataCallBack;
-        gVar.a(faceBuyQueryData2);
-    }
-
-    private k(j jVar) {
-        this.a = jVar;
-        this.c = false;
-    }
+final class k implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ EmotionImageActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ k(j jVar, byte b) {
-        this(jVar);
+    public k(EmotionImageActivity emotionImageActivity) {
+        this.a = emotionImageActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: private */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public FaceBuyQueryData a(Object... objArr) {
-        int i;
-        int i2 = 0;
-        FaceBuyQueryData faceBuyQueryData = null;
-        String obj = objArr[0].toString();
-        if (!bs.c(obj)) {
-            Gson create = new GsonBuilder().create();
-            this.b = new com.baidu.tieba.util.ba(String.valueOf(com.baidu.tieba.data.i.a) + "c/e/faces/querybuyresult");
-            this.b.a("order_id", obj);
-            while (!this.c) {
-                i = this.a.c;
-                if (i2 >= i) {
-                    break;
-                }
-                faceBuyQueryData = (FaceBuyQueryData) create.fromJson(this.b.l(), (Class<Object>) FaceBuyQueryData.class);
-                if (faceBuyQueryData != null && faceBuyQueryData.buyResult != null) {
-                    if (faceBuyQueryData.buyResult.status == 2) {
-                        break;
-                    }
-                    try {
-                        Thread.sleep(3000L);
-                    } catch (InterruptedException e) {
-                        com.baidu.adp.lib.util.e.b(getClass().getName(), "doInBackground", e.toString());
-                    }
-                    i2++;
-                } else {
-                    try {
-                        Thread.sleep(3000L);
-                    } catch (InterruptedException e2) {
-                        com.baidu.adp.lib.util.e.b(getClass().getName(), "FaceBuyQueryTask doInBackground", e2.toString());
-                    }
-                    i2++;
-                }
+    @Override // com.baidu.tbadk.imageManager.d
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        boolean z2;
+        String str2;
+        GifView gifView;
+        z2 = this.a.q;
+        if (!z2 && bVar != null) {
+            str2 = this.a.k;
+            if (str2.equals(str)) {
+                gifView = this.a.b;
+                gifView.setGif(bVar);
             }
         }
-        return faceBuyQueryData;
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public final void cancel() {
-        com.baidu.adp.a.g gVar;
-        super.cancel(true);
-        if (this.b != null) {
-            this.b.j();
-        }
-        this.a.b = null;
-        gVar = this.a.mLoadDataCallBack;
-        gVar.a(null);
     }
 }

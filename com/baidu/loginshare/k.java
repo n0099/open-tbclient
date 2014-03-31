@@ -1,7 +1,6 @@
 package com.baidu.loginshare;
 
 import android.util.Log;
-import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.share.ShareAssistant;
 import com.baidu.share.ShareModel;
 import java.io.InputStream;
@@ -63,7 +62,7 @@ public class k implements Runnable {
                     long currentTimeMillis2 = System.currentTimeMillis();
                     str3 = this.a.c;
                     Log.d(str3, "net check duration = " + (currentTimeMillis2 - currentTimeMillis));
-                    bool = SocialConstants.FALSE.equals(string) ? new Boolean(false) : new Boolean(true);
+                    bool = "0".equals(string) ? new Boolean(false) : new Boolean(true);
                     if (httpURLConnection2 != null) {
                         httpURLConnection2.disconnect();
                     }

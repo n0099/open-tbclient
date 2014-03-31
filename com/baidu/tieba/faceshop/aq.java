@@ -1,42 +1,29 @@
 package com.baidu.tieba.faceshop;
 
-import android.os.Handler;
-import android.widget.AbsListView;
+import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class aq implements AbsListView.OnScrollListener {
-    final /* synthetic */ ao a;
+public final class aq implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ am a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aq(ao aoVar) {
-        this.a = aoVar;
+    public aq(am amVar) {
+        this.a = amVar;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public final void onScrollStateChanged(AbsListView absListView, int i) {
-        Handler handler;
-        Handler handler2;
-        Handler handler3;
-        Runnable runnable;
-        Handler handler4;
-        Runnable runnable2;
-        handler = this.a.j;
-        if (handler != null) {
-            handler4 = this.a.j;
-            runnable2 = this.a.l;
-            handler4.removeCallbacks(runnable2);
+    @Override // com.baidu.tbadk.imageManager.d
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        TbImageView tbImageView;
+        TbImageView tbImageView2;
+        TbImageView tbImageView3;
+        if (bVar != null) {
+            tbImageView2 = this.a.I;
+            tbImageView2.setVisibility(0);
+            tbImageView3 = this.a.I;
+            tbImageView3.invalidate();
+            return;
         }
-        if (i == 0) {
-            handler2 = this.a.j;
-            if (handler2 != null) {
-                handler3 = this.a.j;
-                runnable = this.a.l;
-                handler3.postDelayed(runnable, 300L);
-            }
-        }
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public final void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        tbImageView = this.a.I;
+        tbImageView.setVisibility(8);
     }
 }

@@ -2,7 +2,6 @@ package com.baidu.tieba.home;
 
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 final class a implements View.OnClickListener {
@@ -17,19 +16,13 @@ final class a implements View.OnClickListener {
     public final void onClick(View view) {
         RelativeLayout relativeLayout;
         FrameLayout frameLayout;
-        ImageView imageView;
         relativeLayout = this.a.i;
         if (view != relativeLayout) {
-            frameLayout = this.a.k;
-            if (view != frameLayout) {
-                imageView = this.a.j;
-                if (view == imageView) {
-                    this.a.finish();
-                    return;
-                }
+            frameLayout = this.a.j;
+            if (view == frameLayout) {
+                CreateBarActivity.c(this.a);
                 return;
             }
-            CreateBarActivity.c(this.a);
             return;
         }
         CreateBarActivity.g(this.a);

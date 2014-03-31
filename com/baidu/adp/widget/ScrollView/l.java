@@ -18,13 +18,13 @@ final class l implements i {
         b bVar2;
         n nVar;
         n unused;
-        state = this.a.c;
+        state = this.a.b;
         if (state != BdPullRefreshScrollView.State.RELEASE_TO_REFRESH) {
-            state2 = this.a.c;
+            state2 = this.a.b;
             if (state2 == BdPullRefreshScrollView.State.PULL_TO_REFRESH) {
                 BdPullRefreshScrollView bdPullRefreshScrollView = this.a;
                 BdPullRefreshScrollView.State state3 = BdPullRefreshScrollView.State.RESET;
-                bVar = this.a.o;
+                bVar = this.a.n;
                 bdPullRefreshScrollView.a(state3, bVar);
                 return;
             }
@@ -32,11 +32,11 @@ final class l implements i {
         }
         BdPullRefreshScrollView bdPullRefreshScrollView2 = this.a;
         BdPullRefreshScrollView.State state4 = BdPullRefreshScrollView.State.REFRESHING;
-        bVar2 = this.a.o;
+        bVar2 = this.a.n;
         bdPullRefreshScrollView2.a(state4, bVar2);
-        nVar = this.a.s;
+        nVar = this.a.q;
         if (nVar != null) {
-            unused = this.a.s;
+            unused = this.a.q;
         }
     }
 }

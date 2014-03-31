@@ -3,7 +3,6 @@ package com.baidu.tieba.topRec;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
-import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 final class q implements com.baidu.adp.lib.guide.b {
     final /* synthetic */ o a;
@@ -16,7 +15,7 @@ final class q implements com.baidu.adp.lib.guide.b {
     @Override // com.baidu.adp.lib.guide.b
     public final View a(LayoutInflater layoutInflater) {
         ImageView imageView = new ImageView(this.a.a);
-        imageView.setBackgroundResource(R.drawable.lead_metadata);
+        imageView.setBackgroundResource(com.baidu.tieba.a.g.lead_metadata);
         return imageView;
     }
 

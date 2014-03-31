@@ -1,64 +1,75 @@
 package com.baidu.tieba.model;
-
-import com.baidu.adp.lib.cache.BdCacheService;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
-public final class o {
-    private static o a;
-    private z b;
-    private com.baidu.adp.lib.cache.s<String> c;
+public final class o extends com.baidu.adp.a.e {
+    private com.baidu.tieba.data.n b;
+    private q a = null;
+    private boolean c = true;
+    private r d = null;
+    private long e = 0;
+    private long f = 0;
+    private long g = 0;
+    private long h = 0;
 
-    private o() {
+    public o() {
         this.b = null;
-        this.c = null;
-        this.b = new z();
-        this.c = BdCacheService.a().a("tb.frs", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
+        this.b = new com.baidu.tieba.data.n();
     }
 
-    public static synchronized o a() {
-        o oVar;
-        synchronized (o.class) {
-            if (a == null) {
-                a = new o();
-            }
-            oVar = a;
-        }
-        return oVar;
+    public final long a() {
+        return this.h;
     }
 
-    public final boolean a(String str) {
-        if (this.c != null && str != null) {
-            String a2 = this.c.a(String.valueOf(TiebaApplication.v()) + str);
-            if (a2 != null && a2.length() > 0) {
-                this.b.a(a2);
-                return true;
-            }
+    public final long b() {
+        return this.f;
+    }
+
+    public final long c() {
+        return this.g;
+    }
+
+    public final long d() {
+        return this.e;
+    }
+
+    public final com.baidu.tieba.data.n e() {
+        return this.b;
+    }
+
+    public final void a(r rVar) {
+        this.d = rVar;
+    }
+
+    @Override // com.baidu.adp.a.e
+    protected final boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.a.e
+    public final boolean cancelLoadData() {
+        if (this.a != null) {
+            this.a.cancel();
+            return false;
         }
         return false;
     }
 
-    public final void a(String str, String str2) {
-        if (str != null && str.length() > 0) {
-            this.c.a(String.valueOf(TiebaApplication.v()) + str, str2, 604800000L);
-        }
-    }
-
-    public final void b(String str) {
-        if (str != null && str.length() > 0) {
-            this.c.c(String.valueOf(TiebaApplication.v()) + str);
-        }
-    }
-
-    public final z b() {
-        return this.b;
-    }
-
-    public final boolean c(String str) {
-        com.baidu.adp.lib.cache.t<String> b;
-        if (str == null || str.length() <= 0 || (b = this.c.b(str)) == null) {
+    public final boolean a(boolean z) {
+        this.c = z;
+        if (this.a != null) {
             return false;
         }
-        return UtilHelper.a(b.c, System.currentTimeMillis());
+        this.a = new q(this, 1);
+        this.a.execute(new Object[0]);
+        return true;
+    }
+
+    public final boolean b(boolean z) {
+        this.c = z;
+        if (this.a != null) {
+            return false;
+        }
+        this.a = new q(this, 0);
+        this.a.execute(new Object[0]);
+        return true;
     }
 }

@@ -1,25 +1,66 @@
 package com.baidu.tieba.im.validate;
 
 import android.view.View;
-import android.widget.TextView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import com.baidu.tbadk.editortool.aa;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
-public final class h implements View.OnClickListener {
-    final /* synthetic */ g a;
+public final class h extends BaseAdapter {
+    ValidateActivity a;
+    aa b;
+    List<ValidateItemData> c = new ArrayList();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public h(g gVar) {
-        this.a = gVar;
+    public h(ValidateActivity validateActivity) {
+        this.b = null;
+        this.a = validateActivity;
+        this.b = new aa(this.a);
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view) {
-        ValidateActivity validateActivity;
-        ValidateItemData validateItemData;
-        TextView unused;
-        validateActivity = this.a.i;
-        unused = this.a.h;
-        validateItemData = this.a.j;
-        validateActivity.a(100, validateItemData);
+    public final void a() {
+        this.a = null;
+    }
+
+    public final void a(List<ValidateItemData> list) {
+        if (list != null) {
+            this.c.addAll(list);
+            com.baidu.adp.lib.util.f.e("size:" + this.c.size());
+            notifyDataSetChanged();
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public final int getCount() {
+        if (this.c == null) {
+            return 0;
+        }
+        return this.c.size();
+    }
+
+    @Override // android.widget.Adapter
+    public final View getView(int i, View view, ViewGroup viewGroup) {
+        i iVar = null;
+        if (view != null) {
+            iVar = (i) view.getTag();
+        }
+        i iVar2 = iVar == null ? new i(this.a) : iVar;
+        iVar2.a(this.c.get(i));
+        iVar2.d();
+        return iVar2.a();
+    }
+
+    @Override // android.widget.Adapter
+    public final Object getItem(int i) {
+        return this.c.get(i);
+    }
+
+    @Override // android.widget.Adapter
+    public final long getItemId(int i) {
+        return i;
+    }
+
+    public final List<ValidateItemData> b() {
+        return this.c;
     }
 }

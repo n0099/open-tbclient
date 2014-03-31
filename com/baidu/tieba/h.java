@@ -1,23 +1,32 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.animation.Animation;
 /* loaded from: classes.dex */
-public final class h implements Runnable {
-    final /* synthetic */ f a;
-    private View b;
+final class h implements Animation.AnimationListener {
+    final /* synthetic */ LogoActivity a;
 
-    public h(f fVar, View view) {
-        this.a = fVar;
-        this.b = null;
-        this.b = view;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public h(LogoActivity logoActivity) {
+        this.a = logoActivity;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        if (!this.a.isFinishing()) {
-            this.a.ShowSoftKeyPad((InputMethodManager) this.a.getSystemService("input_method"), this.b);
+    @Override // android.view.animation.Animation.AnimationListener
+    public final void onAnimationEnd(Animation animation) {
+        boolean z;
+        this.a.a = true;
+        z = this.a.b;
+        if (z) {
+            LogoActivity logoActivity = this.a;
+            this.a.getBaseContext();
+            logoActivity.a();
         }
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public final void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public final void onAnimationStart(Animation animation) {
     }
 }

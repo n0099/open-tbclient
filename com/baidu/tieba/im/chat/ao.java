@@ -1,19 +1,25 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.voice.VoiceManager;
+import com.baidu.tieba.im.message.ResponseCommitPersonalMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class ao implements p {
-    final /* synthetic */ GroupChatActivity a;
+public final class ao extends com.baidu.tieba.im.m<Boolean> {
+    final /* synthetic */ x b;
+    private final /* synthetic */ long c;
+    private final /* synthetic */ long d;
+    private final /* synthetic */ ResponseCommitPersonalMessage e;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(GroupChatActivity groupChatActivity) {
-        this.a = groupChatActivity;
+    public ao(x xVar, long j, long j2, ResponseCommitPersonalMessage responseCommitPersonalMessage) {
+        this.b = xVar;
+        this.c = j;
+        this.d = j2;
+        this.e = responseCommitPersonalMessage;
     }
 
-    @Override // com.baidu.tieba.im.chat.p
-    public final void a(VoiceManager.VoiceModel voiceModel) {
-        if (voiceModel != null) {
-            this.a.e.a(voiceModel.voiceId, voiceModel.duration);
-        }
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.im.m
+    public final /* synthetic */ Boolean a() {
+        return Boolean.valueOf(com.baidu.tieba.im.db.n.d().a(this.c, this.d, String.valueOf(this.e.i()), String.valueOf(this.e.d()), 3));
     }
 }

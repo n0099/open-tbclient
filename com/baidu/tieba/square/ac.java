@@ -7,8 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.R;
+import com.baidu.tbadk.TbadkApplication;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public final class ac extends BaseAdapter {
@@ -70,48 +69,47 @@ public final class ac extends BaseAdapter {
         int itemViewType = getItemViewType(i);
         if (view == null) {
             if (itemViewType == 0) {
-                view2 = LayoutInflater.from(this.b).inflate(R.layout.forum_list_recommend_item, (ViewGroup) null);
+                view2 = LayoutInflater.from(this.b).inflate(com.baidu.tieba.a.i.forum_list_recommend_item, (ViewGroup) null);
                 ae aeVar = new ae(this, (byte) 0);
-                aeVar.d = (LinearLayout) view2.findViewById(R.id.container);
-                aeVar.a = (TextView) view2.findViewById(R.id.forum_list_title_1);
-                aeVar.b = (TextView) view2.findViewById(R.id.forum_list_title_2);
-                aeVar.c = view2.findViewById(R.id.forum_list_title_divider);
+                aeVar.c = (LinearLayout) view2.findViewById(com.baidu.tieba.a.h.container);
+                aeVar.a = (TextView) view2.findViewById(com.baidu.tieba.a.h.forum_list_title_1);
+                aeVar.b = (TextView) view2.findViewById(com.baidu.tieba.a.h.forum_list_title_2);
                 aeVar.a.setClickable(true);
                 aeVar.b.setClickable(true);
                 aeVar.a.setOnClickListener(this.a);
                 aeVar.b.setOnClickListener(this.a);
                 view2.setTag(aeVar);
             } else if (itemViewType == 1) {
-                view2 = new com.baidu.tieba.view.ad(this.b);
-                ((com.baidu.tieba.view.ad) view2).setHeightPx(this.b.getResources().getDimensionPixelSize(R.dimen.square_forum_list_paddingBottom));
+                view2 = new com.baidu.tieba.view.k(this.b);
+                ((com.baidu.tieba.view.k) view2).setHeightPx(this.b.getResources().getDimensionPixelSize(com.baidu.tieba.a.f.square_forum_list_paddingBottom));
             }
             view = view2;
         }
         ae aeVar2 = (ae) view.getTag();
-        int ae = TiebaApplication.g().ae();
+        int l = TbadkApplication.j().l();
         int count = getCount();
-        com.baidu.tieba.k kVar = (com.baidu.tieba.k) this.b;
-        kVar.a().a(ae == 1);
-        kVar.a().a(view);
+        com.baidu.tbadk.core.e eVar = (com.baidu.tbadk.core.e) this.b;
+        eVar.b().a(l == 1);
+        eVar.b().a(view);
         if (count > 2) {
             if (i == 0) {
-                if (ae == 1) {
-                    aeVar2.d.setBackgroundResource(R.drawable.bg_hot_up_1);
+                if (l == 1) {
+                    aeVar2.c.setBackgroundResource(com.baidu.tieba.a.g.bg_hot_up_1);
                 } else {
-                    aeVar2.d.setBackgroundResource(R.drawable.bg_hot_up);
+                    aeVar2.c.setBackgroundResource(com.baidu.tieba.a.g.bg_hot_up);
                 }
             } else if (i == count - 2) {
-                if (ae == 1) {
-                    aeVar2.d.setBackgroundResource(R.drawable.bg_hot_down_1);
+                if (l == 1) {
+                    aeVar2.c.setBackgroundResource(com.baidu.tieba.a.g.bg_hot_down_1);
                 } else {
-                    aeVar2.d.setBackgroundResource(R.drawable.bg_hot_down);
+                    aeVar2.c.setBackgroundResource(com.baidu.tieba.a.g.bg_hot_down);
                 }
             }
         } else if (count == 2 && i == 0) {
-            if (ae == 1) {
-                aeVar2.d.setBackgroundResource(R.drawable.bg_hot_1);
+            if (l == 1) {
+                aeVar2.c.setBackgroundResource(com.baidu.tieba.a.g.bg_hot_1);
             } else {
-                aeVar2.d.setBackgroundResource(R.drawable.bg_hot);
+                aeVar2.c.setBackgroundResource(com.baidu.tieba.a.g.bg_hot);
             }
         }
         if (i >= 0 && this.c != null) {

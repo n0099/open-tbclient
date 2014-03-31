@@ -1,10 +1,11 @@
 package com.baidu.tieba.frs;
 
-import android.os.Handler;
-import android.widget.AbsListView;
-import android.widget.AdapterView;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.img.WriteImagesInfo;
+import com.baidu.tieba.util.AntiHelper;
 /* loaded from: classes.dex */
-final class l implements AbsListView.OnScrollListener {
+final class l implements com.baidu.tieba.model.as {
     final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,58 +13,55 @@ final class l implements AbsListView.OnScrollListener {
         this.a = frsActivity;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public final void onScroll(AbsListView absListView, int i, int i2, int i3) {
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public final void onScrollStateChanged(AbsListView absListView, int i) {
-        Handler handler;
-        Handler handler2;
-        bs bsVar;
-        bs bsVar2;
-        Handler handler3;
-        Runnable runnable;
-        Handler handler4;
-        bs bsVar3;
-        AdapterView.OnItemLongClickListener onItemLongClickListener;
-        bs bsVar4;
-        Handler handler5;
-        Runnable runnable2;
-        Handler handler6;
-        Runnable runnable3;
-        handler = this.a.W;
-        if (handler != null) {
-            handler6 = this.a.W;
-            runnable3 = this.a.Y;
-            handler6.removeCallbacks(runnable3);
-        }
-        this.a.ah = i;
-        if (i == 0) {
-            handler4 = this.a.W;
-            if (handler4 != null) {
-                handler5 = this.a.W;
-                runnable2 = this.a.Y;
-                handler5.postDelayed(runnable2, 300L);
+    @Override // com.baidu.tieba.model.as
+    public final void a(boolean z, String str, com.baidu.tbadk.coreExtra.data.f fVar, WriteData writeData, AntiData antiData) {
+        cm cmVar;
+        cm cmVar2;
+        WriteImagesInfo writeImagesInfo;
+        cm cmVar3;
+        com.baidu.tieba.model.ar arVar;
+        com.baidu.tieba.model.ar arVar2;
+        com.baidu.tieba.model.ar arVar3;
+        com.baidu.tbadk.core.data.o oVar;
+        com.baidu.tbadk.core.data.o oVar2;
+        com.baidu.tbadk.core.data.o oVar3;
+        cm cmVar4;
+        this.a.r();
+        cmVar = this.a.r;
+        cmVar.h(z);
+        cmVar2 = this.a.r;
+        writeImagesInfo = this.a.S;
+        cmVar2.a(writeImagesInfo, true);
+        if (z) {
+            cmVar3 = this.a.r;
+            cmVar3.P();
+            com.baidu.tieba.pb.main.bh.a().f();
+            arVar = this.a.V;
+            arVar.a();
+            arVar2 = this.a.V;
+            arVar2.a((WriteData) null);
+            arVar3 = this.a.V;
+            arVar3.a(false);
+            FrsActivity.a(this.a, antiData, str);
+            oVar = this.a.U;
+            com.baidu.tieba.util.m.b(oVar.m(), (WriteData) null);
+            oVar2 = this.a.U;
+            oVar3 = this.a.U;
+            oVar2.b(oVar3.o() + 1);
+            cmVar4 = this.a.r;
+            cmVar4.x();
+        } else if (fVar == null || writeData == null || fVar.b() == null) {
+            FrsActivity.a(this.a, antiData, str);
+        } else if (AntiHelper.c(antiData)) {
+            FrsActivity.a(this.a, antiData, str);
+        } else {
+            writeData.setVcodeMD5(fVar.a());
+            writeData.setVcodeUrl(fVar.b());
+            if (fVar.c().equals("4")) {
+                com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001001, new com.baidu.tbadk.core.b.ac(this.a, 12006, writeData, false)));
+            } else {
+                com.baidu.adp.framework.c.a().a(new com.baidu.adp.framework.message.a(2001001, new com.baidu.tbadk.core.b.au(this.a, writeData, 12006)));
             }
-            bsVar3 = this.a.p;
-            onItemLongClickListener = this.a.ae;
-            bsVar3.a(onItemLongClickListener);
-            bsVar4 = this.a.p;
-            bsVar4.f(false);
-            this.a.N = false;
-            return;
         }
-        handler2 = this.a.W;
-        if (handler2 != null && i == 1) {
-            handler3 = this.a.W;
-            runnable = this.a.Y;
-            handler3.postDelayed(runnable, 300L);
-        }
-        bsVar = this.a.p;
-        bsVar.a((AdapterView.OnItemLongClickListener) null);
-        bsVar2 = this.a.p;
-        bsVar2.f(true);
-        this.a.N = true;
     }
 }

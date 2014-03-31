@@ -10,7 +10,7 @@ import java.util.Date;
 public class ClearTempService extends Service {
     private volatile boolean a = false;
     private Thread b = null;
-    private Handler c = new a(this);
+    private final Handler c = new a(this);
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -50,10 +50,10 @@ public class ClearTempService extends Service {
                     a(file2);
                 } else if (length > 0 && i < length) {
                     if (!file2.delete()) {
-                        com.baidu.adp.lib.util.e.b(getClass().getName(), "run", "list[i].delete error");
+                        com.baidu.adp.lib.util.f.b(getClass().getName(), "run", "list[i].delete error");
                     }
                 } else if (time - listFiles[i].lastModified() > 259200000 && !file2.delete()) {
-                    com.baidu.adp.lib.util.e.b(getClass().getName(), "run", "list[i].delete error");
+                    com.baidu.adp.lib.util.f.b(getClass().getName(), "run", "list[i].delete error");
                 }
             }
         }
@@ -66,7 +66,7 @@ public class ClearTempService extends Service {
         if (listFiles != null) {
             for (int i = 0; i < listFiles.length && !clearTempService.a; i++) {
                 if (time - listFiles[i].lastModified() > 259200000 && !listFiles[i].delete()) {
-                    com.baidu.adp.lib.util.e.b(clearTempService.getClass().getName(), "run", "list[i].delete error");
+                    com.baidu.adp.lib.util.f.b(clearTempService.getClass().getName(), "run", "list[i].delete error");
                 }
             }
         }

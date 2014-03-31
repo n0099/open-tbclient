@@ -1,29 +1,17 @@
 package com.baidu.tieba.faceshop;
 
-import com.baidu.tbadk.widget.TbImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
 /* loaded from: classes.dex */
-public final class ab implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ x a;
+final class ab implements View.OnClickListener {
+    final /* synthetic */ FaceBuyWebViewActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(x xVar) {
-        this.a = xVar;
+    public ab(FaceBuyWebViewActivity faceBuyWebViewActivity) {
+        this.a = faceBuyWebViewActivity;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
-        TbImageView tbImageView;
-        TbImageView tbImageView2;
-        TbImageView tbImageView3;
-        if (bVar != null) {
-            tbImageView2 = this.a.H;
-            tbImageView2.setVisibility(0);
-            tbImageView3 = this.a.H;
-            tbImageView3.invalidate();
-            return;
-        }
-        tbImageView = this.a.H;
-        tbImageView.setVisibility(8);
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view) {
+        this.a.c();
     }
 }

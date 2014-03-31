@@ -1,6 +1,6 @@
 package com.baidu.tieba.album;
 
-import com.baidu.tieba.img.ImageFileInfo;
+import com.baidu.tbadk.img.ImageFileInfo;
 import java.util.List;
 /* loaded from: classes.dex */
 final class aj implements z {
@@ -17,12 +17,12 @@ final class aj implements z {
         List<ImageFileInfo> list;
         p pVar2;
         AlbumActivity albumActivity;
-        pVar = this.a.c;
-        list = this.a.n;
+        pVar = this.a.b;
+        list = this.a.m;
         pVar.a(list);
-        pVar2 = this.a.c;
+        pVar2 = this.a.b;
         pVar2.a(i);
-        albumActivity = this.a.b;
-        albumActivity.d(2);
+        albumActivity = this.a.a;
+        albumActivity.e(2);
     }
 }

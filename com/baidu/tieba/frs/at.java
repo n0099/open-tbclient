@@ -1,27 +1,28 @@
 package com.baidu.tieba.frs;
 
-import android.view.animation.Animation;
+import android.widget.ImageView;
 /* loaded from: classes.dex */
-final class at implements Animation.AnimationListener {
-    final /* synthetic */ ar a;
-    private final /* synthetic */ com.baidu.adp.lib.guide.d b;
+final class at implements com.baidu.tbadk.imageManager.d {
+    final /* synthetic */ FrsActivity a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public at(ar arVar, com.baidu.adp.lib.guide.d dVar) {
-        this.a = arVar;
-        this.b = dVar;
+    public at(FrsActivity frsActivity) {
+        this.a = frsActivity;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public final void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public final void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public final void onAnimationEnd(Animation animation) {
-        this.b.a();
+    @Override // com.baidu.tbadk.imageManager.d
+    public final void a(com.baidu.adp.widget.ImageView.b bVar, String str, boolean z) {
+        cm cmVar;
+        cm cmVar2;
+        if (bVar != null) {
+            cmVar = this.a.r;
+            ImageView imageView = (ImageView) cmVar.I().findViewWithTag(str);
+            while (imageView != null) {
+                imageView.setTag(null);
+                imageView.setImageBitmap(bVar.h());
+                cmVar2 = this.a.r;
+                imageView = (ImageView) cmVar2.I().findViewWithTag(str);
+            }
+        }
     }
 }

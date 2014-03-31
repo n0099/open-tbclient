@@ -50,8 +50,8 @@ public final class e {
 
     public final void b(String str, com.baidu.adp.widget.ImageView.b bVar) {
         if (bVar != null && this.c != null) {
-            if (com.baidu.adp.lib.util.e.a()) {
-                com.baidu.adp.lib.util.e.e("image joined cache:" + bVar.j() + ", size:" + bVar.f());
+            if (com.baidu.adp.lib.util.f.a()) {
+                com.baidu.adp.lib.util.f.e("image joined cache:" + bVar.j() + ", size:" + bVar.f());
             }
             this.c.a(str, bVar);
         }

@@ -22,6 +22,7 @@ public final class UpdateClientInfoReq {
         public static final int LAT_FIELD_NUMBER = 4;
         public static final int LNG_FIELD_NUMBER = 5;
         public static Parser<DataReq> PARSER = new a();
+        public static final int PUB_ENV_FIELD_NUMBER = 9;
         public static final int SECRETKEY_FIELD_NUMBER = 3;
         public static final int UNREAD_MSG_FIELD_NUMBER = 8;
         public static final int WIDTH_FIELD_NUMBER = 6;
@@ -35,6 +36,7 @@ public final class UpdateClientInfoReq {
         private double lng_;
         private byte memoizedIsInitialized;
         private int memoizedSerializedSize;
+        private int pubEnv_;
         private ByteString secretKey_;
         private int unreadMsg_;
         private int width_;
@@ -109,6 +111,10 @@ public final class UpdateClientInfoReq {
                             case AccessibilityNodeInfoCompat.ACTION_ACCESSIBILITY_FOCUS /* 64 */:
                                 this.bitField0_ |= 128;
                                 this.unreadMsg_ = codedInputStream.readInt32();
+                                break;
+                            case 72:
+                                this.bitField0_ |= 256;
+                                this.pubEnv_ = codedInputStream.readInt32();
                                 break;
                             default:
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
@@ -247,6 +253,14 @@ public final class UpdateClientInfoReq {
             return this.unreadMsg_;
         }
 
+        public final boolean hasPubEnv() {
+            return (this.bitField0_ & 256) == 256;
+        }
+
+        public final int getPubEnv() {
+            return this.pubEnv_;
+        }
+
         private void a() {
             this.bduss_ = "";
             this.device_ = "";
@@ -256,6 +270,7 @@ public final class UpdateClientInfoReq {
             this.width_ = 0;
             this.height_ = 0;
             this.unreadMsg_ = 0;
+            this.pubEnv_ = 0;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -295,6 +310,9 @@ public final class UpdateClientInfoReq {
             if ((this.bitField0_ & 128) == 128) {
                 codedOutputStream.writeInt32(8, this.unreadMsg_);
             }
+            if ((this.bitField0_ & 256) == 256) {
+                codedOutputStream.writeInt32(9, this.pubEnv_);
+            }
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -325,6 +343,9 @@ public final class UpdateClientInfoReq {
                 }
                 if ((this.bitField0_ & 128) == 128) {
                     i += CodedOutputStream.computeInt32Size(8, this.unreadMsg_);
+                }
+                if ((this.bitField0_ & 256) == 256) {
+                    i += CodedOutputStream.computeInt32Size(9, this.pubEnv_);
                 }
                 this.memoizedSerializedSize = i;
             }
